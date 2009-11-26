@@ -13,7 +13,6 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BChainedExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BReturnExpression;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -168,11 +167,7 @@ public class BChainedExpressionImpl extends BExpressionImpl implements BChainedE
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 		Object result = null;
 		for(BExpression expr : expressions)
-		{
 			result = expr.evaluate(ctx);
-			if(expr instanceof BReturnExpression)
-				return result;
-		}
 		return result;
 	}
 	/**
