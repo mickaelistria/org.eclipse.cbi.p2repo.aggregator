@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.eclipse.b3.backend.evaluator.b3backend.presentation.B3backendModelWizardID"
+            name="%_UI_B3backendModelWizard_label"
+            class="org.eclipse.b3.backend.evaluator.b3backend.presentation.B3backendModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/B3backendModelFile.gif">
+         <description>%_UI_B3backendModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="org.eclipse.b3.backend.evaluator.b3backend.presentation.B3backendEditorID"
+            name="%_UI_B3backendEditor_label"
+            icon="icons/full/obj16/B3backendModelFile.gif"
+            extensions="b3backend"
+            class="org.eclipse.b3.backend.evaluator.b3backend.presentation.B3backendEditor"
+            contributorClass="org.eclipse.b3.backend.evaluator.b3backend.presentation.B3backendActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2009, Cloudsmith Inc and others.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xD;Contributors:&#xA;- Cloudsmith Inc - initial API and implementation.&#xD;"
+    modelDirectory="/org.eclipse.b3.backend/src" modelPluginID="org.eclipse.b3.backend"
+    modelName="B3Backend" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0">
+  <foreignModel>B3Backend.ecore</foreignModel>
+  <genPackages prefix="B3backend" basePackage="org.eclipse.b3.backend.evaluator" disposableProviderFactory="true"
+      ecorePackage="B3Backend.ecore#/">
+    <genDataTypes ecoreDataType="B3Backend.ecore#//CoreException"/>
+    <genDataTypes ecoreDataType="B3Backend.ecore#//Type"/>
+    <genDataTypes ecoreDataType="B3Backend.ecore#//ObjectArray"/>
+    <genDataTypes ecoreDataType="B3Backend.ecore#//ValueMap"/>
+    <genDataTypes ecoreDataType="B3Backend.ecore#//B3EngineException"/>
+    <genDataTypes ecoreDataType="B3Backend.ecore#//B3ExpressionCache"/>
+    <genDataTypes ecoreDataType="B3Backend.ecore#//Throwable"/>
+    <genDataTypes ecoreDataType="B3Backend.ecore#//LValue"/>
+    <genDataTypes ecoreDataType="B3Backend.ecore#//TypeArray"/>
+    <genDataTypes ecoreDataType="B3Backend.ecore#//Method"/>
+    <genDataTypes ecoreDataType="B3Backend.ecore#//TypeVariableArray"/>
+    <genDataTypes ecoreDataType="B3Backend.ecore#//FuncStore"/>
+    <genClasses image="false" ecoreClass="B3Backend.ecore#//BExpression">
+      <genOperations ecoreOperation="B3Backend.ecore#//BExpression/evaluate">
+        <genParameters ecoreParameter="B3Backend.ecore#//BExpression/evaluate/ctx"/>
+      </genOperations>
+      <genOperations ecoreOperation="B3Backend.ecore#//BExpression/getLValue">
+        <genParameters ecoreParameter="B3Backend.ecore#//BExpression/getLValue/ctx"/>
+      </genOperations>
+      <genOperations ecoreOperation="B3Backend.ecore#//BExpression/getDeclaredType">
+        <genParameters ecoreParameter="B3Backend.ecore#//BExpression/getDeclaredType/ctx"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="B3Backend.ecore#//BSourceLink">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Backend.ecore#//BSourceLink/lineNumber"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference B3Backend.ecore#//BSourceLink/fileReference"/>
+    </genClasses>
+    <genClasses ecoreClass="B3Backend.ecore#//BFileReference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Backend.ecore#//BFileReference/fileName"/>
+    </genClasses>
+    <genClasses ecoreClass="B3Backend.ecore#//BLineReference"/>
+    <genClasses ecoreClass="B3Backend.ecore#//BExecutionContext">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference B3Backend.ecore#//BExecutionContext/parentContext"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Backend.ecore#//BExecutionContext/childContexts"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute B3Backend.ecore#//BExecutionContext/valueMap"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Backend.ecore#//BExecutionContext/funcStore"/>
+      <genOperations ecoreOperation="B3Backend.ecore#//BExecutionContext/loadFunctions">
+        <genParameters ecoreParameter="B3Backend.ecore#//BExecutionContext/loadFunctions/clazz"/>
+      </genOperations>
+      <genOperations ecoreOperation="B3Backend.ecore#//BExecutionContext/defineFunction">
+        <genParameters ecoreParameter="B3Backend.ecore#//BExecutionContext/defineFunction/function"/>
+      </genOperations>
+      <genOperations ecoreOperation="B3Backend.ecore#//BExecutionContext/callFunction">
+        <genParameters ecoreParameter="B3Backend.ecore#//BExecutionContext/callFunction/functionName"/>
+        <genParameters ecoreParameter="B3Backend.ecore#//BExecutionContext/callFunction/parameters"/>
+        <genParameters ecoreParameter="B3Backend.ecore#//BExecutionContext/callFunction/types"/>
+      </genOperations>
+      <genOperations ecoreOperation="B3Backend.ecore#//BExecutionContext/getValue">
+        <genParameters ecoreParameter="B3Backend.ecore#//BExecutionContext/getValue/name"/>
+      </genOperations>
+      <genOperations ecoreOperation="B3Backend.ecore#//BExecutionContext/getLValue">
+        <genParameters ecoreParameter="B3Backend.ecore#//BExecutionContext/getLValue/name"/>
+      </genOperations>
+      <genOperations ecoreOperation="B3Backend.ecore#//BExecutionContext/defineValue">
+        <genParameters ecoreParameter="B3Backend.ecore#//BExecutionContext/defineValue/name"/>
+        <genParameters ecoreParameter="B3Backend.ecore#//BExecutionContext/defineValue/value"/>
+        <genParameters ecoreParameter="B3Backend.ecore#//BExecutionContext/defineValue/type"/>
+      </genOperations>
+      <genOperations ecoreOperation="B3Backend.ecore#//BExecutionContext/defineFinalValue">
+        <genParameters ecoreParameter="B3Backend.ecore#//BExecutionContext/defineFinalValue/name"/>
+        <genParameters ecoreParameter="B3Backend.ecore#//BExecutionContext/defineFinalValue/value"/>
+        <genParameters ecoreParameter="B3Backend.ecore#//BExecutionContext/defineFinalValue/type"/>
+      </genOperations>
+      <genOperations ecoreOperation="B3Backend.ecore#//BExecutionContext/defineVariableValue">
+        <genParameters ecoreParameter="B3Backend.ecore#//BExecutionContext/defineVariableValue/name"/>
+        <genParameters ecoreParameter="B3Backend.ecore#//BExecutionContext/defineVariableValue/value"/>
+        <genParameters ecoreParameter="B3Backend.ecore#//BExecutionContext/defineVariableValue/type"/>
+      </genOperations>
+      <genOperations ecoreOperation="B3Backend.ecore#//BExecutionContext/defineFinalVariableValue">
+        <genParameters ecoreParameter="B3Backend.ecore#//BExecutionContext/defineFinalVariableValue/name"/>
+        <genParameters ecoreParameter="B3Backend.ecore#//BExecutionContext/defineFinalVariableValue/value"/>
+        <genParameters ecoreParameter="B3Backend.ecore#//BExecutionContext/defineFinalVariableValue/type"/>
+      </genOperations>
+      <genOperations ecoreOperation="B3Backend.ecore#//BExecutionContext/isFinal">
+        <genParameters ecoreParameter="B3Backend.ecore#//BExecutionContext/isFinal/name"/>
+      </genOperations>
+      <genOperations ecoreOperation="B3Backend.ecore#//BExecutionContext/isImmutable">
+        <genParameters ecoreParameter="B3Backend.ecore#//BExecutionContext/isImmutable/name"/>
+      </genOperations>
+      <genOperations ecoreOperation="B3Backend.ecore#//BExecutionContext/getInvocationContext"/>
+      <genOperations ecoreOperation="B3Backend.ecore#//BExecutionContext/createInnerContext"/>
+      <genOperations ecoreOperation="B3Backend.ecore#//BExecutionContext/createOuterContext"/>
+      <genOperations ecoreOperation="B3Backend.ecore#//BExecutionContext/getDeclaredValueType">
+        <genParameters ecoreParameter="B3Backend.ecore#//BExecutionContext/getDeclaredValueType/name"/>
+      </genOperations>
+      <genOperations ecoreOperation="B3Backend.ecore#//BExecutionContext/getDeclaredFunctionType">
+        <genParameters ecoreParameter="B3Backend.ecore#//BExecutionContext/getDeclaredFunctionType/functionName"/>
+        <genParameters ecoreParameter="B3Backend.ecore#//BExecutionContext/getDeclaredFunctionType/types"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="B3Backend.ecore#//BIfExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Backend.ecore#//BIfExpression/conditionExpr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Backend.ecore#//BIfExpression/thenExpr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Backend.ecore#//BIfExpression/elseExpr"/>
+    </genClasses>
+    <genClasses ecoreClass="B3Backend.ecore#//BSwitchExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Backend.ecore#//BSwitchExpression/switchExpression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Backend.ecore#//BSwitchExpression/caseList"/>
+    </genClasses>
+    <genClasses ecoreClass="B3Backend.ecore#//BCase">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Backend.ecore#//BCase/conditionExpr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Backend.ecore#//BCase/thenExpr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Backend.ecore#//BCase/nextCase"/>
+      <genOperations ecoreOperation="B3Backend.ecore#//BCase/evaluate">
+        <genParameters ecoreParameter="B3Backend.ecore#//BCase/evaluate/ctx"/>
+        <genParameters ecoreParameter="B3Backend.ecore#//BCase/evaluate/switchValue"/>
+      </genOperations>
+      <genOperations ecoreOperation="B3Backend.ecore#//BCase/getDeclaredType">
+        <genParameters ecoreParameter="B3Backend.ecore#//BCase/getDeclaredType/ctx"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="B3Backend.ecore#//BTryExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Backend.ecore#//BTryExpression/tryExpr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Backend.ecore#//BTryExpression/catchBlocks"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Backend.ecore#//BTryExpression/finallyExpr"/>
+    </genClasses>
+    <genClasses ecoreClass="B3Backend.ecore#//BCatch">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Backend.ecore#//BCatch/catchExpr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Backend.ecore#//BCatch/varname"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EAttribute B3Backend.ecore#//BCatch/exceptionType"/>
+      <genOperations ecoreOperation="B3Backend.ecore#//BCatch/evaluate">
+        <genParameters ecoreParameter="B3Backend.ecore#//BCatch/evaluate/ctx"/>
+      </genOperations>
+      <genOperations ecoreOperation="B3Backend.ecore#//BCatch/getDeclaredType">
+        <genParameters ecoreParameter="B3Backend.ecore#//BCatch/getDeclaredType/ctx"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="B3Backend.ecore#//BBinaryExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Backend.ecore#//BBinaryExpression/leftExpr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Backend.ecore#//BBinaryExpression/rightExpr"/>
+    </genClasses>
+    <genClasses ecoreClass="B3Backend.ecore#//BOrExpression"/>
+    <genClasses ecoreClass="B3Backend.ecore#//BAndExpression"/>
+    <genClasses ecoreClass="B3Backend.ecore#//BChainedExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Backend.ecore#//BChainedExpression/expressions"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="B3Backend.ecore#//BUnaryExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Backend.ecore#//BUnaryExpression/expr"/>
+    </genClasses>
+    <genClasses ecoreClass="B3Backend.ecore#//BThrowExpression"/>
+    <genClasses ecoreClass="B3Backend.ecore#//BUnaryOpExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Backend.ecore#//BUnaryOpExpression/functionName"/>
+    </genClasses>
+    <genClasses ecoreClass="B3Backend.ecore#//BUnaryPostOpExpression"/>
+    <genClasses ecoreClass="B3Backend.ecore#//BBinaryOpExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Backend.ecore#//BBinaryOpExpression/functionName"/>
+    </genClasses>
+    <genClasses ecoreClass="B3Backend.ecore#//BCachedExpression"/>
+    <genClasses ecoreClass="B3Backend.ecore#//BLiteralExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Backend.ecore#//BLiteralExpression/value"/>
+    </genClasses>
+    <genClasses ecoreClass="B3Backend.ecore#//BLiteralListExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Backend.ecore#//BLiteralListExpression/entries"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EAttribute B3Backend.ecore#//BLiteralListExpression/entryType"/>
+    </genClasses>
+    <genClasses ecoreClass="B3Backend.ecore#//BLiteralMapExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Backend.ecore#//BLiteralMapExpression/entries"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Backend.ecore#//BLiteralMapExpression/keyType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Backend.ecore#//BLiteralMapExpression/valueType"/>
+    </genClasses>
+    <genClasses ecoreClass="B3Backend.ecore#//BMapEntry">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Backend.ecore#//BMapEntry/key"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Backend.ecore#//BMapEntry/value"/>
+    </genClasses>
+    <genClasses ecoreClass="B3Backend.ecore#//BFeatureExpression">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference B3Backend.ecore#//BFeatureExpression/objExpr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Backend.ecore#//BFeatureExpression/featureName"/>
+    </genClasses>
+    <genClasses ecoreClass="B3Backend.ecore#//BAtExpression">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference B3Backend.ecore#//BAtExpression/objExpr"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference B3Backend.ecore#//BAtExpression/indexExpr"/>
+    </genClasses>
+    <genClasses ecoreClass="B3Backend.ecore#//BVariableExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Backend.ecore#//BVariableExpression/name"/>
+    </genClasses>
+    <genClasses ecoreClass="B3Backend.ecore#//BCallExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Backend.ecore#//BCallExpression/funcExpr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Backend.ecore#//BCallExpression/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="B3Backend.ecore#//BParameterizedExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Backend.ecore#//BParameterizedExpression/parameters"/>
+    </genClasses>
+    <genClasses ecoreClass="B3Backend.ecore#//BLiteralAny"/>
+    <genClasses ecoreClass="B3Backend.ecore#//BCreateExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Backend.ecore#//BCreateExpression/alias"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EAttribute B3Backend.ecore#//BCreateExpression/type"/>
+    </genClasses>
+    <genClasses ecoreClass="B3Backend.ecore#//BFunction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Backend.ecore#//BFunction/private"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Backend.ecore#//BFunction/final"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Backend.ecore#//BFunction/sequential"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Backend.ecore#//BFunction/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference B3Backend.ecore#//BFunction/guard"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Backend.ecore#//BFunction/returnType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Backend.ecore#//BFunction/parameterTypes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Backend.ecore#//BFunction/exceptionTypes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Backend.ecore#//BFunction/typeVariables"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Backend.ecore#//BFunction/parameterNames"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Backend.ecore#//BFunction/varArgs"/>
+      <genOperations ecoreOperation="B3Backend.ecore#//BFunction/internalCall">
+        <genParameters ecoreParameter="B3Backend.ecore#//BFunction/internalCall/ctx"/>
+        <genParameters ecoreParameter="B3Backend.ecore#//BFunction/internalCall/parameters"/>
+        <genParameters ecoreParameter="B3Backend.ecore#//BFunction/internalCall/types"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="B3Backend.ecore#//BGuard">
+      <genOperations ecoreOperation="B3Backend.ecore#//BGuard/accepts">
+        <genParameters ecoreParameter="B3Backend.ecore#//BGuard/accepts/function"/>
+        <genParameters ecoreParameter="B3Backend.ecore#//BGuard/accepts/ctx"/>
+        <genParameters ecoreParameter="B3Backend.ecore#//BGuard/accepts/parameters"/>
+        <genParameters ecoreParameter="B3Backend.ecore#//BGuard/accepts/types"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="B3Backend.ecore#//BGuardInstance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Backend.ecore#//BGuardInstance/instance"/>
+    </genClasses>
+    <genClasses ecoreClass="B3Backend.ecore#//BGuardExpression">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference B3Backend.ecore#//BGuardExpression/guardExpr"/>
+    </genClasses>
+    <genClasses ecoreClass="B3Backend.ecore#//BSystemContext">
+      <genOperations ecoreOperation="B3Backend.ecore#//BSystemContext/callFunction">
+        <genParameters ecoreParameter="B3Backend.ecore#//BSystemContext/callFunction/functionName"/>
+        <genParameters ecoreParameter="B3Backend.ecore#//BSystemContext/callFunction/parameters"/>
+        <genParameters ecoreParameter="B3Backend.ecore#//BSystemContext/callFunction/types"/>
+        <genParameters ecoreParameter="B3Backend.ecore#//BSystemContext/callFunction/ctx"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="B3Backend.ecore#//BContext"/>
+    <genClasses ecoreClass="B3Backend.ecore#//BInnerContext">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference B3Backend.ecore#//BInnerContext/outerContext"/>
+    </genClasses>
+    <genClasses ecoreClass="B3Backend.ecore#//BInvocationContext">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Backend.ecore#//BInvocationContext/expressionCache"/>
+      <genOperations ecoreOperation="B3Backend.ecore#//BInvocationContext/evaluateIfNotCached">
+        <genParameters ecoreParameter="B3Backend.ecore#//BInvocationContext/evaluateIfNotCached/ctx"/>
+        <genParameters ecoreParameter="B3Backend.ecore#//BInvocationContext/evaluateIfNotCached/cachedExpression"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="B3Backend.ecore#//BUnaryPreOpExpression"/>
+    <genClasses ecoreClass="B3Backend.ecore#//BAssignmentExpression"/>
+    <genClasses ecoreClass="B3Backend.ecore#//B3Function">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference B3Backend.ecore#//B3Function/funcExpr"/>
+    </genClasses>
+    <genClasses ecoreClass="B3Backend.ecore#//BJavaFunction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Backend.ecore#//BJavaFunction/method"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Backend.ecore#//BJavaFunction/systemCall"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
