@@ -1,0 +1,11 @@
+«IMPORT beeLang»;
+
+«EXTENSION templates::Extensions»
+
+«DEFINE main FOR BuildUnit-»
+«FILE "output.txt"-»
+«FOREACH this.builders AS p-»
+«p.toString()»
+«ENDFOREACH-»
+«ENDFILE-»
+«ENDDEFINE»
