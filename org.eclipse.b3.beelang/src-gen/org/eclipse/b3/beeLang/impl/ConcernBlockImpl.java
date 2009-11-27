@@ -10,7 +10,7 @@ import java.util.Collection;
 import org.eclipse.b3.beeLang.BeeLangPackage;
 import org.eclipse.b3.beeLang.ConcernBlock;
 import org.eclipse.b3.beeLang.Context;
-import org.eclipse.b3.beeLang.Statment;
+import org.eclipse.b3.beeLang.Function;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -70,7 +70,7 @@ public class ConcernBlockImpl extends MinimalEObjectImpl.Container implements Co
    * @generated
    * @ordered
    */
-  protected EList<Statment> functions;
+  protected EList<Function> functions;
 
   /**
    * <!-- begin-user-doc -->
@@ -126,11 +126,11 @@ public class ConcernBlockImpl extends MinimalEObjectImpl.Container implements Co
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Statment> getFunctions()
+  public EList<Function> getFunctions()
   {
     if (functions == null)
     {
-      functions = new EObjectContainmentEList<Statment>(Statment.class, this, BeeLangPackage.CONCERN_BLOCK__FUNCTIONS);
+      functions = new EObjectContainmentEList<Function>(Function.class, this, BeeLangPackage.CONCERN_BLOCK__FUNCTIONS);
     }
     return functions;
   }
@@ -194,7 +194,7 @@ public class ConcernBlockImpl extends MinimalEObjectImpl.Container implements Co
         return;
       case BeeLangPackage.CONCERN_BLOCK__FUNCTIONS:
         getFunctions().clear();
-        getFunctions().addAll((Collection<? extends Statment>)newValue);
+        getFunctions().addAll((Collection<? extends Function>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

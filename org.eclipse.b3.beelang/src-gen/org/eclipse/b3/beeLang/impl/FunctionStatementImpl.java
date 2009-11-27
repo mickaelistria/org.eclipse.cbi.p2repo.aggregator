@@ -6,8 +6,8 @@
 package org.eclipse.b3.beeLang.impl;
 
 import org.eclipse.b3.beeLang.BeeLangPackage;
-import org.eclipse.b3.beeLang.NamedPropertySet;
-import org.eclipse.b3.beeLang.PropertiesStatement;
+import org.eclipse.b3.beeLang.Function;
+import org.eclipse.b3.beeLang.FunctionStatement;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -19,35 +19,35 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Properties Statement</b></em>'.
+ * An implementation of the model object '<em><b>Function Statement</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.beeLang.impl.PropertiesStatementImpl#getProperties <em>Properties</em>}</li>
+ *   <li>{@link org.eclipse.b3.beeLang.impl.FunctionStatementImpl#getFunction <em>Function</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class PropertiesStatementImpl extends StatementImpl implements PropertiesStatement
+public class FunctionStatementImpl extends StatementImpl implements FunctionStatement
 {
   /**
-   * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference.
+   * The cached value of the '{@link #getFunction() <em>Function</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getProperties()
+   * @see #getFunction()
    * @generated
    * @ordered
    */
-  protected NamedPropertySet properties;
+  protected Function function;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected PropertiesStatementImpl()
+  protected FunctionStatementImpl()
   {
     super();
   }
@@ -60,7 +60,7 @@ public class PropertiesStatementImpl extends StatementImpl implements Properties
   @Override
   protected EClass eStaticClass()
   {
-    return BeeLangPackage.Literals.PROPERTIES_STATEMENT;
+    return BeeLangPackage.Literals.FUNCTION_STATEMENT;
   }
 
   /**
@@ -68,9 +68,9 @@ public class PropertiesStatementImpl extends StatementImpl implements Properties
    * <!-- end-user-doc -->
    * @generated
    */
-  public NamedPropertySet getProperties()
+  public Function getFunction()
   {
-    return properties;
+    return function;
   }
 
   /**
@@ -78,13 +78,13 @@ public class PropertiesStatementImpl extends StatementImpl implements Properties
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetProperties(NamedPropertySet newProperties, NotificationChain msgs)
+  public NotificationChain basicSetFunction(Function newFunction, NotificationChain msgs)
   {
-    NamedPropertySet oldProperties = properties;
-    properties = newProperties;
+    Function oldFunction = function;
+    function = newFunction;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BeeLangPackage.PROPERTIES_STATEMENT__PROPERTIES, oldProperties, newProperties);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BeeLangPackage.FUNCTION_STATEMENT__FUNCTION, oldFunction, newFunction);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -95,20 +95,20 @@ public class PropertiesStatementImpl extends StatementImpl implements Properties
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setProperties(NamedPropertySet newProperties)
+  public void setFunction(Function newFunction)
   {
-    if (newProperties != properties)
+    if (newFunction != function)
     {
       NotificationChain msgs = null;
-      if (properties != null)
-        msgs = ((InternalEObject)properties).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BeeLangPackage.PROPERTIES_STATEMENT__PROPERTIES, null, msgs);
-      if (newProperties != null)
-        msgs = ((InternalEObject)newProperties).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BeeLangPackage.PROPERTIES_STATEMENT__PROPERTIES, null, msgs);
-      msgs = basicSetProperties(newProperties, msgs);
+      if (function != null)
+        msgs = ((InternalEObject)function).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BeeLangPackage.FUNCTION_STATEMENT__FUNCTION, null, msgs);
+      if (newFunction != null)
+        msgs = ((InternalEObject)newFunction).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BeeLangPackage.FUNCTION_STATEMENT__FUNCTION, null, msgs);
+      msgs = basicSetFunction(newFunction, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BeeLangPackage.PROPERTIES_STATEMENT__PROPERTIES, newProperties, newProperties));
+      eNotify(new ENotificationImpl(this, Notification.SET, BeeLangPackage.FUNCTION_STATEMENT__FUNCTION, newFunction, newFunction));
   }
 
   /**
@@ -121,8 +121,8 @@ public class PropertiesStatementImpl extends StatementImpl implements Properties
   {
     switch (featureID)
     {
-      case BeeLangPackage.PROPERTIES_STATEMENT__PROPERTIES:
-        return basicSetProperties(null, msgs);
+      case BeeLangPackage.FUNCTION_STATEMENT__FUNCTION:
+        return basicSetFunction(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -137,8 +137,8 @@ public class PropertiesStatementImpl extends StatementImpl implements Properties
   {
     switch (featureID)
     {
-      case BeeLangPackage.PROPERTIES_STATEMENT__PROPERTIES:
-        return getProperties();
+      case BeeLangPackage.FUNCTION_STATEMENT__FUNCTION:
+        return getFunction();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -153,8 +153,8 @@ public class PropertiesStatementImpl extends StatementImpl implements Properties
   {
     switch (featureID)
     {
-      case BeeLangPackage.PROPERTIES_STATEMENT__PROPERTIES:
-        setProperties((NamedPropertySet)newValue);
+      case BeeLangPackage.FUNCTION_STATEMENT__FUNCTION:
+        setFunction((Function)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -170,8 +170,8 @@ public class PropertiesStatementImpl extends StatementImpl implements Properties
   {
     switch (featureID)
     {
-      case BeeLangPackage.PROPERTIES_STATEMENT__PROPERTIES:
-        setProperties((NamedPropertySet)null);
+      case BeeLangPackage.FUNCTION_STATEMENT__FUNCTION:
+        setFunction((Function)null);
         return;
     }
     super.eUnset(featureID);
@@ -187,10 +187,10 @@ public class PropertiesStatementImpl extends StatementImpl implements Properties
   {
     switch (featureID)
     {
-      case BeeLangPackage.PROPERTIES_STATEMENT__PROPERTIES:
-        return properties != null;
+      case BeeLangPackage.FUNCTION_STATEMENT__FUNCTION:
+        return function != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //PropertiesStatementImpl
+} //FunctionStatementImpl

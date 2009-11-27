@@ -48,7 +48,7 @@ public interface BeeModel extends EObject
 
   /**
    * Returns the value of the '<em><b>Functions</b></em>' containment reference list.
-   * The list contents are of type {@link org.eclipse.b3.beeLang.Statment}.
+   * The list contents are of type {@link org.eclipse.b3.beeLang.Function}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Functions</em>' containment reference list isn't clear,
@@ -60,7 +60,7 @@ public interface BeeModel extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Statment> getFunctions();
+  EList<Function> getFunctions();
 
   /**
    * Returns the value of the '<em><b>Concern</b></em>' containment reference list.

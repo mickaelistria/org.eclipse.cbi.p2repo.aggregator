@@ -9,13 +9,13 @@ import java.util.Collection;
 
 import org.eclipse.b3.beeLang.BeeLangPackage;
 import org.eclipse.b3.beeLang.ContextBlock;
+import org.eclipse.b3.beeLang.Statement;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -46,7 +46,7 @@ public class ContextBlockImpl extends MinimalEObjectImpl.Container implements Co
    * @generated
    * @ordered
    */
-  protected EList<EObject> statements;
+  protected EList<Statement> statements;
 
   /**
    * <!-- begin-user-doc -->
@@ -74,11 +74,11 @@ public class ContextBlockImpl extends MinimalEObjectImpl.Container implements Co
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<EObject> getStatements()
+  public EList<Statement> getStatements()
   {
     if (statements == null)
     {
-      statements = new EObjectContainmentEList<EObject>(EObject.class, this, BeeLangPackage.CONTEXT_BLOCK__STATEMENTS);
+      statements = new EObjectContainmentEList<Statement>(Statement.class, this, BeeLangPackage.CONTEXT_BLOCK__STATEMENTS);
     }
     return statements;
   }
@@ -128,7 +128,7 @@ public class ContextBlockImpl extends MinimalEObjectImpl.Container implements Co
     {
       case BeeLangPackage.CONTEXT_BLOCK__STATEMENTS:
         getStatements().clear();
-        getStatements().addAll((Collection<? extends EObject>)newValue);
+        getStatements().addAll((Collection<? extends Statement>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

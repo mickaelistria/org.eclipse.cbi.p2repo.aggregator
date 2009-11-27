@@ -116,8 +116,8 @@ public class BeeLangFactoryImpl extends EFactoryImpl implements BeeLangFactory
       case BeeLangPackage.POST_CONDITION: return createPostCondition();
       case BeeLangPackage.ASSERTION_EXPRESSION: return createAssertionExpression();
       case BeeLangPackage.EXPRESSION_LIST: return createExpressionList();
-      case BeeLangPackage.STATMENT: return createStatment();
-      case BeeLangPackage.STATEMENT: return createStatement();
+      case BeeLangPackage.FUNCTION: return createFunction();
+      case BeeLangPackage.METHOD: return createMethod();
       case BeeLangPackage.FUNCTION_OR_METHOD: return createFunctionOrMethod();
       case BeeLangPackage.TYPE_PARAM_DECLARATION: return createTypeParamDeclaration();
       case BeeLangPackage.EXPRESSION: return createExpression();
@@ -142,13 +142,12 @@ public class BeeLangFactoryImpl extends EFactoryImpl implements BeeLangFactory
       case BeeLangPackage.EXPRESSION_SELECTOR: return createExpressionSelector();
       case BeeLangPackage.UNIT_SELECTOR: return createUnitSelector();
       case BeeLangPackage.CONTEXT_BLOCK: return createContextBlock();
+      case BeeLangPackage.STATEMENT: return createStatement();
       case BeeLangPackage.CLOSURE_EXPRESSION: return createClosureExpression();
       case BeeLangPackage.FEATURE: return createFeature();
       case BeeLangPackage.VERSION: return createVersion();
       case BeeLangPackage.VERSION_RANGE: return createVersionRange();
       case BeeLangPackage.VARARG_PARAMETER_DECLARATION: return createVarargParameterDeclaration();
-      case BeeLangPackage.FUNCTION: return createFunction();
-      case BeeLangPackage.METHOD: return createMethod();
       case BeeLangPackage.RETURN_EXPRESSION: return createReturnExpression();
       case BeeLangPackage.ASSIGNMENT_OPERATION: return createAssignmentOperation();
       case BeeLangPackage.VAR_DECLARATION: return createVarDeclaration();
@@ -171,6 +170,8 @@ public class BeeLangFactoryImpl extends EFactoryImpl implements BeeLangFactory
       case BeeLangPackage.CREATOR_CALL: return createCreatorCall();
       case BeeLangPackage.EXPRESSION_STATEMENT: return createExpressionStatement();
       case BeeLangPackage.PROPERTIES_STATEMENT: return createPropertiesStatement();
+      case BeeLangPackage.FUNCTION_STATEMENT: return createFunctionStatement();
+      case BeeLangPackage.BUILDER_STATEMENT: return createBuilderStatement();
       case BeeLangPackage.LITERAL_LIST: return createLiteralList();
       case BeeLangPackage.LITERAL_MAP: return createLiteralMap();
       case BeeLangPackage.LITERAL_FUNCTION: return createLiteralFunction();
@@ -776,10 +777,10 @@ public class BeeLangFactoryImpl extends EFactoryImpl implements BeeLangFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Statment createStatment()
+  public Function createFunction()
   {
-    StatmentImpl statment = new StatmentImpl();
-    return statment;
+    FunctionImpl function = new FunctionImpl();
+    return function;
   }
 
   /**
@@ -787,10 +788,10 @@ public class BeeLangFactoryImpl extends EFactoryImpl implements BeeLangFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Statement createStatement()
+  public Method createMethod()
   {
-    StatementImpl statement = new StatementImpl();
-    return statement;
+    MethodImpl method = new MethodImpl();
+    return method;
   }
 
   /**
@@ -1062,6 +1063,17 @@ public class BeeLangFactoryImpl extends EFactoryImpl implements BeeLangFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public Statement createStatement()
+  {
+    StatementImpl statement = new StatementImpl();
+    return statement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public ClosureExpression createClosureExpression()
   {
     ClosureExpressionImpl closureExpression = new ClosureExpressionImpl();
@@ -1110,28 +1122,6 @@ public class BeeLangFactoryImpl extends EFactoryImpl implements BeeLangFactory
   {
     VarargParameterDeclarationImpl varargParameterDeclaration = new VarargParameterDeclarationImpl();
     return varargParameterDeclaration;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Function createFunction()
-  {
-    FunctionImpl function = new FunctionImpl();
-    return function;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Method createMethod()
-  {
-    MethodImpl method = new MethodImpl();
-    return method;
   }
 
   /**
@@ -1374,6 +1364,28 @@ public class BeeLangFactoryImpl extends EFactoryImpl implements BeeLangFactory
   {
     PropertiesStatementImpl propertiesStatement = new PropertiesStatementImpl();
     return propertiesStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FunctionStatement createFunctionStatement()
+  {
+    FunctionStatementImpl functionStatement = new FunctionStatementImpl();
+    return functionStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BuilderStatement createBuilderStatement()
+  {
+    BuilderStatementImpl builderStatement = new BuilderStatementImpl();
+    return builderStatement;
   }
 
   /**

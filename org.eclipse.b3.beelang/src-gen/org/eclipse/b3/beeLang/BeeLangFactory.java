@@ -458,22 +458,22 @@ public interface BeeLangFactory extends EFactory
   ExpressionList createExpressionList();
 
   /**
-   * Returns a new object of class '<em>Statment</em>'.
+   * Returns a new object of class '<em>Function</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Statment</em>'.
+   * @return a new object of class '<em>Function</em>'.
    * @generated
    */
-  Statment createStatment();
+  Function createFunction();
 
   /**
-   * Returns a new object of class '<em>Statement</em>'.
+   * Returns a new object of class '<em>Method</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Statement</em>'.
+   * @return a new object of class '<em>Method</em>'.
    * @generated
    */
-  Statement createStatement();
+  Method createMethod();
 
   /**
    * Returns a new object of class '<em>Function Or Method</em>'.
@@ -692,6 +692,15 @@ public interface BeeLangFactory extends EFactory
   ContextBlock createContextBlock();
 
   /**
+   * Returns a new object of class '<em>Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Statement</em>'.
+   * @generated
+   */
+  Statement createStatement();
+
+  /**
    * Returns a new object of class '<em>Closure Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -735,24 +744,6 @@ public interface BeeLangFactory extends EFactory
    * @generated
    */
   VarargParameterDeclaration createVarargParameterDeclaration();
-
-  /**
-   * Returns a new object of class '<em>Function</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Function</em>'.
-   * @generated
-   */
-  Function createFunction();
-
-  /**
-   * Returns a new object of class '<em>Method</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Method</em>'.
-   * @generated
-   */
-  Method createMethod();
 
   /**
    * Returns a new object of class '<em>Return Expression</em>'.
@@ -951,6 +942,24 @@ public interface BeeLangFactory extends EFactory
    * @generated
    */
   PropertiesStatement createPropertiesStatement();
+
+  /**
+   * Returns a new object of class '<em>Function Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Function Statement</em>'.
+   * @generated
+   */
+  FunctionStatement createFunctionStatement();
+
+  /**
+   * Returns a new object of class '<em>Builder Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Builder Statement</em>'.
+   * @generated
+   */
+  BuilderStatement createBuilderStatement();
 
   /**
    * Returns a new object of class '<em>Literal List</em>'.

@@ -432,7 +432,7 @@ UnitSelector :
 	('/' (name=UnitName | namePattern = REGEX) ('/' versionRange=VersionRange)? )? 
 	;
 
-ContextBlock : '{'  ((statements +=FunctionStatment) 
+ContextBlock : '{'  ((statements +=FunctionStatement) 
 					| (statements+=BuilderStatement)
 					| (statements+=ExpressionStatement)
 					| (statements+=PropertiesStatement)

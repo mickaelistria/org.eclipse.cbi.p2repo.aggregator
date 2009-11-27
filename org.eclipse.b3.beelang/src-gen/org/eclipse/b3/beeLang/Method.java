@@ -5,6 +5,7 @@
  */
 package org.eclipse.b3.beeLang;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +23,7 @@ package org.eclipse.b3.beeLang;
  * @model
  * @generated
  */
-public interface Method extends Statement
+public interface Method extends EObject
 {
   /**
    * Returns the value of the '<em><b>Method</b></em>' containment reference.

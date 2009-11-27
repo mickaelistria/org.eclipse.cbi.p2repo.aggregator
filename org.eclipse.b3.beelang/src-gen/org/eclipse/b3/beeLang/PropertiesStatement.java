@@ -22,7 +22,7 @@ package org.eclipse.b3.beeLang;
  * @model
  * @generated
  */
-public interface PropertiesStatement extends Statment
+public interface PropertiesStatement extends Statement
 {
   /**
    * Returns the value of the '<em><b>Properties</b></em>' containment reference.

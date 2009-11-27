@@ -2902,7 +2902,7 @@ public class BeeLangGrammarAccess implements IGrammarAccess {
 		private final Assignment cFuncAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cFuncFunctionOrMethodParserRuleCall_1_0 = (RuleCall)cFuncAssignment_1.eContents().get(0);
 		
-		//Function returns Statment:
+		//Function:
 		//  {Function} func=FunctionOrMethod; 
 		//
 		//// Validation makes sure a Function is stated with "function", and Method with "method"
@@ -2928,7 +2928,7 @@ public class BeeLangGrammarAccess implements IGrammarAccess {
 		private final Assignment cMethodAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cMethodFunctionOrMethodParserRuleCall_1_0 = (RuleCall)cMethodAssignment_1.eContents().get(0);
 		
-		//Method returns Statement:
+		//Method:
 		//  {Method} method=FunctionOrMethod; 
 		//          
 		//
@@ -5321,9 +5321,9 @@ public class BeeLangGrammarAccess implements IGrammarAccess {
 		private final Keyword cLeftCurlyBracketKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
 		private final Assignment cStatementsAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
-		private final RuleCall cStatementsMethodParserRuleCall_1_0_0 = (RuleCall)cStatementsAssignment_1_0.eContents().get(0);
+		private final RuleCall cStatementsFunctionStatementParserRuleCall_1_0_0 = (RuleCall)cStatementsAssignment_1_0.eContents().get(0);
 		private final Assignment cStatementsAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
-		private final RuleCall cStatementsBuilderParserRuleCall_1_1_0 = (RuleCall)cStatementsAssignment_1_1.eContents().get(0);
+		private final RuleCall cStatementsBuilderStatementParserRuleCall_1_1_0 = (RuleCall)cStatementsAssignment_1_1.eContents().get(0);
 		private final Assignment cStatementsAssignment_1_2 = (Assignment)cAlternatives_1.eContents().get(2);
 		private final RuleCall cStatementsExpressionStatementParserRuleCall_1_2_0 = (RuleCall)cStatementsAssignment_1_2.eContents().get(0);
 		private final Assignment cStatementsAssignment_1_3 = (Assignment)cAlternatives_1.eContents().get(3);
@@ -5331,32 +5331,32 @@ public class BeeLangGrammarAccess implements IGrammarAccess {
 		private final Keyword cRightCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//ContextBlock:
-		//  "{" (statements+=Method|statements+=Builder|statements+=ExpressionStatement|
-		//  statements+=PropertiesStatement)* "}";
+		//  "{" (statements+=FunctionStatement|statements+=BuilderStatement|statements+=
+		//  ExpressionStatement|statements+=PropertiesStatement)* "}";
 		public ParserRule getRule() { return rule; }
 
-		//"{" (statements+=Method|statements+=Builder|statements+=ExpressionStatement|
-		//statements+=PropertiesStatement)* "}"
+		//"{" (statements+=FunctionStatement|statements+=BuilderStatement|statements+=
+		//ExpressionStatement|statements+=PropertiesStatement)* "}"
 		public Group getGroup() { return cGroup; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_0() { return cLeftCurlyBracketKeyword_0; }
 
-		//(statements+=Method|statements+=Builder|statements+=ExpressionStatement|
-		//statements+=PropertiesStatement)*
+		//(statements+=FunctionStatement|statements+=BuilderStatement|statements+=
+		//ExpressionStatement|statements+=PropertiesStatement)*
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 
-		//statements+=Method
+		//statements+=FunctionStatement
 		public Assignment getStatementsAssignment_1_0() { return cStatementsAssignment_1_0; }
 
-		//Method
-		public RuleCall getStatementsMethodParserRuleCall_1_0_0() { return cStatementsMethodParserRuleCall_1_0_0; }
+		//FunctionStatement
+		public RuleCall getStatementsFunctionStatementParserRuleCall_1_0_0() { return cStatementsFunctionStatementParserRuleCall_1_0_0; }
 
-		//statements+=Builder
+		//statements+=BuilderStatement
 		public Assignment getStatementsAssignment_1_1() { return cStatementsAssignment_1_1; }
 
-		//Builder
-		public RuleCall getStatementsBuilderParserRuleCall_1_1_0() { return cStatementsBuilderParserRuleCall_1_1_0; }
+		//BuilderStatement
+		public RuleCall getStatementsBuilderStatementParserRuleCall_1_1_0() { return cStatementsBuilderStatementParserRuleCall_1_1_0; }
 
 		//statements+=ExpressionStatement
 		public Assignment getStatementsAssignment_1_2() { return cStatementsAssignment_1_2; }
@@ -5410,7 +5410,7 @@ public class BeeLangGrammarAccess implements IGrammarAccess {
 		private final Assignment cPropertiesAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cPropertiesNamedPropertySetParserRuleCall_2_0 = (RuleCall)cPropertiesAssignment_2.eContents().get(0);
 		
-		//PropertiesStatement returns Statment:
+		//PropertiesStatement returns Statement:
 		//  {PropertiesStatement} "properties" properties=NamedPropertySet;
 		public ParserRule getRule() { return rule; }
 
@@ -5428,6 +5428,54 @@ public class BeeLangGrammarAccess implements IGrammarAccess {
 
 		//NamedPropertySet
 		public RuleCall getPropertiesNamedPropertySetParserRuleCall_2_0() { return cPropertiesNamedPropertySetParserRuleCall_2_0; }
+	}
+
+	public class FunctionStatementElements implements IParserRuleAccess {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FunctionStatement");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cFunctionStatementAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cFunctionAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cFunctionFunctionParserRuleCall_1_0 = (RuleCall)cFunctionAssignment_1.eContents().get(0);
+		
+		//FunctionStatement returns Statement:
+		//  {FunctionStatement} function=Function;
+		public ParserRule getRule() { return rule; }
+
+		//{FunctionStatement} function=Function
+		public Group getGroup() { return cGroup; }
+
+		//{FunctionStatement}
+		public Action getFunctionStatementAction_0() { return cFunctionStatementAction_0; }
+
+		//function=Function
+		public Assignment getFunctionAssignment_1() { return cFunctionAssignment_1; }
+
+		//Function
+		public RuleCall getFunctionFunctionParserRuleCall_1_0() { return cFunctionFunctionParserRuleCall_1_0; }
+	}
+
+	public class BuilderStatementElements implements IParserRuleAccess {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "BuilderStatement");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cBuilderStatementAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cBuilderAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cBuilderBuilderParserRuleCall_1_0 = (RuleCall)cBuilderAssignment_1.eContents().get(0);
+		
+		//BuilderStatement returns Statement:
+		//  {BuilderStatement} builder=Builder;
+		public ParserRule getRule() { return rule; }
+
+		//{BuilderStatement} builder=Builder
+		public Group getGroup() { return cGroup; }
+
+		//{BuilderStatement}
+		public Action getBuilderStatementAction_0() { return cBuilderStatementAction_0; }
+
+		//builder=Builder
+		public Assignment getBuilderAssignment_1() { return cBuilderAssignment_1; }
+
+		//Builder
+		public RuleCall getBuilderBuilderParserRuleCall_1_0() { return cBuilderBuilderParserRuleCall_1_0; }
 	}
 
 	public class LiteralElements implements IParserRuleAccess {
@@ -6776,7 +6824,7 @@ public class BeeLangGrammarAccess implements IGrammarAccess {
 		//
 		//// --TERMINALS
 		//
-		//// Redeclare the default ID with ´ instead of ^ as escape mechanism
+		//// Redeclare the default ID with ï¿½ instead of ^ as escape mechanism
 		public ParserRule getRule() { return rule; }
 
 		//(ID|INT|HEX|EXT_INT) (Separator|ID|INT|HEX|EXT_INT)*
@@ -7307,6 +7355,8 @@ public class BeeLangGrammarAccess implements IGrammarAccess {
 	private ContextBlockElements pContextBlock;
 	private ExpressionStatementElements pExpressionStatement;
 	private PropertiesStatementElements pPropertiesStatement;
+	private FunctionStatementElements pFunctionStatement;
+	private BuilderStatementElements pBuilderStatement;
 	private LiteralElements pLiteral;
 	private LiteralListElements pLiteralList;
 	private LiteralMapElements pLiteralMap;
@@ -8033,7 +8083,7 @@ public class BeeLangGrammarAccess implements IGrammarAccess {
 		return getExpressionListAccess().getRule();
 	}
 
-	//Function returns Statment:
+	//Function:
 	//  {Function} func=FunctionOrMethod; 
 	//
 	//// Validation makes sure a Function is stated with "function", and Method with "method"
@@ -8045,7 +8095,7 @@ public class BeeLangGrammarAccess implements IGrammarAccess {
 		return getFunctionAccess().getRule();
 	}
 
-	//Method returns Statement:
+	//Method:
 	//  {Method} method=FunctionOrMethod; 
 	//          
 	//
@@ -8662,8 +8712,8 @@ public class BeeLangGrammarAccess implements IGrammarAccess {
 	}
 
 	//ContextBlock:
-	//  "{" (statements+=Method|statements+=Builder|statements+=ExpressionStatement|
-	//  statements+=PropertiesStatement)* "}";
+	//  "{" (statements+=FunctionStatement|statements+=BuilderStatement|statements+=
+	//  ExpressionStatement|statements+=PropertiesStatement)* "}";
 	public ContextBlockElements getContextBlockAccess() {
 		return (pContextBlock != null) ? pContextBlock : (pContextBlock = new ContextBlockElements());
 	}
@@ -8682,7 +8732,7 @@ public class BeeLangGrammarAccess implements IGrammarAccess {
 		return getExpressionStatementAccess().getRule();
 	}
 
-	//PropertiesStatement returns Statment:
+	//PropertiesStatement returns Statement:
 	//  {PropertiesStatement} "properties" properties=NamedPropertySet;
 	public PropertiesStatementElements getPropertiesStatementAccess() {
 		return (pPropertiesStatement != null) ? pPropertiesStatement : (pPropertiesStatement = new PropertiesStatementElements());
@@ -8690,6 +8740,26 @@ public class BeeLangGrammarAccess implements IGrammarAccess {
 	
 	public ParserRule getPropertiesStatementRule() {
 		return getPropertiesStatementAccess().getRule();
+	}
+
+	//FunctionStatement returns Statement:
+	//  {FunctionStatement} function=Function;
+	public FunctionStatementElements getFunctionStatementAccess() {
+		return (pFunctionStatement != null) ? pFunctionStatement : (pFunctionStatement = new FunctionStatementElements());
+	}
+	
+	public ParserRule getFunctionStatementRule() {
+		return getFunctionStatementAccess().getRule();
+	}
+
+	//BuilderStatement returns Statement:
+	//  {BuilderStatement} builder=Builder;
+	public BuilderStatementElements getBuilderStatementAccess() {
+		return (pBuilderStatement != null) ? pBuilderStatement : (pBuilderStatement = new BuilderStatementElements());
+	}
+	
+	public ParserRule getBuilderStatementRule() {
+		return getBuilderStatementAccess().getRule();
 	}
 
 	//Literal returns Expression:
@@ -9149,7 +9219,7 @@ public class BeeLangGrammarAccess implements IGrammarAccess {
 	//
 	//// --TERMINALS
 	//
-	//// Redeclare the default ID with ´ instead of ^ as escape mechanism
+	//// Redeclare the default ID with ï¿½ instead of ^ as escape mechanism
 	public AlfanumSymElements getAlfanumSymAccess() {
 		return (pAlfanumSym != null) ? pAlfanumSym : (pAlfanumSym = new AlfanumSymElements());
 	}
@@ -9163,7 +9233,7 @@ public class BeeLangGrammarAccess implements IGrammarAccess {
 	//
 	//// --TERMINALS
 	//
-	//// Redeclare the default ID with ´ instead of ^ as escape mechanism
+	//// Redeclare the default ID with ï¿½ instead of ^ as escape mechanism
 	//          
 	//
 	//// Property Names start with $ and are qualified. Must be handled by lexer as

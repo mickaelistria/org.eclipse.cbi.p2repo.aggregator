@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,7 +31,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class MethodImpl extends StatementImpl implements Method
+public class MethodImpl extends MinimalEObjectImpl.Container implements Method
 {
   /**
    * The cached value of the '{@link #getMethod() <em>Method</em>}' containment reference.

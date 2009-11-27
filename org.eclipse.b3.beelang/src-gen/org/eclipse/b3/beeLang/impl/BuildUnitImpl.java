@@ -13,12 +13,12 @@ import org.eclipse.b3.beeLang.Builder;
 import org.eclipse.b3.beeLang.Concern;
 import org.eclipse.b3.beeLang.ContainerConfiguration;
 import org.eclipse.b3.beeLang.ExecutionMode;
+import org.eclipse.b3.beeLang.Method;
 import org.eclipse.b3.beeLang.NamedPropertySet;
 import org.eclipse.b3.beeLang.PropertySet;
 import org.eclipse.b3.beeLang.ProvidedCapability;
 import org.eclipse.b3.beeLang.RepositoryConfiguration;
 import org.eclipse.b3.beeLang.RequiredCapability;
-import org.eclipse.b3.beeLang.Statement;
 import org.eclipse.b3.beeLang.Synchronization;
 import org.eclipse.b3.beeLang.Version;
 
@@ -225,7 +225,7 @@ public class BuildUnitImpl extends MinimalEObjectImpl.Container implements Build
    * @generated
    * @ordered
    */
-  protected EList<Statement> methods;
+  protected EList<Method> methods;
 
   /**
    * The cached value of the '{@link #getRepositoryConfigurations() <em>Repository Configurations</em>}' containment reference list.
@@ -546,11 +546,11 @@ public class BuildUnitImpl extends MinimalEObjectImpl.Container implements Build
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Statement> getMethods()
+  public EList<Method> getMethods()
   {
     if (methods == null)
     {
-      methods = new EObjectContainmentEList<Statement>(Statement.class, this, BeeLangPackage.BUILD_UNIT__METHODS);
+      methods = new EObjectContainmentEList<Method>(Method.class, this, BeeLangPackage.BUILD_UNIT__METHODS);
     }
     return methods;
   }
@@ -737,7 +737,7 @@ public class BuildUnitImpl extends MinimalEObjectImpl.Container implements Build
         return;
       case BeeLangPackage.BUILD_UNIT__METHODS:
         getMethods().clear();
-        getMethods().addAll((Collection<? extends Statement>)newValue);
+        getMethods().addAll((Collection<? extends Method>)newValue);
         return;
       case BeeLangPackage.BUILD_UNIT__REPOSITORY_CONFIGURATIONS:
         getRepositoryConfigurations().clear();

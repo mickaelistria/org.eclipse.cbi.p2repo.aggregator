@@ -318,14 +318,14 @@ public class BeeLangAdapterFactory extends AdapterFactoryImpl
         return createExpressionListAdapter();
       }
       @Override
-      public Adapter caseStatment(Statment object)
+      public Adapter caseFunction(Function object)
       {
-        return createStatmentAdapter();
+        return createFunctionAdapter();
       }
       @Override
-      public Adapter caseStatement(Statement object)
+      public Adapter caseMethod(Method object)
       {
-        return createStatementAdapter();
+        return createMethodAdapter();
       }
       @Override
       public Adapter caseFunctionOrMethod(FunctionOrMethod object)
@@ -448,6 +448,11 @@ public class BeeLangAdapterFactory extends AdapterFactoryImpl
         return createContextBlockAdapter();
       }
       @Override
+      public Adapter caseStatement(Statement object)
+      {
+        return createStatementAdapter();
+      }
+      @Override
       public Adapter caseClosureExpression(ClosureExpression object)
       {
         return createClosureExpressionAdapter();
@@ -471,16 +476,6 @@ public class BeeLangAdapterFactory extends AdapterFactoryImpl
       public Adapter caseVarargParameterDeclaration(VarargParameterDeclaration object)
       {
         return createVarargParameterDeclarationAdapter();
-      }
-      @Override
-      public Adapter caseFunction(Function object)
-      {
-        return createFunctionAdapter();
-      }
-      @Override
-      public Adapter caseMethod(Method object)
-      {
-        return createMethodAdapter();
       }
       @Override
       public Adapter caseReturnExpression(ReturnExpression object)
@@ -591,6 +586,16 @@ public class BeeLangAdapterFactory extends AdapterFactoryImpl
       public Adapter casePropertiesStatement(PropertiesStatement object)
       {
         return createPropertiesStatementAdapter();
+      }
+      @Override
+      public Adapter caseFunctionStatement(FunctionStatement object)
+      {
+        return createFunctionStatementAdapter();
+      }
+      @Override
+      public Adapter caseBuilderStatement(BuilderStatement object)
+      {
+        return createBuilderStatementAdapter();
       }
       @Override
       public Adapter caseLiteralList(LiteralList object)
@@ -1400,31 +1405,31 @@ public class BeeLangAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.b3.beeLang.Statment <em>Statment</em>}'.
+   * Creates a new adapter for an object of class '{@link org.eclipse.b3.beeLang.Function <em>Function</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.eclipse.b3.beeLang.Statment
+   * @see org.eclipse.b3.beeLang.Function
    * @generated
    */
-  public Adapter createStatmentAdapter()
+  public Adapter createFunctionAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.b3.beeLang.Statement <em>Statement</em>}'.
+   * Creates a new adapter for an object of class '{@link org.eclipse.b3.beeLang.Method <em>Method</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.eclipse.b3.beeLang.Statement
+   * @see org.eclipse.b3.beeLang.Method
    * @generated
    */
-  public Adapter createStatementAdapter()
+  public Adapter createMethodAdapter()
   {
     return null;
   }
@@ -1790,6 +1795,21 @@ public class BeeLangAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.eclipse.b3.beeLang.Statement <em>Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipse.b3.beeLang.Statement
+   * @generated
+   */
+  public Adapter createStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.eclipse.b3.beeLang.ClosureExpression <em>Closure Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1860,36 +1880,6 @@ public class BeeLangAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createVarargParameterDeclarationAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.b3.beeLang.Function <em>Function</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.b3.beeLang.Function
-   * @generated
-   */
-  public Adapter createFunctionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.b3.beeLang.Method <em>Method</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.b3.beeLang.Method
-   * @generated
-   */
-  public Adapter createMethodAdapter()
   {
     return null;
   }
@@ -2220,6 +2210,36 @@ public class BeeLangAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createPropertiesStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipse.b3.beeLang.FunctionStatement <em>Function Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipse.b3.beeLang.FunctionStatement
+   * @generated
+   */
+  public Adapter createFunctionStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipse.b3.beeLang.BuilderStatement <em>Builder Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipse.b3.beeLang.BuilderStatement
+   * @generated
+   */
+  public Adapter createBuilderStatementAdapter()
   {
     return null;
   }
