@@ -6,6 +6,8 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
+import java.util.Collection;
+import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
@@ -19,10 +21,13 @@ import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -57,14 +62,14 @@ public class BSwitchExpressionImpl extends BExpressionImpl implements BSwitchExp
 	protected BExpression switchExpression;
 
 	/**
-	 * The cached value of the '{@link #getCaseList() <em>Case List</em>}' containment reference.
+	 * The cached value of the '{@link #getCaseList() <em>Case List</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getCaseList()
 	 * @generated
 	 * @ordered
 	 */
-	protected BCase caseList;
+	protected EList<BCase> caseList;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -133,42 +138,11 @@ public class BSwitchExpressionImpl extends BExpressionImpl implements BSwitchExp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BCase getCaseList() {
+	public EList<BCase> getCaseList() {
+		if (caseList == null) {
+			caseList = new EObjectContainmentEList<BCase>(BCase.class, this, B3backendPackage.BSWITCH_EXPRESSION__CASE_LIST);
+		}
 		return caseList;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCaseList(BCase newCaseList, NotificationChain msgs) {
-		BCase oldCaseList = caseList;
-		caseList = newCaseList;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BSWITCH_EXPRESSION__CASE_LIST, oldCaseList, newCaseList);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCaseList(BCase newCaseList) {
-		if (newCaseList != caseList) {
-			NotificationChain msgs = null;
-			if (caseList != null)
-				msgs = ((InternalEObject)caseList).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BSWITCH_EXPRESSION__CASE_LIST, null, msgs);
-			if (newCaseList != null)
-				msgs = ((InternalEObject)newCaseList).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BSWITCH_EXPRESSION__CASE_LIST, null, msgs);
-			msgs = basicSetCaseList(newCaseList, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BSWITCH_EXPRESSION__CASE_LIST, newCaseList, newCaseList));
 	}
 
 	/**
@@ -182,7 +156,7 @@ public class BSwitchExpressionImpl extends BExpressionImpl implements BSwitchExp
 			case B3backendPackage.BSWITCH_EXPRESSION__SWITCH_EXPRESSION:
 				return basicSetSwitchExpression(null, msgs);
 			case B3backendPackage.BSWITCH_EXPRESSION__CASE_LIST:
-				return basicSetCaseList(null, msgs);
+				return ((InternalEList<?>)getCaseList()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -208,6 +182,7 @@ public class BSwitchExpressionImpl extends BExpressionImpl implements BSwitchExp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -215,7 +190,8 @@ public class BSwitchExpressionImpl extends BExpressionImpl implements BSwitchExp
 				setSwitchExpression((BExpression)newValue);
 				return;
 			case B3backendPackage.BSWITCH_EXPRESSION__CASE_LIST:
-				setCaseList((BCase)newValue);
+				getCaseList().clear();
+				getCaseList().addAll((Collection<? extends BCase>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -233,7 +209,7 @@ public class BSwitchExpressionImpl extends BExpressionImpl implements BSwitchExp
 				setSwitchExpression((BExpression)null);
 				return;
 			case B3backendPackage.BSWITCH_EXPRESSION__CASE_LIST:
-				setCaseList((BCase)null);
+				getCaseList().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -250,16 +226,58 @@ public class BSwitchExpressionImpl extends BExpressionImpl implements BSwitchExp
 			case B3backendPackage.BSWITCH_EXPRESSION__SWITCH_EXPRESSION:
 				return switchExpression != null;
 			case B3backendPackage.BSWITCH_EXPRESSION__CASE_LIST:
-				return caseList != null;
+				return caseList != null && !caseList.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 		Object switchValue = switchExpression == null ? Boolean.TRUE : switchExpression.evaluate(ctx);
-		// guard against no cases - value is null
-		return caseList != null ? caseList.evaluate(ctx, switchValue) : null;
+		for(BCase c : caseList) {
+			Object result = c.getConditionExpr().evaluate(ctx);
+			if(matches(result, switchValue))
+				return c.getThenExpr().evaluate(ctx);
+			// it is not at all certain that comparison is cumulative
+			else if (switchValue.equals(result) || result.equals(switchValue))
+				return c.getThenExpr().evaluate(ctx);			
+		}
+		// no case matched - return null
+		return null;
 	}
+	@SuppressWarnings({ "unchecked" })
+	public boolean matches(Object a, Object b) {
+		Type[] ai = a.getClass().getGenericInterfaces();
+		Type[] bi = b.getClass().getGenericInterfaces();
+		Type aType = null;
+		for(int i = 0; i < ai.length;i++) {
+			Type t = ai[i];
+			if(t instanceof ParameterizedType && ((ParameterizedType)t).getRawType() == Comparable.class) {
+				aType = ((ParameterizedType)t).getActualTypeArguments()[0];
+				break;
+			}
+		}
+		Type bType = null;
+		for(int i = 0; i < bi.length;i++) {
+			Type t = bi[i];
+			if(t instanceof ParameterizedType && ((ParameterizedType)t).getRawType() == Comparable.class) {
+				bType = ((ParameterizedType)t).getActualTypeArguments()[0];
+				break;
+			}
+		}
+		Class bClass = bType != null && bType instanceof Class ? ((Class)bType) : null;
+		Class aClass = aType != null && aType instanceof Class ? ((Class)aType) : null;
+		if(aClass == null && bClass == null)
+			return false;
+		
+		if(aClass != null && aClass.isAssignableFrom(b.getClass()))
+			if(((Comparable) a).compareTo(b) == 0)
+				return true;
+		if(bClass != null && bClass.isAssignableFrom(a.getClass()))
+			if(((Comparable) a).compareTo(b) == 0)
+				return true;
+		return false;
+	}
+	
 	/**
 	 * Returns the common type of all cases.
 	 * TODO: Optimize by caching - the type does not change over time, unless a case expression
@@ -268,7 +286,7 @@ public class BSwitchExpressionImpl extends BExpressionImpl implements BSwitchExp
 	@Override
 	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
 		ArrayList<Type> typeList = new ArrayList<Type>();
-		for(BCase c = caseList; c != null; c = c.getNextCase()) {
+		for(BCase c : caseList) {
 			typeList.add(c.getDeclaredType(ctx));
 		}
 		return TypeUtils.getCommonSuperType(typeList.toArray(new Type[typeList.size()]));

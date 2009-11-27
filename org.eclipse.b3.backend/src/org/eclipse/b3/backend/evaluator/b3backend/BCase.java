@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BCase#getConditionExpr <em>Condition Expr</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BCase#getThenExpr <em>Then Expr</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BCase#getNextCase <em>Next Case</em>}</li>
  * </ul>
  * </p>
  *
@@ -87,32 +86,6 @@ public interface BCase extends EObject {
 	 * @generated
 	 */
 	void setThenExpr(BExpression value);
-
-	/**
-	 * Returns the value of the '<em><b>Next Case</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Next Case</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Next Case</em>' containment reference.
-	 * @see #setNextCase(BCase)
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBCase_NextCase()
-	 * @model containment="true"
-	 * @generated
-	 */
-	BCase getNextCase();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BCase#getNextCase <em>Next Case</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Next Case</em>' containment reference.
-	 * @see #getNextCase()
-	 * @generated
-	 */
-	void setNextCase(BCase value);
 
 	/**
 	 * <!-- begin-user-doc -->

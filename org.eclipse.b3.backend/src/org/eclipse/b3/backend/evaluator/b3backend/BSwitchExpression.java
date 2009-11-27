@@ -6,6 +6,8 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -59,29 +61,19 @@ public interface BSwitchExpression extends BExpression {
 	void setSwitchExpression(BExpression value);
 
 	/**
-	 * Returns the value of the '<em><b>Case List</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Case List</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.BCase}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Case List</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Case List</em>' containment reference.
-	 * @see #setCaseList(BCase)
+	 * @return the value of the '<em>Case List</em>' containment reference list.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBSwitchExpression_CaseList()
 	 * @model containment="true"
 	 * @generated
 	 */
-	BCase getCaseList();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression#getCaseList <em>Case List</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Case List</em>' containment reference.
-	 * @see #getCaseList()
-	 * @generated
-	 */
-	void setCaseList(BCase value);
+	EList<BCase> getCaseList();
 
 } // BSwitchExpression

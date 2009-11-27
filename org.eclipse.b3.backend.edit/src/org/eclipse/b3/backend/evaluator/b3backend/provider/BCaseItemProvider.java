@@ -90,7 +90,6 @@ public class BCaseItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(B3backendPackage.Literals.BCASE__CONDITION_EXPR);
 			childrenFeatures.add(B3backendPackage.Literals.BCASE__THEN_EXPR);
-			childrenFeatures.add(B3backendPackage.Literals.BCASE__NEXT_CASE);
 		}
 		return childrenFeatures;
 	}
@@ -144,7 +143,6 @@ public class BCaseItemProvider
 		switch (notification.getFeatureID(BCase.class)) {
 			case B3backendPackage.BCASE__CONDITION_EXPR:
 			case B3backendPackage.BCASE__THEN_EXPR:
-			case B3backendPackage.BCASE__NEXT_CASE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -284,6 +282,16 @@ public class BCaseItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(B3backendPackage.Literals.BCASE__CONDITION_EXPR,
+				 B3backendFactory.eINSTANCE.createBDefFunction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCASE__CONDITION_EXPR,
+				 B3backendFactory.eINSTANCE.createBDefValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(B3backendPackage.Literals.BCASE__THEN_EXPR,
 				 B3backendFactory.eINSTANCE.createBIfExpression()));
 
@@ -404,8 +412,13 @@ public class BCaseItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(B3backendPackage.Literals.BCASE__NEXT_CASE,
-				 B3backendFactory.eINSTANCE.createBCase()));
+				(B3backendPackage.Literals.BCASE__THEN_EXPR,
+				 B3backendFactory.eINSTANCE.createBDefFunction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCASE__THEN_EXPR,
+				 B3backendFactory.eINSTANCE.createBDefValue()));
 	}
 
 	/**

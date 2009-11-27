@@ -32,7 +32,6 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <ul>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BCaseImpl#getConditionExpr <em>Condition Expr</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BCaseImpl#getThenExpr <em>Then Expr</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BCaseImpl#getNextCase <em>Next Case</em>}</li>
  * </ul>
  * </p>
  *
@@ -65,16 +64,6 @@ public class BCaseImpl extends EObjectImpl implements BCase {
 	 * @ordered
 	 */
 	protected BExpression thenExpr;
-
-	/**
-	 * The cached value of the '{@link #getNextCase() <em>Next Case</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNextCase()
-	 * @generated
-	 * @ordered
-	 */
-	protected BCase nextCase;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -183,19 +172,13 @@ public class BCaseImpl extends EObjectImpl implements BCase {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns the evaluation of the thenExpression, checking of the condition is up
+	 * to the caller!
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public Object evaluate(BExecutionContext ctx, Object switchValue) throws Throwable {
-		Object result = conditionExpr.evaluate(ctx);
-		if(matches(result, switchValue))
-			return thenExpr.evaluate(ctx);
-		// it is not at all certain that comparison is cumulative
-		else if (switchValue.equals(result) || result.equals(switchValue))
-			return thenExpr.evaluate(ctx);
-		if(nextCase != null)
-			return nextCase.evaluate(ctx, switchValue);
-		return null;
+		return thenExpr.evaluate(ctx);
 	}
 	/**
 	 * Returns the declared type of this case only
@@ -256,8 +239,6 @@ public class BCaseImpl extends EObjectImpl implements BCase {
 				return basicSetConditionExpr(null, msgs);
 			case B3backendPackage.BCASE__THEN_EXPR:
 				return basicSetThenExpr(null, msgs);
-			case B3backendPackage.BCASE__NEXT_CASE:
-				return basicSetNextCase(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -274,8 +255,6 @@ public class BCaseImpl extends EObjectImpl implements BCase {
 				return getConditionExpr();
 			case B3backendPackage.BCASE__THEN_EXPR:
 				return getThenExpr();
-			case B3backendPackage.BCASE__NEXT_CASE:
-				return getNextCase();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -293,9 +272,6 @@ public class BCaseImpl extends EObjectImpl implements BCase {
 				return;
 			case B3backendPackage.BCASE__THEN_EXPR:
 				setThenExpr((BExpression)newValue);
-				return;
-			case B3backendPackage.BCASE__NEXT_CASE:
-				setNextCase((BCase)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -315,9 +291,6 @@ public class BCaseImpl extends EObjectImpl implements BCase {
 			case B3backendPackage.BCASE__THEN_EXPR:
 				setThenExpr((BExpression)null);
 				return;
-			case B3backendPackage.BCASE__NEXT_CASE:
-				setNextCase((BCase)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -334,53 +307,8 @@ public class BCaseImpl extends EObjectImpl implements BCase {
 				return conditionExpr != null;
 			case B3backendPackage.BCASE__THEN_EXPR:
 				return thenExpr != null;
-			case B3backendPackage.BCASE__NEXT_CASE:
-				return nextCase != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BCase getNextCase() {
-		return nextCase;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetNextCase(BCase newNextCase, NotificationChain msgs) {
-		BCase oldNextCase = nextCase;
-		nextCase = newNextCase;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BCASE__NEXT_CASE, oldNextCase, newNextCase);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setNextCase(BCase newNextCase) {
-		if (newNextCase != nextCase) {
-			NotificationChain msgs = null;
-			if (nextCase != null)
-				msgs = ((InternalEObject)nextCase).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BCASE__NEXT_CASE, null, msgs);
-			if (newNextCase != null)
-				msgs = ((InternalEObject)newNextCase).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BCASE__NEXT_CASE, null, msgs);
-			msgs = basicSetNextCase(newNextCase, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BCASE__NEXT_CASE, newNextCase, newNextCase));
 	}
 
 } //BCaseImpl

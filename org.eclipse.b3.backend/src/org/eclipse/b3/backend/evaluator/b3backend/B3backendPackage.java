@@ -345,7 +345,7 @@ public interface B3backendPackage extends EPackage {
 	int BSWITCH_EXPRESSION__SWITCH_EXPRESSION = BEXPRESSION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Case List</b></em>' containment reference.
+	 * The feature id for the '<em><b>Case List</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -391,22 +391,13 @@ public interface B3backendPackage extends EPackage {
 	int BCASE__THEN_EXPR = 1;
 
 	/**
-	 * The feature id for the '<em><b>Next Case</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BCASE__NEXT_CASE = 2;
-
-	/**
 	 * The number of structural features of the '<em>BCase</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BCASE_FEATURE_COUNT = 3;
+	int BCASE_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BTryExpressionImpl <em>BTry Expression</em>}' class.
@@ -2478,6 +2469,134 @@ public interface B3backendPackage extends EPackage {
 	int BJAVA_FUNCTION_FEATURE_COUNT = BFUNCTION_FEATURE_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BDefFunctionImpl <em>BDef Function</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BDefFunctionImpl
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBDefFunction()
+	 * @generated
+	 */
+	int BDEF_FUNCTION = 43;
+
+	/**
+	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BDEF_FUNCTION__LINE_NUMBER = BEXPRESSION__LINE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>File Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BDEF_FUNCTION__FILE_REFERENCE = BEXPRESSION__FILE_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Function</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BDEF_FUNCTION__FUNCTION = BEXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>BDef Function</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BDEF_FUNCTION_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BDefValueImpl <em>BDef Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BDefValueImpl
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBDefValue()
+	 * @generated
+	 */
+	int BDEF_VALUE = 44;
+
+	/**
+	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BDEF_VALUE__LINE_NUMBER = BEXPRESSION__LINE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>File Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BDEF_VALUE__FILE_REFERENCE = BEXPRESSION__FILE_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BDEF_VALUE__NAME = BEXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Final</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BDEF_VALUE__FINAL = BEXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Immutable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BDEF_VALUE__IMMUTABLE = BEXPRESSION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Value Expr</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BDEF_VALUE__VALUE_EXPR = BEXPRESSION_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BDEF_VALUE__TYPE = BEXPRESSION_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of structural features of the '<em>BDef Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BDEF_VALUE_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 5;
+
+	/**
 	 * The meta object id for the '<em>Core Exception</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2485,7 +2604,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getCoreException()
 	 * @generated
 	 */
-	int CORE_EXCEPTION = 43;
+	int CORE_EXCEPTION = 45;
 
 
 	/**
@@ -2496,7 +2615,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 44;
+	int TYPE = 46;
 
 	/**
 	 * The meta object id for the '<em>Object Array</em>' data type.
@@ -2505,7 +2624,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getObjectArray()
 	 * @generated
 	 */
-	int OBJECT_ARRAY = 45;
+	int OBJECT_ARRAY = 47;
 
 
 	/**
@@ -2516,7 +2635,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getValueMap()
 	 * @generated
 	 */
-	int VALUE_MAP = 46;
+	int VALUE_MAP = 48;
 
 
 	/**
@@ -2527,7 +2646,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3EngineException()
 	 * @generated
 	 */
-	int B3_ENGINE_EXCEPTION = 47;
+	int B3_ENGINE_EXCEPTION = 49;
 
 
 	/**
@@ -2538,7 +2657,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3ExpressionCache()
 	 * @generated
 	 */
-	int B3_EXPRESSION_CACHE = 48;
+	int B3_EXPRESSION_CACHE = 50;
 
 
 	/**
@@ -2549,7 +2668,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getThrowable()
 	 * @generated
 	 */
-	int THROWABLE = 49;
+	int THROWABLE = 51;
 
 	/**
 	 * The meta object id for the '<em>LValue</em>' data type.
@@ -2559,7 +2678,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getLValue()
 	 * @generated
 	 */
-	int LVALUE = 50;
+	int LVALUE = 52;
 
 	/**
 	 * The meta object id for the '<em>Type Array</em>' data type.
@@ -2568,7 +2687,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getTypeArray()
 	 * @generated
 	 */
-	int TYPE_ARRAY = 51;
+	int TYPE_ARRAY = 53;
 
 	/**
 	 * The meta object id for the '<em>Method</em>' data type.
@@ -2578,7 +2697,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getMethod()
 	 * @generated
 	 */
-	int METHOD = 52;
+	int METHOD = 54;
 
 	/**
 	 * The meta object id for the '<em>Type Variable Array</em>' data type.
@@ -2587,7 +2706,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getTypeVariableArray()
 	 * @generated
 	 */
-	int TYPE_VARIABLE_ARRAY = 53;
+	int TYPE_VARIABLE_ARRAY = 55;
 
 	/**
 	 * The meta object id for the '<em>Func Store</em>' data type.
@@ -2597,7 +2716,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getFuncStore()
 	 * @generated
 	 */
-	int FUNC_STORE = 54;
+	int FUNC_STORE = 56;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BExpression <em>BExpression</em>}'.
@@ -2791,10 +2910,10 @@ public interface B3backendPackage extends EPackage {
 	EReference getBSwitchExpression_SwitchExpression();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression#getCaseList <em>Case List</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression#getCaseList <em>Case List</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Case List</em>'.
+	 * @return the meta object for the containment reference list '<em>Case List</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression#getCaseList()
 	 * @see #getBSwitchExpression()
 	 * @generated
@@ -2832,17 +2951,6 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBCase_ThenExpr();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BCase#getNextCase <em>Next Case</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Next Case</em>'.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BCase#getNextCase()
-	 * @see #getBCase()
-	 * @generated
-	 */
-	EReference getBCase_NextCase();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BTryExpression <em>BTry Expression</em>}'.
@@ -3723,6 +3831,92 @@ public interface B3backendPackage extends EPackage {
 	EAttribute getBJavaFunction_SystemCall();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefFunction <em>BDef Function</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>BDef Function</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BDefFunction
+	 * @generated
+	 */
+	EClass getBDefFunction();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefFunction#getFunction <em>Function</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Function</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BDefFunction#getFunction()
+	 * @see #getBDefFunction()
+	 * @generated
+	 */
+	EReference getBDefFunction_Function();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefValue <em>BDef Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>BDef Value</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BDefValue
+	 * @generated
+	 */
+	EClass getBDefValue();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefValue#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BDefValue#getName()
+	 * @see #getBDefValue()
+	 * @generated
+	 */
+	EAttribute getBDefValue_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefValue#isFinal <em>Final</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Final</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BDefValue#isFinal()
+	 * @see #getBDefValue()
+	 * @generated
+	 */
+	EAttribute getBDefValue_Final();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefValue#isImmutable <em>Immutable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Immutable</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BDefValue#isImmutable()
+	 * @see #getBDefValue()
+	 * @generated
+	 */
+	EAttribute getBDefValue_Immutable();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefValue#getValueExpr <em>Value Expr</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Value Expr</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BDefValue#getValueExpr()
+	 * @see #getBDefValue()
+	 * @generated
+	 */
+	EReference getBDefValue_ValueExpr();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefValue#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BDefValue#getType()
+	 * @see #getBDefValue()
+	 * @generated
+	 */
+	EAttribute getBDefValue_Type();
+
+	/**
 	 * Returns the meta object for data type '{@link org.eclipse.core.runtime.CoreException <em>Core Exception</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4032,7 +4226,7 @@ public interface B3backendPackage extends EPackage {
 		EReference BSWITCH_EXPRESSION__SWITCH_EXPRESSION = eINSTANCE.getBSwitchExpression_SwitchExpression();
 
 		/**
-		 * The meta object literal for the '<em><b>Case List</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Case List</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -4064,14 +4258,6 @@ public interface B3backendPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BCASE__THEN_EXPR = eINSTANCE.getBCase_ThenExpr();
-
-		/**
-		 * The meta object literal for the '<em><b>Next Case</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BCASE__NEXT_CASE = eINSTANCE.getBCase_NextCase();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BTryExpressionImpl <em>BTry Expression</em>}' class.
@@ -4806,6 +4992,74 @@ public interface B3backendPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute BJAVA_FUNCTION__SYSTEM_CALL = eINSTANCE.getBJavaFunction_SystemCall();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BDefFunctionImpl <em>BDef Function</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BDefFunctionImpl
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBDefFunction()
+		 * @generated
+		 */
+		EClass BDEF_FUNCTION = eINSTANCE.getBDefFunction();
+
+		/**
+		 * The meta object literal for the '<em><b>Function</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BDEF_FUNCTION__FUNCTION = eINSTANCE.getBDefFunction_Function();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BDefValueImpl <em>BDef Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BDefValueImpl
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBDefValue()
+		 * @generated
+		 */
+		EClass BDEF_VALUE = eINSTANCE.getBDefValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BDEF_VALUE__NAME = eINSTANCE.getBDefValue_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Final</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BDEF_VALUE__FINAL = eINSTANCE.getBDefValue_Final();
+
+		/**
+		 * The meta object literal for the '<em><b>Immutable</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BDEF_VALUE__IMMUTABLE = eINSTANCE.getBDefValue_Immutable();
+
+		/**
+		 * The meta object literal for the '<em><b>Value Expr</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BDEF_VALUE__VALUE_EXPR = eINSTANCE.getBDefValue_ValueExpr();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BDEF_VALUE__TYPE = eINSTANCE.getBDefValue_Type();
 
 		/**
 		 * The meta object literal for the '<em>Core Exception</em>' data type.

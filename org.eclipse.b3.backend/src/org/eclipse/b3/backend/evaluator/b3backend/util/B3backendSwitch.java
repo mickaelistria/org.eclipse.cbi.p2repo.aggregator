@@ -430,6 +430,22 @@ public class B3backendSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case B3backendPackage.BDEF_FUNCTION: {
+				BDefFunction bDefFunction = (BDefFunction)theEObject;
+				T result = caseBDefFunction(bDefFunction);
+				if (result == null) result = caseBExpression(bDefFunction);
+				if (result == null) result = caseBSourceLink(bDefFunction);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3backendPackage.BDEF_VALUE: {
+				BDefValue bDefValue = (BDefValue)theEObject;
+				T result = caseBDefValue(bDefValue);
+				if (result == null) result = caseBExpression(bDefValue);
+				if (result == null) result = caseBSourceLink(bDefValue);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -1076,6 +1092,36 @@ public class B3backendSwitch<T> {
 	 * @generated
 	 */
 	public T caseBJavaFunction(BJavaFunction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BDef Function</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BDef Function</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBDefFunction(BDefFunction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BDef Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BDef Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBDefValue(BDefValue object) {
 		return null;
 	}
 

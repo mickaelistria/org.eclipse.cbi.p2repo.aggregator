@@ -331,6 +331,16 @@ public class BCatchItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BCATCH__CATCH_EXPR,
 				 B3backendFactory.eINSTANCE.createBJavaFunction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCATCH__CATCH_EXPR,
+				 B3backendFactory.eINSTANCE.createBDefFunction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCATCH__CATCH_EXPR,
+				 B3backendFactory.eINSTANCE.createBDefValue()));
 	}
 
 	/**

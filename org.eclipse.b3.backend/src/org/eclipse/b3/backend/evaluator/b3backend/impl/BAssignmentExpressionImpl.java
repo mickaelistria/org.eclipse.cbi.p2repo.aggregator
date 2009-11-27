@@ -58,8 +58,9 @@ public class BAssignmentExpressionImpl extends BBinaryOpExpressionImpl implement
 			return lval.set(r);
 		Object[] params = new Object[] { lval.get(), rightExpr.evaluate(ctx) };
 		Type[] types = new Type[] { lval.getDeclaredType(), rightExpr.getDeclaredType(ctx) };
-		
-		return lval.set(ctx.callFunction(functionName, params, types));
+		// remove the trailing = from +=, *= <<= etc. before calling
+		String fn = functionName.endsWith("=") ? functionName.substring(0,functionName.length()-1) : functionName;
+		return lval.set(ctx.callFunction(fn, params, types));
 	}
 	@Override
 	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {

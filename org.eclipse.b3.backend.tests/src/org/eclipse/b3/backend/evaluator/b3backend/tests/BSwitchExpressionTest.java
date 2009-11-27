@@ -17,6 +17,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -110,15 +111,16 @@ public class BSwitchExpressionTest extends BExpressionTest {
 			BLiteralExpression val3 = b3.createBLiteralExpression();
 			val3.setValue("hello");
 			
+			EList<BCase> caseList = swe.getCaseList();
 			BCase case1 = b3.createBCase();
 			case1.setConditionExpr(val2);
 			case1.setThenExpr(int1);
-			swe.setCaseList(case1);
+			caseList.add(case1);
 			
 			BCase case2 = b3.createBCase();
-			case1.setNextCase(case2);
 			case2.setConditionExpr(val3);
 			case2.setThenExpr(int2);
+			caseList.add(case2);
 			
 			varA.set("hello");
 			assertEquals(new Integer(2),swe.evaluate(ctx));
@@ -128,9 +130,9 @@ public class BSwitchExpressionTest extends BExpressionTest {
 			assertNull(swe.evaluate(ctx));
 			
 			BCase case3 = b3.createBCase();
-			case2.setNextCase(case3);
 			case3.setConditionExpr(b3.createBLiteralAny());
 			case3.setThenExpr(int2);
+			caseList.add(case3);
 			assertEquals(new Integer(2),swe.evaluate(ctx));
 			
 		} catch (AssertionFailedError e ) {
@@ -174,28 +176,22 @@ public class BSwitchExpressionTest extends BExpressionTest {
 			BLiteralExpression val3 = b3.createBLiteralExpression();
 			val3.setValue("hello");
 			
+			EList<BCase> caseList = swe.getCaseList();
 			BCase case1 = b3.createBCase();
 			case1.setConditionExpr(val2);
 			case1.setThenExpr(int1);
-			swe.setCaseList(case1);
+			caseList.add(case1);
 			
 			BCase case2 = b3.createBCase();
-			case1.setNextCase(case2);
 			case2.setConditionExpr(val3);
 			case2.setThenExpr(int2);
-			
-//			varA.set("hello");
-//			assertEquals(new Integer(2),swe.evaluate(ctx));
-//			varA.set("goodbye");
-//			assertEquals(new Integer(1),swe.evaluate(ctx));
-//			varA.set("tjabba");
-//			assertNull(swe.evaluate(ctx));
+			caseList.add(case2);
 			
 			assertEquals(Integer.class, swe.getDeclaredType(ctx));
 			BCase case3 = b3.createBCase();
-			case2.setNextCase(case3);
 			case3.setConditionExpr(b3.createBLiteralAny());
 			case3.setThenExpr(str1);
+			caseList.add(case3);
 			assertEquals(Object.class, swe.getDeclaredType(ctx));
 			
 		} catch (AssertionFailedError e ) {

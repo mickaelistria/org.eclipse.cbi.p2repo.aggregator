@@ -126,8 +126,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="BSwitchExpression" eSuperTypes="#//BExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="switchExpression" eType="#//BExpression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="caseList" eType="#//BCase"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="caseList" upperBound="-1"
+        eType="#//BCase" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BCase">
     <eOperations name="evaluate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
@@ -141,8 +141,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="conditionExpr" eType="#//BExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="thenExpr" eType="#//BExpression"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="nextCase" eType="#//BCase"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BTryExpression" eSuperTypes="#//BExpression">
@@ -339,4 +337,15 @@
   <eClassifiers xsi:type="ecore:EDataType" name="Method" instanceClassName="java.lang.reflect.Method"/>
   <eClassifiers xsi:type="ecore:EDataType" name="TypeVariableArray" instanceClassName="java.lang.reflect.TypeVariable[]"/>
   <eClassifiers xsi:type="ecore:EDataType" name="FuncStore" instanceClassName="org.eclipse.b3.backend.core.B3FuncStore"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BDefFunction" eSuperTypes="#//BExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="function" eType="#//BFunction"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BDefValue" eSuperTypes="#//BExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="final" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="immutable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="valueExpr" eType="#//BExpression"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//Type"/>
+  </eClassifiers>
 </ecore:EPackage>

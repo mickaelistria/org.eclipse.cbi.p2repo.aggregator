@@ -29,6 +29,8 @@ import org.eclipse.b3.backend.evaluator.b3backend.BCatch;
 import org.eclipse.b3.backend.evaluator.b3backend.BChainedExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BDefFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.BDefValue;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFeatureExpression;
@@ -392,6 +394,20 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass bDefFunctionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bDefValueEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EDataType coreExceptionEDataType = null;
 
 	/**
@@ -728,15 +744,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 */
 	public EReference getBCase_ThenExpr() {
 		return (EReference)bCaseEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getBCase_NextCase() {
-		return (EReference)bCaseEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1491,6 +1498,78 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getBDefFunction() {
+		return bDefFunctionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBDefFunction_Function() {
+		return (EReference)bDefFunctionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBDefValue() {
+		return bDefValueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBDefValue_Name() {
+		return (EAttribute)bDefValueEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBDefValue_Final() {
+		return (EAttribute)bDefValueEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBDefValue_Immutable() {
+		return (EAttribute)bDefValueEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBDefValue_ValueExpr() {
+		return (EReference)bDefValueEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBDefValue_Type() {
+		return (EAttribute)bDefValueEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getCoreException() {
 		return coreExceptionEDataType;
 	}
@@ -1651,7 +1730,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		bCaseEClass = createEClass(BCASE);
 		createEReference(bCaseEClass, BCASE__CONDITION_EXPR);
 		createEReference(bCaseEClass, BCASE__THEN_EXPR);
-		createEReference(bCaseEClass, BCASE__NEXT_CASE);
 
 		bTryExpressionEClass = createEClass(BTRY_EXPRESSION);
 		createEReference(bTryExpressionEClass, BTRY_EXPRESSION__TRY_EXPR);
@@ -1771,6 +1849,16 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		createEAttribute(bJavaFunctionEClass, BJAVA_FUNCTION__METHOD);
 		createEAttribute(bJavaFunctionEClass, BJAVA_FUNCTION__SYSTEM_CALL);
 
+		bDefFunctionEClass = createEClass(BDEF_FUNCTION);
+		createEReference(bDefFunctionEClass, BDEF_FUNCTION__FUNCTION);
+
+		bDefValueEClass = createEClass(BDEF_VALUE);
+		createEAttribute(bDefValueEClass, BDEF_VALUE__NAME);
+		createEAttribute(bDefValueEClass, BDEF_VALUE__FINAL);
+		createEAttribute(bDefValueEClass, BDEF_VALUE__IMMUTABLE);
+		createEReference(bDefValueEClass, BDEF_VALUE__VALUE_EXPR);
+		createEAttribute(bDefValueEClass, BDEF_VALUE__TYPE);
+
 		// Create data types
 		coreExceptionEDataType = createEDataType(CORE_EXCEPTION);
 		typeEDataType = createEDataType(TYPE);
@@ -1849,6 +1937,8 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		bAssignmentExpressionEClass.getESuperTypes().add(this.getBBinaryOpExpression());
 		b3FunctionEClass.getESuperTypes().add(this.getBFunction());
 		bJavaFunctionEClass.getESuperTypes().add(this.getBFunction());
+		bDefFunctionEClass.getESuperTypes().add(this.getBExpression());
+		bDefValueEClass.getESuperTypes().add(this.getBExpression());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(bExpressionEClass, BExpression.class, "BExpression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1959,12 +2049,11 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 
 		initEClass(bSwitchExpressionEClass, BSwitchExpression.class, "BSwitchExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBSwitchExpression_SwitchExpression(), this.getBExpression(), null, "switchExpression", null, 0, 1, BSwitchExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBSwitchExpression_CaseList(), this.getBCase(), null, "caseList", null, 0, 1, BSwitchExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBSwitchExpression_CaseList(), this.getBCase(), null, "caseList", null, 0, -1, BSwitchExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bCaseEClass, BCase.class, "BCase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBCase_ConditionExpr(), this.getBExpression(), null, "conditionExpr", null, 0, 1, BCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBCase_ThenExpr(), this.getBExpression(), null, "thenExpr", null, 0, 1, BCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBCase_NextCase(), this.getBCase(), null, "nextCase", null, 0, 1, BCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(bCaseEClass, ecorePackage.getEJavaObject(), "evaluate", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -2125,6 +2214,16 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEClass(bJavaFunctionEClass, BJavaFunction.class, "BJavaFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBJavaFunction_Method(), this.getMethod(), "method", null, 0, 1, BJavaFunction.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBJavaFunction_SystemCall(), ecorePackage.getEBoolean(), "systemCall", null, 0, 1, BJavaFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(bDefFunctionEClass, BDefFunction.class, "BDefFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBDefFunction_Function(), this.getBFunction(), null, "function", null, 0, 1, BDefFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(bDefValueEClass, BDefValue.class, "BDefValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBDefValue_Name(), ecorePackage.getEString(), "name", null, 0, 1, BDefValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBDefValue_Final(), ecorePackage.getEBoolean(), "final", null, 0, 1, BDefValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBDefValue_Immutable(), ecorePackage.getEBoolean(), "immutable", null, 0, 1, BDefValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBDefValue_ValueExpr(), this.getBExpression(), null, "valueExpr", null, 0, 1, BDefValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBDefValue_Type(), this.getType(), "type", null, 0, 1, BDefValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(coreExceptionEDataType, CoreException.class, "CoreException", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
