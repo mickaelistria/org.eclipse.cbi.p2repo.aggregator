@@ -290,6 +290,11 @@ public class BSwitchExpressionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(B3backendPackage.Literals.BSWITCH_EXPRESSION__SWITCH_EXPRESSION,
+				 B3backendFactory.eINSTANCE.createBRegularExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(B3backendPackage.Literals.BSWITCH_EXPRESSION__CASE_LIST,
 				 B3backendFactory.eINSTANCE.createBCase()));
 	}

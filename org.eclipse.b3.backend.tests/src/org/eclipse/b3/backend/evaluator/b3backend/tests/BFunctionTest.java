@@ -14,6 +14,13 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
  * A test case for the model object '<em><b>BFunction</b></em>'.
  * <!-- end-user-doc -->
  * <p>
+ * The following features are tested:
+ * <ul>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getParameterTypes() <em>Parameter Types</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getParameterNames() <em>Parameter Names</em>}</li>
+ * </ul>
+ * </p>
+ * <p>
  * The following operations are tested:
  * <ul>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#internalCall(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object[], java.lang.reflect.Type[]) <em>Internal Call</em>}</li>
@@ -48,6 +55,58 @@ public abstract class BFunctionTest extends BExpressionTest {
 	@Override
 	protected BFunction getFixture() {
 		return (BFunction)fixture;
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getParameterTypes() <em>Parameter Types</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunction#getParameterTypes()
+	 * @generated
+	 */
+	public void testGetParameterTypes() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#setParameterTypes(java.lang.reflect.Type[]) <em>Parameter Types</em>}' feature setter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunction#setParameterTypes(java.lang.reflect.Type[])
+	 * @generated
+	 */
+	public void testSetParameterTypes() {
+		// TODO: implement this feature setter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getParameterNames() <em>Parameter Names</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunction#getParameterNames()
+	 * @generated
+	 */
+	public void testGetParameterNames() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#setParameterNames(java.lang.String[]) <em>Parameter Names</em>}' feature setter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunction#setParameterNames(java.lang.String[])
+	 * @generated
+	 */
+	public void testSetParameterNames() {
+		// TODO: implement this feature setter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 	/**

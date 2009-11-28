@@ -292,6 +292,11 @@ public class BMapEntryItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(B3backendPackage.Literals.BMAP_ENTRY__KEY,
+				 B3backendFactory.eINSTANCE.createBRegularExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(B3backendPackage.Literals.BMAP_ENTRY__VALUE,
 				 B3backendFactory.eINSTANCE.createBIfExpression()));
 
@@ -419,6 +424,11 @@ public class BMapEntryItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BMAP_ENTRY__VALUE,
 				 B3backendFactory.eINSTANCE.createBDefValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BMAP_ENTRY__VALUE,
+				 B3backendFactory.eINSTANCE.createBRegularExpression()));
 	}
 
 	/**

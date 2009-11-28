@@ -934,6 +934,98 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BRegularExpressionItemProvider bRegularExpressionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBRegularExpressionAdapter() {
+		if (bRegularExpressionItemProvider == null) {
+			bRegularExpressionItemProvider = new BRegularExpressionItemProvider(this);
+		}
+
+		return bRegularExpressionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BParameterList} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BParameterListItemProvider bParameterListItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BParameterList}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBParameterListAdapter() {
+		if (bParameterListItemProvider == null) {
+			bParameterListItemProvider = new BParameterListItemProvider(this);
+		}
+
+		return bParameterListItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BParameter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BParameterItemProvider bParameterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BParameter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBParameterAdapter() {
+		if (bParameterItemProvider == null) {
+			bParameterItemProvider = new BParameterItemProvider(this);
+		}
+
+		return bParameterItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BParameterDeclarationItemProvider bParameterDeclarationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBParameterDeclarationAdapter() {
+		if (bParameterDeclarationItemProvider == null) {
+			bParameterDeclarationItemProvider = new BParameterDeclarationItemProvider(this);
+		}
+
+		return bParameterDeclarationItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1069,6 +1161,10 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 		if (bJavaFunctionItemProvider != null) bJavaFunctionItemProvider.dispose();
 		if (bDefFunctionItemProvider != null) bDefFunctionItemProvider.dispose();
 		if (bDefValueItemProvider != null) bDefValueItemProvider.dispose();
+		if (bRegularExpressionItemProvider != null) bRegularExpressionItemProvider.dispose();
+		if (bParameterListItemProvider != null) bParameterListItemProvider.dispose();
+		if (bParameterItemProvider != null) bParameterItemProvider.dispose();
+		if (bParameterDeclarationItemProvider != null) bParameterDeclarationItemProvider.dispose();
 	}
 
 }

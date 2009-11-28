@@ -17,9 +17,10 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BBinaryOpExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BCallExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
-import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BParameter;
+import org.eclipse.b3.backend.evaluator.b3backend.BParameterList;
 import org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression;
 import org.eclipse.b3.backend.evaluator.typesystem.B3FunctionType;
 import org.eclipse.emf.common.util.EList;
@@ -166,14 +167,11 @@ public class BCallExpressionTest extends BParameterizedExpressionTest {
 		
 		BCallExpression ce = b3.createBCallExpression();
 		ce.setName("+");
-		EList<BExpression> params = ce.getParameters();
-		BLiteralExpression val1;
-		params.add(val1 = b3.createBLiteralExpression());
-		BLiteralExpression val2;
-		params.add(val2 = b3.createBLiteralExpression());
-		val1.setValue(1);
-		val2.setValue(2);
-	
+		BParameterList parameterList = b3.createBParameterList();
+		EList<BParameter> params = parameterList.getParameters();
+		params.add(createLiteralParameter(1));
+		params.add(createLiteralParameter(2));
+		ce.setParameterList(parameterList);
 		return ce;
 	}
 
@@ -202,11 +200,12 @@ public class BCallExpressionTest extends BParameterizedExpressionTest {
 		ce.setName("+");
 		BLiteralExpression val1;
 		ce.setFuncExpr(val1 = b3.createBLiteralExpression());
-		BLiteralExpression val2;
-		EList<BExpression> params = ce.getParameters();
-		params.add(val2 = b3.createBLiteralExpression());
 		val1.setValue(1);
-		val2.setValue(2);
+
+		BParameterList parameterList;
+		ce.setParameterList(parameterList = b3.createBParameterList());
+		EList<BParameter> params = parameterList.getParameters();
+		params.add(createLiteralParameter(2));
 
 		return ce;
 	}
@@ -236,5 +235,13 @@ public class BCallExpressionTest extends BParameterizedExpressionTest {
 			t.printStackTrace();
 			fail();
 		}
+	}
+	private BParameter createLiteralParameter(Object val) {
+		B3backendFactory b3 = B3backendFactory.eINSTANCE;
+		BParameter param = b3.createBParameter();
+		BLiteralExpression v;
+		param.setExpr(v = b3.createBLiteralExpression());
+		v.setValue(val);
+		return param;
 	}
 } //BCallExpressionTest

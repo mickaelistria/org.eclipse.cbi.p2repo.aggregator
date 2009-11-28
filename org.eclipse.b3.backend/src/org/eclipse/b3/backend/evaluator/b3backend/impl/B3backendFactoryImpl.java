@@ -9,6 +9,7 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
+import java.util.regex.Pattern;
 import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.core.B3FuncStore;
 import org.eclipse.b3.backend.core.LValue;
@@ -114,6 +115,10 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 			case B3backendPackage.BJAVA_FUNCTION: return createBJavaFunction();
 			case B3backendPackage.BDEF_FUNCTION: return createBDefFunction();
 			case B3backendPackage.BDEF_VALUE: return createBDefValue();
+			case B3backendPackage.BREGULAR_EXPRESSION: return createBRegularExpression();
+			case B3backendPackage.BPARAMETER_LIST: return createBParameterList();
+			case B3backendPackage.BPARAMETER: return createBParameter();
+			case B3backendPackage.BPARAMETER_DECLARATION: return createBParameterDeclaration();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -149,6 +154,10 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 				return createTypeVariableArrayFromString(eDataType, initialValue);
 			case B3backendPackage.FUNC_STORE:
 				return createFuncStoreFromString(eDataType, initialValue);
+			case B3backendPackage.REGEXP_PATTERN:
+				return createRegexpPatternFromString(eDataType, initialValue);
+			case B3backendPackage.STRING_ARRAY:
+				return createStringArrayFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -184,6 +193,10 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 				return convertTypeVariableArrayToString(eDataType, instanceValue);
 			case B3backendPackage.FUNC_STORE:
 				return convertFuncStoreToString(eDataType, instanceValue);
+			case B3backendPackage.REGEXP_PATTERN:
+				return convertRegexpPatternToString(eDataType, instanceValue);
+			case B3backendPackage.STRING_ARRAY:
+				return convertStringArrayToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -564,6 +577,46 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public BRegularExpression createBRegularExpression() {
+		BRegularExpressionImpl bRegularExpression = new BRegularExpressionImpl();
+		return bRegularExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BParameterList createBParameterList() {
+		BParameterListImpl bParameterList = new BParameterListImpl();
+		return bParameterList;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BParameter createBParameter() {
+		BParameterImpl bParameter = new BParameterImpl();
+		return bParameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BParameterDeclaration createBParameterDeclaration() {
+		BParameterDeclarationImpl bParameterDeclaration = new BParameterDeclarationImpl();
+		return bParameterDeclaration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public CoreException createCoreExceptionFromString(EDataType eDataType, String initialValue) {
 		return (CoreException)super.createFromString(eDataType, initialValue);
 	}
@@ -756,6 +809,42 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	 */
 	public String convertFuncStoreToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Pattern createRegexpPatternFromString(EDataType eDataType, String initialValue) {
+		return (Pattern)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertRegexpPatternToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String[] createStringArrayFromString(EDataType eDataType, String initialValue) {
+		return (String[])super.createFromString(initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertStringArrayToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(instanceValue);
 	}
 
 	/**

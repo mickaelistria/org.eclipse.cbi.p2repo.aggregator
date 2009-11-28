@@ -365,6 +365,42 @@ public interface B3backendFactory extends EFactory {
 	BDefValue createBDefValue();
 
 	/**
+	 * Returns a new object of class '<em>BRegular Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>BRegular Expression</em>'.
+	 * @generated
+	 */
+	BRegularExpression createBRegularExpression();
+
+	/**
+	 * Returns a new object of class '<em>BParameter List</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>BParameter List</em>'.
+	 * @generated
+	 */
+	BParameterList createBParameterList();
+
+	/**
+	 * Returns a new object of class '<em>BParameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>BParameter</em>'.
+	 * @generated
+	 */
+	BParameter createBParameter();
+
+	/**
+	 * Returns a new object of class '<em>BParameter Declaration</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>BParameter Declaration</em>'.
+	 * @generated
+	 */
+	BParameterDeclaration createBParameterDeclaration();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

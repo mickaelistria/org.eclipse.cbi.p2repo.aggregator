@@ -14,14 +14,19 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BGuard;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.osgi.internal.resolver.ComputeNodeOrder;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,6 +46,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getTypeVariables <em>Type Variables</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getParameterNames <em>Parameter Names</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#isVarArgs <em>Var Args</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getParameters <em>Parameters</em>}</li>
  * </ul>
  * </p>
  *
@@ -227,14 +233,24 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	protected TypeVariable[] typeVariables = TYPE_VARIABLES_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getParameterNames() <em>Parameter Names</em>}' attribute list.
+	 * The default value of the '{@link #getParameterNames() <em>Parameter Names</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getParameterNames()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<String> parameterNames;
+	protected static final String[] PARAMETER_NAMES_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getParameterNames() <em>Parameter Names</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParameterNames()
+	 * @generated
+	 * @ordered
+	 */
+	protected String[] parameterNames = PARAMETER_NAMES_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isVarArgs() <em>Var Args</em>}' attribute.
@@ -255,6 +271,16 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	 * @ordered
 	 */
 	protected boolean varArgs = VAR_ARGS_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParameters()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<BParameterDeclaration> parameters;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -486,13 +512,25 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public String[] getParameterNames() {
+		if(parameterNames == null)
+			computeParameters();
+
+		return parameterNames;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<String> getParameterNames() {
-		if (parameterNames == null) {
-			parameterNames = new EDataTypeUniqueEList<String>(String.class, this, B3backendPackage.BFUNCTION__PARAMETER_NAMES);
-		}
-		return parameterNames;
+	public void setParameterNames(String[] newParameterNames) {
+		String[] oldParameterNames = parameterNames;
+		parameterNames = newParameterNames;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION__PARAMETER_NAMES, oldParameterNames, parameterNames));
 	}
 
 	/**
@@ -521,10 +559,36 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<BParameterDeclaration> getParameters() {
+		if (parameters == null) {
+			parameters = new EObjectContainmentEList<BParameterDeclaration>(BParameterDeclaration.class, this, B3backendPackage.BFUNCTION__PARAMETERS);
+		}
+		return parameters;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Object internalCall(BExecutionContext ctx, Object[] parameters, Type[] types) throws Throwable {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case B3backendPackage.BFUNCTION__PARAMETERS:
+				return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -558,6 +622,8 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 				return getParameterNames();
 			case B3backendPackage.BFUNCTION__VAR_ARGS:
 				return isVarArgs();
+			case B3backendPackage.BFUNCTION__PARAMETERS:
+				return getParameters();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -599,11 +665,14 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 				setTypeVariables((TypeVariable[])newValue);
 				return;
 			case B3backendPackage.BFUNCTION__PARAMETER_NAMES:
-				getParameterNames().clear();
-				getParameterNames().addAll((Collection<? extends String>)newValue);
+				setParameterNames((String[])newValue);
 				return;
 			case B3backendPackage.BFUNCTION__VAR_ARGS:
 				setVarArgs((Boolean)newValue);
+				return;
+			case B3backendPackage.BFUNCTION__PARAMETERS:
+				getParameters().clear();
+				getParameters().addAll((Collection<? extends BParameterDeclaration>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -645,10 +714,13 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 				setTypeVariables(TYPE_VARIABLES_EDEFAULT);
 				return;
 			case B3backendPackage.BFUNCTION__PARAMETER_NAMES:
-				getParameterNames().clear();
+				setParameterNames(PARAMETER_NAMES_EDEFAULT);
 				return;
 			case B3backendPackage.BFUNCTION__VAR_ARGS:
 				setVarArgs(VAR_ARGS_EDEFAULT);
+				return;
+			case B3backendPackage.BFUNCTION__PARAMETERS:
+				getParameters().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -681,9 +753,11 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 			case B3backendPackage.BFUNCTION__TYPE_VARIABLES:
 				return TYPE_VARIABLES_EDEFAULT == null ? typeVariables != null : !TYPE_VARIABLES_EDEFAULT.equals(typeVariables);
 			case B3backendPackage.BFUNCTION__PARAMETER_NAMES:
-				return parameterNames != null && !parameterNames.isEmpty();
+				return PARAMETER_NAMES_EDEFAULT == null ? parameterNames != null : !PARAMETER_NAMES_EDEFAULT.equals(parameterNames);
 			case B3backendPackage.BFUNCTION__VAR_ARGS:
 				return varArgs != VAR_ARGS_EDEFAULT;
+			case B3backendPackage.BFUNCTION__PARAMETERS:
+				return parameters != null && !parameters.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -721,4 +795,17 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 		result.append(')');
 		return result.toString();
 	}
+	protected void computeParameters() {
+		if(parameterNames == null || parameterTypes == null) {
+			EList<BParameterDeclaration> pList = getParameters();
+			parameterNames = new String[pList.size()];
+			parameterTypes = new Type[pList.size()];
+			int i = 0;
+			for(BParameterDeclaration p : pList) {
+				parameterNames[i] = p.getName();
+				parameterTypes[i++] = p.getType();
+			}
+		}
+	}
+	
 } //BFunctionImpl

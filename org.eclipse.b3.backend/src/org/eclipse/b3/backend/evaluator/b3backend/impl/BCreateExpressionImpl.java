@@ -13,7 +13,7 @@ import org.eclipse.b3.backend.core.B3NoSuchFunctionException;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
-import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BParameter;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -237,11 +237,11 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 	 */
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		EList<BExpression> pList = getParameters();
+		EList<BParameter> pList = getParameterList().getParameters();
 		Class<?>[] pClasses = new Class[pList.size()];
 		int counter = 0;
-		for(BExpression p : pList)
-			pClasses[counter++] = TypeUtils.getRaw(p.getDeclaredType(ctx));
+		for(BParameter p : pList)
+			pClasses[counter++] = TypeUtils.getRaw(p.getExpr().getDeclaredType(ctx));
 		Constructor<?> ctor = TypeUtils.getRaw(type).getConstructor(pClasses);
 		if(ctor == null)
 			throw new B3NoSuchFunctionException("new");

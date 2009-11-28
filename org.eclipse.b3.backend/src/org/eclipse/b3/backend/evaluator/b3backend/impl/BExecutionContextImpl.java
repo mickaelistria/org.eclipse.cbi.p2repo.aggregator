@@ -296,16 +296,17 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 				f.setExceptionTypes(m.getGenericExceptionTypes());
 				f.setParameterTypes(m.getGenericParameterTypes());
 				f.setVarArgs(m.isVarArgs());
-				EList<String> pNames = f.getParameterNames();
 				Annotation[][] pa = m.getParameterAnnotations();
+				String pNames[] = new String[pa.length];
+				f.setParameterNames(pNames);
 				for(int i = 0; i < pa.length; i++) {
 					Annotation[] pan = pa[i];
 					if(pan == null)
-						pNames.add(String.valueOf('a'+i));
+						pNames[i] = String.valueOf('a'+i);
 					else {
 						for(int j = 0; j < pan.length; j++) {
 							if(pan[j] instanceof B3Backend) {
-								pNames.add(((B3Backend)pan[j]).name());
+								pNames[i]=((B3Backend)pan[j]).name();
 								break; // only use first named declared for the parameter
 							}
 						}

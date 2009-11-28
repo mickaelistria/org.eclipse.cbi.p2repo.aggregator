@@ -24,6 +24,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BInvocationContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
 import org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression;
 import org.eclipse.b3.backend.functions.ArithmeticFunctions;
 import org.eclipse.b3.backend.functions.RelationalFunctions;
@@ -195,9 +196,12 @@ public abstract class BExecutionContextTest extends TestCase {
 			
 			B3Function func = b3.createB3Function();
 			func.setReturnType(Integer.class);
-			EList<String> names = func.getParameterNames();
-			names.add("x");
-			func.setParameterTypes(new Type[] { Integer.class });
+			EList<BParameterDeclaration> params = func.getParameters();
+			BParameterDeclaration pdecl;
+			params.add(pdecl = b3.createBParameterDeclaration());
+			pdecl.setName("x");
+			pdecl.setType(Integer.class);
+
 			BVariableExpression varx = b3.createBVariableExpression();
 			varx.setName("x");
 			BLiteralExpression val = b3.createBLiteralExpression();
@@ -641,13 +645,17 @@ public abstract class BExecutionContextTest extends TestCase {
 	public void testDefineFunction__BFunction() {
 		B3Engine engine = new B3Engine();
 		BExecutionContext ctx = engine.getContext();
+		B3backendFactory b3 = B3backendFactory.eINSTANCE;
 		// Define a b3 function
 		try {
 			B3Function f = B3backendFactory.eINSTANCE.createB3Function();
 			f.setName("woot");
 			f.setReturnType(String.class);
-			f.setParameterTypes(new Type[] { String.class });
-			f.getParameterNames().addAll(Arrays.asList(new String[] {"name"}));
+			EList<BParameterDeclaration> params = f.getParameters();
+			BParameterDeclaration pdecl;
+			params.add(pdecl = b3.createBParameterDeclaration());
+			pdecl.setName("name");
+			pdecl.setType(String.class);
 			
 			BLiteralExpression left = B3backendFactory.eINSTANCE.createBLiteralExpression();
 			BVariableExpression right = B3backendFactory.eINSTANCE.createBVariableExpression();

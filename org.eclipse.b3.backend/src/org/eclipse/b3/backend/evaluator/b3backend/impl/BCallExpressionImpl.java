@@ -14,6 +14,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BCallExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.BParameter;
 import org.eclipse.b3.backend.evaluator.typesystem.B3FunctionType;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -268,12 +269,13 @@ public class BCallExpressionImpl extends BParameterizedExpressionImpl implements
 	}
 	private Object expressionCall(BExecutionContext ctx) throws Throwable {
 		Object target = funcExpr.evaluate(ctx);
-		EList<BExpression> pList = getParameters();
+		EList<BParameter> pList = getParameterList().getParameters();
 		int nbrParams = pList.size();
 		Object[] parameters = new Object[nbrParams];
 		Type[] tparameters = new Type[nbrParams];
 		int counter = 0;
-		for(BExpression e : getParameters()) {
+		for(BParameter p : pList) {
+			BExpression e = p.getExpr();
 			parameters[counter] = e.evaluate(ctx);
 			tparameters[counter++] = e.getDeclaredType(ctx);
 		}
@@ -286,12 +288,13 @@ public class BCallExpressionImpl extends BParameterizedExpressionImpl implements
 
 	private Object namedFunctionCall(BExecutionContext ctx) throws Throwable {
 		// if call is on the form "f(...)" => "f(...)"
-		EList<BExpression> pList = getParameters();
+		EList<BParameter> pList = getParameterList().getParameters();
 		int nbrParams = pList.size();
 		Object[] parameters = new Object[nbrParams];
 		Type[] tparameters = new Type[nbrParams];
 		int counter = 0;
-		for(BExpression e : getParameters()) {
+		for(BParameter p : pList) {
+			BExpression e = p.getExpr(); 
 			parameters[counter] = e.evaluate(ctx);
 			tparameters[counter++] = e.getDeclaredType(ctx);
 		}
@@ -309,14 +312,15 @@ public class BCallExpressionImpl extends BParameterizedExpressionImpl implements
 	 */
 	private Object targetCall(BExecutionContext ctx) throws Throwable {
 		Object target = funcExpr.evaluate(ctx);
-		EList<BExpression> pList = getParameters();
+		EList<BParameter> pList = getParameterList().getParameters();
 		int nbrParams = pList.size() + 1;
 		Object[] parameters = new Object[nbrParams];
 		Type[] tparameters = new Type[nbrParams];
 		int counter = 0;
 		parameters[counter] = target;
 		tparameters[counter++] = funcExpr.getDeclaredType(ctx);
-		for(BExpression e : getParameters()) {
+		for(BParameter p : pList) {
+			BExpression e = p.getExpr();
 			parameters[counter] = e.evaluate(ctx);
 			tparameters[counter++] = e.getDeclaredType(ctx);
 		}
@@ -333,25 +337,25 @@ public class BCallExpressionImpl extends BParameterizedExpressionImpl implements
 		return getDeclaredTypeExpressionCall(ctx);		
 	}
 	private Type getDeclaredTypeTargetCall(BExecutionContext ctx) throws Throwable {
-		EList<BExpression> pList = getParameters();
+		EList<BParameter> pList = getParameterList().getParameters();
 		int nbrParams = pList.size() + 1;
 		Type[] tparameters = new Type[nbrParams];
 		int counter = 0;
 		tparameters[counter++] = funcExpr.getDeclaredType(ctx);
-		for(BExpression e : pList) {
-			tparameters[counter++] = e.getDeclaredType(ctx);
+		for(BParameter p : pList) {
+			tparameters[counter++] = p.getExpr().getDeclaredType(ctx);
 		}
 		return ctx.getDeclaredFunctionType(name, tparameters);
 		
 	}
 	private Type getDeclaredTypeNamedCall(BExecutionContext ctx) throws Throwable {
 		// if call is on the form "f(...)" => "f(...)"
-		EList<BExpression> pList = getParameters();
+		EList<BParameter> pList = getParameterList().getParameters();
 		int nbrParams = pList.size();
 		Type[] tparameters = new Type[nbrParams];
 		int counter = 0;
-		for(BExpression e : pList) {
-			tparameters[counter++] = e.getDeclaredType(ctx);
+		for(BParameter p : pList) {
+			tparameters[counter++] = p.getExpr().getDeclaredType(ctx);
 		}
 		return ctx.getDeclaredFunctionType(name, tparameters);	
 	}

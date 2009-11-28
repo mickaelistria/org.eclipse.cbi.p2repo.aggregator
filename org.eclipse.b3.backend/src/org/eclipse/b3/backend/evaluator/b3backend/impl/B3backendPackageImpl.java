@@ -9,6 +9,7 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
+import java.util.regex.Pattern;
 import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.core.B3ExpressionCache;
 import org.eclipse.b3.backend.core.B3FuncStore;
@@ -50,7 +51,11 @@ import org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BMapEntry;
 import org.eclipse.b3.backend.evaluator.b3backend.BOrExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BParameter;
+import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
+import org.eclipse.b3.backend.evaluator.b3backend.BParameterList;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterizedExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BSourceLink;
 import org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BSystemContext;
@@ -408,6 +413,34 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass bRegularExpressionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bParameterListEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bParameterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bParameterDeclarationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EDataType coreExceptionEDataType = null;
 
 	/**
@@ -486,6 +519,20 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * @generated
 	 */
 	private EDataType funcStoreEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType regexpPatternEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType stringArrayEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -1183,7 +1230,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBParameterizedExpression_Parameters() {
+	public EReference getBParameterizedExpression_ParameterList() {
 		return (EReference)bParameterizedExpressionEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1329,6 +1376,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 */
 	public EAttribute getBFunction_VarArgs() {
 		return (EAttribute)bFunctionEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBFunction_Parameters() {
+		return (EReference)bFunctionEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -1570,6 +1626,105 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getBRegularExpression() {
+		return bRegularExpressionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBRegularExpression_PatternString() {
+		return (EAttribute)bRegularExpressionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBRegularExpression_Pattern() {
+		return (EAttribute)bRegularExpressionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBParameterList() {
+		return bParameterListEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBParameterList_Parameters() {
+		return (EReference)bParameterListEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBParameter() {
+		return bParameterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBParameter_Name() {
+		return (EAttribute)bParameterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBParameter_Expr() {
+		return (EReference)bParameterEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBParameterDeclaration() {
+		return bParameterDeclarationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBParameterDeclaration_Name() {
+		return (EAttribute)bParameterDeclarationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBParameterDeclaration_Type() {
+		return (EAttribute)bParameterDeclarationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getCoreException() {
 		return coreExceptionEDataType;
 	}
@@ -1671,6 +1826,24 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 */
 	public EDataType getFuncStore() {
 		return funcStoreEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getRegexpPattern() {
+		return regexpPatternEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getStringArray() {
+		return stringArrayEDataType;
 	}
 
 	/**
@@ -1799,7 +1972,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		createEAttribute(bCallExpressionEClass, BCALL_EXPRESSION__NAME);
 
 		bParameterizedExpressionEClass = createEClass(BPARAMETERIZED_EXPRESSION);
-		createEReference(bParameterizedExpressionEClass, BPARAMETERIZED_EXPRESSION__PARAMETERS);
+		createEReference(bParameterizedExpressionEClass, BPARAMETERIZED_EXPRESSION__PARAMETER_LIST);
 
 		bLiteralAnyEClass = createEClass(BLITERAL_ANY);
 
@@ -1819,6 +1992,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		createEAttribute(bFunctionEClass, BFUNCTION__TYPE_VARIABLES);
 		createEAttribute(bFunctionEClass, BFUNCTION__PARAMETER_NAMES);
 		createEAttribute(bFunctionEClass, BFUNCTION__VAR_ARGS);
+		createEReference(bFunctionEClass, BFUNCTION__PARAMETERS);
 
 		bGuardEClass = createEClass(BGUARD);
 
@@ -1859,6 +2033,21 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		createEReference(bDefValueEClass, BDEF_VALUE__VALUE_EXPR);
 		createEAttribute(bDefValueEClass, BDEF_VALUE__TYPE);
 
+		bRegularExpressionEClass = createEClass(BREGULAR_EXPRESSION);
+		createEAttribute(bRegularExpressionEClass, BREGULAR_EXPRESSION__PATTERN_STRING);
+		createEAttribute(bRegularExpressionEClass, BREGULAR_EXPRESSION__PATTERN);
+
+		bParameterListEClass = createEClass(BPARAMETER_LIST);
+		createEReference(bParameterListEClass, BPARAMETER_LIST__PARAMETERS);
+
+		bParameterEClass = createEClass(BPARAMETER);
+		createEAttribute(bParameterEClass, BPARAMETER__NAME);
+		createEReference(bParameterEClass, BPARAMETER__EXPR);
+
+		bParameterDeclarationEClass = createEClass(BPARAMETER_DECLARATION);
+		createEAttribute(bParameterDeclarationEClass, BPARAMETER_DECLARATION__NAME);
+		createEAttribute(bParameterDeclarationEClass, BPARAMETER_DECLARATION__TYPE);
+
 		// Create data types
 		coreExceptionEDataType = createEDataType(CORE_EXCEPTION);
 		typeEDataType = createEDataType(TYPE);
@@ -1872,6 +2061,8 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		methodEDataType = createEDataType(METHOD);
 		typeVariableArrayEDataType = createEDataType(TYPE_VARIABLE_ARRAY);
 		funcStoreEDataType = createEDataType(FUNC_STORE);
+		regexpPatternEDataType = createEDataType(REGEXP_PATTERN);
+		stringArrayEDataType = createEDataType(STRING_ARRAY);
 	}
 
 	/**
@@ -1939,6 +2130,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		bJavaFunctionEClass.getESuperTypes().add(this.getBFunction());
 		bDefFunctionEClass.getESuperTypes().add(this.getBExpression());
 		bDefValueEClass.getESuperTypes().add(this.getBExpression());
+		bRegularExpressionEClass.getESuperTypes().add(this.getBExpression());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(bExpressionEClass, BExpression.class, "BExpression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2140,7 +2332,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEAttribute(getBCallExpression_Name(), ecorePackage.getEString(), "name", null, 0, 1, BCallExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bParameterizedExpressionEClass, BParameterizedExpression.class, "BParameterizedExpression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBParameterizedExpression_Parameters(), this.getBExpression(), null, "parameters", null, 0, -1, BParameterizedExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBParameterizedExpression_ParameterList(), this.getBParameterList(), null, "parameterList", null, 1, 1, BParameterizedExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bLiteralAnyEClass, BLiteralAny.class, "BLiteralAny", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -2155,11 +2347,12 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEAttribute(getBFunction_Name(), ecorePackage.getEString(), "name", null, 0, 1, BFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBFunction_Guard(), this.getBGuard(), null, "guard", null, 0, 1, BFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBFunction_ReturnType(), this.getType(), "returnType", null, 0, 1, BFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getBFunction_ParameterTypes(), this.getTypeArray(), "parameterTypes", null, 0, 1, BFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBFunction_ParameterTypes(), this.getTypeArray(), "parameterTypes", null, 0, 1, BFunction.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBFunction_ExceptionTypes(), this.getTypeArray(), "exceptionTypes", null, 0, 1, BFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBFunction_TypeVariables(), this.getTypeVariableArray(), "typeVariables", null, 0, 1, BFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getBFunction_ParameterNames(), ecorePackage.getEString(), "parameterNames", null, 0, -1, BFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBFunction_ParameterNames(), this.getStringArray(), "parameterNames", null, 0, 1, BFunction.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBFunction_VarArgs(), ecorePackage.getEBoolean(), "varArgs", null, 0, 1, BFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBFunction_Parameters(), this.getBParameterDeclaration(), null, "parameters", null, 0, -1, BFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(bFunctionEClass, ecorePackage.getEJavaObject(), "internalCall", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -2225,6 +2418,21 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEReference(getBDefValue_ValueExpr(), this.getBExpression(), null, "valueExpr", null, 0, 1, BDefValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBDefValue_Type(), this.getType(), "type", null, 0, 1, BDefValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(bRegularExpressionEClass, BRegularExpression.class, "BRegularExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBRegularExpression_PatternString(), ecorePackage.getEString(), "patternString", null, 1, 1, BRegularExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBRegularExpression_Pattern(), this.getRegexpPattern(), "pattern", null, 0, 1, BRegularExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(bParameterListEClass, BParameterList.class, "BParameterList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBParameterList_Parameters(), this.getBParameter(), null, "parameters", null, 0, -1, BParameterList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(bParameterEClass, BParameter.class, "BParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBParameter_Name(), ecorePackage.getEString(), "name", null, 0, 1, BParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBParameter_Expr(), this.getBExpression(), null, "expr", null, 1, 1, BParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(bParameterDeclarationEClass, BParameterDeclaration.class, "BParameterDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBParameterDeclaration_Name(), ecorePackage.getEString(), "name", null, 1, 1, BParameterDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBParameterDeclaration_Type(), this.getType(), "type", null, 0, 1, BParameterDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize data types
 		initEDataType(coreExceptionEDataType, CoreException.class, "CoreException", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(typeEDataType, Type.class, "Type", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
@@ -2238,6 +2446,8 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEDataType(methodEDataType, Method.class, "Method", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(typeVariableArrayEDataType, TypeVariable[].class, "TypeVariableArray", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(funcStoreEDataType, B3FuncStore.class, "FuncStore", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(regexpPatternEDataType, Pattern.class, "RegexpPattern", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(stringArrayEDataType, String[].class, "StringArray", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -30,6 +30,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getTypeVariables <em>Type Variables</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getParameterNames <em>Parameter Names</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#isVarArgs <em>Var Args</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getParameters <em>Parameters</em>}</li>
  * </ul>
  * </p>
  *
@@ -212,7 +213,7 @@ public interface BFunction extends BExpression {
 	 * @return the value of the '<em>Parameter Types</em>' attribute.
 	 * @see #setParameterTypes(Type[])
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBFunction_ParameterTypes()
-	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.TypeArray"
+	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.TypeArray" transient="true" derived="true"
 	 * @generated
 	 */
 	Type[] getParameterTypes();
@@ -282,20 +283,30 @@ public interface BFunction extends BExpression {
 	void setTypeVariables(TypeVariable[] value);
 
 	/**
-	 * Returns the value of the '<em><b>Parameter Names</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.String}.
+	 * Returns the value of the '<em><b>Parameter Names</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Parameter Names</em>' attribute list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parameter Names</em>' attribute list.
+	 * @return the value of the '<em>Parameter Names</em>' attribute.
+	 * @see #setParameterNames(String[])
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBFunction_ParameterNames()
-	 * @model
+	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.StringArray" transient="true" derived="true"
 	 * @generated
 	 */
-	EList<String> getParameterNames();
+	String[] getParameterNames();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getParameterNames <em>Parameter Names</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Parameter Names</em>' attribute.
+	 * @see #getParameterNames()
+	 * @generated
+	 */
+	void setParameterNames(String[] value);
 
 	/**
 	 * Returns the value of the '<em><b>Var Args</b></em>' attribute.
@@ -322,6 +333,22 @@ public interface BFunction extends BExpression {
 	 * @generated
 	 */
 	void setVarArgs(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Parameters</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Parameters</em>' containment reference list.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBFunction_Parameters()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<BParameterDeclaration> getParameters();
 
 	/**
 	 * <!-- begin-user-doc -->

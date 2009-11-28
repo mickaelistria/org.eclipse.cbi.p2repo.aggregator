@@ -1,6 +1,5 @@
 package org.eclipse.b3.backend.functions.tests;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +13,8 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BIfExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BParameter;
+import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
 import org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression;
 import org.eclipse.emf.common.util.EList;
 
@@ -189,10 +190,16 @@ public class TestSystemLibrary extends TestCase {
 		call.setFuncExpr(texpr = b3.createBLiteralExpression());
 		texpr.setValue(target);
 		call.setName(functionName);
-		EList<BExpression> pList = call.getParameters();
+		EList<BParameter> pList = call.getParameterList().getParameters();
 		for(int i = 0; i < params.length; i++)
-			pList.add(params[i]);
+			pList.add(createParameter(params[i]));
 		return call;
+	}
+	private BParameter createParameter(BExpression expr) {
+		B3backendFactory b3 = B3backendFactory.eINSTANCE;
+		BParameter parameter = b3.createBParameter();
+		parameter.setExpr(expr);
+		return parameter;
 	}
 	private List<Integer> listWith1To9() {
 		List<Integer> list = new ArrayList<Integer>();
@@ -231,10 +238,15 @@ public class TestSystemLibrary extends TestCase {
 		B3Function func = b3.createB3Function();
 		func.setReturnType(Boolean.class);
 		
-		EList<String> names = func.getParameterNames();
-		names.add("x");
-		names.add("y");
-		func.setParameterTypes(new Type[] { String.class, String.class });
+		EList<BParameterDeclaration> parameters = func.getParameters();
+		BParameterDeclaration pdecl;
+		parameters.add(pdecl = b3.createBParameterDeclaration());
+		pdecl.setName("x");
+		pdecl.setType(String.class);
+		parameters.add(pdecl = b3.createBParameterDeclaration());
+		pdecl.setName("y");
+		pdecl.setType(String.class);
+		
 		BVariableExpression varx = b3.createBVariableExpression();
 		varx.setName("x");
 		BLiteralExpression val = b3.createBLiteralExpression();
@@ -255,10 +267,14 @@ public class TestSystemLibrary extends TestCase {
 		B3Function func = b3.createB3Function();
 		func.setReturnType(Integer.class);
 		
-		EList<String> names = func.getParameterNames();
-		names.add("sum");
-		names.add("x");
-		func.setParameterTypes(new Type[] { Integer.class, Integer.class });
+		EList<BParameterDeclaration> parameters = func.getParameters();
+		BParameterDeclaration pdecl;
+		parameters.add(pdecl = b3.createBParameterDeclaration());
+		pdecl.setName("sum");
+		pdecl.setType(Integer.class);
+		parameters.add(pdecl = b3.createBParameterDeclaration());
+		pdecl.setName("x");
+		pdecl.setType(Integer.class);
 		
 		BVariableExpression varx = b3.createBVariableExpression();
 		varx.setName("x");

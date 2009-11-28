@@ -19,7 +19,9 @@ import org.eclipse.b3.backend.evaluator.b3backend.BBinaryOpExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BGuardExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
 import org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -90,6 +92,7 @@ public class BGuardExpressionTest extends BGuardTest {
 	public void testAccepts__BFunction_BExecutionContext_Object_Type() {
 		B3Engine engine = new B3Engine();
 		BExecutionContext ctx = engine.getContext();
+		B3backendFactory b3 = B3backendFactory.eINSTANCE;
 		// Define a b3 function
 		try {
 			
@@ -109,8 +112,11 @@ public class BGuardExpressionTest extends BGuardTest {
 			B3Function f = B3backendFactory.eINSTANCE.createB3Function(); {
 				f.setName("woot");
 				f.setReturnType(String.class);
-				f.setParameterTypes(new Type[] { String.class });
-				f.getParameterNames().addAll(Arrays.asList(new String[] {"name"}));
+				EList<BParameterDeclaration> parameters = f.getParameters();
+				BParameterDeclaration pdecl;
+				parameters.add(pdecl = b3.createBParameterDeclaration());
+				pdecl.setName("name");
+				pdecl.setType(String.class);
 				
 				BLiteralExpression left = B3backendFactory.eINSTANCE.createBLiteralExpression();
 				BVariableExpression right = B3backendFactory.eINSTANCE.createBVariableExpression();
