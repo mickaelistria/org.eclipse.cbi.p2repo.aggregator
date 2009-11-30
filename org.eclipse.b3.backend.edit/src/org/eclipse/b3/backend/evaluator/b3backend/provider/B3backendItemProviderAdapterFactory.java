@@ -1026,6 +1026,98 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected B3FunctionTypeItemProvider b3FunctionTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createB3FunctionTypeAdapter() {
+		if (b3FunctionTypeItemProvider == null) {
+			b3FunctionTypeItemProvider = new B3FunctionTypeItemProvider(this);
+		}
+
+		return b3FunctionTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected B3ParameterizedTypeItemProvider b3ParameterizedTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createB3ParameterizedTypeAdapter() {
+		if (b3ParameterizedTypeItemProvider == null) {
+			b3ParameterizedTypeItemProvider = new B3ParameterizedTypeItemProvider(this);
+		}
+
+		return b3ParameterizedTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.B3WildcardType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected B3WildcardTypeItemProvider b3WildcardTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.B3WildcardType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createB3WildcardTypeAdapter() {
+		if (b3WildcardTypeItemProvider == null) {
+			b3WildcardTypeItemProvider = new B3WildcardTypeItemProvider(this);
+		}
+
+		return b3WildcardTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected B3FuncTypeVariableItemProvider b3FuncTypeVariableItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createB3FuncTypeVariableAdapter() {
+		if (b3FuncTypeVariableItemProvider == null) {
+			b3FuncTypeVariableItemProvider = new B3FuncTypeVariableItemProvider(this);
+		}
+
+		return b3FuncTypeVariableItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1165,6 +1257,10 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 		if (bParameterListItemProvider != null) bParameterListItemProvider.dispose();
 		if (bParameterItemProvider != null) bParameterItemProvider.dispose();
 		if (bParameterDeclarationItemProvider != null) bParameterDeclarationItemProvider.dispose();
+		if (b3FunctionTypeItemProvider != null) b3FunctionTypeItemProvider.dispose();
+		if (b3ParameterizedTypeItemProvider != null) b3ParameterizedTypeItemProvider.dispose();
+		if (b3WildcardTypeItemProvider != null) b3WildcardTypeItemProvider.dispose();
+		if (b3FuncTypeVariableItemProvider != null) b3FuncTypeVariableItemProvider.dispose();
 	}
 
 }

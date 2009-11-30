@@ -98,7 +98,7 @@ public interface BCase extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.Type" exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
+	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType" exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
 	 * @generated
 	 */
 	Type getDeclaredType(BExecutionContext ctx) throws Throwable;

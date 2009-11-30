@@ -6,6 +6,7 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend;
 
+import java.lang.reflect.GenericDeclaration;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
 import org.eclipse.emf.common.util.EList;
@@ -27,7 +28,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getReturnType <em>Return Type</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getParameterTypes <em>Parameter Types</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getExceptionTypes <em>Exception Types</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getTypeVariables <em>Type Variables</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getTypeParameters <em>Type Parameters</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getParameterNames <em>Parameter Names</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#isVarArgs <em>Var Args</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getParameters <em>Parameters</em>}</li>
@@ -35,10 +36,10 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  *
  * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBFunction()
- * @model abstract="true"
+ * @model abstract="true" superTypes="org.eclipse.b3.backend.evaluator.b3backend.BExpression org.eclipse.b3.backend.evaluator.b3backend.IGenericDeclaration"
  * @generated
  */
-public interface BFunction extends BExpression {
+public interface BFunction extends BExpression, GenericDeclaration {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -255,32 +256,30 @@ public interface BFunction extends BExpression {
 	void setExceptionTypes(Type[] value);
 
 	/**
-	 * Returns the value of the '<em><b>Type Variables</b></em>' attribute.
+	 * Returns the value of the '<em><b>Type Parameters</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Type Variables</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Type Parameters</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Type Variables</em>' attribute.
-	 * @see #setTypeVariables(TypeVariable[])
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBFunction_TypeVariables()
+	 * @return the value of the '<em>Type Parameters</em>' attribute.
+	 * @see #setTypeParameters(TypeVariable[])
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBFunction_TypeParameters()
 	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.TypeVariableArray"
-	 * @generated NOT
+	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
-	TypeVariable[] getTypeVariables();
+	TypeVariable[] getTypeParameters();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getTypeVariables <em>Type Variables</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getTypeParameters <em>Type Parameters</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Type Variables</em>' attribute.
-	 * @see #getTypeVariables()
-	 * @generated NOT
+	 * @param value the new value of the '<em>Type Parameters</em>' attribute.
+	 * @see #getTypeParameters()
+	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
-	void setTypeVariables(TypeVariable[] value);
+	void setTypeParameters(TypeVariable[] value);
 
 	/**
 	 * Returns the value of the '<em><b>Parameter Names</b></em>' attribute.

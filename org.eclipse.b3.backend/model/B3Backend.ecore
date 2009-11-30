@@ -59,7 +59,7 @@
       </eAnnotations>
       <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-      <eParameters name="type" eType="#//Type"/>
+      <eParameters name="type" eType="#//IType"/>
     </eOperations>
     <eOperations name="defineFinalValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
         eExceptions="#//B3EngineException">
@@ -68,7 +68,7 @@
       </eAnnotations>
       <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-      <eParameters name="type" eType="#//Type"/>
+      <eParameters name="type" eType="#//IType"/>
     </eOperations>
     <eOperations name="defineVariableValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
         eExceptions="#//B3EngineException">
@@ -77,7 +77,7 @@
       </eAnnotations>
       <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-      <eParameters name="type" eType="#//Type"/>
+      <eParameters name="type" eType="#//IType"/>
     </eOperations>
     <eOperations name="defineFinalVariableValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
         eExceptions="#//B3EngineException">
@@ -86,7 +86,7 @@
       </eAnnotations>
       <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-      <eParameters name="type" eType="#//Type"/>
+      <eParameters name="type" eType="#//IType"/>
     </eOperations>
     <eOperations name="isFinal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -97,10 +97,10 @@
     <eOperations name="getInvocationContext" eType="#//BInvocationContext" eExceptions="#//B3EngineException"/>
     <eOperations name="createInnerContext" eType="#//BExecutionContext"/>
     <eOperations name="createOuterContext" eType="#//BExecutionContext"/>
-    <eOperations name="getDeclaredValueType" eType="#//Type" eExceptions="#//B3EngineException">
+    <eOperations name="getDeclaredValueType" eType="#//IType" eExceptions="#//B3EngineException">
       <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
-    <eOperations name="getDeclaredFunctionType" eType="#//Type" eExceptions="#//Throwable">
+    <eOperations name="getDeclaredFunctionType" eType="#//IType" eExceptions="#//Throwable">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Evaluate the function referenced by name in this context."/>
       </eAnnotations>
@@ -135,7 +135,7 @@
       <eParameters name="ctx" eType="#//BExecutionContext"/>
       <eParameters name="switchValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
     </eOperations>
-    <eOperations name="getDeclaredType" eType="#//Type" eExceptions="#//Throwable">
+    <eOperations name="getDeclaredType" eType="#//IType" eExceptions="#//Throwable">
       <eParameters name="ctx" eType="#//BExecutionContext"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="conditionExpr" eType="#//BExpression"
@@ -246,7 +246,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//Type"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="CoreException" instanceClassName="org.eclipse.core.runtime.CoreException"/>
-  <eClassifiers xsi:type="ecore:EClass" name="BFunction" abstract="true" eSuperTypes="#//BExpression">
+  <eClassifiers xsi:type="ecore:EClass" name="BFunction" abstract="true" eSuperTypes="#//BExpression #//IGenericDeclaration">
     <eOperations name="internalCall" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
         eExceptions="#//Throwable">
       <eParameters name="ctx" eType="#//BExecutionContext"/>
@@ -262,7 +262,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameterTypes" eType="#//TypeArray"
         transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="exceptionTypes" eType="#//TypeArray"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeVariables" eType="#//TypeVariableArray"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeParameters" eType="#//TypeVariableArray"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameterNames" eType="#//StringArray"
         transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="varArgs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -370,4 +370,51 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//Type"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="StringArray" instanceClassName="java.lang.String[]"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IType" instanceClassName="java.lang.reflect.Type"
+      abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="B3FunctionType" eSuperTypes="#//IType">
+    <eOperations name="getParameterTypesArray" eType="#//TypeArray"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="functionType" lowerBound="1"
+        eType="#//IType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="returnType" lowerBound="1"
+        eType="#//IType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameterTypes" upperBound="-1"
+        eType="#//IType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="varArgs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IParameterizedType" instanceClassName="java.lang.reflect.ParameterizedType"
+      abstract="true" interface="true" eSuperTypes="#//IType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IGenericDeclaration" instanceClassName="java.lang.reflect.GenericDeclaration"
+      abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="B3ParameterizedType" eSuperTypes="#//IParameterizedType">
+    <eOperations name="getActualTypeArguments" eType="#//TypeArray"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownerType" eType="#//IType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rawType" lowerBound="1"
+        eType="#//IType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actualArgumentsList" eType="#//IType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IWildcardType" instanceClassName="java.lang.reflect.WildcardType"
+      abstract="true" interface="true" eSuperTypes="#//IType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="B3WildcardType" eSuperTypes="#//IWildcardType">
+    <eOperations name="getLowerBounds" eType="#//TypeArray"/>
+    <eOperations name="getUpperBounds" eType="#//TypeArray"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lowerBoundsList" upperBound="-1"
+        eType="#//IType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="upperBoundsList" upperBound="-1"
+        eType="#//IType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ITypeVariable" instanceClassName="java.lang.reflect.TypeVariable"
+      abstract="true" interface="true" eSuperTypes="#//IType">
+    <eTypeParameters name="D">
+      <eBounds eClassifier="#//IGenericDeclaration"/>
+    </eTypeParameters>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="B3FuncTypeVariable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bounds" eType="#//TypeArray"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="genericDeclaration" eType="#//BFunction"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eGenericSuperTypes eClassifier="#//ITypeVariable">
+      <eTypeArguments eClassifier="#//BFunction"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
 </ecore:EPackage>

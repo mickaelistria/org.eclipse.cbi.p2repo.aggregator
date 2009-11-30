@@ -312,7 +312,7 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 						}
 					}
 				}
-				f.setTypeVariables(m.getTypeParameters());
+				f.setTypeParameters(m.getTypeParameters());
 				
 			// If the function is a system function - set it aside.
 			// if it is a function that is a specification of a system function,

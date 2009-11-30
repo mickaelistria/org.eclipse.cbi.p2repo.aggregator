@@ -1702,13 +1702,13 @@ public interface B3backendPackage extends EPackage {
 	int BFUNCTION__EXCEPTION_TYPES = BEXPRESSION_FEATURE_COUNT + 7;
 
 	/**
-	 * The feature id for the '<em><b>Type Variables</b></em>' attribute.
+	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BFUNCTION__TYPE_VARIABLES = BEXPRESSION_FEATURE_COUNT + 8;
+	int BFUNCTION__TYPE_PARAMETERS = BEXPRESSION_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Parameter Names</b></em>' attribute.
@@ -2279,13 +2279,13 @@ public interface B3backendPackage extends EPackage {
 	int B3_FUNCTION__EXCEPTION_TYPES = BFUNCTION__EXCEPTION_TYPES;
 
 	/**
-	 * The feature id for the '<em><b>Type Variables</b></em>' attribute.
+	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int B3_FUNCTION__TYPE_VARIABLES = BFUNCTION__TYPE_VARIABLES;
+	int B3_FUNCTION__TYPE_PARAMETERS = BFUNCTION__TYPE_PARAMETERS;
 
 	/**
 	 * The feature id for the '<em><b>Parameter Names</b></em>' attribute.
@@ -2433,13 +2433,13 @@ public interface B3backendPackage extends EPackage {
 	int BJAVA_FUNCTION__EXCEPTION_TYPES = BFUNCTION__EXCEPTION_TYPES;
 
 	/**
-	 * The feature id for the '<em><b>Type Variables</b></em>' attribute.
+	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BJAVA_FUNCTION__TYPE_VARIABLES = BFUNCTION__TYPE_VARIABLES;
+	int BJAVA_FUNCTION__TYPE_PARAMETERS = BFUNCTION__TYPE_PARAMETERS;
 
 	/**
 	 * The feature id for the '<em><b>Parameter Names</b></em>' attribute.
@@ -2781,6 +2781,285 @@ public interface B3backendPackage extends EPackage {
 	int BPARAMETER_DECLARATION_FEATURE_COUNT = 2;
 
 	/**
+	 * The meta object id for the '{@link java.lang.reflect.Type <em>IType</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.lang.reflect.Type
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getIType()
+	 * @generated
+	 */
+	int ITYPE = 49;
+
+	/**
+	 * The number of structural features of the '<em>IType</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITYPE_FEATURE_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3FunctionTypeImpl <em>B3 Function Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3FunctionTypeImpl
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3FunctionType()
+	 * @generated
+	 */
+	int B3_FUNCTION_TYPE = 50;
+
+	/**
+	 * The feature id for the '<em><b>Function Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int B3_FUNCTION_TYPE__FUNCTION_TYPE = ITYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Return Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int B3_FUNCTION_TYPE__RETURN_TYPE = ITYPE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Parameter Types</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int B3_FUNCTION_TYPE__PARAMETER_TYPES = ITYPE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Var Args</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int B3_FUNCTION_TYPE__VAR_ARGS = ITYPE_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>B3 Function Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int B3_FUNCTION_TYPE_FEATURE_COUNT = ITYPE_FEATURE_COUNT + 4;
+
+	/**
+	 * The meta object id for the '{@link java.lang.reflect.ParameterizedType <em>IParameterized Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.lang.reflect.ParameterizedType
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getIParameterizedType()
+	 * @generated
+	 */
+	int IPARAMETERIZED_TYPE = 51;
+
+	/**
+	 * The number of structural features of the '<em>IParameterized Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IPARAMETERIZED_TYPE_FEATURE_COUNT = ITYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link java.lang.reflect.GenericDeclaration <em>IGeneric Declaration</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.lang.reflect.GenericDeclaration
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getIGenericDeclaration()
+	 * @generated
+	 */
+	int IGENERIC_DECLARATION = 52;
+
+	/**
+	 * The number of structural features of the '<em>IGeneric Declaration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IGENERIC_DECLARATION_FEATURE_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3ParameterizedTypeImpl <em>B3 Parameterized Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3ParameterizedTypeImpl
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3ParameterizedType()
+	 * @generated
+	 */
+	int B3_PARAMETERIZED_TYPE = 53;
+
+	/**
+	 * The feature id for the '<em><b>Owner Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int B3_PARAMETERIZED_TYPE__OWNER_TYPE = IPARAMETERIZED_TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Raw Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int B3_PARAMETERIZED_TYPE__RAW_TYPE = IPARAMETERIZED_TYPE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Actual Arguments List</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int B3_PARAMETERIZED_TYPE__ACTUAL_ARGUMENTS_LIST = IPARAMETERIZED_TYPE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>B3 Parameterized Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int B3_PARAMETERIZED_TYPE_FEATURE_COUNT = IPARAMETERIZED_TYPE_FEATURE_COUNT + 3;
+
+	/**
+	 * The meta object id for the '{@link java.lang.reflect.WildcardType <em>IWildcard Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.lang.reflect.WildcardType
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getIWildcardType()
+	 * @generated
+	 */
+	int IWILDCARD_TYPE = 54;
+
+	/**
+	 * The number of structural features of the '<em>IWildcard Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IWILDCARD_TYPE_FEATURE_COUNT = ITYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3WildcardTypeImpl <em>B3 Wildcard Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3WildcardTypeImpl
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3WildcardType()
+	 * @generated
+	 */
+	int B3_WILDCARD_TYPE = 55;
+
+	/**
+	 * The feature id for the '<em><b>Lower Bounds List</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int B3_WILDCARD_TYPE__LOWER_BOUNDS_LIST = IWILDCARD_TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Upper Bounds List</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int B3_WILDCARD_TYPE__UPPER_BOUNDS_LIST = IWILDCARD_TYPE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>B3 Wildcard Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int B3_WILDCARD_TYPE_FEATURE_COUNT = IWILDCARD_TYPE_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link java.lang.reflect.TypeVariable <em>IType Variable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.lang.reflect.TypeVariable
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getITypeVariable()
+	 * @generated
+	 */
+	int ITYPE_VARIABLE = 56;
+
+	/**
+	 * The number of structural features of the '<em>IType Variable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITYPE_VARIABLE_FEATURE_COUNT = ITYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3FuncTypeVariableImpl <em>B3 Func Type Variable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3FuncTypeVariableImpl
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3FuncTypeVariable()
+	 * @generated
+	 */
+	int B3_FUNC_TYPE_VARIABLE = 57;
+
+	/**
+	 * The feature id for the '<em><b>Bounds</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int B3_FUNC_TYPE_VARIABLE__BOUNDS = ITYPE_VARIABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Generic Declaration</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int B3_FUNC_TYPE_VARIABLE__GENERIC_DECLARATION = ITYPE_VARIABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int B3_FUNC_TYPE_VARIABLE__NAME = ITYPE_VARIABLE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>B3 Func Type Variable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int B3_FUNC_TYPE_VARIABLE_FEATURE_COUNT = ITYPE_VARIABLE_FEATURE_COUNT + 3;
+
+	/**
 	 * The meta object id for the '<em>Core Exception</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2788,7 +3067,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getCoreException()
 	 * @generated
 	 */
-	int CORE_EXCEPTION = 49;
+	int CORE_EXCEPTION = 58;
 
 
 	/**
@@ -2799,7 +3078,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 50;
+	int TYPE = 59;
 
 	/**
 	 * The meta object id for the '<em>Object Array</em>' data type.
@@ -2808,7 +3087,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getObjectArray()
 	 * @generated
 	 */
-	int OBJECT_ARRAY = 51;
+	int OBJECT_ARRAY = 60;
 
 
 	/**
@@ -2819,7 +3098,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getValueMap()
 	 * @generated
 	 */
-	int VALUE_MAP = 52;
+	int VALUE_MAP = 61;
 
 
 	/**
@@ -2830,7 +3109,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3EngineException()
 	 * @generated
 	 */
-	int B3_ENGINE_EXCEPTION = 53;
+	int B3_ENGINE_EXCEPTION = 62;
 
 
 	/**
@@ -2841,7 +3120,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3ExpressionCache()
 	 * @generated
 	 */
-	int B3_EXPRESSION_CACHE = 54;
+	int B3_EXPRESSION_CACHE = 63;
 
 
 	/**
@@ -2852,7 +3131,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getThrowable()
 	 * @generated
 	 */
-	int THROWABLE = 55;
+	int THROWABLE = 64;
 
 	/**
 	 * The meta object id for the '<em>LValue</em>' data type.
@@ -2862,7 +3141,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getLValue()
 	 * @generated
 	 */
-	int LVALUE = 56;
+	int LVALUE = 65;
 
 	/**
 	 * The meta object id for the '<em>Type Array</em>' data type.
@@ -2871,7 +3150,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getTypeArray()
 	 * @generated
 	 */
-	int TYPE_ARRAY = 57;
+	int TYPE_ARRAY = 66;
 
 	/**
 	 * The meta object id for the '<em>Method</em>' data type.
@@ -2881,7 +3160,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getMethod()
 	 * @generated
 	 */
-	int METHOD = 58;
+	int METHOD = 67;
 
 	/**
 	 * The meta object id for the '<em>Type Variable Array</em>' data type.
@@ -2890,7 +3169,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getTypeVariableArray()
 	 * @generated
 	 */
-	int TYPE_VARIABLE_ARRAY = 59;
+	int TYPE_VARIABLE_ARRAY = 68;
 
 	/**
 	 * The meta object id for the '<em>Func Store</em>' data type.
@@ -2900,7 +3179,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getFuncStore()
 	 * @generated
 	 */
-	int FUNC_STORE = 60;
+	int FUNC_STORE = 69;
 
 	/**
 	 * The meta object id for the '<em>Regexp Pattern</em>' data type.
@@ -2910,7 +3189,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getRegexpPattern()
 	 * @generated
 	 */
-	int REGEXP_PATTERN = 61;
+	int REGEXP_PATTERN = 70;
 
 	/**
 	 * The meta object id for the '<em>String Array</em>' data type.
@@ -2919,7 +3198,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getStringArray()
 	 * @generated
 	 */
-	int STRING_ARRAY = 62;
+	int STRING_ARRAY = 71;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BExpression <em>BExpression</em>}'.
@@ -3814,15 +4093,15 @@ public interface B3backendPackage extends EPackage {
 	EAttribute getBFunction_ExceptionTypes();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getTypeVariables <em>Type Variables</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getTypeParameters <em>Type Parameters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type Variables</em>'.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunction#getTypeVariables()
+	 * @return the meta object for the attribute '<em>Type Parameters</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunction#getTypeParameters()
 	 * @see #getBFunction()
 	 * @generated
 	 */
-	EAttribute getBFunction_TypeVariables();
+	EAttribute getBFunction_TypeParameters();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getParameterNames <em>Parameter Names</em>}'.
@@ -4246,6 +4525,233 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getBParameterDeclaration_Type();
+
+	/**
+	 * Returns the meta object for class '{@link java.lang.reflect.Type <em>IType</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>IType</em>'.
+	 * @see java.lang.reflect.Type
+	 * @model instanceClass="java.lang.reflect.Type"
+	 * @generated
+	 */
+	EClass getIType();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType <em>B3 Function Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>B3 Function Type</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType
+	 * @generated
+	 */
+	EClass getB3FunctionType();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#getFunctionType <em>Function Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Function Type</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#getFunctionType()
+	 * @see #getB3FunctionType()
+	 * @generated
+	 */
+	EReference getB3FunctionType_FunctionType();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#getReturnType <em>Return Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Return Type</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#getReturnType()
+	 * @see #getB3FunctionType()
+	 * @generated
+	 */
+	EReference getB3FunctionType_ReturnType();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#getParameterTypes <em>Parameter Types</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Parameter Types</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#getParameterTypes()
+	 * @see #getB3FunctionType()
+	 * @generated
+	 */
+	EReference getB3FunctionType_ParameterTypes();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#isVarArgs <em>Var Args</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Var Args</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#isVarArgs()
+	 * @see #getB3FunctionType()
+	 * @generated
+	 */
+	EAttribute getB3FunctionType_VarArgs();
+
+	/**
+	 * Returns the meta object for class '{@link java.lang.reflect.ParameterizedType <em>IParameterized Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>IParameterized Type</em>'.
+	 * @see java.lang.reflect.ParameterizedType
+	 * @model instanceClass="java.lang.reflect.ParameterizedType" superTypes="org.eclipse.b3.backend.evaluator.b3backend.IType"
+	 * @generated
+	 */
+	EClass getIParameterizedType();
+
+	/**
+	 * Returns the meta object for class '{@link java.lang.reflect.GenericDeclaration <em>IGeneric Declaration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>IGeneric Declaration</em>'.
+	 * @see java.lang.reflect.GenericDeclaration
+	 * @model instanceClass="java.lang.reflect.GenericDeclaration"
+	 * @generated
+	 */
+	EClass getIGenericDeclaration();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType <em>B3 Parameterized Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>B3 Parameterized Type</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType
+	 * @generated
+	 */
+	EClass getB3ParameterizedType();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType#getOwnerType <em>Owner Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Owner Type</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType#getOwnerType()
+	 * @see #getB3ParameterizedType()
+	 * @generated
+	 */
+	EReference getB3ParameterizedType_OwnerType();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType#getRawType <em>Raw Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Raw Type</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType#getRawType()
+	 * @see #getB3ParameterizedType()
+	 * @generated
+	 */
+	EReference getB3ParameterizedType_RawType();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType#getActualArgumentsList <em>Actual Arguments List</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Actual Arguments List</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType#getActualArgumentsList()
+	 * @see #getB3ParameterizedType()
+	 * @generated
+	 */
+	EReference getB3ParameterizedType_ActualArgumentsList();
+
+	/**
+	 * Returns the meta object for class '{@link java.lang.reflect.WildcardType <em>IWildcard Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>IWildcard Type</em>'.
+	 * @see java.lang.reflect.WildcardType
+	 * @model instanceClass="java.lang.reflect.WildcardType" superTypes="org.eclipse.b3.backend.evaluator.b3backend.IType"
+	 * @generated
+	 */
+	EClass getIWildcardType();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.B3WildcardType <em>B3 Wildcard Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>B3 Wildcard Type</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3WildcardType
+	 * @generated
+	 */
+	EClass getB3WildcardType();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.eclipse.b3.backend.evaluator.b3backend.B3WildcardType#getLowerBoundsList <em>Lower Bounds List</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Lower Bounds List</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3WildcardType#getLowerBoundsList()
+	 * @see #getB3WildcardType()
+	 * @generated
+	 */
+	EReference getB3WildcardType_LowerBoundsList();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.eclipse.b3.backend.evaluator.b3backend.B3WildcardType#getUpperBoundsList <em>Upper Bounds List</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Upper Bounds List</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3WildcardType#getUpperBoundsList()
+	 * @see #getB3WildcardType()
+	 * @generated
+	 */
+	EReference getB3WildcardType_UpperBoundsList();
+
+	/**
+	 * Returns the meta object for class '{@link java.lang.reflect.TypeVariable <em>IType Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>IType Variable</em>'.
+	 * @see java.lang.reflect.TypeVariable
+	 * @model instanceClass="java.lang.reflect.TypeVariable" typeParameters="D" superTypes="org.eclipse.b3.backend.evaluator.b3backend.IType" DBounds="org.eclipse.b3.backend.evaluator.b3backend.IGenericDeclaration"
+	 * @generated
+	 */
+	EClass getITypeVariable();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable <em>B3 Func Type Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>B3 Func Type Variable</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable
+	 * @generated
+	 */
+	EClass getB3FuncTypeVariable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable#getBounds <em>Bounds</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Bounds</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable#getBounds()
+	 * @see #getB3FuncTypeVariable()
+	 * @generated
+	 */
+	EAttribute getB3FuncTypeVariable_Bounds();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable#getGenericDeclaration <em>Generic Declaration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Generic Declaration</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable#getGenericDeclaration()
+	 * @see #getB3FuncTypeVariable()
+	 * @generated
+	 */
+	EReference getB3FuncTypeVariable_GenericDeclaration();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable#getName()
+	 * @see #getB3FuncTypeVariable()
+	 * @generated
+	 */
+	EAttribute getB3FuncTypeVariable_Name();
 
 	/**
 	 * Returns the meta object for data type '{@link org.eclipse.core.runtime.CoreException <em>Core Exception</em>}'.
@@ -5156,12 +5662,12 @@ public interface B3backendPackage extends EPackage {
 		EAttribute BFUNCTION__EXCEPTION_TYPES = eINSTANCE.getBFunction_ExceptionTypes();
 
 		/**
-		 * The meta object literal for the '<em><b>Type Variables</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Type Parameters</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute BFUNCTION__TYPE_VARIABLES = eINSTANCE.getBFunction_TypeVariables();
+		EAttribute BFUNCTION__TYPE_PARAMETERS = eINSTANCE.getBFunction_TypeParameters();
 
 		/**
 		 * The meta object literal for the '<em><b>Parameter Names</b></em>' attribute feature.
@@ -5516,6 +6022,192 @@ public interface B3backendPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute BPARAMETER_DECLARATION__TYPE = eINSTANCE.getBParameterDeclaration_Type();
+
+		/**
+		 * The meta object literal for the '{@link java.lang.reflect.Type <em>IType</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.lang.reflect.Type
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getIType()
+		 * @generated
+		 */
+		EClass ITYPE = eINSTANCE.getIType();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3FunctionTypeImpl <em>B3 Function Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3FunctionTypeImpl
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3FunctionType()
+		 * @generated
+		 */
+		EClass B3_FUNCTION_TYPE = eINSTANCE.getB3FunctionType();
+
+		/**
+		 * The meta object literal for the '<em><b>Function Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference B3_FUNCTION_TYPE__FUNCTION_TYPE = eINSTANCE.getB3FunctionType_FunctionType();
+
+		/**
+		 * The meta object literal for the '<em><b>Return Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference B3_FUNCTION_TYPE__RETURN_TYPE = eINSTANCE.getB3FunctionType_ReturnType();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameter Types</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference B3_FUNCTION_TYPE__PARAMETER_TYPES = eINSTANCE.getB3FunctionType_ParameterTypes();
+
+		/**
+		 * The meta object literal for the '<em><b>Var Args</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute B3_FUNCTION_TYPE__VAR_ARGS = eINSTANCE.getB3FunctionType_VarArgs();
+
+		/**
+		 * The meta object literal for the '{@link java.lang.reflect.ParameterizedType <em>IParameterized Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.lang.reflect.ParameterizedType
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getIParameterizedType()
+		 * @generated
+		 */
+		EClass IPARAMETERIZED_TYPE = eINSTANCE.getIParameterizedType();
+
+		/**
+		 * The meta object literal for the '{@link java.lang.reflect.GenericDeclaration <em>IGeneric Declaration</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.lang.reflect.GenericDeclaration
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getIGenericDeclaration()
+		 * @generated
+		 */
+		EClass IGENERIC_DECLARATION = eINSTANCE.getIGenericDeclaration();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3ParameterizedTypeImpl <em>B3 Parameterized Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3ParameterizedTypeImpl
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3ParameterizedType()
+		 * @generated
+		 */
+		EClass B3_PARAMETERIZED_TYPE = eINSTANCE.getB3ParameterizedType();
+
+		/**
+		 * The meta object literal for the '<em><b>Owner Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference B3_PARAMETERIZED_TYPE__OWNER_TYPE = eINSTANCE.getB3ParameterizedType_OwnerType();
+
+		/**
+		 * The meta object literal for the '<em><b>Raw Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference B3_PARAMETERIZED_TYPE__RAW_TYPE = eINSTANCE.getB3ParameterizedType_RawType();
+
+		/**
+		 * The meta object literal for the '<em><b>Actual Arguments List</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference B3_PARAMETERIZED_TYPE__ACTUAL_ARGUMENTS_LIST = eINSTANCE.getB3ParameterizedType_ActualArgumentsList();
+
+		/**
+		 * The meta object literal for the '{@link java.lang.reflect.WildcardType <em>IWildcard Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.lang.reflect.WildcardType
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getIWildcardType()
+		 * @generated
+		 */
+		EClass IWILDCARD_TYPE = eINSTANCE.getIWildcardType();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3WildcardTypeImpl <em>B3 Wildcard Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3WildcardTypeImpl
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3WildcardType()
+		 * @generated
+		 */
+		EClass B3_WILDCARD_TYPE = eINSTANCE.getB3WildcardType();
+
+		/**
+		 * The meta object literal for the '<em><b>Lower Bounds List</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference B3_WILDCARD_TYPE__LOWER_BOUNDS_LIST = eINSTANCE.getB3WildcardType_LowerBoundsList();
+
+		/**
+		 * The meta object literal for the '<em><b>Upper Bounds List</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference B3_WILDCARD_TYPE__UPPER_BOUNDS_LIST = eINSTANCE.getB3WildcardType_UpperBoundsList();
+
+		/**
+		 * The meta object literal for the '{@link java.lang.reflect.TypeVariable <em>IType Variable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.lang.reflect.TypeVariable
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getITypeVariable()
+		 * @generated
+		 */
+		EClass ITYPE_VARIABLE = eINSTANCE.getITypeVariable();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3FuncTypeVariableImpl <em>B3 Func Type Variable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3FuncTypeVariableImpl
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3FuncTypeVariable()
+		 * @generated
+		 */
+		EClass B3_FUNC_TYPE_VARIABLE = eINSTANCE.getB3FuncTypeVariable();
+
+		/**
+		 * The meta object literal for the '<em><b>Bounds</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute B3_FUNC_TYPE_VARIABLE__BOUNDS = eINSTANCE.getB3FuncTypeVariable_Bounds();
+
+		/**
+		 * The meta object literal for the '<em><b>Generic Declaration</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference B3_FUNC_TYPE_VARIABLE__GENERIC_DECLARATION = eINSTANCE.getB3FuncTypeVariable_GenericDeclaration();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute B3_FUNC_TYPE_VARIABLE__NAME = eINSTANCE.getB3FuncTypeVariable_Name();
 
 		/**
 		 * The meta object literal for the '<em>Core Exception</em>' data type.

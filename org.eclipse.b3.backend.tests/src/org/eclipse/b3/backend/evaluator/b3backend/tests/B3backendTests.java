@@ -77,6 +77,9 @@ public class B3backendTests extends TestSuite {
 		suite.addTestSuite(BDefFunctionTest.class);
 		suite.addTestSuite(BDefValueTest.class);
 		suite.addTestSuite(BRegularExpressionTest.class);
+		suite.addTestSuite(B3FunctionTypeTest.class);
+		suite.addTestSuite(B3ParameterizedTypeTest.class);
+		suite.addTestSuite(B3WildcardTypeTest.class);
 		return suite;
 	}
 

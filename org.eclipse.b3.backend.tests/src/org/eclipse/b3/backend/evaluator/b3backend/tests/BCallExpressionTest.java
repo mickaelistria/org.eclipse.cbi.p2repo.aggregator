@@ -22,7 +22,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameter;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterList;
 import org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression;
-import org.eclipse.b3.backend.evaluator.typesystem.B3FunctionType;
+import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -134,7 +134,13 @@ public class BCallExpressionTest extends BParameterizedExpressionTest {
 			op.setRightExpr(valy);
 		}
 		// a = func : 2 + 1;
-		ctx.defineVariableValue("a", func, new B3FunctionType(BFunction.class, Integer.class, new Type[]{}, false));
+		B3FunctionType funcType = b3.createB3FunctionType();
+		funcType.setFunctionType(BFunction.class);
+		funcType.setReturnType(Integer.class);
+		funcType.setVarArgs(false);
+// before B3FunctionType was modeled
+//		ctx.defineVariableValue("a", func, new B3FunctionType(BFunction.class, Integer.class, new Type[]{}, false));
+		ctx.defineVariableValue("a", func, funcType);
 		BCallExpression ce = b3.createBCallExpression();
 		BVariableExpression vara = b3.createBVariableExpression();
 		vara.setName("a");

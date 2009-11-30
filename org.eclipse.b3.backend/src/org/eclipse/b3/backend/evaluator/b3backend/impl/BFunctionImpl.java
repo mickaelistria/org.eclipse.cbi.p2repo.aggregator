@@ -43,7 +43,7 @@ import org.eclipse.osgi.internal.resolver.ComputeNodeOrder;
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getReturnType <em>Return Type</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getParameterTypes <em>Parameter Types</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getExceptionTypes <em>Exception Types</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getTypeVariables <em>Type Variables</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getTypeParameters <em>Type Parameters</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getParameterNames <em>Parameter Names</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#isVarArgs <em>Var Args</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getParameters <em>Parameters</em>}</li>
@@ -211,26 +211,24 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	protected Type[] exceptionTypes = EXCEPTION_TYPES_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTypeVariables() <em>Type Variables</em>}' attribute.
+	 * The default value of the '{@link #getTypeParameters() <em>Type Parameters</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTypeVariables()
+	 * @see #getTypeParameters()
 	 * @generated
 	 * @ordered
 	 */
-	@SuppressWarnings("unchecked")
-	protected static final TypeVariable[] TYPE_VARIABLES_EDEFAULT = null;
+	protected static final TypeVariable[] TYPE_PARAMETERS_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTypeVariables() <em>Type Variables</em>}' attribute.
+	 * The cached value of the '{@link #getTypeParameters() <em>Type Parameters</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTypeVariables()
+	 * @see #getTypeParameters()
 	 * @generated
 	 * @ordered
 	 */
-	@SuppressWarnings("unchecked")
-	protected TypeVariable[] typeVariables = TYPE_VARIABLES_EDEFAULT;
+	protected TypeVariable[] typeParameters = TYPE_PARAMETERS_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getParameterNames() <em>Parameter Names</em>}' attribute.
@@ -450,6 +448,15 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	 * @generated
 	 */
 	public Type[] getParameterTypes() {
+		if(parameterTypes != null)
+			return parameterTypes;
+		EList<BParameterDeclaration> pList = getParameters();
+		Type[] pTypes = new Type[pList.size()];
+		int i = 0;
+		for(BParameterDeclaration p : pList) {
+			pTypes[i++] = p.getType();
+		}
+		setParameterTypes(pTypes);
 		return parameterTypes;
 	}
 
@@ -489,11 +496,10 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	@SuppressWarnings("unchecked")
-	public TypeVariable[] getTypeVariables() {
-		return typeVariables;
+	public TypeVariable[] getTypeParameters() {
+		return typeParameters;
 	}
 
 	/**
@@ -501,12 +507,11 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
-	public void setTypeVariables(TypeVariable[] newTypeVariables) {
-		TypeVariable[] oldTypeVariables = typeVariables;
-		typeVariables = newTypeVariables;
+	public void setTypeParameters(TypeVariable[] newTypeParameters) {
+		TypeVariable[] oldTypeParameters = typeParameters;
+		typeParameters = newTypeParameters;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION__TYPE_VARIABLES, oldTypeVariables, typeVariables));
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION__TYPE_PARAMETERS, oldTypeParameters, typeParameters));
 	}
 
 	/**
@@ -616,8 +621,8 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 				return getParameterTypes();
 			case B3backendPackage.BFUNCTION__EXCEPTION_TYPES:
 				return getExceptionTypes();
-			case B3backendPackage.BFUNCTION__TYPE_VARIABLES:
-				return getTypeVariables();
+			case B3backendPackage.BFUNCTION__TYPE_PARAMETERS:
+				return getTypeParameters();
 			case B3backendPackage.BFUNCTION__PARAMETER_NAMES:
 				return getParameterNames();
 			case B3backendPackage.BFUNCTION__VAR_ARGS:
@@ -661,8 +666,8 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 			case B3backendPackage.BFUNCTION__EXCEPTION_TYPES:
 				setExceptionTypes((Type[])newValue);
 				return;
-			case B3backendPackage.BFUNCTION__TYPE_VARIABLES:
-				setTypeVariables((TypeVariable[])newValue);
+			case B3backendPackage.BFUNCTION__TYPE_PARAMETERS:
+				setTypeParameters((TypeVariable[])newValue);
 				return;
 			case B3backendPackage.BFUNCTION__PARAMETER_NAMES:
 				setParameterNames((String[])newValue);
@@ -710,8 +715,8 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 			case B3backendPackage.BFUNCTION__EXCEPTION_TYPES:
 				setExceptionTypes(EXCEPTION_TYPES_EDEFAULT);
 				return;
-			case B3backendPackage.BFUNCTION__TYPE_VARIABLES:
-				setTypeVariables(TYPE_VARIABLES_EDEFAULT);
+			case B3backendPackage.BFUNCTION__TYPE_PARAMETERS:
+				setTypeParameters(TYPE_PARAMETERS_EDEFAULT);
 				return;
 			case B3backendPackage.BFUNCTION__PARAMETER_NAMES:
 				setParameterNames(PARAMETER_NAMES_EDEFAULT);
@@ -750,8 +755,8 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 				return PARAMETER_TYPES_EDEFAULT == null ? parameterTypes != null : !PARAMETER_TYPES_EDEFAULT.equals(parameterTypes);
 			case B3backendPackage.BFUNCTION__EXCEPTION_TYPES:
 				return EXCEPTION_TYPES_EDEFAULT == null ? exceptionTypes != null : !EXCEPTION_TYPES_EDEFAULT.equals(exceptionTypes);
-			case B3backendPackage.BFUNCTION__TYPE_VARIABLES:
-				return TYPE_VARIABLES_EDEFAULT == null ? typeVariables != null : !TYPE_VARIABLES_EDEFAULT.equals(typeVariables);
+			case B3backendPackage.BFUNCTION__TYPE_PARAMETERS:
+				return TYPE_PARAMETERS_EDEFAULT == null ? typeParameters != null : !TYPE_PARAMETERS_EDEFAULT.equals(typeParameters);
 			case B3backendPackage.BFUNCTION__PARAMETER_NAMES:
 				return PARAMETER_NAMES_EDEFAULT == null ? parameterNames != null : !PARAMETER_NAMES_EDEFAULT.equals(parameterNames);
 			case B3backendPackage.BFUNCTION__VAR_ARGS:
@@ -786,8 +791,8 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 		result.append(parameterTypes);
 		result.append(", exceptionTypes: ");
 		result.append(exceptionTypes);
-		result.append(", typeVariables: ");
-		result.append(typeVariables);
+		result.append(", typeParameters: ");
+		result.append(typeParameters);
 		result.append(", parameterNames: ");
 		result.append(parameterNames);
 		result.append(", varArgs: ");

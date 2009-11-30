@@ -6,6 +6,11 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.util;
 
+import java.lang.reflect.GenericDeclaration;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+import java.lang.reflect.TypeVariable;
+import java.lang.reflect.WildcardType;
 import org.eclipse.b3.backend.evaluator.b3backend.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -272,6 +277,42 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseBParameterDeclaration(BParameterDeclaration object) {
 				return createBParameterDeclarationAdapter();
+			}
+			@Override
+			public Adapter caseIType(Type object) {
+				return createITypeAdapter();
+			}
+			@Override
+			public Adapter caseB3FunctionType(B3FunctionType object) {
+				return createB3FunctionTypeAdapter();
+			}
+			@Override
+			public Adapter caseIParameterizedType(ParameterizedType object) {
+				return createIParameterizedTypeAdapter();
+			}
+			@Override
+			public Adapter caseIGenericDeclaration(GenericDeclaration object) {
+				return createIGenericDeclarationAdapter();
+			}
+			@Override
+			public Adapter caseB3ParameterizedType(B3ParameterizedType object) {
+				return createB3ParameterizedTypeAdapter();
+			}
+			@Override
+			public Adapter caseIWildcardType(WildcardType object) {
+				return createIWildcardTypeAdapter();
+			}
+			@Override
+			public Adapter caseB3WildcardType(B3WildcardType object) {
+				return createB3WildcardTypeAdapter();
+			}
+			@Override
+			public <D extends GenericDeclaration> Adapter caseITypeVariable(TypeVariable<D> object) {
+				return createITypeVariableAdapter();
+			}
+			@Override
+			public Adapter caseB3FuncTypeVariable(B3FuncTypeVariable object) {
+				return createB3FuncTypeVariableAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -976,6 +1017,132 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBParameterDeclarationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link java.lang.reflect.Type <em>IType</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see java.lang.reflect.Type
+	 * @generated
+	 */
+	public Adapter createITypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType <em>B3 Function Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType
+	 * @generated
+	 */
+	public Adapter createB3FunctionTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link java.lang.reflect.ParameterizedType <em>IParameterized Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see java.lang.reflect.ParameterizedType
+	 * @generated
+	 */
+	public Adapter createIParameterizedTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link java.lang.reflect.GenericDeclaration <em>IGeneric Declaration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see java.lang.reflect.GenericDeclaration
+	 * @generated
+	 */
+	public Adapter createIGenericDeclarationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType <em>B3 Parameterized Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType
+	 * @generated
+	 */
+	public Adapter createB3ParameterizedTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link java.lang.reflect.WildcardType <em>IWildcard Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see java.lang.reflect.WildcardType
+	 * @generated
+	 */
+	public Adapter createIWildcardTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.B3WildcardType <em>B3 Wildcard Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3WildcardType
+	 * @generated
+	 */
+	public Adapter createB3WildcardTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link java.lang.reflect.TypeVariable <em>IType Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see java.lang.reflect.TypeVariable
+	 * @generated
+	 */
+	public Adapter createITypeVariableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable <em>B3 Func Type Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable
+	 * @generated
+	 */
+	public Adapter createB3FuncTypeVariableAdapter() {
 		return null;
 	}
 

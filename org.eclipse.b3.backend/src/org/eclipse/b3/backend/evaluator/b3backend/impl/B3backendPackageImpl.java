@@ -6,16 +6,23 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
+import java.lang.reflect.GenericDeclaration;
 import java.lang.reflect.Method;
+import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
+import java.lang.reflect.WildcardType;
 import java.util.regex.Pattern;
 import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.core.B3ExpressionCache;
 import org.eclipse.b3.backend.core.B3FuncStore;
 import org.eclipse.b3.backend.core.LValue;
 import org.eclipse.b3.backend.core.ValueMap;
+import org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable;
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
+import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
+import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
+import org.eclipse.b3.backend.evaluator.b3backend.B3WildcardType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BAndExpression;
@@ -77,6 +84,7 @@ import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
+import org.eclipse.emf.ecore.ETypeParameter;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -435,6 +443,69 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * @generated
 	 */
 	private EClass bParameterDeclarationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass iTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass b3FunctionTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass iParameterizedTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass iGenericDeclarationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass b3ParameterizedTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass iWildcardTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass b3WildcardTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass iTypeVariableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass b3FuncTypeVariableEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1356,7 +1427,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBFunction_TypeVariables() {
+	public EAttribute getBFunction_TypeParameters() {
 		return (EAttribute)bFunctionEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -1725,6 +1796,195 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getIType() {
+		return iTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getB3FunctionType() {
+		return b3FunctionTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getB3FunctionType_FunctionType() {
+		return (EReference)b3FunctionTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getB3FunctionType_ReturnType() {
+		return (EReference)b3FunctionTypeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getB3FunctionType_ParameterTypes() {
+		return (EReference)b3FunctionTypeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getB3FunctionType_VarArgs() {
+		return (EAttribute)b3FunctionTypeEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIParameterizedType() {
+		return iParameterizedTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIGenericDeclaration() {
+		return iGenericDeclarationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getB3ParameterizedType() {
+		return b3ParameterizedTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getB3ParameterizedType_OwnerType() {
+		return (EReference)b3ParameterizedTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getB3ParameterizedType_RawType() {
+		return (EReference)b3ParameterizedTypeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getB3ParameterizedType_ActualArgumentsList() {
+		return (EReference)b3ParameterizedTypeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIWildcardType() {
+		return iWildcardTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getB3WildcardType() {
+		return b3WildcardTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getB3WildcardType_LowerBoundsList() {
+		return (EReference)b3WildcardTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getB3WildcardType_UpperBoundsList() {
+		return (EReference)b3WildcardTypeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getITypeVariable() {
+		return iTypeVariableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getB3FuncTypeVariable() {
+		return b3FuncTypeVariableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getB3FuncTypeVariable_Bounds() {
+		return (EAttribute)b3FuncTypeVariableEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getB3FuncTypeVariable_GenericDeclaration() {
+		return (EReference)b3FuncTypeVariableEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getB3FuncTypeVariable_Name() {
+		return (EAttribute)b3FuncTypeVariableEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getCoreException() {
 		return coreExceptionEDataType;
 	}
@@ -1989,7 +2249,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		createEAttribute(bFunctionEClass, BFUNCTION__RETURN_TYPE);
 		createEAttribute(bFunctionEClass, BFUNCTION__PARAMETER_TYPES);
 		createEAttribute(bFunctionEClass, BFUNCTION__EXCEPTION_TYPES);
-		createEAttribute(bFunctionEClass, BFUNCTION__TYPE_VARIABLES);
+		createEAttribute(bFunctionEClass, BFUNCTION__TYPE_PARAMETERS);
 		createEAttribute(bFunctionEClass, BFUNCTION__PARAMETER_NAMES);
 		createEAttribute(bFunctionEClass, BFUNCTION__VAR_ARGS);
 		createEReference(bFunctionEClass, BFUNCTION__PARAMETERS);
@@ -2048,6 +2308,36 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		createEAttribute(bParameterDeclarationEClass, BPARAMETER_DECLARATION__NAME);
 		createEAttribute(bParameterDeclarationEClass, BPARAMETER_DECLARATION__TYPE);
 
+		iTypeEClass = createEClass(ITYPE);
+
+		b3FunctionTypeEClass = createEClass(B3_FUNCTION_TYPE);
+		createEReference(b3FunctionTypeEClass, B3_FUNCTION_TYPE__FUNCTION_TYPE);
+		createEReference(b3FunctionTypeEClass, B3_FUNCTION_TYPE__RETURN_TYPE);
+		createEReference(b3FunctionTypeEClass, B3_FUNCTION_TYPE__PARAMETER_TYPES);
+		createEAttribute(b3FunctionTypeEClass, B3_FUNCTION_TYPE__VAR_ARGS);
+
+		iParameterizedTypeEClass = createEClass(IPARAMETERIZED_TYPE);
+
+		iGenericDeclarationEClass = createEClass(IGENERIC_DECLARATION);
+
+		b3ParameterizedTypeEClass = createEClass(B3_PARAMETERIZED_TYPE);
+		createEReference(b3ParameterizedTypeEClass, B3_PARAMETERIZED_TYPE__OWNER_TYPE);
+		createEReference(b3ParameterizedTypeEClass, B3_PARAMETERIZED_TYPE__RAW_TYPE);
+		createEReference(b3ParameterizedTypeEClass, B3_PARAMETERIZED_TYPE__ACTUAL_ARGUMENTS_LIST);
+
+		iWildcardTypeEClass = createEClass(IWILDCARD_TYPE);
+
+		b3WildcardTypeEClass = createEClass(B3_WILDCARD_TYPE);
+		createEReference(b3WildcardTypeEClass, B3_WILDCARD_TYPE__LOWER_BOUNDS_LIST);
+		createEReference(b3WildcardTypeEClass, B3_WILDCARD_TYPE__UPPER_BOUNDS_LIST);
+
+		iTypeVariableEClass = createEClass(ITYPE_VARIABLE);
+
+		b3FuncTypeVariableEClass = createEClass(B3_FUNC_TYPE_VARIABLE);
+		createEAttribute(b3FuncTypeVariableEClass, B3_FUNC_TYPE_VARIABLE__BOUNDS);
+		createEReference(b3FuncTypeVariableEClass, B3_FUNC_TYPE_VARIABLE__GENERIC_DECLARATION);
+		createEAttribute(b3FuncTypeVariableEClass, B3_FUNC_TYPE_VARIABLE__NAME);
+
 		// Create data types
 		coreExceptionEDataType = createEDataType(CORE_EXCEPTION);
 		typeEDataType = createEDataType(TYPE);
@@ -2089,8 +2379,11 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		setNsURI(eNS_URI);
 
 		// Create type parameters
+		ETypeParameter iTypeVariableEClass_D = addETypeParameter(iTypeVariableEClass, "D");
 
 		// Set bounds for type parameters
+		EGenericType g1 = createEGenericType(this.getIGenericDeclaration());
+		iTypeVariableEClass_D.getEBounds().add(g1);
 
 		// Add supertypes to classes
 		bExpressionEClass.getESuperTypes().add(this.getBSourceLink());
@@ -2118,6 +2411,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		bLiteralAnyEClass.getESuperTypes().add(this.getBExpression());
 		bCreateExpressionEClass.getESuperTypes().add(this.getBParameterizedExpression());
 		bFunctionEClass.getESuperTypes().add(this.getBExpression());
+		bFunctionEClass.getESuperTypes().add(this.getIGenericDeclaration());
 		bGuardInstanceEClass.getESuperTypes().add(this.getBGuard());
 		bGuardExpressionEClass.getESuperTypes().add(this.getBGuard());
 		bSystemContextEClass.getESuperTypes().add(this.getBExecutionContext());
@@ -2131,6 +2425,16 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		bDefFunctionEClass.getESuperTypes().add(this.getBExpression());
 		bDefValueEClass.getESuperTypes().add(this.getBExpression());
 		bRegularExpressionEClass.getESuperTypes().add(this.getBExpression());
+		b3FunctionTypeEClass.getESuperTypes().add(this.getIType());
+		iParameterizedTypeEClass.getESuperTypes().add(this.getIType());
+		b3ParameterizedTypeEClass.getESuperTypes().add(this.getIParameterizedType());
+		iWildcardTypeEClass.getESuperTypes().add(this.getIType());
+		b3WildcardTypeEClass.getESuperTypes().add(this.getIWildcardType());
+		iTypeVariableEClass.getESuperTypes().add(this.getIType());
+		g1 = createEGenericType(this.getITypeVariable());
+		EGenericType g2 = createEGenericType(this.getBFunction());
+		g1.getETypeArguments().add(g2);
+		b3FuncTypeVariableEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(bExpressionEClass, BExpression.class, "BExpression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2162,8 +2466,8 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEAttribute(getBExecutionContext_FuncStore(), this.getFuncStore(), "funcStore", null, 0, 1, BExecutionContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(bExecutionContextEClass, null, "loadFunctions", 0, 1, IS_UNIQUE, IS_ORDERED);
-		EGenericType g1 = createEGenericType(ecorePackage.getEJavaClass());
-		EGenericType g2 = createEGenericType();
+		g1 = createEGenericType(ecorePackage.getEJavaClass());
+		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
 		EGenericType g3 = createEGenericType(ecorePackage.getEJavaObject());
 		g2.setEUpperBound(g3);
@@ -2191,25 +2495,25 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		op = addEOperation(bExecutionContextEClass, ecorePackage.getEJavaObject(), "defineValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEJavaObject(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getIType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getB3EngineException());
 
 		op = addEOperation(bExecutionContextEClass, ecorePackage.getEJavaObject(), "defineFinalValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEJavaObject(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getIType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getB3EngineException());
 
 		op = addEOperation(bExecutionContextEClass, ecorePackage.getEJavaObject(), "defineVariableValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEJavaObject(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getIType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getB3EngineException());
 
 		op = addEOperation(bExecutionContextEClass, ecorePackage.getEJavaObject(), "defineFinalVariableValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEJavaObject(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getIType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getB3EngineException());
 
 		op = addEOperation(bExecutionContextEClass, ecorePackage.getEBoolean(), "isFinal", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -2225,11 +2529,11 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 
 		addEOperation(bExecutionContextEClass, this.getBExecutionContext(), "createOuterContext", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(bExecutionContextEClass, this.getType(), "getDeclaredValueType", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(bExecutionContextEClass, this.getIType(), "getDeclaredValueType", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getB3EngineException());
 
-		op = addEOperation(bExecutionContextEClass, this.getType(), "getDeclaredFunctionType", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(bExecutionContextEClass, this.getIType(), "getDeclaredFunctionType", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "functionName", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTypeArray(), "types", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getThrowable());
@@ -2252,7 +2556,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		addEParameter(op, ecorePackage.getEJavaObject(), "switchValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getThrowable());
 
-		op = addEOperation(bCaseEClass, this.getType(), "getDeclaredType", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(bCaseEClass, this.getIType(), "getDeclaredType", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getThrowable());
 
@@ -2349,7 +2653,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEAttribute(getBFunction_ReturnType(), this.getType(), "returnType", null, 0, 1, BFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBFunction_ParameterTypes(), this.getTypeArray(), "parameterTypes", null, 0, 1, BFunction.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBFunction_ExceptionTypes(), this.getTypeArray(), "exceptionTypes", null, 0, 1, BFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getBFunction_TypeVariables(), this.getTypeVariableArray(), "typeVariables", null, 0, 1, BFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBFunction_TypeParameters(), this.getTypeVariableArray(), "typeParameters", null, 0, 1, BFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBFunction_ParameterNames(), this.getStringArray(), "parameterNames", null, 0, 1, BFunction.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBFunction_VarArgs(), ecorePackage.getEBoolean(), "varArgs", null, 0, 1, BFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBFunction_Parameters(), this.getBParameterDeclaration(), null, "parameters", null, 0, -1, BFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2432,6 +2736,44 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEClass(bParameterDeclarationEClass, BParameterDeclaration.class, "BParameterDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBParameterDeclaration_Name(), ecorePackage.getEString(), "name", null, 1, 1, BParameterDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBParameterDeclaration_Type(), this.getType(), "type", null, 0, 1, BParameterDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(iTypeEClass, Type.class, "IType", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(b3FunctionTypeEClass, B3FunctionType.class, "B3FunctionType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getB3FunctionType_FunctionType(), this.getIType(), null, "functionType", null, 1, 1, B3FunctionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getB3FunctionType_ReturnType(), this.getIType(), null, "returnType", null, 1, 1, B3FunctionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getB3FunctionType_ParameterTypes(), this.getIType(), null, "parameterTypes", null, 0, -1, B3FunctionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getB3FunctionType_VarArgs(), ecorePackage.getEBoolean(), "varArgs", null, 0, 1, B3FunctionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		addEOperation(b3FunctionTypeEClass, this.getTypeArray(), "getParameterTypesArray", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(iParameterizedTypeEClass, ParameterizedType.class, "IParameterizedType", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(iGenericDeclarationEClass, GenericDeclaration.class, "IGenericDeclaration", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(b3ParameterizedTypeEClass, B3ParameterizedType.class, "B3ParameterizedType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getB3ParameterizedType_OwnerType(), this.getIType(), null, "ownerType", null, 0, 1, B3ParameterizedType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getB3ParameterizedType_RawType(), this.getIType(), null, "rawType", null, 1, 1, B3ParameterizedType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getB3ParameterizedType_ActualArgumentsList(), this.getIType(), null, "actualArgumentsList", null, 0, 1, B3ParameterizedType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		addEOperation(b3ParameterizedTypeEClass, this.getTypeArray(), "getActualTypeArguments", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(iWildcardTypeEClass, WildcardType.class, "IWildcardType", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(b3WildcardTypeEClass, B3WildcardType.class, "B3WildcardType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getB3WildcardType_LowerBoundsList(), this.getIType(), null, "lowerBoundsList", null, 0, -1, B3WildcardType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getB3WildcardType_UpperBoundsList(), this.getIType(), null, "upperBoundsList", null, 0, -1, B3WildcardType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		addEOperation(b3WildcardTypeEClass, this.getTypeArray(), "getLowerBounds", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(b3WildcardTypeEClass, this.getTypeArray(), "getUpperBounds", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(iTypeVariableEClass, TypeVariable.class, "ITypeVariable", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(b3FuncTypeVariableEClass, B3FuncTypeVariable.class, "B3FuncTypeVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getB3FuncTypeVariable_Bounds(), this.getTypeArray(), "bounds", null, 0, 1, B3FuncTypeVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getB3FuncTypeVariable_GenericDeclaration(), this.getBFunction(), null, "genericDeclaration", null, 0, 1, B3FuncTypeVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getB3FuncTypeVariable_Name(), ecorePackage.getEString(), "name", null, 1, 1, B3FuncTypeVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(coreExceptionEDataType, CoreException.class, "CoreException", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

@@ -78,7 +78,7 @@ public class BFunctionItemProvider
 			addReturnTypePropertyDescriptor(object);
 			addParameterTypesPropertyDescriptor(object);
 			addExceptionTypesPropertyDescriptor(object);
-			addTypeVariablesPropertyDescriptor(object);
+			addTypeParametersPropertyDescriptor(object);
 			addParameterNamesPropertyDescriptor(object);
 			addVarArgsPropertyDescriptor(object);
 		}
@@ -262,19 +262,19 @@ public class BFunctionItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Type Variables feature.
+	 * This adds a property descriptor for the Type Parameters feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTypeVariablesPropertyDescriptor(Object object) {
+	protected void addTypeParametersPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BFunction_typeVariables_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BFunction_typeVariables_feature", "_UI_BFunction_type"),
-				 B3backendPackage.Literals.BFUNCTION__TYPE_VARIABLES,
+				 getString("_UI_BFunction_typeParameters_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BFunction_typeParameters_feature", "_UI_BFunction_type"),
+				 B3backendPackage.Literals.BFUNCTION__TYPE_PARAMETERS,
 				 true,
 				 false,
 				 false,
@@ -401,7 +401,7 @@ public class BFunctionItemProvider
 			case B3backendPackage.BFUNCTION__RETURN_TYPE:
 			case B3backendPackage.BFUNCTION__PARAMETER_TYPES:
 			case B3backendPackage.BFUNCTION__EXCEPTION_TYPES:
-			case B3backendPackage.BFUNCTION__TYPE_VARIABLES:
+			case B3backendPackage.BFUNCTION__TYPE_PARAMETERS:
 			case B3backendPackage.BFUNCTION__PARAMETER_NAMES:
 			case B3backendPackage.BFUNCTION__VAR_ARGS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

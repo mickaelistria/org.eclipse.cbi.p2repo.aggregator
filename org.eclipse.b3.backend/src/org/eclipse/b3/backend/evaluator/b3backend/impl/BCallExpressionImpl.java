@@ -15,7 +15,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameter;
-import org.eclipse.b3.backend.evaluator.typesystem.B3FunctionType;
+import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;

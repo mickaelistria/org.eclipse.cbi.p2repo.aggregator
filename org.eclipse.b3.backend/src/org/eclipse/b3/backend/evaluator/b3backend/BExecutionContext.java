@@ -189,7 +189,7 @@ public interface BExecutionContext extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.Type" exceptions="org.eclipse.b3.backend.evaluator.b3backend.B3EngineException"
+	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType" exceptions="org.eclipse.b3.backend.evaluator.b3backend.B3EngineException"
 	 * @generated
 	 */
 	Type getDeclaredValueType(String name) throws B3EngineException;
@@ -200,7 +200,7 @@ public interface BExecutionContext extends EObject {
 	 * <!-- begin-model-doc -->
 	 * Evaluate the function referenced by name in this context.
 	 * <!-- end-model-doc -->
-	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.Type" exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable" typesDataType="org.eclipse.b3.backend.evaluator.b3backend.TypeArray"
+	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType" exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable" typesDataType="org.eclipse.b3.backend.evaluator.b3backend.TypeArray"
 	 * @generated
 	 */
 	Type getDeclaredFunctionType(String functionName, Type[] types) throws Throwable;
@@ -219,7 +219,7 @@ public interface BExecutionContext extends EObject {
 	 * <!-- begin-model-doc -->
 	 * Defines an immutable value
 	 * <!-- end-model-doc -->
-	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.B3EngineException" typeDataType="org.eclipse.b3.backend.evaluator.b3backend.Type"
+	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.B3EngineException" typeType="org.eclipse.b3.backend.evaluator.b3backend.IType"
 	 * @generated
 	 */
 	Object defineValue(String name, Object value, Type type) throws B3EngineException;
@@ -230,7 +230,7 @@ public interface BExecutionContext extends EObject {
 	 * <!-- begin-model-doc -->
 	 * Defines an immutable value
 	 * <!-- end-model-doc -->
-	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.B3EngineException" typeDataType="org.eclipse.b3.backend.evaluator.b3backend.Type"
+	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.B3EngineException" typeType="org.eclipse.b3.backend.evaluator.b3backend.IType"
 	 * @generated
 	 */
 	Object defineFinalValue(String name, Object value, Type type) throws B3EngineException;
@@ -241,7 +241,7 @@ public interface BExecutionContext extends EObject {
 	 * <!-- begin-model-doc -->
 	 * Defines a variable value (mutable).
 	 * <!-- end-model-doc -->
-	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.B3EngineException" typeDataType="org.eclipse.b3.backend.evaluator.b3backend.Type"
+	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.B3EngineException" typeType="org.eclipse.b3.backend.evaluator.b3backend.IType"
 	 * @generated
 	 */
 	Object defineVariableValue(String name, Object value, Type type) throws B3EngineException;
@@ -252,7 +252,7 @@ public interface BExecutionContext extends EObject {
 	 * <!-- begin-model-doc -->
 	 * Defines a variable value (mutable).
 	 * <!-- end-model-doc -->
-	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.B3EngineException" typeDataType="org.eclipse.b3.backend.evaluator.b3backend.Type"
+	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.B3EngineException" typeType="org.eclipse.b3.backend.evaluator.b3backend.IType"
 	 * @generated
 	 */
 	Object defineFinalVariableValue(String name, Object value, Type type) throws B3EngineException;

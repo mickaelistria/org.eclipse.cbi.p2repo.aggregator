@@ -401,6 +401,44 @@ public interface B3backendFactory extends EFactory {
 	BParameterDeclaration createBParameterDeclaration();
 
 	/**
+	 * Returns a new object of class '<em>B3 Function Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>B3 Function Type</em>'.
+	 * @generated
+	 */
+	B3FunctionType createB3FunctionType();
+
+	/**
+	 * Returns a new object of class '<em>B3 Parameterized Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>B3 Parameterized Type</em>'.
+	 * @generated
+	 */
+	B3ParameterizedType createB3ParameterizedType();
+
+	/**
+	 * Returns a new object of class '<em>B3 Wildcard Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>B3 Wildcard Type</em>'.
+	 * @generated
+	 */
+	B3WildcardType createB3WildcardType();
+
+
+
+	/**
+	 * Returns a new object of class '<em>B3 Func Type Variable</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>B3 Func Type Variable</em>'.
+	 * @generated
+	 */
+	B3FuncTypeVariable createB3FuncTypeVariable();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

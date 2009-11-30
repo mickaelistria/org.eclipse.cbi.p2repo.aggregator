@@ -6,6 +6,11 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.util;
 
+import java.lang.reflect.GenericDeclaration;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+import java.lang.reflect.TypeVariable;
+import java.lang.reflect.WildcardType;
 import java.util.List;
 
 import org.eclipse.b3.backend.evaluator.b3backend.*;
@@ -340,6 +345,7 @@ public class B3backendSwitch<T> {
 				BFunction bFunction = (BFunction)theEObject;
 				T result = caseBFunction(bFunction);
 				if (result == null) result = caseBExpression(bFunction);
+				if (result == null) result = caseIGenericDeclaration(bFunction);
 				if (result == null) result = caseBSourceLink(bFunction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -417,6 +423,7 @@ public class B3backendSwitch<T> {
 				T result = caseB3Function(b3Function);
 				if (result == null) result = caseBFunction(b3Function);
 				if (result == null) result = caseBExpression(b3Function);
+				if (result == null) result = caseIGenericDeclaration(b3Function);
 				if (result == null) result = caseBSourceLink(b3Function);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -426,6 +433,7 @@ public class B3backendSwitch<T> {
 				T result = caseBJavaFunction(bJavaFunction);
 				if (result == null) result = caseBFunction(bJavaFunction);
 				if (result == null) result = caseBExpression(bJavaFunction);
+				if (result == null) result = caseIGenericDeclaration(bJavaFunction);
 				if (result == null) result = caseBSourceLink(bJavaFunction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -469,6 +477,37 @@ public class B3backendSwitch<T> {
 			case B3backendPackage.BPARAMETER_DECLARATION: {
 				BParameterDeclaration bParameterDeclaration = (BParameterDeclaration)theEObject;
 				T result = caseBParameterDeclaration(bParameterDeclaration);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3backendPackage.B3_FUNCTION_TYPE: {
+				B3FunctionType b3FunctionType = (B3FunctionType)theEObject;
+				T result = caseB3FunctionType(b3FunctionType);
+				if (result == null) result = caseIType(b3FunctionType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3backendPackage.B3_PARAMETERIZED_TYPE: {
+				B3ParameterizedType b3ParameterizedType = (B3ParameterizedType)theEObject;
+				T result = caseB3ParameterizedType(b3ParameterizedType);
+				if (result == null) result = caseIParameterizedType(b3ParameterizedType);
+				if (result == null) result = caseIType(b3ParameterizedType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3backendPackage.B3_WILDCARD_TYPE: {
+				B3WildcardType b3WildcardType = (B3WildcardType)theEObject;
+				T result = caseB3WildcardType(b3WildcardType);
+				if (result == null) result = caseIWildcardType(b3WildcardType);
+				if (result == null) result = caseIType(b3WildcardType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3backendPackage.B3_FUNC_TYPE_VARIABLE: {
+				B3FuncTypeVariable b3FuncTypeVariable = (B3FuncTypeVariable)theEObject;
+				T result = caseB3FuncTypeVariable(b3FuncTypeVariable);
+				if (result == null) result = caseITypeVariable(b3FuncTypeVariable);
+				if (result == null) result = caseIType(b3FuncTypeVariable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1208,6 +1247,141 @@ public class B3backendSwitch<T> {
 	 * @generated
 	 */
 	public T caseBParameterDeclaration(BParameterDeclaration object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IType</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IType</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIType(Type object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>B3 Function Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>B3 Function Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseB3FunctionType(B3FunctionType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IParameterized Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IParameterized Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIParameterizedType(ParameterizedType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IGeneric Declaration</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IGeneric Declaration</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIGenericDeclaration(GenericDeclaration object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>B3 Parameterized Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>B3 Parameterized Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseB3ParameterizedType(B3ParameterizedType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IWildcard Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IWildcard Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIWildcardType(WildcardType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>B3 Wildcard Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>B3 Wildcard Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseB3WildcardType(B3WildcardType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IType Variable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IType Variable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public <D extends GenericDeclaration> T caseITypeVariable(TypeVariable<D> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>B3 Func Type Variable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>B3 Func Type Variable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseB3FuncTypeVariable(B3FuncTypeVariable object) {
 		return null;
 	}
 

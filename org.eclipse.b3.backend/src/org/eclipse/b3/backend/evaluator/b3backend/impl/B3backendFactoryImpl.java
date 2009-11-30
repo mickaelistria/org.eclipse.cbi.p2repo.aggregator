@@ -119,6 +119,10 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 			case B3backendPackage.BPARAMETER_LIST: return createBParameterList();
 			case B3backendPackage.BPARAMETER: return createBParameter();
 			case B3backendPackage.BPARAMETER_DECLARATION: return createBParameterDeclaration();
+			case B3backendPackage.B3_FUNCTION_TYPE: return createB3FunctionType();
+			case B3backendPackage.B3_PARAMETERIZED_TYPE: return createB3ParameterizedType();
+			case B3backendPackage.B3_WILDCARD_TYPE: return createB3WildcardType();
+			case B3backendPackage.B3_FUNC_TYPE_VARIABLE: return createB3FuncTypeVariable();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -610,6 +614,46 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	public BParameterDeclaration createBParameterDeclaration() {
 		BParameterDeclarationImpl bParameterDeclaration = new BParameterDeclarationImpl();
 		return bParameterDeclaration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public B3FunctionType createB3FunctionType() {
+		B3FunctionTypeImpl b3FunctionType = new B3FunctionTypeImpl();
+		return b3FunctionType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public B3ParameterizedType createB3ParameterizedType() {
+		B3ParameterizedTypeImpl b3ParameterizedType = new B3ParameterizedTypeImpl();
+		return b3ParameterizedType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public B3WildcardType createB3WildcardType() {
+		B3WildcardTypeImpl b3WildcardType = new B3WildcardTypeImpl();
+		return b3WildcardType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public B3FuncTypeVariable createB3FuncTypeVariable() {
+		B3FuncTypeVariableImpl b3FuncTypeVariable = new B3FuncTypeVariableImpl();
+		return b3FuncTypeVariable;
 	}
 
 	/**
