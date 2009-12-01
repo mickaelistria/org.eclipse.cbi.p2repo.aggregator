@@ -25,6 +25,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -65,24 +66,14 @@ public class BLiteralListExpressionImpl extends BExpressionImpl implements BLite
 	protected EList<BExpression> entries;
 
 	/**
-	 * The default value of the '{@link #getEntryType() <em>Entry Type</em>}' attribute.
+	 * The cached value of the '{@link #getEntryType() <em>Entry Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getEntryType()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Type ENTRY_TYPE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getEntryType() <em>Entry Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEntryType()
-	 * @generated
-	 * @ordered
-	 */
-	protected Type entryType = ENTRY_TYPE_EDEFAULT;
+	protected Type entryType;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -121,6 +112,23 @@ public class BLiteralListExpressionImpl extends BExpressionImpl implements BLite
 	 * @generated
 	 */
 	public Type getEntryType() {
+		if (entryType != null && ((EObject)entryType).eIsProxy()) {
+			InternalEObject oldEntryType = (InternalEObject)entryType;
+			entryType = (Type)eResolveProxy(oldEntryType);
+			if (entryType != oldEntryType) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE, oldEntryType, entryType));
+			}
+		}
+		return entryType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Type basicGetEntryType() {
 		return entryType;
 	}
 
@@ -161,7 +169,8 @@ public class BLiteralListExpressionImpl extends BExpressionImpl implements BLite
 			case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRIES:
 				return getEntries();
 			case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE:
-				return getEntryType();
+				if (resolve) return getEntryType();
+				return basicGetEntryType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -198,7 +207,7 @@ public class BLiteralListExpressionImpl extends BExpressionImpl implements BLite
 				getEntries().clear();
 				return;
 			case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE:
-				setEntryType(ENTRY_TYPE_EDEFAULT);
+				setEntryType((Type)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -215,26 +224,11 @@ public class BLiteralListExpressionImpl extends BExpressionImpl implements BLite
 			case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRIES:
 				return entries != null && !entries.isEmpty();
 			case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE:
-				return ENTRY_TYPE_EDEFAULT == null ? entryType != null : !ENTRY_TYPE_EDEFAULT.equals(entryType);
+				return entryType != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (entryType: ");
-		result.append(entryType);
-		result.append(')');
-		return result.toString();
-	}
 	@SuppressWarnings("unchecked")
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {

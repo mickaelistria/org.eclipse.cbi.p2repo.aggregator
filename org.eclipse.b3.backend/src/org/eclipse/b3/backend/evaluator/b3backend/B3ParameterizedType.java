@@ -15,6 +15,7 @@ package org.eclipse.b3.backend.evaluator.b3backend;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -96,30 +97,20 @@ public interface B3ParameterizedType extends EObject, ParameterizedType {
 	void setRawType(Type value);
 
 	/**
-	 * Returns the value of the '<em><b>Actual Arguments List</b></em>' reference.
+	 * Returns the value of the '<em><b>Actual Arguments List</b></em>' reference list.
+	 * The list contents are of type {@link java.lang.reflect.Type}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Actual Arguments List</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Actual Arguments List</em>' reference.
-	 * @see #setActualArgumentsList(Type)
+	 * @return the value of the '<em>Actual Arguments List</em>' reference list.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getB3ParameterizedType_ActualArgumentsList()
 	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType"
 	 * @generated
 	 */
-	Type getActualArgumentsList();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType#getActualArgumentsList <em>Actual Arguments List</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Actual Arguments List</em>' reference.
-	 * @see #getActualArgumentsList()
-	 * @generated
-	 */
-	void setActualArgumentsList(Type value);
+	EList<Type> getActualArgumentsList();
 
 	/**
 	 * <!-- begin-user-doc -->

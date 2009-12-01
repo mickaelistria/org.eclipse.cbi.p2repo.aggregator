@@ -15,11 +15,14 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BGuard;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
+import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
+import org.eclipse.b3.backend.evaluator.b3backend.Visibility;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -35,18 +38,20 @@ import org.eclipse.osgi.internal.resolver.ComputeNodeOrder;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#isPrivate <em>Private</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getVisibility <em>Visibility</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#isFinal <em>Final</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#isSequential <em>Sequential</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getExecutionMode <em>Execution Mode</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getGuard <em>Guard</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getReturnType <em>Return Type</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getParameterTypes <em>Parameter Types</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getExceptionTypes <em>Exception Types</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getTypeParameters <em>Type Parameters</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getParameterNames <em>Parameter Names</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#isVarArgs <em>Var Args</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getDocumentation <em>Documentation</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getReturnType <em>Return Type</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#isCached <em>Cached</em>}</li>
  * </ul>
  * </p>
  *
@@ -61,24 +66,24 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
 
 	/**
-	 * The default value of the '{@link #isPrivate() <em>Private</em>}' attribute.
+	 * The default value of the '{@link #getVisibility() <em>Visibility</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isPrivate()
+	 * @see #getVisibility()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean PRIVATE_EDEFAULT = false;
+	protected static final Visibility VISIBILITY_EDEFAULT = Visibility.PRIVATE;
 
 	/**
-	 * The cached value of the '{@link #isPrivate() <em>Private</em>}' attribute.
+	 * The cached value of the '{@link #getVisibility() <em>Visibility</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isPrivate()
+	 * @see #getVisibility()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean private_ = PRIVATE_EDEFAULT;
+	protected Visibility visibility = VISIBILITY_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isFinal() <em>Final</em>}' attribute.
@@ -101,24 +106,24 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	protected boolean final_ = FINAL_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isSequential() <em>Sequential</em>}' attribute.
+	 * The default value of the '{@link #getExecutionMode() <em>Execution Mode</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isSequential()
+	 * @see #getExecutionMode()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean SEQUENTIAL_EDEFAULT = false;
+	protected static final ExecutionMode EXECUTION_MODE_EDEFAULT = ExecutionMode.SEQUENTIAL;
 
 	/**
-	 * The cached value of the '{@link #isSequential() <em>Sequential</em>}' attribute.
+	 * The cached value of the '{@link #getExecutionMode() <em>Execution Mode</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isSequential()
+	 * @see #getExecutionMode()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean sequential = SEQUENTIAL_EDEFAULT;
+	protected ExecutionMode executionMode = EXECUTION_MODE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -149,26 +154,6 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	 * @ordered
 	 */
 	protected BGuard guard;
-
-	/**
-	 * The default value of the '{@link #getReturnType() <em>Return Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getReturnType()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Type RETURN_TYPE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getReturnType() <em>Return Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getReturnType()
-	 * @generated
-	 * @ordered
-	 */
-	protected Type returnType = RETURN_TYPE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getParameterTypes() <em>Parameter Types</em>}' attribute.
@@ -281,6 +266,56 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	protected EList<BParameterDeclaration> parameters;
 
 	/**
+	 * The default value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDocumentation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DOCUMENTATION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDocumentation()
+	 * @generated
+	 * @ordered
+	 */
+	protected String documentation = DOCUMENTATION_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getReturnType() <em>Return Type</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReturnType()
+	 * @generated
+	 * @ordered
+	 */
+	protected Type returnType;
+
+	/**
+	 * The default value of the '{@link #isCached() <em>Cached</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isCached()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean CACHED_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isCached() <em>Cached</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isCached()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean cached = CACHED_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -304,8 +339,8 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isPrivate() {
-		return private_;
+	public Visibility getVisibility() {
+		return visibility;
 	}
 
 	/**
@@ -313,11 +348,11 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPrivate(boolean newPrivate) {
-		boolean oldPrivate = private_;
-		private_ = newPrivate;
+	public void setVisibility(Visibility newVisibility) {
+		Visibility oldVisibility = visibility;
+		visibility = newVisibility == null ? VISIBILITY_EDEFAULT : newVisibility;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION__PRIVATE, oldPrivate, private_));
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION__VISIBILITY, oldVisibility, visibility));
 	}
 
 	/**
@@ -346,8 +381,8 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isSequential() {
-		return sequential;
+	public ExecutionMode getExecutionMode() {
+		return executionMode;
 	}
 
 	/**
@@ -355,11 +390,11 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSequential(boolean newSequential) {
-		boolean oldSequential = sequential;
-		sequential = newSequential;
+	public void setExecutionMode(ExecutionMode newExecutionMode) {
+		ExecutionMode oldExecutionMode = executionMode;
+		executionMode = newExecutionMode == null ? EXECUTION_MODE_EDEFAULT : newExecutionMode;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION__SEQUENTIAL, oldSequential, sequential));
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION__EXECUTION_MODE, oldExecutionMode, executionMode));
 	}
 
 	/**
@@ -424,9 +459,27 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Type getReturnType() {
+		// NOTE: Must check if return type is an EObject
+		if (returnType != null && returnType instanceof EObject && ((EObject)returnType).eIsProxy()) {
+			InternalEObject oldReturnType = (InternalEObject)returnType;
+			returnType = (Type)eResolveProxy(oldReturnType);
+			if (returnType != oldReturnType) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.BFUNCTION__RETURN_TYPE, oldReturnType, returnType));
+			}
+		}
+		return returnType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Type basicGetReturnType() {
 		return returnType;
 	}
 
@@ -446,6 +499,29 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
+	 */
+	public boolean isCached() {
+		return cached;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCached(boolean newCached) {
+		boolean oldCached = cached;
+		cached = newCached;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION__CACHED, oldCached, cached));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Returns an array of the parameter types (if already set it is returned, if null, it is calculated
+	 * from the list of parameter declarations).
+	 * <!-- end-user-doc -->
+	 * @generated NOT
 	 */
 	public Type[] getParameterTypes() {
 		if(parameterTypes != null)
@@ -576,6 +652,27 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getDocumentation() {
+		return documentation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDocumentation(String newDocumentation) {
+		String oldDocumentation = documentation;
+		documentation = newDocumentation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION__DOCUMENTATION, oldDocumentation, documentation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Object internalCall(BExecutionContext ctx, Object[] parameters, Type[] types) throws Throwable {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -604,19 +701,17 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case B3backendPackage.BFUNCTION__PRIVATE:
-				return isPrivate();
+			case B3backendPackage.BFUNCTION__VISIBILITY:
+				return getVisibility();
 			case B3backendPackage.BFUNCTION__FINAL:
 				return isFinal();
-			case B3backendPackage.BFUNCTION__SEQUENTIAL:
-				return isSequential();
+			case B3backendPackage.BFUNCTION__EXECUTION_MODE:
+				return getExecutionMode();
 			case B3backendPackage.BFUNCTION__NAME:
 				return getName();
 			case B3backendPackage.BFUNCTION__GUARD:
 				if (resolve) return getGuard();
 				return basicGetGuard();
-			case B3backendPackage.BFUNCTION__RETURN_TYPE:
-				return getReturnType();
 			case B3backendPackage.BFUNCTION__PARAMETER_TYPES:
 				return getParameterTypes();
 			case B3backendPackage.BFUNCTION__EXCEPTION_TYPES:
@@ -629,6 +724,13 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 				return isVarArgs();
 			case B3backendPackage.BFUNCTION__PARAMETERS:
 				return getParameters();
+			case B3backendPackage.BFUNCTION__DOCUMENTATION:
+				return getDocumentation();
+			case B3backendPackage.BFUNCTION__RETURN_TYPE:
+				if (resolve) return getReturnType();
+				return basicGetReturnType();
+			case B3backendPackage.BFUNCTION__CACHED:
+				return isCached();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -642,23 +744,20 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case B3backendPackage.BFUNCTION__PRIVATE:
-				setPrivate((Boolean)newValue);
+			case B3backendPackage.BFUNCTION__VISIBILITY:
+				setVisibility((Visibility)newValue);
 				return;
 			case B3backendPackage.BFUNCTION__FINAL:
 				setFinal((Boolean)newValue);
 				return;
-			case B3backendPackage.BFUNCTION__SEQUENTIAL:
-				setSequential((Boolean)newValue);
+			case B3backendPackage.BFUNCTION__EXECUTION_MODE:
+				setExecutionMode((ExecutionMode)newValue);
 				return;
 			case B3backendPackage.BFUNCTION__NAME:
 				setName((String)newValue);
 				return;
 			case B3backendPackage.BFUNCTION__GUARD:
 				setGuard((BGuard)newValue);
-				return;
-			case B3backendPackage.BFUNCTION__RETURN_TYPE:
-				setReturnType((Type)newValue);
 				return;
 			case B3backendPackage.BFUNCTION__PARAMETER_TYPES:
 				setParameterTypes((Type[])newValue);
@@ -679,6 +778,15 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 				getParameters().clear();
 				getParameters().addAll((Collection<? extends BParameterDeclaration>)newValue);
 				return;
+			case B3backendPackage.BFUNCTION__DOCUMENTATION:
+				setDocumentation((String)newValue);
+				return;
+			case B3backendPackage.BFUNCTION__RETURN_TYPE:
+				setReturnType((Type)newValue);
+				return;
+			case B3backendPackage.BFUNCTION__CACHED:
+				setCached((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -691,23 +799,20 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case B3backendPackage.BFUNCTION__PRIVATE:
-				setPrivate(PRIVATE_EDEFAULT);
+			case B3backendPackage.BFUNCTION__VISIBILITY:
+				setVisibility(VISIBILITY_EDEFAULT);
 				return;
 			case B3backendPackage.BFUNCTION__FINAL:
 				setFinal(FINAL_EDEFAULT);
 				return;
-			case B3backendPackage.BFUNCTION__SEQUENTIAL:
-				setSequential(SEQUENTIAL_EDEFAULT);
+			case B3backendPackage.BFUNCTION__EXECUTION_MODE:
+				setExecutionMode(EXECUTION_MODE_EDEFAULT);
 				return;
 			case B3backendPackage.BFUNCTION__NAME:
 				setName(NAME_EDEFAULT);
 				return;
 			case B3backendPackage.BFUNCTION__GUARD:
 				setGuard((BGuard)null);
-				return;
-			case B3backendPackage.BFUNCTION__RETURN_TYPE:
-				setReturnType(RETURN_TYPE_EDEFAULT);
 				return;
 			case B3backendPackage.BFUNCTION__PARAMETER_TYPES:
 				setParameterTypes(PARAMETER_TYPES_EDEFAULT);
@@ -727,6 +832,15 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 			case B3backendPackage.BFUNCTION__PARAMETERS:
 				getParameters().clear();
 				return;
+			case B3backendPackage.BFUNCTION__DOCUMENTATION:
+				setDocumentation(DOCUMENTATION_EDEFAULT);
+				return;
+			case B3backendPackage.BFUNCTION__RETURN_TYPE:
+				setReturnType((Type)null);
+				return;
+			case B3backendPackage.BFUNCTION__CACHED:
+				setCached(CACHED_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -739,18 +853,16 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case B3backendPackage.BFUNCTION__PRIVATE:
-				return private_ != PRIVATE_EDEFAULT;
+			case B3backendPackage.BFUNCTION__VISIBILITY:
+				return visibility != VISIBILITY_EDEFAULT;
 			case B3backendPackage.BFUNCTION__FINAL:
 				return final_ != FINAL_EDEFAULT;
-			case B3backendPackage.BFUNCTION__SEQUENTIAL:
-				return sequential != SEQUENTIAL_EDEFAULT;
+			case B3backendPackage.BFUNCTION__EXECUTION_MODE:
+				return executionMode != EXECUTION_MODE_EDEFAULT;
 			case B3backendPackage.BFUNCTION__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case B3backendPackage.BFUNCTION__GUARD:
 				return guard != null;
-			case B3backendPackage.BFUNCTION__RETURN_TYPE:
-				return RETURN_TYPE_EDEFAULT == null ? returnType != null : !RETURN_TYPE_EDEFAULT.equals(returnType);
 			case B3backendPackage.BFUNCTION__PARAMETER_TYPES:
 				return PARAMETER_TYPES_EDEFAULT == null ? parameterTypes != null : !PARAMETER_TYPES_EDEFAULT.equals(parameterTypes);
 			case B3backendPackage.BFUNCTION__EXCEPTION_TYPES:
@@ -763,6 +875,12 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 				return varArgs != VAR_ARGS_EDEFAULT;
 			case B3backendPackage.BFUNCTION__PARAMETERS:
 				return parameters != null && !parameters.isEmpty();
+			case B3backendPackage.BFUNCTION__DOCUMENTATION:
+				return DOCUMENTATION_EDEFAULT == null ? documentation != null : !DOCUMENTATION_EDEFAULT.equals(documentation);
+			case B3backendPackage.BFUNCTION__RETURN_TYPE:
+				return returnType != null;
+			case B3backendPackage.BFUNCTION__CACHED:
+				return cached != CACHED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -777,16 +895,14 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (private: ");
-		result.append(private_);
+		result.append(" (visibility: ");
+		result.append(visibility);
 		result.append(", final: ");
 		result.append(final_);
-		result.append(", sequential: ");
-		result.append(sequential);
+		result.append(", executionMode: ");
+		result.append(executionMode);
 		result.append(", name: ");
 		result.append(name);
-		result.append(", returnType: ");
-		result.append(returnType);
 		result.append(", parameterTypes: ");
 		result.append(parameterTypes);
 		result.append(", exceptionTypes: ");
@@ -797,6 +913,10 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 		result.append(parameterNames);
 		result.append(", varArgs: ");
 		result.append(varArgs);
+		result.append(", documentation: ");
+		result.append(documentation);
+		result.append(", cached: ");
+		result.append(cached);
 		result.append(')');
 		return result.toString();
 	}

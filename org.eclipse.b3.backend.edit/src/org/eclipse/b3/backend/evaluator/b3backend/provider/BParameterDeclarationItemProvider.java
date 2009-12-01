@@ -121,8 +121,8 @@ public class BParameterDeclarationItemProvider
 				 B3backendPackage.Literals.BPARAMETER_DECLARATION__TYPE,
 				 true,
 				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
@@ -165,7 +165,6 @@ public class BParameterDeclarationItemProvider
 
 		switch (notification.getFeatureID(BParameterDeclaration.class)) {
 			case B3backendPackage.BPARAMETER_DECLARATION__NAME:
-			case B3backendPackage.BPARAMETER_DECLARATION__TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

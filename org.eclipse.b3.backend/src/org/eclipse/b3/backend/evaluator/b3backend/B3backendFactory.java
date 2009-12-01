@@ -439,6 +439,15 @@ public interface B3backendFactory extends EFactory {
 	B3FuncTypeVariable createB3FuncTypeVariable();
 
 	/**
+	 * Returns a new object of class '<em>B3 Java Import</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>B3 Java Import</em>'.
+	 * @generated
+	 */
+	B3JavaImport createB3JavaImport();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

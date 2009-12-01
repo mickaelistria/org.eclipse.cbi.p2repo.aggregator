@@ -187,8 +187,8 @@ public class BDefValueItemProvider
 				 B3backendPackage.Literals.BDEF_VALUE__TYPE,
 				 true,
 				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
@@ -233,7 +233,6 @@ public class BDefValueItemProvider
 			case B3backendPackage.BDEF_VALUE__NAME:
 			case B3backendPackage.BDEF_VALUE__FINAL:
 			case B3backendPackage.BDEF_VALUE__IMMUTABLE:
-			case B3backendPackage.BDEF_VALUE__TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

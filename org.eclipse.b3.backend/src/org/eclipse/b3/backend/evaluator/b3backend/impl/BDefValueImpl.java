@@ -21,6 +21,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -120,24 +121,14 @@ public class BDefValueImpl extends BExpressionImpl implements BDefValue {
 	protected BExpression valueExpr;
 
 	/**
-	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * The cached value of the '{@link #getType() <em>Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getType()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Type TYPE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected Type type = TYPE_EDEFAULT;
+	protected Type type;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -265,6 +256,23 @@ public class BDefValueImpl extends BExpressionImpl implements BDefValue {
 	 * @generated
 	 */
 	public Type getType() {
+		if (type != null && ((EObject)type).eIsProxy()) {
+			InternalEObject oldType = (InternalEObject)type;
+			type = (Type)eResolveProxy(oldType);
+			if (type != oldType) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.BDEF_VALUE__TYPE, oldType, type));
+			}
+		}
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Type basicGetType() {
 		return type;
 	}
 
@@ -298,7 +306,8 @@ public class BDefValueImpl extends BExpressionImpl implements BDefValue {
 				if (resolve) return getValueExpr();
 				return basicGetValueExpr();
 			case B3backendPackage.BDEF_VALUE__TYPE:
-				return getType();
+				if (resolve) return getType();
+				return basicGetType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -351,7 +360,7 @@ public class BDefValueImpl extends BExpressionImpl implements BDefValue {
 				setValueExpr((BExpression)null);
 				return;
 			case B3backendPackage.BDEF_VALUE__TYPE:
-				setType(TYPE_EDEFAULT);
+				setType((Type)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -374,7 +383,7 @@ public class BDefValueImpl extends BExpressionImpl implements BDefValue {
 			case B3backendPackage.BDEF_VALUE__VALUE_EXPR:
 				return valueExpr != null;
 			case B3backendPackage.BDEF_VALUE__TYPE:
-				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+				return type != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -395,8 +404,6 @@ public class BDefValueImpl extends BExpressionImpl implements BDefValue {
 		result.append(final_);
 		result.append(", immutable: ");
 		result.append(immutable);
-		result.append(", type: ");
-		result.append(type);
 		result.append(')');
 		return result.toString();
 	}

@@ -14,17 +14,20 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import java.lang.reflect.Type;
 
+import java.util.Collection;
 import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -70,14 +73,14 @@ public class B3ParameterizedTypeImpl extends EObjectImpl implements B3Parameteri
 	protected Type rawType;
 
 	/**
-	 * The cached value of the '{@link #getActualArgumentsList() <em>Actual Arguments List</em>}' reference.
+	 * The cached value of the '{@link #getActualArgumentsList() <em>Actual Arguments List</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getActualArgumentsList()
 	 * @generated
 	 * @ordered
 	 */
-	protected Type actualArgumentsList;
+	protected EList<Type> actualArgumentsList;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -179,37 +182,11 @@ public class B3ParameterizedTypeImpl extends EObjectImpl implements B3Parameteri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Type getActualArgumentsList() {
-		if (actualArgumentsList != null && ((EObject)actualArgumentsList).eIsProxy()) {
-			InternalEObject oldActualArgumentsList = (InternalEObject)actualArgumentsList;
-			actualArgumentsList = (Type)eResolveProxy(oldActualArgumentsList);
-			if (actualArgumentsList != oldActualArgumentsList) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.B3_PARAMETERIZED_TYPE__ACTUAL_ARGUMENTS_LIST, oldActualArgumentsList, actualArgumentsList));
-			}
+	public EList<Type> getActualArgumentsList() {
+		if (actualArgumentsList == null) {
+			actualArgumentsList = new EObjectResolvingEList<Type>(Type.class, this, B3backendPackage.B3_PARAMETERIZED_TYPE__ACTUAL_ARGUMENTS_LIST);
 		}
 		return actualArgumentsList;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Type basicGetActualArgumentsList() {
-		return actualArgumentsList;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setActualArgumentsList(Type newActualArgumentsList) {
-		Type oldActualArgumentsList = actualArgumentsList;
-		actualArgumentsList = newActualArgumentsList;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.B3_PARAMETERIZED_TYPE__ACTUAL_ARGUMENTS_LIST, oldActualArgumentsList, actualArgumentsList));
 	}
 
 	/**
@@ -238,8 +215,7 @@ public class B3ParameterizedTypeImpl extends EObjectImpl implements B3Parameteri
 				if (resolve) return getRawType();
 				return basicGetRawType();
 			case B3backendPackage.B3_PARAMETERIZED_TYPE__ACTUAL_ARGUMENTS_LIST:
-				if (resolve) return getActualArgumentsList();
-				return basicGetActualArgumentsList();
+				return getActualArgumentsList();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -249,6 +225,7 @@ public class B3ParameterizedTypeImpl extends EObjectImpl implements B3Parameteri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -259,7 +236,8 @@ public class B3ParameterizedTypeImpl extends EObjectImpl implements B3Parameteri
 				setRawType((Type)newValue);
 				return;
 			case B3backendPackage.B3_PARAMETERIZED_TYPE__ACTUAL_ARGUMENTS_LIST:
-				setActualArgumentsList((Type)newValue);
+				getActualArgumentsList().clear();
+				getActualArgumentsList().addAll((Collection<? extends Type>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -280,7 +258,7 @@ public class B3ParameterizedTypeImpl extends EObjectImpl implements B3Parameteri
 				setRawType((Type)null);
 				return;
 			case B3backendPackage.B3_PARAMETERIZED_TYPE__ACTUAL_ARGUMENTS_LIST:
-				setActualArgumentsList((Type)null);
+				getActualArgumentsList().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -299,7 +277,7 @@ public class B3ParameterizedTypeImpl extends EObjectImpl implements B3Parameteri
 			case B3backendPackage.B3_PARAMETERIZED_TYPE__RAW_TYPE:
 				return rawType != null;
 			case B3backendPackage.B3_PARAMETERIZED_TYPE__ACTUAL_ARGUMENTS_LIST:
-				return actualArgumentsList != null;
+				return actualArgumentsList != null && !actualArgumentsList.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

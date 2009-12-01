@@ -24,6 +24,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -64,44 +65,24 @@ public class BLiteralMapExpressionImpl extends BExpressionImpl implements BLiter
 	protected EList<BMapEntry> entries;
 
 	/**
-	 * The default value of the '{@link #getKeyType() <em>Key Type</em>}' attribute.
+	 * The cached value of the '{@link #getKeyType() <em>Key Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getKeyType()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Type KEY_TYPE_EDEFAULT = null;
+	protected Type keyType;
 
 	/**
-	 * The cached value of the '{@link #getKeyType() <em>Key Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getKeyType()
-	 * @generated
-	 * @ordered
-	 */
-	protected Type keyType = KEY_TYPE_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getValueType() <em>Value Type</em>}' attribute.
+	 * The cached value of the '{@link #getValueType() <em>Value Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getValueType()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Type VALUE_TYPE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getValueType() <em>Value Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValueType()
-	 * @generated
-	 * @ordered
-	 */
-	protected Type valueType = VALUE_TYPE_EDEFAULT;
+	protected Type valueType;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -140,6 +121,23 @@ public class BLiteralMapExpressionImpl extends BExpressionImpl implements BLiter
 	 * @generated
 	 */
 	public Type getKeyType() {
+		if (keyType != null && ((EObject)keyType).eIsProxy()) {
+			InternalEObject oldKeyType = (InternalEObject)keyType;
+			keyType = (Type)eResolveProxy(oldKeyType);
+			if (keyType != oldKeyType) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.BLITERAL_MAP_EXPRESSION__KEY_TYPE, oldKeyType, keyType));
+			}
+		}
+		return keyType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Type basicGetKeyType() {
 		return keyType;
 	}
 
@@ -161,6 +159,23 @@ public class BLiteralMapExpressionImpl extends BExpressionImpl implements BLiter
 	 * @generated
 	 */
 	public Type getValueType() {
+		if (valueType != null && ((EObject)valueType).eIsProxy()) {
+			InternalEObject oldValueType = (InternalEObject)valueType;
+			valueType = (Type)eResolveProxy(oldValueType);
+			if (valueType != oldValueType) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.BLITERAL_MAP_EXPRESSION__VALUE_TYPE, oldValueType, valueType));
+			}
+		}
+		return valueType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Type basicGetValueType() {
 		return valueType;
 	}
 
@@ -201,9 +216,11 @@ public class BLiteralMapExpressionImpl extends BExpressionImpl implements BLiter
 			case B3backendPackage.BLITERAL_MAP_EXPRESSION__ENTRIES:
 				return getEntries();
 			case B3backendPackage.BLITERAL_MAP_EXPRESSION__KEY_TYPE:
-				return getKeyType();
+				if (resolve) return getKeyType();
+				return basicGetKeyType();
 			case B3backendPackage.BLITERAL_MAP_EXPRESSION__VALUE_TYPE:
-				return getValueType();
+				if (resolve) return getValueType();
+				return basicGetValueType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -243,10 +260,10 @@ public class BLiteralMapExpressionImpl extends BExpressionImpl implements BLiter
 				getEntries().clear();
 				return;
 			case B3backendPackage.BLITERAL_MAP_EXPRESSION__KEY_TYPE:
-				setKeyType(KEY_TYPE_EDEFAULT);
+				setKeyType((Type)null);
 				return;
 			case B3backendPackage.BLITERAL_MAP_EXPRESSION__VALUE_TYPE:
-				setValueType(VALUE_TYPE_EDEFAULT);
+				setValueType((Type)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -263,30 +280,13 @@ public class BLiteralMapExpressionImpl extends BExpressionImpl implements BLiter
 			case B3backendPackage.BLITERAL_MAP_EXPRESSION__ENTRIES:
 				return entries != null && !entries.isEmpty();
 			case B3backendPackage.BLITERAL_MAP_EXPRESSION__KEY_TYPE:
-				return KEY_TYPE_EDEFAULT == null ? keyType != null : !KEY_TYPE_EDEFAULT.equals(keyType);
+				return keyType != null;
 			case B3backendPackage.BLITERAL_MAP_EXPRESSION__VALUE_TYPE:
-				return VALUE_TYPE_EDEFAULT == null ? valueType != null : !VALUE_TYPE_EDEFAULT.equals(valueType);
+				return valueType != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (keyType: ");
-		result.append(keyType);
-		result.append(", valueType: ");
-		result.append(valueType);
-		result.append(')');
-		return result.toString();
-	}
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 		Type kt = keyType == null ? String.class : keyType;

@@ -27,6 +27,7 @@ import org.eclipse.b3.backend.core.B3FinalVariableRedefinitionException;
 import org.eclipse.b3.backend.core.B3NoContextException;
 import org.eclipse.b3.backend.core.B3NoSuchVariableException;
 import org.eclipse.b3.backend.core.ValueMap;
+import org.eclipse.b3.backend.evaluator.BackendHelper;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BContext;
@@ -283,8 +284,8 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 				// check for annotations
 				B3Backend annotation = m.getAnnotation(B3Backend.class);
 				if(annotation != null) {
-					f.setSequential(annotation.sequential());
-					f.setPrivate(annotation.isPrivate());
+					f.setExecutionMode(BackendHelper.getExecutionMode(annotation));
+					f.setVisibility(BackendHelper.getVisibility(annotation));
 					if(annotation.hideOriginal()) {
 						String[] names = annotation.funcNames();
 						if(names == null || names.length < 1)
@@ -736,5 +737,4 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		result.append(')');
 		return result.toString();
 	}
-
 } //BExecutionContextImpl

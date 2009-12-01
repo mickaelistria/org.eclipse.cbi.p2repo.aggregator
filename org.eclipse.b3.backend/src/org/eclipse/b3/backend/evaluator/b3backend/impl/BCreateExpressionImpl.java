@@ -12,6 +12,7 @@ import java.lang.reflect.Type;
 import org.eclipse.b3.backend.core.B3NoSuchFunctionException;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameter;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
@@ -21,6 +22,8 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -32,6 +35,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BCreateExpressionImpl#getAlias <em>Alias</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BCreateExpressionImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BCreateExpressionImpl#getContextBlock <em>Context Block</em>}</li>
  * </ul>
  * </p>
  *
@@ -66,24 +70,24 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 	protected String alias = ALIAS_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * The cached value of the '{@link #getType() <em>Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getType()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Type TYPE_EDEFAULT = null;
+	protected Type type;
 
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * The cached value of the '{@link #getContextBlock() <em>Context Block</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getType()
+	 * @see #getContextBlock()
 	 * @generated
 	 * @ordered
 	 */
-	protected Type type = TYPE_EDEFAULT;
+	protected BExpression contextBlock;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -110,6 +114,23 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 	 * @generated
 	 */
 	public Type getType() {
+		if (type != null && ((EObject)type).eIsProxy()) {
+			InternalEObject oldType = (InternalEObject)type;
+			type = (Type)eResolveProxy(oldType);
+			if (type != oldType) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.BCREATE_EXPRESSION__TYPE, oldType, type));
+			}
+		}
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Type basicGetType() {
 		return type;
 	}
 
@@ -123,6 +144,44 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 		type = newType;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BCREATE_EXPRESSION__TYPE, oldType, type));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BExpression getContextBlock() {
+		if (contextBlock != null && contextBlock.eIsProxy()) {
+			InternalEObject oldContextBlock = (InternalEObject)contextBlock;
+			contextBlock = (BExpression)eResolveProxy(oldContextBlock);
+			if (contextBlock != oldContextBlock) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.BCREATE_EXPRESSION__CONTEXT_BLOCK, oldContextBlock, contextBlock));
+			}
+		}
+		return contextBlock;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BExpression basicGetContextBlock() {
+		return contextBlock;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setContextBlock(BExpression newContextBlock) {
+		BExpression oldContextBlock = contextBlock;
+		contextBlock = newContextBlock;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BCREATE_EXPRESSION__CONTEXT_BLOCK, oldContextBlock, contextBlock));
 	}
 
 	/**
@@ -157,7 +216,11 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 			case B3backendPackage.BCREATE_EXPRESSION__ALIAS:
 				return getAlias();
 			case B3backendPackage.BCREATE_EXPRESSION__TYPE:
-				return getType();
+				if (resolve) return getType();
+				return basicGetType();
+			case B3backendPackage.BCREATE_EXPRESSION__CONTEXT_BLOCK:
+				if (resolve) return getContextBlock();
+				return basicGetContextBlock();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -176,6 +239,9 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 			case B3backendPackage.BCREATE_EXPRESSION__TYPE:
 				setType((Type)newValue);
 				return;
+			case B3backendPackage.BCREATE_EXPRESSION__CONTEXT_BLOCK:
+				setContextBlock((BExpression)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -192,7 +258,10 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 				setAlias(ALIAS_EDEFAULT);
 				return;
 			case B3backendPackage.BCREATE_EXPRESSION__TYPE:
-				setType(TYPE_EDEFAULT);
+				setType((Type)null);
+				return;
+			case B3backendPackage.BCREATE_EXPRESSION__CONTEXT_BLOCK:
+				setContextBlock((BExpression)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -209,7 +278,9 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 			case B3backendPackage.BCREATE_EXPRESSION__ALIAS:
 				return ALIAS_EDEFAULT == null ? alias != null : !ALIAS_EDEFAULT.equals(alias);
 			case B3backendPackage.BCREATE_EXPRESSION__TYPE:
-				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+				return type != null;
+			case B3backendPackage.BCREATE_EXPRESSION__CONTEXT_BLOCK:
+				return contextBlock != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -226,8 +297,6 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (alias: ");
 		result.append(alias);
-		result.append(", type: ");
-		result.append(type);
 		result.append(')');
 		return result.toString();
 	}

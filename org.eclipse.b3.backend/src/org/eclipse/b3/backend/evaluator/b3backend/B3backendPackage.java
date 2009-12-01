@@ -9,6 +9,7 @@ package org.eclipse.b3.backend.evaluator.b3backend;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -492,7 +493,7 @@ public interface B3backendPackage extends EPackage {
 	int BCATCH__VARNAME = 1;
 
 	/**
-	 * The feature id for the '<em><b>Exception Type</b></em>' attribute.
+	 * The feature id for the '<em><b>Exception Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1116,7 +1117,7 @@ public interface B3backendPackage extends EPackage {
 	int BLITERAL_LIST_EXPRESSION__ENTRIES = BEXPRESSION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Entry Type</b></em>' attribute.
+	 * The feature id for the '<em><b>Entry Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1171,7 +1172,7 @@ public interface B3backendPackage extends EPackage {
 	int BLITERAL_MAP_EXPRESSION__ENTRIES = BEXPRESSION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Key Type</b></em>' attribute.
+	 * The feature id for the '<em><b>Key Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1180,7 +1181,7 @@ public interface B3backendPackage extends EPackage {
 	int BLITERAL_MAP_EXPRESSION__KEY_TYPE = BEXPRESSION_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Value Type</b></em>' attribute.
+	 * The feature id for the '<em><b>Value Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1584,7 +1585,7 @@ public interface B3backendPackage extends EPackage {
 	int BCREATE_EXPRESSION__ALIAS = BPARAMETERIZED_EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * The feature id for the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1593,13 +1594,22 @@ public interface B3backendPackage extends EPackage {
 	int BCREATE_EXPRESSION__TYPE = BPARAMETERIZED_EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Context Block</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BCREATE_EXPRESSION__CONTEXT_BLOCK = BPARAMETERIZED_EXPRESSION_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>BCreate Expression</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BCREATE_EXPRESSION_FEATURE_COUNT = BPARAMETERIZED_EXPRESSION_FEATURE_COUNT + 2;
+	int BCREATE_EXPRESSION_FEATURE_COUNT = BPARAMETERIZED_EXPRESSION_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl <em>BFunction</em>}' class.
@@ -1630,13 +1640,13 @@ public interface B3backendPackage extends EPackage {
 	int BFUNCTION__FILE_REFERENCE = BEXPRESSION__FILE_REFERENCE;
 
 	/**
-	 * The feature id for the '<em><b>Private</b></em>' attribute.
+	 * The feature id for the '<em><b>Visibility</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BFUNCTION__PRIVATE = BEXPRESSION_FEATURE_COUNT + 0;
+	int BFUNCTION__VISIBILITY = BEXPRESSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Final</b></em>' attribute.
@@ -1648,13 +1658,13 @@ public interface B3backendPackage extends EPackage {
 	int BFUNCTION__FINAL = BEXPRESSION_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Sequential</b></em>' attribute.
+	 * The feature id for the '<em><b>Execution Mode</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BFUNCTION__SEQUENTIAL = BEXPRESSION_FEATURE_COUNT + 2;
+	int BFUNCTION__EXECUTION_MODE = BEXPRESSION_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1675,22 +1685,13 @@ public interface B3backendPackage extends EPackage {
 	int BFUNCTION__GUARD = BEXPRESSION_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Return Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BFUNCTION__RETURN_TYPE = BEXPRESSION_FEATURE_COUNT + 5;
-
-	/**
 	 * The feature id for the '<em><b>Parameter Types</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BFUNCTION__PARAMETER_TYPES = BEXPRESSION_FEATURE_COUNT + 6;
+	int BFUNCTION__PARAMETER_TYPES = BEXPRESSION_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Exception Types</b></em>' attribute.
@@ -1699,7 +1700,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BFUNCTION__EXCEPTION_TYPES = BEXPRESSION_FEATURE_COUNT + 7;
+	int BFUNCTION__EXCEPTION_TYPES = BEXPRESSION_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute.
@@ -1708,7 +1709,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BFUNCTION__TYPE_PARAMETERS = BEXPRESSION_FEATURE_COUNT + 8;
+	int BFUNCTION__TYPE_PARAMETERS = BEXPRESSION_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Parameter Names</b></em>' attribute.
@@ -1717,7 +1718,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BFUNCTION__PARAMETER_NAMES = BEXPRESSION_FEATURE_COUNT + 9;
+	int BFUNCTION__PARAMETER_NAMES = BEXPRESSION_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Var Args</b></em>' attribute.
@@ -1726,7 +1727,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BFUNCTION__VAR_ARGS = BEXPRESSION_FEATURE_COUNT + 10;
+	int BFUNCTION__VAR_ARGS = BEXPRESSION_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -1735,7 +1736,34 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BFUNCTION__PARAMETERS = BEXPRESSION_FEATURE_COUNT + 11;
+	int BFUNCTION__PARAMETERS = BEXPRESSION_FEATURE_COUNT + 10;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BFUNCTION__DOCUMENTATION = BEXPRESSION_FEATURE_COUNT + 11;
+
+	/**
+	 * The feature id for the '<em><b>Return Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BFUNCTION__RETURN_TYPE = BEXPRESSION_FEATURE_COUNT + 12;
+
+	/**
+	 * The feature id for the '<em><b>Cached</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BFUNCTION__CACHED = BEXPRESSION_FEATURE_COUNT + 13;
 
 	/**
 	 * The number of structural features of the '<em>BFunction</em>' class.
@@ -1744,7 +1772,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BFUNCTION_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 12;
+	int BFUNCTION_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 14;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BGuardImpl <em>BGuard</em>}' class.
@@ -2207,13 +2235,13 @@ public interface B3backendPackage extends EPackage {
 	int B3_FUNCTION__FILE_REFERENCE = BFUNCTION__FILE_REFERENCE;
 
 	/**
-	 * The feature id for the '<em><b>Private</b></em>' attribute.
+	 * The feature id for the '<em><b>Visibility</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int B3_FUNCTION__PRIVATE = BFUNCTION__PRIVATE;
+	int B3_FUNCTION__VISIBILITY = BFUNCTION__VISIBILITY;
 
 	/**
 	 * The feature id for the '<em><b>Final</b></em>' attribute.
@@ -2225,13 +2253,13 @@ public interface B3backendPackage extends EPackage {
 	int B3_FUNCTION__FINAL = BFUNCTION__FINAL;
 
 	/**
-	 * The feature id for the '<em><b>Sequential</b></em>' attribute.
+	 * The feature id for the '<em><b>Execution Mode</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int B3_FUNCTION__SEQUENTIAL = BFUNCTION__SEQUENTIAL;
+	int B3_FUNCTION__EXECUTION_MODE = BFUNCTION__EXECUTION_MODE;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2250,15 +2278,6 @@ public interface B3backendPackage extends EPackage {
 	 * @ordered
 	 */
 	int B3_FUNCTION__GUARD = BFUNCTION__GUARD;
-
-	/**
-	 * The feature id for the '<em><b>Return Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int B3_FUNCTION__RETURN_TYPE = BFUNCTION__RETURN_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Parameter Types</b></em>' attribute.
@@ -2315,6 +2334,33 @@ public interface B3backendPackage extends EPackage {
 	int B3_FUNCTION__PARAMETERS = BFUNCTION__PARAMETERS;
 
 	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int B3_FUNCTION__DOCUMENTATION = BFUNCTION__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Return Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int B3_FUNCTION__RETURN_TYPE = BFUNCTION__RETURN_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Cached</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int B3_FUNCTION__CACHED = BFUNCTION__CACHED;
+
+	/**
 	 * The feature id for the '<em><b>Func Expr</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2361,13 +2407,13 @@ public interface B3backendPackage extends EPackage {
 	int BJAVA_FUNCTION__FILE_REFERENCE = BFUNCTION__FILE_REFERENCE;
 
 	/**
-	 * The feature id for the '<em><b>Private</b></em>' attribute.
+	 * The feature id for the '<em><b>Visibility</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BJAVA_FUNCTION__PRIVATE = BFUNCTION__PRIVATE;
+	int BJAVA_FUNCTION__VISIBILITY = BFUNCTION__VISIBILITY;
 
 	/**
 	 * The feature id for the '<em><b>Final</b></em>' attribute.
@@ -2379,13 +2425,13 @@ public interface B3backendPackage extends EPackage {
 	int BJAVA_FUNCTION__FINAL = BFUNCTION__FINAL;
 
 	/**
-	 * The feature id for the '<em><b>Sequential</b></em>' attribute.
+	 * The feature id for the '<em><b>Execution Mode</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BJAVA_FUNCTION__SEQUENTIAL = BFUNCTION__SEQUENTIAL;
+	int BJAVA_FUNCTION__EXECUTION_MODE = BFUNCTION__EXECUTION_MODE;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2404,15 +2450,6 @@ public interface B3backendPackage extends EPackage {
 	 * @ordered
 	 */
 	int BJAVA_FUNCTION__GUARD = BFUNCTION__GUARD;
-
-	/**
-	 * The feature id for the '<em><b>Return Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BJAVA_FUNCTION__RETURN_TYPE = BFUNCTION__RETURN_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Parameter Types</b></em>' attribute.
@@ -2467,6 +2504,33 @@ public interface B3backendPackage extends EPackage {
 	 * @ordered
 	 */
 	int BJAVA_FUNCTION__PARAMETERS = BFUNCTION__PARAMETERS;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BJAVA_FUNCTION__DOCUMENTATION = BFUNCTION__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Return Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BJAVA_FUNCTION__RETURN_TYPE = BFUNCTION__RETURN_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Cached</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BJAVA_FUNCTION__CACHED = BFUNCTION__CACHED;
 
 	/**
 	 * The feature id for the '<em><b>Method</b></em>' attribute.
@@ -2606,7 +2670,7 @@ public interface B3backendPackage extends EPackage {
 	int BDEF_VALUE__VALUE_EXPR = BEXPRESSION_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * The feature id for the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2763,7 +2827,7 @@ public interface B3backendPackage extends EPackage {
 	int BPARAMETER_DECLARATION__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * The feature id for the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2921,7 +2985,7 @@ public interface B3backendPackage extends EPackage {
 	int B3_PARAMETERIZED_TYPE__RAW_TYPE = IPARAMETERIZED_TYPE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Actual Arguments List</b></em>' reference.
+	 * The feature id for the '<em><b>Actual Arguments List</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3060,6 +3124,81 @@ public interface B3backendPackage extends EPackage {
 	int B3_FUNC_TYPE_VARIABLE_FEATURE_COUNT = ITYPE_VARIABLE_FEATURE_COUNT + 3;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3JavaImportImpl <em>B3 Java Import</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3JavaImportImpl
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3JavaImport()
+	 * @generated
+	 */
+	int B3_JAVA_IMPORT = 58;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int B3_JAVA_IMPORT__NAME = ITYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Qualified Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int B3_JAVA_IMPORT__QUALIFIED_NAME = ITYPE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int B3_JAVA_IMPORT__TYPE = ITYPE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Reexport</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int B3_JAVA_IMPORT__REEXPORT = ITYPE_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>B3 Java Import</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int B3_JAVA_IMPORT_FEATURE_COUNT = ITYPE_FEATURE_COUNT + 4;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.Visibility <em>Visibility</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.Visibility
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getVisibility()
+	 * @generated
+	 */
+	int VISIBILITY = 59;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode <em>Execution Mode</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getExecutionMode()
+	 * @generated
+	 */
+	int EXECUTION_MODE = 60;
+
+	/**
 	 * The meta object id for the '<em>Core Exception</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3067,7 +3206,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getCoreException()
 	 * @generated
 	 */
-	int CORE_EXCEPTION = 58;
+	int CORE_EXCEPTION = 61;
 
 
 	/**
@@ -3078,7 +3217,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 59;
+	int TYPE = 62;
 
 	/**
 	 * The meta object id for the '<em>Object Array</em>' data type.
@@ -3087,7 +3226,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getObjectArray()
 	 * @generated
 	 */
-	int OBJECT_ARRAY = 60;
+	int OBJECT_ARRAY = 63;
 
 
 	/**
@@ -3098,7 +3237,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getValueMap()
 	 * @generated
 	 */
-	int VALUE_MAP = 61;
+	int VALUE_MAP = 64;
 
 
 	/**
@@ -3109,7 +3248,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3EngineException()
 	 * @generated
 	 */
-	int B3_ENGINE_EXCEPTION = 62;
+	int B3_ENGINE_EXCEPTION = 65;
 
 
 	/**
@@ -3120,7 +3259,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3ExpressionCache()
 	 * @generated
 	 */
-	int B3_EXPRESSION_CACHE = 63;
+	int B3_EXPRESSION_CACHE = 66;
 
 
 	/**
@@ -3131,7 +3270,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getThrowable()
 	 * @generated
 	 */
-	int THROWABLE = 64;
+	int THROWABLE = 67;
 
 	/**
 	 * The meta object id for the '<em>LValue</em>' data type.
@@ -3141,7 +3280,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getLValue()
 	 * @generated
 	 */
-	int LVALUE = 65;
+	int LVALUE = 68;
 
 	/**
 	 * The meta object id for the '<em>Type Array</em>' data type.
@@ -3150,7 +3289,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getTypeArray()
 	 * @generated
 	 */
-	int TYPE_ARRAY = 66;
+	int TYPE_ARRAY = 69;
 
 	/**
 	 * The meta object id for the '<em>Method</em>' data type.
@@ -3160,7 +3299,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getMethod()
 	 * @generated
 	 */
-	int METHOD = 67;
+	int METHOD = 70;
 
 	/**
 	 * The meta object id for the '<em>Type Variable Array</em>' data type.
@@ -3169,7 +3308,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getTypeVariableArray()
 	 * @generated
 	 */
-	int TYPE_VARIABLE_ARRAY = 68;
+	int TYPE_VARIABLE_ARRAY = 71;
 
 	/**
 	 * The meta object id for the '<em>Func Store</em>' data type.
@@ -3179,7 +3318,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getFuncStore()
 	 * @generated
 	 */
-	int FUNC_STORE = 69;
+	int FUNC_STORE = 72;
 
 	/**
 	 * The meta object id for the '<em>Regexp Pattern</em>' data type.
@@ -3189,7 +3328,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getRegexpPattern()
 	 * @generated
 	 */
-	int REGEXP_PATTERN = 70;
+	int REGEXP_PATTERN = 73;
 
 	/**
 	 * The meta object id for the '<em>String Array</em>' data type.
@@ -3198,7 +3337,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getStringArray()
 	 * @generated
 	 */
-	int STRING_ARRAY = 71;
+	int STRING_ARRAY = 74;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BExpression <em>BExpression</em>}'.
@@ -3499,15 +3638,15 @@ public interface B3backendPackage extends EPackage {
 	EReference getBCatch_CatchExpr();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BCatch#getExceptionType <em>Exception Type</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BCatch#getExceptionType <em>Exception Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Exception Type</em>'.
+	 * @return the meta object for the reference '<em>Exception Type</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BCatch#getExceptionType()
 	 * @see #getBCatch()
 	 * @generated
 	 */
-	EAttribute getBCatch_ExceptionType();
+	EReference getBCatch_ExceptionType();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BCatch#getVarname <em>Varname</em>}'.
@@ -3729,15 +3868,15 @@ public interface B3backendPackage extends EPackage {
 	EReference getBLiteralListExpression_Entries();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression#getEntryType <em>Entry Type</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression#getEntryType <em>Entry Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Entry Type</em>'.
+	 * @return the meta object for the reference '<em>Entry Type</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression#getEntryType()
 	 * @see #getBLiteralListExpression()
 	 * @generated
 	 */
-	EAttribute getBLiteralListExpression_EntryType();
+	EReference getBLiteralListExpression_EntryType();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression <em>BLiteral Map Expression</em>}'.
@@ -3761,26 +3900,26 @@ public interface B3backendPackage extends EPackage {
 	EReference getBLiteralMapExpression_Entries();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression#getKeyType <em>Key Type</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression#getKeyType <em>Key Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Key Type</em>'.
+	 * @return the meta object for the reference '<em>Key Type</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression#getKeyType()
 	 * @see #getBLiteralMapExpression()
 	 * @generated
 	 */
-	EAttribute getBLiteralMapExpression_KeyType();
+	EReference getBLiteralMapExpression_KeyType();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression#getValueType <em>Value Type</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression#getValueType <em>Value Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value Type</em>'.
+	 * @return the meta object for the reference '<em>Value Type</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression#getValueType()
 	 * @see #getBLiteralMapExpression()
 	 * @generated
 	 */
-	EAttribute getBLiteralMapExpression_ValueType();
+	EReference getBLiteralMapExpression_ValueType();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BMapEntry <em>BMap Entry</em>}'.
@@ -3973,15 +4112,26 @@ public interface B3backendPackage extends EPackage {
 	EClass getBCreateExpression();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression#getType <em>Type</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @return the meta object for the reference '<em>Type</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression#getType()
 	 * @see #getBCreateExpression()
 	 * @generated
 	 */
-	EAttribute getBCreateExpression_Type();
+	EReference getBCreateExpression_Type();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression#getContextBlock <em>Context Block</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Context Block</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression#getContextBlock()
+	 * @see #getBCreateExpression()
+	 * @generated
+	 */
+	EReference getBCreateExpression_ContextBlock();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression#getAlias <em>Alias</em>}'.
@@ -4005,15 +4155,15 @@ public interface B3backendPackage extends EPackage {
 	EClass getBFunction();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#isPrivate <em>Private</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getVisibility <em>Visibility</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Private</em>'.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunction#isPrivate()
+	 * @return the meta object for the attribute '<em>Visibility</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunction#getVisibility()
 	 * @see #getBFunction()
 	 * @generated
 	 */
-	EAttribute getBFunction_Private();
+	EAttribute getBFunction_Visibility();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#isFinal <em>Final</em>}'.
@@ -4027,15 +4177,15 @@ public interface B3backendPackage extends EPackage {
 	EAttribute getBFunction_Final();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#isSequential <em>Sequential</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getExecutionMode <em>Execution Mode</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Sequential</em>'.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunction#isSequential()
+	 * @return the meta object for the attribute '<em>Execution Mode</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunction#getExecutionMode()
 	 * @see #getBFunction()
 	 * @generated
 	 */
-	EAttribute getBFunction_Sequential();
+	EAttribute getBFunction_ExecutionMode();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getName <em>Name</em>}'.
@@ -4060,15 +4210,26 @@ public interface B3backendPackage extends EPackage {
 	EReference getBFunction_Guard();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getReturnType <em>Return Type</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getReturnType <em>Return Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Return Type</em>'.
+	 * @return the meta object for the reference '<em>Return Type</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunction#getReturnType()
 	 * @see #getBFunction()
 	 * @generated
 	 */
-	EAttribute getBFunction_ReturnType();
+	EReference getBFunction_ReturnType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#isCached <em>Cached</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Cached</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunction#isCached()
+	 * @see #getBFunction()
+	 * @generated
+	 */
+	EAttribute getBFunction_Cached();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getParameterTypes <em>Parameter Types</em>}'.
@@ -4135,6 +4296,17 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBFunction_Parameters();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getDocumentation <em>Documentation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Documentation</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunction#getDocumentation()
+	 * @see #getBFunction()
+	 * @generated
+	 */
+	EAttribute getBFunction_Documentation();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BGuard <em>BGuard</em>}'.
@@ -4399,15 +4571,15 @@ public interface B3backendPackage extends EPackage {
 	EReference getBDefValue_ValueExpr();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefValue#getType <em>Type</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefValue#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @return the meta object for the reference '<em>Type</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BDefValue#getType()
 	 * @see #getBDefValue()
 	 * @generated
 	 */
-	EAttribute getBDefValue_Type();
+	EReference getBDefValue_Type();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression <em>BRegular Expression</em>}'.
@@ -4516,15 +4688,15 @@ public interface B3backendPackage extends EPackage {
 	EAttribute getBParameterDeclaration_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration#getType <em>Type</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @return the meta object for the reference '<em>Type</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration#getType()
 	 * @see #getBParameterDeclaration()
 	 * @generated
 	 */
-	EAttribute getBParameterDeclaration_Type();
+	EReference getBParameterDeclaration_Type();
 
 	/**
 	 * Returns the meta object for class '{@link java.lang.reflect.Type <em>IType</em>}'.
@@ -4646,10 +4818,10 @@ public interface B3backendPackage extends EPackage {
 	EReference getB3ParameterizedType_RawType();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType#getActualArgumentsList <em>Actual Arguments List</em>}'.
+	 * Returns the meta object for the reference list '{@link org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType#getActualArgumentsList <em>Actual Arguments List</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Actual Arguments List</em>'.
+	 * @return the meta object for the reference list '<em>Actual Arguments List</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType#getActualArgumentsList()
 	 * @see #getB3ParameterizedType()
 	 * @generated
@@ -4752,6 +4924,80 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getB3FuncTypeVariable_Name();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport <em>B3 Java Import</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>B3 Java Import</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport
+	 * @generated
+	 */
+	EClass getB3JavaImport();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport#getName()
+	 * @see #getB3JavaImport()
+	 * @generated
+	 */
+	EAttribute getB3JavaImport_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport#getQualifiedName <em>Qualified Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Qualified Name</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport#getQualifiedName()
+	 * @see #getB3JavaImport()
+	 * @generated
+	 */
+	EAttribute getB3JavaImport_QualifiedName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport#getType()
+	 * @see #getB3JavaImport()
+	 * @generated
+	 */
+	EAttribute getB3JavaImport_Type();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport#isReexport <em>Reexport</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Reexport</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport#isReexport()
+	 * @see #getB3JavaImport()
+	 * @generated
+	 */
+	EAttribute getB3JavaImport_Reexport();
+
+	/**
+	 * Returns the meta object for enum '{@link org.eclipse.b3.backend.evaluator.b3backend.Visibility <em>Visibility</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Visibility</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.Visibility
+	 * @generated
+	 */
+	EEnum getVisibility();
+
+	/**
+	 * Returns the meta object for enum '{@link org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode <em>Execution Mode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Execution Mode</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode
+	 * @generated
+	 */
+	EEnum getExecutionMode();
 
 	/**
 	 * Returns the meta object for data type '{@link org.eclipse.core.runtime.CoreException <em>Core Exception</em>}'.
@@ -5170,12 +5416,12 @@ public interface B3backendPackage extends EPackage {
 		EReference BCATCH__CATCH_EXPR = eINSTANCE.getBCatch_CatchExpr();
 
 		/**
-		 * The meta object literal for the '<em><b>Exception Type</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Exception Type</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute BCATCH__EXCEPTION_TYPE = eINSTANCE.getBCatch_ExceptionType();
+		EReference BCATCH__EXCEPTION_TYPE = eINSTANCE.getBCatch_ExceptionType();
 
 		/**
 		 * The meta object literal for the '<em><b>Varname</b></em>' attribute feature.
@@ -5370,12 +5616,12 @@ public interface B3backendPackage extends EPackage {
 		EReference BLITERAL_LIST_EXPRESSION__ENTRIES = eINSTANCE.getBLiteralListExpression_Entries();
 
 		/**
-		 * The meta object literal for the '<em><b>Entry Type</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Entry Type</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute BLITERAL_LIST_EXPRESSION__ENTRY_TYPE = eINSTANCE.getBLiteralListExpression_EntryType();
+		EReference BLITERAL_LIST_EXPRESSION__ENTRY_TYPE = eINSTANCE.getBLiteralListExpression_EntryType();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BLiteralMapExpressionImpl <em>BLiteral Map Expression</em>}' class.
@@ -5396,20 +5642,20 @@ public interface B3backendPackage extends EPackage {
 		EReference BLITERAL_MAP_EXPRESSION__ENTRIES = eINSTANCE.getBLiteralMapExpression_Entries();
 
 		/**
-		 * The meta object literal for the '<em><b>Key Type</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Key Type</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute BLITERAL_MAP_EXPRESSION__KEY_TYPE = eINSTANCE.getBLiteralMapExpression_KeyType();
+		EReference BLITERAL_MAP_EXPRESSION__KEY_TYPE = eINSTANCE.getBLiteralMapExpression_KeyType();
 
 		/**
-		 * The meta object literal for the '<em><b>Value Type</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Value Type</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute BLITERAL_MAP_EXPRESSION__VALUE_TYPE = eINSTANCE.getBLiteralMapExpression_ValueType();
+		EReference BLITERAL_MAP_EXPRESSION__VALUE_TYPE = eINSTANCE.getBLiteralMapExpression_ValueType();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BMapEntryImpl <em>BMap Entry</em>}' class.
@@ -5572,12 +5818,20 @@ public interface B3backendPackage extends EPackage {
 		EClass BCREATE_EXPRESSION = eINSTANCE.getBCreateExpression();
 
 		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute BCREATE_EXPRESSION__TYPE = eINSTANCE.getBCreateExpression_Type();
+		EReference BCREATE_EXPRESSION__TYPE = eINSTANCE.getBCreateExpression_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Context Block</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BCREATE_EXPRESSION__CONTEXT_BLOCK = eINSTANCE.getBCreateExpression_ContextBlock();
 
 		/**
 		 * The meta object literal for the '<em><b>Alias</b></em>' attribute feature.
@@ -5598,12 +5852,12 @@ public interface B3backendPackage extends EPackage {
 		EClass BFUNCTION = eINSTANCE.getBFunction();
 
 		/**
-		 * The meta object literal for the '<em><b>Private</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Visibility</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute BFUNCTION__PRIVATE = eINSTANCE.getBFunction_Private();
+		EAttribute BFUNCTION__VISIBILITY = eINSTANCE.getBFunction_Visibility();
 
 		/**
 		 * The meta object literal for the '<em><b>Final</b></em>' attribute feature.
@@ -5614,12 +5868,12 @@ public interface B3backendPackage extends EPackage {
 		EAttribute BFUNCTION__FINAL = eINSTANCE.getBFunction_Final();
 
 		/**
-		 * The meta object literal for the '<em><b>Sequential</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Execution Mode</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute BFUNCTION__SEQUENTIAL = eINSTANCE.getBFunction_Sequential();
+		EAttribute BFUNCTION__EXECUTION_MODE = eINSTANCE.getBFunction_ExecutionMode();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -5638,12 +5892,20 @@ public interface B3backendPackage extends EPackage {
 		EReference BFUNCTION__GUARD = eINSTANCE.getBFunction_Guard();
 
 		/**
-		 * The meta object literal for the '<em><b>Return Type</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Return Type</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute BFUNCTION__RETURN_TYPE = eINSTANCE.getBFunction_ReturnType();
+		EReference BFUNCTION__RETURN_TYPE = eINSTANCE.getBFunction_ReturnType();
+
+		/**
+		 * The meta object literal for the '<em><b>Cached</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BFUNCTION__CACHED = eINSTANCE.getBFunction_Cached();
 
 		/**
 		 * The meta object literal for the '<em><b>Parameter Types</b></em>' attribute feature.
@@ -5692,6 +5954,14 @@ public interface B3backendPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BFUNCTION__PARAMETERS = eINSTANCE.getBFunction_Parameters();
+
+		/**
+		 * The meta object literal for the '<em><b>Documentation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BFUNCTION__DOCUMENTATION = eINSTANCE.getBFunction_Documentation();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BGuardImpl <em>BGuard</em>}' class.
@@ -5920,12 +6190,12 @@ public interface B3backendPackage extends EPackage {
 		EReference BDEF_VALUE__VALUE_EXPR = eINSTANCE.getBDefValue_ValueExpr();
 
 		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute BDEF_VALUE__TYPE = eINSTANCE.getBDefValue_Type();
+		EReference BDEF_VALUE__TYPE = eINSTANCE.getBDefValue_Type();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BRegularExpressionImpl <em>BRegular Expression</em>}' class.
@@ -6016,12 +6286,12 @@ public interface B3backendPackage extends EPackage {
 		EAttribute BPARAMETER_DECLARATION__NAME = eINSTANCE.getBParameterDeclaration_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute BPARAMETER_DECLARATION__TYPE = eINSTANCE.getBParameterDeclaration_Type();
+		EReference BPARAMETER_DECLARATION__TYPE = eINSTANCE.getBParameterDeclaration_Type();
 
 		/**
 		 * The meta object literal for the '{@link java.lang.reflect.Type <em>IType</em>}' class.
@@ -6122,7 +6392,7 @@ public interface B3backendPackage extends EPackage {
 		EReference B3_PARAMETERIZED_TYPE__RAW_TYPE = eINSTANCE.getB3ParameterizedType_RawType();
 
 		/**
-		 * The meta object literal for the '<em><b>Actual Arguments List</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Actual Arguments List</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -6208,6 +6478,68 @@ public interface B3backendPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute B3_FUNC_TYPE_VARIABLE__NAME = eINSTANCE.getB3FuncTypeVariable_Name();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3JavaImportImpl <em>B3 Java Import</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3JavaImportImpl
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3JavaImport()
+		 * @generated
+		 */
+		EClass B3_JAVA_IMPORT = eINSTANCE.getB3JavaImport();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute B3_JAVA_IMPORT__NAME = eINSTANCE.getB3JavaImport_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Qualified Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute B3_JAVA_IMPORT__QUALIFIED_NAME = eINSTANCE.getB3JavaImport_QualifiedName();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute B3_JAVA_IMPORT__TYPE = eINSTANCE.getB3JavaImport_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Reexport</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute B3_JAVA_IMPORT__REEXPORT = eINSTANCE.getB3JavaImport_Reexport();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.Visibility <em>Visibility</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.Visibility
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getVisibility()
+		 * @generated
+		 */
+		EEnum VISIBILITY = eINSTANCE.getVisibility();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode <em>Execution Mode</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getExecutionMode()
+		 * @generated
+		 */
+		EEnum EXECUTION_MODE = eINSTANCE.getExecutionMode();
 
 		/**
 		 * The meta object literal for the '<em>Core Exception</em>' data type.

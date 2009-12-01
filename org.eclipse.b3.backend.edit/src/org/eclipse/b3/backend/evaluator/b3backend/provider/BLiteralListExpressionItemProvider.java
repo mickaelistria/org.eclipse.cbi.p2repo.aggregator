@@ -93,7 +93,7 @@ public class BLiteralListExpressionItemProvider
 				 true,
 				 false,
 				 true,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}

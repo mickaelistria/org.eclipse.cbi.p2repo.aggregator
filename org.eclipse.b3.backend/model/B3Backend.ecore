@@ -162,7 +162,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="catchExpr" eType="#//BExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="varname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="exceptionType" eType="#//Type"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exceptionType" lowerBound="1"
+        eType="#//IType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BBinaryExpression" abstract="true" eSuperTypes="#//BExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="leftExpr" eType="#//BExpression"
@@ -202,13 +203,16 @@
   <eClassifiers xsi:type="ecore:EClass" name="BLiteralListExpression" eSuperTypes="#//BExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
         eType="#//BExpression" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="entryType" eType="#//Type"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entryType" lowerBound="1"
+        eType="#//IType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BLiteralMapExpression" eSuperTypes="#//BExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
         eType="#//BMapEntry" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="keyType" eType="#//Type"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueType" eType="#//Type"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="keyType" lowerBound="1"
+        eType="#//IType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="valueType" lowerBound="1"
+        eType="#//IType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BMapEntry">
     <eStructuralFeatures xsi:type="ecore:EReference" name="key" eType="#//BExpression"
@@ -243,7 +247,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="BLiteralAny" eSuperTypes="#//BExpression"/>
   <eClassifiers xsi:type="ecore:EClass" name="BCreateExpression" eSuperTypes="#//BParameterizedExpression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="alias" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//Type"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//IType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contextBlock" eType="#//BExpression"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="CoreException" instanceClassName="org.eclipse.core.runtime.CoreException"/>
   <eClassifiers xsi:type="ecore:EClass" name="BFunction" abstract="true" eSuperTypes="#//BExpression #//IGenericDeclaration">
@@ -253,12 +258,11 @@
       <eParameters name="parameters" eType="#//ObjectArray"/>
       <eParameters name="types" eType="#//TypeArray"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="private" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="visibility" eType="#//Visibility"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="final" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sequential" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="executionMode" eType="#//ExecutionMode"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="guard" eType="#//BGuard"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="returnType" eType="#//Type"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameterTypes" eType="#//TypeArray"
         transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="exceptionTypes" eType="#//TypeArray"/>
@@ -268,6 +272,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="varArgs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
         eType="#//BParameterDeclaration" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="returnType" eType="#//IType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cached" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BGuard" abstract="true">
     <eOperations name="accepts" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
@@ -349,7 +356,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="final" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="immutable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="valueExpr" eType="#//BExpression"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//Type"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//IType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BRegularExpression" eSuperTypes="#//BExpression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="patternString" lowerBound="1"
@@ -367,7 +374,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BParameterDeclaration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//Type"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//IType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="StringArray" instanceClassName="java.lang.String[]"/>
   <eClassifiers xsi:type="ecore:EClass" name="IType" instanceClassName="java.lang.reflect.Type"
@@ -391,7 +398,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownerType" eType="#//IType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rawType" lowerBound="1"
         eType="#//IType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="actualArgumentsList" eType="#//IType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actualArgumentsList" upperBound="-1"
+        eType="#//IType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IWildcardType" instanceClassName="java.lang.reflect.WildcardType"
       abstract="true" interface="true" eSuperTypes="#//IType"/>
@@ -416,5 +424,19 @@
     <eGenericSuperTypes eClassifier="#//ITypeVariable">
       <eTypeArguments eClassifier="#//BFunction"/>
     </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="B3JavaImport" eSuperTypes="#//IType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="qualifiedName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//Type"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reexport" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Visibility">
+    <eLiterals name="private" literal="private"/>
+    <eLiterals name="public" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ExecutionMode">
+    <eLiterals name="sequential"/>
+    <eLiterals name="parallel" value="1"/>
   </eClassifiers>
 </ecore:EPackage>

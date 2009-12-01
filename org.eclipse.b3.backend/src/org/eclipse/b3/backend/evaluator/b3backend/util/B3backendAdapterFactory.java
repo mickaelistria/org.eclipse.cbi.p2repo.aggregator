@@ -315,6 +315,10 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 				return createB3FuncTypeVariableAdapter();
 			}
 			@Override
+			public Adapter caseB3JavaImport(B3JavaImport object) {
+				return createB3JavaImportAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -1143,6 +1147,20 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createB3FuncTypeVariableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport <em>B3 Java Import</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport
+	 * @generated
+	 */
+	public Adapter createB3JavaImportAdapter() {
 		return null;
 	}
 

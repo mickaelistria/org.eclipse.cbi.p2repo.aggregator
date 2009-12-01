@@ -21,6 +21,8 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -67,24 +69,14 @@ public class BParameterDeclarationImpl extends EObjectImpl implements BParameter
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * The cached value of the '{@link #getType() <em>Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getType()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Type TYPE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected Type type = TYPE_EDEFAULT;
+	protected Type type;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -129,9 +121,27 @@ public class BParameterDeclarationImpl extends EObjectImpl implements BParameter
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Type getType() {
+		// NOTE: Must check against type being an EObject
+		if (type != null && type instanceof EObject && ((EObject)type).eIsProxy()) {
+			InternalEObject oldType = (InternalEObject)type;
+			type = (Type)eResolveProxy(oldType);
+			if (type != oldType) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.BPARAMETER_DECLARATION__TYPE, oldType, type));
+			}
+		}
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Type basicGetType() {
 		return type;
 	}
 
@@ -158,7 +168,8 @@ public class BParameterDeclarationImpl extends EObjectImpl implements BParameter
 			case B3backendPackage.BPARAMETER_DECLARATION__NAME:
 				return getName();
 			case B3backendPackage.BPARAMETER_DECLARATION__TYPE:
-				return getType();
+				if (resolve) return getType();
+				return basicGetType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -193,7 +204,7 @@ public class BParameterDeclarationImpl extends EObjectImpl implements BParameter
 				setName(NAME_EDEFAULT);
 				return;
 			case B3backendPackage.BPARAMETER_DECLARATION__TYPE:
-				setType(TYPE_EDEFAULT);
+				setType((Type)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -210,7 +221,7 @@ public class BParameterDeclarationImpl extends EObjectImpl implements BParameter
 			case B3backendPackage.BPARAMETER_DECLARATION__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case B3backendPackage.BPARAMETER_DECLARATION__TYPE:
-				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+				return type != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -227,8 +238,6 @@ public class BParameterDeclarationImpl extends EObjectImpl implements BParameter
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
-		result.append(", type: ");
-		result.append(type);
 		result.append(')');
 		return result.toString();
 	}

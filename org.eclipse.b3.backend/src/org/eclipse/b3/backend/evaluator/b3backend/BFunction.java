@@ -20,18 +20,20 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#isPrivate <em>Private</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getVisibility <em>Visibility</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#isFinal <em>Final</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#isSequential <em>Sequential</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getExecutionMode <em>Execution Mode</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getGuard <em>Guard</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getReturnType <em>Return Type</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getParameterTypes <em>Parameter Types</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getExceptionTypes <em>Exception Types</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getTypeParameters <em>Type Parameters</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getParameterNames <em>Parameter Names</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#isVarArgs <em>Var Args</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getDocumentation <em>Documentation</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getReturnType <em>Return Type</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#isCached <em>Cached</em>}</li>
  * </ul>
  * </p>
  *
@@ -48,30 +50,33 @@ public interface BFunction extends BExpression, GenericDeclaration {
 	String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
 
 	/**
-	 * Returns the value of the '<em><b>Private</b></em>' attribute.
+	 * Returns the value of the '<em><b>Visibility</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.eclipse.b3.backend.evaluator.b3backend.Visibility}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Private</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Visibility</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Private</em>' attribute.
-	 * @see #setPrivate(boolean)
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBFunction_Private()
+	 * @return the value of the '<em>Visibility</em>' attribute.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.Visibility
+	 * @see #setVisibility(Visibility)
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBFunction_Visibility()
 	 * @model
 	 * @generated
 	 */
-	boolean isPrivate();
+	Visibility getVisibility();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#isPrivate <em>Private</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getVisibility <em>Visibility</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Private</em>' attribute.
-	 * @see #isPrivate()
+	 * @param value the new value of the '<em>Visibility</em>' attribute.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.Visibility
+	 * @see #getVisibility()
 	 * @generated
 	 */
-	void setPrivate(boolean value);
+	void setVisibility(Visibility value);
 
 	/**
 	 * Returns the value of the '<em><b>Final</b></em>' attribute.
@@ -100,30 +105,33 @@ public interface BFunction extends BExpression, GenericDeclaration {
 	void setFinal(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Sequential</b></em>' attribute.
+	 * Returns the value of the '<em><b>Execution Mode</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Sequential</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Execution Mode</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Sequential</em>' attribute.
-	 * @see #setSequential(boolean)
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBFunction_Sequential()
+	 * @return the value of the '<em>Execution Mode</em>' attribute.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode
+	 * @see #setExecutionMode(ExecutionMode)
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBFunction_ExecutionMode()
 	 * @model
 	 * @generated
 	 */
-	boolean isSequential();
+	ExecutionMode getExecutionMode();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#isSequential <em>Sequential</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getExecutionMode <em>Execution Mode</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Sequential</em>' attribute.
-	 * @see #isSequential()
+	 * @param value the new value of the '<em>Execution Mode</em>' attribute.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode
+	 * @see #getExecutionMode()
 	 * @generated
 	 */
-	void setSequential(boolean value);
+	void setExecutionMode(ExecutionMode value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -178,30 +186,56 @@ public interface BFunction extends BExpression, GenericDeclaration {
 	void setGuard(BGuard value);
 
 	/**
-	 * Returns the value of the '<em><b>Return Type</b></em>' attribute.
+	 * Returns the value of the '<em><b>Return Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Return Type</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Return Type</em>' attribute.
+	 * @return the value of the '<em>Return Type</em>' reference.
 	 * @see #setReturnType(Type)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBFunction_ReturnType()
-	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.Type"
+	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType"
 	 * @generated
 	 */
 	Type getReturnType();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getReturnType <em>Return Type</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getReturnType <em>Return Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Return Type</em>' attribute.
+	 * @param value the new value of the '<em>Return Type</em>' reference.
 	 * @see #getReturnType()
 	 * @generated
 	 */
 	void setReturnType(Type value);
+
+	/**
+	 * Returns the value of the '<em><b>Cached</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Cached</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Cached</em>' attribute.
+	 * @see #setCached(boolean)
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBFunction_Cached()
+	 * @model
+	 * @generated
+	 */
+	boolean isCached();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#isCached <em>Cached</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Cached</em>' attribute.
+	 * @see #isCached()
+	 * @generated
+	 */
+	void setCached(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Parameter Types</b></em>' attribute.
@@ -348,6 +382,32 @@ public interface BFunction extends BExpression, GenericDeclaration {
 	 * @generated
 	 */
 	EList<BParameterDeclaration> getParameters();
+
+	/**
+	 * Returns the value of the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Documentation</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Documentation</em>' attribute.
+	 * @see #setDocumentation(String)
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBFunction_Documentation()
+	 * @model
+	 * @generated
+	 */
+	String getDocumentation();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getDocumentation <em>Documentation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Documentation</em>' attribute.
+	 * @see #getDocumentation()
+	 * @generated
+	 */
+	void setDocumentation(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

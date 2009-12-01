@@ -1,8 +1,12 @@
 package org.eclipse.b3.backend.evaluator;
 
+import org.eclipse.b3.backend.core.B3Backend;
 import org.eclipse.b3.backend.core.B3BackendException;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
+import org.eclipse.b3.backend.evaluator.b3backend.Visibility;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
 
 public class BackendHelper {
 
@@ -49,6 +53,14 @@ public class BackendHelper {
 	 */
 	public static String getIsGetter(String featureName) {
 		return "is"+featureName.substring(0,1).toUpperCase() + featureName.substring(1);
+	}
+	
+	public static Visibility getVisibility(B3Backend annotation) {
+		return annotation.isPrivate() ?
+			Visibility.PRIVATE : Visibility.PUBLIC ;
+	}
+	public static ExecutionMode getExecutionMode(B3Backend annotation) {
+		return annotation.sequential() ? ExecutionMode.SEQUENTIAL : ExecutionMode.PARALLEL;
 	}
 }
  

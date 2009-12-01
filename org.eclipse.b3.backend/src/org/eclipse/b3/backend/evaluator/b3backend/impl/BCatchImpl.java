@@ -16,6 +16,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -78,24 +79,14 @@ public class BCatchImpl extends EObjectImpl implements BCatch {
 	protected String varname = VARNAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getExceptionType() <em>Exception Type</em>}' attribute.
+	 * The cached value of the '{@link #getExceptionType() <em>Exception Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getExceptionType()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Type EXCEPTION_TYPE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getExceptionType() <em>Exception Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getExceptionType()
-	 * @generated
-	 * @ordered
-	 */
-	protected Type exceptionType = EXCEPTION_TYPE_EDEFAULT;
+	protected Type exceptionType;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -162,9 +153,27 @@ public class BCatchImpl extends EObjectImpl implements BCatch {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Type getExceptionType() {
+		// NOTE: Must check against exceptionType being an EObject
+		if (exceptionType != null && exceptionType instanceof EObject && ((EObject)exceptionType).eIsProxy()) {
+			InternalEObject oldExceptionType = (InternalEObject)exceptionType;
+			exceptionType = (Type)eResolveProxy(oldExceptionType);
+			if (exceptionType != oldExceptionType) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.BCATCH__EXCEPTION_TYPE, oldExceptionType, exceptionType));
+			}
+		}
+		return exceptionType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Type basicGetExceptionType() {
 		return exceptionType;
 	}
 
@@ -246,7 +255,8 @@ public class BCatchImpl extends EObjectImpl implements BCatch {
 			case B3backendPackage.BCATCH__VARNAME:
 				return getVarname();
 			case B3backendPackage.BCATCH__EXCEPTION_TYPE:
-				return getExceptionType();
+				if (resolve) return getExceptionType();
+				return basicGetExceptionType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -287,7 +297,7 @@ public class BCatchImpl extends EObjectImpl implements BCatch {
 				setVarname(VARNAME_EDEFAULT);
 				return;
 			case B3backendPackage.BCATCH__EXCEPTION_TYPE:
-				setExceptionType(EXCEPTION_TYPE_EDEFAULT);
+				setExceptionType((Type)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -306,7 +316,7 @@ public class BCatchImpl extends EObjectImpl implements BCatch {
 			case B3backendPackage.BCATCH__VARNAME:
 				return VARNAME_EDEFAULT == null ? varname != null : !VARNAME_EDEFAULT.equals(varname);
 			case B3backendPackage.BCATCH__EXCEPTION_TYPE:
-				return EXCEPTION_TYPE_EDEFAULT == null ? exceptionType != null : !EXCEPTION_TYPE_EDEFAULT.equals(exceptionType);
+				return exceptionType != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -323,8 +333,6 @@ public class BCatchImpl extends EObjectImpl implements BCatch {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (varname: ");
 		result.append(varname);
-		result.append(", exceptionType: ");
-		result.append(exceptionType);
 		result.append(')');
 		return result.toString();
 	}

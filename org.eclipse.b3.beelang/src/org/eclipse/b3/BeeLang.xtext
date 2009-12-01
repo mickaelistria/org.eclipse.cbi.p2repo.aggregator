@@ -1,6 +1,8 @@
+
 grammar org.eclipse.b3.BeeLang // with org.eclipse.xtext.common.Terminals
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
-import "platform:/resource/org.eclipse.b3.beelang/src/org/eclipse/b3/BeeLangTypes.ecore" as types
+import "platform:/resource/org.eclipse.b3.backend/model/B3Backend.ecore" as be
+//import "platform:/resource/org.eclipse.b3.beelang/src/org/eclipse/b3/BeeLangTypes.ecore" as types
 generate beeLang "http://www.eclipse.org/b3/BeeLang"
 
 BeeModel hidden(WS, SL_COMMENT, ML_COMMENT): 
@@ -8,12 +10,15 @@ BeeModel hidden(WS, SL_COMMENT, ML_COMMENT):
 	((functions+=Function) | (concern+=Concern))* 
 	(body = Unit)? ;
 
-Import : (reexport ?='reexport')? 
-		'import' importer=(JavaImporter | NativeImporter) ("as" nameSpace=ID)? ';' 
-	; 
+Import returns be::B3JavaImport: {be::B3JavaImport}(reexport ?='reexport')? "import" qualifiedName = QID ("as" name=ID)? ';' ;
 
-JavaImporter 	: name=QID ;
-NativeImporter 	: uriString = STRING ;
+// Wanted later 
+//Import : (reexport ?='reexport')? 
+//		'import' importer=(JavaImporter | NativeImporter) ("as" name=ID)? ';' 
+//	; 
+
+//JavaImporter 	: qualifiedName=QID ;
+//NativeImporter 	: uriString = STRING ;
 		
 Unit returns BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT) :
 	(documentation = DOCUMENTATION)?
@@ -41,7 +46,7 @@ Unit returns BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT) :
 			| ('sequential' synchronizations += Synchronization  )
 			//--BUILD METHODS & FUNCTIONS
 			| (builders += Builder )			
-			| (methods += Method )			
+			| (functions += Function )			
 			//-- REPOSITORIES
 			| ('repositories' '{' (repositoryConfigurations+=RepositoryConfiguration)* '}' )
 			| ('properties'  propertySets += NamedPropertySet)
@@ -63,7 +68,8 @@ NamedPropertySet returns NamedPropertySet
 
 // Sequence of possibly filtered property statements	
 PropertySet returns PropertySet
-	:  ("extends" extends=[NamedPropertySet | QIDREF])? '{' (operations += PropertyOperation)* '}'
+	:  ("extends" extends=QIDREF)? '{' (operations += PropertyOperation)* '}'
+//	:  ("extends" extends=[NamedPropertySet | QIDREF])? '{' (operations += PropertyOperation)* '}'
 	;
 
 // For model generation, to get supertype correct
@@ -176,14 +182,17 @@ Builder returns Builder : {Builder}
 	 '}'
 	;
 
-Parameter : (name = ID ':')? val = Expression ;
-ParameterList : (params+=Parameter ("," params+=Parameter)* | params+=ClosureExpression)?;
+Parameter returns be::BParameter: {be::BParameter}(name = ID ':')? expr = Expression ;
+ParameterList returns be::BParameterList: (parameters+=Parameter ("," parameters+=Parameter)* 
+	| parameters+=ClosureParameter)?;
+
+ClosureParameter returns be::BParameter : expr = ClosureExpression;
 
 ParameterDeclarationList : 
 	( params += ParameterDeclaration (',' params+=ParameterDeclaration)*(',' params+=ParameterDeclarationEllipse)?) 
 	| (params+= ParameterDeclarationEllipse)
 	;
-ParameterDeclaration : type=TypeRef? name = ID ;
+ParameterDeclaration returns be::BParameterDeclaration: {be::BParameterDeclaration} type=TypeRef? name = ID ;
 ParameterDeclarationEllipse returns ParameterDeclaration : 
 	{VarargParameterDeclaration} "..." (type=TypeRef)? name=ID
 	;
@@ -218,7 +227,7 @@ ContainerConfiguration :
 	"container" name=ID "agent" type=TypeRef (contextBlock = ContextBlock)? 
 	;
 	
-URI returns types::URI: STRING
+URI /* returns types::URI */: STRING
 	;
 
 Concern : (documentation = DOCUMENTATION)? "concern" name=ID concern = ConcernBlock ;
@@ -231,7 +240,7 @@ ConcernBlock :
 Query : "query" ('{' selector=QueryPath '}') ;	
 QueryPath : (absolute?=':')? selectors+=Selector (':' selectors+=Selector)* ;
 Selector returns Selector
-	: (name=QID | op=SelectorOperator | pattern=REGEX) ('[' predicate=Expression ']')? 
+	: (name=QID | op=SelectorOperator | pattern=REGULAR_EXPR) ('[' predicate=Expression ']')? 
 	;
 enum SelectorOperator : THIS = '.' | PARENT = '..' | CHILDREN = '*' | ANSCESTORS = '**' ;
 
@@ -244,22 +253,23 @@ AssertionExpression : 'assert' expr=Expression ',' message=STRING ';' ;
 ExpressionList : (expressions += Expression ';')+ ;
 
 // Validation makes sure a Function is stated with "function", and Method with "method"
-Function returns Function: {Function} func=FunctionOrMethod ;
-Method returns Method: {Method} method=FunctionOrMethod ;
+//Function returns Function: {Function} func=FunctionOrMethod ;
+//Method returns Method: {Method} method=FunctionOrMethod ;
 
 // Difference function/method handled as validation
-FunctionOrMethod : 	
+Function returns be::B3Function: 	
 	(documentation = DOCUMENTATION)?
    	(visibility = Visibility)?
     (executionMode = ExecutionMode)?	   	
    	(final ?= "final")?
    	(cached ?= "cached")?
-   	form=("function"|"method")
-   	(type = TypeRef)?
+   	"function"
+//   	form=("function"|"method")
+   	(returnType = TypeRef)?
    	name=ID 
-   	( '<' typeParams+= TypeParamDeclaration (',' typeParams+=TypeParamDeclaration)* '>')?
-   	('(' (params += ParameterDeclaration (',' params += ParameterDeclaration)*)? ')' )?
-   	((':' body=Expression ';') | (body=BlockExpression))
+//   	( '<' typeParams+= TypeParamDeclaration (',' typeParams+=TypeParamDeclaration)* '>')? // TODO: add support for this in the model
+   	('(' (parameters += ParameterDeclaration (',' parameters += ParameterDeclaration)*)? ')' )?
+   	((':' funcExpr=Expression ';') | (funcExpr=BlockExpression))
 	;
 	
 TypeParamDeclaration 
@@ -267,93 +277,112 @@ TypeParamDeclaration
 	;
 		
 /* EXPRESSIONS */
-enum AssignmentOperator 
-	: SET = '=' 		| SET_PLUS ='+='	| SET_MINUS ='-='		| SET_MUL='*='	| SET_DIV='/='
-	| SET_MOD= "%=" 	| SET_AND = "&=" 	| SET_XOR = "^=" 		| SET_OR= "|=" 
-	| SET_LSHIFT="<<=" 	| SET_RSHIFT=">>=" 	| SET_RSHIFT_0= ">>>=" 
+AssignmentOperator 
+	: '=' 		| '+='	| '-=' | '*='	| '/='
+	| "%=" 	| "&=" 	| "^=" | "|=" 
+	| "<<=" | ">>=" | ">>>=" 
 	;
 	
-enum RelationalOperator 
-	: EQ_MATCHES="~=" 	| EQ="==" 		| EQ_IDENTITY="==="	| EQ_NOT="!=" 	| EQ_NOT_IDENTITY="!=="
-	| EQ_GTEQ=">=" 		| EQ_LEEQ="<=" 	| EQ_GT=">" 		| EQ_LT= "<"
-	| EQ_INSTANCEOF="instanceof" 
+RelationalOperator 
+	: "~=" | "==" | "===" | "!=" | "!=="
+	| ">=" | "<=" | ">" | "<"
+	| "instanceof" 
 	;
 
-Expression returns Expression: AssignmentExpression | ReturnExpression;
+Expression returns be::BExpression: AssignmentExpression ; // | ReturnExpression;
 
-ReturnExpression returns Expression : {ReturnExpression} "return" expr = AssignmentExpression ; 
+// ReturnExpression returns Expression : {ReturnExpression} "return" expr = AssignmentExpression ; 
 
-AssignmentExpression returns Expression:
-	 (OrExpression|VarDeclaration) ({AssignmentOperation.left=current} op=AssignmentOperator right=AssignmentExpression)?
+AssignmentExpression returns be::BExpression:
+	 (OrExpression | VarDeclaration) ({be::BAssignmentExpression.leftExpr=current} 
+	 	functionName=AssignmentOperator rightExpr=AssignmentExpression)?
 	;
 
-VarDeclaration returns Expression: {VarDeclaration} ('var' | type=TypeRef) name=ID ;
-
-TypeRef : SimpleTypeRef | ClosureTypeRef;
-SimpleTypeRef 
-	: typeName+=ID ('::' typeName+=ID)* ('<' ruleTypeParameter+=RuleTypeParam (',' ruleTypeParameter+=RuleTypeParam)* '>' )? 
+VarDeclaration returns be::BExpression: {be::BDefValue} ('var' | type=TypeRef) name=ID ;
+TypeRef returns be::IType: SimpleTypeRef | ClosureTypeRef;
+SimpleTypeRef returns be::IType
+	: {be::B3ParameterizedType} rawType=Import 
+		('<' actualArgumentsList+=TypeParam (',' actualArgumentsList+=TypeParam)* '>' )? 
 	;
+	
+// TODO: typereference is simplified to only the name of a java type - for model imports
+// the model is imported with name == namespace, and types in the model are referenced after
+// '::' e.g. "resource:a resouceURi.ecore" as mymodel, and a classifier in this model is
+// referenced as mymodel::mytype
+// There is more work required to link a reference to such a type and it is therefore deferred
+// until we are up on Xtext 0.8 with better scoping and linking.
+// For now, this is just proof of concept.
+// 
+
 // ClosureTypeRef declares parameters and return type	
-ClosureTypeRef 
-	: ( '(' parameterTypes+=TypeRef (',' parameterTypes+=TypeRef)* ')')? '=>' returnType = TypeRef
+ClosureTypeRef returns be::IType
+	: {be::B3FunctionType}( '(' parameterTypes+=TypeRef (',' parameterTypes+=TypeRef)* ')')? 
+		'=>' returnType = TypeRef
 	;
 	
-RuleTypeParam : RuleTypeRefParam | WildcardRefParam ;
-RuleTypeRefParam : TypeRef ;
-WildcardRefParam : '?' ( ("extends" extends+=TypeRef (',' extends+=TypeRef)*) | "super" superRef=TypeRef )?;
+TypeParam returns be::IType: TypeRefParam | WildcardRefParam ;
+TypeRefParam returns be::IType: TypeRef ;
+WildcardRefParam returns be::IType: 
+	{be::B3WildcardType}'?' ( ("extends" upperBoundsList+=TypeRef (',' upperBoundsList+=TypeRef)*) | "super" lowerBoundsList+=TypeRef )?;
 	 
-OrExpression returns Expression:
-	AndExpression ({BooleanOperation.left=current} operator="||" right=AndExpression)*;
+OrExpression returns be::BExpression:
+	AndExpression ({be::BOrExpression.leftExpr=current} "||" rightExpr=AndExpression)*;
+//	AndExpression ({BooleanOperation.left=current} operator="||" right=AndExpression)*;
 	
-AndExpression returns Expression:
-	BitwiseExpression ({BooleanOperation.left=current} operator="&&" right=BitwiseExpression)*;
+AndExpression returns be::BExpression:
+	BitwiseExpression ({be::BAndExpression.leftExpr=current} "&&" rightExpr=BitwiseExpression)*;
 
-BitwiseExpression returns Expression :
-	RelationalExpression ({OperationCall.params+=current} name=("&" | "^" | "|") params+=RelationalExpression)*;
+BitwiseExpression returns be::BExpression :
+	RelationalExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=("&" | "^" | "|") rightExpr=RelationalExpression)*;
 	
-RelationalExpression returns Expression:
-	ShiftExpression ({RelationalOperation.left=current} operator=RelationalOperator right=ShiftExpression)*;
+RelationalExpression returns be::BExpression:
+	ShiftExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=RelationalOperator rightExpr=ShiftExpression)*;
 
-ShiftExpression returns Expression:
-	AdditiveExpression ({OperationCall.params+=current} name=("<<" | ">>" | ">>>") params+=AdditiveExpression)*;
+ShiftExpression returns be::BExpression:
+	AdditiveExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=("<<" | ">>" | ">>>") rightExpr=AdditiveExpression)*;
 	
-AdditiveExpression returns Expression:
-	MultiplicativeExpression ({OperationCall.params+=current} name=("+" | "-") params+=MultiplicativeExpression)*;
+AdditiveExpression returns be::BExpression:
+	MultiplicativeExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=("+" | "-") rightExpr=MultiplicativeExpression)*;
 
-MultiplicativeExpression returns Expression:
-	SetExpression ({OperationCall.params+=current} name=("*" | "/" | "%") params+=SetExpression)*;
+MultiplicativeExpression returns be::BExpression:
+	SetExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=("*" | "/" | "%") rightExpr=SetExpression)*;
 
-enum SetOperator : SEQUENCE = '..' ;
+//enum SetOperator : SEQUENCE = '..' ;
 
-SetExpression returns Expression:
-	UnaryOrInfixExpression ({SetOperationCall.params+=current} op=SetOperator params+=UnaryOrInfixExpression)*;
+SetExpression returns be::BExpression:
+	UnaryOrInfixExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=".." rightExpr=UnaryOrInfixExpression)*;
 
-UnaryOrInfixExpression returns Expression
+UnaryOrInfixExpression returns be::BExpression
 	: UnaryExpression 
 	| PostopExpression
+	| PreopExpression
 	; 
 
-UnaryExpression :
-	 {UnaryOperation} name=("!" | "-" | "++" | "--" | "~") params+=PostopExpression;
+UnaryExpression returns be::BExpression:
+	 {be::BUnaryOpExpression} functionName=("!" | "-" | "~") expr=PostopExpression;
 
-PostopExpression returns Expression:
-	InfixExpression ({OperationCall.postTarget=current} name = ("--" | "++"))?
+PreopExpression returns be::BExpression:
+	 {be::BUnaryPreOpExpression} functionName=("++" | "--") expr=PostopExpression;
+
+PostopExpression returns be::BExpression:
+	InfixExpression ({be::BUnaryPostOpExpression.expr=current} functionName = ("--" | "++"))?
 	;
 
 	
-InfixExpression returns Expression:
+InfixExpression returns be::BExpression:
 	CallExpression ( 
-	  	({OperationCall.target=current} "." name=ID  "(" parameters = ParameterList ")")
-	  |	({AtCall.target=current} '[' index=Expression ']'
-	  		("(" parameters = ParameterList ")")?) 	  
-	  | ({FeatureCall.target=current} "." type=ID)
+	  	({be::BCallExpression.funcExpr=current} "." name=ID  "(" parameterList = ParameterList ")")
+	  |	({be::BAtExpression.objExpr=current} '[' indexExpr=Expression ']'
+//	  		("(" parameterList = ParameterList ")")? // TODO: this looks really odd - a chain of [] followed by call s probbly broken
+	  		) 	  
+	  | ({be::BFeatureExpression.objExpr=current} "." featureName=ID)
 	)*;
 	
-CallExpression returns Expression: 
+CallExpression returns be::BExpression: 
 	PrimaryExpression ( 
-		({OperationCall.target=current}"(" parameters = ParameterList ")"))*
+		({be::BCallExpression.funcExpr=current}"(" parameterList = ParameterList ")"))*
 		;
-PrimaryExpression returns Expression
+PrimaryExpression returns be::BExpression
 	: Literal 
 	| FeatureCall 
 	| ConstructorCallExpression
@@ -378,48 +407,57 @@ WithContextExpression returns Expresion : {WithContextExpression }
 	"with" "context" context = Expression expr = BlockExpression
 	;
 		
-WildcardExpression returns Expression: {WildcardExpression} '_' ;
+WildcardExpression returns be::BExpression: {be::BLiteralAny} '_' ;
 
-ThrowExpression returns Expression: {ThrowExpression} "throw"  expr=Expression ';' ;
-TryCatchExpression : "try" tryBlock=Expression (catch+=CatchBlock)*
-	(finally=FinallyBlock)? "endtry" 
+ThrowExpression returns be::BExpression: {be::BThrowExpression} "throw"  expr=Expression ';' ;
+TryCatchExpression returns be::BExpression : {be::BTryExpression} 
+	"try" tryExpr=Expression (catchBlocks+=CatchBlock)*
+	("finally" finallyExpr=Expression)? "endtry" 
 	;
 		
-CatchBlock		: "catch" type = TypeRef var=ID ':' expr=Expression ;
-FinallyBlock	: "finally" expr = Expression ;
-SwitchExpression: "switch" switchExpr=Expression? (case+=Case)+  "endswitch" ;		
-Case			: "case" condition=Expression ":" expr=Expression;
+CatchBlock	returns be::BCatch 
+	: {be::BCatch} "catch" exceptionType=TypeRef varname=ID ':' catchExpr=Expression ;
+	
+// FinallyBlock	: "finally" Expression ;
+SwitchExpression returns be::BExpression
+	: {be::BSwitchExpression} "switch" switchExpression=Expression? (caseList+=Case)+  "endswitch" ;
+			
+Case	returns be::BCase : {be::BCase} "case" conditionExpr=Expression ":" thenExpr=Expression;
 
-BlockExpression returns Expression: {BlockExpression} '{' (expr += Expression ';')* '}' ;
+BlockExpression returns be::BExpression: {be::BChainedExpression} '{' (expressions += Expression ';')* '}' ;
 
-IfExpression returns Expression
-	: {IfExpression} 'if'  cond=Expression "then" value=Expression 
-	(tail += ElseIfExpression)*
-	(tail += ElseExpression)?
+IfExpression returns be::BExpression
+	: {be::BIfExpression} 'if'  conditionExpr=Expression "then" thenExpr=Expression 
+	((elseExpr = ElseIfExpression | "else" elseExpr = Expression ))?
 	"endif"
 	;
 
 // for typing	
-IfExpressionTail : ElseIfExpression | ElseExpression ;	
-ElseIfExpression returns Expression: {ElseIfExpression} "elseif" condition=Expression "then" value=Expression ;
-ElseExpression returns Expression: {ElseExpression} "else" value=Expression ;
+// IfExpressionTail : ElseIfExpression | ElseExpression ;	
+ElseIfExpression returns be::BExpression 
+	: {be::BIfExpression} "elseif" conditionExpr=Expression "then" thenExpr=Expression 
+		((elseExpr = ElseIfExpression | "else" elseExpr = Expression ))?
+	;
+	
+//ElseExpression returns be::BExpression 
+//	:  "else" Expression ;
 
-PropertyValue returns  Expression: {PropertyValue} name = PID;
-VariableValue returns  Expression: {VariableValue} name = ID ;
-KeywordVariables returns  Expression: {KeywordVariable} 
+PropertyValue returns  be::BExpression: {be::BVariableExpression} name = PID;
+VariableValue returns  be::BExpression: {be::BVariableExpression} name = ID ;
+KeywordVariables returns  be::BExpression: {be::BVariableExpression} 
 	name = (InputKeyword | OutputKeyword | "properties" | "unit") ;
 
-FeatureCall:
+FeatureCall returns be::BExpression:
 	OperationCall
 	;
 	
-OperationCall returns OperationCall
-	: name=(ID|PID) '(' (parameters = ParameterList)? ')' 
-	| target= SuperLiteral '.' name=ID '(' (parameters = ParameterList)? ')'
+OperationCall returns be::BCallExpression
+	: name=(ID|PID) '(' (parameterList = ParameterList)? ')' 
+//	| target= SuperLiteral '.' name=ID '(' (parameters = ParameterList)? ')'
 	;
 
-ConstructorCallExpression returns Expression
-	: {CreatorCall} name="new" target=TypeRef ('(' (parameters=ParameterList)? ')')?
+ConstructorCallExpression returns be::BExpression
+	: {be::BCreateExpression} "new" type=TypeRef ('(' (parameterList=ParameterList)? ')')?
 		("as" alias=ID)? (contextBlock = ContextBlock)?
 	;
 
@@ -429,93 +467,91 @@ TypeRefSelector returns ContextSelector: type = TypeRef ;
 ExpressionSelector : expr = Expression ;
 UnitSelector : 
 	"unit" interface=QID 
-	('/' (name=UnitName | namePattern = REGEX) ('/' versionRange=VersionRange)? )? 
+	('/' (name=UnitName | namePattern = REGULAR_EXPR) ('/' versionRange=VersionRange)? )? 
 	;
 
-ContextBlock : '{'  ((statements +=FunctionStatement) 
-					| (statements+=BuilderStatement)
-					| (statements+=ExpressionStatement)
-					| (statements+=PropertiesStatement)
-					)* '}' ;
+ContextBlock returns be::BExpression : {be::BChainedExpression} 
+	'{'  ((expressions +=FunctionDefinition) 
+//		| (expressions+=BuilderDefinition)   // TODO: How to handle Builder definitions as expressions
+		| (expressions+=Expression)
+//		| (expressions+=PropertiesStatement) // TODO: How to handle Properties statements as expressions
+		)* '}' ;
 					
-ExpressionStatement returns Statement : {ExpressionStatement} val=Expression ';' ;
+//ExpressionStatement returns Statement : {ExpressionStatement} val=Expression ';' ;
 PropertiesStatement returns Statement : {PropertiesStatement} "properties" properties = NamedPropertySet ;
-FunctionStatement returns Statement : {FunctionStatement} function = Function;
-BuilderStatement returns Statement : {BuilderStatement} builder = Builder;
+FunctionDefinition returns be::BExpression : {be::BDefFunction} function = Function;
+BuilderDefinition returns Statement : {BuilderStatement} builder = Builder;
 
-Literal returns Expression
+Literal returns be::BExpression
 	: ValueLiteral
-	| RegexpLiteral
+//	| RegexpLiteral
 	| LiteralList
 	| LiteralMap
 	| LiteralFunction
 	;
 	
-LiteralList returns  Expression
-	: {LiteralList} '[' element += Expression (',' element += Expression)*  ']' ('<' type=TypeRef '>')?
-	| {LiteralList} '[' ']' '<' type=TypeRef '>'
+LiteralList returns  be::BExpression
+	: {be::BLiteralListExpression} '[' entries += Expression (',' entries += Expression)*  ']' ('<' entryType=TypeRef '>')?
+	| {be::BLiteralListExpression} '[' ']' '<' entryType=TypeRef '>'
 	;
-LiteralMap returns  Expression
-	: {LiteralMap} '[' features += Feature (',' features += Feature)* ']' ('<' keyType=TypeRef ',' valType=TypeRef '>')? 
-	| {LiteralMap} '[' ']' '<' keyType=TypeRef ',' valType=TypeRef '>'
+LiteralMap returns  be::BExpression
+	: {be::BLiteralMapExpression} '[' entries += MapEntry (',' entries += MapEntry)* ']' ('<' keyType=TypeRef ',' valueType=TypeRef '>')? 
+	| {be::BLiteralMapExpression} '[' ']' '<' keyType=TypeRef ',' valueType=TypeRef '>'
 	;
 LiteralFunction returns Expression: {LiteralFunction} '{' closure = ClosureExpression '}' ;
 
-ClosureExpression : 
-	(parameters += ParameterDeclaration (',' parameters += ParameterDeclaration)*)? '|' expr=Expression 
+ClosureExpression returns be::BExpression: {be::B3Function} 
+	(parameters += ParameterDeclaration (',' parameters += ParameterDeclaration)*)? '|' funcExpr=Expression 
 	;
 	
-Feature returns Feature: {Feature} name = (ID|PID|STRING) ':' value= Expression ;
+MapEntry returns be::BMapEntry: {be::BMapEntry} key = KeyLiteral ':' value= Expression ;
 
-ValueLiteral returns Expression
+KeyLiteral returns be::BExpression : {be::BLiteralExpression} value = (ID|PID|STRING) ;
+
+ValueLiteral returns be::BExpression 
 	: BooleanLiteral 
 	| IntegerLiteral 
-	| NullLiteral 
+//	| NullLiteral // TODO: 
 	| StringLiteral
 	| RealLiteral
-	| QueryLiteral
-	| ThisLiteral
-//	| SuperLiteral
+//	| QueryLiteral
+//	| ThisLiteral // TODO: remove?
+//	| SuperLiteral // TODO: remove ?
 	| UnitLiteral
 	;
 	
-BooleanLiteral returns  Expression: {BooleanLiteral} val=("true" | "false");
-IntegerLiteral returns  Expression: {IntegerLiteral} val= IntValue;
-NullLiteral	returns  Expression: {NullLiteral} val="null";
-ThisLiteral	returns  Expression: {ThisLiteral} val="this";
-SuperLiteral returns  Expression: {SuperLiteral} val="super";
-UnitLiteral returns  Expression: {UnitLiteral} val="unit";
-StringLiteral returns  Expression: {StringLiteral} val = STRING;
-RealLiteral	returns  Expression: {RealLiteral} val = RealValue;
+BooleanLiteral returns  be::BExpression: {be::BLiteralExpression} value = BooleanValue;
+IntegerLiteral returns  be::BExpression: {be::BLiteralExpression} value= IntValue;
+UnitLiteral returns  be::BExpression: {be::BLiteralExpression} value="unit";
+StringLiteral returns  be::BExpression: {be::BLiteralExpression} value = STRING;
+RealLiteral	returns  be::BExpression: {be::BLiteralExpression} value = RealValue;
+RegexpLiteral returns be::BExpression: {be::BRegularExpression} patternString = REGULAR_EXPR;
+//QueryLiteral returns be::BExpression: {be::BLiteralExpression} value=Query ;
+
+NullLiteral	returns  be::BExpression: {be::BLiteralExpression} "null"; // TODO: check that type is Object
+//ThisLiteral	returns  be::BExpression: {ThisLiteral} val="this";
+//SuperLiteral returns  be::BExpression: {SuperLiteral} val="super";
+
+BooleanValue returns ecore::EBooleanObject : ("true" | "false" );
 RealValue returns ecore::EDouble: REAL ;
 // handles dec, oct, and hex values with radix
-IntValue returns types::RadixInteger: INT | HEX ;
-RegexpLiteral returns Expression: {RegexpLiteral} val = REGEX;
-QueryLiteral returns Expression: {QueryLiteral} val=Query ;
+IntValue /*returns types::RadixInteger */: INT | HEX ;
 	
-ParanthesizedExpression returns Expression
+ParanthesizedExpression returns be::BExpression
 	:  "(" Expression ")"
 	;	
 
+//--
 Version : version = VersionLiteral;
 
-VersionLiteral returns types::Version
+VersionLiteral /* returns types::Version */
 	: STRING  
 	| AlfanumSym
 	;
 
-/*
-** VersionRange TODO: Uses two instances of Version. This works because use of [ ]  ( ) in Version must be 
-** escaped with " ". Omni
-** version uses version strings with \[ when a range is presented/parsed in string format.
-*/
-//VersionRange returns VersionRange
-//	: minLimit=('[' | '(') min=Version (',' max=Version)? maxLimit=(']'|')')
-//	| min=Version
-//	;
 VersionRange : range = VersionRangeLiteral ;
 
-VersionRangeLiteral returns types::VersionRange 
+VersionRangeLiteral /* returns types::VersionRange  */
 	: ('[' | '(') (STRING | AlfanumSym) (',' (STRING | AlfanumSym))? (']'|')')
 	| (STRING | AlfanumSym)
 	;
@@ -544,8 +580,8 @@ CompoundName : EscapedQualifiedName '/' EscapedQualifiedName ;
 UnitName : EscapedQualifiedName;
 PartName : EscapedQualifiedName;
 
-enum Visibility 	: public | private ;
-enum ExecutionMode 	: parallel | sequential ;
+enum Visibility 	returns be::Visibility : public | private ;
+enum ExecutionMode 	returns be::ExecutionMode: parallel | sequential ;
 
 
 // Version, and VersionRange
@@ -556,7 +592,7 @@ AlfanumSym : (ID | INT | HEX | EXT_INT) (Separator|ID|INT|HEX |EXT_INT)* ;
 
 // --TERMINALS
 
-// Redeclare the default ID with � instead of ^ as escape mechanism
+// Redeclare the default ID with some other char instead of ^ as escape mechanism ??
 terminal ID : ('^')?(('a'..'z')|('A'..'Z')|'_') (('a'..'z')|('A'..'Z')|('0'..'9')|'_')* ;
 
 // Property Names start with $ and are qualified. Must be handled by lexer as
@@ -564,7 +600,7 @@ terminal ID : ('^')?(('a'..'z')|('A'..'Z')|'_') (('a'..'z')|('A'..'Z')|('0'..'9'
 terminal PID : '$' ID ('.' ID)* ;
 
 // JS Regexp
-terminal REGEX returns types::RegularExpression
+terminal REGULAR_EXPR
 	: "~/" ( '\\' ('/'|'f'|'n'|'r'|'t'|'v'|'\\'|'.'|'*'|'+'|'?'
 					| 'w'|'W'|'s'|'S'|'d'|'D'|'b'
 					|'|'|'{'|'}'|'['|']'|'('|')'

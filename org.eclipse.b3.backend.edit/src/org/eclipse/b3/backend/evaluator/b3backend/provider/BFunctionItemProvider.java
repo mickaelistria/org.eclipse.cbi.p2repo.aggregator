@@ -70,39 +70,41 @@ public class BFunctionItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addPrivatePropertyDescriptor(object);
+			addVisibilityPropertyDescriptor(object);
 			addFinalPropertyDescriptor(object);
-			addSequentialPropertyDescriptor(object);
+			addExecutionModePropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addGuardPropertyDescriptor(object);
-			addReturnTypePropertyDescriptor(object);
 			addParameterTypesPropertyDescriptor(object);
 			addExceptionTypesPropertyDescriptor(object);
 			addTypeParametersPropertyDescriptor(object);
 			addParameterNamesPropertyDescriptor(object);
 			addVarArgsPropertyDescriptor(object);
+			addDocumentationPropertyDescriptor(object);
+			addReturnTypePropertyDescriptor(object);
+			addCachedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Private feature.
+	 * This adds a property descriptor for the Visibility feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addPrivatePropertyDescriptor(Object object) {
+	protected void addVisibilityPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BFunction_private_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BFunction_private_feature", "_UI_BFunction_type"),
-				 B3backendPackage.Literals.BFUNCTION__PRIVATE,
+				 getString("_UI_BFunction_visibility_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BFunction_visibility_feature", "_UI_BFunction_type"),
+				 B3backendPackage.Literals.BFUNCTION__VISIBILITY,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -130,23 +132,23 @@ public class BFunctionItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Sequential feature.
+	 * This adds a property descriptor for the Execution Mode feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSequentialPropertyDescriptor(Object object) {
+	protected void addExecutionModePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BFunction_sequential_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BFunction_sequential_feature", "_UI_BFunction_type"),
-				 B3backendPackage.Literals.BFUNCTION__SEQUENTIAL,
+				 getString("_UI_BFunction_executionMode_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BFunction_executionMode_feature", "_UI_BFunction_type"),
+				 B3backendPackage.Literals.BFUNCTION__EXECUTION_MODE,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -212,7 +214,29 @@ public class BFunctionItemProvider
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Cached feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCachedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_BFunction_cached_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BFunction_cached_feature", "_UI_BFunction_type"),
+				 B3backendPackage.Literals.BFUNCTION__CACHED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -328,6 +352,28 @@ public class BFunctionItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Documentation feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDocumentationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_BFunction_documentation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BFunction_documentation_feature", "_UI_BFunction_type"),
+				 B3backendPackage.Literals.BFUNCTION__DOCUMENTATION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -394,16 +440,18 @@ public class BFunctionItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(BFunction.class)) {
-			case B3backendPackage.BFUNCTION__PRIVATE:
+			case B3backendPackage.BFUNCTION__VISIBILITY:
 			case B3backendPackage.BFUNCTION__FINAL:
-			case B3backendPackage.BFUNCTION__SEQUENTIAL:
+			case B3backendPackage.BFUNCTION__EXECUTION_MODE:
 			case B3backendPackage.BFUNCTION__NAME:
-			case B3backendPackage.BFUNCTION__RETURN_TYPE:
 			case B3backendPackage.BFUNCTION__PARAMETER_TYPES:
 			case B3backendPackage.BFUNCTION__EXCEPTION_TYPES:
 			case B3backendPackage.BFUNCTION__TYPE_PARAMETERS:
 			case B3backendPackage.BFUNCTION__PARAMETER_NAMES:
 			case B3backendPackage.BFUNCTION__VAR_ARGS:
+			case B3backendPackage.BFUNCTION__DOCUMENTATION:
+			case B3backendPackage.BFUNCTION__RETURN_TYPE:
+			case B3backendPackage.BFUNCTION__CACHED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case B3backendPackage.BFUNCTION__PARAMETERS:

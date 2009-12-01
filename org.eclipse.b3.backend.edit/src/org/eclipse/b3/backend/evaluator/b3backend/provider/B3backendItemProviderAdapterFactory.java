@@ -1118,6 +1118,29 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected B3JavaImportItemProvider b3JavaImportItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createB3JavaImportAdapter() {
+		if (b3JavaImportItemProvider == null) {
+			b3JavaImportItemProvider = new B3JavaImportItemProvider(this);
+		}
+
+		return b3JavaImportItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1261,6 +1284,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 		if (b3ParameterizedTypeItemProvider != null) b3ParameterizedTypeItemProvider.dispose();
 		if (b3WildcardTypeItemProvider != null) b3WildcardTypeItemProvider.dispose();
 		if (b3FuncTypeVariableItemProvider != null) b3FuncTypeVariableItemProvider.dispose();
+		if (b3JavaImportItemProvider != null) b3JavaImportItemProvider.dispose();
 	}
 
 }

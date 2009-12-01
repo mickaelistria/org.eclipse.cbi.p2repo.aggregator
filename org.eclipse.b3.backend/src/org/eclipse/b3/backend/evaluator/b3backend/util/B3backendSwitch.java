@@ -511,6 +511,13 @@ public class B3backendSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case B3backendPackage.B3_JAVA_IMPORT: {
+				B3JavaImport b3JavaImport = (B3JavaImport)theEObject;
+				T result = caseB3JavaImport(b3JavaImport);
+				if (result == null) result = caseIType(b3JavaImport);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -1382,6 +1389,21 @@ public class B3backendSwitch<T> {
 	 * @generated
 	 */
 	public T caseB3FuncTypeVariable(B3FuncTypeVariable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>B3 Java Import</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>B3 Java Import</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseB3JavaImport(B3JavaImport object) {
 		return null;
 	}
 
