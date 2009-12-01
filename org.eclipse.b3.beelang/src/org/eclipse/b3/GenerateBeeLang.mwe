@@ -5,7 +5,7 @@
 
 
 	<bean class="org.eclipse.emf.mwe.utils.StandaloneSetup" platformUri="${runtimeProject}/.."
-    	registerGeneratedEPackage="b3backend,beeLang,beelangtypes"/>
+    	registerGeneratedEPackage="org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage"/>
     	
 	<component class="org.eclipse.emf.mwe.utils.DirectoryCleaner" directory="${runtimeProject}/src-gen"/>
 	<component class="org.eclipse.emf.mwe.utils.DirectoryCleaner" directory="${runtimeProject}.ui/src-gen"/>
