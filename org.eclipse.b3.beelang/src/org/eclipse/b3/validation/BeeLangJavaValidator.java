@@ -2,32 +2,32 @@ package org.eclipse.b3.validation;
 
 import org.eclipse.b3.beeLang.BeeLangPackage;
 import org.eclipse.b3.beeLang.Builder;
-import org.eclipse.b3.beeLang.Function;
-import org.eclipse.b3.beeLang.Method;
+//import org.eclipse.b3.beeLang.Function;
+//import org.eclipse.b3.beeLang.Method;
 
 import org.eclipse.b3.beeLang.WithClause;
 import org.eclipse.xtext.validation.Check;
-import org.eclipse.equinox.internal.provisional.p2.core.Version;
-import org.eclipse.equinox.internal.provisional.p2.core.VersionRange;
+//import org.eclipse.equinox.internal.provisional.p2.core.Version;
+//import org.eclipse.equinox.internal.provisional.p2.core.VersionRange;
  
 
-@SuppressWarnings("restriction")
+//@SuppressWarnings("restriction")
 public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator {
 
-	@Check
-	public void checkFunctionDeclaredWithFunctionKeyword(Function func) {
-		if (func.getFunc().getForm().equals("method")) {
-			error("Methods can only be defined in a unit, or a context", func.getFunc(), BeeLangPackage.FUNCTION_OR_METHOD__FORM);
-		}
-	}
-	@Check
-	public void checkMethodDeclaredWithMethodKeyword(Method func) {
-		if (func.getMethod().getForm().equals("function")) {
-			error("Functions can only be defined in global scope, or in a concern",
-					func.getMethod(),
-					BeeLangPackage.FUNCTION_OR_METHOD__FORM);
-		}
-	}
+//	@Check
+//	public void checkFunctionDeclaredWithFunctionKeyword(Function func) {
+//		if (func.getFunc().getForm().equals("method")) {
+//			error("Methods can only be defined in a unit, or a context", func.getFunc(), BeeLangPackage.FUNCTION_OR_METHOD__FORM);
+//		}
+//	}
+//	@Check
+//	public void checkMethodDeclaredWithMethodKeyword(Method func) {
+//		if (func.getMethod().getForm().equals("function")) {
+//			error("Functions can only be defined in global scope, or in a concern",
+//					func.getMethod(),
+//					BeeLangPackage.FUNCTION_OR_METHOD__FORM);
+//		}
+//	}
 	@Check
 	public void checkWithClauseIsNotEmpty(WithClause withClause) {
 		if (withClause.getReferences().size() == 0 
