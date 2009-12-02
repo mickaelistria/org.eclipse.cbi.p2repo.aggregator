@@ -21,8 +21,8 @@ Require-Bundle: org.eclipse.xtext,
  org.eclipse.emf.common,
  org.antlr.runtime,
  org.eclipse.equinox.p2.core,
- org.eclipse.b3.backend;bundle-version="1.0.0",
- org.eclipse.b3.core;bundle-version="1.0.0"
+ org.eclipse.b3.backend,
+ org.eclipse.b3.core
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.eclipse.b3,
  org.eclipse.b3.services,
@@ -32,3 +32,4 @@ Export-Package: org.eclipse.b3,
  org.eclipse.b3.parseTreeConstruction,
  org.eclipse.b3.parser.antlr,
  org.eclipse.b3.validation
+Import-Package: org.eclipse.b3.backend.evaluator.b3backend.impl

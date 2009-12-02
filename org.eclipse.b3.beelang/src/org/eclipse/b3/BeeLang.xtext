@@ -20,7 +20,7 @@ Import returns be::B3JavaImport: {be::B3JavaImport}(reexport ?='reexport')? "imp
 //JavaImporter 	: qualifiedName=QID ;
 //NativeImporter 	: uriString = STRING ;
 		
-Unit returns BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT) :
+Unit returns BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT) : {BuildUnit}
 	(documentation = DOCUMENTATION)?
 	(executionMode = ExecutionMode)?
 	'unit' (name=UnitName)? ('version' version = Version)?
@@ -68,7 +68,7 @@ NamedPropertySet returns NamedPropertySet
 
 // Sequence of possibly filtered property statements	
 PropertySet returns PropertySet
-	:  ("extends" extends=QIDREF)? '{' (operations += PropertyOperation)* '}'
+	:  {PropertySet} ("extends" extends=QIDREF)? '{' (operations += PropertyOperation)* '}'
 //	:  ("extends" extends=[NamedPropertySet | QIDREF])? '{' (operations += PropertyOperation)* '}'
 	;
 
@@ -94,7 +94,7 @@ UnsetPropertyOperation returns UnsetPropertyOperation
 	;
 
 Synchronization 
-	: (partrefs += SynchronizedPart)(',' partrefs += SynchronizedPart)+ ';' // at least 2
+	: (partrefs += SynchronizedPart)(',' partrefs += SynchronizedPart)+ ';' // TODO: verify at least 2 partrefs
 	;
 	
 SynchronizedPart
@@ -122,7 +122,7 @@ UnbasedPathVector returns PathVector
 	: paths+=Path (',' paths+=Path)* ';'
 	;
 	
-CompoundPathVector returns CompoundPathVector: '{' body+=PathVectorElement* '}' ;
+CompoundPathVector returns CompoundPathVector: {CompoundPathVector} '{' body+=PathVectorElement* '}' ;
 
 // A path can be written without quotes if it consists of safe chars 
 Path hidden()
@@ -159,7 +159,7 @@ CapabilityReferencedPart :
 	;
 	
 CompoundReferences
-	: '{' (prerequisites += Prerequisite)* '}'
+	: {CompounddReferences} '{' (prerequisites += Prerequisite)* '}'
 	;
 	
 Builder returns Builder : {Builder}
@@ -182,11 +182,11 @@ Builder returns Builder : {Builder}
 	 '}'
 	;
 
-Parameter returns be::BParameter: {be::BParameter}(name = ID ':')? expr = Expression ;
-ParameterList returns be::BParameterList: (parameters+=Parameter ("," parameters+=Parameter)* 
-	| parameters+=ClosureParameter)?;
+Parameter returns be::BParameter: {be::BParameter} expr = Expression ;
+ParameterList returns be::BParameterList: {be::BParameterList} (parameters+=Parameter ("," parameters+=Parameter)*) 
+	  | (parameters+=ClosureParameter)  ;
 
-ClosureParameter returns be::BParameter : expr = ClosureExpression;
+ClosureParameter returns be::BParameter : {be::BParameter} expr = ClosureExpression;
 
 ParameterDeclarationList : 
 	( params += ParameterDeclaration (',' params+=ParameterDeclaration)*(',' params+=ParameterDeclarationEllipse)?) 
@@ -232,7 +232,7 @@ URI /* returns types::URI */: STRING
 
 Concern : (documentation = DOCUMENTATION)? "concern" name=ID concern = ConcernBlock ;
 
-ConcernBlock : 
+ConcernBlock : {ConcernBlock}
 	("extends" superConcerns+= ID (',' superConcerns += ID)*)? 
 	'{' ((contexts+=Context) | (functions+=Function))* '}' 
 	;
@@ -256,8 +256,8 @@ ExpressionList : (expressions += Expression ';')+ ;
 //Function returns Function: {Function} func=FunctionOrMethod ;
 //Method returns Method: {Method} method=FunctionOrMethod ;
 
-// Difference function/method handled as validation
-Function returns be::B3Function: 	
+// "method" variant will probbly be removed
+Function returns be::B3Function: {be::B3Function}
 	(documentation = DOCUMENTATION)?
    	(visibility = Visibility)?
     (executionMode = ExecutionMode)?	   	
@@ -289,7 +289,7 @@ RelationalOperator
 	| "instanceof" 
 	;
 
-Expression returns be::BExpression: AssignmentExpression ; // | ReturnExpression;
+Expression returns be::BExpression: AssignmentExpression ;
 
 // ReturnExpression returns Expression : {ReturnExpression} "return" expr = AssignmentExpression ; 
 
@@ -327,7 +327,6 @@ WildcardRefParam returns be::IType:
 	 
 OrExpression returns be::BExpression:
 	AndExpression ({be::BOrExpression.leftExpr=current} "||" rightExpr=AndExpression)*;
-//	AndExpression ({BooleanOperation.left=current} operator="||" right=AndExpression)*;
 	
 AndExpression returns be::BExpression:
 	BitwiseExpression ({be::BAndExpression.leftExpr=current} "&&" rightExpr=BitwiseExpression)*;
@@ -346,8 +345,6 @@ AdditiveExpression returns be::BExpression:
 
 MultiplicativeExpression returns be::BExpression:
 	SetExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=("*" | "/" | "%") rightExpr=SetExpression)*;
-
-//enum SetOperator : SEQUENCE = '..' ;
 
 SetExpression returns be::BExpression:
 	UnaryOrInfixExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=".." rightExpr=UnaryOrInfixExpression)*;
@@ -371,7 +368,7 @@ PostopExpression returns be::BExpression:
 	
 InfixExpression returns be::BExpression:
 	CallExpression ( 
-	  	({be::BCallExpression.funcExpr=current} "." name=ID  "(" parameterList = ParameterList ")")
+	  	({be::BCallExpression.funcExpr=current} "." name=ID  "(" parameterList = ParameterList? ")")
 	  |	({be::BAtExpression.objExpr=current} '[' indexExpr=Expression ']'
 //	  		("(" parameterList = ParameterList ")")? // TODO: this looks really odd - a chain of [] followed by call s probbly broken
 	  		) 	  
@@ -379,14 +376,13 @@ InfixExpression returns be::BExpression:
 	)*;
 	
 CallExpression returns be::BExpression: 
-	PrimaryExpression ( 
-		({be::BCallExpression.funcExpr=current}"(" parameterList = ParameterList ")"))*
+	PrimaryExpression ({be::BCallExpression.funcExpr=current}"(" (parameterList = ParameterList)? ")")*
 		;
 PrimaryExpression returns be::BExpression
-	: Literal 
+	: VariableValue
+	| Literal 
 	| FeatureCall 
 	| ConstructorCallExpression
-	| VariableValue
 	| PropertyValue
 	| KeywordVariables
 	| ParanthesizedExpression
@@ -396,16 +392,16 @@ PrimaryExpression returns be::BExpression
 	| ThrowExpression
 	| TryCatchExpression
 	| WildcardExpression
-	| WithExpression
+//	| WithExpression
 	;
 	
-WithExpression returns Expression: WithClauseExpression | WithContextExpression ;
-WithClauseExpression returns Expression : {WithClauseExpression} 
-	withclause=WithClause expr = BlockExpression 
-	;
-WithContextExpression returns Expresion : {WithContextExpression } 
-	"with" "context" context = Expression expr = BlockExpression
-	;
+//WithExpression returns Expression: WithClauseExpression | WithContextExpression ;
+//WithClauseExpression returns Expression : {WithClauseExpression} 
+//	withclause=WithClause expr = BlockExpression 
+//	;
+//WithContextExpression returns Expresion : {WithContextExpression } 
+//	"with" "context" context = Expression expr = BlockExpression
+//	;
 		
 WildcardExpression returns be::BExpression: {be::BLiteralAny} '_' ;
 
@@ -452,7 +448,7 @@ FeatureCall returns be::BExpression:
 	;
 	
 OperationCall returns be::BCallExpression
-	: name=(ID|PID) '(' (parameterList = ParameterList)? ')' 
+	: {be::BCallExpression} name=(ID|PID) '(' (parameterList = ParameterList)? ')' 
 //	| target= SuperLiteral '.' name=ID '(' (parameters = ParameterList)? ')'
 	;
 
@@ -478,16 +474,16 @@ ContextBlock returns be::BExpression : {be::BChainedExpression}
 		)* '}' ;
 					
 //ExpressionStatement returns Statement : {ExpressionStatement} val=Expression ';' ;
-PropertiesStatement returns Statement : {PropertiesStatement} "properties" properties = NamedPropertySet ;
+//PropertiesStatement returns Statement : {PropertiesStatement} "properties" properties = NamedPropertySet ;
 FunctionDefinition returns be::BExpression : {be::BDefFunction} function = Function;
-BuilderDefinition returns Statement : {BuilderStatement} builder = Builder;
+//BuilderDefinition returns Statement : {BuilderStatement} builder = Builder;
 
 Literal returns be::BExpression
 	: ValueLiteral
 //	| RegexpLiteral
 	| LiteralList
 	| LiteralMap
-	| LiteralFunction
+//	| LiteralFunction
 	;
 	
 LiteralList returns  be::BExpression
@@ -498,7 +494,8 @@ LiteralMap returns  be::BExpression
 	: {be::BLiteralMapExpression} '[' entries += MapEntry (',' entries += MapEntry)* ']' ('<' keyType=TypeRef ',' valueType=TypeRef '>')? 
 	| {be::BLiteralMapExpression} '[' ']' '<' keyType=TypeRef ',' valueType=TypeRef '>'
 	;
-LiteralFunction returns Expression: {LiteralFunction} '{' closure = ClosureExpression '}' ;
+// TODO: only needs the ClosureExpression == B3Function 
+//LiteralFunction returns be::BExpression: {LiteralFunction} '{' closure = ClosureExpression '}' ;
 
 ClosureExpression returns be::BExpression: {be::B3Function} 
 	(parameters += ParameterDeclaration (',' parameters += ParameterDeclaration)*)? '|' funcExpr=Expression 
