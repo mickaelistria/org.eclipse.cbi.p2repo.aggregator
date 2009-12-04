@@ -5,10 +5,9 @@
  */
 package org.eclipse.b3.beeLang.impl;
 
-import org.eclipse.b3.RegularExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 
 import org.eclipse.b3.beeLang.BeeLangPackage;
-import org.eclipse.b3.beeLang.Expression;
 import org.eclipse.b3.beeLang.Selector;
 import org.eclipse.b3.beeLang.SelectorOperator;
 
@@ -87,7 +86,7 @@ public class SelectorImpl extends MinimalEObjectImpl.Container implements Select
    * @generated
    * @ordered
    */
-  protected static final RegularExpression PATTERN_EDEFAULT = null;
+  protected static final String PATTERN_EDEFAULT = null;
 
   /**
    * The cached value of the '{@link #getPattern() <em>Pattern</em>}' attribute.
@@ -97,7 +96,7 @@ public class SelectorImpl extends MinimalEObjectImpl.Container implements Select
    * @generated
    * @ordered
    */
-  protected RegularExpression pattern = PATTERN_EDEFAULT;
+  protected String pattern = PATTERN_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getPredicate() <em>Predicate</em>}' containment reference.
@@ -107,7 +106,7 @@ public class SelectorImpl extends MinimalEObjectImpl.Container implements Select
    * @generated
    * @ordered
    */
-  protected Expression predicate;
+  protected BExpression predicate;
 
   /**
    * <!-- begin-user-doc -->
@@ -181,7 +180,7 @@ public class SelectorImpl extends MinimalEObjectImpl.Container implements Select
    * <!-- end-user-doc -->
    * @generated
    */
-  public RegularExpression getPattern()
+  public String getPattern()
   {
     return pattern;
   }
@@ -191,9 +190,9 @@ public class SelectorImpl extends MinimalEObjectImpl.Container implements Select
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setPattern(RegularExpression newPattern)
+  public void setPattern(String newPattern)
   {
-    RegularExpression oldPattern = pattern;
+    String oldPattern = pattern;
     pattern = newPattern;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, BeeLangPackage.SELECTOR__PATTERN, oldPattern, pattern));
@@ -204,7 +203,7 @@ public class SelectorImpl extends MinimalEObjectImpl.Container implements Select
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expression getPredicate()
+  public BExpression getPredicate()
   {
     return predicate;
   }
@@ -214,9 +213,9 @@ public class SelectorImpl extends MinimalEObjectImpl.Container implements Select
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetPredicate(Expression newPredicate, NotificationChain msgs)
+  public NotificationChain basicSetPredicate(BExpression newPredicate, NotificationChain msgs)
   {
-    Expression oldPredicate = predicate;
+    BExpression oldPredicate = predicate;
     predicate = newPredicate;
     if (eNotificationRequired())
     {
@@ -231,7 +230,7 @@ public class SelectorImpl extends MinimalEObjectImpl.Container implements Select
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setPredicate(Expression newPredicate)
+  public void setPredicate(BExpression newPredicate)
   {
     if (newPredicate != predicate)
     {
@@ -302,10 +301,10 @@ public class SelectorImpl extends MinimalEObjectImpl.Container implements Select
         setOp((SelectorOperator)newValue);
         return;
       case BeeLangPackage.SELECTOR__PATTERN:
-        setPattern((RegularExpression)newValue);
+        setPattern((String)newValue);
         return;
       case BeeLangPackage.SELECTOR__PREDICATE:
-        setPredicate((Expression)newValue);
+        setPredicate((BExpression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -331,7 +330,7 @@ public class SelectorImpl extends MinimalEObjectImpl.Container implements Select
         setPattern(PATTERN_EDEFAULT);
         return;
       case BeeLangPackage.SELECTOR__PREDICATE:
-        setPredicate((Expression)null);
+        setPredicate((BExpression)null);
         return;
     }
     super.eUnset(featureID);

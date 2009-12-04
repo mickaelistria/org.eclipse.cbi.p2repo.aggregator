@@ -5,6 +5,8 @@
  */
 package org.eclipse.b3.beeLang;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -31,7 +33,7 @@ public interface WithClause extends EObject
 {
   /**
    * Returns the value of the '<em><b>References</b></em>' containment reference list.
-   * The list contents are of type {@link org.eclipse.b3.beeLang.Expression}.
+   * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.BExpression}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>References</em>' containment reference list isn't clear,
@@ -43,7 +45,7 @@ public interface WithClause extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Expression> getReferences();
+  EList<BExpression> getReferences();
 
   /**
    * Returns the value of the '<em><b>Properties</b></em>' containment reference list.

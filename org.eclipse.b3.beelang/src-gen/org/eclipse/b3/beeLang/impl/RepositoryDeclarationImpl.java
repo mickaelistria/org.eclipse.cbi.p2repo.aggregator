@@ -5,12 +5,12 @@
  */
 package org.eclipse.b3.beeLang.impl;
 
-import java.net.URI;
+import java.lang.reflect.Type;
+
+import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 
 import org.eclipse.b3.beeLang.BeeLangPackage;
-import org.eclipse.b3.beeLang.ContextBlock;
 import org.eclipse.b3.beeLang.RepositoryDeclaration;
-import org.eclipse.b3.beeLang.TypeRef;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -66,7 +66,7 @@ public class RepositoryDeclarationImpl extends RepositoryConfigurationImpl imple
    * @generated
    * @ordered
    */
-  protected static final URI LOCATION_EDEFAULT = null;
+  protected static final String LOCATION_EDEFAULT = null;
 
   /**
    * The cached value of the '{@link #getLocation() <em>Location</em>}' attribute.
@@ -76,7 +76,7 @@ public class RepositoryDeclarationImpl extends RepositoryConfigurationImpl imple
    * @generated
    * @ordered
    */
-  protected URI location = LOCATION_EDEFAULT;
+  protected String location = LOCATION_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -86,7 +86,7 @@ public class RepositoryDeclarationImpl extends RepositoryConfigurationImpl imple
    * @generated
    * @ordered
    */
-  protected TypeRef type;
+  protected Type type;
 
   /**
    * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference.
@@ -96,7 +96,7 @@ public class RepositoryDeclarationImpl extends RepositoryConfigurationImpl imple
    * @generated
    * @ordered
    */
-  protected ContextBlock context;
+  protected BExpression context;
 
   /**
    * <!-- begin-user-doc -->
@@ -147,7 +147,7 @@ public class RepositoryDeclarationImpl extends RepositoryConfigurationImpl imple
    * <!-- end-user-doc -->
    * @generated
    */
-  public URI getLocation()
+  public String getLocation()
   {
     return location;
   }
@@ -157,9 +157,9 @@ public class RepositoryDeclarationImpl extends RepositoryConfigurationImpl imple
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setLocation(URI newLocation)
+  public void setLocation(String newLocation)
   {
-    URI oldLocation = location;
+    String oldLocation = location;
     location = newLocation;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, BeeLangPackage.REPOSITORY_DECLARATION__LOCATION, oldLocation, location));
@@ -170,7 +170,7 @@ public class RepositoryDeclarationImpl extends RepositoryConfigurationImpl imple
    * <!-- end-user-doc -->
    * @generated
    */
-  public TypeRef getType()
+  public Type getType()
   {
     return type;
   }
@@ -180,9 +180,9 @@ public class RepositoryDeclarationImpl extends RepositoryConfigurationImpl imple
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetType(TypeRef newType, NotificationChain msgs)
+  public NotificationChain basicSetType(Type newType, NotificationChain msgs)
   {
-    TypeRef oldType = type;
+    Type oldType = type;
     type = newType;
     if (eNotificationRequired())
     {
@@ -197,7 +197,7 @@ public class RepositoryDeclarationImpl extends RepositoryConfigurationImpl imple
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setType(TypeRef newType)
+  public void setType(Type newType)
   {
     if (newType != type)
     {
@@ -218,7 +218,7 @@ public class RepositoryDeclarationImpl extends RepositoryConfigurationImpl imple
    * <!-- end-user-doc -->
    * @generated
    */
-  public ContextBlock getContext()
+  public BExpression getContext()
   {
     return context;
   }
@@ -228,9 +228,9 @@ public class RepositoryDeclarationImpl extends RepositoryConfigurationImpl imple
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetContext(ContextBlock newContext, NotificationChain msgs)
+  public NotificationChain basicSetContext(BExpression newContext, NotificationChain msgs)
   {
-    ContextBlock oldContext = context;
+    BExpression oldContext = context;
     context = newContext;
     if (eNotificationRequired())
     {
@@ -245,7 +245,7 @@ public class RepositoryDeclarationImpl extends RepositoryConfigurationImpl imple
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setContext(ContextBlock newContext)
+  public void setContext(BExpression newContext)
   {
     if (newContext != context)
     {
@@ -315,13 +315,13 @@ public class RepositoryDeclarationImpl extends RepositoryConfigurationImpl imple
         setDocumentation((String)newValue);
         return;
       case BeeLangPackage.REPOSITORY_DECLARATION__LOCATION:
-        setLocation((URI)newValue);
+        setLocation((String)newValue);
         return;
       case BeeLangPackage.REPOSITORY_DECLARATION__TYPE:
-        setType((TypeRef)newValue);
+        setType((Type)newValue);
         return;
       case BeeLangPackage.REPOSITORY_DECLARATION__CONTEXT:
-        setContext((ContextBlock)newValue);
+        setContext((BExpression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -344,10 +344,10 @@ public class RepositoryDeclarationImpl extends RepositoryConfigurationImpl imple
         setLocation(LOCATION_EDEFAULT);
         return;
       case BeeLangPackage.REPOSITORY_DECLARATION__TYPE:
-        setType((TypeRef)null);
+        setType((Type)null);
         return;
       case BeeLangPackage.REPOSITORY_DECLARATION__CONTEXT:
-        setContext((ContextBlock)null);
+        setContext((BExpression)null);
         return;
     }
     super.eUnset(featureID);

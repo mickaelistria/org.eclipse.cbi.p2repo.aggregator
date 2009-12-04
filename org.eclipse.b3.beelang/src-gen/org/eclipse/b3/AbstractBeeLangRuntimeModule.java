@@ -20,6 +20,11 @@ public abstract class AbstractBeeLangRuntimeModule extends DefaultRuntimeModule 
 		super.configure(binder);
 		binder.bind(String.class).annotatedWith(Names.named(Constants.LANGUAGE_NAME)).toInstance(
 			"org.eclipse.b3.BeeLang");
+		bindProperties(binder);
+	}
+	
+	protected void bindProperties(Binder binder) {
+		bindProperties(binder, "/org/eclipse/b3/BeeLang.properties");
 	}
 	
 	
@@ -54,6 +59,16 @@ public abstract class AbstractBeeLangRuntimeModule extends DefaultRuntimeModule 
 	}
 
 	// contributed by de.itemis.xtext.antlr.XtextAntlrGeneratorFragment
+	public com.google.inject.Provider<org.eclipse.b3.parser.antlr.internal.InternalBeeLangLexer> provideInternalBeeLangLexer() {
+		return org.eclipse.xtext.parser.antlr.LexerProvider.create(org.eclipse.b3.parser.antlr.internal.InternalBeeLangLexer.class);
+	}
+
+	// contributed by de.itemis.xtext.antlr.XtextAntlrGeneratorFragment
+	public void configureRuntimeLexer(com.google.inject.Binder binder) {
+		binder.bind(org.eclipse.xtext.parser.antlr.Lexer.class).annotatedWith(com.google.inject.name.Names.named(org.eclipse.xtext.parser.antlr.LexerBindings.RUNTIME)).to(org.eclipse.b3.parser.antlr.internal.InternalBeeLangLexer.class);
+	}
+
+	// contributed by de.itemis.xtext.antlr.XtextAntlrGeneratorFragment
 	public Class<? extends org.eclipse.xtext.parser.antlr.ITokenDefProvider> bindITokenDefProvider() {
 		return org.eclipse.xtext.parser.antlr.AntlrTokenDefProvider.class;
 	}
@@ -66,6 +81,11 @@ public abstract class AbstractBeeLangRuntimeModule extends DefaultRuntimeModule 
 	// contributed by org.eclipse.xtext.generator.scoping.JavaScopingFragment
 	public Class<? extends org.eclipse.xtext.scoping.IScopeProvider> bindIScopeProvider() {
 		return org.eclipse.b3.scoping.BeeLangScopeProvider.class;
+	}
+
+	// contributed by org.eclipse.xtext.generator.scoping.JavaScopingFragment
+	public void configureIScopeProviderDelegate(com.google.inject.Binder binder) {
+		binder.bind(org.eclipse.xtext.scoping.IScopeProvider.class).annotatedWith(com.google.inject.name.Names.named("org.eclipse.xtext.scoping.IScopeProvider.delegate")).to(org.eclipse.xtext.scoping.impl.SimpleNameScopeProvider.class);
 	}
 
 	// contributed by org.eclipse.xtext.generator.formatting.FormatterFragment

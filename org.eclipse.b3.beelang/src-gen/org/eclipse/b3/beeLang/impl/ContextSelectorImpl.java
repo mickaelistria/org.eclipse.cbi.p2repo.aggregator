@@ -5,9 +5,10 @@
  */
 package org.eclipse.b3.beeLang.impl;
 
+import java.lang.reflect.Type;
+
 import org.eclipse.b3.beeLang.BeeLangPackage;
 import org.eclipse.b3.beeLang.ContextSelector;
-import org.eclipse.b3.beeLang.TypeRef;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -41,7 +42,7 @@ public class ContextSelectorImpl extends MinimalEObjectImpl.Container implements
    * @generated
    * @ordered
    */
-  protected TypeRef type;
+  protected Type type;
 
   /**
    * <!-- begin-user-doc -->
@@ -69,7 +70,7 @@ public class ContextSelectorImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public TypeRef getType()
+  public Type getType()
   {
     return type;
   }
@@ -79,9 +80,9 @@ public class ContextSelectorImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetType(TypeRef newType, NotificationChain msgs)
+  public NotificationChain basicSetType(Type newType, NotificationChain msgs)
   {
-    TypeRef oldType = type;
+    Type oldType = type;
     type = newType;
     if (eNotificationRequired())
     {
@@ -96,7 +97,7 @@ public class ContextSelectorImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setType(TypeRef newType)
+  public void setType(Type newType)
   {
     if (newType != type)
     {
@@ -155,7 +156,7 @@ public class ContextSelectorImpl extends MinimalEObjectImpl.Container implements
     switch (featureID)
     {
       case BeeLangPackage.CONTEXT_SELECTOR__TYPE:
-        setType((TypeRef)newValue);
+        setType((Type)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -172,7 +173,7 @@ public class ContextSelectorImpl extends MinimalEObjectImpl.Container implements
     switch (featureID)
     {
       case BeeLangPackage.CONTEXT_SELECTOR__TYPE:
-        setType((TypeRef)null);
+        setType((Type)null);
         return;
     }
     super.eUnset(featureID);

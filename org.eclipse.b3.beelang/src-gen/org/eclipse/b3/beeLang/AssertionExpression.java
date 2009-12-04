@@ -5,6 +5,8 @@
  */
 package org.eclipse.b3.beeLang;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -35,12 +37,12 @@ public interface AssertionExpression extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Expr</em>' containment reference.
-   * @see #setExpr(Expression)
+   * @see #setExpr(BExpression)
    * @see org.eclipse.b3.beeLang.BeeLangPackage#getAssertionExpression_Expr()
    * @model containment="true"
    * @generated
    */
-  Expression getExpr();
+  BExpression getExpr();
 
   /**
    * Sets the value of the '{@link org.eclipse.b3.beeLang.AssertionExpression#getExpr <em>Expr</em>}' containment reference.
@@ -50,7 +52,7 @@ public interface AssertionExpression extends EObject
    * @see #getExpr()
    * @generated
    */
-  void setExpr(Expression value);
+  void setExpr(BExpression value);
 
   /**
    * Returns the value of the '<em><b>Message</b></em>' attribute.

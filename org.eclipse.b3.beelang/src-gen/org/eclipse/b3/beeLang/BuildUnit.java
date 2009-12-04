@@ -5,6 +5,9 @@
  */
 package org.eclipse.b3.beeLang;
 
+import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
+import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -29,7 +32,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.b3.beeLang.BuildUnit#getConcerns <em>Concerns</em>}</li>
  *   <li>{@link org.eclipse.b3.beeLang.BuildUnit#getSynchronizations <em>Synchronizations</em>}</li>
  *   <li>{@link org.eclipse.b3.beeLang.BuildUnit#getBuilders <em>Builders</em>}</li>
- *   <li>{@link org.eclipse.b3.beeLang.BuildUnit#getMethods <em>Methods</em>}</li>
+ *   <li>{@link org.eclipse.b3.beeLang.BuildUnit#getFunctions <em>Functions</em>}</li>
  *   <li>{@link org.eclipse.b3.beeLang.BuildUnit#getRepositoryConfigurations <em>Repository Configurations</em>}</li>
  *   <li>{@link org.eclipse.b3.beeLang.BuildUnit#getPropertySets <em>Property Sets</em>}</li>
  *   <li>{@link org.eclipse.b3.beeLang.BuildUnit#getContainers <em>Containers</em>}</li>
@@ -70,7 +73,7 @@ public interface BuildUnit extends EObject
 
   /**
    * Returns the value of the '<em><b>Execution Mode</b></em>' attribute.
-   * The literals are from the enumeration {@link org.eclipse.b3.beeLang.ExecutionMode}.
+   * The literals are from the enumeration {@link org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Execution Mode</em>' attribute isn't clear,
@@ -78,7 +81,7 @@ public interface BuildUnit extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Execution Mode</em>' attribute.
-   * @see org.eclipse.b3.beeLang.ExecutionMode
+   * @see org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode
    * @see #setExecutionMode(ExecutionMode)
    * @see org.eclipse.b3.beeLang.BeeLangPackage#getBuildUnit_ExecutionMode()
    * @model
@@ -91,7 +94,7 @@ public interface BuildUnit extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Execution Mode</em>' attribute.
-   * @see org.eclipse.b3.beeLang.ExecutionMode
+   * @see org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode
    * @see #getExecutionMode()
    * @generated
    */
@@ -288,20 +291,20 @@ public interface BuildUnit extends EObject
   EList<Builder> getBuilders();
 
   /**
-   * Returns the value of the '<em><b>Methods</b></em>' containment reference list.
-   * The list contents are of type {@link org.eclipse.b3.beeLang.Method}.
+   * Returns the value of the '<em><b>Functions</b></em>' containment reference list.
+   * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.B3Function}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Methods</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Functions</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Methods</em>' containment reference list.
-   * @see org.eclipse.b3.beeLang.BeeLangPackage#getBuildUnit_Methods()
+   * @return the value of the '<em>Functions</em>' containment reference list.
+   * @see org.eclipse.b3.beeLang.BeeLangPackage#getBuildUnit_Functions()
    * @model containment="true"
    * @generated
    */
-  EList<Method> getMethods();
+  EList<B3Function> getFunctions();
 
   /**
    * Returns the value of the '<em><b>Repository Configurations</b></em>' containment reference list.

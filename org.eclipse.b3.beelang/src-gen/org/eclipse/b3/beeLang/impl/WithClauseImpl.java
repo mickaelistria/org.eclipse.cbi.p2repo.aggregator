@@ -7,9 +7,10 @@ package org.eclipse.b3.beeLang.impl;
 
 import java.util.Collection;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+
 import org.eclipse.b3.beeLang.BeeLangPackage;
 import org.eclipse.b3.beeLang.ConcernBlock;
-import org.eclipse.b3.beeLang.Expression;
 import org.eclipse.b3.beeLang.PropertySet;
 import org.eclipse.b3.beeLang.WithClause;
 
@@ -50,7 +51,7 @@ public class WithClauseImpl extends MinimalEObjectImpl.Container implements With
    * @generated
    * @ordered
    */
-  protected EList<Expression> references;
+  protected EList<BExpression> references;
 
   /**
    * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
@@ -98,11 +99,11 @@ public class WithClauseImpl extends MinimalEObjectImpl.Container implements With
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Expression> getReferences()
+  public EList<BExpression> getReferences()
   {
     if (references == null)
     {
-      references = new EObjectContainmentEList<Expression>(Expression.class, this, BeeLangPackage.WITH_CLAUSE__REFERENCES);
+      references = new EObjectContainmentEList<BExpression>(BExpression.class, this, BeeLangPackage.WITH_CLAUSE__REFERENCES);
     }
     return references;
   }
@@ -188,7 +189,7 @@ public class WithClauseImpl extends MinimalEObjectImpl.Container implements With
     {
       case BeeLangPackage.WITH_CLAUSE__REFERENCES:
         getReferences().clear();
-        getReferences().addAll((Collection<? extends Expression>)newValue);
+        getReferences().addAll((Collection<? extends BExpression>)newValue);
         return;
       case BeeLangPackage.WITH_CLAUSE__PROPERTIES:
         getProperties().clear();

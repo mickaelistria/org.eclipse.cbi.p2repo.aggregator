@@ -5,10 +5,12 @@
  */
 package org.eclipse.b3.beeLang.impl;
 
+import java.lang.reflect.Type;
+
+import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+
 import org.eclipse.b3.beeLang.BeeLangPackage;
 import org.eclipse.b3.beeLang.ContainerConfiguration;
-import org.eclipse.b3.beeLang.ContextBlock;
-import org.eclipse.b3.beeLang.TypeRef;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -85,7 +87,7 @@ public class ContainerConfigurationImpl extends MinimalEObjectImpl.Container imp
    * @generated
    * @ordered
    */
-  protected TypeRef type;
+  protected Type type;
 
   /**
    * The cached value of the '{@link #getContextBlock() <em>Context Block</em>}' containment reference.
@@ -95,7 +97,7 @@ public class ContainerConfigurationImpl extends MinimalEObjectImpl.Container imp
    * @generated
    * @ordered
    */
-  protected ContextBlock contextBlock;
+  protected BExpression contextBlock;
 
   /**
    * <!-- begin-user-doc -->
@@ -169,7 +171,7 @@ public class ContainerConfigurationImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public TypeRef getType()
+  public Type getType()
   {
     return type;
   }
@@ -179,9 +181,9 @@ public class ContainerConfigurationImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetType(TypeRef newType, NotificationChain msgs)
+  public NotificationChain basicSetType(Type newType, NotificationChain msgs)
   {
-    TypeRef oldType = type;
+    Type oldType = type;
     type = newType;
     if (eNotificationRequired())
     {
@@ -196,7 +198,7 @@ public class ContainerConfigurationImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setType(TypeRef newType)
+  public void setType(Type newType)
   {
     if (newType != type)
     {
@@ -217,7 +219,7 @@ public class ContainerConfigurationImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public ContextBlock getContextBlock()
+  public BExpression getContextBlock()
   {
     return contextBlock;
   }
@@ -227,9 +229,9 @@ public class ContainerConfigurationImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetContextBlock(ContextBlock newContextBlock, NotificationChain msgs)
+  public NotificationChain basicSetContextBlock(BExpression newContextBlock, NotificationChain msgs)
   {
-    ContextBlock oldContextBlock = contextBlock;
+    BExpression oldContextBlock = contextBlock;
     contextBlock = newContextBlock;
     if (eNotificationRequired())
     {
@@ -244,7 +246,7 @@ public class ContainerConfigurationImpl extends MinimalEObjectImpl.Container imp
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setContextBlock(ContextBlock newContextBlock)
+  public void setContextBlock(BExpression newContextBlock)
   {
     if (newContextBlock != contextBlock)
     {
@@ -317,10 +319,10 @@ public class ContainerConfigurationImpl extends MinimalEObjectImpl.Container imp
         setName((String)newValue);
         return;
       case BeeLangPackage.CONTAINER_CONFIGURATION__TYPE:
-        setType((TypeRef)newValue);
+        setType((Type)newValue);
         return;
       case BeeLangPackage.CONTAINER_CONFIGURATION__CONTEXT_BLOCK:
-        setContextBlock((ContextBlock)newValue);
+        setContextBlock((BExpression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -343,10 +345,10 @@ public class ContainerConfigurationImpl extends MinimalEObjectImpl.Container imp
         setName(NAME_EDEFAULT);
         return;
       case BeeLangPackage.CONTAINER_CONFIGURATION__TYPE:
-        setType((TypeRef)null);
+        setType((Type)null);
         return;
       case BeeLangPackage.CONTAINER_CONFIGURATION__CONTEXT_BLOCK:
-        setContextBlock((ContextBlock)null);
+        setContextBlock((BExpression)null);
         return;
     }
     super.eUnset(featureID);

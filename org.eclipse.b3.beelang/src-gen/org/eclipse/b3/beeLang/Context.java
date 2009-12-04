@@ -5,6 +5,8 @@
  */
 package org.eclipse.b3.beeLang;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -61,12 +63,12 @@ public interface Context extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Block</em>' containment reference.
-   * @see #setBlock(ContextBlock)
+   * @see #setBlock(BExpression)
    * @see org.eclipse.b3.beeLang.BeeLangPackage#getContext_Block()
    * @model containment="true"
    * @generated
    */
-  ContextBlock getBlock();
+  BExpression getBlock();
 
   /**
    * Sets the value of the '{@link org.eclipse.b3.beeLang.Context#getBlock <em>Block</em>}' containment reference.
@@ -76,6 +78,6 @@ public interface Context extends EObject
    * @see #getBlock()
    * @generated
    */
-  void setBlock(ContextBlock value);
+  void setBlock(BExpression value);
 
 } // Context

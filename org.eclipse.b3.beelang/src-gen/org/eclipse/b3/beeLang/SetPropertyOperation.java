@@ -5,6 +5,7 @@
  */
 package org.eclipse.b3.beeLang;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 
 /**
  * <!-- begin-user-doc -->
@@ -81,7 +82,6 @@ public interface SetPropertyOperation extends PropertyOperation
 
   /**
    * Returns the value of the '<em><b>Op</b></em>' attribute.
-   * The literals are from the enumeration {@link org.eclipse.b3.beeLang.AssignmentOperator}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Op</em>' attribute isn't clear,
@@ -89,24 +89,22 @@ public interface SetPropertyOperation extends PropertyOperation
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Op</em>' attribute.
-   * @see org.eclipse.b3.beeLang.AssignmentOperator
-   * @see #setOp(AssignmentOperator)
+   * @see #setOp(String)
    * @see org.eclipse.b3.beeLang.BeeLangPackage#getSetPropertyOperation_Op()
    * @model
    * @generated
    */
-  AssignmentOperator getOp();
+  String getOp();
 
   /**
    * Sets the value of the '{@link org.eclipse.b3.beeLang.SetPropertyOperation#getOp <em>Op</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Op</em>' attribute.
-   * @see org.eclipse.b3.beeLang.AssignmentOperator
    * @see #getOp()
    * @generated
    */
-  void setOp(AssignmentOperator value);
+  void setOp(String value);
 
   /**
    * Returns the value of the '<em><b>Value</b></em>' containment reference.
@@ -117,12 +115,12 @@ public interface SetPropertyOperation extends PropertyOperation
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Value</em>' containment reference.
-   * @see #setValue(Expression)
+   * @see #setValue(BExpression)
    * @see org.eclipse.b3.beeLang.BeeLangPackage#getSetPropertyOperation_Value()
    * @model containment="true"
    * @generated
    */
-  Expression getValue();
+  BExpression getValue();
 
   /**
    * Sets the value of the '{@link org.eclipse.b3.beeLang.SetPropertyOperation#getValue <em>Value</em>}' containment reference.
@@ -132,6 +130,6 @@ public interface SetPropertyOperation extends PropertyOperation
    * @see #getValue()
    * @generated
    */
-  void setValue(Expression value);
+  void setValue(BExpression value);
 
 } // SetPropertyOperation

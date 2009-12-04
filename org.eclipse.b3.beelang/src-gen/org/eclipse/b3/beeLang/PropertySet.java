@@ -27,30 +27,30 @@ import org.eclipse.emf.common.util.EList;
 public interface PropertySet extends PropertyOperation
 {
   /**
-   * Returns the value of the '<em><b>Extends</b></em>' reference.
+   * Returns the value of the '<em><b>Extends</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Extends</em>' reference isn't clear,
+   * If the meaning of the '<em>Extends</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Extends</em>' reference.
-   * @see #setExtends(NamedPropertySet)
+   * @return the value of the '<em>Extends</em>' attribute.
+   * @see #setExtends(String)
    * @see org.eclipse.b3.beeLang.BeeLangPackage#getPropertySet_Extends()
    * @model
    * @generated
    */
-  NamedPropertySet getExtends();
+  String getExtends();
 
   /**
-   * Sets the value of the '{@link org.eclipse.b3.beeLang.PropertySet#getExtends <em>Extends</em>}' reference.
+   * Sets the value of the '{@link org.eclipse.b3.beeLang.PropertySet#getExtends <em>Extends</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Extends</em>' reference.
+   * @param value the new value of the '<em>Extends</em>' attribute.
    * @see #getExtends()
    * @generated
    */
-  void setExtends(NamedPropertySet value);
+  void setExtends(String value);
 
   /**
    * Returns the value of the '<em><b>Operations</b></em>' containment reference list.

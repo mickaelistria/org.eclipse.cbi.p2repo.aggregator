@@ -5,6 +5,8 @@
  */
 package org.eclipse.b3.beeLang;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -34,12 +36,12 @@ public interface Filter extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Predicate</em>' containment reference.
-   * @see #setPredicate(Expression)
+   * @see #setPredicate(BExpression)
    * @see org.eclipse.b3.beeLang.BeeLangPackage#getFilter_Predicate()
    * @model containment="true"
    * @generated
    */
-  Expression getPredicate();
+  BExpression getPredicate();
 
   /**
    * Sets the value of the '{@link org.eclipse.b3.beeLang.Filter#getPredicate <em>Predicate</em>}' containment reference.
@@ -49,6 +51,6 @@ public interface Filter extends EObject
    * @see #getPredicate()
    * @generated
    */
-  void setPredicate(Expression value);
+  void setPredicate(BExpression value);
 
 } // Filter

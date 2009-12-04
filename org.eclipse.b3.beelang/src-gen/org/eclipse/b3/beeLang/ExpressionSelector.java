@@ -5,6 +5,7 @@
  */
 package org.eclipse.b3.beeLang;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,12 +34,12 @@ public interface ExpressionSelector extends ContextSelector
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Expr</em>' containment reference.
-   * @see #setExpr(Expression)
+   * @see #setExpr(BExpression)
    * @see org.eclipse.b3.beeLang.BeeLangPackage#getExpressionSelector_Expr()
    * @model containment="true"
    * @generated
    */
-  Expression getExpr();
+  BExpression getExpr();
 
   /**
    * Sets the value of the '{@link org.eclipse.b3.beeLang.ExpressionSelector#getExpr <em>Expr</em>}' containment reference.
@@ -48,6 +49,6 @@ public interface ExpressionSelector extends ContextSelector
    * @see #getExpr()
    * @generated
    */
-  void setExpr(Expression value);
+  void setExpr(BExpression value);
 
 } // ExpressionSelector

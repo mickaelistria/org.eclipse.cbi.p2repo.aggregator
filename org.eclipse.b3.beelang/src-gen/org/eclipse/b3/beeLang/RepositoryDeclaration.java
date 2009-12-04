@@ -5,7 +5,9 @@
  */
 package org.eclipse.b3.beeLang;
 
-import java.net.URI;
+import java.lang.reflect.Type;
+
+import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 
 /**
  * <!-- begin-user-doc -->
@@ -63,12 +65,12 @@ public interface RepositoryDeclaration extends RepositoryConfiguration
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Location</em>' attribute.
-   * @see #setLocation(URI)
+   * @see #setLocation(String)
    * @see org.eclipse.b3.beeLang.BeeLangPackage#getRepositoryDeclaration_Location()
-   * @model dataType="beelangtypes.URI"
+   * @model
    * @generated
    */
-  URI getLocation();
+  String getLocation();
 
   /**
    * Sets the value of the '{@link org.eclipse.b3.beeLang.RepositoryDeclaration#getLocation <em>Location</em>}' attribute.
@@ -78,7 +80,7 @@ public interface RepositoryDeclaration extends RepositoryConfiguration
    * @see #getLocation()
    * @generated
    */
-  void setLocation(URI value);
+  void setLocation(String value);
 
   /**
    * Returns the value of the '<em><b>Type</b></em>' containment reference.
@@ -89,12 +91,12 @@ public interface RepositoryDeclaration extends RepositoryConfiguration
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Type</em>' containment reference.
-   * @see #setType(TypeRef)
+   * @see #setType(Type)
    * @see org.eclipse.b3.beeLang.BeeLangPackage#getRepositoryDeclaration_Type()
-   * @model containment="true"
+   * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType" containment="true"
    * @generated
    */
-  TypeRef getType();
+  Type getType();
 
   /**
    * Sets the value of the '{@link org.eclipse.b3.beeLang.RepositoryDeclaration#getType <em>Type</em>}' containment reference.
@@ -104,7 +106,7 @@ public interface RepositoryDeclaration extends RepositoryConfiguration
    * @see #getType()
    * @generated
    */
-  void setType(TypeRef value);
+  void setType(Type value);
 
   /**
    * Returns the value of the '<em><b>Context</b></em>' containment reference.
@@ -115,12 +117,12 @@ public interface RepositoryDeclaration extends RepositoryConfiguration
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Context</em>' containment reference.
-   * @see #setContext(ContextBlock)
+   * @see #setContext(BExpression)
    * @see org.eclipse.b3.beeLang.BeeLangPackage#getRepositoryDeclaration_Context()
    * @model containment="true"
    * @generated
    */
-  ContextBlock getContext();
+  BExpression getContext();
 
   /**
    * Sets the value of the '{@link org.eclipse.b3.beeLang.RepositoryDeclaration#getContext <em>Context</em>}' containment reference.
@@ -130,6 +132,6 @@ public interface RepositoryDeclaration extends RepositoryConfiguration
    * @see #getContext()
    * @generated
    */
-  void setContext(ContextBlock value);
+  void setContext(BExpression value);
 
 } // RepositoryDeclaration

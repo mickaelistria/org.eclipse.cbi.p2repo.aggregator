@@ -2,6 +2,8 @@ package org.eclipse.b3;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
 
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
@@ -162,22 +164,78 @@ public class BeeLangTerminalConverters extends  AbstractDeclarativeValueConverte
 		};
 	}
 	
+//	@ValueConverter(rule = "REGEX")
+//	public IValueConverter<RegularExpression> RegularExpression() {
+//		return new IValueConverter<RegularExpression>() {
+//
+//			public RegularExpression toValue(String string, AbstractNode node) {
+//				if (Strings.isEmpty(string))
+//					throw new ValueConverterException("Could not convert empty string to regular expression", node, null);
+//				try {
+//					return new RegularExpression(string);
+//				} catch (NumberFormatException e) {
+//					throw new ValueConverterException("Could not convert '"+ string + "' to regular expression", node, e);
+//				}
+//			}
+//
+//			public String toString(RegularExpression value) {
+//				return value.toString();
+//			}
+//
+//		};
+//	}
 	@ValueConverter(rule = "REGEX")
-	public IValueConverter<RegularExpression> RegularExpression() {
-		return new IValueConverter<RegularExpression>() {
+	public IValueConverter<Pattern> Pattern() {
+		return new IValueConverter<Pattern>() {
 
-			public RegularExpression toValue(String string, AbstractNode node) {
+			public Pattern toValue(String string, AbstractNode node) {
 				if (Strings.isEmpty(string))
 					throw new ValueConverterException("Could not convert empty string to regular expression", node, null);
+				int firstSlash = string.indexOf('/');
+				int lastSlash = string.lastIndexOf('/');
+				if(lastSlash - firstSlash <= 0)
+					throw new ValueConverterException("The regular expression is empty", node, null);
+				String patternString = string.substring(firstSlash, lastSlash);
+				String flagString = string.substring(lastSlash);
+				int flags = 0;
+				for(int i =  0; i < flagString.length(); i++)
+					switch(flagString.charAt(i)) {
+					case 'i': flags |= Pattern.CASE_INSENSITIVE; break;
+					case 'm': flags |= Pattern.MULTILINE; break;
+					case 'u': flags |= Pattern.UNICODE_CASE; break;
+					case 'c': flags |= Pattern.CANON_EQ; break;
+					case 'd': flags |= Pattern.DOTALL; break;
+					default: 
+						throw new ValueConverterException("Flag character after /: expected one of i, m, u, c, d, but got: '" 
+								+ flagString.charAt(i) + "'.", node, null);
+
+					}
 				try {
-					return new RegularExpression(string);
-				} catch (NumberFormatException e) {
+					return Pattern.compile(patternString,flags);
+				} catch (PatternSyntaxException e) {
 					throw new ValueConverterException("Could not convert '"+ string + "' to regular expression", node, e);
+				} catch (IllegalArgumentException e) {
+					throw new ValueConverterException("Internal error translating pattern flags - please log bug report", node, e);
 				}
 			}
 
-			public String toString(RegularExpression value) {
-				return value.toString();
+			public String toString(Pattern value) {
+				StringBuffer buffer = new StringBuffer();
+				buffer.append("/");
+				buffer.append(value.toString());
+				buffer.append("/");
+				int flags = value.flags();
+			if((flags & Pattern.CANON_EQ) != 0) 
+				buffer.append('c');
+			if((flags & Pattern.DOTALL) != 0)
+				buffer.append('d');
+			if((flags & Pattern.CASE_INSENSITIVE) != 0)
+				buffer.append('i');
+			if((flags & Pattern.MULTILINE) != 0) 
+				buffer.append('m');
+			if((flags & Pattern.UNICODE_CASE) != 0) 
+				buffer.append('u');
+			return buffer.toString();
 			}
 
 		};

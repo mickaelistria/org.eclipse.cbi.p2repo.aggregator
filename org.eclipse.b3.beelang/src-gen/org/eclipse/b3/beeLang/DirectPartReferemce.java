@@ -5,6 +5,7 @@
  */
 package org.eclipse.b3.beeLang;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BParameterList;
 
 /**
  * <!-- begin-user-doc -->
@@ -87,12 +88,12 @@ public interface DirectPartReferemce extends PrerequisiteEntry
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Parameters</em>' containment reference.
-   * @see #setParameters(ParameterList)
+   * @see #setParameters(BParameterList)
    * @see org.eclipse.b3.beeLang.BeeLangPackage#getDirectPartReferemce_Parameters()
    * @model containment="true"
    * @generated
    */
-  ParameterList getParameters();
+  BParameterList getParameters();
 
   /**
    * Sets the value of the '{@link org.eclipse.b3.beeLang.DirectPartReferemce#getParameters <em>Parameters</em>}' containment reference.
@@ -102,6 +103,6 @@ public interface DirectPartReferemce extends PrerequisiteEntry
    * @see #getParameters()
    * @generated
    */
-  void setParameters(ParameterList value);
+  void setParameters(BParameterList value);
 
 } // DirectPartReferemce

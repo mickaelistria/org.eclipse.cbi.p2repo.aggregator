@@ -8,7 +8,6 @@ package org.eclipse.b3.beeLang.impl;
 import java.util.Collection;
 
 import org.eclipse.b3.beeLang.BeeLangPackage;
-import org.eclipse.b3.beeLang.NamedPropertySet;
 import org.eclipse.b3.beeLang.PropertyOperation;
 import org.eclipse.b3.beeLang.PropertySet;
 
@@ -42,14 +41,24 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class PropertySetImpl extends PropertyOperationImpl implements PropertySet
 {
   /**
-   * The cached value of the '{@link #getExtends() <em>Extends</em>}' reference.
+   * The default value of the '{@link #getExtends() <em>Extends</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getExtends()
    * @generated
    * @ordered
    */
-  protected NamedPropertySet extends_;
+  protected static final String EXTENDS_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getExtends() <em>Extends</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExtends()
+   * @generated
+   * @ordered
+   */
+  protected String extends_ = EXTENDS_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getOperations() <em>Operations</em>}' containment reference list.
@@ -87,27 +96,7 @@ public class PropertySetImpl extends PropertyOperationImpl implements PropertySe
    * <!-- end-user-doc -->
    * @generated
    */
-  public NamedPropertySet getExtends()
-  {
-    if (extends_ != null && extends_.eIsProxy())
-    {
-      InternalEObject oldExtends = (InternalEObject)extends_;
-      extends_ = (NamedPropertySet)eResolveProxy(oldExtends);
-      if (extends_ != oldExtends)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, BeeLangPackage.PROPERTY_SET__EXTENDS, oldExtends, extends_));
-      }
-    }
-    return extends_;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NamedPropertySet basicGetExtends()
+  public String getExtends()
   {
     return extends_;
   }
@@ -117,9 +106,9 @@ public class PropertySetImpl extends PropertyOperationImpl implements PropertySe
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setExtends(NamedPropertySet newExtends)
+  public void setExtends(String newExtends)
   {
-    NamedPropertySet oldExtends = extends_;
+    String oldExtends = extends_;
     extends_ = newExtends;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, BeeLangPackage.PROPERTY_SET__EXTENDS, oldExtends, extends_));
@@ -166,8 +155,7 @@ public class PropertySetImpl extends PropertyOperationImpl implements PropertySe
     switch (featureID)
     {
       case BeeLangPackage.PROPERTY_SET__EXTENDS:
-        if (resolve) return getExtends();
-        return basicGetExtends();
+        return getExtends();
       case BeeLangPackage.PROPERTY_SET__OPERATIONS:
         return getOperations();
     }
@@ -186,7 +174,7 @@ public class PropertySetImpl extends PropertyOperationImpl implements PropertySe
     switch (featureID)
     {
       case BeeLangPackage.PROPERTY_SET__EXTENDS:
-        setExtends((NamedPropertySet)newValue);
+        setExtends((String)newValue);
         return;
       case BeeLangPackage.PROPERTY_SET__OPERATIONS:
         getOperations().clear();
@@ -207,7 +195,7 @@ public class PropertySetImpl extends PropertyOperationImpl implements PropertySe
     switch (featureID)
     {
       case BeeLangPackage.PROPERTY_SET__EXTENDS:
-        setExtends((NamedPropertySet)null);
+        setExtends(EXTENDS_EDEFAULT);
         return;
       case BeeLangPackage.PROPERTY_SET__OPERATIONS:
         getOperations().clear();
@@ -227,11 +215,28 @@ public class PropertySetImpl extends PropertyOperationImpl implements PropertySe
     switch (featureID)
     {
       case BeeLangPackage.PROPERTY_SET__EXTENDS:
-        return extends_ != null;
+        return EXTENDS_EDEFAULT == null ? extends_ != null : !EXTENDS_EDEFAULT.equals(extends_);
       case BeeLangPackage.PROPERTY_SET__OPERATIONS:
         return operations != null && !operations.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (extends: ");
+    result.append(extends_);
+    result.append(')');
+    return result.toString();
   }
 
 } //PropertySetImpl

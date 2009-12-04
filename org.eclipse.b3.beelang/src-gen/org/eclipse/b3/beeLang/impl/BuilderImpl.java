@@ -7,18 +7,19 @@ package org.eclipse.b3.beeLang.impl;
 
 import java.util.Collection;
 
+import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
+import org.eclipse.b3.backend.evaluator.b3backend.Visibility;
+
 import org.eclipse.b3.beeLang.BeeLangPackage;
 import org.eclipse.b3.beeLang.Builder;
 import org.eclipse.b3.beeLang.BuilderInput;
 import org.eclipse.b3.beeLang.BuilderOutput;
-import org.eclipse.b3.beeLang.ExecutionMode;
 import org.eclipse.b3.beeLang.ExpressionList;
 import org.eclipse.b3.beeLang.ParameterDeclarationList;
 import org.eclipse.b3.beeLang.PostCondition;
 import org.eclipse.b3.beeLang.PreCondition;
 import org.eclipse.b3.beeLang.PropertySet;
 import org.eclipse.b3.beeLang.ProvidedCapability;
-import org.eclipse.b3.beeLang.Visibility;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -90,7 +91,7 @@ public class BuilderImpl extends MinimalEObjectImpl.Container implements Builder
    * @generated
    * @ordered
    */
-  protected static final Visibility VISIBILITY_EDEFAULT = Visibility.PUBLIC;
+  protected static final Visibility VISIBILITY_EDEFAULT = Visibility.PRIVATE;
 
   /**
    * The cached value of the '{@link #getVisibility() <em>Visibility</em>}' attribute.
@@ -110,7 +111,7 @@ public class BuilderImpl extends MinimalEObjectImpl.Container implements Builder
    * @generated
    * @ordered
    */
-  protected static final ExecutionMode EXECUTION_MODE_EDEFAULT = ExecutionMode.PARALLEL;
+  protected static final ExecutionMode EXECUTION_MODE_EDEFAULT = ExecutionMode.SEQUENTIAL;
 
   /**
    * The cached value of the '{@link #getExecutionMode() <em>Execution Mode</em>}' attribute.

@@ -5,6 +5,8 @@
  */
 package org.eclipse.b3.beeLang;
 
+import java.lang.reflect.Type;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -34,12 +36,12 @@ public interface ContextSelector extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Type</em>' containment reference.
-   * @see #setType(TypeRef)
+   * @see #setType(Type)
    * @see org.eclipse.b3.beeLang.BeeLangPackage#getContextSelector_Type()
-   * @model containment="true"
+   * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType" containment="true"
    * @generated
    */
-  TypeRef getType();
+  Type getType();
 
   /**
    * Sets the value of the '{@link org.eclipse.b3.beeLang.ContextSelector#getType <em>Type</em>}' containment reference.
@@ -49,6 +51,6 @@ public interface ContextSelector extends EObject
    * @see #getType()
    * @generated
    */
-  void setType(TypeRef value);
+  void setType(Type value);
 
 } // ContextSelector

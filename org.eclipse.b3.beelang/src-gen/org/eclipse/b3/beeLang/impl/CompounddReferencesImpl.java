@@ -8,8 +8,8 @@ package org.eclipse.b3.beeLang.impl;
 import java.util.Collection;
 
 import org.eclipse.b3.beeLang.BeeLangPackage;
-import org.eclipse.b3.beeLang.BlockExpression;
-import org.eclipse.b3.beeLang.Expression;
+import org.eclipse.b3.beeLang.CompounddReferences;
+import org.eclipse.b3.beeLang.Prerequisite;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -23,35 +23,35 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Block Expression</b></em>'.
+ * An implementation of the model object '<em><b>Compoundd References</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.beeLang.impl.BlockExpressionImpl#getExpr <em>Expr</em>}</li>
+ *   <li>{@link org.eclipse.b3.beeLang.impl.CompounddReferencesImpl#getPrerequisites <em>Prerequisites</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class BlockExpressionImpl extends ExpressionImpl implements BlockExpression
+public class CompounddReferencesImpl extends CompoundReferencesImpl implements CompounddReferences
 {
   /**
-   * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference list.
+   * The cached value of the '{@link #getPrerequisites() <em>Prerequisites</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getExpr()
+   * @see #getPrerequisites()
    * @generated
    * @ordered
    */
-  protected EList<Expression> expr;
+  protected EList<Prerequisite> prerequisites;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected BlockExpressionImpl()
+  protected CompounddReferencesImpl()
   {
     super();
   }
@@ -64,7 +64,7 @@ public class BlockExpressionImpl extends ExpressionImpl implements BlockExpressi
   @Override
   protected EClass eStaticClass()
   {
-    return BeeLangPackage.Literals.BLOCK_EXPRESSION;
+    return BeeLangPackage.Literals.COMPOUNDD_REFERENCES;
   }
 
   /**
@@ -72,13 +72,13 @@ public class BlockExpressionImpl extends ExpressionImpl implements BlockExpressi
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Expression> getExpr()
+  public EList<Prerequisite> getPrerequisites()
   {
-    if (expr == null)
+    if (prerequisites == null)
     {
-      expr = new EObjectContainmentEList<Expression>(Expression.class, this, BeeLangPackage.BLOCK_EXPRESSION__EXPR);
+      prerequisites = new EObjectContainmentEList<Prerequisite>(Prerequisite.class, this, BeeLangPackage.COMPOUNDD_REFERENCES__PREREQUISITES);
     }
-    return expr;
+    return prerequisites;
   }
 
   /**
@@ -91,8 +91,8 @@ public class BlockExpressionImpl extends ExpressionImpl implements BlockExpressi
   {
     switch (featureID)
     {
-      case BeeLangPackage.BLOCK_EXPRESSION__EXPR:
-        return ((InternalEList<?>)getExpr()).basicRemove(otherEnd, msgs);
+      case BeeLangPackage.COMPOUNDD_REFERENCES__PREREQUISITES:
+        return ((InternalEList<?>)getPrerequisites()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -107,8 +107,8 @@ public class BlockExpressionImpl extends ExpressionImpl implements BlockExpressi
   {
     switch (featureID)
     {
-      case BeeLangPackage.BLOCK_EXPRESSION__EXPR:
-        return getExpr();
+      case BeeLangPackage.COMPOUNDD_REFERENCES__PREREQUISITES:
+        return getPrerequisites();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -124,9 +124,9 @@ public class BlockExpressionImpl extends ExpressionImpl implements BlockExpressi
   {
     switch (featureID)
     {
-      case BeeLangPackage.BLOCK_EXPRESSION__EXPR:
-        getExpr().clear();
-        getExpr().addAll((Collection<? extends Expression>)newValue);
+      case BeeLangPackage.COMPOUNDD_REFERENCES__PREREQUISITES:
+        getPrerequisites().clear();
+        getPrerequisites().addAll((Collection<? extends Prerequisite>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -142,8 +142,8 @@ public class BlockExpressionImpl extends ExpressionImpl implements BlockExpressi
   {
     switch (featureID)
     {
-      case BeeLangPackage.BLOCK_EXPRESSION__EXPR:
-        getExpr().clear();
+      case BeeLangPackage.COMPOUNDD_REFERENCES__PREREQUISITES:
+        getPrerequisites().clear();
         return;
     }
     super.eUnset(featureID);
@@ -159,10 +159,10 @@ public class BlockExpressionImpl extends ExpressionImpl implements BlockExpressi
   {
     switch (featureID)
     {
-      case BeeLangPackage.BLOCK_EXPRESSION__EXPR:
-        return expr != null && !expr.isEmpty();
+      case BeeLangPackage.COMPOUNDD_REFERENCES__PREREQUISITES:
+        return prerequisites != null && !prerequisites.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //BlockExpressionImpl
+} //CompounddReferencesImpl

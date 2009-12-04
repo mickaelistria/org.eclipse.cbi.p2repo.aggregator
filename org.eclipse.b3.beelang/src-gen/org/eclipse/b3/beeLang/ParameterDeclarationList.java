@@ -29,7 +29,7 @@ public interface ParameterDeclarationList extends EObject
 {
   /**
    * Returns the value of the '<em><b>Params</b></em>' containment reference list.
-   * The list contents are of type {@link org.eclipse.b3.beeLang.ParameterDeclaration}.
+   * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Params</em>' containment reference list isn't clear,
@@ -41,6 +41,6 @@ public interface ParameterDeclarationList extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<ParameterDeclaration> getParams();
+  EList<EObject> getParams();
 
 } // ParameterDeclarationList

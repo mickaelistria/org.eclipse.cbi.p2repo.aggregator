@@ -8,7 +8,6 @@ package org.eclipse.b3.beeLang.impl;
 import java.util.Collection;
 
 import org.eclipse.b3.beeLang.BeeLangPackage;
-import org.eclipse.b3.beeLang.ParameterDeclaration;
 import org.eclipse.b3.beeLang.ParameterDeclarationList;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -16,6 +15,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -46,7 +46,7 @@ public class ParameterDeclarationListImpl extends MinimalEObjectImpl.Container i
    * @generated
    * @ordered
    */
-  protected EList<ParameterDeclaration> params;
+  protected EList<EObject> params;
 
   /**
    * <!-- begin-user-doc -->
@@ -74,11 +74,11 @@ public class ParameterDeclarationListImpl extends MinimalEObjectImpl.Container i
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ParameterDeclaration> getParams()
+  public EList<EObject> getParams()
   {
     if (params == null)
     {
-      params = new EObjectContainmentEList<ParameterDeclaration>(ParameterDeclaration.class, this, BeeLangPackage.PARAMETER_DECLARATION_LIST__PARAMS);
+      params = new EObjectContainmentEList<EObject>(EObject.class, this, BeeLangPackage.PARAMETER_DECLARATION_LIST__PARAMS);
     }
     return params;
   }
@@ -128,7 +128,7 @@ public class ParameterDeclarationListImpl extends MinimalEObjectImpl.Container i
     {
       case BeeLangPackage.PARAMETER_DECLARATION_LIST__PARAMS:
         getParams().clear();
-        getParams().addAll((Collection<? extends ParameterDeclaration>)newValue);
+        getParams().addAll((Collection<? extends EObject>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

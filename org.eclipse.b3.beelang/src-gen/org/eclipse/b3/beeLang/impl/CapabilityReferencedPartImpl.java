@@ -5,10 +5,11 @@
  */
 package org.eclipse.b3.beeLang.impl;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BParameterList;
+
 import org.eclipse.b3.beeLang.BeeLangPackage;
 import org.eclipse.b3.beeLang.Capability;
 import org.eclipse.b3.beeLang.CapabilityReferencedPart;
-import org.eclipse.b3.beeLang.ParameterList;
 import org.eclipse.b3.beeLang.VersionRange;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -85,7 +86,7 @@ public class CapabilityReferencedPartImpl extends PrerequisiteEntryImpl implemen
    * @generated
    * @ordered
    */
-  protected ParameterList parameters;
+  protected BParameterList parameters;
 
   /**
    * <!-- begin-user-doc -->
@@ -232,7 +233,7 @@ public class CapabilityReferencedPartImpl extends PrerequisiteEntryImpl implemen
    * <!-- end-user-doc -->
    * @generated
    */
-  public ParameterList getParameters()
+  public BParameterList getParameters()
   {
     return parameters;
   }
@@ -242,9 +243,9 @@ public class CapabilityReferencedPartImpl extends PrerequisiteEntryImpl implemen
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetParameters(ParameterList newParameters, NotificationChain msgs)
+  public NotificationChain basicSetParameters(BParameterList newParameters, NotificationChain msgs)
   {
-    ParameterList oldParameters = parameters;
+    BParameterList oldParameters = parameters;
     parameters = newParameters;
     if (eNotificationRequired())
     {
@@ -259,7 +260,7 @@ public class CapabilityReferencedPartImpl extends PrerequisiteEntryImpl implemen
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setParameters(ParameterList newParameters)
+  public void setParameters(BParameterList newParameters)
   {
     if (newParameters != parameters)
     {
@@ -337,7 +338,7 @@ public class CapabilityReferencedPartImpl extends PrerequisiteEntryImpl implemen
         setPartName((String)newValue);
         return;
       case BeeLangPackage.CAPABILITY_REFERENCED_PART__PARAMETERS:
-        setParameters((ParameterList)newValue);
+        setParameters((BParameterList)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -363,7 +364,7 @@ public class CapabilityReferencedPartImpl extends PrerequisiteEntryImpl implemen
         setPartName(PART_NAME_EDEFAULT);
         return;
       case BeeLangPackage.CAPABILITY_REFERENCED_PART__PARAMETERS:
-        setParameters((ParameterList)null);
+        setParameters((BParameterList)null);
         return;
     }
     super.eUnset(featureID);

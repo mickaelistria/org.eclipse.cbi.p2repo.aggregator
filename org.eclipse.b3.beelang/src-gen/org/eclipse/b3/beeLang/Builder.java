@@ -5,6 +5,9 @@
  */
 package org.eclipse.b3.beeLang;
 
+import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
+import org.eclipse.b3.backend.evaluator.b3backend.Visibility;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -68,7 +71,7 @@ public interface Builder extends EObject
 
   /**
    * Returns the value of the '<em><b>Visibility</b></em>' attribute.
-   * The literals are from the enumeration {@link org.eclipse.b3.beeLang.Visibility}.
+   * The literals are from the enumeration {@link org.eclipse.b3.backend.evaluator.b3backend.Visibility}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Visibility</em>' attribute isn't clear,
@@ -76,7 +79,7 @@ public interface Builder extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Visibility</em>' attribute.
-   * @see org.eclipse.b3.beeLang.Visibility
+   * @see org.eclipse.b3.backend.evaluator.b3backend.Visibility
    * @see #setVisibility(Visibility)
    * @see org.eclipse.b3.beeLang.BeeLangPackage#getBuilder_Visibility()
    * @model
@@ -89,7 +92,7 @@ public interface Builder extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Visibility</em>' attribute.
-   * @see org.eclipse.b3.beeLang.Visibility
+   * @see org.eclipse.b3.backend.evaluator.b3backend.Visibility
    * @see #getVisibility()
    * @generated
    */
@@ -97,7 +100,7 @@ public interface Builder extends EObject
 
   /**
    * Returns the value of the '<em><b>Execution Mode</b></em>' attribute.
-   * The literals are from the enumeration {@link org.eclipse.b3.beeLang.ExecutionMode}.
+   * The literals are from the enumeration {@link org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Execution Mode</em>' attribute isn't clear,
@@ -105,7 +108,7 @@ public interface Builder extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Execution Mode</em>' attribute.
-   * @see org.eclipse.b3.beeLang.ExecutionMode
+   * @see org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode
    * @see #setExecutionMode(ExecutionMode)
    * @see org.eclipse.b3.beeLang.BeeLangPackage#getBuilder_ExecutionMode()
    * @model
@@ -118,7 +121,7 @@ public interface Builder extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Execution Mode</em>' attribute.
-   * @see org.eclipse.b3.beeLang.ExecutionMode
+   * @see org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode
    * @see #getExecutionMode()
    * @generated
    */

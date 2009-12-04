@@ -5,7 +5,6 @@
  */
 package org.eclipse.b3.beeLang;
 
-import org.eclipse.b3.RegularExpression;
 
 /**
  * <!-- begin-user-doc -->
@@ -89,12 +88,12 @@ public interface UnitSelector extends ContextSelector
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name Pattern</em>' attribute.
-   * @see #setNamePattern(RegularExpression)
+   * @see #setNamePattern(String)
    * @see org.eclipse.b3.beeLang.BeeLangPackage#getUnitSelector_NamePattern()
-   * @model dataType="beelangtypes.RegularExpression"
+   * @model
    * @generated
    */
-  RegularExpression getNamePattern();
+  String getNamePattern();
 
   /**
    * Sets the value of the '{@link org.eclipse.b3.beeLang.UnitSelector#getNamePattern <em>Name Pattern</em>}' attribute.
@@ -104,7 +103,7 @@ public interface UnitSelector extends ContextSelector
    * @see #getNamePattern()
    * @generated
    */
-  void setNamePattern(RegularExpression value);
+  void setNamePattern(String value);
 
   /**
    * Returns the value of the '<em><b>Version Range</b></em>' containment reference.

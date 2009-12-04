@@ -4,7 +4,7 @@
 package org.eclipse.b3.parser.antlr;
 
 import org.antlr.runtime.ANTLRInputStream;
-import org.eclipse.xtext.parser.antlr.ITokenDefProvider;
+import org.antlr.runtime.TokenSource;
 import org.eclipse.xtext.parser.IParseResult;
 import org.eclipse.xtext.parser.ParseException;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream;
@@ -15,20 +15,16 @@ import org.eclipse.b3.services.BeeLangGrammarAccess;
 
 public class BeeLangParser extends org.eclipse.xtext.parser.antlr.AbstractAntlrParser {
 	
-	@Inject 
-    protected ITokenDefProvider antlrTokenDefProvider;
-	
 	@Inject
 	private BeeLangGrammarAccess grammarAccess;
 	
 	@Override
 	protected IParseResult parse(String ruleName, ANTLRInputStream in) {
-		org.eclipse.b3.parser.antlr.internal.InternalBeeLangLexer lexer = new org.eclipse.b3.parser.antlr.internal.InternalBeeLangLexer(in);
-		XtextTokenStream stream = new XtextTokenStream(lexer, antlrTokenDefProvider);
-		stream.setInitialHiddenTokens();
-		org.eclipse.b3.parser.antlr.internal.InternalBeeLangParser parser = new org.eclipse.b3.parser.antlr.internal.InternalBeeLangParser(
-				stream, getElementFactory(), grammarAccess);
-		parser.setTokenTypeMap(antlrTokenDefProvider.getTokenDefMap());
+		TokenSource tokenSource = createLexer(in);
+		XtextTokenStream tokenStream = createTokenStream(tokenSource);
+		tokenStream.setInitialHiddenTokens();
+		org.eclipse.b3.parser.antlr.internal.InternalBeeLangParser parser = createParser(tokenStream);
+		parser.setTokenTypeMap(getTokenDefProvider().getTokenDefMap());
 		try {
 			if(ruleName != null)
 				return parser.parse(ruleName);
@@ -36,6 +32,10 @@ public class BeeLangParser extends org.eclipse.xtext.parser.antlr.AbstractAntlrP
 		} catch (Exception re) {
 			throw new ParseException(re.getMessage(),re);
 		}
+	}
+	
+	protected org.eclipse.b3.parser.antlr.internal.InternalBeeLangParser createParser(XtextTokenStream stream) {
+		return new org.eclipse.b3.parser.antlr.internal.InternalBeeLangParser(stream, getElementFactory(), getGrammarAccess());
 	}
 	
 	@Override 
@@ -50,4 +50,5 @@ public class BeeLangParser extends org.eclipse.xtext.parser.antlr.AbstractAntlrP
 	public void setGrammarAccess(BeeLangGrammarAccess grammarAccess) {
 		this.grammarAccess = grammarAccess;
 	}
+	
 }

@@ -34,12 +34,12 @@ public interface Version extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Version</em>' attribute.
-   * @see #setVersion(org.eclipse.equinox.internal.provisional.p2.core.Version)
+   * @see #setVersion(String)
    * @see org.eclipse.b3.beeLang.BeeLangPackage#getVersion_Version()
-   * @model dataType="beelangtypes.Version"
+   * @model
    * @generated
    */
-  org.eclipse.equinox.internal.provisional.p2.core.Version getVersion();
+  String getVersion();
 
   /**
    * Sets the value of the '{@link org.eclipse.b3.beeLang.Version#getVersion <em>Version</em>}' attribute.
@@ -49,6 +49,6 @@ public interface Version extends EObject
    * @see #getVersion()
    * @generated
    */
-  void setVersion(org.eclipse.equinox.internal.provisional.p2.core.Version value);
+  void setVersion(String value);
 
 } // Version

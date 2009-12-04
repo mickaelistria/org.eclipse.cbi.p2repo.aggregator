@@ -5,7 +5,7 @@
  */
 package org.eclipse.b3.beeLang;
 
-import org.eclipse.b3.RegularExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -94,12 +94,12 @@ public interface Selector extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Pattern</em>' attribute.
-   * @see #setPattern(RegularExpression)
+   * @see #setPattern(String)
    * @see org.eclipse.b3.beeLang.BeeLangPackage#getSelector_Pattern()
-   * @model dataType="beelangtypes.RegularExpression"
+   * @model
    * @generated
    */
-  RegularExpression getPattern();
+  String getPattern();
 
   /**
    * Sets the value of the '{@link org.eclipse.b3.beeLang.Selector#getPattern <em>Pattern</em>}' attribute.
@@ -109,7 +109,7 @@ public interface Selector extends EObject
    * @see #getPattern()
    * @generated
    */
-  void setPattern(RegularExpression value);
+  void setPattern(String value);
 
   /**
    * Returns the value of the '<em><b>Predicate</b></em>' containment reference.
@@ -120,12 +120,12 @@ public interface Selector extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Predicate</em>' containment reference.
-   * @see #setPredicate(Expression)
+   * @see #setPredicate(BExpression)
    * @see org.eclipse.b3.beeLang.BeeLangPackage#getSelector_Predicate()
    * @model containment="true"
    * @generated
    */
-  Expression getPredicate();
+  BExpression getPredicate();
 
   /**
    * Sets the value of the '{@link org.eclipse.b3.beeLang.Selector#getPredicate <em>Predicate</em>}' containment reference.
@@ -135,6 +135,6 @@ public interface Selector extends EObject
    * @see #getPredicate()
    * @generated
    */
-  void setPredicate(Expression value);
+  void setPredicate(BExpression value);
 
 } // Selector

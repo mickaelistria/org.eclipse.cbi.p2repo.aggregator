@@ -5,6 +5,8 @@
  */
 package org.eclipse.b3.beeLang;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -29,7 +31,7 @@ public interface ExpressionList extends EObject
 {
   /**
    * Returns the value of the '<em><b>Expressions</b></em>' containment reference list.
-   * The list contents are of type {@link org.eclipse.b3.beeLang.Expression}.
+   * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.BExpression}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Expressions</em>' containment reference list isn't clear,
@@ -41,6 +43,6 @@ public interface ExpressionList extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Expression> getExpressions();
+  EList<BExpression> getExpressions();
 
 } // ExpressionList

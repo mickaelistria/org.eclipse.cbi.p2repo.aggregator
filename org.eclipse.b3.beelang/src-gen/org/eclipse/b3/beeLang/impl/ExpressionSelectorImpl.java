@@ -5,8 +5,9 @@
  */
 package org.eclipse.b3.beeLang.impl;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+
 import org.eclipse.b3.beeLang.BeeLangPackage;
-import org.eclipse.b3.beeLang.Expression;
 import org.eclipse.b3.beeLang.ExpressionSelector;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -40,7 +41,7 @@ public class ExpressionSelectorImpl extends ContextSelectorImpl implements Expre
    * @generated
    * @ordered
    */
-  protected Expression expr;
+  protected BExpression expr;
 
   /**
    * <!-- begin-user-doc -->
@@ -68,7 +69,7 @@ public class ExpressionSelectorImpl extends ContextSelectorImpl implements Expre
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expression getExpr()
+  public BExpression getExpr()
   {
     return expr;
   }
@@ -78,9 +79,9 @@ public class ExpressionSelectorImpl extends ContextSelectorImpl implements Expre
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpr(Expression newExpr, NotificationChain msgs)
+  public NotificationChain basicSetExpr(BExpression newExpr, NotificationChain msgs)
   {
-    Expression oldExpr = expr;
+    BExpression oldExpr = expr;
     expr = newExpr;
     if (eNotificationRequired())
     {
@@ -95,7 +96,7 @@ public class ExpressionSelectorImpl extends ContextSelectorImpl implements Expre
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setExpr(Expression newExpr)
+  public void setExpr(BExpression newExpr)
   {
     if (newExpr != expr)
     {
@@ -154,7 +155,7 @@ public class ExpressionSelectorImpl extends ContextSelectorImpl implements Expre
     switch (featureID)
     {
       case BeeLangPackage.EXPRESSION_SELECTOR__EXPR:
-        setExpr((Expression)newValue);
+        setExpr((BExpression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -171,7 +172,7 @@ public class ExpressionSelectorImpl extends ContextSelectorImpl implements Expre
     switch (featureID)
     {
       case BeeLangPackage.EXPRESSION_SELECTOR__EXPR:
-        setExpr((Expression)null);
+        setExpr((BExpression)null);
         return;
     }
     super.eUnset(featureID);

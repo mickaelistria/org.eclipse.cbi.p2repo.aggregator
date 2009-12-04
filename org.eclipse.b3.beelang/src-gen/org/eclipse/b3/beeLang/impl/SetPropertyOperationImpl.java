@@ -5,9 +5,9 @@
  */
 package org.eclipse.b3.beeLang.impl;
 
-import org.eclipse.b3.beeLang.AssignmentOperator;
+import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+
 import org.eclipse.b3.beeLang.BeeLangPackage;
-import org.eclipse.b3.beeLang.Expression;
 import org.eclipse.b3.beeLang.SetPropertyOperation;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -84,7 +84,7 @@ public class SetPropertyOperationImpl extends PropertyOperationImpl implements S
    * @generated
    * @ordered
    */
-  protected static final AssignmentOperator OP_EDEFAULT = AssignmentOperator.SET;
+  protected static final String OP_EDEFAULT = null;
 
   /**
    * The cached value of the '{@link #getOp() <em>Op</em>}' attribute.
@@ -94,7 +94,7 @@ public class SetPropertyOperationImpl extends PropertyOperationImpl implements S
    * @generated
    * @ordered
    */
-  protected AssignmentOperator op = OP_EDEFAULT;
+  protected String op = OP_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
@@ -104,7 +104,7 @@ public class SetPropertyOperationImpl extends PropertyOperationImpl implements S
    * @generated
    * @ordered
    */
-  protected Expression value;
+  protected BExpression value;
 
   /**
    * <!-- begin-user-doc -->
@@ -178,7 +178,7 @@ public class SetPropertyOperationImpl extends PropertyOperationImpl implements S
    * <!-- end-user-doc -->
    * @generated
    */
-  public AssignmentOperator getOp()
+  public String getOp()
   {
     return op;
   }
@@ -188,10 +188,10 @@ public class SetPropertyOperationImpl extends PropertyOperationImpl implements S
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setOp(AssignmentOperator newOp)
+  public void setOp(String newOp)
   {
-    AssignmentOperator oldOp = op;
-    op = newOp == null ? OP_EDEFAULT : newOp;
+    String oldOp = op;
+    op = newOp;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, BeeLangPackage.SET_PROPERTY_OPERATION__OP, oldOp, op));
   }
@@ -201,7 +201,7 @@ public class SetPropertyOperationImpl extends PropertyOperationImpl implements S
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expression getValue()
+  public BExpression getValue()
   {
     return value;
   }
@@ -211,9 +211,9 @@ public class SetPropertyOperationImpl extends PropertyOperationImpl implements S
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetValue(Expression newValue, NotificationChain msgs)
+  public NotificationChain basicSetValue(BExpression newValue, NotificationChain msgs)
   {
-    Expression oldValue = value;
+    BExpression oldValue = value;
     value = newValue;
     if (eNotificationRequired())
     {
@@ -228,7 +228,7 @@ public class SetPropertyOperationImpl extends PropertyOperationImpl implements S
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setValue(Expression newValue)
+  public void setValue(BExpression newValue)
   {
     if (newValue != value)
     {
@@ -299,10 +299,10 @@ public class SetPropertyOperationImpl extends PropertyOperationImpl implements S
         setKey((String)newValue);
         return;
       case BeeLangPackage.SET_PROPERTY_OPERATION__OP:
-        setOp((AssignmentOperator)newValue);
+        setOp((String)newValue);
         return;
       case BeeLangPackage.SET_PROPERTY_OPERATION__VALUE:
-        setValue((Expression)newValue);
+        setValue((BExpression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -328,7 +328,7 @@ public class SetPropertyOperationImpl extends PropertyOperationImpl implements S
         setOp(OP_EDEFAULT);
         return;
       case BeeLangPackage.SET_PROPERTY_OPERATION__VALUE:
-        setValue((Expression)null);
+        setValue((BExpression)null);
         return;
     }
     super.eUnset(featureID);
@@ -349,7 +349,7 @@ public class SetPropertyOperationImpl extends PropertyOperationImpl implements S
       case BeeLangPackage.SET_PROPERTY_OPERATION__KEY:
         return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals(key);
       case BeeLangPackage.SET_PROPERTY_OPERATION__OP:
-        return op != OP_EDEFAULT;
+        return OP_EDEFAULT == null ? op != null : !OP_EDEFAULT.equals(op);
       case BeeLangPackage.SET_PROPERTY_OPERATION__VALUE:
         return value != null;
     }

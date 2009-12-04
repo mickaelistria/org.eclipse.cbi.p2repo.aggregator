@@ -5,9 +5,10 @@
  */
 package org.eclipse.b3.beeLang.impl;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+
 import org.eclipse.b3.beeLang.BeeLangPackage;
 import org.eclipse.b3.beeLang.Context;
-import org.eclipse.b3.beeLang.ContextBlock;
 import org.eclipse.b3.beeLang.ContextSelector;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -53,7 +54,7 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
    * @generated
    * @ordered
    */
-  protected ContextBlock block;
+  protected BExpression block;
 
   /**
    * <!-- begin-user-doc -->
@@ -129,7 +130,7 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
    * <!-- end-user-doc -->
    * @generated
    */
-  public ContextBlock getBlock()
+  public BExpression getBlock()
   {
     return block;
   }
@@ -139,9 +140,9 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetBlock(ContextBlock newBlock, NotificationChain msgs)
+  public NotificationChain basicSetBlock(BExpression newBlock, NotificationChain msgs)
   {
-    ContextBlock oldBlock = block;
+    BExpression oldBlock = block;
     block = newBlock;
     if (eNotificationRequired())
     {
@@ -156,7 +157,7 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setBlock(ContextBlock newBlock)
+  public void setBlock(BExpression newBlock)
   {
     if (newBlock != block)
     {
@@ -222,7 +223,7 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
         setSelector((ContextSelector)newValue);
         return;
       case BeeLangPackage.CONTEXT__BLOCK:
-        setBlock((ContextBlock)newValue);
+        setBlock((BExpression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -242,7 +243,7 @@ public class ContextImpl extends MinimalEObjectImpl.Container implements Context
         setSelector((ContextSelector)null);
         return;
       case BeeLangPackage.CONTEXT__BLOCK:
-        setBlock((ContextBlock)null);
+        setBlock((BExpression)null);
         return;
     }
     super.eUnset(featureID);

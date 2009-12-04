@@ -272,9 +272,9 @@ Function returns be::B3Function: {be::B3Function}
    	((':' funcExpr=Expression ';') | (funcExpr=BlockExpression))
 	;
 	
-TypeParamDeclaration 
-	: ID ( ("extends" type+= TypeRef ('&' type+=TypeRef)*) | ("super" superType=TypeRef))?
-	;
+//TypeParamDeclaration 
+//	: ID ( ("extends" type+= TypeRef ('&' type+=TypeRef)*) | ("super" superType=TypeRef))?
+//	;
 		
 /* EXPRESSIONS */
 AssignmentOperator 
@@ -596,7 +596,10 @@ terminal ID : ('^')?(('a'..'z')|('A'..'Z')|'_') (('a'..'z')|('A'..'Z')|('0'..'9'
 // a.b.c is otherwise ambigous in expressions.
 terminal PID : '$' ID ('.' ID)* ;
 
-// JS Regexp
+// Initially specified for JS Regexp
+// Java regexp: TODO:
+// - allows \ before any character == same as unescaped character if character is not an operator
+// - flags are different (already specified)
 terminal REGULAR_EXPR
 	: "~/" ( '\\' ('/'|'f'|'n'|'r'|'t'|'v'|'\\'|'.'|'*'|'+'|'?'
 					| 'w'|'W'|'s'|'S'|'d'|'D'|'b'
@@ -605,7 +608,7 @@ terminal REGULAR_EXPR
 					| ('x' (('0'..'9')|('a'..'f')|('A'..'F')) (('0'..'9')|('a'..'f')|('A'..'F'))) 
 					| ('c' ('A'..'Z'))
 				)
-			| (!('\\'|'/'|' '|'\t'|'\r'|'\n')))* "/" ('g'|'m'|'i')?
+			| (!('\\'|'/'|' '|'\t'|'\r'|'\n')))* "/" ('u'|'m'|'i'|'c'|'d')? // TODO: * at end
 			;
 
 // JS String support escaped b,t,n,f,r, and u HEX*4, x HEX*2, and (deprecated (0-7)), 

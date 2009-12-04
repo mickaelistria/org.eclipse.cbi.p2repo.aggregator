@@ -5,9 +5,10 @@
  */
 package org.eclipse.b3.beeLang.impl;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+
 import org.eclipse.b3.beeLang.AssertionExpression;
 import org.eclipse.b3.beeLang.BeeLangPackage;
-import org.eclipse.b3.beeLang.Expression;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -42,7 +43,7 @@ public class AssertionExpressionImpl extends MinimalEObjectImpl.Container implem
    * @generated
    * @ordered
    */
-  protected Expression expr;
+  protected BExpression expr;
 
   /**
    * The default value of the '{@link #getMessage() <em>Message</em>}' attribute.
@@ -90,7 +91,7 @@ public class AssertionExpressionImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expression getExpr()
+  public BExpression getExpr()
   {
     return expr;
   }
@@ -100,9 +101,9 @@ public class AssertionExpressionImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpr(Expression newExpr, NotificationChain msgs)
+  public NotificationChain basicSetExpr(BExpression newExpr, NotificationChain msgs)
   {
-    Expression oldExpr = expr;
+    BExpression oldExpr = expr;
     expr = newExpr;
     if (eNotificationRequired())
     {
@@ -117,7 +118,7 @@ public class AssertionExpressionImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setExpr(Expression newExpr)
+  public void setExpr(BExpression newExpr)
   {
     if (newExpr != expr)
     {
@@ -201,7 +202,7 @@ public class AssertionExpressionImpl extends MinimalEObjectImpl.Container implem
     switch (featureID)
     {
       case BeeLangPackage.ASSERTION_EXPRESSION__EXPR:
-        setExpr((Expression)newValue);
+        setExpr((BExpression)newValue);
         return;
       case BeeLangPackage.ASSERTION_EXPRESSION__MESSAGE:
         setMessage((String)newValue);
@@ -221,7 +222,7 @@ public class AssertionExpressionImpl extends MinimalEObjectImpl.Container implem
     switch (featureID)
     {
       case BeeLangPackage.ASSERTION_EXPRESSION__EXPR:
-        setExpr((Expression)null);
+        setExpr((BExpression)null);
         return;
       case BeeLangPackage.ASSERTION_EXPRESSION__MESSAGE:
         setMessage(MESSAGE_EDEFAULT);

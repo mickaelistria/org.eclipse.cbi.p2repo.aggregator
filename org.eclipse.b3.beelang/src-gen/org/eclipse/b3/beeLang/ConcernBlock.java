@@ -5,6 +5,8 @@
  */
 package org.eclipse.b3.beeLang;
 
+import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -63,7 +65,7 @@ public interface ConcernBlock extends EObject
 
   /**
    * Returns the value of the '<em><b>Functions</b></em>' containment reference list.
-   * The list contents are of type {@link org.eclipse.b3.beeLang.Function}.
+   * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.B3Function}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Functions</em>' containment reference list isn't clear,
@@ -75,6 +77,6 @@ public interface ConcernBlock extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Function> getFunctions();
+  EList<B3Function> getFunctions();
 
 } // ConcernBlock

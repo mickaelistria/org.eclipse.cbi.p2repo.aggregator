@@ -7,8 +7,9 @@ package org.eclipse.b3.beeLang.impl;
 
 import java.util.Collection;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+
 import org.eclipse.b3.beeLang.BeeLangPackage;
-import org.eclipse.b3.beeLang.Expression;
 import org.eclipse.b3.beeLang.ExpressionList;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -46,7 +47,7 @@ public class ExpressionListImpl extends MinimalEObjectImpl.Container implements 
    * @generated
    * @ordered
    */
-  protected EList<Expression> expressions;
+  protected EList<BExpression> expressions;
 
   /**
    * <!-- begin-user-doc -->
@@ -74,11 +75,11 @@ public class ExpressionListImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Expression> getExpressions()
+  public EList<BExpression> getExpressions()
   {
     if (expressions == null)
     {
-      expressions = new EObjectContainmentEList<Expression>(Expression.class, this, BeeLangPackage.EXPRESSION_LIST__EXPRESSIONS);
+      expressions = new EObjectContainmentEList<BExpression>(BExpression.class, this, BeeLangPackage.EXPRESSION_LIST__EXPRESSIONS);
     }
     return expressions;
   }
@@ -128,7 +129,7 @@ public class ExpressionListImpl extends MinimalEObjectImpl.Container implements 
     {
       case BeeLangPackage.EXPRESSION_LIST__EXPRESSIONS:
         getExpressions().clear();
-        getExpressions().addAll((Collection<? extends Expression>)newValue);
+        getExpressions().addAll((Collection<? extends BExpression>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

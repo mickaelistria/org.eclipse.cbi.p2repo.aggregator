@@ -5,6 +5,10 @@
  */
 package org.eclipse.b3.beeLang;
 
+import java.lang.reflect.Type;
+
+import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -89,12 +93,12 @@ public interface ContainerConfiguration extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Type</em>' containment reference.
-   * @see #setType(TypeRef)
+   * @see #setType(Type)
    * @see org.eclipse.b3.beeLang.BeeLangPackage#getContainerConfiguration_Type()
-   * @model containment="true"
+   * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType" containment="true"
    * @generated
    */
-  TypeRef getType();
+  Type getType();
 
   /**
    * Sets the value of the '{@link org.eclipse.b3.beeLang.ContainerConfiguration#getType <em>Type</em>}' containment reference.
@@ -104,7 +108,7 @@ public interface ContainerConfiguration extends EObject
    * @see #getType()
    * @generated
    */
-  void setType(TypeRef value);
+  void setType(Type value);
 
   /**
    * Returns the value of the '<em><b>Context Block</b></em>' containment reference.
@@ -115,12 +119,12 @@ public interface ContainerConfiguration extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Context Block</em>' containment reference.
-   * @see #setContextBlock(ContextBlock)
+   * @see #setContextBlock(BExpression)
    * @see org.eclipse.b3.beeLang.BeeLangPackage#getContainerConfiguration_ContextBlock()
    * @model containment="true"
    * @generated
    */
-  ContextBlock getContextBlock();
+  BExpression getContextBlock();
 
   /**
    * Sets the value of the '{@link org.eclipse.b3.beeLang.ContainerConfiguration#getContextBlock <em>Context Block</em>}' containment reference.
@@ -130,6 +134,6 @@ public interface ContainerConfiguration extends EObject
    * @see #getContextBlock()
    * @generated
    */
-  void setContextBlock(ContextBlock value);
+  void setContextBlock(BExpression value);
 
 } // ContainerConfiguration

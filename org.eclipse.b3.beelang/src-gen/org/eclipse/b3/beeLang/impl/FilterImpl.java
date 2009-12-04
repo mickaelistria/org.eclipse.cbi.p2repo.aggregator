@@ -5,8 +5,9 @@
  */
 package org.eclipse.b3.beeLang.impl;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+
 import org.eclipse.b3.beeLang.BeeLangPackage;
-import org.eclipse.b3.beeLang.Expression;
 import org.eclipse.b3.beeLang.Filter;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -41,7 +42,7 @@ public class FilterImpl extends MinimalEObjectImpl.Container implements Filter
    * @generated
    * @ordered
    */
-  protected Expression predicate;
+  protected BExpression predicate;
 
   /**
    * <!-- begin-user-doc -->
@@ -69,7 +70,7 @@ public class FilterImpl extends MinimalEObjectImpl.Container implements Filter
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expression getPredicate()
+  public BExpression getPredicate()
   {
     return predicate;
   }
@@ -79,9 +80,9 @@ public class FilterImpl extends MinimalEObjectImpl.Container implements Filter
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetPredicate(Expression newPredicate, NotificationChain msgs)
+  public NotificationChain basicSetPredicate(BExpression newPredicate, NotificationChain msgs)
   {
-    Expression oldPredicate = predicate;
+    BExpression oldPredicate = predicate;
     predicate = newPredicate;
     if (eNotificationRequired())
     {
@@ -96,7 +97,7 @@ public class FilterImpl extends MinimalEObjectImpl.Container implements Filter
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setPredicate(Expression newPredicate)
+  public void setPredicate(BExpression newPredicate)
   {
     if (newPredicate != predicate)
     {
@@ -155,7 +156,7 @@ public class FilterImpl extends MinimalEObjectImpl.Container implements Filter
     switch (featureID)
     {
       case BeeLangPackage.FILTER__PREDICATE:
-        setPredicate((Expression)newValue);
+        setPredicate((BExpression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -172,7 +173,7 @@ public class FilterImpl extends MinimalEObjectImpl.Container implements Filter
     switch (featureID)
     {
       case BeeLangPackage.FILTER__PREDICATE:
-        setPredicate((Expression)null);
+        setPredicate((BExpression)null);
         return;
     }
     super.eUnset(featureID);

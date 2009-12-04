@@ -34,12 +34,12 @@ public interface VersionRange extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Range</em>' attribute.
-   * @see #setRange(org.eclipse.equinox.internal.provisional.p2.core.VersionRange)
+   * @see #setRange(String)
    * @see org.eclipse.b3.beeLang.BeeLangPackage#getVersionRange_Range()
-   * @model dataType="beelangtypes.VersionRange"
+   * @model
    * @generated
    */
-  org.eclipse.equinox.internal.provisional.p2.core.VersionRange getRange();
+  String getRange();
 
   /**
    * Sets the value of the '{@link org.eclipse.b3.beeLang.VersionRange#getRange <em>Range</em>}' attribute.
@@ -49,6 +49,6 @@ public interface VersionRange extends EObject
    * @see #getRange()
    * @generated
    */
-  void setRange(org.eclipse.equinox.internal.provisional.p2.core.VersionRange value);
+  void setRange(String value);
 
 } // VersionRange

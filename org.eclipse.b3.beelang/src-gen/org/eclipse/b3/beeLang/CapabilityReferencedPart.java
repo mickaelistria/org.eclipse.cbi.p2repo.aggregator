@@ -5,6 +5,7 @@
  */
 package org.eclipse.b3.beeLang;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BParameterList;
 
 /**
  * <!-- begin-user-doc -->
@@ -114,12 +115,12 @@ public interface CapabilityReferencedPart extends PrerequisiteEntry
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Parameters</em>' containment reference.
-   * @see #setParameters(ParameterList)
+   * @see #setParameters(BParameterList)
    * @see org.eclipse.b3.beeLang.BeeLangPackage#getCapabilityReferencedPart_Parameters()
    * @model containment="true"
    * @generated
    */
-  ParameterList getParameters();
+  BParameterList getParameters();
 
   /**
    * Sets the value of the '{@link org.eclipse.b3.beeLang.CapabilityReferencedPart#getParameters <em>Parameters</em>}' containment reference.
@@ -129,6 +130,6 @@ public interface CapabilityReferencedPart extends PrerequisiteEntry
    * @see #getParameters()
    * @generated
    */
-  void setParameters(ParameterList value);
+  void setParameters(BParameterList value);
 
 } // CapabilityReferencedPart
