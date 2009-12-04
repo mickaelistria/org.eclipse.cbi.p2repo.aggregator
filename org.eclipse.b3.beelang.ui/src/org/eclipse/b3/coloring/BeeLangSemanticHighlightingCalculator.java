@@ -2,7 +2,7 @@ package org.eclipse.b3.coloring;
 
 import org.eclipse.b3.beeLang.BeeModel;
 import org.eclipse.b3.beeLang.PathVector;
-import org.eclipse.b3.beeLang.RealLiteral;
+//import org.eclipse.b3.beeLang.RealLiteral;
 import org.eclipse.b3.beeLang.Version;
 import org.eclipse.b3.beeLang.VersionRange;
 import org.eclipse.emf.common.util.EList;
@@ -34,9 +34,10 @@ ISemanticHighlightingCalculator {
 		while(all.hasNext())
 		{
 			EObject o = all.next();
-			if( o instanceof RealLiteral)
-				highlightReal((RealLiteral)o, acceptor);
-			else if( o instanceof Version)
+//			if( o instanceof RealLiteral)
+//				highlightReal((RealLiteral)o, acceptor);
+//			else 
+				if( o instanceof Version)
 				highlightVersion((Version)o, acceptor);
 			else if (o instanceof VersionRange)
 				highlightVersionRange((VersionRange)o, acceptor);
@@ -45,9 +46,9 @@ ISemanticHighlightingCalculator {
 		}
 		
 	}
-	public void highlightReal(RealLiteral v, IHighlightedPositionAcceptor acceptor){
-		highlightObject(v, BeeLangSemanticHighligtConfiuration.REAL_ID, acceptor);
-	}
+//	public void highlightReal(RealLiteral v, IHighlightedPositionAcceptor acceptor){
+//		highlightObject(v, BeeLangSemanticHighligtConfiuration.REAL_ID, acceptor);
+//	}
 	public void highlightPaths(PathVector v, IHighlightedPositionAcceptor acceptor){
 		highlightObject(v, BeeLangSemanticHighligtConfiuration.PATH_ID, acceptor);
 	}
