@@ -66,7 +66,7 @@ public class BLiteralListExpressionImpl extends BExpressionImpl implements BLite
 	protected EList<BExpression> entries;
 
 	/**
-	 * The cached value of the '{@link #getEntryType() <em>Entry Type</em>}' reference.
+	 * The cached value of the '{@link #getEntryType() <em>Entry Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getEntryType()
@@ -112,14 +112,6 @@ public class BLiteralListExpressionImpl extends BExpressionImpl implements BLite
 	 * @generated
 	 */
 	public Type getEntryType() {
-		if (entryType != null && ((EObject)entryType).eIsProxy()) {
-			InternalEObject oldEntryType = (InternalEObject)entryType;
-			entryType = (Type)eResolveProxy(oldEntryType);
-			if (entryType != oldEntryType) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE, oldEntryType, entryType));
-			}
-		}
 		return entryType;
 	}
 
@@ -128,20 +120,38 @@ public class BLiteralListExpressionImpl extends BExpressionImpl implements BLite
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Type basicGetEntryType() {
-		return entryType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setEntryType(Type newEntryType) {
+	public NotificationChain basicSetEntryType(Type newEntryType, NotificationChain msgs) {
 		Type oldEntryType = entryType;
 		entryType = newEntryType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE, oldEntryType, entryType));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE, oldEntryType, newEntryType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * entryType may not be an EObject. If it is not, then no notification is generated on change.
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void setEntryType(Type newEntryType) {
+		if(! (entryType instanceof EObject && newEntryType instanceof EObject))
+			entryType = newEntryType;
+		else {
+		if (newEntryType != entryType) {
+			NotificationChain msgs = null;
+			if (entryType != null)
+				msgs = ((InternalEObject)entryType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE, null, msgs);
+			if (newEntryType != null)
+				msgs = ((InternalEObject)newEntryType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE, null, msgs);
+			msgs = basicSetEntryType(newEntryType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE, newEntryType, newEntryType));
+		}
 	}
 
 	/**
@@ -154,6 +164,8 @@ public class BLiteralListExpressionImpl extends BExpressionImpl implements BLite
 		switch (featureID) {
 			case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRIES:
 				return ((InternalEList<?>)getEntries()).basicRemove(otherEnd, msgs);
+			case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE:
+				return basicSetEntryType(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -169,8 +181,7 @@ public class BLiteralListExpressionImpl extends BExpressionImpl implements BLite
 			case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRIES:
 				return getEntries();
 			case B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE:
-				if (resolve) return getEntryType();
-				return basicGetEntryType();
+				return getEntryType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

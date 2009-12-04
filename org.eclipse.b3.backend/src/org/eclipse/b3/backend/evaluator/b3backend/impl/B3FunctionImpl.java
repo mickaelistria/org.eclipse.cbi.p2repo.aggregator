@@ -19,6 +19,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
 import org.eclipse.b3.backend.evaluator.typesystem.B3ParameterizedType;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -47,7 +48,7 @@ public class B3FunctionImpl extends BFunctionImpl implements B3Function {
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
 	/**
-	 * The cached value of the '{@link #getFuncExpr() <em>Func Expr</em>}' reference.
+	 * The cached value of the '{@link #getFuncExpr() <em>Func Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getFuncExpr()
@@ -81,14 +82,6 @@ public class B3FunctionImpl extends BFunctionImpl implements B3Function {
 	 * @generated
 	 */
 	public BExpression getFuncExpr() {
-		if (funcExpr != null && funcExpr.eIsProxy()) {
-			InternalEObject oldFuncExpr = (InternalEObject)funcExpr;
-			funcExpr = (BExpression)eResolveProxy(oldFuncExpr);
-			if (funcExpr != oldFuncExpr) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.B3_FUNCTION__FUNC_EXPR, oldFuncExpr, funcExpr));
-			}
-		}
 		return funcExpr;
 	}
 
@@ -97,8 +90,14 @@ public class B3FunctionImpl extends BFunctionImpl implements B3Function {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BExpression basicGetFuncExpr() {
-		return funcExpr;
+	public NotificationChain basicSetFuncExpr(BExpression newFuncExpr, NotificationChain msgs) {
+		BExpression oldFuncExpr = funcExpr;
+		funcExpr = newFuncExpr;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.B3_FUNCTION__FUNC_EXPR, oldFuncExpr, newFuncExpr);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -107,10 +106,31 @@ public class B3FunctionImpl extends BFunctionImpl implements B3Function {
 	 * @generated
 	 */
 	public void setFuncExpr(BExpression newFuncExpr) {
-		BExpression oldFuncExpr = funcExpr;
-		funcExpr = newFuncExpr;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.B3_FUNCTION__FUNC_EXPR, oldFuncExpr, funcExpr));
+		if (newFuncExpr != funcExpr) {
+			NotificationChain msgs = null;
+			if (funcExpr != null)
+				msgs = ((InternalEObject)funcExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.B3_FUNCTION__FUNC_EXPR, null, msgs);
+			if (newFuncExpr != null)
+				msgs = ((InternalEObject)newFuncExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.B3_FUNCTION__FUNC_EXPR, null, msgs);
+			msgs = basicSetFuncExpr(newFuncExpr, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.B3_FUNCTION__FUNC_EXPR, newFuncExpr, newFuncExpr));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case B3backendPackage.B3_FUNCTION__FUNC_EXPR:
+				return basicSetFuncExpr(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -122,8 +142,7 @@ public class B3FunctionImpl extends BFunctionImpl implements B3Function {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case B3backendPackage.B3_FUNCTION__FUNC_EXPR:
-				if (resolve) return getFuncExpr();
-				return basicGetFuncExpr();
+				return getFuncExpr();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

@@ -19,6 +19,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.EObject;
@@ -69,7 +70,7 @@ public class BParameterDeclarationImpl extends EObjectImpl implements BParameter
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' reference.
+	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getType()
@@ -141,8 +142,38 @@ public class BParameterDeclarationImpl extends EObjectImpl implements BParameter
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Type basicGetType() {
-		return type;
+	public NotificationChain basicSetType(Type newType, NotificationChain msgs) {
+		Type oldType = type;
+		type = newType;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BPARAMETER_DECLARATION__TYPE, oldType, newType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Type may be a non EObject - if so, no notification is generated non change.
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void setType(Type newType) {
+		if(! (type instanceof EObject && newType instanceof EObject))
+			type = newType;
+		else {
+		if (newType != type) {
+			NotificationChain msgs = null;
+			if (type != null)
+				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BPARAMETER_DECLARATION__TYPE, null, msgs);
+			if (newType != null)
+				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BPARAMETER_DECLARATION__TYPE, null, msgs);
+			msgs = basicSetType(newType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BPARAMETER_DECLARATION__TYPE, newType, newType));
+		}
 	}
 
 	/**
@@ -150,11 +181,13 @@ public class BParameterDeclarationImpl extends EObjectImpl implements BParameter
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(Type newType) {
-		Type oldType = type;
-		type = newType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BPARAMETER_DECLARATION__TYPE, oldType, type));
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case B3backendPackage.BPARAMETER_DECLARATION__TYPE:
+				return basicSetType(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -168,8 +201,7 @@ public class BParameterDeclarationImpl extends EObjectImpl implements BParameter
 			case B3backendPackage.BPARAMETER_DECLARATION__NAME:
 				return getName();
 			case B3backendPackage.BPARAMETER_DECLARATION__TYPE:
-				if (resolve) return getType();
-				return basicGetType();
+				return getType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

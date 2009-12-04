@@ -160,52 +160,52 @@ public interface BFunction extends BExpression, GenericDeclaration {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Guard</b></em>' reference.
+	 * Returns the value of the '<em><b>Guard</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Guard</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Guard</em>' reference.
+	 * @return the value of the '<em>Guard</em>' containment reference.
 	 * @see #setGuard(BGuard)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBFunction_Guard()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	BGuard getGuard();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getGuard <em>Guard</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getGuard <em>Guard</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Guard</em>' reference.
+	 * @param value the new value of the '<em>Guard</em>' containment reference.
 	 * @see #getGuard()
 	 * @generated
 	 */
 	void setGuard(BGuard value);
 
 	/**
-	 * Returns the value of the '<em><b>Return Type</b></em>' reference.
+	 * Returns the value of the '<em><b>Return Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Return Type</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Return Type</em>' reference.
+	 * @return the value of the '<em>Return Type</em>' containment reference.
 	 * @see #setReturnType(Type)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBFunction_ReturnType()
-	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType"
+	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType" containment="true"
 	 * @generated
 	 */
 	Type getReturnType();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getReturnType <em>Return Type</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getReturnType <em>Return Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Return Type</em>' reference.
+	 * @param value the new value of the '<em>Return Type</em>' containment reference.
 	 * @see #getReturnType()
 	 * @generated
 	 */

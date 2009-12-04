@@ -53,52 +53,52 @@ public interface BLiteralMapExpression extends BExpression {
 	EList<BMapEntry> getEntries();
 
 	/**
-	 * Returns the value of the '<em><b>Key Type</b></em>' reference.
+	 * Returns the value of the '<em><b>Key Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Key Type</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Key Type</em>' reference.
+	 * @return the value of the '<em>Key Type</em>' containment reference.
 	 * @see #setKeyType(Type)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBLiteralMapExpression_KeyType()
-	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType" required="true"
+	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType" containment="true" required="true"
 	 * @generated
 	 */
 	Type getKeyType();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression#getKeyType <em>Key Type</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression#getKeyType <em>Key Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Key Type</em>' reference.
+	 * @param value the new value of the '<em>Key Type</em>' containment reference.
 	 * @see #getKeyType()
 	 * @generated
 	 */
 	void setKeyType(Type value);
 
 	/**
-	 * Returns the value of the '<em><b>Value Type</b></em>' reference.
+	 * Returns the value of the '<em><b>Value Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Value Type</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Value Type</em>' reference.
+	 * @return the value of the '<em>Value Type</em>' containment reference.
 	 * @see #setValueType(Type)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBLiteralMapExpression_ValueType()
-	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType" required="true"
+	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType" containment="true" required="true"
 	 * @generated
 	 */
 	Type getValueType();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression#getValueType <em>Value Type</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression#getValueType <em>Value Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Value Type</em>' reference.
+	 * @param value the new value of the '<em>Value Type</em>' containment reference.
 	 * @see #getValueType()
 	 * @generated
 	 */

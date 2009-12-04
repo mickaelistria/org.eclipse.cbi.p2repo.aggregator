@@ -66,26 +66,26 @@ public interface BParameter extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Expr</b></em>' reference.
+	 * Returns the value of the '<em><b>Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Expr</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Expr</em>' reference.
+	 * @return the value of the '<em>Expr</em>' containment reference.
 	 * @see #setExpr(BExpression)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBParameter_Expr()
-	 * @model required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	BExpression getExpr();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameter#getExpr <em>Expr</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameter#getExpr <em>Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Expr</em>' reference.
+	 * @param value the new value of the '<em>Expr</em>' containment reference.
 	 * @see #getExpr()
 	 * @generated
 	 */

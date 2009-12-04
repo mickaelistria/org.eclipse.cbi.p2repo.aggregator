@@ -18,6 +18,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BParameter;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -67,7 +68,7 @@ public class BParameterImpl extends EObjectImpl implements BParameter {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getExpr() <em>Expr</em>}' reference.
+	 * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getExpr()
@@ -122,14 +123,6 @@ public class BParameterImpl extends EObjectImpl implements BParameter {
 	 * @generated
 	 */
 	public BExpression getExpr() {
-		if (expr != null && expr.eIsProxy()) {
-			InternalEObject oldExpr = (InternalEObject)expr;
-			expr = (BExpression)eResolveProxy(oldExpr);
-			if (expr != oldExpr) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.BPARAMETER__EXPR, oldExpr, expr));
-			}
-		}
 		return expr;
 	}
 
@@ -138,8 +131,14 @@ public class BParameterImpl extends EObjectImpl implements BParameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BExpression basicGetExpr() {
-		return expr;
+	public NotificationChain basicSetExpr(BExpression newExpr, NotificationChain msgs) {
+		BExpression oldExpr = expr;
+		expr = newExpr;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BPARAMETER__EXPR, oldExpr, newExpr);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -148,10 +147,31 @@ public class BParameterImpl extends EObjectImpl implements BParameter {
 	 * @generated
 	 */
 	public void setExpr(BExpression newExpr) {
-		BExpression oldExpr = expr;
-		expr = newExpr;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BPARAMETER__EXPR, oldExpr, expr));
+		if (newExpr != expr) {
+			NotificationChain msgs = null;
+			if (expr != null)
+				msgs = ((InternalEObject)expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BPARAMETER__EXPR, null, msgs);
+			if (newExpr != null)
+				msgs = ((InternalEObject)newExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BPARAMETER__EXPR, null, msgs);
+			msgs = basicSetExpr(newExpr, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BPARAMETER__EXPR, newExpr, newExpr));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case B3backendPackage.BPARAMETER__EXPR:
+				return basicSetExpr(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -165,8 +185,7 @@ public class BParameterImpl extends EObjectImpl implements BParameter {
 			case B3backendPackage.BPARAMETER__NAME:
 				return getName();
 			case B3backendPackage.BPARAMETER__EXPR:
-				if (resolve) return getExpr();
-				return basicGetExpr();
+				return getExpr();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

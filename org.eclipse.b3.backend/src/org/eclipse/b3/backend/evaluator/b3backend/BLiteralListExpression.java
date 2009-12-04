@@ -51,26 +51,26 @@ public interface BLiteralListExpression extends BExpression {
 	EList<BExpression> getEntries();
 
 	/**
-	 * Returns the value of the '<em><b>Entry Type</b></em>' reference.
+	 * Returns the value of the '<em><b>Entry Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Entry Type</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Entry Type</em>' reference.
+	 * @return the value of the '<em>Entry Type</em>' containment reference.
 	 * @see #setEntryType(Type)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBLiteralListExpression_EntryType()
-	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType" required="true"
+	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType" containment="true" required="true"
 	 * @generated
 	 */
 	Type getEntryType();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression#getEntryType <em>Entry Type</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression#getEntryType <em>Entry Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Entry Type</em>' reference.
+	 * @param value the new value of the '<em>Entry Type</em>' containment reference.
 	 * @see #getEntryType()
 	 * @generated
 	 */

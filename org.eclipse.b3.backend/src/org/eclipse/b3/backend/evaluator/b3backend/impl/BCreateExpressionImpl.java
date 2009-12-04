@@ -18,6 +18,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BParameter;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -70,7 +71,7 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 	protected String alias = ALIAS_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' reference.
+	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getType()
@@ -80,7 +81,7 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 	protected Type type;
 
 	/**
-	 * The cached value of the '{@link #getContextBlock() <em>Context Block</em>}' reference.
+	 * The cached value of the '{@link #getContextBlock() <em>Context Block</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getContextBlock()
@@ -114,14 +115,6 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 	 * @generated
 	 */
 	public Type getType() {
-		if (type != null && ((EObject)type).eIsProxy()) {
-			InternalEObject oldType = (InternalEObject)type;
-			type = (Type)eResolveProxy(oldType);
-			if (type != oldType) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.BCREATE_EXPRESSION__TYPE, oldType, type));
-			}
-		}
 		return type;
 	}
 
@@ -130,20 +123,38 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Type basicGetType() {
-		return type;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setType(Type newType) {
+	public NotificationChain basicSetType(Type newType, NotificationChain msgs) {
 		Type oldType = type;
 		type = newType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BCREATE_EXPRESSION__TYPE, oldType, type));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BCREATE_EXPRESSION__TYPE, oldType, newType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Type may not be an EObject, and if not, no notification is sent on change.
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void setType(Type newType) {
+		if(! (type instanceof EObject && newType instanceof EObject))
+			type = newType;
+		else {
+		if (newType != type) {
+			NotificationChain msgs = null;
+			if (type != null)
+				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BCREATE_EXPRESSION__TYPE, null, msgs);
+			if (newType != null)
+				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BCREATE_EXPRESSION__TYPE, null, msgs);
+			msgs = basicSetType(newType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BCREATE_EXPRESSION__TYPE, newType, newType));
+		}
 	}
 
 	/**
@@ -152,14 +163,6 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 	 * @generated
 	 */
 	public BExpression getContextBlock() {
-		if (contextBlock != null && contextBlock.eIsProxy()) {
-			InternalEObject oldContextBlock = (InternalEObject)contextBlock;
-			contextBlock = (BExpression)eResolveProxy(oldContextBlock);
-			if (contextBlock != oldContextBlock) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.BCREATE_EXPRESSION__CONTEXT_BLOCK, oldContextBlock, contextBlock));
-			}
-		}
 		return contextBlock;
 	}
 
@@ -168,8 +171,14 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BExpression basicGetContextBlock() {
-		return contextBlock;
+	public NotificationChain basicSetContextBlock(BExpression newContextBlock, NotificationChain msgs) {
+		BExpression oldContextBlock = contextBlock;
+		contextBlock = newContextBlock;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BCREATE_EXPRESSION__CONTEXT_BLOCK, oldContextBlock, newContextBlock);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -178,10 +187,33 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 	 * @generated
 	 */
 	public void setContextBlock(BExpression newContextBlock) {
-		BExpression oldContextBlock = contextBlock;
-		contextBlock = newContextBlock;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BCREATE_EXPRESSION__CONTEXT_BLOCK, oldContextBlock, contextBlock));
+		if (newContextBlock != contextBlock) {
+			NotificationChain msgs = null;
+			if (contextBlock != null)
+				msgs = ((InternalEObject)contextBlock).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BCREATE_EXPRESSION__CONTEXT_BLOCK, null, msgs);
+			if (newContextBlock != null)
+				msgs = ((InternalEObject)newContextBlock).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BCREATE_EXPRESSION__CONTEXT_BLOCK, null, msgs);
+			msgs = basicSetContextBlock(newContextBlock, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BCREATE_EXPRESSION__CONTEXT_BLOCK, newContextBlock, newContextBlock));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case B3backendPackage.BCREATE_EXPRESSION__TYPE:
+				return basicSetType(null, msgs);
+			case B3backendPackage.BCREATE_EXPRESSION__CONTEXT_BLOCK:
+				return basicSetContextBlock(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -216,11 +248,9 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 			case B3backendPackage.BCREATE_EXPRESSION__ALIAS:
 				return getAlias();
 			case B3backendPackage.BCREATE_EXPRESSION__TYPE:
-				if (resolve) return getType();
-				return basicGetType();
+				return getType();
 			case B3backendPackage.BCREATE_EXPRESSION__CONTEXT_BLOCK:
-				if (resolve) return getContextBlock();
-				return basicGetContextBlock();
+				return getContextBlock();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

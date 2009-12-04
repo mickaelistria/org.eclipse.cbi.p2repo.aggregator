@@ -19,6 +19,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BDefValue;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.EObject;
@@ -111,7 +112,7 @@ public class BDefValueImpl extends BExpressionImpl implements BDefValue {
 	protected boolean immutable = IMMUTABLE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getValueExpr() <em>Value Expr</em>}' reference.
+	 * The cached value of the '{@link #getValueExpr() <em>Value Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getValueExpr()
@@ -121,7 +122,7 @@ public class BDefValueImpl extends BExpressionImpl implements BDefValue {
 	protected BExpression valueExpr;
 
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' reference.
+	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getType()
@@ -218,14 +219,6 @@ public class BDefValueImpl extends BExpressionImpl implements BDefValue {
 	 * @generated
 	 */
 	public BExpression getValueExpr() {
-		if (valueExpr != null && valueExpr.eIsProxy()) {
-			InternalEObject oldValueExpr = (InternalEObject)valueExpr;
-			valueExpr = (BExpression)eResolveProxy(oldValueExpr);
-			if (valueExpr != oldValueExpr) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.BDEF_VALUE__VALUE_EXPR, oldValueExpr, valueExpr));
-			}
-		}
 		return valueExpr;
 	}
 
@@ -234,8 +227,14 @@ public class BDefValueImpl extends BExpressionImpl implements BDefValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BExpression basicGetValueExpr() {
-		return valueExpr;
+	public NotificationChain basicSetValueExpr(BExpression newValueExpr, NotificationChain msgs) {
+		BExpression oldValueExpr = valueExpr;
+		valueExpr = newValueExpr;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BDEF_VALUE__VALUE_EXPR, oldValueExpr, newValueExpr);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -244,10 +243,17 @@ public class BDefValueImpl extends BExpressionImpl implements BDefValue {
 	 * @generated
 	 */
 	public void setValueExpr(BExpression newValueExpr) {
-		BExpression oldValueExpr = valueExpr;
-		valueExpr = newValueExpr;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BDEF_VALUE__VALUE_EXPR, oldValueExpr, valueExpr));
+		if (newValueExpr != valueExpr) {
+			NotificationChain msgs = null;
+			if (valueExpr != null)
+				msgs = ((InternalEObject)valueExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BDEF_VALUE__VALUE_EXPR, null, msgs);
+			if (newValueExpr != null)
+				msgs = ((InternalEObject)newValueExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BDEF_VALUE__VALUE_EXPR, null, msgs);
+			msgs = basicSetValueExpr(newValueExpr, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BDEF_VALUE__VALUE_EXPR, newValueExpr, newValueExpr));
 	}
 
 	/**
@@ -256,14 +262,6 @@ public class BDefValueImpl extends BExpressionImpl implements BDefValue {
 	 * @generated
 	 */
 	public Type getType() {
-		if (type != null && ((EObject)type).eIsProxy()) {
-			InternalEObject oldType = (InternalEObject)type;
-			type = (Type)eResolveProxy(oldType);
-			if (type != oldType) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.BDEF_VALUE__TYPE, oldType, type));
-			}
-		}
 		return type;
 	}
 
@@ -272,8 +270,14 @@ public class BDefValueImpl extends BExpressionImpl implements BDefValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Type basicGetType() {
-		return type;
+	public NotificationChain basicSetType(Type newType, NotificationChain msgs) {
+		Type oldType = type;
+		type = newType;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BDEF_VALUE__TYPE, oldType, newType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -282,10 +286,33 @@ public class BDefValueImpl extends BExpressionImpl implements BDefValue {
 	 * @generated
 	 */
 	public void setType(Type newType) {
-		Type oldType = type;
-		type = newType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BDEF_VALUE__TYPE, oldType, type));
+		if (newType != type) {
+			NotificationChain msgs = null;
+			if (type != null)
+				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BDEF_VALUE__TYPE, null, msgs);
+			if (newType != null)
+				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BDEF_VALUE__TYPE, null, msgs);
+			msgs = basicSetType(newType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BDEF_VALUE__TYPE, newType, newType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case B3backendPackage.BDEF_VALUE__VALUE_EXPR:
+				return basicSetValueExpr(null, msgs);
+			case B3backendPackage.BDEF_VALUE__TYPE:
+				return basicSetType(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -303,11 +330,9 @@ public class BDefValueImpl extends BExpressionImpl implements BDefValue {
 			case B3backendPackage.BDEF_VALUE__IMMUTABLE:
 				return isImmutable();
 			case B3backendPackage.BDEF_VALUE__VALUE_EXPR:
-				if (resolve) return getValueExpr();
-				return basicGetValueExpr();
+				return getValueExpr();
 			case B3backendPackage.BDEF_VALUE__TYPE:
-				if (resolve) return getType();
-				return basicGetType();
+				return getType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

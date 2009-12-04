@@ -10,12 +10,14 @@ package org.eclipse.b3.backend.evaluator.b3backend.provider;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -70,7 +72,6 @@ public class BCreateExpressionItemProvider
 
 			addAliasPropertyDescriptor(object);
 			addTypePropertyDescriptor(object);
-			addContextBlockPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -120,25 +121,33 @@ public class BCreateExpressionItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Context Block feature.
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addContextBlockPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_BCreateExpression_contextBlock_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BCreateExpression_contextBlock_feature", "_UI_BCreateExpression_type"),
-				 B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -179,6 +188,9 @@ public class BCreateExpressionItemProvider
 			case B3backendPackage.BCREATE_EXPRESSION__ALIAS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case B3backendPackage.BCREATE_EXPRESSION__CONTEXT_BLOCK:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -193,6 +205,141 @@ public class BCreateExpressionItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
+				 B3backendFactory.eINSTANCE.createBIfExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
+				 B3backendFactory.eINSTANCE.createBSwitchExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
+				 B3backendFactory.eINSTANCE.createBTryExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
+				 B3backendFactory.eINSTANCE.createBOrExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
+				 B3backendFactory.eINSTANCE.createBAndExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
+				 B3backendFactory.eINSTANCE.createBChainedExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
+				 B3backendFactory.eINSTANCE.createBThrowExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
+				 B3backendFactory.eINSTANCE.createBUnaryOpExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
+				 B3backendFactory.eINSTANCE.createBUnaryPostOpExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
+				 B3backendFactory.eINSTANCE.createBBinaryOpExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
+				 B3backendFactory.eINSTANCE.createBCachedExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
+				 B3backendFactory.eINSTANCE.createBLiteralExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
+				 B3backendFactory.eINSTANCE.createBLiteralListExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
+				 B3backendFactory.eINSTANCE.createBLiteralMapExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
+				 B3backendFactory.eINSTANCE.createBFeatureExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
+				 B3backendFactory.eINSTANCE.createBAtExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
+				 B3backendFactory.eINSTANCE.createBVariableExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
+				 B3backendFactory.eINSTANCE.createBCallExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
+				 B3backendFactory.eINSTANCE.createBLiteralAny()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
+				 B3backendFactory.eINSTANCE.createBCreateExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
+				 B3backendFactory.eINSTANCE.createBUnaryPreOpExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
+				 B3backendFactory.eINSTANCE.createBAssignmentExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
+				 B3backendFactory.eINSTANCE.createB3Function()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
+				 B3backendFactory.eINSTANCE.createBJavaFunction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
+				 B3backendFactory.eINSTANCE.createBDefFunction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
+				 B3backendFactory.eINSTANCE.createBDefValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
+				 B3backendFactory.eINSTANCE.createBRegularExpression()));
 	}
 
 }

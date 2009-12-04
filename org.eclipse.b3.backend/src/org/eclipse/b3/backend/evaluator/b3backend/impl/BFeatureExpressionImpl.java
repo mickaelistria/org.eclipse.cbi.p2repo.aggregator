@@ -22,6 +22,7 @@ import org.eclipse.b3.backend.evaluator.BackendHelper;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -52,7 +53,7 @@ public class BFeatureExpressionImpl extends BExpressionImpl implements BFeatureE
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
 
 	/**
-	 * The cached value of the '{@link #getObjExpr() <em>Obj Expr</em>}' reference.
+	 * The cached value of the '{@link #getObjExpr() <em>Obj Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getObjExpr()
@@ -106,14 +107,6 @@ public class BFeatureExpressionImpl extends BExpressionImpl implements BFeatureE
 	 * @generated
 	 */
 	public BExpression getObjExpr() {
-		if (objExpr != null && objExpr.eIsProxy()) {
-			InternalEObject oldObjExpr = (InternalEObject)objExpr;
-			objExpr = (BExpression)eResolveProxy(oldObjExpr);
-			if (objExpr != oldObjExpr) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.BFEATURE_EXPRESSION__OBJ_EXPR, oldObjExpr, objExpr));
-			}
-		}
 		return objExpr;
 	}
 
@@ -122,8 +115,14 @@ public class BFeatureExpressionImpl extends BExpressionImpl implements BFeatureE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BExpression basicGetObjExpr() {
-		return objExpr;
+	public NotificationChain basicSetObjExpr(BExpression newObjExpr, NotificationChain msgs) {
+		BExpression oldObjExpr = objExpr;
+		objExpr = newObjExpr;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BFEATURE_EXPRESSION__OBJ_EXPR, oldObjExpr, newObjExpr);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -132,10 +131,17 @@ public class BFeatureExpressionImpl extends BExpressionImpl implements BFeatureE
 	 * @generated
 	 */
 	public void setObjExpr(BExpression newObjExpr) {
-		BExpression oldObjExpr = objExpr;
-		objExpr = newObjExpr;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFEATURE_EXPRESSION__OBJ_EXPR, oldObjExpr, objExpr));
+		if (newObjExpr != objExpr) {
+			NotificationChain msgs = null;
+			if (objExpr != null)
+				msgs = ((InternalEObject)objExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BFEATURE_EXPRESSION__OBJ_EXPR, null, msgs);
+			if (newObjExpr != null)
+				msgs = ((InternalEObject)newObjExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BFEATURE_EXPRESSION__OBJ_EXPR, null, msgs);
+			msgs = basicSetObjExpr(newObjExpr, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFEATURE_EXPRESSION__OBJ_EXPR, newObjExpr, newObjExpr));
 	}
 
 	/**
@@ -165,11 +171,24 @@ public class BFeatureExpressionImpl extends BExpressionImpl implements BFeatureE
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case B3backendPackage.BFEATURE_EXPRESSION__OBJ_EXPR:
+				return basicSetObjExpr(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case B3backendPackage.BFEATURE_EXPRESSION__OBJ_EXPR:
-				if (resolve) return getObjExpr();
-				return basicGetObjExpr();
+				return getObjExpr();
 			case B3backendPackage.BFEATURE_EXPRESSION__FEATURE_NAME:
 				return getFeatureName();
 		}

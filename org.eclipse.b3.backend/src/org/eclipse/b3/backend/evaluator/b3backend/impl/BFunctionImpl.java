@@ -146,7 +146,7 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getGuard() <em>Guard</em>}' reference.
+	 * The cached value of the '{@link #getGuard() <em>Guard</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getGuard()
@@ -286,7 +286,7 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	protected String documentation = DOCUMENTATION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getReturnType() <em>Return Type</em>}' reference.
+	 * The cached value of the '{@link #getReturnType() <em>Return Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getReturnType()
@@ -424,14 +424,6 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	 * @generated
 	 */
 	public BGuard getGuard() {
-		if (guard != null && guard.eIsProxy()) {
-			InternalEObject oldGuard = (InternalEObject)guard;
-			guard = (BGuard)eResolveProxy(oldGuard);
-			if (guard != oldGuard) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.BFUNCTION__GUARD, oldGuard, guard));
-			}
-		}
 		return guard;
 	}
 
@@ -440,8 +432,14 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BGuard basicGetGuard() {
-		return guard;
+	public NotificationChain basicSetGuard(BGuard newGuard, NotificationChain msgs) {
+		BGuard oldGuard = guard;
+		guard = newGuard;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION__GUARD, oldGuard, newGuard);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -450,10 +448,17 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	 * @generated
 	 */
 	public void setGuard(BGuard newGuard) {
-		BGuard oldGuard = guard;
-		guard = newGuard;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION__GUARD, oldGuard, guard));
+		if (newGuard != guard) {
+			NotificationChain msgs = null;
+			if (guard != null)
+				msgs = ((InternalEObject)guard).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BFUNCTION__GUARD, null, msgs);
+			if (newGuard != null)
+				msgs = ((InternalEObject)newGuard).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BFUNCTION__GUARD, null, msgs);
+			msgs = basicSetGuard(newGuard, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION__GUARD, newGuard, newGuard));
 	}
 
 	/**
@@ -479,20 +484,39 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Type basicGetReturnType() {
-		return returnType;
+	public NotificationChain basicSetReturnType(Type newReturnType, NotificationChain msgs) {
+		Type oldReturnType = returnType;
+		returnType = newReturnType;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION__RETURN_TYPE, oldReturnType, newReturnType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * This method may be called with non EObject implementations of Type. If so, then no notification
+	 * is done on change.
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void setReturnType(Type newReturnType) {
-		Type oldReturnType = returnType;
-		returnType = newReturnType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION__RETURN_TYPE, oldReturnType, returnType));
+		if(! (returnType instanceof EObject && newReturnType instanceof EObject) )
+			returnType = newReturnType;
+		else {
+		if (newReturnType != returnType) {
+			NotificationChain msgs = null;
+			if (returnType != null)
+				msgs = ((InternalEObject)returnType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BFUNCTION__RETURN_TYPE, null, msgs);
+			if (newReturnType != null)
+				msgs = ((InternalEObject)newReturnType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BFUNCTION__RETURN_TYPE, null, msgs);
+			msgs = basicSetReturnType(newReturnType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION__RETURN_TYPE, newReturnType, newReturnType));
+		}
 	}
 
 	/**
@@ -687,8 +711,12 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case B3backendPackage.BFUNCTION__GUARD:
+				return basicSetGuard(null, msgs);
 			case B3backendPackage.BFUNCTION__PARAMETERS:
 				return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
+			case B3backendPackage.BFUNCTION__RETURN_TYPE:
+				return basicSetReturnType(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -710,8 +738,7 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 			case B3backendPackage.BFUNCTION__NAME:
 				return getName();
 			case B3backendPackage.BFUNCTION__GUARD:
-				if (resolve) return getGuard();
-				return basicGetGuard();
+				return getGuard();
 			case B3backendPackage.BFUNCTION__PARAMETER_TYPES:
 				return getParameterTypes();
 			case B3backendPackage.BFUNCTION__EXCEPTION_TYPES:
@@ -727,8 +754,7 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 			case B3backendPackage.BFUNCTION__DOCUMENTATION:
 				return getDocumentation();
 			case B3backendPackage.BFUNCTION__RETURN_TYPE:
-				if (resolve) return getReturnType();
-				return basicGetReturnType();
+				return getReturnType();
 			case B3backendPackage.BFUNCTION__CACHED:
 				return isCached();
 		}

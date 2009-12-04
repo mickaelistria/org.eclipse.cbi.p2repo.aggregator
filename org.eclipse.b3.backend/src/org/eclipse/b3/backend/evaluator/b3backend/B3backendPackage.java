@@ -493,7 +493,7 @@ public interface B3backendPackage extends EPackage {
 	int BCATCH__VARNAME = 1;
 
 	/**
-	 * The feature id for the '<em><b>Exception Type</b></em>' reference.
+	 * The feature id for the '<em><b>Exception Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1117,7 +1117,7 @@ public interface B3backendPackage extends EPackage {
 	int BLITERAL_LIST_EXPRESSION__ENTRIES = BEXPRESSION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Entry Type</b></em>' reference.
+	 * The feature id for the '<em><b>Entry Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1172,7 +1172,7 @@ public interface B3backendPackage extends EPackage {
 	int BLITERAL_MAP_EXPRESSION__ENTRIES = BEXPRESSION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Key Type</b></em>' reference.
+	 * The feature id for the '<em><b>Key Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1181,7 +1181,7 @@ public interface B3backendPackage extends EPackage {
 	int BLITERAL_MAP_EXPRESSION__KEY_TYPE = BEXPRESSION_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Value Type</b></em>' reference.
+	 * The feature id for the '<em><b>Value Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1264,7 +1264,7 @@ public interface B3backendPackage extends EPackage {
 	int BFEATURE_EXPRESSION__FILE_REFERENCE = BEXPRESSION__FILE_REFERENCE;
 
 	/**
-	 * The feature id for the '<em><b>Obj Expr</b></em>' reference.
+	 * The feature id for the '<em><b>Obj Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1319,7 +1319,7 @@ public interface B3backendPackage extends EPackage {
 	int BAT_EXPRESSION__FILE_REFERENCE = BEXPRESSION__FILE_REFERENCE;
 
 	/**
-	 * The feature id for the '<em><b>Obj Expr</b></em>' reference.
+	 * The feature id for the '<em><b>Obj Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1328,7 +1328,7 @@ public interface B3backendPackage extends EPackage {
 	int BAT_EXPRESSION__OBJ_EXPR = BEXPRESSION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Index Expr</b></em>' reference.
+	 * The feature id for the '<em><b>Index Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1585,7 +1585,7 @@ public interface B3backendPackage extends EPackage {
 	int BCREATE_EXPRESSION__ALIAS = BPARAMETERIZED_EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * The feature id for the '<em><b>Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1594,7 +1594,7 @@ public interface B3backendPackage extends EPackage {
 	int BCREATE_EXPRESSION__TYPE = BPARAMETERIZED_EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Context Block</b></em>' reference.
+	 * The feature id for the '<em><b>Context Block</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1676,7 +1676,7 @@ public interface B3backendPackage extends EPackage {
 	int BFUNCTION__NAME = BEXPRESSION_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Guard</b></em>' reference.
+	 * The feature id for the '<em><b>Guard</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1748,7 +1748,7 @@ public interface B3backendPackage extends EPackage {
 	int BFUNCTION__DOCUMENTATION = BEXPRESSION_FEATURE_COUNT + 11;
 
 	/**
-	 * The feature id for the '<em><b>Return Type</b></em>' reference.
+	 * The feature id for the '<em><b>Return Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1832,7 +1832,7 @@ public interface B3backendPackage extends EPackage {
 	int BGUARD_EXPRESSION = 34;
 
 	/**
-	 * The feature id for the '<em><b>Guard Expr</b></em>' reference.
+	 * The feature id for the '<em><b>Guard Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2271,7 +2271,7 @@ public interface B3backendPackage extends EPackage {
 	int B3_FUNCTION__NAME = BFUNCTION__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Guard</b></em>' reference.
+	 * The feature id for the '<em><b>Guard</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2343,7 +2343,7 @@ public interface B3backendPackage extends EPackage {
 	int B3_FUNCTION__DOCUMENTATION = BFUNCTION__DOCUMENTATION;
 
 	/**
-	 * The feature id for the '<em><b>Return Type</b></em>' reference.
+	 * The feature id for the '<em><b>Return Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2361,7 +2361,7 @@ public interface B3backendPackage extends EPackage {
 	int B3_FUNCTION__CACHED = BFUNCTION__CACHED;
 
 	/**
-	 * The feature id for the '<em><b>Func Expr</b></em>' reference.
+	 * The feature id for the '<em><b>Func Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2443,7 +2443,7 @@ public interface B3backendPackage extends EPackage {
 	int BJAVA_FUNCTION__NAME = BFUNCTION__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Guard</b></em>' reference.
+	 * The feature id for the '<em><b>Guard</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2515,7 +2515,7 @@ public interface B3backendPackage extends EPackage {
 	int BJAVA_FUNCTION__DOCUMENTATION = BFUNCTION__DOCUMENTATION;
 
 	/**
-	 * The feature id for the '<em><b>Return Type</b></em>' reference.
+	 * The feature id for the '<em><b>Return Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2661,7 +2661,7 @@ public interface B3backendPackage extends EPackage {
 	int BDEF_VALUE__IMMUTABLE = BEXPRESSION_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Value Expr</b></em>' reference.
+	 * The feature id for the '<em><b>Value Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2670,7 +2670,7 @@ public interface B3backendPackage extends EPackage {
 	int BDEF_VALUE__VALUE_EXPR = BEXPRESSION_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * The feature id for the '<em><b>Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2790,7 +2790,7 @@ public interface B3backendPackage extends EPackage {
 	int BPARAMETER__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Expr</b></em>' reference.
+	 * The feature id for the '<em><b>Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2827,7 +2827,7 @@ public interface B3backendPackage extends EPackage {
 	int BPARAMETER_DECLARATION__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * The feature id for the '<em><b>Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3638,10 +3638,10 @@ public interface B3backendPackage extends EPackage {
 	EReference getBCatch_CatchExpr();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BCatch#getExceptionType <em>Exception Type</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BCatch#getExceptionType <em>Exception Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Exception Type</em>'.
+	 * @return the meta object for the containment reference '<em>Exception Type</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BCatch#getExceptionType()
 	 * @see #getBCatch()
 	 * @generated
@@ -3868,10 +3868,10 @@ public interface B3backendPackage extends EPackage {
 	EReference getBLiteralListExpression_Entries();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression#getEntryType <em>Entry Type</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression#getEntryType <em>Entry Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Entry Type</em>'.
+	 * @return the meta object for the containment reference '<em>Entry Type</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression#getEntryType()
 	 * @see #getBLiteralListExpression()
 	 * @generated
@@ -3900,10 +3900,10 @@ public interface B3backendPackage extends EPackage {
 	EReference getBLiteralMapExpression_Entries();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression#getKeyType <em>Key Type</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression#getKeyType <em>Key Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Key Type</em>'.
+	 * @return the meta object for the containment reference '<em>Key Type</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression#getKeyType()
 	 * @see #getBLiteralMapExpression()
 	 * @generated
@@ -3911,10 +3911,10 @@ public interface B3backendPackage extends EPackage {
 	EReference getBLiteralMapExpression_KeyType();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression#getValueType <em>Value Type</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression#getValueType <em>Value Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Value Type</em>'.
+	 * @return the meta object for the containment reference '<em>Value Type</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression#getValueType()
 	 * @see #getBLiteralMapExpression()
 	 * @generated
@@ -3964,10 +3964,10 @@ public interface B3backendPackage extends EPackage {
 	EClass getBFeatureExpression();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BFeatureExpression#getObjExpr <em>Obj Expr</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BFeatureExpression#getObjExpr <em>Obj Expr</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Obj Expr</em>'.
+	 * @return the meta object for the containment reference '<em>Obj Expr</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFeatureExpression#getObjExpr()
 	 * @see #getBFeatureExpression()
 	 * @generated
@@ -3996,10 +3996,10 @@ public interface B3backendPackage extends EPackage {
 	EClass getBAtExpression();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BAtExpression#getObjExpr <em>Obj Expr</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BAtExpression#getObjExpr <em>Obj Expr</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Obj Expr</em>'.
+	 * @return the meta object for the containment reference '<em>Obj Expr</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BAtExpression#getObjExpr()
 	 * @see #getBAtExpression()
 	 * @generated
@@ -4007,10 +4007,10 @@ public interface B3backendPackage extends EPackage {
 	EReference getBAtExpression_ObjExpr();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BAtExpression#getIndexExpr <em>Index Expr</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BAtExpression#getIndexExpr <em>Index Expr</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Index Expr</em>'.
+	 * @return the meta object for the containment reference '<em>Index Expr</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BAtExpression#getIndexExpr()
 	 * @see #getBAtExpression()
 	 * @generated
@@ -4112,10 +4112,10 @@ public interface B3backendPackage extends EPackage {
 	EClass getBCreateExpression();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression#getType <em>Type</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Type</em>'.
+	 * @return the meta object for the containment reference '<em>Type</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression#getType()
 	 * @see #getBCreateExpression()
 	 * @generated
@@ -4123,10 +4123,10 @@ public interface B3backendPackage extends EPackage {
 	EReference getBCreateExpression_Type();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression#getContextBlock <em>Context Block</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression#getContextBlock <em>Context Block</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Context Block</em>'.
+	 * @return the meta object for the containment reference '<em>Context Block</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression#getContextBlock()
 	 * @see #getBCreateExpression()
 	 * @generated
@@ -4199,10 +4199,10 @@ public interface B3backendPackage extends EPackage {
 	EAttribute getBFunction_Name();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getGuard <em>Guard</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getGuard <em>Guard</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Guard</em>'.
+	 * @return the meta object for the containment reference '<em>Guard</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunction#getGuard()
 	 * @see #getBFunction()
 	 * @generated
@@ -4210,10 +4210,10 @@ public interface B3backendPackage extends EPackage {
 	EReference getBFunction_Guard();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getReturnType <em>Return Type</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getReturnType <em>Return Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Return Type</em>'.
+	 * @return the meta object for the containment reference '<em>Return Type</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunction#getReturnType()
 	 * @see #getBFunction()
 	 * @generated
@@ -4350,10 +4350,10 @@ public interface B3backendPackage extends EPackage {
 	EClass getBGuardExpression();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BGuardExpression#getGuardExpr <em>Guard Expr</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BGuardExpression#getGuardExpr <em>Guard Expr</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Guard Expr</em>'.
+	 * @return the meta object for the containment reference '<em>Guard Expr</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BGuardExpression#getGuardExpr()
 	 * @see #getBGuardExpression()
 	 * @generated
@@ -4453,10 +4453,10 @@ public interface B3backendPackage extends EPackage {
 	EClass getB3Function();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.B3Function#getFuncExpr <em>Func Expr</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.B3Function#getFuncExpr <em>Func Expr</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Func Expr</em>'.
+	 * @return the meta object for the containment reference '<em>Func Expr</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3Function#getFuncExpr()
 	 * @see #getB3Function()
 	 * @generated
@@ -4560,10 +4560,10 @@ public interface B3backendPackage extends EPackage {
 	EAttribute getBDefValue_Immutable();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefValue#getValueExpr <em>Value Expr</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefValue#getValueExpr <em>Value Expr</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Value Expr</em>'.
+	 * @return the meta object for the containment reference '<em>Value Expr</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BDefValue#getValueExpr()
 	 * @see #getBDefValue()
 	 * @generated
@@ -4571,10 +4571,10 @@ public interface B3backendPackage extends EPackage {
 	EReference getBDefValue_ValueExpr();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefValue#getType <em>Type</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefValue#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Type</em>'.
+	 * @return the meta object for the containment reference '<em>Type</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BDefValue#getType()
 	 * @see #getBDefValue()
 	 * @generated
@@ -4656,10 +4656,10 @@ public interface B3backendPackage extends EPackage {
 	EAttribute getBParameter_Name();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameter#getExpr <em>Expr</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameter#getExpr <em>Expr</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Expr</em>'.
+	 * @return the meta object for the containment reference '<em>Expr</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BParameter#getExpr()
 	 * @see #getBParameter()
 	 * @generated
@@ -4688,10 +4688,10 @@ public interface B3backendPackage extends EPackage {
 	EAttribute getBParameterDeclaration_Name();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration#getType <em>Type</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Type</em>'.
+	 * @return the meta object for the containment reference '<em>Type</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration#getType()
 	 * @see #getBParameterDeclaration()
 	 * @generated
@@ -5416,7 +5416,7 @@ public interface B3backendPackage extends EPackage {
 		EReference BCATCH__CATCH_EXPR = eINSTANCE.getBCatch_CatchExpr();
 
 		/**
-		 * The meta object literal for the '<em><b>Exception Type</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Exception Type</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -5616,7 +5616,7 @@ public interface B3backendPackage extends EPackage {
 		EReference BLITERAL_LIST_EXPRESSION__ENTRIES = eINSTANCE.getBLiteralListExpression_Entries();
 
 		/**
-		 * The meta object literal for the '<em><b>Entry Type</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Entry Type</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -5642,7 +5642,7 @@ public interface B3backendPackage extends EPackage {
 		EReference BLITERAL_MAP_EXPRESSION__ENTRIES = eINSTANCE.getBLiteralMapExpression_Entries();
 
 		/**
-		 * The meta object literal for the '<em><b>Key Type</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Key Type</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -5650,7 +5650,7 @@ public interface B3backendPackage extends EPackage {
 		EReference BLITERAL_MAP_EXPRESSION__KEY_TYPE = eINSTANCE.getBLiteralMapExpression_KeyType();
 
 		/**
-		 * The meta object literal for the '<em><b>Value Type</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Value Type</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -5694,7 +5694,7 @@ public interface B3backendPackage extends EPackage {
 		EClass BFEATURE_EXPRESSION = eINSTANCE.getBFeatureExpression();
 
 		/**
-		 * The meta object literal for the '<em><b>Obj Expr</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Obj Expr</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -5720,7 +5720,7 @@ public interface B3backendPackage extends EPackage {
 		EClass BAT_EXPRESSION = eINSTANCE.getBAtExpression();
 
 		/**
-		 * The meta object literal for the '<em><b>Obj Expr</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Obj Expr</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -5728,7 +5728,7 @@ public interface B3backendPackage extends EPackage {
 		EReference BAT_EXPRESSION__OBJ_EXPR = eINSTANCE.getBAtExpression_ObjExpr();
 
 		/**
-		 * The meta object literal for the '<em><b>Index Expr</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Index Expr</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -5818,7 +5818,7 @@ public interface B3backendPackage extends EPackage {
 		EClass BCREATE_EXPRESSION = eINSTANCE.getBCreateExpression();
 
 		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -5826,7 +5826,7 @@ public interface B3backendPackage extends EPackage {
 		EReference BCREATE_EXPRESSION__TYPE = eINSTANCE.getBCreateExpression_Type();
 
 		/**
-		 * The meta object literal for the '<em><b>Context Block</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Context Block</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -5884,7 +5884,7 @@ public interface B3backendPackage extends EPackage {
 		EAttribute BFUNCTION__NAME = eINSTANCE.getBFunction_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Guard</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Guard</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -5892,7 +5892,7 @@ public interface B3backendPackage extends EPackage {
 		EReference BFUNCTION__GUARD = eINSTANCE.getBFunction_Guard();
 
 		/**
-		 * The meta object literal for the '<em><b>Return Type</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Return Type</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -6002,7 +6002,7 @@ public interface B3backendPackage extends EPackage {
 		EClass BGUARD_EXPRESSION = eINSTANCE.getBGuardExpression();
 
 		/**
-		 * The meta object literal for the '<em><b>Guard Expr</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Guard Expr</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -6096,7 +6096,7 @@ public interface B3backendPackage extends EPackage {
 		EClass B3_FUNCTION = eINSTANCE.getB3Function();
 
 		/**
-		 * The meta object literal for the '<em><b>Func Expr</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Func Expr</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -6182,7 +6182,7 @@ public interface B3backendPackage extends EPackage {
 		EAttribute BDEF_VALUE__IMMUTABLE = eINSTANCE.getBDefValue_Immutable();
 
 		/**
-		 * The meta object literal for the '<em><b>Value Expr</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Value Expr</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -6190,7 +6190,7 @@ public interface B3backendPackage extends EPackage {
 		EReference BDEF_VALUE__VALUE_EXPR = eINSTANCE.getBDefValue_ValueExpr();
 
 		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -6260,7 +6260,7 @@ public interface B3backendPackage extends EPackage {
 		EAttribute BPARAMETER__NAME = eINSTANCE.getBParameter_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Expr</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -6286,7 +6286,7 @@ public interface B3backendPackage extends EPackage {
 		EAttribute BPARAMETER_DECLARATION__NAME = eINSTANCE.getBParameterDeclaration_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
