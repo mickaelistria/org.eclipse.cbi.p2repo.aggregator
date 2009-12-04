@@ -18,6 +18,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
@@ -66,7 +67,7 @@ public class B3FuncTypeVariableImpl extends EObjectImpl implements B3FuncTypeVar
 	 */
 	protected Type[] bounds = BOUNDS_EDEFAULT;
 	/**
-	 * The cached value of the '{@link #getGenericDeclaration() <em>Generic Declaration</em>}' reference.
+	 * The cached value of the '{@link #getGenericDeclaration() <em>Generic Declaration</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getGenericDeclaration()
@@ -141,14 +142,6 @@ public class B3FuncTypeVariableImpl extends EObjectImpl implements B3FuncTypeVar
 	 * @generated
 	 */
 	public BFunction getGenericDeclaration() {
-		if (genericDeclaration != null && genericDeclaration.eIsProxy()) {
-			InternalEObject oldGenericDeclaration = (InternalEObject)genericDeclaration;
-			genericDeclaration = (BFunction)eResolveProxy(oldGenericDeclaration);
-			if (genericDeclaration != oldGenericDeclaration) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.B3_FUNC_TYPE_VARIABLE__GENERIC_DECLARATION, oldGenericDeclaration, genericDeclaration));
-			}
-		}
 		return genericDeclaration;
 	}
 
@@ -157,8 +150,14 @@ public class B3FuncTypeVariableImpl extends EObjectImpl implements B3FuncTypeVar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BFunction basicGetGenericDeclaration() {
-		return genericDeclaration;
+	public NotificationChain basicSetGenericDeclaration(BFunction newGenericDeclaration, NotificationChain msgs) {
+		BFunction oldGenericDeclaration = genericDeclaration;
+		genericDeclaration = newGenericDeclaration;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.B3_FUNC_TYPE_VARIABLE__GENERIC_DECLARATION, oldGenericDeclaration, newGenericDeclaration);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -167,10 +166,17 @@ public class B3FuncTypeVariableImpl extends EObjectImpl implements B3FuncTypeVar
 	 * @generated
 	 */
 	public void setGenericDeclaration(BFunction newGenericDeclaration) {
-		BFunction oldGenericDeclaration = genericDeclaration;
-		genericDeclaration = newGenericDeclaration;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.B3_FUNC_TYPE_VARIABLE__GENERIC_DECLARATION, oldGenericDeclaration, genericDeclaration));
+		if (newGenericDeclaration != genericDeclaration) {
+			NotificationChain msgs = null;
+			if (genericDeclaration != null)
+				msgs = ((InternalEObject)genericDeclaration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.B3_FUNC_TYPE_VARIABLE__GENERIC_DECLARATION, null, msgs);
+			if (newGenericDeclaration != null)
+				msgs = ((InternalEObject)newGenericDeclaration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.B3_FUNC_TYPE_VARIABLE__GENERIC_DECLARATION, null, msgs);
+			msgs = basicSetGenericDeclaration(newGenericDeclaration, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.B3_FUNC_TYPE_VARIABLE__GENERIC_DECLARATION, newGenericDeclaration, newGenericDeclaration));
 	}
 
 	/**
@@ -200,13 +206,26 @@ public class B3FuncTypeVariableImpl extends EObjectImpl implements B3FuncTypeVar
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case B3backendPackage.B3_FUNC_TYPE_VARIABLE__GENERIC_DECLARATION:
+				return basicSetGenericDeclaration(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case B3backendPackage.B3_FUNC_TYPE_VARIABLE__BOUNDS:
 				return getBounds();
 			case B3backendPackage.B3_FUNC_TYPE_VARIABLE__GENERIC_DECLARATION:
-				if (resolve) return getGenericDeclaration();
-				return basicGetGenericDeclaration();
+				return getGenericDeclaration();
 			case B3backendPackage.B3_FUNC_TYPE_VARIABLE__NAME:
 				return getName();
 		}

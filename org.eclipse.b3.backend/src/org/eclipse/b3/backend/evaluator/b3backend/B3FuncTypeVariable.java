@@ -70,26 +70,26 @@ public interface B3FuncTypeVariable extends EObject, TypeVariable<BFunction> {
 	void setBounds(Type[] value);
 
 	/**
-	 * Returns the value of the '<em><b>Generic Declaration</b></em>' reference.
+	 * Returns the value of the '<em><b>Generic Declaration</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Generic Declaration</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Generic Declaration</em>' reference.
+	 * @return the value of the '<em>Generic Declaration</em>' containment reference.
 	 * @see #setGenericDeclaration(BFunction)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getB3FuncTypeVariable_GenericDeclaration()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	BFunction getGenericDeclaration();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable#getGenericDeclaration <em>Generic Declaration</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable#getGenericDeclaration <em>Generic Declaration</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Generic Declaration</em>' reference.
+	 * @param value the new value of the '<em>Generic Declaration</em>' containment reference.
 	 * @see #getGenericDeclaration()
 	 * @generated
 	 */

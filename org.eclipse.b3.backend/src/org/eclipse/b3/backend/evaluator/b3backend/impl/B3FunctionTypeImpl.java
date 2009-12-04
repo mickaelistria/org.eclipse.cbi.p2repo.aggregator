@@ -21,6 +21,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -30,6 +31,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
@@ -57,7 +60,7 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
 
 	/**
-	 * The cached value of the '{@link #getFunctionType() <em>Function Type</em>}' reference.
+	 * The cached value of the '{@link #getFunctionType() <em>Function Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getFunctionType()
@@ -67,7 +70,7 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	protected Type functionType;
 
 	/**
-	 * The cached value of the '{@link #getReturnType() <em>Return Type</em>}' reference.
+	 * The cached value of the '{@link #getReturnType() <em>Return Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getReturnType()
@@ -77,7 +80,7 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	protected Type returnType;
 
 	/**
-	 * The cached value of the '{@link #getParameterTypes() <em>Parameter Types</em>}' reference list.
+	 * The cached value of the '{@link #getParameterTypes() <em>Parameter Types</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getParameterTypes()
@@ -131,14 +134,6 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	 * @generated
 	 */
 	public Type getFunctionType() {
-		if (functionType != null && ((EObject)functionType).eIsProxy()) {
-			InternalEObject oldFunctionType = (InternalEObject)functionType;
-			functionType = (Type)eResolveProxy(oldFunctionType);
-			if (functionType != oldFunctionType) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.B3_FUNCTION_TYPE__FUNCTION_TYPE, oldFunctionType, functionType));
-			}
-		}
 		return functionType;
 	}
 
@@ -147,20 +142,38 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Type basicGetFunctionType() {
-		return functionType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setFunctionType(Type newFunctionType) {
+	public NotificationChain basicSetFunctionType(Type newFunctionType, NotificationChain msgs) {
 		Type oldFunctionType = functionType;
 		functionType = newFunctionType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.B3_FUNCTION_TYPE__FUNCTION_TYPE, oldFunctionType, functionType));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.B3_FUNCTION_TYPE__FUNCTION_TYPE, oldFunctionType, newFunctionType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * functionType may not be an EObject, if not, no notification is generated.
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void setFunctionType(Type newFunctionType) {
+		if(! (functionType instanceof EObject && newFunctionType instanceof EObject))
+			functionType = newFunctionType;
+		else {
+		if (newFunctionType != functionType) {
+			NotificationChain msgs = null;
+			if (functionType != null)
+				msgs = ((InternalEObject)functionType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.B3_FUNCTION_TYPE__FUNCTION_TYPE, null, msgs);
+			if (newFunctionType != null)
+				msgs = ((InternalEObject)newFunctionType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.B3_FUNCTION_TYPE__FUNCTION_TYPE, null, msgs);
+			msgs = basicSetFunctionType(newFunctionType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.B3_FUNCTION_TYPE__FUNCTION_TYPE, newFunctionType, newFunctionType));
+		}
 	}
 
 	/**
@@ -186,20 +199,38 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Type basicGetReturnType() {
-		return returnType;
+	public NotificationChain basicSetReturnType(Type newReturnType, NotificationChain msgs) {
+		Type oldReturnType = returnType;
+		returnType = newReturnType;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.B3_FUNCTION_TYPE__RETURN_TYPE, oldReturnType, newReturnType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * returnType may not be an EObject, if not, no notification is sent.
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void setReturnType(Type newReturnType) {
-		Type oldReturnType = returnType;
-		returnType = newReturnType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.B3_FUNCTION_TYPE__RETURN_TYPE, oldReturnType, returnType));
+		if(!(returnType instanceof EObject && newReturnType instanceof EObject))
+			returnType = newReturnType;
+		else {
+		if (newReturnType != returnType) {
+			NotificationChain msgs = null;
+			if (returnType != null)
+				msgs = ((InternalEObject)returnType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.B3_FUNCTION_TYPE__RETURN_TYPE, null, msgs);
+			if (newReturnType != null)
+				msgs = ((InternalEObject)newReturnType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.B3_FUNCTION_TYPE__RETURN_TYPE, null, msgs);
+			msgs = basicSetReturnType(newReturnType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.B3_FUNCTION_TYPE__RETURN_TYPE, newReturnType, newReturnType));
+		}
 	}
 
 	/**
@@ -209,7 +240,7 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	 */
 	public EList<Type> getParameterTypes() {
 		if (parameterTypes == null) {
-			parameterTypes = new EObjectResolvingEList<Type>(Type.class, this, B3backendPackage.B3_FUNCTION_TYPE__PARAMETER_TYPES);
+			parameterTypes = new EObjectContainmentEList<Type>(Type.class, this, B3backendPackage.B3_FUNCTION_TYPE__PARAMETER_TYPES);
 		}
 		return parameterTypes;
 	}
@@ -252,14 +283,30 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case B3backendPackage.B3_FUNCTION_TYPE__FUNCTION_TYPE:
+				return basicSetFunctionType(null, msgs);
+			case B3backendPackage.B3_FUNCTION_TYPE__RETURN_TYPE:
+				return basicSetReturnType(null, msgs);
+			case B3backendPackage.B3_FUNCTION_TYPE__PARAMETER_TYPES:
+				return ((InternalEList<?>)getParameterTypes()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case B3backendPackage.B3_FUNCTION_TYPE__FUNCTION_TYPE:
-				if (resolve) return getFunctionType();
-				return basicGetFunctionType();
+				return getFunctionType();
 			case B3backendPackage.B3_FUNCTION_TYPE__RETURN_TYPE:
-				if (resolve) return getReturnType();
-				return basicGetReturnType();
+				return getReturnType();
 			case B3backendPackage.B3_FUNCTION_TYPE__PARAMETER_TYPES:
 				return getParameterTypes();
 			case B3backendPackage.B3_FUNCTION_TYPE__VAR_ARGS:

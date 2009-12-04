@@ -45,7 +45,7 @@ public interface B3WildcardType extends EObject, WildcardType {
 	String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
 
 	/**
-	 * Returns the value of the '<em><b>Lower Bounds List</b></em>' reference list.
+	 * Returns the value of the '<em><b>Lower Bounds List</b></em>' containment reference list.
 	 * The list contents are of type {@link java.lang.reflect.Type}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -53,15 +53,15 @@ public interface B3WildcardType extends EObject, WildcardType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Lower Bounds List</em>' reference list.
+	 * @return the value of the '<em>Lower Bounds List</em>' containment reference list.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getB3WildcardType_LowerBoundsList()
-	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType"
+	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType" containment="true"
 	 * @generated
 	 */
 	EList<Type> getLowerBoundsList();
 
 	/**
-	 * Returns the value of the '<em><b>Upper Bounds List</b></em>' reference list.
+	 * Returns the value of the '<em><b>Upper Bounds List</b></em>' containment reference list.
 	 * The list contents are of type {@link java.lang.reflect.Type}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -69,9 +69,9 @@ public interface B3WildcardType extends EObject, WildcardType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Upper Bounds List</em>' reference list.
+	 * @return the value of the '<em>Upper Bounds List</em>' containment reference list.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getB3WildcardType_UpperBoundsList()
-	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType"
+	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType" containment="true"
 	 * @generated
 	 */
 	EList<Type> getUpperBoundsList();

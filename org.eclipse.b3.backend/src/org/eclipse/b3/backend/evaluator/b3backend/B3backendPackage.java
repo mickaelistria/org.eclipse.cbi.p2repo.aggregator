@@ -2874,7 +2874,7 @@ public interface B3backendPackage extends EPackage {
 	int B3_FUNCTION_TYPE = 50;
 
 	/**
-	 * The feature id for the '<em><b>Function Type</b></em>' reference.
+	 * The feature id for the '<em><b>Function Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2883,7 +2883,7 @@ public interface B3backendPackage extends EPackage {
 	int B3_FUNCTION_TYPE__FUNCTION_TYPE = ITYPE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Return Type</b></em>' reference.
+	 * The feature id for the '<em><b>Return Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2892,7 +2892,7 @@ public interface B3backendPackage extends EPackage {
 	int B3_FUNCTION_TYPE__RETURN_TYPE = ITYPE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Parameter Types</b></em>' reference list.
+	 * The feature id for the '<em><b>Parameter Types</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2967,7 +2967,7 @@ public interface B3backendPackage extends EPackage {
 	int B3_PARAMETERIZED_TYPE = 53;
 
 	/**
-	 * The feature id for the '<em><b>Owner Type</b></em>' reference.
+	 * The feature id for the '<em><b>Owner Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2976,7 +2976,7 @@ public interface B3backendPackage extends EPackage {
 	int B3_PARAMETERIZED_TYPE__OWNER_TYPE = IPARAMETERIZED_TYPE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Raw Type</b></em>' reference.
+	 * The feature id for the '<em><b>Raw Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2985,7 +2985,7 @@ public interface B3backendPackage extends EPackage {
 	int B3_PARAMETERIZED_TYPE__RAW_TYPE = IPARAMETERIZED_TYPE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Actual Arguments List</b></em>' reference list.
+	 * The feature id for the '<em><b>Actual Arguments List</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3032,7 +3032,7 @@ public interface B3backendPackage extends EPackage {
 	int B3_WILDCARD_TYPE = 55;
 
 	/**
-	 * The feature id for the '<em><b>Lower Bounds List</b></em>' reference list.
+	 * The feature id for the '<em><b>Lower Bounds List</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3041,7 +3041,7 @@ public interface B3backendPackage extends EPackage {
 	int B3_WILDCARD_TYPE__LOWER_BOUNDS_LIST = IWILDCARD_TYPE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Upper Bounds List</b></em>' reference list.
+	 * The feature id for the '<em><b>Upper Bounds List</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3097,7 +3097,7 @@ public interface B3backendPackage extends EPackage {
 	int B3_FUNC_TYPE_VARIABLE__BOUNDS = ITYPE_VARIABLE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Generic Declaration</b></em>' reference.
+	 * The feature id for the '<em><b>Generic Declaration</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -4720,10 +4720,10 @@ public interface B3backendPackage extends EPackage {
 	EClass getB3FunctionType();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#getFunctionType <em>Function Type</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#getFunctionType <em>Function Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Function Type</em>'.
+	 * @return the meta object for the containment reference '<em>Function Type</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#getFunctionType()
 	 * @see #getB3FunctionType()
 	 * @generated
@@ -4731,10 +4731,10 @@ public interface B3backendPackage extends EPackage {
 	EReference getB3FunctionType_FunctionType();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#getReturnType <em>Return Type</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#getReturnType <em>Return Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Return Type</em>'.
+	 * @return the meta object for the containment reference '<em>Return Type</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#getReturnType()
 	 * @see #getB3FunctionType()
 	 * @generated
@@ -4742,10 +4742,10 @@ public interface B3backendPackage extends EPackage {
 	EReference getB3FunctionType_ReturnType();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#getParameterTypes <em>Parameter Types</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#getParameterTypes <em>Parameter Types</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Parameter Types</em>'.
+	 * @return the meta object for the containment reference list '<em>Parameter Types</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#getParameterTypes()
 	 * @see #getB3FunctionType()
 	 * @generated
@@ -4796,10 +4796,10 @@ public interface B3backendPackage extends EPackage {
 	EClass getB3ParameterizedType();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType#getOwnerType <em>Owner Type</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType#getOwnerType <em>Owner Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Owner Type</em>'.
+	 * @return the meta object for the containment reference '<em>Owner Type</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType#getOwnerType()
 	 * @see #getB3ParameterizedType()
 	 * @generated
@@ -4807,10 +4807,10 @@ public interface B3backendPackage extends EPackage {
 	EReference getB3ParameterizedType_OwnerType();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType#getRawType <em>Raw Type</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType#getRawType <em>Raw Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Raw Type</em>'.
+	 * @return the meta object for the containment reference '<em>Raw Type</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType#getRawType()
 	 * @see #getB3ParameterizedType()
 	 * @generated
@@ -4818,10 +4818,10 @@ public interface B3backendPackage extends EPackage {
 	EReference getB3ParameterizedType_RawType();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType#getActualArgumentsList <em>Actual Arguments List</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType#getActualArgumentsList <em>Actual Arguments List</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Actual Arguments List</em>'.
+	 * @return the meta object for the containment reference list '<em>Actual Arguments List</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType#getActualArgumentsList()
 	 * @see #getB3ParameterizedType()
 	 * @generated
@@ -4850,10 +4850,10 @@ public interface B3backendPackage extends EPackage {
 	EClass getB3WildcardType();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.eclipse.b3.backend.evaluator.b3backend.B3WildcardType#getLowerBoundsList <em>Lower Bounds List</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.backend.evaluator.b3backend.B3WildcardType#getLowerBoundsList <em>Lower Bounds List</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Lower Bounds List</em>'.
+	 * @return the meta object for the containment reference list '<em>Lower Bounds List</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3WildcardType#getLowerBoundsList()
 	 * @see #getB3WildcardType()
 	 * @generated
@@ -4861,10 +4861,10 @@ public interface B3backendPackage extends EPackage {
 	EReference getB3WildcardType_LowerBoundsList();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.eclipse.b3.backend.evaluator.b3backend.B3WildcardType#getUpperBoundsList <em>Upper Bounds List</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.backend.evaluator.b3backend.B3WildcardType#getUpperBoundsList <em>Upper Bounds List</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Upper Bounds List</em>'.
+	 * @return the meta object for the containment reference list '<em>Upper Bounds List</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3WildcardType#getUpperBoundsList()
 	 * @see #getB3WildcardType()
 	 * @generated
@@ -4904,10 +4904,10 @@ public interface B3backendPackage extends EPackage {
 	EAttribute getB3FuncTypeVariable_Bounds();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable#getGenericDeclaration <em>Generic Declaration</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable#getGenericDeclaration <em>Generic Declaration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Generic Declaration</em>'.
+	 * @return the meta object for the containment reference '<em>Generic Declaration</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable#getGenericDeclaration()
 	 * @see #getB3FuncTypeVariable()
 	 * @generated
@@ -6314,7 +6314,7 @@ public interface B3backendPackage extends EPackage {
 		EClass B3_FUNCTION_TYPE = eINSTANCE.getB3FunctionType();
 
 		/**
-		 * The meta object literal for the '<em><b>Function Type</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Function Type</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -6322,7 +6322,7 @@ public interface B3backendPackage extends EPackage {
 		EReference B3_FUNCTION_TYPE__FUNCTION_TYPE = eINSTANCE.getB3FunctionType_FunctionType();
 
 		/**
-		 * The meta object literal for the '<em><b>Return Type</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Return Type</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -6330,7 +6330,7 @@ public interface B3backendPackage extends EPackage {
 		EReference B3_FUNCTION_TYPE__RETURN_TYPE = eINSTANCE.getB3FunctionType_ReturnType();
 
 		/**
-		 * The meta object literal for the '<em><b>Parameter Types</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Parameter Types</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -6376,7 +6376,7 @@ public interface B3backendPackage extends EPackage {
 		EClass B3_PARAMETERIZED_TYPE = eINSTANCE.getB3ParameterizedType();
 
 		/**
-		 * The meta object literal for the '<em><b>Owner Type</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Owner Type</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -6384,7 +6384,7 @@ public interface B3backendPackage extends EPackage {
 		EReference B3_PARAMETERIZED_TYPE__OWNER_TYPE = eINSTANCE.getB3ParameterizedType_OwnerType();
 
 		/**
-		 * The meta object literal for the '<em><b>Raw Type</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Raw Type</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -6392,7 +6392,7 @@ public interface B3backendPackage extends EPackage {
 		EReference B3_PARAMETERIZED_TYPE__RAW_TYPE = eINSTANCE.getB3ParameterizedType_RawType();
 
 		/**
-		 * The meta object literal for the '<em><b>Actual Arguments List</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Actual Arguments List</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -6420,7 +6420,7 @@ public interface B3backendPackage extends EPackage {
 		EClass B3_WILDCARD_TYPE = eINSTANCE.getB3WildcardType();
 
 		/**
-		 * The meta object literal for the '<em><b>Lower Bounds List</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Lower Bounds List</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -6428,7 +6428,7 @@ public interface B3backendPackage extends EPackage {
 		EReference B3_WILDCARD_TYPE__LOWER_BOUNDS_LIST = eINSTANCE.getB3WildcardType_LowerBoundsList();
 
 		/**
-		 * The meta object literal for the '<em><b>Upper Bounds List</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Upper Bounds List</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -6464,7 +6464,7 @@ public interface B3backendPackage extends EPackage {
 		EAttribute B3_FUNC_TYPE_VARIABLE__BOUNDS = eINSTANCE.getB3FuncTypeVariable_Bounds();
 
 		/**
-		 * The meta object literal for the '<em><b>Generic Declaration</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Generic Declaration</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

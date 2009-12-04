@@ -20,6 +20,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -27,6 +28,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
@@ -53,7 +56,7 @@ public class B3ParameterizedTypeImpl extends EObjectImpl implements B3Parameteri
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
 
 	/**
-	 * The cached value of the '{@link #getOwnerType() <em>Owner Type</em>}' reference.
+	 * The cached value of the '{@link #getOwnerType() <em>Owner Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getOwnerType()
@@ -63,7 +66,7 @@ public class B3ParameterizedTypeImpl extends EObjectImpl implements B3Parameteri
 	protected Type ownerType;
 
 	/**
-	 * The cached value of the '{@link #getRawType() <em>Raw Type</em>}' reference.
+	 * The cached value of the '{@link #getRawType() <em>Raw Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRawType()
@@ -73,7 +76,7 @@ public class B3ParameterizedTypeImpl extends EObjectImpl implements B3Parameteri
 	protected Type rawType;
 
 	/**
-	 * The cached value of the '{@link #getActualArgumentsList() <em>Actual Arguments List</em>}' reference list.
+	 * The cached value of the '{@link #getActualArgumentsList() <em>Actual Arguments List</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getActualArgumentsList()
@@ -107,14 +110,6 @@ public class B3ParameterizedTypeImpl extends EObjectImpl implements B3Parameteri
 	 * @generated
 	 */
 	public Type getOwnerType() {
-		if (ownerType != null && ((EObject)ownerType).eIsProxy()) {
-			InternalEObject oldOwnerType = (InternalEObject)ownerType;
-			ownerType = (Type)eResolveProxy(oldOwnerType);
-			if (ownerType != oldOwnerType) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.B3_PARAMETERIZED_TYPE__OWNER_TYPE, oldOwnerType, ownerType));
-			}
-		}
 		return ownerType;
 	}
 
@@ -123,8 +118,14 @@ public class B3ParameterizedTypeImpl extends EObjectImpl implements B3Parameteri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Type basicGetOwnerType() {
-		return ownerType;
+	public NotificationChain basicSetOwnerType(Type newOwnerType, NotificationChain msgs) {
+		Type oldOwnerType = ownerType;
+		ownerType = newOwnerType;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.B3_PARAMETERIZED_TYPE__OWNER_TYPE, oldOwnerType, newOwnerType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -133,10 +134,17 @@ public class B3ParameterizedTypeImpl extends EObjectImpl implements B3Parameteri
 	 * @generated
 	 */
 	public void setOwnerType(Type newOwnerType) {
-		Type oldOwnerType = ownerType;
-		ownerType = newOwnerType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.B3_PARAMETERIZED_TYPE__OWNER_TYPE, oldOwnerType, ownerType));
+		if (newOwnerType != ownerType) {
+			NotificationChain msgs = null;
+			if (ownerType != null)
+				msgs = ((InternalEObject)ownerType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.B3_PARAMETERIZED_TYPE__OWNER_TYPE, null, msgs);
+			if (newOwnerType != null)
+				msgs = ((InternalEObject)newOwnerType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.B3_PARAMETERIZED_TYPE__OWNER_TYPE, null, msgs);
+			msgs = basicSetOwnerType(newOwnerType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.B3_PARAMETERIZED_TYPE__OWNER_TYPE, newOwnerType, newOwnerType));
 	}
 
 	/**
@@ -145,14 +153,6 @@ public class B3ParameterizedTypeImpl extends EObjectImpl implements B3Parameteri
 	 * @generated
 	 */
 	public Type getRawType() {
-		if (rawType != null && ((EObject)rawType).eIsProxy()) {
-			InternalEObject oldRawType = (InternalEObject)rawType;
-			rawType = (Type)eResolveProxy(oldRawType);
-			if (rawType != oldRawType) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.B3_PARAMETERIZED_TYPE__RAW_TYPE, oldRawType, rawType));
-			}
-		}
 		return rawType;
 	}
 
@@ -161,8 +161,14 @@ public class B3ParameterizedTypeImpl extends EObjectImpl implements B3Parameteri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Type basicGetRawType() {
-		return rawType;
+	public NotificationChain basicSetRawType(Type newRawType, NotificationChain msgs) {
+		Type oldRawType = rawType;
+		rawType = newRawType;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.B3_PARAMETERIZED_TYPE__RAW_TYPE, oldRawType, newRawType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -171,10 +177,17 @@ public class B3ParameterizedTypeImpl extends EObjectImpl implements B3Parameteri
 	 * @generated
 	 */
 	public void setRawType(Type newRawType) {
-		Type oldRawType = rawType;
-		rawType = newRawType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.B3_PARAMETERIZED_TYPE__RAW_TYPE, oldRawType, rawType));
+		if (newRawType != rawType) {
+			NotificationChain msgs = null;
+			if (rawType != null)
+				msgs = ((InternalEObject)rawType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.B3_PARAMETERIZED_TYPE__RAW_TYPE, null, msgs);
+			if (newRawType != null)
+				msgs = ((InternalEObject)newRawType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.B3_PARAMETERIZED_TYPE__RAW_TYPE, null, msgs);
+			msgs = basicSetRawType(newRawType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.B3_PARAMETERIZED_TYPE__RAW_TYPE, newRawType, newRawType));
 	}
 
 	/**
@@ -184,7 +197,7 @@ public class B3ParameterizedTypeImpl extends EObjectImpl implements B3Parameteri
 	 */
 	public EList<Type> getActualArgumentsList() {
 		if (actualArgumentsList == null) {
-			actualArgumentsList = new EObjectResolvingEList<Type>(Type.class, this, B3backendPackage.B3_PARAMETERIZED_TYPE__ACTUAL_ARGUMENTS_LIST);
+			actualArgumentsList = new EObjectContainmentEList<Type>(Type.class, this, B3backendPackage.B3_PARAMETERIZED_TYPE__ACTUAL_ARGUMENTS_LIST);
 		}
 		return actualArgumentsList;
 	}
@@ -206,14 +219,30 @@ public class B3ParameterizedTypeImpl extends EObjectImpl implements B3Parameteri
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case B3backendPackage.B3_PARAMETERIZED_TYPE__OWNER_TYPE:
+				return basicSetOwnerType(null, msgs);
+			case B3backendPackage.B3_PARAMETERIZED_TYPE__RAW_TYPE:
+				return basicSetRawType(null, msgs);
+			case B3backendPackage.B3_PARAMETERIZED_TYPE__ACTUAL_ARGUMENTS_LIST:
+				return ((InternalEList<?>)getActualArgumentsList()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case B3backendPackage.B3_PARAMETERIZED_TYPE__OWNER_TYPE:
-				if (resolve) return getOwnerType();
-				return basicGetOwnerType();
+				return getOwnerType();
 			case B3backendPackage.B3_PARAMETERIZED_TYPE__RAW_TYPE:
-				if (resolve) return getRawType();
-				return basicGetRawType();
+				return getRawType();
 			case B3backendPackage.B3_PARAMETERIZED_TYPE__ACTUAL_ARGUMENTS_LIST:
 				return getActualArgumentsList();
 		}

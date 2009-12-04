@@ -392,11 +392,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="B3FunctionType" eSuperTypes="#//IType">
     <eOperations name="getParameterTypesArray" eType="#//TypeArray"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="functionType" lowerBound="1"
-        eType="#//IType"/>
+        eType="#//IType" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="returnType" lowerBound="1"
-        eType="#//IType"/>
+        eType="#//IType" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameterTypes" upperBound="-1"
-        eType="#//IType"/>
+        eType="#//IType" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="varArgs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IParameterizedType" instanceClassName="java.lang.reflect.ParameterizedType"
@@ -405,11 +405,12 @@
       abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="B3ParameterizedType" eSuperTypes="#//IParameterizedType">
     <eOperations name="getActualTypeArguments" eType="#//TypeArray"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ownerType" eType="#//IType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownerType" eType="#//IType"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rawType" lowerBound="1"
-        eType="#//IType"/>
+        eType="#//IType" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actualArgumentsList" upperBound="-1"
-        eType="#//IType"/>
+        eType="#//IType" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IWildcardType" instanceClassName="java.lang.reflect.WildcardType"
       abstract="true" interface="true" eSuperTypes="#//IType"/>
@@ -417,9 +418,9 @@
     <eOperations name="getLowerBounds" eType="#//TypeArray"/>
     <eOperations name="getUpperBounds" eType="#//TypeArray"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="lowerBoundsList" upperBound="-1"
-        eType="#//IType"/>
+        eType="#//IType" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="upperBoundsList" upperBound="-1"
-        eType="#//IType"/>
+        eType="#//IType" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ITypeVariable" instanceClassName="java.lang.reflect.TypeVariable"
       abstract="true" interface="true" eSuperTypes="#//IType">
@@ -429,7 +430,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="B3FuncTypeVariable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="bounds" eType="#//TypeArray"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="genericDeclaration" eType="#//BFunction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="genericDeclaration" eType="#//BFunction"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eGenericSuperTypes eClassifier="#//ITypeVariable">
       <eTypeArguments eClassifier="#//BFunction"/>
