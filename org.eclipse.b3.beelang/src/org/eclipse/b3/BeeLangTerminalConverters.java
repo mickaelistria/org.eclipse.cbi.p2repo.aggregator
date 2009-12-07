@@ -180,26 +180,6 @@ public class BeeLangTerminalConverters extends  AbstractDeclarativeValueConverte
 		};
 	}
 	
-//	@ValueConverter(rule = "REGEX")
-//	public IValueConverter<RegularExpression> RegularExpression() {
-//		return new IValueConverter<RegularExpression>() {
-//
-//			public RegularExpression toValue(String string, AbstractNode node) {
-//				if (Strings.isEmpty(string))
-//					throw new ValueConverterException("Could not convert empty string to regular expression", node, null);
-//				try {
-//					return new RegularExpression(string);
-//				} catch (NumberFormatException e) {
-//					throw new ValueConverterException("Could not convert '"+ string + "' to regular expression", node, e);
-//				}
-//			}
-//
-//			public String toString(RegularExpression value) {
-//				return value.toString();
-//			}
-//
-//		};
-//	}
 	@ValueConverter(rule = "REGULAR_EXPR")
 	public IValueConverter<Pattern> Pattern() {
 		return new IValueConverter<Pattern>() {

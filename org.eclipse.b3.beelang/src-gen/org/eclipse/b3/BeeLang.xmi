@@ -2371,9 +2371,9 @@
     </type>
     <alternatives xsi:type="xtext:Alternatives">
       <groups xsi:type="xtext:RuleCall" rule="//@rules.111"/>
+      <groups xsi:type="xtext:RuleCall" rule="//@rules.115"/>
       <groups xsi:type="xtext:RuleCall" rule="//@rules.112"/>
       <groups xsi:type="xtext:RuleCall" rule="//@rules.114"/>
-      <groups xsi:type="xtext:RuleCall" rule="//@rules.115"/>
       <groups xsi:type="xtext:RuleCall" rule="//@rules.113"/>
     </alternatives>
   </rules>
@@ -2491,7 +2491,7 @@
   </rules>
   <rules xsi:type="xtext:ParserRule" name="RealValue">
     <type metamodel="//@metamodelDeclarations.0">
-      <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
     </type>
     <alternatives xsi:type="xtext:RuleCall" rule="//@rules.149"/>
   </rules>

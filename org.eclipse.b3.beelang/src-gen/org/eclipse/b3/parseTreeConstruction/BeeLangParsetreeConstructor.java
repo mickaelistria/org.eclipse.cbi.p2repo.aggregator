@@ -25560,28 +25560,28 @@ protected class KeyLiteral_ValueAssignment_1 extends AssignmentToken  {
 /************ begin Rule ValueLiteral ****************
  *
  * ValueLiteral returns be::BExpression:
- *   BooleanLiteral|IntegerLiteral|StringLiteral|RealLiteral|UnitLiteral; 
+ *   BooleanLiteral|RealLiteral|IntegerLiteral|StringLiteral|UnitLiteral; 
  * 
  *      
  * 	   
+ * 	  
  * 	   
  * //	| NullLiteral // TODO: 
  * 	   
- * 	  
  * //	| QueryLiteral
  * //	| ThisLiteral // TODO: remove?
  * //	| SuperLiteral // TODO: remove ?
  *
  **/
 
-// BooleanLiteral|IntegerLiteral|StringLiteral|RealLiteral|UnitLiteral 
+// BooleanLiteral|RealLiteral|IntegerLiteral|StringLiteral|UnitLiteral 
 // 
 //      
 // 	   
+// 	  
 // 	   
 // //	| NullLiteral // TODO: 
 // 	   
-// 	  
 // //	| QueryLiteral
 // //	| ThisLiteral // TODO: remove?
 // //	| SuperLiteral // TODO: remove ?
@@ -25600,9 +25600,9 @@ protected class ValueLiteral_Alternatives extends AlternativesToken {
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
 			case 0: return new ValueLiteral_BooleanLiteralParserRuleCall_0(parent, this, 0, inst);
-			case 1: return new ValueLiteral_IntegerLiteralParserRuleCall_1(parent, this, 1, inst);
-			case 2: return new ValueLiteral_StringLiteralParserRuleCall_2(parent, this, 2, inst);
-			case 3: return new ValueLiteral_RealLiteralParserRuleCall_3(parent, this, 3, inst);
+			case 1: return new ValueLiteral_RealLiteralParserRuleCall_1(parent, this, 1, inst);
+			case 2: return new ValueLiteral_IntegerLiteralParserRuleCall_2(parent, this, 2, inst);
+			case 3: return new ValueLiteral_StringLiteralParserRuleCall_3(parent, this, 3, inst);
 			case 4: return new ValueLiteral_UnitLiteralParserRuleCall_4(parent, this, 4, inst);
 			default: return null;
 		}	
@@ -25650,17 +25650,52 @@ protected class ValueLiteral_BooleanLiteralParserRuleCall_0 extends RuleCallToke
 	}	
 }
 
-// IntegerLiteral    
-// //	| NullLiteral // TODO:
-protected class ValueLiteral_IntegerLiteralParserRuleCall_1 extends RuleCallToken {
+// RealLiteral
+protected class ValueLiteral_RealLiteralParserRuleCall_1 extends RuleCallToken {
 	
-	public ValueLiteral_IntegerLiteralParserRuleCall_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ValueLiteral_RealLiteralParserRuleCall_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getValueLiteralAccess().getIntegerLiteralParserRuleCall_1();
+		return grammarAccess.getValueLiteralAccess().getRealLiteralParserRuleCall_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RealLiteral_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(checkForRecursion(RealLiteral_Group.class, current)) return null;
+		if(!current.isInstanceOf(grammarAccess.getRealLiteralRule().getType().getClassifier())) return null;
+		return current;
+	}
+	
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(next, actIndex , index, inst);
+		}	
+	}	
+}
+
+// IntegerLiteral    
+// //	| NullLiteral // TODO:
+protected class ValueLiteral_IntegerLiteralParserRuleCall_2 extends RuleCallToken {
+	
+	public ValueLiteral_IntegerLiteralParserRuleCall_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getValueLiteralAccess().getIntegerLiteralParserRuleCall_2();
 	}
 
     @Override
@@ -25686,16 +25721,19 @@ protected class ValueLiteral_IntegerLiteralParserRuleCall_1 extends RuleCallToke
 	}	
 }
 
-// StringLiteral
-protected class ValueLiteral_StringLiteralParserRuleCall_2 extends RuleCallToken {
+// StringLiteral   
+// //	| QueryLiteral
+// //	| ThisLiteral // TODO: remove?
+// //	| SuperLiteral // TODO: remove ?
+protected class ValueLiteral_StringLiteralParserRuleCall_3 extends RuleCallToken {
 	
-	public ValueLiteral_StringLiteralParserRuleCall_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ValueLiteral_StringLiteralParserRuleCall_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getValueLiteralAccess().getStringLiteralParserRuleCall_2();
+		return grammarAccess.getValueLiteralAccess().getStringLiteralParserRuleCall_3();
 	}
 
     @Override
@@ -25710,44 +25748,6 @@ protected class ValueLiteral_StringLiteralParserRuleCall_2 extends RuleCallToken
 	protected IInstanceDescription tryConsumeVal() {
 		if(checkForRecursion(StringLiteral_Group.class, current)) return null;
 		if(!current.isInstanceOf(grammarAccess.getStringLiteralRule().getType().getClassifier())) return null;
-		return current;
-	}
-	
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		switch(index) {
-			default: return parent.createParentFollower(next, actIndex , index, inst);
-		}	
-	}	
-}
-
-// RealLiteral   
-// //	| QueryLiteral
-// //	| ThisLiteral // TODO: remove?
-// //	| SuperLiteral // TODO: remove ?
-protected class ValueLiteral_RealLiteralParserRuleCall_3 extends RuleCallToken {
-	
-	public ValueLiteral_RealLiteralParserRuleCall_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public RuleCall getGrammarElement() {
-		return grammarAccess.getValueLiteralAccess().getRealLiteralParserRuleCall_3();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new RealLiteral_Group(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override
-	protected IInstanceDescription tryConsumeVal() {
-		if(checkForRecursion(RealLiteral_Group.class, current)) return null;
-		if(!current.isInstanceOf(grammarAccess.getRealLiteralRule().getType().getClassifier())) return null;
 		return current;
 	}
 	

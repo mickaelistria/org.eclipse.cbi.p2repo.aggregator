@@ -5782,33 +5782,33 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ValueLiteral");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cBooleanLiteralParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cIntegerLiteralParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cStringLiteralParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cRealLiteralParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cRealLiteralParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cIntegerLiteralParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cStringLiteralParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final RuleCall cUnitLiteralParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
 		//ValueLiteral returns be::BExpression:
-		//  BooleanLiteral|IntegerLiteral|StringLiteral|RealLiteral|UnitLiteral; 
+		//  BooleanLiteral|RealLiteral|IntegerLiteral|StringLiteral|UnitLiteral; 
 		//
 		//     
 		//	   
+		//	  
 		//	   
 		////	| NullLiteral // TODO: 
 		//	   
-		//	  
 		////	| QueryLiteral
 		////	| ThisLiteral // TODO: remove?
 		////	| SuperLiteral // TODO: remove ?
 		public ParserRule getRule() { return rule; }
 
-		//BooleanLiteral|IntegerLiteral|StringLiteral|RealLiteral|UnitLiteral 
+		//BooleanLiteral|RealLiteral|IntegerLiteral|StringLiteral|UnitLiteral 
 		//
 		//     
 		//	   
+		//	  
 		//	   
 		////	| NullLiteral // TODO: 
 		//	   
-		//	  
 		////	| QueryLiteral
 		////	| ThisLiteral // TODO: remove?
 		////	| SuperLiteral // TODO: remove ?
@@ -5817,18 +5817,18 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//BooleanLiteral
 		public RuleCall getBooleanLiteralParserRuleCall_0() { return cBooleanLiteralParserRuleCall_0; }
 
+		//RealLiteral
+		public RuleCall getRealLiteralParserRuleCall_1() { return cRealLiteralParserRuleCall_1; }
+
 		//IntegerLiteral    
 		////	| NullLiteral // TODO:
-		public RuleCall getIntegerLiteralParserRuleCall_1() { return cIntegerLiteralParserRuleCall_1; }
+		public RuleCall getIntegerLiteralParserRuleCall_2() { return cIntegerLiteralParserRuleCall_2; }
 
-		//StringLiteral
-		public RuleCall getStringLiteralParserRuleCall_2() { return cStringLiteralParserRuleCall_2; }
-
-		//RealLiteral   
+		//StringLiteral   
 		////	| QueryLiteral
 		////	| ThisLiteral // TODO: remove?
 		////	| SuperLiteral // TODO: remove ?
-		public RuleCall getRealLiteralParserRuleCall_3() { return cRealLiteralParserRuleCall_3; }
+		public RuleCall getStringLiteralParserRuleCall_3() { return cStringLiteralParserRuleCall_3; }
 
 		//UnitLiteral
 		public RuleCall getUnitLiteralParserRuleCall_4() { return cUnitLiteralParserRuleCall_4; }
@@ -6031,7 +6031,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "RealValue");
 		private final RuleCall cREALParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
-		//RealValue returns ecore::EDouble:
+		//RealValue returns ecore::EDoubleObject:
 		//  REAL; 
 		//        
 		//// handles dec, oct, and hex values with radix
@@ -8405,14 +8405,14 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ValueLiteral returns be::BExpression:
-	//  BooleanLiteral|IntegerLiteral|StringLiteral|RealLiteral|UnitLiteral; 
+	//  BooleanLiteral|RealLiteral|IntegerLiteral|StringLiteral|UnitLiteral; 
 	//
 	//     
 	//	   
+	//	  
 	//	   
 	////	| NullLiteral // TODO: 
 	//	   
-	//	  
 	////	| QueryLiteral
 	////	| ThisLiteral // TODO: remove?
 	////	| SuperLiteral // TODO: remove ?
@@ -8513,7 +8513,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getBooleanValueAccess().getRule();
 	}
 
-	//RealValue returns ecore::EDouble:
+	//RealValue returns ecore::EDoubleObject:
 	//  REAL; 
 	//        
 	//// handles dec, oct, and hex values with radix
@@ -8799,10 +8799,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//// a.b.c is otherwise ambigous in expressions.
 	//              
 	//
-	//// Initially specified for JS Regexp
 	//// Java regexp: TODO:
 	//// - allows \ before any character == same as unescaped character if character is not an operator
-	//// - flags are different (already specified)
 	public TerminalRule getPIDRule() {
 		return (tPID != null) ? tPID : (tPID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "PID"));
 	} 
@@ -8811,25 +8809,12 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//  "~/" ("\\" !("\t" | "\r" | "\n") | !("\\" | "/" | " " | "\t" | "\r" | "\n"))* "/" ("u" | "m" | "i" | "c" |
 	//  "d")*; 
 	//
-	//// Initially specified for JS Regexp
 	//// Java regexp: TODO:
 	//// - allows \ before any character == same as unescaped character if character is not an operator
-	//// - flags are different (already specified)
 	//      
 	//	        
 	//			      
 	//			
-	//// JS regexp (but with Java regexp flags at the end :) TODO: remove once the Java regexp pattern above works
-	////terminal REGULAR_EXPR returns be::RegexpPattern
-	////	: "~/" ( '\\' ('/'|'f'|'n'|'r'|'t'|'v'|'\\'|'.'|'*'|'+'|'?'
-	////					| 'w'|'W'|'s'|'S'|'d'|'D'|'b'
-	////					|'|'|'{'|'}'|'['|']'|'('|')'
-	////					| (('0'..'7')('0'..'7')('0'..'7')) 
-	////					| ('x' (('0'..'9')|('a'..'f')|('A'..'F')) (('0'..'9')|('a'..'f')|('A'..'F'))) 
-	////					| ('c' ('A'..'Z'))
-	////				)
-	////			| (!('\\'|'/'|' '|'\t'|'\r'|'\n')))* "/" ('u'|'m'|'i'|'c'|'d')*
-	////			;
 	//
 	//// JS String support escaped b,t,n,f,r, and u HEX*4, x HEX*2, and (deprecated (0-7)), 
 	//// A string converter may need to handle the u, x, and octal escapes.
@@ -8843,17 +8828,6 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//  "\"" ("\\" ("b" | "t" | "n" | "f" | "r" | "u" | "x" | "0" | "\"" | "\'" | "\\") | !("\\" | "\"" | "\r" | "\n")
 	//  )* "\"" | "\'" ("\\" ("b" | "t" | "n" | "f" | "r" | "u" | "x" | "0" | "\"" | "\'" | "\\") | !("\\" | "\'" |
 	//  "\r" | "\n"))* "\'"; 
-	//// JS regexp (but with Java regexp flags at the end :) TODO: remove once the Java regexp pattern above works
-	////terminal REGULAR_EXPR returns be::RegexpPattern
-	////	: "~/" ( '\\' ('/'|'f'|'n'|'r'|'t'|'v'|'\\'|'.'|'*'|'+'|'?'
-	////					| 'w'|'W'|'s'|'S'|'d'|'D'|'b'
-	////					|'|'|'{'|'}'|'['|']'|'('|')'
-	////					| (('0'..'7')('0'..'7')('0'..'7')) 
-	////					| ('x' (('0'..'9')|('a'..'f')|('A'..'F')) (('0'..'9')|('a'..'f')|('A'..'F'))) 
-	////					| ('c' ('A'..'Z'))
-	////				)
-	////			| (!('\\'|'/'|' '|'\t'|'\r'|'\n')))* "/" ('u'|'m'|'i'|'c'|'d')*
-	////			;
 	//
 	//// JS String support escaped b,t,n,f,r, and u HEX*4, x HEX*2, and (deprecated (0-7)), 
 	//// A string converter may need to handle the u, x, and octal escapes.

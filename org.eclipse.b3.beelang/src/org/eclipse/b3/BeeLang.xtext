@@ -507,10 +507,10 @@ KeyLiteral returns be::BExpression : {be::BLiteralExpression} value = (ID|PID|ST
 
 ValueLiteral returns be::BExpression 
 	: BooleanLiteral 
+	| RealLiteral  // SEE ISSUE 297089 - must be placed before IntegerLiteral
 	| IntegerLiteral 
 //	| NullLiteral // TODO: 
 	| StringLiteral
-	| RealLiteral
 //	| QueryLiteral
 //	| ThisLiteral // TODO: remove?
 //	| SuperLiteral // TODO: remove ?
@@ -530,7 +530,7 @@ NullLiteral	returns  be::BExpression: {be::BLiteralExpression} "null"; // TODO: 
 //SuperLiteral returns  be::BExpression: {SuperLiteral} val="super";
 
 BooleanValue returns ecore::EBooleanObject : ("true" | "false" );
-RealValue returns ecore::EDouble: REAL ;
+RealValue returns ecore::EDoubleObject: REAL ;
 // handles dec, oct, and hex values with radix
 IntValue returns ecore::ELongObject : INT | HEX ;
 	
@@ -596,25 +596,12 @@ terminal ID : ('^')?(('a'..'z')|('A'..'Z')|'_') (('a'..'z')|('A'..'Z')|('0'..'9'
 // a.b.c is otherwise ambigous in expressions.
 terminal PID : '$' ID ('.' ID)* ;
 
-// Initially specified for JS Regexp
 // Java regexp: TODO:
 // - allows \ before any character == same as unescaped character if character is not an operator
-// - flags are different (already specified)
 terminal REGULAR_EXPR returns be::RegexpPattern
 	: "~/" ( '\\' (!('\t'|'\r'|'\n'))
 			| (!('\\'|'/'|' '|'\t'|'\r'|'\n')))* "/" ('u'|'m'|'i'|'c'|'d')*
 			;
-// JS regexp (but with Java regexp flags at the end :) TODO: remove once the Java regexp pattern above works
-//terminal REGULAR_EXPR returns be::RegexpPattern
-//	: "~/" ( '\\' ('/'|'f'|'n'|'r'|'t'|'v'|'\\'|'.'|'*'|'+'|'?'
-//					| 'w'|'W'|'s'|'S'|'d'|'D'|'b'
-//					|'|'|'{'|'}'|'['|']'|'('|')'
-//					| (('0'..'7')('0'..'7')('0'..'7')) 
-//					| ('x' (('0'..'9')|('a'..'f')|('A'..'F')) (('0'..'9')|('a'..'f')|('A'..'F'))) 
-//					| ('c' ('A'..'Z'))
-//				)
-//			| (!('\\'|'/'|' '|'\t'|'\r'|'\n')))* "/" ('u'|'m'|'i'|'c'|'d')*
-//			;
 
 // JS String support escaped b,t,n,f,r, and u HEX*4, x HEX*2, and (deprecated (0-7)), 
 // A string converter may need to handle the u, x, and octal escapes.
