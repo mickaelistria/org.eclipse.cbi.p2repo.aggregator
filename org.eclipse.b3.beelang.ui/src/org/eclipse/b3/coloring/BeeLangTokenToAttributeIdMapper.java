@@ -18,7 +18,7 @@ public class BeeLangTokenToAttributeIdMapper extends
 		if("RULE_DOCUMENTATION".equals(tokenName)) {
 			return BeeLangLexicalHighlightConfiguration.DOCUMENTATION_ID;
 		}
-		if("RULE_REGEX".equals(tokenName)) {
+		if("RULE_REGULAR_EXPR".equals(tokenName)) {
 			return BeeLangLexicalHighlightConfiguration.REGEXP_ID;
 		}
 		
