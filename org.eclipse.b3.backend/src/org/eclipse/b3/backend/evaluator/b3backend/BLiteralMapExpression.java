@@ -63,7 +63,7 @@ public interface BLiteralMapExpression extends BExpression {
 	 * @return the value of the '<em>Key Type</em>' containment reference.
 	 * @see #setKeyType(Type)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBLiteralMapExpression_KeyType()
-	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType" containment="true" required="true"
+	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType" containment="true"
 	 * @generated
 	 */
 	Type getKeyType();
@@ -89,7 +89,7 @@ public interface BLiteralMapExpression extends BExpression {
 	 * @return the value of the '<em>Value Type</em>' containment reference.
 	 * @see #setValueType(Type)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBLiteralMapExpression_ValueType()
-	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType" containment="true" required="true"
+	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType" containment="true"
 	 * @generated
 	 */
 	Type getValueType();

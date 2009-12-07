@@ -203,16 +203,16 @@
   <eClassifiers xsi:type="ecore:EClass" name="BLiteralListExpression" eSuperTypes="#//BExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
         eType="#//BExpression" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="entryType" lowerBound="1"
-        eType="#//IType" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entryType" eType="#//IType"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BLiteralMapExpression" eSuperTypes="#//BExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
         eType="#//BMapEntry" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="keyType" lowerBound="1"
-        eType="#//IType" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="valueType" lowerBound="1"
-        eType="#//IType" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="keyType" eType="#//IType"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="valueType" eType="#//IType"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BMapEntry">
     <eStructuralFeatures xsi:type="ecore:EReference" name="key" eType="#//BExpression"

@@ -61,7 +61,7 @@ public interface BLiteralListExpression extends BExpression {
 	 * @return the value of the '<em>Entry Type</em>' containment reference.
 	 * @see #setEntryType(Type)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBLiteralListExpression_EntryType()
-	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType" containment="true" required="true"
+	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType" containment="true"
 	 * @generated
 	 */
 	Type getEntryType();
