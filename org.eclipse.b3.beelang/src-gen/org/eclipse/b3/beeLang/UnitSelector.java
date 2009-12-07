@@ -5,6 +5,7 @@
  */
 package org.eclipse.b3.beeLang;
 
+import java.util.regex.Pattern;
 
 /**
  * <!-- begin-user-doc -->
@@ -88,12 +89,12 @@ public interface UnitSelector extends ContextSelector
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name Pattern</em>' attribute.
-   * @see #setNamePattern(String)
+   * @see #setNamePattern(Pattern)
    * @see org.eclipse.b3.beeLang.BeeLangPackage#getUnitSelector_NamePattern()
-   * @model
+   * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.RegexpPattern"
    * @generated
    */
-  String getNamePattern();
+  Pattern getNamePattern();
 
   /**
    * Sets the value of the '{@link org.eclipse.b3.beeLang.UnitSelector#getNamePattern <em>Name Pattern</em>}' attribute.
@@ -103,7 +104,7 @@ public interface UnitSelector extends ContextSelector
    * @see #getNamePattern()
    * @generated
    */
-  void setNamePattern(String value);
+  void setNamePattern(Pattern value);
 
   /**
    * Returns the value of the '<em><b>Version Range</b></em>' containment reference.

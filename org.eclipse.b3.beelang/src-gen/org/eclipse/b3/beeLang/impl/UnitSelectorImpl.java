@@ -5,6 +5,8 @@
  */
 package org.eclipse.b3.beeLang.impl;
 
+import java.util.regex.Pattern;
+
 import org.eclipse.b3.beeLang.BeeLangPackage;
 import org.eclipse.b3.beeLang.UnitSelector;
 import org.eclipse.b3.beeLang.VersionRange;
@@ -83,7 +85,7 @@ public class UnitSelectorImpl extends ContextSelectorImpl implements UnitSelecto
    * @generated
    * @ordered
    */
-  protected static final String NAME_PATTERN_EDEFAULT = null;
+  protected static final Pattern NAME_PATTERN_EDEFAULT = null;
 
   /**
    * The cached value of the '{@link #getNamePattern() <em>Name Pattern</em>}' attribute.
@@ -93,7 +95,7 @@ public class UnitSelectorImpl extends ContextSelectorImpl implements UnitSelecto
    * @generated
    * @ordered
    */
-  protected String namePattern = NAME_PATTERN_EDEFAULT;
+  protected Pattern namePattern = NAME_PATTERN_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getVersionRange() <em>Version Range</em>}' containment reference.
@@ -177,7 +179,7 @@ public class UnitSelectorImpl extends ContextSelectorImpl implements UnitSelecto
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getNamePattern()
+  public Pattern getNamePattern()
   {
     return namePattern;
   }
@@ -187,9 +189,9 @@ public class UnitSelectorImpl extends ContextSelectorImpl implements UnitSelecto
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setNamePattern(String newNamePattern)
+  public void setNamePattern(Pattern newNamePattern)
   {
-    String oldNamePattern = namePattern;
+    Pattern oldNamePattern = namePattern;
     namePattern = newNamePattern;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, BeeLangPackage.UNIT_SELECTOR__NAME_PATTERN, oldNamePattern, namePattern));
@@ -298,7 +300,7 @@ public class UnitSelectorImpl extends ContextSelectorImpl implements UnitSelecto
         setName((String)newValue);
         return;
       case BeeLangPackage.UNIT_SELECTOR__NAME_PATTERN:
-        setNamePattern((String)newValue);
+        setNamePattern((Pattern)newValue);
         return;
       case BeeLangPackage.UNIT_SELECTOR__VERSION_RANGE:
         setVersionRange((VersionRange)newValue);

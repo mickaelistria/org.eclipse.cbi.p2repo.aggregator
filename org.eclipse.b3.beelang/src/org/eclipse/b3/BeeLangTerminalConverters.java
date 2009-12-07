@@ -163,6 +163,22 @@ public class BeeLangTerminalConverters extends  AbstractDeclarativeValueConverte
 
 		};
 	}
+	@ValueConverter(rule = "BooleanValue")
+	public IValueConverter<Boolean> BooleanValue() {
+		return new IValueConverter<Boolean>() {
+
+			public Boolean toValue(String string, AbstractNode node) {
+				if (Strings.isEmpty(string))
+					throw new ValueConverterException("Could not convert empty string to boolean", node, null);
+					return new Boolean(string);
+			}
+
+			public String toString(Boolean value) {
+				return value.toString();
+			}
+
+		};
+	}
 	
 //	@ValueConverter(rule = "REGEX")
 //	public IValueConverter<RegularExpression> RegularExpression() {
@@ -184,7 +200,7 @@ public class BeeLangTerminalConverters extends  AbstractDeclarativeValueConverte
 //
 //		};
 //	}
-	@ValueConverter(rule = "REGEX")
+	@ValueConverter(rule = "REGULAR_EXPR")
 	public IValueConverter<Pattern> Pattern() {
 		return new IValueConverter<Pattern>() {
 
@@ -195,8 +211,8 @@ public class BeeLangTerminalConverters extends  AbstractDeclarativeValueConverte
 				int lastSlash = string.lastIndexOf('/');
 				if(lastSlash - firstSlash <= 0)
 					throw new ValueConverterException("The regular expression is empty", node, null);
-				String patternString = string.substring(firstSlash, lastSlash);
-				String flagString = string.substring(lastSlash);
+				String patternString = string.substring(firstSlash+1, lastSlash);
+				String flagString = string.substring(lastSlash+1);
 				int flags = 0;
 				for(int i =  0; i < flagString.length(); i++)
 					switch(flagString.charAt(i)) {

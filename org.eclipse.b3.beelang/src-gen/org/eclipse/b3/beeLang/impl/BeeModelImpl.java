@@ -5,10 +5,11 @@
  */
 package org.eclipse.b3.beeLang.impl;
 
+import java.lang.reflect.Type;
+
 import java.util.Collection;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
-import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 
 import org.eclipse.b3.beeLang.BeeLangPackage;
 import org.eclipse.b3.beeLang.BeeModel;
@@ -55,7 +56,7 @@ public class BeeModelImpl extends MinimalEObjectImpl.Container implements BeeMod
    * @generated
    * @ordered
    */
-  protected EList<B3JavaImport> imports;
+  protected EList<Type> imports;
 
   /**
    * The cached value of the '{@link #getFunctions() <em>Functions</em>}' containment reference list.
@@ -113,11 +114,11 @@ public class BeeModelImpl extends MinimalEObjectImpl.Container implements BeeMod
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<B3JavaImport> getImports()
+  public EList<Type> getImports()
   {
     if (imports == null)
     {
-      imports = new EObjectContainmentEList<B3JavaImport>(B3JavaImport.class, this, BeeLangPackage.BEE_MODEL__IMPORTS);
+      imports = new EObjectContainmentEList<Type>(Type.class, this, BeeLangPackage.BEE_MODEL__IMPORTS);
     }
     return imports;
   }
@@ -255,7 +256,7 @@ public class BeeModelImpl extends MinimalEObjectImpl.Container implements BeeMod
     {
       case BeeLangPackage.BEE_MODEL__IMPORTS:
         getImports().clear();
-        getImports().addAll((Collection<? extends B3JavaImport>)newValue);
+        getImports().addAll((Collection<? extends Type>)newValue);
         return;
       case BeeLangPackage.BEE_MODEL__FUNCTIONS:
         getFunctions().clear();

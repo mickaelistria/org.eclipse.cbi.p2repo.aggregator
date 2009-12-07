@@ -106,7 +106,7 @@ public interface B3FuncTypeVariable extends EObject, TypeVariable<BFunction> {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getB3FuncTypeVariable_Name()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	String getName();

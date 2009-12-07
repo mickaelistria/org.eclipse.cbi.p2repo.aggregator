@@ -5,6 +5,10 @@
  */
 package org.eclipse.b3.beeLang.impl;
 
+import beelangtypes.BeelangtypesPackage;
+
+import beelangtypes.impl.BeelangtypesPackageImpl;
+
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 
 import org.eclipse.b3.beeLang.AssertionExpression;
@@ -493,11 +497,16 @@ public class BeeLangPackageImpl extends EPackageImpl implements BeeLangPackage
     // Initialize simple dependencies
     B3backendPackage.eINSTANCE.eClass();
 
+    // Obtain or create and register interdependencies
+    BeelangtypesPackageImpl theBeelangtypesPackage = (BeelangtypesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(BeelangtypesPackage.eNS_URI) instanceof BeelangtypesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(BeelangtypesPackage.eNS_URI) : BeelangtypesPackage.eINSTANCE);
+
     // Create package meta-data objects
     theBeeLangPackage.createPackageContents();
+    theBeelangtypesPackage.createPackageContents();
 
     // Initialize created meta-data
     theBeeLangPackage.initializePackageContents();
+    theBeelangtypesPackage.initializePackageContents();
 
     // Mark meta-data to indicate it can't be changed
     theBeeLangPackage.freeze();
@@ -2532,6 +2541,7 @@ public class BeeLangPackageImpl extends EPackageImpl implements BeeLangPackage
 
     // Obtain other dependent packages
     B3backendPackage theB3backendPackage = (B3backendPackage)EPackage.Registry.INSTANCE.getEPackage(B3backendPackage.eNS_URI);
+    BeelangtypesPackage theBeelangtypesPackage = (BeelangtypesPackage)EPackage.Registry.INSTANCE.getEPackage(BeelangtypesPackage.eNS_URI);
 
     // Create type parameters
 
@@ -2556,7 +2566,7 @@ public class BeeLangPackageImpl extends EPackageImpl implements BeeLangPackage
 
     // Initialize classes and features; add operations and parameters
     initEClass(beeModelEClass, BeeModel.class, "BeeModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getBeeModel_Imports(), theB3backendPackage.getB3JavaImport(), null, "imports", null, 0, -1, BeeModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBeeModel_Imports(), theB3backendPackage.getIType(), null, "imports", null, 0, -1, BeeModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBeeModel_Functions(), theB3backendPackage.getB3Function(), null, "functions", null, 0, -1, BeeModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBeeModel_Concern(), this.getConcern(), null, "concern", null, 0, -1, BeeModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBeeModel_Body(), this.getBuildUnit(), null, "body", null, 0, 1, BeeModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2731,7 +2741,7 @@ public class BeeLangPackageImpl extends EPackageImpl implements BeeLangPackage
     initEClass(selectorEClass, Selector.class, "Selector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSelector_Name(), ecorePackage.getEString(), "name", null, 0, 1, Selector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getSelector_Op(), this.getSelectorOperator(), "op", null, 0, 1, Selector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getSelector_Pattern(), ecorePackage.getEString(), "pattern", null, 0, 1, Selector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSelector_Pattern(), theB3backendPackage.getRegexpPattern(), "pattern", null, 0, 1, Selector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSelector_Predicate(), theB3backendPackage.getBExpression(), null, "predicate", null, 0, 1, Selector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(filterEClass, Filter.class, "Filter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2763,14 +2773,14 @@ public class BeeLangPackageImpl extends EPackageImpl implements BeeLangPackage
     initEClass(unitSelectorEClass, UnitSelector.class, "UnitSelector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getUnitSelector_Interface(), ecorePackage.getEString(), "interface", null, 0, 1, UnitSelector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getUnitSelector_Name(), ecorePackage.getEString(), "name", null, 0, 1, UnitSelector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getUnitSelector_NamePattern(), ecorePackage.getEString(), "namePattern", null, 0, 1, UnitSelector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getUnitSelector_NamePattern(), theB3backendPackage.getRegexpPattern(), "namePattern", null, 0, 1, UnitSelector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getUnitSelector_VersionRange(), this.getVersionRange(), null, "versionRange", null, 0, 1, UnitSelector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(versionEClass, Version.class, "Version", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getVersion_Version(), ecorePackage.getEString(), "version", null, 0, 1, Version.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getVersion_Version(), theBeelangtypesPackage.getVersion(), "version", null, 0, 1, Version.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(versionRangeEClass, VersionRange.class, "VersionRange", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getVersionRange_Range(), ecorePackage.getEString(), "range", null, 0, 1, VersionRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getVersionRange_Range(), theBeelangtypesPackage.getVersionRange(), "range", null, 0, 1, VersionRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(compounddReferencesEClass, CompounddReferences.class, "CompounddReferences", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getCompounddReferences_Prerequisites(), this.getPrerequisite(), null, "prerequisites", null, 0, -1, CompounddReferences.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

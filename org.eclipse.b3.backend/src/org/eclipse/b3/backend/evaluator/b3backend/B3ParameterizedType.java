@@ -71,26 +71,26 @@ public interface B3ParameterizedType extends EObject, ParameterizedType {
 	void setOwnerType(Type value);
 
 	/**
-	 * Returns the value of the '<em><b>Raw Type</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Raw Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Raw Type</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Raw Type</em>' containment reference.
+	 * @return the value of the '<em>Raw Type</em>' reference.
 	 * @see #setRawType(Type)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getB3ParameterizedType_RawType()
-	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType" containment="true" required="true"
+	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType"
 	 * @generated
 	 */
 	Type getRawType();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType#getRawType <em>Raw Type</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType#getRawType <em>Raw Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Raw Type</em>' containment reference.
+	 * @param value the new value of the '<em>Raw Type</em>' reference.
 	 * @see #getRawType()
 	 * @generated
 	 */

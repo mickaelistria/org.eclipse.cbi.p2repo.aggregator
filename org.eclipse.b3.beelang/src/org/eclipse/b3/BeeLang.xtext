@@ -2,7 +2,7 @@
 grammar org.eclipse.b3.BeeLang // with org.eclipse.xtext.common.Terminals
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 import "platform:/resource/org.eclipse.b3.backend/model/B3Backend.ecore" as be
-//import "platform:/resource/org.eclipse.b3.beelang/src/org/eclipse/b3/BeeLangTypes.ecore" as types
+import "platform:/resource/org.eclipse.b3.beelang/src/org/eclipse/b3/BeeLangTypes.ecore" as types
 generate beeLang "http://www.eclipse.org/b3/BeeLang"
 
 BeeModel hidden(WS, SL_COMMENT, ML_COMMENT): 
@@ -10,7 +10,7 @@ BeeModel hidden(WS, SL_COMMENT, ML_COMMENT):
 	((functions+=Function) | (concern+=Concern))* 
 	(body = Unit)? ;
 
-Import returns be::B3JavaImport: {be::B3JavaImport}(reexport ?='reexport')? "import" qualifiedName = QID ("as" name=ID)? ';' ;
+Import returns be::IType: {be::B3JavaImport}(reexport ?='reexport')? "import" qualifiedName = QID ("as" name=ID)? ';' ;
 
 // Wanted later 
 //Import : (reexport ?='reexport')? 
@@ -183,14 +183,14 @@ Builder returns Builder : {Builder}
 	;
 
 Parameter returns be::BParameter: {be::BParameter} expr = Expression ;
-ParameterList returns be::BParameterList: {be::BParameterList} (parameters+=Parameter ("," parameters+=Parameter)*) 
-	  | (parameters+=ClosureParameter)  ;
+ParameterList returns be::BParameterList: {be::BParameterList} ((parameters+=Parameter ("," parameters+=Parameter)*) 
+	  | (parameters+=ClosureParameter))  ;
 
 ClosureParameter returns be::BParameter : {be::BParameter} expr = ClosureExpression;
 
 ParameterDeclarationList : 
-	( params += ParameterDeclaration (',' params+=ParameterDeclaration)*(',' params+=ParameterDeclarationEllipse)?) 
-	| (params+= ParameterDeclarationEllipse)
+	(( params += ParameterDeclaration (',' params+=ParameterDeclaration)*(',' params+=ParameterDeclarationEllipse)?) 
+	| (params+= ParameterDeclarationEllipse))
 	;
 ParameterDeclaration returns be::BParameterDeclaration: {be::BParameterDeclaration} type=TypeRef? name = ID ;
 ParameterDeclarationEllipse returns ParameterDeclaration : 
@@ -298,11 +298,11 @@ AssignmentExpression returns be::BExpression:
 	 	functionName=AssignmentOperator rightExpr=AssignmentExpression)?
 	;
 
-VarDeclaration returns be::BExpression: {be::BDefValue} ('var' | type=TypeRef) name=ID ;
-TypeRef returns be::IType: SimpleTypeRef | ClosureTypeRef;
+VarDeclaration returns be::BExpression: {be::BDefValue} (('var' | type=TypeRef) name=ID) ;
+TypeRef returns be::IType: SimpleTypeRef /* | ClosureTypeRef */ ; // TODO: gets lots of warnings from this...
 SimpleTypeRef returns be::IType
-	: {be::B3ParameterizedType} rawType=Import 
-		('<' actualArgumentsList+=TypeParam (',' actualArgumentsList+=TypeParam)* '>' )? 
+	: {be::B3ParameterizedType} rawType=[be::IType | ID] 
+/*		('<' actualArgumentsList+=TypeParam (',' actualArgumentsList+=TypeParam)* '>' )? */
 	;
 	
 // TODO: typereference is simplified to only the name of a java type - for model imports
@@ -316,7 +316,7 @@ SimpleTypeRef returns be::IType
 
 // ClosureTypeRef declares parameters and return type	
 ClosureTypeRef returns be::IType
-	: {be::B3FunctionType}( '(' parameterTypes+=TypeRef (',' parameterTypes+=TypeRef)* ')')? 
+	: {be::B3FunctionType} '(' parameterTypes+=TypeRef (',' parameterTypes+=TypeRef)* ')'
 		'=>' returnType = TypeRef
 	;
 	
@@ -350,16 +350,16 @@ SetExpression returns be::BExpression:
 	UnaryOrInfixExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=".." rightExpr=UnaryOrInfixExpression)*;
 
 UnaryOrInfixExpression returns be::BExpression
-	: UnaryExpression 
-	| PostopExpression
+	: PostopExpression 
+	| UnaryExpression
 	| PreopExpression
 	; 
 
 UnaryExpression returns be::BExpression:
-	 {be::BUnaryOpExpression} functionName=("!" | "-" | "~") expr=PostopExpression;
+	 {be::BUnaryOpExpression} functionName=("!" | "-" | "~") expr=InfixExpression;
 
 PreopExpression returns be::BExpression:
-	 {be::BUnaryPreOpExpression} functionName=("++" | "--") expr=PostopExpression;
+	 {be::BUnaryPreOpExpression} functionName=("++" | "--") expr=InfixExpression;
 
 PostopExpression returns be::BExpression:
 	InfixExpression ({be::BUnaryPostOpExpression.expr=current} functionName = ("--" | "++"))?
@@ -480,7 +480,7 @@ FunctionDefinition returns be::BExpression : {be::BDefFunction} function = Funct
 
 Literal returns be::BExpression
 	: ValueLiteral
-//	| RegexpLiteral
+	| RegexpLiteral
 	| LiteralList
 	| LiteralMap
 //	| LiteralFunction
@@ -522,7 +522,7 @@ IntegerLiteral returns  be::BExpression: {be::BLiteralExpression} value= IntValu
 UnitLiteral returns  be::BExpression: {be::BLiteralExpression} value="unit";
 StringLiteral returns  be::BExpression: {be::BLiteralExpression} value = STRING;
 RealLiteral	returns  be::BExpression: {be::BLiteralExpression} value = RealValue;
-RegexpLiteral returns be::BExpression: {be::BRegularExpression} patternString = REGULAR_EXPR;
+RegexpLiteral returns be::BExpression: {be::BRegularExpression} pattern = REGULAR_EXPR;
 //QueryLiteral returns be::BExpression: {be::BLiteralExpression} value=Query ;
 
 NullLiteral	returns  be::BExpression: {be::BLiteralExpression} "null"; // TODO: check that type is Object
@@ -532,7 +532,7 @@ NullLiteral	returns  be::BExpression: {be::BLiteralExpression} "null"; // TODO: 
 BooleanValue returns ecore::EBooleanObject : ("true" | "false" );
 RealValue returns ecore::EDouble: REAL ;
 // handles dec, oct, and hex values with radix
-IntValue /*returns types::RadixInteger */: INT | HEX ;
+IntValue returns ecore::ELongObject : INT | HEX ;
 	
 ParanthesizedExpression returns be::BExpression
 	:  "(" Expression ")"
@@ -541,14 +541,14 @@ ParanthesizedExpression returns be::BExpression
 //--
 Version : version = VersionLiteral;
 
-VersionLiteral /* returns types::Version */
+VersionLiteral returns types::Version
 	: STRING  
 	| AlfanumSym
 	;
 
 VersionRange : range = VersionRangeLiteral ;
 
-VersionRangeLiteral /* returns types::VersionRange  */
+VersionRangeLiteral returns types::VersionRange
 	: ('[' | '(') (STRING | AlfanumSym) (',' (STRING | AlfanumSym))? (']'|')')
 	| (STRING | AlfanumSym)
 	;
@@ -600,16 +600,21 @@ terminal PID : '$' ID ('.' ID)* ;
 // Java regexp: TODO:
 // - allows \ before any character == same as unescaped character if character is not an operator
 // - flags are different (already specified)
-terminal REGULAR_EXPR
-	: "~/" ( '\\' ('/'|'f'|'n'|'r'|'t'|'v'|'\\'|'.'|'*'|'+'|'?'
-					| 'w'|'W'|'s'|'S'|'d'|'D'|'b'
-					|'|'|'{'|'}'|'['|']'|'('|')'
-					| (('0'..'7')('0'..'7')('0'..'7')) 
-					| ('x' (('0'..'9')|('a'..'f')|('A'..'F')) (('0'..'9')|('a'..'f')|('A'..'F'))) 
-					| ('c' ('A'..'Z'))
-				)
-			| (!('\\'|'/'|' '|'\t'|'\r'|'\n')))* "/" ('u'|'m'|'i'|'c'|'d')? // TODO: * at end
+terminal REGULAR_EXPR returns be::RegexpPattern
+	: "~/" ( '\\' (!('\t'|'\r'|'\n'))
+			| (!('\\'|'/'|' '|'\t'|'\r'|'\n')))* "/" ('u'|'m'|'i'|'c'|'d')*
 			;
+// JS regexp (but with Java regexp flags at the end :) TODO: remove once the Java regexp pattern above works
+//terminal REGULAR_EXPR returns be::RegexpPattern
+//	: "~/" ( '\\' ('/'|'f'|'n'|'r'|'t'|'v'|'\\'|'.'|'*'|'+'|'?'
+//					| 'w'|'W'|'s'|'S'|'d'|'D'|'b'
+//					|'|'|'{'|'}'|'['|']'|'('|')'
+//					| (('0'..'7')('0'..'7')('0'..'7')) 
+//					| ('x' (('0'..'9')|('a'..'f')|('A'..'F')) (('0'..'9')|('a'..'f')|('A'..'F'))) 
+//					| ('c' ('A'..'Z'))
+//				)
+//			| (!('\\'|'/'|' '|'\t'|'\r'|'\n')))* "/" ('u'|'m'|'i'|'c'|'d')*
+//			;
 
 // JS String support escaped b,t,n,f,r, and u HEX*4, x HEX*2, and (deprecated (0-7)), 
 // A string converter may need to handle the u, x, and octal escapes.

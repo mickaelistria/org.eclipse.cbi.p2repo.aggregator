@@ -44,7 +44,7 @@ public interface BParameterizedExpression extends BExpression {
 	 * @return the value of the '<em>Parameter List</em>' containment reference.
 	 * @see #setParameterList(BParameterList)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBParameterizedExpression_ParameterList()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	BParameterList getParameterList();

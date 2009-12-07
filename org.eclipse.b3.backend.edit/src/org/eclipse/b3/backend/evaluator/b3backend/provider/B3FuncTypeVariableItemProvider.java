@@ -17,6 +17,7 @@ import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable;
+import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -24,6 +25,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -78,7 +80,6 @@ public class B3FuncTypeVariableItemProvider
 			super.getPropertyDescriptors(object);
 
 			addBoundsPropertyDescriptor(object);
-			addGenericDeclarationPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -107,28 +108,6 @@ public class B3FuncTypeVariableItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Generic Declaration feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addGenericDeclarationPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_B3FuncTypeVariable_genericDeclaration_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_B3FuncTypeVariable_genericDeclaration_feature", "_UI_B3FuncTypeVariable_type"),
-				 B3backendPackage.Literals.B3_FUNC_TYPE_VARIABLE__GENERIC_DECLARATION,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -148,6 +127,36 @@ public class B3FuncTypeVariableItemProvider
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
+	}
+
+	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(B3backendPackage.Literals.B3_FUNC_TYPE_VARIABLE__GENERIC_DECLARATION);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -191,6 +200,9 @@ public class B3FuncTypeVariableItemProvider
 			case B3backendPackage.B3_FUNC_TYPE_VARIABLE__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case B3backendPackage.B3_FUNC_TYPE_VARIABLE__GENERIC_DECLARATION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -205,6 +217,16 @@ public class B3FuncTypeVariableItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.B3_FUNC_TYPE_VARIABLE__GENERIC_DECLARATION,
+				 B3backendFactory.eINSTANCE.createB3Function()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.B3_FUNC_TYPE_VARIABLE__GENERIC_DECLARATION,
+				 B3backendFactory.eINSTANCE.createBJavaFunction()));
 	}
 
 	/**

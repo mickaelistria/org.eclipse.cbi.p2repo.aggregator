@@ -42,7 +42,7 @@ public interface B3Function extends BFunction {
 	 * @return the value of the '<em>Func Expr</em>' containment reference.
 	 * @see #setFuncExpr(BExpression)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getB3Function_FuncExpr()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	BExpression getFuncExpr();

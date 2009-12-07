@@ -17,6 +17,7 @@ import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
+import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -24,6 +25,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -77,78 +79,9 @@ public class B3FunctionTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addFunctionTypePropertyDescriptor(object);
-			addReturnTypePropertyDescriptor(object);
-			addParameterTypesPropertyDescriptor(object);
 			addVarArgsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Function Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addFunctionTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_B3FunctionType_functionType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_B3FunctionType_functionType_feature", "_UI_B3FunctionType_type"),
-				 B3backendPackage.Literals.B3_FUNCTION_TYPE__FUNCTION_TYPE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Return Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addReturnTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_B3FunctionType_returnType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_B3FunctionType_returnType_feature", "_UI_B3FunctionType_type"),
-				 B3backendPackage.Literals.B3_FUNCTION_TYPE__RETURN_TYPE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Parameter Types feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addParameterTypesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_B3FunctionType_parameterTypes_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_B3FunctionType_parameterTypes_feature", "_UI_B3FunctionType_type"),
-				 B3backendPackage.Literals.B3_FUNCTION_TYPE__PARAMETER_TYPES,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -171,6 +104,38 @@ public class B3FunctionTypeItemProvider
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
+	}
+
+	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(B3backendPackage.Literals.B3_FUNCTION_TYPE__FUNCTION_TYPE);
+			childrenFeatures.add(B3backendPackage.Literals.B3_FUNCTION_TYPE__RETURN_TYPE);
+			childrenFeatures.add(B3backendPackage.Literals.B3_FUNCTION_TYPE__PARAMETER_TYPES);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -211,6 +176,11 @@ public class B3FunctionTypeItemProvider
 			case B3backendPackage.B3_FUNCTION_TYPE__VAR_ARGS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case B3backendPackage.B3_FUNCTION_TYPE__FUNCTION_TYPE:
+			case B3backendPackage.B3_FUNCTION_TYPE__RETURN_TYPE:
+			case B3backendPackage.B3_FUNCTION_TYPE__PARAMETER_TYPES:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -225,6 +195,105 @@ public class B3FunctionTypeItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.B3_FUNCTION_TYPE__FUNCTION_TYPE,
+				 B3backendFactory.eINSTANCE.createB3FunctionType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.B3_FUNCTION_TYPE__FUNCTION_TYPE,
+				 B3backendFactory.eINSTANCE.createB3ParameterizedType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.B3_FUNCTION_TYPE__FUNCTION_TYPE,
+				 B3backendFactory.eINSTANCE.createB3WildcardType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.B3_FUNCTION_TYPE__FUNCTION_TYPE,
+				 B3backendFactory.eINSTANCE.createB3FuncTypeVariable()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.B3_FUNCTION_TYPE__FUNCTION_TYPE,
+				 B3backendFactory.eINSTANCE.createB3JavaImport()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.B3_FUNCTION_TYPE__RETURN_TYPE,
+				 B3backendFactory.eINSTANCE.createB3FunctionType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.B3_FUNCTION_TYPE__RETURN_TYPE,
+				 B3backendFactory.eINSTANCE.createB3ParameterizedType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.B3_FUNCTION_TYPE__RETURN_TYPE,
+				 B3backendFactory.eINSTANCE.createB3WildcardType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.B3_FUNCTION_TYPE__RETURN_TYPE,
+				 B3backendFactory.eINSTANCE.createB3FuncTypeVariable()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.B3_FUNCTION_TYPE__RETURN_TYPE,
+				 B3backendFactory.eINSTANCE.createB3JavaImport()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.B3_FUNCTION_TYPE__PARAMETER_TYPES,
+				 B3backendFactory.eINSTANCE.createB3FunctionType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.B3_FUNCTION_TYPE__PARAMETER_TYPES,
+				 B3backendFactory.eINSTANCE.createB3ParameterizedType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.B3_FUNCTION_TYPE__PARAMETER_TYPES,
+				 B3backendFactory.eINSTANCE.createB3WildcardType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.B3_FUNCTION_TYPE__PARAMETER_TYPES,
+				 B3backendFactory.eINSTANCE.createB3FuncTypeVariable()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.B3_FUNCTION_TYPE__PARAMETER_TYPES,
+				 B3backendFactory.eINSTANCE.createB3JavaImport()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == B3backendPackage.Literals.B3_FUNCTION_TYPE__FUNCTION_TYPE ||
+			childFeature == B3backendPackage.Literals.B3_FUNCTION_TYPE__RETURN_TYPE ||
+			childFeature == B3backendPackage.Literals.B3_FUNCTION_TYPE__PARAMETER_TYPES;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**

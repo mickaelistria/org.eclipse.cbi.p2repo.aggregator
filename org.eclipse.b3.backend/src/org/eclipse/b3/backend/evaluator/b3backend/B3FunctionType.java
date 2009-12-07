@@ -56,7 +56,7 @@ public interface B3FunctionType extends EObject, Type {
 	 * @return the value of the '<em>Function Type</em>' containment reference.
 	 * @see #setFunctionType(Type)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getB3FunctionType_FunctionType()
-	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType" containment="true" required="true"
+	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType" containment="true"
 	 * @generated
 	 */
 	Type getFunctionType();
@@ -82,7 +82,7 @@ public interface B3FunctionType extends EObject, Type {
 	 * @return the value of the '<em>Return Type</em>' containment reference.
 	 * @see #setReturnType(Type)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getB3FunctionType_ReturnType()
-	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType" containment="true" required="true"
+	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType" containment="true"
 	 * @generated
 	 */
 	Type getReturnType();

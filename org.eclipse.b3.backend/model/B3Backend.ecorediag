@@ -1985,10 +1985,6 @@
     <children xmi:type="notation:Node" xmi:id="_uk8MENubEd6P8eu38IUfig" type="1001">
       <children xmi:type="notation:Node" xmi:id="_ulC5wNubEd6P8eu38IUfig" type="4001"/>
       <children xmi:type="notation:Node" xmi:id="_ulC5wdubEd6P8eu38IUfig" type="5001">
-        <children xmi:type="notation:Node" xmi:id="_xWu-QNubEd6P8eu38IUfig" type="2001">
-          <element xmi:type="ecore:EAttribute" href="B3Backend.ecore#//BRegularExpression/patternString"/>
-          <layoutConstraint xmi:type="notation:Location" xmi:id="_xWu-QdubEd6P8eu38IUfig"/>
-        </children>
         <children xmi:type="notation:Node" xmi:id="_C19OMNucEd6P8eu38IUfig" type="2001">
           <element xmi:type="ecore:EAttribute" href="B3Backend.ecore#//BRegularExpression/pattern"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_C19OMducEd6P8eu38IUfig"/>
@@ -2462,7 +2458,7 @@
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_tAwgUd27Ed6F6MKCsLpUyw" routing="Rectilinear" lineColor="4210752"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_tAwgUt27Ed6F6MKCsLpUyw" fontColor="4210752" fontName="Lucida Grande" fontHeight="10"/>
       <element xmi:type="ecore:EReference" href="B3Backend.ecore#//B3WildcardType/lowerBoundsList"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_tAwgU927Ed6F6MKCsLpUyw" points="[87, 32, 59, 229]$[93, 32, 65, 229]$[93, -197, 65, 0]"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_tAwgU927Ed6F6MKCsLpUyw" points="[50, 32, -15, 229]$[148, 32, 83, 229]$[148, -197, 83, 0]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xJRN0N27Ed6F6MKCsLpUyw" id="(0.5,0.0)"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xJRN0d27Ed6F6MKCsLpUyw" id="(0.29411764705882354,1.0)"/>
     </edges>
@@ -2476,7 +2472,7 @@
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_tAyVgd27Ed6F6MKCsLpUyw" routing="Rectilinear" lineColor="4210752"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_tAyVgt27Ed6F6MKCsLpUyw" fontColor="4210752" fontName="Lucida Grande" fontHeight="10"/>
       <element xmi:type="ecore:EReference" href="B3Backend.ecore#//B3WildcardType/upperBoundsList"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_tAyVg927Ed6F6MKCsLpUyw" points="[44, 54, 39, 251]$[77, 54, 72, 251]$[77, -197, 72, 0]"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_tAyVg927Ed6F6MKCsLpUyw" points="[25, 12, -35, 209]$[96, 12, 36, 209]$[96, -197, 36, 0]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xJR04N27Ed6F6MKCsLpUyw" id="(0.75,0.0)"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xJR04d27Ed6F6MKCsLpUyw" id="(0.39215686274509803,1.0)"/>
     </edges>
@@ -2570,7 +2566,7 @@
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_zWAyMN27Ed6F6MKCsLpUyw" routing="Rectilinear" lineColor="4210752"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_zWAyMd27Ed6F6MKCsLpUyw" fontColor="4210752" fontName="Lucida Grande" fontHeight="10"/>
       <element xmi:type="ecore:EReference" href="B3Backend.ecore#//B3FunctionType/returnType"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_zWAyMt27Ed6F6MKCsLpUyw" points="[10, 47, -248, -287]$[10, 144, -248, -190]$[154, 144, -104, -190]"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_zWAyMt27Ed6F6MKCsLpUyw" points="[-5, 47, -311, -287]$[-5, 144, -311, -190]$[202, 144, -104, -190]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0HB_cd27Ed6F6MKCsLpUyw" id="(0.4976958525345622,0.0)"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0HB_ct27Ed6F6MKCsLpUyw" id="(0.5,1.0)"/>
     </edges>
@@ -2584,7 +2580,7 @@
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_zWCAUd27Ed6F6MKCsLpUyw" routing="Rectilinear" lineColor="4210752"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_zWCAUt27Ed6F6MKCsLpUyw" fontColor="4210752" fontName="Lucida Grande" fontHeight="10"/>
       <element xmi:type="ecore:EReference" href="B3Backend.ecore#//B3FunctionType/parameterTypes"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_zWCAU927Ed6F6MKCsLpUyw" points="[28, 47, -230, -287]$[28, 108, -230, -226]$[154, 108, -104, -226]"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_zWCAU927Ed6F6MKCsLpUyw" points="[22, 47, -284, -287]$[22, 108, -284, -226]$[202, 108, -104, -226]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0HDNkN27Ed6F6MKCsLpUyw" id="(0.4976958525345622,0.0)"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0HD0oN27Ed6F6MKCsLpUyw" id="(0.5,1.0)"/>
     </edges>

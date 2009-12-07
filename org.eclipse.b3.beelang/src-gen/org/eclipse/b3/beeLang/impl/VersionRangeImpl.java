@@ -38,7 +38,7 @@ public class VersionRangeImpl extends MinimalEObjectImpl.Container implements Ve
    * @generated
    * @ordered
    */
-  protected static final String RANGE_EDEFAULT = null;
+  protected static final org.eclipse.equinox.internal.provisional.p2.core.VersionRange RANGE_EDEFAULT = null;
 
   /**
    * The cached value of the '{@link #getRange() <em>Range</em>}' attribute.
@@ -48,7 +48,7 @@ public class VersionRangeImpl extends MinimalEObjectImpl.Container implements Ve
    * @generated
    * @ordered
    */
-  protected String range = RANGE_EDEFAULT;
+  protected org.eclipse.equinox.internal.provisional.p2.core.VersionRange range = RANGE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -76,7 +76,7 @@ public class VersionRangeImpl extends MinimalEObjectImpl.Container implements Ve
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getRange()
+  public org.eclipse.equinox.internal.provisional.p2.core.VersionRange getRange()
   {
     return range;
   }
@@ -86,9 +86,9 @@ public class VersionRangeImpl extends MinimalEObjectImpl.Container implements Ve
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRange(String newRange)
+  public void setRange(org.eclipse.equinox.internal.provisional.p2.core.VersionRange newRange)
   {
-    String oldRange = range;
+    org.eclipse.equinox.internal.provisional.p2.core.VersionRange oldRange = range;
     range = newRange;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, BeeLangPackage.VERSION_RANGE__RANGE, oldRange, range));
@@ -121,7 +121,7 @@ public class VersionRangeImpl extends MinimalEObjectImpl.Container implements Ve
     switch (featureID)
     {
       case BeeLangPackage.VERSION_RANGE__RANGE:
-        setRange((String)newValue);
+        setRange((org.eclipse.equinox.internal.provisional.p2.core.VersionRange)newValue);
         return;
     }
     super.eSet(featureID, newValue);

@@ -5,7 +5,7 @@
     nsURI="http://www.eclipse.org/b3/BeeLang" nsPrefix="beeLang">
   <eClassifiers xsi:type="ecore:EClass" name="BeeModel">
     <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
-        eType="ecore:EClass platform:/resource/org.eclipse.b3.backend/model/B3Backend.ecore#//B3JavaImport"
+        eType="ecore:EClass platform:/resource/org.eclipse.b3.backend/model/B3Backend.ecore#//IType"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="functions" upperBound="-1"
         eType="ecore:EClass platform:/resource/org.eclipse.b3.backend/model/B3Backend.ecore#//B3Function"
@@ -247,7 +247,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Selector">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="#//SelectorOperator"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pattern" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pattern" eType="ecore:EDataType platform:/resource/org.eclipse.b3.backend/model/B3Backend.ecore#//RegexpPattern"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="predicate" eType="ecore:EClass platform:/resource/org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"
         containment="true"/>
   </eClassifiers>
@@ -296,15 +296,15 @@
   <eClassifiers xsi:type="ecore:EClass" name="UnitSelector" eSuperTypes="#//ContextSelector">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="interface" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="namePattern" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="namePattern" eType="ecore:EDataType platform:/resource/org.eclipse.b3.backend/model/B3Backend.ecore#//RegexpPattern"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="versionRange" eType="#//VersionRange"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Version">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType platform:/resource/org.eclipse.b3.beelang/src/org/eclipse/b3/BeeLangTypes.ecore#//Version"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VersionRange">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="range" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="range" eType="ecore:EDataType platform:/resource/org.eclipse.b3.beelang/src/org/eclipse/b3/BeeLangTypes.ecore#//VersionRange"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompounddReferences" eSuperTypes="#//CompoundReferences">
     <eStructuralFeatures xsi:type="ecore:EReference" name="prerequisites" upperBound="-1"

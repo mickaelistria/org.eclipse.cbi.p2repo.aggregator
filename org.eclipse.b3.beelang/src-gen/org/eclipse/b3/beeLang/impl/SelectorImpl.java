@@ -5,6 +5,8 @@
  */
 package org.eclipse.b3.beeLang.impl;
 
+import java.util.regex.Pattern;
+
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 
 import org.eclipse.b3.beeLang.BeeLangPackage;
@@ -86,7 +88,7 @@ public class SelectorImpl extends MinimalEObjectImpl.Container implements Select
    * @generated
    * @ordered
    */
-  protected static final String PATTERN_EDEFAULT = null;
+  protected static final Pattern PATTERN_EDEFAULT = null;
 
   /**
    * The cached value of the '{@link #getPattern() <em>Pattern</em>}' attribute.
@@ -96,7 +98,7 @@ public class SelectorImpl extends MinimalEObjectImpl.Container implements Select
    * @generated
    * @ordered
    */
-  protected String pattern = PATTERN_EDEFAULT;
+  protected Pattern pattern = PATTERN_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getPredicate() <em>Predicate</em>}' containment reference.
@@ -180,7 +182,7 @@ public class SelectorImpl extends MinimalEObjectImpl.Container implements Select
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getPattern()
+  public Pattern getPattern()
   {
     return pattern;
   }
@@ -190,9 +192,9 @@ public class SelectorImpl extends MinimalEObjectImpl.Container implements Select
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setPattern(String newPattern)
+  public void setPattern(Pattern newPattern)
   {
-    String oldPattern = pattern;
+    Pattern oldPattern = pattern;
     pattern = newPattern;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, BeeLangPackage.SELECTOR__PATTERN, oldPattern, pattern));
@@ -301,7 +303,7 @@ public class SelectorImpl extends MinimalEObjectImpl.Container implements Select
         setOp((SelectorOperator)newValue);
         return;
       case BeeLangPackage.SELECTOR__PATTERN:
-        setPattern((String)newValue);
+        setPattern((Pattern)newValue);
         return;
       case BeeLangPackage.SELECTOR__PREDICATE:
         setPredicate((BExpression)newValue);

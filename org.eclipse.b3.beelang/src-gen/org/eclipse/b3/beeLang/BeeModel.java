@@ -5,8 +5,9 @@
  */
 package org.eclipse.b3.beeLang;
 
+import java.lang.reflect.Type;
+
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
-import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -35,7 +36,7 @@ public interface BeeModel extends EObject
 {
   /**
    * Returns the value of the '<em><b>Imports</b></em>' containment reference list.
-   * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport}.
+   * The list contents are of type {@link java.lang.reflect.Type}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Imports</em>' containment reference list isn't clear,
@@ -44,10 +45,10 @@ public interface BeeModel extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Imports</em>' containment reference list.
    * @see org.eclipse.b3.beeLang.BeeLangPackage#getBeeModel_Imports()
-   * @model containment="true"
+   * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType" containment="true"
    * @generated
    */
-  EList<B3JavaImport> getImports();
+  EList<Type> getImports();
 
   /**
    * Returns the value of the '<em><b>Functions</b></em>' containment reference list.

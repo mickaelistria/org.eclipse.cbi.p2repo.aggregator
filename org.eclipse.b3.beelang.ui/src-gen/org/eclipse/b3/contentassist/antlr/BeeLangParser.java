@@ -215,12 +215,8 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getVarDeclarationAccess().getGroup(), "rule__VarDeclaration__Group__0");
 					put(grammarAccess.getVarDeclarationAccess().getGroup_1(), "rule__VarDeclaration__Group_1__0");
 					put(grammarAccess.getSimpleTypeRefAccess().getGroup(), "rule__SimpleTypeRef__Group__0");
-					put(grammarAccess.getSimpleTypeRefAccess().getGroup_2(), "rule__SimpleTypeRef__Group_2__0");
-					put(grammarAccess.getSimpleTypeRefAccess().getGroup_2_2(), "rule__SimpleTypeRef__Group_2_2__0");
 					put(grammarAccess.getClosureTypeRefAccess().getGroup(), "rule__ClosureTypeRef__Group__0");
-					put(grammarAccess.getClosureTypeRefAccess().getGroup_1(), "rule__ClosureTypeRef__Group_1__0");
-					put(grammarAccess.getClosureTypeRefAccess().getGroup_1_0(), "rule__ClosureTypeRef__Group_1_0__0");
-					put(grammarAccess.getClosureTypeRefAccess().getGroup_1_0_2(), "rule__ClosureTypeRef__Group_1_0_2__0");
+					put(grammarAccess.getClosureTypeRefAccess().getGroup_3(), "rule__ClosureTypeRef__Group_3__0");
 					put(grammarAccess.getWildcardRefParamAccess().getGroup(), "rule__WildcardRefParam__Group__0");
 					put(grammarAccess.getWildcardRefParamAccess().getGroup_2_0(), "rule__WildcardRefParam__Group_2_0__0");
 					put(grammarAccess.getWildcardRefParamAccess().getGroup_2_0_2(), "rule__WildcardRefParam__Group_2_0_2__0");
@@ -464,11 +460,9 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getVarDeclarationAccess().getTypeAssignment_1_0_1(), "rule__VarDeclaration__TypeAssignment_1_0_1");
 					put(grammarAccess.getVarDeclarationAccess().getNameAssignment_1_1(), "rule__VarDeclaration__NameAssignment_1_1");
 					put(grammarAccess.getSimpleTypeRefAccess().getRawTypeAssignment_1(), "rule__SimpleTypeRef__RawTypeAssignment_1");
-					put(grammarAccess.getSimpleTypeRefAccess().getActualArgumentsListAssignment_2_1(), "rule__SimpleTypeRef__ActualArgumentsListAssignment_2_1");
-					put(grammarAccess.getSimpleTypeRefAccess().getActualArgumentsListAssignment_2_2_1(), "rule__SimpleTypeRef__ActualArgumentsListAssignment_2_2_1");
-					put(grammarAccess.getClosureTypeRefAccess().getParameterTypesAssignment_1_0_1(), "rule__ClosureTypeRef__ParameterTypesAssignment_1_0_1");
-					put(grammarAccess.getClosureTypeRefAccess().getParameterTypesAssignment_1_0_2_1(), "rule__ClosureTypeRef__ParameterTypesAssignment_1_0_2_1");
-					put(grammarAccess.getClosureTypeRefAccess().getReturnTypeAssignment_1_2(), "rule__ClosureTypeRef__ReturnTypeAssignment_1_2");
+					put(grammarAccess.getClosureTypeRefAccess().getParameterTypesAssignment_2(), "rule__ClosureTypeRef__ParameterTypesAssignment_2");
+					put(grammarAccess.getClosureTypeRefAccess().getParameterTypesAssignment_3_1(), "rule__ClosureTypeRef__ParameterTypesAssignment_3_1");
+					put(grammarAccess.getClosureTypeRefAccess().getReturnTypeAssignment_6(), "rule__ClosureTypeRef__ReturnTypeAssignment_6");
 					put(grammarAccess.getWildcardRefParamAccess().getUpperBoundsListAssignment_2_0_1(), "rule__WildcardRefParam__UpperBoundsListAssignment_2_0_1");
 					put(grammarAccess.getWildcardRefParamAccess().getUpperBoundsListAssignment_2_0_2_1(), "rule__WildcardRefParam__UpperBoundsListAssignment_2_0_2_1");
 					put(grammarAccess.getWildcardRefParamAccess().getLowerBoundsListAssignment_2_1_1(), "rule__WildcardRefParam__LowerBoundsListAssignment_2_1_1");
@@ -557,7 +551,7 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUnitLiteralAccess().getValueAssignment_1(), "rule__UnitLiteral__ValueAssignment_1");
 					put(grammarAccess.getStringLiteralAccess().getValueAssignment_1(), "rule__StringLiteral__ValueAssignment_1");
 					put(grammarAccess.getRealLiteralAccess().getValueAssignment_1(), "rule__RealLiteral__ValueAssignment_1");
-					put(grammarAccess.getRegexpLiteralAccess().getPatternStringAssignment_1(), "rule__RegexpLiteral__PatternStringAssignment_1");
+					put(grammarAccess.getRegexpLiteralAccess().getPatternAssignment_1(), "rule__RegexpLiteral__PatternAssignment_1");
 					put(grammarAccess.getVersionAccess().getVersionAssignment(), "rule__Version__VersionAssignment");
 					put(grammarAccess.getVersionRangeAccess().getRangeAssignment(), "rule__VersionRange__RangeAssignment");
 				}

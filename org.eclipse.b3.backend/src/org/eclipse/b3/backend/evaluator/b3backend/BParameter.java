@@ -76,7 +76,7 @@ public interface BParameter extends EObject {
 	 * @return the value of the '<em>Expr</em>' containment reference.
 	 * @see #setExpr(BExpression)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBParameter_Expr()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	BExpression getExpr();

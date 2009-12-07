@@ -74,32 +74,9 @@ public class BRegularExpressionItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addPatternStringPropertyDescriptor(object);
 			addPatternPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Pattern String feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addPatternStringPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_BRegularExpression_patternString_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BRegularExpression_patternString_feature", "_UI_BRegularExpression_type"),
-				 B3backendPackage.Literals.BREGULAR_EXPRESSION__PATTERN_STRING,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -159,7 +136,6 @@ public class BRegularExpressionItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(BRegularExpression.class)) {
-			case B3backendPackage.BREGULAR_EXPRESSION__PATTERN_STRING:
 			case B3backendPackage.BREGULAR_EXPRESSION__PATTERN:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

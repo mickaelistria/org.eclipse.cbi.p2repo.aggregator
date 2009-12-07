@@ -5,6 +5,8 @@
  */
 package org.eclipse.b3.beeLang;
 
+import java.util.regex.Pattern;
+
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 
 import org.eclipse.emf.ecore.EObject;
@@ -94,12 +96,12 @@ public interface Selector extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Pattern</em>' attribute.
-   * @see #setPattern(String)
+   * @see #setPattern(Pattern)
    * @see org.eclipse.b3.beeLang.BeeLangPackage#getSelector_Pattern()
-   * @model
+   * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.RegexpPattern"
    * @generated
    */
-  String getPattern();
+  Pattern getPattern();
 
   /**
    * Sets the value of the '{@link org.eclipse.b3.beeLang.Selector#getPattern <em>Pattern</em>}' attribute.
@@ -109,7 +111,7 @@ public interface Selector extends EObject
    * @see #getPattern()
    * @generated
    */
-  void setPattern(String value);
+  void setPattern(Pattern value);
 
   /**
    * Returns the value of the '<em><b>Predicate</b></em>' containment reference.

@@ -2716,22 +2716,13 @@ public interface B3backendPackage extends EPackage {
 	int BREGULAR_EXPRESSION__FILE_REFERENCE = BEXPRESSION__FILE_REFERENCE;
 
 	/**
-	 * The feature id for the '<em><b>Pattern String</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BREGULAR_EXPRESSION__PATTERN_STRING = BEXPRESSION_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Pattern</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BREGULAR_EXPRESSION__PATTERN = BEXPRESSION_FEATURE_COUNT + 1;
+	int BREGULAR_EXPRESSION__PATTERN = BEXPRESSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>BRegular Expression</em>' class.
@@ -2740,7 +2731,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BREGULAR_EXPRESSION_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 2;
+	int BREGULAR_EXPRESSION_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BParameterListImpl <em>BParameter List</em>}' class.
@@ -2976,7 +2967,7 @@ public interface B3backendPackage extends EPackage {
 	int B3_PARAMETERIZED_TYPE__OWNER_TYPE = IPARAMETERIZED_TYPE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Raw Type</b></em>' containment reference.
+	 * The feature id for the '<em><b>Raw Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -4592,17 +4583,6 @@ public interface B3backendPackage extends EPackage {
 	EClass getBRegularExpression();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression#getPatternString <em>Pattern String</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Pattern String</em>'.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression#getPatternString()
-	 * @see #getBRegularExpression()
-	 * @generated
-	 */
-	EAttribute getBRegularExpression_PatternString();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression#getPattern <em>Pattern</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4807,10 +4787,10 @@ public interface B3backendPackage extends EPackage {
 	EReference getB3ParameterizedType_OwnerType();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType#getRawType <em>Raw Type</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType#getRawType <em>Raw Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Raw Type</em>'.
+	 * @return the meta object for the reference '<em>Raw Type</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType#getRawType()
 	 * @see #getB3ParameterizedType()
 	 * @generated
@@ -6208,14 +6188,6 @@ public interface B3backendPackage extends EPackage {
 		EClass BREGULAR_EXPRESSION = eINSTANCE.getBRegularExpression();
 
 		/**
-		 * The meta object literal for the '<em><b>Pattern String</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute BREGULAR_EXPRESSION__PATTERN_STRING = eINSTANCE.getBRegularExpression_PatternString();
-
-		/**
 		 * The meta object literal for the '<em><b>Pattern</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6384,7 +6356,7 @@ public interface B3backendPackage extends EPackage {
 		EReference B3_PARAMETERIZED_TYPE__OWNER_TYPE = eINSTANCE.getB3ParameterizedType_OwnerType();
 
 		/**
-		 * The meta object literal for the '<em><b>Raw Type</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Raw Type</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

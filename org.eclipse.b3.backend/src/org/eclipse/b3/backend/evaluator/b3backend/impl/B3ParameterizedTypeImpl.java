@@ -66,7 +66,7 @@ public class B3ParameterizedTypeImpl extends EObjectImpl implements B3Parameteri
 	protected Type ownerType;
 
 	/**
-	 * The cached value of the '{@link #getRawType() <em>Raw Type</em>}' containment reference.
+	 * The cached value of the '{@link #getRawType() <em>Raw Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRawType()
@@ -153,6 +153,14 @@ public class B3ParameterizedTypeImpl extends EObjectImpl implements B3Parameteri
 	 * @generated
 	 */
 	public Type getRawType() {
+		if (rawType != null && ((EObject)rawType).eIsProxy()) {
+			InternalEObject oldRawType = (InternalEObject)rawType;
+			rawType = (Type)eResolveProxy(oldRawType);
+			if (rawType != oldRawType) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.B3_PARAMETERIZED_TYPE__RAW_TYPE, oldRawType, rawType));
+			}
+		}
 		return rawType;
 	}
 
@@ -161,14 +169,8 @@ public class B3ParameterizedTypeImpl extends EObjectImpl implements B3Parameteri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRawType(Type newRawType, NotificationChain msgs) {
-		Type oldRawType = rawType;
-		rawType = newRawType;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.B3_PARAMETERIZED_TYPE__RAW_TYPE, oldRawType, newRawType);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+	public Type basicGetRawType() {
+		return rawType;
 	}
 
 	/**
@@ -177,17 +179,10 @@ public class B3ParameterizedTypeImpl extends EObjectImpl implements B3Parameteri
 	 * @generated
 	 */
 	public void setRawType(Type newRawType) {
-		if (newRawType != rawType) {
-			NotificationChain msgs = null;
-			if (rawType != null)
-				msgs = ((InternalEObject)rawType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.B3_PARAMETERIZED_TYPE__RAW_TYPE, null, msgs);
-			if (newRawType != null)
-				msgs = ((InternalEObject)newRawType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.B3_PARAMETERIZED_TYPE__RAW_TYPE, null, msgs);
-			msgs = basicSetRawType(newRawType, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.B3_PARAMETERIZED_TYPE__RAW_TYPE, newRawType, newRawType));
+		Type oldRawType = rawType;
+		rawType = newRawType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.B3_PARAMETERIZED_TYPE__RAW_TYPE, oldRawType, rawType));
 	}
 
 	/**
@@ -223,8 +218,6 @@ public class B3ParameterizedTypeImpl extends EObjectImpl implements B3Parameteri
 		switch (featureID) {
 			case B3backendPackage.B3_PARAMETERIZED_TYPE__OWNER_TYPE:
 				return basicSetOwnerType(null, msgs);
-			case B3backendPackage.B3_PARAMETERIZED_TYPE__RAW_TYPE:
-				return basicSetRawType(null, msgs);
 			case B3backendPackage.B3_PARAMETERIZED_TYPE__ACTUAL_ARGUMENTS_LIST:
 				return ((InternalEList<?>)getActualArgumentsList()).basicRemove(otherEnd, msgs);
 		}
@@ -242,7 +235,8 @@ public class B3ParameterizedTypeImpl extends EObjectImpl implements B3Parameteri
 			case B3backendPackage.B3_PARAMETERIZED_TYPE__OWNER_TYPE:
 				return getOwnerType();
 			case B3backendPackage.B3_PARAMETERIZED_TYPE__RAW_TYPE:
-				return getRawType();
+				if (resolve) return getRawType();
+				return basicGetRawType();
 			case B3backendPackage.B3_PARAMETERIZED_TYPE__ACTUAL_ARGUMENTS_LIST:
 				return getActualArgumentsList();
 		}

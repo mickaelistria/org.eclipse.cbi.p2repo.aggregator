@@ -46,7 +46,7 @@ public interface BCreateExpression extends BParameterizedExpression {
 	 * @return the value of the '<em>Type</em>' containment reference.
 	 * @see #setType(Type)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBCreateExpression_Type()
-	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType" containment="true" required="true"
+	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType" containment="true"
 	 * @generated
 	 */
 	Type getType();

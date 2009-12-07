@@ -38,7 +38,7 @@ public class VersionImpl extends MinimalEObjectImpl.Container implements Version
    * @generated
    * @ordered
    */
-  protected static final String VERSION_EDEFAULT = null;
+  protected static final org.eclipse.equinox.internal.provisional.p2.core.Version VERSION_EDEFAULT = null;
 
   /**
    * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
@@ -48,7 +48,7 @@ public class VersionImpl extends MinimalEObjectImpl.Container implements Version
    * @generated
    * @ordered
    */
-  protected String version = VERSION_EDEFAULT;
+  protected org.eclipse.equinox.internal.provisional.p2.core.Version version = VERSION_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -76,7 +76,7 @@ public class VersionImpl extends MinimalEObjectImpl.Container implements Version
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getVersion()
+  public org.eclipse.equinox.internal.provisional.p2.core.Version getVersion()
   {
     return version;
   }
@@ -86,9 +86,9 @@ public class VersionImpl extends MinimalEObjectImpl.Container implements Version
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setVersion(String newVersion)
+  public void setVersion(org.eclipse.equinox.internal.provisional.p2.core.Version newVersion)
   {
-    String oldVersion = version;
+    org.eclipse.equinox.internal.provisional.p2.core.Version oldVersion = version;
     version = newVersion;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, BeeLangPackage.VERSION__VERSION, oldVersion, version));
@@ -121,7 +121,7 @@ public class VersionImpl extends MinimalEObjectImpl.Container implements Version
     switch (featureID)
     {
       case BeeLangPackage.VERSION__VERSION:
-        setVersion((String)newValue);
+        setVersion((org.eclipse.equinox.internal.provisional.p2.core.Version)newValue);
         return;
     }
     super.eSet(featureID, newValue);
