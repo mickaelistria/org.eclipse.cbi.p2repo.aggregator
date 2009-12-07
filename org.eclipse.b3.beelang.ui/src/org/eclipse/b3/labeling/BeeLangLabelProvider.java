@@ -8,6 +8,8 @@ import java.lang.reflect.Type;
 import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression;
 import org.eclipse.b3.beeLang.BuildUnit;
@@ -20,7 +22,7 @@ public class BeeLangLabelProvider extends DefaultLabelProvider {
 		return "unit: " + ele.getName();
 	}
 	String text(BLiteralExpression ele) {
-	  return "literal: "+safeToString(ele.getValue());
+	  return "literal<"+ safeClassToString(ele.getValue()) +">"+safeToString(ele.getValue());
 	}
 	String text(B3ParameterizedType ele) {
 		Type t = ele.getRawType();
@@ -35,9 +37,18 @@ public class BeeLangLabelProvider extends DefaultLabelProvider {
 	String text(BRegularExpression ele) {
 		return "regexp: " + safeToString(ele.getPattern());
 	}
+	String text(BLiteralListExpression ele) {
+		return "list: <" + safeToString(ele.getEntryType())+">";
+	}
+	String text(BLiteralMapExpression ele) {
+		return "list: <" + safeToString(ele.getKeyType())+", "+safeToString(ele.getValueType())+">";
+	}
 	
 	private String safeToString(Object o) {
 		return (o == null) ? "null" : o.toString();
+	}
+	private String safeClassToString(Object o) {
+		return o == null ? "null" : o.getClass().getName();
 	}
 /*	 
     String image(MyModel ele) {

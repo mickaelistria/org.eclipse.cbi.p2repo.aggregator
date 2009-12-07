@@ -623,7 +623,7 @@ terminal HEX : '0' ('x'|'X')(('0'..'9')|('a'..'f')|('A'..'F'))+ ;
 
 //terminal REAL : (INT? '.' INT) (('e'|'E')('-'|'+')INT)? ;
 terminal INT : ('0'..'9')+;
-REAL hidden(): INT ? '.' (EXT_INT | INT) HIDDENBUG;
+REAL: INT ? '.' (EXT_INT | INT);
 terminal EXT_INT: INT ('e'|'E')('-'|'+') INT;
  
 //terminal REAL : ((INT '.' INT)|(INT '.')|('.' INT) | INT) (('e'|'E')('-'|'+')INT)? ;

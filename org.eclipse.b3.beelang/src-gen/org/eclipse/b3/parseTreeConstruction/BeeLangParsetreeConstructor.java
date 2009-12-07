@@ -25564,8 +25564,8 @@ protected class KeyLiteral_ValueAssignment_1 extends AssignmentToken  {
  * 
  *      
  * 	   
- * 	  
- * 	   
+ * 	     // SEE ISSUE 297089 - must be placed before IntegerLiteral
+ * 	    
  * //	| NullLiteral // TODO: 
  * 	   
  * //	| QueryLiteral
@@ -25578,8 +25578,8 @@ protected class KeyLiteral_ValueAssignment_1 extends AssignmentToken  {
 // 
 //      
 // 	   
-// 	  
-// 	   
+// 	     // SEE ISSUE 297089 - must be placed before IntegerLiteral
+// 	    
 // //	| NullLiteral // TODO: 
 // 	   
 // //	| QueryLiteral
@@ -25650,7 +25650,7 @@ protected class ValueLiteral_BooleanLiteralParserRuleCall_0 extends RuleCallToke
 	}	
 }
 
-// RealLiteral
+// RealLiteral      // SEE ISSUE 297089 - must be placed before IntegerLiteral
 protected class ValueLiteral_RealLiteralParserRuleCall_1 extends RuleCallToken {
 	
 	public ValueLiteral_RealLiteralParserRuleCall_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {

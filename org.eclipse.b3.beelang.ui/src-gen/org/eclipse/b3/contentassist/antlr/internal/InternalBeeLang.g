@@ -3673,12 +3673,8 @@ entryRuleREAL :
 // Rule REAL
 ruleREAL 
     @init {
-		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
 		int stackSize = keepStackSize();
     }
-    @after {
-		myHiddenTokenState.restore();
-    }  
  :
 (
 { before(grammarAccess.getREALAccess().getGroup()); }
@@ -18573,30 +18569,10 @@ rule__REAL__Group__2
 { after(grammarAccess.getREALAccess().getAlternatives_2()); }
 )
 
-	rule__REAL__Group__3
 ;
 finally {
 	restoreStackSize(stackSize);
 }
-
-
-rule__REAL__Group__3
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getREALAccess().getHIDDENBUGParserRuleCall_3()); }
-	ruleHIDDENBUG
-{ after(grammarAccess.getREALAccess().getHIDDENBUGParserRuleCall_3()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
 
 
 

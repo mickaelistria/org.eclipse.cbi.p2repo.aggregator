@@ -5792,8 +5792,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//
 		//     
 		//	   
-		//	  
-		//	   
+		//	     // SEE ISSUE 297089 - must be placed before IntegerLiteral
+		//	    
 		////	| NullLiteral // TODO: 
 		//	   
 		////	| QueryLiteral
@@ -5805,8 +5805,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//
 		//     
 		//	   
-		//	  
-		//	   
+		//	     // SEE ISSUE 297089 - must be placed before IntegerLiteral
+		//	    
 		////	| NullLiteral // TODO: 
 		//	   
 		////	| QueryLiteral
@@ -5817,7 +5817,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//BooleanLiteral
 		public RuleCall getBooleanLiteralParserRuleCall_0() { return cBooleanLiteralParserRuleCall_0; }
 
-		//RealLiteral
+		//RealLiteral      // SEE ISSUE 297089 - must be placed before IntegerLiteral
 		public RuleCall getRealLiteralParserRuleCall_1() { return cRealLiteralParserRuleCall_1; }
 
 		//IntegerLiteral    
@@ -6670,13 +6670,12 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
 		private final RuleCall cEXT_INTTerminalRuleCall_2_0 = (RuleCall)cAlternatives_2.eContents().get(0);
 		private final RuleCall cINTTerminalRuleCall_2_1 = (RuleCall)cAlternatives_2.eContents().get(1);
-		private final RuleCall cHIDDENBUGParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
 		
-		//REAL returns ecore::EString hidden ( ):
-		//  INT? "." (EXT_INT|INT) HIDDENBUG;
+		//REAL returns ecore::EString:
+		//  INT? "." (EXT_INT|INT);
 		public ParserRule getRule() { return rule; }
 
-		//INT? "." (EXT_INT|INT) HIDDENBUG
+		//INT? "." (EXT_INT|INT)
 		public Group getGroup() { return cGroup; }
 
 		//INT?
@@ -6693,9 +6692,6 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 		//INT
 		public RuleCall getINTTerminalRuleCall_2_1() { return cINTTerminalRuleCall_2_1; }
-
-		//HIDDENBUG
-		public RuleCall getHIDDENBUGParserRuleCall_3() { return cHIDDENBUGParserRuleCall_3; }
 	}
 	
 	
@@ -8409,8 +8405,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//
 	//     
 	//	   
-	//	  
-	//	   
+	//	     // SEE ISSUE 297089 - must be placed before IntegerLiteral
+	//	    
 	////	| NullLiteral // TODO: 
 	//	   
 	////	| QueryLiteral
@@ -8887,8 +8883,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return (tINT != null) ? tINT : (tINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "INT"));
 	} 
 
-	//REAL returns ecore::EString hidden ( ):
-	//  INT? "." (EXT_INT|INT) HIDDENBUG;
+	//REAL returns ecore::EString:
+	//  INT? "." (EXT_INT|INT);
 	public REALElements getREALAccess() {
 		return (pREAL != null) ? pREAL : (pREAL = new REALElements());
 	}

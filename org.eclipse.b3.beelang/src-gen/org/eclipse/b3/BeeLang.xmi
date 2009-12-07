@@ -2982,7 +2982,7 @@
       <right value="9"/>
     </alternatives>
   </rules>
-  <rules xsi:type="xtext:ParserRule" name="REAL" definesHiddenTokens="true">
+  <rules xsi:type="xtext:ParserRule" name="REAL">
     <type metamodel="//@metamodelDeclarations.0">
       <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </type>
@@ -2993,7 +2993,6 @@
         <groups xsi:type="xtext:RuleCall" rule="//@rules.150"/>
         <groups xsi:type="xtext:RuleCall" rule="//@rules.148"/>
       </tokens>
-      <tokens xsi:type="xtext:RuleCall" rule="//@rules.128"/>
     </alternatives>
   </rules>
   <rules xsi:type="xtext:TerminalRule" name="EXT_INT">

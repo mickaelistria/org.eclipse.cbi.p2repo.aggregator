@@ -12500,11 +12500,9 @@ entryRuleREAL returns [String current=null] :
 // Rule REAL
 ruleREAL returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
     @init { setCurrentLookahead(); resetLookahead(); 
-		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
     }
     @after { resetLookahead(); 
 	    lastConsumedNode = currentNode;
-		myHiddenTokenState.restore();
     }:
 ((    this_INT_0=RULE_INT    {
 		$current.merge(this_INT_0);
@@ -12534,18 +12532,7 @@ ruleREAL returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
     { 
     createLeafNode(grammarAccess.getREALAccess().getINTTerminalRuleCall_2_1(), null); 
     }
-)
-    { 
-        currentNode=createCompositeNode(grammarAccess.getREALAccess().getHIDDENBUGParserRuleCall_3(), currentNode); 
-    }
-    this_HIDDENBUG_4=ruleHIDDENBUG    {
-		$current.merge(this_HIDDENBUG_4);
-    }
-
-    { 
-        currentNode = currentNode.getParent();
-    }
-)
+))
     ;
 
 
