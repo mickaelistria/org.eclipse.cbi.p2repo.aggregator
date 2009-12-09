@@ -1756,10 +1756,10 @@
       <classifier xsi:type="ecore:EClass" href="http://b3backend/1.0#//BExpression"/>
     </type>
     <alternatives xsi:type="xtext:Alternatives">
-      <groups xsi:type="xtext:RuleCall" rule="//@rules.92"/>
-      <groups xsi:type="xtext:RuleCall" rule="//@rules.104"/>
       <groups xsi:type="xtext:RuleCall" rule="//@rules.94"/>
       <groups xsi:type="xtext:RuleCall" rule="//@rules.96"/>
+      <groups xsi:type="xtext:RuleCall" rule="//@rules.92"/>
+      <groups xsi:type="xtext:RuleCall" rule="//@rules.104"/>
       <groups xsi:type="xtext:RuleCall" rule="//@rules.91"/>
       <groups xsi:type="xtext:RuleCall" rule="//@rules.93"/>
       <groups xsi:type="xtext:RuleCall" rule="//@rules.121"/>

@@ -4296,10 +4296,10 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	public class PrimaryExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PrimaryExpression");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cVariableValueParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cLiteralParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cFeatureCallParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cConstructorCallExpressionParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cFeatureCallParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cConstructorCallExpressionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cVariableValueParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cLiteralParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final RuleCall cPropertyValueParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		private final RuleCall cKeywordVariablesParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		private final RuleCall cParanthesizedExpressionParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
@@ -4311,14 +4311,14 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cWildcardExpressionParserRuleCall_12 = (RuleCall)cAlternatives.eContents().get(12);
 		
 		//PrimaryExpression returns be::BExpression:
-		//  VariableValue|Literal|FeatureCall|ConstructorCallExpression|PropertyValue|
+		//  FeatureCall|ConstructorCallExpression|VariableValue|Literal|PropertyValue|
 		//  KeywordVariables|ParanthesizedExpression|IfExpression|BlockExpression|
 		//  SwitchExpression|ThrowExpression|TryCatchExpression|WildcardExpression; 
 		//    
 		//	  
-		//	   
-		//	   
 		//	  
+		//	  
+		//	   
 		//	  
 		//	  
 		//	  
@@ -4340,14 +4340,14 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		////	;
 		public ParserRule getRule() { return rule; }
 
-		//VariableValue|Literal|FeatureCall|ConstructorCallExpression|PropertyValue|
+		//FeatureCall|ConstructorCallExpression|VariableValue|Literal|PropertyValue|
 		//KeywordVariables|ParanthesizedExpression|IfExpression|BlockExpression|
 		//SwitchExpression|ThrowExpression|TryCatchExpression|WildcardExpression 
 		//    
 		//	  
-		//	   
-		//	   
 		//	  
+		//	  
+		//	   
 		//	  
 		//	  
 		//	  
@@ -4369,17 +4369,17 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		////	;
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//VariableValue
-		public RuleCall getVariableValueParserRuleCall_0() { return cVariableValueParserRuleCall_0; }
-
-		//Literal
-		public RuleCall getLiteralParserRuleCall_1() { return cLiteralParserRuleCall_1; }
-
 		//FeatureCall
-		public RuleCall getFeatureCallParserRuleCall_2() { return cFeatureCallParserRuleCall_2; }
+		public RuleCall getFeatureCallParserRuleCall_0() { return cFeatureCallParserRuleCall_0; }
 
 		//ConstructorCallExpression
-		public RuleCall getConstructorCallExpressionParserRuleCall_3() { return cConstructorCallExpressionParserRuleCall_3; }
+		public RuleCall getConstructorCallExpressionParserRuleCall_1() { return cConstructorCallExpressionParserRuleCall_1; }
+
+		//VariableValue
+		public RuleCall getVariableValueParserRuleCall_2() { return cVariableValueParserRuleCall_2; }
+
+		//Literal
+		public RuleCall getLiteralParserRuleCall_3() { return cLiteralParserRuleCall_3; }
 
 		//PropertyValue
 		public RuleCall getPropertyValueParserRuleCall_4() { return cPropertyValueParserRuleCall_4; }
@@ -8009,14 +8009,14 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//PrimaryExpression returns be::BExpression:
-	//  VariableValue|Literal|FeatureCall|ConstructorCallExpression|PropertyValue|
+	//  FeatureCall|ConstructorCallExpression|VariableValue|Literal|PropertyValue|
 	//  KeywordVariables|ParanthesizedExpression|IfExpression|BlockExpression|
 	//  SwitchExpression|ThrowExpression|TryCatchExpression|WildcardExpression; 
 	//    
 	//	  
-	//	   
-	//	   
 	//	  
+	//	  
+	//	   
 	//	  
 	//	  
 	//	  

@@ -8127,11 +8127,11 @@ rulePrimaryExpression returns [EObject current=null]
 	  /* */ 
 	}
     { 
-        currentNode=createCompositeNode(grammarAccess.getPrimaryExpressionAccess().getVariableValueParserRuleCall_0(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getPrimaryExpressionAccess().getFeatureCallParserRuleCall_0(), currentNode); 
     }
-    this_VariableValue_0=ruleVariableValue
+    this_FeatureCall_0=ruleFeatureCall
     { 
-        $current = $this_VariableValue_0.current; 
+        $current = $this_FeatureCall_0.current; 
         currentNode = currentNode.getParent();
     }
 
@@ -8140,11 +8140,11 @@ rulePrimaryExpression returns [EObject current=null]
 	  /* */ 
 	}
     { 
-        currentNode=createCompositeNode(grammarAccess.getPrimaryExpressionAccess().getLiteralParserRuleCall_1(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getPrimaryExpressionAccess().getConstructorCallExpressionParserRuleCall_1(), currentNode); 
     }
-    this_Literal_1=ruleLiteral
+    this_ConstructorCallExpression_1=ruleConstructorCallExpression
     { 
-        $current = $this_Literal_1.current; 
+        $current = $this_ConstructorCallExpression_1.current; 
         currentNode = currentNode.getParent();
     }
 
@@ -8153,11 +8153,11 @@ rulePrimaryExpression returns [EObject current=null]
 	  /* */ 
 	}
     { 
-        currentNode=createCompositeNode(grammarAccess.getPrimaryExpressionAccess().getFeatureCallParserRuleCall_2(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getPrimaryExpressionAccess().getVariableValueParserRuleCall_2(), currentNode); 
     }
-    this_FeatureCall_2=ruleFeatureCall
+    this_VariableValue_2=ruleVariableValue
     { 
-        $current = $this_FeatureCall_2.current; 
+        $current = $this_VariableValue_2.current; 
         currentNode = currentNode.getParent();
     }
 
@@ -8166,11 +8166,11 @@ rulePrimaryExpression returns [EObject current=null]
 	  /* */ 
 	}
     { 
-        currentNode=createCompositeNode(grammarAccess.getPrimaryExpressionAccess().getConstructorCallExpressionParserRuleCall_3(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getPrimaryExpressionAccess().getLiteralParserRuleCall_3(), currentNode); 
     }
-    this_ConstructorCallExpression_3=ruleConstructorCallExpression
+    this_Literal_3=ruleLiteral
     { 
-        $current = $this_ConstructorCallExpression_3.current; 
+        $current = $this_Literal_3.current; 
         currentNode = currentNode.getParent();
     }
 

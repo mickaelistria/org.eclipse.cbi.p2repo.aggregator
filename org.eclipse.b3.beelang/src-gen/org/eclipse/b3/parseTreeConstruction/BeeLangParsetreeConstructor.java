@@ -18678,14 +18678,14 @@ protected class CallExpression_RightParenthesisKeyword_1_3 extends KeywordToken 
 /************ begin Rule PrimaryExpression ****************
  *
  * PrimaryExpression returns be::BExpression:
- *   VariableValue|Literal|FeatureCall|ConstructorCallExpression|PropertyValue|
+ *   FeatureCall|ConstructorCallExpression|VariableValue|Literal|PropertyValue|
  *   KeywordVariables|ParanthesizedExpression|IfExpression|BlockExpression|
  *   SwitchExpression|ThrowExpression|TryCatchExpression|WildcardExpression; 
  *     
  * 	  
- * 	   
- * 	   
  * 	  
+ * 	  
+ * 	   
  * 	  
  * 	  
  * 	  
@@ -18708,14 +18708,14 @@ protected class CallExpression_RightParenthesisKeyword_1_3 extends KeywordToken 
  *
  **/
 
-// VariableValue|Literal|FeatureCall|ConstructorCallExpression|PropertyValue|
+// FeatureCall|ConstructorCallExpression|VariableValue|Literal|PropertyValue|
 // KeywordVariables|ParanthesizedExpression|IfExpression|BlockExpression|
 // SwitchExpression|ThrowExpression|TryCatchExpression|WildcardExpression 
 //     
 // 	  
-// 	   
-// 	   
 // 	  
+// 	  
+// 	   
 // 	  
 // 	  
 // 	  
@@ -18749,10 +18749,10 @@ protected class PrimaryExpression_Alternatives extends AlternativesToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new PrimaryExpression_VariableValueParserRuleCall_0(parent, this, 0, inst);
-			case 1: return new PrimaryExpression_LiteralParserRuleCall_1(parent, this, 1, inst);
-			case 2: return new PrimaryExpression_FeatureCallParserRuleCall_2(parent, this, 2, inst);
-			case 3: return new PrimaryExpression_ConstructorCallExpressionParserRuleCall_3(parent, this, 3, inst);
+			case 0: return new PrimaryExpression_FeatureCallParserRuleCall_0(parent, this, 0, inst);
+			case 1: return new PrimaryExpression_ConstructorCallExpressionParserRuleCall_1(parent, this, 1, inst);
+			case 2: return new PrimaryExpression_VariableValueParserRuleCall_2(parent, this, 2, inst);
+			case 3: return new PrimaryExpression_LiteralParserRuleCall_3(parent, this, 3, inst);
 			case 4: return new PrimaryExpression_PropertyValueParserRuleCall_4(parent, this, 4, inst);
 			case 5: return new PrimaryExpression_KeywordVariablesParserRuleCall_5(parent, this, 5, inst);
 			case 6: return new PrimaryExpression_ParanthesizedExpressionParserRuleCall_6(parent, this, 6, inst);
@@ -18773,86 +18773,16 @@ protected class PrimaryExpression_Alternatives extends AlternativesToken {
 	}
 }
 
-// VariableValue
-protected class PrimaryExpression_VariableValueParserRuleCall_0 extends RuleCallToken {
-	
-	public PrimaryExpression_VariableValueParserRuleCall_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public RuleCall getGrammarElement() {
-		return grammarAccess.getPrimaryExpressionAccess().getVariableValueParserRuleCall_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new VariableValue_Group(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override
-	protected IInstanceDescription tryConsumeVal() {
-		if(checkForRecursion(VariableValue_Group.class, current)) return null;
-		if(!current.isInstanceOf(grammarAccess.getVariableValueRule().getType().getClassifier())) return null;
-		return current;
-	}
-	
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		switch(index) {
-			default: return parent.createParentFollower(next, actIndex , index, inst);
-		}	
-	}	
-}
-
-// Literal
-protected class PrimaryExpression_LiteralParserRuleCall_1 extends RuleCallToken {
-	
-	public PrimaryExpression_LiteralParserRuleCall_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public RuleCall getGrammarElement() {
-		return grammarAccess.getPrimaryExpressionAccess().getLiteralParserRuleCall_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new Literal_Alternatives(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override
-	protected IInstanceDescription tryConsumeVal() {
-		if(checkForRecursion(Literal_Alternatives.class, current)) return null;
-		if(!current.isInstanceOf(grammarAccess.getLiteralRule().getType().getClassifier())) return null;
-		return current;
-	}
-	
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		switch(index) {
-			default: return parent.createParentFollower(next, actIndex , index, inst);
-		}	
-	}	
-}
-
 // FeatureCall
-protected class PrimaryExpression_FeatureCallParserRuleCall_2 extends RuleCallToken {
+protected class PrimaryExpression_FeatureCallParserRuleCall_0 extends RuleCallToken {
 	
-	public PrimaryExpression_FeatureCallParserRuleCall_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public PrimaryExpression_FeatureCallParserRuleCall_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getPrimaryExpressionAccess().getFeatureCallParserRuleCall_2();
+		return grammarAccess.getPrimaryExpressionAccess().getFeatureCallParserRuleCall_0();
 	}
 
     @Override
@@ -18879,15 +18809,15 @@ protected class PrimaryExpression_FeatureCallParserRuleCall_2 extends RuleCallTo
 }
 
 // ConstructorCallExpression
-protected class PrimaryExpression_ConstructorCallExpressionParserRuleCall_3 extends RuleCallToken {
+protected class PrimaryExpression_ConstructorCallExpressionParserRuleCall_1 extends RuleCallToken {
 	
-	public PrimaryExpression_ConstructorCallExpressionParserRuleCall_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public PrimaryExpression_ConstructorCallExpressionParserRuleCall_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getPrimaryExpressionAccess().getConstructorCallExpressionParserRuleCall_3();
+		return grammarAccess.getPrimaryExpressionAccess().getConstructorCallExpressionParserRuleCall_1();
 	}
 
     @Override
@@ -18902,6 +18832,76 @@ protected class PrimaryExpression_ConstructorCallExpressionParserRuleCall_3 exte
 	protected IInstanceDescription tryConsumeVal() {
 		if(checkForRecursion(ConstructorCallExpression_Group.class, current)) return null;
 		if(!current.isInstanceOf(grammarAccess.getConstructorCallExpressionRule().getType().getClassifier())) return null;
+		return current;
+	}
+	
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(next, actIndex , index, inst);
+		}	
+	}	
+}
+
+// VariableValue
+protected class PrimaryExpression_VariableValueParserRuleCall_2 extends RuleCallToken {
+	
+	public PrimaryExpression_VariableValueParserRuleCall_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getPrimaryExpressionAccess().getVariableValueParserRuleCall_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new VariableValue_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(checkForRecursion(VariableValue_Group.class, current)) return null;
+		if(!current.isInstanceOf(grammarAccess.getVariableValueRule().getType().getClassifier())) return null;
+		return current;
+	}
+	
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(next, actIndex , index, inst);
+		}	
+	}	
+}
+
+// Literal
+protected class PrimaryExpression_LiteralParserRuleCall_3 extends RuleCallToken {
+	
+	public PrimaryExpression_LiteralParserRuleCall_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getPrimaryExpressionAccess().getLiteralParserRuleCall_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Literal_Alternatives(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(checkForRecursion(Literal_Alternatives.class, current)) return null;
+		if(!current.isInstanceOf(grammarAccess.getLiteralRule().getType().getClassifier())) return null;
 		return current;
 	}
 	

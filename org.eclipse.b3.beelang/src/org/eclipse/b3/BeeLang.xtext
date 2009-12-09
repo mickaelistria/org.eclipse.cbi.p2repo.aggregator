@@ -380,10 +380,10 @@ CallExpression returns be::BExpression:
 	PrimaryExpression ({be::BCallExpression.funcExpr=current}"(" (parameterList = ParameterList)? ")")*
 		;
 PrimaryExpression returns be::BExpression
-	: VariableValue
-	| Literal 
-	| FeatureCall 
+	: FeatureCall
 	| ConstructorCallExpression
+	| VariableValue
+	| Literal 
 	| PropertyValue
 	| KeywordVariables
 	| ParanthesizedExpression
