@@ -27,7 +27,8 @@ Unit returns BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT) : {BuildUnit}
 		('implements' implements += InterfaceName (',' implements+=InterfaceName)*)? 
 	'{'
 		(	//-- PROPERTIES
-			// goes first, because they may be used in the other clauses.
+			// goes first, because they may be used in the other clauses. TODO: can probably be relaxed
+			// since linking will find them anyway.
 			//
 			  ('default' 'properties'  defaultProperties = PropertySet)
 		)?
@@ -301,7 +302,7 @@ AssignmentExpression returns be::BExpression:
 VarDeclaration returns be::BExpression: {be::BDefValue} (('var' | type=TypeRef) name=ID) ;
 TypeRef returns be::IType: SimpleTypeRef /* | ClosureTypeRef */ ; // TODO: gets lots of warnings from this...
 SimpleTypeRef returns be::IType
-	: {be::B3ParameterizedType} rawType=[be::IType | ID] 
+	: {be::B3ParameterizedType} rawType=[be::B3JavaImport | ID] 
 /*		('<' actualArgumentsList+=TypeParam (',' actualArgumentsList+=TypeParam)* '>' )? */
 	;
 	
@@ -529,16 +530,20 @@ NullLiteral	returns  be::BExpression: {be::BLiteralExpression} "null"; // TODO: 
 //ThisLiteral	returns  be::BExpression: {ThisLiteral} val="this";
 //SuperLiteral returns  be::BExpression: {SuperLiteral} val="super";
 
+// Has conversion rule
 BooleanValue returns ecore::EBooleanObject : ("true" | "false" );
+
+// Has conversion rule
 RealValue returns ecore::EDoubleObject: REAL ;
-// handles dec, oct, and hex values with radix
+
+// Has conversion rule that handles dec, oct, and hex values with radix
 IntValue returns ecore::ELongObject : INT | HEX ;
 	
 ParanthesizedExpression returns be::BExpression
 	:  "(" Expression ")"
 	;	
 
-//--
+
 Version : version = VersionLiteral;
 
 VersionLiteral returns types::Version
@@ -588,16 +593,16 @@ Separator : '.' | '-' | '!' | '@' | '$' | '%' | '&' |'+' | '=' | '*' | '<' | '>'
 AlfanumSym : (ID | INT | HEX | EXT_INT) (Separator|ID|INT|HEX |EXT_INT)* ;
 
 // --TERMINALS
+// (Does not use standard terminals to have full control).
 
-// Redeclare the default ID with some other char instead of ^ as escape mechanism ??
+// TODO: Possibly use some other char instead of ^ as escape mechanism ??
 terminal ID : ('^')?(('a'..'z')|('A'..'Z')|'_') (('a'..'z')|('A'..'Z')|('0'..'9')|'_')* ;
 
 // Property Names start with $ and are qualified. Must be handled by lexer as
 // a.b.c is otherwise ambigous in expressions.
 terminal PID : '$' ID ('.' ID)* ;
 
-// Java regexp: TODO:
-// - allows \ before any character == same as unescaped character if character is not an operator
+// Java regexp - allows \ before any character == same as unescaped character if character is not an operator
 terminal REGULAR_EXPR returns be::RegexpPattern
 	: "~/" ( '\\' (!('\t'|'\r'|'\n'))
 			| (!('\\'|'/'|' '|'\t'|'\r'|'\n')))* "/" ('u'|'m'|'i'|'c'|'d')*
@@ -615,18 +620,10 @@ terminal DOCUMENTATION : '/**' -> '*/' ;
 terminal ML_COMMENT : '/*' (!'*') -> '*/' ;
 terminal SL_COMMENT : '//' !('\n'|'\r')* ('\r'? '\n')? ;
 terminal WS : (' '|'\t'|'\r'|'\n')+ ;
-
-// Uses special type to retain hex formatting.
 terminal HEX : '0' ('x'|'X')(('0'..'9')|('a'..'f')|('A'..'F'))+ ;
-
-//terminal REAL : ( ((('0'..'9') '.' ('0'..'9')) |('.' ('0'..'9'))) (('e'|'E')('-'|'+')INT)?) | (INT ('e'|'E')('-'|'+')INT) ;
-
-//terminal REAL : (INT? '.' INT) (('e'|'E')('-'|'+')INT)? ;
 terminal INT : ('0'..'9')+;
 REAL: INT ? '.' (EXT_INT | INT);
 terminal EXT_INT: INT ('e'|'E')('-'|'+') INT;
  
-//terminal REAL : ((INT '.' INT)|(INT '.')|('.' INT) | INT) (('e'|'E')('-'|'+')INT)? ;
-
 terminal ANY_OTHER : . ;
 

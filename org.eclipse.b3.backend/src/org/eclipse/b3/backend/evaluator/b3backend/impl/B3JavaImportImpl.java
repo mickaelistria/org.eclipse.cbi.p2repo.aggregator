@@ -14,6 +14,7 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import java.lang.reflect.Type;
 
+import org.eclipse.b3.backend.core.B3BackendActivator;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 
@@ -179,22 +180,39 @@ public class B3JavaImportImpl extends EObjectImpl implements B3JavaImport {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Also sets name to last part of qualified name if name is null.
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void setQualifiedName(String newQualifiedName) {
 		String oldQualifiedName = qualifiedName;
 		qualifiedName = newQualifiedName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.B3_JAVA_IMPORT__QUALIFIED_NAME, oldQualifiedName, qualifiedName));
+		if(name == null) {
+			int lastDot = qualifiedName.lastIndexOf('.');
+			if(lastDot < 0)
+				setName(qualifiedName);
+			else
+				setName(qualifiedName.substring(lastDot+1));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Resolves the type (by asking the bundle to load the class having qualifiedName) if not already done.
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Type getType() {
+		if(type == null) {
+			try {
+				setType(B3BackendActivator.instance.getBundle().loadClass(getQualifiedName()));
+			} catch (ClassNotFoundException e) {
+				// TODO: Need to handle this, so the "not found" surface to the user...
+				e.printStackTrace();
+			}
+		}
 		return type;
 	}
 
@@ -322,22 +340,20 @@ public class B3JavaImportImpl extends EObjectImpl implements B3JavaImport {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(", qualifiedName: ");
+		StringBuffer result = new StringBuffer("java import: ");
 		result.append(qualifiedName);
-		result.append(", type: ");
-		result.append(type);
-		result.append(", reexport: ");
-		result.append(reexport);
-		result.append(')');
+		if(!qualifiedName.endsWith(name)) {
+			result.append(" as: ");
+			result.append(name);
+		}
+		if(reexport)
+			result.append(" rexported");
 		return result.toString();
 	}
 

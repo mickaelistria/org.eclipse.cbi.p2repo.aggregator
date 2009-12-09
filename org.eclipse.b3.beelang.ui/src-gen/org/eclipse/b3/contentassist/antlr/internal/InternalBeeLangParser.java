@@ -62819,23 +62819,23 @@ public class InternalBeeLangParser extends AbstractInternalContentAssistParser {
             // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:20953:1: ( RULE_ID )
             {
             if ( backtracking==0 ) {
-               before(grammarAccess.getSimpleTypeRefAccess().getRawTypeITypeCrossReference_1_0()); 
+               before(grammarAccess.getSimpleTypeRefAccess().getRawTypeB3JavaImportCrossReference_1_0()); 
             }
             // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:20954:1: ( RULE_ID )
             // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:20955:1: RULE_ID
             {
             if ( backtracking==0 ) {
-               before(grammarAccess.getSimpleTypeRefAccess().getRawTypeITypeIDTerminalRuleCall_1_0_1()); 
+               before(grammarAccess.getSimpleTypeRefAccess().getRawTypeB3JavaImportIDTerminalRuleCall_1_0_1()); 
             }
             match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__SimpleTypeRef__RawTypeAssignment_142249); if (failed) return ;
             if ( backtracking==0 ) {
-               after(grammarAccess.getSimpleTypeRefAccess().getRawTypeITypeIDTerminalRuleCall_1_0_1()); 
+               after(grammarAccess.getSimpleTypeRefAccess().getRawTypeB3JavaImportIDTerminalRuleCall_1_0_1()); 
             }
 
             }
 
             if ( backtracking==0 ) {
-               after(grammarAccess.getSimpleTypeRefAccess().getRawTypeITypeCrossReference_1_0()); 
+               after(grammarAccess.getSimpleTypeRefAccess().getRawTypeB3JavaImportCrossReference_1_0()); 
             }
 
             }

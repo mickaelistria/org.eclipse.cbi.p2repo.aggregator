@@ -496,27 +496,22 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * This method may be called with non EObject implementations of Type. If so, then no notification
-	 * is done on change.
+	 * This method may be called with non EObject implementations of Type.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public void setReturnType(Type newReturnType) {
-		if(! (returnType instanceof EObject && newReturnType instanceof EObject) )
-			returnType = newReturnType;
-		else {
 		if (newReturnType != returnType) {
 			NotificationChain msgs = null;
-			if (returnType != null)
+			if (returnType != null && returnType instanceof EObject)
 				msgs = ((InternalEObject)returnType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BFUNCTION__RETURN_TYPE, null, msgs);
-			if (newReturnType != null)
+			if (newReturnType != null && newReturnType instanceof EObject)
 				msgs = ((InternalEObject)newReturnType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BFUNCTION__RETURN_TYPE, null, msgs);
 			msgs = basicSetReturnType(newReturnType, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION__RETURN_TYPE, newReturnType, newReturnType));
-		}
 	}
 
 	/**

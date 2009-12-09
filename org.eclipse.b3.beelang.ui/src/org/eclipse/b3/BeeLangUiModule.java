@@ -4,6 +4,8 @@ import org.eclipse.b3.coloring.BeeLangLexicalHighlightConfiguration;
 import org.eclipse.b3.coloring.BeeLangSemanticHighlightingCalculator;
 import org.eclipse.b3.coloring.BeeLangSemanticHighligtConfiuration;
 import org.eclipse.b3.coloring.BeeLangTokenToAttributeIdMapper;
+import org.eclipse.b3.outline.BeeLangOutlineNodeAdapterFactory;
+import org.eclipse.xtext.ui.common.editor.outline.actions.IContentOutlineNodeAdapterFactory;
 import org.eclipse.xtext.ui.common.editor.syntaxcoloring.ILexicalHighlightingConfiguration;
 import org.eclipse.xtext.ui.common.editor.syntaxcoloring.ISemanticHighlightingCalculator;
 import org.eclipse.xtext.ui.common.editor.syntaxcoloring.ISemanticHighlightingConfiguration;
@@ -29,5 +31,10 @@ public class BeeLangUiModule extends org.eclipse.b3.AbstractBeeLangUiModule {
 	public Class<? extends ISemanticHighlightingCalculator> 
 		bindISemanticHighlightingCalculator() {
 		return BeeLangSemanticHighlightingCalculator.class;
+	}
+	// To get nodes in outline view adapted for the purpose of attaching menus
+	public Class<? extends IContentOutlineNodeAdapterFactory>
+		bindIContentOutlineNodeAdapterFactory() {
+		return BeeLangOutlineNodeAdapterFactory.class;
 	}
 }

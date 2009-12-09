@@ -267,7 +267,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//		           
 		//	
 		//			 //-- PROPERTIES
-		//			 // goes first, because they may be used in the other clauses.
+		//			 // goes first, because they may be used in the other clauses. TODO: can probably be relaxed
+		//			 // since linking will find them anyway.
 		//			 //
 		//			            
 		//		
@@ -309,7 +310,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//		           
 		//	
 		//			 //-- PROPERTIES
-		//			 // goes first, because they may be used in the other clauses.
+		//			 // goes first, because they may be used in the other clauses. TODO: can probably be relaxed
+		//			 // since linking will find them anyway.
 		//			 //
 		//			            
 		//		
@@ -3379,11 +3381,11 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cB3ParameterizedTypeAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cRawTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final CrossReference cRawTypeITypeCrossReference_1_0 = (CrossReference)cRawTypeAssignment_1.eContents().get(0);
-		private final RuleCall cRawTypeITypeIDTerminalRuleCall_1_0_1 = (RuleCall)cRawTypeITypeCrossReference_1_0.eContents().get(1);
+		private final CrossReference cRawTypeB3JavaImportCrossReference_1_0 = (CrossReference)cRawTypeAssignment_1.eContents().get(0);
+		private final RuleCall cRawTypeB3JavaImportIDTerminalRuleCall_1_0_1 = (RuleCall)cRawTypeB3JavaImportCrossReference_1_0.eContents().get(1);
 		
 		//SimpleTypeRef returns be::IType:
-		//  {be::B3ParameterizedType} rawType=[be::IType];   // TODO: gets lots of warnings from this...
+		//  {be::B3ParameterizedType} rawType=[be::B3JavaImport];   // TODO: gets lots of warnings from this...
 		//    
 		//	         
 		/// *		('<' actualArgumentsList+=TypeParam (',' actualArgumentsList+=TypeParam)* '>' )? * / 
@@ -3401,23 +3403,23 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//// ClosureTypeRef declares parameters and return type
 		public ParserRule getRule() { return rule; }
 
-		//{be::B3ParameterizedType} rawType=[be::IType]          
+		//{be::B3ParameterizedType} rawType=[be::B3JavaImport]          
 		/// *		('<' actualArgumentsList+=TypeParam (',' actualArgumentsList+=TypeParam)* '>' )? * /
 		public Group getGroup() { return cGroup; }
 
 		//{be::B3ParameterizedType}
 		public Action getB3ParameterizedTypeAction_0() { return cB3ParameterizedTypeAction_0; }
 
-		//rawType=[be::IType]        
+		//rawType=[be::B3JavaImport]        
 		/// *		('<' actualArgumentsList+=TypeParam (',' actualArgumentsList+=TypeParam)* '>' )? * /
 		public Assignment getRawTypeAssignment_1() { return cRawTypeAssignment_1; }
 
-		//[be::IType]      
+		//[be::B3JavaImport]      
 		/// *		('<' actualArgumentsList+=TypeParam (',' actualArgumentsList+=TypeParam)* '>' )? * /
-		public CrossReference getRawTypeITypeCrossReference_1_0() { return cRawTypeITypeCrossReference_1_0; }
+		public CrossReference getRawTypeB3JavaImportCrossReference_1_0() { return cRawTypeB3JavaImportCrossReference_1_0; }
 
 		//ID
-		public RuleCall getRawTypeITypeIDTerminalRuleCall_1_0_1() { return cRawTypeITypeIDTerminalRuleCall_1_0_1; }
+		public RuleCall getRawTypeB3JavaImportIDTerminalRuleCall_1_0_1() { return cRawTypeB3JavaImportIDTerminalRuleCall_1_0_1; }
 	}
 
 	public class ClosureTypeRefElements extends AbstractParserRuleElementFinder {
@@ -5993,6 +5995,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//	          // TODO: check that type is Object
 		////ThisLiteral	returns  be::BExpression: {ThisLiteral} val="this";
 		////SuperLiteral returns  be::BExpression: {SuperLiteral} val="super";
+		//
+		//// Has conversion rule
 		public ParserRule getRule() { return rule; }
 
 		//{be::BLiteralExpression} "null"
@@ -6015,6 +6019,11 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//  "true"|"false";   // TODO: check that type is Object
 		////ThisLiteral	returns  be::BExpression: {ThisLiteral} val="this";
 		////SuperLiteral returns  be::BExpression: {SuperLiteral} val="super";
+		//
+		//// Has conversion rule
+		//              
+		//
+		//// Has conversion rule
 		public ParserRule getRule() { return rule; }
 
 		//"true"|"false"
@@ -6033,8 +6042,11 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//RealValue returns ecore::EDoubleObject:
 		//  REAL; 
+		//
+		//// Has conversion rule
 		//        
-		//// handles dec, oct, and hex values with radix
+		//
+		//// Has conversion rule that handles dec, oct, and hex values with radix
 		public ParserRule getRule() { return rule; }
 
 		//REAL
@@ -6049,11 +6061,13 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//IntValue returns ecore::ELongObject:
 		//  INT|HEX; 
-		//// handles dec, oct, and hex values with radix
+		//
+		//// Has conversion rule that handles dec, oct, and hex values with radix
 		public ParserRule getRule() { return rule; }
 
 		//INT|HEX 
-		//// handles dec, oct, and hex values with radix
+		//
+		//// Has conversion rule that handles dec, oct, and hex values with radix
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//INT
@@ -6071,13 +6085,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//ParanthesizedExpression returns be::BExpression:
-		//  "(" Expression ")"; 
-		//	
-		//    
-		//	       
-		//		
-		//
-		////--
+		//  "(" Expression ")";
 		public ParserRule getRule() { return rule; }
 
 		//"(" Expression ")"
@@ -6099,9 +6107,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cVersionVersionLiteralParserRuleCall_0 = (RuleCall)cVersionAssignment.eContents().get(0);
 		
 		//Version:
-		//  version=VersionLiteral; 	
-		//
-		////--
+		//  version=VersionLiteral;
 		public ParserRule getRule() { return rule; }
 
 		//version=VersionLiteral
@@ -6621,8 +6627,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//                      
 		//
 		//// --TERMINALS
+		//// (Does not use standard terminals to have full control).
 		//
-		//// Redeclare the default ID with some other char instead of ^ as escape mechanism ??
+		//// TODO: Possibly use some other char instead of ^ as escape mechanism ??
 		public ParserRule getRule() { return rule; }
 
 		//(ID|INT|HEX|EXT_INT) (Separator|ID|INT|HEX|EXT_INT)*
@@ -7034,7 +7041,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//		           
 	//	
 	//			 //-- PROPERTIES
-	//			 // goes first, because they may be used in the other clauses.
+	//			 // goes first, because they may be used in the other clauses. TODO: can probably be relaxed
+	//			 // since linking will find them anyway.
 	//			 //
 	//			            
 	//		
@@ -7765,7 +7773,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SimpleTypeRef returns be::IType:
-	//  {be::B3ParameterizedType} rawType=[be::IType];   // TODO: gets lots of warnings from this...
+	//  {be::B3ParameterizedType} rawType=[be::B3JavaImport];   // TODO: gets lots of warnings from this...
 	//    
 	//	         
 	/// *		('<' actualArgumentsList+=TypeParam (',' actualArgumentsList+=TypeParam)* '>' )? * / 
@@ -8489,6 +8497,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//	          // TODO: check that type is Object
 	////ThisLiteral	returns  be::BExpression: {ThisLiteral} val="this";
 	////SuperLiteral returns  be::BExpression: {SuperLiteral} val="super";
+	//
+	//// Has conversion rule
 	public NullLiteralElements getNullLiteralAccess() {
 		return (pNullLiteral != null) ? pNullLiteral : (pNullLiteral = new NullLiteralElements());
 	}
@@ -8501,6 +8511,11 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//  "true"|"false";   // TODO: check that type is Object
 	////ThisLiteral	returns  be::BExpression: {ThisLiteral} val="this";
 	////SuperLiteral returns  be::BExpression: {SuperLiteral} val="super";
+	//
+	//// Has conversion rule
+	//              
+	//
+	//// Has conversion rule
 	public BooleanValueElements getBooleanValueAccess() {
 		return (pBooleanValue != null) ? pBooleanValue : (pBooleanValue = new BooleanValueElements());
 	}
@@ -8511,8 +8526,11 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 	//RealValue returns ecore::EDoubleObject:
 	//  REAL; 
+	//
+	//// Has conversion rule
 	//        
-	//// handles dec, oct, and hex values with radix
+	//
+	//// Has conversion rule that handles dec, oct, and hex values with radix
 	public RealValueElements getRealValueAccess() {
 		return (pRealValue != null) ? pRealValue : (pRealValue = new RealValueElements());
 	}
@@ -8523,7 +8541,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 	//IntValue returns ecore::ELongObject:
 	//  INT|HEX; 
-	//// handles dec, oct, and hex values with radix
+	//
+	//// Has conversion rule that handles dec, oct, and hex values with radix
 	public IntValueElements getIntValueAccess() {
 		return (pIntValue != null) ? pIntValue : (pIntValue = new IntValueElements());
 	}
@@ -8533,13 +8552,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ParanthesizedExpression returns be::BExpression:
-	//  "(" Expression ")"; 
-	//	
-	//    
-	//	       
-	//		
-	//
-	////--
+	//  "(" Expression ")";
 	public ParanthesizedExpressionElements getParanthesizedExpressionAccess() {
 		return (pParanthesizedExpression != null) ? pParanthesizedExpression : (pParanthesizedExpression = new ParanthesizedExpressionElements());
 	}
@@ -8549,9 +8562,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Version:
-	//  version=VersionLiteral; 	
-	//
-	////--
+	//  version=VersionLiteral;
 	public VersionElements getVersionAccess() {
 		return (pVersion != null) ? pVersion : (pVersion = new VersionElements());
 	}
@@ -8764,8 +8775,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//                      
 	//
 	//// --TERMINALS
+	//// (Does not use standard terminals to have full control).
 	//
-	//// Redeclare the default ID with some other char instead of ^ as escape mechanism ??
+	//// TODO: Possibly use some other char instead of ^ as escape mechanism ??
 	public AlfanumSymElements getAlfanumSymAccess() {
 		return (pAlfanumSym != null) ? pAlfanumSym : (pAlfanumSym = new AlfanumSymElements());
 	}
@@ -8778,8 +8790,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//  "^"? ("a".."z" | "A".."Z" | "_") ("a".."z" | "A".."Z" | "0".."9" | "_")*; 
 	//
 	//// --TERMINALS
+	//// (Does not use standard terminals to have full control).
 	//
-	//// Redeclare the default ID with some other char instead of ^ as escape mechanism ??
+	//// TODO: Possibly use some other char instead of ^ as escape mechanism ??
 	//          
 	//
 	//// Property Names start with $ and are qualified. Must be handled by lexer as
@@ -8795,8 +8808,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//// a.b.c is otherwise ambigous in expressions.
 	//              
 	//
-	//// Java regexp: TODO:
-	//// - allows \ before any character == same as unescaped character if character is not an operator
+	//// Java regexp - allows \ before any character == same as unescaped character if character is not an operator
 	public TerminalRule getPIDRule() {
 		return (tPID != null) ? tPID : (tPID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "PID"));
 	} 
@@ -8805,8 +8817,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//  "~/" ("\\" !("\t" | "\r" | "\n") | !("\\" | "/" | " " | "\t" | "\r" | "\n"))* "/" ("u" | "m" | "i" | "c" |
 	//  "d")*; 
 	//
-	//// Java regexp: TODO:
-	//// - allows \ before any character == same as unescaped character if character is not an operator
+	//// Java regexp - allows \ before any character == same as unescaped character if character is not an operator
 	//      
 	//	        
 	//			      
@@ -8852,33 +8863,19 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	} 
 
 	//terminal WS:
-	//  (" " | "\t" | "\r" | "\n")+; 
-	//        
-	//
-	//// Uses special type to retain hex formatting.
+	//  (" " | "\t" | "\r" | "\n")+;
 	public TerminalRule getWSRule() {
 		return (tWS != null) ? tWS : (tWS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "WS"));
 	} 
 
 	//terminal HEX:
-	//  "0" ("x" | "X") ("0".."9" | "a".."f" | "A".."F")+; 
-	//
-	//// Uses special type to retain hex formatting.
-	//          
-	//
-	////terminal REAL : ( ((('0'..'9') '.' ('0'..'9')) |('.' ('0'..'9'))) (('e'|'E')('-'|'+')INT)?) | (INT ('e'|'E')('-'|'+')INT) ;
-	//
-	////terminal REAL : (INT? '.' INT) (('e'|'E')('-'|'+')INT)? ;
+	//  "0" ("x" | "X") ("0".."9" | "a".."f" | "A".."F")+;
 	public TerminalRule getHEXRule() {
 		return (tHEX != null) ? tHEX : (tHEX = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "HEX"));
 	} 
 
 	//terminal INT:
-	//  "0".."9"+; 
-	//
-	////terminal REAL : ( ((('0'..'9') '.' ('0'..'9')) |('.' ('0'..'9'))) (('e'|'E')('-'|'+')INT)?) | (INT ('e'|'E')('-'|'+')INT) ;
-	//
-	////terminal REAL : (INT? '.' INT) (('e'|'E')('-'|'+')INT)? ;
+	//  "0".."9"+;
 	public TerminalRule getINTRule() {
 		return (tINT != null) ? tINT : (tINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "INT"));
 	} 
@@ -8894,18 +8891,13 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//terminal EXT_INT:
-	//  INT ("e" | "E") ("-" | "+") INT; 
-	//        
-	// 
-	////terminal REAL : ((INT '.' INT)|(INT '.')|('.' INT) | INT) (('e'|'E')('-'|'+')INT)? ;
+	//  INT ("e" | "E") ("-" | "+") INT;
 	public TerminalRule getEXT_INTRule() {
 		return (tEXT_INT != null) ? tEXT_INT : (tEXT_INT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "EXT_INT"));
 	} 
 
 	//terminal ANY_OTHER:
-	//  .; 
-	// 
-	////terminal REAL : ((INT '.' INT)|(INT '.')|('.' INT) | INT) (('e'|'E')('-'|'+')INT)? ;
+	//  .;
 	public TerminalRule getANY_OTHERRule() {
 		return (tANY_OTHER != null) ? tANY_OTHER : (tANY_OTHER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ANY_OTHER"));
 	} 

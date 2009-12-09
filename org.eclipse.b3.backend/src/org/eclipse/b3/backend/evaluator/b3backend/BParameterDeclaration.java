@@ -52,7 +52,7 @@ public interface BParameterDeclaration extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBParameterDeclaration_Name()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	String getName();

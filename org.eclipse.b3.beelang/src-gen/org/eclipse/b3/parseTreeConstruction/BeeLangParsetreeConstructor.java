@@ -708,7 +708,8 @@ protected class Import_SemicolonKeyword_5 extends KeywordToken  {
  * 		           
  * 	
  * 			 //-- PROPERTIES
- * 			 // goes first, because they may be used in the other clauses.
+ * 			 // goes first, because they may be used in the other clauses. TODO: can probably be relaxed
+ * 			 // since linking will find them anyway.
  * 			 //
  * 			            
  * 		
@@ -751,7 +752,8 @@ protected class Import_SemicolonKeyword_5 extends KeywordToken  {
 // 		           
 // 	
 // 			 //-- PROPERTIES
-// 			 // goes first, because they may be used in the other clauses.
+// 			 // goes first, because they may be used in the other clauses. TODO: can probably be relaxed
+// 			 // since linking will find them anyway.
 // 			 //
 // 			            
 // 		
@@ -14550,7 +14552,7 @@ protected class TypeRef_SimpleTypeRefParserRuleCall extends RuleCallToken {
 /************ begin Rule SimpleTypeRef ****************
  *
  * SimpleTypeRef returns be::IType:
- *   {be::B3ParameterizedType} rawType=[be::IType];   // TODO: gets lots of warnings from this...
+ *   {be::B3ParameterizedType} rawType=[be::B3JavaImport];   // TODO: gets lots of warnings from this...
  *     
  * 	         
  * / *		('<' actualArgumentsList+=TypeParam (',' actualArgumentsList+=TypeParam)* '>' )? * / 
@@ -14569,7 +14571,7 @@ protected class TypeRef_SimpleTypeRefParserRuleCall extends RuleCallToken {
  *
  **/
 
-// {be::B3ParameterizedType} rawType=[be::IType]          
+// {be::B3ParameterizedType} rawType=[be::B3JavaImport]          
 // / *		('<' actualArgumentsList+=TypeParam (',' actualArgumentsList+=TypeParam)* '>' )? * /
 protected class SimpleTypeRef_Group extends GroupToken {
 	
@@ -14625,7 +14627,7 @@ protected class SimpleTypeRef_B3ParameterizedTypeAction_0 extends ActionToken  {
 	}
 }
 
-// rawType=[be::IType]        
+// rawType=[be::B3JavaImport]        
 // / *		('<' actualArgumentsList+=TypeParam (',' actualArgumentsList+=TypeParam)* '>' )? * /
 protected class SimpleTypeRef_RawTypeAssignment_1 extends AssignmentToken  {
 	
@@ -14652,9 +14654,9 @@ protected class SimpleTypeRef_RawTypeAssignment_1 extends AssignmentToken  {
 		IInstanceDescription obj = current.cloneAndConsume("rawType");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
 			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getSimpleTypeRefAccess().getRawTypeITypeCrossReference_1_0().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getSimpleTypeRefAccess().getRawTypeB3JavaImportCrossReference_1_0().getType().getClassifier())) {
 				type = AssignmentType.CR;
-				element = grammarAccess.getSimpleTypeRefAccess().getRawTypeITypeCrossReference_1_0(); 
+				element = grammarAccess.getSimpleTypeRefAccess().getRawTypeB3JavaImportCrossReference_1_0(); 
 				return obj;
 			}
 		}
@@ -26409,6 +26411,8 @@ protected class RegexpLiteral_PatternAssignment_1 extends AssignmentToken  {
  * 	          // TODO: check that type is Object
  * //ThisLiteral	returns  be::BExpression: {ThisLiteral} val="this";
  * //SuperLiteral returns  be::BExpression: {SuperLiteral} val="super";
+ * 
+ * // Has conversion rule
  *
  **/
 
@@ -26499,13 +26503,7 @@ protected class NullLiteral_NullKeyword_1 extends KeywordToken  {
 /************ begin Rule ParanthesizedExpression ****************
  *
  * ParanthesizedExpression returns be::BExpression:
- *   "(" Expression ")"; 
- * 	
- *     
- * 	       
- * 		
- * 
- * //--
+ *   "(" Expression ")";
  *
  **/
 
@@ -26622,9 +26620,7 @@ protected class ParanthesizedExpression_RightParenthesisKeyword_2 extends Keywor
 /************ begin Rule Version ****************
  *
  * Version:
- *   version=VersionLiteral; 	
- * 
- * //--
+ *   version=VersionLiteral;
  *
  **/
 

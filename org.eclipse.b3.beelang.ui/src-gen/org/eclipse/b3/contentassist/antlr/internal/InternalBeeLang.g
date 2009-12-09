@@ -20950,12 +20950,12 @@ rule__SimpleTypeRef__RawTypeAssignment_1
     }
 :
 (
-{ before(grammarAccess.getSimpleTypeRefAccess().getRawTypeITypeCrossReference_1_0()); }
+{ before(grammarAccess.getSimpleTypeRefAccess().getRawTypeB3JavaImportCrossReference_1_0()); }
 (
-{ before(grammarAccess.getSimpleTypeRefAccess().getRawTypeITypeIDTerminalRuleCall_1_0_1()); }
-	RULE_ID{ after(grammarAccess.getSimpleTypeRefAccess().getRawTypeITypeIDTerminalRuleCall_1_0_1()); }
+{ before(grammarAccess.getSimpleTypeRefAccess().getRawTypeB3JavaImportIDTerminalRuleCall_1_0_1()); }
+	RULE_ID{ after(grammarAccess.getSimpleTypeRefAccess().getRawTypeB3JavaImportIDTerminalRuleCall_1_0_1()); }
 )
-{ after(grammarAccess.getSimpleTypeRefAccess().getRawTypeITypeCrossReference_1_0()); }
+{ after(grammarAccess.getSimpleTypeRefAccess().getRawTypeB3JavaImportCrossReference_1_0()); }
 )
 
 ;

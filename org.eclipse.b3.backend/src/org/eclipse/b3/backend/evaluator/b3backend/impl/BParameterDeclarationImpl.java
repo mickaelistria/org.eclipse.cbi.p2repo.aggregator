@@ -122,21 +122,23 @@ public class BParameterDeclarationImpl extends EObjectImpl implements BParameter
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	public Type getType() {
-		// NOTE: Must check against type being an EObject
-		if (type != null && type instanceof EObject && ((EObject)type).eIsProxy()) {
-			InternalEObject oldType = (InternalEObject)type;
-			type = (Type)eResolveProxy(oldType);
-			if (type != oldType) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.BPARAMETER_DECLARATION__TYPE, oldType, type));
-			}
-		}
 		return type;
 	}
-
+//	public Type getType() {
+//		// NOTE: Must check against type being an EObject
+//		if (type != null && type instanceof EObject && ((EObject)type).eIsProxy()) {
+//			InternalEObject oldType = (InternalEObject)type;
+//			type = (Type)eResolveProxy(oldType);
+//			if (type != oldType) {
+//				if (eNotificationRequired())
+//					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.BPARAMETER_DECLARATION__TYPE, oldType, type));
+//			}
+//		}
+//		return type;
+//	}
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -154,26 +156,22 @@ public class BParameterDeclarationImpl extends EObjectImpl implements BParameter
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Type may be a non EObject - if so, no notification is generated non change.
+	 * Type may be a non EObject - in which case eInverseRemove, and eInverseAdd are not called.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public void setType(Type newType) {
-		if(! (type instanceof EObject && newType instanceof EObject))
-			type = newType;
-		else {
 		if (newType != type) {
 			NotificationChain msgs = null;
-			if (type != null)
+			if (type != null && type instanceof EObject)
 				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BPARAMETER_DECLARATION__TYPE, null, msgs);
-			if (newType != null)
+			if (newType != null && newType instanceof EObject)
 				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BPARAMETER_DECLARATION__TYPE, null, msgs);
 			msgs = basicSetType(newType, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BPARAMETER_DECLARATION__TYPE, newType, newType));
-		}
 	}
 
 	/**

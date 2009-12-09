@@ -17194,7 +17194,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
             match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSimpleTypeRef10706); if (failed) return current;
             if ( backtracking==0 ) {
 
-              		createLeafNode(grammarAccess.getSimpleTypeRefAccess().getRawTypeITypeCrossReference_1_0(), "rawType"); 
+              		createLeafNode(grammarAccess.getSimpleTypeRefAccess().getRawTypeB3JavaImportCrossReference_1_0(), "rawType"); 
               	
             }
 

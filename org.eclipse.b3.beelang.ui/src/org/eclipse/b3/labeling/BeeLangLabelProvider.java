@@ -26,7 +26,7 @@ public class BeeLangLabelProvider extends DefaultLabelProvider {
 	}
 	String text(B3ParameterizedType ele) {
 		Type t = ele.getRawType();
-		return "type: "+ safeToString(t);
+		return "type: "+ safeToString(ele);
 	}
 	String text(BFunction ele) {
 		return "func: " + ele.getName() + " => " + safeToString(ele.getReturnType());

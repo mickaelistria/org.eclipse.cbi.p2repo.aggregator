@@ -7,6 +7,8 @@ import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
+
 public class TypeUtils {
 	static WeakReference<TypeDistance> typeDistance = new WeakReference<TypeDistance>(null);
 	static final String lock = "";
@@ -20,6 +22,9 @@ public class TypeUtils {
 		if(t instanceof GenericArrayType) {
 			GenericArrayType ga = GenericArrayType.class.cast(t);
 			return ga.getClass();
+		}
+		if(t instanceof B3JavaImport) {
+			return getRaw(B3JavaImport.class.cast(t).getType());
 		}
 		throw new UnsupportedOperationException("ONLY CLASS AND PARAMETERIZED TYPE SUPPORTED - was:"+t);
 	}

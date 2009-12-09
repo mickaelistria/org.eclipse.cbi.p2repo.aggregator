@@ -304,5 +304,18 @@ public class B3ParameterizedTypeImpl extends EObjectImpl implements B3Parameteri
 		}
 		return super.eIsSet(featureID);
 	}
+	@Override 
+	public String toString() {
+		StringBuffer buf = new StringBuffer();
+		buf.append(rawType == null ? "null" : rawType.toString());
+		EList<Type> parameters = getActualArgumentsList();
+		if(parameters.size() > 0) {
+			buf.append("<");
+			for(Type p : parameters)
+				buf.append(p.toString());
+			buf.append(">");
+		}
+		return buf.toString();
+	}
 
 } //B3ParameterizedTypeImpl

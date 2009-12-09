@@ -4,15 +4,18 @@
 package org.eclipse.b3.outline;
 
 import org.eclipse.xtext.ui.common.editor.outline.actions.DefaultContentOutlineNodeAdapterFactory;
-
+import org.eclipse.b3.beeLang.BeeModel;
 public class BeeLangOutlineNodeAdapterFactory extends DefaultContentOutlineNodeAdapterFactory {
 
+	// provide list of classes to adapt to, e.g.:
+	// Entity.class
+	// Service.class
+	@SuppressWarnings("unchecked")
 	private static final Class[] types = { 
-		// provide list of classes to adapt to, e.g.:
-		// Entity.class
-		// Service.class
+		BeeModel.class
 	};
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public Class[] getAdapterList() {
 		return types;

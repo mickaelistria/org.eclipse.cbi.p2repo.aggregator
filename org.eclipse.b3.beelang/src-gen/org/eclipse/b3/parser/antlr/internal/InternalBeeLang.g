@@ -6384,7 +6384,7 @@ ruleSimpleTypeRef returns [EObject current=null]
         }
 	RULE_ID
 	{
-		createLeafNode(grammarAccess.getSimpleTypeRefAccess().getRawTypeITypeCrossReference_1_0(), "rawType"); 
+		createLeafNode(grammarAccess.getSimpleTypeRefAccess().getRawTypeB3JavaImportCrossReference_1_0(), "rawType"); 
 	}
 
 )

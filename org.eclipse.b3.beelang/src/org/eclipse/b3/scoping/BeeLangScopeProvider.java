@@ -3,7 +3,20 @@
  */
 package org.eclipse.b3.scoping;
 
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+
+import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
+import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
+import org.eclipse.b3.beeLang.BeeModel;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.xtext.resource.EObjectDescription;
+import org.eclipse.xtext.resource.IEObjectDescription;
+import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
+import org.eclipse.xtext.scoping.impl.SimpleScope;
 
 /**
  * This class contains custom scoping description.
@@ -13,5 +26,18 @@ import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
  *
  */
 public class BeeLangScopeProvider extends AbstractDeclarativeScopeProvider {
-
+	IScope scope_B3ParameterizedType_rawType(B3ParameterizedType ctx, EReference ref) {
+		EList<EObject> x = ctx.eResource().getContents();
+		// create an Iterable of IEObjectDescription - instances of EObjectDescription
+		//
+		ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
+		for(EObject y: x) {
+			if(y instanceof BeeModel) {
+				for(Type t : ((BeeModel)y).getImports())
+				if(t instanceof B3JavaImport)
+					result.add(new EObjectDescription(((B3JavaImport)t).getName(),(B3JavaImport)t, null));
+			}
+		}
+		return new SimpleScope(result);
+	}
 }

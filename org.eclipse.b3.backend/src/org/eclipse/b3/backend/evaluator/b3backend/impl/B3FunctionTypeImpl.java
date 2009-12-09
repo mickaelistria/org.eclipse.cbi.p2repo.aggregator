@@ -178,7 +178,7 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * The generated version casts the return type to EObject !
+	 * The generated version casts the return type to EObject. It may be just a java.lang.reflect imlementation.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
@@ -211,26 +211,22 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * returnType may not be an EObject, if not, no notification is sent.
+	 * returnType may not be an EObject (in which case no eInverseRemove or eInverseAdd is performed).
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public void setReturnType(Type newReturnType) {
-		if(!(returnType instanceof EObject && newReturnType instanceof EObject))
-			returnType = newReturnType;
-		else {
 		if (newReturnType != returnType) {
 			NotificationChain msgs = null;
-			if (returnType != null)
+			if (returnType != null && returnType instanceof EObject)
 				msgs = ((InternalEObject)returnType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.B3_FUNCTION_TYPE__RETURN_TYPE, null, msgs);
-			if (newReturnType != null)
+			if (newReturnType != null && newReturnType instanceof EObject)
 				msgs = ((InternalEObject)newReturnType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.B3_FUNCTION_TYPE__RETURN_TYPE, null, msgs);
 			msgs = basicSetReturnType(newReturnType, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.B3_FUNCTION_TYPE__RETURN_TYPE, newReturnType, newReturnType));
-		}
 	}
 
 	/**

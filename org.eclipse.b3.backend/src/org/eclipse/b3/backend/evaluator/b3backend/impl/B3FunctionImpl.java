@@ -15,12 +15,11 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
 import org.eclipse.b3.backend.evaluator.typesystem.B3ParameterizedType;
+import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -215,7 +214,7 @@ public class B3FunctionImpl extends BFunctionImpl implements B3Function {
 				if(parameters.length < parameterTypes.length)
 					throw new IllegalArgumentException("B3 Function called with too few arguments. Expected: "+parameterTypes.length +" but got: "+parameters.length);
 				// check type compatibility
-				if(!((Class)parameterTypes[limit]).isAssignableFrom(parameters[limit].getClass()))
+				if(!(TypeUtils.getRaw(parameterTypes[limit])).isAssignableFrom(parameters[limit].getClass()))
 					throw new B3IncompatibleTypeException(parameterNames[limit], 
 							parameterTypes[limit].getClass(), parameters[limit].getClass());
 				// ok

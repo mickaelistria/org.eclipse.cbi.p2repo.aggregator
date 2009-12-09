@@ -110,6 +110,40 @@
 			type="b3">
 		</parser>
 	</extension>
+ <extension
+       point="org.eclipse.ui.commands">
+    <command
+          description="Runs the function called main"
+          id="org.eclipse.b3.beelang.ui.execute"
+          name="Run Main Function">
+    </command>
+ </extension>
+ <extension
+       point="org.eclipse.ui.handlers">
+    <handler
+          class="org.eclipse.b3.commands.ExecuteHandler"
+          commandId="org.eclipse.b3.beelang.ui.execute">
+    </handler>
+ </extension>
+ <extension
+       point="org.eclipse.ui.menus">
+    <menuContribution
+          locationURI="popup:org.eclipse.xtext.ui.common.outline?after=additions">
+       <command
+             commandId="org.eclipse.b3.beelang.ui.execute"
+             label="Run Main Function"
+             style="push">
+          <visibleWhen
+                checkEnabled="false">
+             <iterate>
+                <adapt
+                      type="org.eclipse.b3.beeLang.BeeModel">
+                </adapt>
+             </iterate>
+          </visibleWhen>
+       </command>
+    </menuContribution>
+ </extension>
 
 
 
