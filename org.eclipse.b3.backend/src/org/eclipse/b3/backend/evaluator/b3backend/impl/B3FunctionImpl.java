@@ -204,7 +204,7 @@ public class B3FunctionImpl extends BFunctionImpl implements B3Function {
 				throw new IllegalArgumentException("B3 Function called with too few arguments");
 			for(int i = 0; i < limit; i++) {
 				// check type compatibility
-				if(!((Class)parameterTypes[i]).isAssignableFrom(parameters[i].getClass()))
+				if(!(TypeUtils.getRaw(parameterTypes[i]).isAssignableFrom(parameters[i].getClass())))
 					throw new B3IncompatibleTypeException(parameterNames[i], 
 							parameterTypes[i].getClass(), parameters[i].getClass());
 				// ok, define it		
