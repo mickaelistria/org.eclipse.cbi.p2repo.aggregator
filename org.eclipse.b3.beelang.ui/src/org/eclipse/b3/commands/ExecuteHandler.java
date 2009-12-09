@@ -13,7 +13,6 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.expressions.EvaluationContext;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.ui.common.editor.outline.ContentOutlineNode;
-import org.eclipse.xtext.util.concurrent.IEObjectHandle;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 
 public class ExecuteHandler extends AbstractHandler {
@@ -28,7 +27,6 @@ public class ExecuteHandler extends AbstractHandler {
 
 			public Object exec(EObject state) throws Exception {
 				B3Engine engine = new B3Engine();
-
 				// Define all functions, and 
 				// find a function called main (use the first found) and call it with a List<Object> argv
 				BFunction main = null;
@@ -37,6 +35,7 @@ public class ExecuteHandler extends AbstractHandler {
 					if("main".equals(f.getName())) {
 						main = f;
 					}
+				}
 				if(main == null)
 					return null;
 				final List<Object> argv = new ArrayList<Object>();
@@ -46,12 +45,12 @@ public class ExecuteHandler extends AbstractHandler {
 					// Just print some errors
 					e.printStackTrace();
 				}
-				}
+				
 				return null;
 			}
 		}
 		);
-		System.out.print("Result = " + result == null ? "null" : result.toString());
+		System.out.print("Result = " + result == null ? "null" : result.toString()+"\n");
 		return null;
 	}
 
