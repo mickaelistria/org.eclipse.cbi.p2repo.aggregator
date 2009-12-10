@@ -152,12 +152,11 @@ public class B3FuncStore {
 					continue perFunction; // not a match
 				for(int i = 0; i < pt.length; i++)
 					if(!TypeUtils.isAssignableFrom(pt[i], types[i]))
-//					if(!((Class)).isAssignableFrom(parameters[i].getClass()))
 						continue perFunction;
 				// found a candidate
 				if(found != null) {
 					// lazy creation of candidate list (typically there is only one candidate)
-					if(candidates != null)
+					if(candidates == null)
 						candidates = new ArrayList<BFunction>();
 					candidates.add(found);
 					}
@@ -182,11 +181,9 @@ public class B3FuncStore {
 				// check compatibility of varargs
 				if(types.length >= pt.length) {
 					varArgsType = TypeUtils.getArrayComponentClass(pt[pt.length-1]);
-//					varArgsType = TypeUtils.getRaw(GenericArrayType.class.cast(pt[pt.length-1]).getGenericComponentType());
 					if(varArgsType != Object.class) // no need to check if type is object - anything goes
 						for(int i = limit; i < types.length; i++)
 							if(! TypeUtils.isAssignableFrom(varArgsType, types[i])) // incompatible var arg
-//									varArgsType.isAssignableFrom(parameters[i].getClass())) 
 								continue perFunction;
 					
 				// found a candidate

@@ -305,7 +305,7 @@ public class BTryExpressionImpl extends BExpressionImpl implements BTryExpressio
 		} catch(Throwable t) {
 			// select catch block, or if exception uncaught, re-throw
 			for(BCatch catchBlock : catchBlocks) {
-				if((TypeUtils.getRaw((catchBlock.getExceptionType())).isAssignableFrom(t.getClass()))) {
+				if(TypeUtils.isAssignableFrom(catchBlock.getExceptionType(), t.getClass())) {
 					BExecutionContext inner = ctx.createInnerContext();
 					try {
 						inner.defineValue(catchBlock.getVarname(), t, catchBlock.getExceptionType());
