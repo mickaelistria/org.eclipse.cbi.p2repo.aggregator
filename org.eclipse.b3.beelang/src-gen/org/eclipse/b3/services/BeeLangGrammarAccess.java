@@ -4445,13 +4445,14 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cThrowKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cExprAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cExprExpressionParserRuleCall_2_0 = (RuleCall)cExprAssignment_2.eContents().get(0);
-		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//ThrowExpression returns be::BExpression:
-		//  {be::BThrowExpression} "throw" expr=Expression ";";
+		//  {be::BThrowExpression} "throw" expr=Expression; 
+		//
+		//               // TODO: Bas ';' at the end
 		public ParserRule getRule() { return rule; }
 
-		//{be::BThrowExpression} "throw" expr=Expression ";"
+		//{be::BThrowExpression} "throw" expr=Expression
 		public Group getGroup() { return cGroup; }
 
 		//{be::BThrowExpression}
@@ -4465,9 +4466,6 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 		//Expression
 		public RuleCall getExprExpressionParserRuleCall_2_0() { return cExprExpressionParserRuleCall_2_0; }
-
-		//";"
-		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
 	}
 
 	public class TryCatchExpressionElements extends AbstractParserRuleElementFinder {
@@ -4487,7 +4485,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//TryCatchExpression returns be::BExpression:
 		//  {be::BTryExpression} "try" tryExpr=Expression catchBlocks+=CatchBlock* ("finally"
-		//  finallyExpr=Expression)? "endtry";
+		//  finallyExpr=Expression)? "endtry";   // TODO: Bas ';' at the end
 		public ParserRule getRule() { return rule; }
 
 		//{be::BTryExpression} "try" tryExpr=Expression catchBlocks+=CatchBlock* ("finally"
@@ -8063,7 +8061,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ThrowExpression returns be::BExpression:
-	//  {be::BThrowExpression} "throw" expr=Expression ";";
+	//  {be::BThrowExpression} "throw" expr=Expression; 
+	//
+	//               // TODO: Bas ';' at the end
 	public ThrowExpressionElements getThrowExpressionAccess() {
 		return (pThrowExpression != null) ? pThrowExpression : (pThrowExpression = new ThrowExpressionElements());
 	}
@@ -8074,7 +8074,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 	//TryCatchExpression returns be::BExpression:
 	//  {be::BTryExpression} "try" tryExpr=Expression catchBlocks+=CatchBlock* ("finally"
-	//  finallyExpr=Expression)? "endtry";
+	//  finallyExpr=Expression)? "endtry";   // TODO: Bas ';' at the end
 	public TryCatchExpressionElements getTryCatchExpressionAccess() {
 		return (pTryCatchExpression != null) ? pTryCatchExpression : (pTryCatchExpression = new TryCatchExpressionElements());
 	}

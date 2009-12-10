@@ -19332,11 +19332,13 @@ protected class WildcardExpression__Keyword_1 extends KeywordToken  {
 /************ begin Rule ThrowExpression ****************
  *
  * ThrowExpression returns be::BExpression:
- *   {be::BThrowExpression} "throw" expr=Expression ";";
+ *   {be::BThrowExpression} "throw" expr=Expression; 
+ * 
+ *                // TODO: Bas ';' at the end
  *
  **/
 
-// {be::BThrowExpression} "throw" expr=Expression ";"
+// {be::BThrowExpression} "throw" expr=Expression
 protected class ThrowExpression_Group extends GroupToken {
 	
 	public ThrowExpression_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -19351,7 +19353,7 @@ protected class ThrowExpression_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ThrowExpression_SemicolonKeyword_3(parent, this, 0, inst);
+			case 0: return new ThrowExpression_ExprAssignment_2(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -19459,28 +19461,6 @@ protected class ThrowExpression_ExprAssignment_2 extends AssignmentToken  {
 	}	
 }
 
-// ";"
-protected class ThrowExpression_SemicolonKeyword_3 extends KeywordToken  {
-	
-	public ThrowExpression_SemicolonKeyword_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getThrowExpressionAccess().getSemicolonKeyword_3();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ThrowExpression_ExprAssignment_2(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
 
 /************ end Rule ThrowExpression ****************/
 
@@ -19489,7 +19469,7 @@ protected class ThrowExpression_SemicolonKeyword_3 extends KeywordToken  {
  *
  * TryCatchExpression returns be::BExpression:
  *   {be::BTryExpression} "try" tryExpr=Expression catchBlocks+=CatchBlock* ("finally"
- *   finallyExpr=Expression)? "endtry";
+ *   finallyExpr=Expression)? "endtry";   // TODO: Bas ';' at the end
  *
  **/
 

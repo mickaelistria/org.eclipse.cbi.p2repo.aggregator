@@ -1798,7 +1798,6 @@
       <tokens xsi:type="xtext:Assignment" feature="expr" operator="=">
         <terminal xsi:type="xtext:RuleCall" rule="//@rules.58"/>
       </tokens>
-      <tokens xsi:type="xtext:Keyword" value=";"/>
     </alternatives>
   </rules>
   <rules xsi:type="xtext:ParserRule" name="TryCatchExpression">

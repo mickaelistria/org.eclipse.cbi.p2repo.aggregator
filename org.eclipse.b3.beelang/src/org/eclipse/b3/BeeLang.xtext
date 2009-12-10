@@ -406,7 +406,7 @@ PrimaryExpression returns be::BExpression
 		
 WildcardExpression returns be::BExpression: {be::BLiteralAny} '_' ;
 
-ThrowExpression returns be::BExpression: {be::BThrowExpression} "throw"  expr=Expression ';' ;
+ThrowExpression returns be::BExpression: {be::BThrowExpression} "throw"  expr=Expression ; // TODO: Bas ';' at the end
 TryCatchExpression returns be::BExpression : {be::BTryExpression} 
 	"try" tryExpr=Expression (catchBlocks+=CatchBlock)*
 	("finally" finallyExpr=Expression)? "endtry" 

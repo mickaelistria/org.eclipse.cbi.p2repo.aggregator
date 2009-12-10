@@ -8392,11 +8392,7 @@ ruleThrowExpression returns [EObject current=null]
 	    }
 
 )
-)	';' 
-    {
-        createLeafNode(grammarAccess.getThrowExpressionAccess().getSemicolonKeyword_3(), null); 
-    }
-);
+));
 
 
 
