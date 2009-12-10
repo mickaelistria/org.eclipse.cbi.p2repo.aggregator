@@ -304,7 +304,7 @@ VarDeclaration returns be::BExpression: {be::BDefValue} (('var' | type=TypeRef) 
 TypeRef returns be::IType: SimpleTypeRef /* | ClosureTypeRef */ ; // TODO: gets lots of warnings from this...
 SimpleTypeRef returns be::IType
 	: {be::B3ParameterizedType} rawType=[be::B3JavaImport | ID] 
-/*		('<' actualArgumentsList+=TypeParam (',' actualArgumentsList+=TypeParam)* '>' )? */
+		('<' actualArgumentsList+=TypeParam (',' actualArgumentsList+=TypeParam)* '>' )?
 	;
 	
 // TODO: typereference is simplified to only the name of a java type - for model imports
@@ -483,14 +483,14 @@ FunctionDefinition returns be::BExpression : {be::BDefFunction} function = Funct
 Literal returns be::BExpression
 	: ValueLiteral
 	| RegexpLiteral
-	| LiteralList
 	| LiteralMap
+	| LiteralList
 //	| LiteralFunction
 	;
 	
 LiteralList returns  be::BExpression
-	: {be::BLiteralListExpression} '[' entries += Expression (',' entries += Expression)*  ']' ('<' entryType=TypeRef '>')?
-	| {be::BLiteralListExpression} '[' ']' '<' entryType=TypeRef '>'
+	: {be::BLiteralListExpression} '[' ('<' entryType=TypeRef '>')? entries += Expression (',' entries += Expression)*  ']' 
+	| {be::BLiteralListExpression} '[''<' entryType=TypeRef '>' ']' 
 	;
 LiteralMap returns  be::BExpression
 	: {be::BLiteralMapExpression} '[' entries += MapEntry (',' entries += MapEntry)* ']' ('<' keyType=TypeRef ',' valueType=TypeRef '>')? 

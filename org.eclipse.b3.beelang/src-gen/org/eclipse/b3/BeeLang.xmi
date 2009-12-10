@@ -1352,6 +1352,19 @@
           <terminal xsi:type="xtext:RuleCall" rule="//@rules.139"/>
         </terminal>
       </tokens>
+      <tokens xsi:type="xtext:Group" cardinality="?">
+        <tokens xsi:type="xtext:Keyword" value="&lt;"/>
+        <tokens xsi:type="xtext:Assignment" feature="actualArgumentsList" operator="+=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.64"/>
+        </tokens>
+        <tokens xsi:type="xtext:Group" cardinality="*">
+          <tokens xsi:type="xtext:Keyword" value=","/>
+          <tokens xsi:type="xtext:Assignment" feature="actualArgumentsList" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.64"/>
+          </tokens>
+        </tokens>
+        <tokens xsi:type="xtext:Keyword" value=">"/>
+      </tokens>
     </alternatives>
   </rules>
   <rules xsi:type="xtext:ParserRule" name="ClosureTypeRef">
@@ -2195,8 +2208,8 @@
     <alternatives xsi:type="xtext:Alternatives">
       <groups xsi:type="xtext:RuleCall" rule="//@rules.110"/>
       <groups xsi:type="xtext:RuleCall" rule="//@rules.116"/>
-      <groups xsi:type="xtext:RuleCall" rule="//@rules.105"/>
       <groups xsi:type="xtext:RuleCall" rule="//@rules.106"/>
+      <groups xsi:type="xtext:RuleCall" rule="//@rules.105"/>
     </alternatives>
   </rules>
   <rules xsi:type="xtext:ParserRule" name="LiteralList">
@@ -2211,6 +2224,13 @@
           </type>
         </tokens>
         <tokens xsi:type="xtext:Keyword" value="["/>
+        <tokens xsi:type="xtext:Group" cardinality="?">
+          <tokens xsi:type="xtext:Keyword" value="&lt;"/>
+          <tokens xsi:type="xtext:Assignment" feature="entryType" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.61"/>
+          </tokens>
+          <tokens xsi:type="xtext:Keyword" value=">"/>
+        </tokens>
         <tokens xsi:type="xtext:Assignment" feature="entries" operator="+=">
           <terminal xsi:type="xtext:RuleCall" rule="//@rules.58"/>
         </tokens>
@@ -2221,13 +2241,6 @@
           </tokens>
         </tokens>
         <tokens xsi:type="xtext:Keyword" value="]"/>
-        <tokens xsi:type="xtext:Group" cardinality="?">
-          <tokens xsi:type="xtext:Keyword" value="&lt;"/>
-          <tokens xsi:type="xtext:Assignment" feature="entryType" operator="=">
-            <terminal xsi:type="xtext:RuleCall" rule="//@rules.61"/>
-          </tokens>
-          <tokens xsi:type="xtext:Keyword" value=">"/>
-        </tokens>
       </groups>
       <groups xsi:type="xtext:Group">
         <tokens xsi:type="xtext:Action">
@@ -2236,12 +2249,12 @@
           </type>
         </tokens>
         <tokens xsi:type="xtext:Keyword" value="["/>
-        <tokens xsi:type="xtext:Keyword" value="]"/>
         <tokens xsi:type="xtext:Keyword" value="&lt;"/>
         <tokens xsi:type="xtext:Assignment" feature="entryType" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="//@rules.61"/>
         </tokens>
         <tokens xsi:type="xtext:Keyword" value=">"/>
+        <tokens xsi:type="xtext:Keyword" value="]"/>
       </groups>
     </alternatives>
   </rules>

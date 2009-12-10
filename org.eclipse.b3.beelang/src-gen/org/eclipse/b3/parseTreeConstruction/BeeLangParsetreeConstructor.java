@@ -14017,12 +14017,16 @@ protected class Expression_AssignmentExpressionParserRuleCall extends RuleCallTo
  *   (VarDeclaration|OrExpression) ({be::BAssignmentExpression.leftExpr=current}
  *   functionName=AssignmentOperator rightExpr=AssignmentExpression)?; 
  * 
- * // ReturnExpression returns Expression : {ReturnExpression} "return" expr = AssignmentExpression ;
+ * // ReturnExpression returns Expression : {ReturnExpression} "return" expr = AssignmentExpression ; 
+ * 
+ *     
+ * 	// note: VarDecl | OrExpr is order dependant
  *
  **/
 
 // (VarDeclaration|OrExpression) ({be::BAssignmentExpression.leftExpr=current}
-// functionName=AssignmentOperator rightExpr=AssignmentExpression)?
+// functionName=AssignmentOperator rightExpr=AssignmentExpression)? 
+// 	// note: VarDecl | OrExpr is order dependant
 protected class AssignmentExpression_Group extends GroupToken {
 	
 	public AssignmentExpression_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -14050,7 +14054,8 @@ protected class AssignmentExpression_Group extends GroupToken {
 	}
 }
 
-// VarDeclaration|OrExpression
+// VarDeclaration|OrExpression 
+// 	// note: VarDecl | OrExpr is order dependant
 protected class AssignmentExpression_Alternatives_0 extends AlternativesToken {
 
 	public AssignmentExpression_Alternatives_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -14552,10 +14557,11 @@ protected class TypeRef_SimpleTypeRefParserRuleCall extends RuleCallToken {
 /************ begin Rule SimpleTypeRef ****************
  *
  * SimpleTypeRef returns be::IType:
- *   {be::B3ParameterizedType} rawType=[be::B3JavaImport];   // TODO: gets lots of warnings from this...
+ *   {be::B3ParameterizedType} rawType=[be::B3JavaImport] ("<" actualArgumentsList+=
+ *   TypeParam ("," actualArgumentsList+=TypeParam)* ">")?;   // TODO: gets lots of warnings from this...
  *     
  * 	         
- * / *		('<' actualArgumentsList+=TypeParam (',' actualArgumentsList+=TypeParam)* '>' )? * / 
+ * 		          
  * 	
  * 	
  * // TODO: typereference is simplified to only the name of a java type - for model imports
@@ -14571,8 +14577,8 @@ protected class TypeRef_SimpleTypeRefParserRuleCall extends RuleCallToken {
  *
  **/
 
-// {be::B3ParameterizedType} rawType=[be::B3JavaImport]          
-// / *		('<' actualArgumentsList+=TypeParam (',' actualArgumentsList+=TypeParam)* '>' )? * /
+// {be::B3ParameterizedType} rawType=[be::B3JavaImport] ("<" actualArgumentsList+=
+// TypeParam ("," actualArgumentsList+=TypeParam)* ">")?
 protected class SimpleTypeRef_Group extends GroupToken {
 	
 	public SimpleTypeRef_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -14587,7 +14593,8 @@ protected class SimpleTypeRef_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new SimpleTypeRef_RawTypeAssignment_1(parent, this, 0, inst);
+			case 0: return new SimpleTypeRef_Group_2(parent, this, 0, inst);
+			case 1: return new SimpleTypeRef_RawTypeAssignment_1(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -14627,8 +14634,7 @@ protected class SimpleTypeRef_B3ParameterizedTypeAction_0 extends ActionToken  {
 	}
 }
 
-// rawType=[be::B3JavaImport]        
-// / *		('<' actualArgumentsList+=TypeParam (',' actualArgumentsList+=TypeParam)* '>' )? * /
+// rawType=[be::B3JavaImport]
 protected class SimpleTypeRef_RawTypeAssignment_1 extends AssignmentToken  {
 	
 	public SimpleTypeRef_RawTypeAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -14664,6 +14670,212 @@ protected class SimpleTypeRef_RawTypeAssignment_1 extends AssignmentToken  {
 	}
 
 }
+
+// ("<" actualArgumentsList+=TypeParam ("," actualArgumentsList+=TypeParam)* ">")?
+protected class SimpleTypeRef_Group_2 extends GroupToken {
+	
+	public SimpleTypeRef_Group_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getSimpleTypeRefAccess().getGroup_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new SimpleTypeRef_GreaterThanSignKeyword_2_3(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "<"
+protected class SimpleTypeRef_LessThanSignKeyword_2_0 extends KeywordToken  {
+	
+	public SimpleTypeRef_LessThanSignKeyword_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getSimpleTypeRefAccess().getLessThanSignKeyword_2_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new SimpleTypeRef_RawTypeAssignment_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// actualArgumentsList+=TypeParam
+protected class SimpleTypeRef_ActualArgumentsListAssignment_2_1 extends AssignmentToken  {
+	
+	public SimpleTypeRef_ActualArgumentsListAssignment_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getSimpleTypeRefAccess().getActualArgumentsListAssignment_2_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new TypeParam_Alternatives(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("actualArgumentsList",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("actualArgumentsList");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getTypeParamRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getSimpleTypeRefAccess().getActualArgumentsListTypeParamParserRuleCall_2_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new SimpleTypeRef_LessThanSignKeyword_2_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+// ("," actualArgumentsList+=TypeParam)*
+protected class SimpleTypeRef_Group_2_2 extends GroupToken {
+	
+	public SimpleTypeRef_Group_2_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getSimpleTypeRefAccess().getGroup_2_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new SimpleTypeRef_ActualArgumentsListAssignment_2_2_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// ","
+protected class SimpleTypeRef_CommaKeyword_2_2_0 extends KeywordToken  {
+	
+	public SimpleTypeRef_CommaKeyword_2_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getSimpleTypeRefAccess().getCommaKeyword_2_2_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new SimpleTypeRef_Group_2_2(parent, this, 0, inst);
+			case 1: return new SimpleTypeRef_ActualArgumentsListAssignment_2_1(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// actualArgumentsList+=TypeParam
+protected class SimpleTypeRef_ActualArgumentsListAssignment_2_2_1 extends AssignmentToken  {
+	
+	public SimpleTypeRef_ActualArgumentsListAssignment_2_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getSimpleTypeRefAccess().getActualArgumentsListAssignment_2_2_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new TypeParam_Alternatives(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("actualArgumentsList",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("actualArgumentsList");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getTypeParamRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getSimpleTypeRefAccess().getActualArgumentsListTypeParamParserRuleCall_2_2_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new SimpleTypeRef_CommaKeyword_2_2_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+
+// ">"
+protected class SimpleTypeRef_GreaterThanSignKeyword_2_3 extends KeywordToken  {
+	
+	public SimpleTypeRef_GreaterThanSignKeyword_2_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getSimpleTypeRefAccess().getGreaterThanSignKeyword_2_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new SimpleTypeRef_Group_2_2(parent, this, 0, inst);
+			case 1: return new SimpleTypeRef_ActualArgumentsListAssignment_2_1(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
 
 
 /************ end Rule SimpleTypeRef ****************/
@@ -23451,7 +23663,7 @@ protected class FunctionDefinition_FunctionAssignment_1 extends AssignmentToken 
 /************ begin Rule Literal ****************
  *
  * Literal returns be::BExpression:
- *   ValueLiteral|RegexpLiteral|LiteralList|LiteralMap; 
+ *   ValueLiteral|RegexpLiteral|LiteralMap|LiteralList; 
  * //BuilderDefinition returns Statement : {BuilderStatement} builder = Builder;
  * 
  *     
@@ -23463,7 +23675,7 @@ protected class FunctionDefinition_FunctionAssignment_1 extends AssignmentToken 
  *
  **/
 
-// ValueLiteral|RegexpLiteral|LiteralList|LiteralMap 
+// ValueLiteral|RegexpLiteral|LiteralMap|LiteralList 
 // //BuilderDefinition returns Statement : {BuilderStatement} builder = Builder;
 // 
 //     
@@ -23488,8 +23700,8 @@ protected class Literal_Alternatives extends AlternativesToken {
 		switch(index) {
 			case 0: return new Literal_ValueLiteralParserRuleCall_0(parent, this, 0, inst);
 			case 1: return new Literal_RegexpLiteralParserRuleCall_1(parent, this, 1, inst);
-			case 2: return new Literal_LiteralListParserRuleCall_2(parent, this, 2, inst);
-			case 3: return new Literal_LiteralMapParserRuleCall_3(parent, this, 3, inst);
+			case 2: return new Literal_LiteralMapParserRuleCall_2(parent, this, 2, inst);
+			case 3: return new Literal_LiteralListParserRuleCall_3(parent, this, 3, inst);
 			default: return null;
 		}	
 	}	
@@ -23571,52 +23783,16 @@ protected class Literal_RegexpLiteralParserRuleCall_1 extends RuleCallToken {
 	}	
 }
 
-// LiteralList
-protected class Literal_LiteralListParserRuleCall_2 extends RuleCallToken {
+// LiteralMap
+protected class Literal_LiteralMapParserRuleCall_2 extends RuleCallToken {
 	
-	public Literal_LiteralListParserRuleCall_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public Literal_LiteralMapParserRuleCall_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getLiteralAccess().getLiteralListParserRuleCall_2();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new LiteralList_Alternatives(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override
-	protected IInstanceDescription tryConsumeVal() {
-		if(checkForRecursion(LiteralList_Alternatives.class, current)) return null;
-		if(!current.isInstanceOf(grammarAccess.getLiteralListRule().getType().getClassifier())) return null;
-		return current;
-	}
-	
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		switch(index) {
-			default: return parent.createParentFollower(next, actIndex , index, inst);
-		}	
-	}	
-}
-
-// LiteralMap   
-// //	| LiteralFunction
-protected class Literal_LiteralMapParserRuleCall_3 extends RuleCallToken {
-	
-	public Literal_LiteralMapParserRuleCall_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public RuleCall getGrammarElement() {
-		return grammarAccess.getLiteralAccess().getLiteralMapParserRuleCall_3();
+		return grammarAccess.getLiteralAccess().getLiteralMapParserRuleCall_2();
 	}
 
     @Override
@@ -23642,6 +23818,42 @@ protected class Literal_LiteralMapParserRuleCall_3 extends RuleCallToken {
 	}	
 }
 
+// LiteralList   
+// //	| LiteralFunction
+protected class Literal_LiteralListParserRuleCall_3 extends RuleCallToken {
+	
+	public Literal_LiteralListParserRuleCall_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getLiteralAccess().getLiteralListParserRuleCall_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new LiteralList_Alternatives(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(checkForRecursion(LiteralList_Alternatives.class, current)) return null;
+		if(!current.isInstanceOf(grammarAccess.getLiteralListRule().getType().getClassifier())) return null;
+		return current;
+	}
+	
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(next, actIndex , index, inst);
+		}	
+	}	
+}
+
 
 /************ end Rule Literal ****************/
 
@@ -23649,15 +23861,15 @@ protected class Literal_LiteralMapParserRuleCall_3 extends RuleCallToken {
 /************ begin Rule LiteralList ****************
  *
  * LiteralList returns be::BExpression:
- *   {be::BLiteralListExpression} "[" entries+=Expression ("," entries+=Expression)* "]" (
- *   "<" entryType=TypeRef ">")?|{be::BLiteralListExpression} "[" "]" "<" entryType=TypeRef
- *   ">";
+ *   {be::BLiteralListExpression} "[" ("<" entryType=TypeRef ">")? entries+=Expression (","
+ *   entries+=Expression)* "]"|{be::BLiteralListExpression} "[" "<" entryType=TypeRef ">"
+ *   "]";
  *
  **/
 
-// {be::BLiteralListExpression} "[" entries+=Expression ("," entries+=Expression)* "]" (
-// "<" entryType=TypeRef ">")?|{be::BLiteralListExpression} "[" "]" "<" entryType=TypeRef
-// ">"
+// {be::BLiteralListExpression} "[" ("<" entryType=TypeRef ">")? entries+=Expression (","
+// entries+=Expression)* "]"|{be::BLiteralListExpression} "[" "<" entryType=TypeRef ">"
+// "]"
 protected class LiteralList_Alternatives extends AlternativesToken {
 
 	public LiteralList_Alternatives(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -23685,8 +23897,8 @@ protected class LiteralList_Alternatives extends AlternativesToken {
 	}
 }
 
-// {be::BLiteralListExpression} "[" entries+=Expression ("," entries+=Expression)* "]" (
-// "<" entryType=TypeRef ">")?
+// {be::BLiteralListExpression} "[" ("<" entryType=TypeRef ">")? entries+=Expression (","
+// entries+=Expression)* "]"
 protected class LiteralList_Group_0 extends GroupToken {
 	
 	public LiteralList_Group_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -23701,8 +23913,7 @@ protected class LiteralList_Group_0 extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new LiteralList_Group_0_5(parent, this, 0, inst);
-			case 1: return new LiteralList_RightSquareBracketKeyword_0_4(parent, this, 1, inst);
+			case 0: return new LiteralList_RightSquareBracketKeyword_0_5(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -23759,183 +23970,22 @@ protected class LiteralList_LeftSquareBracketKeyword_0_1 extends KeywordToken  {
 		
 }
 
-// entries+=Expression
-protected class LiteralList_EntriesAssignment_0_2 extends AssignmentToken  {
-	
-	public LiteralList_EntriesAssignment_0_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getLiteralListAccess().getEntriesAssignment_0_2();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new Expression_AssignmentExpressionParserRuleCall(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("entries",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("entries");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getExpressionRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getLiteralListAccess().getEntriesExpressionParserRuleCall_0_2_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
-	}
-
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new LiteralList_LeftSquareBracketKeyword_0_1(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
-}
-
-// ("," entries+=Expression)*
-protected class LiteralList_Group_0_3 extends GroupToken {
-	
-	public LiteralList_Group_0_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getLiteralListAccess().getGroup_0_3();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new LiteralList_EntriesAssignment_0_3_1(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// ","
-protected class LiteralList_CommaKeyword_0_3_0 extends KeywordToken  {
-	
-	public LiteralList_CommaKeyword_0_3_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getLiteralListAccess().getCommaKeyword_0_3_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new LiteralList_Group_0_3(parent, this, 0, inst);
-			case 1: return new LiteralList_EntriesAssignment_0_2(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// entries+=Expression
-protected class LiteralList_EntriesAssignment_0_3_1 extends AssignmentToken  {
-	
-	public LiteralList_EntriesAssignment_0_3_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getLiteralListAccess().getEntriesAssignment_0_3_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new Expression_AssignmentExpressionParserRuleCall(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("entries",false)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("entries");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getExpressionRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getLiteralListAccess().getEntriesExpressionParserRuleCall_0_3_1_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
-	}
-
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new LiteralList_CommaKeyword_0_3_0(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
-}
-
-
-// "]"
-protected class LiteralList_RightSquareBracketKeyword_0_4 extends KeywordToken  {
-	
-	public LiteralList_RightSquareBracketKeyword_0_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getLiteralListAccess().getRightSquareBracketKeyword_0_4();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new LiteralList_Group_0_3(parent, this, 0, inst);
-			case 1: return new LiteralList_EntriesAssignment_0_2(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
 // ("<" entryType=TypeRef ">")?
-protected class LiteralList_Group_0_5 extends GroupToken {
+protected class LiteralList_Group_0_2 extends GroupToken {
 	
-	public LiteralList_Group_0_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public LiteralList_Group_0_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Group getGrammarElement() {
-		return grammarAccess.getLiteralListAccess().getGroup_0_5();
+		return grammarAccess.getLiteralListAccess().getGroup_0_2();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new LiteralList_GreaterThanSignKeyword_0_5_2(parent, this, 0, inst);
+			case 0: return new LiteralList_GreaterThanSignKeyword_0_2_2(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -23943,21 +23993,21 @@ protected class LiteralList_Group_0_5 extends GroupToken {
 }
 
 // "<"
-protected class LiteralList_LessThanSignKeyword_0_5_0 extends KeywordToken  {
+protected class LiteralList_LessThanSignKeyword_0_2_0 extends KeywordToken  {
 	
-	public LiteralList_LessThanSignKeyword_0_5_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public LiteralList_LessThanSignKeyword_0_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getLiteralListAccess().getLessThanSignKeyword_0_5_0();
+		return grammarAccess.getLiteralListAccess().getLessThanSignKeyword_0_2_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new LiteralList_RightSquareBracketKeyword_0_4(parent, this, 0, inst);
+			case 0: return new LiteralList_LeftSquareBracketKeyword_0_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -23965,15 +24015,15 @@ protected class LiteralList_LessThanSignKeyword_0_5_0 extends KeywordToken  {
 }
 
 // entryType=TypeRef
-protected class LiteralList_EntryTypeAssignment_0_5_1 extends AssignmentToken  {
+protected class LiteralList_EntryTypeAssignment_0_2_1 extends AssignmentToken  {
 	
-	public LiteralList_EntryTypeAssignment_0_5_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public LiteralList_EntryTypeAssignment_0_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getLiteralListAccess().getEntryTypeAssignment_0_5_1();
+		return grammarAccess.getLiteralListAccess().getEntryTypeAssignment_0_2_1();
 	}
 
     @Override
@@ -23992,7 +24042,7 @@ protected class LiteralList_EntryTypeAssignment_0_5_1 extends AssignmentToken  {
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getTypeRefRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getLiteralListAccess().getEntryTypeTypeRefParserRuleCall_0_5_1_0(); 
+				element = grammarAccess.getLiteralListAccess().getEntryTypeTypeRefParserRuleCall_0_2_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -24004,28 +24054,28 @@ protected class LiteralList_EntryTypeAssignment_0_5_1 extends AssignmentToken  {
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new LiteralList_LessThanSignKeyword_0_5_0(parent, next, actIndex, consumed);
+			case 0: return new LiteralList_LessThanSignKeyword_0_2_0(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 // ">"
-protected class LiteralList_GreaterThanSignKeyword_0_5_2 extends KeywordToken  {
+protected class LiteralList_GreaterThanSignKeyword_0_2_2 extends KeywordToken  {
 	
-	public LiteralList_GreaterThanSignKeyword_0_5_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public LiteralList_GreaterThanSignKeyword_0_2_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getLiteralListAccess().getGreaterThanSignKeyword_0_5_2();
+		return grammarAccess.getLiteralListAccess().getGreaterThanSignKeyword_0_2_2();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new LiteralList_EntryTypeAssignment_0_5_1(parent, this, 0, inst);
+			case 0: return new LiteralList_EntryTypeAssignment_0_2_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -24033,8 +24083,170 @@ protected class LiteralList_GreaterThanSignKeyword_0_5_2 extends KeywordToken  {
 }
 
 
+// entries+=Expression
+protected class LiteralList_EntriesAssignment_0_3 extends AssignmentToken  {
+	
+	public LiteralList_EntriesAssignment_0_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getLiteralListAccess().getEntriesAssignment_0_3();
+	}
 
-// {be::BLiteralListExpression} "[" "]" "<" entryType=TypeRef ">"
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Expression_AssignmentExpressionParserRuleCall(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("entries",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("entries");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getExpressionRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getLiteralListAccess().getEntriesExpressionParserRuleCall_0_3_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new LiteralList_Group_0_2(parent, next, actIndex, consumed);
+			case 1: return new LiteralList_LeftSquareBracketKeyword_0_1(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+// ("," entries+=Expression)*
+protected class LiteralList_Group_0_4 extends GroupToken {
+	
+	public LiteralList_Group_0_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getLiteralListAccess().getGroup_0_4();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new LiteralList_EntriesAssignment_0_4_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// ","
+protected class LiteralList_CommaKeyword_0_4_0 extends KeywordToken  {
+	
+	public LiteralList_CommaKeyword_0_4_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getLiteralListAccess().getCommaKeyword_0_4_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new LiteralList_Group_0_4(parent, this, 0, inst);
+			case 1: return new LiteralList_EntriesAssignment_0_3(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// entries+=Expression
+protected class LiteralList_EntriesAssignment_0_4_1 extends AssignmentToken  {
+	
+	public LiteralList_EntriesAssignment_0_4_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getLiteralListAccess().getEntriesAssignment_0_4_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Expression_AssignmentExpressionParserRuleCall(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("entries",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("entries");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getExpressionRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getLiteralListAccess().getEntriesExpressionParserRuleCall_0_4_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new LiteralList_CommaKeyword_0_4_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+
+// "]"
+protected class LiteralList_RightSquareBracketKeyword_0_5 extends KeywordToken  {
+	
+	public LiteralList_RightSquareBracketKeyword_0_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getLiteralListAccess().getRightSquareBracketKeyword_0_5();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new LiteralList_Group_0_4(parent, this, 0, inst);
+			case 1: return new LiteralList_EntriesAssignment_0_3(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+
+// {be::BLiteralListExpression} "[" "<" entryType=TypeRef ">" "]"
 protected class LiteralList_Group_1 extends GroupToken {
 	
 	public LiteralList_Group_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -24049,7 +24261,7 @@ protected class LiteralList_Group_1 extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new LiteralList_GreaterThanSignKeyword_1_5(parent, this, 0, inst);
+			case 0: return new LiteralList_RightSquareBracketKeyword_1_5(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -24106,16 +24318,16 @@ protected class LiteralList_LeftSquareBracketKeyword_1_1 extends KeywordToken  {
 		
 }
 
-// "]"
-protected class LiteralList_RightSquareBracketKeyword_1_2 extends KeywordToken  {
+// "<"
+protected class LiteralList_LessThanSignKeyword_1_2 extends KeywordToken  {
 	
-	public LiteralList_RightSquareBracketKeyword_1_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public LiteralList_LessThanSignKeyword_1_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getLiteralListAccess().getRightSquareBracketKeyword_1_2();
+		return grammarAccess.getLiteralListAccess().getLessThanSignKeyword_1_2();
 	}
 
     @Override
@@ -24128,38 +24340,16 @@ protected class LiteralList_RightSquareBracketKeyword_1_2 extends KeywordToken  
 		
 }
 
-// "<"
-protected class LiteralList_LessThanSignKeyword_1_3 extends KeywordToken  {
-	
-	public LiteralList_LessThanSignKeyword_1_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getLiteralListAccess().getLessThanSignKeyword_1_3();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new LiteralList_RightSquareBracketKeyword_1_2(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
 // entryType=TypeRef
-protected class LiteralList_EntryTypeAssignment_1_4 extends AssignmentToken  {
+protected class LiteralList_EntryTypeAssignment_1_3 extends AssignmentToken  {
 	
-	public LiteralList_EntryTypeAssignment_1_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public LiteralList_EntryTypeAssignment_1_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getLiteralListAccess().getEntryTypeAssignment_1_4();
+		return grammarAccess.getLiteralListAccess().getEntryTypeAssignment_1_3();
 	}
 
     @Override
@@ -24178,7 +24368,7 @@ protected class LiteralList_EntryTypeAssignment_1_4 extends AssignmentToken  {
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getTypeRefRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getLiteralListAccess().getEntryTypeTypeRefParserRuleCall_1_4_0(); 
+				element = grammarAccess.getLiteralListAccess().getEntryTypeTypeRefParserRuleCall_1_3_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -24190,28 +24380,50 @@ protected class LiteralList_EntryTypeAssignment_1_4 extends AssignmentToken  {
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new LiteralList_LessThanSignKeyword_1_3(parent, next, actIndex, consumed);
+			case 0: return new LiteralList_LessThanSignKeyword_1_2(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 // ">"
-protected class LiteralList_GreaterThanSignKeyword_1_5 extends KeywordToken  {
+protected class LiteralList_GreaterThanSignKeyword_1_4 extends KeywordToken  {
 	
-	public LiteralList_GreaterThanSignKeyword_1_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public LiteralList_GreaterThanSignKeyword_1_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getLiteralListAccess().getGreaterThanSignKeyword_1_5();
+		return grammarAccess.getLiteralListAccess().getGreaterThanSignKeyword_1_4();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new LiteralList_EntryTypeAssignment_1_4(parent, this, 0, inst);
+			case 0: return new LiteralList_EntryTypeAssignment_1_3(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "]"
+protected class LiteralList_RightSquareBracketKeyword_1_5 extends KeywordToken  {
+	
+	public LiteralList_RightSquareBracketKeyword_1_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getLiteralListAccess().getRightSquareBracketKeyword_1_5();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new LiteralList_GreaterThanSignKeyword_1_4(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
