@@ -95,8 +95,8 @@ public class TypeUtils {
 			Type[] typeargs = pt.getActualTypeArguments();
 			// TODO: probably too relaxed, if it was not a List<?> or Map<?>, then Object is returned
 			//
-			if(returnTypeIdx < 0 || typeargs == null || typeargs.length < returnTypeIdx)
-				return Object.class;
+			if(returnTypeIdx < 0 || typeargs == null || typeargs.length <= returnTypeIdx)
+				return Object.class; // unspecified 
 			return typeargs[returnTypeIdx];
 		}
 		// TODO: probably too relaxed

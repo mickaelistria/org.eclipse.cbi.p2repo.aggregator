@@ -278,10 +278,10 @@ public class BAtExpressionImpl extends BExpressionImpl implements BAtExpression 
 		Object i = indexExpr.evaluate(ctx);
 		if(o instanceof List) {
 			int index = BackendHelper.intValue(i, indexExpr);
-			return new ListLValue((List)o, index, objExpr.getDeclaredType(ctx));
+			return new ListLValue((List)o, index, getDeclaredType(ctx));
 		}
 		if(o instanceof Map) {
-			return new MapLValue((Map)o, i, objExpr.getDeclaredType(ctx));
+			return new MapLValue((Map)o, i, getDeclaredType(ctx));
 		}
 		throw BackendHelper.createException(objExpr, "expression is neither a list or map - [] not applicable");
 	}

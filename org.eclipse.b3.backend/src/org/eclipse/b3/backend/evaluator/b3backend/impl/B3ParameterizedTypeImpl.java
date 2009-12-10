@@ -200,12 +200,10 @@ public class B3ParameterizedTypeImpl extends EObjectImpl implements B3Parameteri
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Type[] getActualTypeArguments() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return (Type[]) getActualArgumentsList().toArray();
 	}
 
 	/**
