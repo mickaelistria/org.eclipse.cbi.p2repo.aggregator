@@ -52,12 +52,12 @@ public class BSystemContextImpl extends BExecutionContextImpl implements BSystem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Object callFunction(String functionName, Object[] parameters, Type[] types, BExecutionContext ctx) throws Throwable {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		throw new UnsupportedOperationException("Implement general calling a method on a java object");
 	}
 
 } //BSystemContextImpl
