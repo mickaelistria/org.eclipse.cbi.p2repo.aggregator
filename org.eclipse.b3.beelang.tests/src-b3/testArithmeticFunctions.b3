@@ -6,8 +6,6 @@ function Object main(List argv) {
 	testHexIntegerArithemtic();
 	testOctalIntegerArithemtic();
 	testRealArithemtic();
-	assertEquals("3 + 2 == 5", 5, 3 + 2);
-	assertEquals("putting 2.0 and 2.0 together", 4.0, 2.0 + 2.0);
 }
 function Object testIntegerArithemtic() {
 	assertEquals("3 + 2 == 5", 5, 3 + 2);
