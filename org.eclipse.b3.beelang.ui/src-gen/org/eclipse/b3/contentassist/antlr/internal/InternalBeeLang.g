@@ -4485,15 +4485,15 @@ rule__AssignmentExpression__Alternatives_0
     }
 :
 (
-{ before(grammarAccess.getAssignmentExpressionAccess().getOrExpressionParserRuleCall_0_0()); }
-	ruleOrExpression
-{ after(grammarAccess.getAssignmentExpressionAccess().getOrExpressionParserRuleCall_0_0()); }
+{ before(grammarAccess.getAssignmentExpressionAccess().getVarDeclarationParserRuleCall_0_0()); }
+	ruleVarDeclaration
+{ after(grammarAccess.getAssignmentExpressionAccess().getVarDeclarationParserRuleCall_0_0()); }
 )
 
     |(
-{ before(grammarAccess.getAssignmentExpressionAccess().getVarDeclarationParserRuleCall_0_1()); }
-	ruleVarDeclaration
-{ after(grammarAccess.getAssignmentExpressionAccess().getVarDeclarationParserRuleCall_0_1()); }
+{ before(grammarAccess.getAssignmentExpressionAccess().getOrExpressionParserRuleCall_0_1()); }
+	ruleOrExpression
+{ after(grammarAccess.getAssignmentExpressionAccess().getOrExpressionParserRuleCall_0_1()); }
 )
 
 ;
