@@ -189,7 +189,8 @@ public class B3JavaImportImpl extends EObjectImpl implements B3JavaImport {
 		qualifiedName = newQualifiedName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.B3_JAVA_IMPORT__QUALIFIED_NAME, oldQualifiedName, qualifiedName));
-		if(name == null) {
+		// set the name if not set (unless the qualified name is also null)
+		if(name == null && qualifiedName != null) {
 			int lastDot = qualifiedName.lastIndexOf('.');
 			if(lastDot < 0)
 				setName(qualifiedName);

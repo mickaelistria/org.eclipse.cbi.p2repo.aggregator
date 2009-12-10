@@ -6,6 +6,7 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
@@ -229,8 +230,12 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	}
 	@Override
 	public Object internalCall(BExecutionContext ctx, Object[] parameters, Type[] types) throws Throwable {
+		try {
 		if(systemCall)
 			return method.invoke(null, ctx, parameters, types);
 		return method.invoke(null, parameters);
+		} catch (InvocationTargetException e) {
+			throw e.getCause();
+		}
 	}
 } //BJavaFunctionImpl

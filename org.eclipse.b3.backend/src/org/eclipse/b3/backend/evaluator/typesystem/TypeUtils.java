@@ -26,7 +26,7 @@ public class TypeUtils {
 		if(t instanceof B3JavaImport) {
 			return getRaw(B3JavaImport.class.cast(t).getType());
 		}
-		throw new UnsupportedOperationException("ONLY CLASS AND PARAMETERIZED TYPE SUPPORTED - was:"+t);
+		throw new UnsupportedOperationException("ONLY CLASS AND PARAMETERIZED TYPE SUPPORTED - was: "+t);
 	}
 	public static boolean isAssignableFrom(Type baseType, Type fromType)
 	{

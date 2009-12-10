@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.eclipse.b3.backend.core.B3AssertionFailedException;
 import org.eclipse.b3.backend.core.B3Backend;
 import org.eclipse.b3.backend.evaluator.Any;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
@@ -12,6 +13,42 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 
 public class SystemFunctions {
 
+	public static Object assertEquals(
+			@B3Backend(name="message")String message, 
+			@B3Backend(name="expected")Object expected, 
+			@B3Backend(name="actual")Object actual) throws Throwable {
+		
+		if(expected == actual)
+			return Boolean.TRUE;
+		if(expected == null || actual == null)
+			throw new B3AssertionFailedException(message, expected, actual);
+		if(!expected.equals(actual))
+			throw new B3AssertionFailedException(message, expected, actual);
+		return Boolean.TRUE;
+	}
+	public static Object assertTrue(
+			@B3Backend(name="message")String message, 
+			@B3Backend(name="booleanExpr")Boolean booleanExpr 
+			) throws Throwable {
+		
+		if(booleanExpr == null)
+			throw new B3AssertionFailedException(message, Boolean.TRUE, null);
+		if(!booleanExpr.equals(Boolean.TRUE))
+			throw new B3AssertionFailedException(message, Boolean.TRUE, booleanExpr);
+		return Boolean.TRUE;
+	}
+	public static Object assertFalse(
+			@B3Backend(name="message")String message, 
+			@B3Backend(name="booleanExpr")Boolean booleanExpr 
+			) throws Throwable {
+		
+		if(booleanExpr == null)
+			throw new B3AssertionFailedException(message, Boolean.FALSE, null);
+		if(!booleanExpr.equals(Boolean.FALSE))
+			throw new B3AssertionFailedException(message, Boolean.TRUE, booleanExpr);
+		return Boolean.TRUE;
+	}
+	
 	@B3Backend(systemFunction="_whileTrue")
 	public static Object whileTrue(@B3Backend(name="doWhileBlock")BFunction func) { return null; }
 

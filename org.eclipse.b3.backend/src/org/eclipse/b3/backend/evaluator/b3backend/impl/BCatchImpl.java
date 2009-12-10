@@ -190,21 +190,17 @@ public class BCatchImpl extends EObjectImpl implements BCatch {
 	 * @generated NOT
 	 */
 	public void setExceptionType(Type newExceptionType) {
-		if(! (exceptionType instanceof EObject && newExceptionType instanceof EObject))
-			exceptionType = newExceptionType;
-		else {
 		if (newExceptionType != exceptionType) {
 			NotificationChain msgs = null;
-			if (exceptionType != null)
+			if (exceptionType != null && exceptionType instanceof EObject)
 				msgs = ((InternalEObject)exceptionType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BCATCH__EXCEPTION_TYPE, null, msgs);
-			if (newExceptionType != null)
+			if (newExceptionType != null && newExceptionType instanceof EObject)
 				msgs = ((InternalEObject)newExceptionType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BCATCH__EXCEPTION_TYPE, null, msgs);
 			msgs = basicSetExceptionType(newExceptionType, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BCATCH__EXCEPTION_TYPE, newExceptionType, newExceptionType));
-		}
 	}
 
 	/**
