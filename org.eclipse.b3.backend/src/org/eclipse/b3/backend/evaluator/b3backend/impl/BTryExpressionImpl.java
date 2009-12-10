@@ -298,7 +298,6 @@ public class BTryExpressionImpl extends BExpressionImpl implements BTryExpressio
 		}
 		return super.eIsSet(featureID);
 	}
-	@SuppressWarnings("unchecked")
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 		try {
@@ -306,7 +305,7 @@ public class BTryExpressionImpl extends BExpressionImpl implements BTryExpressio
 		} catch(Throwable t) {
 			// select catch block, or if exception uncaught, re-throw
 			for(BCatch catchBlock : catchBlocks) {
-				if(((Class)(catchBlock.getExceptionType())).isAssignableFrom(t.getClass())) {
+				if((TypeUtils.getRaw((catchBlock.getExceptionType())).isAssignableFrom(t.getClass()))) {
 					BExecutionContext inner = ctx.createInnerContext();
 					try {
 						inner.defineValue(catchBlock.getVarname(), t, catchBlock.getExceptionType());
@@ -320,7 +319,8 @@ public class BTryExpressionImpl extends BExpressionImpl implements BTryExpressio
 			// no match
 			throw t;
 		} finally {
-			finallyExpr.evaluate(ctx);
+			if(finallyExpr != null)
+				finallyExpr.evaluate(ctx);
 		}
 	}
 	/** 
