@@ -1,0 +1,28 @@
+import java.lang.Object;
+import java.lang.Number;
+import java.util.List;
+import org.eclipse.b3.backend.core.B3AssertionFailedException;
+
+/**
+* Assert that true is returned.
+*/
+function Object main(List argv) { testAssertOk(); testAssertNotOk(); }
+function Object testAssertOk() {
+	assertTrue("testing assertTrue", true);
+	assertFalse("testing assertFalse", false);
+}
+function Object testAssertNotOk() {
+	try {
+		assertTrue("testing assertTrue", false);
+		throw "assert failed"; ;
+	}
+	catch B3AssertionFailedException e : true 
+	endtry;
+	try {
+		assertFalse("testing assertFalse", true);
+		throw "assert failed"; ;
+	}
+	catch B3AssertionFailedException e : true 
+	endtry;
+
+}
