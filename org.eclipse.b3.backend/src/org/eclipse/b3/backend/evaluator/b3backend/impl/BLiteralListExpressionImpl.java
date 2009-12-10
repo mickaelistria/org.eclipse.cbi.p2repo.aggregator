@@ -18,6 +18,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression;
 import org.eclipse.b3.backend.evaluator.typesystem.B3ParameterizedType;
+import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -137,21 +138,17 @@ public class BLiteralListExpressionImpl extends BExpressionImpl implements BLite
 	 * @generated NOT
 	 */
 	public void setEntryType(Type newEntryType) {
-		if(! (entryType instanceof EObject && newEntryType instanceof EObject))
-			entryType = newEntryType;
-		else {
 		if (newEntryType != entryType) {
 			NotificationChain msgs = null;
-			if (entryType != null)
+			if (entryType != null && entryType instanceof EObject)
 				msgs = ((InternalEObject)entryType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE, null, msgs);
-			if (newEntryType != null)
+			if (newEntryType != null && newEntryType instanceof EObject)
 				msgs = ((InternalEObject)newEntryType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE, null, msgs);
 			msgs = basicSetEntryType(newEntryType, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BLITERAL_LIST_EXPRESSION__ENTRY_TYPE, newEntryType, newEntryType));
-		}
 	}
 
 	/**
@@ -250,7 +247,7 @@ public class BLiteralListExpressionImpl extends BExpressionImpl implements BLite
 			Object result = expr.evaluate(ctx);
 			Class entryClass = null;
 			if( t instanceof ParameterizedType)
-				entryClass = (Class)((ParameterizedType)t).getRawType();
+				entryClass = TypeUtils.getRaw(t);
 			else
 				entryClass = (Class)t;
 			if(!entryClass.isAssignableFrom(result.getClass()))

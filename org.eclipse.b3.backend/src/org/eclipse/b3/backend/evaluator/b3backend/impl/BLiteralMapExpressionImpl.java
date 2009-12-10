@@ -146,21 +146,17 @@ public class BLiteralMapExpressionImpl extends BExpressionImpl implements BLiter
 	 * @generated NOT
 	 */
 	public void setKeyType(Type newKeyType) {
-		if(! (keyType instanceof EObject && newKeyType instanceof EObject))
-			keyType = newKeyType;
-		else {
 		if (newKeyType != keyType) {
 			NotificationChain msgs = null;
-			if (keyType != null)
+			if (keyType != null && keyType instanceof EObject)
 				msgs = ((InternalEObject)keyType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BLITERAL_MAP_EXPRESSION__KEY_TYPE, null, msgs);
-			if (newKeyType != null)
+			if (newKeyType != null && newKeyType instanceof EObject)
 				msgs = ((InternalEObject)newKeyType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BLITERAL_MAP_EXPRESSION__KEY_TYPE, null, msgs);
 			msgs = basicSetKeyType(newKeyType, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BLITERAL_MAP_EXPRESSION__KEY_TYPE, newKeyType, newKeyType));
-		}
 	}
 
 	/**
@@ -194,21 +190,17 @@ public class BLiteralMapExpressionImpl extends BExpressionImpl implements BLiter
 	 * @generated NOT
 	 */
 	public void setValueType(Type newValueType) {
-		if(! (valueType instanceof EObject && newValueType instanceof EObject))
-			valueType = newValueType;
-		else {
 		if (newValueType != valueType) {
 			NotificationChain msgs = null;
-			if (valueType != null)
+			if (valueType != null && valueType instanceof EObject)
 				msgs = ((InternalEObject)valueType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BLITERAL_MAP_EXPRESSION__VALUE_TYPE, null, msgs);
-			if (newValueType != null)
+			if (newValueType != null && newValueType instanceof EObject)
 				msgs = ((InternalEObject)newValueType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BLITERAL_MAP_EXPRESSION__VALUE_TYPE, null, msgs);
 			msgs = basicSetValueType(newValueType, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BLITERAL_MAP_EXPRESSION__VALUE_TYPE, newValueType, newValueType));
-		}
 	}
 
 	/**
