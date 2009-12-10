@@ -295,7 +295,8 @@ Expression returns be::BExpression: AssignmentExpression ;
 // ReturnExpression returns Expression : {ReturnExpression} "return" expr = AssignmentExpression ; 
 
 AssignmentExpression returns be::BExpression:
-	 (OrExpression | VarDeclaration) ({be::BAssignmentExpression.leftExpr=current} 
+	// note: VarDecl | OrExpr is order dependant
+	 (VarDeclaration | OrExpression) ({be::BAssignmentExpression.leftExpr=current} 
 	 	functionName=AssignmentOperator rightExpr=AssignmentExpression)?
 	;
 

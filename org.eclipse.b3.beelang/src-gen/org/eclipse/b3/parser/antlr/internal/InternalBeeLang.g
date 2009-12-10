@@ -6128,11 +6128,11 @@ ruleAssignmentExpression returns [EObject current=null]
 	  /* */ 
 	}
     { 
-        currentNode=createCompositeNode(grammarAccess.getAssignmentExpressionAccess().getOrExpressionParserRuleCall_0_0(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getAssignmentExpressionAccess().getVarDeclarationParserRuleCall_0_0(), currentNode); 
     }
-    this_OrExpression_0=ruleOrExpression
+    this_VarDeclaration_0=ruleVarDeclaration
     { 
-        $current = $this_OrExpression_0.current; 
+        $current = $this_VarDeclaration_0.current; 
         currentNode = currentNode.getParent();
     }
 
@@ -6141,11 +6141,11 @@ ruleAssignmentExpression returns [EObject current=null]
 	  /* */ 
 	}
     { 
-        currentNode=createCompositeNode(grammarAccess.getAssignmentExpressionAccess().getVarDeclarationParserRuleCall_0_1(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getAssignmentExpressionAccess().getOrExpressionParserRuleCall_0_1(), currentNode); 
     }
-    this_VarDeclaration_1=ruleVarDeclaration
+    this_OrExpression_1=ruleOrExpression
     { 
-        $current = $this_VarDeclaration_1.current; 
+        $current = $this_OrExpression_1.current; 
         currentNode = currentNode.getParent();
     }
 )((

@@ -3270,8 +3270,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "AssignmentExpression");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
-		private final RuleCall cOrExpressionParserRuleCall_0_0 = (RuleCall)cAlternatives_0.eContents().get(0);
-		private final RuleCall cVarDeclarationParserRuleCall_0_1 = (RuleCall)cAlternatives_0.eContents().get(1);
+		private final RuleCall cVarDeclarationParserRuleCall_0_0 = (RuleCall)cAlternatives_0.eContents().get(0);
+		private final RuleCall cOrExpressionParserRuleCall_0_1 = (RuleCall)cAlternatives_0.eContents().get(1);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Action cBAssignmentExpressionLeftExprAction_1_0 = (Action)cGroup_1.eContents().get(0);
 		private final Assignment cFunctionNameAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
@@ -3280,24 +3280,24 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cRightExprAssignmentExpressionParserRuleCall_1_2_0 = (RuleCall)cRightExprAssignment_1_2.eContents().get(0);
 		
 		//AssignmentExpression returns be::BExpression:
-		//  (OrExpression|VarDeclaration) ({be::BAssignmentExpression.leftExpr=current}
+		//  (VarDeclaration|OrExpression) ({be::BAssignmentExpression.leftExpr=current}
 		//  functionName=AssignmentOperator rightExpr=AssignmentExpression)?; 
 		//
 		//// ReturnExpression returns Expression : {ReturnExpression} "return" expr = AssignmentExpression ;
 		public ParserRule getRule() { return rule; }
 
-		//(OrExpression|VarDeclaration) ({be::BAssignmentExpression.leftExpr=current}
+		//(VarDeclaration|OrExpression) ({be::BAssignmentExpression.leftExpr=current}
 		//functionName=AssignmentOperator rightExpr=AssignmentExpression)?
 		public Group getGroup() { return cGroup; }
 
-		//OrExpression|VarDeclaration
+		//VarDeclaration|OrExpression
 		public Alternatives getAlternatives_0() { return cAlternatives_0; }
 
-		//OrExpression
-		public RuleCall getOrExpressionParserRuleCall_0_0() { return cOrExpressionParserRuleCall_0_0; }
-
 		//VarDeclaration
-		public RuleCall getVarDeclarationParserRuleCall_0_1() { return cVarDeclarationParserRuleCall_0_1; }
+		public RuleCall getVarDeclarationParserRuleCall_0_0() { return cVarDeclarationParserRuleCall_0_0; }
+
+		//OrExpression
+		public RuleCall getOrExpressionParserRuleCall_0_1() { return cOrExpressionParserRuleCall_0_1; }
 
 		//({be::BAssignmentExpression.leftExpr=current} functionName=AssignmentOperator
 		//rightExpr=AssignmentExpression)?
@@ -7737,7 +7737,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//AssignmentExpression returns be::BExpression:
-	//  (OrExpression|VarDeclaration) ({be::BAssignmentExpression.leftExpr=current}
+	//  (VarDeclaration|OrExpression) ({be::BAssignmentExpression.leftExpr=current}
 	//  functionName=AssignmentOperator rightExpr=AssignmentExpression)?; 
 	//
 	//// ReturnExpression returns Expression : {ReturnExpression} "return" expr = AssignmentExpression ;

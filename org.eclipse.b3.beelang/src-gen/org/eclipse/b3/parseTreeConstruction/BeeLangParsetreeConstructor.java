@@ -14014,14 +14014,14 @@ protected class Expression_AssignmentExpressionParserRuleCall extends RuleCallTo
 /************ begin Rule AssignmentExpression ****************
  *
  * AssignmentExpression returns be::BExpression:
- *   (OrExpression|VarDeclaration) ({be::BAssignmentExpression.leftExpr=current}
+ *   (VarDeclaration|OrExpression) ({be::BAssignmentExpression.leftExpr=current}
  *   functionName=AssignmentOperator rightExpr=AssignmentExpression)?; 
  * 
  * // ReturnExpression returns Expression : {ReturnExpression} "return" expr = AssignmentExpression ;
  *
  **/
 
-// (OrExpression|VarDeclaration) ({be::BAssignmentExpression.leftExpr=current}
+// (VarDeclaration|OrExpression) ({be::BAssignmentExpression.leftExpr=current}
 // functionName=AssignmentOperator rightExpr=AssignmentExpression)?
 protected class AssignmentExpression_Group extends GroupToken {
 	
@@ -14050,7 +14050,7 @@ protected class AssignmentExpression_Group extends GroupToken {
 	}
 }
 
-// OrExpression|VarDeclaration
+// VarDeclaration|OrExpression
 protected class AssignmentExpression_Alternatives_0 extends AlternativesToken {
 
 	public AssignmentExpression_Alternatives_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -14065,59 +14065,24 @@ protected class AssignmentExpression_Alternatives_0 extends AlternativesToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new AssignmentExpression_OrExpressionParserRuleCall_0_0(parent, this, 0, inst);
-			case 1: return new AssignmentExpression_VarDeclarationParserRuleCall_0_1(parent, this, 1, inst);
+			case 0: return new AssignmentExpression_VarDeclarationParserRuleCall_0_0(parent, this, 0, inst);
+			case 1: return new AssignmentExpression_OrExpressionParserRuleCall_0_1(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
 		
-}
-
-// OrExpression
-protected class AssignmentExpression_OrExpressionParserRuleCall_0_0 extends RuleCallToken {
-	
-	public AssignmentExpression_OrExpressionParserRuleCall_0_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public RuleCall getGrammarElement() {
-		return grammarAccess.getAssignmentExpressionAccess().getOrExpressionParserRuleCall_0_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new OrExpression_Group(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override
-	protected IInstanceDescription tryConsumeVal() {
-		if(checkForRecursion(OrExpression_Group.class, current)) return null;
-		if(!current.isInstanceOf(grammarAccess.getOrExpressionRule().getType().getClassifier())) return null;
-		return current;
-	}
-	
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		switch(index) {
-			default: return parent.createParentFollower(next, actIndex , index, inst);
-		}	
-	}	
 }
 
 // VarDeclaration
-protected class AssignmentExpression_VarDeclarationParserRuleCall_0_1 extends RuleCallToken {
+protected class AssignmentExpression_VarDeclarationParserRuleCall_0_0 extends RuleCallToken {
 	
-	public AssignmentExpression_VarDeclarationParserRuleCall_0_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public AssignmentExpression_VarDeclarationParserRuleCall_0_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getAssignmentExpressionAccess().getVarDeclarationParserRuleCall_0_1();
+		return grammarAccess.getAssignmentExpressionAccess().getVarDeclarationParserRuleCall_0_0();
 	}
 
     @Override
@@ -14132,6 +14097,41 @@ protected class AssignmentExpression_VarDeclarationParserRuleCall_0_1 extends Ru
 	protected IInstanceDescription tryConsumeVal() {
 		if(checkForRecursion(VarDeclaration_Group.class, current)) return null;
 		if(!current.isInstanceOf(grammarAccess.getVarDeclarationRule().getType().getClassifier())) return null;
+		return current;
+	}
+	
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(next, actIndex , index, inst);
+		}	
+	}	
+}
+
+// OrExpression
+protected class AssignmentExpression_OrExpressionParserRuleCall_0_1 extends RuleCallToken {
+	
+	public AssignmentExpression_OrExpressionParserRuleCall_0_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getAssignmentExpressionAccess().getOrExpressionParserRuleCall_0_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new OrExpression_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(checkForRecursion(OrExpression_Group.class, current)) return null;
+		if(!current.isInstanceOf(grammarAccess.getOrExpressionRule().getType().getClassifier())) return null;
 		return current;
 	}
 	
