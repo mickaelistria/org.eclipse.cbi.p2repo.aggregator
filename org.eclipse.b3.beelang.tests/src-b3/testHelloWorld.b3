@@ -1,0 +1,4 @@
+import java.lang.Object;
+import java.util.List;
+
+function Object main(List argv) : "Hello World";
