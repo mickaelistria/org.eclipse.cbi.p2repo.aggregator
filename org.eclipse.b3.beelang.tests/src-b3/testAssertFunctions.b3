@@ -14,13 +14,13 @@ function Object testAssertOk() {
 function Object testAssertNotOk() {
 	try {
 		assertTrue("testing assertTrue", false);
-		throw "assert failed"; ;
+		throw "assert failed"; 
 	}
 	catch B3AssertionFailedException e : true 
 	endtry;
 	try {
 		assertFalse("testing assertFalse", true);
-		throw "assert failed"; ;
+		throw "assert failed";
 	}
 	catch B3AssertionFailedException e : true 
 	endtry;
