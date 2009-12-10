@@ -4824,27 +4824,27 @@ rule__PrimaryExpression__Alternatives
     }
 :
 (
-{ before(grammarAccess.getPrimaryExpressionAccess().getVariableValueParserRuleCall_0()); }
-	ruleVariableValue
-{ after(grammarAccess.getPrimaryExpressionAccess().getVariableValueParserRuleCall_0()); }
-)
-
-    |(
-{ before(grammarAccess.getPrimaryExpressionAccess().getLiteralParserRuleCall_1()); }
-	ruleLiteral
-{ after(grammarAccess.getPrimaryExpressionAccess().getLiteralParserRuleCall_1()); }
-)
-
-    |(
-{ before(grammarAccess.getPrimaryExpressionAccess().getFeatureCallParserRuleCall_2()); }
+{ before(grammarAccess.getPrimaryExpressionAccess().getFeatureCallParserRuleCall_0()); }
 	ruleFeatureCall
-{ after(grammarAccess.getPrimaryExpressionAccess().getFeatureCallParserRuleCall_2()); }
+{ after(grammarAccess.getPrimaryExpressionAccess().getFeatureCallParserRuleCall_0()); }
 )
 
     |(
-{ before(grammarAccess.getPrimaryExpressionAccess().getConstructorCallExpressionParserRuleCall_3()); }
+{ before(grammarAccess.getPrimaryExpressionAccess().getConstructorCallExpressionParserRuleCall_1()); }
 	ruleConstructorCallExpression
-{ after(grammarAccess.getPrimaryExpressionAccess().getConstructorCallExpressionParserRuleCall_3()); }
+{ after(grammarAccess.getPrimaryExpressionAccess().getConstructorCallExpressionParserRuleCall_1()); }
+)
+
+    |(
+{ before(grammarAccess.getPrimaryExpressionAccess().getVariableValueParserRuleCall_2()); }
+	ruleVariableValue
+{ after(grammarAccess.getPrimaryExpressionAccess().getVariableValueParserRuleCall_2()); }
+)
+
+    |(
+{ before(grammarAccess.getPrimaryExpressionAccess().getLiteralParserRuleCall_3()); }
+	ruleLiteral
+{ after(grammarAccess.getPrimaryExpressionAccess().getLiteralParserRuleCall_3()); }
 )
 
     |(
@@ -14774,32 +14774,10 @@ rule__ThrowExpression__Group__2
 { after(grammarAccess.getThrowExpressionAccess().getExprAssignment_2()); }
 )
 
-	rule__ThrowExpression__Group__3
 ;
 finally {
 	restoreStackSize(stackSize);
 }
-
-
-rule__ThrowExpression__Group__3
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getThrowExpressionAccess().getSemicolonKeyword_3()); }
-
-	';' 
-
-{ after(grammarAccess.getThrowExpressionAccess().getSemicolonKeyword_3()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
 
 
 
