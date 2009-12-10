@@ -1,9 +1,10 @@
 package org.eclipse.b3.backend.core;
 
-import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
+
+import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 
 public class ValueMap {
 	private static int IMMUTABLE = 0x1;
@@ -125,27 +126,14 @@ public class ValueMap {
 		int markers;
 		Object value;
 		Type type;
-//		ValueEntry(Object val)
-//		{ markers = 0; value = val; type = Object.class;}
 		ValueEntry(Object val, Type t)
 		{ markers = 0; value = val; type = t;}
-//		ValueEntry(int marks, Object val)
-//		{ markers = marks; value = val; }
 		ValueEntry(int marks, Object val, Type t)
 		{ markers = marks; value = val; type = t;}
 		boolean isFinal() { return (markers & FINAL) != 0; }
 		boolean isImmutable() { return (markers & IMMUTABLE) != 0; }
 		boolean isAssignableFrom(Class<?> clazz) {
-			Class<?> aClass;
-			if(type instanceof Class<?>)
-				aClass = ((Class<?>)type);
-			else {
-				Type t = type;
-				while(!(t instanceof Class<?>) )
-					t = ((ParameterizedType)t).getRawType();
-				aClass = ((Class<?>)type);
-				}
-			return aClass.isAssignableFrom(clazz);
+			return TypeUtils.isAssignableFrom(type, clazz);
 		}
 	}
 }

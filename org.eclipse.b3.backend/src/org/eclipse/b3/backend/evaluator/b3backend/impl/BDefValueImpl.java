@@ -13,8 +13,11 @@
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import java.lang.reflect.Type;
+
+import org.eclipse.b3.backend.core.LValue;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefValue;
+import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.emf.common.notify.Notification;
@@ -283,14 +286,14 @@ public class BDefValueImpl extends BExpressionImpl implements BDefValue {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void setType(Type newType) {
 		if (newType != type) {
 			NotificationChain msgs = null;
-			if (type != null)
+			if (type != null && type instanceof EObject)
 				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BDEF_VALUE__TYPE, null, msgs);
-			if (newType != null)
+			if (newType != null && newType instanceof EObject)
 				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BDEF_VALUE__TYPE, null, msgs);
 			msgs = basicSetType(newType, msgs);
 			if (msgs != null) msgs.dispatch();
@@ -432,5 +435,24 @@ public class BDefValueImpl extends BExpressionImpl implements BDefValue {
 		result.append(')');
 		return result.toString();
 	}
-
+	@Override
+	public Object evaluate(BExecutionContext ctx) throws Throwable {
+		Object result = null;
+		if(immutable) {
+			if(final_)
+				ctx.defineFinalValue(name, result = (valueExpr == null ? null : valueExpr.evaluate(ctx)), type);
+			else
+				ctx.defineValue(name, result = (valueExpr == null ? null : valueExpr.evaluate(ctx)), type);
+		} else {
+			if(final_)
+				ctx.defineFinalVariableValue(name, result = (valueExpr == null ? null : valueExpr.evaluate(ctx)), type);
+			else
+				ctx.defineVariableValue(name, result = (valueExpr == null ? null : valueExpr.evaluate(ctx)), type);
+		}
+		return result;
+	}
+	@Override
+	public LValue getLValue(BExecutionContext ctx) throws Throwable {
+		return ctx.getLValue(name);
+	}
 } //BDefValueImpl
