@@ -18,6 +18,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BMapEntry;
 import org.eclipse.b3.backend.evaluator.typesystem.B3ParameterizedType;
+import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -325,11 +326,14 @@ public class BLiteralMapExpressionImpl extends BExpressionImpl implements BLiter
 			}
 		return map;
 	}
-	@SuppressWarnings("unchecked")
+	/**
+	 * @deprecated use TypeUtils.getRaw(t) instead.
+	 * @param t
+	 * @return
+	 */
+	@Deprecated
 	public static Class<?> rawClassFromType(Type t) {
-		if( t instanceof ParameterizedType)
-			return (Class)((ParameterizedType)t).getRawType();
-		return (Class)t;
+		return TypeUtils.getRaw(t);
 	}
 	/**
 	 * Returns the declared ekey and value types or String for key, and Object for data if not specified.
