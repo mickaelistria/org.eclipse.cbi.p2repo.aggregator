@@ -1,0 +1,47 @@
+import java.lang.Object;
+import java.util.List;
+import java.lang.Number;
+import java.lang.List;
+import java.util.Map;
+import java.lang.String;
+
+/** Assert function returns true */
+function Object main(List argv) {
+	testAssignmentFunctions();
+	testListAssignment();
+	testMapAssignment();
+}
+function Object testAssignmentFunctions() {
+	Number x = 0x0;
+	assertEquals("x = 3; x += 2; x == 5", 5, {x = 3; x += 2; x;});
+	assertEquals("x = 3; x -= 2; x == 1", 1, {x = 3; x -= 2; x;});
+	assertEquals("x = 3; x *= 2; x == 6", 6, {x = 3; x *= 2; x;});
+	assertEquals("x = 5; x /= 2; x == 2", 2, {x = 5; x /= 2; x;});
+	assertEquals("x = 10; x %= 3; x == 1", 1, {x = 10; x %= 3; x;});
+	
+	assertEquals("x = 0x1; x |= 0x2; x == 0x3", 0x3, {x = 0x1; x |= 0x2; x;});
+	assertEquals("x = 0x7; x &= 0x2; x == 0x2", 0x2, {x = 0x7; x &= 0x2; x;});
+	assertEquals("x = 0x2; x ^= 0x1; x == 0x3", 0x3, {x = 0x2; x ^= 0x1; x;});
+	assertEquals("x = 0x4; x >>= 0x1; x == 0x2", 0x2, {x = 0x4; x >>= 0x1; x;});
+	assertEquals("x = 0x2; x <<= 0x1; x == 0x4", 0x4, {x = 0x2; x <<= 0x1; x;});
+	assertEquals("x = 0x4; x >>>= 0x1; x == 0x2", 0x2, {x = 0x4; x >>>= 0x1; x;});
+	assertEquals("x = -0x4; x >>>= 0x1; x == 9223372036854775806", 9223372036854775806, {x = -0x4; x >>>= 0x1; x;});	
+}
+function Object testListAssignment() {
+	List<Number> x = [<Number> 1, 2, 3];
+	assertEquals("x = [1,2,3]; x[0] += 1; x[0] == 2", 2, { x = [<Number> 1,2,3]; x[0] += 1; x[0];});
+	assertEquals("x = [1,2,3]; x[0] += 1.0; x[0] == 2.0", 2.0, { x = [<Number> 1,2,3]; x[0] += 1.0; x[0];});
+	assertEquals("x = [1,2,3]; x[0] -= 1; x[0] == 0", 0, { x = [<Number> 1,2,3]; x[0] -= 1; x[0];});
+	assertEquals("x = [1,2,3]; x[1] *= 2; x[1] == 4", 4, { x = [<Number> 1,2,3]; x[1] *= 2; x[1];});
+	assertEquals("x = [1,2,3]; x[2] /= 2; x[2] == 1", 1, { x = [<Number> 1,2,3]; x[2] /= 2; x[2];});
+	assertEquals("x = [1,2,10]; x[2] %= 3; x[2] == 1", 1, { x = [<Number> 1,2,10]; x[2] %= 3; x[2];});
+}
+function Object testMapAssignment() {
+	Map<String, Number> x = [<String, Number> a:1, b:2, c:3];
+	assertEquals("x = [a:1,b:2,c:3]; x['a'] += 1; x['a'] == 2", 2, { x = [<String, Number> a:1, b:2, c:3]; x['a'] += 1; x['a'];});
+	assertEquals("x = [a:1,b:2,c:3]; x['a'] += 1.0; x['a'] == 2.0", 2.0, { x = [<String, Number> a:1, b:2, c:3]; x['a'] += 1.0; x['a'];});
+	assertEquals("x = [a:1,b:2,c:3]; x['a'] -= 1; x['a'] == 0", 0, { x = [<String, Number> a:1, b:2, c:3]; x['a'] -= 1; x['a'];});
+	assertEquals("x = [a:1,b:2,c:3]; x['b'] *= 2; x['b'] == 4", 4, { x = [<String, Number> a:1, b:2, c:3]; x['b'] *= 2; x['b'];});
+	assertEquals("x = [a:1,b:2,c:3]; x['c'] /= 2; x['c'] == 1", 1, { x = [<String, Number> a:1, b:2, c:3]; x['c'] /= 2; x['c'];});
+	assertEquals("x = [a:1,b:2,c:10]; x['c'] %= 3; x['c'] == 1", 1, { x = [<String, Number> a:1, b:2, c:10]; x['c'] %= 3; x['c'];});
+}
