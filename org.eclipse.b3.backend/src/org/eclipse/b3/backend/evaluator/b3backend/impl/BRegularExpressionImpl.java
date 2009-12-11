@@ -12,9 +12,11 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
+import java.lang.reflect.Type;
 import java.util.regex.Pattern;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
+import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -177,5 +179,12 @@ public class BRegularExpressionImpl extends BExpressionImpl implements BRegularE
 		result.append(')');
 		return result.toString();
 	}
-
+	@Override
+	public Object evaluate(BExecutionContext ctx) throws Throwable {
+		return pattern;
+	}
+	@Override
+	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
+		return Pattern.class;
+	}
 } //BRegularExpressionImpl
