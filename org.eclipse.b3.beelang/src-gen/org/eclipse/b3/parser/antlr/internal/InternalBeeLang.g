@@ -10603,72 +10603,16 @@ ruleLiteralMap returns [EObject current=null]
     {
         createLeafNode(grammarAccess.getLiteralMapAccess().getLeftSquareBracketKeyword_0_1(), null); 
     }
-(
-(
-		{ 
-	        currentNode=createCompositeNode(grammarAccess.getLiteralMapAccess().getEntriesMapEntryParserRuleCall_0_2_0(), currentNode); 
-	    }
-		lv_entries_2_0=ruleMapEntry		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getLiteralMapRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode.getParent(), $current);
-	        }
-	        try {
-	       		add(
-	       			$current, 
-	       			"entries",
-	        		lv_entries_2_0, 
-	        		"MapEntry", 
-	        		currentNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	        currentNode = currentNode.getParent();
-	    }
-
-)
-)(	',' 
-    {
-        createLeafNode(grammarAccess.getLiteralMapAccess().getCommaKeyword_0_3_0(), null); 
-    }
-(
-(
-		{ 
-	        currentNode=createCompositeNode(grammarAccess.getLiteralMapAccess().getEntriesMapEntryParserRuleCall_0_3_1_0(), currentNode); 
-	    }
-		lv_entries_4_0=ruleMapEntry		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getLiteralMapRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode.getParent(), $current);
-	        }
-	        try {
-	       		add(
-	       			$current, 
-	       			"entries",
-	        		lv_entries_4_0, 
-	        		"MapEntry", 
-	        		currentNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	        currentNode = currentNode.getParent();
-	    }
-
-)
-))*	']' 
-    {
-        createLeafNode(grammarAccess.getLiteralMapAccess().getRightSquareBracketKeyword_0_4(), null); 
-    }
 (	'<' 
     {
-        createLeafNode(grammarAccess.getLiteralMapAccess().getLessThanSignKeyword_0_5_0(), null); 
+        createLeafNode(grammarAccess.getLiteralMapAccess().getLessThanSignKeyword_0_2_0(), null); 
     }
 (
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getLiteralMapAccess().getKeyTypeTypeRefParserRuleCall_0_5_1_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getLiteralMapAccess().getKeyTypeTypeRefParserRuleCall_0_2_1_0(), currentNode); 
 	    }
-		lv_keyType_7_0=ruleTypeRef		{
+		lv_keyType_3_0=ruleTypeRef		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getLiteralMapRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -10677,7 +10621,7 @@ ruleLiteralMap returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"keyType",
-	        		lv_keyType_7_0, 
+	        		lv_keyType_3_0, 
 	        		"TypeRef", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -10689,14 +10633,14 @@ ruleLiteralMap returns [EObject current=null]
 )
 )	',' 
     {
-        createLeafNode(grammarAccess.getLiteralMapAccess().getCommaKeyword_0_5_2(), null); 
+        createLeafNode(grammarAccess.getLiteralMapAccess().getCommaKeyword_0_2_2(), null); 
     }
 (
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getLiteralMapAccess().getValueTypeTypeRefParserRuleCall_0_5_3_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getLiteralMapAccess().getValueTypeTypeRefParserRuleCall_0_2_3_0(), currentNode); 
 	    }
-		lv_valueType_9_0=ruleTypeRef		{
+		lv_valueType_5_0=ruleTypeRef		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getLiteralMapRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -10705,7 +10649,7 @@ ruleLiteralMap returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"valueType",
-	        		lv_valueType_9_0, 
+	        		lv_valueType_5_0, 
 	        		"TypeRef", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -10717,9 +10661,65 @@ ruleLiteralMap returns [EObject current=null]
 )
 )	'>' 
     {
-        createLeafNode(grammarAccess.getLiteralMapAccess().getGreaterThanSignKeyword_0_5_4(), null); 
+        createLeafNode(grammarAccess.getLiteralMapAccess().getGreaterThanSignKeyword_0_2_4(), null); 
     }
-)?)
+)?(
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getLiteralMapAccess().getEntriesMapEntryParserRuleCall_0_3_0(), currentNode); 
+	    }
+		lv_entries_7_0=ruleMapEntry		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getLiteralMapRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		add(
+	       			$current, 
+	       			"entries",
+	        		lv_entries_7_0, 
+	        		"MapEntry", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+)(	',' 
+    {
+        createLeafNode(grammarAccess.getLiteralMapAccess().getCommaKeyword_0_4_0(), null); 
+    }
+(
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getLiteralMapAccess().getEntriesMapEntryParserRuleCall_0_4_1_0(), currentNode); 
+	    }
+		lv_entries_9_0=ruleMapEntry		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getLiteralMapRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		add(
+	       			$current, 
+	       			"entries",
+	        		lv_entries_9_0, 
+	        		"MapEntry", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+))*	']' 
+    {
+        createLeafNode(grammarAccess.getLiteralMapAccess().getRightSquareBracketKeyword_0_5(), null); 
+    }
+)
     |((
 	{ 
 	  /* */ 
@@ -10738,20 +10738,16 @@ ruleLiteralMap returns [EObject current=null]
     {
         createLeafNode(grammarAccess.getLiteralMapAccess().getLeftSquareBracketKeyword_1_1(), null); 
     }
-	']' 
-    {
-        createLeafNode(grammarAccess.getLiteralMapAccess().getRightSquareBracketKeyword_1_2(), null); 
-    }
 	'<' 
     {
-        createLeafNode(grammarAccess.getLiteralMapAccess().getLessThanSignKeyword_1_3(), null); 
+        createLeafNode(grammarAccess.getLiteralMapAccess().getLessThanSignKeyword_1_2(), null); 
     }
 (
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getLiteralMapAccess().getKeyTypeTypeRefParserRuleCall_1_4_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getLiteralMapAccess().getKeyTypeTypeRefParserRuleCall_1_3_0(), currentNode); 
 	    }
-		lv_keyType_15_0=ruleTypeRef		{
+		lv_keyType_14_0=ruleTypeRef		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getLiteralMapRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -10760,7 +10756,7 @@ ruleLiteralMap returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"keyType",
-	        		lv_keyType_15_0, 
+	        		lv_keyType_14_0, 
 	        		"TypeRef", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -10772,14 +10768,14 @@ ruleLiteralMap returns [EObject current=null]
 )
 )	',' 
     {
-        createLeafNode(grammarAccess.getLiteralMapAccess().getCommaKeyword_1_5(), null); 
+        createLeafNode(grammarAccess.getLiteralMapAccess().getCommaKeyword_1_4(), null); 
     }
 (
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getLiteralMapAccess().getValueTypeTypeRefParserRuleCall_1_6_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getLiteralMapAccess().getValueTypeTypeRefParserRuleCall_1_5_0(), currentNode); 
 	    }
-		lv_valueType_17_0=ruleTypeRef		{
+		lv_valueType_16_0=ruleTypeRef		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getLiteralMapRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -10788,7 +10784,7 @@ ruleLiteralMap returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"valueType",
-	        		lv_valueType_17_0, 
+	        		lv_valueType_16_0, 
 	        		"TypeRef", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -10800,7 +10796,11 @@ ruleLiteralMap returns [EObject current=null]
 )
 )	'>' 
     {
-        createLeafNode(grammarAccess.getLiteralMapAccess().getGreaterThanSignKeyword_1_7(), null); 
+        createLeafNode(grammarAccess.getLiteralMapAccess().getGreaterThanSignKeyword_1_6(), null); 
+    }
+	']' 
+    {
+        createLeafNode(grammarAccess.getLiteralMapAccess().getRightSquareBracketKeyword_1_7(), null); 
     }
 ));
 

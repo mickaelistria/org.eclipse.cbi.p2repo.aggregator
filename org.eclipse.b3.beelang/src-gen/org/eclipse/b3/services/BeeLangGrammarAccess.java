@@ -5547,58 +5547,58 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
 		private final Action cBLiteralMapExpressionAction_0_0 = (Action)cGroup_0.eContents().get(0);
 		private final Keyword cLeftSquareBracketKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
-		private final Assignment cEntriesAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
-		private final RuleCall cEntriesMapEntryParserRuleCall_0_2_0 = (RuleCall)cEntriesAssignment_0_2.eContents().get(0);
-		private final Group cGroup_0_3 = (Group)cGroup_0.eContents().get(3);
-		private final Keyword cCommaKeyword_0_3_0 = (Keyword)cGroup_0_3.eContents().get(0);
-		private final Assignment cEntriesAssignment_0_3_1 = (Assignment)cGroup_0_3.eContents().get(1);
-		private final RuleCall cEntriesMapEntryParserRuleCall_0_3_1_0 = (RuleCall)cEntriesAssignment_0_3_1.eContents().get(0);
-		private final Keyword cRightSquareBracketKeyword_0_4 = (Keyword)cGroup_0.eContents().get(4);
-		private final Group cGroup_0_5 = (Group)cGroup_0.eContents().get(5);
-		private final Keyword cLessThanSignKeyword_0_5_0 = (Keyword)cGroup_0_5.eContents().get(0);
-		private final Assignment cKeyTypeAssignment_0_5_1 = (Assignment)cGroup_0_5.eContents().get(1);
-		private final RuleCall cKeyTypeTypeRefParserRuleCall_0_5_1_0 = (RuleCall)cKeyTypeAssignment_0_5_1.eContents().get(0);
-		private final Keyword cCommaKeyword_0_5_2 = (Keyword)cGroup_0_5.eContents().get(2);
-		private final Assignment cValueTypeAssignment_0_5_3 = (Assignment)cGroup_0_5.eContents().get(3);
-		private final RuleCall cValueTypeTypeRefParserRuleCall_0_5_3_0 = (RuleCall)cValueTypeAssignment_0_5_3.eContents().get(0);
-		private final Keyword cGreaterThanSignKeyword_0_5_4 = (Keyword)cGroup_0_5.eContents().get(4);
+		private final Group cGroup_0_2 = (Group)cGroup_0.eContents().get(2);
+		private final Keyword cLessThanSignKeyword_0_2_0 = (Keyword)cGroup_0_2.eContents().get(0);
+		private final Assignment cKeyTypeAssignment_0_2_1 = (Assignment)cGroup_0_2.eContents().get(1);
+		private final RuleCall cKeyTypeTypeRefParserRuleCall_0_2_1_0 = (RuleCall)cKeyTypeAssignment_0_2_1.eContents().get(0);
+		private final Keyword cCommaKeyword_0_2_2 = (Keyword)cGroup_0_2.eContents().get(2);
+		private final Assignment cValueTypeAssignment_0_2_3 = (Assignment)cGroup_0_2.eContents().get(3);
+		private final RuleCall cValueTypeTypeRefParserRuleCall_0_2_3_0 = (RuleCall)cValueTypeAssignment_0_2_3.eContents().get(0);
+		private final Keyword cGreaterThanSignKeyword_0_2_4 = (Keyword)cGroup_0_2.eContents().get(4);
+		private final Assignment cEntriesAssignment_0_3 = (Assignment)cGroup_0.eContents().get(3);
+		private final RuleCall cEntriesMapEntryParserRuleCall_0_3_0 = (RuleCall)cEntriesAssignment_0_3.eContents().get(0);
+		private final Group cGroup_0_4 = (Group)cGroup_0.eContents().get(4);
+		private final Keyword cCommaKeyword_0_4_0 = (Keyword)cGroup_0_4.eContents().get(0);
+		private final Assignment cEntriesAssignment_0_4_1 = (Assignment)cGroup_0_4.eContents().get(1);
+		private final RuleCall cEntriesMapEntryParserRuleCall_0_4_1_0 = (RuleCall)cEntriesAssignment_0_4_1.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_0_5 = (Keyword)cGroup_0.eContents().get(5);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Action cBLiteralMapExpressionAction_1_0 = (Action)cGroup_1.eContents().get(0);
 		private final Keyword cLeftSquareBracketKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final Keyword cRightSquareBracketKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
-		private final Keyword cLessThanSignKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
-		private final Assignment cKeyTypeAssignment_1_4 = (Assignment)cGroup_1.eContents().get(4);
-		private final RuleCall cKeyTypeTypeRefParserRuleCall_1_4_0 = (RuleCall)cKeyTypeAssignment_1_4.eContents().get(0);
-		private final Keyword cCommaKeyword_1_5 = (Keyword)cGroup_1.eContents().get(5);
-		private final Assignment cValueTypeAssignment_1_6 = (Assignment)cGroup_1.eContents().get(6);
-		private final RuleCall cValueTypeTypeRefParserRuleCall_1_6_0 = (RuleCall)cValueTypeAssignment_1_6.eContents().get(0);
-		private final Keyword cGreaterThanSignKeyword_1_7 = (Keyword)cGroup_1.eContents().get(7);
+		private final Keyword cLessThanSignKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final Assignment cKeyTypeAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final RuleCall cKeyTypeTypeRefParserRuleCall_1_3_0 = (RuleCall)cKeyTypeAssignment_1_3.eContents().get(0);
+		private final Keyword cCommaKeyword_1_4 = (Keyword)cGroup_1.eContents().get(4);
+		private final Assignment cValueTypeAssignment_1_5 = (Assignment)cGroup_1.eContents().get(5);
+		private final RuleCall cValueTypeTypeRefParserRuleCall_1_5_0 = (RuleCall)cValueTypeAssignment_1_5.eContents().get(0);
+		private final Keyword cGreaterThanSignKeyword_1_6 = (Keyword)cGroup_1.eContents().get(6);
+		private final Keyword cRightSquareBracketKeyword_1_7 = (Keyword)cGroup_1.eContents().get(7);
 		
 		//LiteralMap returns be::BExpression:
-		//  {be::BLiteralMapExpression} "[" entries+=MapEntry ("," entries+=MapEntry)* "]" ("<"
-		//  keyType=TypeRef "," valueType=TypeRef ">")?|{be::BLiteralMapExpression} "[" "]" "<"
-		//  keyType=TypeRef "," valueType=TypeRef ">"; 
+		//  {be::BLiteralMapExpression} "[" ("<" keyType=TypeRef "," valueType=TypeRef ">")?
+		//  entries+=MapEntry ("," entries+=MapEntry)* "]"|{be::BLiteralMapExpression} "[" "<"
+		//  keyType=TypeRef "," valueType=TypeRef ">" "]"; 
 		//     
-		//	                               
-		//	                
+		//	                                
+		//	                 
 		//	
 		//// TODO: only needs the ClosureExpression == B3Function 
 		////LiteralFunction returns be::BExpression: {LiteralFunction} '{' closure = ClosureExpression '}' ;
 		public ParserRule getRule() { return rule; }
 
-		//{be::BLiteralMapExpression} "[" entries+=MapEntry ("," entries+=MapEntry)* "]" ("<"
-		//keyType=TypeRef "," valueType=TypeRef ">")?|{be::BLiteralMapExpression} "[" "]" "<"
-		//keyType=TypeRef "," valueType=TypeRef ">" 
+		//{be::BLiteralMapExpression} "[" ("<" keyType=TypeRef "," valueType=TypeRef ">")?
+		//entries+=MapEntry ("," entries+=MapEntry)* "]"|{be::BLiteralMapExpression} "[" "<"
+		//keyType=TypeRef "," valueType=TypeRef ">" "]" 
 		//     
-		//	                               
-		//	                
+		//	                                
+		//	                 
 		//	
 		//// TODO: only needs the ClosureExpression == B3Function 
 		////LiteralFunction returns be::BExpression: {LiteralFunction} '{' closure = ClosureExpression '}' ;
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//{be::BLiteralMapExpression} "[" entries+=MapEntry ("," entries+=MapEntry)* "]" ("<"
-		//keyType=TypeRef "," valueType=TypeRef ">")?
+		//{be::BLiteralMapExpression} "[" ("<" keyType=TypeRef "," valueType=TypeRef ">")?
+		//entries+=MapEntry ("," entries+=MapEntry)* "]"
 		public Group getGroup_0() { return cGroup_0; }
 
 		//{be::BLiteralMapExpression}
@@ -5607,52 +5607,52 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//"["
 		public Keyword getLeftSquareBracketKeyword_0_1() { return cLeftSquareBracketKeyword_0_1; }
 
-		//entries+=MapEntry
-		public Assignment getEntriesAssignment_0_2() { return cEntriesAssignment_0_2; }
-
-		//MapEntry
-		public RuleCall getEntriesMapEntryParserRuleCall_0_2_0() { return cEntriesMapEntryParserRuleCall_0_2_0; }
-
-		//("," entries+=MapEntry)*
-		public Group getGroup_0_3() { return cGroup_0_3; }
-
-		//","
-		public Keyword getCommaKeyword_0_3_0() { return cCommaKeyword_0_3_0; }
-
-		//entries+=MapEntry
-		public Assignment getEntriesAssignment_0_3_1() { return cEntriesAssignment_0_3_1; }
-
-		//MapEntry
-		public RuleCall getEntriesMapEntryParserRuleCall_0_3_1_0() { return cEntriesMapEntryParserRuleCall_0_3_1_0; }
-
-		//"]"
-		public Keyword getRightSquareBracketKeyword_0_4() { return cRightSquareBracketKeyword_0_4; }
-
 		//("<" keyType=TypeRef "," valueType=TypeRef ">")?
-		public Group getGroup_0_5() { return cGroup_0_5; }
+		public Group getGroup_0_2() { return cGroup_0_2; }
 
 		//"<"
-		public Keyword getLessThanSignKeyword_0_5_0() { return cLessThanSignKeyword_0_5_0; }
+		public Keyword getLessThanSignKeyword_0_2_0() { return cLessThanSignKeyword_0_2_0; }
 
 		//keyType=TypeRef
-		public Assignment getKeyTypeAssignment_0_5_1() { return cKeyTypeAssignment_0_5_1; }
+		public Assignment getKeyTypeAssignment_0_2_1() { return cKeyTypeAssignment_0_2_1; }
 
 		//TypeRef
-		public RuleCall getKeyTypeTypeRefParserRuleCall_0_5_1_0() { return cKeyTypeTypeRefParserRuleCall_0_5_1_0; }
+		public RuleCall getKeyTypeTypeRefParserRuleCall_0_2_1_0() { return cKeyTypeTypeRefParserRuleCall_0_2_1_0; }
 
 		//","
-		public Keyword getCommaKeyword_0_5_2() { return cCommaKeyword_0_5_2; }
+		public Keyword getCommaKeyword_0_2_2() { return cCommaKeyword_0_2_2; }
 
 		//valueType=TypeRef
-		public Assignment getValueTypeAssignment_0_5_3() { return cValueTypeAssignment_0_5_3; }
+		public Assignment getValueTypeAssignment_0_2_3() { return cValueTypeAssignment_0_2_3; }
 
 		//TypeRef
-		public RuleCall getValueTypeTypeRefParserRuleCall_0_5_3_0() { return cValueTypeTypeRefParserRuleCall_0_5_3_0; }
+		public RuleCall getValueTypeTypeRefParserRuleCall_0_2_3_0() { return cValueTypeTypeRefParserRuleCall_0_2_3_0; }
 
 		//">"
-		public Keyword getGreaterThanSignKeyword_0_5_4() { return cGreaterThanSignKeyword_0_5_4; }
+		public Keyword getGreaterThanSignKeyword_0_2_4() { return cGreaterThanSignKeyword_0_2_4; }
 
-		//{be::BLiteralMapExpression} "[" "]" "<" keyType=TypeRef "," valueType=TypeRef ">"
+		//entries+=MapEntry
+		public Assignment getEntriesAssignment_0_3() { return cEntriesAssignment_0_3; }
+
+		//MapEntry
+		public RuleCall getEntriesMapEntryParserRuleCall_0_3_0() { return cEntriesMapEntryParserRuleCall_0_3_0; }
+
+		//("," entries+=MapEntry)*
+		public Group getGroup_0_4() { return cGroup_0_4; }
+
+		//","
+		public Keyword getCommaKeyword_0_4_0() { return cCommaKeyword_0_4_0; }
+
+		//entries+=MapEntry
+		public Assignment getEntriesAssignment_0_4_1() { return cEntriesAssignment_0_4_1; }
+
+		//MapEntry
+		public RuleCall getEntriesMapEntryParserRuleCall_0_4_1_0() { return cEntriesMapEntryParserRuleCall_0_4_1_0; }
+
+		//"]"
+		public Keyword getRightSquareBracketKeyword_0_5() { return cRightSquareBracketKeyword_0_5; }
+
+		//{be::BLiteralMapExpression} "[" "<" keyType=TypeRef "," valueType=TypeRef ">" "]"
 		public Group getGroup_1() { return cGroup_1; }
 
 		//{be::BLiteralMapExpression}
@@ -5661,29 +5661,29 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//"["
 		public Keyword getLeftSquareBracketKeyword_1_1() { return cLeftSquareBracketKeyword_1_1; }
 
-		//"]"
-		public Keyword getRightSquareBracketKeyword_1_2() { return cRightSquareBracketKeyword_1_2; }
-
 		//"<"
-		public Keyword getLessThanSignKeyword_1_3() { return cLessThanSignKeyword_1_3; }
+		public Keyword getLessThanSignKeyword_1_2() { return cLessThanSignKeyword_1_2; }
 
 		//keyType=TypeRef
-		public Assignment getKeyTypeAssignment_1_4() { return cKeyTypeAssignment_1_4; }
+		public Assignment getKeyTypeAssignment_1_3() { return cKeyTypeAssignment_1_3; }
 
 		//TypeRef
-		public RuleCall getKeyTypeTypeRefParserRuleCall_1_4_0() { return cKeyTypeTypeRefParserRuleCall_1_4_0; }
+		public RuleCall getKeyTypeTypeRefParserRuleCall_1_3_0() { return cKeyTypeTypeRefParserRuleCall_1_3_0; }
 
 		//","
-		public Keyword getCommaKeyword_1_5() { return cCommaKeyword_1_5; }
+		public Keyword getCommaKeyword_1_4() { return cCommaKeyword_1_4; }
 
 		//valueType=TypeRef
-		public Assignment getValueTypeAssignment_1_6() { return cValueTypeAssignment_1_6; }
+		public Assignment getValueTypeAssignment_1_5() { return cValueTypeAssignment_1_5; }
 
 		//TypeRef
-		public RuleCall getValueTypeTypeRefParserRuleCall_1_6_0() { return cValueTypeTypeRefParserRuleCall_1_6_0; }
+		public RuleCall getValueTypeTypeRefParserRuleCall_1_5_0() { return cValueTypeTypeRefParserRuleCall_1_5_0; }
 
 		//">"
-		public Keyword getGreaterThanSignKeyword_1_7() { return cGreaterThanSignKeyword_1_7; }
+		public Keyword getGreaterThanSignKeyword_1_6() { return cGreaterThanSignKeyword_1_6; }
+
+		//"]"
+		public Keyword getRightSquareBracketKeyword_1_7() { return cRightSquareBracketKeyword_1_7; }
 	}
 
 	public class ClosureExpressionElements extends AbstractParserRuleElementFinder {
@@ -8402,12 +8402,12 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//LiteralMap returns be::BExpression:
-	//  {be::BLiteralMapExpression} "[" entries+=MapEntry ("," entries+=MapEntry)* "]" ("<"
-	//  keyType=TypeRef "," valueType=TypeRef ">")?|{be::BLiteralMapExpression} "[" "]" "<"
-	//  keyType=TypeRef "," valueType=TypeRef ">"; 
+	//  {be::BLiteralMapExpression} "[" ("<" keyType=TypeRef "," valueType=TypeRef ">")?
+	//  entries+=MapEntry ("," entries+=MapEntry)* "]"|{be::BLiteralMapExpression} "[" "<"
+	//  keyType=TypeRef "," valueType=TypeRef ">" "]"; 
 	//     
-	//	                               
-	//	                
+	//	                                
+	//	                 
 	//	
 	//// TODO: only needs the ClosureExpression == B3Function 
 	////LiteralFunction returns be::BExpression: {LiteralFunction} '{' closure = ClosureExpression '}' ;

@@ -2270,16 +2270,6 @@
           </type>
         </tokens>
         <tokens xsi:type="xtext:Keyword" value="["/>
-        <tokens xsi:type="xtext:Assignment" feature="entries" operator="+=">
-          <terminal xsi:type="xtext:RuleCall" rule="//@rules.108"/>
-        </tokens>
-        <tokens xsi:type="xtext:Group" cardinality="*">
-          <tokens xsi:type="xtext:Keyword" value=","/>
-          <tokens xsi:type="xtext:Assignment" feature="entries" operator="+=">
-            <terminal xsi:type="xtext:RuleCall" rule="//@rules.108"/>
-          </tokens>
-        </tokens>
-        <tokens xsi:type="xtext:Keyword" value="]"/>
         <tokens xsi:type="xtext:Group" cardinality="?">
           <tokens xsi:type="xtext:Keyword" value="&lt;"/>
           <tokens xsi:type="xtext:Assignment" feature="keyType" operator="=">
@@ -2291,6 +2281,16 @@
           </tokens>
           <tokens xsi:type="xtext:Keyword" value=">"/>
         </tokens>
+        <tokens xsi:type="xtext:Assignment" feature="entries" operator="+=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.108"/>
+        </tokens>
+        <tokens xsi:type="xtext:Group" cardinality="*">
+          <tokens xsi:type="xtext:Keyword" value=","/>
+          <tokens xsi:type="xtext:Assignment" feature="entries" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.108"/>
+          </tokens>
+        </tokens>
+        <tokens xsi:type="xtext:Keyword" value="]"/>
       </groups>
       <groups xsi:type="xtext:Group">
         <tokens xsi:type="xtext:Action">
@@ -2299,7 +2299,6 @@
           </type>
         </tokens>
         <tokens xsi:type="xtext:Keyword" value="["/>
-        <tokens xsi:type="xtext:Keyword" value="]"/>
         <tokens xsi:type="xtext:Keyword" value="&lt;"/>
         <tokens xsi:type="xtext:Assignment" feature="keyType" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="//@rules.61"/>
@@ -2309,6 +2308,7 @@
           <terminal xsi:type="xtext:RuleCall" rule="//@rules.61"/>
         </tokens>
         <tokens xsi:type="xtext:Keyword" value=">"/>
+        <tokens xsi:type="xtext:Keyword" value="]"/>
       </groups>
     </alternatives>
   </rules>
