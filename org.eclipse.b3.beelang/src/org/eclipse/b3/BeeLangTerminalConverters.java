@@ -170,7 +170,7 @@ public class BeeLangTerminalConverters extends  AbstractDeclarativeValueConverte
 			public Boolean toValue(String string, AbstractNode node) {
 				if (Strings.isEmpty(string))
 					throw new ValueConverterException("Could not convert empty string to boolean", node, null);
-					return new Boolean(string);
+					return new Boolean(string).equals(Boolean.TRUE) ? Boolean.TRUE : Boolean.FALSE;
 			}
 
 			public String toString(Boolean value) {
