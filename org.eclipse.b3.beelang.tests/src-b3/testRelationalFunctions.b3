@@ -5,6 +5,7 @@ import java.lang.Number;
 function Object main(List argv) {
 	testRelationalFunctions();
 	testRegexp();
+	testSimplePattern();
 }
 
 function Object testRelationalFunctions() {
@@ -29,4 +30,9 @@ function Object testRelationalFunctions() {
 function Object testRegexp() {
 	assertTrue("'abc' ~= ~/.*/", "abc" ~= ~/.*/);
 	assertTrue("~/.*/ ~= 'abc'" , ~/.*/  ~= "abc" );
+}
+function Object testSimplePattern() {
+	assertTrue("'abc123' ~= 'abc*'", "abc123" ~= "abc*");
+	assertTrue("'abc123' ~= 'abc?23'", "abc123" ~= "abc?23");
+	assertTrue("'abc123' ~= 'a*3'", "abc123" ~= "a*3");
 }
