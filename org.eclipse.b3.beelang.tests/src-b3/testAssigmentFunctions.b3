@@ -11,10 +11,64 @@ function Object main(List argv) {
 	testListAssignment();
 	testMapAssignment();
 	testChainedAssignment();
+	testVariablePreop();
+	testVariablePostop();
+	testListPreop();
+	testListPostop();
+	testMapPreop();
+	testMapPostop();
 }
 function Object testChainedAssignment() {
 	Number x = Number y = Number z = 10;
 	assertTrue("x == y == z", x == y && y == z);
+}
+function Object testVariablePreop() {
+	Number x = 0;
+	Number a = 0;
+	a = ++x;
+	assertTrue("a = ++x", a == x && a == 1 && x == 1);
+	a = --x;
+	assertTrue("a = --x", a == x && a == 0 && x == 0);
+}
+function Object testVariablePostop() {
+	Number x = 1;
+	Number a = 0;
+	a = x++;
+	assertTrue("a = x++", a != x && a == 1 && x == 2);
+	a = x--;
+	assertTrue("a = x--", a != x && a == 2 && x == 1);
+}
+function Object testListPreop() {
+	List<Number> x = [<Number> 1];
+	Number a;
+	a = ++x[0];
+	assertTrue("a = ++x[0]", a == x[0] && a == 2 && x[0] == 2);
+	a = --x[0];
+	assertTrue("a = --x[0]", a == x[0] && a == 1 && x[0] == 1);	
+}
+function Object testListPostop() {
+	List<Number> x = [<Number> 1];
+	Number a;
+	a = x[0]++;
+	assertTrue("a = x[0]++", a != x[0] && a == 1 && x[0] == 2);
+	a = x[0]--;
+	assertTrue("a = x[0]--", a != x[0] && a == 2 && x[0] == 1);
+}
+function Object testMapPreop() {
+	Map<String, Number> x = [<String,Number> a:1];
+	Number a;
+	a = ++x['a'];
+	assertTrue("a = ++x['a']", a == x['a'] && a == 2 && x['a'] == 2);
+	a = --x['a'];
+	assertTrue("a = --x['a']", a == x['a'] && a == 1 && x['a'] == 1);	
+}
+function Object testMapPostop() {
+	Map<String, Number> x = [<String,Number> a:1];
+	Number a;
+	a = x['a']++;
+	assertTrue("a = x['a']++", a != x['a'] && a == 1 && x['a'] == 2);
+	a = x['a']--;
+	assertTrue("a = x['a']--", a != x['a'] && a == 2 && x['a'] == 1);
 }
 function Object testAssignmentFunctions() {
 	Number x = 0x0;
