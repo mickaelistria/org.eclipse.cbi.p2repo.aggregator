@@ -1,0 +1,35 @@
+import java.lang.Object;
+import java.util.List;
+import java.lang.Number;
+
+function Object main(List argv) {
+	testLogical();
+}
+
+function Object testLogical() {
+	assertTrue("true == true",  true);
+	assertTrue("true == true",  true == true);
+	assertTrue("true === true",  true === true);
+	assertTrue("false == false",  false == false);
+	assertTrue("false === false",  false === false);
+	assertTrue("true && true",  true && true);
+	assertFalse("true && false",  true && false);
+	assertFalse("false && true",  false && true);
+	assertFalse("false && false", false && false);
+	
+	assertTrue("true || false", true || false);
+	assertTrue("true || true", true || true);
+	assertTrue("false || true", true || false);
+	
+	assertTrue("f ||  f || t", false || false || true);
+	Number a = 1;
+	assertTrue("++a == 2 || ++a == 3", ++a == 2 || ++a == 3);
+	assertEquals("logical || should not have evaluated second increment", 2, a); 
+
+	a = 1;
+	assertTrue("++a == 2 && ++a == 3", ++a == 2 && ++a == 3);
+	assertEquals("logical && should have evaluated second increment", 3, a);
+	
+	assertTrue("!false", !false);
+	assertFalse("!true", !true); 
+}
