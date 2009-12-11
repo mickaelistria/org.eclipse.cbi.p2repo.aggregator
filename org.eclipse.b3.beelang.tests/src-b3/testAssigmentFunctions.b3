@@ -10,6 +10,11 @@ function Object main(List argv) {
 	testAssignmentFunctions();
 	testListAssignment();
 	testMapAssignment();
+	testChainedAssignment();
+}
+function Object testChainedAssignment() {
+	Number x = Number y = Number z = 10;
+	assertTrue("x == y == z", x == y && y == z);
 }
 function Object testAssignmentFunctions() {
 	Number x = 0x0;
