@@ -1,0 +1,32 @@
+import java.lang.Object;
+import java.util.List;
+import java.lang.Number;
+
+function Object main(List argv) {
+	testRelationalFunctions();
+	testRegexp();
+}
+
+function Object testRelationalFunctions() {
+	assertTrue("1 < 2", 1 < 2);
+	assertTrue("2 > 1", 2 > 1);
+	assertTrue("2 == 2", 2 == 2);
+
+	assertTrue("1 <= 2", 1 <= 2);
+	assertTrue("2 <= 2", 2 <= 2);
+	assertFalse("3 <= 2", 3 <= 2);
+
+	assertTrue("1 >= 2", 2 >= 1);
+	assertTrue("2 >= 2", 2 >= 2);
+	assertFalse("3 >= 2", 2 >= 3);
+	
+	assertTrue("true === true", true === true);
+	assertFalse("1 === 1", 1 === 1);
+	assertTrue("1 !==1", 1 !==1);
+	Number x = 1;
+	assertTrue("x === x", x === x);
+}
+function Object testRegexp() {
+	assertTrue("'abc' ~= ~/.*/", "abc" ~= ~/.*/);
+	assertTrue("~/.*/ ~= 'abc'" , ~/.*/  ~= "abc" );
+}
