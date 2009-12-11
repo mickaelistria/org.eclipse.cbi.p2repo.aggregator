@@ -6,6 +6,8 @@ package org.eclipse.b3.labeling;
 import java.lang.reflect.Type;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
+import org.eclipse.b3.backend.evaluator.b3backend.BAtExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BChainedExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression;
@@ -42,6 +44,12 @@ public class BeeLangLabelProvider extends DefaultLabelProvider {
 	}
 	String text(BLiteralMapExpression ele) {
 		return "list: <" + safeToString(ele.getKeyType())+", "+safeToString(ele.getValueType())+">";
+	}
+	String text(BChainedExpression ele) {
+		return "{ ... }";
+	}
+	String text(BAtExpression ele) {
+		return "[n]";
 	}
 	
 	private String safeToString(Object o) {
