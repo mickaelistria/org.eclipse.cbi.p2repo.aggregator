@@ -116,6 +116,15 @@ public class BSystemContextImpl extends BExecutionContextImpl implements BSystem
 		Method m = findMethod(functionName, types);
 		if(m == null)
 			throw new B3NoSuchFunctionSignatureException(functionName, types);
-		return m.getReturnType();
+		Type t = m.getReturnType();
+		if(t == boolean.class)
+			return Boolean.class;
+		if(t == Integer.class)
+			return Integer.class;
+		if(t == long.class)
+			return Long.class;
+		if(t == double.class)
+			return Double.class;
+		return t;
 	}
 } //BSystemContextImpl
