@@ -3,11 +3,15 @@ import java.util.List;
 import java.lang.Number;
 
 function Object main(List argv) {
+	testInstanceOf();
 	testRelationalFunctions();
 	testRegexp();
 	testSimplePattern();
 }
-
+function Object testInstanceOf() {
+	assertTrue("1 instanceof Number", 1 instanceof Number);
+	assertFalse("'hello' instanceof Number", "hello" instanceof Number);
+}
 function Object testRelationalFunctions() {
 	assertTrue("1 < 2", 1 < 2);
 	assertTrue("2 > 1", 2 > 1);
