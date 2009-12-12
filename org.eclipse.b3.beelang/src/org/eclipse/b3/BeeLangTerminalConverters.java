@@ -110,10 +110,10 @@ public class BeeLangTerminalConverters extends  AbstractDeclarativeValueConverte
 	}
 
 	@ValueConverter(rule = "IntValue")
-	public IValueConverter<Long> IntValue() {
-		return new IValueConverter<Long>() {
+	public IValueConverter<Integer> IntValue() {
+		return new IValueConverter<Integer>() {
 			
-			public Long toValue(String string, AbstractNode node) throws ValueConverterException
+			public Integer toValue(String string, AbstractNode node) throws ValueConverterException
 			{
 				int radix = 10;
 				if (Strings.isEmpty(string))
@@ -126,7 +126,7 @@ public class BeeLangTerminalConverters extends  AbstractDeclarativeValueConverte
 					else if(string.startsWith("0") && string.length() > 1)
 						radix = 8;
 
-					return new Long(Long.valueOf(string,radix));
+					return new Integer(Integer.valueOf(string,radix));
 				} catch (NumberFormatException e) {
 					String format = "";
 					switch(radix){ case 8: format="octal"; break; case 10: format="decimal"; break; 
@@ -135,7 +135,7 @@ public class BeeLangTerminalConverters extends  AbstractDeclarativeValueConverte
 					throw new ValueConverterException("Can not convert to "+ format +" integer : "+string, node, null);
 				}
 			}
-			public String toString(Long value) {
+			public String toString(Integer value) {
 				return value.toString();
 			}
 

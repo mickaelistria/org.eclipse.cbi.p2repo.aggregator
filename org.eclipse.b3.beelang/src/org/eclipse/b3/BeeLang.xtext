@@ -544,7 +544,7 @@ BooleanValue returns ecore::EBooleanObject : ("true" | "false" );
 RealValue returns ecore::EDoubleObject: REAL ;
 
 // Has conversion rule that handles dec, oct, and hex values with radix
-IntValue returns ecore::ELongObject : INT | HEX ;
+IntValue returns ecore::EIntegerObject : INT | HEX ;
 	
 ParanthesizedExpression returns be::BExpression
 	:  "(" Expression ")"

@@ -6175,7 +6175,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cINTTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cHEXTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		//IntValue returns ecore::ELongObject:
+		//IntValue returns ecore::EIntegerObject:
 		//  INT|HEX; 
 		//
 		//// Has conversion rule that handles dec, oct, and hex values with radix
@@ -8689,7 +8689,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getRealValueAccess().getRule();
 	}
 
-	//IntValue returns ecore::ELongObject:
+	//IntValue returns ecore::EIntegerObject:
 	//  INT|HEX; 
 	//
 	//// Has conversion rule that handles dec, oct, and hex values with radix
