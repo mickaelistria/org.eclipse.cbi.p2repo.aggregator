@@ -340,6 +340,11 @@ public class BCreateExpressionItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
 				 B3backendFactory.eINSTANCE.createBRegularExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
+				 B3backendFactory.eINSTANCE.createBLiteralType()));
 	}
 
 }

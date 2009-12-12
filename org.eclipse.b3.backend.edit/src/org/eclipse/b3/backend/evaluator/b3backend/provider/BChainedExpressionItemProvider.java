@@ -290,6 +290,11 @@ public class BChainedExpressionItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BCHAINED_EXPRESSION__EXPRESSIONS,
 				 B3backendFactory.eINSTANCE.createBRegularExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCHAINED_EXPRESSION__EXPRESSIONS,
+				 B3backendFactory.eINSTANCE.createBLiteralType()));
 	}
 
 }

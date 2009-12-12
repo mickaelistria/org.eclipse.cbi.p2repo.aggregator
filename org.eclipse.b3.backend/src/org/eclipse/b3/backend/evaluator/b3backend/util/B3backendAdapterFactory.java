@@ -319,6 +319,10 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 				return createB3JavaImportAdapter();
 			}
 			@Override
+			public Adapter caseBLiteralType(BLiteralType object) {
+				return createBLiteralTypeAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -1161,6 +1165,20 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createB3JavaImportAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralType <em>BLiteral Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BLiteralType
+	 * @generated
+	 */
+	public Adapter createBLiteralTypeAdapter() {
 		return null;
 	}
 

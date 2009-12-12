@@ -518,6 +518,14 @@ public class B3backendSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case B3backendPackage.BLITERAL_TYPE: {
+				BLiteralType bLiteralType = (BLiteralType)theEObject;
+				T result = caseBLiteralType(bLiteralType);
+				if (result == null) result = caseBExpression(bLiteralType);
+				if (result == null) result = caseBSourceLink(bLiteralType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -1404,6 +1412,21 @@ public class B3backendSwitch<T> {
 	 * @generated
 	 */
 	public T caseB3JavaImport(B3JavaImport object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BLiteral Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BLiteral Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBLiteralType(BLiteralType object) {
 		return null;
 	}
 

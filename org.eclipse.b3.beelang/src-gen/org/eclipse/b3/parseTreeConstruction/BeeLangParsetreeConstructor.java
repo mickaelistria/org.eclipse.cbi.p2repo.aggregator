@@ -98,56 +98,58 @@ protected class ThisRootNode extends RootToken {
 			case 60: return new AndExpression_Group(this, this, 60, inst);
 			case 61: return new BitwiseExpression_Group(this, this, 61, inst);
 			case 62: return new RelationalExpression_Group(this, this, 62, inst);
-			case 63: return new ShiftExpression_Group(this, this, 63, inst);
-			case 64: return new AdditiveExpression_Group(this, this, 64, inst);
-			case 65: return new MultiplicativeExpression_Group(this, this, 65, inst);
-			case 66: return new SetExpression_Group(this, this, 66, inst);
-			case 67: return new UnaryOrInfixExpression_Alternatives(this, this, 67, inst);
-			case 68: return new UnaryExpression_Group(this, this, 68, inst);
-			case 69: return new PreopExpression_Group(this, this, 69, inst);
-			case 70: return new PostopExpression_Group(this, this, 70, inst);
-			case 71: return new InfixExpression_Group(this, this, 71, inst);
-			case 72: return new CallExpression_Group(this, this, 72, inst);
-			case 73: return new PrimaryExpression_Alternatives(this, this, 73, inst);
-			case 74: return new WildcardExpression_Group(this, this, 74, inst);
-			case 75: return new ThrowExpression_Group(this, this, 75, inst);
-			case 76: return new TryCatchExpression_Group(this, this, 76, inst);
-			case 77: return new CatchBlock_Group(this, this, 77, inst);
-			case 78: return new SwitchExpression_Group(this, this, 78, inst);
-			case 79: return new Case_Group(this, this, 79, inst);
-			case 80: return new BlockExpression_Group(this, this, 80, inst);
-			case 81: return new IfExpression_Group(this, this, 81, inst);
-			case 82: return new ElseIfExpression_Group(this, this, 82, inst);
-			case 83: return new PropertyValue_Group(this, this, 83, inst);
-			case 84: return new VariableValue_Group(this, this, 84, inst);
-			case 85: return new KeywordVariables_Group(this, this, 85, inst);
-			case 86: return new FeatureCall_OperationCallParserRuleCall(this, this, 86, inst);
-			case 87: return new OperationCall_Group(this, this, 87, inst);
-			case 88: return new ConstructorCallExpression_Group(this, this, 88, inst);
-			case 89: return new Context_Group(this, this, 89, inst);
-			case 90: return new ContextSelector_Alternatives(this, this, 90, inst);
-			case 91: return new TypeRefSelector_TypeAssignment(this, this, 91, inst);
-			case 92: return new ExpressionSelector_ExprAssignment(this, this, 92, inst);
-			case 93: return new UnitSelector_Group(this, this, 93, inst);
-			case 94: return new ContextBlock_Group(this, this, 94, inst);
-			case 95: return new FunctionDefinition_Group(this, this, 95, inst);
-			case 96: return new Literal_Alternatives(this, this, 96, inst);
-			case 97: return new LiteralList_Alternatives(this, this, 97, inst);
-			case 98: return new LiteralMap_Alternatives(this, this, 98, inst);
-			case 99: return new ClosureExpression_Group(this, this, 99, inst);
-			case 100: return new MapEntry_Group(this, this, 100, inst);
-			case 101: return new KeyLiteral_Group(this, this, 101, inst);
-			case 102: return new ValueLiteral_Alternatives(this, this, 102, inst);
-			case 103: return new BooleanLiteral_Group(this, this, 103, inst);
-			case 104: return new IntegerLiteral_Group(this, this, 104, inst);
-			case 105: return new UnitLiteral_Group(this, this, 105, inst);
-			case 106: return new StringLiteral_Group(this, this, 106, inst);
-			case 107: return new RealLiteral_Group(this, this, 107, inst);
-			case 108: return new RegexpLiteral_Group(this, this, 108, inst);
-			case 109: return new NullLiteral_Group(this, this, 109, inst);
-			case 110: return new ParanthesizedExpression_Group(this, this, 110, inst);
-			case 111: return new Version_VersionAssignment(this, this, 111, inst);
-			case 112: return new VersionRange_RangeAssignment(this, this, 112, inst);
+			case 63: return new InstanceOfExpression_Group(this, this, 63, inst);
+			case 64: return new ShiftExpression_Group(this, this, 64, inst);
+			case 65: return new AdditiveExpression_Group(this, this, 65, inst);
+			case 66: return new MultiplicativeExpression_Group(this, this, 66, inst);
+			case 67: return new SetExpression_Group(this, this, 67, inst);
+			case 68: return new UnaryOrInfixExpression_Alternatives(this, this, 68, inst);
+			case 69: return new UnaryExpression_Group(this, this, 69, inst);
+			case 70: return new PreopExpression_Group(this, this, 70, inst);
+			case 71: return new PostopExpression_Group(this, this, 71, inst);
+			case 72: return new InfixExpression_Group(this, this, 72, inst);
+			case 73: return new CallExpression_Group(this, this, 73, inst);
+			case 74: return new PrimaryExpression_Alternatives(this, this, 74, inst);
+			case 75: return new WildcardExpression_Group(this, this, 75, inst);
+			case 76: return new ThrowExpression_Group(this, this, 76, inst);
+			case 77: return new TryCatchExpression_Group(this, this, 77, inst);
+			case 78: return new CatchBlock_Group(this, this, 78, inst);
+			case 79: return new SwitchExpression_Group(this, this, 79, inst);
+			case 80: return new Case_Group(this, this, 80, inst);
+			case 81: return new BlockExpression_Group(this, this, 81, inst);
+			case 82: return new IfExpression_Group(this, this, 82, inst);
+			case 83: return new ElseIfExpression_Group(this, this, 83, inst);
+			case 84: return new PropertyValue_Group(this, this, 84, inst);
+			case 85: return new VariableValue_Group(this, this, 85, inst);
+			case 86: return new KeywordVariables_Group(this, this, 86, inst);
+			case 87: return new FeatureCall_OperationCallParserRuleCall(this, this, 87, inst);
+			case 88: return new OperationCall_Group(this, this, 88, inst);
+			case 89: return new ConstructorCallExpression_Group(this, this, 89, inst);
+			case 90: return new Context_Group(this, this, 90, inst);
+			case 91: return new ContextSelector_Alternatives(this, this, 91, inst);
+			case 92: return new TypeRefSelector_TypeAssignment(this, this, 92, inst);
+			case 93: return new ExpressionSelector_ExprAssignment(this, this, 93, inst);
+			case 94: return new UnitSelector_Group(this, this, 94, inst);
+			case 95: return new ContextBlock_Group(this, this, 95, inst);
+			case 96: return new FunctionDefinition_Group(this, this, 96, inst);
+			case 97: return new Literal_Alternatives(this, this, 97, inst);
+			case 98: return new LiteralList_Alternatives(this, this, 98, inst);
+			case 99: return new LiteralMap_Alternatives(this, this, 99, inst);
+			case 100: return new ClosureExpression_Group(this, this, 100, inst);
+			case 101: return new MapEntry_Group(this, this, 101, inst);
+			case 102: return new KeyLiteral_Group(this, this, 102, inst);
+			case 103: return new LiteralType_Group(this, this, 103, inst);
+			case 104: return new ValueLiteral_Alternatives(this, this, 104, inst);
+			case 105: return new BooleanLiteral_Group(this, this, 105, inst);
+			case 106: return new IntegerLiteral_Group(this, this, 106, inst);
+			case 107: return new UnitLiteral_Group(this, this, 107, inst);
+			case 108: return new StringLiteral_Group(this, this, 108, inst);
+			case 109: return new RealLiteral_Group(this, this, 109, inst);
+			case 110: return new RegexpLiteral_Group(this, this, 110, inst);
+			case 111: return new NullLiteral_Group(this, this, 111, inst);
+			case 112: return new ParanthesizedExpression_Group(this, this, 112, inst);
+			case 113: return new Version_VersionAssignment(this, this, 113, inst);
+			case 114: return new VersionRange_RangeAssignment(this, this, 114, inst);
 			default: return null;
 		}	
 	}	
@@ -16382,13 +16384,13 @@ protected class BitwiseExpression_RightExprAssignment_1_2 extends AssignmentToke
 /************ begin Rule RelationalExpression ****************
  *
  * RelationalExpression returns be::BExpression:
- *   ShiftExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=
- *   RelationalOperator rightExpr=ShiftExpression)*;
+ *   InstanceOfExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=
+ *   RelationalOperator rightExpr=InstanceOfExpression)*;
  *
  **/
 
-// ShiftExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=
-// RelationalOperator rightExpr=ShiftExpression)*
+// InstanceOfExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=
+// RelationalOperator rightExpr=InstanceOfExpression)*
 protected class RelationalExpression_Group extends GroupToken {
 	
 	public RelationalExpression_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -16404,7 +16406,7 @@ protected class RelationalExpression_Group extends GroupToken {
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
 			case 0: return new RelationalExpression_Group_1(parent, this, 0, inst);
-			case 1: return new RelationalExpression_ShiftExpressionParserRuleCall_0(parent, this, 1, inst);
+			case 1: return new RelationalExpression_InstanceOfExpressionParserRuleCall_0(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -16416,30 +16418,30 @@ protected class RelationalExpression_Group extends GroupToken {
 	}
 }
 
-// ShiftExpression
-protected class RelationalExpression_ShiftExpressionParserRuleCall_0 extends RuleCallToken {
+// InstanceOfExpression
+protected class RelationalExpression_InstanceOfExpressionParserRuleCall_0 extends RuleCallToken {
 	
-	public RelationalExpression_ShiftExpressionParserRuleCall_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public RelationalExpression_InstanceOfExpressionParserRuleCall_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getRelationalExpressionAccess().getShiftExpressionParserRuleCall_0();
+		return grammarAccess.getRelationalExpressionAccess().getInstanceOfExpressionParserRuleCall_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ShiftExpression_Group(this, this, 0, inst);
+			case 0: return new InstanceOfExpression_Group(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
 		
     @Override
 	protected IInstanceDescription tryConsumeVal() {
-		if(checkForRecursion(ShiftExpression_Group.class, current)) return null;
-		if(!current.isInstanceOf(grammarAccess.getShiftExpressionRule().getType().getClassifier())) return null;
+		if(checkForRecursion(InstanceOfExpression_Group.class, current)) return null;
+		if(!current.isInstanceOf(grammarAccess.getInstanceOfExpressionRule().getType().getClassifier())) return null;
 		return current;
 	}
 	
@@ -16452,7 +16454,7 @@ protected class RelationalExpression_ShiftExpressionParserRuleCall_0 extends Rul
 }
 
 // ({be::BBinaryOpExpression.leftExpr=current} functionName=RelationalOperator
-// rightExpr=ShiftExpression)*
+// rightExpr=InstanceOfExpression)*
 protected class RelationalExpression_Group_1 extends GroupToken {
 	
 	public RelationalExpression_Group_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -16490,7 +16492,7 @@ protected class RelationalExpression_BBinaryOpExpressionLeftExprAction_1_0 exten
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
 			case 0: return new RelationalExpression_Group_1(parent, this, 0, inst);
-			case 1: return new RelationalExpression_ShiftExpressionParserRuleCall_0(parent, this, 1, inst);
+			case 1: return new RelationalExpression_InstanceOfExpressionParserRuleCall_0(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -16540,7 +16542,7 @@ protected class RelationalExpression_FunctionNameAssignment_1_1 extends Assignme
 
 }
 
-// rightExpr=ShiftExpression
+// rightExpr=InstanceOfExpression
 protected class RelationalExpression_RightExprAssignment_1_2 extends AssignmentToken  {
 	
 	public RelationalExpression_RightExprAssignment_1_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -16555,7 +16557,7 @@ protected class RelationalExpression_RightExprAssignment_1_2 extends AssignmentT
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ShiftExpression_Group(this, this, 0, inst);
+			case 0: return new InstanceOfExpression_Group(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -16566,9 +16568,9 @@ protected class RelationalExpression_RightExprAssignment_1_2 extends AssignmentT
 		IInstanceDescription obj = current.cloneAndConsume("rightExpr");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getShiftExpressionRule().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getInstanceOfExpressionRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getRelationalExpressionAccess().getRightExprShiftExpressionParserRuleCall_1_2_0(); 
+				element = grammarAccess.getRelationalExpressionAccess().getRightExprInstanceOfExpressionParserRuleCall_1_2_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -16589,6 +16591,218 @@ protected class RelationalExpression_RightExprAssignment_1_2 extends AssignmentT
 
 
 /************ end Rule RelationalExpression ****************/
+
+
+/************ begin Rule InstanceOfExpression ****************
+ *
+ * InstanceOfExpression returns be::BExpression:
+ *   ShiftExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=
+ *   "instanceof" rightExpr=LiteralType)*;
+ *
+ **/
+
+// ShiftExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=
+// "instanceof" rightExpr=LiteralType)*
+protected class InstanceOfExpression_Group extends GroupToken {
+	
+	public InstanceOfExpression_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getInstanceOfExpressionAccess().getGroup();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new InstanceOfExpression_Group_1(parent, this, 0, inst);
+			case 1: return new InstanceOfExpression_ShiftExpressionParserRuleCall_0(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getInstanceOfExpressionRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// ShiftExpression
+protected class InstanceOfExpression_ShiftExpressionParserRuleCall_0 extends RuleCallToken {
+	
+	public InstanceOfExpression_ShiftExpressionParserRuleCall_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getInstanceOfExpressionAccess().getShiftExpressionParserRuleCall_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ShiftExpression_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(checkForRecursion(ShiftExpression_Group.class, current)) return null;
+		if(!current.isInstanceOf(grammarAccess.getShiftExpressionRule().getType().getClassifier())) return null;
+		return current;
+	}
+	
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(next, actIndex , index, inst);
+		}	
+	}	
+}
+
+// ({be::BBinaryOpExpression.leftExpr=current} functionName="instanceof" rightExpr=
+// LiteralType)*
+protected class InstanceOfExpression_Group_1 extends GroupToken {
+	
+	public InstanceOfExpression_Group_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getInstanceOfExpressionAccess().getGroup_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new InstanceOfExpression_RightExprAssignment_1_2(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// {be::BBinaryOpExpression.leftExpr=current}
+protected class InstanceOfExpression_BBinaryOpExpressionLeftExprAction_1_0 extends ActionToken  {
+
+	public InstanceOfExpression_BBinaryOpExpressionLeftExprAction_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Action getGrammarElement() {
+		return grammarAccess.getInstanceOfExpressionAccess().getBBinaryOpExpressionLeftExprAction_1_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new InstanceOfExpression_Group_1(parent, this, 0, inst);
+			case 1: return new InstanceOfExpression_ShiftExpressionParserRuleCall_0(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+	
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(!current.isInstanceOf(grammarAccess.getInstanceOfExpressionAccess().getBBinaryOpExpressionLeftExprAction_1_0().getType().getClassifier())) return null;
+		Object val = current.getConsumable("leftExpr", false);
+		if(val == null) return null;
+		if(!current.isConsumedWithLastConsumtion("leftExpr")) return null;
+		return getDescr((EObject) val);
+	}
+}
+
+// functionName="instanceof"
+protected class InstanceOfExpression_FunctionNameAssignment_1_1 extends AssignmentToken  {
+	
+	public InstanceOfExpression_FunctionNameAssignment_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getInstanceOfExpressionAccess().getFunctionNameAssignment_1_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new InstanceOfExpression_BBinaryOpExpressionLeftExprAction_1_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("functionName",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("functionName");
+		if("instanceof".equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
+			type = AssignmentType.KW;
+			element = grammarAccess.getInstanceOfExpressionAccess().getFunctionNameInstanceofKeyword_1_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// rightExpr=LiteralType
+protected class InstanceOfExpression_RightExprAssignment_1_2 extends AssignmentToken  {
+	
+	public InstanceOfExpression_RightExprAssignment_1_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getInstanceOfExpressionAccess().getRightExprAssignment_1_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new LiteralType_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("rightExpr",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("rightExpr");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getLiteralTypeRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getInstanceOfExpressionAccess().getRightExprLiteralTypeParserRuleCall_1_2_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new InstanceOfExpression_FunctionNameAssignment_1_1(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+
+
+/************ end Rule InstanceOfExpression ****************/
 
 
 /************ begin Rule ShiftExpression ****************
@@ -23663,7 +23877,7 @@ protected class FunctionDefinition_FunctionAssignment_1 extends AssignmentToken 
 /************ begin Rule Literal ****************
  *
  * Literal returns be::BExpression:
- *   ValueLiteral|RegexpLiteral|LiteralMap|LiteralList; 
+ *   ValueLiteral|RegexpLiteral|LiteralMap|LiteralList|LiteralType; 
  * //BuilderDefinition returns Statement : {BuilderStatement} builder = Builder;
  * 
  *     
@@ -23675,7 +23889,7 @@ protected class FunctionDefinition_FunctionAssignment_1 extends AssignmentToken 
  *
  **/
 
-// ValueLiteral|RegexpLiteral|LiteralMap|LiteralList 
+// ValueLiteral|RegexpLiteral|LiteralMap|LiteralList|LiteralType 
 // //BuilderDefinition returns Statement : {BuilderStatement} builder = Builder;
 // 
 //     
@@ -23702,6 +23916,7 @@ protected class Literal_Alternatives extends AlternativesToken {
 			case 1: return new Literal_RegexpLiteralParserRuleCall_1(parent, this, 1, inst);
 			case 2: return new Literal_LiteralMapParserRuleCall_2(parent, this, 2, inst);
 			case 3: return new Literal_LiteralListParserRuleCall_3(parent, this, 3, inst);
+			case 4: return new Literal_LiteralTypeParserRuleCall_4(parent, this, 4, inst);
 			default: return null;
 		}	
 	}	
@@ -23843,6 +24058,41 @@ protected class Literal_LiteralListParserRuleCall_3 extends RuleCallToken {
 	protected IInstanceDescription tryConsumeVal() {
 		if(checkForRecursion(LiteralList_Alternatives.class, current)) return null;
 		if(!current.isInstanceOf(grammarAccess.getLiteralListRule().getType().getClassifier())) return null;
+		return current;
+	}
+	
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(next, actIndex , index, inst);
+		}	
+	}	
+}
+
+// LiteralType
+protected class Literal_LiteralTypeParserRuleCall_4 extends RuleCallToken {
+	
+	public Literal_LiteralTypeParserRuleCall_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getLiteralAccess().getLiteralTypeParserRuleCall_4();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new LiteralType_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(checkForRecursion(LiteralType_Group.class, current)) return null;
+		if(!current.isInstanceOf(grammarAccess.getLiteralTypeRule().getType().getClassifier())) return null;
 		return current;
 	}
 	
@@ -25749,6 +25999,118 @@ protected class KeyLiteral_ValueAssignment_1 extends AssignmentToken  {
 
 
 /************ end Rule KeyLiteral ****************/
+
+
+/************ begin Rule LiteralType ****************
+ *
+ * LiteralType returns be::BExpression:
+ *   {be::BLiteralType} type=TypeRef;
+ *
+ **/
+
+// {be::BLiteralType} type=TypeRef
+protected class LiteralType_Group extends GroupToken {
+	
+	public LiteralType_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getLiteralTypeAccess().getGroup();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new LiteralType_TypeAssignment_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getLiteralTypeRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// {be::BLiteralType}
+protected class LiteralType_BLiteralTypeAction_0 extends ActionToken  {
+
+	public LiteralType_BLiteralTypeAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Action getGrammarElement() {
+		return grammarAccess.getLiteralTypeAccess().getBLiteralTypeAction_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(this, index, index, inst);
+		}	
+	}	
+		
+	
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(!current.isInstanceOf(grammarAccess.getLiteralTypeAccess().getBLiteralTypeAction_0().getType().getClassifier())) return null;
+		if(!current.isConsumed()) return null;
+		return current;
+	}
+}
+
+// type=TypeRef
+protected class LiteralType_TypeAssignment_1 extends AssignmentToken  {
+	
+	public LiteralType_TypeAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getLiteralTypeAccess().getTypeAssignment_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new TypeRef_SimpleTypeRefParserRuleCall(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("type",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("type");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getTypeRefRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getLiteralTypeAccess().getTypeTypeRefParserRuleCall_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new LiteralType_BLiteralTypeAction_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+
+/************ end Rule LiteralType ****************/
 
 
 /************ begin Rule ValueLiteral ****************

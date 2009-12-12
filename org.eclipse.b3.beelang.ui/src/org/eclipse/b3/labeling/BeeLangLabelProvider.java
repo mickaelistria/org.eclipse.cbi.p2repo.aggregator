@@ -12,6 +12,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BLiteralType;
 import org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression;
 import org.eclipse.b3.beeLang.BuildUnit;
@@ -50,6 +51,9 @@ public class BeeLangLabelProvider extends DefaultLabelProvider {
 	}
 	String text(BAtExpression ele) {
 		return "[n]";
+	}
+	String text(BLiteralType ele) {
+		return "literal type:";
 	}
 	
 	private String safeToString(Object o) {

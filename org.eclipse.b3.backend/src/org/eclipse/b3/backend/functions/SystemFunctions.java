@@ -10,10 +10,11 @@ import org.eclipse.b3.backend.core.B3Backend;
 import org.eclipse.b3.backend.evaluator.Any;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
+import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 
 public class SystemFunctions {
 
-	public static Object assertEquals(
+	public static Boolean assertEquals(
 			@B3Backend(name="message")String message, 
 			@B3Backend(name="expected")Object expected, 
 			@B3Backend(name="actual")Object actual) throws Throwable {
@@ -26,7 +27,7 @@ public class SystemFunctions {
 			throw new B3AssertionFailedException(message, expected, actual);
 		return Boolean.TRUE;
 	}
-	public static Object assertTrue(
+	public static Boolean assertTrue(
 			@B3Backend(name="message")String message, 
 			@B3Backend(name="booleanExpr")Boolean booleanExpr 
 			) throws Throwable {
@@ -37,7 +38,7 @@ public class SystemFunctions {
 			throw new B3AssertionFailedException(message, Boolean.TRUE, booleanExpr);
 		return Boolean.TRUE;
 	}
-	public static Object assertFalse(
+	public static Boolean assertFalse(
 			@B3Backend(name="message")String message, 
 			@B3Backend(name="booleanExpr")Boolean booleanExpr 
 			) throws Throwable {
@@ -49,6 +50,11 @@ public class SystemFunctions {
 		return Boolean.TRUE;
 	}
 	
+	@B3Backend(hideOriginal=true, funcNames={"instanceof"})
+	public static Boolean _instanceOf(@B3Backend(name="instance") Object o, @B3Backend(name="type")Type t) {
+		// TODO: this is cheating - it only compares raw
+		return TypeUtils.isAssignableFrom(t, o.getClass()) ? Boolean.TRUE : Boolean.FALSE;
+	}
 	@B3Backend(systemFunction="_whileTrue")
 	public static Object whileTrue(@B3Backend(name="doWhileBlock")BFunction func) { return null; }
 

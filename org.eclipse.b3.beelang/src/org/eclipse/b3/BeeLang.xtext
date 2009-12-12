@@ -287,7 +287,7 @@ AssignmentOperator
 RelationalOperator 
 	: "~=" | "==" | "===" | "!=" | "!=="
 	| ">=" | "<=" | ">" | "<"
-	| "instanceof" 
+//	| "instanceof" 
 	;
 
 Expression returns be::BExpression: AssignmentExpression ;
@@ -337,8 +337,11 @@ BitwiseExpression returns be::BExpression :
 	RelationalExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=("&" | "^" | "|") rightExpr=RelationalExpression)*;
 	
 RelationalExpression returns be::BExpression:
-	ShiftExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=RelationalOperator rightExpr=ShiftExpression)*;
+	InstanceOfExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=RelationalOperator rightExpr=InstanceOfExpression)*;
 
+InstanceOfExpression returns be::BExpression :
+	ShiftExpression ({be::BBinaryOpExpression.leftExpr =current} functionName="instanceof" rightExpr=LiteralType)*;
+	
 ShiftExpression returns be::BExpression:
 	AdditiveExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=("<<" | ">>" | ">>>") rightExpr=AdditiveExpression)*;
 	
@@ -486,6 +489,7 @@ Literal returns be::BExpression
 	| LiteralMap
 	| LiteralList
 //	| LiteralFunction
+	| LiteralType
 	;
 	
 LiteralList returns  be::BExpression
@@ -506,6 +510,8 @@ ClosureExpression returns be::BExpression: {be::B3Function}
 MapEntry returns be::BMapEntry: {be::BMapEntry} key = KeyLiteral ':' value= Expression ;
 
 KeyLiteral returns be::BExpression : {be::BLiteralExpression} value = (ID|PID|STRING) ;
+
+LiteralType returns be::BExpression : {be::BLiteralType} type=TypeRef ;
 
 ValueLiteral returns be::BExpression 
 	: BooleanLiteral 

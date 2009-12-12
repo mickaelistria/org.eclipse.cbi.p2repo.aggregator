@@ -448,4 +448,8 @@
     <eLiterals name="sequential"/>
     <eLiterals name="parallel" value="1"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BLiteralType" eSuperTypes="#//BExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//IType"
+        containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>

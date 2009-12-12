@@ -448,6 +448,15 @@ public interface B3backendFactory extends EFactory {
 	B3JavaImport createB3JavaImport();
 
 	/**
+	 * Returns a new object of class '<em>BLiteral Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>BLiteral Type</em>'.
+	 * @generated
+	 */
+	BLiteralType createBLiteralType();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

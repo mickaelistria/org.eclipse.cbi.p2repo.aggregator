@@ -3170,6 +3170,52 @@ public interface B3backendPackage extends EPackage {
 	int B3_JAVA_IMPORT_FEATURE_COUNT = ITYPE_FEATURE_COUNT + 4;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BLiteralTypeImpl <em>BLiteral Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BLiteralTypeImpl
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBLiteralType()
+	 * @generated
+	 */
+	int BLITERAL_TYPE = 59;
+
+	/**
+	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLITERAL_TYPE__LINE_NUMBER = BEXPRESSION__LINE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>File Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLITERAL_TYPE__FILE_REFERENCE = BEXPRESSION__FILE_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLITERAL_TYPE__TYPE = BEXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>BLiteral Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLITERAL_TYPE_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.Visibility <em>Visibility</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3177,7 +3223,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getVisibility()
 	 * @generated
 	 */
-	int VISIBILITY = 59;
+	int VISIBILITY = 60;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode <em>Execution Mode</em>}' enum.
@@ -3187,7 +3233,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getExecutionMode()
 	 * @generated
 	 */
-	int EXECUTION_MODE = 60;
+	int EXECUTION_MODE = 61;
 
 	/**
 	 * The meta object id for the '<em>Core Exception</em>' data type.
@@ -3197,7 +3243,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getCoreException()
 	 * @generated
 	 */
-	int CORE_EXCEPTION = 61;
+	int CORE_EXCEPTION = 62;
 
 
 	/**
@@ -3208,7 +3254,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 62;
+	int TYPE = 63;
 
 	/**
 	 * The meta object id for the '<em>Object Array</em>' data type.
@@ -3217,7 +3263,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getObjectArray()
 	 * @generated
 	 */
-	int OBJECT_ARRAY = 63;
+	int OBJECT_ARRAY = 64;
 
 
 	/**
@@ -3228,7 +3274,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getValueMap()
 	 * @generated
 	 */
-	int VALUE_MAP = 64;
+	int VALUE_MAP = 65;
 
 
 	/**
@@ -3239,7 +3285,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3EngineException()
 	 * @generated
 	 */
-	int B3_ENGINE_EXCEPTION = 65;
+	int B3_ENGINE_EXCEPTION = 66;
 
 
 	/**
@@ -3250,7 +3296,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3ExpressionCache()
 	 * @generated
 	 */
-	int B3_EXPRESSION_CACHE = 66;
+	int B3_EXPRESSION_CACHE = 67;
 
 
 	/**
@@ -3261,7 +3307,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getThrowable()
 	 * @generated
 	 */
-	int THROWABLE = 67;
+	int THROWABLE = 68;
 
 	/**
 	 * The meta object id for the '<em>LValue</em>' data type.
@@ -3271,7 +3317,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getLValue()
 	 * @generated
 	 */
-	int LVALUE = 68;
+	int LVALUE = 69;
 
 	/**
 	 * The meta object id for the '<em>Type Array</em>' data type.
@@ -3280,7 +3326,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getTypeArray()
 	 * @generated
 	 */
-	int TYPE_ARRAY = 69;
+	int TYPE_ARRAY = 70;
 
 	/**
 	 * The meta object id for the '<em>Method</em>' data type.
@@ -3290,7 +3336,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getMethod()
 	 * @generated
 	 */
-	int METHOD = 70;
+	int METHOD = 71;
 
 	/**
 	 * The meta object id for the '<em>Type Variable Array</em>' data type.
@@ -3299,7 +3345,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getTypeVariableArray()
 	 * @generated
 	 */
-	int TYPE_VARIABLE_ARRAY = 71;
+	int TYPE_VARIABLE_ARRAY = 72;
 
 	/**
 	 * The meta object id for the '<em>Func Store</em>' data type.
@@ -3309,7 +3355,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getFuncStore()
 	 * @generated
 	 */
-	int FUNC_STORE = 72;
+	int FUNC_STORE = 73;
 
 	/**
 	 * The meta object id for the '<em>Regexp Pattern</em>' data type.
@@ -3319,7 +3365,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getRegexpPattern()
 	 * @generated
 	 */
-	int REGEXP_PATTERN = 73;
+	int REGEXP_PATTERN = 74;
 
 	/**
 	 * The meta object id for the '<em>String Array</em>' data type.
@@ -3328,7 +3374,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getStringArray()
 	 * @generated
 	 */
-	int STRING_ARRAY = 74;
+	int STRING_ARRAY = 75;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BExpression <em>BExpression</em>}'.
@@ -4960,6 +5006,27 @@ public interface B3backendPackage extends EPackage {
 	EAttribute getB3JavaImport_Reexport();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralType <em>BLiteral Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>BLiteral Type</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BLiteralType
+	 * @generated
+	 */
+	EClass getBLiteralType();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralType#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Type</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BLiteralType#getType()
+	 * @see #getBLiteralType()
+	 * @generated
+	 */
+	EReference getBLiteralType_Type();
+
+	/**
 	 * Returns the meta object for enum '{@link org.eclipse.b3.backend.evaluator.b3backend.Visibility <em>Visibility</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6492,6 +6559,24 @@ public interface B3backendPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute B3_JAVA_IMPORT__REEXPORT = eINSTANCE.getB3JavaImport_Reexport();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BLiteralTypeImpl <em>BLiteral Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BLiteralTypeImpl
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBLiteralType()
+		 * @generated
+		 */
+		EClass BLITERAL_TYPE = eINSTANCE.getBLiteralType();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BLITERAL_TYPE__TYPE = eINSTANCE.getBLiteralType_Type();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.Visibility <em>Visibility</em>}' enum.

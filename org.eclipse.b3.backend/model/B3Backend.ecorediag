@@ -1909,7 +1909,7 @@
       </children>
       <styles xmi:type="notation:ShapeStyle" xmi:id="_X_UQ8dIBEd699tXLE8UuqA" fontColor="4210752" fontName="Lucida Grande" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
       <element xmi:type="ecore:EClass" href="B3Backend.ecore#//BLiteralExpression"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_X_UQ8tIBEd699tXLE8UuqA" x="27" y="135"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_X_UQ8tIBEd699tXLE8UuqA" x="68" y="153"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_YdezoNIBEd699tXLE8UuqA" type="1001">
       <children xmi:type="notation:Node" xmi:id="_YdfasNIBEd699tXLE8UuqA" type="4001"/>
@@ -2025,6 +2025,22 @@
       <element xmi:type="ecore:EClass" href="B3Backend.ecore#//IType"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vakKgt4iEd6F6MKCsLpUyw" x="63" y="252"/>
     </children>
+    <children xmi:type="notation:Node" xmi:id="_puBogOa0Ed6KD6q5l57b6Q" type="1001">
+      <children xmi:type="notation:Node" xmi:id="_puVxkOa0Ed6KD6q5l57b6Q" type="4001"/>
+      <children xmi:type="notation:Node" xmi:id="_puWYoOa0Ed6KD6q5l57b6Q" type="5001">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_puWYoea0Ed6KD6q5l57b6Q"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_puWYoua0Ed6KD6q5l57b6Q"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_puWYo-a0Ed6KD6q5l57b6Q"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_puW_sOa0Ed6KD6q5l57b6Q" type="5002">
+        <styles xmi:type="notation:DrawerStyle" xmi:id="_puW_sea0Ed6KD6q5l57b6Q"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_puW_sua0Ed6KD6q5l57b6Q"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_puW_s-a0Ed6KD6q5l57b6Q"/>
+      </children>
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_puCPkOa0Ed6KD6q5l57b6Q" fontColor="4210752" fontName="Lucida Grande" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+      <element xmi:type="ecore:EClass" href="B3Backend.ecore#//BLiteralType"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_puCPkea0Ed6KD6q5l57b6Q" x="-54" y="153"/>
+    </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_GtSIctIBEd699tXLE8UuqA"/>
     <element xmi:type="ecore:EPackage" href="B3Backend.ecore#/"/>
     <edges xmi:type="notation:Edge" xmi:id="_Z2nJwNIBEd699tXLE8UuqA" type="3002" source="_Y3vGsNIBEd699tXLE8UuqA" target="_Z2cxsNIBEd699tXLE8UuqA">
@@ -2087,7 +2103,7 @@
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_eB43YdIBEd699tXLE8UuqA" routing="Rectilinear" lineColor="4210752"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_eB43YtIBEd699tXLE8UuqA" fontName="Lucida Grande"/>
       <element xsi:nil="true"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_eB43Y9IBEd699tXLE8UuqA" points="[0, 0, -139, 60]$[0, -30, -139, 30]$[139, -30, 0, 30]$[139, -60, 0, 0]"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_eB43Y9IBEd699tXLE8UuqA" points="[-12, 0, -116, 47]$[-12, -22, -116, 25]$[97, -22, -7, 25]$[97, -47, -7, 0]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_fBX-cNIBEd699tXLE8UuqA" id="(0.4959349593495935,0.0)"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_fBX-cdIBEd699tXLE8UuqA" id="(0.10365853658536585,1.0)"/>
     </edges>
@@ -2155,6 +2171,28 @@
       <element xmi:type="ecore:EReference" href="B3Backend.ecore#//BLiteralListExpression/entryType"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2pDxg94iEd6F6MKCsLpUyw" points="[1, 20, 361, -108]$[1, 169, 361, 41]$[-359, 169, 1, 41]$[-359, 136, 1, 8]"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2pFmsN4iEd6F6MKCsLpUyw" id="(0.5098039215686274,0.8095238095238095)"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_yFeboOa0Ed6KD6q5l57b6Q" type="3003" source="_puBogOa0Ed6KD6q5l57b6Q" target="_eBtRMNIBEd699tXLE8UuqA">
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_yFeboea0Ed6KD6q5l57b6Q" routing="Rectilinear" lineColor="4210752"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_yFeboua0Ed6KD6q5l57b6Q" fontName="Lucida Grande"/>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_yFebo-a0Ed6KD6q5l57b6Q" points="[14, -6, -203, 97]$[218, -132, 1, -29]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_yFg34Oa0Ed6KD6q5l57b6Q" id="(0.47058823529411764,0.16666666666666666)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_yFg34ea0Ed6KD6q5l57b6Q" id="(0.038922155688622756,0.37037037037037035)"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_zdNDkOa0Ed6KD6q5l57b6Q" type="3002" source="_puBogOa0Ed6KD6q5l57b6Q" target="_vakKgN4iEd6F6MKCsLpUyw">
+      <children xmi:type="notation:Node" xmi:id="_zdORsOa0Ed6KD6q5l57b6Q" type="4011">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_zdORsea0Ed6KD6q5l57b6Q" x="-10" y="-10"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_zdPf0Oa0Ed6KD6q5l57b6Q" type="4012">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_zdPf0ea0Ed6KD6q5l57b6Q" x="10" y="10"/>
+      </children>
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_zdNDkea0Ed6KD6q5l57b6Q" routing="Rectilinear" lineColor="4210752"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_zdNDkua0Ed6KD6q5l57b6Q" fontColor="4210752" fontName="Lucida Grande" fontHeight="10"/>
+      <element xmi:type="ecore:EReference" href="B3Backend.ecore#//BLiteralType/type"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_zdNDk-a0Ed6KD6q5l57b6Q" points="[7, 10, -68, -82]$[76, 109, 1, 17]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_zdR8EOa0Ed6KD6q5l57b6Q" id="(0.45098039215686275,0.7619047619047619)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_zdR8Eea0Ed6KD6q5l57b6Q" id="(0.0392156862745098,0.5952380952380952)"/>
     </edges>
   </notation:Diagram>
   <notation:Diagram xmi:id="_dIauod27Ed6F6MKCsLpUyw" type="EcoreTools" name="TypeSystem" measurementUnit="Pixel">

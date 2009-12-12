@@ -297,6 +297,11 @@ public class BCaseItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(B3backendPackage.Literals.BCASE__CONDITION_EXPR,
+				 B3backendFactory.eINSTANCE.createBLiteralType()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(B3backendPackage.Literals.BCASE__THEN_EXPR,
 				 B3backendFactory.eINSTANCE.createBIfExpression()));
 
@@ -429,6 +434,11 @@ public class BCaseItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BCASE__THEN_EXPR,
 				 B3backendFactory.eINSTANCE.createBRegularExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCASE__THEN_EXPR,
+				 B3backendFactory.eINSTANCE.createBLiteralType()));
 	}
 
 	/**

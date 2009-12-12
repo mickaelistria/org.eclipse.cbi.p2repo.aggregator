@@ -3210,13 +3210,22 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLessThanSignEqualsSignKeyword_6 = (Keyword)cAlternatives.eContents().get(6);
 		private final Keyword cGreaterThanSignKeyword_7 = (Keyword)cAlternatives.eContents().get(7);
 		private final Keyword cLessThanSignKeyword_8 = (Keyword)cAlternatives.eContents().get(8);
-		private final Keyword cInstanceofKeyword_9 = (Keyword)cAlternatives.eContents().get(9);
 		
 		//RelationalOperator returns ecore::EString:
-		//  "~="|"=="|"==="|"!="|"!=="|">="|"<="|">"|"<"|"instanceof";
+		//  "~="|"=="|"==="|"!="|"!=="|">="|"<="|">"|"<"; 
+		//	
+		// 
+		//	                  
+		//	              
+		////	| "instanceof"
 		public ParserRule getRule() { return rule; }
 
-		//"~="|"=="|"==="|"!="|"!=="|">="|"<="|">"|"<"|"instanceof"
+		//"~="|"=="|"==="|"!="|"!=="|">="|"<="|">"|"<" 
+		//	
+		// 
+		//	                  
+		//	              
+		////	| "instanceof"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//"~="
@@ -3243,11 +3252,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//">"
 		public Keyword getGreaterThanSignKeyword_7() { return cGreaterThanSignKeyword_7; }
 
-		//"<"
+		//"<"   
+		////	| "instanceof"
 		public Keyword getLessThanSignKeyword_8() { return cLessThanSignKeyword_8; }
-
-		//"instanceof"
-		public Keyword getInstanceofKeyword_9() { return cInstanceofKeyword_9; }
 	}
 
 	public class ExpressionElements extends AbstractParserRuleElementFinder {
@@ -3774,28 +3781,28 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	public class RelationalExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "RelationalExpression");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cShiftExpressionParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final RuleCall cInstanceOfExpressionParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Action cBBinaryOpExpressionLeftExprAction_1_0 = (Action)cGroup_1.eContents().get(0);
 		private final Assignment cFunctionNameAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cFunctionNameRelationalOperatorParserRuleCall_1_1_0 = (RuleCall)cFunctionNameAssignment_1_1.eContents().get(0);
 		private final Assignment cRightExprAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cRightExprShiftExpressionParserRuleCall_1_2_0 = (RuleCall)cRightExprAssignment_1_2.eContents().get(0);
+		private final RuleCall cRightExprInstanceOfExpressionParserRuleCall_1_2_0 = (RuleCall)cRightExprAssignment_1_2.eContents().get(0);
 		
 		//RelationalExpression returns be::BExpression:
-		//  ShiftExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=
-		//  RelationalOperator rightExpr=ShiftExpression)*;
+		//  InstanceOfExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=
+		//  RelationalOperator rightExpr=InstanceOfExpression)*;
 		public ParserRule getRule() { return rule; }
 
-		//ShiftExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=
-		//RelationalOperator rightExpr=ShiftExpression)*
+		//InstanceOfExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=
+		//RelationalOperator rightExpr=InstanceOfExpression)*
 		public Group getGroup() { return cGroup; }
 
-		//ShiftExpression
-		public RuleCall getShiftExpressionParserRuleCall_0() { return cShiftExpressionParserRuleCall_0; }
+		//InstanceOfExpression
+		public RuleCall getInstanceOfExpressionParserRuleCall_0() { return cInstanceOfExpressionParserRuleCall_0; }
 
 		//({be::BBinaryOpExpression.leftExpr=current} functionName=RelationalOperator
-		//rightExpr=ShiftExpression)*
+		//rightExpr=InstanceOfExpression)*
 		public Group getGroup_1() { return cGroup_1; }
 
 		//{be::BBinaryOpExpression.leftExpr=current}
@@ -3807,11 +3814,54 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//RelationalOperator
 		public RuleCall getFunctionNameRelationalOperatorParserRuleCall_1_1_0() { return cFunctionNameRelationalOperatorParserRuleCall_1_1_0; }
 
-		//rightExpr=ShiftExpression
+		//rightExpr=InstanceOfExpression
 		public Assignment getRightExprAssignment_1_2() { return cRightExprAssignment_1_2; }
 
+		//InstanceOfExpression
+		public RuleCall getRightExprInstanceOfExpressionParserRuleCall_1_2_0() { return cRightExprInstanceOfExpressionParserRuleCall_1_2_0; }
+	}
+
+	public class InstanceOfExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "InstanceOfExpression");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cShiftExpressionParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Action cBBinaryOpExpressionLeftExprAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Assignment cFunctionNameAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final Keyword cFunctionNameInstanceofKeyword_1_1_0 = (Keyword)cFunctionNameAssignment_1_1.eContents().get(0);
+		private final Assignment cRightExprAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cRightExprLiteralTypeParserRuleCall_1_2_0 = (RuleCall)cRightExprAssignment_1_2.eContents().get(0);
+		
+		//InstanceOfExpression returns be::BExpression:
+		//  ShiftExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=
+		//  "instanceof" rightExpr=LiteralType)*;
+		public ParserRule getRule() { return rule; }
+
+		//ShiftExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=
+		//"instanceof" rightExpr=LiteralType)*
+		public Group getGroup() { return cGroup; }
+
 		//ShiftExpression
-		public RuleCall getRightExprShiftExpressionParserRuleCall_1_2_0() { return cRightExprShiftExpressionParserRuleCall_1_2_0; }
+		public RuleCall getShiftExpressionParserRuleCall_0() { return cShiftExpressionParserRuleCall_0; }
+
+		//({be::BBinaryOpExpression.leftExpr=current} functionName="instanceof" rightExpr=
+		//LiteralType)*
+		public Group getGroup_1() { return cGroup_1; }
+
+		//{be::BBinaryOpExpression.leftExpr=current}
+		public Action getBBinaryOpExpressionLeftExprAction_1_0() { return cBBinaryOpExpressionLeftExprAction_1_0; }
+
+		//functionName="instanceof"
+		public Assignment getFunctionNameAssignment_1_1() { return cFunctionNameAssignment_1_1; }
+
+		//"instanceof"
+		public Keyword getFunctionNameInstanceofKeyword_1_1_0() { return cFunctionNameInstanceofKeyword_1_1_0; }
+
+		//rightExpr=LiteralType
+		public Assignment getRightExprAssignment_1_2() { return cRightExprAssignment_1_2; }
+
+		//LiteralType
+		public RuleCall getRightExprLiteralTypeParserRuleCall_1_2_0() { return cRightExprLiteralTypeParserRuleCall_1_2_0; }
 	}
 
 	public class ShiftExpressionElements extends AbstractParserRuleElementFinder {
@@ -5394,9 +5444,10 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cRegexpLiteralParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cLiteralMapParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cLiteralListParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cLiteralTypeParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
 		//Literal returns be::BExpression:
-		//  ValueLiteral|RegexpLiteral|LiteralMap|LiteralList; 
+		//  ValueLiteral|RegexpLiteral|LiteralMap|LiteralList|LiteralType; 
 		////BuilderDefinition returns Statement : {BuilderStatement} builder = Builder;
 		//
 		//    
@@ -5407,7 +5458,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		////	| LiteralFunction
 		public ParserRule getRule() { return rule; }
 
-		//ValueLiteral|RegexpLiteral|LiteralMap|LiteralList 
+		//ValueLiteral|RegexpLiteral|LiteralMap|LiteralList|LiteralType 
 		////BuilderDefinition returns Statement : {BuilderStatement} builder = Builder;
 		//
 		//    
@@ -5430,6 +5481,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//LiteralList   
 		////	| LiteralFunction
 		public RuleCall getLiteralListParserRuleCall_3() { return cLiteralListParserRuleCall_3; }
+
+		//LiteralType
+		public RuleCall getLiteralTypeParserRuleCall_4() { return cLiteralTypeParserRuleCall_4; }
 	}
 
 	public class LiteralListElements extends AbstractParserRuleElementFinder {
@@ -5816,6 +5870,30 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 		//STRING
 		public RuleCall getValueSTRINGTerminalRuleCall_1_0_2() { return cValueSTRINGTerminalRuleCall_1_0_2; }
+	}
+
+	public class LiteralTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "LiteralType");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cBLiteralTypeAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cTypeTypeRefParserRuleCall_1_0 = (RuleCall)cTypeAssignment_1.eContents().get(0);
+		
+		//LiteralType returns be::BExpression:
+		//  {be::BLiteralType} type=TypeRef;
+		public ParserRule getRule() { return rule; }
+
+		//{be::BLiteralType} type=TypeRef
+		public Group getGroup() { return cGroup; }
+
+		//{be::BLiteralType}
+		public Action getBLiteralTypeAction_0() { return cBLiteralTypeAction_0; }
+
+		//type=TypeRef
+		public Assignment getTypeAssignment_1() { return cTypeAssignment_1; }
+
+		//TypeRef
+		public RuleCall getTypeTypeRefParserRuleCall_1_0() { return cTypeTypeRefParserRuleCall_1_0; }
 	}
 
 	public class ValueLiteralElements extends AbstractParserRuleElementFinder {
@@ -6923,6 +7001,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	private AndExpressionElements pAndExpression;
 	private BitwiseExpressionElements pBitwiseExpression;
 	private RelationalExpressionElements pRelationalExpression;
+	private InstanceOfExpressionElements pInstanceOfExpression;
 	private ShiftExpressionElements pShiftExpression;
 	private AdditiveExpressionElements pAdditiveExpression;
 	private MultiplicativeExpressionElements pMultiplicativeExpression;
@@ -6962,6 +7041,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	private ClosureExpressionElements pClosureExpression;
 	private MapEntryElements pMapEntry;
 	private KeyLiteralElements pKeyLiteral;
+	private LiteralTypeElements pLiteralType;
 	private ValueLiteralElements pValueLiteral;
 	private BooleanLiteralElements pBooleanLiteral;
 	private IntegerLiteralElements pIntegerLiteral;
@@ -7753,7 +7833,12 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//RelationalOperator returns ecore::EString:
-	//  "~="|"=="|"==="|"!="|"!=="|">="|"<="|">"|"<"|"instanceof";
+	//  "~="|"=="|"==="|"!="|"!=="|">="|"<="|">"|"<"; 
+	//	
+	// 
+	//	                  
+	//	              
+	////	| "instanceof"
 	public RelationalOperatorElements getRelationalOperatorAccess() {
 		return (pRelationalOperator != null) ? pRelationalOperator : (pRelationalOperator = new RelationalOperatorElements());
 	}
@@ -7925,14 +8010,25 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//RelationalExpression returns be::BExpression:
-	//  ShiftExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=
-	//  RelationalOperator rightExpr=ShiftExpression)*;
+	//  InstanceOfExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=
+	//  RelationalOperator rightExpr=InstanceOfExpression)*;
 	public RelationalExpressionElements getRelationalExpressionAccess() {
 		return (pRelationalExpression != null) ? pRelationalExpression : (pRelationalExpression = new RelationalExpressionElements());
 	}
 	
 	public ParserRule getRelationalExpressionRule() {
 		return getRelationalExpressionAccess().getRule();
+	}
+
+	//InstanceOfExpression returns be::BExpression:
+	//  ShiftExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=
+	//  "instanceof" rightExpr=LiteralType)*;
+	public InstanceOfExpressionElements getInstanceOfExpressionAccess() {
+		return (pInstanceOfExpression != null) ? pInstanceOfExpression : (pInstanceOfExpression = new InstanceOfExpressionElements());
+	}
+	
+	public ParserRule getInstanceOfExpressionRule() {
+		return getInstanceOfExpressionAccess().getRule();
 	}
 
 	//ShiftExpression returns be::BExpression:
@@ -8372,7 +8468,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Literal returns be::BExpression:
-	//  ValueLiteral|RegexpLiteral|LiteralMap|LiteralList; 
+	//  ValueLiteral|RegexpLiteral|LiteralMap|LiteralList|LiteralType; 
 	////BuilderDefinition returns Statement : {BuilderStatement} builder = Builder;
 	//
 	//    
@@ -8450,6 +8546,16 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getKeyLiteralRule() {
 		return getKeyLiteralAccess().getRule();
+	}
+
+	//LiteralType returns be::BExpression:
+	//  {be::BLiteralType} type=TypeRef;
+	public LiteralTypeElements getLiteralTypeAccess() {
+		return (pLiteralType != null) ? pLiteralType : (pLiteralType = new LiteralTypeElements());
+	}
+	
+	public ParserRule getLiteralTypeRule() {
+		return getLiteralTypeAccess().getRule();
 	}
 
 	//ValueLiteral returns be::BExpression:
