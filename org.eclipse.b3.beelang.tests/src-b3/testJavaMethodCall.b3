@@ -6,4 +6,6 @@ function Object main(List argv) {
 }
 function Object testJavaCall() {
 	assertEquals("'hello world'.substring(6) == 'world'", "world", "hello world".substring(6));
+	assertEquals("'hello world'.substring(6,8) == 'wo'", "wo", "hello world".substring(6,8));
+	assertTrue("'hello world'.startsWith('hello')", "hello world".startsWith("hello"));
 }
