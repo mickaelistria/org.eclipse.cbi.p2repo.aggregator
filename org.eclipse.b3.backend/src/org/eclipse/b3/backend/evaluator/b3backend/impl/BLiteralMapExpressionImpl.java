@@ -311,12 +311,12 @@ public class BLiteralMapExpressionImpl extends BExpressionImpl implements BLiter
 		for(BMapEntry mapentry : entries) {
 			Object key = mapentry.getKey().evaluate(ctx);
 			Object value = mapentry.getValue().evaluate(ctx);
-			if(!rawClassFromType(kt).isAssignableFrom(key.getClass()))
+			if(!TypeUtils.isAssignableFrom(kt, key.getClass()))
 				throw BackendHelper.createException(mapentry.getKey(), 
 						"Map creation error for entry {0}. "
 						+"A Map<{0},{0}>, does not accept a key of type {0}.",
 						new Object[] {new Integer(counter), kt, vt, key.getClass()});
-			if(!rawClassFromType(vt).isAssignableFrom(value.getClass()))
+			if(!TypeUtils.isAssignableFrom(vt, value.getClass()))
 				throw BackendHelper.createException(mapentry.getKey(), 
 						"Map creation error for entry {0}. "
 						+"A Map<{0},{0}>, does not accept a value of type {0}.",
@@ -326,17 +326,9 @@ public class BLiteralMapExpressionImpl extends BExpressionImpl implements BLiter
 			}
 		return map;
 	}
+
 	/**
-	 * @deprecated use TypeUtils.getRaw(t) instead.
-	 * @param t
-	 * @return
-	 */
-	@Deprecated
-	public static Class<?> rawClassFromType(Type t) {
-		return TypeUtils.getRaw(t);
-	}
-	/**
-	 * Returns the declared ekey and value types or String for key, and Object for data if not specified.
+	 * Returns the declared key and value types or String for key, and Object for data if not specified.
 	 * TODO: the common super type could be computed instead.
 	 */
 	@Override
