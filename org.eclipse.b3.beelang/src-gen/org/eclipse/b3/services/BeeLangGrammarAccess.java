@@ -3402,20 +3402,23 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Keyword cLessThanSignKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
 		private final Assignment cActualArgumentsListAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cActualArgumentsListTypeParamParserRuleCall_2_1_0 = (RuleCall)cActualArgumentsListAssignment_2_1.eContents().get(0);
+		private final CrossReference cActualArgumentsListB3JavaImportCrossReference_2_1_0 = (CrossReference)cActualArgumentsListAssignment_2_1.eContents().get(0);
+		private final RuleCall cActualArgumentsListB3JavaImportIDTerminalRuleCall_2_1_0_1 = (RuleCall)cActualArgumentsListB3JavaImportCrossReference_2_1_0.eContents().get(1);
 		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
 		private final Keyword cCommaKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
 		private final Assignment cActualArgumentsListAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
-		private final RuleCall cActualArgumentsListTypeParamParserRuleCall_2_2_1_0 = (RuleCall)cActualArgumentsListAssignment_2_2_1.eContents().get(0);
+		private final CrossReference cActualArgumentsListB3JavaImportCrossReference_2_2_1_0 = (CrossReference)cActualArgumentsListAssignment_2_2_1.eContents().get(0);
+		private final RuleCall cActualArgumentsListB3JavaImportIDTerminalRuleCall_2_2_1_0_1 = (RuleCall)cActualArgumentsListB3JavaImportCrossReference_2_2_1_0.eContents().get(1);
 		private final Keyword cGreaterThanSignKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
 		
 		//SimpleTypeRef returns be::IType:
-		//  {be::B3ParameterizedType} rawType=[be::B3JavaImport] ("<" actualArgumentsList+=
-		//  TypeParam ("," actualArgumentsList+=TypeParam)* ">")?;   // TODO: gets lots of warnings from this...
+		//  {be::B3ParameterizedType} rawType=[be::B3JavaImport] ("<" actualArgumentsList+=[be
+		//  ::B3JavaImport] ("," actualArgumentsList+=[be::B3JavaImport])* ">")?;   // TODO: gets lots of warnings from this...
 		//    
 		//	         
-		//		          
-		//	
+		//		                  
+		////		('<' actualArgumentsList+=TypeParam (',' actualArgumentsList+=TypeParam)* '>' )? // TODO: Support wildcard as well
+		//	 
 		//	
 		//// TODO: typereference is simplified to only the name of a java type - for model imports
 		//// the model is imported with name == namespace, and types in the model are referenced after
@@ -3426,11 +3429,13 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//// For now, this is just proof of concept.
 		//// 
 		//
-		//// ClosureTypeRef declares parameters and return type
+		//// ClosureTypeRef declares parameters and return type	TODO: use TypeRef instead of direct reference to imported class
 		public ParserRule getRule() { return rule; }
 
-		//{be::B3ParameterizedType} rawType=[be::B3JavaImport] ("<" actualArgumentsList+=
-		//TypeParam ("," actualArgumentsList+=TypeParam)* ">")?
+		//{be::B3ParameterizedType} rawType=[be::B3JavaImport] ("<" actualArgumentsList+=[be
+		//::B3JavaImport] ("," actualArgumentsList+=[be::B3JavaImport])* ">")?          
+		//		                  
+		////		('<' actualArgumentsList+=TypeParam (',' actualArgumentsList+=TypeParam)* '>' )? // TODO: Support wildcard as well
 		public Group getGroup() { return cGroup; }
 
 		//{be::B3ParameterizedType}
@@ -3445,29 +3450,36 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getRawTypeB3JavaImportIDTerminalRuleCall_1_0_1() { return cRawTypeB3JavaImportIDTerminalRuleCall_1_0_1; }
 
-		//("<" actualArgumentsList+=TypeParam ("," actualArgumentsList+=TypeParam)* ">")?
+		//("<" actualArgumentsList+=[be::B3JavaImport] ("," actualArgumentsList+=[be::
+		//B3JavaImport])* ">")?
 		public Group getGroup_2() { return cGroup_2; }
 
 		//"<"
 		public Keyword getLessThanSignKeyword_2_0() { return cLessThanSignKeyword_2_0; }
 
-		//actualArgumentsList+=TypeParam
+		//actualArgumentsList+=[be::B3JavaImport]
 		public Assignment getActualArgumentsListAssignment_2_1() { return cActualArgumentsListAssignment_2_1; }
 
-		//TypeParam
-		public RuleCall getActualArgumentsListTypeParamParserRuleCall_2_1_0() { return cActualArgumentsListTypeParamParserRuleCall_2_1_0; }
+		//[be::B3JavaImport]
+		public CrossReference getActualArgumentsListB3JavaImportCrossReference_2_1_0() { return cActualArgumentsListB3JavaImportCrossReference_2_1_0; }
 
-		//("," actualArgumentsList+=TypeParam)*
+		//ID
+		public RuleCall getActualArgumentsListB3JavaImportIDTerminalRuleCall_2_1_0_1() { return cActualArgumentsListB3JavaImportIDTerminalRuleCall_2_1_0_1; }
+
+		//("," actualArgumentsList+=[be::B3JavaImport])*
 		public Group getGroup_2_2() { return cGroup_2_2; }
 
 		//","
 		public Keyword getCommaKeyword_2_2_0() { return cCommaKeyword_2_2_0; }
 
-		//actualArgumentsList+=TypeParam
+		//actualArgumentsList+=[be::B3JavaImport]
 		public Assignment getActualArgumentsListAssignment_2_2_1() { return cActualArgumentsListAssignment_2_2_1; }
 
-		//TypeParam
-		public RuleCall getActualArgumentsListTypeParamParserRuleCall_2_2_1_0() { return cActualArgumentsListTypeParamParserRuleCall_2_2_1_0; }
+		//[be::B3JavaImport]
+		public CrossReference getActualArgumentsListB3JavaImportCrossReference_2_2_1_0() { return cActualArgumentsListB3JavaImportCrossReference_2_2_1_0; }
+
+		//ID
+		public RuleCall getActualArgumentsListB3JavaImportIDTerminalRuleCall_2_2_1_0_1() { return cActualArgumentsListB3JavaImportIDTerminalRuleCall_2_2_1_0_1; }
 
 		//">"
 		public Keyword getGreaterThanSignKeyword_2_3() { return cGreaterThanSignKeyword_2_3; }
@@ -3479,19 +3491,22 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cB3FunctionTypeAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cParameterTypesAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cParameterTypesTypeRefParserRuleCall_2_0 = (RuleCall)cParameterTypesAssignment_2.eContents().get(0);
+		private final CrossReference cParameterTypesB3JavaImportCrossReference_2_0 = (CrossReference)cParameterTypesAssignment_2.eContents().get(0);
+		private final RuleCall cParameterTypesB3JavaImportIDTerminalRuleCall_2_0_1 = (RuleCall)cParameterTypesB3JavaImportCrossReference_2_0.eContents().get(1);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cCommaKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cParameterTypesAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cParameterTypesTypeRefParserRuleCall_3_1_0 = (RuleCall)cParameterTypesAssignment_3_1.eContents().get(0);
+		private final CrossReference cParameterTypesB3JavaImportCrossReference_3_1_0 = (CrossReference)cParameterTypesAssignment_3_1.eContents().get(0);
+		private final RuleCall cParameterTypesB3JavaImportIDTerminalRuleCall_3_1_0_1 = (RuleCall)cParameterTypesB3JavaImportCrossReference_3_1_0.eContents().get(1);
 		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Keyword cEqualsSignGreaterThanSignKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Assignment cReturnTypeAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cReturnTypeTypeRefParserRuleCall_6_0 = (RuleCall)cReturnTypeAssignment_6.eContents().get(0);
+		private final CrossReference cReturnTypeB3JavaImportCrossReference_6_0 = (CrossReference)cReturnTypeAssignment_6.eContents().get(0);
+		private final RuleCall cReturnTypeB3JavaImportIDTerminalRuleCall_6_0_1 = (RuleCall)cReturnTypeB3JavaImportCrossReference_6_0.eContents().get(1);
 		
 		//ClosureTypeRef returns be::IType:
-		//  {be::B3FunctionType} "(" parameterTypes+=TypeRef ("," parameterTypes+=TypeRef)* ")"
-		//  "=>" returnType=TypeRef; 
+		//  {be::B3FunctionType} "(" parameterTypes+=[be::B3JavaImport] ("," parameterTypes+=[be
+		//  ::B3JavaImport])* ")" "=>" returnType=[be::B3JavaImport]; 
 		//	
 		//// TODO: typereference is simplified to only the name of a java type - for model imports
 		//// the model is imported with name == namespace, and types in the model are referenced after
@@ -3502,11 +3517,11 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//// For now, this is just proof of concept.
 		//// 
 		//
-		//// ClosureTypeRef declares parameters and return type
+		//// ClosureTypeRef declares parameters and return type	TODO: use TypeRef instead of direct reference to imported class
 		public ParserRule getRule() { return rule; }
 
-		//{be::B3FunctionType} "(" parameterTypes+=TypeRef ("," parameterTypes+=TypeRef)* ")"
-		//"=>" returnType=TypeRef
+		//{be::B3FunctionType} "(" parameterTypes+=[be::B3JavaImport] ("," parameterTypes+=[be
+		//::B3JavaImport])* ")" "=>" returnType=[be::B3JavaImport]
 		public Group getGroup() { return cGroup; }
 
 		//{be::B3FunctionType}
@@ -3515,23 +3530,29 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//"("
 		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
 
-		//parameterTypes+=TypeRef
+		//parameterTypes+=[be::B3JavaImport]
 		public Assignment getParameterTypesAssignment_2() { return cParameterTypesAssignment_2; }
 
-		//TypeRef
-		public RuleCall getParameterTypesTypeRefParserRuleCall_2_0() { return cParameterTypesTypeRefParserRuleCall_2_0; }
+		//[be::B3JavaImport]
+		public CrossReference getParameterTypesB3JavaImportCrossReference_2_0() { return cParameterTypesB3JavaImportCrossReference_2_0; }
 
-		//("," parameterTypes+=TypeRef)*
+		//ID
+		public RuleCall getParameterTypesB3JavaImportIDTerminalRuleCall_2_0_1() { return cParameterTypesB3JavaImportIDTerminalRuleCall_2_0_1; }
+
+		//("," parameterTypes+=[be::B3JavaImport])*
 		public Group getGroup_3() { return cGroup_3; }
 
 		//","
 		public Keyword getCommaKeyword_3_0() { return cCommaKeyword_3_0; }
 
-		//parameterTypes+=TypeRef
+		//parameterTypes+=[be::B3JavaImport]
 		public Assignment getParameterTypesAssignment_3_1() { return cParameterTypesAssignment_3_1; }
 
-		//TypeRef
-		public RuleCall getParameterTypesTypeRefParserRuleCall_3_1_0() { return cParameterTypesTypeRefParserRuleCall_3_1_0; }
+		//[be::B3JavaImport]
+		public CrossReference getParameterTypesB3JavaImportCrossReference_3_1_0() { return cParameterTypesB3JavaImportCrossReference_3_1_0; }
+
+		//ID
+		public RuleCall getParameterTypesB3JavaImportIDTerminalRuleCall_3_1_0_1() { return cParameterTypesB3JavaImportIDTerminalRuleCall_3_1_0_1; }
 
 		//")"
 		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
@@ -3539,11 +3560,14 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//"=>"
 		public Keyword getEqualsSignGreaterThanSignKeyword_5() { return cEqualsSignGreaterThanSignKeyword_5; }
 
-		//returnType=TypeRef
+		//returnType=[be::B3JavaImport]
 		public Assignment getReturnTypeAssignment_6() { return cReturnTypeAssignment_6; }
 
-		//TypeRef
-		public RuleCall getReturnTypeTypeRefParserRuleCall_6_0() { return cReturnTypeTypeRefParserRuleCall_6_0; }
+		//[be::B3JavaImport]
+		public CrossReference getReturnTypeB3JavaImportCrossReference_6_0() { return cReturnTypeB3JavaImportCrossReference_6_0; }
+
+		//ID
+		public RuleCall getReturnTypeB3JavaImportIDTerminalRuleCall_6_0_1() { return cReturnTypeB3JavaImportIDTerminalRuleCall_6_0_1; }
 	}
 
 	public class TypeParamElements extends AbstractParserRuleElementFinder {
@@ -8021,12 +8045,13 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SimpleTypeRef returns be::IType:
-	//  {be::B3ParameterizedType} rawType=[be::B3JavaImport] ("<" actualArgumentsList+=
-	//  TypeParam ("," actualArgumentsList+=TypeParam)* ">")?;   // TODO: gets lots of warnings from this...
+	//  {be::B3ParameterizedType} rawType=[be::B3JavaImport] ("<" actualArgumentsList+=[be
+	//  ::B3JavaImport] ("," actualArgumentsList+=[be::B3JavaImport])* ">")?;   // TODO: gets lots of warnings from this...
 	//    
 	//	         
-	//		          
-	//	
+	//		                  
+	////		('<' actualArgumentsList+=TypeParam (',' actualArgumentsList+=TypeParam)* '>' )? // TODO: Support wildcard as well
+	//	 
 	//	
 	//// TODO: typereference is simplified to only the name of a java type - for model imports
 	//// the model is imported with name == namespace, and types in the model are referenced after
@@ -8037,7 +8062,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//// For now, this is just proof of concept.
 	//// 
 	//
-	//// ClosureTypeRef declares parameters and return type
+	//// ClosureTypeRef declares parameters and return type	TODO: use TypeRef instead of direct reference to imported class
 	public SimpleTypeRefElements getSimpleTypeRefAccess() {
 		return (pSimpleTypeRef != null) ? pSimpleTypeRef : (pSimpleTypeRef = new SimpleTypeRefElements());
 	}
@@ -8047,8 +8072,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ClosureTypeRef returns be::IType:
-	//  {be::B3FunctionType} "(" parameterTypes+=TypeRef ("," parameterTypes+=TypeRef)* ")"
-	//  "=>" returnType=TypeRef; 
+	//  {be::B3FunctionType} "(" parameterTypes+=[be::B3JavaImport] ("," parameterTypes+=[be
+	//  ::B3JavaImport])* ")" "=>" returnType=[be::B3JavaImport]; 
 	//	
 	//// TODO: typereference is simplified to only the name of a java type - for model imports
 	//// the model is imported with name == namespace, and types in the model are referenced after
@@ -8059,7 +8084,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//// For now, this is just proof of concept.
 	//// 
 	//
-	//// ClosureTypeRef declares parameters and return type
+	//// ClosureTypeRef declares parameters and return type	TODO: use TypeRef instead of direct reference to imported class
 	public ClosureTypeRefElements getClosureTypeRefAccess() {
 		return (pClosureTypeRef != null) ? pClosureTypeRef : (pClosureTypeRef = new ClosureTypeRefElements());
 	}

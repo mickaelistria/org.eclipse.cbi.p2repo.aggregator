@@ -1731,31 +1731,6 @@ finally {
 
 
 
-// Entry rule entryRuleTypeParam
-entryRuleTypeParam :
-{ before(grammarAccess.getTypeParamRule()); }
-	 ruleTypeParam
-{ after(grammarAccess.getTypeParamRule()); } 
-	 EOF 
-;
-
-// Rule TypeParam
-ruleTypeParam 
-    @init {
-		int stackSize = keepStackSize();
-    }
- :
-(
-{ before(grammarAccess.getTypeParamAccess().getAlternatives()); }
-(rule__TypeParam__Alternatives)
-{ after(grammarAccess.getTypeParamAccess().getAlternatives()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
 
 
 // Entry rule entryRuleTypeRefParam
@@ -4650,27 +4625,6 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__TypeParam__Alternatives
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getTypeParamAccess().getTypeRefParamParserRuleCall_0()); }
-	ruleTypeRefParam
-{ after(grammarAccess.getTypeParamAccess().getTypeRefParamParserRuleCall_0()); }
-)
-
-    |(
-{ before(grammarAccess.getTypeParamAccess().getWildcardRefParamParserRuleCall_1()); }
-	ruleWildcardRefParam
-{ after(grammarAccess.getTypeParamAccess().getWildcardRefParamParserRuleCall_1()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
 
 rule__WildcardRefParam__Alternatives_2
     @init {
@@ -21749,8 +21703,12 @@ rule__SimpleTypeRef__ActualArgumentsListAssignment_2_1
     }
 :
 (
-{ before(grammarAccess.getSimpleTypeRefAccess().getActualArgumentsListTypeParamParserRuleCall_2_1_0()); }
-	ruleTypeParam{ after(grammarAccess.getSimpleTypeRefAccess().getActualArgumentsListTypeParamParserRuleCall_2_1_0()); }
+{ before(grammarAccess.getSimpleTypeRefAccess().getActualArgumentsListB3JavaImportCrossReference_2_1_0()); }
+(
+{ before(grammarAccess.getSimpleTypeRefAccess().getActualArgumentsListB3JavaImportIDTerminalRuleCall_2_1_0_1()); }
+	RULE_ID{ after(grammarAccess.getSimpleTypeRefAccess().getActualArgumentsListB3JavaImportIDTerminalRuleCall_2_1_0_1()); }
+)
+{ after(grammarAccess.getSimpleTypeRefAccess().getActualArgumentsListB3JavaImportCrossReference_2_1_0()); }
 )
 
 ;
@@ -21764,8 +21722,12 @@ rule__SimpleTypeRef__ActualArgumentsListAssignment_2_2_1
     }
 :
 (
-{ before(grammarAccess.getSimpleTypeRefAccess().getActualArgumentsListTypeParamParserRuleCall_2_2_1_0()); }
-	ruleTypeParam{ after(grammarAccess.getSimpleTypeRefAccess().getActualArgumentsListTypeParamParserRuleCall_2_2_1_0()); }
+{ before(grammarAccess.getSimpleTypeRefAccess().getActualArgumentsListB3JavaImportCrossReference_2_2_1_0()); }
+(
+{ before(grammarAccess.getSimpleTypeRefAccess().getActualArgumentsListB3JavaImportIDTerminalRuleCall_2_2_1_0_1()); }
+	RULE_ID{ after(grammarAccess.getSimpleTypeRefAccess().getActualArgumentsListB3JavaImportIDTerminalRuleCall_2_2_1_0_1()); }
+)
+{ after(grammarAccess.getSimpleTypeRefAccess().getActualArgumentsListB3JavaImportCrossReference_2_2_1_0()); }
 )
 
 ;

@@ -1356,12 +1356,22 @@
       <tokens xsi:type="xtext:Group" cardinality="?">
         <tokens xsi:type="xtext:Keyword" value="&lt;"/>
         <tokens xsi:type="xtext:Assignment" feature="actualArgumentsList" operator="+=">
-          <terminal xsi:type="xtext:RuleCall" rule="//@rules.64"/>
+          <terminal xsi:type="xtext:CrossReference">
+            <type metamodel="//@metamodelDeclarations.1">
+              <classifier xsi:type="ecore:EClass" href="http://b3backend/1.0#//B3JavaImport"/>
+            </type>
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.143"/>
+          </terminal>
         </tokens>
         <tokens xsi:type="xtext:Group" cardinality="*">
           <tokens xsi:type="xtext:Keyword" value=","/>
           <tokens xsi:type="xtext:Assignment" feature="actualArgumentsList" operator="+=">
-            <terminal xsi:type="xtext:RuleCall" rule="//@rules.64"/>
+            <terminal xsi:type="xtext:CrossReference">
+              <type metamodel="//@metamodelDeclarations.1">
+                <classifier xsi:type="ecore:EClass" href="http://b3backend/1.0#//B3JavaImport"/>
+              </type>
+              <terminal xsi:type="xtext:RuleCall" rule="//@rules.143"/>
+            </terminal>
           </tokens>
         </tokens>
         <tokens xsi:type="xtext:Keyword" value=">"/>
@@ -1380,18 +1390,33 @@
       </tokens>
       <tokens xsi:type="xtext:Keyword" value="("/>
       <tokens xsi:type="xtext:Assignment" feature="parameterTypes" operator="+=">
-        <terminal xsi:type="xtext:RuleCall" rule="//@rules.61"/>
+        <terminal xsi:type="xtext:CrossReference">
+          <type metamodel="//@metamodelDeclarations.1">
+            <classifier xsi:type="ecore:EClass" href="http://b3backend/1.0#//B3JavaImport"/>
+          </type>
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.143"/>
+        </terminal>
       </tokens>
       <tokens xsi:type="xtext:Group" cardinality="*">
         <tokens xsi:type="xtext:Keyword" value=","/>
         <tokens xsi:type="xtext:Assignment" feature="parameterTypes" operator="+=">
-          <terminal xsi:type="xtext:RuleCall" rule="//@rules.61"/>
+          <terminal xsi:type="xtext:CrossReference">
+            <type metamodel="//@metamodelDeclarations.1">
+              <classifier xsi:type="ecore:EClass" href="http://b3backend/1.0#//B3JavaImport"/>
+            </type>
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.143"/>
+          </terminal>
         </tokens>
       </tokens>
       <tokens xsi:type="xtext:Keyword" value=")"/>
       <tokens xsi:type="xtext:Keyword" value="=>"/>
       <tokens xsi:type="xtext:Assignment" feature="returnType" operator="=">
-        <terminal xsi:type="xtext:RuleCall" rule="//@rules.61"/>
+        <terminal xsi:type="xtext:CrossReference">
+          <type metamodel="//@metamodelDeclarations.1">
+            <classifier xsi:type="ecore:EClass" href="http://b3backend/1.0#//B3JavaImport"/>
+          </type>
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.143"/>
+        </terminal>
       </tokens>
     </alternatives>
   </rules>

@@ -6388,25 +6388,18 @@ ruleSimpleTypeRef returns [EObject current=null]
 (
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getSimpleTypeRefAccess().getActualArgumentsListTypeParamParserRuleCall_2_1_0(), currentNode); 
-	    }
-		lv_actualArgumentsList_3_0=ruleTypeParam		{
-	        if ($current==null) {
+		  /* */ 
+		}
+		{
+			if ($current==null) {
 	            $current = factory.create(grammarAccess.getSimpleTypeRefRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	            associateNodeWithAstElement(currentNode, $current);
 	        }
-	        try {
-	       		add(
-	       			$current, 
-	       			"actualArgumentsList",
-	        		lv_actualArgumentsList_3_0, 
-	        		"TypeParam", 
-	        		currentNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	        currentNode = currentNode.getParent();
-	    }
+        }
+	RULE_ID
+	{
+		createLeafNode(grammarAccess.getSimpleTypeRefAccess().getActualArgumentsListB3JavaImportCrossReference_2_1_0(), "actualArgumentsList"); 
+	}
 
 )
 )(	',' 
@@ -6416,25 +6409,18 @@ ruleSimpleTypeRef returns [EObject current=null]
 (
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getSimpleTypeRefAccess().getActualArgumentsListTypeParamParserRuleCall_2_2_1_0(), currentNode); 
-	    }
-		lv_actualArgumentsList_5_0=ruleTypeParam		{
-	        if ($current==null) {
+		  /* */ 
+		}
+		{
+			if ($current==null) {
 	            $current = factory.create(grammarAccess.getSimpleTypeRefRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	            associateNodeWithAstElement(currentNode, $current);
 	        }
-	        try {
-	       		add(
-	       			$current, 
-	       			"actualArgumentsList",
-	        		lv_actualArgumentsList_5_0, 
-	        		"TypeParam", 
-	        		currentNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	        currentNode = currentNode.getParent();
-	    }
+        }
+	RULE_ID
+	{
+		createLeafNode(grammarAccess.getSimpleTypeRefAccess().getActualArgumentsListB3JavaImportCrossReference_2_2_1_0(), "actualArgumentsList"); 
+	}
 
 )
 ))*	'>' 
@@ -6446,50 +6432,6 @@ ruleSimpleTypeRef returns [EObject current=null]
 
 
 
-
-
-
-// Entry rule entryRuleTypeParam
-entryRuleTypeParam returns [EObject current=null] :
-	{ currentNode = createCompositeNode(grammarAccess.getTypeParamRule(), currentNode); }
-	 iv_ruleTypeParam=ruleTypeParam 
-	 { $current=$iv_ruleTypeParam.current; } 
-	 EOF 
-;
-
-// Rule TypeParam
-ruleTypeParam returns [EObject current=null] 
-    @init { @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
-    }
-    @after { resetLookahead(); 
-    	lastConsumedNode = currentNode;
-    }:
-(
-	{ 
-	  /* */ 
-	}
-    { 
-        currentNode=createCompositeNode(grammarAccess.getTypeParamAccess().getTypeRefParamParserRuleCall_0(), currentNode); 
-    }
-    this_TypeRefParam_0=ruleTypeRefParam
-    { 
-        $current = $this_TypeRefParam_0.current; 
-        currentNode = currentNode.getParent();
-    }
-
-    |
-	{ 
-	  /* */ 
-	}
-    { 
-        currentNode=createCompositeNode(grammarAccess.getTypeParamAccess().getWildcardRefParamParserRuleCall_1(), currentNode); 
-    }
-    this_WildcardRefParam_1=ruleWildcardRefParam
-    { 
-        $current = $this_WildcardRefParam_1.current; 
-        currentNode = currentNode.getParent();
-    }
-);
 
 
 

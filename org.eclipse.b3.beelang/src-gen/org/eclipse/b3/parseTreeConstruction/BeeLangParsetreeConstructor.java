@@ -14584,12 +14584,13 @@ protected class TypeRef_SimpleTypeRefParserRuleCall extends RuleCallToken {
 /************ begin Rule SimpleTypeRef ****************
  *
  * SimpleTypeRef returns be::IType:
- *   {be::B3ParameterizedType} rawType=[be::B3JavaImport] ("<" actualArgumentsList+=
- *   TypeParam ("," actualArgumentsList+=TypeParam)* ">")?;   // TODO: gets lots of warnings from this...
+ *   {be::B3ParameterizedType} rawType=[be::B3JavaImport] ("<" actualArgumentsList+=[be
+ *   ::B3JavaImport] ("," actualArgumentsList+=[be::B3JavaImport])* ">")?;   // TODO: gets lots of warnings from this...
  *     
  * 	         
- * 		          
- * 	
+ * 		                  
+ * //		('<' actualArgumentsList+=TypeParam (',' actualArgumentsList+=TypeParam)* '>' )? // TODO: Support wildcard as well
+ * 	 
  * 	
  * // TODO: typereference is simplified to only the name of a java type - for model imports
  * // the model is imported with name == namespace, and types in the model are referenced after
@@ -14600,12 +14601,14 @@ protected class TypeRef_SimpleTypeRefParserRuleCall extends RuleCallToken {
  * // For now, this is just proof of concept.
  * // 
  * 
- * // ClosureTypeRef declares parameters and return type
+ * // ClosureTypeRef declares parameters and return type	TODO: use TypeRef instead of direct reference to imported class
  *
  **/
 
-// {be::B3ParameterizedType} rawType=[be::B3JavaImport] ("<" actualArgumentsList+=
-// TypeParam ("," actualArgumentsList+=TypeParam)* ">")?
+// {be::B3ParameterizedType} rawType=[be::B3JavaImport] ("<" actualArgumentsList+=[be
+// ::B3JavaImport] ("," actualArgumentsList+=[be::B3JavaImport])* ">")?          
+// 		                  
+// //		('<' actualArgumentsList+=TypeParam (',' actualArgumentsList+=TypeParam)* '>' )? // TODO: Support wildcard as well
 protected class SimpleTypeRef_Group extends GroupToken {
 	
 	public SimpleTypeRef_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -14698,7 +14701,8 @@ protected class SimpleTypeRef_RawTypeAssignment_1 extends AssignmentToken  {
 
 }
 
-// ("<" actualArgumentsList+=TypeParam ("," actualArgumentsList+=TypeParam)* ">")?
+// ("<" actualArgumentsList+=[be::B3JavaImport] ("," actualArgumentsList+=[be::
+// B3JavaImport])* ">")?
 protected class SimpleTypeRef_Group_2 extends GroupToken {
 	
 	public SimpleTypeRef_Group_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -14742,7 +14746,7 @@ protected class SimpleTypeRef_LessThanSignKeyword_2_0 extends KeywordToken  {
 		
 }
 
-// actualArgumentsList+=TypeParam
+// actualArgumentsList+=[be::B3JavaImport]
 protected class SimpleTypeRef_ActualArgumentsListAssignment_2_1 extends AssignmentToken  {
 	
 	public SimpleTypeRef_ActualArgumentsListAssignment_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -14757,7 +14761,7 @@ protected class SimpleTypeRef_ActualArgumentsListAssignment_2_1 extends Assignme
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new TypeParam_Alternatives(this, this, 0, inst);
+			case 0: return new SimpleTypeRef_LessThanSignKeyword_2_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -14766,29 +14770,20 @@ protected class SimpleTypeRef_ActualArgumentsListAssignment_2_1 extends Assignme
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("actualArgumentsList",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("actualArgumentsList");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
 			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getTypeParamRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getSimpleTypeRefAccess().getActualArgumentsListTypeParamParserRuleCall_2_1_0(); 
-				consumed = obj;
-				return param;
+			if(param.isInstanceOf(grammarAccess.getSimpleTypeRefAccess().getActualArgumentsListB3JavaImportCrossReference_2_1_0().getType().getClassifier())) {
+				type = AssignmentType.CR;
+				element = grammarAccess.getSimpleTypeRefAccess().getActualArgumentsListB3JavaImportCrossReference_2_1_0(); 
+				return obj;
 			}
 		}
 		return null;
 	}
 
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new SimpleTypeRef_LessThanSignKeyword_2_0(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
 }
 
-// ("," actualArgumentsList+=TypeParam)*
+// ("," actualArgumentsList+=[be::B3JavaImport])*
 protected class SimpleTypeRef_Group_2_2 extends GroupToken {
 	
 	public SimpleTypeRef_Group_2_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -14833,7 +14828,7 @@ protected class SimpleTypeRef_CommaKeyword_2_2_0 extends KeywordToken  {
 		
 }
 
-// actualArgumentsList+=TypeParam
+// actualArgumentsList+=[be::B3JavaImport]
 protected class SimpleTypeRef_ActualArgumentsListAssignment_2_2_1 extends AssignmentToken  {
 	
 	public SimpleTypeRef_ActualArgumentsListAssignment_2_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -14848,7 +14843,7 @@ protected class SimpleTypeRef_ActualArgumentsListAssignment_2_2_1 extends Assign
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new TypeParam_Alternatives(this, this, 0, inst);
+			case 0: return new SimpleTypeRef_CommaKeyword_2_2_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -14857,26 +14852,17 @@ protected class SimpleTypeRef_ActualArgumentsListAssignment_2_2_1 extends Assign
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("actualArgumentsList",false)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("actualArgumentsList");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
 			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getTypeParamRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getSimpleTypeRefAccess().getActualArgumentsListTypeParamParserRuleCall_2_2_1_0(); 
-				consumed = obj;
-				return param;
+			if(param.isInstanceOf(grammarAccess.getSimpleTypeRefAccess().getActualArgumentsListB3JavaImportCrossReference_2_2_1_0().getType().getClassifier())) {
+				type = AssignmentType.CR;
+				element = grammarAccess.getSimpleTypeRefAccess().getActualArgumentsListB3JavaImportCrossReference_2_2_1_0(); 
+				return obj;
 			}
 		}
 		return null;
 	}
 
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new SimpleTypeRef_CommaKeyword_2_2_0(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
 }
 
 
@@ -14911,8 +14897,8 @@ protected class SimpleTypeRef_GreaterThanSignKeyword_2_3 extends KeywordToken  {
 /************ begin Rule ClosureTypeRef ****************
  *
  * ClosureTypeRef returns be::IType:
- *   {be::B3FunctionType} "(" parameterTypes+=TypeRef ("," parameterTypes+=TypeRef)* ")"
- *   "=>" returnType=TypeRef; 
+ *   {be::B3FunctionType} "(" parameterTypes+=[be::B3JavaImport] ("," parameterTypes+=[be
+ *   ::B3JavaImport])* ")" "=>" returnType=[be::B3JavaImport]; 
  * 	
  * // TODO: typereference is simplified to only the name of a java type - for model imports
  * // the model is imported with name == namespace, and types in the model are referenced after
@@ -14923,12 +14909,12 @@ protected class SimpleTypeRef_GreaterThanSignKeyword_2_3 extends KeywordToken  {
  * // For now, this is just proof of concept.
  * // 
  * 
- * // ClosureTypeRef declares parameters and return type
+ * // ClosureTypeRef declares parameters and return type	TODO: use TypeRef instead of direct reference to imported class
  *
  **/
 
-// {be::B3FunctionType} "(" parameterTypes+=TypeRef ("," parameterTypes+=TypeRef)* ")"
-// "=>" returnType=TypeRef
+// {be::B3FunctionType} "(" parameterTypes+=[be::B3JavaImport] ("," parameterTypes+=[be
+// ::B3JavaImport])* ")" "=>" returnType=[be::B3JavaImport]
 protected class ClosureTypeRef_Group extends GroupToken {
 	
 	public ClosureTypeRef_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -15005,7 +14991,7 @@ protected class ClosureTypeRef_LeftParenthesisKeyword_1 extends KeywordToken  {
 		
 }
 
-// parameterTypes+=TypeRef
+// parameterTypes+=[be::B3JavaImport]
 protected class ClosureTypeRef_ParameterTypesAssignment_2 extends AssignmentToken  {
 	
 	public ClosureTypeRef_ParameterTypesAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -15020,7 +15006,7 @@ protected class ClosureTypeRef_ParameterTypesAssignment_2 extends AssignmentToke
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new TypeRef_SimpleTypeRefParserRuleCall(this, this, 0, inst);
+			case 0: return new ClosureTypeRef_LeftParenthesisKeyword_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -15029,29 +15015,20 @@ protected class ClosureTypeRef_ParameterTypesAssignment_2 extends AssignmentToke
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("parameterTypes",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("parameterTypes");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
 			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getTypeRefRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getClosureTypeRefAccess().getParameterTypesTypeRefParserRuleCall_2_0(); 
-				consumed = obj;
-				return param;
+			if(param.isInstanceOf(grammarAccess.getClosureTypeRefAccess().getParameterTypesB3JavaImportCrossReference_2_0().getType().getClassifier())) {
+				type = AssignmentType.CR;
+				element = grammarAccess.getClosureTypeRefAccess().getParameterTypesB3JavaImportCrossReference_2_0(); 
+				return obj;
 			}
 		}
 		return null;
 	}
 
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new ClosureTypeRef_LeftParenthesisKeyword_1(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
 }
 
-// ("," parameterTypes+=TypeRef)*
+// ("," parameterTypes+=[be::B3JavaImport])*
 protected class ClosureTypeRef_Group_3 extends GroupToken {
 	
 	public ClosureTypeRef_Group_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -15096,7 +15073,7 @@ protected class ClosureTypeRef_CommaKeyword_3_0 extends KeywordToken  {
 		
 }
 
-// parameterTypes+=TypeRef
+// parameterTypes+=[be::B3JavaImport]
 protected class ClosureTypeRef_ParameterTypesAssignment_3_1 extends AssignmentToken  {
 	
 	public ClosureTypeRef_ParameterTypesAssignment_3_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -15111,7 +15088,7 @@ protected class ClosureTypeRef_ParameterTypesAssignment_3_1 extends AssignmentTo
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new TypeRef_SimpleTypeRefParserRuleCall(this, this, 0, inst);
+			case 0: return new ClosureTypeRef_CommaKeyword_3_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -15120,26 +15097,17 @@ protected class ClosureTypeRef_ParameterTypesAssignment_3_1 extends AssignmentTo
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("parameterTypes",false)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("parameterTypes");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
 			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getTypeRefRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getClosureTypeRefAccess().getParameterTypesTypeRefParserRuleCall_3_1_0(); 
-				consumed = obj;
-				return param;
+			if(param.isInstanceOf(grammarAccess.getClosureTypeRefAccess().getParameterTypesB3JavaImportCrossReference_3_1_0().getType().getClassifier())) {
+				type = AssignmentType.CR;
+				element = grammarAccess.getClosureTypeRefAccess().getParameterTypesB3JavaImportCrossReference_3_1_0(); 
+				return obj;
 			}
 		}
 		return null;
 	}
 
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new ClosureTypeRef_CommaKeyword_3_0(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
 }
 
 
@@ -15188,7 +15156,7 @@ protected class ClosureTypeRef_EqualsSignGreaterThanSignKeyword_5 extends Keywor
 		
 }
 
-// returnType=TypeRef
+// returnType=[be::B3JavaImport]
 protected class ClosureTypeRef_ReturnTypeAssignment_6 extends AssignmentToken  {
 	
 	public ClosureTypeRef_ReturnTypeAssignment_6(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -15203,7 +15171,7 @@ protected class ClosureTypeRef_ReturnTypeAssignment_6 extends AssignmentToken  {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new TypeRef_SimpleTypeRefParserRuleCall(this, this, 0, inst);
+			case 0: return new ClosureTypeRef_EqualsSignGreaterThanSignKeyword_5(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -15212,26 +15180,17 @@ protected class ClosureTypeRef_ReturnTypeAssignment_6 extends AssignmentToken  {
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("returnType",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("returnType");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
 			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getTypeRefRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getClosureTypeRefAccess().getReturnTypeTypeRefParserRuleCall_6_0(); 
-				consumed = obj;
-				return param;
+			if(param.isInstanceOf(grammarAccess.getClosureTypeRefAccess().getReturnTypeB3JavaImportCrossReference_6_0().getType().getClassifier())) {
+				type = AssignmentType.CR;
+				element = grammarAccess.getClosureTypeRefAccess().getReturnTypeB3JavaImportCrossReference_6_0(); 
+				return obj;
 			}
 		}
 		return null;
 	}
 
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new ClosureTypeRef_EqualsSignGreaterThanSignKeyword_5(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
 }
 
 

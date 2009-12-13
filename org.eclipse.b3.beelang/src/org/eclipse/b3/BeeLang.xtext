@@ -279,9 +279,8 @@ Function returns be::B3Function: {be::B3Function}
 		
 /* EXPRESSIONS */
 AssignmentOperator 
-	: '=' 		| '+='	| '-=' | '*='	| '/='
-	| "%=" 	| "&=" 	| "^=" | "|=" 
-	| "<<=" | ">>=" | ">>>=" 
+	: '=' | '+='	| '-=' | '*='	| '/=' | "%=" 	
+	| "&=" 	| "^=" | "|=" | "<<=" | ">>=" | ">>>=" 
 	;
 	
 RelationalOperator 
@@ -304,7 +303,8 @@ VarDeclaration returns be::BExpression: {be::BDefValue} (('var' | type=TypeRef) 
 TypeRef returns be::IType: SimpleTypeRef /* | ClosureTypeRef */ ; // TODO: gets lots of warnings from this...
 SimpleTypeRef returns be::IType
 	: {be::B3ParameterizedType} rawType=[be::B3JavaImport | ID] 
-		('<' actualArgumentsList+=TypeParam (',' actualArgumentsList+=TypeParam)* '>' )?
+		('<' actualArgumentsList+=[be::B3JavaImport | ID] (',' actualArgumentsList+=[be::B3JavaImport | ID])* '>' )?
+//		('<' actualArgumentsList+=TypeParam (',' actualArgumentsList+=TypeParam)* '>' )? // TODO: Support wildcard as well
 	;
 	
 // TODO: typereference is simplified to only the name of a java type - for model imports
@@ -316,10 +316,10 @@ SimpleTypeRef returns be::IType
 // For now, this is just proof of concept.
 // 
 
-// ClosureTypeRef declares parameters and return type	
+// ClosureTypeRef declares parameters and return type	TODO: use TypeRef instead of direct reference to imported class
 ClosureTypeRef returns be::IType
-	: {be::B3FunctionType} '(' parameterTypes+=TypeRef (',' parameterTypes+=TypeRef)* ')'
-		'=>' returnType = TypeRef
+	: {be::B3FunctionType} '(' parameterTypes+=[be::B3JavaImport | ID] (',' parameterTypes+=[be::B3JavaImport | ID])* ')'
+		'=>' returnType = [be::B3JavaImport | ID]
 	;
 	
 TypeParam returns be::IType: TypeRefParam | WildcardRefParam ;
