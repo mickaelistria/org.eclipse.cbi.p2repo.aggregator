@@ -7,7 +7,6 @@
 package org.eclipse.b3.backend.evaluator.b3backend.tests;
 
 import java.lang.reflect.Type;
-import java.util.Arrays;
 
 import junit.framework.AssertionFailedError;
 import junit.textui.TestRunner;

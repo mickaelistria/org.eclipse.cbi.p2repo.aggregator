@@ -6,8 +6,6 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.tests;
 
-import java.lang.reflect.Type;
-
 import junit.framework.AssertionFailedError;
 import junit.textui.TestRunner;
 
@@ -138,8 +136,6 @@ public class BCallExpressionTest extends BParameterizedExpressionTest {
 		funcType.setFunctionType(BFunction.class);
 		funcType.setReturnType(Integer.class);
 		funcType.setVarArgs(false);
-// before B3FunctionType was modeled
-//		ctx.defineVariableValue("a", func, new B3FunctionType(BFunction.class, Integer.class, new Type[]{}, false));
 		ctx.defineVariableValue("a", func, funcType);
 		BCallExpression ce = b3.createBCallExpression();
 		BVariableExpression vara = b3.createBVariableExpression();
