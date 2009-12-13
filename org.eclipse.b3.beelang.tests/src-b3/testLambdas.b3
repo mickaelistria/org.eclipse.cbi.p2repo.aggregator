@@ -1,0 +1,14 @@
+// TODO: Test literal functions. Definition, Calling, passing,
+// TODO: Test closure parameter a(x| x+1);
+import java.lang.Object;
+import java.util.List;
+import java.lang.Integer;
+
+function Object main(List argv) {
+	testClosureParameter();
+}
+function Object testClosureParameter() {
+	List<Integer> list = [<Integer> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+	List<Integer> odd = list.select({Integer x | (x & 0x1) == 0x1});
+	assertEquals("Selection of odd values", [<Integer> 1, 3, 5, 7, 9 ], odd);
+}
