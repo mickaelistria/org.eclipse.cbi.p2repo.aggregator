@@ -166,7 +166,7 @@ public class BChainedExpressionImpl extends BExpressionImpl implements BChainedE
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 		Object result = null;
-		for(BExpression expr : expressions)
+		for(BExpression expr : getExpressions())
 			result = expr.evaluate(ctx);
 		return result;
 	}
@@ -175,8 +175,9 @@ public class BChainedExpressionImpl extends BExpressionImpl implements BChainedE
 	 */
 	@Override
 	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
-		if(expressions.size() == 0)
+		if(getExpressions().size() == 0)
 			return Object.class; // TODO: This may be too relaxed  - should perhaps be <?>
+		// safe to use expressions directly here, as it was lazily created on get above
 		return expressions.get(expressions.size()-1).getDeclaredType(ctx);
 	}
 } //BChainedExpressionImpl
