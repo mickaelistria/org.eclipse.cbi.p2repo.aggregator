@@ -389,12 +389,10 @@
       abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="B3FunctionType" eSuperTypes="#//IType">
     <eOperations name="getParameterTypesArray" eType="#//TypeArray"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="functionType" eType="#//IType"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="returnType" eType="#//IType"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="functionType" eType="#//IType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="returnType" eType="#//IType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameterTypes" upperBound="-1"
-        eType="#//IType" containment="true"/>
+        eType="#//IType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="varArgs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IParameterizedType" instanceClassName="java.lang.reflect.ParameterizedType"
@@ -407,7 +405,7 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rawType" eType="#//IType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actualArgumentsList" upperBound="-1"
-        eType="#//IType" containment="true"/>
+        eType="#//IType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IWildcardType" instanceClassName="java.lang.reflect.WildcardType"
       abstract="true" interface="true" eSuperTypes="#//IType"/>

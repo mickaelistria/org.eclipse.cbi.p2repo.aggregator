@@ -2891,9 +2891,9 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEClass(iTypeEClass, Type.class, "IType", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(b3FunctionTypeEClass, B3FunctionType.class, "B3FunctionType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getB3FunctionType_FunctionType(), this.getIType(), null, "functionType", null, 0, 1, B3FunctionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getB3FunctionType_ReturnType(), this.getIType(), null, "returnType", null, 0, 1, B3FunctionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getB3FunctionType_ParameterTypes(), this.getIType(), null, "parameterTypes", null, 0, -1, B3FunctionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getB3FunctionType_FunctionType(), this.getIType(), null, "functionType", null, 0, 1, B3FunctionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getB3FunctionType_ReturnType(), this.getIType(), null, "returnType", null, 0, 1, B3FunctionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getB3FunctionType_ParameterTypes(), this.getIType(), null, "parameterTypes", null, 0, -1, B3FunctionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getB3FunctionType_VarArgs(), ecorePackage.getEBoolean(), "varArgs", null, 0, 1, B3FunctionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(b3FunctionTypeEClass, this.getTypeArray(), "getParameterTypesArray", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -2905,7 +2905,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEClass(b3ParameterizedTypeEClass, B3ParameterizedType.class, "B3ParameterizedType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getB3ParameterizedType_OwnerType(), this.getIType(), null, "ownerType", null, 0, 1, B3ParameterizedType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getB3ParameterizedType_RawType(), this.getIType(), null, "rawType", null, 0, 1, B3ParameterizedType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getB3ParameterizedType_ActualArgumentsList(), this.getIType(), null, "actualArgumentsList", null, 0, -1, B3ParameterizedType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getB3ParameterizedType_ActualArgumentsList(), this.getIType(), null, "actualArgumentsList", null, 0, -1, B3ParameterizedType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(b3ParameterizedTypeEClass, this.getTypeArray(), "getActualTypeArguments", 0, 1, IS_UNIQUE, IS_ORDERED);
 

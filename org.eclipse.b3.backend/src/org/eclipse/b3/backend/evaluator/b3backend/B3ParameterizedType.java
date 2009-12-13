@@ -97,7 +97,7 @@ public interface B3ParameterizedType extends EObject, ParameterizedType {
 	void setRawType(Type value);
 
 	/**
-	 * Returns the value of the '<em><b>Actual Arguments List</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Actual Arguments List</b></em>' reference list.
 	 * The list contents are of type {@link java.lang.reflect.Type}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -105,9 +105,9 @@ public interface B3ParameterizedType extends EObject, ParameterizedType {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Actual Arguments List</em>' containment reference list.
+	 * @return the value of the '<em>Actual Arguments List</em>' reference list.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getB3ParameterizedType_ActualArgumentsList()
-	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType" containment="true"
+	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType"
 	 * @generated
 	 */
 	EList<Type> getActualArgumentsList();

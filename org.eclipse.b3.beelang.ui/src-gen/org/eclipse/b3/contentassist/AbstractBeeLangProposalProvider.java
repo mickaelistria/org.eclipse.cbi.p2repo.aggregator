@@ -1703,6 +1703,22 @@ public class AbstractBeeLangProposalProvider extends AbstractJavaBasedContentPro
 		}
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
+	public void completeLiteralFunction_Parameters(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		if (logger.isDebugEnabled()) {
+			logger.debug("completeLiteralFunction_Parameters feature '" + assignment.getFeature() + "' terminal '"
+					+ assignment.getTerminal() + "' cardinality '" + assignment.getCardinality() + "' and prefix '"
+					+ context.getPrefix() + "'");
+		}
+		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
+	}
+	public void completeLiteralFunction_FuncExpr(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		if (logger.isDebugEnabled()) {
+			logger.debug("completeLiteralFunction_FuncExpr feature '" + assignment.getFeature() + "' terminal '"
+					+ assignment.getTerminal() + "' cardinality '" + assignment.getCardinality() + "' and prefix '"
+					+ context.getPrefix() + "'");
+		}
+		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
+	}
 	public void completeClosureExpression_Parameters(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		if (logger.isDebugEnabled()) {
 			logger.debug("completeClosureExpression_Parameters feature '" + assignment.getFeature() + "' terminal '"
@@ -1714,6 +1730,14 @@ public class AbstractBeeLangProposalProvider extends AbstractJavaBasedContentPro
 	public void completeClosureExpression_FuncExpr(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		if (logger.isDebugEnabled()) {
 			logger.debug("completeClosureExpression_FuncExpr feature '" + assignment.getFeature() + "' terminal '"
+					+ assignment.getTerminal() + "' cardinality '" + assignment.getCardinality() + "' and prefix '"
+					+ context.getPrefix() + "'");
+		}
+		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
+	}
+	public void completeBlockExpressionWithoutBrackets_Expressions(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		if (logger.isDebugEnabled()) {
+			logger.debug("completeBlockExpressionWithoutBrackets_Expressions feature '" + assignment.getFeature() + "' terminal '"
 					+ assignment.getTerminal() + "' cardinality '" + assignment.getCardinality() + "' and prefix '"
 					+ context.getPrefix() + "'");
 		}
@@ -2574,9 +2598,23 @@ public class AbstractBeeLangProposalProvider extends AbstractJavaBasedContentPro
 		}
 		// subclasses may override
 	}
+	public void complete_LiteralFunction(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		if (logger.isDebugEnabled()) {
+			logger.debug("complete_LiteralFunction '" + ruleCall.getRule().getName() + "' cardinality '" + ruleCall.getCardinality()
+					+ "' for model '" + context.getCurrentModel() + "' and prefix '" + context.getPrefix() + "'");
+		}
+		// subclasses may override
+	}
 	public void complete_ClosureExpression(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		if (logger.isDebugEnabled()) {
 			logger.debug("complete_ClosureExpression '" + ruleCall.getRule().getName() + "' cardinality '" + ruleCall.getCardinality()
+					+ "' for model '" + context.getCurrentModel() + "' and prefix '" + context.getPrefix() + "'");
+		}
+		// subclasses may override
+	}
+	public void complete_BlockExpressionWithoutBrackets(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		if (logger.isDebugEnabled()) {
+			logger.debug("complete_BlockExpressionWithoutBrackets '" + ruleCall.getRule().getName() + "' cardinality '" + ruleCall.getCardinality()
 					+ "' for model '" + context.getCurrentModel() + "' and prefix '" + context.getPrefix() + "'");
 		}
 		// subclasses may override

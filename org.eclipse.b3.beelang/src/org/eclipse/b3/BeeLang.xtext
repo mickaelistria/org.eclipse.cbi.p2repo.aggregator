@@ -193,7 +193,7 @@ ParameterDeclarationList :
 	(( params += ParameterDeclaration (',' params+=ParameterDeclaration)*(',' params+=ParameterDeclarationEllipse)?) 
 	| (params+= ParameterDeclarationEllipse))
 	;
-ParameterDeclaration returns be::BParameterDeclaration: {be::BParameterDeclaration} type=TypeRef? name = ID ;
+ParameterDeclaration returns be::BParameterDeclaration: {be::BParameterDeclaration} ((type=TypeRef)? name = ID) ;
 ParameterDeclarationEllipse returns ParameterDeclaration : 
 	{VarargParameterDeclaration} "..." (type=TypeRef)? name=ID
 	;
@@ -427,6 +427,7 @@ Case	returns be::BCase : {be::BCase} "case" conditionExpr=Expression ":" thenExp
 
 BlockExpression returns be::BExpression: {be::BChainedExpression} '{' (expressions += Expression ';')* '}' ;
 
+
 IfExpression returns be::BExpression
 	: {be::BIfExpression} 'if'  conditionExpr=Expression "then" thenExpr=Expression 
 	((elseExpr = ElseIfExpression | "else" elseExpr = Expression ))?
@@ -488,7 +489,7 @@ Literal returns be::BExpression
 	| RegexpLiteral
 	| LiteralMap
 	| LiteralList
-//	| LiteralFunction
+	| LiteralFunction
 	| LiteralType
 	;
 	
@@ -500,12 +501,19 @@ LiteralMap returns  be::BExpression
 	: {be::BLiteralMapExpression} '['  ('<' keyType=TypeRef ',' valueType=TypeRef '>')? entries += MapEntry (',' entries += MapEntry)* ']' 
 	| {be::BLiteralMapExpression} '[' '<' keyType=TypeRef ',' valueType=TypeRef '>' ']' 
 	;
-// TODO: only needs the ClosureExpression == B3Function 
-//LiteralFunction returns be::BExpression: {LiteralFunction} '{' closure = ClosureExpression '}' ;
+
+//LiteralFunction returns be::BExpression: '{' ClosureExpression '}' ;
+LiteralFunction returns be::BExpression: {be::B3Function} '{'
+	(parameters += ParameterDeclaration (',' parameters += ParameterDeclaration)*)? 
+	'|' ((funcExpr=Expression) | (funcExpr=BlockExpressionWithoutBrackets)) '}'
+	;
 
 ClosureExpression returns be::BExpression: {be::B3Function} 
-	(parameters += ParameterDeclaration (',' parameters += ParameterDeclaration)*)? '|' funcExpr=Expression 
+	(parameters += ParameterDeclaration (',' parameters += ParameterDeclaration)*)? 
+	'|' (funcExpr=Expression | funcExpr=BlockExpressionWithoutBrackets)
 	;
+
+BlockExpressionWithoutBrackets returns be::BExpression : {be::BChainedExpression} (expressions += Expression ';')+ ;
 	
 MapEntry returns be::BMapEntry: {be::BMapEntry} key = KeyLiteral ':' value= Expression ;
 

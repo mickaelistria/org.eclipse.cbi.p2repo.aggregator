@@ -6,7 +6,6 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
-import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -238,7 +237,6 @@ public class BLiteralListExpressionImpl extends BExpressionImpl implements BLite
 		return super.eIsSet(featureID);
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 		Type t = entryType == null ? Object.class : entryType;
@@ -246,12 +244,7 @@ public class BLiteralListExpressionImpl extends BExpressionImpl implements BLite
 		int counter = 0;
 		for(BExpression expr : entries) {
 			Object result = expr.evaluate(ctx);
-			Class entryClass = null;
-			if( t instanceof ParameterizedType)
-				entryClass = TypeUtils.getRaw(t);
-			else
-				entryClass = (Class)t;
-			if(!entryClass.isAssignableFrom(result.getClass()))
+			if(!TypeUtils.isAssignableFrom(t, result.getClass()))
 				throw BackendHelper.createException(expr, 
 						"List creation error for index {0}. "
 						+"A List<{1}>, does not accept an instance of type {2}.",

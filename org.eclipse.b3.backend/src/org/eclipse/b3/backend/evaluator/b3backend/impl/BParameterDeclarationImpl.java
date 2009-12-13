@@ -121,24 +121,13 @@ public class BParameterDeclarationImpl extends EObjectImpl implements BParameter
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Parameter type defaults to Object.class
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Type getType() {
-		return type;
+		return type == null ? Object.class : type;
 	}
-//	public Type getType() {
-//		// NOTE: Must check against type being an EObject
-//		if (type != null && type instanceof EObject && ((EObject)type).eIsProxy()) {
-//			InternalEObject oldType = (InternalEObject)type;
-//			type = (Type)eResolveProxy(oldType);
-//			if (type != oldType) {
-//				if (eNotificationRequired())
-//					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.BPARAMETER_DECLARATION__TYPE, oldType, type));
-//			}
-//		}
-//		return type;
-//	}
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

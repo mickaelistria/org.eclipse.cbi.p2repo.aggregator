@@ -76,7 +76,7 @@ public class B3ParameterizedTypeImpl extends EObjectImpl implements B3Parameteri
 	protected Type rawType;
 
 	/**
-	 * The cached value of the '{@link #getActualArgumentsList() <em>Actual Arguments List</em>}' containment reference list.
+	 * The cached value of the '{@link #getActualArgumentsList() <em>Actual Arguments List</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getActualArgumentsList()
@@ -150,10 +150,10 @@ public class B3ParameterizedTypeImpl extends EObjectImpl implements B3Parameteri
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Type getRawType() {
-		if (rawType != null && ((EObject)rawType).eIsProxy()) {
+		if (rawType != null && rawType instanceof EObject && ((EObject)rawType).eIsProxy()) {
 			InternalEObject oldRawType = (InternalEObject)rawType;
 			rawType = (Type)eResolveProxy(oldRawType);
 			if (rawType != oldRawType) {
@@ -192,7 +192,7 @@ public class B3ParameterizedTypeImpl extends EObjectImpl implements B3Parameteri
 	 */
 	public EList<Type> getActualArgumentsList() {
 		if (actualArgumentsList == null) {
-			actualArgumentsList = new EObjectContainmentEList<Type>(Type.class, this, B3backendPackage.B3_PARAMETERIZED_TYPE__ACTUAL_ARGUMENTS_LIST);
+			actualArgumentsList = new EObjectResolvingEList<Type>(Type.class, this, B3backendPackage.B3_PARAMETERIZED_TYPE__ACTUAL_ARGUMENTS_LIST);
 		}
 		return actualArgumentsList;
 	}
@@ -216,8 +216,6 @@ public class B3ParameterizedTypeImpl extends EObjectImpl implements B3Parameteri
 		switch (featureID) {
 			case B3backendPackage.B3_PARAMETERIZED_TYPE__OWNER_TYPE:
 				return basicSetOwnerType(null, msgs);
-			case B3backendPackage.B3_PARAMETERIZED_TYPE__ACTUAL_ARGUMENTS_LIST:
-				return ((InternalEList<?>)getActualArgumentsList()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
