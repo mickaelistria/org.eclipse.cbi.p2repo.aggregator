@@ -9,6 +9,9 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
 import java.util.Collection;
+
+import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
+import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
@@ -26,10 +29,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.osgi.internal.resolver.ComputeNodeOrder;
 
 /**
  * <!-- begin-user-doc -->
@@ -953,5 +954,22 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 			}
 		}
 	}
+	/**
+	 * Functions are literal and evaluate to self.
+	 */
+	@Override
+	public Object evaluate(BExecutionContext ctx) throws Throwable {
+		return this; // a function is literal.
+	}
 	
+	@Override
+	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
+		B3FunctionType t = B3backendFactory.eINSTANCE.createB3FunctionType();
+		t.setReturnType(getReturnType());
+		t.setVarArgs(isVarArgs());
+		EList<Type> pt = t.getParameterTypes();
+		for(BParameterDeclaration p : getParameters())
+			pt.add(p.getType());
+		return t;
+	}
 } //BFunctionImpl

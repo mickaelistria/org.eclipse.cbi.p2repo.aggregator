@@ -3,6 +3,7 @@ package org.eclipse.b3.backend.evaluator.typesystem;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
+@Deprecated
 public class B3ParameterizedType implements ParameterizedType {
 
 	private Type ownerType;

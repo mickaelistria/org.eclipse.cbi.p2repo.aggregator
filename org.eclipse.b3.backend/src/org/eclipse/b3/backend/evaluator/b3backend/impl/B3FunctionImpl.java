@@ -12,10 +12,12 @@ import java.util.List;
 
 import org.eclipse.b3.backend.core.B3IncompatibleTypeException;
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
+import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
+import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
+import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
-import org.eclipse.b3.backend.evaluator.typesystem.B3ParameterizedType;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -229,13 +231,21 @@ public class B3FunctionImpl extends BFunctionImpl implements B3Function {
 								varargsType, parameters[i].getClass());
 					varargs.add(parameters[i]);
 					}
-				
+				B3ParameterizedType pt = B3backendFactory.eINSTANCE.createB3ParameterizedType();
+				pt.setRawType(List.class);
+				pt.getActualArgumentsList().add(parameterTypes[limit]);
 				// bind the varargs to a List of the declared type (possibly an empty list).
-				octx.defineVariableValue(parameterNames[limit], varargs, 
-						new B3ParameterizedType(List.class, new Type[] { parameterTypes[limit] }));
+				octx.defineVariableValue(parameterNames[limit], varargs, pt);
+//	deprecated use of B3ParamterType new B3ParameterizedType(List.class, new Type[] { parameterTypes[limit] }));
 			}
 		}
 		// all set up - fire away
 		return funcExpr.evaluate(octx);
+	}
+	@Override
+	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
+		B3FunctionType t = (B3FunctionType)super.getDeclaredType(ctx);
+		t.setFunctionType(B3Function.class);
+		return t;
 	}
 } //B3FunctionImpl

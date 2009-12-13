@@ -11,16 +11,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.b3.backend.core.B3IncompatibleTypeException;
+import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
+import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BGuardExpression;
-import org.eclipse.b3.backend.evaluator.typesystem.B3ParameterizedType;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -229,8 +229,11 @@ public class BGuardExpressionImpl extends BGuardImpl implements BGuardExpression
 						}
 					
 					// bind the varargs to a List of the declared type (possibly an empty list).
-					octx.defineVariableValue(parameterNames[limit], varargs, 
-							new B3ParameterizedType(List.class, new Type[] { parameterTypes[limit] }));
+					B3ParameterizedType pt = B3backendFactory.eINSTANCE.createB3ParameterizedType();
+					pt.setRawType(List.class);
+					pt.getActualArgumentsList().add(parameterTypes[limit]);
+					octx.defineVariableValue(parameterNames[limit], varargs, pt);
+//							new B3ParameterizedType(List.class, new Type[] { parameterTypes[limit] }));
 				}
 			}
 			// all set up - fire away

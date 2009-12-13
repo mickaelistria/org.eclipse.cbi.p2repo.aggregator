@@ -3,6 +3,7 @@ package org.eclipse.b3.backend.evaluator.typesystem;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
 
+@Deprecated
 public class B3GenericTypeVariable implements TypeVariable<B3GenericDeclaration> {
 
 	public Type[] getBounds() {

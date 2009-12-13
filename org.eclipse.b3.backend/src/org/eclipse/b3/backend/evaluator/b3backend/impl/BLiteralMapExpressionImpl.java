@@ -10,14 +10,16 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Collection;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.b3.backend.evaluator.BackendHelper;
+import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
+import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BMapEntry;
-import org.eclipse.b3.backend.evaluator.typesystem.B3ParameterizedType;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -335,7 +337,11 @@ public class BLiteralMapExpressionImpl extends BExpressionImpl implements BLiter
 	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
 		Type kt = keyType == null ? String.class : keyType;
 		Type vt = valueType == null ? Object.class : valueType;
-		return new B3ParameterizedType(Map.class, new Type[] { kt, vt });
+		B3ParameterizedType pt = B3backendFactory.eINSTANCE.createB3ParameterizedType();
+		pt.setRawType(Map.class);
+		pt.getActualArgumentsList().add(kt);
+		pt.getActualArgumentsList().add(vt);
+		return pt;
 	}
 
 } //BLiteralMapExpressionImpl

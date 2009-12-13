@@ -3,6 +3,7 @@ package org.eclipse.b3.backend.evaluator.typesystem;
 import java.lang.reflect.Type;
 import java.lang.reflect.WildcardType;
 
+@Deprecated
 public class B3WildcardType implements WildcardType {
 
 	private Type[] lowerBounds;

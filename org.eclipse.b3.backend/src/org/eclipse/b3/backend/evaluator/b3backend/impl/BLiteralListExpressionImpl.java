@@ -13,11 +13,12 @@ import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.b3.backend.evaluator.BackendHelper;
+import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
+import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression;
-import org.eclipse.b3.backend.evaluator.typesystem.B3ParameterizedType;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -266,8 +267,10 @@ public class BLiteralListExpressionImpl extends BExpressionImpl implements BLite
 	 */
 	@Override
 	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
-		if(entryType == null)
-			return new B3ParameterizedType(List.class, new Type[] { Object.class });
-		return new B3ParameterizedType(List.class, new Type[] { entryType });
+		Type eType = entryType == null ? Object.class : entryType;
+		B3ParameterizedType pt = B3backendFactory.eINSTANCE.createB3ParameterizedType();
+		pt.setRawType(List.class);
+		pt.getActualArgumentsList().add(eType);
+		return pt;
 	}
 } //BLiteralListExpressionImpl

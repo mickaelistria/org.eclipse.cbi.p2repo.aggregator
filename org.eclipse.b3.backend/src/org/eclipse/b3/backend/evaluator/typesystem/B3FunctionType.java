@@ -6,6 +6,7 @@ import java.lang.reflect.Type;
  * A Type that describes a callable function
  *
  */
+@Deprecated
 public class B3FunctionType implements Type {
 	private Type functionType;
 	private Type returnType;

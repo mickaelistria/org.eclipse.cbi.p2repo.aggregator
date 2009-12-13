@@ -6,9 +6,6 @@
  * http://www.eclipse.org/legal/epl-v10.html
  * Contributors:
  * - Cloudsmith Inc - initial API and implementation.
- * 
- *
- * $Id$
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
@@ -33,7 +30,6 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -159,21 +155,17 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	 * @generated NOT
 	 */
 	public void setFunctionType(Type newFunctionType) {
-		if(! (functionType instanceof EObject && newFunctionType instanceof EObject))
-			functionType = newFunctionType;
-		else {
 		if (newFunctionType != functionType) {
 			NotificationChain msgs = null;
-			if (functionType != null)
+			if (functionType != null && functionType instanceof EObject)
 				msgs = ((InternalEObject)functionType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.B3_FUNCTION_TYPE__FUNCTION_TYPE, null, msgs);
-			if (newFunctionType != null)
+			if (newFunctionType != null && newFunctionType instanceof EObject)
 				msgs = ((InternalEObject)newFunctionType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.B3_FUNCTION_TYPE__FUNCTION_TYPE, null, msgs);
 			msgs = basicSetFunctionType(newFunctionType, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.B3_FUNCTION_TYPE__FUNCTION_TYPE, newFunctionType, newFunctionType));
-		}
 	}
 
 	/**
