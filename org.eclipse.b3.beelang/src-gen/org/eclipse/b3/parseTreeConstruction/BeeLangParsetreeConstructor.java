@@ -62,81 +62,81 @@ protected class ThisRootNode extends RootToken {
 			case 24: return new CapabilityReferencedPart_Group(this, this, 24, inst);
 			case 25: return new CompoundReferences_Group(this, this, 25, inst);
 			case 26: return new Builder_Group(this, this, 26, inst);
-			case 27: return new Parameter_Group(this, this, 27, inst);
-			case 28: return new ParameterList_Group(this, this, 28, inst);
-			case 29: return new ClosureParameter_Group(this, this, 29, inst);
-			case 30: return new ParameterDeclarationList_Alternatives(this, this, 30, inst);
-			case 31: return new ParameterDeclaration_Group(this, this, 31, inst);
-			case 32: return new ParameterDeclarationEllipse_Group(this, this, 32, inst);
-			case 33: return new BuilderOutput_Group(this, this, 33, inst);
-			case 34: return new BuilderInput_Group(this, this, 34, inst);
-			case 35: return new RepositoryConfiguration_Alternatives(this, this, 35, inst);
-			case 36: return new RepositoryDeclaration_Group(this, this, 36, inst);
-			case 37: return new ResolutionStrategy_Group(this, this, 37, inst);
-			case 38: return new ContainerConfiguration_Group(this, this, 38, inst);
-			case 39: return new Concern_Group(this, this, 39, inst);
-			case 40: return new ConcernBlock_Group(this, this, 40, inst);
-			case 41: return new Query_Group(this, this, 41, inst);
-			case 42: return new QueryPath_Group(this, this, 42, inst);
-			case 43: return new Selector_Group(this, this, 43, inst);
-			case 44: return new Filter_Group(this, this, 44, inst);
-			case 45: return new PreCondition_Group(this, this, 45, inst);
-			case 46: return new PostCondition_Group(this, this, 46, inst);
-			case 47: return new AssertionExpression_Group(this, this, 47, inst);
-			case 48: return new ExpressionList_Group(this, this, 48, inst);
-			case 49: return new Function_Group(this, this, 49, inst);
-			case 50: return new Expression_AssignmentExpressionParserRuleCall(this, this, 50, inst);
-			case 51: return new AssignmentExpression_Group(this, this, 51, inst);
-			case 52: return new VarDeclaration_Group(this, this, 52, inst);
-			case 53: return new TypeRef_SimpleTypeRefParserRuleCall(this, this, 53, inst);
-			case 54: return new SimpleTypeRef_Group(this, this, 54, inst);
-			case 55: return new ClosureTypeRef_Group(this, this, 55, inst);
-			case 56: return new TypeParam_Alternatives(this, this, 56, inst);
-			case 57: return new TypeRefParam_TypeRefParserRuleCall(this, this, 57, inst);
-			case 58: return new WildcardRefParam_Group(this, this, 58, inst);
-			case 59: return new OrExpression_Group(this, this, 59, inst);
-			case 60: return new AndExpression_Group(this, this, 60, inst);
-			case 61: return new BitwiseExpression_Group(this, this, 61, inst);
+			case 27: return new ParameterList_Group(this, this, 27, inst);
+			case 28: return new FirstParameter_Alternatives(this, this, 28, inst);
+			case 29: return new Parameter_Group(this, this, 29, inst);
+			case 30: return new ClosureParameter_Group(this, this, 30, inst);
+			case 31: return new ParameterDeclarationList_Alternatives(this, this, 31, inst);
+			case 32: return new ParameterDeclaration_Group(this, this, 32, inst);
+			case 33: return new ParameterDeclarationEllipse_Group(this, this, 33, inst);
+			case 34: return new BuilderOutput_Group(this, this, 34, inst);
+			case 35: return new BuilderInput_Group(this, this, 35, inst);
+			case 36: return new RepositoryConfiguration_Alternatives(this, this, 36, inst);
+			case 37: return new RepositoryDeclaration_Group(this, this, 37, inst);
+			case 38: return new ResolutionStrategy_Group(this, this, 38, inst);
+			case 39: return new ContainerConfiguration_Group(this, this, 39, inst);
+			case 40: return new Concern_Group(this, this, 40, inst);
+			case 41: return new ConcernBlock_Group(this, this, 41, inst);
+			case 42: return new Query_Group(this, this, 42, inst);
+			case 43: return new QueryPath_Group(this, this, 43, inst);
+			case 44: return new Selector_Group(this, this, 44, inst);
+			case 45: return new Filter_Group(this, this, 45, inst);
+			case 46: return new PreCondition_Group(this, this, 46, inst);
+			case 47: return new PostCondition_Group(this, this, 47, inst);
+			case 48: return new AssertionExpression_Group(this, this, 48, inst);
+			case 49: return new ExpressionList_Group(this, this, 49, inst);
+			case 50: return new Function_Group(this, this, 50, inst);
+			case 51: return new Expression_AssignmentExpressionParserRuleCall(this, this, 51, inst);
+			case 52: return new AssignmentExpression_Group(this, this, 52, inst);
+			case 53: return new VarDeclaration_Group(this, this, 53, inst);
+			case 54: return new TypeRef_SimpleTypeRefParserRuleCall(this, this, 54, inst);
+			case 55: return new SimpleTypeRef_Group(this, this, 55, inst);
+			case 56: return new ClosureTypeRef_Group(this, this, 56, inst);
+			case 57: return new TypeParam_Alternatives(this, this, 57, inst);
+			case 58: return new TypeRefParam_TypeRefParserRuleCall(this, this, 58, inst);
+			case 59: return new WildcardRefParam_Group(this, this, 59, inst);
+			case 60: return new OrExpression_Group(this, this, 60, inst);
+			case 61: return new AndExpression_Group(this, this, 61, inst);
 			case 62: return new RelationalExpression_Group(this, this, 62, inst);
 			case 63: return new InstanceOfExpression_Group(this, this, 63, inst);
-			case 64: return new ShiftExpression_Group(this, this, 64, inst);
-			case 65: return new AdditiveExpression_Group(this, this, 65, inst);
-			case 66: return new MultiplicativeExpression_Group(this, this, 66, inst);
-			case 67: return new SetExpression_Group(this, this, 67, inst);
-			case 68: return new UnaryOrInfixExpression_Alternatives(this, this, 68, inst);
-			case 69: return new UnaryExpression_Group(this, this, 69, inst);
-			case 70: return new PreopExpression_Group(this, this, 70, inst);
-			case 71: return new PostopExpression_Group(this, this, 71, inst);
-			case 72: return new InfixExpression_Group(this, this, 72, inst);
-			case 73: return new CallExpression_Group(this, this, 73, inst);
-			case 74: return new PrimaryExpression_Alternatives(this, this, 74, inst);
-			case 75: return new WildcardExpression_Group(this, this, 75, inst);
-			case 76: return new ThrowExpression_Group(this, this, 76, inst);
-			case 77: return new TryCatchExpression_Group(this, this, 77, inst);
-			case 78: return new CatchBlock_Group(this, this, 78, inst);
-			case 79: return new SwitchExpression_Group(this, this, 79, inst);
-			case 80: return new Case_Group(this, this, 80, inst);
-			case 81: return new BlockExpression_Group(this, this, 81, inst);
-			case 82: return new IfExpression_Group(this, this, 82, inst);
-			case 83: return new ElseIfExpression_Group(this, this, 83, inst);
-			case 84: return new PropertyValue_Group(this, this, 84, inst);
-			case 85: return new VariableValue_Group(this, this, 85, inst);
-			case 86: return new KeywordVariables_Group(this, this, 86, inst);
-			case 87: return new FeatureCall_OperationCallParserRuleCall(this, this, 87, inst);
-			case 88: return new OperationCall_Group(this, this, 88, inst);
-			case 89: return new ConstructorCallExpression_Group(this, this, 89, inst);
-			case 90: return new Context_Group(this, this, 90, inst);
-			case 91: return new ContextSelector_Alternatives(this, this, 91, inst);
-			case 92: return new TypeRefSelector_TypeAssignment(this, this, 92, inst);
-			case 93: return new ExpressionSelector_ExprAssignment(this, this, 93, inst);
-			case 94: return new UnitSelector_Group(this, this, 94, inst);
-			case 95: return new ContextBlock_Group(this, this, 95, inst);
-			case 96: return new FunctionDefinition_Group(this, this, 96, inst);
-			case 97: return new Literal_Alternatives(this, this, 97, inst);
-			case 98: return new LiteralList_Alternatives(this, this, 98, inst);
-			case 99: return new LiteralMap_Alternatives(this, this, 99, inst);
-			case 100: return new LiteralFunction_Group(this, this, 100, inst);
-			case 101: return new ClosureExpression_Group(this, this, 101, inst);
+			case 64: return new AdditiveExpression_Group(this, this, 64, inst);
+			case 65: return new MultiplicativeExpression_Group(this, this, 65, inst);
+			case 66: return new SetExpression_Group(this, this, 66, inst);
+			case 67: return new UnaryOrInfixExpression_Alternatives(this, this, 67, inst);
+			case 68: return new UnaryExpression_Group(this, this, 68, inst);
+			case 69: return new PreopExpression_Group(this, this, 69, inst);
+			case 70: return new PostopExpression_Group(this, this, 70, inst);
+			case 71: return new InfixExpression_Group(this, this, 71, inst);
+			case 72: return new CallExpression_Group(this, this, 72, inst);
+			case 73: return new PrimaryExpression_Alternatives(this, this, 73, inst);
+			case 74: return new WildcardExpression_Group(this, this, 74, inst);
+			case 75: return new ThrowExpression_Group(this, this, 75, inst);
+			case 76: return new TryCatchExpression_Group(this, this, 76, inst);
+			case 77: return new CatchBlock_Group(this, this, 77, inst);
+			case 78: return new SwitchExpression_Group(this, this, 78, inst);
+			case 79: return new Case_Group(this, this, 79, inst);
+			case 80: return new BlockExpression_Group(this, this, 80, inst);
+			case 81: return new IfExpression_Group(this, this, 81, inst);
+			case 82: return new ElseIfExpression_Group(this, this, 82, inst);
+			case 83: return new PropertyValue_Group(this, this, 83, inst);
+			case 84: return new VariableValue_Group(this, this, 84, inst);
+			case 85: return new KeywordVariables_Group(this, this, 85, inst);
+			case 86: return new FeatureCall_OperationCallParserRuleCall(this, this, 86, inst);
+			case 87: return new OperationCall_Group(this, this, 87, inst);
+			case 88: return new ConstructorCallExpression_Group(this, this, 88, inst);
+			case 89: return new Context_Group(this, this, 89, inst);
+			case 90: return new ContextSelector_Alternatives(this, this, 90, inst);
+			case 91: return new TypeRefSelector_TypeAssignment(this, this, 91, inst);
+			case 92: return new ExpressionSelector_ExprAssignment(this, this, 92, inst);
+			case 93: return new UnitSelector_Group(this, this, 93, inst);
+			case 94: return new ContextBlock_Group(this, this, 94, inst);
+			case 95: return new FunctionDefinition_Group(this, this, 95, inst);
+			case 96: return new Literal_Alternatives(this, this, 96, inst);
+			case 97: return new LiteralList_Alternatives(this, this, 97, inst);
+			case 98: return new LiteralMap_Alternatives(this, this, 98, inst);
+			case 99: return new LiteralFunction_Group(this, this, 99, inst);
+			case 100: return new ClosureExpression_Group(this, this, 100, inst);
+			case 101: return new OneOrManyExpressions_Alternatives(this, this, 101, inst);
 			case 102: return new BlockExpressionWithoutBrackets_Group(this, this, 102, inst);
 			case 103: return new MapEntry_Group(this, this, 103, inst);
 			case 104: return new KeyLiteral_Group(this, this, 104, inst);
@@ -8823,6 +8823,320 @@ protected class Builder_RightCurlyBracketKeyword_17 extends KeywordToken  {
 /************ end Rule Builder ****************/
 
 
+/************ begin Rule ParameterList ****************
+ *
+ * ParameterList returns be::BParameterList:
+ *   {be::BParameterList} parameters+=FirstParameter ("," parameters+=FirstParameter)*;
+ *
+ **/
+
+// {be::BParameterList} parameters+=FirstParameter ("," parameters+=FirstParameter)*
+protected class ParameterList_Group extends GroupToken {
+	
+	public ParameterList_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getParameterListAccess().getGroup();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ParameterList_Group_2(parent, this, 0, inst);
+			case 1: return new ParameterList_ParametersAssignment_1(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getParameterListRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// {be::BParameterList}
+protected class ParameterList_BParameterListAction_0 extends ActionToken  {
+
+	public ParameterList_BParameterListAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Action getGrammarElement() {
+		return grammarAccess.getParameterListAccess().getBParameterListAction_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(this, index, index, inst);
+		}	
+	}	
+		
+	
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(!current.isInstanceOf(grammarAccess.getParameterListAccess().getBParameterListAction_0().getType().getClassifier())) return null;
+		if(!current.isConsumed()) return null;
+		return current;
+	}
+}
+
+// parameters+=FirstParameter
+protected class ParameterList_ParametersAssignment_1 extends AssignmentToken  {
+	
+	public ParameterList_ParametersAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getParameterListAccess().getParametersAssignment_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new FirstParameter_Alternatives(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("parameters",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("parameters");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getFirstParameterRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getParameterListAccess().getParametersFirstParameterParserRuleCall_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new ParameterList_BParameterListAction_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+// ("," parameters+=FirstParameter)*
+protected class ParameterList_Group_2 extends GroupToken {
+	
+	public ParameterList_Group_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getParameterListAccess().getGroup_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ParameterList_ParametersAssignment_2_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// ","
+protected class ParameterList_CommaKeyword_2_0 extends KeywordToken  {
+	
+	public ParameterList_CommaKeyword_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getParameterListAccess().getCommaKeyword_2_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ParameterList_Group_2(parent, this, 0, inst);
+			case 1: return new ParameterList_ParametersAssignment_1(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// parameters+=FirstParameter
+protected class ParameterList_ParametersAssignment_2_1 extends AssignmentToken  {
+	
+	public ParameterList_ParametersAssignment_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getParameterListAccess().getParametersAssignment_2_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new FirstParameter_Alternatives(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("parameters",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("parameters");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getFirstParameterRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getParameterListAccess().getParametersFirstParameterParserRuleCall_2_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new ParameterList_CommaKeyword_2_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+
+
+/************ end Rule ParameterList ****************/
+
+
+/************ begin Rule FirstParameter ****************
+ *
+ * FirstParameter returns be::BParameter:
+ *   ClosureParameter|Parameter;
+ *
+ **/
+
+// ClosureParameter|Parameter
+protected class FirstParameter_Alternatives extends AlternativesToken {
+
+	public FirstParameter_Alternatives(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Alternatives getGrammarElement() {
+		return grammarAccess.getFirstParameterAccess().getAlternatives();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new FirstParameter_ClosureParameterParserRuleCall_0(parent, this, 0, inst);
+			case 1: return new FirstParameter_ParameterParserRuleCall_1(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getFirstParameterRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// ClosureParameter
+protected class FirstParameter_ClosureParameterParserRuleCall_0 extends RuleCallToken {
+	
+	public FirstParameter_ClosureParameterParserRuleCall_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getFirstParameterAccess().getClosureParameterParserRuleCall_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ClosureParameter_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(checkForRecursion(ClosureParameter_Group.class, current)) return null;
+		if(!current.isInstanceOf(grammarAccess.getClosureParameterRule().getType().getClassifier())) return null;
+		return current;
+	}
+	
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(next, actIndex , index, inst);
+		}	
+	}	
+}
+
+// Parameter
+protected class FirstParameter_ParameterParserRuleCall_1 extends RuleCallToken {
+	
+	public FirstParameter_ParameterParserRuleCall_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getFirstParameterAccess().getParameterParserRuleCall_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Parameter_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(checkForRecursion(Parameter_Group.class, current)) return null;
+		if(!current.isInstanceOf(grammarAccess.getParameterRule().getType().getClassifier())) return null;
+		return current;
+	}
+	
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(next, actIndex , index, inst);
+		}	
+	}	
+}
+
+
+/************ end Rule FirstParameter ****************/
+
+
 /************ begin Rule Parameter ****************
  *
  * Parameter returns be::BParameter:
@@ -8933,306 +9247,6 @@ protected class Parameter_ExprAssignment_1 extends AssignmentToken  {
 
 
 /************ end Rule Parameter ****************/
-
-
-/************ begin Rule ParameterList ****************
- *
- * ParameterList returns be::BParameterList:
- *   {be::BParameterList} (parameters+=Parameter ("," parameters+=Parameter)*|parameters
- *   +=ClosureParameter);
- *
- **/
-
-// {be::BParameterList} (parameters+=Parameter ("," parameters+=Parameter)*|parameters
-// +=ClosureParameter)
-protected class ParameterList_Group extends GroupToken {
-	
-	public ParameterList_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getParameterListAccess().getGroup();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ParameterList_Alternatives_1(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override
-	public IInstanceDescription tryConsume() {
-		if(!current.isInstanceOf(grammarAccess.getParameterListRule().getType().getClassifier())) return null;
-		return tryConsumeVal();
-	}
-}
-
-// {be::BParameterList}
-protected class ParameterList_BParameterListAction_0 extends ActionToken  {
-
-	public ParameterList_BParameterListAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Action getGrammarElement() {
-		return grammarAccess.getParameterListAccess().getBParameterListAction_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			default: return parent.createParentFollower(this, index, index, inst);
-		}	
-	}	
-		
-	
-    @Override
-	protected IInstanceDescription tryConsumeVal() {
-		if(!current.isInstanceOf(grammarAccess.getParameterListAccess().getBParameterListAction_0().getType().getClassifier())) return null;
-		if(!current.isConsumed()) return null;
-		return current;
-	}
-}
-
-// parameters+=Parameter ("," parameters+=Parameter)*|parameters+=ClosureParameter
-protected class ParameterList_Alternatives_1 extends AlternativesToken {
-
-	public ParameterList_Alternatives_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Alternatives getGrammarElement() {
-		return grammarAccess.getParameterListAccess().getAlternatives_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ParameterList_Group_1_0(parent, this, 0, inst);
-			case 1: return new ParameterList_ParametersAssignment_1_1(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// parameters+=Parameter ("," parameters+=Parameter)*
-protected class ParameterList_Group_1_0 extends GroupToken {
-	
-	public ParameterList_Group_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getParameterListAccess().getGroup_1_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ParameterList_Group_1_0_1(parent, this, 0, inst);
-			case 1: return new ParameterList_ParametersAssignment_1_0_0(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// parameters+=Parameter
-protected class ParameterList_ParametersAssignment_1_0_0 extends AssignmentToken  {
-	
-	public ParameterList_ParametersAssignment_1_0_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getParameterListAccess().getParametersAssignment_1_0_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new Parameter_Group(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("parameters",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("parameters");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getParameterRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getParameterListAccess().getParametersParameterParserRuleCall_1_0_0_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
-	}
-
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new ParameterList_BParameterListAction_0(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
-}
-
-// ("," parameters+=Parameter)*
-protected class ParameterList_Group_1_0_1 extends GroupToken {
-	
-	public ParameterList_Group_1_0_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getParameterListAccess().getGroup_1_0_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ParameterList_ParametersAssignment_1_0_1_1(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// ","
-protected class ParameterList_CommaKeyword_1_0_1_0 extends KeywordToken  {
-	
-	public ParameterList_CommaKeyword_1_0_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getParameterListAccess().getCommaKeyword_1_0_1_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ParameterList_Group_1_0_1(parent, this, 0, inst);
-			case 1: return new ParameterList_ParametersAssignment_1_0_0(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// parameters+=Parameter
-protected class ParameterList_ParametersAssignment_1_0_1_1 extends AssignmentToken  {
-	
-	public ParameterList_ParametersAssignment_1_0_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getParameterListAccess().getParametersAssignment_1_0_1_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new Parameter_Group(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("parameters",false)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("parameters");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getParameterRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getParameterListAccess().getParametersParameterParserRuleCall_1_0_1_1_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
-	}
-
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new ParameterList_CommaKeyword_1_0_1_0(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
-}
-
-
-
-// parameters+=ClosureParameter
-protected class ParameterList_ParametersAssignment_1_1 extends AssignmentToken  {
-	
-	public ParameterList_ParametersAssignment_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getParameterListAccess().getParametersAssignment_1_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ClosureParameter_Group(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("parameters",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("parameters");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getClosureParameterRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getParameterListAccess().getParametersClosureParameterParserRuleCall_1_1_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
-	}
-
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new ParameterList_BParameterListAction_0(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
-}
-
-
-
-/************ end Rule ParameterList ****************/
 
 
 /************ begin Rule ClosureParameter ****************
@@ -13987,11 +14001,7 @@ protected class Function_FuncExprAssignment_10_1 extends AssignmentToken  {
 /************ begin Rule Expression ****************
  *
  * Expression returns be::BExpression:
- *   AssignmentExpression; 
- * 
- *         
- * 
- * // ReturnExpression returns Expression : {ReturnExpression} "return" expr = AssignmentExpression ;
+ *   AssignmentExpression;
  *
  **/
 
@@ -14043,8 +14053,6 @@ protected class Expression_AssignmentExpressionParserRuleCall extends RuleCallTo
  * AssignmentExpression returns be::BExpression:
  *   (VarDeclaration|OrExpression) ({be::BAssignmentExpression.leftExpr=current}
  *   functionName=AssignmentOperator rightExpr=AssignmentExpression)?; 
- * 
- * // ReturnExpression returns Expression : {ReturnExpression} "return" expr = AssignmentExpression ; 
  * 
  *     
  * 	// note: VarDecl | OrExpr is order dependant
@@ -15947,13 +15955,21 @@ protected class OrExpression_RightExprAssignment_1_2 extends AssignmentToken  {
 /************ begin Rule AndExpression ****************
  *
  * AndExpression returns be::BExpression:
- *   BitwiseExpression ({be::BAndExpression.leftExpr=current} "&&" rightExpr=
- *   BitwiseExpression)*;
+ *   RelationalExpression ({be::BAndExpression.leftExpr=current} "&&" rightExpr=
+ *   RelationalExpression)*; 
+ * 	
+ *     
+ * 	      
+ * 
+ * // Deprecated - bitwise operators available as system functions (still available in backend if someone wants to
+ * // use the backend for some other language.
+ * // BitwiseExpression returns be::BExpression :
+ * // RelationalExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=("&" | "^" | "|") rightExpr=RelationalExpression)*;
  *
  **/
 
-// BitwiseExpression ({be::BAndExpression.leftExpr=current} "&&" rightExpr=
-// BitwiseExpression)*
+// RelationalExpression ({be::BAndExpression.leftExpr=current} "&&" rightExpr=
+// RelationalExpression)*
 protected class AndExpression_Group extends GroupToken {
 	
 	public AndExpression_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -15969,7 +15985,7 @@ protected class AndExpression_Group extends GroupToken {
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
 			case 0: return new AndExpression_Group_1(parent, this, 0, inst);
-			case 1: return new AndExpression_BitwiseExpressionParserRuleCall_0(parent, this, 1, inst);
+			case 1: return new AndExpression_RelationalExpressionParserRuleCall_0(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -15981,30 +15997,30 @@ protected class AndExpression_Group extends GroupToken {
 	}
 }
 
-// BitwiseExpression
-protected class AndExpression_BitwiseExpressionParserRuleCall_0 extends RuleCallToken {
+// RelationalExpression
+protected class AndExpression_RelationalExpressionParserRuleCall_0 extends RuleCallToken {
 	
-	public AndExpression_BitwiseExpressionParserRuleCall_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public AndExpression_RelationalExpressionParserRuleCall_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getAndExpressionAccess().getBitwiseExpressionParserRuleCall_0();
+		return grammarAccess.getAndExpressionAccess().getRelationalExpressionParserRuleCall_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new BitwiseExpression_Group(this, this, 0, inst);
+			case 0: return new RelationalExpression_Group(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
 		
     @Override
 	protected IInstanceDescription tryConsumeVal() {
-		if(checkForRecursion(BitwiseExpression_Group.class, current)) return null;
-		if(!current.isInstanceOf(grammarAccess.getBitwiseExpressionRule().getType().getClassifier())) return null;
+		if(checkForRecursion(RelationalExpression_Group.class, current)) return null;
+		if(!current.isInstanceOf(grammarAccess.getRelationalExpressionRule().getType().getClassifier())) return null;
 		return current;
 	}
 	
@@ -16016,7 +16032,7 @@ protected class AndExpression_BitwiseExpressionParserRuleCall_0 extends RuleCall
 	}	
 }
 
-// ({be::BAndExpression.leftExpr=current} "&&" rightExpr=BitwiseExpression)*
+// ({be::BAndExpression.leftExpr=current} "&&" rightExpr=RelationalExpression)*
 protected class AndExpression_Group_1 extends GroupToken {
 	
 	public AndExpression_Group_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -16054,7 +16070,7 @@ protected class AndExpression_BAndExpressionLeftExprAction_1_0 extends ActionTok
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
 			case 0: return new AndExpression_Group_1(parent, this, 0, inst);
-			case 1: return new AndExpression_BitwiseExpressionParserRuleCall_0(parent, this, 1, inst);
+			case 1: return new AndExpression_RelationalExpressionParserRuleCall_0(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -16092,7 +16108,7 @@ protected class AndExpression_AmpersandAmpersandKeyword_1_1 extends KeywordToken
 		
 }
 
-// rightExpr=BitwiseExpression
+// rightExpr=RelationalExpression
 protected class AndExpression_RightExprAssignment_1_2 extends AssignmentToken  {
 	
 	public AndExpression_RightExprAssignment_1_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -16107,7 +16123,7 @@ protected class AndExpression_RightExprAssignment_1_2 extends AssignmentToken  {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new BitwiseExpression_Group(this, this, 0, inst);
+			case 0: return new RelationalExpression_Group(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -16118,9 +16134,9 @@ protected class AndExpression_RightExprAssignment_1_2 extends AssignmentToken  {
 		IInstanceDescription obj = current.cloneAndConsume("rightExpr");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getBitwiseExpressionRule().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getRelationalExpressionRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getAndExpressionAccess().getRightExprBitwiseExpressionParserRuleCall_1_2_0(); 
+				element = grammarAccess.getAndExpressionAccess().getRightExprRelationalExpressionParserRuleCall_1_2_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -16143,233 +16159,16 @@ protected class AndExpression_RightExprAssignment_1_2 extends AssignmentToken  {
 /************ end Rule AndExpression ****************/
 
 
-/************ begin Rule BitwiseExpression ****************
- *
- * BitwiseExpression returns be::BExpression:
- *   RelationalExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=( "&"
- *   | "^" | "|" ) rightExpr=RelationalExpression)*;
- *
- **/
-
-// RelationalExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=( "&"
-// | "^" | "|" ) rightExpr=RelationalExpression)*
-protected class BitwiseExpression_Group extends GroupToken {
-	
-	public BitwiseExpression_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getBitwiseExpressionAccess().getGroup();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new BitwiseExpression_Group_1(parent, this, 0, inst);
-			case 1: return new BitwiseExpression_RelationalExpressionParserRuleCall_0(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override
-	public IInstanceDescription tryConsume() {
-		if(!current.isInstanceOf(grammarAccess.getBitwiseExpressionRule().getType().getClassifier())) return null;
-		return tryConsumeVal();
-	}
-}
-
-// RelationalExpression
-protected class BitwiseExpression_RelationalExpressionParserRuleCall_0 extends RuleCallToken {
-	
-	public BitwiseExpression_RelationalExpressionParserRuleCall_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public RuleCall getGrammarElement() {
-		return grammarAccess.getBitwiseExpressionAccess().getRelationalExpressionParserRuleCall_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new RelationalExpression_Group(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override
-	protected IInstanceDescription tryConsumeVal() {
-		if(checkForRecursion(RelationalExpression_Group.class, current)) return null;
-		if(!current.isInstanceOf(grammarAccess.getRelationalExpressionRule().getType().getClassifier())) return null;
-		return current;
-	}
-	
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		switch(index) {
-			default: return parent.createParentFollower(next, actIndex , index, inst);
-		}	
-	}	
-}
-
-// ({be::BBinaryOpExpression.leftExpr=current} functionName=( "&" | "^" | "|" ) rightExpr=
-// RelationalExpression)*
-protected class BitwiseExpression_Group_1 extends GroupToken {
-	
-	public BitwiseExpression_Group_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getBitwiseExpressionAccess().getGroup_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new BitwiseExpression_RightExprAssignment_1_2(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// {be::BBinaryOpExpression.leftExpr=current}
-protected class BitwiseExpression_BBinaryOpExpressionLeftExprAction_1_0 extends ActionToken  {
-
-	public BitwiseExpression_BBinaryOpExpressionLeftExprAction_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Action getGrammarElement() {
-		return grammarAccess.getBitwiseExpressionAccess().getBBinaryOpExpressionLeftExprAction_1_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new BitwiseExpression_Group_1(parent, this, 0, inst);
-			case 1: return new BitwiseExpression_RelationalExpressionParserRuleCall_0(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-	
-    @Override
-	protected IInstanceDescription tryConsumeVal() {
-		if(!current.isInstanceOf(grammarAccess.getBitwiseExpressionAccess().getBBinaryOpExpressionLeftExprAction_1_0().getType().getClassifier())) return null;
-		Object val = current.getConsumable("leftExpr", false);
-		if(val == null) return null;
-		if(!current.isConsumedWithLastConsumtion("leftExpr")) return null;
-		return getDescr((EObject) val);
-	}
-}
-
-// functionName=( "&" | "^" | "|" )
-protected class BitwiseExpression_FunctionNameAssignment_1_1 extends AssignmentToken  {
-	
-	public BitwiseExpression_FunctionNameAssignment_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getBitwiseExpressionAccess().getFunctionNameAssignment_1_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new BitwiseExpression_BBinaryOpExpressionLeftExprAction_1_0(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("functionName",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("functionName");
-		if("&".equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
-			type = AssignmentType.KW;
-			element = grammarAccess.getBitwiseExpressionAccess().getFunctionNameAmpersandKeyword_1_1_0_0();
-			return obj;
-		}
-		if("^".equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
-			type = AssignmentType.KW;
-			element = grammarAccess.getBitwiseExpressionAccess().getFunctionNameCircumflexAccentKeyword_1_1_0_1();
-			return obj;
-		}
-		if("|".equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
-			type = AssignmentType.KW;
-			element = grammarAccess.getBitwiseExpressionAccess().getFunctionNameVerticalLineKeyword_1_1_0_2();
-			return obj;
-		}
-		return null;
-	}
-
-}
-
-// rightExpr=RelationalExpression
-protected class BitwiseExpression_RightExprAssignment_1_2 extends AssignmentToken  {
-	
-	public BitwiseExpression_RightExprAssignment_1_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getBitwiseExpressionAccess().getRightExprAssignment_1_2();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new RelationalExpression_Group(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("rightExpr",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("rightExpr");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getRelationalExpressionRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getBitwiseExpressionAccess().getRightExprRelationalExpressionParserRuleCall_1_2_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
-	}
-
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new BitwiseExpression_FunctionNameAssignment_1_1(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
-}
-
-
-
-/************ end Rule BitwiseExpression ****************/
-
-
 /************ begin Rule RelationalExpression ****************
  *
  * RelationalExpression returns be::BExpression:
  *   InstanceOfExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=
- *   RelationalOperator rightExpr=InstanceOfExpression)*;
+ *   RelationalOperator rightExpr=InstanceOfExpression)*; 
+ * 
+ * // Deprecated - bitwise operators available as system functions (still available in backend if someone wants to
+ * // use the backend for some other language.
+ * // BitwiseExpression returns be::BExpression :
+ * // RelationalExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=("&" | "^" | "|") rightExpr=RelationalExpression)*;
  *
  **/
 
@@ -16580,12 +16379,20 @@ protected class RelationalExpression_RightExprAssignment_1_2 extends AssignmentT
 /************ begin Rule InstanceOfExpression ****************
  *
  * InstanceOfExpression returns be::BExpression:
- *   ShiftExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=
- *   "instanceof" rightExpr=LiteralType)*;
+ *   AdditiveExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=
+ *   "instanceof" rightExpr=LiteralType)*; 
+ * 
+ *       
+ * 	        
+ * 
+ * // Deprecated - bitwise operators available as system functions (still available in backend if someone wants to
+ * // use the backend for some other language.	
+ * // ShiftExpression returns be::BExpression:
+ * // AdditiveExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=("<<" | ">>" | ">>>") rightExpr=AdditiveExpression)*;
  *
  **/
 
-// ShiftExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=
+// AdditiveExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=
 // "instanceof" rightExpr=LiteralType)*
 protected class InstanceOfExpression_Group extends GroupToken {
 	
@@ -16602,7 +16409,7 @@ protected class InstanceOfExpression_Group extends GroupToken {
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
 			case 0: return new InstanceOfExpression_Group_1(parent, this, 0, inst);
-			case 1: return new InstanceOfExpression_ShiftExpressionParserRuleCall_0(parent, this, 1, inst);
+			case 1: return new InstanceOfExpression_AdditiveExpressionParserRuleCall_0(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -16614,30 +16421,30 @@ protected class InstanceOfExpression_Group extends GroupToken {
 	}
 }
 
-// ShiftExpression
-protected class InstanceOfExpression_ShiftExpressionParserRuleCall_0 extends RuleCallToken {
+// AdditiveExpression
+protected class InstanceOfExpression_AdditiveExpressionParserRuleCall_0 extends RuleCallToken {
 	
-	public InstanceOfExpression_ShiftExpressionParserRuleCall_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public InstanceOfExpression_AdditiveExpressionParserRuleCall_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getInstanceOfExpressionAccess().getShiftExpressionParserRuleCall_0();
+		return grammarAccess.getInstanceOfExpressionAccess().getAdditiveExpressionParserRuleCall_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ShiftExpression_Group(this, this, 0, inst);
+			case 0: return new AdditiveExpression_Group(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
 		
     @Override
 	protected IInstanceDescription tryConsumeVal() {
-		if(checkForRecursion(ShiftExpression_Group.class, current)) return null;
-		if(!current.isInstanceOf(grammarAccess.getShiftExpressionRule().getType().getClassifier())) return null;
+		if(checkForRecursion(AdditiveExpression_Group.class, current)) return null;
+		if(!current.isInstanceOf(grammarAccess.getAdditiveExpressionRule().getType().getClassifier())) return null;
 		return current;
 	}
 	
@@ -16688,7 +16495,7 @@ protected class InstanceOfExpression_BBinaryOpExpressionLeftExprAction_1_0 exten
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
 			case 0: return new InstanceOfExpression_Group_1(parent, this, 0, inst);
-			case 1: return new InstanceOfExpression_ShiftExpressionParserRuleCall_0(parent, this, 1, inst);
+			case 1: return new InstanceOfExpression_AdditiveExpressionParserRuleCall_0(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -16789,233 +16596,16 @@ protected class InstanceOfExpression_RightExprAssignment_1_2 extends AssignmentT
 /************ end Rule InstanceOfExpression ****************/
 
 
-/************ begin Rule ShiftExpression ****************
- *
- * ShiftExpression returns be::BExpression:
- *   AdditiveExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=( "<<" |
- *   ">>" | ">>>" ) rightExpr=AdditiveExpression)*;
- *
- **/
-
-// AdditiveExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=( "<<" |
-// ">>" | ">>>" ) rightExpr=AdditiveExpression)*
-protected class ShiftExpression_Group extends GroupToken {
-	
-	public ShiftExpression_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getShiftExpressionAccess().getGroup();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ShiftExpression_Group_1(parent, this, 0, inst);
-			case 1: return new ShiftExpression_AdditiveExpressionParserRuleCall_0(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override
-	public IInstanceDescription tryConsume() {
-		if(!current.isInstanceOf(grammarAccess.getShiftExpressionRule().getType().getClassifier())) return null;
-		return tryConsumeVal();
-	}
-}
-
-// AdditiveExpression
-protected class ShiftExpression_AdditiveExpressionParserRuleCall_0 extends RuleCallToken {
-	
-	public ShiftExpression_AdditiveExpressionParserRuleCall_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public RuleCall getGrammarElement() {
-		return grammarAccess.getShiftExpressionAccess().getAdditiveExpressionParserRuleCall_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new AdditiveExpression_Group(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override
-	protected IInstanceDescription tryConsumeVal() {
-		if(checkForRecursion(AdditiveExpression_Group.class, current)) return null;
-		if(!current.isInstanceOf(grammarAccess.getAdditiveExpressionRule().getType().getClassifier())) return null;
-		return current;
-	}
-	
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		switch(index) {
-			default: return parent.createParentFollower(next, actIndex , index, inst);
-		}	
-	}	
-}
-
-// ({be::BBinaryOpExpression.leftExpr=current} functionName=( "<<" | ">>" | ">>>" )
-// rightExpr=AdditiveExpression)*
-protected class ShiftExpression_Group_1 extends GroupToken {
-	
-	public ShiftExpression_Group_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getShiftExpressionAccess().getGroup_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ShiftExpression_RightExprAssignment_1_2(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// {be::BBinaryOpExpression.leftExpr=current}
-protected class ShiftExpression_BBinaryOpExpressionLeftExprAction_1_0 extends ActionToken  {
-
-	public ShiftExpression_BBinaryOpExpressionLeftExprAction_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Action getGrammarElement() {
-		return grammarAccess.getShiftExpressionAccess().getBBinaryOpExpressionLeftExprAction_1_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ShiftExpression_Group_1(parent, this, 0, inst);
-			case 1: return new ShiftExpression_AdditiveExpressionParserRuleCall_0(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-	
-    @Override
-	protected IInstanceDescription tryConsumeVal() {
-		if(!current.isInstanceOf(grammarAccess.getShiftExpressionAccess().getBBinaryOpExpressionLeftExprAction_1_0().getType().getClassifier())) return null;
-		Object val = current.getConsumable("leftExpr", false);
-		if(val == null) return null;
-		if(!current.isConsumedWithLastConsumtion("leftExpr")) return null;
-		return getDescr((EObject) val);
-	}
-}
-
-// functionName=( "<<" | ">>" | ">>>" )
-protected class ShiftExpression_FunctionNameAssignment_1_1 extends AssignmentToken  {
-	
-	public ShiftExpression_FunctionNameAssignment_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getShiftExpressionAccess().getFunctionNameAssignment_1_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ShiftExpression_BBinaryOpExpressionLeftExprAction_1_0(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("functionName",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("functionName");
-		if("<<".equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
-			type = AssignmentType.KW;
-			element = grammarAccess.getShiftExpressionAccess().getFunctionNameLessThanSignLessThanSignKeyword_1_1_0_0();
-			return obj;
-		}
-		if(">>".equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
-			type = AssignmentType.KW;
-			element = grammarAccess.getShiftExpressionAccess().getFunctionNameGreaterThanSignGreaterThanSignKeyword_1_1_0_1();
-			return obj;
-		}
-		if(">>>".equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
-			type = AssignmentType.KW;
-			element = grammarAccess.getShiftExpressionAccess().getFunctionNameGreaterThanSignGreaterThanSignGreaterThanSignKeyword_1_1_0_2();
-			return obj;
-		}
-		return null;
-	}
-
-}
-
-// rightExpr=AdditiveExpression
-protected class ShiftExpression_RightExprAssignment_1_2 extends AssignmentToken  {
-	
-	public ShiftExpression_RightExprAssignment_1_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getShiftExpressionAccess().getRightExprAssignment_1_2();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new AdditiveExpression_Group(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("rightExpr",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("rightExpr");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getAdditiveExpressionRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getShiftExpressionAccess().getRightExprAdditiveExpressionParserRuleCall_1_2_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
-	}
-
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new ShiftExpression_FunctionNameAssignment_1_1(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
-}
-
-
-
-/************ end Rule ShiftExpression ****************/
-
-
 /************ begin Rule AdditiveExpression ****************
  *
  * AdditiveExpression returns be::BExpression:
  *   MultiplicativeExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=
- *   ( "+" | "-" ) rightExpr=MultiplicativeExpression)*;
+ *   ( "+" | "-" ) rightExpr=MultiplicativeExpression)*; 
+ * 
+ * // Deprecated - bitwise operators available as system functions (still available in backend if someone wants to
+ * // use the backend for some other language.	
+ * // ShiftExpression returns be::BExpression:
+ * // AdditiveExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=("<<" | ">>" | ">>>") rightExpr=AdditiveExpression)*;
  *
  **/
 
@@ -19742,9 +19332,7 @@ protected class WildcardExpression__Keyword_1 extends KeywordToken  {
 /************ begin Rule ThrowExpression ****************
  *
  * ThrowExpression returns be::BExpression:
- *   {be::BThrowExpression} "throw" expr=Expression; 
- * 
- *                // TODO: Bas ';' at the end
+ *   {be::BThrowExpression} "throw" expr=Expression;
  *
  **/
 
@@ -19879,7 +19467,7 @@ protected class ThrowExpression_ExprAssignment_2 extends AssignmentToken  {
  *
  * TryCatchExpression returns be::BExpression:
  *   {be::BTryExpression} "try" tryExpr=Expression catchBlocks+=CatchBlock* ("finally"
- *   finallyExpr=Expression)? "endtry";   // TODO: Bas ';' at the end
+ *   finallyExpr=Expression)? "endtry";
  *
  **/
 
@@ -24696,25 +24284,13 @@ protected class LiteralList_RightSquareBracketKeyword_1_5 extends KeywordToken  
  * LiteralMap returns be::BExpression:
  *   {be::BLiteralMapExpression} "[" ("<" keyType=TypeRef "," valueType=TypeRef ">")?
  *   entries+=MapEntry ("," entries+=MapEntry)* "]"|{be::BLiteralMapExpression} "[" "<"
- *   keyType=TypeRef "," valueType=TypeRef ">" "]"; 
- *      
- * 	                                
- * 	                 
- * 	
- * 
- * //LiteralFunction returns be::BExpression: '{' ClosureExpression '}' ;
+ *   keyType=TypeRef "," valueType=TypeRef ">" "]";
  *
  **/
 
 // {be::BLiteralMapExpression} "[" ("<" keyType=TypeRef "," valueType=TypeRef ">")?
 // entries+=MapEntry ("," entries+=MapEntry)* "]"|{be::BLiteralMapExpression} "[" "<"
-// keyType=TypeRef "," valueType=TypeRef ">" "]" 
-//      
-// 	                                
-// 	                 
-// 	
-// 
-// //LiteralFunction returns be::BExpression: '{' ClosureExpression '}' ;
+// keyType=TypeRef "," valueType=TypeRef ">" "]"
 protected class LiteralMap_Alternatives extends AlternativesToken {
 
 	public LiteralMap_Alternatives(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -25421,9 +24997,7 @@ protected class LiteralMap_RightSquareBracketKeyword_1_7 extends KeywordToken  {
  * LiteralFunction returns be::BExpression:
  *   {be::B3Function} "{" (parameters+=ParameterDeclaration ("," parameters+=
  *   ParameterDeclaration)*)? "|" (funcExpr=Expression|funcExpr=
- *   BlockExpressionWithoutBrackets) "}"; 
- * 
- * //LiteralFunction returns be::BExpression: '{' ClosureExpression '}' ;
+ *   BlockExpressionWithoutBrackets) "}";
  *
  **/
 
@@ -25837,14 +25411,12 @@ protected class LiteralFunction_RightCurlyBracketKeyword_5 extends KeywordToken 
  *
  * ClosureExpression returns be::BExpression:
  *   {be::B3Function} (parameters+=ParameterDeclaration ("," parameters+=
- *   ParameterDeclaration)*)? "|" (funcExpr=Expression|funcExpr=
- *   BlockExpressionWithoutBrackets);
+ *   ParameterDeclaration)*)? "|" funcExpr=OneOrManyExpressions;
  *
  **/
 
 // {be::B3Function} (parameters+=ParameterDeclaration ("," parameters+=
-// ParameterDeclaration)*)? "|" (funcExpr=Expression|funcExpr=
-// BlockExpressionWithoutBrackets)
+// ParameterDeclaration)*)? "|" funcExpr=OneOrManyExpressions
 protected class ClosureExpression_Group extends GroupToken {
 	
 	public ClosureExpression_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -25859,7 +25431,7 @@ protected class ClosureExpression_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ClosureExpression_Alternatives_3(parent, this, 0, inst);
+			case 0: return new ClosureExpression_FuncExprAssignment_3(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -26084,45 +25656,22 @@ protected class ClosureExpression_VerticalLineKeyword_2 extends KeywordToken  {
 		
 }
 
-// funcExpr=Expression|funcExpr=BlockExpressionWithoutBrackets
-protected class ClosureExpression_Alternatives_3 extends AlternativesToken {
-
-	public ClosureExpression_Alternatives_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
+// funcExpr=OneOrManyExpressions
+protected class ClosureExpression_FuncExprAssignment_3 extends AssignmentToken  {
 	
-	@Override
-	public Alternatives getGrammarElement() {
-		return grammarAccess.getClosureExpressionAccess().getAlternatives_3();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ClosureExpression_FuncExprAssignment_3_0(parent, this, 0, inst);
-			case 1: return new ClosureExpression_FuncExprAssignment_3_1(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// funcExpr=Expression
-protected class ClosureExpression_FuncExprAssignment_3_0 extends AssignmentToken  {
-	
-	public ClosureExpression_FuncExprAssignment_3_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ClosureExpression_FuncExprAssignment_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getClosureExpressionAccess().getFuncExprAssignment_3_0();
+		return grammarAccess.getClosureExpressionAccess().getFuncExprAssignment_3();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new Expression_AssignmentExpressionParserRuleCall(this, this, 0, inst);
+			case 0: return new OneOrManyExpressions_Alternatives(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -26133,9 +25682,9 @@ protected class ClosureExpression_FuncExprAssignment_3_0 extends AssignmentToken
 		IInstanceDescription obj = current.cloneAndConsume("funcExpr");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getExpressionRule().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getOneOrManyExpressionsRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getClosureExpressionAccess().getFuncExprExpressionParserRuleCall_3_0_0(); 
+				element = grammarAccess.getClosureExpressionAccess().getFuncExprOneOrManyExpressionsParserRuleCall_3_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -26153,16 +25702,55 @@ protected class ClosureExpression_FuncExprAssignment_3_0 extends AssignmentToken
 	}	
 }
 
-// funcExpr=BlockExpressionWithoutBrackets
-protected class ClosureExpression_FuncExprAssignment_3_1 extends AssignmentToken  {
-	
-	public ClosureExpression_FuncExprAssignment_3_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+
+/************ end Rule ClosureExpression ****************/
+
+
+/************ begin Rule OneOrManyExpressions ****************
+ *
+ * OneOrManyExpressions returns be::BExpression:
+ *   BlockExpressionWithoutBrackets|Expression;
+ *
+ **/
+
+// BlockExpressionWithoutBrackets|Expression
+protected class OneOrManyExpressions_Alternatives extends AlternativesToken {
+
+	public OneOrManyExpressions_Alternatives(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getClosureExpressionAccess().getFuncExprAssignment_3_1();
+	public Alternatives getGrammarElement() {
+		return grammarAccess.getOneOrManyExpressionsAccess().getAlternatives();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new OneOrManyExpressions_BlockExpressionWithoutBracketsParserRuleCall_0(parent, this, 0, inst);
+			case 1: return new OneOrManyExpressions_ExpressionParserRuleCall_1(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getOneOrManyExpressionsRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// BlockExpressionWithoutBrackets
+protected class OneOrManyExpressions_BlockExpressionWithoutBracketsParserRuleCall_0 extends RuleCallToken {
+	
+	public OneOrManyExpressions_BlockExpressionWithoutBracketsParserRuleCall_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getOneOrManyExpressionsAccess().getBlockExpressionWithoutBracketsParserRuleCall_0();
 	}
 
     @Override
@@ -26173,35 +25761,58 @@ protected class ClosureExpression_FuncExprAssignment_3_1 extends AssignmentToken
 		}	
 	}	
 		
-    @Override	
+    @Override
 	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("funcExpr",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("funcExpr");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getBlockExpressionWithoutBracketsRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getClosureExpressionAccess().getFuncExprBlockExpressionWithoutBracketsParserRuleCall_3_1_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
+		if(checkForRecursion(BlockExpressionWithoutBrackets_Group.class, current)) return null;
+		if(!current.isInstanceOf(grammarAccess.getBlockExpressionWithoutBracketsRule().getType().getClassifier())) return null;
+		return current;
+	}
+	
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(next, actIndex , index, inst);
+		}	
+	}	
+}
+
+// Expression
+protected class OneOrManyExpressions_ExpressionParserRuleCall_1 extends RuleCallToken {
+	
+	public OneOrManyExpressions_ExpressionParserRuleCall_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getOneOrManyExpressionsAccess().getExpressionParserRuleCall_1();
 	}
 
     @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ClosureExpression_VerticalLineKeyword_2(parent, next, actIndex, consumed);
+			case 0: return new Expression_AssignmentExpressionParserRuleCall(this, this, 0, inst);
 			default: return null;
+		}	
+	}	
+		
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(checkForRecursion(Expression_AssignmentExpressionParserRuleCall.class, current)) return null;
+		if(!current.isInstanceOf(grammarAccess.getExpressionRule().getType().getClassifier())) return null;
+		return current;
+	}
+	
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(next, actIndex , index, inst);
 		}	
 	}	
 }
 
 
-
-/************ end Rule ClosureExpression ****************/
+/************ end Rule OneOrManyExpressions ****************/
 
 
 /************ begin Rule BlockExpressionWithoutBrackets ****************

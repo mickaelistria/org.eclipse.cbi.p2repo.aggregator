@@ -183,11 +183,17 @@ Builder returns Builder : {Builder}
 	 '}'
 	;
 
+ParameterList returns be::BParameterList: {be::BParameterList} 
+	parameters += FirstParameter ("," parameters += FirstParameter)*
+	;
+	
+FirstParameter returns be::BParameter 
+	: ClosureParameter
+	| Parameter
+	;
+	
 Parameter returns be::BParameter: {be::BParameter} expr = Expression ;
-ParameterList returns be::BParameterList: {be::BParameterList} ((parameters+=Parameter ("," parameters+=Parameter)*) 
-	  | (parameters+=ClosureParameter))  ;
-
-ClosureParameter returns be::BParameter : {be::BParameter} expr = ClosureExpression;
+ClosureParameter returns be::BParameter : {be::BParameter} (expr = ClosureExpression) ;
 
 ParameterDeclarationList : 
 	(( params += ParameterDeclaration (',' params+=ParameterDeclaration)*(',' params+=ParameterDeclarationEllipse)?) 
@@ -279,19 +285,17 @@ Function returns be::B3Function: {be::B3Function}
 		
 /* EXPRESSIONS */
 AssignmentOperator 
-	: '=' | '+='	| '-=' | '*='	| '/=' | "%=" 	
-	| "&=" 	| "^=" | "|=" | "<<=" | ">>=" | ">>>=" 
+	: '=' | '+=' | '-=' | '*='	| '/=' | "%=" 
+// bitwise assignment deprecated, but available in backend if backend is used for some other grammar		
+//	| "&=" 	| "^=" | "|=" | "<<=" | ">>=" | ">>>=" 
 	;
 	
 RelationalOperator 
 	: "~=" | "==" | "===" | "!=" | "!=="
 	| ">=" | "<=" | ">" | "<"
-//	| "instanceof" 
 	;
 
 Expression returns be::BExpression: AssignmentExpression ;
-
-// ReturnExpression returns Expression : {ReturnExpression} "return" expr = AssignmentExpression ; 
 
 AssignmentExpression returns be::BExpression:
 	// note: VarDecl | OrExpr is order dependant
@@ -331,19 +335,23 @@ OrExpression returns be::BExpression:
 	AndExpression ({be::BOrExpression.leftExpr=current} "||" rightExpr=AndExpression)*;
 	
 AndExpression returns be::BExpression:
-	BitwiseExpression ({be::BAndExpression.leftExpr=current} "&&" rightExpr=BitwiseExpression)*;
+	RelationalExpression ({be::BAndExpression.leftExpr=current} "&&" rightExpr=RelationalExpression)*;
 
-BitwiseExpression returns be::BExpression :
-	RelationalExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=("&" | "^" | "|") rightExpr=RelationalExpression)*;
+// Deprecated - bitwise operators available as system functions (still available in backend if someone wants to
+// use the backend for some other language.
+// BitwiseExpression returns be::BExpression :
+// RelationalExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=("&" | "^" | "|") rightExpr=RelationalExpression)*;
 	
 RelationalExpression returns be::BExpression:
 	InstanceOfExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=RelationalOperator rightExpr=InstanceOfExpression)*;
 
 InstanceOfExpression returns be::BExpression :
-	ShiftExpression ({be::BBinaryOpExpression.leftExpr =current} functionName="instanceof" rightExpr=LiteralType)*;
-	
-ShiftExpression returns be::BExpression:
-	AdditiveExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=("<<" | ">>" | ">>>") rightExpr=AdditiveExpression)*;
+	AdditiveExpression ({be::BBinaryOpExpression.leftExpr =current} functionName="instanceof" rightExpr=LiteralType)*;
+
+// Deprecated - bitwise operators available as system functions (still available in backend if someone wants to
+// use the backend for some other language.	
+// ShiftExpression returns be::BExpression:
+// AdditiveExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=("<<" | ">>" | ">>>") rightExpr=AdditiveExpression)*;
 	
 AdditiveExpression returns be::BExpression:
 	MultiplicativeExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=("+" | "-") rightExpr=MultiplicativeExpression)*;
@@ -373,7 +381,7 @@ PostopExpression returns be::BExpression:
 	
 InfixExpression returns be::BExpression:
 	CallExpression ( 
-	  	({be::BCallExpression.funcExpr=current} "." name=ID  "(" parameterList = ParameterList? ")")
+	  	({be::BCallExpression.funcExpr=current} "." name=ID  "(" (parameterList = ParameterList)? ")")
 	  |	({be::BAtExpression.objExpr=current} '[' indexExpr=Expression ']'
 //	  		("(" parameterList = ParameterList ")")? // TODO: this looks really odd - a chain of [] followed by call s probbly broken
 	  		) 	  
@@ -410,7 +418,7 @@ PrimaryExpression returns be::BExpression
 		
 WildcardExpression returns be::BExpression: {be::BLiteralAny} '_' ;
 
-ThrowExpression returns be::BExpression: {be::BThrowExpression} "throw"  expr=Expression ; // TODO: Bas ';' at the end
+ThrowExpression returns be::BExpression: {be::BThrowExpression} "throw"  expr=Expression ;
 TryCatchExpression returns be::BExpression : {be::BTryExpression} 
 	"try" tryExpr=Expression (catchBlocks+=CatchBlock)*
 	("finally" finallyExpr=Expression)? "endtry" 
@@ -502,7 +510,6 @@ LiteralMap returns  be::BExpression
 	| {be::BLiteralMapExpression} '[' '<' keyType=TypeRef ',' valueType=TypeRef '>' ']' 
 	;
 
-//LiteralFunction returns be::BExpression: '{' ClosureExpression '}' ;
 LiteralFunction returns be::BExpression: {be::B3Function} '{'
 	(parameters += ParameterDeclaration (',' parameters += ParameterDeclaration)*)? 
 	'|' ((funcExpr=Expression) | (funcExpr=BlockExpressionWithoutBrackets)) '}'
@@ -510,9 +517,13 @@ LiteralFunction returns be::BExpression: {be::B3Function} '{'
 
 ClosureExpression returns be::BExpression: {be::B3Function} 
 	(parameters += ParameterDeclaration (',' parameters += ParameterDeclaration)*)? 
-	'|' (funcExpr=Expression | funcExpr=BlockExpressionWithoutBrackets)
+	'|' funcExpr=OneOrManyExpressions
 	;
 
+OneOrManyExpressions returns be::BExpression
+	: BlockExpressionWithoutBrackets
+	| Expression
+	;
 BlockExpressionWithoutBrackets returns be::BExpression : {be::BChainedExpression} (expressions += Expression ';')+ ;
 	
 MapEntry returns be::BMapEntry: {be::BMapEntry} key = KeyLiteral ':' value= Expression ;
