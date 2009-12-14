@@ -3,11 +3,13 @@
 import java.lang.Object;
 import java.util.List;
 import java.lang.Integer;
+import java.lang.Number;
 
 function Object main(List argv) {
 	testClosure();
 	testLiteralLambda();
 	testClosureParameter();
+	testFunctionType();
 }
 function Object testClosureParameter() {
 	List<Integer> list = [<Integer> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -40,4 +42,18 @@ function Object testClosure() {
 	// calling via expression
 	assertEquals("(zum)(1,2) == 3",13, (zum)(1,2));
 	assertEquals("zum.evaluate(1,2) == 3", 13, zum.evaluate(1,2));
+}
+function Object testFunctionType() {
+	// Test declaration of function type
+	(Integer, Integer)=>Integer zum;
+	// Test assignability of function
+	zum = {<Integer> Integer x, Integer y | x + y };
+	
+	// A more generic variable - test that the more specific Integer lambda can be assigned to this
+	// variable.
+	(Number, Number) => Number zee;
+	zee = zum;
+	assertEquals("zee evaluates to 3", 3, (zee)(1,2));
+	assertEquals("zum evaluates to 3", 3, (zum)(1,2));
+	assertEquals("zee and zum returns the same value", zee.evaluate(1,2), zum.evaluate(1,2));
 }
