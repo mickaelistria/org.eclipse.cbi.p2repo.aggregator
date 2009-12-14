@@ -243,8 +243,8 @@ public class B3FunctionImpl extends BFunctionImpl implements B3Function {
 		return funcExpr.evaluate(octx);
 	}
 	@Override
-	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
-		B3FunctionType t = (B3FunctionType)super.getDeclaredType(ctx);
+	public Type getSignature() {
+		B3FunctionType t = (B3FunctionType)super.getSignature();
 		t.setFunctionType(B3Function.class);
 		return t;
 	}

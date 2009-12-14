@@ -1406,6 +1406,14 @@
         <styles xmi:type="notation:FilteringStyle" xmi:id="_EIstZ8_0Ed6QUfNJL03zQw"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_EItUcM_0Ed6QUfNJL03zQw" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_TPOUsOhrEd6SwsVIOBMIZA" type="2002">
+          <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//BFunction/internalCall"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_TPOUsehrEd6SwsVIOBMIZA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_VVNJwOhrEd6SwsVIOBMIZA" type="2002">
+          <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//BFunction/getSignature"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_VVNJwehrEd6SwsVIOBMIZA"/>
+        </children>
         <styles xmi:type="notation:DrawerStyle" xmi:id="_EItUcc_0Ed6QUfNJL03zQw"/>
         <styles xmi:type="notation:SortingStyle" xmi:id="_EItUcs_0Ed6QUfNJL03zQw"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_EItUc8_0Ed6QUfNJL03zQw"/>
@@ -2365,13 +2373,17 @@
         <styles xmi:type="notation:FilteringStyle" xmi:id="_zV4PV927Ed6F6MKCsLpUyw"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_zV42YN27Ed6F6MKCsLpUyw" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_ssCDEehnEd6SwsVIOBMIZA" type="2002">
+          <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//B3FunctionType/isAssignableFrom"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_ssCDEuhnEd6SwsVIOBMIZA"/>
+        </children>
         <styles xmi:type="notation:DrawerStyle" xmi:id="_zV42Yd27Ed6F6MKCsLpUyw"/>
         <styles xmi:type="notation:SortingStyle" xmi:id="_zV42Yt27Ed6F6MKCsLpUyw"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_zV42Y927Ed6F6MKCsLpUyw"/>
       </children>
       <styles xmi:type="notation:ShapeStyle" xmi:id="_zV4PUd27Ed6F6MKCsLpUyw" fontColor="4210752" fontName="Lucida Grande" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
       <element xmi:type="ecore:EClass" href="B3Backend.ecore#//B3FunctionType"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zV4PUt27Ed6F6MKCsLpUyw" x="558" y="81"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zV4PUt27Ed6F6MKCsLpUyw" x="531" y="81"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_QYRRYN3FEd6F6MKCsLpUyw" type="1001">
       <children xmi:type="notation:Node" xmi:id="_QYRRY93FEd6F6MKCsLpUyw" type="4001"/>

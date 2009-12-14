@@ -7,6 +7,7 @@ import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 
 public class TypeUtils {
@@ -30,6 +31,8 @@ public class TypeUtils {
 	}
 	public static boolean isAssignableFrom(Type baseType, Type fromType)
 	{
+		if(baseType instanceof B3FunctionType)
+			return ((B3FunctionType)baseType).isAssignableFrom(fromType);
 		return getRaw(baseType).isAssignableFrom(getRaw(fromType));
 	}
 	public static boolean isArray(Type baseType) {

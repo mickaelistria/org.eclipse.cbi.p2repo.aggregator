@@ -7,6 +7,7 @@
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import org.eclipse.b3.backend.core.B3EngineException;
+import org.eclipse.b3.backend.core.B3ImmutableTypeException;
 import org.eclipse.b3.backend.core.LValue;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BAtExpression;
@@ -311,6 +312,9 @@ public class BAtExpressionImpl extends BExpressionImpl implements BAtExpression 
 		public Type getDeclaredType() {
 			return type;
 		}
+		public void setDeclaredType(Type t) throws B3EngineException {
+			throw new B3ImmutableTypeException(list, type, t);
+		}
 	}
 	@SuppressWarnings("unchecked")
 	private static class MapLValue implements LValue {
@@ -337,6 +341,10 @@ public class BAtExpressionImpl extends BExpressionImpl implements BAtExpression 
 		public Type getDeclaredType() {
 			return type;
 		}
+		public void setDeclaredType(Type t) throws B3EngineException {
+			throw new B3ImmutableTypeException(map, type, t);
+		}
+
 	}
 	@Override
 	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {

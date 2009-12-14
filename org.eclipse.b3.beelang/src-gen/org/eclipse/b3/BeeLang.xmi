@@ -2319,6 +2319,13 @@
       </tokens>
       <tokens xsi:type="xtext:Keyword" value="{"/>
       <tokens xsi:type="xtext:Group" cardinality="?">
+        <tokens xsi:type="xtext:Keyword" value="&lt;"/>
+        <tokens xsi:type="xtext:Assignment" feature="returnType" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.62"/>
+        </tokens>
+        <tokens xsi:type="xtext:Keyword" value=">"/>
+      </tokens>
+      <tokens xsi:type="xtext:Group" cardinality="?">
         <tokens xsi:type="xtext:Assignment" feature="parameters" operator="+=">
           <terminal xsi:type="xtext:RuleCall" rule="//@rules.34"/>
         </tokens>
@@ -2330,13 +2337,8 @@
         </tokens>
       </tokens>
       <tokens xsi:type="xtext:Keyword" value="|"/>
-      <tokens xsi:type="xtext:Alternatives">
-        <groups xsi:type="xtext:Assignment" feature="funcExpr" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="//@rules.59"/>
-        </groups>
-        <groups xsi:type="xtext:Assignment" feature="funcExpr" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="//@rules.110"/>
-        </groups>
+      <tokens xsi:type="xtext:Assignment" feature="funcExpr" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.109"/>
       </tokens>
       <tokens xsi:type="xtext:Keyword" value="}"/>
     </alternatives>
@@ -2350,6 +2352,13 @@
         <type metamodel="//@metamodelDeclarations.1">
           <classifier xsi:type="ecore:EClass" href="http://b3backend/1.0#//B3Function"/>
         </type>
+      </tokens>
+      <tokens xsi:type="xtext:Group" cardinality="?">
+        <tokens xsi:type="xtext:Keyword" value="&lt;"/>
+        <tokens xsi:type="xtext:Assignment" feature="returnType" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.62"/>
+        </tokens>
+        <tokens xsi:type="xtext:Keyword" value=">"/>
       </tokens>
       <tokens xsi:type="xtext:Group" cardinality="?">
         <tokens xsi:type="xtext:Assignment" feature="parameters" operator="+=">

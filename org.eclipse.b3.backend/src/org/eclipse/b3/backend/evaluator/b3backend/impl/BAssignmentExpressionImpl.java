@@ -53,6 +53,9 @@ public class BAssignmentExpressionImpl extends BBinaryOpExpressionImpl implement
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 		LValue lval = leftExpr.getLValue(ctx);
 		Object r = rightExpr.evaluate(ctx);
+		// Simple type inference : TODO - should probably not be done this way, but in a separate phase
+		if(lval.getDeclaredType() == null)
+			lval.setDeclaredType(rightExpr.getDeclaredType(ctx));
 		// straight assignment
 		if(functionName == null || "".equals(functionName) || "=".equals(functionName))
 			return lval.set(r);

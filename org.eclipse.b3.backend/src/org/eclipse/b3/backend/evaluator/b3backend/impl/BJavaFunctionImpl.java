@@ -10,6 +10,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
+import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
@@ -240,9 +241,9 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 		}
 	}
 	@Override
-	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
-		B3FunctionType t = (B3FunctionType)super.getDeclaredType(ctx);
-		t.setFunctionType(BJavaFunction.class);
+	public Type getSignature() {
+		B3FunctionType t = (B3FunctionType)super.getSignature();
+		t.setFunctionType(B3Function.class);
 		return t;
 	}
 

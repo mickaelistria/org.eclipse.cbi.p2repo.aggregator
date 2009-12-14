@@ -7,6 +7,7 @@
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import org.eclipse.b3.backend.core.B3EngineException;
+import org.eclipse.b3.backend.core.B3ImmutableTypeException;
 import org.eclipse.b3.backend.core.B3NoSuchFeatureException;
 import org.eclipse.b3.backend.core.LValue;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
@@ -363,6 +364,10 @@ public class BFeatureExpressionImpl extends BExpressionImpl implements BFeatureE
 		public Type getDeclaredType() throws B3EngineException {
 			return name.getEType().getInstanceClass();
 		}
+		public void setDeclaredType(Type t) throws B3EngineException {
+			throw new B3ImmutableTypeException(lhs, name.getEType().getInstanceClass(), t);
+		}
+
 	}
 	private class PojoFeatureLValue implements LValue {
 		Object lhs;
@@ -414,6 +419,9 @@ public class BFeatureExpressionImpl extends BExpressionImpl implements BFeatureE
 		}
 		public Type getDeclaredType() throws B3EngineException {
 			return getter.getGenericReturnType();
+		}
+		public void setDeclaredType(Type t) throws B3EngineException {
+			throw new B3ImmutableTypeException(lhs, getter.getGenericReturnType(), t);
 		}
 		
 	}

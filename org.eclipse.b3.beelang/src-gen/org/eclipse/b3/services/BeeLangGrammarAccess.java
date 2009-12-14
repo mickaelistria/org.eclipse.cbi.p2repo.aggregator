@@ -5637,29 +5637,29 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cB3FunctionAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Assignment cParametersAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
-		private final RuleCall cParametersParameterDeclarationParserRuleCall_2_0_0 = (RuleCall)cParametersAssignment_2_0.eContents().get(0);
-		private final Group cGroup_2_1 = (Group)cGroup_2.eContents().get(1);
-		private final Keyword cCommaKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
-		private final Assignment cParametersAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
-		private final RuleCall cParametersParameterDeclarationParserRuleCall_2_1_1_0 = (RuleCall)cParametersAssignment_2_1_1.eContents().get(0);
-		private final Keyword cVerticalLineKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
-		private final Assignment cFuncExprAssignment_4_0 = (Assignment)cAlternatives_4.eContents().get(0);
-		private final RuleCall cFuncExprExpressionParserRuleCall_4_0_0 = (RuleCall)cFuncExprAssignment_4_0.eContents().get(0);
-		private final Assignment cFuncExprAssignment_4_1 = (Assignment)cAlternatives_4.eContents().get(1);
-		private final RuleCall cFuncExprBlockExpressionWithoutBracketsParserRuleCall_4_1_0 = (RuleCall)cFuncExprAssignment_4_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cLessThanSignKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cReturnTypeAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cReturnTypeTypeRefParserRuleCall_2_1_0 = (RuleCall)cReturnTypeAssignment_2_1.eContents().get(0);
+		private final Keyword cGreaterThanSignKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Assignment cParametersAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
+		private final RuleCall cParametersParameterDeclarationParserRuleCall_3_0_0 = (RuleCall)cParametersAssignment_3_0.eContents().get(0);
+		private final Group cGroup_3_1 = (Group)cGroup_3.eContents().get(1);
+		private final Keyword cCommaKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
+		private final Assignment cParametersAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
+		private final RuleCall cParametersParameterDeclarationParserRuleCall_3_1_1_0 = (RuleCall)cParametersAssignment_3_1_1.eContents().get(0);
+		private final Keyword cVerticalLineKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cFuncExprAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cFuncExprOneOrManyExpressionsParserRuleCall_5_0 = (RuleCall)cFuncExprAssignment_5.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//LiteralFunction returns be::BExpression:
-		//  {be::B3Function} "{" (parameters+=ParameterDeclaration ("," parameters+=
-		//  ParameterDeclaration)*)? "|" (funcExpr=Expression|funcExpr=
-		//  BlockExpressionWithoutBrackets) "}";
+		//  {be::B3Function} "{" ("<" returnType=TypeRef ">")? (parameters+=ParameterDeclaration (
+		//  "," parameters+=ParameterDeclaration)*)? "|" funcExpr=OneOrManyExpressions "}";
 		public ParserRule getRule() { return rule; }
 
-		//{be::B3Function} "{" (parameters+=ParameterDeclaration ("," parameters+=
-		//ParameterDeclaration)*)? "|" (funcExpr=Expression|funcExpr=
-		//BlockExpressionWithoutBrackets) "}"
+		//{be::B3Function} "{" ("<" returnType=TypeRef ">")? (parameters+=ParameterDeclaration (
+		//"," parameters+=ParameterDeclaration)*)? "|" funcExpr=OneOrManyExpressions "}"
 		public Group getGroup() { return cGroup; }
 
 		//{be::B3Function}
@@ -5667,6 +5667,102 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+
+		//("<" returnType=TypeRef ">")?
+		public Group getGroup_2() { return cGroup_2; }
+
+		//"<"
+		public Keyword getLessThanSignKeyword_2_0() { return cLessThanSignKeyword_2_0; }
+
+		//returnType=TypeRef
+		public Assignment getReturnTypeAssignment_2_1() { return cReturnTypeAssignment_2_1; }
+
+		//TypeRef
+		public RuleCall getReturnTypeTypeRefParserRuleCall_2_1_0() { return cReturnTypeTypeRefParserRuleCall_2_1_0; }
+
+		//">"
+		public Keyword getGreaterThanSignKeyword_2_2() { return cGreaterThanSignKeyword_2_2; }
+
+		//(parameters+=ParameterDeclaration ("," parameters+=ParameterDeclaration)*)?
+		public Group getGroup_3() { return cGroup_3; }
+
+		//parameters+=ParameterDeclaration
+		public Assignment getParametersAssignment_3_0() { return cParametersAssignment_3_0; }
+
+		//ParameterDeclaration
+		public RuleCall getParametersParameterDeclarationParserRuleCall_3_0_0() { return cParametersParameterDeclarationParserRuleCall_3_0_0; }
+
+		//("," parameters+=ParameterDeclaration)*
+		public Group getGroup_3_1() { return cGroup_3_1; }
+
+		//","
+		public Keyword getCommaKeyword_3_1_0() { return cCommaKeyword_3_1_0; }
+
+		//parameters+=ParameterDeclaration
+		public Assignment getParametersAssignment_3_1_1() { return cParametersAssignment_3_1_1; }
+
+		//ParameterDeclaration
+		public RuleCall getParametersParameterDeclarationParserRuleCall_3_1_1_0() { return cParametersParameterDeclarationParserRuleCall_3_1_1_0; }
+
+		//"|"
+		public Keyword getVerticalLineKeyword_4() { return cVerticalLineKeyword_4; }
+
+		//funcExpr=OneOrManyExpressions
+		public Assignment getFuncExprAssignment_5() { return cFuncExprAssignment_5; }
+
+		//OneOrManyExpressions
+		public RuleCall getFuncExprOneOrManyExpressionsParserRuleCall_5_0() { return cFuncExprOneOrManyExpressionsParserRuleCall_5_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+	}
+
+	public class ClosureExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ClosureExpression");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cB3FunctionAction_0 = (Action)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cLessThanSignKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cReturnTypeAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cReturnTypeTypeRefParserRuleCall_1_1_0 = (RuleCall)cReturnTypeAssignment_1_1.eContents().get(0);
+		private final Keyword cGreaterThanSignKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Assignment cParametersAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
+		private final RuleCall cParametersParameterDeclarationParserRuleCall_2_0_0 = (RuleCall)cParametersAssignment_2_0.eContents().get(0);
+		private final Group cGroup_2_1 = (Group)cGroup_2.eContents().get(1);
+		private final Keyword cCommaKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
+		private final Assignment cParametersAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
+		private final RuleCall cParametersParameterDeclarationParserRuleCall_2_1_1_0 = (RuleCall)cParametersAssignment_2_1_1.eContents().get(0);
+		private final Keyword cVerticalLineKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cFuncExprAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cFuncExprOneOrManyExpressionsParserRuleCall_4_0 = (RuleCall)cFuncExprAssignment_4.eContents().get(0);
+		
+		//ClosureExpression returns be::BExpression:
+		//  {be::B3Function} ("<" returnType=TypeRef ">")? (parameters+=ParameterDeclaration (","
+		//  parameters+=ParameterDeclaration)*)? "|" funcExpr=OneOrManyExpressions;
+		public ParserRule getRule() { return rule; }
+
+		//{be::B3Function} ("<" returnType=TypeRef ">")? (parameters+=ParameterDeclaration (","
+		//parameters+=ParameterDeclaration)*)? "|" funcExpr=OneOrManyExpressions
+		public Group getGroup() { return cGroup; }
+
+		//{be::B3Function}
+		public Action getB3FunctionAction_0() { return cB3FunctionAction_0; }
+
+		//("<" returnType=TypeRef ">")?
+		public Group getGroup_1() { return cGroup_1; }
+
+		//"<"
+		public Keyword getLessThanSignKeyword_1_0() { return cLessThanSignKeyword_1_0; }
+
+		//returnType=TypeRef
+		public Assignment getReturnTypeAssignment_1_1() { return cReturnTypeAssignment_1_1; }
+
+		//TypeRef
+		public RuleCall getReturnTypeTypeRefParserRuleCall_1_1_0() { return cReturnTypeTypeRefParserRuleCall_1_1_0; }
+
+		//">"
+		public Keyword getGreaterThanSignKeyword_1_2() { return cGreaterThanSignKeyword_1_2; }
 
 		//(parameters+=ParameterDeclaration ("," parameters+=ParameterDeclaration)*)?
 		public Group getGroup_2() { return cGroup_2; }
@@ -5692,81 +5788,11 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//"|"
 		public Keyword getVerticalLineKeyword_3() { return cVerticalLineKeyword_3; }
 
-		//funcExpr=Expression|funcExpr=BlockExpressionWithoutBrackets
-		public Alternatives getAlternatives_4() { return cAlternatives_4; }
-
-		//funcExpr=Expression
-		public Assignment getFuncExprAssignment_4_0() { return cFuncExprAssignment_4_0; }
-
-		//Expression
-		public RuleCall getFuncExprExpressionParserRuleCall_4_0_0() { return cFuncExprExpressionParserRuleCall_4_0_0; }
-
-		//funcExpr=BlockExpressionWithoutBrackets
-		public Assignment getFuncExprAssignment_4_1() { return cFuncExprAssignment_4_1; }
-
-		//BlockExpressionWithoutBrackets
-		public RuleCall getFuncExprBlockExpressionWithoutBracketsParserRuleCall_4_1_0() { return cFuncExprBlockExpressionWithoutBracketsParserRuleCall_4_1_0; }
-
-		//"}"
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
-	}
-
-	public class ClosureExpressionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ClosureExpression");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cB3FunctionAction_0 = (Action)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Assignment cParametersAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
-		private final RuleCall cParametersParameterDeclarationParserRuleCall_1_0_0 = (RuleCall)cParametersAssignment_1_0.eContents().get(0);
-		private final Group cGroup_1_1 = (Group)cGroup_1.eContents().get(1);
-		private final Keyword cCommaKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
-		private final Assignment cParametersAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
-		private final RuleCall cParametersParameterDeclarationParserRuleCall_1_1_1_0 = (RuleCall)cParametersAssignment_1_1_1.eContents().get(0);
-		private final Keyword cVerticalLineKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cFuncExprAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cFuncExprOneOrManyExpressionsParserRuleCall_3_0 = (RuleCall)cFuncExprAssignment_3.eContents().get(0);
-		
-		//ClosureExpression returns be::BExpression:
-		//  {be::B3Function} (parameters+=ParameterDeclaration ("," parameters+=
-		//  ParameterDeclaration)*)? "|" funcExpr=OneOrManyExpressions;
-		public ParserRule getRule() { return rule; }
-
-		//{be::B3Function} (parameters+=ParameterDeclaration ("," parameters+=
-		//ParameterDeclaration)*)? "|" funcExpr=OneOrManyExpressions
-		public Group getGroup() { return cGroup; }
-
-		//{be::B3Function}
-		public Action getB3FunctionAction_0() { return cB3FunctionAction_0; }
-
-		//(parameters+=ParameterDeclaration ("," parameters+=ParameterDeclaration)*)?
-		public Group getGroup_1() { return cGroup_1; }
-
-		//parameters+=ParameterDeclaration
-		public Assignment getParametersAssignment_1_0() { return cParametersAssignment_1_0; }
-
-		//ParameterDeclaration
-		public RuleCall getParametersParameterDeclarationParserRuleCall_1_0_0() { return cParametersParameterDeclarationParserRuleCall_1_0_0; }
-
-		//("," parameters+=ParameterDeclaration)*
-		public Group getGroup_1_1() { return cGroup_1_1; }
-
-		//","
-		public Keyword getCommaKeyword_1_1_0() { return cCommaKeyword_1_1_0; }
-
-		//parameters+=ParameterDeclaration
-		public Assignment getParametersAssignment_1_1_1() { return cParametersAssignment_1_1_1; }
-
-		//ParameterDeclaration
-		public RuleCall getParametersParameterDeclarationParserRuleCall_1_1_1_0() { return cParametersParameterDeclarationParserRuleCall_1_1_1_0; }
-
-		//"|"
-		public Keyword getVerticalLineKeyword_2() { return cVerticalLineKeyword_2; }
-
 		//funcExpr=OneOrManyExpressions
-		public Assignment getFuncExprAssignment_3() { return cFuncExprAssignment_3; }
+		public Assignment getFuncExprAssignment_4() { return cFuncExprAssignment_4; }
 
 		//OneOrManyExpressions
-		public RuleCall getFuncExprOneOrManyExpressionsParserRuleCall_3_0() { return cFuncExprOneOrManyExpressionsParserRuleCall_3_0; }
+		public RuleCall getFuncExprOneOrManyExpressionsParserRuleCall_4_0() { return cFuncExprOneOrManyExpressionsParserRuleCall_4_0; }
 	}
 
 	public class OneOrManyExpressionsElements extends AbstractParserRuleElementFinder {
@@ -8532,9 +8558,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//LiteralFunction returns be::BExpression:
-	//  {be::B3Function} "{" (parameters+=ParameterDeclaration ("," parameters+=
-	//  ParameterDeclaration)*)? "|" (funcExpr=Expression|funcExpr=
-	//  BlockExpressionWithoutBrackets) "}";
+	//  {be::B3Function} "{" ("<" returnType=TypeRef ">")? (parameters+=ParameterDeclaration (
+	//  "," parameters+=ParameterDeclaration)*)? "|" funcExpr=OneOrManyExpressions "}";
 	public LiteralFunctionElements getLiteralFunctionAccess() {
 		return (pLiteralFunction != null) ? pLiteralFunction : (pLiteralFunction = new LiteralFunctionElements());
 	}
@@ -8544,8 +8569,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ClosureExpression returns be::BExpression:
-	//  {be::B3Function} (parameters+=ParameterDeclaration ("," parameters+=
-	//  ParameterDeclaration)*)? "|" funcExpr=OneOrManyExpressions;
+	//  {be::B3Function} ("<" returnType=TypeRef ">")? (parameters+=ParameterDeclaration (","
+	//  parameters+=ParameterDeclaration)*)? "|" funcExpr=OneOrManyExpressions;
 	public ClosureExpressionElements getClosureExpressionAccess() {
 		return (pClosureExpression != null) ? pClosureExpression : (pClosureExpression = new ClosureExpressionElements());
 	}

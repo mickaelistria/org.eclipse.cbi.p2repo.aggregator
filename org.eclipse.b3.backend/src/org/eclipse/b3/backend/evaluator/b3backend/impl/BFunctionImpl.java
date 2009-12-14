@@ -702,6 +702,21 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Type getSignature() {
+		B3FunctionType t = B3backendFactory.eINSTANCE.createB3FunctionType();
+		t.setReturnType(getReturnType());
+		t.setVarArgs(isVarArgs());
+		EList<Type> pt = t.getParameterTypes();
+		for(BParameterDeclaration p : getParameters())
+			pt.add(p.getType());
+		return t;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -964,12 +979,6 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	
 	@Override
 	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
-		B3FunctionType t = B3backendFactory.eINSTANCE.createB3FunctionType();
-		t.setReturnType(getReturnType());
-		t.setVarArgs(isVarArgs());
-		EList<Type> pt = t.getParameterTypes();
-		for(BParameterDeclaration p : getParameters())
-			pt.add(p.getType());
-		return t;
+		return getSignature();
 	}
 } //BFunctionImpl

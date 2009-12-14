@@ -4,6 +4,8 @@ import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
+import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 
 public class ValueMap {
@@ -89,6 +91,19 @@ public class ValueMap {
 	throw new B3NoSuchVariableException(key);
 		
 	}
+	public void setType(String key, Type t) throws B3NoSuchVariableException {
+		isDefined : {
+		if(values == null)
+			break isDefined;
+		ValueEntry ve = values.get(key);
+		if(ve == null)
+			break isDefined;
+		ve.type = t;
+		return;
+	}
+	throw new B3NoSuchVariableException(key);
+		
+	}
 	/**
 	 * Sets the value for a particular key. The type must be compatible.
 	 * was not defined.
@@ -106,7 +121,7 @@ public class ValueMap {
 				break isDefined;
 			if(ve.isImmutable())
 				throw new B3ImmutableVariableException(key);
-			if(!ve.isAssignableFrom(value.getClass()))
+			if(!ve.isAssignableFrom(value))
 				throw new B3IncompatibleTypeException(ve.type, value.getClass());
 			ve.value = value;
 			return ve.value;
@@ -132,8 +147,8 @@ public class ValueMap {
 		{ markers = marks; value = val; type = t;}
 		boolean isFinal() { return (markers & FINAL) != 0; }
 		boolean isImmutable() { return (markers & IMMUTABLE) != 0; }
-		boolean isAssignableFrom(Class<?> clazz) {
-			return TypeUtils.isAssignableFrom(type, clazz);
+		boolean isAssignableFrom(Object value) {
+			return TypeUtils.isAssignableFrom(type, value instanceof BFunction ? ((B3Function)value).getSignature() : value.getClass());
 		}
 	}
 }

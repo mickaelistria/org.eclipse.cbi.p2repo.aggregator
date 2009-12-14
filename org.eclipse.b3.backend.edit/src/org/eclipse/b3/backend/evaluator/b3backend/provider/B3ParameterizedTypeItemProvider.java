@@ -79,6 +79,7 @@ public class B3ParameterizedTypeItemProvider
 			super.getPropertyDescriptors(object);
 
 			addRawTypePropertyDescriptor(object);
+			addActualArgumentsListPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -106,6 +107,28 @@ public class B3ParameterizedTypeItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Actual Arguments List feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addActualArgumentsListPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_B3ParameterizedType_actualArgumentsList_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_B3ParameterizedType_actualArgumentsList_feature", "_UI_B3ParameterizedType_type"),
+				 B3backendPackage.Literals.B3_PARAMETERIZED_TYPE__ACTUAL_ARGUMENTS_LIST,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -118,7 +141,6 @@ public class B3ParameterizedTypeItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(B3backendPackage.Literals.B3_PARAMETERIZED_TYPE__OWNER_TYPE);
-			childrenFeatures.add(B3backendPackage.Literals.B3_PARAMETERIZED_TYPE__ACTUAL_ARGUMENTS_LIST);
 		}
 		return childrenFeatures;
 	}
@@ -171,7 +193,6 @@ public class B3ParameterizedTypeItemProvider
 
 		switch (notification.getFeatureID(B3ParameterizedType.class)) {
 			case B3backendPackage.B3_PARAMETERIZED_TYPE__OWNER_TYPE:
-			case B3backendPackage.B3_PARAMETERIZED_TYPE__ACTUAL_ARGUMENTS_LIST:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -213,54 +234,6 @@ public class B3ParameterizedTypeItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.B3_PARAMETERIZED_TYPE__OWNER_TYPE,
 				 B3backendFactory.eINSTANCE.createB3JavaImport()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(B3backendPackage.Literals.B3_PARAMETERIZED_TYPE__ACTUAL_ARGUMENTS_LIST,
-				 B3backendFactory.eINSTANCE.createB3FunctionType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(B3backendPackage.Literals.B3_PARAMETERIZED_TYPE__ACTUAL_ARGUMENTS_LIST,
-				 B3backendFactory.eINSTANCE.createB3ParameterizedType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(B3backendPackage.Literals.B3_PARAMETERIZED_TYPE__ACTUAL_ARGUMENTS_LIST,
-				 B3backendFactory.eINSTANCE.createB3WildcardType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(B3backendPackage.Literals.B3_PARAMETERIZED_TYPE__ACTUAL_ARGUMENTS_LIST,
-				 B3backendFactory.eINSTANCE.createB3FuncTypeVariable()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(B3backendPackage.Literals.B3_PARAMETERIZED_TYPE__ACTUAL_ARGUMENTS_LIST,
-				 B3backendFactory.eINSTANCE.createB3JavaImport()));
-	}
-
-	/**
-	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		boolean qualify =
-			childFeature == B3backendPackage.Literals.B3_PARAMETERIZED_TYPE__OWNER_TYPE ||
-			childFeature == B3backendPackage.Literals.B3_PARAMETERIZED_TYPE__ACTUAL_ARGUMENTS_LIST;
-
-		if (qualify) {
-			return getString
-				("_UI_CreateChild_text2",
-				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-		}
-		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**

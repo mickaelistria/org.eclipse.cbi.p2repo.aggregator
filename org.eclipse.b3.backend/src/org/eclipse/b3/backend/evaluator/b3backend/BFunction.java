@@ -417,4 +417,12 @@ public interface BFunction extends BExpression, GenericDeclaration {
 	 */
 	Object internalCall(BExecutionContext ctx, Object[] parameters, Type[] types) throws Throwable;
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" type="org.eclipse.b3.backend.evaluator.b3backend.IType"
+	 * @generated
+	 */
+	Type getSignature();
+
 } // BFunction

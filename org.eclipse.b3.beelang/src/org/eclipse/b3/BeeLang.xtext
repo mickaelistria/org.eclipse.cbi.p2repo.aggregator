@@ -510,12 +510,13 @@ LiteralMap returns  be::BExpression
 	| {be::BLiteralMapExpression} '[' '<' keyType=TypeRef ',' valueType=TypeRef '>' ']' 
 	;
 
-LiteralFunction returns be::BExpression: {be::B3Function} '{'
+LiteralFunction returns be::BExpression: {be::B3Function} '{' ('<' returnType=TypeRef '>')?
 	(parameters += ParameterDeclaration (',' parameters += ParameterDeclaration)*)? 
-	'|' ((funcExpr=Expression) | (funcExpr=BlockExpressionWithoutBrackets)) '}'
+	'|' funcExpr=OneOrManyExpressions '}'
 	;
 
 ClosureExpression returns be::BExpression: {be::B3Function} 
+	('<' returnType=TypeRef '>')?
 	(parameters += ParameterDeclaration (',' parameters += ParameterDeclaration)*)? 
 	'|' funcExpr=OneOrManyExpressions
 	;

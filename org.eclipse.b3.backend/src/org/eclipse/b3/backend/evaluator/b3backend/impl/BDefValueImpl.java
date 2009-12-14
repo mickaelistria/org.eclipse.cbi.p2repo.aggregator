@@ -438,16 +438,17 @@ public class BDefValueImpl extends BExpressionImpl implements BDefValue {
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 		Object result = null;
+		Type t = type;
 		if(immutable) {
 			if(final_)
-				ctx.defineFinalValue(name, result = (valueExpr == null ? null : valueExpr.evaluate(ctx)), type);
+				ctx.defineFinalValue(name, result = (valueExpr == null ? null : valueExpr.evaluate(ctx)), t);
 			else
-				ctx.defineValue(name, result = (valueExpr == null ? null : valueExpr.evaluate(ctx)), type);
+				ctx.defineValue(name, result = (valueExpr == null ? null : valueExpr.evaluate(ctx)), t);
 		} else {
 			if(final_)
-				ctx.defineFinalVariableValue(name, result = (valueExpr == null ? null : valueExpr.evaluate(ctx)), type);
+				ctx.defineFinalVariableValue(name, result = (valueExpr == null ? null : valueExpr.evaluate(ctx)), t);
 			else
-				ctx.defineVariableValue(name, result = (valueExpr == null ? null : valueExpr.evaluate(ctx)), type);
+				ctx.defineVariableValue(name, result = (valueExpr == null ? null : valueExpr.evaluate(ctx)), t);
 		}
 		return result;
 	}

@@ -15,6 +15,7 @@ import java.util.Collection;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
+import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -236,12 +237,36 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Type[] getParameterTypesArray() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return (Type[]) getParameterTypes().toArray();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Returns true if the function has same or more generic signature - i.e. where 
+	 * returnType, and each parameterType is assignable from the corresponding value from type, they
+	 * have the same number of parameters and varargs flag.
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean isAssignableFrom(Type type) {
+		if(! (type instanceof B3FunctionType))
+			return false;
+		B3FunctionType fromType = (B3FunctionType)type;
+		if(!TypeUtils.isAssignableFrom(returnType, fromType.getReturnType()))
+			return false;
+		if(isVarArgs() != fromType.isVarArgs())
+			return false;
+		Type[] p = getParameterTypesArray();
+		Type[] pt = fromType.getParameterTypesArray();
+		if(p.length != pt.length)
+			return false;
+		for(int i = 0; i < p.length; i++)
+			if(!TypeUtils.isAssignableFrom(p[i], pt[i]))
+			return false;
+		return true;
 	}
 
 	/**

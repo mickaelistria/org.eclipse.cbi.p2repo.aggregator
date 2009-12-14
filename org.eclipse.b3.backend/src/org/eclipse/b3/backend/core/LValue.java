@@ -7,4 +7,5 @@ public interface LValue {
 	public Object set(Object value) throws B3EngineException;
 	public boolean isSettable() throws B3EngineException;
 	public Type getDeclaredType() throws B3EngineException;
+	public void setDeclaredType(Type t) throws B3EngineException;
 }

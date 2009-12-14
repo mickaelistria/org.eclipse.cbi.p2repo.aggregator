@@ -147,4 +147,12 @@ public interface B3FunctionType extends EObject, Type {
 	 */
 	Type[] getParameterTypesArray();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model typeType="org.eclipse.b3.backend.evaluator.b3backend.IType"
+	 * @generated
+	 */
+	boolean isAssignableFrom(Type type);
+
 } // B3FunctionType

@@ -260,6 +260,7 @@
       <eParameters name="parameters" eType="#//ObjectArray"/>
       <eParameters name="types" eType="#//TypeArray"/>
     </eOperations>
+    <eOperations name="getSignature" eType="#//IType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="visibility" eType="#//Visibility"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="final" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="executionMode" eType="#//ExecutionMode"/>
@@ -389,6 +390,9 @@
       abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="B3FunctionType" eSuperTypes="#//IType">
     <eOperations name="getParameterTypesArray" eType="#//TypeArray"/>
+    <eOperations name="isAssignableFrom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="type" eType="#//IType"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="functionType" eType="#//IType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="returnType" eType="#//IType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameterTypes" upperBound="-1"

@@ -32,6 +32,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
+import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BFileReference;
 import org.eclipse.b3.backend.evaluator.b3backend.BInnerContext;
@@ -584,6 +585,9 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		}
 		public Type getDeclaredType() throws B3EngineException {
 			return valueMap.getType(name);
+		}
+		public void setDeclaredType(Type t) throws B3EngineException {
+			valueMap.setType(name, t);
 		}
 	}
 

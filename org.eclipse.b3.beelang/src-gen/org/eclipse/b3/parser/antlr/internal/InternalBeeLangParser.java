@@ -43,7 +43,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
         public InternalBeeLangParser(TokenStream input) {
             super(input);
-            ruleMemo = new HashMap[566+1];
+            ruleMemo = new HashMap[567+1];
          }
         
 
@@ -208,11 +208,6 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                 case RULE_DOCUMENTATION:
                     {
                     switch ( input.LA(2) ) {
-                    case 46:
-                        {
-                        alt2=2;
-                        }
-                        break;
                     case 37:
                     case 47:
                     case 61:
@@ -242,6 +237,11 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                         }
 
 
+                        }
+                        break;
+                    case 46:
+                        {
+                        alt2=2;
                         }
                         break;
 
@@ -1339,24 +1339,24 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                                     {
                                     int LA19_12 = input.LA(6);
 
-                                    if ( (LA19_12==61) ) {
-                                        alt19=11;
-                                    }
-                                    else if ( (LA19_12==48) ) {
+                                    if ( (LA19_12==48) ) {
                                         alt19=10;
                                     }
-
-
+                                    else if ( (LA19_12==61) ) {
+                                        alt19=11;
                                     }
-                                    break;
-                                case 48:
-                                    {
-                                    alt19=10;
+
+
                                     }
                                     break;
                                 case 61:
                                     {
                                     alt19=11;
+                                    }
+                                    break;
+                                case 48:
+                                    {
+                                    alt19=10;
                                     }
                                     break;
 
@@ -1368,11 +1368,11 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                                 {
                                 int LA19_12 = input.LA(5);
 
-                                if ( (LA19_12==61) ) {
-                                    alt19=11;
-                                }
-                                else if ( (LA19_12==48) ) {
+                                if ( (LA19_12==48) ) {
                                     alt19=10;
+                                }
+                                else if ( (LA19_12==61) ) {
+                                    alt19=11;
                                 }
 
 
@@ -1403,24 +1403,24 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                                     {
                                     int LA19_12 = input.LA(6);
 
-                                    if ( (LA19_12==61) ) {
-                                        alt19=11;
-                                    }
-                                    else if ( (LA19_12==48) ) {
+                                    if ( (LA19_12==48) ) {
                                         alt19=10;
                                     }
-
-
+                                    else if ( (LA19_12==61) ) {
+                                        alt19=11;
                                     }
-                                    break;
-                                case 48:
-                                    {
-                                    alt19=10;
+
+
                                     }
                                     break;
                                 case 61:
                                     {
                                     alt19=11;
+                                    }
+                                    break;
+                                case 48:
+                                    {
+                                    alt19=10;
                                     }
                                     break;
 
@@ -1432,11 +1432,11 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                                 {
                                 int LA19_12 = input.LA(5);
 
-                                if ( (LA19_12==61) ) {
-                                    alt19=11;
-                                }
-                                else if ( (LA19_12==48) ) {
+                                if ( (LA19_12==48) ) {
                                     alt19=10;
+                                }
+                                else if ( (LA19_12==61) ) {
+                                    alt19=11;
                                 }
 
 
@@ -1464,24 +1464,24 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                                 {
                                 int LA19_12 = input.LA(5);
 
-                                if ( (LA19_12==61) ) {
-                                    alt19=11;
-                                }
-                                else if ( (LA19_12==48) ) {
+                                if ( (LA19_12==48) ) {
                                     alt19=10;
                                 }
-
-
+                                else if ( (LA19_12==61) ) {
+                                    alt19=11;
                                 }
-                                break;
-                            case 48:
-                                {
-                                alt19=10;
+
+
                                 }
                                 break;
                             case 61:
                                 {
                                 alt19=11;
+                                }
+                                break;
+                            case 48:
+                                {
+                                alt19=10;
                                 }
                                 break;
 
@@ -1493,11 +1493,11 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                             {
                             int LA19_12 = input.LA(4);
 
-                            if ( (LA19_12==61) ) {
-                                alt19=11;
-                            }
-                            else if ( (LA19_12==48) ) {
+                            if ( (LA19_12==48) ) {
                                 alt19=10;
+                            }
+                            else if ( (LA19_12==61) ) {
+                                alt19=11;
                             }
 
 
@@ -1531,24 +1531,24 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                                     {
                                     int LA19_12 = input.LA(6);
 
-                                    if ( (LA19_12==61) ) {
-                                        alt19=11;
-                                    }
-                                    else if ( (LA19_12==48) ) {
+                                    if ( (LA19_12==48) ) {
                                         alt19=10;
                                     }
-
-
+                                    else if ( (LA19_12==61) ) {
+                                        alt19=11;
                                     }
-                                    break;
-                                case 48:
-                                    {
-                                    alt19=10;
+
+
                                     }
                                     break;
                                 case 61:
                                     {
                                     alt19=11;
+                                    }
+                                    break;
+                                case 48:
+                                    {
+                                    alt19=10;
                                     }
                                     break;
 
@@ -1560,11 +1560,11 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                                 {
                                 int LA19_12 = input.LA(5);
 
-                                if ( (LA19_12==61) ) {
-                                    alt19=11;
-                                }
-                                else if ( (LA19_12==48) ) {
+                                if ( (LA19_12==48) ) {
                                     alt19=10;
+                                }
+                                else if ( (LA19_12==61) ) {
+                                    alt19=11;
                                 }
 
 
@@ -1595,24 +1595,24 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                                     {
                                     int LA19_12 = input.LA(6);
 
-                                    if ( (LA19_12==61) ) {
-                                        alt19=11;
-                                    }
-                                    else if ( (LA19_12==48) ) {
+                                    if ( (LA19_12==48) ) {
                                         alt19=10;
                                     }
-
-
+                                    else if ( (LA19_12==61) ) {
+                                        alt19=11;
                                     }
-                                    break;
-                                case 48:
-                                    {
-                                    alt19=10;
+
+
                                     }
                                     break;
                                 case 61:
                                     {
                                     alt19=11;
+                                    }
+                                    break;
+                                case 48:
+                                    {
+                                    alt19=10;
                                     }
                                     break;
 
@@ -1624,11 +1624,11 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                                 {
                                 int LA19_12 = input.LA(5);
 
-                                if ( (LA19_12==61) ) {
-                                    alt19=11;
-                                }
-                                else if ( (LA19_12==48) ) {
+                                if ( (LA19_12==48) ) {
                                     alt19=10;
+                                }
+                                else if ( (LA19_12==61) ) {
+                                    alt19=11;
                                 }
 
 
@@ -1656,24 +1656,24 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                                 {
                                 int LA19_12 = input.LA(5);
 
-                                if ( (LA19_12==61) ) {
-                                    alt19=11;
-                                }
-                                else if ( (LA19_12==48) ) {
+                                if ( (LA19_12==48) ) {
                                     alt19=10;
                                 }
-
-
+                                else if ( (LA19_12==61) ) {
+                                    alt19=11;
                                 }
-                                break;
-                            case 48:
-                                {
-                                alt19=10;
+
+
                                 }
                                 break;
                             case 61:
                                 {
                                 alt19=11;
+                                }
+                                break;
+                            case 48:
+                                {
+                                alt19=10;
                                 }
                                 break;
 
@@ -1685,24 +1685,24 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                             {
                             int LA19_12 = input.LA(4);
 
-                            if ( (LA19_12==61) ) {
-                                alt19=11;
-                            }
-                            else if ( (LA19_12==48) ) {
+                            if ( (LA19_12==48) ) {
                                 alt19=10;
                             }
-
-
+                            else if ( (LA19_12==61) ) {
+                                alt19=11;
                             }
-                            break;
-                        case 61:
-                            {
-                            alt19=11;
+
+
                             }
                             break;
                         case 48:
                             {
                             alt19=10;
+                            }
+                            break;
+                        case 61:
+                            {
+                            alt19=11;
                             }
                             break;
 
@@ -1720,24 +1720,24 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                                 {
                                 int LA19_12 = input.LA(5);
 
-                                if ( (LA19_12==61) ) {
-                                    alt19=11;
-                                }
-                                else if ( (LA19_12==48) ) {
+                                if ( (LA19_12==48) ) {
                                     alt19=10;
                                 }
-
-
+                                else if ( (LA19_12==61) ) {
+                                    alt19=11;
                                 }
-                                break;
-                            case 48:
-                                {
-                                alt19=10;
+
+
                                 }
                                 break;
                             case 61:
                                 {
                                 alt19=11;
+                                }
+                                break;
+                            case 48:
+                                {
+                                alt19=10;
                                 }
                                 break;
 
@@ -1749,11 +1749,11 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                             {
                             int LA19_12 = input.LA(4);
 
-                            if ( (LA19_12==61) ) {
-                                alt19=11;
-                            }
-                            else if ( (LA19_12==48) ) {
+                            if ( (LA19_12==48) ) {
                                 alt19=10;
+                            }
+                            else if ( (LA19_12==61) ) {
+                                alt19=11;
                             }
 
 
@@ -1784,24 +1784,24 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                                 {
                                 int LA19_12 = input.LA(5);
 
-                                if ( (LA19_12==61) ) {
-                                    alt19=11;
-                                }
-                                else if ( (LA19_12==48) ) {
+                                if ( (LA19_12==48) ) {
                                     alt19=10;
                                 }
-
-
+                                else if ( (LA19_12==61) ) {
+                                    alt19=11;
                                 }
-                                break;
-                            case 48:
-                                {
-                                alt19=10;
+
+
                                 }
                                 break;
                             case 61:
                                 {
                                 alt19=11;
+                                }
+                                break;
+                            case 48:
+                                {
+                                alt19=10;
                                 }
                                 break;
 
@@ -1813,11 +1813,11 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                             {
                             int LA19_12 = input.LA(4);
 
-                            if ( (LA19_12==61) ) {
-                                alt19=11;
-                            }
-                            else if ( (LA19_12==48) ) {
+                            if ( (LA19_12==48) ) {
                                 alt19=10;
+                            }
+                            else if ( (LA19_12==61) ) {
+                                alt19=11;
                             }
 
 
@@ -1845,24 +1845,24 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                             {
                             int LA19_12 = input.LA(4);
 
-                            if ( (LA19_12==61) ) {
-                                alt19=11;
-                            }
-                            else if ( (LA19_12==48) ) {
+                            if ( (LA19_12==48) ) {
                                 alt19=10;
                             }
-
-
+                            else if ( (LA19_12==61) ) {
+                                alt19=11;
                             }
-                            break;
-                        case 48:
-                            {
-                            alt19=10;
+
+
                             }
                             break;
                         case 61:
                             {
                             alt19=11;
+                            }
+                            break;
+                        case 48:
+                            {
+                            alt19=10;
                             }
                             break;
 
@@ -1874,19 +1874,19 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                         {
                         int LA19_12 = input.LA(3);
 
-                        if ( (LA19_12==61) ) {
-                            alt19=11;
-                        }
-                        else if ( (LA19_12==48) ) {
+                        if ( (LA19_12==48) ) {
                             alt19=10;
+                        }
+                        else if ( (LA19_12==61) ) {
+                            alt19=11;
                         }
 
 
                         }
                         break;
-                    case 61:
+                    case 48:
                         {
-                        alt19=11;
+                        alt19=10;
                         }
                         break;
                     case 46:
@@ -1894,9 +1894,9 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                         alt19=7;
                         }
                         break;
-                    case 48:
+                    case 61:
                         {
-                        alt19=10;
+                        alt19=11;
                         }
                         break;
 
@@ -1930,24 +1930,24 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                             {
                             int LA19_12 = input.LA(4);
 
-                            if ( (LA19_12==61) ) {
-                                alt19=11;
-                            }
-                            else if ( (LA19_12==48) ) {
+                            if ( (LA19_12==48) ) {
                                 alt19=10;
                             }
-
-
+                            else if ( (LA19_12==61) ) {
+                                alt19=11;
                             }
-                            break;
-                        case 48:
-                            {
-                            alt19=10;
+
+
                             }
                             break;
                         case 61:
                             {
                             alt19=11;
+                            }
+                            break;
+                        case 48:
+                            {
+                            alt19=10;
                             }
                             break;
 
@@ -1959,11 +1959,11 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                         {
                         int LA19_12 = input.LA(3);
 
-                        if ( (LA19_12==61) ) {
-                            alt19=11;
-                        }
-                        else if ( (LA19_12==48) ) {
+                        if ( (LA19_12==48) ) {
                             alt19=10;
+                        }
+                        else if ( (LA19_12==61) ) {
+                            alt19=11;
                         }
 
 
@@ -1997,24 +1997,24 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                                 {
                                 int LA19_12 = input.LA(5);
 
-                                if ( (LA19_12==61) ) {
-                                    alt19=11;
-                                }
-                                else if ( (LA19_12==48) ) {
+                                if ( (LA19_12==48) ) {
                                     alt19=10;
                                 }
-
-
+                                else if ( (LA19_12==61) ) {
+                                    alt19=11;
                                 }
-                                break;
-                            case 48:
-                                {
-                                alt19=10;
+
+
                                 }
                                 break;
                             case 61:
                                 {
                                 alt19=11;
+                                }
+                                break;
+                            case 48:
+                                {
+                                alt19=10;
                                 }
                                 break;
 
@@ -2026,11 +2026,11 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                             {
                             int LA19_12 = input.LA(4);
 
-                            if ( (LA19_12==61) ) {
-                                alt19=11;
-                            }
-                            else if ( (LA19_12==48) ) {
+                            if ( (LA19_12==48) ) {
                                 alt19=10;
+                            }
+                            else if ( (LA19_12==61) ) {
+                                alt19=11;
                             }
 
 
@@ -2061,24 +2061,24 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                                 {
                                 int LA19_12 = input.LA(5);
 
-                                if ( (LA19_12==61) ) {
-                                    alt19=11;
-                                }
-                                else if ( (LA19_12==48) ) {
+                                if ( (LA19_12==48) ) {
                                     alt19=10;
                                 }
-
-
+                                else if ( (LA19_12==61) ) {
+                                    alt19=11;
                                 }
-                                break;
-                            case 48:
-                                {
-                                alt19=10;
+
+
                                 }
                                 break;
                             case 61:
                                 {
                                 alt19=11;
+                                }
+                                break;
+                            case 48:
+                                {
+                                alt19=10;
                                 }
                                 break;
 
@@ -2090,11 +2090,11 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                             {
                             int LA19_12 = input.LA(4);
 
-                            if ( (LA19_12==61) ) {
-                                alt19=11;
-                            }
-                            else if ( (LA19_12==48) ) {
+                            if ( (LA19_12==48) ) {
                                 alt19=10;
+                            }
+                            else if ( (LA19_12==61) ) {
+                                alt19=11;
                             }
 
 
@@ -2122,24 +2122,24 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                             {
                             int LA19_12 = input.LA(4);
 
-                            if ( (LA19_12==61) ) {
-                                alt19=11;
-                            }
-                            else if ( (LA19_12==48) ) {
+                            if ( (LA19_12==48) ) {
                                 alt19=10;
                             }
-
-
+                            else if ( (LA19_12==61) ) {
+                                alt19=11;
                             }
-                            break;
-                        case 48:
-                            {
-                            alt19=10;
+
+
                             }
                             break;
                         case 61:
                             {
                             alt19=11;
+                            }
+                            break;
+                        case 48:
+                            {
+                            alt19=10;
                             }
                             break;
 
@@ -2151,11 +2151,11 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                         {
                         int LA19_12 = input.LA(3);
 
-                        if ( (LA19_12==61) ) {
-                            alt19=11;
-                        }
-                        else if ( (LA19_12==48) ) {
+                        if ( (LA19_12==48) ) {
                             alt19=10;
+                        }
+                        else if ( (LA19_12==61) ) {
+                            alt19=11;
                         }
 
 
@@ -2189,24 +2189,24 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                                 {
                                 int LA19_12 = input.LA(5);
 
-                                if ( (LA19_12==61) ) {
-                                    alt19=11;
-                                }
-                                else if ( (LA19_12==48) ) {
+                                if ( (LA19_12==48) ) {
                                     alt19=10;
                                 }
-
-
+                                else if ( (LA19_12==61) ) {
+                                    alt19=11;
                                 }
-                                break;
-                            case 48:
-                                {
-                                alt19=10;
+
+
                                 }
                                 break;
                             case 61:
                                 {
                                 alt19=11;
+                                }
+                                break;
+                            case 48:
+                                {
+                                alt19=10;
                                 }
                                 break;
 
@@ -2218,11 +2218,11 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                             {
                             int LA19_12 = input.LA(4);
 
-                            if ( (LA19_12==61) ) {
-                                alt19=11;
-                            }
-                            else if ( (LA19_12==48) ) {
+                            if ( (LA19_12==48) ) {
                                 alt19=10;
+                            }
+                            else if ( (LA19_12==61) ) {
+                                alt19=11;
                             }
 
 
@@ -2253,24 +2253,24 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                                 {
                                 int LA19_12 = input.LA(5);
 
-                                if ( (LA19_12==61) ) {
-                                    alt19=11;
-                                }
-                                else if ( (LA19_12==48) ) {
+                                if ( (LA19_12==48) ) {
                                     alt19=10;
                                 }
-
-
+                                else if ( (LA19_12==61) ) {
+                                    alt19=11;
                                 }
-                                break;
-                            case 48:
-                                {
-                                alt19=10;
+
+
                                 }
                                 break;
                             case 61:
                                 {
                                 alt19=11;
+                                }
+                                break;
+                            case 48:
+                                {
+                                alt19=10;
                                 }
                                 break;
 
@@ -2282,11 +2282,11 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                             {
                             int LA19_12 = input.LA(4);
 
-                            if ( (LA19_12==61) ) {
-                                alt19=11;
-                            }
-                            else if ( (LA19_12==48) ) {
+                            if ( (LA19_12==48) ) {
                                 alt19=10;
+                            }
+                            else if ( (LA19_12==61) ) {
+                                alt19=11;
                             }
 
 
@@ -2314,24 +2314,24 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                             {
                             int LA19_12 = input.LA(4);
 
-                            if ( (LA19_12==61) ) {
-                                alt19=11;
-                            }
-                            else if ( (LA19_12==48) ) {
+                            if ( (LA19_12==48) ) {
                                 alt19=10;
                             }
-
-
+                            else if ( (LA19_12==61) ) {
+                                alt19=11;
                             }
-                            break;
-                        case 48:
-                            {
-                            alt19=10;
+
+
                             }
                             break;
                         case 61:
                             {
                             alt19=11;
+                            }
+                            break;
+                        case 48:
+                            {
+                            alt19=10;
                             }
                             break;
 
@@ -2343,24 +2343,24 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                         {
                         int LA19_12 = input.LA(3);
 
-                        if ( (LA19_12==61) ) {
-                            alt19=11;
-                        }
-                        else if ( (LA19_12==48) ) {
+                        if ( (LA19_12==48) ) {
                             alt19=10;
                         }
-
-
+                        else if ( (LA19_12==61) ) {
+                            alt19=11;
                         }
-                        break;
-                    case 61:
-                        {
-                        alt19=11;
+
+
                         }
                         break;
                     case 48:
                         {
                         alt19=10;
+                        }
+                        break;
+                    case 61:
+                        {
+                        alt19=11;
                         }
                         break;
 
@@ -2378,24 +2378,24 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                             {
                             int LA19_12 = input.LA(4);
 
-                            if ( (LA19_12==61) ) {
-                                alt19=11;
-                            }
-                            else if ( (LA19_12==48) ) {
+                            if ( (LA19_12==48) ) {
                                 alt19=10;
                             }
-
-
+                            else if ( (LA19_12==61) ) {
+                                alt19=11;
                             }
-                            break;
-                        case 48:
-                            {
-                            alt19=10;
+
+
                             }
                             break;
                         case 61:
                             {
                             alt19=11;
+                            }
+                            break;
+                        case 48:
+                            {
+                            alt19=10;
                             }
                             break;
 
@@ -2407,11 +2407,11 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                         {
                         int LA19_12 = input.LA(3);
 
-                        if ( (LA19_12==61) ) {
-                            alt19=11;
-                        }
-                        else if ( (LA19_12==48) ) {
+                        if ( (LA19_12==48) ) {
                             alt19=10;
+                        }
+                        else if ( (LA19_12==61) ) {
+                            alt19=11;
                         }
 
 
@@ -2439,24 +2439,24 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                         {
                         int LA19_12 = input.LA(3);
 
-                        if ( (LA19_12==61) ) {
-                            alt19=11;
-                        }
-                        else if ( (LA19_12==48) ) {
+                        if ( (LA19_12==48) ) {
                             alt19=10;
                         }
-
-
+                        else if ( (LA19_12==61) ) {
+                            alt19=11;
                         }
-                        break;
-                    case 48:
-                        {
-                        alt19=10;
+
+
                         }
                         break;
                     case 61:
                         {
                         alt19=11;
+                        }
+                        break;
+                    case 48:
+                        {
+                        alt19=10;
                         }
                         break;
 
@@ -2468,11 +2468,11 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     {
                     int LA19_12 = input.LA(2);
 
-                    if ( (LA19_12==61) ) {
-                        alt19=11;
-                    }
-                    else if ( (LA19_12==48) ) {
+                    if ( (LA19_12==48) ) {
                         alt19=10;
+                    }
+                    else if ( (LA19_12==61) ) {
+                        alt19=11;
                     }
 
 
@@ -8597,7 +8597,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
             int alt51=2;
             int LA51_0 = input.LA(1);
 
-            if ( (LA51_0==RULE_ID||(LA51_0>=RULE_STRING && LA51_0<=RULE_HEX)||LA51_0==20||LA51_0==24||LA51_0==26||LA51_0==41||LA51_0==44||(LA51_0>=50 && LA51_0<=51)||LA51_0==77||LA51_0==84||(LA51_0>=88 && LA51_0<=95)||LA51_0==99||LA51_0==102||LA51_0==107||(LA51_0>=109 && LA51_0<=111)) ) {
+            if ( (LA51_0==RULE_ID||(LA51_0>=RULE_STRING && LA51_0<=RULE_HEX)||LA51_0==20||LA51_0==24||LA51_0==26||LA51_0==41||LA51_0==44||(LA51_0>=50 && LA51_0<=51)||(LA51_0>=76 && LA51_0<=77)||LA51_0==84||(LA51_0>=88 && LA51_0<=95)||LA51_0==99||LA51_0==102||LA51_0==107||(LA51_0>=109 && LA51_0<=111)) ) {
                 alt51=1;
             }
             switch (alt51) {
@@ -8900,7 +8900,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
             int alt54=2;
             int LA54_0 = input.LA(1);
 
-            if ( (LA54_0==RULE_ID||(LA54_0>=RULE_STRING && LA54_0<=RULE_HEX)||LA54_0==20||LA54_0==24||LA54_0==26||LA54_0==41||LA54_0==44||(LA54_0>=50 && LA54_0<=51)||LA54_0==77||LA54_0==84||(LA54_0>=88 && LA54_0<=95)||LA54_0==99||LA54_0==102||LA54_0==107||(LA54_0>=109 && LA54_0<=111)) ) {
+            if ( (LA54_0==RULE_ID||(LA54_0>=RULE_STRING && LA54_0<=RULE_HEX)||LA54_0==20||LA54_0==24||LA54_0==26||LA54_0==41||LA54_0==44||(LA54_0>=50 && LA54_0<=51)||(LA54_0>=76 && LA54_0<=77)||LA54_0==84||(LA54_0>=88 && LA54_0<=95)||LA54_0==99||LA54_0==102||LA54_0==107||(LA54_0>=109 && LA54_0<=111)) ) {
                 alt54=1;
             }
             switch (alt54) {
@@ -20628,7 +20628,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
             	    int alt132=2;
             	    int LA132_0 = input.LA(1);
 
-            	    if ( (LA132_0==RULE_ID||(LA132_0>=RULE_STRING && LA132_0<=RULE_HEX)||LA132_0==20||LA132_0==24||LA132_0==26||LA132_0==41||LA132_0==44||(LA132_0>=50 && LA132_0<=51)||LA132_0==77||LA132_0==84||(LA132_0>=88 && LA132_0<=95)||LA132_0==99||LA132_0==102||LA132_0==107||(LA132_0>=109 && LA132_0<=111)) ) {
+            	    if ( (LA132_0==RULE_ID||(LA132_0>=RULE_STRING && LA132_0<=RULE_HEX)||LA132_0==20||LA132_0==24||LA132_0==26||LA132_0==41||LA132_0==44||(LA132_0>=50 && LA132_0<=51)||(LA132_0>=76 && LA132_0<=77)||LA132_0==84||(LA132_0>=88 && LA132_0<=95)||LA132_0==99||LA132_0==102||LA132_0==107||(LA132_0>=109 && LA132_0<=111)) ) {
             	        alt132=1;
             	    }
             	    switch (alt132) {
@@ -21029,7 +21029,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
             	    int alt134=2;
             	    int LA134_0 = input.LA(1);
 
-            	    if ( (LA134_0==RULE_ID||(LA134_0>=RULE_STRING && LA134_0<=RULE_HEX)||LA134_0==20||LA134_0==24||LA134_0==26||LA134_0==41||LA134_0==44||(LA134_0>=50 && LA134_0<=51)||LA134_0==77||LA134_0==84||(LA134_0>=88 && LA134_0<=95)||LA134_0==99||LA134_0==102||LA134_0==107||(LA134_0>=109 && LA134_0<=111)) ) {
+            	    if ( (LA134_0==RULE_ID||(LA134_0>=RULE_STRING && LA134_0<=RULE_HEX)||LA134_0==20||LA134_0==24||LA134_0==26||LA134_0==41||LA134_0==44||(LA134_0>=50 && LA134_0<=51)||(LA134_0>=76 && LA134_0<=77)||LA134_0==84||(LA134_0>=88 && LA134_0<=95)||LA134_0==99||LA134_0==102||LA134_0==107||(LA134_0>=109 && LA134_0<=111)) ) {
             	        alt134=1;
             	    }
             	    switch (alt134) {
@@ -21289,6 +21289,12 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
             case 24:
                 {
                 switch ( input.LA(2) ) {
+                case 76:
+                case 109:
+                    {
+                    alt136=4;
+                    }
+                    break;
                 case RULE_ID:
                     {
                     switch ( input.LA(3) ) {
@@ -21312,25 +21318,6 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                             if (backtracking>0) {failed=true; return current;}
                             NoViableAltException nvae =
                                 new NoViableAltException("7968:1: (this_FeatureCall_0= ruleFeatureCall | this_ConstructorCallExpression_1= ruleConstructorCallExpression | this_VariableValue_2= ruleVariableValue | this_Literal_3= ruleLiteral | this_PropertyValue_4= rulePropertyValue | this_KeywordVariables_5= ruleKeywordVariables | this_ParanthesizedExpression_6= ruleParanthesizedExpression | this_IfExpression_7= ruleIfExpression | this_BlockExpression_8= ruleBlockExpression | this_SwitchExpression_9= ruleSwitchExpression | this_ThrowExpression_10= ruleThrowExpression | this_TryCatchExpression_11= ruleTryCatchExpression | this_WildcardExpression_12= ruleWildcardExpression )", 136, 20, input);
-
-                            throw nvae;
-                        }
-                        }
-                        break;
-                    case RULE_ID:
-                        {
-                        int LA136_21 = input.LA(4);
-
-                        if ( (LA136_21==23||LA136_21==109) ) {
-                            alt136=4;
-                        }
-                        else if ( (LA136_21==19||(LA136_21>=62 && LA136_21<=67)) ) {
-                            alt136=9;
-                        }
-                        else {
-                            if (backtracking>0) {failed=true; return current;}
-                            NoViableAltException nvae =
-                                new NoViableAltException("7968:1: (this_FeatureCall_0= ruleFeatureCall | this_ConstructorCallExpression_1= ruleConstructorCallExpression | this_VariableValue_2= ruleVariableValue | this_Literal_3= ruleLiteral | this_PropertyValue_4= rulePropertyValue | this_KeywordVariables_5= ruleKeywordVariables | this_ParanthesizedExpression_6= ruleParanthesizedExpression | this_IfExpression_7= ruleIfExpression | this_BlockExpression_8= ruleBlockExpression | this_SwitchExpression_9= ruleSwitchExpression | this_ThrowExpression_10= ruleThrowExpression | this_TryCatchExpression_11= ruleTryCatchExpression | this_WildcardExpression_12= ruleWildcardExpression )", 136, 21, input);
 
                             throw nvae;
                         }
@@ -21369,6 +21356,25 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                         alt136=9;
                         }
                         break;
+                    case RULE_ID:
+                        {
+                        int LA136_21 = input.LA(4);
+
+                        if ( (LA136_21==23||LA136_21==109) ) {
+                            alt136=4;
+                        }
+                        else if ( (LA136_21==19||(LA136_21>=62 && LA136_21<=67)) ) {
+                            alt136=9;
+                        }
+                        else {
+                            if (backtracking>0) {failed=true; return current;}
+                            NoViableAltException nvae =
+                                new NoViableAltException("7968:1: (this_FeatureCall_0= ruleFeatureCall | this_ConstructorCallExpression_1= ruleConstructorCallExpression | this_VariableValue_2= ruleVariableValue | this_Literal_3= ruleLiteral | this_PropertyValue_4= rulePropertyValue | this_KeywordVariables_5= ruleKeywordVariables | this_ParanthesizedExpression_6= ruleParanthesizedExpression | this_IfExpression_7= ruleIfExpression | this_BlockExpression_8= ruleBlockExpression | this_SwitchExpression_9= ruleSwitchExpression | this_ThrowExpression_10= ruleThrowExpression | this_TryCatchExpression_11= ruleTryCatchExpression | this_WildcardExpression_12= ruleWildcardExpression )", 136, 21, input);
+
+                            throw nvae;
+                        }
+                        }
+                        break;
                     default:
                         if (backtracking>0) {failed=true; return current;}
                         NoViableAltException nvae =
@@ -21377,11 +21383,6 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                         throw nvae;
                     }
 
-                    }
-                    break;
-                case 109:
-                    {
-                    alt136=4;
                     }
                     break;
                 case RULE_STRING:
@@ -24696,7 +24697,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
             int alt146=2;
             int LA146_0 = input.LA(1);
 
-            if ( (LA146_0==RULE_ID||(LA146_0>=RULE_STRING && LA146_0<=RULE_HEX)||LA146_0==20||LA146_0==24||LA146_0==26||LA146_0==41||LA146_0==44||(LA146_0>=50 && LA146_0<=51)||LA146_0==77||LA146_0==84||(LA146_0>=88 && LA146_0<=95)||LA146_0==99||LA146_0==102||LA146_0==107||(LA146_0>=109 && LA146_0<=111)) ) {
+            if ( (LA146_0==RULE_ID||(LA146_0>=RULE_STRING && LA146_0<=RULE_HEX)||LA146_0==20||LA146_0==24||LA146_0==26||LA146_0==41||LA146_0==44||(LA146_0>=50 && LA146_0<=51)||(LA146_0>=76 && LA146_0<=77)||LA146_0==84||(LA146_0>=88 && LA146_0<=95)||LA146_0==99||LA146_0==102||LA146_0==107||(LA146_0>=109 && LA146_0<=111)) ) {
                 alt146=1;
             }
             switch (alt146) {
@@ -24928,7 +24929,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     int alt147=2;
                     int LA147_0 = input.LA(1);
 
-                    if ( (LA147_0==RULE_ID||(LA147_0>=RULE_STRING && LA147_0<=RULE_HEX)||LA147_0==20||LA147_0==24||LA147_0==26||LA147_0==41||LA147_0==44||(LA147_0>=50 && LA147_0<=51)||LA147_0==77||LA147_0==84||(LA147_0>=88 && LA147_0<=95)||LA147_0==99||LA147_0==102||LA147_0==107||(LA147_0>=109 && LA147_0<=111)) ) {
+                    if ( (LA147_0==RULE_ID||(LA147_0>=RULE_STRING && LA147_0<=RULE_HEX)||LA147_0==20||LA147_0==24||LA147_0==26||LA147_0==41||LA147_0==44||(LA147_0>=50 && LA147_0<=51)||(LA147_0>=76 && LA147_0<=77)||LA147_0==84||(LA147_0>=88 && LA147_0<=95)||LA147_0==99||LA147_0==102||LA147_0==107||(LA147_0>=109 && LA147_0<=111)) ) {
                         alt147=1;
                     }
                     switch (alt147) {
@@ -27676,27 +27677,27 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleLiteralFunction
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10585:1: ruleLiteralFunction returns [EObject current=null] : ( () '{' ( ( (lv_parameters_2_0= ruleParameterDeclaration ) ) ( ',' ( (lv_parameters_4_0= ruleParameterDeclaration ) ) )* )? '|' ( ( (lv_funcExpr_6_0= ruleExpression ) ) | ( (lv_funcExpr_7_0= ruleBlockExpressionWithoutBrackets ) ) ) '}' ) ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10585:1: ruleLiteralFunction returns [EObject current=null] : ( () '{' ( '<' ( (lv_returnType_3_0= ruleTypeRef ) ) '>' )? ( ( (lv_parameters_5_0= ruleParameterDeclaration ) ) ( ',' ( (lv_parameters_7_0= ruleParameterDeclaration ) ) )* )? '|' ( (lv_funcExpr_9_0= ruleOneOrManyExpressions ) ) '}' ) ;
     public final EObject ruleLiteralFunction() throws RecognitionException {
         EObject current = null;
 
-        EObject lv_parameters_2_0 = null;
+        EObject lv_returnType_3_0 = null;
 
-        EObject lv_parameters_4_0 = null;
+        EObject lv_parameters_5_0 = null;
 
-        EObject lv_funcExpr_6_0 = null;
+        EObject lv_parameters_7_0 = null;
 
-        EObject lv_funcExpr_7_0 = null;
+        EObject lv_funcExpr_9_0 = null;
 
 
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10590:6: ( ( () '{' ( ( (lv_parameters_2_0= ruleParameterDeclaration ) ) ( ',' ( (lv_parameters_4_0= ruleParameterDeclaration ) ) )* )? '|' ( ( (lv_funcExpr_6_0= ruleExpression ) ) | ( (lv_funcExpr_7_0= ruleBlockExpressionWithoutBrackets ) ) ) '}' ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10591:1: ( () '{' ( ( (lv_parameters_2_0= ruleParameterDeclaration ) ) ( ',' ( (lv_parameters_4_0= ruleParameterDeclaration ) ) )* )? '|' ( ( (lv_funcExpr_6_0= ruleExpression ) ) | ( (lv_funcExpr_7_0= ruleBlockExpressionWithoutBrackets ) ) ) '}' )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10590:6: ( ( () '{' ( '<' ( (lv_returnType_3_0= ruleTypeRef ) ) '>' )? ( ( (lv_parameters_5_0= ruleParameterDeclaration ) ) ( ',' ( (lv_parameters_7_0= ruleParameterDeclaration ) ) )* )? '|' ( (lv_funcExpr_9_0= ruleOneOrManyExpressions ) ) '}' ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10591:1: ( () '{' ( '<' ( (lv_returnType_3_0= ruleTypeRef ) ) '>' )? ( ( (lv_parameters_5_0= ruleParameterDeclaration ) ) ( ',' ( (lv_parameters_7_0= ruleParameterDeclaration ) ) )* )? '|' ( (lv_funcExpr_9_0= ruleOneOrManyExpressions ) ) '}' )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10591:1: ( () '{' ( ( (lv_parameters_2_0= ruleParameterDeclaration ) ) ( ',' ( (lv_parameters_4_0= ruleParameterDeclaration ) ) )* )? '|' ( ( (lv_funcExpr_6_0= ruleExpression ) ) | ( (lv_funcExpr_7_0= ruleBlockExpressionWithoutBrackets ) ) ) '}' )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10591:2: () '{' ( ( (lv_parameters_2_0= ruleParameterDeclaration ) ) ( ',' ( (lv_parameters_4_0= ruleParameterDeclaration ) ) )* )? '|' ( ( (lv_funcExpr_6_0= ruleExpression ) ) | ( (lv_funcExpr_7_0= ruleBlockExpressionWithoutBrackets ) ) ) '}'
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10591:1: ( () '{' ( '<' ( (lv_returnType_3_0= ruleTypeRef ) ) '>' )? ( ( (lv_parameters_5_0= ruleParameterDeclaration ) ) ( ',' ( (lv_parameters_7_0= ruleParameterDeclaration ) ) )* )? '|' ( (lv_funcExpr_9_0= ruleOneOrManyExpressions ) ) '}' )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10591:2: () '{' ( '<' ( (lv_returnType_3_0= ruleTypeRef ) ) '>' )? ( ( (lv_parameters_5_0= ruleParameterDeclaration ) ) ( ',' ( (lv_parameters_7_0= ruleParameterDeclaration ) ) )* )? '|' ( (lv_funcExpr_9_0= ruleOneOrManyExpressions ) ) '}'
             {
             // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10591:2: ()
             // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10592:2: 
@@ -27727,30 +27728,99 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                       createLeafNode(grammarAccess.getLiteralFunctionAccess().getLeftCurlyBracketKeyword_1(), null); 
                   
             }
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10609:1: ( ( (lv_parameters_2_0= ruleParameterDeclaration ) ) ( ',' ( (lv_parameters_4_0= ruleParameterDeclaration ) ) )* )?
-            int alt164=2;
-            int LA164_0 = input.LA(1);
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10609:1: ( '<' ( (lv_returnType_3_0= ruleTypeRef ) ) '>' )?
+            int alt163=2;
+            int LA163_0 = input.LA(1);
 
-            if ( (LA164_0==RULE_ID) ) {
-                alt164=1;
+            if ( (LA163_0==76) ) {
+                alt163=1;
             }
-            switch (alt164) {
+            switch (alt163) {
                 case 1 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10609:2: ( (lv_parameters_2_0= ruleParameterDeclaration ) ) ( ',' ( (lv_parameters_4_0= ruleParameterDeclaration ) ) )*
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10609:3: '<' ( (lv_returnType_3_0= ruleTypeRef ) ) '>'
                     {
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10609:2: ( (lv_parameters_2_0= ruleParameterDeclaration ) )
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10610:1: (lv_parameters_2_0= ruleParameterDeclaration )
+                    match(input,76,FOLLOW_76_in_ruleLiteralFunction17884); if (failed) return current;
+                    if ( backtracking==0 ) {
+
+                              createLeafNode(grammarAccess.getLiteralFunctionAccess().getLessThanSignKeyword_2_0(), null); 
+                          
+                    }
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10613:1: ( (lv_returnType_3_0= ruleTypeRef ) )
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10614:1: (lv_returnType_3_0= ruleTypeRef )
                     {
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10610:1: (lv_parameters_2_0= ruleParameterDeclaration )
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10611:3: lv_parameters_2_0= ruleParameterDeclaration
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10614:1: (lv_returnType_3_0= ruleTypeRef )
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10615:3: lv_returnType_3_0= ruleTypeRef
                     {
                     if ( backtracking==0 ) {
                        
-                      	        currentNode=createCompositeNode(grammarAccess.getLiteralFunctionAccess().getParametersParameterDeclarationParserRuleCall_2_0_0(), currentNode); 
+                      	        currentNode=createCompositeNode(grammarAccess.getLiteralFunctionAccess().getReturnTypeTypeRefParserRuleCall_2_1_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleParameterDeclaration_in_ruleLiteralFunction17895);
-                    lv_parameters_2_0=ruleParameterDeclaration();
+                    pushFollow(FOLLOW_ruleTypeRef_in_ruleLiteralFunction17905);
+                    lv_returnType_3_0=ruleTypeRef();
+                    _fsp--;
+                    if (failed) return current;
+                    if ( backtracking==0 ) {
+
+                      	        if (current==null) {
+                      	            current = factory.create(grammarAccess.getLiteralFunctionRule().getType().getClassifier());
+                      	            associateNodeWithAstElement(currentNode.getParent(), current);
+                      	        }
+                      	        try {
+                      	       		set(
+                      	       			current, 
+                      	       			"returnType",
+                      	        		lv_returnType_3_0, 
+                      	        		"TypeRef", 
+                      	        		currentNode);
+                      	        } catch (ValueConverterException vce) {
+                      				handleValueConverterException(vce);
+                      	        }
+                      	        currentNode = currentNode.getParent();
+                      	    
+                    }
+
+                    }
+
+
+                    }
+
+                    match(input,75,FOLLOW_75_in_ruleLiteralFunction17915); if (failed) return current;
+                    if ( backtracking==0 ) {
+
+                              createLeafNode(grammarAccess.getLiteralFunctionAccess().getGreaterThanSignKeyword_2_2(), null); 
+                          
+                    }
+
+                    }
+                    break;
+
+            }
+
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10641:3: ( ( (lv_parameters_5_0= ruleParameterDeclaration ) ) ( ',' ( (lv_parameters_7_0= ruleParameterDeclaration ) ) )* )?
+            int alt165=2;
+            int LA165_0 = input.LA(1);
+
+            if ( (LA165_0==RULE_ID) ) {
+                alt165=1;
+            }
+            switch (alt165) {
+                case 1 :
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10641:4: ( (lv_parameters_5_0= ruleParameterDeclaration ) ) ( ',' ( (lv_parameters_7_0= ruleParameterDeclaration ) ) )*
+                    {
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10641:4: ( (lv_parameters_5_0= ruleParameterDeclaration ) )
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10642:1: (lv_parameters_5_0= ruleParameterDeclaration )
+                    {
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10642:1: (lv_parameters_5_0= ruleParameterDeclaration )
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10643:3: lv_parameters_5_0= ruleParameterDeclaration
+                    {
+                    if ( backtracking==0 ) {
+                       
+                      	        currentNode=createCompositeNode(grammarAccess.getLiteralFunctionAccess().getParametersParameterDeclarationParserRuleCall_3_0_0(), currentNode); 
+                      	    
+                    }
+                    pushFollow(FOLLOW_ruleParameterDeclaration_in_ruleLiteralFunction17939);
+                    lv_parameters_5_0=ruleParameterDeclaration();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
@@ -27763,7 +27833,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                       	       		add(
                       	       			current, 
                       	       			"parameters",
-                      	        		lv_parameters_2_0, 
+                      	        		lv_parameters_5_0, 
                       	        		"ParameterDeclaration", 
                       	        		currentNode);
                       	        } catch (ValueConverterException vce) {
@@ -27778,40 +27848,40 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10633:2: ( ',' ( (lv_parameters_4_0= ruleParameterDeclaration ) ) )*
-                    loop163:
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10665:2: ( ',' ( (lv_parameters_7_0= ruleParameterDeclaration ) ) )*
+                    loop164:
                     do {
-                        int alt163=2;
-                        int LA163_0 = input.LA(1);
+                        int alt164=2;
+                        int LA164_0 = input.LA(1);
 
-                        if ( (LA163_0==23) ) {
-                            alt163=1;
+                        if ( (LA164_0==23) ) {
+                            alt164=1;
                         }
 
 
-                        switch (alt163) {
+                        switch (alt164) {
                     	case 1 :
-                    	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10633:4: ',' ( (lv_parameters_4_0= ruleParameterDeclaration ) )
+                    	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10665:4: ',' ( (lv_parameters_7_0= ruleParameterDeclaration ) )
                     	    {
-                    	    match(input,23,FOLLOW_23_in_ruleLiteralFunction17906); if (failed) return current;
+                    	    match(input,23,FOLLOW_23_in_ruleLiteralFunction17950); if (failed) return current;
                     	    if ( backtracking==0 ) {
 
-                    	              createLeafNode(grammarAccess.getLiteralFunctionAccess().getCommaKeyword_2_1_0(), null); 
+                    	              createLeafNode(grammarAccess.getLiteralFunctionAccess().getCommaKeyword_3_1_0(), null); 
                     	          
                     	    }
-                    	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10637:1: ( (lv_parameters_4_0= ruleParameterDeclaration ) )
-                    	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10638:1: (lv_parameters_4_0= ruleParameterDeclaration )
+                    	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10669:1: ( (lv_parameters_7_0= ruleParameterDeclaration ) )
+                    	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10670:1: (lv_parameters_7_0= ruleParameterDeclaration )
                     	    {
-                    	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10638:1: (lv_parameters_4_0= ruleParameterDeclaration )
-                    	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10639:3: lv_parameters_4_0= ruleParameterDeclaration
+                    	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10670:1: (lv_parameters_7_0= ruleParameterDeclaration )
+                    	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10671:3: lv_parameters_7_0= ruleParameterDeclaration
                     	    {
                     	    if ( backtracking==0 ) {
                     	       
-                    	      	        currentNode=createCompositeNode(grammarAccess.getLiteralFunctionAccess().getParametersParameterDeclarationParserRuleCall_2_1_1_0(), currentNode); 
+                    	      	        currentNode=createCompositeNode(grammarAccess.getLiteralFunctionAccess().getParametersParameterDeclarationParserRuleCall_3_1_1_0(), currentNode); 
                     	      	    
                     	    }
-                    	    pushFollow(FOLLOW_ruleParameterDeclaration_in_ruleLiteralFunction17927);
-                    	    lv_parameters_4_0=ruleParameterDeclaration();
+                    	    pushFollow(FOLLOW_ruleParameterDeclaration_in_ruleLiteralFunction17971);
+                    	    lv_parameters_7_0=ruleParameterDeclaration();
                     	    _fsp--;
                     	    if (failed) return current;
                     	    if ( backtracking==0 ) {
@@ -27824,7 +27894,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     	      	       		add(
                     	      	       			current, 
                     	      	       			"parameters",
-                    	      	        		lv_parameters_4_0, 
+                    	      	        		lv_parameters_7_0, 
                     	      	        		"ParameterDeclaration", 
                     	      	        		currentNode);
                     	      	        } catch (ValueConverterException vce) {
@@ -27844,7 +27914,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop163;
+                    	    break loop164;
                         }
                     } while (true);
 
@@ -27854,655 +27924,56 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,109,FOLLOW_109_in_ruleLiteralFunction17941); if (failed) return current;
+            match(input,109,FOLLOW_109_in_ruleLiteralFunction17985); if (failed) return current;
             if ( backtracking==0 ) {
 
-                      createLeafNode(grammarAccess.getLiteralFunctionAccess().getVerticalLineKeyword_3(), null); 
+                      createLeafNode(grammarAccess.getLiteralFunctionAccess().getVerticalLineKeyword_4(), null); 
                   
             }
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10665:1: ( ( (lv_funcExpr_6_0= ruleExpression ) ) | ( (lv_funcExpr_7_0= ruleBlockExpressionWithoutBrackets ) ) )
-            int alt165=2;
-            switch ( input.LA(1) ) {
-            case 77:
-                {
-                int LA165_1 = input.LA(2);
-
-                if ( (synpred227()) ) {
-                    alt165=1;
-                }
-                else if ( (true) ) {
-                    alt165=2;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return current;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("10665:1: ( ( (lv_funcExpr_6_0= ruleExpression ) ) | ( (lv_funcExpr_7_0= ruleBlockExpressionWithoutBrackets ) ) )", 165, 1, input);
-
-                    throw nvae;
-                }
-                }
-                break;
-            case RULE_ID:
-                {
-                int LA165_2 = input.LA(2);
-
-                if ( (synpred227()) ) {
-                    alt165=1;
-                }
-                else if ( (true) ) {
-                    alt165=2;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return current;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("10665:1: ( ( (lv_funcExpr_6_0= ruleExpression ) ) | ( (lv_funcExpr_7_0= ruleBlockExpressionWithoutBrackets ) ) )", 165, 2, input);
-
-                    throw nvae;
-                }
-                }
-                break;
-            case RULE_PID:
-                {
-                int LA165_3 = input.LA(2);
-
-                if ( (synpred227()) ) {
-                    alt165=1;
-                }
-                else if ( (true) ) {
-                    alt165=2;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return current;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("10665:1: ( ( (lv_funcExpr_6_0= ruleExpression ) ) | ( (lv_funcExpr_7_0= ruleBlockExpressionWithoutBrackets ) ) )", 165, 3, input);
-
-                    throw nvae;
-                }
-                }
-                break;
-            case 107:
-                {
-                int LA165_4 = input.LA(2);
-
-                if ( (synpred227()) ) {
-                    alt165=1;
-                }
-                else if ( (true) ) {
-                    alt165=2;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return current;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("10665:1: ( ( (lv_funcExpr_6_0= ruleExpression ) ) | ( (lv_funcExpr_7_0= ruleBlockExpressionWithoutBrackets ) ) )", 165, 4, input);
-
-                    throw nvae;
-                }
-                }
-                break;
-            case 110:
-                {
-                int LA165_5 = input.LA(2);
-
-                if ( (synpred227()) ) {
-                    alt165=1;
-                }
-                else if ( (true) ) {
-                    alt165=2;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return current;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("10665:1: ( ( (lv_funcExpr_6_0= ruleExpression ) ) | ( (lv_funcExpr_7_0= ruleBlockExpressionWithoutBrackets ) ) )", 165, 5, input);
-
-                    throw nvae;
-                }
-                }
-                break;
-            case 111:
-                {
-                int LA165_6 = input.LA(2);
-
-                if ( (synpred227()) ) {
-                    alt165=1;
-                }
-                else if ( (true) ) {
-                    alt165=2;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return current;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("10665:1: ( ( (lv_funcExpr_6_0= ruleExpression ) ) | ( (lv_funcExpr_7_0= ruleBlockExpressionWithoutBrackets ) ) )", 165, 6, input);
-
-                    throw nvae;
-                }
-                }
-                break;
-            case RULE_INT:
-                {
-                int LA165_7 = input.LA(2);
-
-                if ( (synpred227()) ) {
-                    alt165=1;
-                }
-                else if ( (true) ) {
-                    alt165=2;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return current;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("10665:1: ( ( (lv_funcExpr_6_0= ruleExpression ) ) | ( (lv_funcExpr_7_0= ruleBlockExpressionWithoutBrackets ) ) )", 165, 7, input);
-
-                    throw nvae;
-                }
-                }
-                break;
-            case 92:
-                {
-                int LA165_8 = input.LA(2);
-
-                if ( (synpred227()) ) {
-                    alt165=1;
-                }
-                else if ( (true) ) {
-                    alt165=2;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return current;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("10665:1: ( ( (lv_funcExpr_6_0= ruleExpression ) ) | ( (lv_funcExpr_7_0= ruleBlockExpressionWithoutBrackets ) ) )", 165, 8, input);
-
-                    throw nvae;
-                }
-                }
-                break;
-            case RULE_HEX:
-                {
-                int LA165_9 = input.LA(2);
-
-                if ( (synpred227()) ) {
-                    alt165=1;
-                }
-                else if ( (true) ) {
-                    alt165=2;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return current;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("10665:1: ( ( (lv_funcExpr_6_0= ruleExpression ) ) | ( (lv_funcExpr_7_0= ruleBlockExpressionWithoutBrackets ) ) )", 165, 9, input);
-
-                    throw nvae;
-                }
-                }
-                break;
-            case RULE_STRING:
-                {
-                int LA165_10 = input.LA(2);
-
-                if ( (synpred227()) ) {
-                    alt165=1;
-                }
-                else if ( (true) ) {
-                    alt165=2;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return current;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("10665:1: ( ( (lv_funcExpr_6_0= ruleExpression ) ) | ( (lv_funcExpr_7_0= ruleBlockExpressionWithoutBrackets ) ) )", 165, 10, input);
-
-                    throw nvae;
-                }
-                }
-                break;
-            case 20:
-                {
-                int LA165_11 = input.LA(2);
-
-                if ( (synpred227()) ) {
-                    alt165=1;
-                }
-                else if ( (true) ) {
-                    alt165=2;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return current;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("10665:1: ( ( (lv_funcExpr_6_0= ruleExpression ) ) | ( (lv_funcExpr_7_0= ruleBlockExpressionWithoutBrackets ) ) )", 165, 11, input);
-
-                    throw nvae;
-                }
-                }
-                break;
-            case RULE_REGULAR_EXPR:
-                {
-                int LA165_12 = input.LA(2);
-
-                if ( (synpred227()) ) {
-                    alt165=1;
-                }
-                else if ( (true) ) {
-                    alt165=2;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return current;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("10665:1: ( ( (lv_funcExpr_6_0= ruleExpression ) ) | ( (lv_funcExpr_7_0= ruleBlockExpressionWithoutBrackets ) ) )", 165, 12, input);
-
-                    throw nvae;
-                }
-                }
-                break;
-            case 41:
-                {
-                int LA165_13 = input.LA(2);
-
-                if ( (synpred227()) ) {
-                    alt165=1;
-                }
-                else if ( (true) ) {
-                    alt165=2;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return current;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("10665:1: ( ( (lv_funcExpr_6_0= ruleExpression ) ) | ( (lv_funcExpr_7_0= ruleBlockExpressionWithoutBrackets ) ) )", 165, 13, input);
-
-                    throw nvae;
-                }
-                }
-                break;
-            case 24:
-                {
-                int LA165_14 = input.LA(2);
-
-                if ( (synpred227()) ) {
-                    alt165=1;
-                }
-                else if ( (true) ) {
-                    alt165=2;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return current;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("10665:1: ( ( (lv_funcExpr_6_0= ruleExpression ) ) | ( (lv_funcExpr_7_0= ruleBlockExpressionWithoutBrackets ) ) )", 165, 14, input);
-
-                    throw nvae;
-                }
-                }
-                break;
-            case 50:
-                {
-                int LA165_15 = input.LA(2);
-
-                if ( (synpred227()) ) {
-                    alt165=1;
-                }
-                else if ( (true) ) {
-                    alt165=2;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return current;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("10665:1: ( ( (lv_funcExpr_6_0= ruleExpression ) ) | ( (lv_funcExpr_7_0= ruleBlockExpressionWithoutBrackets ) ) )", 165, 15, input);
-
-                    throw nvae;
-                }
-                }
-                break;
-            case 51:
-                {
-                int LA165_16 = input.LA(2);
-
-                if ( (synpred227()) ) {
-                    alt165=1;
-                }
-                else if ( (true) ) {
-                    alt165=2;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return current;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("10665:1: ( ( (lv_funcExpr_6_0= ruleExpression ) ) | ( (lv_funcExpr_7_0= ruleBlockExpressionWithoutBrackets ) ) )", 165, 16, input);
-
-                    throw nvae;
-                }
-                }
-                break;
-            case 26:
-                {
-                int LA165_17 = input.LA(2);
-
-                if ( (synpred227()) ) {
-                    alt165=1;
-                }
-                else if ( (true) ) {
-                    alt165=2;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return current;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("10665:1: ( ( (lv_funcExpr_6_0= ruleExpression ) ) | ( (lv_funcExpr_7_0= ruleBlockExpressionWithoutBrackets ) ) )", 165, 17, input);
-
-                    throw nvae;
-                }
-                }
-                break;
-            case 44:
-                {
-                int LA165_18 = input.LA(2);
-
-                if ( (synpred227()) ) {
-                    alt165=1;
-                }
-                else if ( (true) ) {
-                    alt165=2;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return current;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("10665:1: ( ( (lv_funcExpr_6_0= ruleExpression ) ) | ( (lv_funcExpr_7_0= ruleBlockExpressionWithoutBrackets ) ) )", 165, 18, input);
-
-                    throw nvae;
-                }
-                }
-                break;
-            case 102:
-                {
-                int LA165_19 = input.LA(2);
-
-                if ( (synpred227()) ) {
-                    alt165=1;
-                }
-                else if ( (true) ) {
-                    alt165=2;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return current;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("10665:1: ( ( (lv_funcExpr_6_0= ruleExpression ) ) | ( (lv_funcExpr_7_0= ruleBlockExpressionWithoutBrackets ) ) )", 165, 19, input);
-
-                    throw nvae;
-                }
-                }
-                break;
-            case 99:
-                {
-                int LA165_20 = input.LA(2);
-
-                if ( (synpred227()) ) {
-                    alt165=1;
-                }
-                else if ( (true) ) {
-                    alt165=2;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return current;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("10665:1: ( ( (lv_funcExpr_6_0= ruleExpression ) ) | ( (lv_funcExpr_7_0= ruleBlockExpressionWithoutBrackets ) ) )", 165, 20, input);
-
-                    throw nvae;
-                }
-                }
-                break;
-            case 94:
-                {
-                int LA165_21 = input.LA(2);
-
-                if ( (synpred227()) ) {
-                    alt165=1;
-                }
-                else if ( (true) ) {
-                    alt165=2;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return current;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("10665:1: ( ( (lv_funcExpr_6_0= ruleExpression ) ) | ( (lv_funcExpr_7_0= ruleBlockExpressionWithoutBrackets ) ) )", 165, 21, input);
-
-                    throw nvae;
-                }
-                }
-                break;
-            case 95:
-                {
-                int LA165_22 = input.LA(2);
-
-                if ( (synpred227()) ) {
-                    alt165=1;
-                }
-                else if ( (true) ) {
-                    alt165=2;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return current;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("10665:1: ( ( (lv_funcExpr_6_0= ruleExpression ) ) | ( (lv_funcExpr_7_0= ruleBlockExpressionWithoutBrackets ) ) )", 165, 22, input);
-
-                    throw nvae;
-                }
-                }
-                break;
-            case 93:
-                {
-                int LA165_23 = input.LA(2);
-
-                if ( (synpred227()) ) {
-                    alt165=1;
-                }
-                else if ( (true) ) {
-                    alt165=2;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return current;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("10665:1: ( ( (lv_funcExpr_6_0= ruleExpression ) ) | ( (lv_funcExpr_7_0= ruleBlockExpressionWithoutBrackets ) ) )", 165, 23, input);
-
-                    throw nvae;
-                }
-                }
-                break;
-            case 88:
-                {
-                int LA165_24 = input.LA(2);
-
-                if ( (synpred227()) ) {
-                    alt165=1;
-                }
-                else if ( (true) ) {
-                    alt165=2;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return current;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("10665:1: ( ( (lv_funcExpr_6_0= ruleExpression ) ) | ( (lv_funcExpr_7_0= ruleBlockExpressionWithoutBrackets ) ) )", 165, 24, input);
-
-                    throw nvae;
-                }
-                }
-                break;
-            case 84:
-                {
-                int LA165_25 = input.LA(2);
-
-                if ( (synpred227()) ) {
-                    alt165=1;
-                }
-                else if ( (true) ) {
-                    alt165=2;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return current;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("10665:1: ( ( (lv_funcExpr_6_0= ruleExpression ) ) | ( (lv_funcExpr_7_0= ruleBlockExpressionWithoutBrackets ) ) )", 165, 25, input);
-
-                    throw nvae;
-                }
-                }
-                break;
-            case 89:
-                {
-                int LA165_26 = input.LA(2);
-
-                if ( (synpred227()) ) {
-                    alt165=1;
-                }
-                else if ( (true) ) {
-                    alt165=2;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return current;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("10665:1: ( ( (lv_funcExpr_6_0= ruleExpression ) ) | ( (lv_funcExpr_7_0= ruleBlockExpressionWithoutBrackets ) ) )", 165, 26, input);
-
-                    throw nvae;
-                }
-                }
-                break;
-            case 90:
-                {
-                int LA165_27 = input.LA(2);
-
-                if ( (synpred227()) ) {
-                    alt165=1;
-                }
-                else if ( (true) ) {
-                    alt165=2;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return current;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("10665:1: ( ( (lv_funcExpr_6_0= ruleExpression ) ) | ( (lv_funcExpr_7_0= ruleBlockExpressionWithoutBrackets ) ) )", 165, 27, input);
-
-                    throw nvae;
-                }
-                }
-                break;
-            case 91:
-                {
-                int LA165_28 = input.LA(2);
-
-                if ( (synpred227()) ) {
-                    alt165=1;
-                }
-                else if ( (true) ) {
-                    alt165=2;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return current;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("10665:1: ( ( (lv_funcExpr_6_0= ruleExpression ) ) | ( (lv_funcExpr_7_0= ruleBlockExpressionWithoutBrackets ) ) )", 165, 28, input);
-
-                    throw nvae;
-                }
-                }
-                break;
-            default:
-                if (backtracking>0) {failed=true; return current;}
-                NoViableAltException nvae =
-                    new NoViableAltException("10665:1: ( ( (lv_funcExpr_6_0= ruleExpression ) ) | ( (lv_funcExpr_7_0= ruleBlockExpressionWithoutBrackets ) ) )", 165, 0, input);
-
-                throw nvae;
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10697:1: ( (lv_funcExpr_9_0= ruleOneOrManyExpressions ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10698:1: (lv_funcExpr_9_0= ruleOneOrManyExpressions )
+            {
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10698:1: (lv_funcExpr_9_0= ruleOneOrManyExpressions )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10699:3: lv_funcExpr_9_0= ruleOneOrManyExpressions
+            {
+            if ( backtracking==0 ) {
+               
+              	        currentNode=createCompositeNode(grammarAccess.getLiteralFunctionAccess().getFuncExprOneOrManyExpressionsParserRuleCall_5_0(), currentNode); 
+              	    
             }
-
-            switch (alt165) {
-                case 1 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10665:2: ( (lv_funcExpr_6_0= ruleExpression ) )
-                    {
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10665:2: ( (lv_funcExpr_6_0= ruleExpression ) )
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10666:1: (lv_funcExpr_6_0= ruleExpression )
-                    {
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10666:1: (lv_funcExpr_6_0= ruleExpression )
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10667:3: lv_funcExpr_6_0= ruleExpression
-                    {
-                    if ( backtracking==0 ) {
-                       
-                      	        currentNode=createCompositeNode(grammarAccess.getLiteralFunctionAccess().getFuncExprExpressionParserRuleCall_4_0_0(), currentNode); 
-                      	    
-                    }
-                    pushFollow(FOLLOW_ruleExpression_in_ruleLiteralFunction17963);
-                    lv_funcExpr_6_0=ruleExpression();
-                    _fsp--;
-                    if (failed) return current;
-                    if ( backtracking==0 ) {
-
-                      	        if (current==null) {
-                      	            current = factory.create(grammarAccess.getLiteralFunctionRule().getType().getClassifier());
-                      	            associateNodeWithAstElement(currentNode.getParent(), current);
-                      	        }
-                      	        try {
-                      	       		set(
-                      	       			current, 
-                      	       			"funcExpr",
-                      	        		lv_funcExpr_6_0, 
-                      	        		"Expression", 
-                      	        		currentNode);
-                      	        } catch (ValueConverterException vce) {
-                      				handleValueConverterException(vce);
-                      	        }
-                      	        currentNode = currentNode.getParent();
-                      	    
-                    }
-
-                    }
-
-
-                    }
-
-
-                    }
-                    break;
-                case 2 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10690:6: ( (lv_funcExpr_7_0= ruleBlockExpressionWithoutBrackets ) )
-                    {
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10690:6: ( (lv_funcExpr_7_0= ruleBlockExpressionWithoutBrackets ) )
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10691:1: (lv_funcExpr_7_0= ruleBlockExpressionWithoutBrackets )
-                    {
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10691:1: (lv_funcExpr_7_0= ruleBlockExpressionWithoutBrackets )
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10692:3: lv_funcExpr_7_0= ruleBlockExpressionWithoutBrackets
-                    {
-                    if ( backtracking==0 ) {
-                       
-                      	        currentNode=createCompositeNode(grammarAccess.getLiteralFunctionAccess().getFuncExprBlockExpressionWithoutBracketsParserRuleCall_4_1_0(), currentNode); 
-                      	    
-                    }
-                    pushFollow(FOLLOW_ruleBlockExpressionWithoutBrackets_in_ruleLiteralFunction17990);
-                    lv_funcExpr_7_0=ruleBlockExpressionWithoutBrackets();
-                    _fsp--;
-                    if (failed) return current;
-                    if ( backtracking==0 ) {
-
-                      	        if (current==null) {
-                      	            current = factory.create(grammarAccess.getLiteralFunctionRule().getType().getClassifier());
-                      	            associateNodeWithAstElement(currentNode.getParent(), current);
-                      	        }
-                      	        try {
-                      	       		set(
-                      	       			current, 
-                      	       			"funcExpr",
-                      	        		lv_funcExpr_7_0, 
-                      	        		"BlockExpressionWithoutBrackets", 
-                      	        		currentNode);
-                      	        } catch (ValueConverterException vce) {
-                      				handleValueConverterException(vce);
-                      	        }
-                      	        currentNode = currentNode.getParent();
-                      	    
-                    }
-
-                    }
-
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-            match(input,28,FOLLOW_28_in_ruleLiteralFunction18001); if (failed) return current;
+            pushFollow(FOLLOW_ruleOneOrManyExpressions_in_ruleLiteralFunction18006);
+            lv_funcExpr_9_0=ruleOneOrManyExpressions();
+            _fsp--;
+            if (failed) return current;
             if ( backtracking==0 ) {
 
-                      createLeafNode(grammarAccess.getLiteralFunctionAccess().getRightCurlyBracketKeyword_5(), null); 
+              	        if (current==null) {
+              	            current = factory.create(grammarAccess.getLiteralFunctionRule().getType().getClassifier());
+              	            associateNodeWithAstElement(currentNode.getParent(), current);
+              	        }
+              	        try {
+              	       		set(
+              	       			current, 
+              	       			"funcExpr",
+              	        		lv_funcExpr_9_0, 
+              	        		"OneOrManyExpressions", 
+              	        		currentNode);
+              	        } catch (ValueConverterException vce) {
+              				handleValueConverterException(vce);
+              	        }
+              	        currentNode = currentNode.getParent();
+              	    
+            }
+
+            }
+
+
+            }
+
+            match(input,28,FOLLOW_28_in_ruleLiteralFunction18016); if (failed) return current;
+            if ( backtracking==0 ) {
+
+                      createLeafNode(grammarAccess.getLiteralFunctionAccess().getRightCurlyBracketKeyword_6(), null); 
                   
             }
 
@@ -28530,7 +28001,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleClosureExpression
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10725:1: entryRuleClosureExpression returns [EObject current=null] : iv_ruleClosureExpression= ruleClosureExpression EOF ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10732:1: entryRuleClosureExpression returns [EObject current=null] : iv_ruleClosureExpression= ruleClosureExpression EOF ;
     public final EObject entryRuleClosureExpression() throws RecognitionException {
         EObject current = null;
 
@@ -28538,20 +28009,20 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10725:59: (iv_ruleClosureExpression= ruleClosureExpression EOF )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10726:2: iv_ruleClosureExpression= ruleClosureExpression EOF
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10732:59: (iv_ruleClosureExpression= ruleClosureExpression EOF )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10733:2: iv_ruleClosureExpression= ruleClosureExpression EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getClosureExpressionRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleClosureExpression_in_entryRuleClosureExpression18034);
+            pushFollow(FOLLOW_ruleClosureExpression_in_entryRuleClosureExpression18049);
             iv_ruleClosureExpression=ruleClosureExpression();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleClosureExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleClosureExpression18044); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleClosureExpression18059); if (failed) return current;
 
             }
 
@@ -28569,28 +28040,30 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleClosureExpression
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10733:1: ruleClosureExpression returns [EObject current=null] : ( () ( ( (lv_parameters_1_0= ruleParameterDeclaration ) ) ( ',' ( (lv_parameters_3_0= ruleParameterDeclaration ) ) )* )? '|' ( (lv_funcExpr_5_0= ruleOneOrManyExpressions ) ) ) ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10740:1: ruleClosureExpression returns [EObject current=null] : ( () ( '<' ( (lv_returnType_2_0= ruleTypeRef ) ) '>' )? ( ( (lv_parameters_4_0= ruleParameterDeclaration ) ) ( ',' ( (lv_parameters_6_0= ruleParameterDeclaration ) ) )* )? '|' ( (lv_funcExpr_8_0= ruleOneOrManyExpressions ) ) ) ;
     public final EObject ruleClosureExpression() throws RecognitionException {
         EObject current = null;
 
-        EObject lv_parameters_1_0 = null;
+        EObject lv_returnType_2_0 = null;
 
-        EObject lv_parameters_3_0 = null;
+        EObject lv_parameters_4_0 = null;
 
-        EObject lv_funcExpr_5_0 = null;
+        EObject lv_parameters_6_0 = null;
+
+        EObject lv_funcExpr_8_0 = null;
 
 
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10738:6: ( ( () ( ( (lv_parameters_1_0= ruleParameterDeclaration ) ) ( ',' ( (lv_parameters_3_0= ruleParameterDeclaration ) ) )* )? '|' ( (lv_funcExpr_5_0= ruleOneOrManyExpressions ) ) ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10739:1: ( () ( ( (lv_parameters_1_0= ruleParameterDeclaration ) ) ( ',' ( (lv_parameters_3_0= ruleParameterDeclaration ) ) )* )? '|' ( (lv_funcExpr_5_0= ruleOneOrManyExpressions ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10745:6: ( ( () ( '<' ( (lv_returnType_2_0= ruleTypeRef ) ) '>' )? ( ( (lv_parameters_4_0= ruleParameterDeclaration ) ) ( ',' ( (lv_parameters_6_0= ruleParameterDeclaration ) ) )* )? '|' ( (lv_funcExpr_8_0= ruleOneOrManyExpressions ) ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10746:1: ( () ( '<' ( (lv_returnType_2_0= ruleTypeRef ) ) '>' )? ( ( (lv_parameters_4_0= ruleParameterDeclaration ) ) ( ',' ( (lv_parameters_6_0= ruleParameterDeclaration ) ) )* )? '|' ( (lv_funcExpr_8_0= ruleOneOrManyExpressions ) ) )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10739:1: ( () ( ( (lv_parameters_1_0= ruleParameterDeclaration ) ) ( ',' ( (lv_parameters_3_0= ruleParameterDeclaration ) ) )* )? '|' ( (lv_funcExpr_5_0= ruleOneOrManyExpressions ) ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10739:2: () ( ( (lv_parameters_1_0= ruleParameterDeclaration ) ) ( ',' ( (lv_parameters_3_0= ruleParameterDeclaration ) ) )* )? '|' ( (lv_funcExpr_5_0= ruleOneOrManyExpressions ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10746:1: ( () ( '<' ( (lv_returnType_2_0= ruleTypeRef ) ) '>' )? ( ( (lv_parameters_4_0= ruleParameterDeclaration ) ) ( ',' ( (lv_parameters_6_0= ruleParameterDeclaration ) ) )* )? '|' ( (lv_funcExpr_8_0= ruleOneOrManyExpressions ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10746:2: () ( '<' ( (lv_returnType_2_0= ruleTypeRef ) ) '>' )? ( ( (lv_parameters_4_0= ruleParameterDeclaration ) ) ( ',' ( (lv_parameters_6_0= ruleParameterDeclaration ) ) )* )? '|' ( (lv_funcExpr_8_0= ruleOneOrManyExpressions ) )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10739:2: ()
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10740:2: 
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10746:2: ()
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10747:2: 
             {
             if ( backtracking==0 ) {
                
@@ -28612,30 +28085,99 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10753:2: ( ( (lv_parameters_1_0= ruleParameterDeclaration ) ) ( ',' ( (lv_parameters_3_0= ruleParameterDeclaration ) ) )* )?
-            int alt167=2;
-            int LA167_0 = input.LA(1);
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10760:2: ( '<' ( (lv_returnType_2_0= ruleTypeRef ) ) '>' )?
+            int alt166=2;
+            int LA166_0 = input.LA(1);
 
-            if ( (LA167_0==RULE_ID) ) {
-                alt167=1;
+            if ( (LA166_0==76) ) {
+                alt166=1;
             }
-            switch (alt167) {
+            switch (alt166) {
                 case 1 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10753:3: ( (lv_parameters_1_0= ruleParameterDeclaration ) ) ( ',' ( (lv_parameters_3_0= ruleParameterDeclaration ) ) )*
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10760:4: '<' ( (lv_returnType_2_0= ruleTypeRef ) ) '>'
                     {
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10753:3: ( (lv_parameters_1_0= ruleParameterDeclaration ) )
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10754:1: (lv_parameters_1_0= ruleParameterDeclaration )
+                    match(input,76,FOLLOW_76_in_ruleClosureExpression18107); if (failed) return current;
+                    if ( backtracking==0 ) {
+
+                              createLeafNode(grammarAccess.getClosureExpressionAccess().getLessThanSignKeyword_1_0(), null); 
+                          
+                    }
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10764:1: ( (lv_returnType_2_0= ruleTypeRef ) )
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10765:1: (lv_returnType_2_0= ruleTypeRef )
                     {
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10754:1: (lv_parameters_1_0= ruleParameterDeclaration )
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10755:3: lv_parameters_1_0= ruleParameterDeclaration
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10765:1: (lv_returnType_2_0= ruleTypeRef )
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10766:3: lv_returnType_2_0= ruleTypeRef
                     {
                     if ( backtracking==0 ) {
                        
-                      	        currentNode=createCompositeNode(grammarAccess.getClosureExpressionAccess().getParametersParameterDeclarationParserRuleCall_1_0_0(), currentNode); 
+                      	        currentNode=createCompositeNode(grammarAccess.getClosureExpressionAccess().getReturnTypeTypeRefParserRuleCall_1_1_0(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleParameterDeclaration_in_ruleClosureExpression18103);
-                    lv_parameters_1_0=ruleParameterDeclaration();
+                    pushFollow(FOLLOW_ruleTypeRef_in_ruleClosureExpression18128);
+                    lv_returnType_2_0=ruleTypeRef();
+                    _fsp--;
+                    if (failed) return current;
+                    if ( backtracking==0 ) {
+
+                      	        if (current==null) {
+                      	            current = factory.create(grammarAccess.getClosureExpressionRule().getType().getClassifier());
+                      	            associateNodeWithAstElement(currentNode.getParent(), current);
+                      	        }
+                      	        try {
+                      	       		set(
+                      	       			current, 
+                      	       			"returnType",
+                      	        		lv_returnType_2_0, 
+                      	        		"TypeRef", 
+                      	        		currentNode);
+                      	        } catch (ValueConverterException vce) {
+                      				handleValueConverterException(vce);
+                      	        }
+                      	        currentNode = currentNode.getParent();
+                      	    
+                    }
+
+                    }
+
+
+                    }
+
+                    match(input,75,FOLLOW_75_in_ruleClosureExpression18138); if (failed) return current;
+                    if ( backtracking==0 ) {
+
+                              createLeafNode(grammarAccess.getClosureExpressionAccess().getGreaterThanSignKeyword_1_2(), null); 
+                          
+                    }
+
+                    }
+                    break;
+
+            }
+
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10792:3: ( ( (lv_parameters_4_0= ruleParameterDeclaration ) ) ( ',' ( (lv_parameters_6_0= ruleParameterDeclaration ) ) )* )?
+            int alt168=2;
+            int LA168_0 = input.LA(1);
+
+            if ( (LA168_0==RULE_ID) ) {
+                alt168=1;
+            }
+            switch (alt168) {
+                case 1 :
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10792:4: ( (lv_parameters_4_0= ruleParameterDeclaration ) ) ( ',' ( (lv_parameters_6_0= ruleParameterDeclaration ) ) )*
+                    {
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10792:4: ( (lv_parameters_4_0= ruleParameterDeclaration ) )
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10793:1: (lv_parameters_4_0= ruleParameterDeclaration )
+                    {
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10793:1: (lv_parameters_4_0= ruleParameterDeclaration )
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10794:3: lv_parameters_4_0= ruleParameterDeclaration
+                    {
+                    if ( backtracking==0 ) {
+                       
+                      	        currentNode=createCompositeNode(grammarAccess.getClosureExpressionAccess().getParametersParameterDeclarationParserRuleCall_2_0_0(), currentNode); 
+                      	    
+                    }
+                    pushFollow(FOLLOW_ruleParameterDeclaration_in_ruleClosureExpression18162);
+                    lv_parameters_4_0=ruleParameterDeclaration();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
@@ -28648,7 +28190,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                       	       		add(
                       	       			current, 
                       	       			"parameters",
-                      	        		lv_parameters_1_0, 
+                      	        		lv_parameters_4_0, 
                       	        		"ParameterDeclaration", 
                       	        		currentNode);
                       	        } catch (ValueConverterException vce) {
@@ -28663,40 +28205,40 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10777:2: ( ',' ( (lv_parameters_3_0= ruleParameterDeclaration ) ) )*
-                    loop166:
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10816:2: ( ',' ( (lv_parameters_6_0= ruleParameterDeclaration ) ) )*
+                    loop167:
                     do {
-                        int alt166=2;
-                        int LA166_0 = input.LA(1);
+                        int alt167=2;
+                        int LA167_0 = input.LA(1);
 
-                        if ( (LA166_0==23) ) {
-                            alt166=1;
+                        if ( (LA167_0==23) ) {
+                            alt167=1;
                         }
 
 
-                        switch (alt166) {
+                        switch (alt167) {
                     	case 1 :
-                    	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10777:4: ',' ( (lv_parameters_3_0= ruleParameterDeclaration ) )
+                    	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10816:4: ',' ( (lv_parameters_6_0= ruleParameterDeclaration ) )
                     	    {
-                    	    match(input,23,FOLLOW_23_in_ruleClosureExpression18114); if (failed) return current;
+                    	    match(input,23,FOLLOW_23_in_ruleClosureExpression18173); if (failed) return current;
                     	    if ( backtracking==0 ) {
 
-                    	              createLeafNode(grammarAccess.getClosureExpressionAccess().getCommaKeyword_1_1_0(), null); 
+                    	              createLeafNode(grammarAccess.getClosureExpressionAccess().getCommaKeyword_2_1_0(), null); 
                     	          
                     	    }
-                    	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10781:1: ( (lv_parameters_3_0= ruleParameterDeclaration ) )
-                    	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10782:1: (lv_parameters_3_0= ruleParameterDeclaration )
+                    	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10820:1: ( (lv_parameters_6_0= ruleParameterDeclaration ) )
+                    	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10821:1: (lv_parameters_6_0= ruleParameterDeclaration )
                     	    {
-                    	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10782:1: (lv_parameters_3_0= ruleParameterDeclaration )
-                    	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10783:3: lv_parameters_3_0= ruleParameterDeclaration
+                    	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10821:1: (lv_parameters_6_0= ruleParameterDeclaration )
+                    	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10822:3: lv_parameters_6_0= ruleParameterDeclaration
                     	    {
                     	    if ( backtracking==0 ) {
                     	       
-                    	      	        currentNode=createCompositeNode(grammarAccess.getClosureExpressionAccess().getParametersParameterDeclarationParserRuleCall_1_1_1_0(), currentNode); 
+                    	      	        currentNode=createCompositeNode(grammarAccess.getClosureExpressionAccess().getParametersParameterDeclarationParserRuleCall_2_1_1_0(), currentNode); 
                     	      	    
                     	    }
-                    	    pushFollow(FOLLOW_ruleParameterDeclaration_in_ruleClosureExpression18135);
-                    	    lv_parameters_3_0=ruleParameterDeclaration();
+                    	    pushFollow(FOLLOW_ruleParameterDeclaration_in_ruleClosureExpression18194);
+                    	    lv_parameters_6_0=ruleParameterDeclaration();
                     	    _fsp--;
                     	    if (failed) return current;
                     	    if ( backtracking==0 ) {
@@ -28709,7 +28251,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     	      	       		add(
                     	      	       			current, 
                     	      	       			"parameters",
-                    	      	        		lv_parameters_3_0, 
+                    	      	        		lv_parameters_6_0, 
                     	      	        		"ParameterDeclaration", 
                     	      	        		currentNode);
                     	      	        } catch (ValueConverterException vce) {
@@ -28729,7 +28271,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop166;
+                    	    break loop167;
                         }
                     } while (true);
 
@@ -28739,25 +28281,25 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,109,FOLLOW_109_in_ruleClosureExpression18149); if (failed) return current;
+            match(input,109,FOLLOW_109_in_ruleClosureExpression18208); if (failed) return current;
             if ( backtracking==0 ) {
 
-                      createLeafNode(grammarAccess.getClosureExpressionAccess().getVerticalLineKeyword_2(), null); 
+                      createLeafNode(grammarAccess.getClosureExpressionAccess().getVerticalLineKeyword_3(), null); 
                   
             }
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10809:1: ( (lv_funcExpr_5_0= ruleOneOrManyExpressions ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10810:1: (lv_funcExpr_5_0= ruleOneOrManyExpressions )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10848:1: ( (lv_funcExpr_8_0= ruleOneOrManyExpressions ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10849:1: (lv_funcExpr_8_0= ruleOneOrManyExpressions )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10810:1: (lv_funcExpr_5_0= ruleOneOrManyExpressions )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10811:3: lv_funcExpr_5_0= ruleOneOrManyExpressions
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10849:1: (lv_funcExpr_8_0= ruleOneOrManyExpressions )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10850:3: lv_funcExpr_8_0= ruleOneOrManyExpressions
             {
             if ( backtracking==0 ) {
                
-              	        currentNode=createCompositeNode(grammarAccess.getClosureExpressionAccess().getFuncExprOneOrManyExpressionsParserRuleCall_3_0(), currentNode); 
+              	        currentNode=createCompositeNode(grammarAccess.getClosureExpressionAccess().getFuncExprOneOrManyExpressionsParserRuleCall_4_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleOneOrManyExpressions_in_ruleClosureExpression18170);
-            lv_funcExpr_5_0=ruleOneOrManyExpressions();
+            pushFollow(FOLLOW_ruleOneOrManyExpressions_in_ruleClosureExpression18229);
+            lv_funcExpr_8_0=ruleOneOrManyExpressions();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
@@ -28770,7 +28312,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
               	       		set(
               	       			current, 
               	       			"funcExpr",
-              	        		lv_funcExpr_5_0, 
+              	        		lv_funcExpr_8_0, 
               	        		"OneOrManyExpressions", 
               	        		currentNode);
               	        } catch (ValueConverterException vce) {
@@ -28810,7 +28352,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleOneOrManyExpressions
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10840:1: entryRuleOneOrManyExpressions returns [EObject current=null] : iv_ruleOneOrManyExpressions= ruleOneOrManyExpressions EOF ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10879:1: entryRuleOneOrManyExpressions returns [EObject current=null] : iv_ruleOneOrManyExpressions= ruleOneOrManyExpressions EOF ;
     public final EObject entryRuleOneOrManyExpressions() throws RecognitionException {
         EObject current = null;
 
@@ -28818,20 +28360,20 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10840:62: (iv_ruleOneOrManyExpressions= ruleOneOrManyExpressions EOF )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10841:2: iv_ruleOneOrManyExpressions= ruleOneOrManyExpressions EOF
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10879:62: (iv_ruleOneOrManyExpressions= ruleOneOrManyExpressions EOF )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10880:2: iv_ruleOneOrManyExpressions= ruleOneOrManyExpressions EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getOneOrManyExpressionsRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleOneOrManyExpressions_in_entryRuleOneOrManyExpressions18203);
+            pushFollow(FOLLOW_ruleOneOrManyExpressions_in_entryRuleOneOrManyExpressions18262);
             iv_ruleOneOrManyExpressions=ruleOneOrManyExpressions();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleOneOrManyExpressions; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleOneOrManyExpressions18213); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleOneOrManyExpressions18272); if (failed) return current;
 
             }
 
@@ -28849,7 +28391,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleOneOrManyExpressions
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10848:1: ruleOneOrManyExpressions returns [EObject current=null] : (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression ) ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10887:1: ruleOneOrManyExpressions returns [EObject current=null] : (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression ) ;
     public final EObject ruleOneOrManyExpressions() throws RecognitionException {
         EObject current = null;
 
@@ -28861,26 +28403,26 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10853:6: ( (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10854:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10892:6: ( (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10893:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10854:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )
-            int alt168=2;
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10893:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )
+            int alt169=2;
             switch ( input.LA(1) ) {
             case 77:
                 {
-                int LA168_1 = input.LA(2);
+                int LA169_1 = input.LA(2);
 
-                if ( (synpred230()) ) {
-                    alt168=1;
+                if ( (synpred231()) ) {
+                    alt169=1;
                 }
                 else if ( (true) ) {
-                    alt168=2;
+                    alt169=2;
                 }
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("10854:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 168, 1, input);
+                        new NoViableAltException("10893:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 169, 1, input);
 
                     throw nvae;
                 }
@@ -28888,18 +28430,18 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                 break;
             case RULE_ID:
                 {
-                int LA168_2 = input.LA(2);
+                int LA169_2 = input.LA(2);
 
-                if ( (synpred230()) ) {
-                    alt168=1;
+                if ( (synpred231()) ) {
+                    alt169=1;
                 }
                 else if ( (true) ) {
-                    alt168=2;
+                    alt169=2;
                 }
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("10854:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 168, 2, input);
+                        new NoViableAltException("10893:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 169, 2, input);
 
                     throw nvae;
                 }
@@ -28907,18 +28449,18 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                 break;
             case RULE_PID:
                 {
-                int LA168_3 = input.LA(2);
+                int LA169_3 = input.LA(2);
 
-                if ( (synpred230()) ) {
-                    alt168=1;
+                if ( (synpred231()) ) {
+                    alt169=1;
                 }
                 else if ( (true) ) {
-                    alt168=2;
+                    alt169=2;
                 }
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("10854:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 168, 3, input);
+                        new NoViableAltException("10893:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 169, 3, input);
 
                     throw nvae;
                 }
@@ -28926,18 +28468,18 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                 break;
             case 107:
                 {
-                int LA168_4 = input.LA(2);
+                int LA169_4 = input.LA(2);
 
-                if ( (synpred230()) ) {
-                    alt168=1;
+                if ( (synpred231()) ) {
+                    alt169=1;
                 }
                 else if ( (true) ) {
-                    alt168=2;
+                    alt169=2;
                 }
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("10854:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 168, 4, input);
+                        new NoViableAltException("10893:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 169, 4, input);
 
                     throw nvae;
                 }
@@ -28945,18 +28487,18 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                 break;
             case 110:
                 {
-                int LA168_5 = input.LA(2);
+                int LA169_5 = input.LA(2);
 
-                if ( (synpred230()) ) {
-                    alt168=1;
+                if ( (synpred231()) ) {
+                    alt169=1;
                 }
                 else if ( (true) ) {
-                    alt168=2;
+                    alt169=2;
                 }
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("10854:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 168, 5, input);
+                        new NoViableAltException("10893:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 169, 5, input);
 
                     throw nvae;
                 }
@@ -28964,18 +28506,18 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                 break;
             case 111:
                 {
-                int LA168_6 = input.LA(2);
+                int LA169_6 = input.LA(2);
 
-                if ( (synpred230()) ) {
-                    alt168=1;
+                if ( (synpred231()) ) {
+                    alt169=1;
                 }
                 else if ( (true) ) {
-                    alt168=2;
+                    alt169=2;
                 }
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("10854:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 168, 6, input);
+                        new NoViableAltException("10893:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 169, 6, input);
 
                     throw nvae;
                 }
@@ -28983,18 +28525,18 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                 break;
             case RULE_INT:
                 {
-                int LA168_7 = input.LA(2);
+                int LA169_7 = input.LA(2);
 
-                if ( (synpred230()) ) {
-                    alt168=1;
+                if ( (synpred231()) ) {
+                    alt169=1;
                 }
                 else if ( (true) ) {
-                    alt168=2;
+                    alt169=2;
                 }
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("10854:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 168, 7, input);
+                        new NoViableAltException("10893:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 169, 7, input);
 
                     throw nvae;
                 }
@@ -29002,18 +28544,18 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                 break;
             case 92:
                 {
-                int LA168_8 = input.LA(2);
+                int LA169_8 = input.LA(2);
 
-                if ( (synpred230()) ) {
-                    alt168=1;
+                if ( (synpred231()) ) {
+                    alt169=1;
                 }
                 else if ( (true) ) {
-                    alt168=2;
+                    alt169=2;
                 }
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("10854:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 168, 8, input);
+                        new NoViableAltException("10893:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 169, 8, input);
 
                     throw nvae;
                 }
@@ -29021,18 +28563,18 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                 break;
             case RULE_HEX:
                 {
-                int LA168_9 = input.LA(2);
+                int LA169_9 = input.LA(2);
 
-                if ( (synpred230()) ) {
-                    alt168=1;
+                if ( (synpred231()) ) {
+                    alt169=1;
                 }
                 else if ( (true) ) {
-                    alt168=2;
+                    alt169=2;
                 }
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("10854:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 168, 9, input);
+                        new NoViableAltException("10893:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 169, 9, input);
 
                     throw nvae;
                 }
@@ -29040,18 +28582,18 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                 break;
             case RULE_STRING:
                 {
-                int LA168_10 = input.LA(2);
+                int LA169_10 = input.LA(2);
 
-                if ( (synpred230()) ) {
-                    alt168=1;
+                if ( (synpred231()) ) {
+                    alt169=1;
                 }
                 else if ( (true) ) {
-                    alt168=2;
+                    alt169=2;
                 }
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("10854:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 168, 10, input);
+                        new NoViableAltException("10893:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 169, 10, input);
 
                     throw nvae;
                 }
@@ -29059,18 +28601,18 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                 break;
             case 20:
                 {
-                int LA168_11 = input.LA(2);
+                int LA169_11 = input.LA(2);
 
-                if ( (synpred230()) ) {
-                    alt168=1;
+                if ( (synpred231()) ) {
+                    alt169=1;
                 }
                 else if ( (true) ) {
-                    alt168=2;
+                    alt169=2;
                 }
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("10854:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 168, 11, input);
+                        new NoViableAltException("10893:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 169, 11, input);
 
                     throw nvae;
                 }
@@ -29078,18 +28620,18 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                 break;
             case RULE_REGULAR_EXPR:
                 {
-                int LA168_12 = input.LA(2);
+                int LA169_12 = input.LA(2);
 
-                if ( (synpred230()) ) {
-                    alt168=1;
+                if ( (synpred231()) ) {
+                    alt169=1;
                 }
                 else if ( (true) ) {
-                    alt168=2;
+                    alt169=2;
                 }
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("10854:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 168, 12, input);
+                        new NoViableAltException("10893:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 169, 12, input);
 
                     throw nvae;
                 }
@@ -29097,18 +28639,18 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                 break;
             case 41:
                 {
-                int LA168_13 = input.LA(2);
+                int LA169_13 = input.LA(2);
 
-                if ( (synpred230()) ) {
-                    alt168=1;
+                if ( (synpred231()) ) {
+                    alt169=1;
                 }
                 else if ( (true) ) {
-                    alt168=2;
+                    alt169=2;
                 }
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("10854:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 168, 13, input);
+                        new NoViableAltException("10893:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 169, 13, input);
 
                     throw nvae;
                 }
@@ -29116,18 +28658,18 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                 break;
             case 24:
                 {
-                int LA168_14 = input.LA(2);
+                int LA169_14 = input.LA(2);
 
-                if ( (synpred230()) ) {
-                    alt168=1;
+                if ( (synpred231()) ) {
+                    alt169=1;
                 }
                 else if ( (true) ) {
-                    alt168=2;
+                    alt169=2;
                 }
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("10854:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 168, 14, input);
+                        new NoViableAltException("10893:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 169, 14, input);
 
                     throw nvae;
                 }
@@ -29135,18 +28677,18 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                 break;
             case 50:
                 {
-                int LA168_15 = input.LA(2);
+                int LA169_15 = input.LA(2);
 
-                if ( (synpred230()) ) {
-                    alt168=1;
+                if ( (synpred231()) ) {
+                    alt169=1;
                 }
                 else if ( (true) ) {
-                    alt168=2;
+                    alt169=2;
                 }
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("10854:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 168, 15, input);
+                        new NoViableAltException("10893:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 169, 15, input);
 
                     throw nvae;
                 }
@@ -29154,18 +28696,18 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                 break;
             case 51:
                 {
-                int LA168_16 = input.LA(2);
+                int LA169_16 = input.LA(2);
 
-                if ( (synpred230()) ) {
-                    alt168=1;
+                if ( (synpred231()) ) {
+                    alt169=1;
                 }
                 else if ( (true) ) {
-                    alt168=2;
+                    alt169=2;
                 }
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("10854:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 168, 16, input);
+                        new NoViableAltException("10893:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 169, 16, input);
 
                     throw nvae;
                 }
@@ -29173,18 +28715,18 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                 break;
             case 26:
                 {
-                int LA168_17 = input.LA(2);
+                int LA169_17 = input.LA(2);
 
-                if ( (synpred230()) ) {
-                    alt168=1;
+                if ( (synpred231()) ) {
+                    alt169=1;
                 }
                 else if ( (true) ) {
-                    alt168=2;
+                    alt169=2;
                 }
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("10854:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 168, 17, input);
+                        new NoViableAltException("10893:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 169, 17, input);
 
                     throw nvae;
                 }
@@ -29192,18 +28734,18 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                 break;
             case 44:
                 {
-                int LA168_18 = input.LA(2);
+                int LA169_18 = input.LA(2);
 
-                if ( (synpred230()) ) {
-                    alt168=1;
+                if ( (synpred231()) ) {
+                    alt169=1;
                 }
                 else if ( (true) ) {
-                    alt168=2;
+                    alt169=2;
                 }
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("10854:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 168, 18, input);
+                        new NoViableAltException("10893:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 169, 18, input);
 
                     throw nvae;
                 }
@@ -29211,18 +28753,18 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                 break;
             case 102:
                 {
-                int LA168_19 = input.LA(2);
+                int LA169_19 = input.LA(2);
 
-                if ( (synpred230()) ) {
-                    alt168=1;
+                if ( (synpred231()) ) {
+                    alt169=1;
                 }
                 else if ( (true) ) {
-                    alt168=2;
+                    alt169=2;
                 }
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("10854:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 168, 19, input);
+                        new NoViableAltException("10893:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 169, 19, input);
 
                     throw nvae;
                 }
@@ -29230,18 +28772,18 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                 break;
             case 99:
                 {
-                int LA168_20 = input.LA(2);
+                int LA169_20 = input.LA(2);
 
-                if ( (synpred230()) ) {
-                    alt168=1;
+                if ( (synpred231()) ) {
+                    alt169=1;
                 }
                 else if ( (true) ) {
-                    alt168=2;
+                    alt169=2;
                 }
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("10854:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 168, 20, input);
+                        new NoViableAltException("10893:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 169, 20, input);
 
                     throw nvae;
                 }
@@ -29249,18 +28791,18 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                 break;
             case 94:
                 {
-                int LA168_21 = input.LA(2);
+                int LA169_21 = input.LA(2);
 
-                if ( (synpred230()) ) {
-                    alt168=1;
+                if ( (synpred231()) ) {
+                    alt169=1;
                 }
                 else if ( (true) ) {
-                    alt168=2;
+                    alt169=2;
                 }
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("10854:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 168, 21, input);
+                        new NoViableAltException("10893:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 169, 21, input);
 
                     throw nvae;
                 }
@@ -29268,18 +28810,18 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                 break;
             case 95:
                 {
-                int LA168_22 = input.LA(2);
+                int LA169_22 = input.LA(2);
 
-                if ( (synpred230()) ) {
-                    alt168=1;
+                if ( (synpred231()) ) {
+                    alt169=1;
                 }
                 else if ( (true) ) {
-                    alt168=2;
+                    alt169=2;
                 }
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("10854:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 168, 22, input);
+                        new NoViableAltException("10893:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 169, 22, input);
 
                     throw nvae;
                 }
@@ -29287,18 +28829,18 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                 break;
             case 93:
                 {
-                int LA168_23 = input.LA(2);
+                int LA169_23 = input.LA(2);
 
-                if ( (synpred230()) ) {
-                    alt168=1;
+                if ( (synpred231()) ) {
+                    alt169=1;
                 }
                 else if ( (true) ) {
-                    alt168=2;
+                    alt169=2;
                 }
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("10854:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 168, 23, input);
+                        new NoViableAltException("10893:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 169, 23, input);
 
                     throw nvae;
                 }
@@ -29306,18 +28848,18 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                 break;
             case 88:
                 {
-                int LA168_24 = input.LA(2);
+                int LA169_24 = input.LA(2);
 
-                if ( (synpred230()) ) {
-                    alt168=1;
+                if ( (synpred231()) ) {
+                    alt169=1;
                 }
                 else if ( (true) ) {
-                    alt168=2;
+                    alt169=2;
                 }
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("10854:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 168, 24, input);
+                        new NoViableAltException("10893:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 169, 24, input);
 
                     throw nvae;
                 }
@@ -29325,18 +28867,18 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                 break;
             case 84:
                 {
-                int LA168_25 = input.LA(2);
+                int LA169_25 = input.LA(2);
 
-                if ( (synpred230()) ) {
-                    alt168=1;
+                if ( (synpred231()) ) {
+                    alt169=1;
                 }
                 else if ( (true) ) {
-                    alt168=2;
+                    alt169=2;
                 }
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("10854:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 168, 25, input);
+                        new NoViableAltException("10893:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 169, 25, input);
 
                     throw nvae;
                 }
@@ -29344,18 +28886,18 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                 break;
             case 89:
                 {
-                int LA168_26 = input.LA(2);
+                int LA169_26 = input.LA(2);
 
-                if ( (synpred230()) ) {
-                    alt168=1;
+                if ( (synpred231()) ) {
+                    alt169=1;
                 }
                 else if ( (true) ) {
-                    alt168=2;
+                    alt169=2;
                 }
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("10854:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 168, 26, input);
+                        new NoViableAltException("10893:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 169, 26, input);
 
                     throw nvae;
                 }
@@ -29363,18 +28905,18 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                 break;
             case 90:
                 {
-                int LA168_27 = input.LA(2);
+                int LA169_27 = input.LA(2);
 
-                if ( (synpred230()) ) {
-                    alt168=1;
+                if ( (synpred231()) ) {
+                    alt169=1;
                 }
                 else if ( (true) ) {
-                    alt168=2;
+                    alt169=2;
                 }
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("10854:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 168, 27, input);
+                        new NoViableAltException("10893:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 169, 27, input);
 
                     throw nvae;
                 }
@@ -29382,18 +28924,18 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                 break;
             case 91:
                 {
-                int LA168_28 = input.LA(2);
+                int LA169_28 = input.LA(2);
 
-                if ( (synpred230()) ) {
-                    alt168=1;
+                if ( (synpred231()) ) {
+                    alt169=1;
                 }
                 else if ( (true) ) {
-                    alt168=2;
+                    alt169=2;
                 }
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("10854:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 168, 28, input);
+                        new NoViableAltException("10893:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 169, 28, input);
 
                     throw nvae;
                 }
@@ -29402,14 +28944,14 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
             default:
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("10854:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 168, 0, input);
+                    new NoViableAltException("10893:1: (this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets | this_Expression_1= ruleExpression )", 169, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt168) {
+            switch (alt169) {
                 case 1 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10855:2: this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10894:2: this_BlockExpressionWithoutBrackets_0= ruleBlockExpressionWithoutBrackets
                     {
                     if ( backtracking==0 ) {
                        
@@ -29421,7 +28963,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getOneOrManyExpressionsAccess().getBlockExpressionWithoutBracketsParserRuleCall_0(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleBlockExpressionWithoutBrackets_in_ruleOneOrManyExpressions18263);
+                    pushFollow(FOLLOW_ruleBlockExpressionWithoutBrackets_in_ruleOneOrManyExpressions18322);
                     this_BlockExpressionWithoutBrackets_0=ruleBlockExpressionWithoutBrackets();
                     _fsp--;
                     if (failed) return current;
@@ -29435,7 +28977,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10868:2: this_Expression_1= ruleExpression
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10907:2: this_Expression_1= ruleExpression
                     {
                     if ( backtracking==0 ) {
                        
@@ -29447,7 +28989,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getOneOrManyExpressionsAccess().getExpressionParserRuleCall_1(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleExpression_in_ruleOneOrManyExpressions18293);
+                    pushFollow(FOLLOW_ruleExpression_in_ruleOneOrManyExpressions18352);
                     this_Expression_1=ruleExpression();
                     _fsp--;
                     if (failed) return current;
@@ -29485,7 +29027,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleBlockExpressionWithoutBrackets
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10886:1: entryRuleBlockExpressionWithoutBrackets returns [EObject current=null] : iv_ruleBlockExpressionWithoutBrackets= ruleBlockExpressionWithoutBrackets EOF ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10925:1: entryRuleBlockExpressionWithoutBrackets returns [EObject current=null] : iv_ruleBlockExpressionWithoutBrackets= ruleBlockExpressionWithoutBrackets EOF ;
     public final EObject entryRuleBlockExpressionWithoutBrackets() throws RecognitionException {
         EObject current = null;
 
@@ -29493,20 +29035,20 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10886:72: (iv_ruleBlockExpressionWithoutBrackets= ruleBlockExpressionWithoutBrackets EOF )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10887:2: iv_ruleBlockExpressionWithoutBrackets= ruleBlockExpressionWithoutBrackets EOF
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10925:72: (iv_ruleBlockExpressionWithoutBrackets= ruleBlockExpressionWithoutBrackets EOF )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10926:2: iv_ruleBlockExpressionWithoutBrackets= ruleBlockExpressionWithoutBrackets EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getBlockExpressionWithoutBracketsRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleBlockExpressionWithoutBrackets_in_entryRuleBlockExpressionWithoutBrackets18325);
+            pushFollow(FOLLOW_ruleBlockExpressionWithoutBrackets_in_entryRuleBlockExpressionWithoutBrackets18384);
             iv_ruleBlockExpressionWithoutBrackets=ruleBlockExpressionWithoutBrackets();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleBlockExpressionWithoutBrackets; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleBlockExpressionWithoutBrackets18335); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleBlockExpressionWithoutBrackets18394); if (failed) return current;
 
             }
 
@@ -29524,7 +29066,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleBlockExpressionWithoutBrackets
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10894:1: ruleBlockExpressionWithoutBrackets returns [EObject current=null] : ( () ( ( (lv_expressions_1_0= ruleExpression ) ) ';' )+ ) ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10933:1: ruleBlockExpressionWithoutBrackets returns [EObject current=null] : ( () ( ( (lv_expressions_1_0= ruleExpression ) ) ';' )+ ) ;
     public final EObject ruleBlockExpressionWithoutBrackets() throws RecognitionException {
         EObject current = null;
 
@@ -29534,14 +29076,14 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10899:6: ( ( () ( ( (lv_expressions_1_0= ruleExpression ) ) ';' )+ ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10900:1: ( () ( ( (lv_expressions_1_0= ruleExpression ) ) ';' )+ )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10938:6: ( ( () ( ( (lv_expressions_1_0= ruleExpression ) ) ';' )+ ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10939:1: ( () ( ( (lv_expressions_1_0= ruleExpression ) ) ';' )+ )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10900:1: ( () ( ( (lv_expressions_1_0= ruleExpression ) ) ';' )+ )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10900:2: () ( ( (lv_expressions_1_0= ruleExpression ) ) ';' )+
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10939:1: ( () ( ( (lv_expressions_1_0= ruleExpression ) ) ';' )+ )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10939:2: () ( ( (lv_expressions_1_0= ruleExpression ) ) ';' )+
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10900:2: ()
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10901:2: 
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10939:2: ()
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10940:2: 
             {
             if ( backtracking==0 ) {
                
@@ -29563,34 +29105,34 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10914:2: ( ( (lv_expressions_1_0= ruleExpression ) ) ';' )+
-            int cnt169=0;
-            loop169:
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10953:2: ( ( (lv_expressions_1_0= ruleExpression ) ) ';' )+
+            int cnt170=0;
+            loop170:
             do {
-                int alt169=2;
-                int LA169_0 = input.LA(1);
+                int alt170=2;
+                int LA170_0 = input.LA(1);
 
-                if ( (LA169_0==RULE_ID||(LA169_0>=RULE_STRING && LA169_0<=RULE_HEX)||LA169_0==20||LA169_0==24||LA169_0==26||LA169_0==41||LA169_0==44||(LA169_0>=50 && LA169_0<=51)||LA169_0==77||LA169_0==84||(LA169_0>=88 && LA169_0<=95)||LA169_0==99||LA169_0==102||LA169_0==107||(LA169_0>=110 && LA169_0<=111)) ) {
-                    alt169=1;
+                if ( (LA170_0==RULE_ID||(LA170_0>=RULE_STRING && LA170_0<=RULE_HEX)||LA170_0==20||LA170_0==24||LA170_0==26||LA170_0==41||LA170_0==44||(LA170_0>=50 && LA170_0<=51)||LA170_0==77||LA170_0==84||(LA170_0>=88 && LA170_0<=95)||LA170_0==99||LA170_0==102||LA170_0==107||(LA170_0>=110 && LA170_0<=111)) ) {
+                    alt170=1;
                 }
 
 
-                switch (alt169) {
+                switch (alt170) {
             	case 1 :
-            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10914:3: ( (lv_expressions_1_0= ruleExpression ) ) ';'
+            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10953:3: ( (lv_expressions_1_0= ruleExpression ) ) ';'
             	    {
-            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10914:3: ( (lv_expressions_1_0= ruleExpression ) )
-            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10915:1: (lv_expressions_1_0= ruleExpression )
+            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10953:3: ( (lv_expressions_1_0= ruleExpression ) )
+            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10954:1: (lv_expressions_1_0= ruleExpression )
             	    {
-            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10915:1: (lv_expressions_1_0= ruleExpression )
-            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10916:3: lv_expressions_1_0= ruleExpression
+            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10954:1: (lv_expressions_1_0= ruleExpression )
+            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10955:3: lv_expressions_1_0= ruleExpression
             	    {
             	    if ( backtracking==0 ) {
             	       
             	      	        currentNode=createCompositeNode(grammarAccess.getBlockExpressionWithoutBracketsAccess().getExpressionsExpressionParserRuleCall_1_0_0(), currentNode); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleExpression_in_ruleBlockExpressionWithoutBrackets18394);
+            	    pushFollow(FOLLOW_ruleExpression_in_ruleBlockExpressionWithoutBrackets18453);
             	    lv_expressions_1_0=ruleExpression();
             	    _fsp--;
             	    if (failed) return current;
@@ -29619,7 +29161,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    match(input,19,FOLLOW_19_in_ruleBlockExpressionWithoutBrackets18404); if (failed) return current;
+            	    match(input,19,FOLLOW_19_in_ruleBlockExpressionWithoutBrackets18463); if (failed) return current;
             	    if ( backtracking==0 ) {
 
             	              createLeafNode(grammarAccess.getBlockExpressionWithoutBracketsAccess().getSemicolonKeyword_1_1(), null); 
@@ -29630,13 +29172,13 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    if ( cnt169 >= 1 ) break loop169;
+            	    if ( cnt170 >= 1 ) break loop170;
             	    if (backtracking>0) {failed=true; return current;}
                         EarlyExitException eee =
-                            new EarlyExitException(169, input);
+                            new EarlyExitException(170, input);
                         throw eee;
                 }
-                cnt169++;
+                cnt170++;
             } while (true);
 
 
@@ -29664,7 +29206,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleMapEntry
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10949:1: entryRuleMapEntry returns [EObject current=null] : iv_ruleMapEntry= ruleMapEntry EOF ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10988:1: entryRuleMapEntry returns [EObject current=null] : iv_ruleMapEntry= ruleMapEntry EOF ;
     public final EObject entryRuleMapEntry() throws RecognitionException {
         EObject current = null;
 
@@ -29672,20 +29214,20 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10949:50: (iv_ruleMapEntry= ruleMapEntry EOF )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10950:2: iv_ruleMapEntry= ruleMapEntry EOF
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10988:50: (iv_ruleMapEntry= ruleMapEntry EOF )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10989:2: iv_ruleMapEntry= ruleMapEntry EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getMapEntryRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleMapEntry_in_entryRuleMapEntry18439);
+            pushFollow(FOLLOW_ruleMapEntry_in_entryRuleMapEntry18498);
             iv_ruleMapEntry=ruleMapEntry();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleMapEntry; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleMapEntry18449); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleMapEntry18508); if (failed) return current;
 
             }
 
@@ -29703,7 +29245,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleMapEntry
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10957:1: ruleMapEntry returns [EObject current=null] : ( () ( (lv_key_1_0= ruleKeyLiteral ) ) ':' ( (lv_value_3_0= ruleExpression ) ) ) ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10996:1: ruleMapEntry returns [EObject current=null] : ( () ( (lv_key_1_0= ruleKeyLiteral ) ) ':' ( (lv_value_3_0= ruleExpression ) ) ) ;
     public final EObject ruleMapEntry() throws RecognitionException {
         EObject current = null;
 
@@ -29715,14 +29257,14 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10962:6: ( ( () ( (lv_key_1_0= ruleKeyLiteral ) ) ':' ( (lv_value_3_0= ruleExpression ) ) ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10963:1: ( () ( (lv_key_1_0= ruleKeyLiteral ) ) ':' ( (lv_value_3_0= ruleExpression ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11001:6: ( ( () ( (lv_key_1_0= ruleKeyLiteral ) ) ':' ( (lv_value_3_0= ruleExpression ) ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11002:1: ( () ( (lv_key_1_0= ruleKeyLiteral ) ) ':' ( (lv_value_3_0= ruleExpression ) ) )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10963:1: ( () ( (lv_key_1_0= ruleKeyLiteral ) ) ':' ( (lv_value_3_0= ruleExpression ) ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10963:2: () ( (lv_key_1_0= ruleKeyLiteral ) ) ':' ( (lv_value_3_0= ruleExpression ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11002:1: ( () ( (lv_key_1_0= ruleKeyLiteral ) ) ':' ( (lv_value_3_0= ruleExpression ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11002:2: () ( (lv_key_1_0= ruleKeyLiteral ) ) ':' ( (lv_value_3_0= ruleExpression ) )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10963:2: ()
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10964:2: 
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11002:2: ()
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11003:2: 
             {
             if ( backtracking==0 ) {
                
@@ -29744,18 +29286,18 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10977:2: ( (lv_key_1_0= ruleKeyLiteral ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10978:1: (lv_key_1_0= ruleKeyLiteral )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11016:2: ( (lv_key_1_0= ruleKeyLiteral ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11017:1: (lv_key_1_0= ruleKeyLiteral )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10978:1: (lv_key_1_0= ruleKeyLiteral )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10979:3: lv_key_1_0= ruleKeyLiteral
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11017:1: (lv_key_1_0= ruleKeyLiteral )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11018:3: lv_key_1_0= ruleKeyLiteral
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getMapEntryAccess().getKeyKeyLiteralParserRuleCall_1_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleKeyLiteral_in_ruleMapEntry18507);
+            pushFollow(FOLLOW_ruleKeyLiteral_in_ruleMapEntry18566);
             lv_key_1_0=ruleKeyLiteral();
             _fsp--;
             if (failed) return current;
@@ -29784,24 +29326,24 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,57,FOLLOW_57_in_ruleMapEntry18517); if (failed) return current;
+            match(input,57,FOLLOW_57_in_ruleMapEntry18576); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getMapEntryAccess().getColonKeyword_2(), null); 
                   
             }
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11005:1: ( (lv_value_3_0= ruleExpression ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11006:1: (lv_value_3_0= ruleExpression )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11044:1: ( (lv_value_3_0= ruleExpression ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11045:1: (lv_value_3_0= ruleExpression )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11006:1: (lv_value_3_0= ruleExpression )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11007:3: lv_value_3_0= ruleExpression
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11045:1: (lv_value_3_0= ruleExpression )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11046:3: lv_value_3_0= ruleExpression
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getMapEntryAccess().getValueExpressionParserRuleCall_3_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleExpression_in_ruleMapEntry18538);
+            pushFollow(FOLLOW_ruleExpression_in_ruleMapEntry18597);
             lv_value_3_0=ruleExpression();
             _fsp--;
             if (failed) return current;
@@ -29855,7 +29397,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleKeyLiteral
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11036:1: entryRuleKeyLiteral returns [EObject current=null] : iv_ruleKeyLiteral= ruleKeyLiteral EOF ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11075:1: entryRuleKeyLiteral returns [EObject current=null] : iv_ruleKeyLiteral= ruleKeyLiteral EOF ;
     public final EObject entryRuleKeyLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -29863,20 +29405,20 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11036:52: (iv_ruleKeyLiteral= ruleKeyLiteral EOF )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11037:2: iv_ruleKeyLiteral= ruleKeyLiteral EOF
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11075:52: (iv_ruleKeyLiteral= ruleKeyLiteral EOF )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11076:2: iv_ruleKeyLiteral= ruleKeyLiteral EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getKeyLiteralRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleKeyLiteral_in_entryRuleKeyLiteral18571);
+            pushFollow(FOLLOW_ruleKeyLiteral_in_entryRuleKeyLiteral18630);
             iv_ruleKeyLiteral=ruleKeyLiteral();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleKeyLiteral; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleKeyLiteral18581); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleKeyLiteral18640); if (failed) return current;
 
             }
 
@@ -29894,7 +29436,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleKeyLiteral
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11044:1: ruleKeyLiteral returns [EObject current=null] : ( () ( ( (lv_value_1_1= RULE_ID | lv_value_1_2= RULE_PID | lv_value_1_3= RULE_STRING ) ) ) ) ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11083:1: ruleKeyLiteral returns [EObject current=null] : ( () ( ( (lv_value_1_1= RULE_ID | lv_value_1_2= RULE_PID | lv_value_1_3= RULE_STRING ) ) ) ) ;
     public final EObject ruleKeyLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -29905,14 +29447,14 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11049:6: ( ( () ( ( (lv_value_1_1= RULE_ID | lv_value_1_2= RULE_PID | lv_value_1_3= RULE_STRING ) ) ) ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11050:1: ( () ( ( (lv_value_1_1= RULE_ID | lv_value_1_2= RULE_PID | lv_value_1_3= RULE_STRING ) ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11088:6: ( ( () ( ( (lv_value_1_1= RULE_ID | lv_value_1_2= RULE_PID | lv_value_1_3= RULE_STRING ) ) ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11089:1: ( () ( ( (lv_value_1_1= RULE_ID | lv_value_1_2= RULE_PID | lv_value_1_3= RULE_STRING ) ) ) )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11050:1: ( () ( ( (lv_value_1_1= RULE_ID | lv_value_1_2= RULE_PID | lv_value_1_3= RULE_STRING ) ) ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11050:2: () ( ( (lv_value_1_1= RULE_ID | lv_value_1_2= RULE_PID | lv_value_1_3= RULE_STRING ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11089:1: ( () ( ( (lv_value_1_1= RULE_ID | lv_value_1_2= RULE_PID | lv_value_1_3= RULE_STRING ) ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11089:2: () ( ( (lv_value_1_1= RULE_ID | lv_value_1_2= RULE_PID | lv_value_1_3= RULE_STRING ) ) )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11050:2: ()
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11051:2: 
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11089:2: ()
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11090:2: 
             {
             if ( backtracking==0 ) {
                
@@ -29934,44 +29476,44 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11064:2: ( ( (lv_value_1_1= RULE_ID | lv_value_1_2= RULE_PID | lv_value_1_3= RULE_STRING ) ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11065:1: ( (lv_value_1_1= RULE_ID | lv_value_1_2= RULE_PID | lv_value_1_3= RULE_STRING ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11103:2: ( ( (lv_value_1_1= RULE_ID | lv_value_1_2= RULE_PID | lv_value_1_3= RULE_STRING ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11104:1: ( (lv_value_1_1= RULE_ID | lv_value_1_2= RULE_PID | lv_value_1_3= RULE_STRING ) )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11065:1: ( (lv_value_1_1= RULE_ID | lv_value_1_2= RULE_PID | lv_value_1_3= RULE_STRING ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11066:1: (lv_value_1_1= RULE_ID | lv_value_1_2= RULE_PID | lv_value_1_3= RULE_STRING )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11104:1: ( (lv_value_1_1= RULE_ID | lv_value_1_2= RULE_PID | lv_value_1_3= RULE_STRING ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11105:1: (lv_value_1_1= RULE_ID | lv_value_1_2= RULE_PID | lv_value_1_3= RULE_STRING )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11066:1: (lv_value_1_1= RULE_ID | lv_value_1_2= RULE_PID | lv_value_1_3= RULE_STRING )
-            int alt170=3;
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11105:1: (lv_value_1_1= RULE_ID | lv_value_1_2= RULE_PID | lv_value_1_3= RULE_STRING )
+            int alt171=3;
             switch ( input.LA(1) ) {
             case RULE_ID:
                 {
-                alt170=1;
+                alt171=1;
                 }
                 break;
             case RULE_PID:
                 {
-                alt170=2;
+                alt171=2;
                 }
                 break;
             case RULE_STRING:
                 {
-                alt170=3;
+                alt171=3;
                 }
                 break;
             default:
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("11066:1: (lv_value_1_1= RULE_ID | lv_value_1_2= RULE_PID | lv_value_1_3= RULE_STRING )", 170, 0, input);
+                    new NoViableAltException("11105:1: (lv_value_1_1= RULE_ID | lv_value_1_2= RULE_PID | lv_value_1_3= RULE_STRING )", 171, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt170) {
+            switch (alt171) {
                 case 1 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11067:3: lv_value_1_1= RULE_ID
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11106:3: lv_value_1_1= RULE_ID
                     {
                     lv_value_1_1=(Token)input.LT(1);
-                    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleKeyLiteral18637); if (failed) return current;
+                    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleKeyLiteral18696); if (failed) return current;
                     if ( backtracking==0 ) {
 
                       			createLeafNode(grammarAccess.getKeyLiteralAccess().getValueIDTerminalRuleCall_1_0_0(), "value"); 
@@ -29999,10 +29541,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11088:8: lv_value_1_2= RULE_PID
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11127:8: lv_value_1_2= RULE_PID
                     {
                     lv_value_1_2=(Token)input.LT(1);
-                    match(input,RULE_PID,FOLLOW_RULE_PID_in_ruleKeyLiteral18657); if (failed) return current;
+                    match(input,RULE_PID,FOLLOW_RULE_PID_in_ruleKeyLiteral18716); if (failed) return current;
                     if ( backtracking==0 ) {
 
                       			createLeafNode(grammarAccess.getKeyLiteralAccess().getValuePIDTerminalRuleCall_1_0_1(), "value"); 
@@ -30030,10 +29572,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11109:8: lv_value_1_3= RULE_STRING
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11148:8: lv_value_1_3= RULE_STRING
                     {
                     lv_value_1_3=(Token)input.LT(1);
-                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleKeyLiteral18677); if (failed) return current;
+                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleKeyLiteral18736); if (failed) return current;
                     if ( backtracking==0 ) {
 
                       			createLeafNode(grammarAccess.getKeyLiteralAccess().getValueSTRINGTerminalRuleCall_1_0_2(), "value"); 
@@ -30094,7 +29636,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleLiteralType
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11140:1: entryRuleLiteralType returns [EObject current=null] : iv_ruleLiteralType= ruleLiteralType EOF ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11179:1: entryRuleLiteralType returns [EObject current=null] : iv_ruleLiteralType= ruleLiteralType EOF ;
     public final EObject entryRuleLiteralType() throws RecognitionException {
         EObject current = null;
 
@@ -30102,20 +29644,20 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11140:53: (iv_ruleLiteralType= ruleLiteralType EOF )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11141:2: iv_ruleLiteralType= ruleLiteralType EOF
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11179:53: (iv_ruleLiteralType= ruleLiteralType EOF )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11180:2: iv_ruleLiteralType= ruleLiteralType EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getLiteralTypeRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleLiteralType_in_entryRuleLiteralType18718);
+            pushFollow(FOLLOW_ruleLiteralType_in_entryRuleLiteralType18777);
             iv_ruleLiteralType=ruleLiteralType();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleLiteralType; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleLiteralType18728); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleLiteralType18787); if (failed) return current;
 
             }
 
@@ -30133,7 +29675,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleLiteralType
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11148:1: ruleLiteralType returns [EObject current=null] : ( () ( (lv_type_1_0= ruleTypeRef ) ) ) ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11187:1: ruleLiteralType returns [EObject current=null] : ( () ( (lv_type_1_0= ruleTypeRef ) ) ) ;
     public final EObject ruleLiteralType() throws RecognitionException {
         EObject current = null;
 
@@ -30143,14 +29685,14 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11153:6: ( ( () ( (lv_type_1_0= ruleTypeRef ) ) ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11154:1: ( () ( (lv_type_1_0= ruleTypeRef ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11192:6: ( ( () ( (lv_type_1_0= ruleTypeRef ) ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11193:1: ( () ( (lv_type_1_0= ruleTypeRef ) ) )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11154:1: ( () ( (lv_type_1_0= ruleTypeRef ) ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11154:2: () ( (lv_type_1_0= ruleTypeRef ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11193:1: ( () ( (lv_type_1_0= ruleTypeRef ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11193:2: () ( (lv_type_1_0= ruleTypeRef ) )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11154:2: ()
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11155:2: 
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11193:2: ()
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11194:2: 
             {
             if ( backtracking==0 ) {
                
@@ -30172,18 +29714,18 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11168:2: ( (lv_type_1_0= ruleTypeRef ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11169:1: (lv_type_1_0= ruleTypeRef )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11207:2: ( (lv_type_1_0= ruleTypeRef ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11208:1: (lv_type_1_0= ruleTypeRef )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11169:1: (lv_type_1_0= ruleTypeRef )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11170:3: lv_type_1_0= ruleTypeRef
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11208:1: (lv_type_1_0= ruleTypeRef )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11209:3: lv_type_1_0= ruleTypeRef
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getLiteralTypeAccess().getTypeTypeRefParserRuleCall_1_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleTypeRef_in_ruleLiteralType18786);
+            pushFollow(FOLLOW_ruleTypeRef_in_ruleLiteralType18845);
             lv_type_1_0=ruleTypeRef();
             _fsp--;
             if (failed) return current;
@@ -30237,7 +29779,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleValueLiteral
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11199:1: entryRuleValueLiteral returns [EObject current=null] : iv_ruleValueLiteral= ruleValueLiteral EOF ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11238:1: entryRuleValueLiteral returns [EObject current=null] : iv_ruleValueLiteral= ruleValueLiteral EOF ;
     public final EObject entryRuleValueLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -30245,20 +29787,20 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11199:54: (iv_ruleValueLiteral= ruleValueLiteral EOF )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11200:2: iv_ruleValueLiteral= ruleValueLiteral EOF
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11238:54: (iv_ruleValueLiteral= ruleValueLiteral EOF )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11239:2: iv_ruleValueLiteral= ruleValueLiteral EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getValueLiteralRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleValueLiteral_in_entryRuleValueLiteral18819);
+            pushFollow(FOLLOW_ruleValueLiteral_in_entryRuleValueLiteral18878);
             iv_ruleValueLiteral=ruleValueLiteral();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleValueLiteral; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleValueLiteral18829); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleValueLiteral18888); if (failed) return current;
 
             }
 
@@ -30276,7 +29818,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleValueLiteral
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11207:1: ruleValueLiteral returns [EObject current=null] : (this_BooleanLiteral_0= ruleBooleanLiteral | this_RealLiteral_1= ruleRealLiteral | this_IntegerLiteral_2= ruleIntegerLiteral | this_StringLiteral_3= ruleStringLiteral | this_UnitLiteral_4= ruleUnitLiteral ) ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11246:1: ruleValueLiteral returns [EObject current=null] : (this_BooleanLiteral_0= ruleBooleanLiteral | this_RealLiteral_1= ruleRealLiteral | this_IntegerLiteral_2= ruleIntegerLiteral | this_StringLiteral_3= ruleStringLiteral | this_UnitLiteral_4= ruleUnitLiteral ) ;
     public final EObject ruleValueLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -30294,32 +29836,32 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11212:6: ( (this_BooleanLiteral_0= ruleBooleanLiteral | this_RealLiteral_1= ruleRealLiteral | this_IntegerLiteral_2= ruleIntegerLiteral | this_StringLiteral_3= ruleStringLiteral | this_UnitLiteral_4= ruleUnitLiteral ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11213:1: (this_BooleanLiteral_0= ruleBooleanLiteral | this_RealLiteral_1= ruleRealLiteral | this_IntegerLiteral_2= ruleIntegerLiteral | this_StringLiteral_3= ruleStringLiteral | this_UnitLiteral_4= ruleUnitLiteral )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11251:6: ( (this_BooleanLiteral_0= ruleBooleanLiteral | this_RealLiteral_1= ruleRealLiteral | this_IntegerLiteral_2= ruleIntegerLiteral | this_StringLiteral_3= ruleStringLiteral | this_UnitLiteral_4= ruleUnitLiteral ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11252:1: (this_BooleanLiteral_0= ruleBooleanLiteral | this_RealLiteral_1= ruleRealLiteral | this_IntegerLiteral_2= ruleIntegerLiteral | this_StringLiteral_3= ruleStringLiteral | this_UnitLiteral_4= ruleUnitLiteral )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11213:1: (this_BooleanLiteral_0= ruleBooleanLiteral | this_RealLiteral_1= ruleRealLiteral | this_IntegerLiteral_2= ruleIntegerLiteral | this_StringLiteral_3= ruleStringLiteral | this_UnitLiteral_4= ruleUnitLiteral )
-            int alt171=5;
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11252:1: (this_BooleanLiteral_0= ruleBooleanLiteral | this_RealLiteral_1= ruleRealLiteral | this_IntegerLiteral_2= ruleIntegerLiteral | this_StringLiteral_3= ruleStringLiteral | this_UnitLiteral_4= ruleUnitLiteral )
+            int alt172=5;
             switch ( input.LA(1) ) {
             case 110:
             case 111:
                 {
-                alt171=1;
+                alt172=1;
                 }
                 break;
             case RULE_INT:
                 {
-                int LA171_2 = input.LA(2);
+                int LA172_2 = input.LA(2);
 
-                if ( (synpred235()) ) {
-                    alt171=2;
+                if ( (synpred236()) ) {
+                    alt172=2;
                 }
-                else if ( (synpred236()) ) {
-                    alt171=3;
+                else if ( (synpred237()) ) {
+                    alt172=3;
                 }
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("11213:1: (this_BooleanLiteral_0= ruleBooleanLiteral | this_RealLiteral_1= ruleRealLiteral | this_IntegerLiteral_2= ruleIntegerLiteral | this_StringLiteral_3= ruleStringLiteral | this_UnitLiteral_4= ruleUnitLiteral )", 171, 2, input);
+                        new NoViableAltException("11252:1: (this_BooleanLiteral_0= ruleBooleanLiteral | this_RealLiteral_1= ruleRealLiteral | this_IntegerLiteral_2= ruleIntegerLiteral | this_StringLiteral_3= ruleStringLiteral | this_UnitLiteral_4= ruleUnitLiteral )", 172, 2, input);
 
                     throw nvae;
                 }
@@ -30327,35 +29869,35 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                 break;
             case 92:
                 {
-                alt171=2;
+                alt172=2;
                 }
                 break;
             case RULE_HEX:
                 {
-                alt171=3;
+                alt172=3;
                 }
                 break;
             case RULE_STRING:
                 {
-                alt171=4;
+                alt172=4;
                 }
                 break;
             case 20:
                 {
-                alt171=5;
+                alt172=5;
                 }
                 break;
             default:
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("11213:1: (this_BooleanLiteral_0= ruleBooleanLiteral | this_RealLiteral_1= ruleRealLiteral | this_IntegerLiteral_2= ruleIntegerLiteral | this_StringLiteral_3= ruleStringLiteral | this_UnitLiteral_4= ruleUnitLiteral )", 171, 0, input);
+                    new NoViableAltException("11252:1: (this_BooleanLiteral_0= ruleBooleanLiteral | this_RealLiteral_1= ruleRealLiteral | this_IntegerLiteral_2= ruleIntegerLiteral | this_StringLiteral_3= ruleStringLiteral | this_UnitLiteral_4= ruleUnitLiteral )", 172, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt171) {
+            switch (alt172) {
                 case 1 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11214:2: this_BooleanLiteral_0= ruleBooleanLiteral
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11253:2: this_BooleanLiteral_0= ruleBooleanLiteral
                     {
                     if ( backtracking==0 ) {
                        
@@ -30367,7 +29909,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getValueLiteralAccess().getBooleanLiteralParserRuleCall_0(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleBooleanLiteral_in_ruleValueLiteral18879);
+                    pushFollow(FOLLOW_ruleBooleanLiteral_in_ruleValueLiteral18938);
                     this_BooleanLiteral_0=ruleBooleanLiteral();
                     _fsp--;
                     if (failed) return current;
@@ -30381,7 +29923,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11227:2: this_RealLiteral_1= ruleRealLiteral
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11266:2: this_RealLiteral_1= ruleRealLiteral
                     {
                     if ( backtracking==0 ) {
                        
@@ -30393,7 +29935,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getValueLiteralAccess().getRealLiteralParserRuleCall_1(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleRealLiteral_in_ruleValueLiteral18909);
+                    pushFollow(FOLLOW_ruleRealLiteral_in_ruleValueLiteral18968);
                     this_RealLiteral_1=ruleRealLiteral();
                     _fsp--;
                     if (failed) return current;
@@ -30407,7 +29949,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11240:2: this_IntegerLiteral_2= ruleIntegerLiteral
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11279:2: this_IntegerLiteral_2= ruleIntegerLiteral
                     {
                     if ( backtracking==0 ) {
                        
@@ -30419,7 +29961,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getValueLiteralAccess().getIntegerLiteralParserRuleCall_2(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleIntegerLiteral_in_ruleValueLiteral18939);
+                    pushFollow(FOLLOW_ruleIntegerLiteral_in_ruleValueLiteral18998);
                     this_IntegerLiteral_2=ruleIntegerLiteral();
                     _fsp--;
                     if (failed) return current;
@@ -30433,7 +29975,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11253:2: this_StringLiteral_3= ruleStringLiteral
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11292:2: this_StringLiteral_3= ruleStringLiteral
                     {
                     if ( backtracking==0 ) {
                        
@@ -30445,7 +29987,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getValueLiteralAccess().getStringLiteralParserRuleCall_3(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleStringLiteral_in_ruleValueLiteral18969);
+                    pushFollow(FOLLOW_ruleStringLiteral_in_ruleValueLiteral19028);
                     this_StringLiteral_3=ruleStringLiteral();
                     _fsp--;
                     if (failed) return current;
@@ -30459,7 +30001,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11266:2: this_UnitLiteral_4= ruleUnitLiteral
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11305:2: this_UnitLiteral_4= ruleUnitLiteral
                     {
                     if ( backtracking==0 ) {
                        
@@ -30471,7 +30013,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                               currentNode=createCompositeNode(grammarAccess.getValueLiteralAccess().getUnitLiteralParserRuleCall_4(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleUnitLiteral_in_ruleValueLiteral18999);
+                    pushFollow(FOLLOW_ruleUnitLiteral_in_ruleValueLiteral19058);
                     this_UnitLiteral_4=ruleUnitLiteral();
                     _fsp--;
                     if (failed) return current;
@@ -30509,7 +30051,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleBooleanLiteral
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11284:1: entryRuleBooleanLiteral returns [EObject current=null] : iv_ruleBooleanLiteral= ruleBooleanLiteral EOF ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11323:1: entryRuleBooleanLiteral returns [EObject current=null] : iv_ruleBooleanLiteral= ruleBooleanLiteral EOF ;
     public final EObject entryRuleBooleanLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -30517,20 +30059,20 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11284:56: (iv_ruleBooleanLiteral= ruleBooleanLiteral EOF )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11285:2: iv_ruleBooleanLiteral= ruleBooleanLiteral EOF
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11323:56: (iv_ruleBooleanLiteral= ruleBooleanLiteral EOF )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11324:2: iv_ruleBooleanLiteral= ruleBooleanLiteral EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getBooleanLiteralRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleBooleanLiteral_in_entryRuleBooleanLiteral19031);
+            pushFollow(FOLLOW_ruleBooleanLiteral_in_entryRuleBooleanLiteral19090);
             iv_ruleBooleanLiteral=ruleBooleanLiteral();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleBooleanLiteral; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleBooleanLiteral19041); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleBooleanLiteral19100); if (failed) return current;
 
             }
 
@@ -30548,7 +30090,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleBooleanLiteral
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11292:1: ruleBooleanLiteral returns [EObject current=null] : ( () ( (lv_value_1_0= ruleBooleanValue ) ) ) ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11331:1: ruleBooleanLiteral returns [EObject current=null] : ( () ( (lv_value_1_0= ruleBooleanValue ) ) ) ;
     public final EObject ruleBooleanLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -30558,14 +30100,14 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11297:6: ( ( () ( (lv_value_1_0= ruleBooleanValue ) ) ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11298:1: ( () ( (lv_value_1_0= ruleBooleanValue ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11336:6: ( ( () ( (lv_value_1_0= ruleBooleanValue ) ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11337:1: ( () ( (lv_value_1_0= ruleBooleanValue ) ) )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11298:1: ( () ( (lv_value_1_0= ruleBooleanValue ) ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11298:2: () ( (lv_value_1_0= ruleBooleanValue ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11337:1: ( () ( (lv_value_1_0= ruleBooleanValue ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11337:2: () ( (lv_value_1_0= ruleBooleanValue ) )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11298:2: ()
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11299:2: 
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11337:2: ()
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11338:2: 
             {
             if ( backtracking==0 ) {
                
@@ -30587,18 +30129,18 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11312:2: ( (lv_value_1_0= ruleBooleanValue ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11313:1: (lv_value_1_0= ruleBooleanValue )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11351:2: ( (lv_value_1_0= ruleBooleanValue ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11352:1: (lv_value_1_0= ruleBooleanValue )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11313:1: (lv_value_1_0= ruleBooleanValue )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11314:3: lv_value_1_0= ruleBooleanValue
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11352:1: (lv_value_1_0= ruleBooleanValue )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11353:3: lv_value_1_0= ruleBooleanValue
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getBooleanLiteralAccess().getValueBooleanValueParserRuleCall_1_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleBooleanValue_in_ruleBooleanLiteral19099);
+            pushFollow(FOLLOW_ruleBooleanValue_in_ruleBooleanLiteral19158);
             lv_value_1_0=ruleBooleanValue();
             _fsp--;
             if (failed) return current;
@@ -30652,7 +30194,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleIntegerLiteral
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11343:1: entryRuleIntegerLiteral returns [EObject current=null] : iv_ruleIntegerLiteral= ruleIntegerLiteral EOF ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11382:1: entryRuleIntegerLiteral returns [EObject current=null] : iv_ruleIntegerLiteral= ruleIntegerLiteral EOF ;
     public final EObject entryRuleIntegerLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -30660,20 +30202,20 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11343:56: (iv_ruleIntegerLiteral= ruleIntegerLiteral EOF )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11344:2: iv_ruleIntegerLiteral= ruleIntegerLiteral EOF
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11382:56: (iv_ruleIntegerLiteral= ruleIntegerLiteral EOF )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11383:2: iv_ruleIntegerLiteral= ruleIntegerLiteral EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getIntegerLiteralRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleIntegerLiteral_in_entryRuleIntegerLiteral19132);
+            pushFollow(FOLLOW_ruleIntegerLiteral_in_entryRuleIntegerLiteral19191);
             iv_ruleIntegerLiteral=ruleIntegerLiteral();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleIntegerLiteral; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleIntegerLiteral19142); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleIntegerLiteral19201); if (failed) return current;
 
             }
 
@@ -30691,7 +30233,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleIntegerLiteral
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11351:1: ruleIntegerLiteral returns [EObject current=null] : ( () ( (lv_value_1_0= ruleIntValue ) ) ) ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11390:1: ruleIntegerLiteral returns [EObject current=null] : ( () ( (lv_value_1_0= ruleIntValue ) ) ) ;
     public final EObject ruleIntegerLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -30701,14 +30243,14 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11356:6: ( ( () ( (lv_value_1_0= ruleIntValue ) ) ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11357:1: ( () ( (lv_value_1_0= ruleIntValue ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11395:6: ( ( () ( (lv_value_1_0= ruleIntValue ) ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11396:1: ( () ( (lv_value_1_0= ruleIntValue ) ) )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11357:1: ( () ( (lv_value_1_0= ruleIntValue ) ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11357:2: () ( (lv_value_1_0= ruleIntValue ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11396:1: ( () ( (lv_value_1_0= ruleIntValue ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11396:2: () ( (lv_value_1_0= ruleIntValue ) )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11357:2: ()
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11358:2: 
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11396:2: ()
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11397:2: 
             {
             if ( backtracking==0 ) {
                
@@ -30730,18 +30272,18 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11371:2: ( (lv_value_1_0= ruleIntValue ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11372:1: (lv_value_1_0= ruleIntValue )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11410:2: ( (lv_value_1_0= ruleIntValue ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11411:1: (lv_value_1_0= ruleIntValue )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11372:1: (lv_value_1_0= ruleIntValue )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11373:3: lv_value_1_0= ruleIntValue
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11411:1: (lv_value_1_0= ruleIntValue )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11412:3: lv_value_1_0= ruleIntValue
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getIntegerLiteralAccess().getValueIntValueParserRuleCall_1_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleIntValue_in_ruleIntegerLiteral19200);
+            pushFollow(FOLLOW_ruleIntValue_in_ruleIntegerLiteral19259);
             lv_value_1_0=ruleIntValue();
             _fsp--;
             if (failed) return current;
@@ -30795,7 +30337,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleUnitLiteral
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11402:1: entryRuleUnitLiteral returns [EObject current=null] : iv_ruleUnitLiteral= ruleUnitLiteral EOF ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11441:1: entryRuleUnitLiteral returns [EObject current=null] : iv_ruleUnitLiteral= ruleUnitLiteral EOF ;
     public final EObject entryRuleUnitLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -30803,20 +30345,20 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11402:53: (iv_ruleUnitLiteral= ruleUnitLiteral EOF )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11403:2: iv_ruleUnitLiteral= ruleUnitLiteral EOF
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11441:53: (iv_ruleUnitLiteral= ruleUnitLiteral EOF )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11442:2: iv_ruleUnitLiteral= ruleUnitLiteral EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getUnitLiteralRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleUnitLiteral_in_entryRuleUnitLiteral19233);
+            pushFollow(FOLLOW_ruleUnitLiteral_in_entryRuleUnitLiteral19292);
             iv_ruleUnitLiteral=ruleUnitLiteral();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleUnitLiteral; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleUnitLiteral19243); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleUnitLiteral19302); if (failed) return current;
 
             }
 
@@ -30834,7 +30376,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleUnitLiteral
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11410:1: ruleUnitLiteral returns [EObject current=null] : ( () ( (lv_value_1_0= 'unit' ) ) ) ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11449:1: ruleUnitLiteral returns [EObject current=null] : ( () ( (lv_value_1_0= 'unit' ) ) ) ;
     public final EObject ruleUnitLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -30843,14 +30385,14 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11415:6: ( ( () ( (lv_value_1_0= 'unit' ) ) ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11416:1: ( () ( (lv_value_1_0= 'unit' ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11454:6: ( ( () ( (lv_value_1_0= 'unit' ) ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11455:1: ( () ( (lv_value_1_0= 'unit' ) ) )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11416:1: ( () ( (lv_value_1_0= 'unit' ) ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11416:2: () ( (lv_value_1_0= 'unit' ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11455:1: ( () ( (lv_value_1_0= 'unit' ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11455:2: () ( (lv_value_1_0= 'unit' ) )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11416:2: ()
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11417:2: 
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11455:2: ()
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11456:2: 
             {
             if ( backtracking==0 ) {
                
@@ -30872,14 +30414,14 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11430:2: ( (lv_value_1_0= 'unit' ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11431:1: (lv_value_1_0= 'unit' )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11469:2: ( (lv_value_1_0= 'unit' ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11470:1: (lv_value_1_0= 'unit' )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11431:1: (lv_value_1_0= 'unit' )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11432:3: lv_value_1_0= 'unit'
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11470:1: (lv_value_1_0= 'unit' )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11471:3: lv_value_1_0= 'unit'
             {
             lv_value_1_0=(Token)input.LT(1);
-            match(input,20,FOLLOW_20_in_ruleUnitLiteral19298); if (failed) return current;
+            match(input,20,FOLLOW_20_in_ruleUnitLiteral19357); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getUnitLiteralAccess().getValueUnitKeyword_1_0(), "value"); 
@@ -30930,7 +30472,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleStringLiteral
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11458:1: entryRuleStringLiteral returns [EObject current=null] : iv_ruleStringLiteral= ruleStringLiteral EOF ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11497:1: entryRuleStringLiteral returns [EObject current=null] : iv_ruleStringLiteral= ruleStringLiteral EOF ;
     public final EObject entryRuleStringLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -30938,20 +30480,20 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11458:55: (iv_ruleStringLiteral= ruleStringLiteral EOF )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11459:2: iv_ruleStringLiteral= ruleStringLiteral EOF
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11497:55: (iv_ruleStringLiteral= ruleStringLiteral EOF )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11498:2: iv_ruleStringLiteral= ruleStringLiteral EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getStringLiteralRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleStringLiteral_in_entryRuleStringLiteral19344);
+            pushFollow(FOLLOW_ruleStringLiteral_in_entryRuleStringLiteral19403);
             iv_ruleStringLiteral=ruleStringLiteral();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleStringLiteral; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleStringLiteral19354); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleStringLiteral19413); if (failed) return current;
 
             }
 
@@ -30969,7 +30511,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleStringLiteral
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11466:1: ruleStringLiteral returns [EObject current=null] : ( () ( (lv_value_1_0= RULE_STRING ) ) ) ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11505:1: ruleStringLiteral returns [EObject current=null] : ( () ( (lv_value_1_0= RULE_STRING ) ) ) ;
     public final EObject ruleStringLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -30978,14 +30520,14 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11471:6: ( ( () ( (lv_value_1_0= RULE_STRING ) ) ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11472:1: ( () ( (lv_value_1_0= RULE_STRING ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11510:6: ( ( () ( (lv_value_1_0= RULE_STRING ) ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11511:1: ( () ( (lv_value_1_0= RULE_STRING ) ) )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11472:1: ( () ( (lv_value_1_0= RULE_STRING ) ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11472:2: () ( (lv_value_1_0= RULE_STRING ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11511:1: ( () ( (lv_value_1_0= RULE_STRING ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11511:2: () ( (lv_value_1_0= RULE_STRING ) )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11472:2: ()
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11473:2: 
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11511:2: ()
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11512:2: 
             {
             if ( backtracking==0 ) {
                
@@ -31007,14 +30549,14 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11486:2: ( (lv_value_1_0= RULE_STRING ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11487:1: (lv_value_1_0= RULE_STRING )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11525:2: ( (lv_value_1_0= RULE_STRING ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11526:1: (lv_value_1_0= RULE_STRING )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11487:1: (lv_value_1_0= RULE_STRING )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11488:3: lv_value_1_0= RULE_STRING
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11526:1: (lv_value_1_0= RULE_STRING )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11527:3: lv_value_1_0= RULE_STRING
             {
             lv_value_1_0=(Token)input.LT(1);
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleStringLiteral19408); if (failed) return current;
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleStringLiteral19467); if (failed) return current;
             if ( backtracking==0 ) {
 
               			createLeafNode(grammarAccess.getStringLiteralAccess().getValueSTRINGTerminalRuleCall_1_0(), "value"); 
@@ -31069,7 +30611,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleRealLiteral
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11517:1: entryRuleRealLiteral returns [EObject current=null] : iv_ruleRealLiteral= ruleRealLiteral EOF ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11556:1: entryRuleRealLiteral returns [EObject current=null] : iv_ruleRealLiteral= ruleRealLiteral EOF ;
     public final EObject entryRuleRealLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -31077,20 +30619,20 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11517:53: (iv_ruleRealLiteral= ruleRealLiteral EOF )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11518:2: iv_ruleRealLiteral= ruleRealLiteral EOF
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11556:53: (iv_ruleRealLiteral= ruleRealLiteral EOF )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11557:2: iv_ruleRealLiteral= ruleRealLiteral EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getRealLiteralRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleRealLiteral_in_entryRuleRealLiteral19446);
+            pushFollow(FOLLOW_ruleRealLiteral_in_entryRuleRealLiteral19505);
             iv_ruleRealLiteral=ruleRealLiteral();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleRealLiteral; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleRealLiteral19456); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleRealLiteral19515); if (failed) return current;
 
             }
 
@@ -31108,7 +30650,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleRealLiteral
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11525:1: ruleRealLiteral returns [EObject current=null] : ( () ( (lv_value_1_0= ruleRealValue ) ) ) ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11564:1: ruleRealLiteral returns [EObject current=null] : ( () ( (lv_value_1_0= ruleRealValue ) ) ) ;
     public final EObject ruleRealLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -31118,14 +30660,14 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11530:6: ( ( () ( (lv_value_1_0= ruleRealValue ) ) ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11531:1: ( () ( (lv_value_1_0= ruleRealValue ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11569:6: ( ( () ( (lv_value_1_0= ruleRealValue ) ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11570:1: ( () ( (lv_value_1_0= ruleRealValue ) ) )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11531:1: ( () ( (lv_value_1_0= ruleRealValue ) ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11531:2: () ( (lv_value_1_0= ruleRealValue ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11570:1: ( () ( (lv_value_1_0= ruleRealValue ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11570:2: () ( (lv_value_1_0= ruleRealValue ) )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11531:2: ()
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11532:2: 
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11570:2: ()
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11571:2: 
             {
             if ( backtracking==0 ) {
                
@@ -31147,18 +30689,18 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11545:2: ( (lv_value_1_0= ruleRealValue ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11546:1: (lv_value_1_0= ruleRealValue )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11584:2: ( (lv_value_1_0= ruleRealValue ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11585:1: (lv_value_1_0= ruleRealValue )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11546:1: (lv_value_1_0= ruleRealValue )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11547:3: lv_value_1_0= ruleRealValue
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11585:1: (lv_value_1_0= ruleRealValue )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11586:3: lv_value_1_0= ruleRealValue
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getRealLiteralAccess().getValueRealValueParserRuleCall_1_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleRealValue_in_ruleRealLiteral19514);
+            pushFollow(FOLLOW_ruleRealValue_in_ruleRealLiteral19573);
             lv_value_1_0=ruleRealValue();
             _fsp--;
             if (failed) return current;
@@ -31212,7 +30754,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleRegexpLiteral
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11576:1: entryRuleRegexpLiteral returns [EObject current=null] : iv_ruleRegexpLiteral= ruleRegexpLiteral EOF ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11615:1: entryRuleRegexpLiteral returns [EObject current=null] : iv_ruleRegexpLiteral= ruleRegexpLiteral EOF ;
     public final EObject entryRuleRegexpLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -31220,20 +30762,20 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11576:55: (iv_ruleRegexpLiteral= ruleRegexpLiteral EOF )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11577:2: iv_ruleRegexpLiteral= ruleRegexpLiteral EOF
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11615:55: (iv_ruleRegexpLiteral= ruleRegexpLiteral EOF )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11616:2: iv_ruleRegexpLiteral= ruleRegexpLiteral EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getRegexpLiteralRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleRegexpLiteral_in_entryRuleRegexpLiteral19547);
+            pushFollow(FOLLOW_ruleRegexpLiteral_in_entryRuleRegexpLiteral19606);
             iv_ruleRegexpLiteral=ruleRegexpLiteral();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleRegexpLiteral; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleRegexpLiteral19557); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleRegexpLiteral19616); if (failed) return current;
 
             }
 
@@ -31251,7 +30793,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleRegexpLiteral
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11584:1: ruleRegexpLiteral returns [EObject current=null] : ( () ( (lv_pattern_1_0= RULE_REGULAR_EXPR ) ) ) ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11623:1: ruleRegexpLiteral returns [EObject current=null] : ( () ( (lv_pattern_1_0= RULE_REGULAR_EXPR ) ) ) ;
     public final EObject ruleRegexpLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -31260,14 +30802,14 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11589:6: ( ( () ( (lv_pattern_1_0= RULE_REGULAR_EXPR ) ) ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11590:1: ( () ( (lv_pattern_1_0= RULE_REGULAR_EXPR ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11628:6: ( ( () ( (lv_pattern_1_0= RULE_REGULAR_EXPR ) ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11629:1: ( () ( (lv_pattern_1_0= RULE_REGULAR_EXPR ) ) )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11590:1: ( () ( (lv_pattern_1_0= RULE_REGULAR_EXPR ) ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11590:2: () ( (lv_pattern_1_0= RULE_REGULAR_EXPR ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11629:1: ( () ( (lv_pattern_1_0= RULE_REGULAR_EXPR ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11629:2: () ( (lv_pattern_1_0= RULE_REGULAR_EXPR ) )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11590:2: ()
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11591:2: 
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11629:2: ()
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11630:2: 
             {
             if ( backtracking==0 ) {
                
@@ -31289,14 +30831,14 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11604:2: ( (lv_pattern_1_0= RULE_REGULAR_EXPR ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11605:1: (lv_pattern_1_0= RULE_REGULAR_EXPR )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11643:2: ( (lv_pattern_1_0= RULE_REGULAR_EXPR ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11644:1: (lv_pattern_1_0= RULE_REGULAR_EXPR )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11605:1: (lv_pattern_1_0= RULE_REGULAR_EXPR )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11606:3: lv_pattern_1_0= RULE_REGULAR_EXPR
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11644:1: (lv_pattern_1_0= RULE_REGULAR_EXPR )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11645:3: lv_pattern_1_0= RULE_REGULAR_EXPR
             {
             lv_pattern_1_0=(Token)input.LT(1);
-            match(input,RULE_REGULAR_EXPR,FOLLOW_RULE_REGULAR_EXPR_in_ruleRegexpLiteral19611); if (failed) return current;
+            match(input,RULE_REGULAR_EXPR,FOLLOW_RULE_REGULAR_EXPR_in_ruleRegexpLiteral19670); if (failed) return current;
             if ( backtracking==0 ) {
 
               			createLeafNode(grammarAccess.getRegexpLiteralAccess().getPatternREGULAR_EXPRTerminalRuleCall_1_0(), "pattern"); 
@@ -31351,7 +30893,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleBooleanValue
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11637:1: entryRuleBooleanValue returns [String current=null] : iv_ruleBooleanValue= ruleBooleanValue EOF ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11676:1: entryRuleBooleanValue returns [String current=null] : iv_ruleBooleanValue= ruleBooleanValue EOF ;
     public final String entryRuleBooleanValue() throws RecognitionException {
         String current = null;
 
@@ -31359,20 +30901,20 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11637:53: (iv_ruleBooleanValue= ruleBooleanValue EOF )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11638:2: iv_ruleBooleanValue= ruleBooleanValue EOF
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11676:53: (iv_ruleBooleanValue= ruleBooleanValue EOF )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11677:2: iv_ruleBooleanValue= ruleBooleanValue EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getBooleanValueRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleBooleanValue_in_entryRuleBooleanValue19652);
+            pushFollow(FOLLOW_ruleBooleanValue_in_entryRuleBooleanValue19711);
             iv_ruleBooleanValue=ruleBooleanValue();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleBooleanValue.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleBooleanValue19663); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleBooleanValue19722); if (failed) return current;
 
             }
 
@@ -31390,7 +30932,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleBooleanValue
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11645:1: ruleBooleanValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'true' | kw= 'false' ) ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11684:1: ruleBooleanValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'true' | kw= 'false' ) ;
     public final AntlrDatatypeRuleToken ruleBooleanValue() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -31399,32 +30941,32 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
          setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11650:6: ( (kw= 'true' | kw= 'false' ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11651:1: (kw= 'true' | kw= 'false' )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11689:6: ( (kw= 'true' | kw= 'false' ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11690:1: (kw= 'true' | kw= 'false' )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11651:1: (kw= 'true' | kw= 'false' )
-            int alt172=2;
-            int LA172_0 = input.LA(1);
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11690:1: (kw= 'true' | kw= 'false' )
+            int alt173=2;
+            int LA173_0 = input.LA(1);
 
-            if ( (LA172_0==110) ) {
-                alt172=1;
+            if ( (LA173_0==110) ) {
+                alt173=1;
             }
-            else if ( (LA172_0==111) ) {
-                alt172=2;
+            else if ( (LA173_0==111) ) {
+                alt173=2;
             }
             else {
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("11651:1: (kw= 'true' | kw= 'false' )", 172, 0, input);
+                    new NoViableAltException("11690:1: (kw= 'true' | kw= 'false' )", 173, 0, input);
 
                 throw nvae;
             }
-            switch (alt172) {
+            switch (alt173) {
                 case 1 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11652:2: kw= 'true'
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11691:2: kw= 'true'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,110,FOLLOW_110_in_ruleBooleanValue19701); if (failed) return current;
+                    match(input,110,FOLLOW_110_in_ruleBooleanValue19760); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -31435,10 +30977,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11659:2: kw= 'false'
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11698:2: kw= 'false'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,111,FOLLOW_111_in_ruleBooleanValue19720); if (failed) return current;
+                    match(input,111,FOLLOW_111_in_ruleBooleanValue19779); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -31473,7 +31015,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleRealValue
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11672:1: entryRuleRealValue returns [String current=null] : iv_ruleRealValue= ruleRealValue EOF ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11711:1: entryRuleRealValue returns [String current=null] : iv_ruleRealValue= ruleRealValue EOF ;
     public final String entryRuleRealValue() throws RecognitionException {
         String current = null;
 
@@ -31481,20 +31023,20 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11672:50: (iv_ruleRealValue= ruleRealValue EOF )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11673:2: iv_ruleRealValue= ruleRealValue EOF
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11711:50: (iv_ruleRealValue= ruleRealValue EOF )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11712:2: iv_ruleRealValue= ruleRealValue EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getRealValueRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleRealValue_in_entryRuleRealValue19759);
+            pushFollow(FOLLOW_ruleRealValue_in_entryRuleRealValue19818);
             iv_ruleRealValue=ruleRealValue();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleRealValue.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleRealValue19770); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleRealValue19829); if (failed) return current;
 
             }
 
@@ -31512,7 +31054,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleRealValue
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11680:1: ruleRealValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_REAL_0= ruleREAL ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11719:1: ruleRealValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_REAL_0= ruleREAL ;
     public final AntlrDatatypeRuleToken ruleRealValue() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -31522,15 +31064,15 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
          setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11685:6: (this_REAL_0= ruleREAL )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11687:5: this_REAL_0= ruleREAL
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11724:6: (this_REAL_0= ruleREAL )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11726:5: this_REAL_0= ruleREAL
             {
             if ( backtracking==0 ) {
                
                       currentNode=createCompositeNode(grammarAccess.getRealValueAccess().getREALParserRuleCall(), currentNode); 
                   
             }
-            pushFollow(FOLLOW_ruleREAL_in_ruleRealValue19816);
+            pushFollow(FOLLOW_ruleREAL_in_ruleRealValue19875);
             this_REAL_0=ruleREAL();
             _fsp--;
             if (failed) return current;
@@ -31566,7 +31108,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleIntValue
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11705:1: entryRuleIntValue returns [String current=null] : iv_ruleIntValue= ruleIntValue EOF ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11744:1: entryRuleIntValue returns [String current=null] : iv_ruleIntValue= ruleIntValue EOF ;
     public final String entryRuleIntValue() throws RecognitionException {
         String current = null;
 
@@ -31574,20 +31116,20 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11705:49: (iv_ruleIntValue= ruleIntValue EOF )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11706:2: iv_ruleIntValue= ruleIntValue EOF
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11744:49: (iv_ruleIntValue= ruleIntValue EOF )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11745:2: iv_ruleIntValue= ruleIntValue EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getIntValueRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleIntValue_in_entryRuleIntValue19859);
+            pushFollow(FOLLOW_ruleIntValue_in_entryRuleIntValue19918);
             iv_ruleIntValue=ruleIntValue();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleIntValue.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleIntValue19870); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleIntValue19929); if (failed) return current;
 
             }
 
@@ -31605,7 +31147,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleIntValue
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11713:1: ruleIntValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_INT_0= RULE_INT | this_HEX_1= RULE_HEX ) ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11752:1: ruleIntValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_INT_0= RULE_INT | this_HEX_1= RULE_HEX ) ;
     public final AntlrDatatypeRuleToken ruleIntValue() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -31615,32 +31157,32 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
          setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11718:6: ( (this_INT_0= RULE_INT | this_HEX_1= RULE_HEX ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11719:1: (this_INT_0= RULE_INT | this_HEX_1= RULE_HEX )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11757:6: ( (this_INT_0= RULE_INT | this_HEX_1= RULE_HEX ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11758:1: (this_INT_0= RULE_INT | this_HEX_1= RULE_HEX )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11719:1: (this_INT_0= RULE_INT | this_HEX_1= RULE_HEX )
-            int alt173=2;
-            int LA173_0 = input.LA(1);
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11758:1: (this_INT_0= RULE_INT | this_HEX_1= RULE_HEX )
+            int alt174=2;
+            int LA174_0 = input.LA(1);
 
-            if ( (LA173_0==RULE_INT) ) {
-                alt173=1;
+            if ( (LA174_0==RULE_INT) ) {
+                alt174=1;
             }
-            else if ( (LA173_0==RULE_HEX) ) {
-                alt173=2;
+            else if ( (LA174_0==RULE_HEX) ) {
+                alt174=2;
             }
             else {
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("11719:1: (this_INT_0= RULE_INT | this_HEX_1= RULE_HEX )", 173, 0, input);
+                    new NoViableAltException("11758:1: (this_INT_0= RULE_INT | this_HEX_1= RULE_HEX )", 174, 0, input);
 
                 throw nvae;
             }
-            switch (alt173) {
+            switch (alt174) {
                 case 1 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11719:6: this_INT_0= RULE_INT
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11758:6: this_INT_0= RULE_INT
                     {
                     this_INT_0=(Token)input.LT(1);
-                    match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleIntValue19910); if (failed) return current;
+                    match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleIntValue19969); if (failed) return current;
                     if ( backtracking==0 ) {
 
                       		current.merge(this_INT_0);
@@ -31655,10 +31197,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11727:10: this_HEX_1= RULE_HEX
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11766:10: this_HEX_1= RULE_HEX
                     {
                     this_HEX_1=(Token)input.LT(1);
-                    match(input,RULE_HEX,FOLLOW_RULE_HEX_in_ruleIntValue19936); if (failed) return current;
+                    match(input,RULE_HEX,FOLLOW_RULE_HEX_in_ruleIntValue19995); if (failed) return current;
                     if ( backtracking==0 ) {
 
                       		current.merge(this_HEX_1);
@@ -31697,7 +31239,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleParanthesizedExpression
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11742:1: entryRuleParanthesizedExpression returns [EObject current=null] : iv_ruleParanthesizedExpression= ruleParanthesizedExpression EOF ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11781:1: entryRuleParanthesizedExpression returns [EObject current=null] : iv_ruleParanthesizedExpression= ruleParanthesizedExpression EOF ;
     public final EObject entryRuleParanthesizedExpression() throws RecognitionException {
         EObject current = null;
 
@@ -31705,20 +31247,20 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11742:65: (iv_ruleParanthesizedExpression= ruleParanthesizedExpression EOF )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11743:2: iv_ruleParanthesizedExpression= ruleParanthesizedExpression EOF
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11781:65: (iv_ruleParanthesizedExpression= ruleParanthesizedExpression EOF )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11782:2: iv_ruleParanthesizedExpression= ruleParanthesizedExpression EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getParanthesizedExpressionRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleParanthesizedExpression_in_entryRuleParanthesizedExpression19979);
+            pushFollow(FOLLOW_ruleParanthesizedExpression_in_entryRuleParanthesizedExpression20038);
             iv_ruleParanthesizedExpression=ruleParanthesizedExpression();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleParanthesizedExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleParanthesizedExpression19989); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleParanthesizedExpression20048); if (failed) return current;
 
             }
 
@@ -31736,7 +31278,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleParanthesizedExpression
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11750:1: ruleParanthesizedExpression returns [EObject current=null] : ( '(' this_Expression_1= ruleExpression ')' ) ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11789:1: ruleParanthesizedExpression returns [EObject current=null] : ( '(' this_Expression_1= ruleExpression ')' ) ;
     public final EObject ruleParanthesizedExpression() throws RecognitionException {
         EObject current = null;
 
@@ -31746,13 +31288,13 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11755:6: ( ( '(' this_Expression_1= ruleExpression ')' ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11756:1: ( '(' this_Expression_1= ruleExpression ')' )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11794:6: ( ( '(' this_Expression_1= ruleExpression ')' ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11795:1: ( '(' this_Expression_1= ruleExpression ')' )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11756:1: ( '(' this_Expression_1= ruleExpression ')' )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11756:3: '(' this_Expression_1= ruleExpression ')'
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11795:1: ( '(' this_Expression_1= ruleExpression ')' )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11795:3: '(' this_Expression_1= ruleExpression ')'
             {
-            match(input,44,FOLLOW_44_in_ruleParanthesizedExpression20024); if (failed) return current;
+            match(input,44,FOLLOW_44_in_ruleParanthesizedExpression20083); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getParanthesizedExpressionAccess().getLeftParenthesisKeyword_0(), null); 
@@ -31768,7 +31310,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                       currentNode=createCompositeNode(grammarAccess.getParanthesizedExpressionAccess().getExpressionParserRuleCall_1(), currentNode); 
                   
             }
-            pushFollow(FOLLOW_ruleExpression_in_ruleParanthesizedExpression20049);
+            pushFollow(FOLLOW_ruleExpression_in_ruleParanthesizedExpression20108);
             this_Expression_1=ruleExpression();
             _fsp--;
             if (failed) return current;
@@ -31778,7 +31320,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                       currentNode = currentNode.getParent();
                   
             }
-            match(input,45,FOLLOW_45_in_ruleParanthesizedExpression20058); if (failed) return current;
+            match(input,45,FOLLOW_45_in_ruleParanthesizedExpression20117); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getParanthesizedExpressionAccess().getRightParenthesisKeyword_2(), null); 
@@ -31809,7 +31351,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleVersion
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11783:1: entryRuleVersion returns [EObject current=null] : iv_ruleVersion= ruleVersion EOF ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11822:1: entryRuleVersion returns [EObject current=null] : iv_ruleVersion= ruleVersion EOF ;
     public final EObject entryRuleVersion() throws RecognitionException {
         EObject current = null;
 
@@ -31817,20 +31359,20 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11783:49: (iv_ruleVersion= ruleVersion EOF )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11784:2: iv_ruleVersion= ruleVersion EOF
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11822:49: (iv_ruleVersion= ruleVersion EOF )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11823:2: iv_ruleVersion= ruleVersion EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getVersionRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleVersion_in_entryRuleVersion20091);
+            pushFollow(FOLLOW_ruleVersion_in_entryRuleVersion20150);
             iv_ruleVersion=ruleVersion();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleVersion; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleVersion20101); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleVersion20160); if (failed) return current;
 
             }
 
@@ -31848,7 +31390,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleVersion
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11791:1: ruleVersion returns [EObject current=null] : ( (lv_version_0_0= ruleVersionLiteral ) ) ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11830:1: ruleVersion returns [EObject current=null] : ( (lv_version_0_0= ruleVersionLiteral ) ) ;
     public final EObject ruleVersion() throws RecognitionException {
         EObject current = null;
 
@@ -31858,21 +31400,21 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11796:6: ( ( (lv_version_0_0= ruleVersionLiteral ) ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11797:1: ( (lv_version_0_0= ruleVersionLiteral ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11835:6: ( ( (lv_version_0_0= ruleVersionLiteral ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11836:1: ( (lv_version_0_0= ruleVersionLiteral ) )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11797:1: ( (lv_version_0_0= ruleVersionLiteral ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11798:1: (lv_version_0_0= ruleVersionLiteral )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11836:1: ( (lv_version_0_0= ruleVersionLiteral ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11837:1: (lv_version_0_0= ruleVersionLiteral )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11798:1: (lv_version_0_0= ruleVersionLiteral )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11799:3: lv_version_0_0= ruleVersionLiteral
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11837:1: (lv_version_0_0= ruleVersionLiteral )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11838:3: lv_version_0_0= ruleVersionLiteral
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getVersionAccess().getVersionVersionLiteralParserRuleCall_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleVersionLiteral_in_ruleVersion20146);
+            pushFollow(FOLLOW_ruleVersionLiteral_in_ruleVersion20205);
             lv_version_0_0=ruleVersionLiteral();
             _fsp--;
             if (failed) return current;
@@ -31923,7 +31465,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleVersionLiteral
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11828:1: entryRuleVersionLiteral returns [String current=null] : iv_ruleVersionLiteral= ruleVersionLiteral EOF ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11867:1: entryRuleVersionLiteral returns [String current=null] : iv_ruleVersionLiteral= ruleVersionLiteral EOF ;
     public final String entryRuleVersionLiteral() throws RecognitionException {
         String current = null;
 
@@ -31931,20 +31473,20 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11828:55: (iv_ruleVersionLiteral= ruleVersionLiteral EOF )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11829:2: iv_ruleVersionLiteral= ruleVersionLiteral EOF
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11867:55: (iv_ruleVersionLiteral= ruleVersionLiteral EOF )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11868:2: iv_ruleVersionLiteral= ruleVersionLiteral EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getVersionLiteralRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleVersionLiteral_in_entryRuleVersionLiteral20179);
+            pushFollow(FOLLOW_ruleVersionLiteral_in_entryRuleVersionLiteral20238);
             iv_ruleVersionLiteral=ruleVersionLiteral();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleVersionLiteral.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleVersionLiteral20190); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleVersionLiteral20249); if (failed) return current;
 
             }
 
@@ -31962,7 +31504,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleVersionLiteral
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11836:1: ruleVersionLiteral returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_STRING_0= RULE_STRING | this_AlfanumSym_1= ruleAlfanumSym ) ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11875:1: ruleVersionLiteral returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_STRING_0= RULE_STRING | this_AlfanumSym_1= ruleAlfanumSym ) ;
     public final AntlrDatatypeRuleToken ruleVersionLiteral() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -31973,32 +31515,32 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
          setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11841:6: ( (this_STRING_0= RULE_STRING | this_AlfanumSym_1= ruleAlfanumSym ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11842:1: (this_STRING_0= RULE_STRING | this_AlfanumSym_1= ruleAlfanumSym )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11880:6: ( (this_STRING_0= RULE_STRING | this_AlfanumSym_1= ruleAlfanumSym ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11881:1: (this_STRING_0= RULE_STRING | this_AlfanumSym_1= ruleAlfanumSym )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11842:1: (this_STRING_0= RULE_STRING | this_AlfanumSym_1= ruleAlfanumSym )
-            int alt174=2;
-            int LA174_0 = input.LA(1);
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11881:1: (this_STRING_0= RULE_STRING | this_AlfanumSym_1= ruleAlfanumSym )
+            int alt175=2;
+            int LA175_0 = input.LA(1);
 
-            if ( (LA174_0==RULE_STRING) ) {
-                alt174=1;
+            if ( (LA175_0==RULE_STRING) ) {
+                alt175=1;
             }
-            else if ( (LA174_0==RULE_ID||(LA174_0>=RULE_INT && LA174_0<=RULE_EXT_INT)) ) {
-                alt174=2;
+            else if ( (LA175_0==RULE_ID||(LA175_0>=RULE_INT && LA175_0<=RULE_EXT_INT)) ) {
+                alt175=2;
             }
             else {
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("11842:1: (this_STRING_0= RULE_STRING | this_AlfanumSym_1= ruleAlfanumSym )", 174, 0, input);
+                    new NoViableAltException("11881:1: (this_STRING_0= RULE_STRING | this_AlfanumSym_1= ruleAlfanumSym )", 175, 0, input);
 
                 throw nvae;
             }
-            switch (alt174) {
+            switch (alt175) {
                 case 1 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11842:6: this_STRING_0= RULE_STRING
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11881:6: this_STRING_0= RULE_STRING
                     {
                     this_STRING_0=(Token)input.LT(1);
-                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleVersionLiteral20230); if (failed) return current;
+                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleVersionLiteral20289); if (failed) return current;
                     if ( backtracking==0 ) {
 
                       		current.merge(this_STRING_0);
@@ -32013,14 +31555,14 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11851:5: this_AlfanumSym_1= ruleAlfanumSym
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11890:5: this_AlfanumSym_1= ruleAlfanumSym
                     {
                     if ( backtracking==0 ) {
                        
                               currentNode=createCompositeNode(grammarAccess.getVersionLiteralAccess().getAlfanumSymParserRuleCall_1(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleAlfanumSym_in_ruleVersionLiteral20263);
+                    pushFollow(FOLLOW_ruleAlfanumSym_in_ruleVersionLiteral20322);
                     this_AlfanumSym_1=ruleAlfanumSym();
                     _fsp--;
                     if (failed) return current;
@@ -32062,7 +31604,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleVersionRange
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11869:1: entryRuleVersionRange returns [EObject current=null] : iv_ruleVersionRange= ruleVersionRange EOF ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11908:1: entryRuleVersionRange returns [EObject current=null] : iv_ruleVersionRange= ruleVersionRange EOF ;
     public final EObject entryRuleVersionRange() throws RecognitionException {
         EObject current = null;
 
@@ -32070,20 +31612,20 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11869:54: (iv_ruleVersionRange= ruleVersionRange EOF )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11870:2: iv_ruleVersionRange= ruleVersionRange EOF
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11908:54: (iv_ruleVersionRange= ruleVersionRange EOF )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11909:2: iv_ruleVersionRange= ruleVersionRange EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getVersionRangeRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleVersionRange_in_entryRuleVersionRange20306);
+            pushFollow(FOLLOW_ruleVersionRange_in_entryRuleVersionRange20365);
             iv_ruleVersionRange=ruleVersionRange();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleVersionRange; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleVersionRange20316); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleVersionRange20375); if (failed) return current;
 
             }
 
@@ -32101,7 +31643,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleVersionRange
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11877:1: ruleVersionRange returns [EObject current=null] : ( (lv_range_0_0= ruleVersionRangeLiteral ) ) ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11916:1: ruleVersionRange returns [EObject current=null] : ( (lv_range_0_0= ruleVersionRangeLiteral ) ) ;
     public final EObject ruleVersionRange() throws RecognitionException {
         EObject current = null;
 
@@ -32111,21 +31653,21 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11882:6: ( ( (lv_range_0_0= ruleVersionRangeLiteral ) ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11883:1: ( (lv_range_0_0= ruleVersionRangeLiteral ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11921:6: ( ( (lv_range_0_0= ruleVersionRangeLiteral ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11922:1: ( (lv_range_0_0= ruleVersionRangeLiteral ) )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11883:1: ( (lv_range_0_0= ruleVersionRangeLiteral ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11884:1: (lv_range_0_0= ruleVersionRangeLiteral )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11922:1: ( (lv_range_0_0= ruleVersionRangeLiteral ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11923:1: (lv_range_0_0= ruleVersionRangeLiteral )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11884:1: (lv_range_0_0= ruleVersionRangeLiteral )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11885:3: lv_range_0_0= ruleVersionRangeLiteral
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11923:1: (lv_range_0_0= ruleVersionRangeLiteral )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11924:3: lv_range_0_0= ruleVersionRangeLiteral
             {
             if ( backtracking==0 ) {
                
               	        currentNode=createCompositeNode(grammarAccess.getVersionRangeAccess().getRangeVersionRangeLiteralParserRuleCall_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleVersionRangeLiteral_in_ruleVersionRange20361);
+            pushFollow(FOLLOW_ruleVersionRangeLiteral_in_ruleVersionRange20420);
             lv_range_0_0=ruleVersionRangeLiteral();
             _fsp--;
             if (failed) return current;
@@ -32176,7 +31718,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleVersionRangeLiteral
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11914:1: entryRuleVersionRangeLiteral returns [String current=null] : iv_ruleVersionRangeLiteral= ruleVersionRangeLiteral EOF ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11953:1: entryRuleVersionRangeLiteral returns [String current=null] : iv_ruleVersionRangeLiteral= ruleVersionRangeLiteral EOF ;
     public final String entryRuleVersionRangeLiteral() throws RecognitionException {
         String current = null;
 
@@ -32184,20 +31726,20 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11914:60: (iv_ruleVersionRangeLiteral= ruleVersionRangeLiteral EOF )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11915:2: iv_ruleVersionRangeLiteral= ruleVersionRangeLiteral EOF
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11953:60: (iv_ruleVersionRangeLiteral= ruleVersionRangeLiteral EOF )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11954:2: iv_ruleVersionRangeLiteral= ruleVersionRangeLiteral EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getVersionRangeLiteralRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleVersionRangeLiteral_in_entryRuleVersionRangeLiteral20394);
+            pushFollow(FOLLOW_ruleVersionRangeLiteral_in_entryRuleVersionRangeLiteral20453);
             iv_ruleVersionRangeLiteral=ruleVersionRangeLiteral();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleVersionRangeLiteral.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleVersionRangeLiteral20405); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleVersionRangeLiteral20464); if (failed) return current;
 
             }
 
@@ -32215,7 +31757,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleVersionRangeLiteral
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11922:1: ruleVersionRangeLiteral returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( ( (kw= '[' | kw= '(' ) (this_STRING_2= RULE_STRING | this_AlfanumSym_3= ruleAlfanumSym ) (kw= ',' (this_STRING_5= RULE_STRING | this_AlfanumSym_6= ruleAlfanumSym ) )? (kw= ']' | kw= ')' ) ) | (this_STRING_9= RULE_STRING | this_AlfanumSym_10= ruleAlfanumSym ) ) ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11961:1: ruleVersionRangeLiteral returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( ( (kw= '[' | kw= '(' ) (this_STRING_2= RULE_STRING | this_AlfanumSym_3= ruleAlfanumSym ) (kw= ',' (this_STRING_5= RULE_STRING | this_AlfanumSym_6= ruleAlfanumSym ) )? (kw= ']' | kw= ')' ) ) | (this_STRING_9= RULE_STRING | this_AlfanumSym_10= ruleAlfanumSym ) ) ;
     public final AntlrDatatypeRuleToken ruleVersionRangeLiteral() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -32233,56 +31775,56 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
          setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11927:6: ( ( ( (kw= '[' | kw= '(' ) (this_STRING_2= RULE_STRING | this_AlfanumSym_3= ruleAlfanumSym ) (kw= ',' (this_STRING_5= RULE_STRING | this_AlfanumSym_6= ruleAlfanumSym ) )? (kw= ']' | kw= ')' ) ) | (this_STRING_9= RULE_STRING | this_AlfanumSym_10= ruleAlfanumSym ) ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11928:1: ( ( (kw= '[' | kw= '(' ) (this_STRING_2= RULE_STRING | this_AlfanumSym_3= ruleAlfanumSym ) (kw= ',' (this_STRING_5= RULE_STRING | this_AlfanumSym_6= ruleAlfanumSym ) )? (kw= ']' | kw= ')' ) ) | (this_STRING_9= RULE_STRING | this_AlfanumSym_10= ruleAlfanumSym ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11966:6: ( ( ( (kw= '[' | kw= '(' ) (this_STRING_2= RULE_STRING | this_AlfanumSym_3= ruleAlfanumSym ) (kw= ',' (this_STRING_5= RULE_STRING | this_AlfanumSym_6= ruleAlfanumSym ) )? (kw= ']' | kw= ')' ) ) | (this_STRING_9= RULE_STRING | this_AlfanumSym_10= ruleAlfanumSym ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11967:1: ( ( (kw= '[' | kw= '(' ) (this_STRING_2= RULE_STRING | this_AlfanumSym_3= ruleAlfanumSym ) (kw= ',' (this_STRING_5= RULE_STRING | this_AlfanumSym_6= ruleAlfanumSym ) )? (kw= ']' | kw= ')' ) ) | (this_STRING_9= RULE_STRING | this_AlfanumSym_10= ruleAlfanumSym ) )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11928:1: ( ( (kw= '[' | kw= '(' ) (this_STRING_2= RULE_STRING | this_AlfanumSym_3= ruleAlfanumSym ) (kw= ',' (this_STRING_5= RULE_STRING | this_AlfanumSym_6= ruleAlfanumSym ) )? (kw= ']' | kw= ')' ) ) | (this_STRING_9= RULE_STRING | this_AlfanumSym_10= ruleAlfanumSym ) )
-            int alt181=2;
-            int LA181_0 = input.LA(1);
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11967:1: ( ( (kw= '[' | kw= '(' ) (this_STRING_2= RULE_STRING | this_AlfanumSym_3= ruleAlfanumSym ) (kw= ',' (this_STRING_5= RULE_STRING | this_AlfanumSym_6= ruleAlfanumSym ) )? (kw= ']' | kw= ')' ) ) | (this_STRING_9= RULE_STRING | this_AlfanumSym_10= ruleAlfanumSym ) )
+            int alt182=2;
+            int LA182_0 = input.LA(1);
 
-            if ( (LA181_0==41||LA181_0==44) ) {
-                alt181=1;
+            if ( (LA182_0==41||LA182_0==44) ) {
+                alt182=1;
             }
-            else if ( (LA181_0==RULE_ID||LA181_0==RULE_STRING||(LA181_0>=RULE_INT && LA181_0<=RULE_EXT_INT)) ) {
-                alt181=2;
+            else if ( (LA182_0==RULE_ID||LA182_0==RULE_STRING||(LA182_0>=RULE_INT && LA182_0<=RULE_EXT_INT)) ) {
+                alt182=2;
             }
             else {
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("11928:1: ( ( (kw= '[' | kw= '(' ) (this_STRING_2= RULE_STRING | this_AlfanumSym_3= ruleAlfanumSym ) (kw= ',' (this_STRING_5= RULE_STRING | this_AlfanumSym_6= ruleAlfanumSym ) )? (kw= ']' | kw= ')' ) ) | (this_STRING_9= RULE_STRING | this_AlfanumSym_10= ruleAlfanumSym ) )", 181, 0, input);
+                    new NoViableAltException("11967:1: ( ( (kw= '[' | kw= '(' ) (this_STRING_2= RULE_STRING | this_AlfanumSym_3= ruleAlfanumSym ) (kw= ',' (this_STRING_5= RULE_STRING | this_AlfanumSym_6= ruleAlfanumSym ) )? (kw= ']' | kw= ')' ) ) | (this_STRING_9= RULE_STRING | this_AlfanumSym_10= ruleAlfanumSym ) )", 182, 0, input);
 
                 throw nvae;
             }
-            switch (alt181) {
+            switch (alt182) {
                 case 1 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11928:2: ( (kw= '[' | kw= '(' ) (this_STRING_2= RULE_STRING | this_AlfanumSym_3= ruleAlfanumSym ) (kw= ',' (this_STRING_5= RULE_STRING | this_AlfanumSym_6= ruleAlfanumSym ) )? (kw= ']' | kw= ')' ) )
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11967:2: ( (kw= '[' | kw= '(' ) (this_STRING_2= RULE_STRING | this_AlfanumSym_3= ruleAlfanumSym ) (kw= ',' (this_STRING_5= RULE_STRING | this_AlfanumSym_6= ruleAlfanumSym ) )? (kw= ']' | kw= ')' ) )
                     {
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11928:2: ( (kw= '[' | kw= '(' ) (this_STRING_2= RULE_STRING | this_AlfanumSym_3= ruleAlfanumSym ) (kw= ',' (this_STRING_5= RULE_STRING | this_AlfanumSym_6= ruleAlfanumSym ) )? (kw= ']' | kw= ')' ) )
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11928:3: (kw= '[' | kw= '(' ) (this_STRING_2= RULE_STRING | this_AlfanumSym_3= ruleAlfanumSym ) (kw= ',' (this_STRING_5= RULE_STRING | this_AlfanumSym_6= ruleAlfanumSym ) )? (kw= ']' | kw= ')' )
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11967:2: ( (kw= '[' | kw= '(' ) (this_STRING_2= RULE_STRING | this_AlfanumSym_3= ruleAlfanumSym ) (kw= ',' (this_STRING_5= RULE_STRING | this_AlfanumSym_6= ruleAlfanumSym ) )? (kw= ']' | kw= ')' ) )
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11967:3: (kw= '[' | kw= '(' ) (this_STRING_2= RULE_STRING | this_AlfanumSym_3= ruleAlfanumSym ) (kw= ',' (this_STRING_5= RULE_STRING | this_AlfanumSym_6= ruleAlfanumSym ) )? (kw= ']' | kw= ')' )
                     {
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11928:3: (kw= '[' | kw= '(' )
-                    int alt175=2;
-                    int LA175_0 = input.LA(1);
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11967:3: (kw= '[' | kw= '(' )
+                    int alt176=2;
+                    int LA176_0 = input.LA(1);
 
-                    if ( (LA175_0==41) ) {
-                        alt175=1;
+                    if ( (LA176_0==41) ) {
+                        alt176=1;
                     }
-                    else if ( (LA175_0==44) ) {
-                        alt175=2;
+                    else if ( (LA176_0==44) ) {
+                        alt176=2;
                     }
                     else {
                         if (backtracking>0) {failed=true; return current;}
                         NoViableAltException nvae =
-                            new NoViableAltException("11928:3: (kw= '[' | kw= '(' )", 175, 0, input);
+                            new NoViableAltException("11967:3: (kw= '[' | kw= '(' )", 176, 0, input);
 
                         throw nvae;
                     }
-                    switch (alt175) {
+                    switch (alt176) {
                         case 1 :
-                            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11929:2: kw= '['
+                            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11968:2: kw= '['
                             {
                             kw=(Token)input.LT(1);
-                            match(input,41,FOLLOW_41_in_ruleVersionRangeLiteral20445); if (failed) return current;
+                            match(input,41,FOLLOW_41_in_ruleVersionRangeLiteral20504); if (failed) return current;
                             if ( backtracking==0 ) {
 
                                       current.merge(kw);
@@ -32293,10 +31835,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11936:2: kw= '('
+                            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11975:2: kw= '('
                             {
                             kw=(Token)input.LT(1);
-                            match(input,44,FOLLOW_44_in_ruleVersionRangeLiteral20464); if (failed) return current;
+                            match(input,44,FOLLOW_44_in_ruleVersionRangeLiteral20523); if (failed) return current;
                             if ( backtracking==0 ) {
 
                                       current.merge(kw);
@@ -32309,29 +31851,29 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11941:2: (this_STRING_2= RULE_STRING | this_AlfanumSym_3= ruleAlfanumSym )
-                    int alt176=2;
-                    int LA176_0 = input.LA(1);
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11980:2: (this_STRING_2= RULE_STRING | this_AlfanumSym_3= ruleAlfanumSym )
+                    int alt177=2;
+                    int LA177_0 = input.LA(1);
 
-                    if ( (LA176_0==RULE_STRING) ) {
-                        alt176=1;
+                    if ( (LA177_0==RULE_STRING) ) {
+                        alt177=1;
                     }
-                    else if ( (LA176_0==RULE_ID||(LA176_0>=RULE_INT && LA176_0<=RULE_EXT_INT)) ) {
-                        alt176=2;
+                    else if ( (LA177_0==RULE_ID||(LA177_0>=RULE_INT && LA177_0<=RULE_EXT_INT)) ) {
+                        alt177=2;
                     }
                     else {
                         if (backtracking>0) {failed=true; return current;}
                         NoViableAltException nvae =
-                            new NoViableAltException("11941:2: (this_STRING_2= RULE_STRING | this_AlfanumSym_3= ruleAlfanumSym )", 176, 0, input);
+                            new NoViableAltException("11980:2: (this_STRING_2= RULE_STRING | this_AlfanumSym_3= ruleAlfanumSym )", 177, 0, input);
 
                         throw nvae;
                     }
-                    switch (alt176) {
+                    switch (alt177) {
                         case 1 :
-                            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11941:7: this_STRING_2= RULE_STRING
+                            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11980:7: this_STRING_2= RULE_STRING
                             {
                             this_STRING_2=(Token)input.LT(1);
-                            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleVersionRangeLiteral20481); if (failed) return current;
+                            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleVersionRangeLiteral20540); if (failed) return current;
                             if ( backtracking==0 ) {
 
                               		current.merge(this_STRING_2);
@@ -32346,14 +31888,14 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11950:5: this_AlfanumSym_3= ruleAlfanumSym
+                            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11989:5: this_AlfanumSym_3= ruleAlfanumSym
                             {
                             if ( backtracking==0 ) {
                                
                                       currentNode=createCompositeNode(grammarAccess.getVersionRangeLiteralAccess().getAlfanumSymParserRuleCall_0_1_1(), currentNode); 
                                   
                             }
-                            pushFollow(FOLLOW_ruleAlfanumSym_in_ruleVersionRangeLiteral20514);
+                            pushFollow(FOLLOW_ruleAlfanumSym_in_ruleVersionRangeLiteral20573);
                             this_AlfanumSym_3=ruleAlfanumSym();
                             _fsp--;
                             if (failed) return current;
@@ -32373,48 +31915,48 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11960:2: (kw= ',' (this_STRING_5= RULE_STRING | this_AlfanumSym_6= ruleAlfanumSym ) )?
-                    int alt178=2;
-                    int LA178_0 = input.LA(1);
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11999:2: (kw= ',' (this_STRING_5= RULE_STRING | this_AlfanumSym_6= ruleAlfanumSym ) )?
+                    int alt179=2;
+                    int LA179_0 = input.LA(1);
 
-                    if ( (LA178_0==23) ) {
-                        alt178=1;
+                    if ( (LA179_0==23) ) {
+                        alt179=1;
                     }
-                    switch (alt178) {
+                    switch (alt179) {
                         case 1 :
-                            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11961:2: kw= ',' (this_STRING_5= RULE_STRING | this_AlfanumSym_6= ruleAlfanumSym )
+                            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12000:2: kw= ',' (this_STRING_5= RULE_STRING | this_AlfanumSym_6= ruleAlfanumSym )
                             {
                             kw=(Token)input.LT(1);
-                            match(input,23,FOLLOW_23_in_ruleVersionRangeLiteral20534); if (failed) return current;
+                            match(input,23,FOLLOW_23_in_ruleVersionRangeLiteral20593); if (failed) return current;
                             if ( backtracking==0 ) {
 
                                       current.merge(kw);
                                       createLeafNode(grammarAccess.getVersionRangeLiteralAccess().getCommaKeyword_0_2_0(), null); 
                                   
                             }
-                            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11966:1: (this_STRING_5= RULE_STRING | this_AlfanumSym_6= ruleAlfanumSym )
-                            int alt177=2;
-                            int LA177_0 = input.LA(1);
+                            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12005:1: (this_STRING_5= RULE_STRING | this_AlfanumSym_6= ruleAlfanumSym )
+                            int alt178=2;
+                            int LA178_0 = input.LA(1);
 
-                            if ( (LA177_0==RULE_STRING) ) {
-                                alt177=1;
+                            if ( (LA178_0==RULE_STRING) ) {
+                                alt178=1;
                             }
-                            else if ( (LA177_0==RULE_ID||(LA177_0>=RULE_INT && LA177_0<=RULE_EXT_INT)) ) {
-                                alt177=2;
+                            else if ( (LA178_0==RULE_ID||(LA178_0>=RULE_INT && LA178_0<=RULE_EXT_INT)) ) {
+                                alt178=2;
                             }
                             else {
                                 if (backtracking>0) {failed=true; return current;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("11966:1: (this_STRING_5= RULE_STRING | this_AlfanumSym_6= ruleAlfanumSym )", 177, 0, input);
+                                    new NoViableAltException("12005:1: (this_STRING_5= RULE_STRING | this_AlfanumSym_6= ruleAlfanumSym )", 178, 0, input);
 
                                 throw nvae;
                             }
-                            switch (alt177) {
+                            switch (alt178) {
                                 case 1 :
-                                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11966:6: this_STRING_5= RULE_STRING
+                                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12005:6: this_STRING_5= RULE_STRING
                                     {
                                     this_STRING_5=(Token)input.LT(1);
-                                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleVersionRangeLiteral20550); if (failed) return current;
+                                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleVersionRangeLiteral20609); if (failed) return current;
                                     if ( backtracking==0 ) {
 
                                       		current.merge(this_STRING_5);
@@ -32429,14 +31971,14 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                                     }
                                     break;
                                 case 2 :
-                                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11975:5: this_AlfanumSym_6= ruleAlfanumSym
+                                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12014:5: this_AlfanumSym_6= ruleAlfanumSym
                                     {
                                     if ( backtracking==0 ) {
                                        
                                               currentNode=createCompositeNode(grammarAccess.getVersionRangeLiteralAccess().getAlfanumSymParserRuleCall_0_2_1_1(), currentNode); 
                                           
                                     }
-                                    pushFollow(FOLLOW_ruleAlfanumSym_in_ruleVersionRangeLiteral20583);
+                                    pushFollow(FOLLOW_ruleAlfanumSym_in_ruleVersionRangeLiteral20642);
                                     this_AlfanumSym_6=ruleAlfanumSym();
                                     _fsp--;
                                     if (failed) return current;
@@ -32462,29 +32004,29 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11985:4: (kw= ']' | kw= ')' )
-                    int alt179=2;
-                    int LA179_0 = input.LA(1);
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12024:4: (kw= ']' | kw= ')' )
+                    int alt180=2;
+                    int LA180_0 = input.LA(1);
 
-                    if ( (LA179_0==42) ) {
-                        alt179=1;
+                    if ( (LA180_0==42) ) {
+                        alt180=1;
                     }
-                    else if ( (LA179_0==45) ) {
-                        alt179=2;
+                    else if ( (LA180_0==45) ) {
+                        alt180=2;
                     }
                     else {
                         if (backtracking>0) {failed=true; return current;}
                         NoViableAltException nvae =
-                            new NoViableAltException("11985:4: (kw= ']' | kw= ')' )", 179, 0, input);
+                            new NoViableAltException("12024:4: (kw= ']' | kw= ')' )", 180, 0, input);
 
                         throw nvae;
                     }
-                    switch (alt179) {
+                    switch (alt180) {
                         case 1 :
-                            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11986:2: kw= ']'
+                            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12025:2: kw= ']'
                             {
                             kw=(Token)input.LT(1);
-                            match(input,42,FOLLOW_42_in_ruleVersionRangeLiteral20605); if (failed) return current;
+                            match(input,42,FOLLOW_42_in_ruleVersionRangeLiteral20664); if (failed) return current;
                             if ( backtracking==0 ) {
 
                                       current.merge(kw);
@@ -32495,10 +32037,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11993:2: kw= ')'
+                            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12032:2: kw= ')'
                             {
                             kw=(Token)input.LT(1);
-                            match(input,45,FOLLOW_45_in_ruleVersionRangeLiteral20624); if (failed) return current;
+                            match(input,45,FOLLOW_45_in_ruleVersionRangeLiteral20683); if (failed) return current;
                             if ( backtracking==0 ) {
 
                                       current.merge(kw);
@@ -32518,31 +32060,31 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11999:6: (this_STRING_9= RULE_STRING | this_AlfanumSym_10= ruleAlfanumSym )
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12038:6: (this_STRING_9= RULE_STRING | this_AlfanumSym_10= ruleAlfanumSym )
                     {
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11999:6: (this_STRING_9= RULE_STRING | this_AlfanumSym_10= ruleAlfanumSym )
-                    int alt180=2;
-                    int LA180_0 = input.LA(1);
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12038:6: (this_STRING_9= RULE_STRING | this_AlfanumSym_10= ruleAlfanumSym )
+                    int alt181=2;
+                    int LA181_0 = input.LA(1);
 
-                    if ( (LA180_0==RULE_STRING) ) {
-                        alt180=1;
+                    if ( (LA181_0==RULE_STRING) ) {
+                        alt181=1;
                     }
-                    else if ( (LA180_0==RULE_ID||(LA180_0>=RULE_INT && LA180_0<=RULE_EXT_INT)) ) {
-                        alt180=2;
+                    else if ( (LA181_0==RULE_ID||(LA181_0>=RULE_INT && LA181_0<=RULE_EXT_INT)) ) {
+                        alt181=2;
                     }
                     else {
                         if (backtracking>0) {failed=true; return current;}
                         NoViableAltException nvae =
-                            new NoViableAltException("11999:6: (this_STRING_9= RULE_STRING | this_AlfanumSym_10= ruleAlfanumSym )", 180, 0, input);
+                            new NoViableAltException("12038:6: (this_STRING_9= RULE_STRING | this_AlfanumSym_10= ruleAlfanumSym )", 181, 0, input);
 
                         throw nvae;
                     }
-                    switch (alt180) {
+                    switch (alt181) {
                         case 1 :
-                            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11999:11: this_STRING_9= RULE_STRING
+                            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12038:11: this_STRING_9= RULE_STRING
                             {
                             this_STRING_9=(Token)input.LT(1);
-                            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleVersionRangeLiteral20648); if (failed) return current;
+                            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleVersionRangeLiteral20707); if (failed) return current;
                             if ( backtracking==0 ) {
 
                               		current.merge(this_STRING_9);
@@ -32557,14 +32099,14 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12008:5: this_AlfanumSym_10= ruleAlfanumSym
+                            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12047:5: this_AlfanumSym_10= ruleAlfanumSym
                             {
                             if ( backtracking==0 ) {
                                
                                       currentNode=createCompositeNode(grammarAccess.getVersionRangeLiteralAccess().getAlfanumSymParserRuleCall_1_1(), currentNode); 
                                   
                             }
-                            pushFollow(FOLLOW_ruleAlfanumSym_in_ruleVersionRangeLiteral20681);
+                            pushFollow(FOLLOW_ruleAlfanumSym_in_ruleVersionRangeLiteral20740);
                             this_AlfanumSym_10=ruleAlfanumSym();
                             _fsp--;
                             if (failed) return current;
@@ -32612,7 +32154,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleQIDREF
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12026:1: entryRuleQIDREF returns [String current=null] : iv_ruleQIDREF= ruleQIDREF EOF ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12065:1: entryRuleQIDREF returns [String current=null] : iv_ruleQIDREF= ruleQIDREF EOF ;
     public final String entryRuleQIDREF() throws RecognitionException {
         String current = null;
 
@@ -32620,20 +32162,20 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12026:47: (iv_ruleQIDREF= ruleQIDREF EOF )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12027:2: iv_ruleQIDREF= ruleQIDREF EOF
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12065:47: (iv_ruleQIDREF= ruleQIDREF EOF )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12066:2: iv_ruleQIDREF= ruleQIDREF EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getQIDREFRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleQIDREF_in_entryRuleQIDREF20726);
+            pushFollow(FOLLOW_ruleQIDREF_in_entryRuleQIDREF20785);
             iv_ruleQIDREF=ruleQIDREF();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleQIDREF.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleQIDREF20737); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleQIDREF20796); if (failed) return current;
 
             }
 
@@ -32651,7 +32193,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleQIDREF
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12034:1: ruleQIDREF returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( ( (kw= 'super' | ( (kw= 'unit' | kw= 'this' ) (kw= '.' kw= 'super' )? ) ) (kw= '.' this_QID_6= ruleQID )? ) | this_QID_7= ruleQID ) ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12073:1: ruleQIDREF returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( ( (kw= 'super' | ( (kw= 'unit' | kw= 'this' ) (kw= '.' kw= 'super' )? ) ) (kw= '.' this_QID_6= ruleQID )? ) | this_QID_7= ruleQID ) ;
     public final AntlrDatatypeRuleToken ruleQIDREF() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -32664,56 +32206,56 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
          setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12039:6: ( ( ( (kw= 'super' | ( (kw= 'unit' | kw= 'this' ) (kw= '.' kw= 'super' )? ) ) (kw= '.' this_QID_6= ruleQID )? ) | this_QID_7= ruleQID ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12040:1: ( ( (kw= 'super' | ( (kw= 'unit' | kw= 'this' ) (kw= '.' kw= 'super' )? ) ) (kw= '.' this_QID_6= ruleQID )? ) | this_QID_7= ruleQID )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12078:6: ( ( ( (kw= 'super' | ( (kw= 'unit' | kw= 'this' ) (kw= '.' kw= 'super' )? ) ) (kw= '.' this_QID_6= ruleQID )? ) | this_QID_7= ruleQID ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12079:1: ( ( (kw= 'super' | ( (kw= 'unit' | kw= 'this' ) (kw= '.' kw= 'super' )? ) ) (kw= '.' this_QID_6= ruleQID )? ) | this_QID_7= ruleQID )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12040:1: ( ( (kw= 'super' | ( (kw= 'unit' | kw= 'this' ) (kw= '.' kw= 'super' )? ) ) (kw= '.' this_QID_6= ruleQID )? ) | this_QID_7= ruleQID )
-            int alt186=2;
-            int LA186_0 = input.LA(1);
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12079:1: ( ( (kw= 'super' | ( (kw= 'unit' | kw= 'this' ) (kw= '.' kw= 'super' )? ) ) (kw= '.' this_QID_6= ruleQID )? ) | this_QID_7= ruleQID )
+            int alt187=2;
+            int LA187_0 = input.LA(1);
 
-            if ( (LA186_0==20||LA186_0==79||LA186_0==112) ) {
-                alt186=1;
+            if ( (LA187_0==20||LA187_0==79||LA187_0==112) ) {
+                alt187=1;
             }
-            else if ( (LA186_0==RULE_ID) ) {
-                alt186=2;
+            else if ( (LA187_0==RULE_ID) ) {
+                alt187=2;
             }
             else {
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("12040:1: ( ( (kw= 'super' | ( (kw= 'unit' | kw= 'this' ) (kw= '.' kw= 'super' )? ) ) (kw= '.' this_QID_6= ruleQID )? ) | this_QID_7= ruleQID )", 186, 0, input);
+                    new NoViableAltException("12079:1: ( ( (kw= 'super' | ( (kw= 'unit' | kw= 'this' ) (kw= '.' kw= 'super' )? ) ) (kw= '.' this_QID_6= ruleQID )? ) | this_QID_7= ruleQID )", 187, 0, input);
 
                 throw nvae;
             }
-            switch (alt186) {
+            switch (alt187) {
                 case 1 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12040:2: ( (kw= 'super' | ( (kw= 'unit' | kw= 'this' ) (kw= '.' kw= 'super' )? ) ) (kw= '.' this_QID_6= ruleQID )? )
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12079:2: ( (kw= 'super' | ( (kw= 'unit' | kw= 'this' ) (kw= '.' kw= 'super' )? ) ) (kw= '.' this_QID_6= ruleQID )? )
                     {
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12040:2: ( (kw= 'super' | ( (kw= 'unit' | kw= 'this' ) (kw= '.' kw= 'super' )? ) ) (kw= '.' this_QID_6= ruleQID )? )
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12040:3: (kw= 'super' | ( (kw= 'unit' | kw= 'this' ) (kw= '.' kw= 'super' )? ) ) (kw= '.' this_QID_6= ruleQID )?
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12079:2: ( (kw= 'super' | ( (kw= 'unit' | kw= 'this' ) (kw= '.' kw= 'super' )? ) ) (kw= '.' this_QID_6= ruleQID )? )
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12079:3: (kw= 'super' | ( (kw= 'unit' | kw= 'this' ) (kw= '.' kw= 'super' )? ) ) (kw= '.' this_QID_6= ruleQID )?
                     {
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12040:3: (kw= 'super' | ( (kw= 'unit' | kw= 'this' ) (kw= '.' kw= 'super' )? ) )
-                    int alt184=2;
-                    int LA184_0 = input.LA(1);
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12079:3: (kw= 'super' | ( (kw= 'unit' | kw= 'this' ) (kw= '.' kw= 'super' )? ) )
+                    int alt185=2;
+                    int LA185_0 = input.LA(1);
 
-                    if ( (LA184_0==79) ) {
-                        alt184=1;
+                    if ( (LA185_0==79) ) {
+                        alt185=1;
                     }
-                    else if ( (LA184_0==20||LA184_0==112) ) {
-                        alt184=2;
+                    else if ( (LA185_0==20||LA185_0==112) ) {
+                        alt185=2;
                     }
                     else {
                         if (backtracking>0) {failed=true; return current;}
                         NoViableAltException nvae =
-                            new NoViableAltException("12040:3: (kw= 'super' | ( (kw= 'unit' | kw= 'this' ) (kw= '.' kw= 'super' )? ) )", 184, 0, input);
+                            new NoViableAltException("12079:3: (kw= 'super' | ( (kw= 'unit' | kw= 'this' ) (kw= '.' kw= 'super' )? ) )", 185, 0, input);
 
                         throw nvae;
                     }
-                    switch (alt184) {
+                    switch (alt185) {
                         case 1 :
-                            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12041:2: kw= 'super'
+                            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12080:2: kw= 'super'
                             {
                             kw=(Token)input.LT(1);
-                            match(input,79,FOLLOW_79_in_ruleQIDREF20777); if (failed) return current;
+                            match(input,79,FOLLOW_79_in_ruleQIDREF20836); if (failed) return current;
                             if ( backtracking==0 ) {
 
                                       current.merge(kw);
@@ -32724,34 +32266,34 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12047:6: ( (kw= 'unit' | kw= 'this' ) (kw= '.' kw= 'super' )? )
+                            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12086:6: ( (kw= 'unit' | kw= 'this' ) (kw= '.' kw= 'super' )? )
                             {
-                            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12047:6: ( (kw= 'unit' | kw= 'this' ) (kw= '.' kw= 'super' )? )
-                            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12047:7: (kw= 'unit' | kw= 'this' ) (kw= '.' kw= 'super' )?
+                            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12086:6: ( (kw= 'unit' | kw= 'this' ) (kw= '.' kw= 'super' )? )
+                            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12086:7: (kw= 'unit' | kw= 'this' ) (kw= '.' kw= 'super' )?
                             {
-                            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12047:7: (kw= 'unit' | kw= 'this' )
-                            int alt182=2;
-                            int LA182_0 = input.LA(1);
+                            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12086:7: (kw= 'unit' | kw= 'this' )
+                            int alt183=2;
+                            int LA183_0 = input.LA(1);
 
-                            if ( (LA182_0==20) ) {
-                                alt182=1;
+                            if ( (LA183_0==20) ) {
+                                alt183=1;
                             }
-                            else if ( (LA182_0==112) ) {
-                                alt182=2;
+                            else if ( (LA183_0==112) ) {
+                                alt183=2;
                             }
                             else {
                                 if (backtracking>0) {failed=true; return current;}
                                 NoViableAltException nvae =
-                                    new NoViableAltException("12047:7: (kw= 'unit' | kw= 'this' )", 182, 0, input);
+                                    new NoViableAltException("12086:7: (kw= 'unit' | kw= 'this' )", 183, 0, input);
 
                                 throw nvae;
                             }
-                            switch (alt182) {
+                            switch (alt183) {
                                 case 1 :
-                                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12048:2: kw= 'unit'
+                                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12087:2: kw= 'unit'
                                     {
                                     kw=(Token)input.LT(1);
-                                    match(input,20,FOLLOW_20_in_ruleQIDREF20798); if (failed) return current;
+                                    match(input,20,FOLLOW_20_in_ruleQIDREF20857); if (failed) return current;
                                     if ( backtracking==0 ) {
 
                                               current.merge(kw);
@@ -32762,10 +32304,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                                     }
                                     break;
                                 case 2 :
-                                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12055:2: kw= 'this'
+                                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12094:2: kw= 'this'
                                     {
                                     kw=(Token)input.LT(1);
-                                    match(input,112,FOLLOW_112_in_ruleQIDREF20817); if (failed) return current;
+                                    match(input,112,FOLLOW_112_in_ruleQIDREF20876); if (failed) return current;
                                     if ( backtracking==0 ) {
 
                                               current.merge(kw);
@@ -32778,23 +32320,23 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
                             }
 
-                            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12060:2: (kw= '.' kw= 'super' )?
-                            int alt183=2;
-                            int LA183_0 = input.LA(1);
+                            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12099:2: (kw= '.' kw= 'super' )?
+                            int alt184=2;
+                            int LA184_0 = input.LA(1);
 
-                            if ( (LA183_0==92) ) {
-                                int LA183_1 = input.LA(2);
+                            if ( (LA184_0==92) ) {
+                                int LA184_1 = input.LA(2);
 
-                                if ( (LA183_1==79) ) {
-                                    alt183=1;
+                                if ( (LA184_1==79) ) {
+                                    alt184=1;
                                 }
                             }
-                            switch (alt183) {
+                            switch (alt184) {
                                 case 1 :
-                                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12061:2: kw= '.' kw= 'super'
+                                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12100:2: kw= '.' kw= 'super'
                                     {
                                     kw=(Token)input.LT(1);
-                                    match(input,92,FOLLOW_92_in_ruleQIDREF20832); if (failed) return current;
+                                    match(input,92,FOLLOW_92_in_ruleQIDREF20891); if (failed) return current;
                                     if ( backtracking==0 ) {
 
                                               current.merge(kw);
@@ -32802,7 +32344,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                                           
                                     }
                                     kw=(Token)input.LT(1);
-                                    match(input,79,FOLLOW_79_in_ruleQIDREF20845); if (failed) return current;
+                                    match(input,79,FOLLOW_79_in_ruleQIDREF20904); if (failed) return current;
                                     if ( backtracking==0 ) {
 
                                               current.merge(kw);
@@ -32824,19 +32366,19 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12072:5: (kw= '.' this_QID_6= ruleQID )?
-                    int alt185=2;
-                    int LA185_0 = input.LA(1);
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12111:5: (kw= '.' this_QID_6= ruleQID )?
+                    int alt186=2;
+                    int LA186_0 = input.LA(1);
 
-                    if ( (LA185_0==92) ) {
-                        alt185=1;
+                    if ( (LA186_0==92) ) {
+                        alt186=1;
                     }
-                    switch (alt185) {
+                    switch (alt186) {
                         case 1 :
-                            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12073:2: kw= '.' this_QID_6= ruleQID
+                            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12112:2: kw= '.' this_QID_6= ruleQID
                             {
                             kw=(Token)input.LT(1);
-                            match(input,92,FOLLOW_92_in_ruleQIDREF20863); if (failed) return current;
+                            match(input,92,FOLLOW_92_in_ruleQIDREF20922); if (failed) return current;
                             if ( backtracking==0 ) {
 
                                       current.merge(kw);
@@ -32848,7 +32390,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                                       currentNode=createCompositeNode(grammarAccess.getQIDREFAccess().getQIDParserRuleCall_0_1_1(), currentNode); 
                                   
                             }
-                            pushFollow(FOLLOW_ruleQID_in_ruleQIDREF20885);
+                            pushFollow(FOLLOW_ruleQID_in_ruleQIDREF20944);
                             this_QID_6=ruleQID();
                             _fsp--;
                             if (failed) return current;
@@ -32875,14 +32417,14 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12091:5: this_QID_7= ruleQID
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12130:5: this_QID_7= ruleQID
                     {
                     if ( backtracking==0 ) {
                        
                               currentNode=createCompositeNode(grammarAccess.getQIDREFAccess().getQIDParserRuleCall_1(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleQID_in_ruleQIDREF20921);
+                    pushFollow(FOLLOW_ruleQID_in_ruleQIDREF20980);
                     this_QID_7=ruleQID();
                     _fsp--;
                     if (failed) return current;
@@ -32924,7 +32466,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleQID
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12109:1: entryRuleQID returns [String current=null] : iv_ruleQID= ruleQID EOF ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12148:1: entryRuleQID returns [String current=null] : iv_ruleQID= ruleQID EOF ;
     public final String entryRuleQID() throws RecognitionException {
         String current = null;
 
@@ -32932,20 +32474,20 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12109:44: (iv_ruleQID= ruleQID EOF )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12110:2: iv_ruleQID= ruleQID EOF
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12148:44: (iv_ruleQID= ruleQID EOF )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12149:2: iv_ruleQID= ruleQID EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getQIDRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleQID_in_entryRuleQID20965);
+            pushFollow(FOLLOW_ruleQID_in_entryRuleQID21024);
             iv_ruleQID=ruleQID();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleQID.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleQID20976); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleQID21035); if (failed) return current;
 
             }
 
@@ -32963,7 +32505,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleQID
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12117:1: ruleQID returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (this_INT_1= RULE_INT | this_HEX_2= RULE_HEX | this_ID_3= RULE_ID )* (kw= '.' this_ID_5= RULE_ID (this_INT_6= RULE_INT | this_HEX_7= RULE_HEX | this_ID_8= RULE_ID )* )* this_HIDDENBUG_9= ruleHIDDENBUG ) ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12156:1: ruleQID returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (this_INT_1= RULE_INT | this_HEX_2= RULE_HEX | this_ID_3= RULE_ID )* (kw= '.' this_ID_5= RULE_ID (this_INT_6= RULE_INT | this_HEX_7= RULE_HEX | this_ID_8= RULE_ID )* )* this_HIDDENBUG_9= ruleHIDDENBUG ) ;
     public final AntlrDatatypeRuleToken ruleQID() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -32983,14 +32525,14 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
         		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
             
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12124:6: ( (this_ID_0= RULE_ID (this_INT_1= RULE_INT | this_HEX_2= RULE_HEX | this_ID_3= RULE_ID )* (kw= '.' this_ID_5= RULE_ID (this_INT_6= RULE_INT | this_HEX_7= RULE_HEX | this_ID_8= RULE_ID )* )* this_HIDDENBUG_9= ruleHIDDENBUG ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12125:1: (this_ID_0= RULE_ID (this_INT_1= RULE_INT | this_HEX_2= RULE_HEX | this_ID_3= RULE_ID )* (kw= '.' this_ID_5= RULE_ID (this_INT_6= RULE_INT | this_HEX_7= RULE_HEX | this_ID_8= RULE_ID )* )* this_HIDDENBUG_9= ruleHIDDENBUG )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12163:6: ( (this_ID_0= RULE_ID (this_INT_1= RULE_INT | this_HEX_2= RULE_HEX | this_ID_3= RULE_ID )* (kw= '.' this_ID_5= RULE_ID (this_INT_6= RULE_INT | this_HEX_7= RULE_HEX | this_ID_8= RULE_ID )* )* this_HIDDENBUG_9= ruleHIDDENBUG ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12164:1: (this_ID_0= RULE_ID (this_INT_1= RULE_INT | this_HEX_2= RULE_HEX | this_ID_3= RULE_ID )* (kw= '.' this_ID_5= RULE_ID (this_INT_6= RULE_INT | this_HEX_7= RULE_HEX | this_ID_8= RULE_ID )* )* this_HIDDENBUG_9= ruleHIDDENBUG )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12125:1: (this_ID_0= RULE_ID (this_INT_1= RULE_INT | this_HEX_2= RULE_HEX | this_ID_3= RULE_ID )* (kw= '.' this_ID_5= RULE_ID (this_INT_6= RULE_INT | this_HEX_7= RULE_HEX | this_ID_8= RULE_ID )* )* this_HIDDENBUG_9= ruleHIDDENBUG )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12125:6: this_ID_0= RULE_ID (this_INT_1= RULE_INT | this_HEX_2= RULE_HEX | this_ID_3= RULE_ID )* (kw= '.' this_ID_5= RULE_ID (this_INT_6= RULE_INT | this_HEX_7= RULE_HEX | this_ID_8= RULE_ID )* )* this_HIDDENBUG_9= ruleHIDDENBUG
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12164:1: (this_ID_0= RULE_ID (this_INT_1= RULE_INT | this_HEX_2= RULE_HEX | this_ID_3= RULE_ID )* (kw= '.' this_ID_5= RULE_ID (this_INT_6= RULE_INT | this_HEX_7= RULE_HEX | this_ID_8= RULE_ID )* )* this_HIDDENBUG_9= ruleHIDDENBUG )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12164:6: this_ID_0= RULE_ID (this_INT_1= RULE_INT | this_HEX_2= RULE_HEX | this_ID_3= RULE_ID )* (kw= '.' this_ID_5= RULE_ID (this_INT_6= RULE_INT | this_HEX_7= RULE_HEX | this_ID_8= RULE_ID )* )* this_HIDDENBUG_9= ruleHIDDENBUG
             {
             this_ID_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQID21016); if (failed) return current;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQID21075); if (failed) return current;
             if ( backtracking==0 ) {
 
               		current.merge(this_ID_0);
@@ -33001,17 +32543,17 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                   createLeafNode(grammarAccess.getQIDAccess().getIDTerminalRuleCall_0(), null); 
                   
             }
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12132:1: (this_INT_1= RULE_INT | this_HEX_2= RULE_HEX | this_ID_3= RULE_ID )*
-            loop187:
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12171:1: (this_INT_1= RULE_INT | this_HEX_2= RULE_HEX | this_ID_3= RULE_ID )*
+            loop188:
             do {
-                int alt187=4;
+                int alt188=4;
                 switch ( input.LA(1) ) {
                 case RULE_ID:
                     {
-                    int LA187_2 = input.LA(2);
+                    int LA188_2 = input.LA(2);
 
-                    if ( (synpred255()) ) {
-                        alt187=3;
+                    if ( (synpred256()) ) {
+                        alt188=3;
                     }
 
 
@@ -33019,10 +32561,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     break;
                 case RULE_INT:
                     {
-                    int LA187_3 = input.LA(2);
+                    int LA188_3 = input.LA(2);
 
-                    if ( (synpred253()) ) {
-                        alt187=1;
+                    if ( (synpred254()) ) {
+                        alt188=1;
                     }
 
 
@@ -33030,10 +32572,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     break;
                 case RULE_HEX:
                     {
-                    int LA187_4 = input.LA(2);
+                    int LA188_4 = input.LA(2);
 
-                    if ( (synpred254()) ) {
-                        alt187=2;
+                    if ( (synpred255()) ) {
+                        alt188=2;
                     }
 
 
@@ -33042,12 +32584,12 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
                 }
 
-                switch (alt187) {
+                switch (alt188) {
             	case 1 :
-            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12132:6: this_INT_1= RULE_INT
+            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12171:6: this_INT_1= RULE_INT
             	    {
             	    this_INT_1=(Token)input.LT(1);
-            	    match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleQID21037); if (failed) return current;
+            	    match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleQID21096); if (failed) return current;
             	    if ( backtracking==0 ) {
 
             	      		current.merge(this_INT_1);
@@ -33062,10 +32604,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 2 :
-            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12140:10: this_HEX_2= RULE_HEX
+            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12179:10: this_HEX_2= RULE_HEX
             	    {
             	    this_HEX_2=(Token)input.LT(1);
-            	    match(input,RULE_HEX,FOLLOW_RULE_HEX_in_ruleQID21063); if (failed) return current;
+            	    match(input,RULE_HEX,FOLLOW_RULE_HEX_in_ruleQID21122); if (failed) return current;
             	    if ( backtracking==0 ) {
 
             	      		current.merge(this_HEX_2);
@@ -33080,10 +32622,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 3 :
-            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12148:10: this_ID_3= RULE_ID
+            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12187:10: this_ID_3= RULE_ID
             	    {
             	    this_ID_3=(Token)input.LT(1);
-            	    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQID21089); if (failed) return current;
+            	    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQID21148); if (failed) return current;
             	    if ( backtracking==0 ) {
 
             	      		current.merge(this_ID_3);
@@ -33099,33 +32641,33 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop187;
+            	    break loop188;
                 }
             } while (true);
 
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12155:3: (kw= '.' this_ID_5= RULE_ID (this_INT_6= RULE_INT | this_HEX_7= RULE_HEX | this_ID_8= RULE_ID )* )*
-            loop189:
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12194:3: (kw= '.' this_ID_5= RULE_ID (this_INT_6= RULE_INT | this_HEX_7= RULE_HEX | this_ID_8= RULE_ID )* )*
+            loop190:
             do {
-                int alt189=2;
-                int LA189_0 = input.LA(1);
+                int alt190=2;
+                int LA190_0 = input.LA(1);
 
-                if ( (LA189_0==92) ) {
-                    int LA189_2 = input.LA(2);
+                if ( (LA190_0==92) ) {
+                    int LA190_2 = input.LA(2);
 
-                    if ( (LA189_2==RULE_ID) ) {
-                        alt189=1;
+                    if ( (LA190_2==RULE_ID) ) {
+                        alt190=1;
                     }
 
 
                 }
 
 
-                switch (alt189) {
+                switch (alt190) {
             	case 1 :
-            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12156:2: kw= '.' this_ID_5= RULE_ID (this_INT_6= RULE_INT | this_HEX_7= RULE_HEX | this_ID_8= RULE_ID )*
+            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12195:2: kw= '.' this_ID_5= RULE_ID (this_INT_6= RULE_INT | this_HEX_7= RULE_HEX | this_ID_8= RULE_ID )*
             	    {
             	    kw=(Token)input.LT(1);
-            	    match(input,92,FOLLOW_92_in_ruleQID21110); if (failed) return current;
+            	    match(input,92,FOLLOW_92_in_ruleQID21169); if (failed) return current;
             	    if ( backtracking==0 ) {
 
             	              current.merge(kw);
@@ -33133,7 +32675,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
             	          
             	    }
             	    this_ID_5=(Token)input.LT(1);
-            	    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQID21125); if (failed) return current;
+            	    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQID21184); if (failed) return current;
             	    if ( backtracking==0 ) {
 
             	      		current.merge(this_ID_5);
@@ -33144,17 +32686,17 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
             	          createLeafNode(grammarAccess.getQIDAccess().getIDTerminalRuleCall_2_1(), null); 
             	          
             	    }
-            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12168:1: (this_INT_6= RULE_INT | this_HEX_7= RULE_HEX | this_ID_8= RULE_ID )*
-            	    loop188:
+            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12207:1: (this_INT_6= RULE_INT | this_HEX_7= RULE_HEX | this_ID_8= RULE_ID )*
+            	    loop189:
             	    do {
-            	        int alt188=4;
+            	        int alt189=4;
             	        switch ( input.LA(1) ) {
             	        case RULE_ID:
             	            {
-            	            int LA188_2 = input.LA(2);
+            	            int LA189_2 = input.LA(2);
 
-            	            if ( (synpred258()) ) {
-            	                alt188=3;
+            	            if ( (synpred259()) ) {
+            	                alt189=3;
             	            }
 
 
@@ -33162,10 +32704,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
             	            break;
             	        case RULE_INT:
             	            {
-            	            int LA188_3 = input.LA(2);
+            	            int LA189_3 = input.LA(2);
 
-            	            if ( (synpred256()) ) {
-            	                alt188=1;
+            	            if ( (synpred257()) ) {
+            	                alt189=1;
             	            }
 
 
@@ -33173,10 +32715,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
             	            break;
             	        case RULE_HEX:
             	            {
-            	            int LA188_4 = input.LA(2);
+            	            int LA189_4 = input.LA(2);
 
-            	            if ( (synpred257()) ) {
-            	                alt188=2;
+            	            if ( (synpred258()) ) {
+            	                alt189=2;
             	            }
 
 
@@ -33185,12 +32727,12 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
             	        }
 
-            	        switch (alt188) {
+            	        switch (alt189) {
             	    	case 1 :
-            	    	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12168:6: this_INT_6= RULE_INT
+            	    	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12207:6: this_INT_6= RULE_INT
             	    	    {
             	    	    this_INT_6=(Token)input.LT(1);
-            	    	    match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleQID21146); if (failed) return current;
+            	    	    match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleQID21205); if (failed) return current;
             	    	    if ( backtracking==0 ) {
 
             	    	      		current.merge(this_INT_6);
@@ -33205,10 +32747,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
             	    	    }
             	    	    break;
             	    	case 2 :
-            	    	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12176:10: this_HEX_7= RULE_HEX
+            	    	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12215:10: this_HEX_7= RULE_HEX
             	    	    {
             	    	    this_HEX_7=(Token)input.LT(1);
-            	    	    match(input,RULE_HEX,FOLLOW_RULE_HEX_in_ruleQID21172); if (failed) return current;
+            	    	    match(input,RULE_HEX,FOLLOW_RULE_HEX_in_ruleQID21231); if (failed) return current;
             	    	    if ( backtracking==0 ) {
 
             	    	      		current.merge(this_HEX_7);
@@ -33223,10 +32765,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
             	    	    }
             	    	    break;
             	    	case 3 :
-            	    	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12184:10: this_ID_8= RULE_ID
+            	    	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12223:10: this_ID_8= RULE_ID
             	    	    {
             	    	    this_ID_8=(Token)input.LT(1);
-            	    	    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQID21198); if (failed) return current;
+            	    	    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQID21257); if (failed) return current;
             	    	    if ( backtracking==0 ) {
 
             	    	      		current.merge(this_ID_8);
@@ -33242,7 +32784,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
             	    	    break;
 
             	    	default :
-            	    	    break loop188;
+            	    	    break loop189;
             	        }
             	    } while (true);
 
@@ -33251,7 +32793,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop189;
+            	    break loop190;
                 }
             } while (true);
 
@@ -33260,7 +32802,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                       currentNode=createCompositeNode(grammarAccess.getQIDAccess().getHIDDENBUGParserRuleCall_3(), currentNode); 
                   
             }
-            pushFollow(FOLLOW_ruleHIDDENBUG_in_ruleQID21229);
+            pushFollow(FOLLOW_ruleHIDDENBUG_in_ruleQID21288);
             this_HIDDENBUG_9=ruleHIDDENBUG();
             _fsp--;
             if (failed) return current;
@@ -33300,7 +32842,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleHIDDENBUG
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12210:1: entryRuleHIDDENBUG returns [String current=null] : iv_ruleHIDDENBUG= ruleHIDDENBUG EOF ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12249:1: entryRuleHIDDENBUG returns [String current=null] : iv_ruleHIDDENBUG= ruleHIDDENBUG EOF ;
     public final String entryRuleHIDDENBUG() throws RecognitionException {
         String current = null;
 
@@ -33308,20 +32850,20 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12210:50: (iv_ruleHIDDENBUG= ruleHIDDENBUG EOF )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12211:2: iv_ruleHIDDENBUG= ruleHIDDENBUG EOF
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12249:50: (iv_ruleHIDDENBUG= ruleHIDDENBUG EOF )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12250:2: iv_ruleHIDDENBUG= ruleHIDDENBUG EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getHIDDENBUGRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleHIDDENBUG_in_entryRuleHIDDENBUG21273);
+            pushFollow(FOLLOW_ruleHIDDENBUG_in_entryRuleHIDDENBUG21332);
             iv_ruleHIDDENBUG=ruleHIDDENBUG();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleHIDDENBUG.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleHIDDENBUG21284); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleHIDDENBUG21343); if (failed) return current;
 
             }
 
@@ -33339,7 +32881,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleHIDDENBUG
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12218:1: ruleHIDDENBUG returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= '~~~~~' )? ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12257:1: ruleHIDDENBUG returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= '~~~~~' )? ;
     public final AntlrDatatypeRuleToken ruleHIDDENBUG() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -33349,26 +32891,26 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
         		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_SL_COMMENT", "RULE_ML_COMMENT");
             
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12225:6: ( (kw= '~~~~~' )? )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12226:1: (kw= '~~~~~' )?
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12264:6: ( (kw= '~~~~~' )? )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12265:1: (kw= '~~~~~' )?
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12226:1: (kw= '~~~~~' )?
-            int alt190=2;
-            int LA190_0 = input.LA(1);
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12265:1: (kw= '~~~~~' )?
+            int alt191=2;
+            int LA191_0 = input.LA(1);
 
-            if ( (LA190_0==113) ) {
-                int LA190_1 = input.LA(2);
+            if ( (LA191_0==113) ) {
+                int LA191_1 = input.LA(2);
 
-                if ( (synpred260()) ) {
-                    alt190=1;
+                if ( (synpred261()) ) {
+                    alt191=1;
                 }
             }
-            switch (alt190) {
+            switch (alt191) {
                 case 1 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12227:2: kw= '~~~~~'
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12266:2: kw= '~~~~~'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,113,FOLLOW_113_in_ruleHIDDENBUG21322); if (failed) return current;
+                    match(input,113,FOLLOW_113_in_ruleHIDDENBUG21381); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -33404,7 +32946,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRulePropertyName
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12240:1: entryRulePropertyName returns [String current=null] : iv_rulePropertyName= rulePropertyName EOF ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12279:1: entryRulePropertyName returns [String current=null] : iv_rulePropertyName= rulePropertyName EOF ;
     public final String entryRulePropertyName() throws RecognitionException {
         String current = null;
 
@@ -33412,20 +32954,20 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12240:53: (iv_rulePropertyName= rulePropertyName EOF )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12241:2: iv_rulePropertyName= rulePropertyName EOF
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12279:53: (iv_rulePropertyName= rulePropertyName EOF )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12280:2: iv_rulePropertyName= rulePropertyName EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getPropertyNameRule(), currentNode); 
             }
-            pushFollow(FOLLOW_rulePropertyName_in_entryRulePropertyName21362);
+            pushFollow(FOLLOW_rulePropertyName_in_entryRulePropertyName21421);
             iv_rulePropertyName=rulePropertyName();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_rulePropertyName.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRulePropertyName21373); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRulePropertyName21432); if (failed) return current;
 
             }
 
@@ -33443,7 +32985,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start rulePropertyName
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12248:1: rulePropertyName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_PID_0= RULE_PID ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12287:1: rulePropertyName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_PID_0= RULE_PID ;
     public final AntlrDatatypeRuleToken rulePropertyName() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -33452,11 +32994,11 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
          setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12253:6: (this_PID_0= RULE_PID )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12254:5: this_PID_0= RULE_PID
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12292:6: (this_PID_0= RULE_PID )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12293:5: this_PID_0= RULE_PID
             {
             this_PID_0=(Token)input.LT(1);
-            match(input,RULE_PID,FOLLOW_RULE_PID_in_rulePropertyName21412); if (failed) return current;
+            match(input,RULE_PID,FOLLOW_RULE_PID_in_rulePropertyName21471); if (failed) return current;
             if ( backtracking==0 ) {
 
               		current.merge(this_PID_0);
@@ -33489,7 +33031,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleEscapedQualifiedName
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12269:1: entryRuleEscapedQualifiedName returns [String current=null] : iv_ruleEscapedQualifiedName= ruleEscapedQualifiedName EOF ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12308:1: entryRuleEscapedQualifiedName returns [String current=null] : iv_ruleEscapedQualifiedName= ruleEscapedQualifiedName EOF ;
     public final String entryRuleEscapedQualifiedName() throws RecognitionException {
         String current = null;
 
@@ -33497,20 +33039,20 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12269:61: (iv_ruleEscapedQualifiedName= ruleEscapedQualifiedName EOF )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12270:2: iv_ruleEscapedQualifiedName= ruleEscapedQualifiedName EOF
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12308:61: (iv_ruleEscapedQualifiedName= ruleEscapedQualifiedName EOF )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12309:2: iv_ruleEscapedQualifiedName= ruleEscapedQualifiedName EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getEscapedQualifiedNameRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleEscapedQualifiedName_in_entryRuleEscapedQualifiedName21455);
+            pushFollow(FOLLOW_ruleEscapedQualifiedName_in_entryRuleEscapedQualifiedName21514);
             iv_ruleEscapedQualifiedName=ruleEscapedQualifiedName();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleEscapedQualifiedName.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleEscapedQualifiedName21466); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleEscapedQualifiedName21525); if (failed) return current;
 
             }
 
@@ -33528,7 +33070,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleEscapedQualifiedName
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12277:1: ruleEscapedQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_STRING_0= RULE_STRING | this_QID_1= ruleQID ) ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12316:1: ruleEscapedQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_STRING_0= RULE_STRING | this_QID_1= ruleQID ) ;
     public final AntlrDatatypeRuleToken ruleEscapedQualifiedName() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -33539,32 +33081,32 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
          setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12282:6: ( (this_STRING_0= RULE_STRING | this_QID_1= ruleQID ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12283:1: (this_STRING_0= RULE_STRING | this_QID_1= ruleQID )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12321:6: ( (this_STRING_0= RULE_STRING | this_QID_1= ruleQID ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12322:1: (this_STRING_0= RULE_STRING | this_QID_1= ruleQID )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12283:1: (this_STRING_0= RULE_STRING | this_QID_1= ruleQID )
-            int alt191=2;
-            int LA191_0 = input.LA(1);
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12322:1: (this_STRING_0= RULE_STRING | this_QID_1= ruleQID )
+            int alt192=2;
+            int LA192_0 = input.LA(1);
 
-            if ( (LA191_0==RULE_STRING) ) {
-                alt191=1;
+            if ( (LA192_0==RULE_STRING) ) {
+                alt192=1;
             }
-            else if ( (LA191_0==RULE_ID) ) {
-                alt191=2;
+            else if ( (LA192_0==RULE_ID) ) {
+                alt192=2;
             }
             else {
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("12283:1: (this_STRING_0= RULE_STRING | this_QID_1= ruleQID )", 191, 0, input);
+                    new NoViableAltException("12322:1: (this_STRING_0= RULE_STRING | this_QID_1= ruleQID )", 192, 0, input);
 
                 throw nvae;
             }
-            switch (alt191) {
+            switch (alt192) {
                 case 1 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12283:6: this_STRING_0= RULE_STRING
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12322:6: this_STRING_0= RULE_STRING
                     {
                     this_STRING_0=(Token)input.LT(1);
-                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleEscapedQualifiedName21506); if (failed) return current;
+                    match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleEscapedQualifiedName21565); if (failed) return current;
                     if ( backtracking==0 ) {
 
                       		current.merge(this_STRING_0);
@@ -33579,14 +33121,14 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12292:5: this_QID_1= ruleQID
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12331:5: this_QID_1= ruleQID
                     {
                     if ( backtracking==0 ) {
                        
                               currentNode=createCompositeNode(grammarAccess.getEscapedQualifiedNameAccess().getQIDParserRuleCall_1(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleQID_in_ruleEscapedQualifiedName21539);
+                    pushFollow(FOLLOW_ruleQID_in_ruleEscapedQualifiedName21598);
                     this_QID_1=ruleQID();
                     _fsp--;
                     if (failed) return current;
@@ -33628,7 +33170,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleInterfaceName
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12310:1: entryRuleInterfaceName returns [String current=null] : iv_ruleInterfaceName= ruleInterfaceName EOF ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12349:1: entryRuleInterfaceName returns [String current=null] : iv_ruleInterfaceName= ruleInterfaceName EOF ;
     public final String entryRuleInterfaceName() throws RecognitionException {
         String current = null;
 
@@ -33636,20 +33178,20 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12310:54: (iv_ruleInterfaceName= ruleInterfaceName EOF )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12311:2: iv_ruleInterfaceName= ruleInterfaceName EOF
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12349:54: (iv_ruleInterfaceName= ruleInterfaceName EOF )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12350:2: iv_ruleInterfaceName= ruleInterfaceName EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getInterfaceNameRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleInterfaceName_in_entryRuleInterfaceName21583);
+            pushFollow(FOLLOW_ruleInterfaceName_in_entryRuleInterfaceName21642);
             iv_ruleInterfaceName=ruleInterfaceName();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleInterfaceName.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleInterfaceName21594); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleInterfaceName21653); if (failed) return current;
 
             }
 
@@ -33667,7 +33209,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleInterfaceName
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12318:1: ruleInterfaceName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_QID_0= ruleQID ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12357:1: ruleInterfaceName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_QID_0= ruleQID ;
     public final AntlrDatatypeRuleToken ruleInterfaceName() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -33677,15 +33219,15 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
          setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12323:6: (this_QID_0= ruleQID )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12325:5: this_QID_0= ruleQID
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12362:6: (this_QID_0= ruleQID )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12364:5: this_QID_0= ruleQID
             {
             if ( backtracking==0 ) {
                
                       currentNode=createCompositeNode(grammarAccess.getInterfaceNameAccess().getQIDParserRuleCall(), currentNode); 
                   
             }
-            pushFollow(FOLLOW_ruleQID_in_ruleInterfaceName21640);
+            pushFollow(FOLLOW_ruleQID_in_ruleInterfaceName21699);
             this_QID_0=ruleQID();
             _fsp--;
             if (failed) return current;
@@ -33721,7 +33263,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleCompoundName
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12343:1: entryRuleCompoundName returns [String current=null] : iv_ruleCompoundName= ruleCompoundName EOF ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12382:1: entryRuleCompoundName returns [String current=null] : iv_ruleCompoundName= ruleCompoundName EOF ;
     public final String entryRuleCompoundName() throws RecognitionException {
         String current = null;
 
@@ -33729,20 +33271,20 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12343:53: (iv_ruleCompoundName= ruleCompoundName EOF )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12344:2: iv_ruleCompoundName= ruleCompoundName EOF
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12382:53: (iv_ruleCompoundName= ruleCompoundName EOF )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12383:2: iv_ruleCompoundName= ruleCompoundName EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getCompoundNameRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleCompoundName_in_entryRuleCompoundName21683);
+            pushFollow(FOLLOW_ruleCompoundName_in_entryRuleCompoundName21742);
             iv_ruleCompoundName=ruleCompoundName();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleCompoundName.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleCompoundName21694); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleCompoundName21753); if (failed) return current;
 
             }
 
@@ -33760,7 +33302,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleCompoundName
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12351:1: ruleCompoundName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_EscapedQualifiedName_0= ruleEscapedQualifiedName kw= '/' this_EscapedQualifiedName_2= ruleEscapedQualifiedName ) ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12390:1: ruleCompoundName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_EscapedQualifiedName_0= ruleEscapedQualifiedName kw= '/' this_EscapedQualifiedName_2= ruleEscapedQualifiedName ) ;
     public final AntlrDatatypeRuleToken ruleCompoundName() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -33773,18 +33315,18 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
          setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12356:6: ( (this_EscapedQualifiedName_0= ruleEscapedQualifiedName kw= '/' this_EscapedQualifiedName_2= ruleEscapedQualifiedName ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12357:1: (this_EscapedQualifiedName_0= ruleEscapedQualifiedName kw= '/' this_EscapedQualifiedName_2= ruleEscapedQualifiedName )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12395:6: ( (this_EscapedQualifiedName_0= ruleEscapedQualifiedName kw= '/' this_EscapedQualifiedName_2= ruleEscapedQualifiedName ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12396:1: (this_EscapedQualifiedName_0= ruleEscapedQualifiedName kw= '/' this_EscapedQualifiedName_2= ruleEscapedQualifiedName )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12357:1: (this_EscapedQualifiedName_0= ruleEscapedQualifiedName kw= '/' this_EscapedQualifiedName_2= ruleEscapedQualifiedName )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12358:5: this_EscapedQualifiedName_0= ruleEscapedQualifiedName kw= '/' this_EscapedQualifiedName_2= ruleEscapedQualifiedName
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12396:1: (this_EscapedQualifiedName_0= ruleEscapedQualifiedName kw= '/' this_EscapedQualifiedName_2= ruleEscapedQualifiedName )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12397:5: this_EscapedQualifiedName_0= ruleEscapedQualifiedName kw= '/' this_EscapedQualifiedName_2= ruleEscapedQualifiedName
             {
             if ( backtracking==0 ) {
                
                       currentNode=createCompositeNode(grammarAccess.getCompoundNameAccess().getEscapedQualifiedNameParserRuleCall_0(), currentNode); 
                   
             }
-            pushFollow(FOLLOW_ruleEscapedQualifiedName_in_ruleCompoundName21741);
+            pushFollow(FOLLOW_ruleEscapedQualifiedName_in_ruleCompoundName21800);
             this_EscapedQualifiedName_0=ruleEscapedQualifiedName();
             _fsp--;
             if (failed) return current;
@@ -33799,7 +33341,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                   
             }
             kw=(Token)input.LT(1);
-            match(input,34,FOLLOW_34_in_ruleCompoundName21759); if (failed) return current;
+            match(input,34,FOLLOW_34_in_ruleCompoundName21818); if (failed) return current;
             if ( backtracking==0 ) {
 
                       current.merge(kw);
@@ -33811,7 +33353,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                       currentNode=createCompositeNode(grammarAccess.getCompoundNameAccess().getEscapedQualifiedNameParserRuleCall_2(), currentNode); 
                   
             }
-            pushFollow(FOLLOW_ruleEscapedQualifiedName_in_ruleCompoundName21781);
+            pushFollow(FOLLOW_ruleEscapedQualifiedName_in_ruleCompoundName21840);
             this_EscapedQualifiedName_2=ruleEscapedQualifiedName();
             _fsp--;
             if (failed) return current;
@@ -33850,7 +33392,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleUnitName
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12393:1: entryRuleUnitName returns [String current=null] : iv_ruleUnitName= ruleUnitName EOF ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12432:1: entryRuleUnitName returns [String current=null] : iv_ruleUnitName= ruleUnitName EOF ;
     public final String entryRuleUnitName() throws RecognitionException {
         String current = null;
 
@@ -33858,20 +33400,20 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12393:49: (iv_ruleUnitName= ruleUnitName EOF )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12394:2: iv_ruleUnitName= ruleUnitName EOF
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12432:49: (iv_ruleUnitName= ruleUnitName EOF )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12433:2: iv_ruleUnitName= ruleUnitName EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getUnitNameRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleUnitName_in_entryRuleUnitName21825);
+            pushFollow(FOLLOW_ruleUnitName_in_entryRuleUnitName21884);
             iv_ruleUnitName=ruleUnitName();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleUnitName.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleUnitName21836); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleUnitName21895); if (failed) return current;
 
             }
 
@@ -33889,7 +33431,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleUnitName
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12401:1: ruleUnitName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_EscapedQualifiedName_0= ruleEscapedQualifiedName ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12440:1: ruleUnitName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_EscapedQualifiedName_0= ruleEscapedQualifiedName ;
     public final AntlrDatatypeRuleToken ruleUnitName() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -33899,15 +33441,15 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
          setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12406:6: (this_EscapedQualifiedName_0= ruleEscapedQualifiedName )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12408:5: this_EscapedQualifiedName_0= ruleEscapedQualifiedName
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12445:6: (this_EscapedQualifiedName_0= ruleEscapedQualifiedName )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12447:5: this_EscapedQualifiedName_0= ruleEscapedQualifiedName
             {
             if ( backtracking==0 ) {
                
                       currentNode=createCompositeNode(grammarAccess.getUnitNameAccess().getEscapedQualifiedNameParserRuleCall(), currentNode); 
                   
             }
-            pushFollow(FOLLOW_ruleEscapedQualifiedName_in_ruleUnitName21882);
+            pushFollow(FOLLOW_ruleEscapedQualifiedName_in_ruleUnitName21941);
             this_EscapedQualifiedName_0=ruleEscapedQualifiedName();
             _fsp--;
             if (failed) return current;
@@ -33943,7 +33485,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRulePartName
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12426:1: entryRulePartName returns [String current=null] : iv_rulePartName= rulePartName EOF ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12465:1: entryRulePartName returns [String current=null] : iv_rulePartName= rulePartName EOF ;
     public final String entryRulePartName() throws RecognitionException {
         String current = null;
 
@@ -33951,20 +33493,20 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12426:49: (iv_rulePartName= rulePartName EOF )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12427:2: iv_rulePartName= rulePartName EOF
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12465:49: (iv_rulePartName= rulePartName EOF )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12466:2: iv_rulePartName= rulePartName EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getPartNameRule(), currentNode); 
             }
-            pushFollow(FOLLOW_rulePartName_in_entryRulePartName21925);
+            pushFollow(FOLLOW_rulePartName_in_entryRulePartName21984);
             iv_rulePartName=rulePartName();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_rulePartName.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRulePartName21936); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRulePartName21995); if (failed) return current;
 
             }
 
@@ -33982,7 +33524,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start rulePartName
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12434:1: rulePartName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_EscapedQualifiedName_0= ruleEscapedQualifiedName ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12473:1: rulePartName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_EscapedQualifiedName_0= ruleEscapedQualifiedName ;
     public final AntlrDatatypeRuleToken rulePartName() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -33992,15 +33534,15 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
          setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12439:6: (this_EscapedQualifiedName_0= ruleEscapedQualifiedName )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12441:5: this_EscapedQualifiedName_0= ruleEscapedQualifiedName
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12478:6: (this_EscapedQualifiedName_0= ruleEscapedQualifiedName )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12480:5: this_EscapedQualifiedName_0= ruleEscapedQualifiedName
             {
             if ( backtracking==0 ) {
                
                       currentNode=createCompositeNode(grammarAccess.getPartNameAccess().getEscapedQualifiedNameParserRuleCall(), currentNode); 
                   
             }
-            pushFollow(FOLLOW_ruleEscapedQualifiedName_in_rulePartName21982);
+            pushFollow(FOLLOW_ruleEscapedQualifiedName_in_rulePartName22041);
             this_EscapedQualifiedName_0=ruleEscapedQualifiedName();
             _fsp--;
             if (failed) return current;
@@ -34036,7 +33578,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleSeparator
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12459:1: entryRuleSeparator returns [String current=null] : iv_ruleSeparator= ruleSeparator EOF ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12498:1: entryRuleSeparator returns [String current=null] : iv_ruleSeparator= ruleSeparator EOF ;
     public final String entryRuleSeparator() throws RecognitionException {
         String current = null;
 
@@ -34044,20 +33586,20 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12459:50: (iv_ruleSeparator= ruleSeparator EOF )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12460:2: iv_ruleSeparator= ruleSeparator EOF
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12498:50: (iv_ruleSeparator= ruleSeparator EOF )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12499:2: iv_ruleSeparator= ruleSeparator EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getSeparatorRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleSeparator_in_entryRuleSeparator22025);
+            pushFollow(FOLLOW_ruleSeparator_in_entryRuleSeparator22084);
             iv_ruleSeparator=ruleSeparator();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleSeparator.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSeparator22036); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSeparator22095); if (failed) return current;
 
             }
 
@@ -34075,7 +33617,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleSeparator
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12467:1: ruleSeparator returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= '.' | kw= '-' | kw= '!' | kw= '@' | kw= '$' | kw= '%' | kw= '&' | kw= '+' | kw= '=' | kw= '*' | kw= '<' | kw= '>' | kw= ':' | kw= '?' ) ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12506:1: ruleSeparator returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= '.' | kw= '-' | kw= '!' | kw= '@' | kw= '$' | kw= '%' | kw= '&' | kw= '+' | kw= '=' | kw= '*' | kw= '<' | kw= '>' | kw= ':' | kw= '?' ) ;
     public final AntlrDatatypeRuleToken ruleSeparator() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -34084,96 +33626,96 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
          setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12472:6: ( (kw= '.' | kw= '-' | kw= '!' | kw= '@' | kw= '$' | kw= '%' | kw= '&' | kw= '+' | kw= '=' | kw= '*' | kw= '<' | kw= '>' | kw= ':' | kw= '?' ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12473:1: (kw= '.' | kw= '-' | kw= '!' | kw= '@' | kw= '$' | kw= '%' | kw= '&' | kw= '+' | kw= '=' | kw= '*' | kw= '<' | kw= '>' | kw= ':' | kw= '?' )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12511:6: ( (kw= '.' | kw= '-' | kw= '!' | kw= '@' | kw= '$' | kw= '%' | kw= '&' | kw= '+' | kw= '=' | kw= '*' | kw= '<' | kw= '>' | kw= ':' | kw= '?' ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12512:1: (kw= '.' | kw= '-' | kw= '!' | kw= '@' | kw= '$' | kw= '%' | kw= '&' | kw= '+' | kw= '=' | kw= '*' | kw= '<' | kw= '>' | kw= ':' | kw= '?' )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12473:1: (kw= '.' | kw= '-' | kw= '!' | kw= '@' | kw= '$' | kw= '%' | kw= '&' | kw= '+' | kw= '=' | kw= '*' | kw= '<' | kw= '>' | kw= ':' | kw= '?' )
-            int alt192=14;
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12512:1: (kw= '.' | kw= '-' | kw= '!' | kw= '@' | kw= '$' | kw= '%' | kw= '&' | kw= '+' | kw= '=' | kw= '*' | kw= '<' | kw= '>' | kw= ':' | kw= '?' )
+            int alt193=14;
             switch ( input.LA(1) ) {
             case 92:
                 {
-                alt192=1;
+                alt193=1;
                 }
                 break;
             case 84:
                 {
-                alt192=2;
+                alt193=2;
                 }
                 break;
             case 88:
                 {
-                alt192=3;
+                alt193=3;
                 }
                 break;
             case 114:
                 {
-                alt192=4;
+                alt193=4;
                 }
                 break;
             case 115:
                 {
-                alt192=5;
+                alt193=5;
                 }
                 break;
             case 86:
                 {
-                alt192=6;
+                alt193=6;
                 }
                 break;
             case 116:
                 {
-                alt192=7;
+                alt193=7;
                 }
                 break;
             case 83:
                 {
-                alt192=8;
+                alt193=8;
                 }
                 break;
             case 62:
                 {
-                alt192=9;
+                alt193=9;
                 }
                 break;
             case 85:
                 {
-                alt192=10;
+                alt193=10;
                 }
                 break;
             case 76:
                 {
-                alt192=11;
+                alt193=11;
                 }
                 break;
             case 75:
                 {
-                alt192=12;
+                alt193=12;
                 }
                 break;
             case 57:
                 {
-                alt192=13;
+                alt193=13;
                 }
                 break;
             case 78:
                 {
-                alt192=14;
+                alt193=14;
                 }
                 break;
             default:
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("12473:1: (kw= '.' | kw= '-' | kw= '!' | kw= '@' | kw= '$' | kw= '%' | kw= '&' | kw= '+' | kw= '=' | kw= '*' | kw= '<' | kw= '>' | kw= ':' | kw= '?' )", 192, 0, input);
+                    new NoViableAltException("12512:1: (kw= '.' | kw= '-' | kw= '!' | kw= '@' | kw= '$' | kw= '%' | kw= '&' | kw= '+' | kw= '=' | kw= '*' | kw= '<' | kw= '>' | kw= ':' | kw= '?' )", 193, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt192) {
+            switch (alt193) {
                 case 1 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12474:2: kw= '.'
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12513:2: kw= '.'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,92,FOLLOW_92_in_ruleSeparator22074); if (failed) return current;
+                    match(input,92,FOLLOW_92_in_ruleSeparator22133); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -34184,10 +33726,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12481:2: kw= '-'
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12520:2: kw= '-'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,84,FOLLOW_84_in_ruleSeparator22093); if (failed) return current;
+                    match(input,84,FOLLOW_84_in_ruleSeparator22152); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -34198,10 +33740,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12488:2: kw= '!'
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12527:2: kw= '!'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,88,FOLLOW_88_in_ruleSeparator22112); if (failed) return current;
+                    match(input,88,FOLLOW_88_in_ruleSeparator22171); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -34212,10 +33754,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12495:2: kw= '@'
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12534:2: kw= '@'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,114,FOLLOW_114_in_ruleSeparator22131); if (failed) return current;
+                    match(input,114,FOLLOW_114_in_ruleSeparator22190); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -34226,10 +33768,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12502:2: kw= '$'
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12541:2: kw= '$'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,115,FOLLOW_115_in_ruleSeparator22150); if (failed) return current;
+                    match(input,115,FOLLOW_115_in_ruleSeparator22209); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -34240,10 +33782,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12509:2: kw= '%'
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12548:2: kw= '%'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,86,FOLLOW_86_in_ruleSeparator22169); if (failed) return current;
+                    match(input,86,FOLLOW_86_in_ruleSeparator22228); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -34254,10 +33796,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12516:2: kw= '&'
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12555:2: kw= '&'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,116,FOLLOW_116_in_ruleSeparator22188); if (failed) return current;
+                    match(input,116,FOLLOW_116_in_ruleSeparator22247); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -34268,10 +33810,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 8 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12523:2: kw= '+'
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12562:2: kw= '+'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,83,FOLLOW_83_in_ruleSeparator22207); if (failed) return current;
+                    match(input,83,FOLLOW_83_in_ruleSeparator22266); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -34282,10 +33824,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 9 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12530:2: kw= '='
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12569:2: kw= '='
                     {
                     kw=(Token)input.LT(1);
-                    match(input,62,FOLLOW_62_in_ruleSeparator22226); if (failed) return current;
+                    match(input,62,FOLLOW_62_in_ruleSeparator22285); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -34296,10 +33838,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 10 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12537:2: kw= '*'
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12576:2: kw= '*'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,85,FOLLOW_85_in_ruleSeparator22245); if (failed) return current;
+                    match(input,85,FOLLOW_85_in_ruleSeparator22304); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -34310,10 +33852,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 11 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12544:2: kw= '<'
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12583:2: kw= '<'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,76,FOLLOW_76_in_ruleSeparator22264); if (failed) return current;
+                    match(input,76,FOLLOW_76_in_ruleSeparator22323); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -34324,10 +33866,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 12 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12551:2: kw= '>'
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12590:2: kw= '>'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,75,FOLLOW_75_in_ruleSeparator22283); if (failed) return current;
+                    match(input,75,FOLLOW_75_in_ruleSeparator22342); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -34338,10 +33880,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 13 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12558:2: kw= ':'
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12597:2: kw= ':'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,57,FOLLOW_57_in_ruleSeparator22302); if (failed) return current;
+                    match(input,57,FOLLOW_57_in_ruleSeparator22361); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -34352,10 +33894,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 14 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12565:2: kw= '?'
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12604:2: kw= '?'
                     {
                     kw=(Token)input.LT(1);
-                    match(input,78,FOLLOW_78_in_ruleSeparator22321); if (failed) return current;
+                    match(input,78,FOLLOW_78_in_ruleSeparator22380); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current.merge(kw);
@@ -34390,7 +33932,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleAlfanumSym
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12578:1: entryRuleAlfanumSym returns [String current=null] : iv_ruleAlfanumSym= ruleAlfanumSym EOF ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12617:1: entryRuleAlfanumSym returns [String current=null] : iv_ruleAlfanumSym= ruleAlfanumSym EOF ;
     public final String entryRuleAlfanumSym() throws RecognitionException {
         String current = null;
 
@@ -34398,20 +33940,20 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12578:51: (iv_ruleAlfanumSym= ruleAlfanumSym EOF )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12579:2: iv_ruleAlfanumSym= ruleAlfanumSym EOF
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12617:51: (iv_ruleAlfanumSym= ruleAlfanumSym EOF )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12618:2: iv_ruleAlfanumSym= ruleAlfanumSym EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getAlfanumSymRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleAlfanumSym_in_entryRuleAlfanumSym22360);
+            pushFollow(FOLLOW_ruleAlfanumSym_in_entryRuleAlfanumSym22419);
             iv_ruleAlfanumSym=ruleAlfanumSym();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleAlfanumSym.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAlfanumSym22371); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleAlfanumSym22430); if (failed) return current;
 
             }
 
@@ -34429,7 +33971,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleAlfanumSym
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12586:1: ruleAlfanumSym returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (this_ID_0= RULE_ID | this_INT_1= RULE_INT | this_HEX_2= RULE_HEX | this_EXT_INT_3= RULE_EXT_INT ) (this_Separator_4= ruleSeparator | this_ID_5= RULE_ID | this_INT_6= RULE_INT | this_HEX_7= RULE_HEX | this_EXT_INT_8= RULE_EXT_INT )* ) ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12625:1: ruleAlfanumSym returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (this_ID_0= RULE_ID | this_INT_1= RULE_INT | this_HEX_2= RULE_HEX | this_EXT_INT_3= RULE_EXT_INT ) (this_Separator_4= ruleSeparator | this_ID_5= RULE_ID | this_INT_6= RULE_INT | this_HEX_7= RULE_HEX | this_EXT_INT_8= RULE_EXT_INT )* ) ;
     public final AntlrDatatypeRuleToken ruleAlfanumSym() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -34447,49 +33989,49 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
          setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12591:6: ( ( (this_ID_0= RULE_ID | this_INT_1= RULE_INT | this_HEX_2= RULE_HEX | this_EXT_INT_3= RULE_EXT_INT ) (this_Separator_4= ruleSeparator | this_ID_5= RULE_ID | this_INT_6= RULE_INT | this_HEX_7= RULE_HEX | this_EXT_INT_8= RULE_EXT_INT )* ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12592:1: ( (this_ID_0= RULE_ID | this_INT_1= RULE_INT | this_HEX_2= RULE_HEX | this_EXT_INT_3= RULE_EXT_INT ) (this_Separator_4= ruleSeparator | this_ID_5= RULE_ID | this_INT_6= RULE_INT | this_HEX_7= RULE_HEX | this_EXT_INT_8= RULE_EXT_INT )* )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12630:6: ( ( (this_ID_0= RULE_ID | this_INT_1= RULE_INT | this_HEX_2= RULE_HEX | this_EXT_INT_3= RULE_EXT_INT ) (this_Separator_4= ruleSeparator | this_ID_5= RULE_ID | this_INT_6= RULE_INT | this_HEX_7= RULE_HEX | this_EXT_INT_8= RULE_EXT_INT )* ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12631:1: ( (this_ID_0= RULE_ID | this_INT_1= RULE_INT | this_HEX_2= RULE_HEX | this_EXT_INT_3= RULE_EXT_INT ) (this_Separator_4= ruleSeparator | this_ID_5= RULE_ID | this_INT_6= RULE_INT | this_HEX_7= RULE_HEX | this_EXT_INT_8= RULE_EXT_INT )* )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12592:1: ( (this_ID_0= RULE_ID | this_INT_1= RULE_INT | this_HEX_2= RULE_HEX | this_EXT_INT_3= RULE_EXT_INT ) (this_Separator_4= ruleSeparator | this_ID_5= RULE_ID | this_INT_6= RULE_INT | this_HEX_7= RULE_HEX | this_EXT_INT_8= RULE_EXT_INT )* )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12592:2: (this_ID_0= RULE_ID | this_INT_1= RULE_INT | this_HEX_2= RULE_HEX | this_EXT_INT_3= RULE_EXT_INT ) (this_Separator_4= ruleSeparator | this_ID_5= RULE_ID | this_INT_6= RULE_INT | this_HEX_7= RULE_HEX | this_EXT_INT_8= RULE_EXT_INT )*
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12631:1: ( (this_ID_0= RULE_ID | this_INT_1= RULE_INT | this_HEX_2= RULE_HEX | this_EXT_INT_3= RULE_EXT_INT ) (this_Separator_4= ruleSeparator | this_ID_5= RULE_ID | this_INT_6= RULE_INT | this_HEX_7= RULE_HEX | this_EXT_INT_8= RULE_EXT_INT )* )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12631:2: (this_ID_0= RULE_ID | this_INT_1= RULE_INT | this_HEX_2= RULE_HEX | this_EXT_INT_3= RULE_EXT_INT ) (this_Separator_4= ruleSeparator | this_ID_5= RULE_ID | this_INT_6= RULE_INT | this_HEX_7= RULE_HEX | this_EXT_INT_8= RULE_EXT_INT )*
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12592:2: (this_ID_0= RULE_ID | this_INT_1= RULE_INT | this_HEX_2= RULE_HEX | this_EXT_INT_3= RULE_EXT_INT )
-            int alt193=4;
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12631:2: (this_ID_0= RULE_ID | this_INT_1= RULE_INT | this_HEX_2= RULE_HEX | this_EXT_INT_3= RULE_EXT_INT )
+            int alt194=4;
             switch ( input.LA(1) ) {
             case RULE_ID:
                 {
-                alt193=1;
+                alt194=1;
                 }
                 break;
             case RULE_INT:
                 {
-                alt193=2;
+                alt194=2;
                 }
                 break;
             case RULE_HEX:
                 {
-                alt193=3;
+                alt194=3;
                 }
                 break;
             case RULE_EXT_INT:
                 {
-                alt193=4;
+                alt194=4;
                 }
                 break;
             default:
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("12592:2: (this_ID_0= RULE_ID | this_INT_1= RULE_INT | this_HEX_2= RULE_HEX | this_EXT_INT_3= RULE_EXT_INT )", 193, 0, input);
+                    new NoViableAltException("12631:2: (this_ID_0= RULE_ID | this_INT_1= RULE_INT | this_HEX_2= RULE_HEX | this_EXT_INT_3= RULE_EXT_INT )", 194, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt193) {
+            switch (alt194) {
                 case 1 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12592:7: this_ID_0= RULE_ID
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12631:7: this_ID_0= RULE_ID
                     {
                     this_ID_0=(Token)input.LT(1);
-                    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleAlfanumSym22412); if (failed) return current;
+                    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleAlfanumSym22471); if (failed) return current;
                     if ( backtracking==0 ) {
 
                       		current.merge(this_ID_0);
@@ -34504,10 +34046,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12600:10: this_INT_1= RULE_INT
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12639:10: this_INT_1= RULE_INT
                     {
                     this_INT_1=(Token)input.LT(1);
-                    match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleAlfanumSym22438); if (failed) return current;
+                    match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleAlfanumSym22497); if (failed) return current;
                     if ( backtracking==0 ) {
 
                       		current.merge(this_INT_1);
@@ -34522,10 +34064,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12608:10: this_HEX_2= RULE_HEX
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12647:10: this_HEX_2= RULE_HEX
                     {
                     this_HEX_2=(Token)input.LT(1);
-                    match(input,RULE_HEX,FOLLOW_RULE_HEX_in_ruleAlfanumSym22464); if (failed) return current;
+                    match(input,RULE_HEX,FOLLOW_RULE_HEX_in_ruleAlfanumSym22523); if (failed) return current;
                     if ( backtracking==0 ) {
 
                       		current.merge(this_HEX_2);
@@ -34540,10 +34082,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12616:10: this_EXT_INT_3= RULE_EXT_INT
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12655:10: this_EXT_INT_3= RULE_EXT_INT
                     {
                     this_EXT_INT_3=(Token)input.LT(1);
-                    match(input,RULE_EXT_INT,FOLLOW_RULE_EXT_INT_in_ruleAlfanumSym22490); if (failed) return current;
+                    match(input,RULE_EXT_INT,FOLLOW_RULE_EXT_INT_in_ruleAlfanumSym22549); if (failed) return current;
                     if ( backtracking==0 ) {
 
                       		current.merge(this_EXT_INT_3);
@@ -34560,17 +34102,28 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12623:2: (this_Separator_4= ruleSeparator | this_ID_5= RULE_ID | this_INT_6= RULE_INT | this_HEX_7= RULE_HEX | this_EXT_INT_8= RULE_EXT_INT )*
-            loop194:
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12662:2: (this_Separator_4= ruleSeparator | this_ID_5= RULE_ID | this_INT_6= RULE_INT | this_HEX_7= RULE_HEX | this_EXT_INT_8= RULE_EXT_INT )*
+            loop195:
             do {
-                int alt194=6;
+                int alt195=6;
                 switch ( input.LA(1) ) {
-                case RULE_ID:
+                case 76:
                     {
-                    int LA194_11 = input.LA(2);
+                    int LA195_11 = input.LA(2);
 
                     if ( (synpred279()) ) {
-                        alt194=2;
+                        alt195=1;
+                    }
+
+
+                    }
+                    break;
+                case RULE_ID:
+                    {
+                    int LA195_12 = input.LA(2);
+
+                    if ( (synpred280()) ) {
+                        alt195=2;
                     }
 
 
@@ -34578,10 +34131,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     break;
                 case RULE_INT:
                     {
-                    int LA194_18 = input.LA(2);
+                    int LA195_19 = input.LA(2);
 
-                    if ( (synpred280()) ) {
-                        alt194=3;
+                    if ( (synpred281()) ) {
+                        alt195=3;
                     }
 
 
@@ -34589,10 +34142,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     break;
                 case 92:
                     {
-                    int LA194_19 = input.LA(2);
+                    int LA195_20 = input.LA(2);
 
-                    if ( (synpred278()) ) {
-                        alt194=1;
+                    if ( (synpred279()) ) {
+                        alt195=1;
                     }
 
 
@@ -34600,10 +34153,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     break;
                 case RULE_HEX:
                     {
-                    int LA194_20 = input.LA(2);
+                    int LA195_21 = input.LA(2);
 
-                    if ( (synpred281()) ) {
-                        alt194=4;
+                    if ( (synpred282()) ) {
+                        alt195=4;
                     }
 
 
@@ -34611,10 +34164,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     break;
                 case 88:
                     {
-                    int LA194_34 = input.LA(2);
+                    int LA195_35 = input.LA(2);
 
-                    if ( (synpred278()) ) {
-                        alt194=1;
+                    if ( (synpred279()) ) {
+                        alt195=1;
                     }
 
 
@@ -34622,10 +34175,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     break;
                 case 84:
                     {
-                    int LA194_35 = input.LA(2);
+                    int LA195_36 = input.LA(2);
 
-                    if ( (synpred278()) ) {
-                        alt194=1;
+                    if ( (synpred279()) ) {
+                        alt195=1;
                     }
 
 
@@ -34634,7 +34187,6 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                 case 57:
                 case 62:
                 case 75:
-                case 76:
                 case 78:
                 case 83:
                 case 85:
@@ -34643,27 +34195,27 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                 case 115:
                 case 116:
                     {
-                    alt194=1;
+                    alt195=1;
                     }
                     break;
                 case RULE_EXT_INT:
                     {
-                    alt194=5;
+                    alt195=5;
                     }
                     break;
 
                 }
 
-                switch (alt194) {
+                switch (alt195) {
             	case 1 :
-            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12624:5: this_Separator_4= ruleSeparator
+            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12663:5: this_Separator_4= ruleSeparator
             	    {
             	    if ( backtracking==0 ) {
             	       
             	              currentNode=createCompositeNode(grammarAccess.getAlfanumSymAccess().getSeparatorParserRuleCall_1_0(), currentNode); 
             	          
             	    }
-            	    pushFollow(FOLLOW_ruleSeparator_in_ruleAlfanumSym22519);
+            	    pushFollow(FOLLOW_ruleSeparator_in_ruleAlfanumSym22578);
             	    this_Separator_4=ruleSeparator();
             	    _fsp--;
             	    if (failed) return current;
@@ -34681,10 +34233,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 2 :
-            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12635:10: this_ID_5= RULE_ID
+            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12674:10: this_ID_5= RULE_ID
             	    {
             	    this_ID_5=(Token)input.LT(1);
-            	    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleAlfanumSym22545); if (failed) return current;
+            	    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleAlfanumSym22604); if (failed) return current;
             	    if ( backtracking==0 ) {
 
             	      		current.merge(this_ID_5);
@@ -34699,10 +34251,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 3 :
-            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12643:10: this_INT_6= RULE_INT
+            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12682:10: this_INT_6= RULE_INT
             	    {
             	    this_INT_6=(Token)input.LT(1);
-            	    match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleAlfanumSym22571); if (failed) return current;
+            	    match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleAlfanumSym22630); if (failed) return current;
             	    if ( backtracking==0 ) {
 
             	      		current.merge(this_INT_6);
@@ -34717,10 +34269,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 4 :
-            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12651:10: this_HEX_7= RULE_HEX
+            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12690:10: this_HEX_7= RULE_HEX
             	    {
             	    this_HEX_7=(Token)input.LT(1);
-            	    match(input,RULE_HEX,FOLLOW_RULE_HEX_in_ruleAlfanumSym22597); if (failed) return current;
+            	    match(input,RULE_HEX,FOLLOW_RULE_HEX_in_ruleAlfanumSym22656); if (failed) return current;
             	    if ( backtracking==0 ) {
 
             	      		current.merge(this_HEX_7);
@@ -34735,10 +34287,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 5 :
-            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12659:10: this_EXT_INT_8= RULE_EXT_INT
+            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12698:10: this_EXT_INT_8= RULE_EXT_INT
             	    {
             	    this_EXT_INT_8=(Token)input.LT(1);
-            	    match(input,RULE_EXT_INT,FOLLOW_RULE_EXT_INT_in_ruleAlfanumSym22623); if (failed) return current;
+            	    match(input,RULE_EXT_INT,FOLLOW_RULE_EXT_INT_in_ruleAlfanumSym22682); if (failed) return current;
             	    if ( backtracking==0 ) {
 
             	      		current.merge(this_EXT_INT_8);
@@ -34754,7 +34306,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop194;
+            	    break loop195;
                 }
             } while (true);
 
@@ -34783,7 +34335,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleREAL
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12674:1: entryRuleREAL returns [String current=null] : iv_ruleREAL= ruleREAL EOF ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12713:1: entryRuleREAL returns [String current=null] : iv_ruleREAL= ruleREAL EOF ;
     public final String entryRuleREAL() throws RecognitionException {
         String current = null;
 
@@ -34791,20 +34343,20 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12674:45: (iv_ruleREAL= ruleREAL EOF )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12675:2: iv_ruleREAL= ruleREAL EOF
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12713:45: (iv_ruleREAL= ruleREAL EOF )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12714:2: iv_ruleREAL= ruleREAL EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getREALRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleREAL_in_entryRuleREAL22669);
+            pushFollow(FOLLOW_ruleREAL_in_entryRuleREAL22728);
             iv_ruleREAL=ruleREAL();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleREAL.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleREAL22680); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleREAL22739); if (failed) return current;
 
             }
 
@@ -34822,7 +34374,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleREAL
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12682:1: ruleREAL returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (this_INT_0= RULE_INT )? kw= '.' (this_EXT_INT_2= RULE_EXT_INT | this_INT_3= RULE_INT ) ) ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12721:1: ruleREAL returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (this_INT_0= RULE_INT )? kw= '.' (this_EXT_INT_2= RULE_EXT_INT | this_INT_3= RULE_INT ) ) ;
     public final AntlrDatatypeRuleToken ruleREAL() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -34834,25 +34386,25 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
          setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12687:6: ( ( (this_INT_0= RULE_INT )? kw= '.' (this_EXT_INT_2= RULE_EXT_INT | this_INT_3= RULE_INT ) ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12688:1: ( (this_INT_0= RULE_INT )? kw= '.' (this_EXT_INT_2= RULE_EXT_INT | this_INT_3= RULE_INT ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12726:6: ( ( (this_INT_0= RULE_INT )? kw= '.' (this_EXT_INT_2= RULE_EXT_INT | this_INT_3= RULE_INT ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12727:1: ( (this_INT_0= RULE_INT )? kw= '.' (this_EXT_INT_2= RULE_EXT_INT | this_INT_3= RULE_INT ) )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12688:1: ( (this_INT_0= RULE_INT )? kw= '.' (this_EXT_INT_2= RULE_EXT_INT | this_INT_3= RULE_INT ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12688:2: (this_INT_0= RULE_INT )? kw= '.' (this_EXT_INT_2= RULE_EXT_INT | this_INT_3= RULE_INT )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12727:1: ( (this_INT_0= RULE_INT )? kw= '.' (this_EXT_INT_2= RULE_EXT_INT | this_INT_3= RULE_INT ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12727:2: (this_INT_0= RULE_INT )? kw= '.' (this_EXT_INT_2= RULE_EXT_INT | this_INT_3= RULE_INT )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12688:2: (this_INT_0= RULE_INT )?
-            int alt195=2;
-            int LA195_0 = input.LA(1);
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12727:2: (this_INT_0= RULE_INT )?
+            int alt196=2;
+            int LA196_0 = input.LA(1);
 
-            if ( (LA195_0==RULE_INT) ) {
-                alt195=1;
+            if ( (LA196_0==RULE_INT) ) {
+                alt196=1;
             }
-            switch (alt195) {
+            switch (alt196) {
                 case 1 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12688:7: this_INT_0= RULE_INT
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12727:7: this_INT_0= RULE_INT
                     {
                     this_INT_0=(Token)input.LT(1);
-                    match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleREAL22721); if (failed) return current;
+                    match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleREAL22780); if (failed) return current;
                     if ( backtracking==0 ) {
 
                       		current.merge(this_INT_0);
@@ -34870,36 +34422,36 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
             }
 
             kw=(Token)input.LT(1);
-            match(input,92,FOLLOW_92_in_ruleREAL22741); if (failed) return current;
+            match(input,92,FOLLOW_92_in_ruleREAL22800); if (failed) return current;
             if ( backtracking==0 ) {
 
                       current.merge(kw);
                       createLeafNode(grammarAccess.getREALAccess().getFullStopKeyword_1(), null); 
                   
             }
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12701:1: (this_EXT_INT_2= RULE_EXT_INT | this_INT_3= RULE_INT )
-            int alt196=2;
-            int LA196_0 = input.LA(1);
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12740:1: (this_EXT_INT_2= RULE_EXT_INT | this_INT_3= RULE_INT )
+            int alt197=2;
+            int LA197_0 = input.LA(1);
 
-            if ( (LA196_0==RULE_EXT_INT) ) {
-                alt196=1;
+            if ( (LA197_0==RULE_EXT_INT) ) {
+                alt197=1;
             }
-            else if ( (LA196_0==RULE_INT) ) {
-                alt196=2;
+            else if ( (LA197_0==RULE_INT) ) {
+                alt197=2;
             }
             else {
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("12701:1: (this_EXT_INT_2= RULE_EXT_INT | this_INT_3= RULE_INT )", 196, 0, input);
+                    new NoViableAltException("12740:1: (this_EXT_INT_2= RULE_EXT_INT | this_INT_3= RULE_INT )", 197, 0, input);
 
                 throw nvae;
             }
-            switch (alt196) {
+            switch (alt197) {
                 case 1 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12701:6: this_EXT_INT_2= RULE_EXT_INT
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12740:6: this_EXT_INT_2= RULE_EXT_INT
                     {
                     this_EXT_INT_2=(Token)input.LT(1);
-                    match(input,RULE_EXT_INT,FOLLOW_RULE_EXT_INT_in_ruleREAL22757); if (failed) return current;
+                    match(input,RULE_EXT_INT,FOLLOW_RULE_EXT_INT_in_ruleREAL22816); if (failed) return current;
                     if ( backtracking==0 ) {
 
                       		current.merge(this_EXT_INT_2);
@@ -34914,10 +34466,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12709:10: this_INT_3= RULE_INT
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12748:10: this_INT_3= RULE_INT
                     {
                     this_INT_3=(Token)input.LT(1);
-                    match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleREAL22783); if (failed) return current;
+                    match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleREAL22842); if (failed) return current;
                     if ( backtracking==0 ) {
 
                       		current.merge(this_INT_3);
@@ -34959,54 +34511,54 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleSelectorOperator
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12724:1: ruleSelectorOperator returns [Enumerator current=null] : ( ( '.' ) | ( '..' ) | ( '*' ) | ( '**' ) ) ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12763:1: ruleSelectorOperator returns [Enumerator current=null] : ( ( '.' ) | ( '..' ) | ( '*' ) | ( '**' ) ) ;
     public final Enumerator ruleSelectorOperator() throws RecognitionException {
         Enumerator current = null;
 
          setCurrentLookahead(); resetLookahead(); 
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12728:6: ( ( ( '.' ) | ( '..' ) | ( '*' ) | ( '**' ) ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12729:1: ( ( '.' ) | ( '..' ) | ( '*' ) | ( '**' ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12767:6: ( ( ( '.' ) | ( '..' ) | ( '*' ) | ( '**' ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12768:1: ( ( '.' ) | ( '..' ) | ( '*' ) | ( '**' ) )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12729:1: ( ( '.' ) | ( '..' ) | ( '*' ) | ( '**' ) )
-            int alt197=4;
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12768:1: ( ( '.' ) | ( '..' ) | ( '*' ) | ( '**' ) )
+            int alt198=4;
             switch ( input.LA(1) ) {
             case 92:
                 {
-                alt197=1;
+                alt198=1;
                 }
                 break;
             case 87:
                 {
-                alt197=2;
+                alt198=2;
                 }
                 break;
             case 85:
                 {
-                alt197=3;
+                alt198=3;
                 }
                 break;
             case 117:
                 {
-                alt197=4;
+                alt198=4;
                 }
                 break;
             default:
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("12729:1: ( ( '.' ) | ( '..' ) | ( '*' ) | ( '**' ) )", 197, 0, input);
+                    new NoViableAltException("12768:1: ( ( '.' ) | ( '..' ) | ( '*' ) | ( '**' ) )", 198, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt197) {
+            switch (alt198) {
                 case 1 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12729:2: ( '.' )
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12768:2: ( '.' )
                     {
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12729:2: ( '.' )
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12729:4: '.'
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12768:2: ( '.' )
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12768:4: '.'
                     {
-                    match(input,92,FOLLOW_92_in_ruleSelectorOperator22841); if (failed) return current;
+                    match(input,92,FOLLOW_92_in_ruleSelectorOperator22900); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getSelectorOperatorAccess().getTHISEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -35020,12 +34572,12 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12735:6: ( '..' )
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12774:6: ( '..' )
                     {
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12735:6: ( '..' )
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12735:8: '..'
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12774:6: ( '..' )
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12774:8: '..'
                     {
-                    match(input,87,FOLLOW_87_in_ruleSelectorOperator22856); if (failed) return current;
+                    match(input,87,FOLLOW_87_in_ruleSelectorOperator22915); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getSelectorOperatorAccess().getPARENTEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -35039,12 +34591,12 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12741:6: ( '*' )
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12780:6: ( '*' )
                     {
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12741:6: ( '*' )
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12741:8: '*'
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12780:6: ( '*' )
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12780:8: '*'
                     {
-                    match(input,85,FOLLOW_85_in_ruleSelectorOperator22871); if (failed) return current;
+                    match(input,85,FOLLOW_85_in_ruleSelectorOperator22930); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getSelectorOperatorAccess().getCHILDRENEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
@@ -35058,12 +34610,12 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12747:6: ( '**' )
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12786:6: ( '**' )
                     {
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12747:6: ( '**' )
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12747:8: '**'
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12786:6: ( '**' )
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12786:8: '**'
                     {
-                    match(input,117,FOLLOW_117_in_ruleSelectorOperator22886); if (failed) return current;
+                    match(input,117,FOLLOW_117_in_ruleSelectorOperator22945); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getSelectorOperatorAccess().getANSCESTORSEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
@@ -35101,40 +34653,40 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleVisibility
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12757:1: ruleVisibility returns [Enumerator current=null] : ( ( 'public' ) | ( 'private' ) ) ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12796:1: ruleVisibility returns [Enumerator current=null] : ( ( 'public' ) | ( 'private' ) ) ;
     public final Enumerator ruleVisibility() throws RecognitionException {
         Enumerator current = null;
 
          setCurrentLookahead(); resetLookahead(); 
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12761:6: ( ( ( 'public' ) | ( 'private' ) ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12762:1: ( ( 'public' ) | ( 'private' ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12800:6: ( ( ( 'public' ) | ( 'private' ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12801:1: ( ( 'public' ) | ( 'private' ) )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12762:1: ( ( 'public' ) | ( 'private' ) )
-            int alt198=2;
-            int LA198_0 = input.LA(1);
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12801:1: ( ( 'public' ) | ( 'private' ) )
+            int alt199=2;
+            int LA199_0 = input.LA(1);
 
-            if ( (LA198_0==118) ) {
-                alt198=1;
+            if ( (LA199_0==118) ) {
+                alt199=1;
             }
-            else if ( (LA198_0==119) ) {
-                alt198=2;
+            else if ( (LA199_0==119) ) {
+                alt199=2;
             }
             else {
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("12762:1: ( ( 'public' ) | ( 'private' ) )", 198, 0, input);
+                    new NoViableAltException("12801:1: ( ( 'public' ) | ( 'private' ) )", 199, 0, input);
 
                 throw nvae;
             }
-            switch (alt198) {
+            switch (alt199) {
                 case 1 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12762:2: ( 'public' )
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12801:2: ( 'public' )
                     {
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12762:2: ( 'public' )
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12762:4: 'public'
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12801:2: ( 'public' )
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12801:4: 'public'
                     {
-                    match(input,118,FOLLOW_118_in_ruleVisibility22929); if (failed) return current;
+                    match(input,118,FOLLOW_118_in_ruleVisibility22988); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getVisibilityAccess().getPublicEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -35148,12 +34700,12 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12768:6: ( 'private' )
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12807:6: ( 'private' )
                     {
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12768:6: ( 'private' )
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12768:8: 'private'
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12807:6: ( 'private' )
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12807:8: 'private'
                     {
-                    match(input,119,FOLLOW_119_in_ruleVisibility22944); if (failed) return current;
+                    match(input,119,FOLLOW_119_in_ruleVisibility23003); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getVisibilityAccess().getPrivateEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -35191,40 +34743,40 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleExecutionMode
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12778:1: ruleExecutionMode returns [Enumerator current=null] : ( ( 'parallel' ) | ( 'sequential' ) ) ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12817:1: ruleExecutionMode returns [Enumerator current=null] : ( ( 'parallel' ) | ( 'sequential' ) ) ;
     public final Enumerator ruleExecutionMode() throws RecognitionException {
         Enumerator current = null;
 
          setCurrentLookahead(); resetLookahead(); 
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12782:6: ( ( ( 'parallel' ) | ( 'sequential' ) ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12783:1: ( ( 'parallel' ) | ( 'sequential' ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12821:6: ( ( ( 'parallel' ) | ( 'sequential' ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12822:1: ( ( 'parallel' ) | ( 'sequential' ) )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12783:1: ( ( 'parallel' ) | ( 'sequential' ) )
-            int alt199=2;
-            int LA199_0 = input.LA(1);
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12822:1: ( ( 'parallel' ) | ( 'sequential' ) )
+            int alt200=2;
+            int LA200_0 = input.LA(1);
 
-            if ( (LA199_0==120) ) {
-                alt199=1;
+            if ( (LA200_0==120) ) {
+                alt200=1;
             }
-            else if ( (LA199_0==31) ) {
-                alt199=2;
+            else if ( (LA200_0==31) ) {
+                alt200=2;
             }
             else {
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("12783:1: ( ( 'parallel' ) | ( 'sequential' ) )", 199, 0, input);
+                    new NoViableAltException("12822:1: ( ( 'parallel' ) | ( 'sequential' ) )", 200, 0, input);
 
                 throw nvae;
             }
-            switch (alt199) {
+            switch (alt200) {
                 case 1 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12783:2: ( 'parallel' )
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12822:2: ( 'parallel' )
                     {
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12783:2: ( 'parallel' )
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12783:4: 'parallel'
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12822:2: ( 'parallel' )
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12822:4: 'parallel'
                     {
-                    match(input,120,FOLLOW_120_in_ruleExecutionMode22987); if (failed) return current;
+                    match(input,120,FOLLOW_120_in_ruleExecutionMode23046); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getExecutionModeAccess().getParallelEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -35238,12 +34790,12 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12789:6: ( 'sequential' )
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12828:6: ( 'sequential' )
                     {
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12789:6: ( 'sequential' )
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12789:8: 'sequential'
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12828:6: ( 'sequential' )
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12828:8: 'sequential'
                     {
-                    match(input,31,FOLLOW_31_in_ruleExecutionMode23002); if (failed) return current;
+                    match(input,31,FOLLOW_31_in_ruleExecutionMode23061); if (failed) return current;
                     if ( backtracking==0 ) {
 
                               current = grammarAccess.getExecutionModeAccess().getSequentialEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -35405,17 +34957,17 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
         }
 
         // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:6384:2: ( ',' ( ( RULE_ID ) ) )*
-        loop217:
+        loop218:
         do {
-            int alt217=2;
-            int LA217_0 = input.LA(1);
+            int alt218=2;
+            int LA218_0 = input.LA(1);
 
-            if ( (LA217_0==23) ) {
-                alt217=1;
+            if ( (LA218_0==23) ) {
+                alt218=1;
             }
 
 
-            switch (alt217) {
+            switch (alt218) {
         	case 1 :
         	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:6384:4: ',' ( ( RULE_ID ) )
         	    {
@@ -35443,7 +34995,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
         	    break;
 
         	default :
-        	    break loop217;
+        	    break loop218;
             }
         } while (true);
 
@@ -35921,13 +35473,13 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
         match(input,44,FOLLOW_44_in_synpred17213030); if (failed) return ;
         // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:7735:1: ( ( ruleParameterList ) )?
-        int alt219=2;
-        int LA219_0 = input.LA(1);
+        int alt220=2;
+        int LA220_0 = input.LA(1);
 
-        if ( (LA219_0==RULE_ID||(LA219_0>=RULE_STRING && LA219_0<=RULE_HEX)||LA219_0==20||LA219_0==24||LA219_0==26||LA219_0==41||LA219_0==44||(LA219_0>=50 && LA219_0<=51)||LA219_0==77||LA219_0==84||(LA219_0>=88 && LA219_0<=95)||LA219_0==99||LA219_0==102||LA219_0==107||(LA219_0>=109 && LA219_0<=111)) ) {
-            alt219=1;
+        if ( (LA220_0==RULE_ID||(LA220_0>=RULE_STRING && LA220_0<=RULE_HEX)||LA220_0==20||LA220_0==24||LA220_0==26||LA220_0==41||LA220_0==44||(LA220_0>=50 && LA220_0<=51)||(LA220_0>=76 && LA220_0<=77)||LA220_0==84||(LA220_0>=88 && LA220_0<=95)||LA220_0==99||LA220_0==102||LA220_0==107||(LA220_0>=109 && LA220_0<=111)) ) {
+            alt220=1;
         }
-        switch (alt219) {
+        switch (alt220) {
             case 1 :
                 // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:7736:1: ( ruleParameterList )
                 {
@@ -36070,13 +35622,13 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
         match(input,44,FOLLOW_44_in_synpred17613293); if (failed) return ;
         // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:7919:1: ( ( ruleParameterList ) )?
-        int alt220=2;
-        int LA220_0 = input.LA(1);
+        int alt221=2;
+        int LA221_0 = input.LA(1);
 
-        if ( (LA220_0==RULE_ID||(LA220_0>=RULE_STRING && LA220_0<=RULE_HEX)||LA220_0==20||LA220_0==24||LA220_0==26||LA220_0==41||LA220_0==44||(LA220_0>=50 && LA220_0<=51)||LA220_0==77||LA220_0==84||(LA220_0>=88 && LA220_0<=95)||LA220_0==99||LA220_0==102||LA220_0==107||(LA220_0>=109 && LA220_0<=111)) ) {
-            alt220=1;
+        if ( (LA221_0==RULE_ID||(LA221_0>=RULE_STRING && LA221_0<=RULE_HEX)||LA221_0==20||LA221_0==24||LA221_0==26||LA221_0==41||LA221_0==44||(LA221_0>=50 && LA221_0<=51)||(LA221_0>=76 && LA221_0<=77)||LA221_0==84||(LA221_0>=88 && LA221_0<=95)||LA221_0==99||LA221_0==102||LA221_0==107||(LA221_0>=109 && LA221_0<=111)) ) {
+            alt221=1;
         }
-        switch (alt220) {
+        switch (alt221) {
             case 1 :
                 // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:7920:1: ( ruleParameterList )
                 {
@@ -36228,13 +35780,13 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
         {
         match(input,44,FOLLOW_44_in_synpred20415929); if (failed) return ;
         // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:9469:1: ( ( ruleParameterList ) )?
-        int alt221=2;
-        int LA221_0 = input.LA(1);
+        int alt222=2;
+        int LA222_0 = input.LA(1);
 
-        if ( (LA221_0==RULE_ID||(LA221_0>=RULE_STRING && LA221_0<=RULE_HEX)||LA221_0==20||LA221_0==24||LA221_0==26||LA221_0==41||LA221_0==44||(LA221_0>=50 && LA221_0<=51)||LA221_0==77||LA221_0==84||(LA221_0>=88 && LA221_0<=95)||LA221_0==99||LA221_0==102||LA221_0==107||(LA221_0>=109 && LA221_0<=111)) ) {
-            alt221=1;
+        if ( (LA222_0==RULE_ID||(LA222_0>=RULE_STRING && LA222_0<=RULE_HEX)||LA222_0==20||LA222_0==24||LA222_0==26||LA222_0==41||LA222_0==44||(LA222_0>=50 && LA222_0<=51)||(LA222_0>=76 && LA222_0<=77)||LA222_0==84||(LA222_0>=88 && LA222_0<=95)||LA222_0==99||LA222_0==102||LA222_0==107||(LA222_0>=109 && LA222_0<=111)) ) {
+            alt222=1;
         }
-        switch (alt221) {
+        switch (alt222) {
             case 1 :
                 // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:9470:1: ( ruleParameterList )
                 {
@@ -36352,87 +35904,37 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
     }
     // $ANTLR end synpred208
 
-    // $ANTLR start synpred227
-    public final void synpred227_fragment() throws RecognitionException {   
-        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10665:2: ( ( ( ruleExpression ) ) )
-        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10665:2: ( ( ruleExpression ) )
-        {
-        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10665:2: ( ( ruleExpression ) )
-        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10666:1: ( ruleExpression )
-        {
-        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10666:1: ( ruleExpression )
-        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10667:3: ruleExpression
-        {
-        if ( backtracking==0 ) {
-           
-          	        currentNode=createCompositeNode(grammarAccess.getLiteralFunctionAccess().getFuncExprExpressionParserRuleCall_4_0_0(), currentNode); 
-          	    
-        }
-        pushFollow(FOLLOW_ruleExpression_in_synpred22717963);
-        ruleExpression();
-        _fsp--;
-        if (failed) return ;
-
-        }
-
-
-        }
-
-
-        }
-    }
-    // $ANTLR end synpred227
-
-    // $ANTLR start synpred230
-    public final void synpred230_fragment() throws RecognitionException {   
-        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10855:2: ( ruleBlockExpressionWithoutBrackets )
-        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10855:2: ruleBlockExpressionWithoutBrackets
+    // $ANTLR start synpred231
+    public final void synpred231_fragment() throws RecognitionException {   
+        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10894:2: ( ruleBlockExpressionWithoutBrackets )
+        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:10894:2: ruleBlockExpressionWithoutBrackets
         {
         if ( backtracking==0 ) {
            
           	  /* */ 
           	
         }
-        pushFollow(FOLLOW_ruleBlockExpressionWithoutBrackets_in_synpred23018263);
+        pushFollow(FOLLOW_ruleBlockExpressionWithoutBrackets_in_synpred23118322);
         ruleBlockExpressionWithoutBrackets();
         _fsp--;
         if (failed) return ;
 
         }
     }
-    // $ANTLR end synpred230
-
-    // $ANTLR start synpred235
-    public final void synpred235_fragment() throws RecognitionException {   
-        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11227:2: ( ruleRealLiteral )
-        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11227:2: ruleRealLiteral
-        {
-        if ( backtracking==0 ) {
-           
-          	  /* */ 
-          	
-        }
-        pushFollow(FOLLOW_ruleRealLiteral_in_synpred23518909);
-        ruleRealLiteral();
-        _fsp--;
-        if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred235
+    // $ANTLR end synpred231
 
     // $ANTLR start synpred236
     public final void synpred236_fragment() throws RecognitionException {   
-        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11240:2: ( ruleIntegerLiteral )
-        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11240:2: ruleIntegerLiteral
+        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11266:2: ( ruleRealLiteral )
+        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11266:2: ruleRealLiteral
         {
         if ( backtracking==0 ) {
            
           	  /* */ 
           	
         }
-        pushFollow(FOLLOW_ruleIntegerLiteral_in_synpred23618939);
-        ruleIntegerLiteral();
+        pushFollow(FOLLOW_ruleRealLiteral_in_synpred23618968);
+        ruleRealLiteral();
         _fsp--;
         if (failed) return ;
 
@@ -36440,23 +35942,31 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
     }
     // $ANTLR end synpred236
 
-    // $ANTLR start synpred253
-    public final void synpred253_fragment() throws RecognitionException {   
-        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12132:6: ( RULE_INT )
-        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12132:6: RULE_INT
+    // $ANTLR start synpred237
+    public final void synpred237_fragment() throws RecognitionException {   
+        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11279:2: ( ruleIntegerLiteral )
+        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:11279:2: ruleIntegerLiteral
         {
-        match(input,RULE_INT,FOLLOW_RULE_INT_in_synpred25321037); if (failed) return ;
+        if ( backtracking==0 ) {
+           
+          	  /* */ 
+          	
+        }
+        pushFollow(FOLLOW_ruleIntegerLiteral_in_synpred23718998);
+        ruleIntegerLiteral();
+        _fsp--;
+        if (failed) return ;
 
         }
     }
-    // $ANTLR end synpred253
+    // $ANTLR end synpred237
 
     // $ANTLR start synpred254
     public final void synpred254_fragment() throws RecognitionException {   
-        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12140:10: ( RULE_HEX )
-        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12140:10: RULE_HEX
+        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12171:6: ( RULE_INT )
+        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12171:6: RULE_INT
         {
-        match(input,RULE_HEX,FOLLOW_RULE_HEX_in_synpred25421063); if (failed) return ;
+        match(input,RULE_INT,FOLLOW_RULE_INT_in_synpred25421096); if (failed) return ;
 
         }
     }
@@ -36464,10 +35974,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred255
     public final void synpred255_fragment() throws RecognitionException {   
-        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12148:10: ( RULE_ID )
-        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12148:10: RULE_ID
+        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12179:10: ( RULE_HEX )
+        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12179:10: RULE_HEX
         {
-        match(input,RULE_ID,FOLLOW_RULE_ID_in_synpred25521089); if (failed) return ;
+        match(input,RULE_HEX,FOLLOW_RULE_HEX_in_synpred25521122); if (failed) return ;
 
         }
     }
@@ -36475,10 +35985,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred256
     public final void synpred256_fragment() throws RecognitionException {   
-        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12168:6: ( RULE_INT )
-        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12168:6: RULE_INT
+        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12187:10: ( RULE_ID )
+        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12187:10: RULE_ID
         {
-        match(input,RULE_INT,FOLLOW_RULE_INT_in_synpred25621146); if (failed) return ;
+        match(input,RULE_ID,FOLLOW_RULE_ID_in_synpred25621148); if (failed) return ;
 
         }
     }
@@ -36486,10 +35996,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred257
     public final void synpred257_fragment() throws RecognitionException {   
-        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12176:10: ( RULE_HEX )
-        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12176:10: RULE_HEX
+        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12207:6: ( RULE_INT )
+        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12207:6: RULE_INT
         {
-        match(input,RULE_HEX,FOLLOW_RULE_HEX_in_synpred25721172); if (failed) return ;
+        match(input,RULE_INT,FOLLOW_RULE_INT_in_synpred25721205); if (failed) return ;
 
         }
     }
@@ -36497,51 +36007,51 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred258
     public final void synpred258_fragment() throws RecognitionException {   
-        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12184:10: ( RULE_ID )
-        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12184:10: RULE_ID
+        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12215:10: ( RULE_HEX )
+        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12215:10: RULE_HEX
         {
-        match(input,RULE_ID,FOLLOW_RULE_ID_in_synpred25821198); if (failed) return ;
+        match(input,RULE_HEX,FOLLOW_RULE_HEX_in_synpred25821231); if (failed) return ;
 
         }
     }
     // $ANTLR end synpred258
 
-    // $ANTLR start synpred260
-    public final void synpred260_fragment() throws RecognitionException {   
-        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12227:2: ( '~~~~~' )
-        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12227:2: '~~~~~'
+    // $ANTLR start synpred259
+    public final void synpred259_fragment() throws RecognitionException {   
+        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12223:10: ( RULE_ID )
+        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12223:10: RULE_ID
         {
-        match(input,113,FOLLOW_113_in_synpred26021322); if (failed) return ;
+        match(input,RULE_ID,FOLLOW_RULE_ID_in_synpred25921257); if (failed) return ;
 
         }
     }
-    // $ANTLR end synpred260
+    // $ANTLR end synpred259
 
-    // $ANTLR start synpred278
-    public final void synpred278_fragment() throws RecognitionException {   
-        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12624:5: ( ruleSeparator )
-        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12624:5: ruleSeparator
+    // $ANTLR start synpred261
+    public final void synpred261_fragment() throws RecognitionException {   
+        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12266:2: ( '~~~~~' )
+        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12266:2: '~~~~~'
+        {
+        match(input,113,FOLLOW_113_in_synpred26121381); if (failed) return ;
+
+        }
+    }
+    // $ANTLR end synpred261
+
+    // $ANTLR start synpred279
+    public final void synpred279_fragment() throws RecognitionException {   
+        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12663:5: ( ruleSeparator )
+        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12663:5: ruleSeparator
         {
         if ( backtracking==0 ) {
            
                   currentNode=createCompositeNode(grammarAccess.getAlfanumSymAccess().getSeparatorParserRuleCall_1_0(), currentNode); 
               
         }
-        pushFollow(FOLLOW_ruleSeparator_in_synpred27822519);
+        pushFollow(FOLLOW_ruleSeparator_in_synpred27922578);
         ruleSeparator();
         _fsp--;
         if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred278
-
-    // $ANTLR start synpred279
-    public final void synpred279_fragment() throws RecognitionException {   
-        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12635:10: ( RULE_ID )
-        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12635:10: RULE_ID
-        {
-        match(input,RULE_ID,FOLLOW_RULE_ID_in_synpred27922545); if (failed) return ;
 
         }
     }
@@ -36549,10 +36059,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred280
     public final void synpred280_fragment() throws RecognitionException {   
-        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12643:10: ( RULE_INT )
-        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12643:10: RULE_INT
+        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12674:10: ( RULE_ID )
+        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12674:10: RULE_ID
         {
-        match(input,RULE_INT,FOLLOW_RULE_INT_in_synpred28022571); if (failed) return ;
+        match(input,RULE_ID,FOLLOW_RULE_ID_in_synpred28022604); if (failed) return ;
 
         }
     }
@@ -36560,14 +36070,25 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred281
     public final void synpred281_fragment() throws RecognitionException {   
-        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12651:10: ( RULE_HEX )
-        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12651:10: RULE_HEX
+        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12682:10: ( RULE_INT )
+        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12682:10: RULE_INT
         {
-        match(input,RULE_HEX,FOLLOW_RULE_HEX_in_synpred28122597); if (failed) return ;
+        match(input,RULE_INT,FOLLOW_RULE_INT_in_synpred28122630); if (failed) return ;
 
         }
     }
     // $ANTLR end synpred281
+
+    // $ANTLR start synpred282
+    public final void synpred282_fragment() throws RecognitionException {   
+        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12690:10: ( RULE_HEX )
+        // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:12690:10: RULE_HEX
+        {
+        match(input,RULE_HEX,FOLLOW_RULE_HEX_in_synpred28222656); if (failed) return ;
+
+        }
+    }
+    // $ANTLR end synpred282
 
     public final boolean synpred185() {
         backtracking++;
@@ -36667,6 +36188,20 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
         failed=false;
         return success;
     }
+    public final boolean synpred259() {
+        backtracking++;
+        int start = input.mark();
+        try {
+            synpred259_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !failed;
+        input.rewind(start);
+        backtracking--;
+        failed=false;
+        return success;
+    }
     public final boolean synpred170() {
         backtracking++;
         int start = input.mark();
@@ -36723,39 +36258,11 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
         failed=false;
         return success;
     }
-    public final boolean synpred235() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred235_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
     public final boolean synpred280() {
         backtracking++;
         int start = input.mark();
         try {
             synpred280_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred227() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred227_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -36863,11 +36370,11 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
         failed=false;
         return success;
     }
-    public final boolean synpred278() {
+    public final boolean synpred282() {
         backtracking++;
         int start = input.mark();
         try {
-            synpred278_fragment(); // can never throw exception
+            synpred282_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -36891,11 +36398,39 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
         failed=false;
         return success;
     }
+    public final boolean synpred261() {
+        backtracking++;
+        int start = input.mark();
+        try {
+            synpred261_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !failed;
+        input.rewind(start);
+        backtracking--;
+        failed=false;
+        return success;
+    }
     public final boolean synpred182() {
         backtracking++;
         int start = input.mark();
         try {
             synpred182_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !failed;
+        input.rewind(start);
+        backtracking--;
+        failed=false;
+        return success;
+    }
+    public final boolean synpred231() {
+        backtracking++;
+        int start = input.mark();
+        try {
+            synpred231_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -36947,20 +36482,6 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
         failed=false;
         return success;
     }
-    public final boolean synpred260() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred260_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
     public final boolean synpred181() {
         backtracking++;
         int start = input.mark();
@@ -36980,20 +36501,6 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
         int start = input.mark();
         try {
             synpred281_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred253() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred253_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -37101,6 +36608,20 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
         failed=false;
         return success;
     }
+    public final boolean synpred237() {
+        backtracking++;
+        int start = input.mark();
+        try {
+            synpred237_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !failed;
+        input.rewind(start);
+        backtracking--;
+        failed=false;
+        return success;
+    }
     public final boolean synpred93() {
         backtracking++;
         int start = input.mark();
@@ -37134,20 +36655,6 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
         int start = input.mark();
         try {
             synpred159_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred230() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred230_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -37340,54 +36847,54 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
     static final String DFA34_maxS =
         "\1\42\1\51\1\4\1\161\3\uffff\3\161\1\4\3\161\1\51\7\161\1\4\5\161";
     static final String DFA34_acceptS =
-        "\4\uffff\1\3\1\1\1\2\25\uffff";
+        "\4\uffff\1\3\1\2\1\1\25\uffff";
     static final String DFA34_specialS =
         "\34\uffff}>";
     static final String[] DFA34_transitionS = {
             "\1\3\1\uffff\1\1\21\uffff\1\4\11\uffff\1\2",
-            "\1\6\3\uffff\1\6\21\uffff\1\5",
+            "\1\5\3\uffff\1\5\21\uffff\1\6",
             "\1\3",
-            "\1\11\4\uffff\1\7\1\10\10\uffff\1\6\3\uffff\1\6\12\uffff\1\14"+
-            "\6\uffff\1\5\62\uffff\1\12\24\uffff\1\13",
+            "\1\11\4\uffff\1\7\1\10\10\uffff\1\5\3\uffff\1\5\12\uffff\1\14"+
+            "\6\uffff\1\6\62\uffff\1\12\24\uffff\1\13",
             "",
             "",
             "",
-            "\1\11\4\uffff\1\7\1\10\10\uffff\1\6\3\uffff\1\6\12\uffff\1\14"+
-            "\6\uffff\1\5\62\uffff\1\12\24\uffff\1\13",
-            "\1\11\4\uffff\1\7\1\10\10\uffff\1\6\3\uffff\1\6\12\uffff\1\14"+
-            "\6\uffff\1\5\62\uffff\1\12\24\uffff\1\13",
-            "\1\11\4\uffff\1\7\1\10\10\uffff\1\6\3\uffff\1\6\12\uffff\1\14"+
-            "\6\uffff\1\5\62\uffff\1\12\24\uffff\1\13",
+            "\1\11\4\uffff\1\7\1\10\10\uffff\1\5\3\uffff\1\5\12\uffff\1\14"+
+            "\6\uffff\1\6\62\uffff\1\12\24\uffff\1\13",
+            "\1\11\4\uffff\1\7\1\10\10\uffff\1\5\3\uffff\1\5\12\uffff\1\14"+
+            "\6\uffff\1\6\62\uffff\1\12\24\uffff\1\13",
+            "\1\11\4\uffff\1\7\1\10\10\uffff\1\5\3\uffff\1\5\12\uffff\1\14"+
+            "\6\uffff\1\6\62\uffff\1\12\24\uffff\1\13",
             "\1\15",
-            "\1\6\3\uffff\1\6\12\uffff\1\14\6\uffff\1\5\107\uffff\1\16",
-            "\1\17\16\uffff\1\6\3\uffff\1\6\21\uffff\1\5\107\uffff\1\16",
-            "\1\22\4\uffff\1\20\1\21\10\uffff\1\6\3\uffff\1\6\12\uffff\1"+
-            "\14\6\uffff\1\5\62\uffff\1\12\24\uffff\1\13",
-            "\1\6\3\uffff\1\6\21\uffff\1\5",
-            "\1\25\4\uffff\1\23\1\24\10\uffff\1\6\3\uffff\1\6\12\uffff\1"+
-            "\14\6\uffff\1\5\62\uffff\1\26\24\uffff\1\27",
-            "\1\22\4\uffff\1\20\1\21\10\uffff\1\6\3\uffff\1\6\12\uffff\1"+
-            "\14\6\uffff\1\5\62\uffff\1\12\24\uffff\1\13",
-            "\1\22\4\uffff\1\20\1\21\10\uffff\1\6\3\uffff\1\6\12\uffff\1"+
-            "\14\6\uffff\1\5\62\uffff\1\12\24\uffff\1\13",
-            "\1\22\4\uffff\1\20\1\21\10\uffff\1\6\3\uffff\1\6\12\uffff\1"+
-            "\14\6\uffff\1\5\62\uffff\1\12\24\uffff\1\13",
-            "\1\25\4\uffff\1\23\1\24\10\uffff\1\6\3\uffff\1\6\12\uffff\1"+
-            "\14\6\uffff\1\5\62\uffff\1\26\24\uffff\1\27",
-            "\1\25\4\uffff\1\23\1\24\10\uffff\1\6\3\uffff\1\6\12\uffff\1"+
-            "\14\6\uffff\1\5\62\uffff\1\26\24\uffff\1\27",
-            "\1\25\4\uffff\1\23\1\24\10\uffff\1\6\3\uffff\1\6\12\uffff\1"+
-            "\14\6\uffff\1\5\62\uffff\1\26\24\uffff\1\27",
+            "\1\5\3\uffff\1\5\12\uffff\1\14\6\uffff\1\6\107\uffff\1\16",
+            "\1\17\16\uffff\1\5\3\uffff\1\5\21\uffff\1\6\107\uffff\1\16",
+            "\1\22\4\uffff\1\20\1\21\10\uffff\1\5\3\uffff\1\5\12\uffff\1"+
+            "\14\6\uffff\1\6\62\uffff\1\12\24\uffff\1\13",
+            "\1\5\3\uffff\1\5\21\uffff\1\6",
+            "\1\25\4\uffff\1\23\1\24\10\uffff\1\5\3\uffff\1\5\12\uffff\1"+
+            "\14\6\uffff\1\6\62\uffff\1\26\24\uffff\1\27",
+            "\1\22\4\uffff\1\20\1\21\10\uffff\1\5\3\uffff\1\5\12\uffff\1"+
+            "\14\6\uffff\1\6\62\uffff\1\12\24\uffff\1\13",
+            "\1\22\4\uffff\1\20\1\21\10\uffff\1\5\3\uffff\1\5\12\uffff\1"+
+            "\14\6\uffff\1\6\62\uffff\1\12\24\uffff\1\13",
+            "\1\22\4\uffff\1\20\1\21\10\uffff\1\5\3\uffff\1\5\12\uffff\1"+
+            "\14\6\uffff\1\6\62\uffff\1\12\24\uffff\1\13",
+            "\1\25\4\uffff\1\23\1\24\10\uffff\1\5\3\uffff\1\5\12\uffff\1"+
+            "\14\6\uffff\1\6\62\uffff\1\26\24\uffff\1\27",
+            "\1\25\4\uffff\1\23\1\24\10\uffff\1\5\3\uffff\1\5\12\uffff\1"+
+            "\14\6\uffff\1\6\62\uffff\1\26\24\uffff\1\27",
+            "\1\25\4\uffff\1\23\1\24\10\uffff\1\5\3\uffff\1\5\12\uffff\1"+
+            "\14\6\uffff\1\6\62\uffff\1\26\24\uffff\1\27",
             "\1\30",
-            "\1\6\3\uffff\1\6\12\uffff\1\14\6\uffff\1\5\107\uffff\1\16",
-            "\1\33\4\uffff\1\31\1\32\10\uffff\1\6\3\uffff\1\6\12\uffff\1"+
-            "\14\6\uffff\1\5\62\uffff\1\26\24\uffff\1\27",
-            "\1\33\4\uffff\1\31\1\32\10\uffff\1\6\3\uffff\1\6\12\uffff\1"+
-            "\14\6\uffff\1\5\62\uffff\1\26\24\uffff\1\27",
-            "\1\33\4\uffff\1\31\1\32\10\uffff\1\6\3\uffff\1\6\12\uffff\1"+
-            "\14\6\uffff\1\5\62\uffff\1\26\24\uffff\1\27",
-            "\1\33\4\uffff\1\31\1\32\10\uffff\1\6\3\uffff\1\6\12\uffff\1"+
-            "\14\6\uffff\1\5\62\uffff\1\26\24\uffff\1\27"
+            "\1\5\3\uffff\1\5\12\uffff\1\14\6\uffff\1\6\107\uffff\1\16",
+            "\1\33\4\uffff\1\31\1\32\10\uffff\1\5\3\uffff\1\5\12\uffff\1"+
+            "\14\6\uffff\1\6\62\uffff\1\26\24\uffff\1\27",
+            "\1\33\4\uffff\1\31\1\32\10\uffff\1\5\3\uffff\1\5\12\uffff\1"+
+            "\14\6\uffff\1\6\62\uffff\1\26\24\uffff\1\27",
+            "\1\33\4\uffff\1\31\1\32\10\uffff\1\5\3\uffff\1\5\12\uffff\1"+
+            "\14\6\uffff\1\6\62\uffff\1\26\24\uffff\1\27",
+            "\1\33\4\uffff\1\31\1\32\10\uffff\1\5\3\uffff\1\5\12\uffff\1"+
+            "\14\6\uffff\1\6\62\uffff\1\26\24\uffff\1\27"
     };
 
     static final short[] DFA34_eot = DFA.unpackEncodedString(DFA34_eotS);
@@ -37496,35 +37003,38 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
     static final String DFA71_eotS =
         "\21\uffff";
     static final String DFA71_eofS =
-        "\1\uffff\1\3\4\uffff\1\3\1\uffff\1\3\1\uffff\4\3\1\uffff\2\3";
+        "\2\uffff\1\3\2\uffff\1\3\1\uffff\1\3\2\uffff\4\3\1\uffff\2\3";
     static final String DFA71_minS =
-        "\2\4\2\uffff\2\4\1\22\1\0\1\22\3\4\1\22\2\4\1\22\1\4";
+        "\1\4\1\uffff\1\4\1\uffff\1\4\1\22\1\4\1\22\1\0\3\4\1\22\2\4\1\22"+
+        "\1\4";
     static final String DFA71_maxS =
-        "\1\157\1\155\2\uffff\2\157\1\155\1\0\1\134\2\157\2\155\2\157\2\155";
+        "\1\157\1\uffff\1\155\1\uffff\1\157\1\155\1\157\1\134\1\0\2\157\2"+
+        "\155\2\157\2\155";
     static final String DFA71_acceptS =
-        "\2\uffff\1\1\1\2\15\uffff";
+        "\1\uffff\1\1\1\uffff\1\2\15\uffff";
     static final String DFA71_specialS =
-        "\7\uffff\1\0\11\uffff}>";
+        "\10\uffff\1\0\10\uffff}>";
     static final String[] DFA71_transitionS = {
-            "\1\1\1\uffff\5\3\11\uffff\1\3\3\uffff\1\3\1\uffff\1\3\16\uffff"+
-            "\1\3\2\uffff\1\3\5\uffff\2\3\31\uffff\1\3\6\uffff\1\3\3\uffff"+
-            "\10\3\3\uffff\1\3\2\uffff\1\3\4\uffff\1\3\1\uffff\1\2\2\3",
-            "\1\6\15\uffff\2\3\3\uffff\1\4\12\uffff\1\3\6\uffff\1\3\2\uffff"+
-            "\2\3\20\uffff\16\3\1\5\3\uffff\10\3\2\uffff\3\3\20\uffff\1\2",
+            "\1\2\1\uffff\5\3\11\uffff\1\3\3\uffff\1\3\1\uffff\1\3\16\uffff"+
+            "\1\3\2\uffff\1\3\5\uffff\2\3\30\uffff\1\1\1\3\6\uffff\1\3\3"+
+            "\uffff\10\3\3\uffff\1\3\2\uffff\1\3\4\uffff\1\3\1\uffff\1\1"+
+            "\2\3",
             "",
+            "\1\5\15\uffff\2\3\3\uffff\1\6\12\uffff\1\3\6\uffff\1\3\2\uffff"+
+            "\2\3\20\uffff\16\3\1\4\3\uffff\10\3\2\uffff\3\3\20\uffff\1\1",
             "",
             "\1\7\1\uffff\5\3\11\uffff\1\3\3\uffff\1\3\1\uffff\1\3\16\uffff"+
-            "\1\3\2\uffff\1\3\5\uffff\2\3\31\uffff\1\3\6\uffff\1\3\3\uffff"+
-            "\10\3\3\uffff\1\3\2\uffff\1\3\4\uffff\1\3\1\uffff\3\3",
-            "\1\10\1\uffff\5\3\11\uffff\1\3\3\uffff\1\3\1\uffff\1\3\16\uffff"+
             "\1\3\2\uffff\1\3\5\uffff\2\3\40\uffff\1\3\3\uffff\10\3\3\uffff"+
             "\1\3\2\uffff\1\3\4\uffff\1\3\2\uffff\2\3",
-            "\2\3\3\uffff\1\4\25\uffff\1\3\20\uffff\6\3\51\uffff\1\2",
-            "\1\uffff",
+            "\2\3\3\uffff\1\6\25\uffff\1\3\20\uffff\6\3\51\uffff\1\1",
+            "\1\10\1\uffff\5\3\11\uffff\1\3\3\uffff\1\3\1\uffff\1\3\16\uffff"+
+            "\1\3\2\uffff\1\3\5\uffff\2\3\30\uffff\2\3\6\uffff\1\3\3\uffff"+
+            "\10\3\3\uffff\1\3\2\uffff\1\3\4\uffff\1\3\1\uffff\3\3",
             "\2\3\3\uffff\1\11\12\uffff\1\3\6\uffff\1\3\2\uffff\2\3\20\uffff"+
             "\15\3\1\12\1\3\3\uffff\10\3\2\uffff\3\3",
+            "\1\uffff",
             "\1\13\1\uffff\5\3\11\uffff\1\3\3\uffff\1\3\1\uffff\1\3\16\uffff"+
-            "\1\3\2\uffff\1\3\5\uffff\2\3\31\uffff\1\3\6\uffff\1\3\3\uffff"+
+            "\1\3\2\uffff\1\3\5\uffff\2\3\30\uffff\2\3\6\uffff\1\3\3\uffff"+
             "\10\3\3\uffff\1\3\2\uffff\1\3\4\uffff\1\3\1\uffff\3\3",
             "\1\14\1\uffff\5\3\7\uffff\3\3\2\uffff\2\3\1\uffff\1\3\7\uffff"+
             "\1\3\6\uffff\1\3\2\uffff\2\3\4\uffff\2\3\12\uffff\17\3\3\uffff"+
@@ -37532,16 +37042,16 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
             "\1\3\15\uffff\2\3\3\uffff\1\16\12\uffff\1\3\6\uffff\1\3\2\uffff"+
             "\2\3\20\uffff\15\3\1\15\1\3\3\uffff\10\3\2\uffff\3\3\20\uffff"+
             "\1\3",
-            "\2\3\3\uffff\1\4\12\uffff\1\3\6\uffff\1\3\2\uffff\2\3\20\uffff"+
-            "\17\3\3\uffff\10\3\2\uffff\3\3\20\uffff\1\2",
+            "\2\3\3\uffff\1\6\12\uffff\1\3\6\uffff\1\3\2\uffff\2\3\20\uffff"+
+            "\17\3\3\uffff\10\3\2\uffff\3\3\20\uffff\1\1",
             "\1\17\1\uffff\5\3\7\uffff\3\3\2\uffff\2\3\1\uffff\1\3\7\uffff"+
             "\1\3\6\uffff\1\3\2\uffff\2\3\4\uffff\2\3\12\uffff\17\3\3\uffff"+
             "\20\3\3\uffff\1\3\2\uffff\1\3\4\uffff\1\3\2\uffff\2\3",
             "\1\20\1\uffff\5\3\11\uffff\1\3\3\uffff\1\3\1\uffff\1\3\16\uffff"+
-            "\1\3\2\uffff\1\3\5\uffff\2\3\31\uffff\1\3\6\uffff\1\3\3\uffff"+
+            "\1\3\2\uffff\1\3\5\uffff\2\3\30\uffff\2\3\6\uffff\1\3\3\uffff"+
             "\10\3\3\uffff\1\3\2\uffff\1\3\4\uffff\1\3\1\uffff\3\3",
-            "\2\3\3\uffff\1\4\12\uffff\1\3\6\uffff\1\3\2\uffff\2\3\20\uffff"+
-            "\17\3\3\uffff\10\3\2\uffff\3\3\20\uffff\1\2",
+            "\2\3\3\uffff\1\6\12\uffff\1\3\6\uffff\1\3\2\uffff\2\3\20\uffff"+
+            "\17\3\3\uffff\10\3\2\uffff\3\3\20\uffff\1\1",
             "\1\3\15\uffff\2\3\3\uffff\1\16\12\uffff\1\3\6\uffff\1\3\2\uffff"+
             "\2\3\20\uffff\15\3\1\15\1\3\3\uffff\10\3\2\uffff\3\3\20\uffff"+
             "\1\3"
@@ -37583,18 +37093,18 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA71_7 = input.LA(1);
+                        int LA71_8 = input.LA(1);
 
                          
-                        int index71_7 = input.index();
+                        int index71_8 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred93()) ) {s = 2;}
+                        if ( (synpred93()) ) {s = 1;}
 
                         else if ( (true) ) {s = 3;}
 
                          
-                        input.seek(index71_7);
+                        input.seek(index71_8);
                         if ( s>=0 ) return s;
                         break;
             }
@@ -37617,7 +37127,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
     static final String DFA111_acceptS =
         "\1\uffff\1\1\1\uffff\1\2\13\uffff";
     static final String DFA111_specialS =
-        "\5\uffff\1\1\4\uffff\1\0\2\uffff\1\2\1\uffff}>";
+        "\5\uffff\1\1\4\uffff\1\2\2\uffff\1\0\1\uffff}>";
     static final String[] DFA111_transitionS = {
             "\1\2\1\uffff\5\3\11\uffff\1\3\3\uffff\1\3\1\uffff\1\3\16\uffff"+
             "\1\3\2\uffff\1\3\5\uffff\2\3\31\uffff\1\1\6\uffff\1\3\3\uffff"+
@@ -37637,7 +37147,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
             "\1\3\2\uffff\2\3\5\uffff\1\3\3\uffff\16\3\1\10\2\3\2\uffff\34"+
             "\3\2\uffff\2\3\6\uffff\3\3",
             "\1\11\1\uffff\5\3\11\uffff\1\3\3\uffff\1\3\1\uffff\1\3\16\uffff"+
-            "\1\3\2\uffff\1\3\5\uffff\2\3\31\uffff\1\3\6\uffff\1\3\3\uffff"+
+            "\1\3\2\uffff\1\3\5\uffff\2\3\30\uffff\2\3\6\uffff\1\3\3\uffff"+
             "\10\3\3\uffff\1\3\2\uffff\1\3\4\uffff\1\3\1\uffff\3\3",
             "\1\12\6\3\7\uffff\3\3\2\uffff\2\3\1\uffff\1\3\1\uffff\1\3\2"+
             "\uffff\1\3\2\uffff\1\3\2\uffff\1\3\3\uffff\2\3\1\uffff\2\3\1"+
@@ -37652,7 +37162,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
             "\uffff\1\3\2\uffff\2\3\5\uffff\1\3\3\uffff\21\3\2\uffff\34\3"+
             "\2\uffff\2\3\6\uffff\3\3",
             "\1\16\1\uffff\5\3\11\uffff\1\3\3\uffff\1\3\1\uffff\1\3\16\uffff"+
-            "\1\3\2\uffff\1\3\5\uffff\2\3\31\uffff\1\3\6\uffff\1\3\3\uffff"+
+            "\1\3\2\uffff\1\3\5\uffff\2\3\30\uffff\2\3\6\uffff\1\3\3\uffff"+
             "\10\3\3\uffff\1\3\2\uffff\1\3\4\uffff\1\3\1\uffff\3\3",
             "\1\uffff",
             "\1\3\15\uffff\2\3\3\uffff\1\14\12\uffff\1\3\6\uffff\2\3\1\uffff"+
@@ -37696,10 +37206,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA111_10 = input.LA(1);
+                        int LA111_13 = input.LA(1);
 
                          
-                        int index111_10 = input.index();
+                        int index111_13 = input.index();
                         input.rewind();
                         s = -1;
                         if ( (synpred146()) ) {s = 1;}
@@ -37707,7 +37217,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                         else if ( (true) ) {s = 3;}
 
                          
-                        input.seek(index111_10);
+                        input.seek(index111_13);
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
@@ -37726,10 +37236,10 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                         if ( s>=0 ) return s;
                         break;
                     case 2 : 
-                        int LA111_13 = input.LA(1);
+                        int LA111_10 = input.LA(1);
 
                          
-                        int index111_13 = input.index();
+                        int index111_10 = input.index();
                         input.rewind();
                         s = -1;
                         if ( (synpred146()) ) {s = 1;}
@@ -37737,7 +37247,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                         else if ( (true) ) {s = 3;}
 
                          
-                        input.seek(index111_13);
+                        input.seek(index111_10);
                         if ( s>=0 ) return s;
                         break;
             }
@@ -38179,15 +37689,15 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleQID_in_ruleDirectPartReferemce4913 = new BitSet(new long[]{0x0000008000000000L});
     public static final BitSet FOLLOW_20_in_ruleDirectPartReferemce4937 = new BitSet(new long[]{0x0000008000000000L});
     public static final BitSet FOLLOW_39_in_ruleDirectPartReferemce4962 = new BitSet(new long[]{0x0000000000000050L});
-    public static final BitSet FOLLOW_rulePartName_in_ruleDirectPartReferemce4983 = new BitSet(new long[]{0x000C1200051007D2L,0x0000E848FF102000L});
+    public static final BitSet FOLLOW_rulePartName_in_ruleDirectPartReferemce4983 = new BitSet(new long[]{0x000C1200051007D2L,0x0000E848FF103000L});
     public static final BitSet FOLLOW_ruleParameterList_in_ruleDirectPartReferemce5004 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleCapabilityReferencedPart_in_entryRuleCapabilityReferencedPart5038 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleCapabilityReferencedPart5048 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCapability_in_ruleCapabilityReferencedPart5094 = new BitSet(new long[]{0x000C1284051007D2L,0x0000E848FF102000L});
+    public static final BitSet FOLLOW_ruleCapability_in_ruleCapabilityReferencedPart5094 = new BitSet(new long[]{0x000C1284051007D2L,0x0000E848FF103000L});
     public static final BitSet FOLLOW_34_in_ruleCapabilityReferencedPart5105 = new BitSet(new long[]{0x0000120000000E50L});
-    public static final BitSet FOLLOW_ruleVersionRange_in_ruleCapabilityReferencedPart5126 = new BitSet(new long[]{0x000C1280051007D2L,0x0000E848FF102000L});
+    public static final BitSet FOLLOW_ruleVersionRange_in_ruleCapabilityReferencedPart5126 = new BitSet(new long[]{0x000C1280051007D2L,0x0000E848FF103000L});
     public static final BitSet FOLLOW_39_in_ruleCapabilityReferencedPart5139 = new BitSet(new long[]{0x0000000000000050L});
-    public static final BitSet FOLLOW_rulePartName_in_ruleCapabilityReferencedPart5160 = new BitSet(new long[]{0x000C1200051007D2L,0x0000E848FF102000L});
+    public static final BitSet FOLLOW_rulePartName_in_ruleCapabilityReferencedPart5160 = new BitSet(new long[]{0x000C1200051007D2L,0x0000E848FF103000L});
     public static final BitSet FOLLOW_ruleParameterList_in_ruleCapabilityReferencedPart5183 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleCompoundReferences_in_entryRuleCompoundReferences5217 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleCompoundReferences5227 = new BitSet(new long[]{0x0000000000000002L});
@@ -38223,7 +37733,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleParameterList_in_entryRuleParameterList5867 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleParameterList5877 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleFirstParameter_in_ruleParameterList5935 = new BitSet(new long[]{0x0000000000800002L});
-    public static final BitSet FOLLOW_23_in_ruleParameterList5946 = new BitSet(new long[]{0x000C1200051007D0L,0x0000E848FF102000L});
+    public static final BitSet FOLLOW_23_in_ruleParameterList5946 = new BitSet(new long[]{0x000C1200051007D0L,0x0000E848FF103000L});
     public static final BitSet FOLLOW_ruleFirstParameter_in_ruleParameterList5967 = new BitSet(new long[]{0x0000000000800002L});
     public static final BitSet FOLLOW_ruleFirstParameter_in_entryRuleFirstParameter6002 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleFirstParameter6012 = new BitSet(new long[]{0x0000000000000002L});
@@ -38498,7 +38008,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleCallExpression_in_ruleInfixExpression12975 = new BitSet(new long[]{0x0000020000000002L,0x0000000010000000L});
     public static final BitSet FOLLOW_92_in_ruleInfixExpression12998 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleInfixExpression13015 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_44_in_ruleInfixExpression13030 = new BitSet(new long[]{0x000C3200051007D0L,0x0000E848FF102000L});
+    public static final BitSet FOLLOW_44_in_ruleInfixExpression13030 = new BitSet(new long[]{0x000C3200051007D0L,0x0000E848FF103000L});
     public static final BitSet FOLLOW_ruleParameterList_in_ruleInfixExpression13051 = new BitSet(new long[]{0x0000200000000000L});
     public static final BitSet FOLLOW_45_in_ruleInfixExpression13062 = new BitSet(new long[]{0x0000020000000002L,0x0000000010000000L});
     public static final BitSet FOLLOW_41_in_ruleInfixExpression13092 = new BitSet(new long[]{0x000C1200051007D0L,0x0000C848FF102000L});
@@ -38509,7 +38019,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleCallExpression_in_entryRuleCallExpression13211 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleCallExpression13221 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rulePrimaryExpression_in_ruleCallExpression13271 = new BitSet(new long[]{0x0000100000000002L});
-    public static final BitSet FOLLOW_44_in_ruleCallExpression13293 = new BitSet(new long[]{0x000C3200051007D0L,0x0000E848FF102000L});
+    public static final BitSet FOLLOW_44_in_ruleCallExpression13293 = new BitSet(new long[]{0x000C3200051007D0L,0x0000E848FF103000L});
     public static final BitSet FOLLOW_ruleParameterList_in_ruleCallExpression13314 = new BitSet(new long[]{0x0000200000000000L});
     public static final BitSet FOLLOW_45_in_ruleCallExpression13325 = new BitSet(new long[]{0x0000100000000002L});
     public static final BitSet FOLLOW_rulePrimaryExpression_in_entryRulePrimaryExpression13360 = new BitSet(new long[]{0x0000000000000000L});
@@ -38605,14 +38115,14 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_EOF_in_entryRuleOperationCall15681 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleOperationCall15737 = new BitSet(new long[]{0x0000100000000000L});
     public static final BitSet FOLLOW_RULE_PID_in_ruleOperationCall15757 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_44_in_ruleOperationCall15775 = new BitSet(new long[]{0x000C3200051007D0L,0x0000E848FF102000L});
+    public static final BitSet FOLLOW_44_in_ruleOperationCall15775 = new BitSet(new long[]{0x000C3200051007D0L,0x0000E848FF103000L});
     public static final BitSet FOLLOW_ruleParameterList_in_ruleOperationCall15796 = new BitSet(new long[]{0x0000200000000000L});
     public static final BitSet FOLLOW_45_in_ruleOperationCall15807 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleConstructorCallExpression_in_entryRuleConstructorCallExpression15840 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleConstructorCallExpression15850 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_107_in_ruleConstructorCallExpression15897 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_ruleTypeRef_in_ruleConstructorCallExpression15918 = new BitSet(new long[]{0x0000100001040002L});
-    public static final BitSet FOLLOW_44_in_ruleConstructorCallExpression15929 = new BitSet(new long[]{0x000C3200051007D0L,0x0000E848FF102000L});
+    public static final BitSet FOLLOW_44_in_ruleConstructorCallExpression15929 = new BitSet(new long[]{0x000C3200051007D0L,0x0000E848FF103000L});
     public static final BitSet FOLLOW_ruleParameterList_in_ruleConstructorCallExpression15950 = new BitSet(new long[]{0x0000200000000000L});
     public static final BitSet FOLLOW_45_in_ruleConstructorCallExpression15961 = new BitSet(new long[]{0x0000000001040002L});
     public static final BitSet FOLLOW_18_in_ruleConstructorCallExpression15974 = new BitSet(new long[]{0x0000000000000010L});
@@ -38696,193 +38206,198 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_42_in_ruleLiteralMap17782 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleLiteralFunction_in_entryRuleLiteralFunction17816 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleLiteralFunction17826 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_24_in_ruleLiteralFunction17873 = new BitSet(new long[]{0x0000000000000010L,0x0000200000000000L});
-    public static final BitSet FOLLOW_ruleParameterDeclaration_in_ruleLiteralFunction17895 = new BitSet(new long[]{0x0000000000800000L,0x0000200000000000L});
-    public static final BitSet FOLLOW_23_in_ruleLiteralFunction17906 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleParameterDeclaration_in_ruleLiteralFunction17927 = new BitSet(new long[]{0x0000000000800000L,0x0000200000000000L});
-    public static final BitSet FOLLOW_109_in_ruleLiteralFunction17941 = new BitSet(new long[]{0x000C1200051007D0L,0x0000C848FF102000L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleLiteralFunction17963 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_ruleBlockExpressionWithoutBrackets_in_ruleLiteralFunction17990 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_28_in_ruleLiteralFunction18001 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleClosureExpression_in_entryRuleClosureExpression18034 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleClosureExpression18044 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleParameterDeclaration_in_ruleClosureExpression18103 = new BitSet(new long[]{0x0000000000800000L,0x0000200000000000L});
-    public static final BitSet FOLLOW_23_in_ruleClosureExpression18114 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleParameterDeclaration_in_ruleClosureExpression18135 = new BitSet(new long[]{0x0000000000800000L,0x0000200000000000L});
-    public static final BitSet FOLLOW_109_in_ruleClosureExpression18149 = new BitSet(new long[]{0x000C1200051007D0L,0x0000C848FF102000L});
-    public static final BitSet FOLLOW_ruleOneOrManyExpressions_in_ruleClosureExpression18170 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOneOrManyExpressions_in_entryRuleOneOrManyExpressions18203 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleOneOrManyExpressions18213 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBlockExpressionWithoutBrackets_in_ruleOneOrManyExpressions18263 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleOneOrManyExpressions18293 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBlockExpressionWithoutBrackets_in_entryRuleBlockExpressionWithoutBrackets18325 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleBlockExpressionWithoutBrackets18335 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleBlockExpressionWithoutBrackets18394 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_19_in_ruleBlockExpressionWithoutBrackets18404 = new BitSet(new long[]{0x000C1200051007D2L,0x0000C848FF102000L});
-    public static final BitSet FOLLOW_ruleMapEntry_in_entryRuleMapEntry18439 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleMapEntry18449 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleKeyLiteral_in_ruleMapEntry18507 = new BitSet(new long[]{0x0200000000000000L});
-    public static final BitSet FOLLOW_57_in_ruleMapEntry18517 = new BitSet(new long[]{0x000C1200051007D0L,0x0000C848FF102000L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleMapEntry18538 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleKeyLiteral_in_entryRuleKeyLiteral18571 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleKeyLiteral18581 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleKeyLiteral18637 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_PID_in_ruleKeyLiteral18657 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleKeyLiteral18677 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLiteralType_in_entryRuleLiteralType18718 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleLiteralType18728 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTypeRef_in_ruleLiteralType18786 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleValueLiteral_in_entryRuleValueLiteral18819 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleValueLiteral18829 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBooleanLiteral_in_ruleValueLiteral18879 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRealLiteral_in_ruleValueLiteral18909 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleIntegerLiteral_in_ruleValueLiteral18939 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleStringLiteral_in_ruleValueLiteral18969 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleUnitLiteral_in_ruleValueLiteral18999 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBooleanLiteral_in_entryRuleBooleanLiteral19031 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleBooleanLiteral19041 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBooleanValue_in_ruleBooleanLiteral19099 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleIntegerLiteral_in_entryRuleIntegerLiteral19132 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleIntegerLiteral19142 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleIntValue_in_ruleIntegerLiteral19200 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleUnitLiteral_in_entryRuleUnitLiteral19233 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleUnitLiteral19243 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_20_in_ruleUnitLiteral19298 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleStringLiteral_in_entryRuleStringLiteral19344 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleStringLiteral19354 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleStringLiteral19408 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRealLiteral_in_entryRuleRealLiteral19446 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleRealLiteral19456 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRealValue_in_ruleRealLiteral19514 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRegexpLiteral_in_entryRuleRegexpLiteral19547 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleRegexpLiteral19557 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_REGULAR_EXPR_in_ruleRegexpLiteral19611 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBooleanValue_in_entryRuleBooleanValue19652 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleBooleanValue19663 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_110_in_ruleBooleanValue19701 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_111_in_ruleBooleanValue19720 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRealValue_in_entryRuleRealValue19759 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleRealValue19770 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleREAL_in_ruleRealValue19816 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleIntValue_in_entryRuleIntValue19859 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleIntValue19870 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleIntValue19910 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_HEX_in_ruleIntValue19936 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleParanthesizedExpression_in_entryRuleParanthesizedExpression19979 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleParanthesizedExpression19989 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_44_in_ruleParanthesizedExpression20024 = new BitSet(new long[]{0x000C1200051007D0L,0x0000C848FF102000L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleParanthesizedExpression20049 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_45_in_ruleParanthesizedExpression20058 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleVersion_in_entryRuleVersion20091 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleVersion20101 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleVersionLiteral_in_ruleVersion20146 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleVersionLiteral_in_entryRuleVersionLiteral20179 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleVersionLiteral20190 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleVersionLiteral20230 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAlfanumSym_in_ruleVersionLiteral20263 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleVersionRange_in_entryRuleVersionRange20306 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleVersionRange20316 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleVersionRangeLiteral_in_ruleVersionRange20361 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleVersionRangeLiteral_in_entryRuleVersionRangeLiteral20394 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleVersionRangeLiteral20405 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_41_in_ruleVersionRangeLiteral20445 = new BitSet(new long[]{0x0000000000000E50L});
-    public static final BitSet FOLLOW_44_in_ruleVersionRangeLiteral20464 = new BitSet(new long[]{0x0000000000000E50L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleVersionRangeLiteral20481 = new BitSet(new long[]{0x0000240000800000L});
-    public static final BitSet FOLLOW_ruleAlfanumSym_in_ruleVersionRangeLiteral20514 = new BitSet(new long[]{0x0000240000800000L});
-    public static final BitSet FOLLOW_23_in_ruleVersionRangeLiteral20534 = new BitSet(new long[]{0x0000000000000E50L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleVersionRangeLiteral20550 = new BitSet(new long[]{0x0000240000000000L});
-    public static final BitSet FOLLOW_ruleAlfanumSym_in_ruleVersionRangeLiteral20583 = new BitSet(new long[]{0x0000240000000000L});
-    public static final BitSet FOLLOW_42_in_ruleVersionRangeLiteral20605 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_45_in_ruleVersionRangeLiteral20624 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleVersionRangeLiteral20648 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAlfanumSym_in_ruleVersionRangeLiteral20681 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQIDREF_in_entryRuleQIDREF20726 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleQIDREF20737 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_79_in_ruleQIDREF20777 = new BitSet(new long[]{0x0000000000000002L,0x0000000010000000L});
-    public static final BitSet FOLLOW_20_in_ruleQIDREF20798 = new BitSet(new long[]{0x0000000000000002L,0x0000000010000000L});
-    public static final BitSet FOLLOW_112_in_ruleQIDREF20817 = new BitSet(new long[]{0x0000000000000002L,0x0000000010000000L});
-    public static final BitSet FOLLOW_92_in_ruleQIDREF20832 = new BitSet(new long[]{0x0000000000000000L,0x0000000000008000L});
-    public static final BitSet FOLLOW_79_in_ruleQIDREF20845 = new BitSet(new long[]{0x0000000000000002L,0x0000000010000000L});
-    public static final BitSet FOLLOW_92_in_ruleQIDREF20863 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleQID_in_ruleQIDREF20885 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQID_in_ruleQIDREF20921 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQID_in_entryRuleQID20965 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleQID20976 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleQID21016 = new BitSet(new long[]{0x0000000000000612L,0x0002000010000000L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleQID21037 = new BitSet(new long[]{0x0000000000000612L,0x0002000010000000L});
-    public static final BitSet FOLLOW_RULE_HEX_in_ruleQID21063 = new BitSet(new long[]{0x0000000000000612L,0x0002000010000000L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleQID21089 = new BitSet(new long[]{0x0000000000000612L,0x0002000010000000L});
-    public static final BitSet FOLLOW_92_in_ruleQID21110 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleQID21125 = new BitSet(new long[]{0x0000000000000612L,0x0002000010000000L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleQID21146 = new BitSet(new long[]{0x0000000000000612L,0x0002000010000000L});
-    public static final BitSet FOLLOW_RULE_HEX_in_ruleQID21172 = new BitSet(new long[]{0x0000000000000612L,0x0002000010000000L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleQID21198 = new BitSet(new long[]{0x0000000000000612L,0x0002000010000000L});
-    public static final BitSet FOLLOW_ruleHIDDENBUG_in_ruleQID21229 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleHIDDENBUG_in_entryRuleHIDDENBUG21273 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleHIDDENBUG21284 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_113_in_ruleHIDDENBUG21322 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePropertyName_in_entryRulePropertyName21362 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRulePropertyName21373 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_PID_in_rulePropertyName21412 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleEscapedQualifiedName_in_entryRuleEscapedQualifiedName21455 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleEscapedQualifiedName21466 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleEscapedQualifiedName21506 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQID_in_ruleEscapedQualifiedName21539 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleInterfaceName_in_entryRuleInterfaceName21583 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleInterfaceName21594 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQID_in_ruleInterfaceName21640 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCompoundName_in_entryRuleCompoundName21683 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleCompoundName21694 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleEscapedQualifiedName_in_ruleCompoundName21741 = new BitSet(new long[]{0x0000000400000000L});
-    public static final BitSet FOLLOW_34_in_ruleCompoundName21759 = new BitSet(new long[]{0x0000000000000050L});
-    public static final BitSet FOLLOW_ruleEscapedQualifiedName_in_ruleCompoundName21781 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleUnitName_in_entryRuleUnitName21825 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleUnitName21836 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleEscapedQualifiedName_in_ruleUnitName21882 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePartName_in_entryRulePartName21925 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRulePartName21936 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleEscapedQualifiedName_in_rulePartName21982 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSeparator_in_entryRuleSeparator22025 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSeparator22036 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_92_in_ruleSeparator22074 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_84_in_ruleSeparator22093 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_88_in_ruleSeparator22112 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_114_in_ruleSeparator22131 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_115_in_ruleSeparator22150 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_86_in_ruleSeparator22169 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_116_in_ruleSeparator22188 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_83_in_ruleSeparator22207 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_62_in_ruleSeparator22226 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_85_in_ruleSeparator22245 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_76_in_ruleSeparator22264 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_75_in_ruleSeparator22283 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_57_in_ruleSeparator22302 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_78_in_ruleSeparator22321 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAlfanumSym_in_entryRuleAlfanumSym22360 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAlfanumSym22371 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleAlfanumSym22412 = new BitSet(new long[]{0x4200000000000E12L,0x001C000011785800L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleAlfanumSym22438 = new BitSet(new long[]{0x4200000000000E12L,0x001C000011785800L});
-    public static final BitSet FOLLOW_RULE_HEX_in_ruleAlfanumSym22464 = new BitSet(new long[]{0x4200000000000E12L,0x001C000011785800L});
-    public static final BitSet FOLLOW_RULE_EXT_INT_in_ruleAlfanumSym22490 = new BitSet(new long[]{0x4200000000000E12L,0x001C000011785800L});
-    public static final BitSet FOLLOW_ruleSeparator_in_ruleAlfanumSym22519 = new BitSet(new long[]{0x4200000000000E12L,0x001C000011785800L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleAlfanumSym22545 = new BitSet(new long[]{0x4200000000000E12L,0x001C000011785800L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleAlfanumSym22571 = new BitSet(new long[]{0x4200000000000E12L,0x001C000011785800L});
-    public static final BitSet FOLLOW_RULE_HEX_in_ruleAlfanumSym22597 = new BitSet(new long[]{0x4200000000000E12L,0x001C000011785800L});
-    public static final BitSet FOLLOW_RULE_EXT_INT_in_ruleAlfanumSym22623 = new BitSet(new long[]{0x4200000000000E12L,0x001C000011785800L});
-    public static final BitSet FOLLOW_ruleREAL_in_entryRuleREAL22669 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleREAL22680 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleREAL22721 = new BitSet(new long[]{0x0000000000000000L,0x0000000010000000L});
-    public static final BitSet FOLLOW_92_in_ruleREAL22741 = new BitSet(new long[]{0x0000000000000A00L});
-    public static final BitSet FOLLOW_RULE_EXT_INT_in_ruleREAL22757 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleREAL22783 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_92_in_ruleSelectorOperator22841 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_87_in_ruleSelectorOperator22856 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_85_in_ruleSelectorOperator22871 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_117_in_ruleSelectorOperator22886 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_118_in_ruleVisibility22929 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_119_in_ruleVisibility22944 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_120_in_ruleExecutionMode22987 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_31_in_ruleExecutionMode23002 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_24_in_ruleLiteralFunction17873 = new BitSet(new long[]{0x0000000000000010L,0x0000200000001000L});
+    public static final BitSet FOLLOW_76_in_ruleLiteralFunction17884 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleTypeRef_in_ruleLiteralFunction17905 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
+    public static final BitSet FOLLOW_75_in_ruleLiteralFunction17915 = new BitSet(new long[]{0x0000000000000010L,0x0000200000000000L});
+    public static final BitSet FOLLOW_ruleParameterDeclaration_in_ruleLiteralFunction17939 = new BitSet(new long[]{0x0000000000800000L,0x0000200000000000L});
+    public static final BitSet FOLLOW_23_in_ruleLiteralFunction17950 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleParameterDeclaration_in_ruleLiteralFunction17971 = new BitSet(new long[]{0x0000000000800000L,0x0000200000000000L});
+    public static final BitSet FOLLOW_109_in_ruleLiteralFunction17985 = new BitSet(new long[]{0x000C1200051007D0L,0x0000C848FF102000L});
+    public static final BitSet FOLLOW_ruleOneOrManyExpressions_in_ruleLiteralFunction18006 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_28_in_ruleLiteralFunction18016 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleClosureExpression_in_entryRuleClosureExpression18049 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleClosureExpression18059 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_76_in_ruleClosureExpression18107 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleTypeRef_in_ruleClosureExpression18128 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
+    public static final BitSet FOLLOW_75_in_ruleClosureExpression18138 = new BitSet(new long[]{0x0000000000000010L,0x0000200000000000L});
+    public static final BitSet FOLLOW_ruleParameterDeclaration_in_ruleClosureExpression18162 = new BitSet(new long[]{0x0000000000800000L,0x0000200000000000L});
+    public static final BitSet FOLLOW_23_in_ruleClosureExpression18173 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleParameterDeclaration_in_ruleClosureExpression18194 = new BitSet(new long[]{0x0000000000800000L,0x0000200000000000L});
+    public static final BitSet FOLLOW_109_in_ruleClosureExpression18208 = new BitSet(new long[]{0x000C1200051007D0L,0x0000C848FF102000L});
+    public static final BitSet FOLLOW_ruleOneOrManyExpressions_in_ruleClosureExpression18229 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOneOrManyExpressions_in_entryRuleOneOrManyExpressions18262 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleOneOrManyExpressions18272 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBlockExpressionWithoutBrackets_in_ruleOneOrManyExpressions18322 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleOneOrManyExpressions18352 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBlockExpressionWithoutBrackets_in_entryRuleBlockExpressionWithoutBrackets18384 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleBlockExpressionWithoutBrackets18394 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleBlockExpressionWithoutBrackets18453 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_19_in_ruleBlockExpressionWithoutBrackets18463 = new BitSet(new long[]{0x000C1200051007D2L,0x0000C848FF102000L});
+    public static final BitSet FOLLOW_ruleMapEntry_in_entryRuleMapEntry18498 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleMapEntry18508 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleKeyLiteral_in_ruleMapEntry18566 = new BitSet(new long[]{0x0200000000000000L});
+    public static final BitSet FOLLOW_57_in_ruleMapEntry18576 = new BitSet(new long[]{0x000C1200051007D0L,0x0000C848FF102000L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleMapEntry18597 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleKeyLiteral_in_entryRuleKeyLiteral18630 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleKeyLiteral18640 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleKeyLiteral18696 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_PID_in_ruleKeyLiteral18716 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleKeyLiteral18736 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLiteralType_in_entryRuleLiteralType18777 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleLiteralType18787 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleTypeRef_in_ruleLiteralType18845 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleValueLiteral_in_entryRuleValueLiteral18878 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleValueLiteral18888 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBooleanLiteral_in_ruleValueLiteral18938 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRealLiteral_in_ruleValueLiteral18968 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleIntegerLiteral_in_ruleValueLiteral18998 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleStringLiteral_in_ruleValueLiteral19028 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleUnitLiteral_in_ruleValueLiteral19058 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBooleanLiteral_in_entryRuleBooleanLiteral19090 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleBooleanLiteral19100 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBooleanValue_in_ruleBooleanLiteral19158 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleIntegerLiteral_in_entryRuleIntegerLiteral19191 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleIntegerLiteral19201 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleIntValue_in_ruleIntegerLiteral19259 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleUnitLiteral_in_entryRuleUnitLiteral19292 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleUnitLiteral19302 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_20_in_ruleUnitLiteral19357 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleStringLiteral_in_entryRuleStringLiteral19403 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleStringLiteral19413 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleStringLiteral19467 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRealLiteral_in_entryRuleRealLiteral19505 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleRealLiteral19515 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRealValue_in_ruleRealLiteral19573 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRegexpLiteral_in_entryRuleRegexpLiteral19606 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleRegexpLiteral19616 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_REGULAR_EXPR_in_ruleRegexpLiteral19670 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBooleanValue_in_entryRuleBooleanValue19711 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleBooleanValue19722 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_110_in_ruleBooleanValue19760 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_111_in_ruleBooleanValue19779 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRealValue_in_entryRuleRealValue19818 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleRealValue19829 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleREAL_in_ruleRealValue19875 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleIntValue_in_entryRuleIntValue19918 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleIntValue19929 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleIntValue19969 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_HEX_in_ruleIntValue19995 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleParanthesizedExpression_in_entryRuleParanthesizedExpression20038 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleParanthesizedExpression20048 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_44_in_ruleParanthesizedExpression20083 = new BitSet(new long[]{0x000C1200051007D0L,0x0000C848FF102000L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleParanthesizedExpression20108 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_45_in_ruleParanthesizedExpression20117 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleVersion_in_entryRuleVersion20150 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleVersion20160 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleVersionLiteral_in_ruleVersion20205 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleVersionLiteral_in_entryRuleVersionLiteral20238 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleVersionLiteral20249 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleVersionLiteral20289 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAlfanumSym_in_ruleVersionLiteral20322 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleVersionRange_in_entryRuleVersionRange20365 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleVersionRange20375 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleVersionRangeLiteral_in_ruleVersionRange20420 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleVersionRangeLiteral_in_entryRuleVersionRangeLiteral20453 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleVersionRangeLiteral20464 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_41_in_ruleVersionRangeLiteral20504 = new BitSet(new long[]{0x0000000000000E50L});
+    public static final BitSet FOLLOW_44_in_ruleVersionRangeLiteral20523 = new BitSet(new long[]{0x0000000000000E50L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleVersionRangeLiteral20540 = new BitSet(new long[]{0x0000240000800000L});
+    public static final BitSet FOLLOW_ruleAlfanumSym_in_ruleVersionRangeLiteral20573 = new BitSet(new long[]{0x0000240000800000L});
+    public static final BitSet FOLLOW_23_in_ruleVersionRangeLiteral20593 = new BitSet(new long[]{0x0000000000000E50L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleVersionRangeLiteral20609 = new BitSet(new long[]{0x0000240000000000L});
+    public static final BitSet FOLLOW_ruleAlfanumSym_in_ruleVersionRangeLiteral20642 = new BitSet(new long[]{0x0000240000000000L});
+    public static final BitSet FOLLOW_42_in_ruleVersionRangeLiteral20664 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_45_in_ruleVersionRangeLiteral20683 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleVersionRangeLiteral20707 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAlfanumSym_in_ruleVersionRangeLiteral20740 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQIDREF_in_entryRuleQIDREF20785 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleQIDREF20796 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_79_in_ruleQIDREF20836 = new BitSet(new long[]{0x0000000000000002L,0x0000000010000000L});
+    public static final BitSet FOLLOW_20_in_ruleQIDREF20857 = new BitSet(new long[]{0x0000000000000002L,0x0000000010000000L});
+    public static final BitSet FOLLOW_112_in_ruleQIDREF20876 = new BitSet(new long[]{0x0000000000000002L,0x0000000010000000L});
+    public static final BitSet FOLLOW_92_in_ruleQIDREF20891 = new BitSet(new long[]{0x0000000000000000L,0x0000000000008000L});
+    public static final BitSet FOLLOW_79_in_ruleQIDREF20904 = new BitSet(new long[]{0x0000000000000002L,0x0000000010000000L});
+    public static final BitSet FOLLOW_92_in_ruleQIDREF20922 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleQID_in_ruleQIDREF20944 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQID_in_ruleQIDREF20980 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQID_in_entryRuleQID21024 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleQID21035 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleQID21075 = new BitSet(new long[]{0x0000000000000612L,0x0002000010000000L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleQID21096 = new BitSet(new long[]{0x0000000000000612L,0x0002000010000000L});
+    public static final BitSet FOLLOW_RULE_HEX_in_ruleQID21122 = new BitSet(new long[]{0x0000000000000612L,0x0002000010000000L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleQID21148 = new BitSet(new long[]{0x0000000000000612L,0x0002000010000000L});
+    public static final BitSet FOLLOW_92_in_ruleQID21169 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleQID21184 = new BitSet(new long[]{0x0000000000000612L,0x0002000010000000L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleQID21205 = new BitSet(new long[]{0x0000000000000612L,0x0002000010000000L});
+    public static final BitSet FOLLOW_RULE_HEX_in_ruleQID21231 = new BitSet(new long[]{0x0000000000000612L,0x0002000010000000L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleQID21257 = new BitSet(new long[]{0x0000000000000612L,0x0002000010000000L});
+    public static final BitSet FOLLOW_ruleHIDDENBUG_in_ruleQID21288 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleHIDDENBUG_in_entryRuleHIDDENBUG21332 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleHIDDENBUG21343 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_113_in_ruleHIDDENBUG21381 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePropertyName_in_entryRulePropertyName21421 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRulePropertyName21432 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_PID_in_rulePropertyName21471 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleEscapedQualifiedName_in_entryRuleEscapedQualifiedName21514 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleEscapedQualifiedName21525 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleEscapedQualifiedName21565 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQID_in_ruleEscapedQualifiedName21598 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleInterfaceName_in_entryRuleInterfaceName21642 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleInterfaceName21653 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQID_in_ruleInterfaceName21699 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCompoundName_in_entryRuleCompoundName21742 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleCompoundName21753 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleEscapedQualifiedName_in_ruleCompoundName21800 = new BitSet(new long[]{0x0000000400000000L});
+    public static final BitSet FOLLOW_34_in_ruleCompoundName21818 = new BitSet(new long[]{0x0000000000000050L});
+    public static final BitSet FOLLOW_ruleEscapedQualifiedName_in_ruleCompoundName21840 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleUnitName_in_entryRuleUnitName21884 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleUnitName21895 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleEscapedQualifiedName_in_ruleUnitName21941 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePartName_in_entryRulePartName21984 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRulePartName21995 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleEscapedQualifiedName_in_rulePartName22041 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSeparator_in_entryRuleSeparator22084 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSeparator22095 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_92_in_ruleSeparator22133 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_84_in_ruleSeparator22152 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_88_in_ruleSeparator22171 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_114_in_ruleSeparator22190 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_115_in_ruleSeparator22209 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_86_in_ruleSeparator22228 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_116_in_ruleSeparator22247 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_83_in_ruleSeparator22266 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_62_in_ruleSeparator22285 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_85_in_ruleSeparator22304 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_76_in_ruleSeparator22323 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_75_in_ruleSeparator22342 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_57_in_ruleSeparator22361 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_78_in_ruleSeparator22380 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAlfanumSym_in_entryRuleAlfanumSym22419 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleAlfanumSym22430 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleAlfanumSym22471 = new BitSet(new long[]{0x4200000000000E12L,0x001C000011785800L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleAlfanumSym22497 = new BitSet(new long[]{0x4200000000000E12L,0x001C000011785800L});
+    public static final BitSet FOLLOW_RULE_HEX_in_ruleAlfanumSym22523 = new BitSet(new long[]{0x4200000000000E12L,0x001C000011785800L});
+    public static final BitSet FOLLOW_RULE_EXT_INT_in_ruleAlfanumSym22549 = new BitSet(new long[]{0x4200000000000E12L,0x001C000011785800L});
+    public static final BitSet FOLLOW_ruleSeparator_in_ruleAlfanumSym22578 = new BitSet(new long[]{0x4200000000000E12L,0x001C000011785800L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleAlfanumSym22604 = new BitSet(new long[]{0x4200000000000E12L,0x001C000011785800L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleAlfanumSym22630 = new BitSet(new long[]{0x4200000000000E12L,0x001C000011785800L});
+    public static final BitSet FOLLOW_RULE_HEX_in_ruleAlfanumSym22656 = new BitSet(new long[]{0x4200000000000E12L,0x001C000011785800L});
+    public static final BitSet FOLLOW_RULE_EXT_INT_in_ruleAlfanumSym22682 = new BitSet(new long[]{0x4200000000000E12L,0x001C000011785800L});
+    public static final BitSet FOLLOW_ruleREAL_in_entryRuleREAL22728 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleREAL22739 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleREAL22780 = new BitSet(new long[]{0x0000000000000000L,0x0000000010000000L});
+    public static final BitSet FOLLOW_92_in_ruleREAL22800 = new BitSet(new long[]{0x0000000000000A00L});
+    public static final BitSet FOLLOW_RULE_EXT_INT_in_ruleREAL22816 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleREAL22842 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_92_in_ruleSelectorOperator22900 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_87_in_ruleSelectorOperator22915 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_85_in_ruleSelectorOperator22930 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_117_in_ruleSelectorOperator22945 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_118_in_ruleVisibility22988 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_119_in_ruleVisibility23003 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_120_in_ruleExecutionMode23046 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_31_in_ruleExecutionMode23061 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleClosureParameter_in_synpred936062 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleVarDeclaration_in_synpred14610244 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleAssignmentOperator_in_synpred14710308 = new BitSet(new long[]{0x000C1200051007D0L,0x0000C848FF102000L});
@@ -38909,7 +38424,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_set_in_synpred17012828 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_92_in_synpred17212998 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_synpred17213015 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_44_in_synpred17213030 = new BitSet(new long[]{0x000C3200051007D0L,0x0000E848FF102000L});
+    public static final BitSet FOLLOW_44_in_synpred17213030 = new BitSet(new long[]{0x000C3200051007D0L,0x0000E848FF103000L});
     public static final BitSet FOLLOW_ruleParameterList_in_synpred17213051 = new BitSet(new long[]{0x0000200000000000L});
     public static final BitSet FOLLOW_45_in_synpred17213062 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_41_in_synpred17313092 = new BitSet(new long[]{0x000C1200051007D0L,0x0000C848FF102000L});
@@ -38917,7 +38432,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_42_in_synpred17313123 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_92_in_synpred17413153 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_synpred17413170 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_44_in_synpred17613293 = new BitSet(new long[]{0x000C3200051007D0L,0x0000E848FF102000L});
+    public static final BitSet FOLLOW_44_in_synpred17613293 = new BitSet(new long[]{0x000C3200051007D0L,0x0000E848FF103000L});
     public static final BitSet FOLLOW_ruleParameterList_in_synpred17613314 = new BitSet(new long[]{0x0000200000000000L});
     public static final BitSet FOLLOW_45_in_synpred17613325 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleFeatureCall_in_synpred17713420 = new BitSet(new long[]{0x0000000000000002L});
@@ -38926,7 +38441,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_rulePropertyValue_in_synpred18113540 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleKeywordVariables_in_synpred18213570 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleBlockExpression_in_synpred18513660 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_44_in_synpred20415929 = new BitSet(new long[]{0x000C3200051007D0L,0x0000E848FF102000L});
+    public static final BitSet FOLLOW_44_in_synpred20415929 = new BitSet(new long[]{0x000C3200051007D0L,0x0000E848FF103000L});
     public static final BitSet FOLLOW_ruleParameterList_in_synpred20415950 = new BitSet(new long[]{0x0000200000000000L});
     public static final BitSet FOLLOW_45_in_synpred20415961 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_18_in_synpred20515974 = new BitSet(new long[]{0x0000000000000010L});
@@ -38934,20 +38449,19 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleContextBlock_in_synpred20616019 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleTypeRefSelector_in_synpred20716233 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleExpressionSelector_in_synpred20816263 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExpression_in_synpred22717963 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBlockExpressionWithoutBrackets_in_synpred23018263 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRealLiteral_in_synpred23518909 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleIntegerLiteral_in_synpred23618939 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_INT_in_synpred25321037 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_HEX_in_synpred25421063 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_synpred25521089 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_INT_in_synpred25621146 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_HEX_in_synpred25721172 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_synpred25821198 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_113_in_synpred26021322 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSeparator_in_synpred27822519 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_synpred27922545 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_INT_in_synpred28022571 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_HEX_in_synpred28122597 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBlockExpressionWithoutBrackets_in_synpred23118322 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRealLiteral_in_synpred23618968 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleIntegerLiteral_in_synpred23718998 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_INT_in_synpred25421096 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_HEX_in_synpred25521122 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_synpred25621148 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_INT_in_synpred25721205 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_HEX_in_synpred25821231 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_synpred25921257 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_113_in_synpred26121381 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSeparator_in_synpred27922578 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_synpred28022604 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_INT_in_synpred28122630 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_HEX_in_synpred28222656 = new BitSet(new long[]{0x0000000000000002L});
 
 }
