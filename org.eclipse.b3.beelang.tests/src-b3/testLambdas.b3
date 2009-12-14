@@ -5,6 +5,7 @@ import java.util.List;
 import java.lang.Integer;
 
 function Object main(List argv) {
+	testClosure();
 	testLiteralLambda();
 	testClosureParameter();
 }
@@ -29,4 +30,14 @@ function Object testLiteralLambda() {
 	// calling via expression
 	assertEquals("(zum)(1,2) == 3",3, (zum)(1,2));
 	assertEquals("zum.evaluate(1,2) == 3", 3, zum.evaluate(1,2));
+}
+function Object testClosure() {
+	// a variable that a lambda should be able to access
+	Integer outside = 10;
+	Integer x = 100; // a variable the lambda should not see (hidden by parameter)
+	// type of zum inferred
+	var zum = {<Integer> Integer x, Integer y | x + y + outside};
+	// calling via expression
+	assertEquals("(zum)(1,2) == 3",13, (zum)(1,2));
+	assertEquals("zum.evaluate(1,2) == 3", 13, zum.evaluate(1,2));
 }
