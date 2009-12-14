@@ -48,11 +48,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getExceptionTypes <em>Exception Types</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getTypeParameters <em>Type Parameters</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getParameterNames <em>Parameter Names</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#isVarArgs <em>Var Args</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#isVarArgs <em>Var Args</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getDocumentation <em>Documentation</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getReturnType <em>Return Type</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#isCached <em>Cached</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getClosure <em>Closure</em>}</li>
  * </ul>
  * </p>
  *
@@ -237,6 +238,16 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	protected String[] parameterNames = PARAMETER_NAMES_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParameters()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<BParameterDeclaration> parameters;
+
+	/**
 	 * The default value of the '{@link #isVarArgs() <em>Var Args</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -255,16 +266,6 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	 * @ordered
 	 */
 	protected boolean varArgs = VAR_ARGS_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getParameters()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<BParameterDeclaration> parameters;
 
 	/**
 	 * The default value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
@@ -315,6 +316,16 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	 * @ordered
 	 */
 	protected boolean cached = CACHED_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getClosure() <em>Closure</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getClosure()
+	 * @generated
+	 * @ordered
+	 */
+	protected BExecutionContext closure;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -534,6 +545,44 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 		cached = newCached;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION__CACHED, oldCached, cached));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BExecutionContext getClosure() {
+		if (closure != null && closure.eIsProxy()) {
+			InternalEObject oldClosure = (InternalEObject)closure;
+			closure = (BExecutionContext)eResolveProxy(oldClosure);
+			if (closure != oldClosure) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.BFUNCTION__CLOSURE, oldClosure, closure));
+			}
+		}
+		return closure;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BExecutionContext basicGetClosure() {
+		return closure;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setClosure(BExecutionContext newClosure) {
+		BExecutionContext oldClosure = closure;
+		closure = newClosure;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION__CLOSURE, oldClosure, closure));
 	}
 
 	/**
@@ -758,16 +807,19 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 				return getTypeParameters();
 			case B3backendPackage.BFUNCTION__PARAMETER_NAMES:
 				return getParameterNames();
-			case B3backendPackage.BFUNCTION__VAR_ARGS:
-				return isVarArgs();
 			case B3backendPackage.BFUNCTION__PARAMETERS:
 				return getParameters();
+			case B3backendPackage.BFUNCTION__VAR_ARGS:
+				return isVarArgs();
 			case B3backendPackage.BFUNCTION__DOCUMENTATION:
 				return getDocumentation();
 			case B3backendPackage.BFUNCTION__RETURN_TYPE:
 				return getReturnType();
 			case B3backendPackage.BFUNCTION__CACHED:
 				return isCached();
+			case B3backendPackage.BFUNCTION__CLOSURE:
+				if (resolve) return getClosure();
+				return basicGetClosure();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -808,12 +860,12 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 			case B3backendPackage.BFUNCTION__PARAMETER_NAMES:
 				setParameterNames((String[])newValue);
 				return;
-			case B3backendPackage.BFUNCTION__VAR_ARGS:
-				setVarArgs((Boolean)newValue);
-				return;
 			case B3backendPackage.BFUNCTION__PARAMETERS:
 				getParameters().clear();
 				getParameters().addAll((Collection<? extends BParameterDeclaration>)newValue);
+				return;
+			case B3backendPackage.BFUNCTION__VAR_ARGS:
+				setVarArgs((Boolean)newValue);
 				return;
 			case B3backendPackage.BFUNCTION__DOCUMENTATION:
 				setDocumentation((String)newValue);
@@ -823,6 +875,9 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 				return;
 			case B3backendPackage.BFUNCTION__CACHED:
 				setCached((Boolean)newValue);
+				return;
+			case B3backendPackage.BFUNCTION__CLOSURE:
+				setClosure((BExecutionContext)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -863,11 +918,11 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 			case B3backendPackage.BFUNCTION__PARAMETER_NAMES:
 				setParameterNames(PARAMETER_NAMES_EDEFAULT);
 				return;
-			case B3backendPackage.BFUNCTION__VAR_ARGS:
-				setVarArgs(VAR_ARGS_EDEFAULT);
-				return;
 			case B3backendPackage.BFUNCTION__PARAMETERS:
 				getParameters().clear();
+				return;
+			case B3backendPackage.BFUNCTION__VAR_ARGS:
+				setVarArgs(VAR_ARGS_EDEFAULT);
 				return;
 			case B3backendPackage.BFUNCTION__DOCUMENTATION:
 				setDocumentation(DOCUMENTATION_EDEFAULT);
@@ -877,6 +932,9 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 				return;
 			case B3backendPackage.BFUNCTION__CACHED:
 				setCached(CACHED_EDEFAULT);
+				return;
+			case B3backendPackage.BFUNCTION__CLOSURE:
+				setClosure((BExecutionContext)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -908,16 +966,18 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 				return TYPE_PARAMETERS_EDEFAULT == null ? typeParameters != null : !TYPE_PARAMETERS_EDEFAULT.equals(typeParameters);
 			case B3backendPackage.BFUNCTION__PARAMETER_NAMES:
 				return PARAMETER_NAMES_EDEFAULT == null ? parameterNames != null : !PARAMETER_NAMES_EDEFAULT.equals(parameterNames);
-			case B3backendPackage.BFUNCTION__VAR_ARGS:
-				return varArgs != VAR_ARGS_EDEFAULT;
 			case B3backendPackage.BFUNCTION__PARAMETERS:
 				return parameters != null && !parameters.isEmpty();
+			case B3backendPackage.BFUNCTION__VAR_ARGS:
+				return varArgs != VAR_ARGS_EDEFAULT;
 			case B3backendPackage.BFUNCTION__DOCUMENTATION:
 				return DOCUMENTATION_EDEFAULT == null ? documentation != null : !DOCUMENTATION_EDEFAULT.equals(documentation);
 			case B3backendPackage.BFUNCTION__RETURN_TYPE:
 				return returnType != null;
 			case B3backendPackage.BFUNCTION__CACHED:
 				return cached != CACHED_EDEFAULT;
+			case B3backendPackage.BFUNCTION__CLOSURE:
+				return closure != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -970,10 +1030,13 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 		}
 	}
 	/**
-	 * Functions are literal and evaluate to self.
+	 * Functions are literal and evaluate to self. When a function is evaluated, it also binds
+	 * to the context where it is defined. 
 	 */
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
+		if(getClosure() == null)
+			setClosure(ctx);
 		return this; // a function is literal.
 	}
 	

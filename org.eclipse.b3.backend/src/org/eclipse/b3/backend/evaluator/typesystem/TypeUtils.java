@@ -9,6 +9,7 @@ import java.util.Map;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
+import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 
 public class TypeUtils {
 	static WeakReference<TypeDistance> typeDistance = new WeakReference<TypeDistance>(null);
@@ -26,6 +27,10 @@ public class TypeUtils {
 		}
 		if(t instanceof B3JavaImport) {
 			return getRaw(B3JavaImport.class.cast(t).getType());
+		}
+		if(t instanceof B3FunctionType) {
+			B3FunctionType ft = B3FunctionType.class.cast(t);
+			return getRaw(ft.getFunctionType()); // i.e. what type of function this is B3, or Java
 		}
 		throw new UnsupportedOperationException("ONLY CLASS AND PARAMETERIZED TYPE SUPPORTED - was: "+t);
 	}

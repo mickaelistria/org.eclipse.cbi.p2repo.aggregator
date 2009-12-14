@@ -107,7 +107,7 @@ public interface B3ParameterizedType extends EObject, ParameterizedType {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Actual Arguments List</em>' reference list.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getB3ParameterizedType_ActualArgumentsList()
-	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType"
+	 * @model type="org.eclipse.b3.backend.evaluator.b3backend.IType" resolveProxies="false"
 	 * @generated
 	 */
 	EList<Type> getActualArgumentsList();

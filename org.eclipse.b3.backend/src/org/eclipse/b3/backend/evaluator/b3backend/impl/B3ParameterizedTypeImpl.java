@@ -28,9 +28,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -192,7 +190,14 @@ public class B3ParameterizedTypeImpl extends EObjectImpl implements B3Parameteri
 	 */
 	public EList<Type> getActualArgumentsList() {
 		if (actualArgumentsList == null) {
-			actualArgumentsList = new EObjectResolvingEList<Type>(Type.class, this, B3backendPackage.B3_PARAMETERIZED_TYPE__ACTUAL_ARGUMENTS_LIST);
+			actualArgumentsList = new EObjectEList<Type>(Type.class, this, B3backendPackage.B3_PARAMETERIZED_TYPE__ACTUAL_ARGUMENTS_LIST){
+				private static final long serialVersionUID = 1L;
+
+				@Override
+				protected boolean isUnique() {
+					return false;
+				}
+			};
 		}
 		return actualArgumentsList;
 	}

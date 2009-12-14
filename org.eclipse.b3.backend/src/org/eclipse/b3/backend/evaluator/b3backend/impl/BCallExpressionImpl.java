@@ -281,9 +281,12 @@ public class BCallExpressionImpl extends BParameterizedExpressionImpl implements
 		}
 		if(!(target instanceof BFunction))
 			throw BackendHelper.createException(this, "call on non BFunction - was : {0}", new Object[]{target.getClass()});
-		// call the function in an outer context - if a lambda evaluation is wanted it should be
-		// called using func.evaluate() instead
-		return ((BFunction)target).internalCall(ctx.createOuterContext(), parameters, tparameters);
+
+		// if the function comes with a closure, call it in an inner context, else a fresh outer context.
+		// TODO: Don't know if this treatment is needed elsewhere as well...
+		BExecutionContext useCtx = ((BFunction)target).getClosure();
+		useCtx = useCtx == null ? ctx.createOuterContext() : useCtx.createInnerContext();
+		return ((BFunction)target).internalCall(useCtx, parameters, tparameters);
 	}
 
 	private Object namedFunctionCall(BExecutionContext ctx) throws Throwable {

@@ -273,13 +273,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeParameters" eType="#//TypeVariableArray"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameterNames" eType="#//StringArray"
         transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="varArgs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
         eType="#//BParameterDeclaration" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="varArgs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="returnType" eType="#//IType"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="cached" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="closure" eType="#//BExecutionContext"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BGuard" abstract="true">
     <eOperations name="accepts" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
@@ -395,8 +396,8 @@
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="functionType" eType="#//IType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="returnType" eType="#//IType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parameterTypes" upperBound="-1"
-        eType="#//IType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameterTypes" unique="false"
+        upperBound="-1" eType="#//IType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="varArgs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IParameterizedType" instanceClassName="java.lang.reflect.ParameterizedType"
@@ -408,8 +409,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownerType" eType="#//IType"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rawType" eType="#//IType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="actualArgumentsList" upperBound="-1"
-        eType="#//IType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actualArgumentsList" unique="false"
+        upperBound="-1" eType="#//IType" resolveProxies="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IWildcardType" instanceClassName="java.lang.reflect.WildcardType"
       abstract="true" interface="true" eSuperTypes="#//IType"/>

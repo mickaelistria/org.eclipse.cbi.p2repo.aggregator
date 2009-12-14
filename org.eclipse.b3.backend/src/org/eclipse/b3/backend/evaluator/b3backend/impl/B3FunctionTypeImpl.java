@@ -126,10 +126,10 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Type getFunctionType() {
-		if (functionType != null && ((EObject)functionType).eIsProxy()) {
+		if (functionType != null && functionType instanceof EObject && ((EObject)functionType).eIsProxy()) {
 			InternalEObject oldFunctionType = (InternalEObject)functionType;
 			functionType = (Type)eResolveProxy(oldFunctionType);
 			if (functionType != oldFunctionType) {

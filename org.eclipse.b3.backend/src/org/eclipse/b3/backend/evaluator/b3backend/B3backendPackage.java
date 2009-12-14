@@ -1721,22 +1721,22 @@ public interface B3backendPackage extends EPackage {
 	int BFUNCTION__PARAMETER_NAMES = BEXPRESSION_FEATURE_COUNT + 8;
 
 	/**
-	 * The feature id for the '<em><b>Var Args</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BFUNCTION__VAR_ARGS = BEXPRESSION_FEATURE_COUNT + 9;
-
-	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BFUNCTION__PARAMETERS = BEXPRESSION_FEATURE_COUNT + 10;
+	int BFUNCTION__PARAMETERS = BEXPRESSION_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>Var Args</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BFUNCTION__VAR_ARGS = BEXPRESSION_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
@@ -1766,13 +1766,22 @@ public interface B3backendPackage extends EPackage {
 	int BFUNCTION__CACHED = BEXPRESSION_FEATURE_COUNT + 13;
 
 	/**
+	 * The feature id for the '<em><b>Closure</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BFUNCTION__CLOSURE = BEXPRESSION_FEATURE_COUNT + 14;
+
+	/**
 	 * The number of structural features of the '<em>BFunction</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BFUNCTION_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 14;
+	int BFUNCTION_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 15;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BGuardImpl <em>BGuard</em>}' class.
@@ -2316,15 +2325,6 @@ public interface B3backendPackage extends EPackage {
 	int B3_FUNCTION__PARAMETER_NAMES = BFUNCTION__PARAMETER_NAMES;
 
 	/**
-	 * The feature id for the '<em><b>Var Args</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int B3_FUNCTION__VAR_ARGS = BFUNCTION__VAR_ARGS;
-
-	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2332,6 +2332,15 @@ public interface B3backendPackage extends EPackage {
 	 * @ordered
 	 */
 	int B3_FUNCTION__PARAMETERS = BFUNCTION__PARAMETERS;
+
+	/**
+	 * The feature id for the '<em><b>Var Args</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int B3_FUNCTION__VAR_ARGS = BFUNCTION__VAR_ARGS;
 
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
@@ -2359,6 +2368,15 @@ public interface B3backendPackage extends EPackage {
 	 * @ordered
 	 */
 	int B3_FUNCTION__CACHED = BFUNCTION__CACHED;
+
+	/**
+	 * The feature id for the '<em><b>Closure</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int B3_FUNCTION__CLOSURE = BFUNCTION__CLOSURE;
 
 	/**
 	 * The feature id for the '<em><b>Func Expr</b></em>' containment reference.
@@ -2488,15 +2506,6 @@ public interface B3backendPackage extends EPackage {
 	int BJAVA_FUNCTION__PARAMETER_NAMES = BFUNCTION__PARAMETER_NAMES;
 
 	/**
-	 * The feature id for the '<em><b>Var Args</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BJAVA_FUNCTION__VAR_ARGS = BFUNCTION__VAR_ARGS;
-
-	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2504,6 +2513,15 @@ public interface B3backendPackage extends EPackage {
 	 * @ordered
 	 */
 	int BJAVA_FUNCTION__PARAMETERS = BFUNCTION__PARAMETERS;
+
+	/**
+	 * The feature id for the '<em><b>Var Args</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BJAVA_FUNCTION__VAR_ARGS = BFUNCTION__VAR_ARGS;
 
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
@@ -2531,6 +2549,15 @@ public interface B3backendPackage extends EPackage {
 	 * @ordered
 	 */
 	int BJAVA_FUNCTION__CACHED = BFUNCTION__CACHED;
+
+	/**
+	 * The feature id for the '<em><b>Closure</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BJAVA_FUNCTION__CLOSURE = BFUNCTION__CLOSURE;
 
 	/**
 	 * The feature id for the '<em><b>Method</b></em>' attribute.
@@ -4269,6 +4296,17 @@ public interface B3backendPackage extends EPackage {
 	EAttribute getBFunction_Cached();
 
 	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getClosure <em>Closure</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Closure</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunction#getClosure()
+	 * @see #getBFunction()
+	 * @generated
+	 */
+	EReference getBFunction_Closure();
+
+	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getParameterTypes <em>Parameter Types</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5953,6 +5991,14 @@ public interface B3backendPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute BFUNCTION__CACHED = eINSTANCE.getBFunction_Cached();
+
+		/**
+		 * The meta object literal for the '<em><b>Closure</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BFUNCTION__CLOSURE = eINSTANCE.getBFunction_Closure();
 
 		/**
 		 * The meta object literal for the '<em><b>Parameter Types</b></em>' attribute feature.

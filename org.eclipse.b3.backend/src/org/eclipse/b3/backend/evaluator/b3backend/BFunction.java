@@ -29,11 +29,12 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getExceptionTypes <em>Exception Types</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getTypeParameters <em>Type Parameters</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getParameterNames <em>Parameter Names</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#isVarArgs <em>Var Args</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#isVarArgs <em>Var Args</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getDocumentation <em>Documentation</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getReturnType <em>Return Type</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#isCached <em>Cached</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getClosure <em>Closure</em>}</li>
  * </ul>
  * </p>
  *
@@ -236,6 +237,32 @@ public interface BFunction extends BExpression, GenericDeclaration {
 	 * @generated
 	 */
 	void setCached(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Closure</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Closure</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Closure</em>' reference.
+	 * @see #setClosure(BExecutionContext)
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBFunction_Closure()
+	 * @model
+	 * @generated
+	 */
+	BExecutionContext getClosure();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getClosure <em>Closure</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Closure</em>' reference.
+	 * @see #getClosure()
+	 * @generated
+	 */
+	void setClosure(BExecutionContext value);
 
 	/**
 	 * Returns the value of the '<em><b>Parameter Types</b></em>' attribute.

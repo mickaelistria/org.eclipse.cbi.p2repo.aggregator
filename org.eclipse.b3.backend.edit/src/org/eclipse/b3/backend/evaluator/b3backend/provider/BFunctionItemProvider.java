@@ -83,6 +83,7 @@ public class BFunctionItemProvider
 			addDocumentationPropertyDescriptor(object);
 			addReturnTypePropertyDescriptor(object);
 			addCachedPropertyDescriptor(object);
+			addClosurePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -237,6 +238,28 @@ public class BFunctionItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Closure feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addClosurePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_BFunction_closure_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BFunction_closure_feature", "_UI_BFunction_type"),
+				 B3backendPackage.Literals.BFUNCTION__CLOSURE,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

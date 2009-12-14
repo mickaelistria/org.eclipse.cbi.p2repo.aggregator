@@ -80,17 +80,23 @@ public class SystemFunctions {
 			Object c = Boolean.TRUE;
 			Object e = Boolean.FALSE;
 			while(c == Boolean.TRUE) {
-				c = cond.internalCall(ctx.createInnerContext(), callParams, typeParams);
+				BExecutionContext useCtx = cond.getClosure();
+				useCtx = useCtx == null ? ctx.createOuterContext() : useCtx.createInnerContext();
+				c = cond.internalCall(useCtx, callParams, typeParams);
 				if(c != Boolean.TRUE)
 					return e;
-				e = body.internalCall(ctx.createInnerContext(), callParams, typeParams);
+				useCtx = body.getClosure();
+				useCtx = useCtx == null ? ctx.createOuterContext() : useCtx.createInnerContext();
+				e = body.internalCall(useCtx, callParams, typeParams);
 			}
 		}
 		if(params.length == 1) {
 			BFunction body = (BFunction)params[0];
 			Object e = Boolean.TRUE;
 			while(e == Boolean.TRUE) {
-				e = body.internalCall(ctx.createInnerContext(), callParams, typeParams);
+				BExecutionContext useCtx = body.getClosure();
+				useCtx = useCtx == null ? ctx.createOuterContext() : useCtx.createInnerContext();
+				e = body.internalCall(useCtx, callParams, typeParams);
 			}
 			return e;
 		}
@@ -107,17 +113,24 @@ public class SystemFunctions {
 			Object c = Boolean.FALSE;
 			Object e = Boolean.TRUE;
 			while(c == Boolean.FALSE) {
-				c = cond.internalCall(ctx.createInnerContext(), callParams, typeParams);
+				BExecutionContext useCtx = cond.getClosure();
+				useCtx = useCtx == null ? ctx.createOuterContext() : useCtx.createInnerContext();
+				c = cond.internalCall(useCtx, callParams, typeParams);
 				if(c != Boolean.FALSE)
 					return e;
-				e = body.internalCall(ctx.createInnerContext(), callParams, typeParams);
+				useCtx = body.getClosure();
+				useCtx = useCtx == null ? ctx.createOuterContext() : useCtx.createInnerContext();
+				e = body.internalCall(useCtx, callParams, typeParams);
+				e = body.internalCall(useCtx, callParams, typeParams);
 			}
 		}
 		if(params.length == 1) {
 			BFunction body = (BFunction)params[0];
 			Object e = Boolean.FALSE;
 			while(e == Boolean.FALSE) {
-				e = body.internalCall(ctx.createInnerContext(), callParams, typeParams);
+				BExecutionContext useCtx = body.getClosure();
+				useCtx = useCtx == null ? ctx.createOuterContext() : useCtx.createInnerContext();
+				e = body.internalCall(useCtx, callParams, typeParams);
 			}
 			return e;
 		}
@@ -139,16 +152,15 @@ public class SystemFunctions {
 			Object curryVal = cur.itor.next();
 			if(cur.curry != -1)
 				cur.p[cur.curry] = curryVal;
-			result = cur.lambda.internalCall(ctx.createInnerContext(), cur.p, cur.t);
+			BExecutionContext useCtx = cur.closure == null ? ctx.createOuterContext() : cur.closure.createInnerContext();
+			result = cur.lambda.internalCall(useCtx, cur.p, cur.t);
 			}
 		return result;
 	}
 
 	/**
-	 * Evaluate a function in an inner scope. This means that the function has access to local variables
-	 * seen in the parent scope, and parameters and new local variables defined in the evaluated function
-	 * hide variables in the parent context.
-	 * 
+	 * Evaluate a function - the same as calling it. 
+	 *  
 	 * @param func - the function to evaluate
 	 * @param params - the parameters passed to the function
 	 * @return the result of calling the function
@@ -169,7 +181,12 @@ public class SystemFunctions {
 			callparams[i-1] = params[i];
 			calltypes[i-1] = types[i];
 		}
-		return func.internalCall(ctx.createInnerContext(), callparams, calltypes);
+		// If function comes with a closure, use it, else use a new outer context. (If the function does
+		// not have a closure it should not see the calling inner context).
+		//
+		BExecutionContext useCtx = func.getClosure();
+		useCtx = useCtx == null ? ctx.createOuterContext() : useCtx.createInnerContext();
+		return func.internalCall(useCtx, callparams, calltypes);
 	}
 	
 	@B3Backend(systemFunction="_exists", varargs=true)
@@ -187,7 +204,8 @@ public class SystemFunctions {
 			Object curryVal = cur.itor.next();
 			if(cur.curry != -1)
 				cur.p[cur.curry] = curryVal;
-			result = cur.lambda.internalCall(ctx.createInnerContext(), cur.p, cur.t);
+			BExecutionContext useCtx = cur.closure == null ? ctx.createOuterContext() : cur.closure.createInnerContext();
+			result = cur.lambda.internalCall(useCtx, cur.p, cur.t);
 			if(result instanceof Boolean && ((Boolean)result) == Boolean.TRUE)
 				return Boolean.TRUE;
 			}
@@ -208,7 +226,8 @@ public class SystemFunctions {
 			Object curryVal = cur.itor.next();
 			if(cur.curry != -1)
 				cur.p[cur.curry] = curryVal;
-			result = cur.lambda.internalCall(ctx.createInnerContext(), cur.p, cur.t);
+			BExecutionContext useCtx = cur.closure == null ? ctx.createOuterContext() : cur.closure.createInnerContext();
+			result = cur.lambda.internalCall(useCtx, cur.p, cur.t);
 			if(!(result instanceof Boolean) || ((Boolean)result) == Boolean.FALSE)
 				return Boolean.FALSE;
 			}
@@ -231,7 +250,8 @@ public class SystemFunctions {
 			Object curryVal = cur.itor.next();
 			if(cur.curry != -1)
 				cur.p[cur.curry] = curryVal;
-			cond = cur.lambda.internalCall(ctx.createInnerContext(), cur.p, cur.t);
+			BExecutionContext useCtx = cur.closure == null ? ctx.createOuterContext() : cur.closure.createInnerContext();
+			cond = cur.lambda.internalCall(useCtx, cur.p, cur.t);
 			if(cond instanceof Boolean && ((Boolean)cond) == Boolean.TRUE)
 				result.add(curryVal);
 			}
@@ -253,7 +273,8 @@ public class SystemFunctions {
 			Object curryVal = cur.itor.next();
 			if(cur.curry != -1)
 				cur.p[cur.curry] = curryVal;
-			cond = cur.lambda.internalCall(ctx.createInnerContext(), cur.p, cur.t);
+			BExecutionContext useCtx = cur.closure == null ? ctx.createOuterContext() : cur.closure.createInnerContext();
+			cond = cur.lambda.internalCall(useCtx, cur.p, cur.t);
 			// if true is returned, the element is not added
 			if(!(cond instanceof Boolean && ((Boolean)cond) == Boolean.TRUE))
 				result.add(curryVal);
@@ -286,7 +307,8 @@ public class SystemFunctions {
 		while(cur.itor.hasNext()) {
 			Object curryVal = cur.itor.next();
 			cur.p[cur.curry] = curryVal;
-			inject = cur.lambda.internalCall(ctx.createInnerContext(), cur.p, cur.t);
+			BExecutionContext useCtx = cur.closure == null ? ctx.createOuterContext() : cur.closure.createInnerContext();
+			inject = cur.lambda.internalCall(useCtx, cur.p, cur.t);
 			cur.p[injectPos] = inject;
 			}
 		return inject;
@@ -298,6 +320,7 @@ public class SystemFunctions {
 		Object[] p;
 		Type[] t;
 		BFunction lambda;
+		BExecutionContext closure;
 	}
 	
 	/**
@@ -320,6 +343,7 @@ public class SystemFunctions {
 		if(!(params[nParameters-1] instanceof BFunction))
 			throw new IllegalArgumentException("system function '"+name+"' did not get a function as last argument");
 		cur.lambda = (BFunction)params[nParameters-1];
+		cur.closure = cur.lambda.getClosure();
 		cur.curry = -1; // unknown
 		int nLambdaParameters = 1; // default
 		if(nParameters == 2)
