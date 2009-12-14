@@ -27,6 +27,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
  * The following operations are tested:
  * <ul>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#getParameterTypesArray() <em>Get Parameter Types Array</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#isAssignableFrom(java.lang.reflect.Type) <em>Is Assignable From</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -117,6 +118,19 @@ public class B3FunctionTypeTest extends TestCase {
 	 * @generated
 	 */
 	public void testGetParameterTypesArray() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#isAssignableFrom(java.lang.reflect.Type) <em>Is Assignable From</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#isAssignableFrom(java.lang.reflect.Type)
+	 * @generated
+	 */
+	public void testIsAssignableFrom__Type() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

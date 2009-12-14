@@ -24,6 +24,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
  * The following operations are tested:
  * <ul>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#internalCall(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object[], java.lang.reflect.Type[]) <em>Internal Call</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getSignature() <em>Get Signature</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -120,6 +121,19 @@ public abstract class BFunctionTest extends BExpressionTest {
 		// This is very difficult to test without also testing a lot more infrastructure.
 		// See BCallExpression testing, and tests of calls using the Context.
 	}
+	/**
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getSignature() <em>Get Signature</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunction#getSignature()
+	 * @generated
+	 */
+	public void testGetSignature() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
 	@Override
 	public void testEvaluate__BExecutionContext() {
 		// This is very difficult to test without also testing a lot more infrastructure.
