@@ -186,7 +186,7 @@ public class B3ParameterizedTypeImpl extends EObjectImpl implements B3Parameteri
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public EList<Type> getActualArgumentsList() {
 		if (actualArgumentsList == null) {
