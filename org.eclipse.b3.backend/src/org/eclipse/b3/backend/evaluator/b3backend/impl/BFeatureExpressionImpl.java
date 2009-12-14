@@ -276,7 +276,7 @@ public class BFeatureExpressionImpl extends BExpressionImpl implements BFeatureE
 			EObject eLhs = (EObject)lhs;
 			EStructuralFeature feature = eLhs.eClass().getEStructuralFeature(featureName);
 			if(feature == null)
-				throw BackendHelper.createException(objExpr, "feature '{0}' is not a feature of the lhs expression", 
+				throw BackendHelper.createException(objExpr, "feature ''{0}'' is not a feature of the lhs expression", 
 						new Object[] {featureName});
 			return eLhs.eGet(feature);
 		}
@@ -292,13 +292,13 @@ public class BFeatureExpressionImpl extends BExpressionImpl implements BFeatureE
 				m = lhs.getClass().getMethod(beanFeature);
 			} catch(NoSuchMethodException e) { /* ignore */}
 			if(m == null)
-				throw BackendHelper.createException(objExpr, "no getter function for feature '{0}' in lhs expression", 
+				throw BackendHelper.createException(objExpr, "no getter function for feature ''{0}'' in lhs expression", 
 						new Object[] {featureName});
 			try {
 				return m.invoke(lhs);
 			} catch (Throwable e) {
 				throw BackendHelper.createException(objExpr, e, 
-						"failed to get feature {0} from lhs expression", new Object[]{featureName});
+						"failed to get feature ''{0}'' from lhs expression", new Object[]{featureName});
 			}
 			}
 			
@@ -313,7 +313,7 @@ public class BFeatureExpressionImpl extends BExpressionImpl implements BFeatureE
 			EStructuralFeature feature = eLhs.eClass().getEStructuralFeature(featureName);
 			if(feature == null)
 				throw BackendHelper.createException(objExpr, 
-						"feature '{0}' is not a feature of the lhs expression", 
+						"feature ''{0}'' is not a feature of the lhs expression", 
 						new Object[] {featureName});
 			return new EcoreFeatureLValue((EObject)lhs, feature);
 		}
