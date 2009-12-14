@@ -28,4 +28,5 @@ function Object testLiteralLambda() {
 	var zum = {<Integer> Integer x, Integer y | x + y };
 	// calling via expression
 	assertEquals("(zum)(1,2) == 3",3, (zum)(1,2));
+	assertEquals("zum.evaluate(1,2) == 3", 3, zum.evaluate(1,2));
 }
