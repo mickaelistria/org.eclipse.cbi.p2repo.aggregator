@@ -6296,19 +6296,32 @@ ruleTypeRef returns [EObject current=null]
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
     }:
-
+(
 	{ 
 	  /* */ 
 	}
     { 
-        currentNode=createCompositeNode(grammarAccess.getTypeRefAccess().getSimpleTypeRefParserRuleCall(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getTypeRefAccess().getClosureTypeRefParserRuleCall_0(), currentNode); 
     }
-    this_SimpleTypeRef_0=ruleSimpleTypeRef
+    this_ClosureTypeRef_0=ruleClosureTypeRef
     { 
-        $current = $this_SimpleTypeRef_0.current; 
+        $current = $this_ClosureTypeRef_0.current; 
         currentNode = currentNode.getParent();
     }
-;
+
+    |
+	{ 
+	  /* */ 
+	}
+    { 
+        currentNode=createCompositeNode(grammarAccess.getTypeRefAccess().getSimpleTypeRefParserRuleCall_1(), currentNode); 
+    }
+    this_SimpleTypeRef_1=ruleSimpleTypeRef
+    { 
+        $current = $this_SimpleTypeRef_1.current; 
+        currentNode = currentNode.getParent();
+    }
+);
 
 
 
@@ -6409,6 +6422,106 @@ ruleSimpleTypeRef returns [EObject current=null]
 )?);
 
 
+
+
+
+// Entry rule entryRuleClosureTypeRef
+entryRuleClosureTypeRef returns [EObject current=null] :
+	{ currentNode = createCompositeNode(grammarAccess.getClosureTypeRefRule(), currentNode); }
+	 iv_ruleClosureTypeRef=ruleClosureTypeRef 
+	 { $current=$iv_ruleClosureTypeRef.current; } 
+	 EOF 
+;
+
+// Rule ClosureTypeRef
+ruleClosureTypeRef returns [EObject current=null] 
+    @init { @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+    }
+    @after { resetLookahead(); 
+    	lastConsumedNode = currentNode;
+    }:
+((
+	{ 
+	  /* */ 
+	}
+    { 
+        temp=factory.create(grammarAccess.getClosureTypeRefAccess().getB3FunctionTypeAction_0().getType().getClassifier());
+        $current = temp; 
+        temp = null;
+        CompositeNode newNode = createCompositeNode(grammarAccess.getClosureTypeRefAccess().getB3FunctionTypeAction_0(), currentNode.getParent());
+    newNode.getChildren().add(currentNode);
+    moveLookaheadInfo(currentNode, newNode);
+    currentNode = newNode; 
+        associateNodeWithAstElement(currentNode, $current); 
+    }
+)(	'(' 
+    {
+        createLeafNode(grammarAccess.getClosureTypeRefAccess().getLeftParenthesisKeyword_1_0(), null); 
+    }
+((
+(
+		{ 
+		  /* */ 
+		}
+		{
+			if ($current==null) {
+	            $current = factory.create(grammarAccess.getClosureTypeRefRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+        }
+	RULE_ID
+	{
+		createLeafNode(grammarAccess.getClosureTypeRefAccess().getParameterTypesB3JavaImportCrossReference_1_1_0_0(), "parameterTypes"); 
+	}
+
+)
+)(	',' 
+    {
+        createLeafNode(grammarAccess.getClosureTypeRefAccess().getCommaKeyword_1_1_1_0(), null); 
+    }
+(
+(
+		{ 
+		  /* */ 
+		}
+		{
+			if ($current==null) {
+	            $current = factory.create(grammarAccess.getClosureTypeRefRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+        }
+	RULE_ID
+	{
+		createLeafNode(grammarAccess.getClosureTypeRefAccess().getParameterTypesB3JavaImportCrossReference_1_1_1_1_0(), "parameterTypes"); 
+	}
+
+)
+))*)?	')' 
+    {
+        createLeafNode(grammarAccess.getClosureTypeRefAccess().getRightParenthesisKeyword_1_2(), null); 
+    }
+	'=>' 
+    {
+        createLeafNode(grammarAccess.getClosureTypeRefAccess().getEqualsSignGreaterThanSignKeyword_1_3(), null); 
+    }
+(
+(
+		{ 
+		  /* */ 
+		}
+		{
+			if ($current==null) {
+	            $current = factory.create(grammarAccess.getClosureTypeRefRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+        }
+	RULE_ID
+	{
+		createLeafNode(grammarAccess.getClosureTypeRefAccess().getReturnTypeB3JavaImportCrossReference_1_4_0(), "returnType"); 
+	}
+
+)
+)));
 
 
 

@@ -304,7 +304,7 @@ AssignmentExpression returns be::BExpression:
 	;
 
 VarDeclaration returns be::BExpression: {be::BDefValue} (('var' | type=TypeRef) name=ID) ;
-TypeRef returns be::IType: SimpleTypeRef /* | ClosureTypeRef */ ; // TODO: gets lots of warnings from this...
+TypeRef returns be::IType:  ClosureTypeRef | SimpleTypeRef; // TODO: gets lots of warnings from this...
 SimpleTypeRef returns be::IType
 	: {be::B3ParameterizedType} rawType=[be::B3JavaImport | ID] 
 		('<' actualArgumentsList+=[be::B3JavaImport | ID] (',' actualArgumentsList+=[be::B3JavaImport | ID])* '>' )?
@@ -322,8 +322,8 @@ SimpleTypeRef returns be::IType
 
 // ClosureTypeRef declares parameters and return type	TODO: use TypeRef instead of direct reference to imported class
 ClosureTypeRef returns be::IType
-	: {be::B3FunctionType} '(' parameterTypes+=[be::B3JavaImport | ID] (',' parameterTypes+=[be::B3JavaImport | ID])* ')'
-		'=>' returnType = [be::B3JavaImport | ID]
+	: {be::B3FunctionType} ('(' (parameterTypes += [be::B3JavaImport | ID] (',' parameterTypes += [be::B3JavaImport | ID])*)? ')'
+		'=>' returnType = [be::B3JavaImport | ID] )
 	;
 	
 TypeParam returns be::IType: TypeRefParam | WildcardRefParam ;
@@ -391,6 +391,7 @@ InfixExpression returns be::BExpression:
 CallExpression returns be::BExpression: 
 	PrimaryExpression ({be::BCallExpression.funcExpr=current}"(" (parameterList = ParameterList)? ")")*
 		;
+		
 PrimaryExpression returns be::BExpression
 	: FeatureCall
 	| ConstructorCallExpression

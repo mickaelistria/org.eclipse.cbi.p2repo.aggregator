@@ -89,7 +89,7 @@ protected class ThisRootNode extends RootToken {
 			case 51: return new Expression_AssignmentExpressionParserRuleCall(this, this, 51, inst);
 			case 52: return new AssignmentExpression_Group(this, this, 52, inst);
 			case 53: return new VarDeclaration_Group(this, this, 53, inst);
-			case 54: return new TypeRef_SimpleTypeRefParserRuleCall(this, this, 54, inst);
+			case 54: return new TypeRef_Alternatives(this, this, 54, inst);
 			case 55: return new SimpleTypeRef_Group(this, this, 55, inst);
 			case 56: return new ClosureTypeRef_Group(this, this, 56, inst);
 			case 57: return new TypeParam_Alternatives(this, this, 57, inst);
@@ -9801,7 +9801,7 @@ protected class ParameterDeclaration_TypeAssignment_1_0 extends AssignmentToken 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new TypeRef_SimpleTypeRefParserRuleCall(this, this, 0, inst);
+			case 0: return new TypeRef_Alternatives(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -9971,7 +9971,7 @@ protected class ParameterDeclarationEllipse_TypeAssignment_2 extends AssignmentT
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new TypeRef_SimpleTypeRefParserRuleCall(this, this, 0, inst);
+			case 0: return new TypeRef_Alternatives(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -10734,7 +10734,7 @@ protected class RepositoryDeclaration_TypeAssignment_1_1_1 extends AssignmentTok
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new TypeRef_SimpleTypeRefParserRuleCall(this, this, 0, inst);
+			case 0: return new TypeRef_Alternatives(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -11150,7 +11150,7 @@ protected class ContainerConfiguration_TypeAssignment_4 extends AssignmentToken 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new TypeRef_SimpleTypeRefParserRuleCall(this, this, 0, inst);
+			case 0: return new TypeRef_Alternatives(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -13508,7 +13508,7 @@ protected class Function_ReturnTypeAssignment_7 extends AssignmentToken  {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new TypeRef_SimpleTypeRefParserRuleCall(this, this, 0, inst);
+			case 0: return new TypeRef_Alternatives(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -14467,7 +14467,7 @@ protected class VarDeclaration_TypeAssignment_1_0_1 extends AssignmentToken  {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new TypeRef_SimpleTypeRefParserRuleCall(this, this, 0, inst);
+			case 0: return new TypeRef_Alternatives(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -14541,21 +14541,85 @@ protected class VarDeclaration_NameAssignment_1_1 extends AssignmentToken  {
 /************ begin Rule TypeRef ****************
  *
  * TypeRef returns be::IType:
- *   SimpleTypeRef; 
- *         / * | ClosureTypeRef * /     // TODO: gets lots of warnings from this...
+ *   ClosureTypeRef|SimpleTypeRef; 
+ *              // TODO: gets lots of warnings from this...
  *
  **/
 
-// SimpleTypeRef     / * | ClosureTypeRef * /
-protected class TypeRef_SimpleTypeRefParserRuleCall extends RuleCallToken {
+// ClosureTypeRef|SimpleTypeRef 
+//              // TODO: gets lots of warnings from this...
+protected class TypeRef_Alternatives extends AlternativesToken {
+
+	public TypeRef_Alternatives(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
 	
-	public TypeRef_SimpleTypeRefParserRuleCall(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	@Override
+	public Alternatives getGrammarElement() {
+		return grammarAccess.getTypeRefAccess().getAlternatives();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new TypeRef_ClosureTypeRefParserRuleCall_0(parent, this, 0, inst);
+			case 1: return new TypeRef_SimpleTypeRefParserRuleCall_1(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getTypeRefRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// ClosureTypeRef
+protected class TypeRef_ClosureTypeRefParserRuleCall_0 extends RuleCallToken {
+	
+	public TypeRef_ClosureTypeRefParserRuleCall_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getTypeRefAccess().getSimpleTypeRefParserRuleCall();
+		return grammarAccess.getTypeRefAccess().getClosureTypeRefParserRuleCall_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ClosureTypeRef_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(checkForRecursion(ClosureTypeRef_Group.class, current)) return null;
+		if(!current.isInstanceOf(grammarAccess.getClosureTypeRefRule().getType().getClassifier())) return null;
+		return current;
+	}
+	
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(next, actIndex , index, inst);
+		}	
+	}	
+}
+
+// SimpleTypeRef
+protected class TypeRef_SimpleTypeRefParserRuleCall_1 extends RuleCallToken {
+	
+	public TypeRef_SimpleTypeRefParserRuleCall_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getTypeRefAccess().getSimpleTypeRefParserRuleCall_1();
 	}
 
     @Override
@@ -14566,11 +14630,6 @@ protected class TypeRef_SimpleTypeRefParserRuleCall extends RuleCallToken {
 		}	
 	}	
 		
-    @Override
-	public IInstanceDescription tryConsume() {
-		if(!current.isInstanceOf(grammarAccess.getTypeRefRule().getType().getClassifier())) return null;
-		return tryConsumeVal();
-	}
     @Override
 	protected IInstanceDescription tryConsumeVal() {
 		if(checkForRecursion(SimpleTypeRef_Group.class, current)) return null;
@@ -14585,6 +14644,7 @@ protected class TypeRef_SimpleTypeRefParserRuleCall extends RuleCallToken {
 		}	
 	}	
 }
+
 
 /************ end Rule TypeRef ****************/
 
@@ -14905,8 +14965,8 @@ protected class SimpleTypeRef_GreaterThanSignKeyword_2_3 extends KeywordToken  {
 /************ begin Rule ClosureTypeRef ****************
  *
  * ClosureTypeRef returns be::IType:
- *   {be::B3FunctionType} "(" parameterTypes+=[be::B3JavaImport] ("," parameterTypes+=[be
- *   ::B3JavaImport])* ")" "=>" returnType=[be::B3JavaImport]; 
+ *   {be::B3FunctionType} ("(" (parameterTypes+=[be::B3JavaImport] ("," parameterTypes+=[
+ *   be::B3JavaImport])*)? ")" "=>" returnType=[be::B3JavaImport]); 
  * 	
  * // TODO: typereference is simplified to only the name of a java type - for model imports
  * // the model is imported with name == namespace, and types in the model are referenced after
@@ -14921,8 +14981,8 @@ protected class SimpleTypeRef_GreaterThanSignKeyword_2_3 extends KeywordToken  {
  *
  **/
 
-// {be::B3FunctionType} "(" parameterTypes+=[be::B3JavaImport] ("," parameterTypes+=[be
-// ::B3JavaImport])* ")" "=>" returnType=[be::B3JavaImport]
+// {be::B3FunctionType} ("(" (parameterTypes+=[be::B3JavaImport] ("," parameterTypes+=[
+// be::B3JavaImport])*)? ")" "=>" returnType=[be::B3JavaImport])
 protected class ClosureTypeRef_Group extends GroupToken {
 	
 	public ClosureTypeRef_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -14937,7 +14997,7 @@ protected class ClosureTypeRef_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ClosureTypeRef_ReturnTypeAssignment_6(parent, this, 0, inst);
+			case 0: return new ClosureTypeRef_Group_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -14977,16 +15037,39 @@ protected class ClosureTypeRef_B3FunctionTypeAction_0 extends ActionToken  {
 	}
 }
 
-// "("
-protected class ClosureTypeRef_LeftParenthesisKeyword_1 extends KeywordToken  {
+// "(" (parameterTypes+=[be::B3JavaImport] ("," parameterTypes+=[be::B3JavaImport])*)?
+// ")" "=>" returnType=[be::B3JavaImport]
+protected class ClosureTypeRef_Group_1 extends GroupToken {
 	
-	public ClosureTypeRef_LeftParenthesisKeyword_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ClosureTypeRef_Group_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getClosureTypeRefAccess().getGroup_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ClosureTypeRef_ReturnTypeAssignment_1_4(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "("
+protected class ClosureTypeRef_LeftParenthesisKeyword_1_0 extends KeywordToken  {
+	
+	public ClosureTypeRef_LeftParenthesisKeyword_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getClosureTypeRefAccess().getLeftParenthesisKeyword_1();
+		return grammarAccess.getClosureTypeRefAccess().getLeftParenthesisKeyword_1_0();
 	}
 
     @Override
@@ -14999,22 +15082,45 @@ protected class ClosureTypeRef_LeftParenthesisKeyword_1 extends KeywordToken  {
 		
 }
 
-// parameterTypes+=[be::B3JavaImport]
-protected class ClosureTypeRef_ParameterTypesAssignment_2 extends AssignmentToken  {
+// (parameterTypes+=[be::B3JavaImport] ("," parameterTypes+=[be::B3JavaImport])*)?
+protected class ClosureTypeRef_Group_1_1 extends GroupToken {
 	
-	public ClosureTypeRef_ParameterTypesAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ClosureTypeRef_Group_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getClosureTypeRefAccess().getParameterTypesAssignment_2();
+	public Group getGrammarElement() {
+		return grammarAccess.getClosureTypeRefAccess().getGroup_1_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ClosureTypeRef_LeftParenthesisKeyword_1(parent, this, 0, inst);
+			case 0: return new ClosureTypeRef_Group_1_1_1(parent, this, 0, inst);
+			case 1: return new ClosureTypeRef_ParameterTypesAssignment_1_1_0(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// parameterTypes+=[be::B3JavaImport]
+protected class ClosureTypeRef_ParameterTypesAssignment_1_1_0 extends AssignmentToken  {
+	
+	public ClosureTypeRef_ParameterTypesAssignment_1_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getClosureTypeRefAccess().getParameterTypesAssignment_1_1_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ClosureTypeRef_LeftParenthesisKeyword_1_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -15025,9 +15131,9 @@ protected class ClosureTypeRef_ParameterTypesAssignment_2 extends AssignmentToke
 		IInstanceDescription obj = current.cloneAndConsume("parameterTypes");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
 			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getClosureTypeRefAccess().getParameterTypesB3JavaImportCrossReference_2_0().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getClosureTypeRefAccess().getParameterTypesB3JavaImportCrossReference_1_1_0_0().getType().getClassifier())) {
 				type = AssignmentType.CR;
-				element = grammarAccess.getClosureTypeRefAccess().getParameterTypesB3JavaImportCrossReference_2_0(); 
+				element = grammarAccess.getClosureTypeRefAccess().getParameterTypesB3JavaImportCrossReference_1_1_0_0(); 
 				return obj;
 			}
 		}
@@ -15037,21 +15143,21 @@ protected class ClosureTypeRef_ParameterTypesAssignment_2 extends AssignmentToke
 }
 
 // ("," parameterTypes+=[be::B3JavaImport])*
-protected class ClosureTypeRef_Group_3 extends GroupToken {
+protected class ClosureTypeRef_Group_1_1_1 extends GroupToken {
 	
-	public ClosureTypeRef_Group_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ClosureTypeRef_Group_1_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Group getGrammarElement() {
-		return grammarAccess.getClosureTypeRefAccess().getGroup_3();
+		return grammarAccess.getClosureTypeRefAccess().getGroup_1_1_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ClosureTypeRef_ParameterTypesAssignment_3_1(parent, this, 0, inst);
+			case 0: return new ClosureTypeRef_ParameterTypesAssignment_1_1_1_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -15059,22 +15165,22 @@ protected class ClosureTypeRef_Group_3 extends GroupToken {
 }
 
 // ","
-protected class ClosureTypeRef_CommaKeyword_3_0 extends KeywordToken  {
+protected class ClosureTypeRef_CommaKeyword_1_1_1_0 extends KeywordToken  {
 	
-	public ClosureTypeRef_CommaKeyword_3_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ClosureTypeRef_CommaKeyword_1_1_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getClosureTypeRefAccess().getCommaKeyword_3_0();
+		return grammarAccess.getClosureTypeRefAccess().getCommaKeyword_1_1_1_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ClosureTypeRef_Group_3(parent, this, 0, inst);
-			case 1: return new ClosureTypeRef_ParameterTypesAssignment_2(parent, this, 1, inst);
+			case 0: return new ClosureTypeRef_Group_1_1_1(parent, this, 0, inst);
+			case 1: return new ClosureTypeRef_ParameterTypesAssignment_1_1_0(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -15082,21 +15188,21 @@ protected class ClosureTypeRef_CommaKeyword_3_0 extends KeywordToken  {
 }
 
 // parameterTypes+=[be::B3JavaImport]
-protected class ClosureTypeRef_ParameterTypesAssignment_3_1 extends AssignmentToken  {
+protected class ClosureTypeRef_ParameterTypesAssignment_1_1_1_1 extends AssignmentToken  {
 	
-	public ClosureTypeRef_ParameterTypesAssignment_3_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ClosureTypeRef_ParameterTypesAssignment_1_1_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getClosureTypeRefAccess().getParameterTypesAssignment_3_1();
+		return grammarAccess.getClosureTypeRefAccess().getParameterTypesAssignment_1_1_1_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ClosureTypeRef_CommaKeyword_3_0(parent, this, 0, inst);
+			case 0: return new ClosureTypeRef_CommaKeyword_1_1_1_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -15107,9 +15213,9 @@ protected class ClosureTypeRef_ParameterTypesAssignment_3_1 extends AssignmentTo
 		IInstanceDescription obj = current.cloneAndConsume("parameterTypes");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
 			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getClosureTypeRefAccess().getParameterTypesB3JavaImportCrossReference_3_1_0().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getClosureTypeRefAccess().getParameterTypesB3JavaImportCrossReference_1_1_1_1_0().getType().getClassifier())) {
 				type = AssignmentType.CR;
-				element = grammarAccess.getClosureTypeRefAccess().getParameterTypesB3JavaImportCrossReference_3_1_0(); 
+				element = grammarAccess.getClosureTypeRefAccess().getParameterTypesB3JavaImportCrossReference_1_1_1_1_0(); 
 				return obj;
 			}
 		}
@@ -15119,23 +15225,24 @@ protected class ClosureTypeRef_ParameterTypesAssignment_3_1 extends AssignmentTo
 }
 
 
+
 // ")"
-protected class ClosureTypeRef_RightParenthesisKeyword_4 extends KeywordToken  {
+protected class ClosureTypeRef_RightParenthesisKeyword_1_2 extends KeywordToken  {
 	
-	public ClosureTypeRef_RightParenthesisKeyword_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ClosureTypeRef_RightParenthesisKeyword_1_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getClosureTypeRefAccess().getRightParenthesisKeyword_4();
+		return grammarAccess.getClosureTypeRefAccess().getRightParenthesisKeyword_1_2();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ClosureTypeRef_Group_3(parent, this, 0, inst);
-			case 1: return new ClosureTypeRef_ParameterTypesAssignment_2(parent, this, 1, inst);
+			case 0: return new ClosureTypeRef_Group_1_1(parent, this, 0, inst);
+			case 1: return new ClosureTypeRef_LeftParenthesisKeyword_1_0(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -15143,21 +15250,21 @@ protected class ClosureTypeRef_RightParenthesisKeyword_4 extends KeywordToken  {
 }
 
 // "=>"
-protected class ClosureTypeRef_EqualsSignGreaterThanSignKeyword_5 extends KeywordToken  {
+protected class ClosureTypeRef_EqualsSignGreaterThanSignKeyword_1_3 extends KeywordToken  {
 	
-	public ClosureTypeRef_EqualsSignGreaterThanSignKeyword_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ClosureTypeRef_EqualsSignGreaterThanSignKeyword_1_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getClosureTypeRefAccess().getEqualsSignGreaterThanSignKeyword_5();
+		return grammarAccess.getClosureTypeRefAccess().getEqualsSignGreaterThanSignKeyword_1_3();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ClosureTypeRef_RightParenthesisKeyword_4(parent, this, 0, inst);
+			case 0: return new ClosureTypeRef_RightParenthesisKeyword_1_2(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -15165,21 +15272,21 @@ protected class ClosureTypeRef_EqualsSignGreaterThanSignKeyword_5 extends Keywor
 }
 
 // returnType=[be::B3JavaImport]
-protected class ClosureTypeRef_ReturnTypeAssignment_6 extends AssignmentToken  {
+protected class ClosureTypeRef_ReturnTypeAssignment_1_4 extends AssignmentToken  {
 	
-	public ClosureTypeRef_ReturnTypeAssignment_6(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ClosureTypeRef_ReturnTypeAssignment_1_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getClosureTypeRefAccess().getReturnTypeAssignment_6();
+		return grammarAccess.getClosureTypeRefAccess().getReturnTypeAssignment_1_4();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ClosureTypeRef_EqualsSignGreaterThanSignKeyword_5(parent, this, 0, inst);
+			case 0: return new ClosureTypeRef_EqualsSignGreaterThanSignKeyword_1_3(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -15190,9 +15297,9 @@ protected class ClosureTypeRef_ReturnTypeAssignment_6 extends AssignmentToken  {
 		IInstanceDescription obj = current.cloneAndConsume("returnType");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
 			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getClosureTypeRefAccess().getReturnTypeB3JavaImportCrossReference_6_0().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getClosureTypeRefAccess().getReturnTypeB3JavaImportCrossReference_1_4_0().getType().getClassifier())) {
 				type = AssignmentType.CR;
-				element = grammarAccess.getClosureTypeRefAccess().getReturnTypeB3JavaImportCrossReference_6_0(); 
+				element = grammarAccess.getClosureTypeRefAccess().getReturnTypeB3JavaImportCrossReference_1_4_0(); 
 				return obj;
 			}
 		}
@@ -15200,6 +15307,7 @@ protected class ClosureTypeRef_ReturnTypeAssignment_6 extends AssignmentToken  {
 	}
 
 }
+
 
 
 /************ end Rule ClosureTypeRef ****************/
@@ -15336,7 +15444,7 @@ protected class TypeRefParam_TypeRefParserRuleCall extends RuleCallToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new TypeRef_SimpleTypeRefParserRuleCall(this, this, 0, inst);
+			case 0: return new TypeRef_Alternatives(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -15348,7 +15456,7 @@ protected class TypeRefParam_TypeRefParserRuleCall extends RuleCallToken {
 	}
     @Override
 	protected IInstanceDescription tryConsumeVal() {
-		if(checkForRecursion(TypeRef_SimpleTypeRefParserRuleCall.class, current)) return null;
+		if(checkForRecursion(TypeRef_Alternatives.class, current)) return null;
 		if(!current.isInstanceOf(grammarAccess.getTypeRefRule().getType().getClassifier())) return null;
 		return current;
 	}
@@ -15535,7 +15643,7 @@ protected class WildcardRefParam_UpperBoundsListAssignment_2_0_1 extends Assignm
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new TypeRef_SimpleTypeRefParserRuleCall(this, this, 0, inst);
+			case 0: return new TypeRef_Alternatives(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -15626,7 +15734,7 @@ protected class WildcardRefParam_UpperBoundsListAssignment_2_0_2_1 extends Assig
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new TypeRef_SimpleTypeRefParserRuleCall(this, this, 0, inst);
+			case 0: return new TypeRef_Alternatives(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -15718,7 +15826,7 @@ protected class WildcardRefParam_LowerBoundsListAssignment_2_1_1 extends Assignm
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new TypeRef_SimpleTypeRefParserRuleCall(this, this, 0, inst);
+			case 0: return new TypeRef_Alternatives(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -18681,6 +18789,7 @@ protected class CallExpression_RightParenthesisKeyword_1_3 extends KeywordToken 
  *   FeatureCall|ConstructorCallExpression|VariableValue|Literal|PropertyValue|
  *   KeywordVariables|ParanthesizedExpression|IfExpression|BlockExpression|
  *   SwitchExpression|ThrowExpression|TryCatchExpression|WildcardExpression; 
+ * 		
  *     
  * 	  
  * 	  
@@ -18711,6 +18820,7 @@ protected class CallExpression_RightParenthesisKeyword_1_3 extends KeywordToken 
 // FeatureCall|ConstructorCallExpression|VariableValue|Literal|PropertyValue|
 // KeywordVariables|ParanthesizedExpression|IfExpression|BlockExpression|
 // SwitchExpression|ThrowExpression|TryCatchExpression|WildcardExpression 
+// 		
 //     
 // 	  
 // 	  
@@ -19866,7 +19976,7 @@ protected class CatchBlock_ExceptionTypeAssignment_2 extends AssignmentToken  {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new TypeRef_SimpleTypeRefParserRuleCall(this, this, 0, inst);
+			case 0: return new TypeRef_Alternatives(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -22064,7 +22174,7 @@ protected class ConstructorCallExpression_TypeAssignment_2 extends AssignmentTok
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new TypeRef_SimpleTypeRefParserRuleCall(this, this, 0, inst);
+			case 0: return new TypeRef_Alternatives(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -22659,7 +22769,7 @@ protected class TypeRefSelector_TypeAssignment extends AssignmentToken  {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new TypeRef_SimpleTypeRefParserRuleCall(this, this, 0, inst);
+			case 0: return new TypeRef_Alternatives(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -23873,7 +23983,7 @@ protected class LiteralList_EntryTypeAssignment_0_2_1 extends AssignmentToken  {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new TypeRef_SimpleTypeRefParserRuleCall(this, this, 0, inst);
+			case 0: return new TypeRef_Alternatives(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -24199,7 +24309,7 @@ protected class LiteralList_EntryTypeAssignment_1_3 extends AssignmentToken  {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new TypeRef_SimpleTypeRefParserRuleCall(this, this, 0, inst);
+			case 0: return new TypeRef_Alternatives(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -24450,7 +24560,7 @@ protected class LiteralMap_KeyTypeAssignment_0_2_1 extends AssignmentToken  {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new TypeRef_SimpleTypeRefParserRuleCall(this, this, 0, inst);
+			case 0: return new TypeRef_Alternatives(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -24518,7 +24628,7 @@ protected class LiteralMap_ValueTypeAssignment_0_2_3 extends AssignmentToken  {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new TypeRef_SimpleTypeRefParserRuleCall(this, this, 0, inst);
+			case 0: return new TypeRef_Alternatives(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -24844,7 +24954,7 @@ protected class LiteralMap_KeyTypeAssignment_1_3 extends AssignmentToken  {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new TypeRef_SimpleTypeRefParserRuleCall(this, this, 0, inst);
+			case 0: return new TypeRef_Alternatives(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -24912,7 +25022,7 @@ protected class LiteralMap_ValueTypeAssignment_1_5 extends AssignmentToken  {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new TypeRef_SimpleTypeRefParserRuleCall(this, this, 0, inst);
+			case 0: return new TypeRef_Alternatives(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -25137,7 +25247,7 @@ protected class LiteralFunction_ReturnTypeAssignment_2_1 extends AssignmentToken
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new TypeRef_SimpleTypeRefParserRuleCall(this, this, 0, inst);
+			case 0: return new TypeRef_Alternatives(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -25573,7 +25683,7 @@ protected class ClosureExpression_ReturnTypeAssignment_1_1 extends AssignmentTok
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new TypeRef_SimpleTypeRefParserRuleCall(this, this, 0, inst);
+			case 0: return new TypeRef_Alternatives(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -26498,7 +26608,7 @@ protected class LiteralType_TypeAssignment_1 extends AssignmentToken  {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new TypeRef_SimpleTypeRefParserRuleCall(this, this, 0, inst);
+			case 0: return new TypeRef_Alternatives(this, this, 0, inst);
 			default: return null;
 		}	
 	}	

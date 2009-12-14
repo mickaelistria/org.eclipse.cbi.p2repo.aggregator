@@ -15,6 +15,7 @@ import java.util.Collection;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
+import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -137,6 +138,9 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.B3_FUNCTION_TYPE__FUNCTION_TYPE, oldFunctionType, functionType));
 			}
 		}
+		// Must set a default of BFunction as this may not always be known.
+		if(functionType == null)
+			functionType = BFunction.class;
 		return functionType;
 	}
 

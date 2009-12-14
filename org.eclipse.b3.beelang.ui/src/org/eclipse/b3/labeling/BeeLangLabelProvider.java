@@ -5,6 +5,7 @@ package org.eclipse.b3.labeling;
 
 import java.lang.reflect.Type;
 
+import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
 import org.eclipse.b3.backend.evaluator.b3backend.BAtExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BChainedExpression;
@@ -29,7 +30,20 @@ public class BeeLangLabelProvider extends DefaultLabelProvider {
 	}
 	String text(B3ParameterizedType ele) {
 		Type t = ele.getRawType();
-		return "type: "+ safeToString(ele);
+		return "type: "+ safeToString(t);
+	}
+	String text(B3FunctionType ele) {
+		StringBuffer buf = new StringBuffer();
+		buf.append("type: (");
+		int counter = 0;
+		for(Type t : ele.getParameterTypes()) {
+			if(counter++ > 0)
+				buf.append(", ");
+			buf.append(t);
+		}
+		buf.append(")=>");
+		buf.append(safeToString(ele.getReturnType()));
+		return buf.toString();
 	}
 	String text(BFunction ele) {
 		return "func: " + ele.getName() + " => " + safeToString(ele.getReturnType());
