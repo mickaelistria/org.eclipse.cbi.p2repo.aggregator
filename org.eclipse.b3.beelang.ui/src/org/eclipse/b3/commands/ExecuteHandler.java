@@ -50,7 +50,7 @@ public class ExecuteHandler extends AbstractHandler {
 			}
 		}
 		);
-		System.out.print("Result = " + result == null ? "null" : result.toString()+"\n");
+		System.out.print("Result = " + (result == null ? "null" : result.toString())+"\n");
 		return null;
 	}
 
