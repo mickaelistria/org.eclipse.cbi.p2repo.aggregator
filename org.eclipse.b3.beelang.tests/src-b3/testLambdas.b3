@@ -68,5 +68,6 @@ function Object testDelegation() {
 
 }
 private function Object delegate((Integer, Integer)=>Integer func) {
+	Integer outside = 100;
 	assertEquals("delegated call should see original context", 13, func.evaluate(1,2));
 }
