@@ -10,6 +10,7 @@ function Object main(List argv) {
 	testLiteralLambda();
 	testClosureParameter();
 	testFunctionType();
+	testDelegation();
 }
 function Object testClosureParameter() {
 	List<Integer> list = [<Integer> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -56,4 +57,16 @@ function Object testFunctionType() {
 	assertEquals("zee evaluates to 3", 3, (zee)(1,2));
 	assertEquals("zum evaluates to 3", 3, (zum)(1,2));
 	assertEquals("zee and zum returns the same value", zee.evaluate(1,2), zum.evaluate(1,2));
+}
+function Object testDelegation() {
+	// a variable that a lambda should be able to access
+	Integer outside = 10;
+	// type of zum inferred
+	var zum = {<Integer> Integer x, Integer y | x + y + outside};
+	// calling via expression
+	delegate(zum);
+
+}
+private function Object delegate((Integer, Integer)=>Integer func) {
+	assertEquals("delegated call should see original context", 13, func.evaluate(1,2));
 }
