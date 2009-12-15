@@ -3255,7 +3255,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
 		private final RuleCall cVarDeclarationParserRuleCall_0_0 = (RuleCall)cAlternatives_0.eContents().get(0);
-		private final RuleCall cOrExpressionParserRuleCall_0_1 = (RuleCall)cAlternatives_0.eContents().get(1);
+		private final RuleCall cValDeclarationParserRuleCall_0_1 = (RuleCall)cAlternatives_0.eContents().get(1);
+		private final RuleCall cOrExpressionParserRuleCall_0_2 = (RuleCall)cAlternatives_0.eContents().get(2);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Action cBAssignmentExpressionLeftExprAction_1_0 = (Action)cGroup_1.eContents().get(0);
 		private final Assignment cFunctionNameAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
@@ -3264,27 +3265,30 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cRightExprAssignmentExpressionParserRuleCall_1_2_0 = (RuleCall)cRightExprAssignment_1_2.eContents().get(0);
 		
 		//AssignmentExpression returns be::BExpression:
-		//  (VarDeclaration|OrExpression) ({be::BAssignmentExpression.leftExpr=current}
-		//  functionName=AssignmentOperator rightExpr=AssignmentExpression)?; 
+		//  (VarDeclaration|ValDeclaration|OrExpression) ({be::BAssignmentExpression.leftExpr
+		//  =current} functionName=AssignmentOperator rightExpr=AssignmentExpression)?; 
 		//
 		//    
 		//	// note: VarDecl | OrExpr is order dependant
 		public ParserRule getRule() { return rule; }
 
-		//(VarDeclaration|OrExpression) ({be::BAssignmentExpression.leftExpr=current}
-		//functionName=AssignmentOperator rightExpr=AssignmentExpression)? 
+		//(VarDeclaration|ValDeclaration|OrExpression) ({be::BAssignmentExpression.leftExpr
+		//=current} functionName=AssignmentOperator rightExpr=AssignmentExpression)? 
 		//	// note: VarDecl | OrExpr is order dependant
 		public Group getGroup() { return cGroup; }
 
-		//VarDeclaration|OrExpression 
+		//VarDeclaration|ValDeclaration|OrExpression 
 		//	// note: VarDecl | OrExpr is order dependant
 		public Alternatives getAlternatives_0() { return cAlternatives_0; }
 
 		//VarDeclaration
 		public RuleCall getVarDeclarationParserRuleCall_0_0() { return cVarDeclarationParserRuleCall_0_0; }
 
+		//ValDeclaration
+		public RuleCall getValDeclarationParserRuleCall_0_1() { return cValDeclarationParserRuleCall_0_1; }
+
 		//OrExpression
-		public RuleCall getOrExpressionParserRuleCall_0_1() { return cOrExpressionParserRuleCall_0_1; }
+		public RuleCall getOrExpressionParserRuleCall_0_2() { return cOrExpressionParserRuleCall_0_2; }
 
 		//({be::BAssignmentExpression.leftExpr=current} functionName=AssignmentOperator
 		//rightExpr=AssignmentExpression)?
@@ -3310,44 +3314,147 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "VarDeclaration");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cBDefValueAction_0 = (Action)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Alternatives cAlternatives_1_0 = (Alternatives)cGroup_1.eContents().get(0);
-		private final Keyword cVarKeyword_1_0_0 = (Keyword)cAlternatives_1_0.eContents().get(0);
-		private final Assignment cTypeAssignment_1_0_1 = (Assignment)cAlternatives_1_0.eContents().get(1);
-		private final RuleCall cTypeTypeRefParserRuleCall_1_0_1_0 = (RuleCall)cTypeAssignment_1_0_1.eContents().get(0);
-		private final Assignment cNameAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_1_0 = (RuleCall)cNameAssignment_1_1.eContents().get(0);
+		private final Assignment cFinalAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cFinalFinalKeyword_1_0 = (Keyword)cFinalAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Alternatives cAlternatives_2_0 = (Alternatives)cGroup_2.eContents().get(0);
+		private final Keyword cVarKeyword_2_0_0 = (Keyword)cAlternatives_2_0.eContents().get(0);
+		private final Assignment cTypeAssignment_2_0_1 = (Assignment)cAlternatives_2_0.eContents().get(1);
+		private final RuleCall cTypeTypeRefParserRuleCall_2_0_1_0 = (RuleCall)cTypeAssignment_2_0_1.eContents().get(0);
+		private final Assignment cNameAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_2_1_0 = (RuleCall)cNameAssignment_2_1.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cEqualsSignKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cValueExprAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cValueExprExpressionParserRuleCall_3_1_0 = (RuleCall)cValueExprAssignment_3_1.eContents().get(0);
 		
 		//VarDeclaration returns be::BExpression:
-		//  {be::BDefValue} (("var"|type=TypeRef) name=ID);
+		//  {be::BDefValue} final?="final"? (("var"|type=TypeRef) name=ID) ("=" valueExpr=
+		//  Expression)?;
 		public ParserRule getRule() { return rule; }
 
-		//{be::BDefValue} (("var"|type=TypeRef) name=ID)
+		//{be::BDefValue} final?="final"? (("var"|type=TypeRef) name=ID) ("=" valueExpr=
+		//Expression)?
 		public Group getGroup() { return cGroup; }
 
 		//{be::BDefValue}
 		public Action getBDefValueAction_0() { return cBDefValueAction_0; }
 
+		//final?="final"?
+		public Assignment getFinalAssignment_1() { return cFinalAssignment_1; }
+
+		//"final"
+		public Keyword getFinalFinalKeyword_1_0() { return cFinalFinalKeyword_1_0; }
+
 		//("var"|type=TypeRef) name=ID
-		public Group getGroup_1() { return cGroup_1; }
+		public Group getGroup_2() { return cGroup_2; }
 
 		//"var"|type=TypeRef
-		public Alternatives getAlternatives_1_0() { return cAlternatives_1_0; }
+		public Alternatives getAlternatives_2_0() { return cAlternatives_2_0; }
 
 		//"var"
-		public Keyword getVarKeyword_1_0_0() { return cVarKeyword_1_0_0; }
+		public Keyword getVarKeyword_2_0_0() { return cVarKeyword_2_0_0; }
 
 		//type=TypeRef
-		public Assignment getTypeAssignment_1_0_1() { return cTypeAssignment_1_0_1; }
+		public Assignment getTypeAssignment_2_0_1() { return cTypeAssignment_2_0_1; }
 
 		//TypeRef
-		public RuleCall getTypeTypeRefParserRuleCall_1_0_1_0() { return cTypeTypeRefParserRuleCall_1_0_1_0; }
+		public RuleCall getTypeTypeRefParserRuleCall_2_0_1_0() { return cTypeTypeRefParserRuleCall_2_0_1_0; }
 
 		//name=ID
-		public Assignment getNameAssignment_1_1() { return cNameAssignment_1_1; }
+		public Assignment getNameAssignment_2_1() { return cNameAssignment_2_1; }
 
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_1_0() { return cNameIDTerminalRuleCall_1_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_2_1_0() { return cNameIDTerminalRuleCall_2_1_0; }
+
+		//("=" valueExpr=Expression)?
+		public Group getGroup_3() { return cGroup_3; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_3_0() { return cEqualsSignKeyword_3_0; }
+
+		//valueExpr=Expression
+		public Assignment getValueExprAssignment_3_1() { return cValueExprAssignment_3_1; }
+
+		//Expression
+		public RuleCall getValueExprExpressionParserRuleCall_3_1_0() { return cValueExprExpressionParserRuleCall_3_1_0; }
+	}
+
+	public class ValDeclarationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ValDeclaration");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cBDefValueAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cFinalAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cFinalFinalKeyword_1_0 = (Keyword)cFinalAssignment_1.eContents().get(0);
+		private final Assignment cImmutableAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final Keyword cImmutableValKeyword_2_0 = (Keyword)cImmutableAssignment_2.eContents().get(0);
+		private final Assignment cTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cTypeTypeRefParserRuleCall_3_0 = (RuleCall)cTypeAssignment_3.eContents().get(0);
+		private final Assignment cNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cNameIDTerminalRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cValueExprAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cValueExprExpressionParserRuleCall_6_0 = (RuleCall)cValueExprAssignment_6.eContents().get(0);
+		
+		//ValDeclaration returns be::BExpression:
+		//  {be::BDefValue} final?="final"? immutable?="val" type=TypeRef? name=ID "=" valueExpr=
+		//  Expression; 
+		//
+		//     
+		//	                            
+		//
+		////AssignmentExpression returns be::BExpression:
+		////	// note: VarDecl | OrExpr is order dependant
+		////	 (VarDeclaration | ValDeclaration | OrExpression) ({be::BAssignmentExpression.leftExpr=current} 
+		////	 	functionName=AssignmentOperator rightExpr=AssignmentExpression)?
+		////	;
+		//
+		////VarDeclaration returns be::BExpression 
+		////	: {be::BDefValue} ( final ?= "final")? (( "var" |  type=TypeRef ) name=ID)  ;
+		////
+		////ValDeclaration returns be::BExpression 
+		////	: {be::BDefValue} ( final ?= "final")? immutable ?= "val" (type=TypeRef)? name=ID ;
+		public ParserRule getRule() { return rule; }
+
+		//{be::BDefValue} final?="final"? immutable?="val" type=TypeRef? name=ID "=" valueExpr=
+		//Expression
+		public Group getGroup() { return cGroup; }
+
+		//{be::BDefValue}
+		public Action getBDefValueAction_0() { return cBDefValueAction_0; }
+
+		//final?="final"?
+		public Assignment getFinalAssignment_1() { return cFinalAssignment_1; }
+
+		//"final"
+		public Keyword getFinalFinalKeyword_1_0() { return cFinalFinalKeyword_1_0; }
+
+		//immutable?="val"
+		public Assignment getImmutableAssignment_2() { return cImmutableAssignment_2; }
+
+		//"val"
+		public Keyword getImmutableValKeyword_2_0() { return cImmutableValKeyword_2_0; }
+
+		//type=TypeRef?
+		public Assignment getTypeAssignment_3() { return cTypeAssignment_3; }
+
+		//TypeRef
+		public RuleCall getTypeTypeRefParserRuleCall_3_0() { return cTypeTypeRefParserRuleCall_3_0; }
+
+		//name=ID
+		public Assignment getNameAssignment_4() { return cNameAssignment_4; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_4_0() { return cNameIDTerminalRuleCall_4_0; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_5() { return cEqualsSignKeyword_5; }
+
+		//valueExpr=Expression
+		public Assignment getValueExprAssignment_6() { return cValueExprAssignment_6; }
+
+		//Expression
+		public RuleCall getValueExprExpressionParserRuleCall_6_0() { return cValueExprExpressionParserRuleCall_6_0; }
 	}
 
 	public class TypeRefElements extends AbstractParserRuleElementFinder {
@@ -3358,10 +3465,36 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//TypeRef returns be::IType:
 		//  ClosureTypeRef|SimpleTypeRef; 
+		//
+		////AssignmentExpression returns be::BExpression:
+		////	// note: VarDecl | OrExpr is order dependant
+		////	 (VarDeclaration | ValDeclaration | OrExpression) ({be::BAssignmentExpression.leftExpr=current} 
+		////	 	functionName=AssignmentOperator rightExpr=AssignmentExpression)?
+		////	;
+		//
+		////VarDeclaration returns be::BExpression 
+		////	: {be::BDefValue} ( final ?= "final")? (( "var" |  type=TypeRef ) name=ID)  ;
+		////
+		////ValDeclaration returns be::BExpression 
+		////	: {be::BDefValue} ( final ?= "final")? immutable ?= "val" (type=TypeRef)? name=ID ;
+		//		
 		//             // TODO: gets lots of warnings from this...
 		public ParserRule getRule() { return rule; }
 
 		//ClosureTypeRef|SimpleTypeRef 
+		//
+		////AssignmentExpression returns be::BExpression:
+		////	// note: VarDecl | OrExpr is order dependant
+		////	 (VarDeclaration | ValDeclaration | OrExpression) ({be::BAssignmentExpression.leftExpr=current} 
+		////	 	functionName=AssignmentOperator rightExpr=AssignmentExpression)?
+		////	;
+		//
+		////VarDeclaration returns be::BExpression 
+		////	: {be::BDefValue} ( final ?= "final")? (( "var" |  type=TypeRef ) name=ID)  ;
+		////
+		////ValDeclaration returns be::BExpression 
+		////	: {be::BDefValue} ( final ?= "final")? immutable ?= "val" (type=TypeRef)? name=ID ;
+		//		
 		//             // TODO: gets lots of warnings from this...
 		public Alternatives getAlternatives() { return cAlternatives; }
 
@@ -7059,6 +7192,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	private ExpressionElements pExpression;
 	private AssignmentExpressionElements pAssignmentExpression;
 	private VarDeclarationElements pVarDeclaration;
+	private ValDeclarationElements pValDeclaration;
 	private TypeRefElements pTypeRef;
 	private SimpleTypeRefElements pSimpleTypeRef;
 	private ClosureTypeRefElements pClosureTypeRef;
@@ -7935,8 +8069,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//AssignmentExpression returns be::BExpression:
-	//  (VarDeclaration|OrExpression) ({be::BAssignmentExpression.leftExpr=current}
-	//  functionName=AssignmentOperator rightExpr=AssignmentExpression)?; 
+	//  (VarDeclaration|ValDeclaration|OrExpression) ({be::BAssignmentExpression.leftExpr
+	//  =current} functionName=AssignmentOperator rightExpr=AssignmentExpression)?; 
 	//
 	//    
 	//	// note: VarDecl | OrExpr is order dependant
@@ -7949,7 +8083,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//VarDeclaration returns be::BExpression:
-	//  {be::BDefValue} (("var"|type=TypeRef) name=ID);
+	//  {be::BDefValue} final?="final"? (("var"|type=TypeRef) name=ID) ("=" valueExpr=
+	//  Expression)?;
 	public VarDeclarationElements getVarDeclarationAccess() {
 		return (pVarDeclaration != null) ? pVarDeclaration : (pVarDeclaration = new VarDeclarationElements());
 	}
@@ -7958,8 +8093,47 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getVarDeclarationAccess().getRule();
 	}
 
+	//ValDeclaration returns be::BExpression:
+	//  {be::BDefValue} final?="final"? immutable?="val" type=TypeRef? name=ID "=" valueExpr=
+	//  Expression; 
+	//
+	//     
+	//	                            
+	//
+	////AssignmentExpression returns be::BExpression:
+	////	// note: VarDecl | OrExpr is order dependant
+	////	 (VarDeclaration | ValDeclaration | OrExpression) ({be::BAssignmentExpression.leftExpr=current} 
+	////	 	functionName=AssignmentOperator rightExpr=AssignmentExpression)?
+	////	;
+	//
+	////VarDeclaration returns be::BExpression 
+	////	: {be::BDefValue} ( final ?= "final")? (( "var" |  type=TypeRef ) name=ID)  ;
+	////
+	////ValDeclaration returns be::BExpression 
+	////	: {be::BDefValue} ( final ?= "final")? immutable ?= "val" (type=TypeRef)? name=ID ;
+	public ValDeclarationElements getValDeclarationAccess() {
+		return (pValDeclaration != null) ? pValDeclaration : (pValDeclaration = new ValDeclarationElements());
+	}
+	
+	public ParserRule getValDeclarationRule() {
+		return getValDeclarationAccess().getRule();
+	}
+
 	//TypeRef returns be::IType:
 	//  ClosureTypeRef|SimpleTypeRef; 
+	//
+	////AssignmentExpression returns be::BExpression:
+	////	// note: VarDecl | OrExpr is order dependant
+	////	 (VarDeclaration | ValDeclaration | OrExpression) ({be::BAssignmentExpression.leftExpr=current} 
+	////	 	functionName=AssignmentOperator rightExpr=AssignmentExpression)?
+	////	;
+	//
+	////VarDeclaration returns be::BExpression 
+	////	: {be::BDefValue} ( final ?= "final")? (( "var" |  type=TypeRef ) name=ID)  ;
+	////
+	////ValDeclaration returns be::BExpression 
+	////	: {be::BDefValue} ( final ?= "final")? immutable ?= "val" (type=TypeRef)? name=ID ;
+	//		
 	//             // TODO: gets lots of warnings from this...
 	public TypeRefElements getTypeRefAccess() {
 		return (pTypeRef != null) ? pTypeRef : (pTypeRef = new TypeRefElements());

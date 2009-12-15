@@ -59,7 +59,7 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAssignmentOperatorAccess().getAlternatives(), "rule__AssignmentOperator__Alternatives");
 					put(grammarAccess.getRelationalOperatorAccess().getAlternatives(), "rule__RelationalOperator__Alternatives");
 					put(grammarAccess.getAssignmentExpressionAccess().getAlternatives_0(), "rule__AssignmentExpression__Alternatives_0");
-					put(grammarAccess.getVarDeclarationAccess().getAlternatives_1_0(), "rule__VarDeclaration__Alternatives_1_0");
+					put(grammarAccess.getVarDeclarationAccess().getAlternatives_2_0(), "rule__VarDeclaration__Alternatives_2_0");
 					put(grammarAccess.getTypeRefAccess().getAlternatives(), "rule__TypeRef__Alternatives");
 					put(grammarAccess.getTypeParamAccess().getAlternatives(), "rule__TypeParam__Alternatives");
 					put(grammarAccess.getWildcardRefParamAccess().getAlternatives_2(), "rule__WildcardRefParam__Alternatives_2");
@@ -213,7 +213,9 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAssignmentExpressionAccess().getGroup(), "rule__AssignmentExpression__Group__0");
 					put(grammarAccess.getAssignmentExpressionAccess().getGroup_1(), "rule__AssignmentExpression__Group_1__0");
 					put(grammarAccess.getVarDeclarationAccess().getGroup(), "rule__VarDeclaration__Group__0");
-					put(grammarAccess.getVarDeclarationAccess().getGroup_1(), "rule__VarDeclaration__Group_1__0");
+					put(grammarAccess.getVarDeclarationAccess().getGroup_2(), "rule__VarDeclaration__Group_2__0");
+					put(grammarAccess.getVarDeclarationAccess().getGroup_3(), "rule__VarDeclaration__Group_3__0");
+					put(grammarAccess.getValDeclarationAccess().getGroup(), "rule__ValDeclaration__Group__0");
 					put(grammarAccess.getSimpleTypeRefAccess().getGroup(), "rule__SimpleTypeRef__Group__0");
 					put(grammarAccess.getSimpleTypeRefAccess().getGroup_2(), "rule__SimpleTypeRef__Group_2__0");
 					put(grammarAccess.getSimpleTypeRefAccess().getGroup_2_2(), "rule__SimpleTypeRef__Group_2_2__0");
@@ -466,8 +468,15 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFunctionAccess().getFuncExprAssignment_10_1(), "rule__Function__FuncExprAssignment_10_1");
 					put(grammarAccess.getAssignmentExpressionAccess().getFunctionNameAssignment_1_1(), "rule__AssignmentExpression__FunctionNameAssignment_1_1");
 					put(grammarAccess.getAssignmentExpressionAccess().getRightExprAssignment_1_2(), "rule__AssignmentExpression__RightExprAssignment_1_2");
-					put(grammarAccess.getVarDeclarationAccess().getTypeAssignment_1_0_1(), "rule__VarDeclaration__TypeAssignment_1_0_1");
-					put(grammarAccess.getVarDeclarationAccess().getNameAssignment_1_1(), "rule__VarDeclaration__NameAssignment_1_1");
+					put(grammarAccess.getVarDeclarationAccess().getFinalAssignment_1(), "rule__VarDeclaration__FinalAssignment_1");
+					put(grammarAccess.getVarDeclarationAccess().getTypeAssignment_2_0_1(), "rule__VarDeclaration__TypeAssignment_2_0_1");
+					put(grammarAccess.getVarDeclarationAccess().getNameAssignment_2_1(), "rule__VarDeclaration__NameAssignment_2_1");
+					put(grammarAccess.getVarDeclarationAccess().getValueExprAssignment_3_1(), "rule__VarDeclaration__ValueExprAssignment_3_1");
+					put(grammarAccess.getValDeclarationAccess().getFinalAssignment_1(), "rule__ValDeclaration__FinalAssignment_1");
+					put(grammarAccess.getValDeclarationAccess().getImmutableAssignment_2(), "rule__ValDeclaration__ImmutableAssignment_2");
+					put(grammarAccess.getValDeclarationAccess().getTypeAssignment_3(), "rule__ValDeclaration__TypeAssignment_3");
+					put(grammarAccess.getValDeclarationAccess().getNameAssignment_4(), "rule__ValDeclaration__NameAssignment_4");
+					put(grammarAccess.getValDeclarationAccess().getValueExprAssignment_6(), "rule__ValDeclaration__ValueExprAssignment_6");
 					put(grammarAccess.getSimpleTypeRefAccess().getRawTypeAssignment_1(), "rule__SimpleTypeRef__RawTypeAssignment_1");
 					put(grammarAccess.getSimpleTypeRefAccess().getActualArgumentsListAssignment_2_1(), "rule__SimpleTypeRef__ActualArgumentsListAssignment_2_1");
 					put(grammarAccess.getSimpleTypeRefAccess().getActualArgumentsListAssignment_2_2_1(), "rule__SimpleTypeRef__ActualArgumentsListAssignment_2_2_1");

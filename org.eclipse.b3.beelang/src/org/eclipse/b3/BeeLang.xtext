@@ -299,11 +299,27 @@ Expression returns be::BExpression: AssignmentExpression ;
 
 AssignmentExpression returns be::BExpression:
 	// note: VarDecl | OrExpr is order dependant
-	 (VarDeclaration | OrExpression) ({be::BAssignmentExpression.leftExpr=current} 
+	 (VarDeclaration | ValDeclaration | OrExpression) ({be::BAssignmentExpression.leftExpr=current} 
 	 	functionName=AssignmentOperator rightExpr=AssignmentExpression)?
-	;
+	;	
+VarDeclaration returns be::BExpression 
+	: {be::BDefValue} ( final ?= "final")? (( "var" |  type=TypeRef ) name=ID) ('=' valueExpr = Expression)? ;
 
-VarDeclaration returns be::BExpression: {be::BDefValue} (('var' | type=TypeRef) name=ID) ;
+ValDeclaration returns be::BExpression 
+	: {be::BDefValue} ( final ?= "final")? immutable ?= "val" (type=TypeRef)? name=ID '=' valueExpr = Expression;
+
+//AssignmentExpression returns be::BExpression:
+//	// note: VarDecl | OrExpr is order dependant
+//	 (VarDeclaration | ValDeclaration | OrExpression) ({be::BAssignmentExpression.leftExpr=current} 
+//	 	functionName=AssignmentOperator rightExpr=AssignmentExpression)?
+//	;
+
+//VarDeclaration returns be::BExpression 
+//	: {be::BDefValue} ( final ?= "final")? (( "var" |  type=TypeRef ) name=ID)  ;
+//
+//ValDeclaration returns be::BExpression 
+//	: {be::BDefValue} ( final ?= "final")? immutable ?= "val" (type=TypeRef)? name=ID ;
+		
 TypeRef returns be::IType:  ClosureTypeRef | SimpleTypeRef; // TODO: gets lots of warnings from this...
 SimpleTypeRef returns be::IType
 	: {be::B3ParameterizedType} rawType=[be::B3JavaImport | ID] 

@@ -70,6 +70,7 @@ RULE_EXT_INT=9
 '-='=23
 'context'=116
 'case'=109
+'val'=121
 'else'=113
 '/='=25
 'reexport'=118
@@ -78,7 +79,7 @@ RULE_EXT_INT=9
 '||'=99
 'precondition'=94
 '*='=24
-'instanceof'=121
+'instanceof'=122
 'super'=54
 '++'=44
 '{'=71
