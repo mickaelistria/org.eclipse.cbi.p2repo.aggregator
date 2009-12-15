@@ -8,13 +8,13 @@ public class B3AssertionFailedException extends Exception {
 	private Object actual;
 
 	public B3AssertionFailedException(String message, Object expected, Object actual) {
-		super("Assertion failed: '"+ message + "' expected: " + expected.toString() + "actual: " + actual.toString());
+		super("Assertion failed: '"+ message + "' expected: " + expected.toString() + " actual: " + actual.toString());
 		this.message = message;
 		this.expected = expected;
 		this.actual = actual;
 	}
 	public B3AssertionFailedException(Object expected, Object actual) {
-		super("Assertion failed - expected: " + expected.toString() + "actual: " + actual.toString());
+		super("Assertion failed - expected: " + expected.toString() + " actual: " + actual.toString());
 		this.message = "";
 		this.expected = expected;
 		this.actual = actual;
