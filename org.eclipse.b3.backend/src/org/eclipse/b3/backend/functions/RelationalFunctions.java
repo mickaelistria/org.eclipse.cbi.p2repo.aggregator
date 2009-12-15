@@ -20,6 +20,29 @@ public class RelationalFunctions {
 		
 		return Boolean.FALSE;
 	}
+	@SuppressWarnings("unchecked")
+	@B3Backend(funcNames={"=="})
+	public static Boolean equals(Number a, Number b) {
+		if(a instanceof Double || b instanceof Double)
+			return a.longValue() == b.longValue();
+		if(a instanceof Float || b instanceof Float)
+			return a.longValue() == b.longValue();
+		if(a instanceof Long || b instanceof Long)
+			return a.longValue() == b.longValue();
+		if(a instanceof Integer || b instanceof Integer)
+			return a.intValue() == b.intValue();
+		if(a instanceof Short || b instanceof Short)
+			return a.shortValue() == b.shortValue();
+		if(a == b || a.equals(b))
+			return Boolean.TRUE;
+		if(a instanceof Comparable) {
+			if(((Comparable)a).compareTo(b) == 0)
+				return Boolean.TRUE;
+		} else if(a instanceof Comparable && ((Comparable)b).compareTo(a) == 0)
+			return Boolean.TRUE;
+		
+		return Boolean.FALSE;
+	}
 
 	@B3Backend(funcNames={"!="})
 	public static Boolean notEquals(Object left, Object right) {
