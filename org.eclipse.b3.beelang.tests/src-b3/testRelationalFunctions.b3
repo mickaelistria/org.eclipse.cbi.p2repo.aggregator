@@ -16,6 +16,8 @@ function Object testRelationalFunctions() {
 	assertTrue("1 < 2", 1 < 2);
 	assertTrue("2 > 1", 2 > 1);
 	assertTrue("2 == 2", 2 == 2);
+	assertTrue("2.0 == 2", 2.0 == 2);
+	assertTrue("2 == 2.0", 2 == 2.0);
 
 	assertTrue("1 <= 2", 1 <= 2);
 	assertTrue("2 <= 2", 2 <= 2);
