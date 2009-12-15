@@ -10,6 +10,10 @@ function Object main(List argv) { testAssertOk(); testAssertNotOk(); }
 function Object testAssertOk() {
 	assertTrue("testing assertTrue", true);
 	assertFalse("testing assertFalse", false);
+	assertEquals("testing assertEquals", 1, 1);
+	assertEquals("testing assertEquals-generality1", 1, 1.0);
+	assertEquals("testing assertEquals-generality2", 1.0, 1);
+	
 }
 function Object testAssertNotOk() {
 	try {
