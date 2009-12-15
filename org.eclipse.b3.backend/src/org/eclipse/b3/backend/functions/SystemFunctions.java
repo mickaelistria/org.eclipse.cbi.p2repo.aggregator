@@ -23,7 +23,11 @@ public class SystemFunctions {
 			return Boolean.TRUE;
 		if(expected == null || actual == null)
 			throw new B3AssertionFailedException(message, expected, actual);
-		if(!expected.equals(actual))
+		if(expected instanceof Number && actual instanceof Number) {
+			if(!RelationalFunctions.equals((Number)expected, (Number)actual).booleanValue())
+				throw new B3AssertionFailedException(message, expected, actual);
+		}	
+		else if(!RelationalFunctions.equals(expected, actual).booleanValue())
 			throw new B3AssertionFailedException(message, expected, actual);
 		return Boolean.TRUE;
 	}
