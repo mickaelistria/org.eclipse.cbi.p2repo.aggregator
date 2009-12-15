@@ -23,24 +23,26 @@ public class RelationalFunctions {
 	@SuppressWarnings("unchecked")
 	@B3Backend(funcNames={"=="})
 	public static Boolean equals(Number a, Number b) {
-		if(a instanceof Double || b instanceof Double)
-			return a.doubleValue() == b.doubleValue();
-		if(a instanceof Float || b instanceof Float)
-			return a.floatValue() == b.floatValue();
-		if(a instanceof Long || b instanceof Long)
-			return a.longValue() == b.longValue();
-		if(a instanceof Integer || b instanceof Integer)
-			return a.intValue() == b.intValue();
-		if(a instanceof Short || b instanceof Short)
-			return a.shortValue() == b.shortValue();
 		if(a == b || a.equals(b))
 			return Boolean.TRUE;
+		if(a instanceof Double || b instanceof Double)
+			return Boolean.valueOf(a.doubleValue() == b.doubleValue());
+		if(a instanceof Float || b instanceof Float)
+			return Boolean.valueOf(a.floatValue() == b.floatValue());
+		if(a instanceof Long || b instanceof Long)
+			return Boolean.valueOf(a.longValue() == b.longValue());
+		if(a instanceof Integer || b instanceof Integer)
+			return Boolean.valueOf(a.intValue() == b.intValue());
+		if(a instanceof Short || b instanceof Short)
+			return Boolean.valueOf(a.shortValue() == b.shortValue());
 		if(a instanceof Comparable) {
 			if(((Comparable)a).compareTo(b) == 0)
 				return Boolean.TRUE;
-		} else if(a instanceof Comparable && ((Comparable)b).compareTo(a) == 0)
-			return Boolean.TRUE;
-		
+		} else if(b instanceof Comparable) {
+			if(((Comparable)b).compareTo(a) == 0)
+				return Boolean.TRUE;
+		}
+
 		return Boolean.FALSE;
 	}
 
@@ -74,15 +76,15 @@ public class RelationalFunctions {
 	@B3Backend(funcNames={"<"})
 	public static Boolean isLessThan(Number a, Number b) {
 		if(a instanceof Double || b instanceof Double)
-			return a.doubleValue() < b.doubleValue();
+			return Boolean.valueOf(a.doubleValue() < b.doubleValue());
 		if(a instanceof Float || b instanceof Float)
-			return a.floatValue() < b.floatValue();
+			return Boolean.valueOf(a.floatValue() < b.floatValue());
 		if(a instanceof Long || b instanceof Long)
-			return a.longValue() < b.longValue();
+			return Boolean.valueOf(a.longValue() < b.longValue());
 		if(a instanceof Integer || b instanceof Integer)
-			return a.intValue() < b.intValue();
+			return Boolean.valueOf(a.intValue() < b.intValue());
 		if(a instanceof Short || b instanceof Short)
-			return a.shortValue() < b.shortValue();
+			return Boolean.valueOf(a.shortValue() < b.shortValue());
 
 		return Boolean.FALSE;
 	}
@@ -97,15 +99,15 @@ public class RelationalFunctions {
 	@B3Backend(funcNames={"<="})
 	public static Boolean isLessThanOrEqualTo(Number a, Number b) {
 		if(a instanceof Double || b instanceof Double)
-			return a.longValue() <= b.longValue();
+			return Boolean.valueOf(a.doubleValue() <= b.doubleValue());
 		if(a instanceof Float || b instanceof Float)
-			return a.longValue() <= b.longValue();
+			return Boolean.valueOf(a.floatValue() <= b.floatValue());
 		if(a instanceof Long || b instanceof Long)
-			return a.longValue() <= b.longValue();
+			return Boolean.valueOf(a.longValue() <= b.longValue());
 		if(a instanceof Integer || b instanceof Integer)
-			return a.intValue() <= b.intValue();
+			return Boolean.valueOf(a.intValue() <= b.intValue());
 		if(a instanceof Short || b instanceof Short)
-			return a.shortValue() <= b.shortValue();
+			return Boolean.valueOf(a.shortValue() <= b.shortValue());
 
 		return Boolean.FALSE;
 	}
@@ -120,15 +122,15 @@ public class RelationalFunctions {
 	@B3Backend(funcNames={">"})
 	public static Boolean isGreaterThan(Number a, Number b) {
 		if(a instanceof Double || b instanceof Double)
-			return a.longValue() > b.longValue();
+			return Boolean.valueOf(a.doubleValue() > b.doubleValue());
 		if(a instanceof Float || b instanceof Float)
-			return a.longValue() > b.longValue();
+			return Boolean.valueOf(a.floatValue() > b.floatValue());
 		if(a instanceof Long || b instanceof Long)
-			return a.longValue() > b.longValue();
+			return Boolean.valueOf(a.longValue() > b.longValue());
 		if(a instanceof Integer || b instanceof Integer)
-			return a.intValue() > b.intValue();
+			return Boolean.valueOf(a.intValue() > b.intValue());
 		if(a instanceof Short || b instanceof Short)
-			return a.shortValue() > b.shortValue();
+			return Boolean.valueOf(a.shortValue() > b.shortValue());
 
 		return Boolean.FALSE;
 	}
@@ -144,15 +146,15 @@ public class RelationalFunctions {
 	@B3Backend(funcNames={">="})
 	public static Boolean isGreaterThanOrEqualTo(Number a, Number b) {
 		if(a instanceof Double || b instanceof Double)
-			return a.longValue() >= b.longValue();
+			return Boolean.valueOf(a.doubleValue() >= b.doubleValue());
 		if(a instanceof Float || b instanceof Float)
-			return a.longValue() >= b.longValue();
+			return Boolean.valueOf(a.floatValue() >= b.floatValue());
 		if(a instanceof Long || b instanceof Long)
-			return a.longValue() >= b.longValue();
+			return Boolean.valueOf(a.longValue() >= b.longValue());
 		if(a instanceof Integer || b instanceof Integer)
-			return a.intValue() >= b.intValue();
+			return Boolean.valueOf(a.intValue() >= b.intValue());
 		if(a instanceof Short || b instanceof Short)
-			return a.shortValue() >= b.shortValue();
+			return Boolean.valueOf(a.shortValue() >= b.shortValue());
 
 		return Boolean.FALSE;
 	}
