@@ -18,6 +18,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -206,7 +207,10 @@ public class B3FunctionImpl extends BFunctionImpl implements B3Function {
 				throw new IllegalArgumentException("B3 Function called with too few arguments");
 			for(int i = 0; i < limit; i++) {
 				// check type compatibility
-				if(!(TypeUtils.isAssignableFrom(parameterTypes[i], parameters[i].getClass())))
+				Object o = parameters[i];
+				Type t = o instanceof BFunction ? ((BFunction)o).getSignature() : o.getClass();
+
+				if(!(TypeUtils.isAssignableFrom(parameterTypes[i], t)))
 					throw new B3IncompatibleTypeException(parameterNames[i], 
 							parameterTypes[i].getClass(), parameters[i].getClass());
 				// ok, define it		
@@ -216,7 +220,9 @@ public class B3FunctionImpl extends BFunctionImpl implements B3Function {
 				if(parameters.length < parameterTypes.length)
 					throw new IllegalArgumentException("B3 Function called with too few arguments. Expected: "+parameterTypes.length +" but got: "+parameters.length);
 				// check type compatibility
-				if(! TypeUtils.isAssignableFrom(parameterTypes[limit], parameters[limit].getClass()))
+				Object o = parameters[limit];
+				Type t = o instanceof BFunction ? ((BFunction)o).getSignature() : o.getClass();
+				if(! TypeUtils.isAssignableFrom(parameterTypes[limit], t))
 					throw new B3IncompatibleTypeException(parameterNames[limit], 
 							parameterTypes[limit].getClass(), parameters[limit].getClass());
 				// ok
@@ -224,9 +230,12 @@ public class B3FunctionImpl extends BFunctionImpl implements B3Function {
 			} else {
 				// varargs call, create a list and stuff any remaining parameters there
 				List<Object> varargs = new ArrayList<Object>();
-				Class varargsType = parameterTypes[limit].getClass();
+				Type varargsType = parameterTypes[limit];
 				for(int i = limit; i < parameters.length; i++) {
-					if(!varargsType.isAssignableFrom(parameters[i].getClass()))
+					Object o = parameters[i];
+					Type t = o instanceof BFunction ? ((BFunction)o).getSignature() : o.getClass();
+
+					if(!TypeUtils.isAssignableFrom(varargsType, t))
 						throw new B3IncompatibleTypeException(parameterNames[limit], 
 								varargsType, parameters[i].getClass());
 					varargs.add(parameters[i]);
@@ -236,7 +245,7 @@ public class B3FunctionImpl extends BFunctionImpl implements B3Function {
 				pt.getActualArgumentsList().add(parameterTypes[limit]);
 				// bind the varargs to a List of the declared type (possibly an empty list).
 				octx.defineVariableValue(parameterNames[limit], varargs, pt);
-//	deprecated use of B3ParamterType new B3ParameterizedType(List.class, new Type[] { parameterTypes[limit] }));
+//	deprecated use of B3ParameterType new B3ParameterizedType(List.class, new Type[] { parameterTypes[limit] }));
 			}
 		}
 		// all set up - fire away

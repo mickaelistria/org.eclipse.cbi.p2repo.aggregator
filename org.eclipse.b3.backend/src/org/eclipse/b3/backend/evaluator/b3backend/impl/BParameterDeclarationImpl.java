@@ -14,6 +14,8 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import java.lang.reflect.Type;
 
+import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
+import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
 
@@ -126,7 +128,13 @@ public class BParameterDeclarationImpl extends EObjectImpl implements BParameter
 	 * @generated NOT
 	 */
 	public Type getType() {
-		return type == null ? Object.class : type;
+		if(type != null)
+			return type;
+		B3ParameterizedType t = B3backendFactory.eINSTANCE.createB3ParameterizedType();
+		t.setRawType(Object.class);
+		type = t;
+		return type;
+		
 	}
 	/**
 	 * <!-- begin-user-doc -->

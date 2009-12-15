@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
@@ -244,7 +245,12 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	 * @generated NOT
 	 */
 	public Type[] getParameterTypesArray() {
-		return (Type[]) getParameterTypes().toArray();
+		EList<Type> list = getParameterTypes();
+		Type[] ts = new Type[list.size()];
+		int i = 0;
+		for(Type t : list)
+			ts[i++] = t;
+		return ts;
 	}
 
 	/**
