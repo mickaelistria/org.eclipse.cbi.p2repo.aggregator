@@ -66,25 +66,95 @@ public class RelationalFunctions {
 	@SuppressWarnings("unchecked")
 	@B3Backend(funcNames={"<"})
 	public static Boolean isLessThan(Comparable left, Comparable right){
+		if(left instanceof Number && right instanceof Number)
+			return isLessThan((Number)left, (Number)right);
 		return left.compareTo(right) < 0 ? Boolean.TRUE : Boolean.FALSE;
+	}
+
+	@B3Backend(funcNames={"<"})
+	public static Boolean isLessThan(Number a, Number b) {
+		if(a instanceof Double || b instanceof Double)
+			return a.longValue() < b.longValue();
+		if(a instanceof Float || b instanceof Float)
+			return a.longValue() < b.longValue();
+		if(a instanceof Long || b instanceof Long)
+			return a.longValue() < b.longValue();
+		if(a instanceof Integer || b instanceof Integer)
+			return a.intValue() < b.intValue();
+		if(a instanceof Short || b instanceof Short)
+			return a.shortValue() < b.shortValue();
+
+		return Boolean.FALSE;
 	}
 	
 	@SuppressWarnings("unchecked")
 	@B3Backend(funcNames={"<="})
 	public static Boolean isLessThanOrEqualTo(Comparable left, Comparable right){
+		if(left instanceof Number && right instanceof Number)
+			return isLessThanOrEqualTo((Number)left, (Number)right);
 		return left.compareTo(right) <= 0 ? Boolean.TRUE : Boolean.FALSE;
+	}
+	@B3Backend(funcNames={"<="})
+	public static Boolean isLessThanOrEqualTo(Number a, Number b) {
+		if(a instanceof Double || b instanceof Double)
+			return a.longValue() <= b.longValue();
+		if(a instanceof Float || b instanceof Float)
+			return a.longValue() <= b.longValue();
+		if(a instanceof Long || b instanceof Long)
+			return a.longValue() <= b.longValue();
+		if(a instanceof Integer || b instanceof Integer)
+			return a.intValue() <= b.intValue();
+		if(a instanceof Short || b instanceof Short)
+			return a.shortValue() <= b.shortValue();
+
+		return Boolean.FALSE;
 	}
 
 	@SuppressWarnings("unchecked")
 	@B3Backend(funcNames={">"})
 	public static Boolean isGreaterThan(Comparable left, Comparable right) {
+		if(left instanceof Number && right instanceof Number)
+			return isGreaterThan((Number)left, (Number)right);
 		return left.compareTo(right) > 0 ? Boolean.TRUE : Boolean.FALSE;
+	}
+	@B3Backend(funcNames={">"})
+	public static Boolean isGreaterThan(Number a, Number b) {
+		if(a instanceof Double || b instanceof Double)
+			return a.longValue() > b.longValue();
+		if(a instanceof Float || b instanceof Float)
+			return a.longValue() > b.longValue();
+		if(a instanceof Long || b instanceof Long)
+			return a.longValue() > b.longValue();
+		if(a instanceof Integer || b instanceof Integer)
+			return a.intValue() > b.intValue();
+		if(a instanceof Short || b instanceof Short)
+			return a.shortValue() > b.shortValue();
+
+		return Boolean.FALSE;
 	}
 
 	@SuppressWarnings("unchecked")
 	@B3Backend(funcNames={">="})
 	public static Boolean isGreaterThanOrEqualTo(Comparable left, Comparable right){
+		if(left instanceof Number && right instanceof Number)
+			return isGreaterThanOrEqualTo((Number)left, (Number)right);
+
 		return left.compareTo(right) >= 0 ? Boolean.TRUE : Boolean.FALSE;
+	}
+	@B3Backend(funcNames={">="})
+	public static Boolean isGreaterThanOrEqualTo(Number a, Number b) {
+		if(a instanceof Double || b instanceof Double)
+			return a.longValue() >= b.longValue();
+		if(a instanceof Float || b instanceof Float)
+			return a.longValue() >= b.longValue();
+		if(a instanceof Long || b instanceof Long)
+			return a.longValue() >= b.longValue();
+		if(a instanceof Integer || b instanceof Integer)
+			return a.intValue() >= b.intValue();
+		if(a instanceof Short || b instanceof Short)
+			return a.shortValue() >= b.shortValue();
+
+		return Boolean.FALSE;
 	}
 
 	@B3Backend(funcNames={"!"})
