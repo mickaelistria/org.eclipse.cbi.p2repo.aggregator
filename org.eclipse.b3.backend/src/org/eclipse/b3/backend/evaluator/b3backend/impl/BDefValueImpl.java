@@ -15,6 +15,7 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 import java.lang.reflect.Type;
 
 import org.eclipse.b3.backend.core.LValue;
+import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefValue;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
@@ -437,18 +438,22 @@ public class BDefValueImpl extends BExpressionImpl implements BDefValue {
 	}
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		Object result = null;
-		Type t = type;
+		Object result = (valueExpr == null ? null : valueExpr.evaluate(ctx));
+
+		// simple inference
+		if(type == null) 
+			type = valueExpr.getDeclaredType(ctx);
+	
 		if(immutable) {
 			if(final_)
-				ctx.defineFinalValue(name, result = (valueExpr == null ? null : valueExpr.evaluate(ctx)), t);
+				ctx.defineFinalValue(name, result, type);
 			else
-				ctx.defineValue(name, result = (valueExpr == null ? null : valueExpr.evaluate(ctx)), t);
+				ctx.defineValue(name, result, type);
 		} else {
 			if(final_)
-				ctx.defineFinalVariableValue(name, result = (valueExpr == null ? null : valueExpr.evaluate(ctx)), t);
+				ctx.defineFinalVariableValue(name, result, type);
 			else
-				ctx.defineVariableValue(name, result = (valueExpr == null ? null : valueExpr.evaluate(ctx)), t);
+				ctx.defineVariableValue(name, result, type);
 		}
 		return result;
 	}

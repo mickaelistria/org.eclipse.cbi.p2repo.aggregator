@@ -11,6 +11,7 @@ import java.lang.reflect.Type;
 import org.eclipse.b3.backend.core.LValue;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BAssignmentExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BDefValue;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 
 import org.eclipse.emf.ecore.EClass;
@@ -51,8 +52,13 @@ public class BAssignmentExpressionImpl extends BBinaryOpExpressionImpl implement
 	}
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		LValue lval = leftExpr.getLValue(ctx);
+//		if(leftExpr instanceof BDefValue && ((BDefValue)leftExpr).isImmutable()) {
+//			// must evaluate first
+//			Object r = rightExpr.evaluate(ctx);
+//			((BDefValue)leftExpr)
+//		}
 		Object r = rightExpr.evaluate(ctx);
+		LValue lval = leftExpr.getLValue(ctx);
 		// Simple type inference : TODO - should probably not be done this way, but in a separate phase
 		if(lval.getDeclaredType() == null)
 			lval.setDeclaredType(rightExpr.getDeclaredType(ctx));
