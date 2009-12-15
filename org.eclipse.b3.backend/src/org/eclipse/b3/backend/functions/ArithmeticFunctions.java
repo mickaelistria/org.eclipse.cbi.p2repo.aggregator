@@ -121,7 +121,7 @@ public class ArithmeticFunctions {
 	@B3Backend (funcNames={"%"})
 	public static Number modulo(Number a, Number b) {
 		if(a instanceof Double || b instanceof Double)
-			return new Double(a.doubleValue()  % b.doubleValue());
+			return new Double(a.doubleValue() % b.doubleValue());
 		if(a instanceof Float || b instanceof Float)
 			return new Float(a.floatValue() % b.floatValue());
 		if(a instanceof Long || b instanceof Long)
@@ -137,16 +137,14 @@ public class ArithmeticFunctions {
 
 	@B3Backend (funcNames={"&"})
 	public static Number bitwiseAnd(Number a, Number b) {
-		if(a instanceof Double || b instanceof Double)
-			return new Double(a.longValue()  & b.longValue());
-		if(a instanceof Float || b instanceof Float)
-			return new Float(a.longValue() & b.longValue());
-		if(a instanceof Long || b instanceof Long)
-			return new Long(a.longValue() & b.longValue());
-		if(a instanceof Integer || b instanceof Integer)
-			return new Integer(a.intValue() & b.intValue());
-		if(a instanceof Short || b instanceof Short)
-			return new Short((short) (a.shortValue() & b.shortValue()));
+		if(!(a instanceof Double || b instanceof Double || a instanceof Float || b instanceof Float)) {
+			if(a instanceof Long || b instanceof Long)
+				return new Long(a.longValue() & b.longValue());
+			if(a instanceof Integer || b instanceof Integer)
+				return new Integer(a.intValue() & b.intValue());
+			if(a instanceof Short || b instanceof Short)
+				return new Short((short) (a.shortValue() & b.shortValue()));
+		}
 		throw new IllegalArgumentException("Bitwise AND of unsupported Number subclass: "
 					+a.getClass().toString()
 					+","+ b.getClass().toString());
@@ -154,16 +152,14 @@ public class ArithmeticFunctions {
 
 	@B3Backend (funcNames={"|"})
 	public static Number bitwiseOr(Number a, Number b) {
-		if(a instanceof Double || b instanceof Double)
-			return new Double(a.longValue()  | b.longValue());
-		if(a instanceof Float || b instanceof Float)
-			return new Float(a.longValue() | b.longValue());
-		if(a instanceof Long || b instanceof Long)
-			return new Long(a.longValue() | b.longValue());
-		if(a instanceof Integer || b instanceof Integer)
-			return new Integer(a.intValue() | b.intValue());
-		if(a instanceof Short || b instanceof Short)
-			return new Short((short) (a.shortValue() | b.shortValue()));
+		if(!(a instanceof Double || b instanceof Double || a instanceof Float || b instanceof Float)) {
+			if(a instanceof Long || b instanceof Long)
+				return new Long(a.longValue() | b.longValue());
+			if(a instanceof Integer || b instanceof Integer)
+				return new Integer(a.intValue() | b.intValue());
+			if(a instanceof Short || b instanceof Short)
+				return new Short((short) (a.shortValue() | b.shortValue()));
+		}
 		throw new IllegalArgumentException("Bitwise OR of unsupported Number subclass: "
 					+a.getClass().toString()
 					+","+ b.getClass().toString());
@@ -171,16 +167,14 @@ public class ArithmeticFunctions {
 
 	@B3Backend (funcNames={"^"})
 	public static Number bitwiseXor(Number a, Number b) {
-		if(a instanceof Double || b instanceof Double)
-			return new Double(a.longValue()  ^ b.longValue());
-		if(a instanceof Float || b instanceof Float)
-			return new Float(a.longValue() ^ b.longValue());
-		if(a instanceof Long || b instanceof Long)
-			return new Long(a.longValue() ^ b.longValue());
-		if(a instanceof Integer || b instanceof Integer)
-			return new Integer(a.intValue() ^ b.intValue());
-		if(a instanceof Short || b instanceof Short)
-			return new Short((short) (a.shortValue() ^ b.shortValue()));
+		if(!(a instanceof Double || b instanceof Double || a instanceof Float || b instanceof Float)) {
+			if(a instanceof Long || b instanceof Long)
+				return new Long(a.longValue() ^ b.longValue());
+			if(a instanceof Integer || b instanceof Integer)
+				return new Integer(a.intValue() ^ b.intValue());
+			if(a instanceof Short || b instanceof Short)
+				return new Short((short) (a.shortValue() ^ b.shortValue()));
+		}
 		throw new IllegalArgumentException("Bitwise XOR of unsupported Number subclass: "
 					+a.getClass().toString()
 					+","+ b.getClass().toString());
@@ -188,32 +182,28 @@ public class ArithmeticFunctions {
 
 	@B3Backend (funcNames={"<<"})
 	public static Number bitwiseLeftShift(Number a, Number b) {
-		if(a instanceof Double || b instanceof Double)
-			return new Double(a.longValue()  << b.longValue());
-		if(a instanceof Float || b instanceof Float)
-			return new Float(a.longValue() << b.longValue());
-		if(a instanceof Long || b instanceof Long)
-			return new Long(a.longValue() << b.longValue());
-		if(a instanceof Integer || b instanceof Integer)
-			return new Integer(a.intValue() << b.intValue());
-		if(a instanceof Short || b instanceof Short)
-			return new Short((short) (a.shortValue() << b.shortValue()));
+		if(!(a instanceof Double || b instanceof Double || a instanceof Float || b instanceof Float)) {
+			if(a instanceof Long || b instanceof Long)
+				return new Long(a.longValue() << b.longValue());
+			if(a instanceof Integer || b instanceof Integer)
+				return new Integer(a.intValue() << b.intValue());
+			if(a instanceof Short || b instanceof Short)
+				return new Short((short) (a.shortValue() << b.shortValue()));
+		}
 		throw new IllegalArgumentException("Bitwise LSHIFT of unsupported Number subclass: "
 					+a.getClass().toString()
 					+","+ b.getClass().toString());
 	}
 	@B3Backend (funcNames={">>"})
 	public static Number bitwiseRightShift(Number a, Number b) {
-		if(a instanceof Double || b instanceof Double)
-			return new Double(a.longValue()  >> b.longValue());
-		if(a instanceof Float || b instanceof Float)
-			return new Float(a.longValue() >> b.longValue());
-		if(a instanceof Long || b instanceof Long)
-			return new Long(a.longValue() >> b.longValue());
-		if(a instanceof Integer || b instanceof Integer)
-			return new Integer(a.intValue() >> b.intValue());
-		if(a instanceof Short || b instanceof Short)
-			return new Short((short) (a.shortValue() << b.shortValue()));
+		if(!(a instanceof Double || b instanceof Double || a instanceof Float || b instanceof Float)) {
+			if(a instanceof Long || b instanceof Long)
+				return new Long(a.longValue() >> b.longValue());
+			if(a instanceof Integer || b instanceof Integer)
+				return new Integer(a.intValue() >> b.intValue());
+			if(a instanceof Short || b instanceof Short)
+				return new Short((short) (a.shortValue() << b.shortValue()));
+		}
 		throw new IllegalArgumentException("Bitwise RSHIFT of unsupported Number subclass: "
 					+a.getClass().toString()
 					+","+ b.getClass().toString());
@@ -221,32 +211,28 @@ public class ArithmeticFunctions {
 
 	@B3Backend (funcNames={">>>"})
 	public static Number bitwiseUnsignedRightShift(Number a, Number b) {
-		if(a instanceof Double || b instanceof Double)
-			return new Double(a.longValue()  >>> b.longValue());
-		if(a instanceof Float || b instanceof Float)
-			return new Float(a.longValue() >>> b.longValue());
-		if(a instanceof Long || b instanceof Long)
-			return new Long(a.longValue() >>> b.longValue());
-		if(a instanceof Integer || b instanceof Integer)
-			return new Integer(a.intValue() >>> b.intValue());
-		if(a instanceof Short || b instanceof Short)
-			return new Short((short) (a.shortValue() >>> b.shortValue()));
+		if(!(a instanceof Double || b instanceof Double || a instanceof Float || b instanceof Float)) {
+			if(a instanceof Long || b instanceof Long)
+				return new Long(a.longValue() >>> b.longValue());
+			if(a instanceof Integer || b instanceof Integer)
+				return new Integer(a.intValue() >>> b.intValue());
+			if(a instanceof Short || b instanceof Short)
+				return new Short((short) (a.shortValue() >>> b.shortValue()));
+		}
 		throw new IllegalArgumentException("Bitwise Unsigned RSHIFT of unsupported Number subclass: "
 					+a.getClass().toString()
 					+","+ b.getClass().toString());
 	}
 	@B3Backend (funcNames={"~"})
 	public static Number bitwiseComplement(Number a) {
-		if(a instanceof Double)
-			return new Double(~a.longValue());
-		if(a instanceof Float)
-			return new Float(~a.longValue());
-		if(a instanceof Long)
-			return new Long(~a.longValue());
-		if(a instanceof Integer)
-			return new Integer(~a.intValue());
-		if(a instanceof Short)
-			return new Short((short) ~(a.shortValue()));
+		if(!(a instanceof Double || a instanceof Float)) {
+			if(a instanceof Long)
+				return new Long(~a.longValue());
+			if(a instanceof Integer)
+				return new Integer(~a.intValue());
+			if(a instanceof Short)
+				return new Short((short) ~(a.shortValue()));
+		}
 		throw new IllegalArgumentException("Unary bitwize complement (~) on unsupported Number subclass: "
 					+a.getClass().toString());
 	}
