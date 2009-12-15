@@ -24,9 +24,9 @@ public class RelationalFunctions {
 	@B3Backend(funcNames={"=="})
 	public static Boolean equals(Number a, Number b) {
 		if(a instanceof Double || b instanceof Double)
-			return a.longValue() == b.longValue();
+			return a.doubleValue() == b.doubleValue();
 		if(a instanceof Float || b instanceof Float)
-			return a.longValue() == b.longValue();
+			return a.floatValue() == b.floatValue();
 		if(a instanceof Long || b instanceof Long)
 			return a.longValue() == b.longValue();
 		if(a instanceof Integer || b instanceof Integer)
@@ -74,9 +74,9 @@ public class RelationalFunctions {
 	@B3Backend(funcNames={"<"})
 	public static Boolean isLessThan(Number a, Number b) {
 		if(a instanceof Double || b instanceof Double)
-			return a.longValue() < b.longValue();
+			return a.doubleValue() < b.doubleValue();
 		if(a instanceof Float || b instanceof Float)
-			return a.longValue() < b.longValue();
+			return a.floatValue() < b.floatValue();
 		if(a instanceof Long || b instanceof Long)
 			return a.longValue() < b.longValue();
 		if(a instanceof Integer || b instanceof Integer)
