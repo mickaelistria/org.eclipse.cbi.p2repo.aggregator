@@ -2244,7 +2244,6 @@
       <classifier xsi:type="ecore:EClass" href="http://b3backend/1.0#//BExpression"/>
     </type>
     <alternatives xsi:type="xtext:Alternatives">
-      <groups xsi:type="xtext:RuleCall" rule="//@rules.114"/>
       <groups xsi:type="xtext:RuleCall" rule="//@rules.115"/>
       <groups xsi:type="xtext:RuleCall" rule="//@rules.121"/>
       <groups xsi:type="xtext:RuleCall" rule="//@rules.107"/>

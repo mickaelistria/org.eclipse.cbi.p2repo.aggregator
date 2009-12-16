@@ -24054,12 +24054,12 @@ protected class FunctionDefinition_FunctionAssignment_1 extends AssignmentToken 
 /************ begin Rule Literal ****************
  *
  * Literal returns be::BExpression:
- *   LiteralType|ValueLiteral|RegexpLiteral|LiteralMap|LiteralList|LiteralFunction; 
+ *   ValueLiteral|RegexpLiteral|LiteralMap|LiteralList|LiteralFunction; 
  * //BuilderDefinition returns Statement : {BuilderStatement} builder = Builder;
  *
  **/
 
-// LiteralType|ValueLiteral|RegexpLiteral|LiteralMap|LiteralList|LiteralFunction 
+// ValueLiteral|RegexpLiteral|LiteralMap|LiteralList|LiteralFunction 
 // //BuilderDefinition returns Statement : {BuilderStatement} builder = Builder;
 protected class Literal_Alternatives extends AlternativesToken {
 
@@ -24075,12 +24075,11 @@ protected class Literal_Alternatives extends AlternativesToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new Literal_LiteralTypeParserRuleCall_0(parent, this, 0, inst);
-			case 1: return new Literal_ValueLiteralParserRuleCall_1(parent, this, 1, inst);
-			case 2: return new Literal_RegexpLiteralParserRuleCall_2(parent, this, 2, inst);
-			case 3: return new Literal_LiteralMapParserRuleCall_3(parent, this, 3, inst);
-			case 4: return new Literal_LiteralListParserRuleCall_4(parent, this, 4, inst);
-			case 5: return new Literal_LiteralFunctionParserRuleCall_5(parent, this, 5, inst);
+			case 0: return new Literal_ValueLiteralParserRuleCall_0(parent, this, 0, inst);
+			case 1: return new Literal_RegexpLiteralParserRuleCall_1(parent, this, 1, inst);
+			case 2: return new Literal_LiteralMapParserRuleCall_2(parent, this, 2, inst);
+			case 3: return new Literal_LiteralListParserRuleCall_3(parent, this, 3, inst);
+			case 4: return new Literal_LiteralFunctionParserRuleCall_4(parent, this, 4, inst);
 			default: return null;
 		}	
 	}	
@@ -24092,51 +24091,16 @@ protected class Literal_Alternatives extends AlternativesToken {
 	}
 }
 
-// LiteralType
-protected class Literal_LiteralTypeParserRuleCall_0 extends RuleCallToken {
-	
-	public Literal_LiteralTypeParserRuleCall_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public RuleCall getGrammarElement() {
-		return grammarAccess.getLiteralAccess().getLiteralTypeParserRuleCall_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new LiteralType_Group(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override
-	protected IInstanceDescription tryConsumeVal() {
-		if(checkForRecursion(LiteralType_Group.class, current)) return null;
-		if(!current.isInstanceOf(grammarAccess.getLiteralTypeRule().getType().getClassifier())) return null;
-		return current;
-	}
-	
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		switch(index) {
-			default: return parent.createParentFollower(next, actIndex , index, inst);
-		}	
-	}	
-}
-
 // ValueLiteral
-protected class Literal_ValueLiteralParserRuleCall_1 extends RuleCallToken {
+protected class Literal_ValueLiteralParserRuleCall_0 extends RuleCallToken {
 	
-	public Literal_ValueLiteralParserRuleCall_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public Literal_ValueLiteralParserRuleCall_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getLiteralAccess().getValueLiteralParserRuleCall_1();
+		return grammarAccess.getLiteralAccess().getValueLiteralParserRuleCall_0();
 	}
 
     @Override
@@ -24163,15 +24127,15 @@ protected class Literal_ValueLiteralParserRuleCall_1 extends RuleCallToken {
 }
 
 // RegexpLiteral
-protected class Literal_RegexpLiteralParserRuleCall_2 extends RuleCallToken {
+protected class Literal_RegexpLiteralParserRuleCall_1 extends RuleCallToken {
 	
-	public Literal_RegexpLiteralParserRuleCall_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public Literal_RegexpLiteralParserRuleCall_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getLiteralAccess().getRegexpLiteralParserRuleCall_2();
+		return grammarAccess.getLiteralAccess().getRegexpLiteralParserRuleCall_1();
 	}
 
     @Override
@@ -24198,15 +24162,15 @@ protected class Literal_RegexpLiteralParserRuleCall_2 extends RuleCallToken {
 }
 
 // LiteralMap
-protected class Literal_LiteralMapParserRuleCall_3 extends RuleCallToken {
+protected class Literal_LiteralMapParserRuleCall_2 extends RuleCallToken {
 	
-	public Literal_LiteralMapParserRuleCall_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public Literal_LiteralMapParserRuleCall_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getLiteralAccess().getLiteralMapParserRuleCall_3();
+		return grammarAccess.getLiteralAccess().getLiteralMapParserRuleCall_2();
 	}
 
     @Override
@@ -24233,15 +24197,15 @@ protected class Literal_LiteralMapParserRuleCall_3 extends RuleCallToken {
 }
 
 // LiteralList
-protected class Literal_LiteralListParserRuleCall_4 extends RuleCallToken {
+protected class Literal_LiteralListParserRuleCall_3 extends RuleCallToken {
 	
-	public Literal_LiteralListParserRuleCall_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public Literal_LiteralListParserRuleCall_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getLiteralAccess().getLiteralListParserRuleCall_4();
+		return grammarAccess.getLiteralAccess().getLiteralListParserRuleCall_3();
 	}
 
     @Override
@@ -24268,15 +24232,15 @@ protected class Literal_LiteralListParserRuleCall_4 extends RuleCallToken {
 }
 
 // LiteralFunction
-protected class Literal_LiteralFunctionParserRuleCall_5 extends RuleCallToken {
+protected class Literal_LiteralFunctionParserRuleCall_4 extends RuleCallToken {
 	
-	public Literal_LiteralFunctionParserRuleCall_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public Literal_LiteralFunctionParserRuleCall_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getLiteralAccess().getLiteralFunctionParserRuleCall_5();
+		return grammarAccess.getLiteralAccess().getLiteralFunctionParserRuleCall_4();
 	}
 
     @Override

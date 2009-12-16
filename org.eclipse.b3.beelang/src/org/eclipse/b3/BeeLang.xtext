@@ -510,8 +510,7 @@ FunctionDefinition returns be::BExpression : {be::BDefFunction} function = Funct
 //BuilderDefinition returns Statement : {BuilderStatement} builder = Builder;
 
 Literal returns be::BExpression
-	: LiteralType
-	| ValueLiteral
+	: ValueLiteral
 	| RegexpLiteral
 	| LiteralMap
 	| LiteralList

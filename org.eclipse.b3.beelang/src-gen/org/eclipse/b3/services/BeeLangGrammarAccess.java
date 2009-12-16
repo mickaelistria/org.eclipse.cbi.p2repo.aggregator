@@ -5507,39 +5507,35 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	public class LiteralElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Literal");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cLiteralTypeParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cValueLiteralParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cRegexpLiteralParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cLiteralMapParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cLiteralListParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
-		private final RuleCall cLiteralFunctionParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cValueLiteralParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cRegexpLiteralParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cLiteralMapParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cLiteralListParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cLiteralFunctionParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
 		//Literal returns be::BExpression:
-		//  LiteralType|ValueLiteral|RegexpLiteral|LiteralMap|LiteralList|LiteralFunction; 
+		//  ValueLiteral|RegexpLiteral|LiteralMap|LiteralList|LiteralFunction; 
 		////BuilderDefinition returns Statement : {BuilderStatement} builder = Builder;
 		public ParserRule getRule() { return rule; }
 
-		//LiteralType|ValueLiteral|RegexpLiteral|LiteralMap|LiteralList|LiteralFunction 
+		//ValueLiteral|RegexpLiteral|LiteralMap|LiteralList|LiteralFunction 
 		////BuilderDefinition returns Statement : {BuilderStatement} builder = Builder;
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//LiteralType
-		public RuleCall getLiteralTypeParserRuleCall_0() { return cLiteralTypeParserRuleCall_0; }
-
 		//ValueLiteral
-		public RuleCall getValueLiteralParserRuleCall_1() { return cValueLiteralParserRuleCall_1; }
+		public RuleCall getValueLiteralParserRuleCall_0() { return cValueLiteralParserRuleCall_0; }
 
 		//RegexpLiteral
-		public RuleCall getRegexpLiteralParserRuleCall_2() { return cRegexpLiteralParserRuleCall_2; }
+		public RuleCall getRegexpLiteralParserRuleCall_1() { return cRegexpLiteralParserRuleCall_1; }
 
 		//LiteralMap
-		public RuleCall getLiteralMapParserRuleCall_3() { return cLiteralMapParserRuleCall_3; }
+		public RuleCall getLiteralMapParserRuleCall_2() { return cLiteralMapParserRuleCall_2; }
 
 		//LiteralList
-		public RuleCall getLiteralListParserRuleCall_4() { return cLiteralListParserRuleCall_4; }
+		public RuleCall getLiteralListParserRuleCall_3() { return cLiteralListParserRuleCall_3; }
 
 		//LiteralFunction
-		public RuleCall getLiteralFunctionParserRuleCall_5() { return cLiteralFunctionParserRuleCall_5; }
+		public RuleCall getLiteralFunctionParserRuleCall_4() { return cLiteralFunctionParserRuleCall_4; }
 	}
 
 	public class LiteralListElements extends AbstractParserRuleElementFinder {
@@ -8720,7 +8716,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Literal returns be::BExpression:
-	//  LiteralType|ValueLiteral|RegexpLiteral|LiteralMap|LiteralList|LiteralFunction; 
+	//  ValueLiteral|RegexpLiteral|LiteralMap|LiteralList|LiteralFunction; 
 	////BuilderDefinition returns Statement : {BuilderStatement} builder = Builder;
 	public LiteralElements getLiteralAccess() {
 		return (pLiteral != null) ? pLiteral : (pLiteral = new LiteralElements());
