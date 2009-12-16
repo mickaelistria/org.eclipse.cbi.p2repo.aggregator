@@ -143,8 +143,8 @@ public class ArithmeticFunctions {
 
 	@B3Backend (funcNames={"&"}, guardFunction="permitIntegralOnlyGuard")
 	public static Number bitwiseAnd(Number a, Number b) {
-		if(a instanceof BigInteger && alwaysTrue(b = convertToBigIntegerIfNeeded(b)) ||
-				b instanceof BigInteger && alwaysTrue(a = convertToBigInteger(a)))
+		if(a instanceof BigInteger && trueWithSideEffect(b = convertToBigIntegerIfNeeded(b)) ||
+				b instanceof BigInteger && trueWithSideEffect(a = convertToBigInteger(a)))
 			return ((BigInteger)a).and((BigInteger)b);
 		if(a instanceof Long || b instanceof Long)
 			return new Long(a.longValue() & b.longValue());
@@ -161,8 +161,8 @@ public class ArithmeticFunctions {
 
 	@B3Backend (funcNames={"|"}, guardFunction="permitIntegralOnlyGuard")
 	public static Number bitwiseOr(Number a, Number b) {
-		if(a instanceof BigInteger && alwaysTrue(b = convertToBigIntegerIfNeeded(b)) ||
-				b instanceof BigInteger && alwaysTrue(a = convertToBigInteger(a)))
+		if(a instanceof BigInteger && trueWithSideEffect(b = convertToBigIntegerIfNeeded(b)) ||
+				b instanceof BigInteger && trueWithSideEffect(a = convertToBigInteger(a)))
 			return ((BigInteger)a).or((BigInteger)b);
 		if(a instanceof Long || b instanceof Long)
 			return new Long(a.longValue() | b.longValue());
@@ -179,8 +179,8 @@ public class ArithmeticFunctions {
 
 	@B3Backend (funcNames={"^"}, guardFunction="permitIntegralOnlyGuard")
 	public static Number bitwiseXor(Number a, Number b) {
-		if(a instanceof BigInteger && alwaysTrue(b = convertToBigIntegerIfNeeded(b)) ||
-				b instanceof BigInteger && alwaysTrue(a = convertToBigInteger(a)))
+		if(a instanceof BigInteger && trueWithSideEffect(b = convertToBigIntegerIfNeeded(b)) ||
+				b instanceof BigInteger && trueWithSideEffect(a = convertToBigInteger(a)))
 			return ((BigInteger)a).xor((BigInteger)b);
 		if(a instanceof Long || b instanceof Long)
 			return new Long(a.longValue() ^ b.longValue());
@@ -296,7 +296,7 @@ public class ArithmeticFunctions {
 		return Boolean.TRUE;
 	}
 
-	private static boolean alwaysTrue(Object ignored)
+	private static boolean trueWithSideEffect(Object ignored)
 	{
 		return true;
 	}
