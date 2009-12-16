@@ -8,7 +8,7 @@ function Object main(List argv) {
 }
 function Object testTypes() {
 	Integer a = 1;
-	assertType("An Integer is an Integer", Integer, a);
+	// assertType("An Integer is an Integer", Integer.getClass(), a);
 	assertType("-0x4 is an Integer", Integer, -0x4);
 	assertType("-3.2 is a Double", Double, -3.2);
 	// continue with more tests
