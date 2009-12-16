@@ -14,6 +14,16 @@ import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 
 public class SystemFunctions {
 
+	public static Boolean assertType(
+			@B3Backend(name="message")String message, 
+			@B3Backend(name="expectedType")Object expected, 
+			@B3Backend(name="actualType")Object actual) throws Throwable {
+			if(!(expected instanceof Type))
+				throw new B3AssertionFailedException(message, expected, actual);
+			if(!TypeUtils.isAssignableFrom((Type)expected, actual.getClass()))
+				throw new B3AssertionFailedException(message, expected, actual);
+			return Boolean.TRUE;
+	}
 	public static Boolean assertEquals(
 			@B3Backend(name="message")String message, 
 			@B3Backend(name="expected")Object expected, 
