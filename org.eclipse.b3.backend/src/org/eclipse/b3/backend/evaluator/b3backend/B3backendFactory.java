@@ -466,6 +466,24 @@ public interface B3backendFactory extends EFactory {
 	BGuardFunction createBGuardFunction();
 
 	/**
+	 * Returns a new object of class '<em>BType Calculator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>BType Calculator</em>'.
+	 * @generated
+	 */
+	BTypeCalculator createBTypeCalculator();
+
+	/**
+	 * Returns a new object of class '<em>BType Calculator Function</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>BType Calculator Function</em>'.
+	 * @generated
+	 */
+	BTypeCalculatorFunction createBTypeCalculatorFunction();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

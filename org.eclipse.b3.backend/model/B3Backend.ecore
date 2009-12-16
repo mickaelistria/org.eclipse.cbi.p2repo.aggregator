@@ -261,6 +261,10 @@
       <eParameters name="types" eType="#//TypeArray"/>
     </eOperations>
     <eOperations name="getSignature" eType="#//IType"/>
+    <eOperations name="getReturnTypeForParameterTypes" eType="#//Type">
+      <eParameters name="types" eType="#//TypeArray"/>
+      <eParameters name="ctx" eType="#//BExecutionContext"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="visibility" eType="#//Visibility"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="final" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="executionMode" eType="#//ExecutionMode"/>
@@ -281,6 +285,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="cached" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="closure" eType="#//BExecutionContext"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeCalculator" eType="#//BTypeCalculator"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BGuard" abstract="true">
     <eOperations name="accepts" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
@@ -456,6 +462,15 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BGuardFunction" eSuperTypes="#//BGuard">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="func" eType="#//BFunction"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BTypeCalculator">
+    <eOperations name="getReturnTypeForParameterTypes" eType="#//Type">
+      <eParameters name="types" eType="#//TypeArray"/>
+      <eParameters name="ctx" eType="#//BExecutionContext"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BTypeCalculatorFunction" eSuperTypes="#//BTypeCalculator">
     <eStructuralFeatures xsi:type="ecore:EReference" name="func" eType="#//BFunction"/>
   </eClassifiers>
 </ecore:EPackage>

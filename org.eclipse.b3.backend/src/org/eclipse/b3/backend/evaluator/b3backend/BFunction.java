@@ -35,6 +35,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getReturnType <em>Return Type</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#isCached <em>Cached</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getClosure <em>Closure</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getTypeCalculator <em>Type Calculator</em>}</li>
  * </ul>
  * </p>
  *
@@ -265,6 +266,32 @@ public interface BFunction extends BExpression, GenericDeclaration {
 	void setClosure(BExecutionContext value);
 
 	/**
+	 * Returns the value of the '<em><b>Type Calculator</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Type Calculator</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Type Calculator</em>' containment reference.
+	 * @see #setTypeCalculator(BTypeCalculator)
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBFunction_TypeCalculator()
+	 * @model containment="true"
+	 * @generated
+	 */
+	BTypeCalculator getTypeCalculator();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getTypeCalculator <em>Type Calculator</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type Calculator</em>' containment reference.
+	 * @see #getTypeCalculator()
+	 * @generated
+	 */
+	void setTypeCalculator(BTypeCalculator value);
+
+	/**
 	 * Returns the value of the '<em><b>Parameter Types</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -451,5 +478,13 @@ public interface BFunction extends BExpression, GenericDeclaration {
 	 * @generated
 	 */
 	Type getSignature();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.Type" typesDataType="org.eclipse.b3.backend.evaluator.b3backend.TypeArray"
+	 * @generated
+	 */
+	Type getReturnTypeForParameterTypes(Type[] types, BExecutionContext ctx);
 
 } // BFunction

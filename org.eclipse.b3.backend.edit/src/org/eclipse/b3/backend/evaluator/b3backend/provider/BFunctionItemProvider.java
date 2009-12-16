@@ -409,6 +409,7 @@ public class BFunctionItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(B3backendPackage.Literals.BFUNCTION__PARAMETERS);
+			childrenFeatures.add(B3backendPackage.Literals.BFUNCTION__TYPE_CALCULATOR);
 		}
 		return childrenFeatures;
 	}
@@ -478,6 +479,7 @@ public class BFunctionItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case B3backendPackage.BFUNCTION__PARAMETERS:
+			case B3backendPackage.BFUNCTION__TYPE_CALCULATOR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -499,6 +501,16 @@ public class BFunctionItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BFUNCTION__PARAMETERS,
 				 B3backendFactory.eINSTANCE.createBParameterDeclaration()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BFUNCTION__TYPE_CALCULATOR,
+				 B3backendFactory.eINSTANCE.createBTypeCalculator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BFUNCTION__TYPE_CALCULATOR,
+				 B3backendFactory.eINSTANCE.createBTypeCalculatorFunction()));
 	}
 
 }

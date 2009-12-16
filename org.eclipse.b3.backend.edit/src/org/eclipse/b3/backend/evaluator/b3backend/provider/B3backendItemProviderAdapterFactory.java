@@ -1187,6 +1187,52 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BTypeCalculatorItemProvider bTypeCalculatorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBTypeCalculatorAdapter() {
+		if (bTypeCalculatorItemProvider == null) {
+			bTypeCalculatorItemProvider = new BTypeCalculatorItemProvider(this);
+		}
+
+		return bTypeCalculatorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculatorFunction} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BTypeCalculatorFunctionItemProvider bTypeCalculatorFunctionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculatorFunction}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBTypeCalculatorFunctionAdapter() {
+		if (bTypeCalculatorFunctionItemProvider == null) {
+			bTypeCalculatorFunctionItemProvider = new BTypeCalculatorFunctionItemProvider(this);
+		}
+
+		return bTypeCalculatorFunctionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1333,6 +1379,8 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 		if (b3JavaImportItemProvider != null) b3JavaImportItemProvider.dispose();
 		if (bLiteralTypeItemProvider != null) bLiteralTypeItemProvider.dispose();
 		if (bGuardFunctionItemProvider != null) bGuardFunctionItemProvider.dispose();
+		if (bTypeCalculatorItemProvider != null) bTypeCalculatorItemProvider.dispose();
+		if (bTypeCalculatorFunctionItemProvider != null) bTypeCalculatorFunctionItemProvider.dispose();
 	}
 
 }

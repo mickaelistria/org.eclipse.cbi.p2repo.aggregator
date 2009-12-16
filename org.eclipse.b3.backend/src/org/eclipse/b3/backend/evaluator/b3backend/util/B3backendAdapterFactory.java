@@ -327,6 +327,14 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 				return createBGuardFunctionAdapter();
 			}
 			@Override
+			public Adapter caseBTypeCalculator(BTypeCalculator object) {
+				return createBTypeCalculatorAdapter();
+			}
+			@Override
+			public Adapter caseBTypeCalculatorFunction(BTypeCalculatorFunction object) {
+				return createBTypeCalculatorFunctionAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -1197,6 +1205,34 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBGuardFunctionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator <em>BType Calculator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator
+	 * @generated
+	 */
+	public Adapter createBTypeCalculatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculatorFunction <em>BType Calculator Function</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculatorFunction
+	 * @generated
+	 */
+	public Adapter createBTypeCalculatorFunctionAdapter() {
 		return null;
 	}
 

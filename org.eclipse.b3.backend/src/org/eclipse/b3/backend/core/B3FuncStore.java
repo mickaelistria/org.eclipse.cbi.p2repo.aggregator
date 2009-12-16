@@ -297,7 +297,7 @@ public class B3FuncStore {
 		//
 		Object[] fakeParameters = new Object[types.length];
 		BFunction toBeCalled = getBestFunction(functionName, fakeParameters, types, ctx);
-		return toBeCalled.getReturnType(); 
+		return toBeCalled.getReturnTypeForParameterTypes(types,ctx); 
 	}
 
 

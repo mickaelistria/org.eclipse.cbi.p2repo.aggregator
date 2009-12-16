@@ -41,7 +41,7 @@ public @interface B3Backend {
 	
 	/**
 	* Marks the static method as a guard function. The method must have the same signature as a system
-	* function. See {@link #system()}. Note that {@link #guard} and {@link #system} are mutually exclusive.
+	* function. See {@link #system()}. Note that {@link #guard}, {@link #system} and {@link #typeCalculator()} are mutually exclusive.
 	* The guard is not available unless some other function references it using {@link #guardFunction()}.
 	* 
 	* Note to implementor of guard function: The Object parameter[] may contain null values for all parameters
@@ -49,6 +49,21 @@ public @interface B3Backend {
 	* TODO: TYPESYSTEM IMPROVEMENT
 	*/
 	boolean guard() default false;
+	
+	/**
+	* Marks the static method as a type calculator function. The method must have the same signature as a system
+	* function. See {@link #system()}. Note that {@link #guard}, {@link #system} and {@link #typeCalculator()} are mutually exclusive.
+	* The typeCalculator is not used unless some other function references it using {@link #typeFunction()}.
+	* 
+	* TODO: TYPESYSTEM IMPROVEMENT
+	*/
+	boolean typeCalculator() default false;
+	
+	/**
+	 * The optional name of a typeCalculator function (a function annotated using {@link #typeCalculator()} 
+	 * that will be used to calculate the return type of a function based on the parameter types.
+	 */
+	String typeFunction() default "";
 	
 	/**
 	 * The optional name of a system function (a function annotated using {@link #system} that will be 
@@ -60,7 +75,7 @@ public @interface B3Backend {
 	 * Marks the static function as a system function. The method must have a signature of
 	 * BExecutionContext, Object[] params, Type[] types. This method is only loaded if some other
 	 * function references it by name via the tag systemFunction. 
-	 * Note that {@link #guard} and {@link #system} are mutually exclusive.
+	 * Note that {@link #guard}, {@link #system} and {@link #typeCalculator()} are mutually exclusive.
 	 */
 	boolean system() default false;
 	

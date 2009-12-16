@@ -10403,11 +10403,11 @@ ruleLiteral returns [EObject current=null]
 	  /* */ 
 	}
     { 
-        currentNode=createCompositeNode(grammarAccess.getLiteralAccess().getValueLiteralParserRuleCall_0(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getLiteralAccess().getLiteralTypeParserRuleCall_0(), currentNode); 
     }
-    this_ValueLiteral_0=ruleValueLiteral
+    this_LiteralType_0=ruleLiteralType
     { 
-        $current = $this_ValueLiteral_0.current; 
+        $current = $this_LiteralType_0.current; 
         currentNode = currentNode.getParent();
     }
 
@@ -10416,11 +10416,11 @@ ruleLiteral returns [EObject current=null]
 	  /* */ 
 	}
     { 
-        currentNode=createCompositeNode(grammarAccess.getLiteralAccess().getRegexpLiteralParserRuleCall_1(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getLiteralAccess().getValueLiteralParserRuleCall_1(), currentNode); 
     }
-    this_RegexpLiteral_1=ruleRegexpLiteral
+    this_ValueLiteral_1=ruleValueLiteral
     { 
-        $current = $this_RegexpLiteral_1.current; 
+        $current = $this_ValueLiteral_1.current; 
         currentNode = currentNode.getParent();
     }
 
@@ -10429,11 +10429,11 @@ ruleLiteral returns [EObject current=null]
 	  /* */ 
 	}
     { 
-        currentNode=createCompositeNode(grammarAccess.getLiteralAccess().getLiteralMapParserRuleCall_2(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getLiteralAccess().getRegexpLiteralParserRuleCall_2(), currentNode); 
     }
-    this_LiteralMap_2=ruleLiteralMap
+    this_RegexpLiteral_2=ruleRegexpLiteral
     { 
-        $current = $this_LiteralMap_2.current; 
+        $current = $this_RegexpLiteral_2.current; 
         currentNode = currentNode.getParent();
     }
 
@@ -10442,11 +10442,11 @@ ruleLiteral returns [EObject current=null]
 	  /* */ 
 	}
     { 
-        currentNode=createCompositeNode(grammarAccess.getLiteralAccess().getLiteralListParserRuleCall_3(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getLiteralAccess().getLiteralMapParserRuleCall_3(), currentNode); 
     }
-    this_LiteralList_3=ruleLiteralList
+    this_LiteralMap_3=ruleLiteralMap
     { 
-        $current = $this_LiteralList_3.current; 
+        $current = $this_LiteralMap_3.current; 
         currentNode = currentNode.getParent();
     }
 
@@ -10455,11 +10455,11 @@ ruleLiteral returns [EObject current=null]
 	  /* */ 
 	}
     { 
-        currentNode=createCompositeNode(grammarAccess.getLiteralAccess().getLiteralFunctionParserRuleCall_4(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getLiteralAccess().getLiteralListParserRuleCall_4(), currentNode); 
     }
-    this_LiteralFunction_4=ruleLiteralFunction
+    this_LiteralList_4=ruleLiteralList
     { 
-        $current = $this_LiteralFunction_4.current; 
+        $current = $this_LiteralList_4.current; 
         currentNode = currentNode.getParent();
     }
 
@@ -10468,11 +10468,11 @@ ruleLiteral returns [EObject current=null]
 	  /* */ 
 	}
     { 
-        currentNode=createCompositeNode(grammarAccess.getLiteralAccess().getLiteralTypeParserRuleCall_5(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getLiteralAccess().getLiteralFunctionParserRuleCall_5(), currentNode); 
     }
-    this_LiteralType_5=ruleLiteralType
+    this_LiteralFunction_5=ruleLiteralFunction
     { 
-        $current = $this_LiteralType_5.current; 
+        $current = $this_LiteralFunction_5.current; 
         currentNode = currentNode.getParent();
     }
 );

@@ -18,6 +18,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BGuard;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
+import org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator;
 import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
 import org.eclipse.b3.backend.evaluator.b3backend.Visibility;
 import org.eclipse.emf.common.notify.Notification;
@@ -54,6 +55,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getReturnType <em>Return Type</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#isCached <em>Cached</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getClosure <em>Closure</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getTypeCalculator <em>Type Calculator</em>}</li>
  * </ul>
  * </p>
  *
@@ -328,6 +330,16 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	protected BExecutionContext closure;
 
 	/**
+	 * The cached value of the '{@link #getTypeCalculator() <em>Type Calculator</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTypeCalculator()
+	 * @generated
+	 * @ordered
+	 */
+	protected BTypeCalculator typeCalculator;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -587,6 +599,49 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BTypeCalculator getTypeCalculator() {
+		return typeCalculator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTypeCalculator(BTypeCalculator newTypeCalculator, NotificationChain msgs) {
+		BTypeCalculator oldTypeCalculator = typeCalculator;
+		typeCalculator = newTypeCalculator;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION__TYPE_CALCULATOR, oldTypeCalculator, newTypeCalculator);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTypeCalculator(BTypeCalculator newTypeCalculator) {
+		if (newTypeCalculator != typeCalculator) {
+			NotificationChain msgs = null;
+			if (typeCalculator != null)
+				msgs = ((InternalEObject)typeCalculator).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BFUNCTION__TYPE_CALCULATOR, null, msgs);
+			if (newTypeCalculator != null)
+				msgs = ((InternalEObject)newTypeCalculator).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BFUNCTION__TYPE_CALCULATOR, null, msgs);
+			msgs = basicSetTypeCalculator(newTypeCalculator, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION__TYPE_CALCULATOR, newTypeCalculator, newTypeCalculator));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * Returns an array of the parameter types (if already set it is returned, if null, it is calculated
 	 * from the list of parameter declarations).
 	 * <!-- end-user-doc -->
@@ -765,6 +820,21 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns the parameterized return type of this function - i.e. the resulting return type given
+	 * a particular set of types. A function that wishes to return different types depending on the parameters
+	 * should have a typeCalculator that performs the job. 
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Type getReturnTypeForParameterTypes(Type[] types, BExecutionContext ctx) {
+		BTypeCalculator tc = getTypeCalculator();
+		if(tc != null)
+			return tc.getReturnTypeForParameterTypes(types, ctx);
+		return getReturnType();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -777,6 +847,8 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 				return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
 			case B3backendPackage.BFUNCTION__RETURN_TYPE:
 				return basicSetReturnType(null, msgs);
+			case B3backendPackage.BFUNCTION__TYPE_CALCULATOR:
+				return basicSetTypeCalculator(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -820,6 +892,8 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 			case B3backendPackage.BFUNCTION__CLOSURE:
 				if (resolve) return getClosure();
 				return basicGetClosure();
+			case B3backendPackage.BFUNCTION__TYPE_CALCULATOR:
+				return getTypeCalculator();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -879,6 +953,9 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 			case B3backendPackage.BFUNCTION__CLOSURE:
 				setClosure((BExecutionContext)newValue);
 				return;
+			case B3backendPackage.BFUNCTION__TYPE_CALCULATOR:
+				setTypeCalculator((BTypeCalculator)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -936,6 +1013,9 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 			case B3backendPackage.BFUNCTION__CLOSURE:
 				setClosure((BExecutionContext)null);
 				return;
+			case B3backendPackage.BFUNCTION__TYPE_CALCULATOR:
+				setTypeCalculator((BTypeCalculator)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -978,6 +1058,8 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 				return cached != CACHED_EDEFAULT;
 			case B3backendPackage.BFUNCTION__CLOSURE:
 				return closure != null;
+			case B3backendPackage.BFUNCTION__TYPE_CALCULATOR:
+				return typeCalculator != null;
 		}
 		return super.eIsSet(featureID);
 	}

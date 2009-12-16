@@ -1775,13 +1775,22 @@ public interface B3backendPackage extends EPackage {
 	int BFUNCTION__CLOSURE = BEXPRESSION_FEATURE_COUNT + 14;
 
 	/**
+	 * The feature id for the '<em><b>Type Calculator</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BFUNCTION__TYPE_CALCULATOR = BEXPRESSION_FEATURE_COUNT + 15;
+
+	/**
 	 * The number of structural features of the '<em>BFunction</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BFUNCTION_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 15;
+	int BFUNCTION_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 16;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BGuardImpl <em>BGuard</em>}' class.
@@ -2379,6 +2388,15 @@ public interface B3backendPackage extends EPackage {
 	int B3_FUNCTION__CLOSURE = BFUNCTION__CLOSURE;
 
 	/**
+	 * The feature id for the '<em><b>Type Calculator</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int B3_FUNCTION__TYPE_CALCULATOR = BFUNCTION__TYPE_CALCULATOR;
+
+	/**
 	 * The feature id for the '<em><b>Func Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2558,6 +2576,15 @@ public interface B3backendPackage extends EPackage {
 	 * @ordered
 	 */
 	int BJAVA_FUNCTION__CLOSURE = BFUNCTION__CLOSURE;
+
+	/**
+	 * The feature id for the '<em><b>Type Calculator</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BJAVA_FUNCTION__TYPE_CALCULATOR = BFUNCTION__TYPE_CALCULATOR;
 
 	/**
 	 * The feature id for the '<em><b>Method</b></em>' attribute.
@@ -3271,6 +3298,53 @@ public interface B3backendPackage extends EPackage {
 	int BGUARD_FUNCTION_FEATURE_COUNT = BGUARD_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BTypeCalculatorImpl <em>BType Calculator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BTypeCalculatorImpl
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBTypeCalculator()
+	 * @generated
+	 */
+	int BTYPE_CALCULATOR = 61;
+
+	/**
+	 * The number of structural features of the '<em>BType Calculator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BTYPE_CALCULATOR_FEATURE_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BTypeCalculatorFunctionImpl <em>BType Calculator Function</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BTypeCalculatorFunctionImpl
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBTypeCalculatorFunction()
+	 * @generated
+	 */
+	int BTYPE_CALCULATOR_FUNCTION = 62;
+
+	/**
+	 * The feature id for the '<em><b>Func</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BTYPE_CALCULATOR_FUNCTION__FUNC = BTYPE_CALCULATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>BType Calculator Function</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BTYPE_CALCULATOR_FUNCTION_FEATURE_COUNT = BTYPE_CALCULATOR_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.Visibility <em>Visibility</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3278,7 +3352,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getVisibility()
 	 * @generated
 	 */
-	int VISIBILITY = 61;
+	int VISIBILITY = 63;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode <em>Execution Mode</em>}' enum.
@@ -3288,7 +3362,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getExecutionMode()
 	 * @generated
 	 */
-	int EXECUTION_MODE = 62;
+	int EXECUTION_MODE = 64;
 
 	/**
 	 * The meta object id for the '<em>Core Exception</em>' data type.
@@ -3298,7 +3372,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getCoreException()
 	 * @generated
 	 */
-	int CORE_EXCEPTION = 63;
+	int CORE_EXCEPTION = 65;
 
 
 	/**
@@ -3309,7 +3383,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 64;
+	int TYPE = 66;
 
 	/**
 	 * The meta object id for the '<em>Object Array</em>' data type.
@@ -3318,7 +3392,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getObjectArray()
 	 * @generated
 	 */
-	int OBJECT_ARRAY = 65;
+	int OBJECT_ARRAY = 67;
 
 
 	/**
@@ -3329,7 +3403,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getValueMap()
 	 * @generated
 	 */
-	int VALUE_MAP = 66;
+	int VALUE_MAP = 68;
 
 
 	/**
@@ -3340,7 +3414,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3EngineException()
 	 * @generated
 	 */
-	int B3_ENGINE_EXCEPTION = 67;
+	int B3_ENGINE_EXCEPTION = 69;
 
 
 	/**
@@ -3351,7 +3425,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3ExpressionCache()
 	 * @generated
 	 */
-	int B3_EXPRESSION_CACHE = 68;
+	int B3_EXPRESSION_CACHE = 70;
 
 
 	/**
@@ -3362,7 +3436,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getThrowable()
 	 * @generated
 	 */
-	int THROWABLE = 69;
+	int THROWABLE = 71;
 
 	/**
 	 * The meta object id for the '<em>LValue</em>' data type.
@@ -3372,7 +3446,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getLValue()
 	 * @generated
 	 */
-	int LVALUE = 70;
+	int LVALUE = 72;
 
 	/**
 	 * The meta object id for the '<em>Type Array</em>' data type.
@@ -3381,7 +3455,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getTypeArray()
 	 * @generated
 	 */
-	int TYPE_ARRAY = 71;
+	int TYPE_ARRAY = 73;
 
 	/**
 	 * The meta object id for the '<em>Method</em>' data type.
@@ -3391,7 +3465,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getMethod()
 	 * @generated
 	 */
-	int METHOD = 72;
+	int METHOD = 74;
 
 	/**
 	 * The meta object id for the '<em>Type Variable Array</em>' data type.
@@ -3400,7 +3474,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getTypeVariableArray()
 	 * @generated
 	 */
-	int TYPE_VARIABLE_ARRAY = 73;
+	int TYPE_VARIABLE_ARRAY = 75;
 
 	/**
 	 * The meta object id for the '<em>Func Store</em>' data type.
@@ -3410,7 +3484,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getFuncStore()
 	 * @generated
 	 */
-	int FUNC_STORE = 74;
+	int FUNC_STORE = 76;
 
 	/**
 	 * The meta object id for the '<em>Regexp Pattern</em>' data type.
@@ -3420,7 +3494,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getRegexpPattern()
 	 * @generated
 	 */
-	int REGEXP_PATTERN = 75;
+	int REGEXP_PATTERN = 77;
 
 	/**
 	 * The meta object id for the '<em>String Array</em>' data type.
@@ -3429,7 +3503,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getStringArray()
 	 * @generated
 	 */
-	int STRING_ARRAY = 76;
+	int STRING_ARRAY = 78;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BExpression <em>BExpression</em>}'.
@@ -4335,6 +4409,17 @@ public interface B3backendPackage extends EPackage {
 	EReference getBFunction_Closure();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getTypeCalculator <em>Type Calculator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Type Calculator</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunction#getTypeCalculator()
+	 * @see #getBFunction()
+	 * @generated
+	 */
+	EReference getBFunction_TypeCalculator();
+
+	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getParameterTypes <em>Parameter Types</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5112,6 +5197,37 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBGuardFunction_Func();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator <em>BType Calculator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>BType Calculator</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator
+	 * @generated
+	 */
+	EClass getBTypeCalculator();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculatorFunction <em>BType Calculator Function</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>BType Calculator Function</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculatorFunction
+	 * @generated
+	 */
+	EClass getBTypeCalculatorFunction();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculatorFunction#getFunc <em>Func</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Func</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculatorFunction#getFunc()
+	 * @see #getBTypeCalculatorFunction()
+	 * @generated
+	 */
+	EReference getBTypeCalculatorFunction_Func();
 
 	/**
 	 * Returns the meta object for enum '{@link org.eclipse.b3.backend.evaluator.b3backend.Visibility <em>Visibility</em>}'.
@@ -6050,6 +6166,14 @@ public interface B3backendPackage extends EPackage {
 		EReference BFUNCTION__CLOSURE = eINSTANCE.getBFunction_Closure();
 
 		/**
+		 * The meta object literal for the '<em><b>Type Calculator</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BFUNCTION__TYPE_CALCULATOR = eINSTANCE.getBFunction_TypeCalculator();
+
+		/**
 		 * The meta object literal for the '<em><b>Parameter Types</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6690,6 +6814,34 @@ public interface B3backendPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BGUARD_FUNCTION__FUNC = eINSTANCE.getBGuardFunction_Func();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BTypeCalculatorImpl <em>BType Calculator</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BTypeCalculatorImpl
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBTypeCalculator()
+		 * @generated
+		 */
+		EClass BTYPE_CALCULATOR = eINSTANCE.getBTypeCalculator();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BTypeCalculatorFunctionImpl <em>BType Calculator Function</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BTypeCalculatorFunctionImpl
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBTypeCalculatorFunction()
+		 * @generated
+		 */
+		EClass BTYPE_CALCULATOR_FUNCTION = eINSTANCE.getBTypeCalculatorFunction();
+
+		/**
+		 * The meta object literal for the '<em><b>Func</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BTYPE_CALCULATOR_FUNCTION__FUNC = eINSTANCE.getBTypeCalculatorFunction_Func();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.Visibility <em>Visibility</em>}' enum.

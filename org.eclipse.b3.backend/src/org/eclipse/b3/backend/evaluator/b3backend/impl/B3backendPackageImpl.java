@@ -71,6 +71,8 @@ import org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BSystemContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BThrowExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BTryExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator;
+import org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculatorFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BUnaryExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BUnaryOpExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BUnaryPostOpExpression;
@@ -533,6 +535,20 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * @generated
 	 */
 	private EClass bGuardFunctionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bTypeCalculatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bTypeCalculatorFunctionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1477,6 +1493,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getBFunction_TypeCalculator() {
+		return (EReference)bFunctionEClass.getEStructuralFeatures().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getBFunction_ParameterTypes() {
 		return (EAttribute)bFunctionEClass.getEStructuralFeatures().get(5);
 	}
@@ -2134,6 +2159,33 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getBTypeCalculator() {
+		return bTypeCalculatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBTypeCalculatorFunction() {
+		return bTypeCalculatorFunctionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBTypeCalculatorFunction_Func() {
+		return (EReference)bTypeCalculatorFunctionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getVisibility() {
 		return visibilityEEnum;
 	}
@@ -2424,6 +2476,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		createEReference(bFunctionEClass, BFUNCTION__RETURN_TYPE);
 		createEAttribute(bFunctionEClass, BFUNCTION__CACHED);
 		createEReference(bFunctionEClass, BFUNCTION__CLOSURE);
+		createEReference(bFunctionEClass, BFUNCTION__TYPE_CALCULATOR);
 
 		bGuardEClass = createEClass(BGUARD);
 
@@ -2519,6 +2572,11 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 
 		bGuardFunctionEClass = createEClass(BGUARD_FUNCTION);
 		createEReference(bGuardFunctionEClass, BGUARD_FUNCTION__FUNC);
+
+		bTypeCalculatorEClass = createEClass(BTYPE_CALCULATOR);
+
+		bTypeCalculatorFunctionEClass = createEClass(BTYPE_CALCULATOR_FUNCTION);
+		createEReference(bTypeCalculatorFunctionEClass, BTYPE_CALCULATOR_FUNCTION__FUNC);
 
 		// Create enums
 		visibilityEEnum = createEEnum(VISIBILITY);
@@ -2624,6 +2682,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		b3JavaImportEClass.getESuperTypes().add(this.getIType());
 		bLiteralTypeEClass.getESuperTypes().add(this.getBExpression());
 		bGuardFunctionEClass.getESuperTypes().add(this.getBGuard());
+		bTypeCalculatorFunctionEClass.getESuperTypes().add(this.getBTypeCalculator());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(bExpressionEClass, BExpression.class, "BExpression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2850,6 +2909,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEReference(getBFunction_ReturnType(), this.getIType(), null, "returnType", null, 0, 1, BFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBFunction_Cached(), ecorePackage.getEBoolean(), "cached", null, 0, 1, BFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBFunction_Closure(), this.getBExecutionContext(), null, "closure", null, 0, 1, BFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBFunction_TypeCalculator(), this.getBTypeCalculator(), null, "typeCalculator", null, 0, 1, BFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(bFunctionEClass, ecorePackage.getEJavaObject(), "internalCall", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -2858,6 +2918,10 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		addEException(op, this.getThrowable());
 
 		addEOperation(bFunctionEClass, this.getIType(), "getSignature", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(bFunctionEClass, this.getType(), "getReturnTypeForParameterTypes", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getTypeArray(), "types", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(bGuardEClass, BGuard.class, "BGuard", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -2983,6 +3047,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 
 		initEClass(bGuardFunctionEClass, BGuardFunction.class, "BGuardFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBGuardFunction_Func(), this.getBFunction(), null, "func", null, 0, 1, BGuardFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(bTypeCalculatorEClass, BTypeCalculator.class, "BTypeCalculator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = addEOperation(bTypeCalculatorEClass, this.getType(), "getReturnTypeForParameterTypes", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getTypeArray(), "types", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(bTypeCalculatorFunctionEClass, BTypeCalculatorFunction.class, "BTypeCalculatorFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBTypeCalculatorFunction_Func(), this.getBFunction(), null, "func", null, 0, 1, BTypeCalculatorFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(visibilityEEnum, Visibility.class, "Visibility");

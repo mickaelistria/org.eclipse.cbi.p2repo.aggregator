@@ -260,7 +260,7 @@ public class ArithmeticFunctions {
 					+a.getClass().toString());
 	}
 
-	@B3Backend (funcNames={"-"})
+	@B3Backend (funcNames={"-"}, typeFunction="numberGenericityCalculator")
 	public static Number unaryMinus(Number a) {
 		if(a instanceof Double)
 			return new Double(-a.doubleValue());
@@ -294,6 +294,36 @@ public class ArithmeticFunctions {
 			}
 		}
 		return Boolean.TRUE;
+	}
+	
+	@B3Backend(typeCalculator=true)
+	public static Type numberGenericityCalculator(Type[] types) {
+		if(types.length == 1)
+			return types[0];
+		if(types.length == 2) {
+			Type at = types[0];
+			Type bt = types[1];
+			Class<?> a = TypeUtils.getRaw(at);
+			Class<?> b = TypeUtils.getRaw(bt);
+			if(a == BigDecimal.class) return at;
+			if(b == BigDecimal.class) return bt;
+			if(a == Double.class) return at;
+			if(b == Double.class) return bt;
+			if(a == Float.class) return at;
+			if(b == Float.class) return bt;
+			if(a == BigInteger.class) return at;
+			if(b == BigInteger.class) return bt;
+			if(a == Long.class) return at;
+			if(b == Long.class) return bt;
+			if(a == Integer.class) return at;
+			if(b == Integer.class) return bt;
+			if(a == Short.class) return at;
+			if(b == Short.class) return bt;
+			if(a == Byte.class) return at;
+			if(b == Byte.class) return bt;
+		}
+		// give up...
+		return Number.class;
 	}
 
 	private static boolean trueWithSideEffect(Object ignored)

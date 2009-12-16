@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.b3.backend.core.B3Engine;
+import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.beeLang.BeeModel;
 import org.eclipse.core.commands.AbstractHandler;
@@ -34,6 +35,12 @@ public class ExecuteHandler extends AbstractHandler {
 					engine.getContext().defineFunction(f);
 					if("main".equals(f.getName())) {
 						main = f;
+					}
+				}
+				// Define all imports as constants
+				for( Type t : ((BeeModel)state).getImports()) {
+					if(t instanceof B3JavaImport) {
+						engine.getContext().defineValue(((B3JavaImport)t).getName(), t, Type.class);
 					}
 				}
 				if(main == null)

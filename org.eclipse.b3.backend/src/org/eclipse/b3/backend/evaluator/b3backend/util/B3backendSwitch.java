@@ -533,6 +533,19 @@ public class B3backendSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case B3backendPackage.BTYPE_CALCULATOR: {
+				BTypeCalculator bTypeCalculator = (BTypeCalculator)theEObject;
+				T result = caseBTypeCalculator(bTypeCalculator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3backendPackage.BTYPE_CALCULATOR_FUNCTION: {
+				BTypeCalculatorFunction bTypeCalculatorFunction = (BTypeCalculatorFunction)theEObject;
+				T result = caseBTypeCalculatorFunction(bTypeCalculatorFunction);
+				if (result == null) result = caseBTypeCalculator(bTypeCalculatorFunction);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -1449,6 +1462,36 @@ public class B3backendSwitch<T> {
 	 * @generated
 	 */
 	public T caseBGuardFunction(BGuardFunction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BType Calculator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BType Calculator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBTypeCalculator(BTypeCalculator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BType Calculator Function</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BType Calculator Function</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBTypeCalculatorFunction(BTypeCalculatorFunction object) {
 		return null;
 	}
 

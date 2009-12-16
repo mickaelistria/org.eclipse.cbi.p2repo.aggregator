@@ -510,12 +510,12 @@ FunctionDefinition returns be::BExpression : {be::BDefFunction} function = Funct
 //BuilderDefinition returns Statement : {BuilderStatement} builder = Builder;
 
 Literal returns be::BExpression
-	: ValueLiteral
+	: LiteralType
+	| ValueLiteral
 	| RegexpLiteral
 	| LiteralMap
 	| LiteralList
 	| LiteralFunction
-	| LiteralType
 	;
 	
 LiteralList returns  be::BExpression
@@ -568,6 +568,7 @@ UnitLiteral returns  be::BExpression: {be::BLiteralExpression} value="unit";
 StringLiteral returns  be::BExpression: {be::BLiteralExpression} value = STRING;
 RealLiteral	returns  be::BExpression: {be::BLiteralExpression} value = RealValue;
 RegexpLiteral returns be::BExpression: {be::BRegularExpression} pattern = REGULAR_EXPR;
+
 //QueryLiteral returns be::BExpression: {be::BLiteralExpression} value=Query ;
 
 NullLiteral	returns  be::BExpression: {be::BLiteralExpression} "null"; // TODO: check that type is Object

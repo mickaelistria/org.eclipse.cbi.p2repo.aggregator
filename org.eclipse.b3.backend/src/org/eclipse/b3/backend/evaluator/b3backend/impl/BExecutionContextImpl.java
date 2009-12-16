@@ -40,6 +40,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BGuardFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BInnerContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BSystemContext;
+import org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculatorFunction;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BInvocationContext;
 import org.eclipse.emf.common.notify.Notification;
@@ -270,8 +271,11 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		fileRef.setFileName(fileName == null ? "anonymous class" : fileName);
 		Map<String, BJavaFunction> systemFunctions = new HashMap<String, BJavaFunction>();
 		Map<String, BJavaFunction> guards = new HashMap<String, BJavaFunction>();
+		Map<String, BJavaFunction> typeCalculators = new HashMap<String, BJavaFunction>();
+		
 		Map<String,List<BJavaFunction>> systemProxies = new HashMap<String, List<BJavaFunction>>();
 		Map<String,List<BJavaFunction>> guardedFunctions = new HashMap<String, List<BJavaFunction>>();
+		Map<String,List<BJavaFunction>> typeCalculatedFunctions = new HashMap<String, List<BJavaFunction>>();
 		int counter = 0;
 
 		// create and initialize a BJavaFunction to represent each public static function
@@ -333,6 +337,9 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 					// guards are called using system calling convention
 					f.setSystemCall(true);
 				}
+				else if (annotation != null && annotation.typeCalculator()) {
+					typeCalculators.put(f.getName(), f);
+				}
 				else {
 					// add defined function to the func store
 					if(annotation == null || !annotation.hideOriginal())
@@ -356,6 +363,14 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 						if((gf = guardedFunctions.get(guardFunctionName)) == null )
 							guardedFunctions.put(guardFunctionName, gf = new ArrayList<BJavaFunction>());
 						gf.add(f);
+					}
+					// if a function has a type calculator remember it
+					if(annotation != null && annotation.typeFunction() != null && annotation.typeFunction().length() > 0) {
+						String typeFunctionName = annotation.typeFunction();
+						List<BJavaFunction> tf = null;
+						if((tf = typeCalculatedFunctions.get(typeFunctionName)) == null )
+							typeCalculatedFunctions.put(typeFunctionName, tf = new ArrayList<BJavaFunction>());
+						tf.add(f);
 					}
 				}
 			}
@@ -391,6 +406,22 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 				BGuardFunction gf = B3backendFactory.eINSTANCE.createBGuardFunction();
 				gf.setFunc(g);
 				guarded.setGuard(gf);
+			}
+		}			
+		// link type calculators
+		// ---
+		// revisit all functions that reference a typeFunction and set that function as a typeCalculator
+		// 
+		for( Entry<String, List<BJavaFunction>> e : typeCalculatedFunctions.entrySet()) {
+			for(BJavaFunction typed : e.getValue()) {
+				BJavaFunction tc = typeCalculators.get(e.getKey());
+				if(tc == null)
+					throw new B3FunctionLoadException("reference to type calculator function: "
+							+e.getKey()+" can not be satisfied - no such function found.", typed.getMethod());
+				// set the guard function, wrapped in a guard
+				BTypeCalculatorFunction tcf = B3backendFactory.eINSTANCE.createBTypeCalculatorFunction();
+				tcf.setFunc(tc);
+				typed.setTypeCalculator(tcf);
 			}
 		}			
 	}
@@ -635,12 +666,12 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT:
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			return basicSetParentContext((BExecutionContext)otherEnd, msgs);
-		case B3backendPackage.BEXECUTION_CONTEXT__CHILD_CONTEXTS:
-			return ((InternalEList<InternalEObject>)(InternalEList<?>)getChildContexts()).basicAdd(otherEnd, msgs);
+			case B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetParentContext((BExecutionContext)otherEnd, msgs);
+			case B3backendPackage.BEXECUTION_CONTEXT__CHILD_CONTEXTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getChildContexts()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -653,10 +684,10 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT:
-			return basicSetParentContext(null, msgs);
-		case B3backendPackage.BEXECUTION_CONTEXT__CHILD_CONTEXTS:
-			return ((InternalEList<?>)getChildContexts()).basicRemove(otherEnd, msgs);
+			case B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT:
+				return basicSetParentContext(null, msgs);
+			case B3backendPackage.BEXECUTION_CONTEXT__CHILD_CONTEXTS:
+				return ((InternalEList<?>)getChildContexts()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -669,8 +700,8 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-		case B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT:
-			return eInternalContainer().eInverseRemove(this, B3backendPackage.BEXECUTION_CONTEXT__CHILD_CONTEXTS, BExecutionContext.class, msgs);
+			case B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT:
+				return eInternalContainer().eInverseRemove(this, B3backendPackage.BEXECUTION_CONTEXT__CHILD_CONTEXTS, BExecutionContext.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -683,14 +714,14 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT:
-			return getParentContext();
-		case B3backendPackage.BEXECUTION_CONTEXT__CHILD_CONTEXTS:
-			return getChildContexts();
-		case B3backendPackage.BEXECUTION_CONTEXT__VALUE_MAP:
-			return getValueMap();
-		case B3backendPackage.BEXECUTION_CONTEXT__FUNC_STORE:
-			return getFuncStore();
+			case B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT:
+				return getParentContext();
+			case B3backendPackage.BEXECUTION_CONTEXT__CHILD_CONTEXTS:
+				return getChildContexts();
+			case B3backendPackage.BEXECUTION_CONTEXT__VALUE_MAP:
+				return getValueMap();
+			case B3backendPackage.BEXECUTION_CONTEXT__FUNC_STORE:
+				return getFuncStore();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -704,16 +735,16 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT:
-			setParentContext((BExecutionContext)newValue);
-			return;
-		case B3backendPackage.BEXECUTION_CONTEXT__CHILD_CONTEXTS:
-			getChildContexts().clear();
-			getChildContexts().addAll((Collection<? extends BExecutionContext>)newValue);
-			return;
-		case B3backendPackage.BEXECUTION_CONTEXT__FUNC_STORE:
-			setFuncStore((B3FuncStore)newValue);
-			return;
+			case B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT:
+				setParentContext((BExecutionContext)newValue);
+				return;
+			case B3backendPackage.BEXECUTION_CONTEXT__CHILD_CONTEXTS:
+				getChildContexts().clear();
+				getChildContexts().addAll((Collection<? extends BExecutionContext>)newValue);
+				return;
+			case B3backendPackage.BEXECUTION_CONTEXT__FUNC_STORE:
+				setFuncStore((B3FuncStore)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -726,15 +757,15 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT:
-			setParentContext((BExecutionContext)null);
-			return;
-		case B3backendPackage.BEXECUTION_CONTEXT__CHILD_CONTEXTS:
-			getChildContexts().clear();
-			return;
-		case B3backendPackage.BEXECUTION_CONTEXT__FUNC_STORE:
-			setFuncStore(FUNC_STORE_EDEFAULT);
-			return;
+			case B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT:
+				setParentContext((BExecutionContext)null);
+				return;
+			case B3backendPackage.BEXECUTION_CONTEXT__CHILD_CONTEXTS:
+				getChildContexts().clear();
+				return;
+			case B3backendPackage.BEXECUTION_CONTEXT__FUNC_STORE:
+				setFuncStore(FUNC_STORE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -747,14 +778,14 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT:
-			return getParentContext() != null;
-		case B3backendPackage.BEXECUTION_CONTEXT__CHILD_CONTEXTS:
-			return childContexts != null && !childContexts.isEmpty();
-		case B3backendPackage.BEXECUTION_CONTEXT__VALUE_MAP:
-			return VALUE_MAP_EDEFAULT == null ? valueMap != null : !VALUE_MAP_EDEFAULT.equals(valueMap);
-		case B3backendPackage.BEXECUTION_CONTEXT__FUNC_STORE:
-			return FUNC_STORE_EDEFAULT == null ? funcStore != null : !FUNC_STORE_EDEFAULT.equals(funcStore);
+			case B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT:
+				return getParentContext() != null;
+			case B3backendPackage.BEXECUTION_CONTEXT__CHILD_CONTEXTS:
+				return childContexts != null && !childContexts.isEmpty();
+			case B3backendPackage.BEXECUTION_CONTEXT__VALUE_MAP:
+				return VALUE_MAP_EDEFAULT == null ? valueMap != null : !VALUE_MAP_EDEFAULT.equals(valueMap);
+			case B3backendPackage.BEXECUTION_CONTEXT__FUNC_STORE:
+				return FUNC_STORE_EDEFAULT == null ? funcStore != null : !FUNC_STORE_EDEFAULT.equals(funcStore);
 		}
 		return super.eIsSet(featureID);
 	}

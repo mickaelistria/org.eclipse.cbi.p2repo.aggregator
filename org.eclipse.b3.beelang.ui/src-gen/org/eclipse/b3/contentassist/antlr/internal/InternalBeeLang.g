@@ -5152,39 +5152,39 @@ rule__Literal__Alternatives
     }
 :
 (
-{ before(grammarAccess.getLiteralAccess().getValueLiteralParserRuleCall_0()); }
-	ruleValueLiteral
-{ after(grammarAccess.getLiteralAccess().getValueLiteralParserRuleCall_0()); }
-)
-
-    |(
-{ before(grammarAccess.getLiteralAccess().getRegexpLiteralParserRuleCall_1()); }
-	ruleRegexpLiteral
-{ after(grammarAccess.getLiteralAccess().getRegexpLiteralParserRuleCall_1()); }
-)
-
-    |(
-{ before(grammarAccess.getLiteralAccess().getLiteralMapParserRuleCall_2()); }
-	ruleLiteralMap
-{ after(grammarAccess.getLiteralAccess().getLiteralMapParserRuleCall_2()); }
-)
-
-    |(
-{ before(grammarAccess.getLiteralAccess().getLiteralListParserRuleCall_3()); }
-	ruleLiteralList
-{ after(grammarAccess.getLiteralAccess().getLiteralListParserRuleCall_3()); }
-)
-
-    |(
-{ before(grammarAccess.getLiteralAccess().getLiteralFunctionParserRuleCall_4()); }
-	ruleLiteralFunction
-{ after(grammarAccess.getLiteralAccess().getLiteralFunctionParserRuleCall_4()); }
-)
-
-    |(
-{ before(grammarAccess.getLiteralAccess().getLiteralTypeParserRuleCall_5()); }
+{ before(grammarAccess.getLiteralAccess().getLiteralTypeParserRuleCall_0()); }
 	ruleLiteralType
-{ after(grammarAccess.getLiteralAccess().getLiteralTypeParserRuleCall_5()); }
+{ after(grammarAccess.getLiteralAccess().getLiteralTypeParserRuleCall_0()); }
+)
+
+    |(
+{ before(grammarAccess.getLiteralAccess().getValueLiteralParserRuleCall_1()); }
+	ruleValueLiteral
+{ after(grammarAccess.getLiteralAccess().getValueLiteralParserRuleCall_1()); }
+)
+
+    |(
+{ before(grammarAccess.getLiteralAccess().getRegexpLiteralParserRuleCall_2()); }
+	ruleRegexpLiteral
+{ after(grammarAccess.getLiteralAccess().getRegexpLiteralParserRuleCall_2()); }
+)
+
+    |(
+{ before(grammarAccess.getLiteralAccess().getLiteralMapParserRuleCall_3()); }
+	ruleLiteralMap
+{ after(grammarAccess.getLiteralAccess().getLiteralMapParserRuleCall_3()); }
+)
+
+    |(
+{ before(grammarAccess.getLiteralAccess().getLiteralListParserRuleCall_4()); }
+	ruleLiteralList
+{ after(grammarAccess.getLiteralAccess().getLiteralListParserRuleCall_4()); }
+)
+
+    |(
+{ before(grammarAccess.getLiteralAccess().getLiteralFunctionParserRuleCall_5()); }
+	ruleLiteralFunction
+{ after(grammarAccess.getLiteralAccess().getLiteralFunctionParserRuleCall_5()); }
 )
 
 ;

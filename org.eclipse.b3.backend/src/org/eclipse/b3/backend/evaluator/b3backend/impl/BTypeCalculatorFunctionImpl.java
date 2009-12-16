@@ -16,31 +16,30 @@ import java.lang.reflect.Type;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
-import org.eclipse.b3.backend.evaluator.b3backend.BLiteralType;
+import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculatorFunction;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>BLiteral Type</b></em>'.
+ * An implementation of the model object '<em><b>BType Calculator Function</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BLiteralTypeImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BTypeCalculatorFunctionImpl#getFunc <em>Func</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class BLiteralTypeImpl extends BExpressionImpl implements BLiteralType {
+public class BTypeCalculatorFunctionImpl extends BTypeCalculatorImpl implements BTypeCalculatorFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -49,21 +48,21 @@ public class BLiteralTypeImpl extends BExpressionImpl implements BLiteralType {
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
 
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
+	 * The cached value of the '{@link #getFunc() <em>Func</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getType()
+	 * @see #getFunc()
 	 * @generated
 	 * @ordered
 	 */
-	protected Type type;
+	protected BFunction func;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected BLiteralTypeImpl() {
+	protected BTypeCalculatorFunctionImpl() {
 		super();
 	}
 
@@ -74,7 +73,7 @@ public class BLiteralTypeImpl extends BExpressionImpl implements BLiteralType {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BLITERAL_TYPE;
+		return B3backendPackage.Literals.BTYPE_CALCULATOR_FUNCTION;
 	}
 
 	/**
@@ -82,23 +81,16 @@ public class BLiteralTypeImpl extends BExpressionImpl implements BLiteralType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Type getType() {
-		return type;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetType(Type newType, NotificationChain msgs) {
-		Type oldType = type;
-		type = newType;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BLITERAL_TYPE__TYPE, oldType, newType);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public BFunction getFunc() {
+		if (func != null && func.eIsProxy()) {
+			InternalEObject oldFunc = (InternalEObject)func;
+			func = (BFunction)eResolveProxy(oldFunc);
+			if (func != oldFunc) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.BTYPE_CALCULATOR_FUNCTION__FUNC, oldFunc, func));
+			}
 		}
-		return msgs;
+		return func;
 	}
 
 	/**
@@ -106,18 +98,8 @@ public class BLiteralTypeImpl extends BExpressionImpl implements BLiteralType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(Type newType) {
-		if (newType != type) {
-			NotificationChain msgs = null;
-			if (type != null)
-				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BLITERAL_TYPE__TYPE, null, msgs);
-			if (newType != null)
-				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BLITERAL_TYPE__TYPE, null, msgs);
-			msgs = basicSetType(newType, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BLITERAL_TYPE__TYPE, newType, newType));
+	public BFunction basicGetFunc() {
+		return func;
 	}
 
 	/**
@@ -125,13 +107,11 @@ public class BLiteralTypeImpl extends BExpressionImpl implements BLiteralType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case B3backendPackage.BLITERAL_TYPE__TYPE:
-				return basicSetType(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+	public void setFunc(BFunction newFunc) {
+		BFunction oldFunc = func;
+		func = newFunc;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BTYPE_CALCULATOR_FUNCTION__FUNC, oldFunc, func));
 	}
 
 	/**
@@ -142,8 +122,9 @@ public class BLiteralTypeImpl extends BExpressionImpl implements BLiteralType {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case B3backendPackage.BLITERAL_TYPE__TYPE:
-				return getType();
+			case B3backendPackage.BTYPE_CALCULATOR_FUNCTION__FUNC:
+				if (resolve) return getFunc();
+				return basicGetFunc();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -156,8 +137,8 @@ public class BLiteralTypeImpl extends BExpressionImpl implements BLiteralType {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case B3backendPackage.BLITERAL_TYPE__TYPE:
-				setType((Type)newValue);
+			case B3backendPackage.BTYPE_CALCULATOR_FUNCTION__FUNC:
+				setFunc((BFunction)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -171,8 +152,8 @@ public class BLiteralTypeImpl extends BExpressionImpl implements BLiteralType {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case B3backendPackage.BLITERAL_TYPE__TYPE:
-				setType((Type)null);
+			case B3backendPackage.BTYPE_CALCULATOR_FUNCTION__FUNC:
+				setFunc((BFunction)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -186,17 +167,20 @@ public class BLiteralTypeImpl extends BExpressionImpl implements BLiteralType {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case B3backendPackage.BLITERAL_TYPE__TYPE:
-				return type != null;
+			case B3backendPackage.BTYPE_CALCULATOR_FUNCTION__FUNC:
+				return func != null;
 		}
 		return super.eIsSet(featureID);
 	}
 	@Override
-	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		return type;
+	public Type getReturnTypeForParameterTypes(Type[] types,
+			BExecutionContext ctx) {
+			try {
+			return (Type)func.internalCall(ctx, new Object[] { types }, new Type[] { types.getClass()});
+			} catch(Throwable t) {
+				t.printStackTrace();
+			}
+		// TODO: NOT A VERY ROBUST SOLUTION
+		return null;
 	}
-	@Override
-	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
-		return type.getClass();
-	}
-} //BLiteralTypeImpl
+} //BTypeCalculatorFunctionImpl
