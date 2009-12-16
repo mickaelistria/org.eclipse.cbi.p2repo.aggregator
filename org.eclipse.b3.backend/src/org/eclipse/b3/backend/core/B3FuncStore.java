@@ -1,6 +1,5 @@
 package org.eclipse.b3.backend.core;
 
-import java.lang.reflect.GenericArrayType;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -12,6 +11,7 @@ import java.util.Set;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.BGuard;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 
 public class B3FuncStore {
@@ -74,7 +74,7 @@ public class B3FuncStore {
 		if(dirtyFunctions.contains(functionName))
 			updateCache(functionName);
 	
-		BFunction toBeCalled = getBestFunction(functionName, types);
+		BFunction toBeCalled = getBestFunction(functionName, parameters, types, ctx);
 		if(toBeCalled == null)
 			throw new B3NoSuchFunctionSignatureException(functionName, types);
 		return toBeCalled.internalCall(ctx.createOuterContext(), parameters, types); 
@@ -139,7 +139,7 @@ public class B3FuncStore {
 				return false;
 		return true;
 	}
-	private BFunction getBestFunction(String name, /*Object[] parameters,*/ Type[] types) throws B3EngineException {
+	private BFunction getBestFunction(String name, Object[] parameters, Type[] types, BExecutionContext ctx) throws B3EngineException {
 		List<BFunction> list = effective.get(name);
 		List<BFunction> candidates = null;
 		BFunction found = null;
@@ -198,12 +198,38 @@ public class B3FuncStore {
 			}
 		}
 		// all candidates found - now return best match
-		if(candidates == null) // if there was only one candidate
+		if(candidates == null) {// if there was only one candidate
+			BGuard guard = found.getGuard();
+			if(guard != null ) {
+				try {
+					if(guard.accepts(found, ctx, parameters, types))
+						return found;
+					throw new B3NotAcceptedByGuardException(name, types);
+				} catch (Throwable e) {
+					throw new B3EngineException("evaluation of guard ended with exception", e);
+				}
+			}
 			return found;
+		}
 		candidates.add(found); // to make it easier to process all
 		int best = Integer.MAX_VALUE;
 		BFunction bestFunc = null;
-		for(BFunction candidate : candidates) {
+		List<Throwable> exceptions = null;
+		eachCandidate: for(BFunction candidate : candidates) {
+			BGuard guard = candidate.getGuard();
+			if(guard != null ) {
+				try {
+					if(!guard.accepts(candidate, ctx, parameters, types))
+						continue eachCandidate;
+				} catch (Throwable e) {
+					if(exceptions == null) 
+						exceptions = new ArrayList<Throwable>();
+					exceptions.add(e);
+					e.printStackTrace();
+					continue eachCandidate;
+				}
+			}
+			
 			int distance = specificity(candidate, types);
 			if(distance < best) {
 				if(distance == 0)
@@ -212,6 +238,17 @@ public class B3FuncStore {
 				bestFunc = candidate;
 			}
 		}
+		
+		// TODO: HANDLE GUARD FAILURES DIFFERENTLY ? GIVE UP AT ONCE ?
+		if(bestFunc == null) {
+			if(exceptions != null)
+				throw new B3EngineException(
+						"evaluation of guard ended with exception(s) see stacktraces - showing first out of "
+						+ Integer.toString(exceptions.size()), 
+						exceptions.get(0));
+
+			throw new B3NotAcceptedByGuardException(name, types);
+		}	
 		return bestFunc;
 	}
 	/**
@@ -250,7 +287,16 @@ public class B3FuncStore {
 		if(dirtyFunctions.contains(functionName))
 			updateCache(functionName);
 	
-		BFunction toBeCalled = getBestFunction(functionName, types);
+		// TODO: CHEATING !!! When evaluating the type, the parameter values are not present.
+		// Most guards would only look at the types, but an instance guard actually cares. However,
+		// the important is to find the return type of the function. Guards needs to know that they will
+		// be called with all parameters set to null (i.e. they can't guard against that). A better typesystem
+		// solution is required. There are several bad situations (e.g. finding a function that when not instance 
+		// guarded is not found) - but no worse than where there are no guards :)
+		// TODO: TYPESYSTEM.
+		//
+		Object[] fakeParameters = new Object[types.length];
+		BFunction toBeCalled = getBestFunction(functionName, fakeParameters, types, ctx);
 		return toBeCalled.getReturnType(); 
 	}
 

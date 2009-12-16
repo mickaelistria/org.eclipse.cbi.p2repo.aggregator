@@ -125,6 +125,7 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 			case B3backendPackage.B3_FUNC_TYPE_VARIABLE: return createB3FuncTypeVariable();
 			case B3backendPackage.B3_JAVA_IMPORT: return createB3JavaImport();
 			case B3backendPackage.BLITERAL_TYPE: return createBLiteralType();
+			case B3backendPackage.BGUARD_FUNCTION: return createBGuardFunction();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -684,6 +685,16 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	public BLiteralType createBLiteralType() {
 		BLiteralTypeImpl bLiteralType = new BLiteralTypeImpl();
 		return bLiteralType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BGuardFunction createBGuardFunction() {
+		BGuardFunctionImpl bGuardFunction = new BGuardFunctionImpl();
+		return bGuardFunction;
 	}
 
 	/**

@@ -47,6 +47,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFileReference;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BGuard;
 import org.eclipse.b3.backend.evaluator.b3backend.BGuardExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BGuardFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BGuardInstance;
 import org.eclipse.b3.backend.evaluator.b3backend.BIfExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BInnerContext;
@@ -525,6 +526,13 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * @generated
 	 */
 	private EClass bLiteralTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bGuardFunctionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2108,6 +2116,24 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getBGuardFunction() {
+		return bGuardFunctionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBGuardFunction_Func() {
+		return (EReference)bGuardFunctionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getVisibility() {
 		return visibilityEEnum;
 	}
@@ -2491,6 +2517,9 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		bLiteralTypeEClass = createEClass(BLITERAL_TYPE);
 		createEReference(bLiteralTypeEClass, BLITERAL_TYPE__TYPE);
 
+		bGuardFunctionEClass = createEClass(BGUARD_FUNCTION);
+		createEReference(bGuardFunctionEClass, BGUARD_FUNCTION__FUNC);
+
 		// Create enums
 		visibilityEEnum = createEEnum(VISIBILITY);
 		executionModeEEnum = createEEnum(EXECUTION_MODE);
@@ -2594,6 +2623,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		b3FuncTypeVariableEClass.getEGenericSuperTypes().add(g1);
 		b3JavaImportEClass.getESuperTypes().add(this.getIType());
 		bLiteralTypeEClass.getESuperTypes().add(this.getBExpression());
+		bGuardFunctionEClass.getESuperTypes().add(this.getBGuard());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(bExpressionEClass, BExpression.class, "BExpression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2950,6 +2980,9 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 
 		initEClass(bLiteralTypeEClass, BLiteralType.class, "BLiteralType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBLiteralType_Type(), this.getIType(), null, "type", null, 0, 1, BLiteralType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(bGuardFunctionEClass, BGuardFunction.class, "BGuardFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBGuardFunction_Func(), this.getBFunction(), null, "func", null, 0, 1, BGuardFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(visibilityEEnum, Visibility.class, "Visibility");

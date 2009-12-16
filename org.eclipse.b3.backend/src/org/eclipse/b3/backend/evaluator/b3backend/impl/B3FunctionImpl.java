@@ -197,7 +197,6 @@ public class B3FunctionImpl extends BFunctionImpl implements B3Function {
 	 * Function starts by binding the parameters to declared parameter names.
 	 * Function body is then evaluated and returned.
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public Object internalCall(BExecutionContext octx, Object[] parameters, Type[] types) throws Throwable {
 		computeParameters();

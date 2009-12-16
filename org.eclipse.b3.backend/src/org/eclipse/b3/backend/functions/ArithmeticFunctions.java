@@ -1,6 +1,11 @@
 package org.eclipse.b3.backend.functions;
 
+import java.lang.reflect.Type;
+import java.math.BigDecimal;
+
 import org.eclipse.b3.backend.core.B3Backend;
+import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
+import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 
 public class ArithmeticFunctions {
 
@@ -135,7 +140,7 @@ public class ArithmeticFunctions {
 					+","+ b.getClass().toString());
 	}
 
-	@B3Backend (funcNames={"&"})
+	@B3Backend (funcNames={"&"}, guardFunction="denyFloatingPointGuard")
 	public static Number bitwiseAnd(Number a, Number b) {
 		if(!(a instanceof Double || b instanceof Double || a instanceof Float || b instanceof Float)) {
 			if(a instanceof Long || b instanceof Long)
@@ -253,4 +258,15 @@ public class ArithmeticFunctions {
 					+a.getClass().toString());
 	}
 	
+	@B3Backend(guard=true)
+	public static Boolean denyFloatingPointGuard(BExecutionContext ctx, Object[] parameters, Type[] types) {
+		if(types == null)
+			return Boolean.TRUE; // don't mind no parameters 
+		for(int i = 0; i < types.length; i++) {
+			Class<?> clazz = TypeUtils.getRaw(types[i]);
+			if(clazz == Float.class || clazz == Double.class || clazz == BigDecimal.class)
+				return Boolean.FALSE;
+		}
+		return Boolean.TRUE;
+	}
 }

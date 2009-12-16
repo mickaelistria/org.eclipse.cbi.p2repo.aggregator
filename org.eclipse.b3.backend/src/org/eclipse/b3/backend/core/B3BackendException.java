@@ -1,6 +1,5 @@
 package org.eclipse.b3.backend.core;
 import org.eclipse.b3.provisional.core.BuildException;
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IStatus;
 
 
@@ -10,9 +9,9 @@ public class B3BackendException extends BuildException{
 	protected B3BackendException(IStatus status) {
 		super(status);
 	}
-	public static CoreException fromMessage(String file, int line, Throwable cause, String message, Object... args)
+	public static B3BackendException fromMessage(String file, int line, Throwable cause, String message, Object... args)
 	{
-		CoreException ce = new B3BackendException(createStatus(cause, fileMsg(file, line)+message, args));
+		B3BackendException ce = new B3BackendException(createStatus(cause, fileMsg(file, line)+message, args));
 		if(cause != null)
 			ce.initCause(cause);
 		return ce;

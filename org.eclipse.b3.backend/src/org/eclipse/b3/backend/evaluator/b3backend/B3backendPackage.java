@@ -3243,6 +3243,34 @@ public interface B3backendPackage extends EPackage {
 	int BLITERAL_TYPE_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BGuardFunctionImpl <em>BGuard Function</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BGuardFunctionImpl
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBGuardFunction()
+	 * @generated
+	 */
+	int BGUARD_FUNCTION = 60;
+
+	/**
+	 * The feature id for the '<em><b>Func</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BGUARD_FUNCTION__FUNC = BGUARD_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>BGuard Function</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BGUARD_FUNCTION_FEATURE_COUNT = BGUARD_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.Visibility <em>Visibility</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3250,7 +3278,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getVisibility()
 	 * @generated
 	 */
-	int VISIBILITY = 60;
+	int VISIBILITY = 61;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode <em>Execution Mode</em>}' enum.
@@ -3260,7 +3288,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getExecutionMode()
 	 * @generated
 	 */
-	int EXECUTION_MODE = 61;
+	int EXECUTION_MODE = 62;
 
 	/**
 	 * The meta object id for the '<em>Core Exception</em>' data type.
@@ -3270,7 +3298,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getCoreException()
 	 * @generated
 	 */
-	int CORE_EXCEPTION = 62;
+	int CORE_EXCEPTION = 63;
 
 
 	/**
@@ -3281,7 +3309,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 63;
+	int TYPE = 64;
 
 	/**
 	 * The meta object id for the '<em>Object Array</em>' data type.
@@ -3290,7 +3318,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getObjectArray()
 	 * @generated
 	 */
-	int OBJECT_ARRAY = 64;
+	int OBJECT_ARRAY = 65;
 
 
 	/**
@@ -3301,7 +3329,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getValueMap()
 	 * @generated
 	 */
-	int VALUE_MAP = 65;
+	int VALUE_MAP = 66;
 
 
 	/**
@@ -3312,7 +3340,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3EngineException()
 	 * @generated
 	 */
-	int B3_ENGINE_EXCEPTION = 66;
+	int B3_ENGINE_EXCEPTION = 67;
 
 
 	/**
@@ -3323,7 +3351,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3ExpressionCache()
 	 * @generated
 	 */
-	int B3_EXPRESSION_CACHE = 67;
+	int B3_EXPRESSION_CACHE = 68;
 
 
 	/**
@@ -3334,7 +3362,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getThrowable()
 	 * @generated
 	 */
-	int THROWABLE = 68;
+	int THROWABLE = 69;
 
 	/**
 	 * The meta object id for the '<em>LValue</em>' data type.
@@ -3344,7 +3372,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getLValue()
 	 * @generated
 	 */
-	int LVALUE = 69;
+	int LVALUE = 70;
 
 	/**
 	 * The meta object id for the '<em>Type Array</em>' data type.
@@ -3353,7 +3381,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getTypeArray()
 	 * @generated
 	 */
-	int TYPE_ARRAY = 70;
+	int TYPE_ARRAY = 71;
 
 	/**
 	 * The meta object id for the '<em>Method</em>' data type.
@@ -3363,7 +3391,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getMethod()
 	 * @generated
 	 */
-	int METHOD = 71;
+	int METHOD = 72;
 
 	/**
 	 * The meta object id for the '<em>Type Variable Array</em>' data type.
@@ -3372,7 +3400,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getTypeVariableArray()
 	 * @generated
 	 */
-	int TYPE_VARIABLE_ARRAY = 72;
+	int TYPE_VARIABLE_ARRAY = 73;
 
 	/**
 	 * The meta object id for the '<em>Func Store</em>' data type.
@@ -3382,7 +3410,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getFuncStore()
 	 * @generated
 	 */
-	int FUNC_STORE = 73;
+	int FUNC_STORE = 74;
 
 	/**
 	 * The meta object id for the '<em>Regexp Pattern</em>' data type.
@@ -3392,7 +3420,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getRegexpPattern()
 	 * @generated
 	 */
-	int REGEXP_PATTERN = 74;
+	int REGEXP_PATTERN = 75;
 
 	/**
 	 * The meta object id for the '<em>String Array</em>' data type.
@@ -3401,7 +3429,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getStringArray()
 	 * @generated
 	 */
-	int STRING_ARRAY = 75;
+	int STRING_ARRAY = 76;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BExpression <em>BExpression</em>}'.
@@ -5065,6 +5093,27 @@ public interface B3backendPackage extends EPackage {
 	EReference getBLiteralType_Type();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BGuardFunction <em>BGuard Function</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>BGuard Function</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BGuardFunction
+	 * @generated
+	 */
+	EClass getBGuardFunction();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BGuardFunction#getFunc <em>Func</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Func</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BGuardFunction#getFunc()
+	 * @see #getBGuardFunction()
+	 * @generated
+	 */
+	EReference getBGuardFunction_Func();
+
+	/**
 	 * Returns the meta object for enum '{@link org.eclipse.b3.backend.evaluator.b3backend.Visibility <em>Visibility</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6623,6 +6672,24 @@ public interface B3backendPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BLITERAL_TYPE__TYPE = eINSTANCE.getBLiteralType_Type();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BGuardFunctionImpl <em>BGuard Function</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BGuardFunctionImpl
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBGuardFunction()
+		 * @generated
+		 */
+		EClass BGUARD_FUNCTION = eINSTANCE.getBGuardFunction();
+
+		/**
+		 * The meta object literal for the '<em><b>Func</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BGUARD_FUNCTION__FUNC = eINSTANCE.getBGuardFunction_Func();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.Visibility <em>Visibility</em>}' enum.

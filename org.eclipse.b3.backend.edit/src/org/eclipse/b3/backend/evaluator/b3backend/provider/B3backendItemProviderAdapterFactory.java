@@ -1164,6 +1164,29 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BGuardFunction} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BGuardFunctionItemProvider bGuardFunctionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BGuardFunction}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBGuardFunctionAdapter() {
+		if (bGuardFunctionItemProvider == null) {
+			bGuardFunctionItemProvider = new BGuardFunctionItemProvider(this);
+		}
+
+		return bGuardFunctionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1309,6 +1332,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 		if (b3FuncTypeVariableItemProvider != null) b3FuncTypeVariableItemProvider.dispose();
 		if (b3JavaImportItemProvider != null) b3JavaImportItemProvider.dispose();
 		if (bLiteralTypeItemProvider != null) bLiteralTypeItemProvider.dispose();
+		if (bGuardFunctionItemProvider != null) bGuardFunctionItemProvider.dispose();
 	}
 
 }

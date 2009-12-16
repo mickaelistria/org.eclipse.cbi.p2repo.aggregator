@@ -457,6 +457,15 @@ public interface B3backendFactory extends EFactory {
 	BLiteralType createBLiteralType();
 
 	/**
+	 * Returns a new object of class '<em>BGuard Function</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>BGuard Function</em>'.
+	 * @generated
+	 */
+	BGuardFunction createBGuardFunction();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

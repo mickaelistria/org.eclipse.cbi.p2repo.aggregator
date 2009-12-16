@@ -455,4 +455,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//IType"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BGuardFunction" eSuperTypes="#//BGuard">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="func" eType="#//BFunction"/>
+  </eClassifiers>
 </ecore:EPackage>
