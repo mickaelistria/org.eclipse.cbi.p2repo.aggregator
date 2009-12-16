@@ -1,0 +1,14 @@
+import java.lang.Object;
+import java.util.List;
+import java.lang.Exception;
+function Object main(List argv) {
+	testGuard();
+}
+
+function Object testGuard() {
+	// system function bitwiseAnd has a guard on Number not being floating point
+	Object x = try 3.0.bitwiseAnd(1.0) catch Exception e: 1 endtry;
+	assertEquals("Exception should have been caught", 1, x);
+	
+	assertEquals("Should not throw exception", 3, 7.bitwiseAnd(3));
+}

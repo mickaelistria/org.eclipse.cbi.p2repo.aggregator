@@ -1,0 +1,19 @@
+import java.lang.Object;
+import java.lang.Integer;
+import java.util.List;
+import java.lang.Exception;
+
+function Object main(List argv) {
+	testVal();
+}
+function Object testVar() {
+}
+
+function Object testVal() {
+	val x = 10;
+	val Integer y = 10;
+	
+	Integer z = try x = 5 catch Exception e: 0 endtry;
+	assertEquals("x should not have changed", 10, x);
+	assertEquals("assignment to val should have thrown exception", 0, z);
+}
