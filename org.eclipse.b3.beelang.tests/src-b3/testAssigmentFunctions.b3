@@ -1,7 +1,6 @@
 import java.lang.Object;
 import java.util.List;
 import java.lang.Number;
-import java.lang.List;
 import java.util.Map;
 import java.lang.String;
 
@@ -78,13 +77,6 @@ function Object testAssignmentFunctions() {
 	assertEquals("x = 5; x /= 2; x == 2", 2, {x = 5; x /= 2; x;});
 	assertEquals("x = 10; x %= 3; x == 1", 1, {x = 10; x %= 3; x;});
 	
-	assertEquals("x = 0x1; x |= 0x2; x == 0x3", 0x3, {x = 0x1; x |= 0x2; x;});
-	assertEquals("x = 0x7; x &= 0x2; x == 0x2", 0x2, {x = 0x7; x &= 0x2; x;});
-	assertEquals("x = 0x2; x ^= 0x1; x == 0x3", 0x3, {x = 0x2; x ^= 0x1; x;});
-	assertEquals("x = 0x4; x >>= 0x1; x == 0x2", 0x2, {x = 0x4; x >>= 0x1; x;});
-	assertEquals("x = 0x2; x <<= 0x1; x == 0x4", 0x4, {x = 0x2; x <<= 0x1; x;});
-	assertEquals("x = 0x4; x >>>= 0x1; x == 0x2", 0x2, {x = 0x4; x >>>= 0x1; x;});
-	assertEquals("x = -0x4; x >>>= 0x1; x == 9223372036854775806", 9223372036854775806, {x = -0x4; x >>>= 0x1; x;});	
 }
 function Object testListAssignment() {
 	List<Number> x = [<Number> 1, 2, 3];
