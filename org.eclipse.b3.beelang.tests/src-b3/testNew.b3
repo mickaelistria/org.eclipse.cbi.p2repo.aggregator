@@ -1,2 +1,14 @@
 // TODO: Test new Type(parameters) { with... }
 // TODO: Test new model::class (parameters?)
+import java.util.List;
+import java.lang.StringBuffer;
+
+function main(List argv) {
+	testNew();
+}
+function testNew() {
+	var x = new StringBuffer();
+	x.append("hello");
+	assertEquals("string buffer and string compare", "hello", x);
+	assertEquals("converting buffer to string & compare", "hello", x.toString());
+}
