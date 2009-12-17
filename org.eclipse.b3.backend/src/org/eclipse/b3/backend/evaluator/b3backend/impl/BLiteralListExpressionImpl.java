@@ -240,7 +240,7 @@ public class BLiteralListExpressionImpl extends BExpressionImpl implements BLite
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 		Type t = entryType == null ? Object.class : entryType;
-		List<Object> list = new ArrayList<Object>(entries.size());
+		List<Object> list = new ArrayList<Object>(getEntries().size());
 		int counter = 0;
 		for(BExpression expr : entries) {
 			Object result = expr.evaluate(ctx);
