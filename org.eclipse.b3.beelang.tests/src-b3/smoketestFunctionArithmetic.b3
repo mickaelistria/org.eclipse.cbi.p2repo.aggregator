@@ -1,9 +1,8 @@
-import java.lang.Object;
 import java.util.List;
 import java.lang.Number;
 
-/**
-* Assert that method returns a Double value of 2.0
-*/
-function Object main(List argv) : 10 -(add(1,2,7) + add(1.0, 2.0, 3.0)) * 2 / 4;
+function main(List argv) : testArithmeticSmokeTest() ;
+function testArithmeticSmokeTest() :
+	assertEquals("Arithmetic expression", 2.0, 10 -(add(1,2,7) + add(1.0, 2.0, 3.0)) * 2 / 4);
+	
 function Number add(Number a, Number b, Number c) : a + b + c;
