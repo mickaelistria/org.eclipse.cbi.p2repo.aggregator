@@ -1,9 +1,8 @@
 package org.eclipse.b3.backend.functions;
 
 import java.lang.reflect.Type;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 import org.eclipse.b3.backend.core.B3Backend;
@@ -66,6 +65,39 @@ public class RelationalFunctions {
 		}
 		return Boolean.TRUE;
 	}
+	@B3Backend(funcNames={"=="}, systemFunction="_mapEquals")
+	public static Boolean equals(@B3Backend(name="op1") Map<?,?> left, @B3Backend(name="op2")Map<?,?> right) 
+	{ return null; }
+	
+	@B3Backend(system=true)
+	public static Object _mapEquals(BExecutionContext ctx, Object[] params, Type[] types) throws Throwable {
+		Map<?,?> left = (Map<?,?>)params[0];
+		Map<?,?> right = (Map<?,?>)params[1];
+		if(left == right)
+			return Boolean.TRUE;
+		if(left == null || right == null)
+			return Boolean.FALSE;
+		if(left.size() != right.size())
+			return Boolean.FALSE;
+		try {
+			if(left.equals(right))
+				return Boolean.TRUE;
+		} catch(ClassCastException e) {
+			// ignore and compare using different method
+		}
+		Object p[] = new Object[2];
+		Type t[] = new Type[2];
+		for(Object k : left.keySet()) {
+			p[0] = left.get(k);
+			p[1] = right.get(k);
+			t[0] = p[0].getClass();
+			t[1] = p[1].getClass();
+			if(ctx.callFunction("equals", p, t) != Boolean.TRUE)
+				return Boolean.FALSE;
+		}
+		return Boolean.TRUE;
+	}
+
 	@SuppressWarnings("unchecked")
 	@B3Backend(funcNames={"=="})
 	public static Boolean equals(Number a, Number b) {
