@@ -11,7 +11,6 @@
 
 package org.eclipse.b3.internal.core;
 import org.eclipse.b3.provisional.core.ILogger;
-import org.eclipse.buckminster.runtime.Logger;
 import org.eclipse.osgi.util.NLS;
 import org.osgi.framework.Bundle;
 

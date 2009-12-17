@@ -5,6 +5,8 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 
 import org.eclipse.b3.backend.core.B3Backend;
+import org.eclipse.b3.backend.core.DoubleSequence;
+import org.eclipse.b3.backend.core.IntegerSequence;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 
@@ -276,6 +278,40 @@ public class ArithmeticFunctions {
 					+a.getClass().toString());
 	}
 	
+	@B3Backend(funcNames="..")
+	public static IntegerSequence integerSequence(
+			@B3Backend(name="from") Integer from, 
+			@B3Backend(name="to") Integer to) {
+		return new IntegerSequence(from, to);
+	}
+	
+	public static IntegerSequence integerSequence(
+			@B3Backend(name="from") Integer from, 
+			@B3Backend(name="to") Integer to,
+			@B3Backend(name="to") Integer step,
+			@B3Backend(name="fromInclusive") Boolean fromInclusive,
+			@B3Backend(name="toInclusive") Boolean toInclusive
+			) {
+		return new IntegerSequence(from, to, step, fromInclusive, toInclusive);
+	}
+	
+	@B3Backend(funcNames="..")
+	public static DoubleSequence doubleSequence(
+			@B3Backend(name="from") Double from, 
+			@B3Backend(name="to") Double to) {
+		return new DoubleSequence(from, to);
+	}
+
+	public static DoubleSequence doubleSequence(
+		@B3Backend(name="from") Double from, 
+		@B3Backend(name="to") Double to,
+		@B3Backend(name="to") Double step,
+		@B3Backend(name="fromInclusive") Boolean fromInclusive,
+		@B3Backend(name="toInclusive") Boolean toInclusive
+		) {
+		return new DoubleSequence(from, to, step, fromInclusive, toInclusive);
+	}
+	
 	@B3Backend (guard=true)
 	public static Boolean permitIntegralOnlyGuard(BExecutionContext ctx, Object[] parameters, Type[] types) {
 		if(types == null)
@@ -326,18 +362,15 @@ public class ArithmeticFunctions {
 		return Number.class;
 	}
 
-	private static boolean trueWithSideEffect(Object ignored)
-	{
+	private static boolean trueWithSideEffect(Object ignored) {
 		return true;
 	}
 
-	private static BigInteger convertToBigIntegerIfNeeded(Number n)
-	{
+	private static BigInteger convertToBigIntegerIfNeeded(Number n) {
 		return (n instanceof BigInteger) ? (BigInteger)n : convertToBigInteger(n);
 	}
 
-	private static BigInteger convertToBigInteger(Number n)
-	{
+	private static BigInteger convertToBigInteger(Number n) {
 		return BigInteger.valueOf(n.longValue());
 	}
 }
