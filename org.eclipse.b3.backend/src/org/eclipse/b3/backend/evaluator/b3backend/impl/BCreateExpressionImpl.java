@@ -23,7 +23,6 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -356,15 +355,45 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 		EList<BParameter> pList = getParameterList().getParameters();
-		Class<?>[] pClasses = new Class[pList.size()];
+		Class<?>[] parameterTypes = new Class[pList.size()];
 		int counter = 0;
 		for(BParameter p : pList)
-			pClasses[counter++] = TypeUtils.getRaw(p.getExpr().getDeclaredType(ctx));
+			parameterTypes[counter++] = TypeUtils.getRaw(p.getExpr().getDeclaredType(ctx));
 		Type type = (Type)typeExpr.evaluate(ctx);
-		Constructor<?> ctor = TypeUtils.getRaw(type).getConstructor(pClasses);
+		Constructor<?> ctor = null;
+		try {
+		ctor = TypeUtils.getRaw(type).getConstructor(parameterTypes);
+		} catch (NoSuchMethodException e) {
+			// try with boxed parameters
+			// may need to lookup using primitive types for int, long, boolean
+			for(int i = 0; i < parameterTypes.length;i++)
+				{
+				Class<?> t = parameterTypes[i];
+				if(t == Integer.class) 
+					parameterTypes[i] = int.class;
+				else if (t == Long.class) 
+					parameterTypes[i] = long.class;
+				else if(t == Double.class) 
+					parameterTypes[i] = double.class;
+				else if(t == Float.class)
+					parameterTypes[i] = float.class;
+				else if(t == Boolean.class) 
+					parameterTypes[i] = boolean.class;
+				}
+			// try again, but give up if it did not work.
+			ctor = TypeUtils.getRaw(type).getConstructor(parameterTypes);
+			
+		}
 		if(ctor == null)
 			throw new B3NoSuchFunctionException("new");
-		return ctor.newInstance(pList.toArray());
+		Object[] parameters = new Object[pList.size()];
+		counter = 0;
+		for(BParameter p : pList)
+			parameters[counter++] = p.getExpr().evaluate(ctx);
+		if(parameters.length == 1)
+			return ctor.newInstance(parameters[0]);
+		
+		return ctor.newInstance(parameters);
 	}
 	@Override
 	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
