@@ -6,6 +6,7 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.tests;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 
 import junit.framework.AssertionFailedError;
@@ -15,6 +16,8 @@ import org.eclipse.b3.backend.core.B3Engine;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
+import org.eclipse.b3.backend.evaluator.b3backend.BLiteralType;
+import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 
 /**
  * <!-- begin-user-doc -->
@@ -90,7 +93,9 @@ public class BCreateExpressionTest extends BParameterizedExpressionTest {
 			
 			BCreateExpression newcall = b3.createBCreateExpression();
 			newcall.setAlias("a"); // TODO: Test alias handling
-			newcall.setType(HashMap.class);
+			BLiteralType literalType = b3.createBLiteralType();
+			literalType.setType(HashMap.class);
+			newcall.setTypeExpr(literalType);
 			assertTrue("Should have been a hash map.", newcall.evaluate(ctx).getClass() == HashMap.class);
 		} catch (AssertionFailedError e) {
 			throw e;
@@ -112,8 +117,11 @@ public class BCreateExpressionTest extends BParameterizedExpressionTest {
 			
 			BCreateExpression newcall = b3.createBCreateExpression();
 			newcall.setAlias("a"); // TODO: Test alias handling
-			newcall.setType(HashMap.class);
-			assertTrue("Should have been a hash map.", newcall.getDeclaredType(ctx) == HashMap.class);
+			BLiteralType literalType = b3.createBLiteralType();
+			literalType.setType(HashMap.class);
+			newcall.setTypeExpr(literalType);
+			Type result = newcall.getDeclaredType(ctx);
+			assertTrue("Should have been a hash map.",  TypeUtils.getRaw(result) == HashMap.class);
 		} catch (AssertionFailedError e) {
 			throw e;
 		} catch (Throwable t) {

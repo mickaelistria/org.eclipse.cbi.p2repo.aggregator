@@ -97,6 +97,32 @@ public class RelationalFunctions {
 		}
 		return Boolean.TRUE;
 	}
+	@B3Backend(funcNames={"=="}, systemFunction="_charSequenceEquals")
+	public static Boolean equals(@B3Backend(name="op1") CharSequence left, @B3Backend(name="op2")CharSequence right) 
+	{ return null; }
+	
+	@B3Backend(system=true)
+	public static Boolean _charSequenceEquals(BExecutionContext ctx, Object[] params, Type[] types) throws Throwable {
+		CharSequence left = (CharSequence)params[0];
+		CharSequence right = (CharSequence)params[1];
+		if(left == right)
+			return Boolean.TRUE;
+		if(left == null || right == null)
+			return Boolean.FALSE;
+		if(left.length() != right.length())
+			return Boolean.FALSE;
+		try {
+			if(left.equals(right)) // works if both have the same class
+				return Boolean.TRUE;
+		} catch(ClassCastException e) {
+			// ignore and compare using different method
+		}
+		for(int i = 0; i < left.length();i++)
+			if(left.charAt(i) != right.charAt(i))
+				return Boolean.FALSE;
+		
+		return Boolean.TRUE;
+	}
 
 	@SuppressWarnings("unchecked")
 	@B3Backend(funcNames={"=="})
@@ -124,9 +150,14 @@ public class RelationalFunctions {
 		return Boolean.FALSE;
 	}
 
-	@B3Backend(funcNames={"!="})
-	public static Boolean notEquals(Object left, Object right) {
-		return equals(left,right) == Boolean.TRUE ? Boolean.FALSE : Boolean.TRUE;
+	@B3Backend(funcNames={"!="}, systemFunction="_notEquals")
+	public static Boolean notEquals(Object left, Object right) { return null; }
+	
+	@B3Backend(system=true)
+	public static Object _notEquals(BExecutionContext ctx, Object[] params, Type[] types) throws Throwable {
+		if(ctx.callFunction("equals", params, types) == Boolean.FALSE)
+			return Boolean.TRUE;
+		return Boolean.FALSE;
 	}
 
 	@B3Backend(funcNames={"===", "eq"}, hideOriginal=true)

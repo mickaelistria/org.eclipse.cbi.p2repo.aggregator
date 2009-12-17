@@ -1385,15 +1385,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBCreateExpression_Type() {
-		return (EReference)bCreateExpressionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getBCreateExpression_ContextBlock() {
 		return (EReference)bCreateExpressionEClass.getEStructuralFeatures().get(2);
 	}
@@ -1405,6 +1396,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 */
 	public EAttribute getBCreateExpression_Alias() {
 		return (EAttribute)bCreateExpressionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBCreateExpression_TypeExpr() {
+		return (EReference)bCreateExpressionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2457,7 +2457,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 
 		bCreateExpressionEClass = createEClass(BCREATE_EXPRESSION);
 		createEAttribute(bCreateExpressionEClass, BCREATE_EXPRESSION__ALIAS);
-		createEReference(bCreateExpressionEClass, BCREATE_EXPRESSION__TYPE);
+		createEReference(bCreateExpressionEClass, BCREATE_EXPRESSION__TYPE_EXPR);
 		createEReference(bCreateExpressionEClass, BCREATE_EXPRESSION__CONTEXT_BLOCK);
 
 		bFunctionEClass = createEClass(BFUNCTION);
@@ -2890,7 +2890,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 
 		initEClass(bCreateExpressionEClass, BCreateExpression.class, "BCreateExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBCreateExpression_Alias(), ecorePackage.getEString(), "alias", null, 0, 1, BCreateExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBCreateExpression_Type(), this.getIType(), null, "type", null, 0, 1, BCreateExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBCreateExpression_TypeExpr(), this.getBExpression(), null, "typeExpr", null, 0, 1, BCreateExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBCreateExpression_ContextBlock(), this.getBExpression(), null, "contextBlock", null, 0, 1, BCreateExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bFunctionEClass, BFunction.class, "BFunction", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

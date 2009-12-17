@@ -5185,8 +5185,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cBCreateExpressionAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cNewKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cTypeTypeRefParserRuleCall_2_0 = (RuleCall)cTypeAssignment_2.eContents().get(0);
+		private final Assignment cTypeExprAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cTypeExprLiteralTypeParserRuleCall_2_0 = (RuleCall)cTypeExprAssignment_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cLeftParenthesisKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cParameterListAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
@@ -5200,12 +5200,12 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cContextBlockContextBlockParserRuleCall_5_0 = (RuleCall)cContextBlockAssignment_5.eContents().get(0);
 		
 		//ConstructorCallExpression returns be::BExpression:
-		//  {be::BCreateExpression} "new" type=TypeRef ("(" parameterList=ParameterList? ")")? (
-		//  "as" alias=ID)? contextBlock=ContextBlock?;
+		//  {be::BCreateExpression} "new" typeExpr=LiteralType ("(" parameterList=ParameterList?
+		//  ")")? ("as" alias=ID)? contextBlock=ContextBlock?;
 		public ParserRule getRule() { return rule; }
 
-		//{be::BCreateExpression} "new" type=TypeRef ("(" parameterList=ParameterList? ")")? (
-		//"as" alias=ID)? contextBlock=ContextBlock?
+		//{be::BCreateExpression} "new" typeExpr=LiteralType ("(" parameterList=ParameterList?
+		//")")? ("as" alias=ID)? contextBlock=ContextBlock?
 		public Group getGroup() { return cGroup; }
 
 		//{be::BCreateExpression}
@@ -5214,11 +5214,11 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//"new"
 		public Keyword getNewKeyword_1() { return cNewKeyword_1; }
 
-		//type=TypeRef
-		public Assignment getTypeAssignment_2() { return cTypeAssignment_2; }
+		//typeExpr=LiteralType
+		public Assignment getTypeExprAssignment_2() { return cTypeExprAssignment_2; }
 
-		//TypeRef
-		public RuleCall getTypeTypeRefParserRuleCall_2_0() { return cTypeTypeRefParserRuleCall_2_0; }
+		//LiteralType
+		public RuleCall getTypeExprLiteralTypeParserRuleCall_2_0() { return cTypeExprLiteralTypeParserRuleCall_2_0; }
 
 		//("(" parameterList=ParameterList? ")")?
 		public Group getGroup_3() { return cGroup_3; }
@@ -8618,8 +8618,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ConstructorCallExpression returns be::BExpression:
-	//  {be::BCreateExpression} "new" type=TypeRef ("(" parameterList=ParameterList? ")")? (
-	//  "as" alias=ID)? contextBlock=ContextBlock?;
+	//  {be::BCreateExpression} "new" typeExpr=LiteralType ("(" parameterList=ParameterList?
+	//  ")")? ("as" alias=ID)? contextBlock=ContextBlock?;
 	public ConstructorCallExpressionElements getConstructorCallExpressionAccess() {
 		return (pConstructorCallExpression != null) ? pConstructorCallExpression : (pConstructorCallExpression = new ConstructorCallExpressionElements());
 	}

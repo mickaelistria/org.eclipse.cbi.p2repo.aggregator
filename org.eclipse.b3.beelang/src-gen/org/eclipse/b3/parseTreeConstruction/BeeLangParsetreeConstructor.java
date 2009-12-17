@@ -22567,13 +22567,13 @@ protected class OperationCall_RightParenthesisKeyword_4 extends KeywordToken  {
 /************ begin Rule ConstructorCallExpression ****************
  *
  * ConstructorCallExpression returns be::BExpression:
- *   {be::BCreateExpression} "new" type=TypeRef ("(" parameterList=ParameterList? ")")? (
- *   "as" alias=ID)? contextBlock=ContextBlock?;
+ *   {be::BCreateExpression} "new" typeExpr=LiteralType ("(" parameterList=ParameterList?
+ *   ")")? ("as" alias=ID)? contextBlock=ContextBlock?;
  *
  **/
 
-// {be::BCreateExpression} "new" type=TypeRef ("(" parameterList=ParameterList? ")")? (
-// "as" alias=ID)? contextBlock=ContextBlock?
+// {be::BCreateExpression} "new" typeExpr=LiteralType ("(" parameterList=ParameterList?
+// ")")? ("as" alias=ID)? contextBlock=ContextBlock?
 protected class ConstructorCallExpression_Group extends GroupToken {
 	
 	public ConstructorCallExpression_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -22591,7 +22591,7 @@ protected class ConstructorCallExpression_Group extends GroupToken {
 			case 0: return new ConstructorCallExpression_ContextBlockAssignment_5(parent, this, 0, inst);
 			case 1: return new ConstructorCallExpression_Group_4(parent, this, 1, inst);
 			case 2: return new ConstructorCallExpression_Group_3(parent, this, 2, inst);
-			case 3: return new ConstructorCallExpression_TypeAssignment_2(parent, this, 3, inst);
+			case 3: return new ConstructorCallExpression_TypeExprAssignment_2(parent, this, 3, inst);
 			default: return null;
 		}	
 	}	
@@ -22653,35 +22653,35 @@ protected class ConstructorCallExpression_NewKeyword_1 extends KeywordToken  {
 		
 }
 
-// type=TypeRef
-protected class ConstructorCallExpression_TypeAssignment_2 extends AssignmentToken  {
+// typeExpr=LiteralType
+protected class ConstructorCallExpression_TypeExprAssignment_2 extends AssignmentToken  {
 	
-	public ConstructorCallExpression_TypeAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ConstructorCallExpression_TypeExprAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getConstructorCallExpressionAccess().getTypeAssignment_2();
+		return grammarAccess.getConstructorCallExpressionAccess().getTypeExprAssignment_2();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new TypeRef_Alternatives(this, this, 0, inst);
+			case 0: return new LiteralType_Group(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
 		
     @Override	
 	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("type",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("type");
+		if((value = current.getConsumable("typeExpr",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("typeExpr");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getTypeRefRule().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getLiteralTypeRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getConstructorCallExpressionAccess().getTypeTypeRefParserRuleCall_2_0(); 
+				element = grammarAccess.getConstructorCallExpressionAccess().getTypeExprLiteralTypeParserRuleCall_2_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -22736,7 +22736,7 @@ protected class ConstructorCallExpression_LeftParenthesisKeyword_3_0 extends Key
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ConstructorCallExpression_TypeAssignment_2(parent, this, 0, inst);
+			case 0: return new ConstructorCallExpression_TypeExprAssignment_2(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -22851,7 +22851,7 @@ protected class ConstructorCallExpression_AsKeyword_4_0 extends KeywordToken  {
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
 			case 0: return new ConstructorCallExpression_Group_3(parent, this, 0, inst);
-			case 1: return new ConstructorCallExpression_TypeAssignment_2(parent, this, 1, inst);
+			case 1: return new ConstructorCallExpression_TypeExprAssignment_2(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -22935,7 +22935,7 @@ protected class ConstructorCallExpression_ContextBlockAssignment_5 extends Assig
 		switch(index) {
 			case 0: return new ConstructorCallExpression_Group_4(parent, next, actIndex, consumed);
 			case 1: return new ConstructorCallExpression_Group_3(parent, next, actIndex, consumed);
-			case 2: return new ConstructorCallExpression_TypeAssignment_2(parent, next, actIndex, consumed);
+			case 2: return new ConstructorCallExpression_TypeExprAssignment_2(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	

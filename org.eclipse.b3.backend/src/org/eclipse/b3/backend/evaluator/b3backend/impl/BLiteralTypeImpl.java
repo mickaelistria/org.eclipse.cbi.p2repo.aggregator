@@ -14,6 +14,8 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import java.lang.reflect.Type;
 
+import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
+import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralType;
@@ -104,9 +106,14 @@ public class BLiteralTypeImpl extends BExpressionImpl implements BLiteralType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void setType(Type newType) {
+		if(!(newType instanceof EObject)) {
+			B3ParameterizedType t = B3backendFactory.eINSTANCE.createB3ParameterizedType();
+			t.setRawType(newType);
+			newType = t;
+		}
 		if (newType != type) {
 			NotificationChain msgs = null;
 			if (type != null)

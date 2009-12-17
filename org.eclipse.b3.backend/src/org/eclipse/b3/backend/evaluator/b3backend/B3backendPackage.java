@@ -1585,13 +1585,13 @@ public interface B3backendPackage extends EPackage {
 	int BCREATE_EXPRESSION__ALIAS = BPARAMETERIZED_EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' containment reference.
+	 * The feature id for the '<em><b>Type Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BCREATE_EXPRESSION__TYPE = BPARAMETERIZED_EXPRESSION_FEATURE_COUNT + 1;
+	int BCREATE_EXPRESSION__TYPE_EXPR = BPARAMETERIZED_EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Context Block</b></em>' containment reference.
@@ -4278,17 +4278,6 @@ public interface B3backendPackage extends EPackage {
 	EClass getBCreateExpression();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Type</em>'.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression#getType()
-	 * @see #getBCreateExpression()
-	 * @generated
-	 */
-	EReference getBCreateExpression_Type();
-
-	/**
 	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression#getContextBlock <em>Context Block</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4309,6 +4298,17 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getBCreateExpression_Alias();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression#getTypeExpr <em>Type Expr</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Type Expr</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression#getTypeExpr()
+	 * @see #getBCreateExpression()
+	 * @generated
+	 */
+	EReference getBCreateExpression_TypeExpr();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction <em>BFunction</em>}'.
@@ -6068,14 +6068,6 @@ public interface B3backendPackage extends EPackage {
 		EClass BCREATE_EXPRESSION = eINSTANCE.getBCreateExpression();
 
 		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BCREATE_EXPRESSION__TYPE = eINSTANCE.getBCreateExpression_Type();
-
-		/**
 		 * The meta object literal for the '<em><b>Context Block</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6090,6 +6082,14 @@ public interface B3backendPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute BCREATE_EXPRESSION__ALIAS = eINSTANCE.getBCreateExpression_Alias();
+
+		/**
+		 * The meta object literal for the '<em><b>Type Expr</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BCREATE_EXPRESSION__TYPE_EXPR = eINSTANCE.getBCreateExpression_TypeExpr();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl <em>BFunction</em>}' class.

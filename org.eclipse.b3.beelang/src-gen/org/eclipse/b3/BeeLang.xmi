@@ -2113,8 +2113,8 @@
         </type>
       </tokens>
       <tokens xsi:type="xtext:Keyword" value="new"/>
-      <tokens xsi:type="xtext:Assignment" feature="type" operator="=">
-        <terminal xsi:type="xtext:RuleCall" rule="//@rules.63"/>
+      <tokens xsi:type="xtext:Assignment" feature="typeExpr" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.114"/>
       </tokens>
       <tokens xsi:type="xtext:Group" cardinality="?">
         <tokens xsi:type="xtext:Keyword" value="("/>

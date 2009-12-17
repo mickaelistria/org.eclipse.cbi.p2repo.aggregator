@@ -71,7 +71,6 @@ public class BCreateExpressionItemProvider
 			super.getPropertyDescriptors(object);
 
 			addAliasPropertyDescriptor(object);
-			addTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -99,28 +98,6 @@ public class BCreateExpressionItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_BCreateExpression_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BCreateExpression_type_feature", "_UI_BCreateExpression_type"),
-				 B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -132,6 +109,7 @@ public class BCreateExpressionItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR);
 			childrenFeatures.add(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK);
 		}
 		return childrenFeatures;
@@ -188,6 +166,7 @@ public class BCreateExpressionItemProvider
 			case B3backendPackage.BCREATE_EXPRESSION__ALIAS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case B3backendPackage.BCREATE_EXPRESSION__TYPE_EXPR:
 			case B3backendPackage.BCREATE_EXPRESSION__CONTEXT_BLOCK:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -205,6 +184,146 @@ public class BCreateExpressionItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
+				 B3backendFactory.eINSTANCE.createBIfExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
+				 B3backendFactory.eINSTANCE.createBSwitchExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
+				 B3backendFactory.eINSTANCE.createBTryExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
+				 B3backendFactory.eINSTANCE.createBOrExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
+				 B3backendFactory.eINSTANCE.createBAndExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
+				 B3backendFactory.eINSTANCE.createBChainedExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
+				 B3backendFactory.eINSTANCE.createBThrowExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
+				 B3backendFactory.eINSTANCE.createBUnaryOpExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
+				 B3backendFactory.eINSTANCE.createBUnaryPostOpExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
+				 B3backendFactory.eINSTANCE.createBBinaryOpExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
+				 B3backendFactory.eINSTANCE.createBCachedExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
+				 B3backendFactory.eINSTANCE.createBLiteralExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
+				 B3backendFactory.eINSTANCE.createBLiteralListExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
+				 B3backendFactory.eINSTANCE.createBLiteralMapExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
+				 B3backendFactory.eINSTANCE.createBFeatureExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
+				 B3backendFactory.eINSTANCE.createBAtExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
+				 B3backendFactory.eINSTANCE.createBVariableExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
+				 B3backendFactory.eINSTANCE.createBCallExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
+				 B3backendFactory.eINSTANCE.createBLiteralAny()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
+				 B3backendFactory.eINSTANCE.createBCreateExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
+				 B3backendFactory.eINSTANCE.createBUnaryPreOpExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
+				 B3backendFactory.eINSTANCE.createBAssignmentExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
+				 B3backendFactory.eINSTANCE.createB3Function()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
+				 B3backendFactory.eINSTANCE.createBJavaFunction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
+				 B3backendFactory.eINSTANCE.createBDefFunction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
+				 B3backendFactory.eINSTANCE.createBDefValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
+				 B3backendFactory.eINSTANCE.createBRegularExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
+				 B3backendFactory.eINSTANCE.createBLiteralType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -345,6 +464,29 @@ public class BCreateExpressionItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
 				 B3backendFactory.eINSTANCE.createBLiteralType()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR ||
+			childFeature == B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }

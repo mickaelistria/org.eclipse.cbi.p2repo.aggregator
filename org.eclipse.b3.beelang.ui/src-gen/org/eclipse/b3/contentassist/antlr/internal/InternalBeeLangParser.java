@@ -49716,33 +49716,33 @@ public class InternalBeeLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__ConstructorCallExpression__Group__2
-    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:16788:1: rule__ConstructorCallExpression__Group__2 : ( ( rule__ConstructorCallExpression__TypeAssignment_2 ) ) rule__ConstructorCallExpression__Group__3 ;
+    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:16788:1: rule__ConstructorCallExpression__Group__2 : ( ( rule__ConstructorCallExpression__TypeExprAssignment_2 ) ) rule__ConstructorCallExpression__Group__3 ;
     public final void rule__ConstructorCallExpression__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:16792:1: ( ( ( rule__ConstructorCallExpression__TypeAssignment_2 ) ) rule__ConstructorCallExpression__Group__3 )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:16793:1: ( ( rule__ConstructorCallExpression__TypeAssignment_2 ) ) rule__ConstructorCallExpression__Group__3
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:16792:1: ( ( ( rule__ConstructorCallExpression__TypeExprAssignment_2 ) ) rule__ConstructorCallExpression__Group__3 )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:16793:1: ( ( rule__ConstructorCallExpression__TypeExprAssignment_2 ) ) rule__ConstructorCallExpression__Group__3
             {
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:16793:1: ( ( rule__ConstructorCallExpression__TypeAssignment_2 ) )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:16794:1: ( rule__ConstructorCallExpression__TypeAssignment_2 )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:16793:1: ( ( rule__ConstructorCallExpression__TypeExprAssignment_2 ) )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:16794:1: ( rule__ConstructorCallExpression__TypeExprAssignment_2 )
             {
             if ( backtracking==0 ) {
-               before(grammarAccess.getConstructorCallExpressionAccess().getTypeAssignment_2()); 
+               before(grammarAccess.getConstructorCallExpressionAccess().getTypeExprAssignment_2()); 
             }
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:16795:1: ( rule__ConstructorCallExpression__TypeAssignment_2 )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:16795:2: rule__ConstructorCallExpression__TypeAssignment_2
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:16795:1: ( rule__ConstructorCallExpression__TypeExprAssignment_2 )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:16795:2: rule__ConstructorCallExpression__TypeExprAssignment_2
             {
-            pushFollow(FOLLOW_rule__ConstructorCallExpression__TypeAssignment_2_in_rule__ConstructorCallExpression__Group__233866);
-            rule__ConstructorCallExpression__TypeAssignment_2();
+            pushFollow(FOLLOW_rule__ConstructorCallExpression__TypeExprAssignment_2_in_rule__ConstructorCallExpression__Group__233866);
+            rule__ConstructorCallExpression__TypeExprAssignment_2();
             _fsp--;
             if (failed) return ;
 
             }
 
             if ( backtracking==0 ) {
-               after(grammarAccess.getConstructorCallExpressionAccess().getTypeAssignment_2()); 
+               after(grammarAccess.getConstructorCallExpressionAccess().getTypeExprAssignment_2()); 
             }
 
             }
@@ -66991,28 +66991,28 @@ public class InternalBeeLangParser extends AbstractInternalContentAssistParser {
     // $ANTLR end rule__OperationCall__ParameterListAssignment_3
 
 
-    // $ANTLR start rule__ConstructorCallExpression__TypeAssignment_2
-    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:23172:1: rule__ConstructorCallExpression__TypeAssignment_2 : ( ruleTypeRef ) ;
-    public final void rule__ConstructorCallExpression__TypeAssignment_2() throws RecognitionException {
+    // $ANTLR start rule__ConstructorCallExpression__TypeExprAssignment_2
+    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:23172:1: rule__ConstructorCallExpression__TypeExprAssignment_2 : ( ruleLiteralType ) ;
+    public final void rule__ConstructorCallExpression__TypeExprAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:23176:1: ( ( ruleTypeRef ) )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:23177:1: ( ruleTypeRef )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:23176:1: ( ( ruleLiteralType ) )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:23177:1: ( ruleLiteralType )
             {
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:23177:1: ( ruleTypeRef )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:23178:1: ruleTypeRef
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:23177:1: ( ruleLiteralType )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:23178:1: ruleLiteralType
             {
             if ( backtracking==0 ) {
-               before(grammarAccess.getConstructorCallExpressionAccess().getTypeTypeRefParserRuleCall_2_0()); 
+               before(grammarAccess.getConstructorCallExpressionAccess().getTypeExprLiteralTypeParserRuleCall_2_0()); 
             }
-            pushFollow(FOLLOW_ruleTypeRef_in_rule__ConstructorCallExpression__TypeAssignment_246478);
-            ruleTypeRef();
+            pushFollow(FOLLOW_ruleLiteralType_in_rule__ConstructorCallExpression__TypeExprAssignment_246478);
+            ruleLiteralType();
             _fsp--;
             if (failed) return ;
             if ( backtracking==0 ) {
-               after(grammarAccess.getConstructorCallExpressionAccess().getTypeTypeRefParserRuleCall_2_0()); 
+               after(grammarAccess.getConstructorCallExpressionAccess().getTypeExprLiteralTypeParserRuleCall_2_0()); 
             }
 
             }
@@ -67032,7 +67032,7 @@ public class InternalBeeLangParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end rule__ConstructorCallExpression__TypeAssignment_2
+    // $ANTLR end rule__ConstructorCallExpression__TypeExprAssignment_2
 
 
     // $ANTLR start rule__ConstructorCallExpression__ParameterListAssignment_3_1
@@ -72565,7 +72565,7 @@ public class InternalBeeLangParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_rule__ConstructorCallExpression__Group__1_in_rule__ConstructorCallExpression__Group__033799 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_115_in_rule__ConstructorCallExpression__Group__133828 = new BitSet(new long[]{0x0008000000000040L});
     public static final BitSet FOLLOW_rule__ConstructorCallExpression__Group__2_in_rule__ConstructorCallExpression__Group__133838 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ConstructorCallExpression__TypeAssignment_2_in_rule__ConstructorCallExpression__Group__233866 = new BitSet(new long[]{0x0008000000000002L,0x00000000000000C0L});
+    public static final BitSet FOLLOW_rule__ConstructorCallExpression__TypeExprAssignment_2_in_rule__ConstructorCallExpression__Group__233866 = new BitSet(new long[]{0x0008000000000002L,0x00000000000000C0L});
     public static final BitSet FOLLOW_rule__ConstructorCallExpression__Group__3_in_rule__ConstructorCallExpression__Group__233875 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ConstructorCallExpression__Group_3__0_in_rule__ConstructorCallExpression__Group__333903 = new BitSet(new long[]{0x0000000000000002L,0x00000000000000C0L});
     public static final BitSet FOLLOW_rule__ConstructorCallExpression__Group__4_in_rule__ConstructorCallExpression__Group__333913 = new BitSet(new long[]{0x0000000000000002L});
@@ -73007,7 +73007,7 @@ public class InternalBeeLangParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_rule__KeywordVariables__NameAlternatives_1_0_in_rule__KeywordVariables__NameAssignment_146381 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__OperationCall__NameAlternatives_1_0_in_rule__OperationCall__NameAssignment_146414 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleParameterList_in_rule__OperationCall__ParameterListAssignment_346447 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTypeRef_in_rule__ConstructorCallExpression__TypeAssignment_246478 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLiteralType_in_rule__ConstructorCallExpression__TypeExprAssignment_246478 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleParameterList_in_rule__ConstructorCallExpression__ParameterListAssignment_3_146509 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__ConstructorCallExpression__AliasAssignment_4_146540 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleContextBlock_in_rule__ConstructorCallExpression__ContextBlockAssignment_546571 = new BitSet(new long[]{0x0000000000000002L});

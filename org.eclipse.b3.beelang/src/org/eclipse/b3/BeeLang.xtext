@@ -484,7 +484,7 @@ OperationCall returns be::BCallExpression
 	;
 
 ConstructorCallExpression returns be::BExpression
-	: {be::BCreateExpression} "new" type=TypeRef ('(' (parameterList=ParameterList)? ')')?
+	: {be::BCreateExpression} "new" typeExpr=LiteralType ('(' (parameterList=ParameterList)? ')')?
 		("as" alias=ID)? (contextBlock = ContextBlock)?
 	;
 

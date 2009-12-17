@@ -533,7 +533,7 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getKeywordVariablesAccess().getNameAssignment_1(), "rule__KeywordVariables__NameAssignment_1");
 					put(grammarAccess.getOperationCallAccess().getNameAssignment_1(), "rule__OperationCall__NameAssignment_1");
 					put(grammarAccess.getOperationCallAccess().getParameterListAssignment_3(), "rule__OperationCall__ParameterListAssignment_3");
-					put(grammarAccess.getConstructorCallExpressionAccess().getTypeAssignment_2(), "rule__ConstructorCallExpression__TypeAssignment_2");
+					put(grammarAccess.getConstructorCallExpressionAccess().getTypeExprAssignment_2(), "rule__ConstructorCallExpression__TypeExprAssignment_2");
 					put(grammarAccess.getConstructorCallExpressionAccess().getParameterListAssignment_3_1(), "rule__ConstructorCallExpression__ParameterListAssignment_3_1");
 					put(grammarAccess.getConstructorCallExpressionAccess().getAliasAssignment_4_1(), "rule__ConstructorCallExpression__AliasAssignment_4_1");
 					put(grammarAccess.getConstructorCallExpressionAccess().getContextBlockAssignment_5(), "rule__ConstructorCallExpression__ContextBlockAssignment_5");

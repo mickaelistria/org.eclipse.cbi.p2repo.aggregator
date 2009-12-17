@@ -9975,9 +9975,9 @@ ruleConstructorCallExpression returns [EObject current=null]
 (
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getConstructorCallExpressionAccess().getTypeTypeRefParserRuleCall_2_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getConstructorCallExpressionAccess().getTypeExprLiteralTypeParserRuleCall_2_0(), currentNode); 
 	    }
-		lv_type_2_0=ruleTypeRef		{
+		lv_typeExpr_2_0=ruleLiteralType		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getConstructorCallExpressionRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -9985,9 +9985,9 @@ ruleConstructorCallExpression returns [EObject current=null]
 	        try {
 	       		set(
 	       			$current, 
-	       			"type",
-	        		lv_type_2_0, 
-	        		"TypeRef", 
+	       			"typeExpr",
+	        		lv_typeExpr_2_0, 
+	        		"LiteralType", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
