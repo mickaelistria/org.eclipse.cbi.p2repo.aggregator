@@ -85,6 +85,8 @@ public class TypeUtils {
 			throw new IllegalArgumentException("Internal error: type is not a specialization of the class");
 		if(ptc == pc)
 			return 0;
+		if(pc.isInterface())
+			return classDistance(ptc, Object.class)+1;
 		return classDistance(ptc, pc.getSuperclass())+1;
 	}
 	/**
