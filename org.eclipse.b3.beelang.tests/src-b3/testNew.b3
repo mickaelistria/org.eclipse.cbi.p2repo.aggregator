@@ -1,7 +1,8 @@
-// TODO: Test new Type(parameters) { with... }
 // TODO: Test new model::class (parameters?)
 import java.util.List;
 import java.lang.StringBuffer;
+import java.util.HashMap;
+import java.lang.Float;
 
 function main(List argv) {
 	testNew();
@@ -11,4 +12,16 @@ function testNew() {
 	x.append("hello");
 	assertEquals("string buffer and string compare", "hello", x);
 	assertEquals("converting buffer to string & compare", "hello", x.toString());
+	
+	// no parenthesis needed if there are no parameters.
+	var y = new StringBuffer;
+	y.append("hello");
+	assertEquals("string buffer and string compare", "hello", y);
+	
+	var z = new StringBuffer(10);
+	z.append("hello");
+	assertEquals("string buffer and string compare", "hello", z);
+	
+	var hm = new HashMap(10, new Float(2.floatValue()));
+	assertType("A hashmap should have been created", HashMap, hm);
 }
