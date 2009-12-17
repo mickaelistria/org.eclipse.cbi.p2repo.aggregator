@@ -1,9 +1,14 @@
 package org.eclipse.b3.backend.functions;
 
+import java.lang.reflect.Type;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 import java.util.regex.Pattern;
 
 import org.eclipse.b3.backend.core.B3Backend;
 import org.eclipse.b3.backend.core.SimplePattern;
+import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 
 public class RelationalFunctions {
 
@@ -12,13 +17,54 @@ public class RelationalFunctions {
 	public static Boolean equals(Object left, Object right) {
 		if(left == right || left.equals(right))
 			return Boolean.TRUE;
-		if(left instanceof Comparable) {
-			if(((Comparable)left).compareTo(right) == 0)
+		try {
+			if(left instanceof Comparable) {
+				if(((Comparable)left).compareTo(right) == 0)
+					return Boolean.TRUE;
+			}
+		} catch(ClassCastException e) {
+			// ignore - since comparison other way may work
+		}
+		try {
+			if(right instanceof Comparable && ((Comparable)right).compareTo(left) == 0)
 				return Boolean.TRUE;
-		} else if(right instanceof Comparable && ((Comparable)right).compareTo(left) == 0)
-			return Boolean.TRUE;
-		
+		} catch(ClassCastException e) {
+			// since Comparable is unchecked and comparison may try coercion
+			return Boolean.FALSE;
+		}
 		return Boolean.FALSE;
+	}
+	@B3Backend(funcNames={"=="}, systemFunction="_listEquals")
+	public static Boolean equals(@B3Backend(name="op1") List<?> left, @B3Backend(name="op2")List<?> right) 
+	{ return null; }
+	
+	@B3Backend(system=true)
+	public static Object _listEquals(BExecutionContext ctx, Object[] params, Type[] types) throws Throwable {
+		List<?> left = (List<?>)params[0];
+		List<?> right = (List<?>)params[1];
+		if(left == right)
+			return Boolean.TRUE;
+		if(left == null || right == null)
+			return Boolean.FALSE;
+		if(left.size() != right.size())
+			return Boolean.FALSE;
+		try {
+			if(left.equals(right))
+				return Boolean.TRUE;
+		} catch(ClassCastException e) {
+			// ignore and compare using different method
+		}
+		Object p[] = new Object[2];
+		Type t[] = new Type[2];
+		for(int i = 0; i < left.size(); i++) {
+			p[0] = left.get(i);
+			p[1] = right.get(i);
+			t[0] = p[0].getClass();
+			t[1] = p[1].getClass();
+			if(ctx.callFunction("equals", p, t) != Boolean.TRUE)
+				return Boolean.FALSE;
+		}
+		return Boolean.TRUE;
 	}
 	@SuppressWarnings("unchecked")
 	@B3Backend(funcNames={"=="})
@@ -64,7 +110,7 @@ public class RelationalFunctions {
 			return Boolean.TRUE;
 		return Boolean.FALSE;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	@B3Backend(funcNames={"<"})
 	public static Boolean isLessThan(Comparable left, Comparable right){
@@ -88,7 +134,7 @@ public class RelationalFunctions {
 
 		return Boolean.FALSE;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	@B3Backend(funcNames={"<="})
 	public static Boolean isLessThanOrEqualTo(Comparable left, Comparable right){
@@ -167,7 +213,7 @@ public class RelationalFunctions {
 	public static Boolean matches(Pattern pattern, CharSequence string) {
 		return pattern.matcher(string).matches() ? Boolean.TRUE : Boolean.FALSE;
 	}
-	
+
 	@B3Backend(funcNames={"~="})
 	public static Boolean matches(CharSequence string, Pattern pattern) {
 		return pattern.matcher(string).matches() ? Boolean.TRUE : Boolean.FALSE;
@@ -177,5 +223,5 @@ public class RelationalFunctions {
 	public static Boolean matches(CharSequence string, CharSequence pattern) {
 		return SimplePattern.compile(pattern).isMatch(string) ? Boolean.TRUE : Boolean.FALSE;
 	}
-	
+
 }

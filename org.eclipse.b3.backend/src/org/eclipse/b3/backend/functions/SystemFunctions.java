@@ -19,25 +19,34 @@ public class SystemFunctions {
 			@B3Backend(name="expectedType")Object expected, 
 			@B3Backend(name="actualType")Object actual) throws Throwable {
 			if(!(expected instanceof Type))
-				throw new B3AssertionFailedException(message, expected, actual);
-			if(!TypeUtils.isAssignableFrom((Type)expected, actual.getClass()))
-				throw new B3AssertionFailedException(message, expected, actual);
+				throw new B3AssertionFailedException(message, expected, actual.getClass());
+//			if(!TypeUtils.isAssignableFrom((Type)expected, actual.getClass()))
+			if(expected != actual.getClass())
+				throw new B3AssertionFailedException(message, expected, actual.getClass());
 			return Boolean.TRUE;
 	}
+	@B3Backend(systemFunction="_assertEquals")
 	public static Boolean assertEquals(
 			@B3Backend(name="message")String message, 
 			@B3Backend(name="expected")Object expected, 
-			@B3Backend(name="actual")Object actual) throws Throwable {
+			@B3Backend(name="actual")Object actual) throws Throwable { return null; }
+		
+	@B3Backend(system=true)
+	public static Object _assertEquals(BExecutionContext ctx, Object[] params, Type[] types) throws Throwable {
+		String message = (String)params[0];
+		Object expected = params[0];
+		Object actual = params[1];
 		
 		if(expected == actual)
 			return Boolean.TRUE;
 		if(expected == null || actual == null)
 			throw new B3AssertionFailedException(message, expected, actual);
-		if(expected instanceof Number && actual instanceof Number) {
-			if(!RelationalFunctions.equals((Number)expected, (Number)actual).booleanValue())
-				throw new B3AssertionFailedException(message, expected, actual);
-		}	
-		else if(!RelationalFunctions.equals(expected, actual).booleanValue())
+//		if(expected instanceof Number && actual instanceof Number) {
+//			if(!RelationalFunctions.equals((Number)expected, (Number)actual).booleanValue())
+//				throw new B3AssertionFailedException(message, expected, actual);
+//		}	
+		else if(ctx.callFunction("equals", new Object[] { params[1], params[2]}, 
+				new Type[] { types[1], types[2]}) != Boolean.TRUE)
 			throw new B3AssertionFailedException(message, expected, actual);
 		return Boolean.TRUE;
 	}
