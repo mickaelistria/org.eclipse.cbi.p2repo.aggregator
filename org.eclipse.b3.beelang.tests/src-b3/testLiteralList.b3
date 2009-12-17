@@ -1,3 +1,31 @@
 //		$a = [1,2,3,4];
 //		$a = [ 1+2, "hello", []<String>, ["a", "b", "c" ], $a["hello"], 
 //			{| data == if "error" then false else true endif }];
+import java.util.List;
+import java.lang.String;
+import java.lang.Integer;
+
+function main(List argv) {
+	testLiteralList();
+	testAnyComparison();
+	testCallLambdaInList();
+}
+function testLiteralList() {
+	List a = [1,2,3];
+	List b = [1+2, "hello", [<String>], ['a', 'b', 'c', 'd'], a[0]];
+	
+	assertEquals("accessing list", 2, a[1]);
+	assertEquals("an empty list", [<String>], b[2]);
+	assertEquals("an evaluated entry", 3, b[0]);
+	assertEquals("chained at expression", "c", b[3][2]);
+	
+}
+function testAnyComparison() {
+	List b = [1+2, "hello", [<String>], ['a', 'b', 'c', 'd'], 1];
+	assertEquals("a list and any", [_,_,_,_,_], b);
+}
+function testCallLambdaInList() {
+	Integer outside = 10;
+	var a = [<()=>Integer> {<Integer>| outside +10;}];
+	assertEquals("calling a lambda in a list", 20, (a[0])());
+}
