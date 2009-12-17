@@ -2,6 +2,7 @@ import java.lang.Object;
 import java.util.List;
 import java.lang.Integer;
 import java.lang.Double;
+import java.lang.Float;
 
 function Object main(List argv) {
 	testTypes();
@@ -11,5 +12,6 @@ function Object testTypes() {
 	// assertType("An Integer is an Integer", Integer.getClass(), a);
 	assertType("-0x4 is an Integer", Integer, -0x4);
 	assertType("-3.2 is a Double", Double, -3.2);
+	assertType("Creating a float", Float, new Float(2.floatValue()));
 	// continue with more tests
 }
