@@ -139,6 +139,15 @@ public class B3FuncStore {
 				return false;
 		return true;
 	}
+	/**
+	 * Find the best function matching the parameters.
+	 * @param name
+	 * @param parameters
+	 * @param types
+	 * @param ctx
+	 * @return best function, or null, if none was found.
+	 * @throws B3EngineException if there are exceptions while evaluating guards, or underlying issues.
+	 */
 	private BFunction getBestFunction(String name, Object[] parameters, Type[] types, BExecutionContext ctx) throws B3EngineException {
 		List<BFunction> list = effective.get(name);
 		List<BFunction> candidates = null;
@@ -198,7 +207,10 @@ public class B3FuncStore {
 			}
 		}
 		// all candidates found - now return best match
-		if(candidates == null) {// if there was only one candidate
+		if(candidates == null) {// if there were < 2 candidates
+			if(found == null)
+				return null;
+
 			BGuard guard = found.getGuard();
 			if(guard != null ) {
 				try {
@@ -297,6 +309,9 @@ public class B3FuncStore {
 		//
 		Object[] fakeParameters = new Object[types.length];
 		BFunction toBeCalled = getBestFunction(functionName, fakeParameters, types, ctx);
+		if(toBeCalled == null)
+			throw new B3NoSuchFunctionSignatureException(functionName, types);
+
 		return toBeCalled.getReturnTypeForParameterTypes(types,ctx); 
 	}
 
