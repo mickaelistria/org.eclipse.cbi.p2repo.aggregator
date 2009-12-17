@@ -308,21 +308,21 @@ public class BLiteralMapExpressionImpl extends BExpressionImpl implements BLiter
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 		Type kt = keyType == null ? String.class : keyType;
 		Type vt = valueType == null ? Object.class : valueType;
-		Map<Object,Object> map = new LinkedHashMap<Object, Object>(entries.size());
+		Map<Object,Object> map = new LinkedHashMap<Object, Object>(getEntries().size());
 		int counter = 0;
 		for(BMapEntry mapentry : entries) {
 			Object key = mapentry.getKey().evaluate(ctx);
 			Object value = mapentry.getValue().evaluate(ctx);
-			if(!TypeUtils.isAssignableFrom(kt, key.getClass()))
+			if(!TypeUtils.isAssignableFrom(kt, mapentry.getKey().getDeclaredType(ctx))) // key.getClass()))
 				throw BackendHelper.createException(mapentry.getKey(), 
 						"Map creation error for entry {0}. "
 						+"A Map<{0},{0}>, does not accept a key of type {0}.",
-						new Object[] {new Integer(counter), kt, vt, key.getClass()});
-			if(!TypeUtils.isAssignableFrom(vt, value.getClass()))
+						new Object[] {new Integer(counter), kt, vt, mapentry.getKey().getDeclaredType(ctx)});
+			if(!TypeUtils.isAssignableFrom(vt, mapentry.getValue().getDeclaredType(ctx))) //value.getClass()))
 				throw BackendHelper.createException(mapentry.getKey(), 
 						"Map creation error for entry {0}. "
 						+"A Map<{0},{0}>, does not accept a value of type {0}.",
-						new Object[] {new Integer(counter), kt, vt, value.getClass()});
+						new Object[] {new Integer(counter), kt, vt, mapentry.getValue().getDeclaredType(ctx)});
 			map.put(key, value);
 			counter++;
 			}
