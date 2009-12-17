@@ -41,10 +41,6 @@ public class SystemFunctions {
 			return Boolean.TRUE;
 		if(expected == null || actual == null)
 			throw new B3AssertionFailedException(message, expected, actual);
-//		if(expected instanceof Number && actual instanceof Number) {
-//			if(!RelationalFunctions.equals((Number)expected, (Number)actual).booleanValue())
-//				throw new B3AssertionFailedException(message, expected, actual);
-//		}	
 		else if(ctx.callFunction("equals", new Object[] { params[1], params[2]}, 
 				new Type[] { types[1], types[2]}) != Boolean.TRUE)
 			throw new B3AssertionFailedException(message, expected, actual);
