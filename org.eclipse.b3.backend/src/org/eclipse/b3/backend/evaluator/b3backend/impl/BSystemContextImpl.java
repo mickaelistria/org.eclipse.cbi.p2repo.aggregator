@@ -71,10 +71,13 @@ public class BSystemContextImpl extends BExecutionContextImpl implements BSystem
 
 		try {
 			// invoke handles unwrap of non primitive types
-			return m.invoke(parameters[0], callParameters);
+			return autoBox(m.invoke(parameters[0], callParameters));
 		} catch (InvocationTargetException e) {
 			throw e.getCause();
 		}
+	}
+	private Object autoBox(Object x) {
+		return x;
 	}
 	private Method findMethod(String functionName, Type[] types) throws Throwable {
 		// In Java, all calls refer to an instance/class (which must be in the first parameter) 
@@ -119,7 +122,7 @@ public class BSystemContextImpl extends BExecutionContextImpl implements BSystem
 		Type t = m.getReturnType();
 		if(t == boolean.class)
 			return Boolean.class;
-		if(t == Integer.class)
+		if(t == int.class)
 			return Integer.class;
 		if(t == long.class)
 			return Long.class;
