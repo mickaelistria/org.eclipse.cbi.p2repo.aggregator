@@ -491,6 +491,9 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	 * @generated NOT
 	 */
 	public Type getReturnType() {
+		// if return type is null return java.lang.Object.class
+		if(returnType == null)
+			return Object.class;
 		// NOTE: Must check if return type is an EObject
 		if (returnType != null && returnType instanceof EObject && ((EObject)returnType).eIsProxy()) {
 			InternalEObject oldReturnType = (InternalEObject)returnType;
