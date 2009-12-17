@@ -34,8 +34,8 @@ public class SystemFunctions {
 	@B3Backend(system=true)
 	public static Object _assertEquals(BExecutionContext ctx, Object[] params, Type[] types) throws Throwable {
 		String message = (String)params[0];
-		Object expected = params[0];
-		Object actual = params[1];
+		Object expected = params[1];
+		Object actual = params[2];
 		
 		if(expected == actual)
 			return Boolean.TRUE;
