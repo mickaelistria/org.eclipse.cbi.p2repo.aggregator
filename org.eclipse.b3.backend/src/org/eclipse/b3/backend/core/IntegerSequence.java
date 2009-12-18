@@ -4,14 +4,11 @@ import java.util.Iterator;
 
 import org.eclipse.osgi.util.NLS;
 
-public class IntegerSequence implements Iterable<Integer> {
+public class IntegerSequence extends AbstractSequence<IntegerSequence, Integer> {
 
 	private int from;
 	private int to;
-	private boolean fromInclusive;
-	private boolean toInclusive;
 	private int step;
-	boolean ascending;
 	
 	/**
 	 * Creates a default sequence from, to value in steps of one. From may be smaller than to which creates
@@ -31,14 +28,13 @@ public class IntegerSequence implements Iterable<Integer> {
 		this.step = Math.abs(step.intValue());
 		this.toInclusive = toInclusive;
 		this.fromInclusive = fromInclusive;
-		if(from > to)
-			ascending = true;
+		ascending = (to > from);
 	}
 	public Iterator<Integer> iterator() {
 		return new SequenceIterator();
 	}
-	public IntegerSequence stepBy(Integer step) {
-		step = Math.abs(step.intValue());
+	public IntegerSequence step(Integer step) {
+		this.step = Math.abs(step.intValue());
 		return this;
 	}
 	private class SequenceIterator implements Iterator<Integer> {
@@ -46,14 +42,14 @@ public class IntegerSequence implements Iterable<Integer> {
 		SequenceIterator() {
 			currentValue = from;
 			if(!fromInclusive)
-				currentValue += (ascending ? -step : step);
+				currentValue += (ascending ? step : -step);
 		}
 		public boolean hasNext() {
 			if(ascending) {
 				if(toInclusive)
-					return currentValue >= to;
+					return currentValue <= to;
 				else
-					return currentValue > to;
+					return currentValue < to;
 			}
 			if(toInclusive)
 				return currentValue >= to;
@@ -62,7 +58,7 @@ public class IntegerSequence implements Iterable<Integer> {
 
 		public Integer next() {
 			int result = currentValue;
-			currentValue += (ascending ? -step : step);
+			currentValue += (ascending ? step : -step);
 			return new Integer(result);
 		}
 

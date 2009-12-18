@@ -4,6 +4,7 @@ import java.lang.reflect.Type;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
+import org.eclipse.b3.backend.core.AbstractSequence;
 import org.eclipse.b3.backend.core.B3Backend;
 import org.eclipse.b3.backend.core.DoubleSequence;
 import org.eclipse.b3.backend.core.IntegerSequence;

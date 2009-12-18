@@ -14,6 +14,8 @@ public class FunctionTests extends TestSuite {
 	public static Test suite() {
 		TestSuite suite = new FunctionTests("B3Backend Function Tests");
 		suite.addTestSuite(TestSystemLibrary.class);
+		suite.addTestSuite(TestIntegerSequence.class);
+		suite.addTestSuite(TestDoubleSequence.class);
 		return suite;
 	}
 

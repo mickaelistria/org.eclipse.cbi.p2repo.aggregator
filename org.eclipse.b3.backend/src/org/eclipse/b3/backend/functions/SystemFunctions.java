@@ -330,7 +330,8 @@ public class SystemFunctions {
 			inject = cur.lambda.internalCall(useCtx, cur.p, cur.t);
 			cur.p[injectPos] = inject;
 			}
-		return inject;
+		// if the iterator had no elements, return the injected start value.
+		return inject == null ? cur.p[injectPos] : inject;
 	}
 	
 	private static class Curry {

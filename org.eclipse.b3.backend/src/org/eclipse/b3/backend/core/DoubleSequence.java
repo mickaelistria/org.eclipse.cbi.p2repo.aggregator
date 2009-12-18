@@ -4,14 +4,11 @@ import java.util.Iterator;
 
 import org.eclipse.osgi.util.NLS;
 
-public class DoubleSequence implements Iterable<Double> {
+public class DoubleSequence extends AbstractSequence<DoubleSequence, Double> {
 
 	private double from;
 	private double to;
-	private boolean fromInclusive;
-	private boolean toInclusive;
 	private double step;
-	boolean ascending;
 	
 	/**
 	 * Creates a default sequence from, to value in steps of one. From may be smaller than to which creates
@@ -32,14 +29,13 @@ public class DoubleSequence implements Iterable<Double> {
 		this.step = Math.abs(step.doubleValue());
 		this.toInclusive = toInclusive;
 		this.fromInclusive = fromInclusive;
-		if(from > to)
-			ascending = true;
+		ascending = (to > from);
 	}
 	public Iterator<Double> iterator() {
 		return new SequenceIterator();
 	}
-	public DoubleSequence stepBy(Double step) {
-		step = Math.abs(step.doubleValue());
+	public DoubleSequence step(Double step) {
+		this.step = Math.abs(step.doubleValue());
 		return this;
 	}
 
@@ -48,14 +44,14 @@ public class DoubleSequence implements Iterable<Double> {
 		SequenceIterator() {
 			currentValue = from;
 			if(!fromInclusive)
-				currentValue += (ascending ? -step : step);
+				currentValue += (ascending ? step : -step);
 		}
 		public boolean hasNext() {
 			if(ascending) {
 				if(toInclusive)
-					return currentValue >= to;
+					return currentValue <= to;
 				else
-					return currentValue > to;
+					return currentValue < to;
 			}
 			if(toInclusive)
 				return currentValue >= to;
@@ -64,7 +60,7 @@ public class DoubleSequence implements Iterable<Double> {
 
 		public Double next() {
 			double result = currentValue;
-			currentValue += (ascending ? -step : step);
+			currentValue += (ascending ? step : -step);
 			return new Double(result);
 		}
 
