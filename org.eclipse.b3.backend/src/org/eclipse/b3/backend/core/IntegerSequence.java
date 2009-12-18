@@ -37,6 +37,15 @@ public class IntegerSequence extends AbstractSequence<IntegerSequence, Integer> 
 		this.step = Math.abs(step.intValue());
 		return this;
 	}
+	@Override
+	public IntegerSequence includeFrom(Boolean flag) {
+		this.fromInclusive = flag.booleanValue();
+		return  this;
+	}
+	public IntegerSequence includeTo(Boolean flag) {
+		this.toInclusive = flag.booleanValue();
+		return this;
+	}
 	private class SequenceIterator implements Iterator<Integer> {
 		int currentValue;
 		SequenceIterator() {

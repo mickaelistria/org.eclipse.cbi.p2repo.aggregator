@@ -39,6 +39,16 @@ public class DoubleSequence extends AbstractSequence<DoubleSequence, Double> {
 		return this;
 	}
 
+	@Override
+	public DoubleSequence includeFrom(Boolean flag) {
+		this.fromInclusive = flag.booleanValue();
+		return  this;
+	}
+	public DoubleSequence includeTo(Boolean flag) {
+		this.toInclusive = flag.booleanValue();
+		return this;
+	}
+
 	private class SequenceIterator implements Iterator<Double> {
 		double currentValue;
 		SequenceIterator() {

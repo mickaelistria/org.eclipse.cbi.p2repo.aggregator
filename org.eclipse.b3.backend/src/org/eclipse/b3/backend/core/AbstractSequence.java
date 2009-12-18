@@ -12,16 +12,7 @@ public abstract class AbstractSequence<T,S> implements Iterable<S>{
 	public abstract Iterator<S> iterator();
 	public abstract T step(S step);
 
-	@SuppressWarnings("unchecked")
-	public T includeFrom(Boolean flag) {
-		this.fromInclusive = flag.booleanValue();
-		return (T) this;
-	}
-
-	@SuppressWarnings("unchecked")
-	public T includeTo(Boolean flag) {
-		this.toInclusive = flag.booleanValue();
-		return (T) this;
-	}
+	public abstract T includeFrom(Boolean flag);
+	public abstract T includeTo(Boolean flag);
 
 }
