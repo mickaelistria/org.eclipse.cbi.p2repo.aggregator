@@ -1,6 +1,8 @@
 package org.eclipse.b3.backend.functions;
 
 import java.lang.reflect.Type;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -8,6 +10,7 @@ import java.util.List;
 import org.eclipse.b3.backend.core.B3AssertionFailedException;
 import org.eclipse.b3.backend.core.B3Backend;
 import org.eclipse.b3.backend.evaluator.Any;
+import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
@@ -65,7 +68,7 @@ public class SystemFunctions {
 		if(booleanExpr == null)
 			throw new B3AssertionFailedException(message, Boolean.FALSE, null);
 		if(!booleanExpr.equals(Boolean.FALSE))
-			throw new B3AssertionFailedException(message, Boolean.TRUE, booleanExpr);
+			throw new B3AssertionFailedException(message, Boolean.FALSE, booleanExpr);
 		return Boolean.TRUE;
 	}
 	
@@ -156,13 +159,13 @@ public class SystemFunctions {
 		throw new IllegalArgumentException("_whileFalse got wrong number of parameters: " + params.length + ", accepts 1 or 2 lambdas");
 	}
 	
-	@B3Backend(hideOriginal=true, funcNames={"do"}, systemFunction="__do", varargs=true)
+	@B3Backend(hideOriginal=true, funcNames={"do"}, systemFunction="__do", varargs=true,typeFunction="returnTypeOfLastLambda")
 	public static Object _do(
 			@B3Backend(name="iterable")Iterable<?> iterable,
 			@B3Backend(name="paramsAnyAndFunction") Object... variable
 			) { return null; }
 
-	@B3Backend(system=true)
+	@B3Backend(system=true, typeFunction="returnTypeOfLastLambda")
 	public static Object __do(BExecutionContext ctx, Object[] params, Type[] types) throws Throwable{
 		Curry cur = hurryCurry(params, types, "do");
 
@@ -184,11 +187,11 @@ public class SystemFunctions {
 	 * @param params - the parameters passed to the function
 	 * @return the result of calling the function
 	 */
-	@B3Backend(systemFunction="_evaluate", varargs=true)
+	@B3Backend(systemFunction="_evaluate", varargs=true, typeFunction="returnTypeOfFirstLambda")
 	public static final Object evaluate(@B3Backend(name="function")BFunction func, Object...params) 
 	{ return null; }
 
-	@B3Backend(system=true)
+	@B3Backend(system=true, typeFunction="returnTypeOfFirstLambda")
 	public static Object _evaluate(BExecutionContext ctx, Object[] params, Type[] types) throws Throwable {
 		if(params == null || params.length <1 || !(params[0] instanceof BFunction))
 			throw new IllegalArgumentException("_evaluate called with too few/wrong arguments");
@@ -209,13 +212,13 @@ public class SystemFunctions {
 	}
 	
 	@B3Backend(systemFunction="_exists", varargs=true)
-	public static Object exists(
+	public static Boolean exists(
 			@B3Backend(name="iterable")Iterable<?> iterable,
 			@B3Backend(name="paramsAnyAndFunction") Object... variable
 			) { return null; }
 
 	@B3Backend(system=true)
-	public static Object _exists(BExecutionContext ctx, Object[] params, Type[] types) throws Throwable{
+	public static Boolean _exists(BExecutionContext ctx, Object[] params, Type[] types) throws Throwable{
 		Curry cur = hurryCurry(params, types, "exists");
 
 		Object result = null;
@@ -231,13 +234,13 @@ public class SystemFunctions {
 		return Boolean.FALSE;
 	}
 	@B3Backend(systemFunction="_all", varargs=true)
-	public static Object all(
+	public static Boolean all(
 			@B3Backend(name="iterable")Iterable<?> iterable,
 			@B3Backend(name="paramsAnyAndFunction") Object... variable
 			) { return null; }
 
 	@B3Backend(system=true)
-	public static Object _all(BExecutionContext ctx, Object[] params, Type[] types) throws Throwable{		
+	public static Boolean _all(BExecutionContext ctx, Object[] params, Type[] types) throws Throwable{		
 		Curry cur = hurryCurry(params, types, "all");
 
 		Object result = null;
@@ -301,13 +304,13 @@ public class SystemFunctions {
 		return result;
 	}
 	
-	@B3Backend(systemFunction="_inject", varargs=true)
+	@B3Backend(systemFunction="_inject", varargs=true, typeFunction="returnTypeOfLastLambda")
 	public static Object inject(
 			@B3Backend(name="iterable")Iterable<?> iterable,
 			@B3Backend(name="paramsAnyAndFunction") Object...variable
 			) { return null; }
 
-	@B3Backend(system=true)
+	@B3Backend(system=true, typeFunction="returnTypeOfLastLambda")
 	public static Object _inject(BExecutionContext ctx, Object[] params, Type[] types) throws Throwable{		
 		Curry cur = hurryCurry(params, types, "inject");
 
@@ -389,5 +392,30 @@ public class SystemFunctions {
 			cur.t[cur.curry] = cur.lambda.getParameterTypes()[cur.curry];
 		}
 		return cur;
+	}
+	@B3Backend(typeCalculator=true)
+	public static Type typeOfFirstParameter(Type[] types) {
+		if(types.length >= 1)
+			return types[0];
+		
+		return Object.class;
+	}
+
+	@B3Backend(typeCalculator=true)
+	public static Type returnTypeOfFirstLambda(Type[] types, BExecutionContext ctx) {
+		if(types.length <= 1 || !(types[0] instanceof B3FunctionType))
+			return Object.class;
+		B3FunctionType ft = (B3FunctionType)types[0];
+		Type x = ft.getReturnTypeForParameterTypes(types, ctx);
+		return x;
+	}
+	@B3Backend(typeCalculator=true)
+	public static Type returnTypeOfLastLambda(Type[] types, BExecutionContext ctx) {
+		int ix = types.length-1;
+		if(types.length < 1 || !(types[ix] instanceof B3FunctionType))
+			return Object.class;
+		B3FunctionType ft = (B3FunctionType)types[ix];
+		Type x = ft.getReturnTypeForParameterTypes(types, ctx);
+		return x;
 	}
 }

@@ -815,6 +815,7 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 		B3FunctionType t = B3backendFactory.eINSTANCE.createB3FunctionType();
 		t.setReturnType(getReturnType());
 		t.setVarArgs(isVarArgs());
+		t.setTypeCalculator(getTypeCalculator());
 		EList<Type> pt = t.getParameterTypes();
 		for(BParameterDeclaration p : getParameters())
 			pt.add(p.getType());

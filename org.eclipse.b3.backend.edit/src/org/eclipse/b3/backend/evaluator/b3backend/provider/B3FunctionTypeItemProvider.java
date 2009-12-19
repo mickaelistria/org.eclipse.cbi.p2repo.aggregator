@@ -83,6 +83,7 @@ public class B3FunctionTypeItemProvider
 			addReturnTypePropertyDescriptor(object);
 			addParameterTypesPropertyDescriptor(object);
 			addVarArgsPropertyDescriptor(object);
+			addTypeCalculatorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -171,6 +172,28 @@ public class B3FunctionTypeItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Type Calculator feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTypeCalculatorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_B3FunctionType_typeCalculator_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_B3FunctionType_typeCalculator_feature", "_UI_B3FunctionType_type"),
+				 B3backendPackage.Literals.B3_FUNCTION_TYPE__TYPE_CALCULATOR,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

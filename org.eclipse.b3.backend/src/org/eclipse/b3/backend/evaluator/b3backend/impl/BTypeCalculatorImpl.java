@@ -60,6 +60,7 @@ public class BTypeCalculatorImpl extends EObjectImpl implements BTypeCalculator 
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Derived classes must implement this method.
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */

@@ -176,7 +176,7 @@ public class BTypeCalculatorFunctionImpl extends BTypeCalculatorImpl implements 
 	public Type getReturnTypeForParameterTypes(Type[] types,
 			BExecutionContext ctx) {
 			try {
-			return (Type)func.internalCall(ctx, new Object[] { types }, new Type[] { types.getClass()});
+			return (Type)func.internalCall(ctx, new Object[] { types, ctx }, new Type[] { types.getClass(), ctx.getClass()});
 			} catch(Throwable t) {
 				t.printStackTrace();
 			}

@@ -400,11 +400,16 @@
     <eOperations name="isAssignableFrom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="type" eType="#//IType"/>
     </eOperations>
+    <eOperations name="getReturnTypeForParameterTypes" eType="#//Type">
+      <eParameters name="types" eType="#//TypeArray"/>
+      <eParameters name="ctx" eType="#//BExecutionContext"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="functionType" eType="#//IType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="returnType" eType="#//IType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameterTypes" unique="false"
         upperBound="-1" eType="#//IType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="varArgs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeCalculator" eType="#//BTypeCalculator"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IParameterizedType" instanceClassName="java.lang.reflect.ParameterizedType"
       abstract="true" interface="true" eSuperTypes="#//IType"/>

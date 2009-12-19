@@ -2955,13 +2955,22 @@ public interface B3backendPackage extends EPackage {
 	int B3_FUNCTION_TYPE__VAR_ARGS = ITYPE_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Type Calculator</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int B3_FUNCTION_TYPE__TYPE_CALCULATOR = ITYPE_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>B3 Function Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int B3_FUNCTION_TYPE_FEATURE_COUNT = ITYPE_FEATURE_COUNT + 4;
+	int B3_FUNCTION_TYPE_FEATURE_COUNT = ITYPE_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link java.lang.reflect.ParameterizedType <em>IParameterized Type</em>}' class.
@@ -4941,6 +4950,17 @@ public interface B3backendPackage extends EPackage {
 	EAttribute getB3FunctionType_VarArgs();
 
 	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#getTypeCalculator <em>Type Calculator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Type Calculator</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType#getTypeCalculator()
+	 * @see #getB3FunctionType()
+	 * @generated
+	 */
+	EReference getB3FunctionType_TypeCalculator();
+
+	/**
 	 * Returns the meta object for class '{@link java.lang.reflect.ParameterizedType <em>IParameterized Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6602,6 +6622,14 @@ public interface B3backendPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute B3_FUNCTION_TYPE__VAR_ARGS = eINSTANCE.getB3FunctionType_VarArgs();
+
+		/**
+		 * The meta object literal for the '<em><b>Type Calculator</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference B3_FUNCTION_TYPE__TYPE_CALCULATOR = eINSTANCE.getB3FunctionType_TypeCalculator();
 
 		/**
 		 * The meta object literal for the '{@link java.lang.reflect.ParameterizedType <em>IParameterized Type</em>}' class.

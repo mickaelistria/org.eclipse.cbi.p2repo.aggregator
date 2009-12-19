@@ -334,7 +334,8 @@ public class ArithmeticFunctions {
 	}
 	
 	@B3Backend(typeCalculator=true)
-	public static Type numberGenericityCalculator(Type[] types) {
+	
+	public static Type numberGenericityCalculator(Type[] types, BExecutionContext ctx) {
 		if(types.length == 1)
 			return types[0];
 		if(types.length == 2) {

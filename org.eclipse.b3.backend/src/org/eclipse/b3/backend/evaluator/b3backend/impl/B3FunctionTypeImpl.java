@@ -15,6 +15,8 @@ import java.util.Collection;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
+import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
+import org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 
@@ -43,6 +45,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3FunctionTypeImpl#getReturnType <em>Return Type</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3FunctionTypeImpl#getParameterTypes <em>Parameter Types</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3FunctionTypeImpl#isVarArgs <em>Var Args</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.B3FunctionTypeImpl#getTypeCalculator <em>Type Calculator</em>}</li>
  * </ul>
  * </p>
  *
@@ -105,6 +108,16 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	 * @ordered
 	 */
 	protected boolean varArgs = VAR_ARGS_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getTypeCalculator() <em>Type Calculator</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTypeCalculator()
+	 * @generated
+	 * @ordered
+	 */
+	protected BTypeCalculator typeCalculator;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -242,6 +255,44 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BTypeCalculator getTypeCalculator() {
+		if (typeCalculator != null && typeCalculator.eIsProxy()) {
+			InternalEObject oldTypeCalculator = (InternalEObject)typeCalculator;
+			typeCalculator = (BTypeCalculator)eResolveProxy(oldTypeCalculator);
+			if (typeCalculator != oldTypeCalculator) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.B3_FUNCTION_TYPE__TYPE_CALCULATOR, oldTypeCalculator, typeCalculator));
+			}
+		}
+		return typeCalculator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BTypeCalculator basicGetTypeCalculator() {
+		return typeCalculator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTypeCalculator(BTypeCalculator newTypeCalculator) {
+		BTypeCalculator oldTypeCalculator = typeCalculator;
+		typeCalculator = newTypeCalculator;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.B3_FUNCTION_TYPE__TYPE_CALCULATOR, oldTypeCalculator, typeCalculator));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public Type[] getParameterTypesArray() {
@@ -282,6 +333,18 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Type getReturnTypeForParameterTypes(Type[] types, BExecutionContext ctx) {
+		BTypeCalculator tc = getTypeCalculator();
+		if(tc == null)
+			return getReturnType();
+		return tc.getReturnTypeForParameterTypes(types, ctx);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -297,6 +360,9 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 				return getParameterTypes();
 			case B3backendPackage.B3_FUNCTION_TYPE__VAR_ARGS:
 				return isVarArgs();
+			case B3backendPackage.B3_FUNCTION_TYPE__TYPE_CALCULATOR:
+				if (resolve) return getTypeCalculator();
+				return basicGetTypeCalculator();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -323,6 +389,9 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 			case B3backendPackage.B3_FUNCTION_TYPE__VAR_ARGS:
 				setVarArgs((Boolean)newValue);
 				return;
+			case B3backendPackage.B3_FUNCTION_TYPE__TYPE_CALCULATOR:
+				setTypeCalculator((BTypeCalculator)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -347,6 +416,9 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 			case B3backendPackage.B3_FUNCTION_TYPE__VAR_ARGS:
 				setVarArgs(VAR_ARGS_EDEFAULT);
 				return;
+			case B3backendPackage.B3_FUNCTION_TYPE__TYPE_CALCULATOR:
+				setTypeCalculator((BTypeCalculator)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -367,6 +439,8 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 				return parameterTypes != null && !parameterTypes.isEmpty();
 			case B3backendPackage.B3_FUNCTION_TYPE__VAR_ARGS:
 				return varArgs != VAR_ARGS_EDEFAULT;
+			case B3backendPackage.B3_FUNCTION_TYPE__TYPE_CALCULATOR:
+				return typeCalculator != null;
 		}
 		return super.eIsSet(featureID);
 	}
