@@ -4,6 +4,10 @@ Bundle-Name: Tests
 Bundle-SymbolicName: org.eclipse.b3.beelang.tests
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.eclipse.b3.beelang.tests.Activator
-Require-Bundle: org.eclipse.core.runtime
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.b3.backend,
+ org.eclipse.b3.beelang,
+ org.eclipse.xtext,
+ org.junit4
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
