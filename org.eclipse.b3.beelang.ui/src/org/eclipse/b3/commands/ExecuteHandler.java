@@ -46,8 +46,7 @@ public class ExecuteHandler extends AbstractHandler {
 					// Define all imports as constants
 					for(Type t : ((BeeModel) state).getImports()) {
 						if(t instanceof B3JavaImport) {
-							B3JavaImport ji = (B3JavaImport) t;
-							Class<?> x = TypeUtils.getRaw(ji);
+							Class<?> x = TypeUtils.getRaw(t);
 							engine.getContext().defineValue(((B3JavaImport) t).getName(), x, x);
 						}
 					}
