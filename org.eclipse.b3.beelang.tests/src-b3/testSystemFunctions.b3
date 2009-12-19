@@ -7,6 +7,10 @@ function main(List argv) {
 	testSelect();
 	testReject();
 	testAllFunction();
+	testExistsFunction();
+	testDo();
+	testWhileTrue();
+	testWhileFalse();
 }
 function testInject() {
 	assertEquals("looping over a sequence 1-9 (auto-curry)", 45, (1..9).inject(0, <Integer> Integer x, Integer y | x + y));
@@ -35,4 +39,30 @@ function testReject() {
 function testAllFunction() {
 	assertTrue("check if all values are < 10", (1..9).all(Integer x| x < 10));
 	assertFalse("check if all values are < 9", (1..9).all(Integer x| x < 9));
+	assertFalse("check empty 'all' is false", [<Integer>].all(Integer x| x < 9));
+}
+function testExistsFunction() {
+	assertTrue("check if there is a value 5", (1..9).exists(Integer x| x == 5));
+	assertFalse("check if there is a value 10", (1..9).exists(Integer x| x == 10));
+	assertFalse("check empty 'exists' is false", [<Integer>].exists(Integer x| x == 1));
+}
+function testDo() {
+	assertEquals("do something 9 times", 81, (1..9).do(Integer x| x * x));
+	assertNull("do something null times", [<Integer>].do(Integer x| x == 1));
+}
+function testWhileTrue() {
+	Integer counter = 0;
+	{<Boolean> | counter < 5}.whileTrue(| ++counter);
+	assertEquals("whileTrue 1", 5, counter);
+	counter = 0;
+	whileTrue(<Boolean>|counter < 7, | ++counter);
+	assertEquals("whileTrue 2", 7, counter);
+}
+function testWhileFalse() {
+	Integer counter = 0;
+	{<Boolean> | counter > 5}.whileFalse(| ++counter);
+	assertEquals("whileTrue 1", 6, counter);
+	counter = 0;
+	whileFalse(<Boolean>|counter > 7, | ++counter);
+	assertEquals("whileTrue 2", 8, counter);
 }
