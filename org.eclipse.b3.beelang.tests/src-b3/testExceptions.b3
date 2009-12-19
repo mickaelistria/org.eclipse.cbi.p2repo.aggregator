@@ -1,0 +1,38 @@
+import java.util.List;
+import java.lang.Boolean;
+import java.lang.IllegalArgumentException;
+import java.lang.Exception;
+import java.lang.NullPointerException;
+import java.lang.Object;
+
+function main(List argv) {
+	testTryCatch();
+	testFinally();
+}
+
+function testTryCatch() {
+	// catch an exception out of several possible, try same catch with different exceptions
+	var result = try illegalArgThrower() catch IllegalArgumentException e: true catch Exception e: false endtry;
+	assertTrue("should have caught IllegalArgumentException", result);
+	result = try illegalArgThrower() catch Exception e: false  catch IllegalArgumentException e: true endtry;
+	assertFalse("should have caught Exception", result);
+	result = try illegalArgThrower() catch NullPointerException e: false  catch IllegalArgumentException e: true endtry;
+	assertTrue("should have caught IllegalArgumentException", result);
+}
+function testFinally() {
+	// test that finally is evaluated no matter what
+	Boolean flag = false; 
+	var result = try illegalArgThrower() catch IllegalArgumentException e: true finally flag = true endtry;
+	assertTrue("finally should have been triggered", flag);
+	flag = false;
+	result = try true catch IllegalArgumentException e: true finally flag = true endtry;
+	assertTrue("finally should have been triggered", flag);
+}
+
+/**
+* Always throws java.lang.IllegalArgumentException.
+*/
+function Boolean illegalArgThrower() {
+	throw new IllegalArgumentException();
+	// unreachable...
+}
