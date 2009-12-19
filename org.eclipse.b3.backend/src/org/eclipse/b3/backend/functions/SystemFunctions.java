@@ -1,8 +1,6 @@
 package org.eclipse.b3.backend.functions;
 
 import java.lang.reflect.Type;
-import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -69,6 +67,25 @@ public class SystemFunctions {
 			throw new B3AssertionFailedException(message, Boolean.FALSE, null);
 		if(!booleanExpr.equals(Boolean.FALSE))
 			throw new B3AssertionFailedException(message, Boolean.FALSE, booleanExpr);
+		return Boolean.TRUE;
+	}
+
+	public static Boolean assertNull(
+			@B3Backend(name="message")String message, 
+			@B3Backend(name="expr")Object expr 
+			) throws Throwable {
+		
+		if(expr != null)
+			throw new B3AssertionFailedException(message, "<null value>", expr);
+		return Boolean.TRUE;
+	}
+	public static Boolean assertNotNull(
+			@B3Backend(name="message")String message, 
+			@B3Backend(name="expr")Object expr 
+			) throws Throwable {
+		
+		if(expr == null)
+			throw new B3AssertionFailedException(message, "<a non null value>", null);
 		return Boolean.TRUE;
 	}
 	
@@ -220,6 +237,8 @@ public class SystemFunctions {
 	@B3Backend(system=true)
 	public static Boolean _exists(BExecutionContext ctx, Object[] params, Type[] types) throws Throwable{
 		Curry cur = hurryCurry(params, types, "exists");
+		if(!cur.itor.hasNext())
+			return false;
 
 		Object result = null;
 		while(cur.itor.hasNext()) {
@@ -242,7 +261,8 @@ public class SystemFunctions {
 	@B3Backend(system=true)
 	public static Boolean _all(BExecutionContext ctx, Object[] params, Type[] types) throws Throwable{		
 		Curry cur = hurryCurry(params, types, "all");
-
+		if(!cur.itor.hasNext())
+			return false;
 		Object result = null;
 		while(cur.itor.hasNext()) {
 			Object curryVal = cur.itor.next();
