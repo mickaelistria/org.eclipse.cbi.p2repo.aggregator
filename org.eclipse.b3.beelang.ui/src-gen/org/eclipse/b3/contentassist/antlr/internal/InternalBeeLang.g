@@ -3718,44 +3718,6 @@ finally {
 
 
 
-// Entry rule entryRuleHIDDENBUG
-entryRuleHIDDENBUG 
-@init {
-	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_SL_COMMENT", "RULE_ML_COMMENT");
-}
-:
-{ before(grammarAccess.getHIDDENBUGRule()); }
-	 ruleHIDDENBUG
-{ after(grammarAccess.getHIDDENBUGRule()); } 
-	 EOF 
-;
-finally {
-	myHiddenTokenState.restore();
-}
-
-// Rule HIDDENBUG
-ruleHIDDENBUG 
-    @init {
-		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_SL_COMMENT", "RULE_ML_COMMENT");
-		int stackSize = keepStackSize();
-    }
-	:
-(
-{ before(grammarAccess.getHIDDENBUGAccess().getTildeTildeTildeTildeTildeKeyword()); }
-(
-	'~~~~~' 
-)?
-{ after(grammarAccess.getHIDDENBUGAccess().getTildeTildeTildeTildeTildeKeyword()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-	myHiddenTokenState.restore();
-}
-
-
-
 // Entry rule entryRulePropertyName
 entryRulePropertyName 
 :
@@ -3982,16 +3944,23 @@ finally {
 
 // Entry rule entryRuleREAL
 entryRuleREAL 
+@init {
+	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
+}
 :
 { before(grammarAccess.getREALRule()); }
 	 ruleREAL
 { after(grammarAccess.getREALRule()); } 
 	 EOF 
 ;
+finally {
+	myHiddenTokenState.restore();
+}
 
 // Rule REAL
 ruleREAL 
     @init {
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
 		int stackSize = keepStackSize();
     }
 	:
@@ -4004,6 +3973,7 @@ ruleREAL
 ;
 finally {
 	restoreStackSize(stackSize);
+	myHiddenTokenState.restore();
 }
 
 
@@ -5295,9 +5265,9 @@ rule__ContextBlock__Alternatives_2
 )
 
     |(
-{ before(grammarAccess.getContextBlockAccess().getExpressionsAssignment_2_1()); }
-(rule__ContextBlock__ExpressionsAssignment_2_1)
-{ after(grammarAccess.getContextBlockAccess().getExpressionsAssignment_2_1()); }
+{ before(grammarAccess.getContextBlockAccess().getGroup_2_1()); }
+(rule__ContextBlock__Group_2_1__0)
+{ after(grammarAccess.getContextBlockAccess().getGroup_2_1()); }
 )
 
 ;
@@ -9268,30 +9238,10 @@ rule__Path__Group_1__3
 { after(grammarAccess.getPathAccess().getSolidusKeyword_1_3()); }
 )
 
-	rule__Path__Group_1__4
 ;
 finally {
 	restoreStackSize(stackSize);
 }
-
-
-rule__Path__Group_1__4
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getPathAccess().getHIDDENBUGParserRuleCall_1_4()); }
-	ruleHIDDENBUG
-{ after(grammarAccess.getPathAccess().getHIDDENBUGParserRuleCall_1_4()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
 
 
 
@@ -17281,6 +17231,47 @@ finally {
 
 
 
+rule__ContextBlock__Group_2_1__0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getContextBlockAccess().getExpressionsAssignment_2_1_0()); }
+(rule__ContextBlock__ExpressionsAssignment_2_1_0)
+{ after(grammarAccess.getContextBlockAccess().getExpressionsAssignment_2_1_0()); }
+)
+
+	rule__ContextBlock__Group_2_1__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__ContextBlock__Group_2_1__1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getContextBlockAccess().getSemicolonKeyword_2_1_1()); }
+
+	';' 
+
+{ after(grammarAccess.getContextBlockAccess().getSemicolonKeyword_2_1_1()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
+
+
+
 rule__FunctionDefinition__Group__0
     @init {
 		int stackSize = keepStackSize();
@@ -19551,30 +19542,10 @@ rule__QID__Group__2
 { after(grammarAccess.getQIDAccess().getGroup_2()); }
 )
 
-	rule__QID__Group__3
 ;
 finally {
 	restoreStackSize(stackSize);
 }
-
-
-rule__QID__Group__3
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getQIDAccess().getHIDDENBUGParserRuleCall_3()); }
-	ruleHIDDENBUG
-{ after(grammarAccess.getQIDAccess().getHIDDENBUGParserRuleCall_3()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
 
 
 
@@ -23364,14 +23335,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ContextBlock__ExpressionsAssignment_2_1
+rule__ContextBlock__ExpressionsAssignment_2_1_0
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getContextBlockAccess().getExpressionsExpressionParserRuleCall_2_1_0()); }
-	ruleExpression{ after(grammarAccess.getContextBlockAccess().getExpressionsExpressionParserRuleCall_2_1_0()); }
+{ before(grammarAccess.getContextBlockAccess().getExpressionsExpressionParserRuleCall_2_1_0_0()); }
+	ruleExpression{ after(grammarAccess.getContextBlockAccess().getExpressionsExpressionParserRuleCall_2_1_0_0()); }
 )
 
 ;
