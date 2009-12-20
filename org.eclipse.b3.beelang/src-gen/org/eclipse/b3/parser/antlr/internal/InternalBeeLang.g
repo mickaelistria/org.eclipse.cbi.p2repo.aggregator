@@ -10497,10 +10497,10 @@ ruleContextBlock returns [EObject current=null]
 
 )
 )
-    |(
+    |((
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getContextBlockAccess().getExpressionsExpressionParserRuleCall_2_1_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getContextBlockAccess().getExpressionsExpressionParserRuleCall_2_1_0_0(), currentNode); 
 	    }
 		lv_expressions_3_0=ruleExpression		{
 	        if ($current==null) {
@@ -10521,6 +10521,10 @@ ruleContextBlock returns [EObject current=null]
 	    }
 
 )
+)	';' 
+    {
+        createLeafNode(grammarAccess.getContextBlockAccess().getSemicolonKeyword_2_1_1(), null); 
+    }
 ))*	'}' 
     {
         createLeafNode(grammarAccess.getContextBlockAccess().getRightCurlyBracketKeyword_3(), null); 

@@ -2216,8 +2216,11 @@
         <groups xsi:type="xtext:Assignment" feature="expressions" operator="+=">
           <terminal xsi:type="xtext:RuleCall" rule="//@rules.104"/>
         </groups>
-        <groups xsi:type="xtext:Assignment" feature="expressions" operator="+=">
-          <terminal xsi:type="xtext:RuleCall" rule="//@rules.59"/>
+        <groups xsi:type="xtext:Group">
+          <tokens xsi:type="xtext:Assignment" feature="expressions" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.59"/>
+          </tokens>
+          <tokens xsi:type="xtext:Keyword" value=";"/>
         </groups>
       </tokens>
       <tokens xsi:type="xtext:Keyword" value="}"/>

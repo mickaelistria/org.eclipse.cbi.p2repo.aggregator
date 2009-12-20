@@ -494,7 +494,7 @@ UnitSelector :
 ContextBlock returns be::BExpression : {be::BChainedExpression} 
 	'{'  ((expressions +=FunctionDefinition) 
 //		| (expressions+=BuilderDefinition)   // TODO: How to handle Builder definitions as expressions
-		| (expressions+=Expression)
+		| (expressions+=Expression ';')
 //		| (expressions+=PropertiesStatement) // TODO: How to handle Properties statements as expressions
 		)* '}' 
 		;

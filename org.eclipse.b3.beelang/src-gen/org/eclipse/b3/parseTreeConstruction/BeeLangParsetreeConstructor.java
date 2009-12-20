@@ -23660,14 +23660,15 @@ protected class UnitSelector_VersionRangeAssignment_2_2_1 extends AssignmentToke
  *
  * ContextBlock returns be::BExpression:
  *   {be::BChainedExpression} "{" (expressions+=FunctionDefinition|expressions+=
- *   Expression)* "}"; 
+ *   Expression ";")* "}"; 
  * 
  *          
  * 	      
  * //		| (expressions+=BuilderDefinition)   // TODO: How to handle Builder definitions as expressions
- * 		   
- * //		| (expressions+=PropertiesStatement) // TODO: How to handle Properties statements as expressions
  * 		     
+ * //		| (expressions+=PropertiesStatement) // TODO: How to handle Properties statements as expressions
+ * 		    
+ * 		
  * 					
  * //ExpressionStatement returns Statement : {ExpressionStatement} val=Expression ';' ;
  * //PropertiesStatement returns Statement : {PropertiesStatement} "properties" properties = NamedPropertySet ;
@@ -23675,10 +23676,10 @@ protected class UnitSelector_VersionRangeAssignment_2_2_1 extends AssignmentToke
  **/
 
 // {be::BChainedExpression} "{" (expressions+=FunctionDefinition|expressions+=
-// Expression)* "}"    
+// Expression ";")* "}"    
 // 	      
 // //		| (expressions+=BuilderDefinition)   // TODO: How to handle Builder definitions as expressions
-// 		   
+// 		     
 // //		| (expressions+=PropertiesStatement) // TODO: How to handle Properties statements as expressions
 protected class ContextBlock_Group extends GroupToken {
 	
@@ -23756,9 +23757,9 @@ protected class ContextBlock_LeftCurlyBracketKeyword_1 extends KeywordToken  {
 		
 }
 
-// (expressions+=FunctionDefinition|expressions+=Expression)*       
+// (expressions+=FunctionDefinition|expressions+=Expression ";")*       
 // //		| (expressions+=BuilderDefinition)   // TODO: How to handle Builder definitions as expressions
-// 		   
+// 		     
 // //		| (expressions+=PropertiesStatement) // TODO: How to handle Properties statements as expressions
 protected class ContextBlock_Alternatives_2 extends AlternativesToken {
 
@@ -23775,7 +23776,7 @@ protected class ContextBlock_Alternatives_2 extends AlternativesToken {
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
 			case 0: return new ContextBlock_ExpressionsAssignment_2_0(parent, this, 0, inst);
-			case 1: return new ContextBlock_ExpressionsAssignment_2_1(parent, this, 1, inst);
+			case 1: return new ContextBlock_Group_2_1(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -23829,16 +23830,38 @@ protected class ContextBlock_ExpressionsAssignment_2_0 extends AssignmentToken  
 	}	
 }
 
-// expressions+=Expression
-protected class ContextBlock_ExpressionsAssignment_2_1 extends AssignmentToken  {
+// expressions+=Expression ";"
+protected class ContextBlock_Group_2_1 extends GroupToken {
 	
-	public ContextBlock_ExpressionsAssignment_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ContextBlock_Group_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getContextBlockAccess().getGroup_2_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ContextBlock_SemicolonKeyword_2_1_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// expressions+=Expression
+protected class ContextBlock_ExpressionsAssignment_2_1_0 extends AssignmentToken  {
+	
+	public ContextBlock_ExpressionsAssignment_2_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getContextBlockAccess().getExpressionsAssignment_2_1();
+		return grammarAccess.getContextBlockAccess().getExpressionsAssignment_2_1_0();
 	}
 
     @Override
@@ -23857,7 +23880,7 @@ protected class ContextBlock_ExpressionsAssignment_2_1 extends AssignmentToken  
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getExpressionRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getContextBlockAccess().getExpressionsExpressionParserRuleCall_2_1_0(); 
+				element = grammarAccess.getContextBlockAccess().getExpressionsExpressionParserRuleCall_2_1_0_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -23875,6 +23898,29 @@ protected class ContextBlock_ExpressionsAssignment_2_1 extends AssignmentToken  
 		}	
 	}	
 }
+
+// ";"
+protected class ContextBlock_SemicolonKeyword_2_1_1 extends KeywordToken  {
+	
+	public ContextBlock_SemicolonKeyword_2_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getContextBlockAccess().getSemicolonKeyword_2_1_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ContextBlock_ExpressionsAssignment_2_1_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
 
 
 // "}"
