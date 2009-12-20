@@ -33,6 +33,7 @@ function testNewWithConstructorBlock() {
 		// TODO: This stupid construction is required because the system context
 		// only looks for the declared types in the method signature...
 		// it should search for the best method !!
+		// See: https://bugs.eclipse.org/bugs/show_bug.cgi?id=297661
 		Object key = 'dear tester';
 		Object value = 'have a cigarr';
 		theMap.put(key, value);
