@@ -2608,18 +2608,7 @@ rulePath returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
         $current.merge(kw);
         createLeafNode(grammarAccess.getPathAccess().getSolidusKeyword_1_3(), null); 
     }
-)?
-    { 
-        currentNode=createCompositeNode(grammarAccess.getPathAccess().getHIDDENBUGParserRuleCall_1_4(), currentNode); 
-    }
-    this_HIDDENBUG_6=ruleHIDDENBUG    {
-		$current.merge(this_HIDDENBUG_6);
-    }
-
-    { 
-        currentNode = currentNode.getParent();
-    }
-))
+)?))
     ;
 finally {
 	myHiddenTokenState.restore();
@@ -12815,57 +12804,7 @@ ruleQID returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
     { 
     createLeafNode(grammarAccess.getQIDAccess().getIDTerminalRuleCall_2_2_2(), null); 
     }
-)*)*
-    { 
-        currentNode=createCompositeNode(grammarAccess.getQIDAccess().getHIDDENBUGParserRuleCall_3(), currentNode); 
-    }
-    this_HIDDENBUG_9=ruleHIDDENBUG    {
-		$current.merge(this_HIDDENBUG_9);
-    }
-
-    { 
-        currentNode = currentNode.getParent();
-    }
-)
-    ;
-finally {
-	myHiddenTokenState.restore();
-}
-
-
-
-
-
-// Entry rule entryRuleHIDDENBUG
-entryRuleHIDDENBUG returns [String current=null] 
-	@init { 
-		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_SL_COMMENT", "RULE_ML_COMMENT");
-	}
-	:
-	{ currentNode = createCompositeNode(grammarAccess.getHIDDENBUGRule(), currentNode); } 
-	 iv_ruleHIDDENBUG=ruleHIDDENBUG 
-	 { $current=$iv_ruleHIDDENBUG.current.getText(); }  
-	 EOF 
-;
-finally {
-	myHiddenTokenState.restore();
-}
-
-// Rule HIDDENBUG
-ruleHIDDENBUG returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
-    @init { setCurrentLookahead(); resetLookahead(); 
-		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_SL_COMMENT", "RULE_ML_COMMENT");
-    }
-    @after { resetLookahead(); 
-	    lastConsumedNode = currentNode;
-    }:
-(
-	kw='~~~~~' 
-    {
-        $current.merge(kw);
-        createLeafNode(grammarAccess.getHIDDENBUGAccess().getTildeTildeTildeTildeTildeKeyword(), null); 
-    }
-)?
+)*)*)
     ;
 finally {
 	myHiddenTokenState.restore();
@@ -13319,16 +13258,23 @@ ruleAlfanumSym returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToke
 
 // Entry rule entryRuleREAL
 entryRuleREAL returns [String current=null] 
+	@init { 
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
+	}
 	:
 	{ currentNode = createCompositeNode(grammarAccess.getREALRule(), currentNode); } 
 	 iv_ruleREAL=ruleREAL 
 	 { $current=$iv_ruleREAL.current.getText(); }  
 	 EOF 
 ;
+finally {
+	myHiddenTokenState.restore();
+}
 
 // Rule REAL
 ruleREAL returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
     @init { setCurrentLookahead(); resetLookahead(); 
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
     }
     @after { resetLookahead(); 
 	    lastConsumedNode = currentNode;
@@ -13363,6 +13309,9 @@ ruleREAL returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
     }
 ))
     ;
+finally {
+	myHiddenTokenState.restore();
+}
 
 
 

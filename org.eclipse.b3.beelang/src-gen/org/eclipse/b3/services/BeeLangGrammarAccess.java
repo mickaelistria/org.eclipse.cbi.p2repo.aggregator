@@ -1387,23 +1387,29 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSolidusKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
 		private final RuleCall cQIDParserRuleCall_1_2_1 = (RuleCall)cGroup_1_2.eContents().get(1);
 		private final Keyword cSolidusKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
-		private final RuleCall cHIDDENBUGParserRuleCall_1_4 = (RuleCall)cGroup_1.eContents().get(4);
 		
 		//Path returns ecore::EString hidden ( ):
-		//  STRING|"/"? QID ("/" QID)* "/"? HIDDENBUG; 
+		//  STRING|"/"? QID ("/" QID)* "/"?; 
 		//
-		//// A path can be written without quotes if it consists of safe chars
+		//// A path can be written without quotes if it consists of safe chars 
+		//  
+		//	  
+		//	             // HIDDENBUG
 		public ParserRule getRule() { return rule; }
 
-		//STRING|"/"? QID ("/" QID)* "/"? HIDDENBUG 
+		//STRING|"/"? QID ("/" QID)* "/"? 
 		//
-		//// A path can be written without quotes if it consists of safe chars
+		//// A path can be written without quotes if it consists of safe chars 
+		//  
+		//	  
+		//	             // HIDDENBUG
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//STRING
 		public RuleCall getSTRINGTerminalRuleCall_0() { return cSTRINGTerminalRuleCall_0; }
 
-		//"/"? QID ("/" QID)* "/"? HIDDENBUG
+		//"/"? QID ("/" QID)* "/"?   
+		//	             // HIDDENBUG
 		public Group getGroup_1() { return cGroup_1; }
 
 		//"/"?
@@ -1423,9 +1429,6 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"/"?
 		public Keyword getSolidusKeyword_1_3() { return cSolidusKeyword_1_3; }
-
-		//HIDDENBUG
-		public RuleCall getHIDDENBUGParserRuleCall_1_4() { return cHIDDENBUGParserRuleCall_1_4; }
 	}
 
 	public class PrerequisiteElements extends AbstractParserRuleElementFinder {
@@ -4696,12 +4699,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cCatchExprExpressionParserRuleCall_5_0 = (RuleCall)cCatchExprAssignment_5.eContents().get(0);
 		
 		//CatchBlock returns be::BCatch:
-		//  {be::BCatch} "catch" exceptionType=TypeRef varname=ID ":" catchExpr=Expression; 
-		//		
-		//	    
-		//	              
-		//	
-		//// FinallyBlock	: "finally" Expression ;
+		//  {be::BCatch} "catch" exceptionType=TypeRef varname=ID ":" catchExpr=Expression;
 		public ParserRule getRule() { return rule; }
 
 		//{be::BCatch} "catch" exceptionType=TypeRef varname=ID ":" catchExpr=Expression
@@ -4748,9 +4746,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//SwitchExpression returns be::BExpression:
 		//  {be::BSwitchExpression} "switch" switchExpression=Expression? caseList+=Case+
-		//  "endswitch"; 
-		//	
-		//// FinallyBlock	: "finally" Expression ;
+		//  "endswitch";
 		public ParserRule getRule() { return rule; }
 
 		//{be::BSwitchExpression} "switch" switchExpression=Expression? caseList+=Case+
@@ -4880,17 +4876,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//IfExpression returns be::BExpression:
 		//  {be::BIfExpression} "if" conditionExpr=Expression "then" thenExpr=Expression (
-		//  elseExpr=ElseIfExpression|"else" elseExpr=Expression)? "endif"; 
-		//
-		//
-		//    
-		//	            
-		//	                
-		//	
-		//	
-		//
-		//// for typing	
-		//// IfExpressionTail : ElseIfExpression | ElseExpression ;
+		//  elseExpr=ElseIfExpression|"else" elseExpr=Expression)? "endif";
 		public ParserRule getRule() { return rule; }
 
 		//{be::BIfExpression} "if" conditionExpr=Expression "then" thenExpr=Expression (
@@ -4963,17 +4949,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ElseIfExpression returns be::BExpression:
 		//  {be::BIfExpression} "elseif" conditionExpr=Expression "then" thenExpr=Expression (
-		//  elseExpr=ElseIfExpression|"else" elseExpr=Expression)?; 
-		//
-		//// for typing	
-		//// IfExpressionTail : ElseIfExpression | ElseExpression ;	
-		//     
-		//	           
-		//		                
-		//	
-		//	
-		////ElseExpression returns be::BExpression 
-		////	:  "else" Expression ;
+		//  elseExpr=ElseIfExpression|"else" elseExpr=Expression)?;
 		public ParserRule getRule() { return rule; }
 
 		//{be::BIfExpression} "elseif" conditionExpr=Expression "then" thenExpr=Expression (
@@ -5031,10 +5007,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNamePIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		
 		//PropertyValue returns be::BExpression:
-		//  {be::BVariableExpression} name=PID; 
-		//	
-		////ElseExpression returns be::BExpression 
-		////	:  "else" Expression ;
+		//  {be::BVariableExpression} name=PID;
 		public ParserRule getRule() { return rule; }
 
 		//{be::BVariableExpression} name=PID
@@ -6670,18 +6643,19 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cINTTerminalRuleCall_2_2_0 = (RuleCall)cAlternatives_2_2.eContents().get(0);
 		private final RuleCall cHEXTerminalRuleCall_2_2_1 = (RuleCall)cAlternatives_2_2.eContents().get(1);
 		private final RuleCall cIDTerminalRuleCall_2_2_2 = (RuleCall)cAlternatives_2_2.eContents().get(2);
-		private final RuleCall cHIDDENBUGParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
 		
 		//QID returns ecore::EString hidden ( ):
-		//  ID (INT|HEX|ID)* ("." ID (INT|HEX|ID)*)* HIDDENBUG; 
+		//  ID (INT|HEX|ID)* ("." ID (INT|HEX|ID)*)*; 
 		//
 		//// Qualified name
 		//// TODO: Needs to disallow white space between ID and '.', and no embedded comments. 
 		//// A bug in xtext prevents using hidden() here without the using the magic HIDDENBUG.
 		////
+		//                //HIDDENBUG;
+		////HIDDENBUG hidden(WS, SL_COMMENT, ML_COMMENT): ('~~~~~')? ; // TODO: REPLACE HACK WHEN HIDDEN WORKS.
 		public ParserRule getRule() { return rule; }
 
-		//ID (INT|HEX|ID)* ("." ID (INT|HEX|ID)*)* HIDDENBUG
+		//ID (INT|HEX|ID)* ("." ID (INT|HEX|ID)*)*
 		public Group getGroup() { return cGroup; }
 
 		//ID
@@ -6719,22 +6693,6 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 		//ID
 		public RuleCall getIDTerminalRuleCall_2_2_2() { return cIDTerminalRuleCall_2_2_2; }
-
-		//HIDDENBUG
-		public RuleCall getHIDDENBUGParserRuleCall_3() { return cHIDDENBUGParserRuleCall_3; }
-	}
-
-	public class HIDDENBUGElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "HIDDENBUG");
-		private final Keyword cTildeTildeTildeTildeTildeKeyword = (Keyword)rule.eContents().get(1);
-		
-		//HIDDENBUG returns ecore::EString hidden ( WS , SL_COMMENT , ML_COMMENT ):
-		//  "~~~~~"?; 
-		//            // TODO: REPLACE HACK WHEN HIDDEN WORKS.
-		public ParserRule getRule() { return rule; }
-
-		//"~~~~~"?
-		public Keyword getTildeTildeTildeTildeTildeKeyword() { return cTildeTildeTildeTildeTildeKeyword; }
 	}
 
 	public class PropertyNameElements extends AbstractParserRuleElementFinder {
@@ -6742,7 +6700,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cPIDTerminalRuleCall = (RuleCall)rule.eContents().get(1);
 		
 		//PropertyName returns ecore::EString:
-		//  PID;   // TODO: REPLACE HACK WHEN HIDDEN WORKS.
+		//  PID;   //HIDDENBUG;
+		////HIDDENBUG hidden(WS, SL_COMMENT, ML_COMMENT): ('~~~~~')? ; // TODO: REPLACE HACK WHEN HIDDEN WORKS.
 		public ParserRule getRule() { return rule; }
 
 		//PID
@@ -6992,7 +6951,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cEXT_INTTerminalRuleCall_2_0 = (RuleCall)cAlternatives_2.eContents().get(0);
 		private final RuleCall cINTTerminalRuleCall_2_1 = (RuleCall)cAlternatives_2.eContents().get(1);
 		
-		//REAL returns ecore::EString:
+		//REAL returns ecore::EString hidden ( ):
 		//  INT? "." (EXT_INT|INT);
 		public ParserRule getRule() { return rule; }
 
@@ -7261,7 +7220,6 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	private VersionRangeLiteralElements pVersionRangeLiteral;
 	private QIDREFElements pQIDREF;
 	private QIDElements pQID;
-	private HIDDENBUGElements pHIDDENBUG;
 	private PropertyNameElements pPropertyName;
 	private EscapedQualifiedNameElements pEscapedQualifiedName;
 	private InterfaceNameElements pInterfaceName;
@@ -7600,9 +7558,12 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Path returns ecore::EString hidden ( ):
-	//  STRING|"/"? QID ("/" QID)* "/"? HIDDENBUG; 
+	//  STRING|"/"? QID ("/" QID)* "/"?; 
 	//
-	//// A path can be written without quotes if it consists of safe chars
+	//// A path can be written without quotes if it consists of safe chars 
+	//  
+	//	  
+	//	             // HIDDENBUG
 	public PathElements getPathAccess() {
 		return (pPath != null) ? pPath : (pPath = new PathElements());
 	}
@@ -8471,12 +8432,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//CatchBlock returns be::BCatch:
-	//  {be::BCatch} "catch" exceptionType=TypeRef varname=ID ":" catchExpr=Expression; 
-	//		
-	//	    
-	//	              
-	//	
-	//// FinallyBlock	: "finally" Expression ;
+	//  {be::BCatch} "catch" exceptionType=TypeRef varname=ID ":" catchExpr=Expression;
 	public CatchBlockElements getCatchBlockAccess() {
 		return (pCatchBlock != null) ? pCatchBlock : (pCatchBlock = new CatchBlockElements());
 	}
@@ -8487,9 +8443,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 	//SwitchExpression returns be::BExpression:
 	//  {be::BSwitchExpression} "switch" switchExpression=Expression? caseList+=Case+
-	//  "endswitch"; 
-	//	
-	//// FinallyBlock	: "finally" Expression ;
+	//  "endswitch";
 	public SwitchExpressionElements getSwitchExpressionAccess() {
 		return (pSwitchExpression != null) ? pSwitchExpression : (pSwitchExpression = new SwitchExpressionElements());
 	}
@@ -8520,17 +8474,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 	//IfExpression returns be::BExpression:
 	//  {be::BIfExpression} "if" conditionExpr=Expression "then" thenExpr=Expression (
-	//  elseExpr=ElseIfExpression|"else" elseExpr=Expression)? "endif"; 
-	//
-	//
-	//    
-	//	            
-	//	                
-	//	
-	//	
-	//
-	//// for typing	
-	//// IfExpressionTail : ElseIfExpression | ElseExpression ;
+	//  elseExpr=ElseIfExpression|"else" elseExpr=Expression)? "endif";
 	public IfExpressionElements getIfExpressionAccess() {
 		return (pIfExpression != null) ? pIfExpression : (pIfExpression = new IfExpressionElements());
 	}
@@ -8541,17 +8485,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 	//ElseIfExpression returns be::BExpression:
 	//  {be::BIfExpression} "elseif" conditionExpr=Expression "then" thenExpr=Expression (
-	//  elseExpr=ElseIfExpression|"else" elseExpr=Expression)?; 
-	//
-	//// for typing	
-	//// IfExpressionTail : ElseIfExpression | ElseExpression ;	
-	//     
-	//	           
-	//		                
-	//	
-	//	
-	////ElseExpression returns be::BExpression 
-	////	:  "else" Expression ;
+	//  elseExpr=ElseIfExpression|"else" elseExpr=Expression)?;
 	public ElseIfExpressionElements getElseIfExpressionAccess() {
 		return (pElseIfExpression != null) ? pElseIfExpression : (pElseIfExpression = new ElseIfExpressionElements());
 	}
@@ -8561,10 +8495,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//PropertyValue returns be::BExpression:
-	//  {be::BVariableExpression} name=PID; 
-	//	
-	////ElseExpression returns be::BExpression 
-	////	:  "else" Expression ;
+	//  {be::BVariableExpression} name=PID;
 	public PropertyValueElements getPropertyValueAccess() {
 		return (pPropertyValue != null) ? pPropertyValue : (pPropertyValue = new PropertyValueElements());
 	}
@@ -9046,12 +8977,14 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//QID returns ecore::EString hidden ( ):
-	//  ID (INT|HEX|ID)* ("." ID (INT|HEX|ID)*)* HIDDENBUG; 
+	//  ID (INT|HEX|ID)* ("." ID (INT|HEX|ID)*)*; 
 	//
 	//// Qualified name
 	//// TODO: Needs to disallow white space between ID and '.', and no embedded comments. 
 	//// A bug in xtext prevents using hidden() here without the using the magic HIDDENBUG.
 	////
+	//                //HIDDENBUG;
+	////HIDDENBUG hidden(WS, SL_COMMENT, ML_COMMENT): ('~~~~~')? ; // TODO: REPLACE HACK WHEN HIDDEN WORKS.
 	public QIDElements getQIDAccess() {
 		return (pQID != null) ? pQID : (pQID = new QIDElements());
 	}
@@ -9060,19 +8993,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getQIDAccess().getRule();
 	}
 
-	//HIDDENBUG returns ecore::EString hidden ( WS , SL_COMMENT , ML_COMMENT ):
-	//  "~~~~~"?; 
-	//            // TODO: REPLACE HACK WHEN HIDDEN WORKS.
-	public HIDDENBUGElements getHIDDENBUGAccess() {
-		return (pHIDDENBUG != null) ? pHIDDENBUG : (pHIDDENBUG = new HIDDENBUGElements());
-	}
-	
-	public ParserRule getHIDDENBUGRule() {
-		return getHIDDENBUGAccess().getRule();
-	}
-
 	//PropertyName returns ecore::EString:
-	//  PID;   // TODO: REPLACE HACK WHEN HIDDEN WORKS.
+	//  PID;   //HIDDENBUG;
+	////HIDDENBUG hidden(WS, SL_COMMENT, ML_COMMENT): ('~~~~~')? ; // TODO: REPLACE HACK WHEN HIDDEN WORKS.
 	public PropertyNameElements getPropertyNameAccess() {
 		return (pPropertyName != null) ? pPropertyName : (pPropertyName = new PropertyNameElements());
 	}
@@ -9296,7 +9219,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return (tINT != null) ? tINT : (tINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "INT"));
 	} 
 
-	//REAL returns ecore::EString:
+	//REAL returns ecore::EString hidden ( ):
 	//  INT? "." (EXT_INT|INT);
 	public REALElements getREALAccess() {
 		return (pREAL != null) ? pREAL : (pREAL = new REALElements());

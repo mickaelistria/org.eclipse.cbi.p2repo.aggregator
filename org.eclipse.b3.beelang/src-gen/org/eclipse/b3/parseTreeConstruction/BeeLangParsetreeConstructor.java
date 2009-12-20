@@ -20369,12 +20369,7 @@ protected class TryCatchExpression_EndtryKeyword_5 extends KeywordToken  {
 /************ begin Rule CatchBlock ****************
  *
  * CatchBlock returns be::BCatch:
- *   {be::BCatch} "catch" exceptionType=TypeRef varname=ID ":" catchExpr=Expression; 
- * 		
- * 	    
- * 	              
- * 	
- * // FinallyBlock	: "finally" Expression ;
+ *   {be::BCatch} "catch" exceptionType=TypeRef varname=ID ":" catchExpr=Expression;
  *
  **/
 
@@ -20611,9 +20606,7 @@ protected class CatchBlock_CatchExprAssignment_5 extends AssignmentToken  {
  *
  * SwitchExpression returns be::BExpression:
  *   {be::BSwitchExpression} "switch" switchExpression=Expression? caseList+=Case+
- *   "endswitch"; 
- * 	
- * // FinallyBlock	: "finally" Expression ;
+ *   "endswitch";
  *
  **/
 
@@ -21224,17 +21217,7 @@ protected class BlockExpression_RightCurlyBracketKeyword_3 extends KeywordToken 
  *
  * IfExpression returns be::BExpression:
  *   {be::BIfExpression} "if" conditionExpr=Expression "then" thenExpr=Expression (
- *   elseExpr=ElseIfExpression|"else" elseExpr=Expression)? "endif"; 
- * 
- * 
- *     
- * 	            
- * 	                
- * 	
- * 	
- * 
- * // for typing	
- * // IfExpressionTail : ElseIfExpression | ElseExpression ;
+ *   elseExpr=ElseIfExpression|"else" elseExpr=Expression)? "endif";
  *
  **/
 
@@ -21622,17 +21605,7 @@ protected class IfExpression_EndifKeyword_6 extends KeywordToken  {
  *
  * ElseIfExpression returns be::BExpression:
  *   {be::BIfExpression} "elseif" conditionExpr=Expression "then" thenExpr=Expression (
- *   elseExpr=ElseIfExpression|"else" elseExpr=Expression)?; 
- * 
- * // for typing	
- * // IfExpressionTail : ElseIfExpression | ElseExpression ;	
- *      
- * 	           
- * 		                
- * 	
- * 	
- * //ElseExpression returns be::BExpression 
- * //	:  "else" Expression ;
+ *   elseExpr=ElseIfExpression|"else" elseExpr=Expression)?;
  *
  **/
 
@@ -21997,10 +21970,7 @@ protected class ElseIfExpression_ElseExprAssignment_5_1_1 extends AssignmentToke
 /************ begin Rule PropertyValue ****************
  *
  * PropertyValue returns be::BExpression:
- *   {be::BVariableExpression} name=PID; 
- * 	
- * //ElseExpression returns be::BExpression 
- * //	:  "else" Expression ;
+ *   {be::BVariableExpression} name=PID;
  *
  **/
 
@@ -28256,7 +28226,6 @@ protected class VersionRange_RangeAssignment extends AssignmentToken  {
 }
 
 /************ end Rule VersionRange ****************/
-
 
 
 
