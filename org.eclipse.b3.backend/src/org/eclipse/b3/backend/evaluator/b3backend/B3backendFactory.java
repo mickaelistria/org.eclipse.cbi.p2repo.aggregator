@@ -484,6 +484,15 @@ public interface B3backendFactory extends EFactory {
 	BTypeCalculatorFunction createBTypeCalculatorFunction();
 
 	/**
+	 * Returns a new object of class '<em>BInstance Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>BInstance Context</em>'.
+	 * @generated
+	 */
+	BInstanceContext createBInstanceContext();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

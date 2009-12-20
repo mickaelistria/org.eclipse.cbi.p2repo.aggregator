@@ -315,6 +315,9 @@ public class BAtExpressionImpl extends BExpressionImpl implements BAtExpression 
 		public void setDeclaredType(Type t) throws B3EngineException {
 			throw new B3ImmutableTypeException(list, type, t);
 		}
+		public boolean isGetable() throws B3EngineException {
+			return true;
+		}
 	}
 	@SuppressWarnings("unchecked")
 	private static class MapLValue implements LValue {
@@ -343,6 +346,9 @@ public class BAtExpressionImpl extends BExpressionImpl implements BAtExpression 
 		}
 		public void setDeclaredType(Type t) throws B3EngineException {
 			throw new B3ImmutableTypeException(map, type, t);
+		}
+		public boolean isGetable() throws B3EngineException {
+			return true;
 		}
 
 	}

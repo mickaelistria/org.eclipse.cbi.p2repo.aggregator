@@ -10,10 +10,13 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Type;
 
 import org.eclipse.b3.backend.core.B3NoSuchFunctionException;
+import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
+import org.eclipse.b3.backend.evaluator.b3backend.BInnerContext;
+import org.eclipse.b3.backend.evaluator.b3backend.BInstanceContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameter;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 
@@ -393,7 +396,24 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 		if(parameters.length == 1)
 			return ctor.newInstance(parameters[0]);
 		
-		return ctor.newInstance(parameters);
+		Object result = ctor.newInstance(parameters);
+		// if creator has a contextBlock and alias, these needs to be processed
+		BExpression cBlock = getContextBlock();
+		if(cBlock != null) {
+			// create a context for the object instance
+			BInstanceContext iCtx = B3backendFactory.eINSTANCE.createBInstanceContext();
+			iCtx.setInstance(result);
+			iCtx.setParentContext(ctx);
+			iCtx.setOuterContext(ctx instanceof BInnerContext ?
+					((BInnerContext)ctx).getOuterContext() : ctx);
+			// create an inner context for the cBlock, and define the optional alias
+			// as an immutable value.
+			BExecutionContext iiCtx = iCtx.createInnerContext();
+			if(getAlias() != null && getAlias().length() > 0)
+				iiCtx.defineValue(getAlias(), result, type);
+			cBlock.evaluate(iiCtx);
+		}
+		return result;
 	}
 	@Override
 	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {

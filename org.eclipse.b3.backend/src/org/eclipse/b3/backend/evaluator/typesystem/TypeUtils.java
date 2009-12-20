@@ -146,5 +146,57 @@ public class TypeUtils {
 		
 		return getRaw(type);
 	}
+	
+	/**
+	 * Returns the object type corresponding to a primitive type.
+	 * @param t
+	 * @return
+	 */
+	public static Type objectify(Type t) {
+		Class<?> raw = TypeUtils.getRaw(t);
+		if(!raw.isPrimitive())
+			return t;
 		
+		if(t == boolean.class)
+			return Boolean.class;
+		
+		if(t == int.class)
+			return Integer.class;
+		if(t == short.class)
+			return Short.class;
+		if(t == long.class)
+			return Long.class;
+		if(t == char.class)
+			return Character.class;
+		
+		if(t == double.class)
+			return Double.class;
+		if(t == float.class)
+			return Float.class;
+		return t;
+	}
+	public static Type primitivize(Type t) {
+		if(t == Integer.class)
+			return int.class;
+		else if (t == Long.class) 
+			return long.class;
+		else if(t == Double.class) 
+			return double.class;
+		else if(t == Float.class) 
+			return float.class;
+		else if(t == Boolean.class) 
+			return boolean.class;
+		else if(t == Short.class)
+			return short.class;
+		else if(t == Character.class)
+			return char.class;
+		return t; // give up
+	}
+	/**
+	 * Called to trigger autoboxing of primitive type
+	 * @param x
+	 * @return
+	 */
+	public static Object autoBox(Object x) { return x; }
+
 }

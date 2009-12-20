@@ -546,6 +546,14 @@ public class B3backendSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case B3backendPackage.BINSTANCE_CONTEXT: {
+				BInstanceContext bInstanceContext = (BInstanceContext)theEObject;
+				T result = caseBInstanceContext(bInstanceContext);
+				if (result == null) result = caseBInnerContext(bInstanceContext);
+				if (result == null) result = caseBExecutionContext(bInstanceContext);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -1492,6 +1500,21 @@ public class B3backendSwitch<T> {
 	 * @generated
 	 */
 	public T caseBTypeCalculatorFunction(BTypeCalculatorFunction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BInstance Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BInstance Context</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBInstanceContext(BInstanceContext object) {
 		return null;
 	}
 

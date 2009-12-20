@@ -6,8 +6,6 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
-import org.eclipse.b3.backend.core.B3EngineException;
-import org.eclipse.b3.backend.core.B3ImmutableTypeException;
 import org.eclipse.b3.backend.core.B3NoSuchFeatureException;
 import org.eclipse.b3.backend.core.LValue;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
@@ -20,6 +18,8 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
 import org.eclipse.b3.backend.evaluator.BackendHelper;
+import org.eclipse.b3.backend.evaluator.EcoreFeatureLValue;
+import org.eclipse.b3.backend.evaluator.PojoFeatureLValue;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -319,7 +319,7 @@ public class BFeatureExpressionImpl extends BExpressionImpl implements BFeatureE
 			return new EcoreFeatureLValue((EObject)lhs, feature);
 		}
 		else {
-			return new PojoFeatureLValue(lhs);
+			return new PojoFeatureLValue(lhs, featureName);
 		}
 	}
 	
@@ -340,89 +340,6 @@ public class BFeatureExpressionImpl extends BExpressionImpl implements BFeatureE
 		if(getter == null)
 			throw new B3NoSuchFeatureException(featureName);
 		return getter.getGenericReturnType();
-		
-	}
-	private class EcoreFeatureLValue implements LValue {
-		EStructuralFeature name;
-		EObject lhs;
-		EcoreFeatureLValue(EObject lhs, EStructuralFeature featureName)
-		{ this.lhs = lhs; this.name = featureName; }
-		
-		public Object get() throws B3EngineException {
-			return lhs.eGet(name);
-		}
-
-		public boolean isSettable() throws B3EngineException {
-			return true;
-		}
-
-		public Object set(Object value) throws B3EngineException {
-			lhs.eSet(name, value);
-			return value;
-		}
-
-		public Type getDeclaredType() throws B3EngineException {
-			return name.getEType().getInstanceClass();
-		}
-		public void setDeclaredType(Type t) throws B3EngineException {
-			throw new B3ImmutableTypeException(lhs, name.getEType().getInstanceClass(), t);
-		}
-
-	}
-	private class PojoFeatureLValue implements LValue {
-		Object lhs;
-		Method getter;
-		Method setter;
-		
-		PojoFeatureLValue(Object lhs) {
-			this.lhs = lhs;
-			String beanFeature = BackendHelper.getGetter(featureName);
-			getter = null;
-			try {
-				getter = lhs.getClass().getMethod(beanFeature);
-			} catch(NoSuchMethodException e) { /* ignore */}
-			beanFeature = BackendHelper.getIsGetter(featureName);
-			try {
-				getter = lhs.getClass().getMethod(beanFeature);
-			} catch(NoSuchMethodException e) { /* ignore */}			
-			
-			beanFeature = BackendHelper.getSetter(featureName);
-			setter = null;
-			if(getter == null)
-				return; 
-			try {
-				setter = lhs.getClass().getMethod(beanFeature, getter.getReturnType());
-			} catch(NoSuchMethodException e) { /*ignore */ }
-		}
-		public Object get() throws B3EngineException {
-			if(getter == null)
-				throw new B3NoSuchFeatureException(featureName);
-			try {
-				return getter.invoke(lhs);
-			} catch (Throwable e) {
-				throw new B3NoSuchFeatureException(featureName, e);
-			}
-		}
-
-		public boolean isSettable() throws B3EngineException {
-			return setter != null;
-		}
-
-		public Object set(Object value) throws B3EngineException {
-			if(setter == null)
-				throw new B3NoSuchFeatureException(featureName);
-			try {
-				return setter.invoke(lhs, value);
-			} catch (Throwable e) {
-				throw new B3NoSuchFeatureException(featureName, e);
-			}
-		}
-		public Type getDeclaredType() throws B3EngineException {
-			return getter.getGenericReturnType();
-		}
-		public void setDeclaredType(Type t) throws B3EngineException {
-			throw new B3ImmutableTypeException(lhs, getter.getGenericReturnType(), t);
-		}
 		
 	}
 } //BFeatureExpressionImpl

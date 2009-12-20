@@ -1,5 +1,7 @@
 package org.eclipse.b3.backend.evaluator;
 
+import java.lang.reflect.Type;
+
 import org.eclipse.b3.backend.core.B3Backend;
 import org.eclipse.b3.backend.core.B3BackendException;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
@@ -7,6 +9,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
 import org.eclipse.b3.backend.evaluator.b3backend.Visibility;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
+import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 
 public class BackendHelper {
 
@@ -61,6 +64,7 @@ public class BackendHelper {
 	}
 	public static ExecutionMode getExecutionMode(B3Backend annotation) {
 		return annotation.sequential() ? ExecutionMode.SEQUENTIAL : ExecutionMode.PARALLEL;
-	}
+	}	
+
 }
  

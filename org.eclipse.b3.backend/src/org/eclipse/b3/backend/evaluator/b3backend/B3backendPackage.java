@@ -3354,6 +3354,79 @@ public interface B3backendPackage extends EPackage {
 	int BTYPE_CALCULATOR_FUNCTION_FEATURE_COUNT = BTYPE_CALCULATOR_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BInstanceContextImpl <em>BInstance Context</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BInstanceContextImpl
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBInstanceContext()
+	 * @generated
+	 */
+	int BINSTANCE_CONTEXT = 63;
+
+	/**
+	 * The feature id for the '<em><b>Parent Context</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINSTANCE_CONTEXT__PARENT_CONTEXT = BINNER_CONTEXT__PARENT_CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Child Contexts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINSTANCE_CONTEXT__CHILD_CONTEXTS = BINNER_CONTEXT__CHILD_CONTEXTS;
+
+	/**
+	 * The feature id for the '<em><b>Value Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINSTANCE_CONTEXT__VALUE_MAP = BINNER_CONTEXT__VALUE_MAP;
+
+	/**
+	 * The feature id for the '<em><b>Func Store</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINSTANCE_CONTEXT__FUNC_STORE = BINNER_CONTEXT__FUNC_STORE;
+
+	/**
+	 * The feature id for the '<em><b>Outer Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINSTANCE_CONTEXT__OUTER_CONTEXT = BINNER_CONTEXT__OUTER_CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Instance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINSTANCE_CONTEXT__INSTANCE = BINNER_CONTEXT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>BInstance Context</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINSTANCE_CONTEXT_FEATURE_COUNT = BINNER_CONTEXT_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.Visibility <em>Visibility</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3361,7 +3434,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getVisibility()
 	 * @generated
 	 */
-	int VISIBILITY = 63;
+	int VISIBILITY = 64;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode <em>Execution Mode</em>}' enum.
@@ -3371,7 +3444,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getExecutionMode()
 	 * @generated
 	 */
-	int EXECUTION_MODE = 64;
+	int EXECUTION_MODE = 65;
 
 	/**
 	 * The meta object id for the '<em>Core Exception</em>' data type.
@@ -3381,7 +3454,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getCoreException()
 	 * @generated
 	 */
-	int CORE_EXCEPTION = 65;
+	int CORE_EXCEPTION = 66;
 
 
 	/**
@@ -3392,7 +3465,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 66;
+	int TYPE = 67;
 
 	/**
 	 * The meta object id for the '<em>Object Array</em>' data type.
@@ -3401,7 +3474,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getObjectArray()
 	 * @generated
 	 */
-	int OBJECT_ARRAY = 67;
+	int OBJECT_ARRAY = 68;
 
 
 	/**
@@ -3412,7 +3485,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getValueMap()
 	 * @generated
 	 */
-	int VALUE_MAP = 68;
+	int VALUE_MAP = 69;
 
 
 	/**
@@ -3423,7 +3496,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3EngineException()
 	 * @generated
 	 */
-	int B3_ENGINE_EXCEPTION = 69;
+	int B3_ENGINE_EXCEPTION = 70;
 
 
 	/**
@@ -3434,7 +3507,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3ExpressionCache()
 	 * @generated
 	 */
-	int B3_EXPRESSION_CACHE = 70;
+	int B3_EXPRESSION_CACHE = 71;
 
 
 	/**
@@ -3445,7 +3518,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getThrowable()
 	 * @generated
 	 */
-	int THROWABLE = 71;
+	int THROWABLE = 72;
 
 	/**
 	 * The meta object id for the '<em>LValue</em>' data type.
@@ -3455,7 +3528,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getLValue()
 	 * @generated
 	 */
-	int LVALUE = 72;
+	int LVALUE = 73;
 
 	/**
 	 * The meta object id for the '<em>Type Array</em>' data type.
@@ -3464,7 +3537,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getTypeArray()
 	 * @generated
 	 */
-	int TYPE_ARRAY = 73;
+	int TYPE_ARRAY = 74;
 
 	/**
 	 * The meta object id for the '<em>Method</em>' data type.
@@ -3474,7 +3547,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getMethod()
 	 * @generated
 	 */
-	int METHOD = 74;
+	int METHOD = 75;
 
 	/**
 	 * The meta object id for the '<em>Type Variable Array</em>' data type.
@@ -3483,7 +3556,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getTypeVariableArray()
 	 * @generated
 	 */
-	int TYPE_VARIABLE_ARRAY = 75;
+	int TYPE_VARIABLE_ARRAY = 76;
 
 	/**
 	 * The meta object id for the '<em>Func Store</em>' data type.
@@ -3493,7 +3566,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getFuncStore()
 	 * @generated
 	 */
-	int FUNC_STORE = 76;
+	int FUNC_STORE = 77;
 
 	/**
 	 * The meta object id for the '<em>Regexp Pattern</em>' data type.
@@ -3503,7 +3576,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getRegexpPattern()
 	 * @generated
 	 */
-	int REGEXP_PATTERN = 77;
+	int REGEXP_PATTERN = 78;
 
 	/**
 	 * The meta object id for the '<em>String Array</em>' data type.
@@ -3512,7 +3585,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getStringArray()
 	 * @generated
 	 */
-	int STRING_ARRAY = 78;
+	int STRING_ARRAY = 79;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BExpression <em>BExpression</em>}'.
@@ -5250,6 +5323,27 @@ public interface B3backendPackage extends EPackage {
 	EReference getBTypeCalculatorFunction_Func();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BInstanceContext <em>BInstance Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>BInstance Context</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BInstanceContext
+	 * @generated
+	 */
+	EClass getBInstanceContext();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BInstanceContext#getInstance <em>Instance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Instance</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BInstanceContext#getInstance()
+	 * @see #getBInstanceContext()
+	 * @generated
+	 */
+	EAttribute getBInstanceContext_Instance();
+
+	/**
 	 * Returns the meta object for enum '{@link org.eclipse.b3.backend.evaluator.b3backend.Visibility <em>Visibility</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6870,6 +6964,24 @@ public interface B3backendPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BTYPE_CALCULATOR_FUNCTION__FUNC = eINSTANCE.getBTypeCalculatorFunction_Func();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BInstanceContextImpl <em>BInstance Context</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BInstanceContextImpl
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBInstanceContext()
+		 * @generated
+		 */
+		EClass BINSTANCE_CONTEXT = eINSTANCE.getBInstanceContext();
+
+		/**
+		 * The meta object literal for the '<em><b>Instance</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BINSTANCE_CONTEXT__INSTANCE = eINSTANCE.getBInstanceContext_Instance();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.Visibility <em>Visibility</em>}' enum.

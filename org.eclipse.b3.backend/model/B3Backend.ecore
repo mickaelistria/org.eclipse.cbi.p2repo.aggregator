@@ -478,4 +478,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="BTypeCalculatorFunction" eSuperTypes="#//BTypeCalculator">
     <eStructuralFeatures xsi:type="ecore:EReference" name="func" eType="#//BFunction"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BInstanceContext" eSuperTypes="#//BInnerContext">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="instance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+  </eClassifiers>
 </ecore:EPackage>

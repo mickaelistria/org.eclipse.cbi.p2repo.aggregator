@@ -128,6 +128,7 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 			case B3backendPackage.BGUARD_FUNCTION: return createBGuardFunction();
 			case B3backendPackage.BTYPE_CALCULATOR: return createBTypeCalculator();
 			case B3backendPackage.BTYPE_CALCULATOR_FUNCTION: return createBTypeCalculatorFunction();
+			case B3backendPackage.BINSTANCE_CONTEXT: return createBInstanceContext();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -717,6 +718,16 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	public BTypeCalculatorFunction createBTypeCalculatorFunction() {
 		BTypeCalculatorFunctionImpl bTypeCalculatorFunction = new BTypeCalculatorFunctionImpl();
 		return bTypeCalculatorFunction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BInstanceContext createBInstanceContext() {
+		BInstanceContextImpl bInstanceContext = new BInstanceContextImpl();
+		return bInstanceContext;
 	}
 
 	/**

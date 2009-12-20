@@ -655,6 +655,9 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		public void setDeclaredType(Type t) throws B3EngineException {
 			valueMap.setType(name, t);
 		}
+		public boolean isGetable() throws B3EngineException {
+			return true;
+		}
 	}
 
 	/**

@@ -71,13 +71,10 @@ public class BSystemContextImpl extends BExecutionContextImpl implements BSystem
 
 		try {
 			// invoke handles unwrap of non primitive types
-			return autoBox(m.invoke(parameters[0], callParameters));
+			return TypeUtils.autoBox(m.invoke(parameters[0], callParameters));
 		} catch (InvocationTargetException e) {
 			throw e.getCause();
 		}
-	}
-	private Object autoBox(Object x) {
-		return x;
 	}
 	private Method findMethod(String functionName, Type[] types) throws Throwable {
 		// In Java, all calls refer to an instance/class (which must be in the first parameter) 
@@ -93,6 +90,7 @@ public class BSystemContextImpl extends BExecutionContextImpl implements BSystem
 		try {
 			m = TypeUtils.getRaw(types[0]).getMethod(functionName, parameterTypes);
 		} catch(NoSuchMethodException e) {
+			
 			// TODO: The following "autoboxing to primitive" is not good enough as a method may
 			// have a mix of object and primitive types
 			
@@ -100,14 +98,8 @@ public class BSystemContextImpl extends BExecutionContextImpl implements BSystem
 			for(int i = 0; i < parameterTypes.length;i++)
 				{
 				Class<?> t = parameterTypes[i];
-				if(t == Integer.class) 
-					parameterTypes[i] = int.class;
-				else if (t == Long.class) 
-					parameterTypes[i] = long.class;
-				else if(t == Double.class) 
-					parameterTypes[i] = double.class;
-				else if(t == Boolean.class) 
-					parameterTypes[i] = boolean.class;
+				if(!parameterTypes[i].isPrimitive())
+					parameterTypes[i] = TypeUtils.getRaw(TypeUtils.primitivize(t));
 				}
 			// try again, but give up if it did not work.
 			m = TypeUtils.getRaw(types[0]).getMethod(functionName, parameterTypes);
@@ -119,15 +111,6 @@ public class BSystemContextImpl extends BExecutionContextImpl implements BSystem
 		Method m = findMethod(functionName, types);
 		if(m == null)
 			throw new B3NoSuchFunctionSignatureException(functionName, types);
-		Type t = m.getReturnType();
-		if(t == boolean.class)
-			return Boolean.class;
-		if(t == int.class)
-			return Integer.class;
-		if(t == long.class)
-			return Long.class;
-		if(t == double.class)
-			return Double.class;
-		return t;
+		return TypeUtils.objectify(m.getReturnType());
 	}
 } //BSystemContextImpl
