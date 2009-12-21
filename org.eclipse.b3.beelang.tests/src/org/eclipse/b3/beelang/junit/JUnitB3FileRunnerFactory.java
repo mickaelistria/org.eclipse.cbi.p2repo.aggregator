@@ -69,8 +69,11 @@ class JUnitB3FileRunnerFactory {
 
 			public TestFunctionDescriptor(BFunction function) {
 				testFunction = function;
-				testFunctionDescription = Description.createTestDescription(definitionClass, String.format("%s(%s)",
-						function.getName(), b3FileName));
+				// We call Description.createSuiteDescription despite this is really no test suite. This is because the
+				// other Description.create*Description methods take a Class<?> argument which we can't provide since
+				// the tests are actually B3 function not wrapped by any Java class.
+				testFunctionDescription = Description.createSuiteDescription(String.format("%s(%s)",
+						function.getName(), b3FilePath));
 			}
 
 			public BFunction getFunction() {
@@ -84,8 +87,6 @@ class JUnitB3FileRunnerFactory {
 		}
 
 		protected String b3FilePath;
-
-		protected String b3FileName;
 
 		protected ArrayList<TestFunctionDescriptor> testFunctionDescriptors;
 
@@ -109,7 +110,6 @@ class JUnitB3FileRunnerFactory {
 			// TODO: consult resource.getErrors() and report possible errors
 
 			b3FilePath = b3File;
-			b3FileName = b3FileURI.lastSegment();
 
 			BeeModel beeModel = (BeeModel) resource.getParseResult().getRootASTElement();
 			BExecutionContext b3Context = (b3Engine = new B3Engine()).getContext();
