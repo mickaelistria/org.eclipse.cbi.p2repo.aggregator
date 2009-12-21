@@ -157,8 +157,8 @@ class JUnitB3FileRunnerFactory {
 			notifier.fireTestStarted(childDescription);
 			try {
 				b3Engine.getContext().callFunction(childFunctionName, EMPTY_PARAMETER_ARRAY, EMPTY_TYPE_ARRAY);
-			} catch(Throwable e) {
-				notifier.fireTestFailure(new Failure(childDescription, e));
+			} catch(Throwable t) {
+				notifier.fireTestFailure(new Failure(childDescription, t));
 			} finally {
 				notifier.fireTestFinished(childDescription);
 			}
