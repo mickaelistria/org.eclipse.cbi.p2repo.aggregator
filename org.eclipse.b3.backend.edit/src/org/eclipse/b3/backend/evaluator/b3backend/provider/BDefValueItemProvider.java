@@ -383,6 +383,11 @@ public class BDefValueItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(B3backendPackage.Literals.BDEF_VALUE__VALUE_EXPR,
+				 B3backendFactory.eINSTANCE.createBDefProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(B3backendPackage.Literals.BDEF_VALUE__TYPE,
 				 B3backendFactory.eINSTANCE.createB3FunctionType()));
 

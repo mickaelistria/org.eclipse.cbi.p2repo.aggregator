@@ -493,6 +493,15 @@ public interface B3backendFactory extends EFactory {
 	BInstanceContext createBInstanceContext();
 
 	/**
+	 * Returns a new object of class '<em>BDef Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>BDef Property</em>'.
+	 * @generated
+	 */
+	BDefProperty createBDefProperty();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

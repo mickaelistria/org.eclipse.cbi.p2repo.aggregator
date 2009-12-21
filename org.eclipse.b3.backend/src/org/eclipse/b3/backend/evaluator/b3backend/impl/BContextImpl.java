@@ -48,4 +48,8 @@ public class BContextImpl extends BExecutionContextImpl implements BContext {
 	protected EClass eStaticClass() {
 		return B3backendPackage.Literals.BCONTEXT;
 	}
+	@Override
+	public boolean isPropertyScope() {
+		return true;
+	}
 } //BContextImpl

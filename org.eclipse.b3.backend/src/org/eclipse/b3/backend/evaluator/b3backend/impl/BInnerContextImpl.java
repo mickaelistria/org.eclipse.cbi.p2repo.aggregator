@@ -177,5 +177,4 @@ public class BInnerContextImpl extends BExecutionContextImpl implements BInnerCo
 		ctx.setParentContext(getOuterContext());
 		return ctx;
 	}
-
 } //BInnerContextImpl

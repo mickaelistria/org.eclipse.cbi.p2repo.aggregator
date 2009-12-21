@@ -8,7 +8,6 @@ package org.eclipse.b3.beeLang.impl;
 import org.eclipse.b3.beeLang.*;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -103,9 +102,6 @@ public class BeeLangFactoryImpl extends EFactoryImpl implements BeeLangFactory
       case BeeLangPackage.CONTAINER_CONFIGURATION: return createContainerConfiguration();
       case BeeLangPackage.CONCERN: return createConcern();
       case BeeLangPackage.CONCERN_BLOCK: return createConcernBlock();
-      case BeeLangPackage.QUERY: return createQuery();
-      case BeeLangPackage.QUERY_PATH: return createQueryPath();
-      case BeeLangPackage.SELECTOR: return createSelector();
       case BeeLangPackage.FILTER: return createFilter();
       case BeeLangPackage.PRE_CONDITION: return createPreCondition();
       case BeeLangPackage.POST_CONDITION: return createPostCondition();
@@ -121,40 +117,6 @@ public class BeeLangFactoryImpl extends EFactoryImpl implements BeeLangFactory
       case BeeLangPackage.VARARG_PARAMETER_DECLARATION: return createVarargParameterDeclaration();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-    }
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Object createFromString(EDataType eDataType, String initialValue)
-  {
-    switch (eDataType.getClassifierID())
-    {
-      case BeeLangPackage.SELECTOR_OPERATOR:
-        return createSelectorOperatorFromString(eDataType, initialValue);
-      default:
-        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-    }
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String convertToString(EDataType eDataType, Object instanceValue)
-  {
-    switch (eDataType.getClassifierID())
-    {
-      case BeeLangPackage.SELECTOR_OPERATOR:
-        return convertSelectorOperatorToString(eDataType, instanceValue);
-      default:
-        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
   }
 
@@ -548,39 +510,6 @@ public class BeeLangFactoryImpl extends EFactoryImpl implements BeeLangFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Query createQuery()
-  {
-    QueryImpl query = new QueryImpl();
-    return query;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public QueryPath createQueryPath()
-  {
-    QueryPathImpl queryPath = new QueryPathImpl();
-    return queryPath;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Selector createSelector()
-  {
-    SelectorImpl selector = new SelectorImpl();
-    return selector;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Filter createFilter()
   {
     FilterImpl filter = new FilterImpl();
@@ -717,28 +646,6 @@ public class BeeLangFactoryImpl extends EFactoryImpl implements BeeLangFactory
   {
     VarargParameterDeclarationImpl varargParameterDeclaration = new VarargParameterDeclarationImpl();
     return varargParameterDeclaration;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public SelectorOperator createSelectorOperatorFromString(EDataType eDataType, String initialValue)
-  {
-    SelectorOperator result = SelectorOperator.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertSelectorOperatorToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
   }
 
   /**

@@ -341,33 +341,6 @@ public interface BeeLangFactory extends EFactory
   ConcernBlock createConcernBlock();
 
   /**
-   * Returns a new object of class '<em>Query</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Query</em>'.
-   * @generated
-   */
-  Query createQuery();
-
-  /**
-   * Returns a new object of class '<em>Query Path</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Query Path</em>'.
-   * @generated
-   */
-  QueryPath createQueryPath();
-
-  /**
-   * Returns a new object of class '<em>Selector</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Selector</em>'.
-   * @generated
-   */
-  Selector createSelector();
-
-  /**
    * Returns a new object of class '<em>Filter</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -1,10 +1,10 @@
 RULE_ML_COMMENT=12
 RULE_ID=4
 RULE_WS=14
-RULE_PID=8
+RULE_PID=7
 RULE_INT=9
+RULE_REGULAR_EXPR=8
 RULE_STRING=6
-RULE_REGULAR_EXPR=7
 RULE_DOCUMENTATION=5
 RULE_ANY_OTHER=15
 RULE_HEX=10
@@ -19,13 +19,12 @@ RULE_EXT_INT=11
 'containers'=33
 'try'=96
 '$'=116
-'function'=61
+'function'=60
 'with'=43
 'version'=21
 '-'=86
 '?'=80
 '!='=71
-'**'=118
 '>='=73
 '<='=74
 '='=62
@@ -33,7 +32,7 @@ RULE_EXT_INT=11
 'endtry'=98
 'catch'=99
 'concern'=46
-':'=57
+':'=61
 '#'=39
 'input'=50
 '*'=87
@@ -52,7 +51,7 @@ RULE_EXT_INT=11
 ')'=45
 'select-first'=53
 '=='=69
-'parallel'=121
+'parallel'=120
 '@'=115
 'implements'=22
 'import'=17
@@ -62,10 +61,10 @@ RULE_EXT_INT=11
 'switch'=100
 'endswitch'=101
 'extends'=36
-'assert'=60
+'assert'=59
 '+'=85
 'null'=111
-'postcondition'=59
+'postcondition'=58
 '~='=68
 '-='=64
 'case'=102
@@ -77,7 +76,7 @@ RULE_EXT_INT=11
 '%='=67
 'var'=77
 '||'=82
-'precondition'=58
+'precondition'=57
 '*='=65
 'instanceof'=84
 'super'=81
@@ -103,7 +102,7 @@ RULE_EXT_INT=11
 'sequential'=31
 '['=41
 '/'=34
-'private'=120
+'private'=119
 '|'=110
 '_'=94
 'throw'=95
@@ -115,4 +114,4 @@ RULE_EXT_INT=11
 'cached'=47
 '...'=49
 'repositories'=32
-'public'=119
+'public'=118

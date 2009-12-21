@@ -610,6 +610,16 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * This, default implementation returns false.
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean isPropertyScope() {
+		return false;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */

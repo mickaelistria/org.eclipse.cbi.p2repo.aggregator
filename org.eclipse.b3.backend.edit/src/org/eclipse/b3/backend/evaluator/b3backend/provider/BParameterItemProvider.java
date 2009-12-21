@@ -333,6 +333,11 @@ public class BParameterItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BPARAMETER__EXPR,
 				 B3backendFactory.eINSTANCE.createBLiteralType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BPARAMETER__EXPR,
+				 B3backendFactory.eINSTANCE.createBDefProperty()));
 	}
 
 	/**

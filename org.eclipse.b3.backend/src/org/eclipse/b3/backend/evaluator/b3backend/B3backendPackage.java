@@ -3400,6 +3400,97 @@ public interface B3backendPackage extends EPackage {
 	int BINSTANCE_CONTEXT_FEATURE_COUNT = BINNER_CONTEXT_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BDefPropertyImpl <em>BDef Property</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BDefPropertyImpl
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBDefProperty()
+	 * @generated
+	 */
+	int BDEF_PROPERTY = 64;
+
+	/**
+	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BDEF_PROPERTY__LINE_NUMBER = BDEF_VALUE__LINE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>File Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BDEF_PROPERTY__FILE_REFERENCE = BDEF_VALUE__FILE_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BDEF_PROPERTY__NAME = BDEF_VALUE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Final</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BDEF_PROPERTY__FINAL = BDEF_VALUE__FINAL;
+
+	/**
+	 * The feature id for the '<em><b>Immutable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BDEF_PROPERTY__IMMUTABLE = BDEF_VALUE__IMMUTABLE;
+
+	/**
+	 * The feature id for the '<em><b>Value Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BDEF_PROPERTY__VALUE_EXPR = BDEF_VALUE__VALUE_EXPR;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BDEF_PROPERTY__TYPE = BDEF_VALUE__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Mutable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BDEF_PROPERTY__MUTABLE = BDEF_VALUE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>BDef Property</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BDEF_PROPERTY_FEATURE_COUNT = BDEF_VALUE_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.Visibility <em>Visibility</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3407,7 +3498,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getVisibility()
 	 * @generated
 	 */
-	int VISIBILITY = 64;
+	int VISIBILITY = 65;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode <em>Execution Mode</em>}' enum.
@@ -3417,7 +3508,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getExecutionMode()
 	 * @generated
 	 */
-	int EXECUTION_MODE = 65;
+	int EXECUTION_MODE = 66;
 
 	/**
 	 * The meta object id for the '<em>Core Exception</em>' data type.
@@ -3427,7 +3518,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getCoreException()
 	 * @generated
 	 */
-	int CORE_EXCEPTION = 66;
+	int CORE_EXCEPTION = 67;
 
 
 	/**
@@ -3438,7 +3529,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 67;
+	int TYPE = 68;
 
 	/**
 	 * The meta object id for the '<em>Object Array</em>' data type.
@@ -3447,7 +3538,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getObjectArray()
 	 * @generated
 	 */
-	int OBJECT_ARRAY = 68;
+	int OBJECT_ARRAY = 69;
 
 
 	/**
@@ -3458,7 +3549,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getValueMap()
 	 * @generated
 	 */
-	int VALUE_MAP = 69;
+	int VALUE_MAP = 70;
 
 
 	/**
@@ -3469,7 +3560,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3EngineException()
 	 * @generated
 	 */
-	int B3_ENGINE_EXCEPTION = 70;
+	int B3_ENGINE_EXCEPTION = 71;
 
 
 	/**
@@ -3480,7 +3571,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3ExpressionCache()
 	 * @generated
 	 */
-	int B3_EXPRESSION_CACHE = 71;
+	int B3_EXPRESSION_CACHE = 72;
 
 
 	/**
@@ -3491,7 +3582,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getThrowable()
 	 * @generated
 	 */
-	int THROWABLE = 72;
+	int THROWABLE = 73;
 
 	/**
 	 * The meta object id for the '<em>LValue</em>' data type.
@@ -3501,7 +3592,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getLValue()
 	 * @generated
 	 */
-	int LVALUE = 73;
+	int LVALUE = 74;
 
 	/**
 	 * The meta object id for the '<em>Type Array</em>' data type.
@@ -3510,7 +3601,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getTypeArray()
 	 * @generated
 	 */
-	int TYPE_ARRAY = 74;
+	int TYPE_ARRAY = 75;
 
 	/**
 	 * The meta object id for the '<em>Method</em>' data type.
@@ -3520,7 +3611,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getMethod()
 	 * @generated
 	 */
-	int METHOD = 75;
+	int METHOD = 76;
 
 	/**
 	 * The meta object id for the '<em>Type Variable Array</em>' data type.
@@ -3529,7 +3620,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getTypeVariableArray()
 	 * @generated
 	 */
-	int TYPE_VARIABLE_ARRAY = 76;
+	int TYPE_VARIABLE_ARRAY = 77;
 
 	/**
 	 * The meta object id for the '<em>Func Store</em>' data type.
@@ -3539,7 +3630,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getFuncStore()
 	 * @generated
 	 */
-	int FUNC_STORE = 77;
+	int FUNC_STORE = 78;
 
 	/**
 	 * The meta object id for the '<em>Regexp Pattern</em>' data type.
@@ -3549,7 +3640,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getRegexpPattern()
 	 * @generated
 	 */
-	int REGEXP_PATTERN = 78;
+	int REGEXP_PATTERN = 79;
 
 	/**
 	 * The meta object id for the '<em>String Array</em>' data type.
@@ -3558,7 +3649,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getStringArray()
 	 * @generated
 	 */
-	int STRING_ARRAY = 79;
+	int STRING_ARRAY = 80;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BExpression <em>BExpression</em>}'.
@@ -5306,6 +5397,27 @@ public interface B3backendPackage extends EPackage {
 	EAttribute getBInstanceContext_Instance();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefProperty <em>BDef Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>BDef Property</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BDefProperty
+	 * @generated
+	 */
+	EClass getBDefProperty();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefProperty#isMutable <em>Mutable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Mutable</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BDefProperty#isMutable()
+	 * @see #getBDefProperty()
+	 * @generated
+	 */
+	EAttribute getBDefProperty_Mutable();
+
+	/**
 	 * Returns the meta object for enum '{@link org.eclipse.b3.backend.evaluator.b3backend.Visibility <em>Visibility</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6936,6 +7048,24 @@ public interface B3backendPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute BINSTANCE_CONTEXT__INSTANCE = eINSTANCE.getBInstanceContext_Instance();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BDefPropertyImpl <em>BDef Property</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BDefPropertyImpl
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBDefProperty()
+		 * @generated
+		 */
+		EClass BDEF_PROPERTY = eINSTANCE.getBDefProperty();
+
+		/**
+		 * The meta object literal for the '<em><b>Mutable</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BDEF_PROPERTY__MUTABLE = eINSTANCE.getBDefProperty_Mutable();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.Visibility <em>Visibility</em>}' enum.

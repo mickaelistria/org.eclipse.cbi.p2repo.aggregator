@@ -85,6 +85,7 @@ public class B3backendTests extends TestSuite {
 		suite.addTestSuite(BTypeCalculatorTest.class);
 		suite.addTestSuite(BTypeCalculatorFunctionTest.class);
 		suite.addTestSuite(BInstanceContextTest.class);
+		suite.addTestSuite(BDefPropertyTest.class);
 		return suite;
 	}
 

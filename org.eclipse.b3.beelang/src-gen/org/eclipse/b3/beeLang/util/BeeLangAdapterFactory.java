@@ -253,21 +253,6 @@ public class BeeLangAdapterFactory extends AdapterFactoryImpl
         return createConcernBlockAdapter();
       }
       @Override
-      public Adapter caseQuery(Query object)
-      {
-        return createQueryAdapter();
-      }
-      @Override
-      public Adapter caseQueryPath(QueryPath object)
-      {
-        return createQueryPathAdapter();
-      }
-      @Override
-      public Adapter caseSelector(Selector object)
-      {
-        return createSelectorAdapter();
-      }
-      @Override
       public Adapter caseFilter(Filter object)
       {
         return createFilterAdapter();
@@ -875,51 +860,6 @@ public class BeeLangAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createConcernBlockAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.b3.beeLang.Query <em>Query</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.b3.beeLang.Query
-   * @generated
-   */
-  public Adapter createQueryAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.b3.beeLang.QueryPath <em>Query Path</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.b3.beeLang.QueryPath
-   * @generated
-   */
-  public Adapter createQueryPathAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.b3.beeLang.Selector <em>Selector</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.b3.beeLang.Selector
-   * @generated
-   */
-  public Adapter createSelectorAdapter()
   {
     return null;
   }

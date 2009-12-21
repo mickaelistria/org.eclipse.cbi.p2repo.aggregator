@@ -320,6 +320,11 @@ public class BLiteralListExpressionItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BLITERAL_LIST_EXPRESSION__ENTRIES,
 				 B3backendFactory.eINSTANCE.createBLiteralType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BLITERAL_LIST_EXPRESSION__ENTRIES,
+				 B3backendFactory.eINSTANCE.createBDefProperty()));
 	}
 
 }

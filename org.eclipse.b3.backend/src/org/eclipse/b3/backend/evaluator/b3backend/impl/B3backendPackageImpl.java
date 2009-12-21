@@ -39,6 +39,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BChainedExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.BDefProperty;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefValue;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
@@ -557,6 +558,13 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * @generated
 	 */
 	private EClass bInstanceContextEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bDefPropertyEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2212,6 +2220,24 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getBDefProperty() {
+		return bDefPropertyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBDefProperty_Mutable() {
+		return (EAttribute)bDefPropertyEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getVisibility() {
 		return visibilityEEnum;
 	}
@@ -2607,6 +2633,9 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		bInstanceContextEClass = createEClass(BINSTANCE_CONTEXT);
 		createEAttribute(bInstanceContextEClass, BINSTANCE_CONTEXT__INSTANCE);
 
+		bDefPropertyEClass = createEClass(BDEF_PROPERTY);
+		createEAttribute(bDefPropertyEClass, BDEF_PROPERTY__MUTABLE);
+
 		// Create enums
 		visibilityEEnum = createEEnum(VISIBILITY);
 		executionModeEEnum = createEEnum(EXECUTION_MODE);
@@ -2713,6 +2742,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		bGuardFunctionEClass.getESuperTypes().add(this.getBGuard());
 		bTypeCalculatorFunctionEClass.getESuperTypes().add(this.getBTypeCalculator());
 		bInstanceContextEClass.getESuperTypes().add(this.getBInnerContext());
+		bDefPropertyEClass.getESuperTypes().add(this.getBDefValue());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(bExpressionEClass, BExpression.class, "BExpression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2815,6 +2845,8 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		addEParameter(op, ecorePackage.getEString(), "functionName", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTypeArray(), "types", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getThrowable());
+
+		addEOperation(bExecutionContextEClass, ecorePackage.getEBoolean(), "isPropertyScope", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(bIfExpressionEClass, BIfExpression.class, "BIfExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBIfExpression_ConditionExpr(), this.getBExpression(), null, "conditionExpr", null, 0, 1, BIfExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3093,6 +3125,9 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 
 		initEClass(bInstanceContextEClass, BInstanceContext.class, "BInstanceContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBInstanceContext_Instance(), ecorePackage.getEJavaObject(), "instance", null, 0, 1, BInstanceContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(bDefPropertyEClass, BDefProperty.class, "BDefProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBDefProperty_Mutable(), ecorePackage.getEBoolean(), "mutable", null, 0, 1, BDefProperty.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(visibilityEEnum, Visibility.class, "Visibility");

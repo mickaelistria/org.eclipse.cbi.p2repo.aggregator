@@ -54,9 +54,7 @@ Unit returns BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT) : {BuildUnit}
 			| ('containers' '{' containers += ContainerConfiguration* '}' )
 		)*
 	'}';
-	
 
-	
 ProvidedCapability : capability=FilteredCapability  ('/' version=Version)?  ;
 RequiredCapability : capability=FilteredCapability ('/' range=VersionRange)?  ;
 FilteredCapability : ('when' filter=Filter)? capability = Capability ;
@@ -84,6 +82,16 @@ PropertyOperation
 FilteredPropertyOperation returns FilteredPropertyOperation
 	: 'when' filter=Filter
 		body=(SetPropertyOperation | UnsetPropertyOperation | PropertySet) 
+	;
+// be::BDefProperty   immutable ?= "val"
+// property values, must be assigned (but can be assigned null).
+PropertyValDeclaration returns be::BExpression 
+	: {be::BDefProperty} ( final ?= "final")? (("property" |  type=TypeRef ) name=PID) 
+	'=' valueExpr = Expression 
+	;
+PropertyVarDeclaration returns be::BExpression 
+	: {be::BDefProperty} ( final ?= "final")? (mutable ?= "mutable")  (("property" | type=TypeRef) name=PID) 
+	('=' valueExpr = Expression)? 
 	;
 
 SetPropertyOperation returns SetPropertyOperation
@@ -244,13 +252,6 @@ ConcernBlock : {ConcernBlock}
 	'{' ((contexts+=Context) | (functions+=Function))* '}' 
 	;
 
-Query : "query" ('{' selector=QueryPath '}') ;	
-QueryPath : (absolute?=':')? selectors+=Selector (':' selectors+=Selector)* ;
-Selector returns Selector
-	: (name=QID | op=SelectorOperator | pattern=REGULAR_EXPR) ('[' predicate=Expression ']')? 
-	;
-enum SelectorOperator : THIS = '.' | PARENT = '..' | CHILDREN = '*' | ANSCESTORS = '**' ;
-
 Filter : '(' predicate = Expression ')' ;
 
 PreCondition : "precondition" '{' (asserts += AssertionExpression)+ '}' ;
@@ -288,13 +289,26 @@ RelationalOperator
 	| ">=" | "<=" | ">" | "<"
 	;
 
+// All expressions, including variable and value definitions
+TopLevelExpression returns be::BExpression 
+	: VarDeclaration | ValDeclaration | AssignmentExpression 
+	;
+
+// All expressions except variable and value definitions	 
 Expression returns be::BExpression: AssignmentExpression ;
+
 
 AssignmentExpression returns be::BExpression:
 	// note: VarDecl | OrExpr is order dependant
-	 (VarDeclaration | ValDeclaration | CachedExpression) ({be::BAssignmentExpression.leftExpr=current} 
+	  CachedExpression ({be::BAssignmentExpression.leftExpr=current} 
 	 	functionName=AssignmentOperator rightExpr=AssignmentExpression)?
 	;	
+
+//AssignmentExpression returns be::BExpression:
+//	// note: VarDecl | OrExpr is order dependant
+//	 (VarDeclaration | ValDeclaration | CachedExpression) ({be::BAssignmentExpression.leftExpr=current} 
+//	 	functionName=AssignmentOperator rightExpr=AssignmentExpression)?
+//	;	
 VarDeclaration returns be::BExpression 
 	: {be::BDefValue} ( final ?= "final")? (( "var" |  type=TypeRef ) name=ID) ('=' valueExpr = Expression)? ;
 
@@ -438,7 +452,8 @@ SwitchExpression returns be::BExpression
 			
 Case	returns be::BCase : {be::BCase} "case" conditionExpr=Expression ":" thenExpr=Expression;
 
-BlockExpression returns be::BExpression: {be::BChainedExpression} '{' (expressions += Expression ';')* '}' ;
+// TODO VAREXPR: Blockexpression can have local variables
+BlockExpression returns be::BExpression: {be::BChainedExpression} '{' (expressions += TopLevelExpression ';')* '}' ;
 
 
 IfExpression returns be::BExpression
@@ -482,7 +497,7 @@ UnitSelector :
 ContextBlock returns be::BExpression : {be::BChainedExpression} 
 	'{'  ((expressions +=FunctionDefinition) 
 //		| (expressions+=BuilderDefinition)   // TODO: How to handle Builder definitions as expressions
-		| (expressions+=Expression ';')
+		| (expressions+=TopLevelExpression ';')
 //		| (expressions+=PropertiesStatement) // TODO: How to handle Properties statements as expressions
 		)* '}' 
 		;
@@ -524,7 +539,8 @@ OneOrManyExpressions returns be::BExpression
 	: BlockExpressionWithoutBrackets
 	| Expression
 	;
-BlockExpressionWithoutBrackets returns be::BExpression : {be::BChainedExpression} (expressions += Expression ';')+ ;
+// TODO VAREXPR - can have variable definitions
+BlockExpressionWithoutBrackets returns be::BExpression : {be::BChainedExpression} (expressions += TopLevelExpression ';')+ ;
 	
 MapEntry returns be::BMapEntry: {be::BMapEntry} key = KeyLiteral ':' value= Expression ;
 
@@ -548,10 +564,8 @@ UnitLiteral returns  be::BExpression: {be::BLiteralExpression} value="unit";
 StringLiteral returns  be::BExpression: {be::BLiteralExpression} value = STRING;
 RealLiteral	returns  be::BExpression: {be::BLiteralExpression} value = RealValue;
 RegexpLiteral returns be::BExpression: {be::BRegularExpression} pattern = REGULAR_EXPR;
-
-//QueryLiteral returns be::BExpression: {be::BLiteralExpression} value=Query ;
-
 NullLiteral	returns  be::BExpression: {be::BLiteralExpression} "null"; // TODO: check that type is Object
+
 //ThisLiteral	returns  be::BExpression: {ThisLiteral} val="this";
 //SuperLiteral returns  be::BExpression: {SuperLiteral} val="super";
 
@@ -567,7 +581,6 @@ IntValue returns ecore::EIntegerObject : INT | HEX ;
 ParanthesizedExpression returns be::BExpression
 	:  "(" Expression ")"
 	;	
-
 
 Version : version = VersionLiteral;
 

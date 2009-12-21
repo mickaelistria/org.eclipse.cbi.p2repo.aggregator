@@ -327,6 +327,11 @@ public class BCreateExpressionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
+				 B3backendFactory.eINSTANCE.createBDefProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
 				 B3backendFactory.eINSTANCE.createBIfExpression()));
 
@@ -464,6 +469,11 @@ public class BCreateExpressionItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
 				 B3backendFactory.eINSTANCE.createBLiteralType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
+				 B3backendFactory.eINSTANCE.createBDefProperty()));
 	}
 
 	/**

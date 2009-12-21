@@ -7,7 +7,6 @@ package org.eclipse.b3.beeLang;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -1590,126 +1589,6 @@ public interface BeeLangPackage extends EPackage
   int CONCERN_BLOCK_FEATURE_COUNT = 3;
 
   /**
-   * The meta object id for the '{@link org.eclipse.b3.beeLang.impl.QueryImpl <em>Query</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.eclipse.b3.beeLang.impl.QueryImpl
-   * @see org.eclipse.b3.beeLang.impl.BeeLangPackageImpl#getQuery()
-   * @generated
-   */
-  int QUERY = 35;
-
-  /**
-   * The feature id for the '<em><b>Selector</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int QUERY__SELECTOR = 0;
-
-  /**
-   * The number of structural features of the '<em>Query</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int QUERY_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link org.eclipse.b3.beeLang.impl.QueryPathImpl <em>Query Path</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.eclipse.b3.beeLang.impl.QueryPathImpl
-   * @see org.eclipse.b3.beeLang.impl.BeeLangPackageImpl#getQueryPath()
-   * @generated
-   */
-  int QUERY_PATH = 36;
-
-  /**
-   * The feature id for the '<em><b>Absolute</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int QUERY_PATH__ABSOLUTE = 0;
-
-  /**
-   * The feature id for the '<em><b>Selectors</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int QUERY_PATH__SELECTORS = 1;
-
-  /**
-   * The number of structural features of the '<em>Query Path</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int QUERY_PATH_FEATURE_COUNT = 2;
-
-  /**
-   * The meta object id for the '{@link org.eclipse.b3.beeLang.impl.SelectorImpl <em>Selector</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.eclipse.b3.beeLang.impl.SelectorImpl
-   * @see org.eclipse.b3.beeLang.impl.BeeLangPackageImpl#getSelector()
-   * @generated
-   */
-  int SELECTOR = 37;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SELECTOR__NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Op</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SELECTOR__OP = 1;
-
-  /**
-   * The feature id for the '<em><b>Pattern</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SELECTOR__PATTERN = 2;
-
-  /**
-   * The feature id for the '<em><b>Predicate</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SELECTOR__PREDICATE = 3;
-
-  /**
-   * The number of structural features of the '<em>Selector</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SELECTOR_FEATURE_COUNT = 4;
-
-  /**
    * The meta object id for the '{@link org.eclipse.b3.beeLang.impl.FilterImpl <em>Filter</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1717,7 +1596,7 @@ public interface BeeLangPackage extends EPackage
    * @see org.eclipse.b3.beeLang.impl.BeeLangPackageImpl#getFilter()
    * @generated
    */
-  int FILTER = 38;
+  int FILTER = 35;
 
   /**
    * The feature id for the '<em><b>Predicate</b></em>' containment reference.
@@ -1745,7 +1624,7 @@ public interface BeeLangPackage extends EPackage
    * @see org.eclipse.b3.beeLang.impl.BeeLangPackageImpl#getPreCondition()
    * @generated
    */
-  int PRE_CONDITION = 39;
+  int PRE_CONDITION = 36;
 
   /**
    * The feature id for the '<em><b>Asserts</b></em>' containment reference list.
@@ -1773,7 +1652,7 @@ public interface BeeLangPackage extends EPackage
    * @see org.eclipse.b3.beeLang.impl.BeeLangPackageImpl#getPostCondition()
    * @generated
    */
-  int POST_CONDITION = 40;
+  int POST_CONDITION = 37;
 
   /**
    * The feature id for the '<em><b>Asserts</b></em>' containment reference list.
@@ -1801,7 +1680,7 @@ public interface BeeLangPackage extends EPackage
    * @see org.eclipse.b3.beeLang.impl.BeeLangPackageImpl#getAssertionExpression()
    * @generated
    */
-  int ASSERTION_EXPRESSION = 41;
+  int ASSERTION_EXPRESSION = 38;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -1838,7 +1717,7 @@ public interface BeeLangPackage extends EPackage
    * @see org.eclipse.b3.beeLang.impl.BeeLangPackageImpl#getExpressionList()
    * @generated
    */
-  int EXPRESSION_LIST = 42;
+  int EXPRESSION_LIST = 39;
 
   /**
    * The feature id for the '<em><b>Expressions</b></em>' containment reference list.
@@ -1866,7 +1745,7 @@ public interface BeeLangPackage extends EPackage
    * @see org.eclipse.b3.beeLang.impl.BeeLangPackageImpl#getContext()
    * @generated
    */
-  int CONTEXT = 43;
+  int CONTEXT = 40;
 
   /**
    * The feature id for the '<em><b>Selector</b></em>' containment reference.
@@ -1903,7 +1782,7 @@ public interface BeeLangPackage extends EPackage
    * @see org.eclipse.b3.beeLang.impl.BeeLangPackageImpl#getContextSelector()
    * @generated
    */
-  int CONTEXT_SELECTOR = 44;
+  int CONTEXT_SELECTOR = 41;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -1931,7 +1810,7 @@ public interface BeeLangPackage extends EPackage
    * @see org.eclipse.b3.beeLang.impl.BeeLangPackageImpl#getExpressionSelector()
    * @generated
    */
-  int EXPRESSION_SELECTOR = 45;
+  int EXPRESSION_SELECTOR = 42;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -1968,7 +1847,7 @@ public interface BeeLangPackage extends EPackage
    * @see org.eclipse.b3.beeLang.impl.BeeLangPackageImpl#getUnitSelector()
    * @generated
    */
-  int UNIT_SELECTOR = 46;
+  int UNIT_SELECTOR = 43;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -2032,7 +1911,7 @@ public interface BeeLangPackage extends EPackage
    * @see org.eclipse.b3.beeLang.impl.BeeLangPackageImpl#getVersion()
    * @generated
    */
-  int VERSION = 47;
+  int VERSION = 44;
 
   /**
    * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -2060,7 +1939,7 @@ public interface BeeLangPackage extends EPackage
    * @see org.eclipse.b3.beeLang.impl.BeeLangPackageImpl#getVersionRange()
    * @generated
    */
-  int VERSION_RANGE = 48;
+  int VERSION_RANGE = 45;
 
   /**
    * The feature id for the '<em><b>Range</b></em>' attribute.
@@ -2088,7 +1967,7 @@ public interface BeeLangPackage extends EPackage
    * @see org.eclipse.b3.beeLang.impl.BeeLangPackageImpl#getCompounddReferences()
    * @generated
    */
-  int COMPOUNDD_REFERENCES = 49;
+  int COMPOUNDD_REFERENCES = 46;
 
   /**
    * The feature id for the '<em><b>Prerequisites</b></em>' containment reference list.
@@ -2116,7 +1995,7 @@ public interface BeeLangPackage extends EPackage
    * @see org.eclipse.b3.beeLang.impl.BeeLangPackageImpl#getVarargParameterDeclaration()
    * @generated
    */
-  int VARARG_PARAMETER_DECLARATION = 50;
+  int VARARG_PARAMETER_DECLARATION = 47;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -2144,16 +2023,6 @@ public interface BeeLangPackage extends EPackage
    * @ordered
    */
   int VARARG_PARAMETER_DECLARATION_FEATURE_COUNT = PARAMETER_DECLARATION_FEATURE_COUNT + 2;
-
-  /**
-   * The meta object id for the '{@link org.eclipse.b3.beeLang.SelectorOperator <em>Selector Operator</em>}' enum.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.eclipse.b3.beeLang.SelectorOperator
-   * @see org.eclipse.b3.beeLang.impl.BeeLangPackageImpl#getSelectorOperator()
-   * @generated
-   */
-  int SELECTOR_OPERATOR = 51;
 
 
   /**
@@ -3563,113 +3432,6 @@ public interface BeeLangPackage extends EPackage
   EReference getConcernBlock_Functions();
 
   /**
-   * Returns the meta object for class '{@link org.eclipse.b3.beeLang.Query <em>Query</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Query</em>'.
-   * @see org.eclipse.b3.beeLang.Query
-   * @generated
-   */
-  EClass getQuery();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.eclipse.b3.beeLang.Query#getSelector <em>Selector</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Selector</em>'.
-   * @see org.eclipse.b3.beeLang.Query#getSelector()
-   * @see #getQuery()
-   * @generated
-   */
-  EReference getQuery_Selector();
-
-  /**
-   * Returns the meta object for class '{@link org.eclipse.b3.beeLang.QueryPath <em>Query Path</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Query Path</em>'.
-   * @see org.eclipse.b3.beeLang.QueryPath
-   * @generated
-   */
-  EClass getQueryPath();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipse.b3.beeLang.QueryPath#isAbsolute <em>Absolute</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Absolute</em>'.
-   * @see org.eclipse.b3.beeLang.QueryPath#isAbsolute()
-   * @see #getQueryPath()
-   * @generated
-   */
-  EAttribute getQueryPath_Absolute();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.eclipse.b3.beeLang.QueryPath#getSelectors <em>Selectors</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Selectors</em>'.
-   * @see org.eclipse.b3.beeLang.QueryPath#getSelectors()
-   * @see #getQueryPath()
-   * @generated
-   */
-  EReference getQueryPath_Selectors();
-
-  /**
-   * Returns the meta object for class '{@link org.eclipse.b3.beeLang.Selector <em>Selector</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Selector</em>'.
-   * @see org.eclipse.b3.beeLang.Selector
-   * @generated
-   */
-  EClass getSelector();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipse.b3.beeLang.Selector#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.eclipse.b3.beeLang.Selector#getName()
-   * @see #getSelector()
-   * @generated
-   */
-  EAttribute getSelector_Name();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipse.b3.beeLang.Selector#getOp <em>Op</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Op</em>'.
-   * @see org.eclipse.b3.beeLang.Selector#getOp()
-   * @see #getSelector()
-   * @generated
-   */
-  EAttribute getSelector_Op();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipse.b3.beeLang.Selector#getPattern <em>Pattern</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Pattern</em>'.
-   * @see org.eclipse.b3.beeLang.Selector#getPattern()
-   * @see #getSelector()
-   * @generated
-   */
-  EAttribute getSelector_Pattern();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.eclipse.b3.beeLang.Selector#getPredicate <em>Predicate</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Predicate</em>'.
-   * @see org.eclipse.b3.beeLang.Selector#getPredicate()
-   * @see #getSelector()
-   * @generated
-   */
-  EReference getSelector_Predicate();
-
-  /**
    * Returns the meta object for class '{@link org.eclipse.b3.beeLang.Filter <em>Filter</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4007,16 +3769,6 @@ public interface BeeLangPackage extends EPackage
    * @generated
    */
   EAttribute getVarargParameterDeclaration_Name();
-
-  /**
-   * Returns the meta object for enum '{@link org.eclipse.b3.beeLang.SelectorOperator <em>Selector Operator</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for enum '<em>Selector Operator</em>'.
-   * @see org.eclipse.b3.beeLang.SelectorOperator
-   * @generated
-   */
-  EEnum getSelectorOperator();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -5160,92 +4912,6 @@ public interface BeeLangPackage extends EPackage
     EReference CONCERN_BLOCK__FUNCTIONS = eINSTANCE.getConcernBlock_Functions();
 
     /**
-     * The meta object literal for the '{@link org.eclipse.b3.beeLang.impl.QueryImpl <em>Query</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.eclipse.b3.beeLang.impl.QueryImpl
-     * @see org.eclipse.b3.beeLang.impl.BeeLangPackageImpl#getQuery()
-     * @generated
-     */
-    EClass QUERY = eINSTANCE.getQuery();
-
-    /**
-     * The meta object literal for the '<em><b>Selector</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference QUERY__SELECTOR = eINSTANCE.getQuery_Selector();
-
-    /**
-     * The meta object literal for the '{@link org.eclipse.b3.beeLang.impl.QueryPathImpl <em>Query Path</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.eclipse.b3.beeLang.impl.QueryPathImpl
-     * @see org.eclipse.b3.beeLang.impl.BeeLangPackageImpl#getQueryPath()
-     * @generated
-     */
-    EClass QUERY_PATH = eINSTANCE.getQueryPath();
-
-    /**
-     * The meta object literal for the '<em><b>Absolute</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute QUERY_PATH__ABSOLUTE = eINSTANCE.getQueryPath_Absolute();
-
-    /**
-     * The meta object literal for the '<em><b>Selectors</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference QUERY_PATH__SELECTORS = eINSTANCE.getQueryPath_Selectors();
-
-    /**
-     * The meta object literal for the '{@link org.eclipse.b3.beeLang.impl.SelectorImpl <em>Selector</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.eclipse.b3.beeLang.impl.SelectorImpl
-     * @see org.eclipse.b3.beeLang.impl.BeeLangPackageImpl#getSelector()
-     * @generated
-     */
-    EClass SELECTOR = eINSTANCE.getSelector();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SELECTOR__NAME = eINSTANCE.getSelector_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SELECTOR__OP = eINSTANCE.getSelector_Op();
-
-    /**
-     * The meta object literal for the '<em><b>Pattern</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SELECTOR__PATTERN = eINSTANCE.getSelector_Pattern();
-
-    /**
-     * The meta object literal for the '<em><b>Predicate</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SELECTOR__PREDICATE = eINSTANCE.getSelector_Predicate();
-
-    /**
      * The meta object literal for the '{@link org.eclipse.b3.beeLang.impl.FilterImpl <em>Filter</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5526,16 +5192,6 @@ public interface BeeLangPackage extends EPackage
      * @generated
      */
     EAttribute VARARG_PARAMETER_DECLARATION__NAME = eINSTANCE.getVarargParameterDeclaration_Name();
-
-    /**
-     * The meta object literal for the '{@link org.eclipse.b3.beeLang.SelectorOperator <em>Selector Operator</em>}' enum.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.eclipse.b3.beeLang.SelectorOperator
-     * @see org.eclipse.b3.beeLang.impl.BeeLangPackageImpl#getSelectorOperator()
-     * @generated
-     */
-    EEnum SELECTOR_OPERATOR = eINSTANCE.getSelectorOperator();
 
   }
 

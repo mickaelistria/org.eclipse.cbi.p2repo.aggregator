@@ -49,14 +49,10 @@ import org.eclipse.b3.beeLang.PrerequisiteEntry;
 import org.eclipse.b3.beeLang.PropertyOperation;
 import org.eclipse.b3.beeLang.PropertySet;
 import org.eclipse.b3.beeLang.ProvidedCapability;
-import org.eclipse.b3.beeLang.Query;
-import org.eclipse.b3.beeLang.QueryPath;
 import org.eclipse.b3.beeLang.RepositoryConfiguration;
 import org.eclipse.b3.beeLang.RepositoryDeclaration;
 import org.eclipse.b3.beeLang.RequiredCapability;
 import org.eclipse.b3.beeLang.ResolutionStrategy;
-import org.eclipse.b3.beeLang.Selector;
-import org.eclipse.b3.beeLang.SelectorOperator;
 import org.eclipse.b3.beeLang.SetPropertyOperation;
 import org.eclipse.b3.beeLang.Synchronization;
 import org.eclipse.b3.beeLang.UnitSelector;
@@ -68,7 +64,6 @@ import org.eclipse.b3.beeLang.WithClause;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -332,27 +327,6 @@ public class BeeLangPackageImpl extends EPackageImpl implements BeeLangPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass queryEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass queryPathEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass selectorEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass filterEClass = null;
 
   /**
@@ -438,13 +412,6 @@ public class BeeLangPackageImpl extends EPackageImpl implements BeeLangPackage
    * @generated
    */
   private EClass varargParameterDeclarationEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EEnum selectorOperatorEEnum = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -1832,106 +1799,6 @@ public class BeeLangPackageImpl extends EPackageImpl implements BeeLangPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getQuery()
-  {
-    return queryEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getQuery_Selector()
-  {
-    return (EReference)queryEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getQueryPath()
-  {
-    return queryPathEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getQueryPath_Absolute()
-  {
-    return (EAttribute)queryPathEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getQueryPath_Selectors()
-  {
-    return (EReference)queryPathEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getSelector()
-  {
-    return selectorEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getSelector_Name()
-  {
-    return (EAttribute)selectorEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getSelector_Op()
-  {
-    return (EAttribute)selectorEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getSelector_Pattern()
-  {
-    return (EAttribute)selectorEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getSelector_Predicate()
-  {
-    return (EReference)selectorEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getFilter()
   {
     return filterEClass;
@@ -2252,16 +2119,6 @@ public class BeeLangPackageImpl extends EPackageImpl implements BeeLangPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EEnum getSelectorOperator()
-  {
-    return selectorOperatorEEnum;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public BeeLangFactory getBeeLangFactory()
   {
     return (BeeLangFactory)getEFactoryInstance();
@@ -2453,19 +2310,6 @@ public class BeeLangPackageImpl extends EPackageImpl implements BeeLangPackage
     createEReference(concernBlockEClass, CONCERN_BLOCK__CONTEXTS);
     createEReference(concernBlockEClass, CONCERN_BLOCK__FUNCTIONS);
 
-    queryEClass = createEClass(QUERY);
-    createEReference(queryEClass, QUERY__SELECTOR);
-
-    queryPathEClass = createEClass(QUERY_PATH);
-    createEAttribute(queryPathEClass, QUERY_PATH__ABSOLUTE);
-    createEReference(queryPathEClass, QUERY_PATH__SELECTORS);
-
-    selectorEClass = createEClass(SELECTOR);
-    createEAttribute(selectorEClass, SELECTOR__NAME);
-    createEAttribute(selectorEClass, SELECTOR__OP);
-    createEAttribute(selectorEClass, SELECTOR__PATTERN);
-    createEReference(selectorEClass, SELECTOR__PREDICATE);
-
     filterEClass = createEClass(FILTER);
     createEReference(filterEClass, FILTER__PREDICATE);
 
@@ -2510,9 +2354,6 @@ public class BeeLangPackageImpl extends EPackageImpl implements BeeLangPackage
     varargParameterDeclarationEClass = createEClass(VARARG_PARAMETER_DECLARATION);
     createEReference(varargParameterDeclarationEClass, VARARG_PARAMETER_DECLARATION__TYPE);
     createEAttribute(varargParameterDeclarationEClass, VARARG_PARAMETER_DECLARATION__NAME);
-
-    // Create enums
-    selectorOperatorEEnum = createEEnum(SELECTOR_OPERATOR);
   }
 
   /**
@@ -2731,19 +2572,6 @@ public class BeeLangPackageImpl extends EPackageImpl implements BeeLangPackage
     initEReference(getConcernBlock_Contexts(), this.getContext(), null, "contexts", null, 0, -1, ConcernBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getConcernBlock_Functions(), theB3backendPackage.getB3Function(), null, "functions", null, 0, -1, ConcernBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(queryEClass, Query.class, "Query", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getQuery_Selector(), this.getQueryPath(), null, "selector", null, 0, 1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(queryPathEClass, QueryPath.class, "QueryPath", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getQueryPath_Absolute(), ecorePackage.getEBoolean(), "absolute", null, 0, 1, QueryPath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getQueryPath_Selectors(), this.getSelector(), null, "selectors", null, 0, -1, QueryPath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(selectorEClass, Selector.class, "Selector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getSelector_Name(), ecorePackage.getEString(), "name", null, 0, 1, Selector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getSelector_Op(), this.getSelectorOperator(), "op", null, 0, 1, Selector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getSelector_Pattern(), theB3backendPackage.getRegexpPattern(), "pattern", null, 0, 1, Selector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSelector_Predicate(), theB3backendPackage.getBExpression(), null, "predicate", null, 0, 1, Selector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(filterEClass, Filter.class, "Filter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getFilter_Predicate(), theB3backendPackage.getBExpression(), null, "predicate", null, 0, 1, Filter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -2788,13 +2616,6 @@ public class BeeLangPackageImpl extends EPackageImpl implements BeeLangPackage
     initEClass(varargParameterDeclarationEClass, VarargParameterDeclaration.class, "VarargParameterDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getVarargParameterDeclaration_Type(), theB3backendPackage.getIType(), null, "type", null, 0, 1, VarargParameterDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getVarargParameterDeclaration_Name(), ecorePackage.getEString(), "name", null, 0, 1, VarargParameterDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    // Initialize enums and add enum literals
-    initEEnum(selectorOperatorEEnum, SelectorOperator.class, "SelectorOperator");
-    addEEnumLiteral(selectorOperatorEEnum, SelectorOperator.THIS);
-    addEEnumLiteral(selectorOperatorEEnum, SelectorOperator.PARENT);
-    addEEnumLiteral(selectorOperatorEEnum, SelectorOperator.CHILDREN);
-    addEEnumLiteral(selectorOperatorEEnum, SelectorOperator.ANSCESTORS);
 
     // Create resource
     createResource(eNS_URI);
