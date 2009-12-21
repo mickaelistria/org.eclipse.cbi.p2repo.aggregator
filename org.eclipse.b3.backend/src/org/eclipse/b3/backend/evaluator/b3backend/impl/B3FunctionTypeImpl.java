@@ -316,7 +316,7 @@ public class B3FunctionTypeImpl extends EObjectImpl implements B3FunctionType {
 		if(! (type instanceof B3FunctionType))
 			return false;
 		B3FunctionType fromType = (B3FunctionType)type;
-		if(!TypeUtils.isAssignableFrom(returnType, fromType.getReturnType()))
+		if(!TypeUtils.isAssignableFrom(getReturnType(), fromType.getReturnType()))
 			return false;
 		if(isVarArgs() != fromType.isVarArgs())
 			return false;
