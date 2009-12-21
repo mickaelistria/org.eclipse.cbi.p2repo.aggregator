@@ -5,6 +5,7 @@ import java.lang.Number;
 /** Assert function returns true */
 function Object main(List argv) {
 	testBitwiseFunctions();
+	testOctal();
 }
 function Object testBitwiseFunctions() {
 	// bitwise operators deprecated in b3 language - use function form instead
@@ -18,4 +19,7 @@ function Object testBitwiseFunctions() {
 	assertEquals("-0x4 >>> 1 == 2147483646", 2147483646, bitwiseUnsignedRightShift(-0x4, 1));
 	assertEquals("-0x4 >> 1 == -0x2", -0x2, -0x4.bitwiseRightShift(1));
 	assertEquals("~0x2 == -0x3", -0x3, 0x2.bitwiseComplement());	
+}
+function testOctal() {
+	assertEquals("Octal value test", 010, 07 + 01);
 }
