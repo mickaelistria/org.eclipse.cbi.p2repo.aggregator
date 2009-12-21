@@ -9,7 +9,6 @@ import java.util.Map;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
-import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 
 public class TypeUtils {
 	static WeakReference<TypeDistance> typeDistance = new WeakReference<TypeDistance>(null);
