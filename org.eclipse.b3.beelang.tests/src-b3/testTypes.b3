@@ -1,11 +1,14 @@
 import java.lang.Object;
 import java.util.List;
+import java.util.Map;
 import java.lang.Integer;
 import java.lang.Double;
 import java.lang.Float;
+import java.lang.String;
 
 function Object main(List argv) {
 	testTypes();
+	testNull();
 }
 function Object testTypes() {
 	Integer a = 1;
@@ -14,4 +17,32 @@ function Object testTypes() {
 	assertType("-3.2 is a Double", Double, -3.2);
 	assertType("Creating a float", Float, new Float(2.floatValue()));
 	// continue with more tests
+}
+function testNull() {
+	Integer a;
+	assertEquals("test uninitialized variable == null", null, a);
+	
+	a = 1;
+	a = null;
+	assertEquals("test assign null to Integer variable == null", null, a);
+	
+	List<Integer> b = [<Integer> 1, 2, 3];
+	b[0] = null;
+	assertEquals("assigning null to Integer list entry", null, b[0]);
+	
+	Map<String, Integer> c = [<String, Integer> a: 1, b: 2];
+	c['a'] = null;
+	assertEquals("assigning null to Integer map entry", null, c['a']);
+	
+	var d = null;
+	assertEquals("null assignment", null, d);
+	
+	a = null;
+	assertEquals("null parameter and return value", null, callWithNull(a));
+
+	
+}
+private function callWithNull(Integer param) {
+	assertEquals("integer parameter having null value", null, param);
+	param;
 }
