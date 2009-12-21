@@ -1067,7 +1067,7 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	 */
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		if(getClosure() == null)
+//		if(getClosure() == null)
 			setClosure(ctx);
 		return this; // a function is literal.
 	}
