@@ -5,6 +5,7 @@ import java.lang.Integer;
 import java.lang.Double;
 import java.lang.Float;
 import java.lang.String;
+import java.lang.String as Text;
 
 function Object main(List argv) {
 	testTypes();
@@ -20,6 +21,7 @@ function Object testTypes() {
 	assertType("-0x4 is an Integer", Integer, -0x4);
 	assertType("-3.2 is a Double", Double, -3.2);
 	assertType("Creating a float", Float, new Float(2.floatValue()));
+	assertType("An aliased type", Text, "hello");
 	// continue with more tests
 }
 function testNull() {
