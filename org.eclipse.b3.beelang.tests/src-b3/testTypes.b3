@@ -9,6 +9,10 @@ import java.lang.String;
 function Object main(List argv) {
 	testTypes();
 	testNull();
+	testNullInList();
+	testNullInMap();
+	testNullAssignment();
+	testNullInCall();
 }
 function Object testTypes() {
 	Integer a = 1;
@@ -25,22 +29,24 @@ function testNull() {
 	a = 1;
 	a = null;
 	assertEquals("test assign null to Integer variable == null", null, a);
-	
+}
+function testNullInList() {	
 	List<Integer> b = [<Integer> 1, 2, 3];
 	b[0] = null;
 	assertEquals("assigning null to Integer list entry", null, b[0]);
-	
+}
+function testNullInMap() {
 	Map<String, Integer> c = [<String, Integer> a: 1, b: 2];
 	c['a'] = null;
 	assertEquals("assigning null to Integer map entry", null, c['a']);
-	
+}
+function testNullAssignment() {
 	var d = null;
 	assertEquals("null assignment", null, d);
-	
-	a = null;
+}
+function testNullInCall() {
+	Integer a = null;
 	assertEquals("null parameter and return value", null, callWithNull(a));
-
-	
 }
 private function callWithNull(Integer param) {
 	assertEquals("integer parameter having null value", null, param);
