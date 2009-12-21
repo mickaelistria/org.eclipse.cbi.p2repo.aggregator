@@ -53,7 +53,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#isVarArgs <em>Var Args</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getDocumentation <em>Documentation</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getReturnType <em>Return Type</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#isCached <em>Cached</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getClosure <em>Closure</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getTypeCalculator <em>Type Calculator</em>}</li>
  * </ul>
@@ -300,26 +299,6 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	protected Type returnType;
 
 	/**
-	 * The default value of the '{@link #isCached() <em>Cached</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isCached()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean CACHED_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isCached() <em>Cached</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isCached()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean cached = CACHED_EDEFAULT;
-
-	/**
 	 * The cached value of the '{@link #getClosure() <em>Closure</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -539,27 +518,6 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION__RETURN_TYPE, newReturnType, newReturnType));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean isCached() {
-		return cached;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCached(boolean newCached) {
-		boolean oldCached = cached;
-		cached = newCached;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION__CACHED, oldCached, cached));
 	}
 
 	/**
@@ -891,8 +849,6 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 				return getDocumentation();
 			case B3backendPackage.BFUNCTION__RETURN_TYPE:
 				return getReturnType();
-			case B3backendPackage.BFUNCTION__CACHED:
-				return isCached();
 			case B3backendPackage.BFUNCTION__CLOSURE:
 				if (resolve) return getClosure();
 				return basicGetClosure();
@@ -951,9 +907,6 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 			case B3backendPackage.BFUNCTION__RETURN_TYPE:
 				setReturnType((Type)newValue);
 				return;
-			case B3backendPackage.BFUNCTION__CACHED:
-				setCached((Boolean)newValue);
-				return;
 			case B3backendPackage.BFUNCTION__CLOSURE:
 				setClosure((BExecutionContext)newValue);
 				return;
@@ -1011,9 +964,6 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 			case B3backendPackage.BFUNCTION__RETURN_TYPE:
 				setReturnType((Type)null);
 				return;
-			case B3backendPackage.BFUNCTION__CACHED:
-				setCached(CACHED_EDEFAULT);
-				return;
 			case B3backendPackage.BFUNCTION__CLOSURE:
 				setClosure((BExecutionContext)null);
 				return;
@@ -1058,8 +1008,6 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 				return DOCUMENTATION_EDEFAULT == null ? documentation != null : !DOCUMENTATION_EDEFAULT.equals(documentation);
 			case B3backendPackage.BFUNCTION__RETURN_TYPE:
 				return returnType != null;
-			case B3backendPackage.BFUNCTION__CACHED:
-				return cached != CACHED_EDEFAULT;
 			case B3backendPackage.BFUNCTION__CLOSURE:
 				return closure != null;
 			case B3backendPackage.BFUNCTION__TYPE_CALCULATOR:
@@ -1098,8 +1046,6 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 		result.append(varArgs);
 		result.append(", documentation: ");
 		result.append(documentation);
-		result.append(", cached: ");
-		result.append(cached);
 		result.append(')');
 		return result.toString();
 	}

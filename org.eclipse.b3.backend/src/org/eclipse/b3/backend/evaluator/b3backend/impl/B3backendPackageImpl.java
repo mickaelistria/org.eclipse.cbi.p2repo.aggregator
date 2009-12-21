@@ -1483,17 +1483,8 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBFunction_Cached() {
-		return (EAttribute)bFunctionEClass.getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getBFunction_Closure() {
-		return (EReference)bFunctionEClass.getEStructuralFeatures().get(14);
+		return (EReference)bFunctionEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -1502,7 +1493,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * @generated
 	 */
 	public EReference getBFunction_TypeCalculator() {
-		return (EReference)bFunctionEClass.getEStructuralFeatures().get(15);
+		return (EReference)bFunctionEClass.getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -2509,7 +2500,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		createEAttribute(bFunctionEClass, BFUNCTION__VAR_ARGS);
 		createEAttribute(bFunctionEClass, BFUNCTION__DOCUMENTATION);
 		createEReference(bFunctionEClass, BFUNCTION__RETURN_TYPE);
-		createEAttribute(bFunctionEClass, BFUNCTION__CACHED);
 		createEReference(bFunctionEClass, BFUNCTION__CLOSURE);
 		createEReference(bFunctionEClass, BFUNCTION__TYPE_CALCULATOR);
 
@@ -2947,7 +2937,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEAttribute(getBFunction_VarArgs(), ecorePackage.getEBoolean(), "varArgs", null, 0, 1, BFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBFunction_Documentation(), ecorePackage.getEString(), "documentation", null, 0, 1, BFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBFunction_ReturnType(), this.getIType(), null, "returnType", null, 0, 1, BFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getBFunction_Cached(), ecorePackage.getEBoolean(), "cached", null, 0, 1, BFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBFunction_Closure(), this.getBExecutionContext(), null, "closure", null, 0, 1, BFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBFunction_TypeCalculator(), this.getBTypeCalculator(), null, "typeCalculator", null, 0, 1, BFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

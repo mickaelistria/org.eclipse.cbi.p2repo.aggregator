@@ -33,7 +33,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#isVarArgs <em>Var Args</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getDocumentation <em>Documentation</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getReturnType <em>Return Type</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#isCached <em>Cached</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getClosure <em>Closure</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getTypeCalculator <em>Type Calculator</em>}</li>
  * </ul>
@@ -212,32 +211,6 @@ public interface BFunction extends BExpression, GenericDeclaration {
 	 * @generated
 	 */
 	void setReturnType(Type value);
-
-	/**
-	 * Returns the value of the '<em><b>Cached</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Cached</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Cached</em>' attribute.
-	 * @see #setCached(boolean)
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBFunction_Cached()
-	 * @model
-	 * @generated
-	 */
-	boolean isCached();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#isCached <em>Cached</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Cached</em>' attribute.
-	 * @see #isCached()
-	 * @generated
-	 */
-	void setCached(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Closure</b></em>' reference.

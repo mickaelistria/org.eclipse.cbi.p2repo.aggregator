@@ -269,7 +269,7 @@ Function returns be::B3Function: {be::B3Function}
    	(visibility = Visibility)?
     (executionMode = ExecutionMode)?	   	
    	(final ?= "final")?
-   	(cached ?= "cached")?
+//   	(cached ?= "cached")?
    	"function"
 //   	form=("function"|"method")
    	(returnType = TypeRef)?
@@ -299,7 +299,7 @@ Expression returns be::BExpression: AssignmentExpression ;
 
 AssignmentExpression returns be::BExpression:
 	// note: VarDecl | OrExpr is order dependant
-	 (VarDeclaration | ValDeclaration | OrExpression) ({be::BAssignmentExpression.leftExpr=current} 
+	 (VarDeclaration | ValDeclaration | CachedExpression) ({be::BAssignmentExpression.leftExpr=current} 
 	 	functionName=AssignmentOperator rightExpr=AssignmentExpression)?
 	;	
 VarDeclaration returns be::BExpression 
@@ -346,7 +346,12 @@ TypeParam returns be::IType: TypeRefParam | WildcardRefParam ;
 TypeRefParam returns be::IType: TypeRef ;
 WildcardRefParam returns be::IType: 
 	{be::B3WildcardType}'?' ( ("extends" upperBoundsList+=TypeRef (',' upperBoundsList+=TypeRef)*) | "super" lowerBoundsList+=TypeRef )?;
-	 
+
+CachedExpression returns be::BExpression 
+	: {be::BCachedExpression} "cached" 	expr = OrExpression
+	| OrExpression
+	;
+	
 OrExpression returns be::BExpression:
 	AndExpression ({be::BOrExpression.leftExpr=current} "||" rightExpr=AndExpression)*;
 	

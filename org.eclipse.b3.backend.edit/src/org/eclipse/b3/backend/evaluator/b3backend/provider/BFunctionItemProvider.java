@@ -82,7 +82,6 @@ public class BFunctionItemProvider
 			addVarArgsPropertyDescriptor(object);
 			addDocumentationPropertyDescriptor(object);
 			addReturnTypePropertyDescriptor(object);
-			addCachedPropertyDescriptor(object);
 			addClosurePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -216,28 +215,6 @@ public class BFunctionItemProvider
 				 false,
 				 false,
 				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Cached feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCachedPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_BFunction_cached_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BFunction_cached_feature", "_UI_BFunction_type"),
-				 B3backendPackage.Literals.BFUNCTION__CACHED,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -475,7 +452,6 @@ public class BFunctionItemProvider
 			case B3backendPackage.BFUNCTION__VAR_ARGS:
 			case B3backendPackage.BFUNCTION__DOCUMENTATION:
 			case B3backendPackage.BFUNCTION__RETURN_TYPE:
-			case B3backendPackage.BFUNCTION__CACHED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case B3backendPackage.BFUNCTION__PARAMETERS:

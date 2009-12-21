@@ -1757,22 +1757,13 @@ public interface B3backendPackage extends EPackage {
 	int BFUNCTION__RETURN_TYPE = BEXPRESSION_FEATURE_COUNT + 12;
 
 	/**
-	 * The feature id for the '<em><b>Cached</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BFUNCTION__CACHED = BEXPRESSION_FEATURE_COUNT + 13;
-
-	/**
 	 * The feature id for the '<em><b>Closure</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BFUNCTION__CLOSURE = BEXPRESSION_FEATURE_COUNT + 14;
+	int BFUNCTION__CLOSURE = BEXPRESSION_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Type Calculator</b></em>' containment reference.
@@ -1781,7 +1772,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BFUNCTION__TYPE_CALCULATOR = BEXPRESSION_FEATURE_COUNT + 15;
+	int BFUNCTION__TYPE_CALCULATOR = BEXPRESSION_FEATURE_COUNT + 14;
 
 	/**
 	 * The number of structural features of the '<em>BFunction</em>' class.
@@ -1790,7 +1781,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BFUNCTION_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 16;
+	int BFUNCTION_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 15;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BGuardImpl <em>BGuard</em>}' class.
@@ -2370,15 +2361,6 @@ public interface B3backendPackage extends EPackage {
 	int B3_FUNCTION__RETURN_TYPE = BFUNCTION__RETURN_TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Cached</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int B3_FUNCTION__CACHED = BFUNCTION__CACHED;
-
-	/**
 	 * The feature id for the '<em><b>Closure</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2558,15 +2540,6 @@ public interface B3backendPackage extends EPackage {
 	 * @ordered
 	 */
 	int BJAVA_FUNCTION__RETURN_TYPE = BFUNCTION__RETURN_TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Cached</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BJAVA_FUNCTION__CACHED = BFUNCTION__CACHED;
 
 	/**
 	 * The feature id for the '<em><b>Closure</b></em>' reference.
@@ -4469,17 +4442,6 @@ public interface B3backendPackage extends EPackage {
 	EReference getBFunction_ReturnType();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#isCached <em>Cached</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Cached</em>'.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunction#isCached()
-	 * @see #getBFunction()
-	 * @generated
-	 */
-	EAttribute getBFunction_Cached();
-
-	/**
 	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getClosure <em>Closure</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6262,14 +6224,6 @@ public interface B3backendPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BFUNCTION__RETURN_TYPE = eINSTANCE.getBFunction_ReturnType();
-
-		/**
-		 * The meta object literal for the '<em><b>Cached</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute BFUNCTION__CACHED = eINSTANCE.getBFunction_Cached();
 
 		/**
 		 * The meta object literal for the '<em><b>Closure</b></em>' reference feature.
