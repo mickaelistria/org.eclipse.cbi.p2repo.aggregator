@@ -23,7 +23,6 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.b3.beeLang.BeeModel;
-import org.eclipse.b3.beelang.tests.Activator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.ContentHandler;
 import org.eclipse.xtext.resource.XtextResource;
@@ -34,6 +33,7 @@ import org.junit.runner.notification.Failure;
 import org.junit.runner.notification.RunNotifier;
 import org.junit.runners.ParentRunner;
 import org.junit.runners.model.InitializationError;
+import org.osgi.framework.BundleReference;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
@@ -95,7 +95,7 @@ class JUnitB3FileRunnerFactory {
 			if(b3File.charAt(0) != '/')
 				b3File = '/' + b3File;
 
-			URI b3FileURI = URI.createPlatformPluginURI(Activator.PLUGIN_ID + b3File, true);
+			URI b3FileURI = URI.createPlatformPluginURI(containingBundleName + b3File, true);
 			XtextResource resource = (XtextResource) beeLangResourceSet.createResource(b3FileURI,
 					ContentHandler.UNSPECIFIED_CONTENT_TYPE);
 
@@ -134,7 +134,7 @@ class JUnitB3FileRunnerFactory {
 						testFunctionDescriptors.add(new TestFunctionDescriptor(function.getName()));
 				}
 			} catch(B3EngineException e) {
-				throw new Exception("Failed to initialize B3Engine in preparation for testing of: " + b3File, e);
+				throw new Exception("Failed to initialize B3Engine in preparation for testing of B3 file: " + b3File, e);
 			}
 		}
 
@@ -173,6 +173,8 @@ class JUnitB3FileRunnerFactory {
 
 	protected final Class<?> definitionClass;
 
+	protected final String containingBundleName;
+
 	protected List<Runner> b3FileRunners;
 
 	{
@@ -182,7 +184,13 @@ class JUnitB3FileRunnerFactory {
 	}
 
 	public JUnitB3FileRunnerFactory(Class<?> klass) throws InitializationError {
+		ClassLoader classLoader = klass.getClassLoader();
+
+		if(!(classLoader instanceof BundleReference))
+			throw new InitializationError("Failed to find out Bundle containing class: " + klass.getName());
+
 		definitionClass = klass;
+		containingBundleName = ((BundleReference) classLoader).getBundle().getSymbolicName();
 
 		Annotation[] testClassAnnotations = klass.getAnnotations();
 
@@ -193,7 +201,7 @@ class JUnitB3FileRunnerFactory {
 			}
 		}
 
-		throw new InitializationError("No @B3Files annotation specified for class " + klass.getName());
+		throw new InitializationError("No @B3Files annotation specified for class: " + klass.getName());
 	}
 
 	protected void createB3FileRunners(String[] b3Files) throws InitializationError {
