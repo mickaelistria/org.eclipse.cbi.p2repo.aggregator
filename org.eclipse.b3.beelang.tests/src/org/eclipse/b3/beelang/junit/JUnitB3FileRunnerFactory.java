@@ -42,7 +42,7 @@ import com.google.inject.Injector;
  * <p>
  * A factory class for building JUnit 4 runners capable of executing B3 language functions as JUnit tests. A separate
  * runner is built for each of the <code>{@link B3Files}</code> defined for the class passed to the factory's
- * constructor. A runner built by this factory executes every B3 function which name start with the prefix of "test"
+ * constructor. Each runner built by this factory executes every B3 function which name start with the prefix of "test"
  * from the B3 file it was built for as a separate JUnit test.
  * </p>
  * 
