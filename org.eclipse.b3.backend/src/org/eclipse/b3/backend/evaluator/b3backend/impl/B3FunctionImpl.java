@@ -220,10 +220,12 @@ public class B3FunctionImpl extends BFunctionImpl implements B3Function {
 					throw new IllegalArgumentException("B3 Function called with too few arguments. Expected: "+parameterTypes.length +" but got: "+parameters.length);
 				// check type compatibility
 				Object o = parameters[limit];
-				Type t = o instanceof BFunction ? ((BFunction)o).getSignature() : o.getClass();
-				if(! TypeUtils.isAssignableFrom(parameterTypes[limit], t))
-					throw new B3IncompatibleTypeException(parameterNames[limit], 
-							parameterTypes[limit].getClass(), parameters[limit].getClass());
+				if(o != null) {
+					Type t = o instanceof BFunction ? ((BFunction)o).getSignature() : o.getClass();
+					if(! TypeUtils.isAssignableFrom(parameterTypes[limit], t))
+						throw new B3IncompatibleTypeException(parameterNames[limit], 
+								parameterTypes[limit].getClass(), parameters[limit].getClass());
+				}
 				// ok
 				octx.defineVariableValue(parameterNames[limit], parameters[limit], parameterTypes[limit]);
 			} else {

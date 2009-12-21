@@ -1698,7 +1698,6 @@
         <terminal xsi:type="xtext:Alternatives">
           <groups xsi:type="xtext:Keyword" value="!"/>
           <groups xsi:type="xtext:Keyword" value="-"/>
-          <groups xsi:type="xtext:Keyword" value="~"/>
         </terminal>
       </tokens>
       <tokens xsi:type="xtext:Assignment" feature="expr" operator="=">
@@ -2527,6 +2526,7 @@
       <groups xsi:type="xtext:RuleCall" rule="//@rules.117"/>
       <groups xsi:type="xtext:RuleCall" rule="//@rules.121"/>
       <groups xsi:type="xtext:RuleCall" rule="//@rules.118"/>
+      <groups xsi:type="xtext:RuleCall" rule="//@rules.123"/>
       <groups xsi:type="xtext:RuleCall" rule="//@rules.120"/>
       <groups xsi:type="xtext:RuleCall" rule="//@rules.119"/>
     </alternatives>

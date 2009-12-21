@@ -259,19 +259,12 @@ AssertionExpression : 'assert' expr=Expression ',' message=STRING ';' ;
 
 ExpressionList : (expressions += Expression ';')+ ;
 
-// Validation makes sure a Function is stated with "function", and Method with "method"
-//Function returns Function: {Function} func=FunctionOrMethod ;
-//Method returns Method: {Method} method=FunctionOrMethod ;
-
-// "method" variant will probbly be removed
 Function returns be::B3Function: {be::B3Function}
 	(documentation = DOCUMENTATION)?
    	(visibility = Visibility)?
     (executionMode = ExecutionMode)?	   	
    	(final ?= "final")?
-//   	(cached ?= "cached")?
    	"function"
-//   	form=("function"|"method")
    	(returnType = TypeRef)?
    	name=ID 
 //   	( '<' typeParams+= TypeParamDeclaration (',' typeParams+=TypeParamDeclaration)* '>')? // TODO: add support for this in the model
@@ -307,18 +300,6 @@ VarDeclaration returns be::BExpression
 
 ValDeclaration returns be::BExpression 
 	: {be::BDefValue} ( final ?= "final")? immutable ?= "val" (type=TypeRef)? name=ID '=' valueExpr = Expression;
-
-//AssignmentExpression returns be::BExpression:
-//	// note: VarDecl | OrExpr is order dependant
-//	 (VarDeclaration | ValDeclaration | OrExpression) ({be::BAssignmentExpression.leftExpr=current} 
-//	 	functionName=AssignmentOperator rightExpr=AssignmentExpression)?
-//	;
-
-//VarDeclaration returns be::BExpression 
-//	: {be::BDefValue} ( final ?= "final")? (( "var" |  type=TypeRef ) name=ID)  ;
-//
-//ValDeclaration returns be::BExpression 
-//	: {be::BDefValue} ( final ?= "final")? immutable ?= "val" (type=TypeRef)? name=ID ;
 		
 TypeRef returns be::IType:  ClosureTypeRef | SimpleTypeRef; // TODO: gets lots of warnings from this...
 SimpleTypeRef returns be::IType
@@ -388,9 +369,14 @@ UnaryOrInfixExpression returns be::BExpression
 	| UnaryExpression
 	| PreopExpression
 	; 
+	
+// Bitwise unary expression ~ for 2's complement deprecated, b3 language uses a system function instead
+// kept as comment here if someone wants to use thi grammar for other purposes. 
+// UnaryExpression returns be::BExpression:
+//	 {be::BUnaryOpExpression} functionName=("!" | "-" | "~") expr=InfixExpression;
 
 UnaryExpression returns be::BExpression:
-	 {be::BUnaryOpExpression} functionName=("!" | "-" | "~") expr=InfixExpression;
+	 {be::BUnaryOpExpression} functionName=("!" | "-") expr=InfixExpression;
 
 PreopExpression returns be::BExpression:
 	 {be::BUnaryPreOpExpression} functionName=("++" | "--") expr=InfixExpression;
@@ -403,9 +389,7 @@ PostopExpression returns be::BExpression:
 InfixExpression returns be::BExpression:
 	CallExpression ( 
 	  	({be::BCallExpression.funcExpr=current} "." name=ID  "(" (parameterList = ParameterList)? ")")
-	  |	({be::BAtExpression.objExpr=current} '[' indexExpr=Expression ']'
-//	  		("(" parameterList = ParameterList ")")? // TODO: this looks really odd - a chain of [] followed by call s probbly broken
-	  		) 	  
+	  |	({be::BAtExpression.objExpr=current} '[' indexExpr=Expression ']' )
 	  | ({be::BFeatureExpression.objExpr=current} "." featureName=ID)
 	)*;
 	
@@ -479,7 +463,6 @@ FeatureCall returns be::BExpression:
 	
 OperationCall returns be::BCallExpression
 	: {be::BCallExpression} name=(ID|PID) '(' (parameterList = ParameterList)? ')' 
-//	| target= SuperLiteral '.' name=ID '(' (parameters = ParameterList)? ')'
 	;
 
 ConstructorCallExpression returns be::BExpression
@@ -553,11 +536,9 @@ ValueLiteral returns be::BExpression
 	: BooleanLiteral 
 	| RealLiteral  // SEE ISSUE 297089 - must be placed before IntegerLiteral
 	| IntegerLiteral 
-//	| NullLiteral // TODO: 
+	| NullLiteral 
 	| StringLiteral
 //	| QueryLiteral
-//	| ThisLiteral // TODO: remove?
-//	| SuperLiteral // TODO: remove ?
 	| UnitLiteral
 	;
 	

@@ -13071,15 +13071,7 @@ protected class AssertionExpression_SemicolonKeyword_4 extends KeywordToken  {
 /************ begin Rule ExpressionList ****************
  *
  * ExpressionList:
- *   (expressions+=Expression ";")+; 
- * 
- *             
- * 
- * // Validation makes sure a Function is stated with "function", and Method with "method"
- * //Function returns Function: {Function} func=FunctionOrMethod ;
- * //Method returns Method: {Method} method=FunctionOrMethod ;
- * 
- * // "method" variant will probbly be removed
+ *   (expressions+=Expression ";")+;
  *
  **/
 
@@ -13190,20 +13182,13 @@ protected class ExpressionList_SemicolonKeyword_1 extends KeywordToken  {
  *   +=ParameterDeclaration ("," parameters+=ParameterDeclaration)*)? ")")? (":" funcExpr=
  *   Expression ";"|funcExpr=BlockExpression); 
  * 
- * // Validation makes sure a Function is stated with "function", and Method with "method"
- * //Function returns Function: {Function} func=FunctionOrMethod ;
- * //Method returns Method: {Method} method=FunctionOrMethod ;
- * 
- * // "method" variant will probbly be removed
  *       
  * 	    
  *    	    
  *         	   	
  *    	    
- * //   	(cached ?= "cached")?
- *    	 
- * //   	form=("function"|"method")
- *    	     
+ *    	
+ *    	    
  *    	 
  * //   	( '<' typeParams+= TypeParamDeclaration (',' typeParams+=TypeParamDeclaration)* '>')? // TODO: add support for this in the model
  *    	                   
@@ -13226,10 +13211,8 @@ protected class ExpressionList_SemicolonKeyword_1 extends KeywordToken  {
 //    	    
 //         	   	
 //    	    
-// //   	(cached ?= "cached")?
-//    	 
-// //   	form=("function"|"method")
-//    	     
+//    	
+//    	    
 //    	 
 // //   	( '<' typeParams+= TypeParamDeclaration (',' typeParams+=TypeParamDeclaration)* '>')? // TODO: add support for this in the model
 protected class Function_Group extends GroupToken {
@@ -13428,10 +13411,7 @@ protected class Function_FinalAssignment_4 extends AssignmentToken  {
 
 }
 
-// "function" 
-// //   	(cached ?= "cached")?
-//    	 
-// //   	form=("function"|"method")
+// "function"
 protected class Function_FunctionKeyword_5 extends KeywordToken  {
 	
 	public Function_FunctionKeyword_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -14673,22 +14653,7 @@ protected class VarDeclaration_ValueExprAssignment_3_1 extends AssignmentToken  
  *
  * ValDeclaration returns be::BExpression:
  *   {be::BDefValue} final?="final"? immutable?="val" type=TypeRef? name=ID "=" valueExpr=
- *   Expression; 
- * 
- *      
- * 	                            
- * 
- * //AssignmentExpression returns be::BExpression:
- * //	// note: VarDecl | OrExpr is order dependant
- * //	 (VarDeclaration | ValDeclaration | OrExpression) ({be::BAssignmentExpression.leftExpr=current} 
- * //	 	functionName=AssignmentOperator rightExpr=AssignmentExpression)?
- * //	;
- * 
- * //VarDeclaration returns be::BExpression 
- * //	: {be::BDefValue} ( final ?= "final")? (( "var" |  type=TypeRef ) name=ID)  ;
- * //
- * //ValDeclaration returns be::BExpression 
- * //	: {be::BDefValue} ( final ?= "final")? immutable ?= "val" (type=TypeRef)? name=ID ;
+ *   Expression;
  *
  **/
 
@@ -14974,36 +14939,12 @@ protected class ValDeclaration_ValueExprAssignment_6 extends AssignmentToken  {
  *
  * TypeRef returns be::IType:
  *   ClosureTypeRef|SimpleTypeRef; 
- * 
- * //AssignmentExpression returns be::BExpression:
- * //	// note: VarDecl | OrExpr is order dependant
- * //	 (VarDeclaration | ValDeclaration | OrExpression) ({be::BAssignmentExpression.leftExpr=current} 
- * //	 	functionName=AssignmentOperator rightExpr=AssignmentExpression)?
- * //	;
- * 
- * //VarDeclaration returns be::BExpression 
- * //	: {be::BDefValue} ( final ?= "final")? (( "var" |  type=TypeRef ) name=ID)  ;
- * //
- * //ValDeclaration returns be::BExpression 
- * //	: {be::BDefValue} ( final ?= "final")? immutable ?= "val" (type=TypeRef)? name=ID ;
  * 		
  *              // TODO: gets lots of warnings from this...
  *
  **/
 
 // ClosureTypeRef|SimpleTypeRef 
-// 
-// //AssignmentExpression returns be::BExpression:
-// //	// note: VarDecl | OrExpr is order dependant
-// //	 (VarDeclaration | ValDeclaration | OrExpression) ({be::BAssignmentExpression.leftExpr=current} 
-// //	 	functionName=AssignmentOperator rightExpr=AssignmentExpression)?
-// //	;
-// 
-// //VarDeclaration returns be::BExpression 
-// //	: {be::BDefValue} ( final ?= "final")? (( "var" |  type=TypeRef ) name=ID)  ;
-// //
-// //ValDeclaration returns be::BExpression 
-// //	: {be::BDefValue} ( final ?= "final")? immutable ?= "val" (type=TypeRef)? name=ID ;
 // 		
 //              // TODO: gets lots of warnings from this...
 protected class TypeRef_Alternatives extends AlternativesToken {
@@ -18014,11 +17955,33 @@ protected class SetExpression_RightExprAssignment_1_2 extends AssignmentToken  {
 /************ begin Rule UnaryOrInfixExpression ****************
  *
  * UnaryOrInfixExpression returns be::BExpression:
- *   PostopExpression|UnaryExpression|PreopExpression;
+ *   PostopExpression|UnaryExpression|PreopExpression; 
+ * 
+ *     
+ * 	   
+ * 	  
+ * 	  
+ * 	 
+ * 	
+ * // Bitwise unary expression ~ for 2's complement deprecated, b3 language uses a system function instead
+ * // kept as comment here if someone wants to use thi grammar for other purposes. 
+ * // UnaryExpression returns be::BExpression:
+ * //	 {be::BUnaryOpExpression} functionName=("!" | "-" | "~") expr=InfixExpression;
  *
  **/
 
-// PostopExpression|UnaryExpression|PreopExpression
+// PostopExpression|UnaryExpression|PreopExpression 
+// 
+//     
+// 	   
+// 	  
+// 	  
+// 	 
+// 	
+// // Bitwise unary expression ~ for 2's complement deprecated, b3 language uses a system function instead
+// // kept as comment here if someone wants to use thi grammar for other purposes. 
+// // UnaryExpression returns be::BExpression:
+// //	 {be::BUnaryOpExpression} functionName=("!" | "-" | "~") expr=InfixExpression;
 protected class UnaryOrInfixExpression_Alternatives extends AlternativesToken {
 
 	public UnaryOrInfixExpression_Alternatives(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -18159,11 +18122,16 @@ protected class UnaryOrInfixExpression_PreopExpressionParserRuleCall_2 extends R
 /************ begin Rule UnaryExpression ****************
  *
  * UnaryExpression returns be::BExpression:
- *   {be::BUnaryOpExpression} functionName=( "!" | "-" | "~" ) expr=InfixExpression;
+ *   {be::BUnaryOpExpression} functionName=( "!" | "-" ) expr=InfixExpression;  
+ * 	
+ * // Bitwise unary expression ~ for 2's complement deprecated, b3 language uses a system function instead
+ * // kept as comment here if someone wants to use thi grammar for other purposes. 
+ * // UnaryExpression returns be::BExpression:
+ * //	 {be::BUnaryOpExpression} functionName=("!" | "-" | "~") expr=InfixExpression;
  *
  **/
 
-// {be::BUnaryOpExpression} functionName=( "!" | "-" | "~" ) expr=InfixExpression
+// {be::BUnaryOpExpression} functionName=( "!" | "-" ) expr=InfixExpression
 protected class UnaryExpression_Group extends GroupToken {
 	
 	public UnaryExpression_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -18218,7 +18186,7 @@ protected class UnaryExpression_BUnaryOpExpressionAction_0 extends ActionToken  
 	}
 }
 
-// functionName=( "!" | "-" | "~" )
+// functionName=( "!" | "-" )
 protected class UnaryExpression_FunctionNameAssignment_1 extends AssignmentToken  {
 	
 	public UnaryExpression_FunctionNameAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -18250,11 +18218,6 @@ protected class UnaryExpression_FunctionNameAssignment_1 extends AssignmentToken
 		if("-".equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
 			type = AssignmentType.KW;
 			element = grammarAccess.getUnaryExpressionAccess().getFunctionNameHyphenMinusKeyword_1_0_1();
-			return obj;
-		}
-		if("~".equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
-			type = AssignmentType.KW;
-			element = grammarAccess.getUnaryExpressionAccess().getFunctionNameTildeKeyword_1_0_2();
 			return obj;
 		}
 		return null;
@@ -18637,24 +18600,13 @@ protected class PostopExpression_FunctionNameAssignment_1_1 extends AssignmentTo
  * InfixExpression returns be::BExpression:
  *   CallExpression ({be::BCallExpression.funcExpr=current} "." name=ID "(" parameterList=
  *   ParameterList? ")"|{be::BAtExpression.objExpr=current} "[" indexExpr=Expression "]"|
- *   {be::BFeatureExpression.objExpr=current} "." featureName=ID)*; 
- * 
- * 	
- *     
- * 	   
- * 	  	               
- * 	  	       
- * //	  		("(" parameterList = ParameterList ")")? // TODO: this looks really odd - a chain of [] followed by call s probbly broken
+ *   {be::BFeatureExpression.objExpr=current} "." featureName=ID)*;
  *
  **/
 
 // CallExpression ({be::BCallExpression.funcExpr=current} "." name=ID "(" parameterList=
 // ParameterList? ")"|{be::BAtExpression.objExpr=current} "[" indexExpr=Expression "]"|
-// {be::BFeatureExpression.objExpr=current} "." featureName=ID)* 
-// 	   
-// 	  	               
-// 	  	       
-// //	  		("(" parameterList = ParameterList ")")? // TODO: this looks really odd - a chain of [] followed by call s probbly broken
+// {be::BFeatureExpression.objExpr=current} "." featureName=ID)*
 protected class InfixExpression_Group extends GroupToken {
 	
 	public InfixExpression_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -18719,10 +18671,7 @@ protected class InfixExpression_CallExpressionParserRuleCall_0 extends RuleCallT
 
 // ({be::BCallExpression.funcExpr=current} "." name=ID "(" parameterList=ParameterList?
 // ")"|{be::BAtExpression.objExpr=current} "[" indexExpr=Expression "]"|{be::
-// BFeatureExpression.objExpr=current} "." featureName=ID)*    
-// 	  	               
-// 	  	       
-// //	  		("(" parameterList = ParameterList ")")? // TODO: this looks really odd - a chain of [] followed by call s probbly broken
+// BFeatureExpression.objExpr=current} "." featureName=ID)*
 protected class InfixExpression_Alternatives_1 extends AlternativesToken {
 
 	public InfixExpression_Alternatives_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -18949,8 +18898,7 @@ protected class InfixExpression_RightParenthesisKeyword_1_0_5 extends KeywordTok
 }
 
 
-// {be::BAtExpression.objExpr=current} "[" indexExpr=Expression "]"       
-// //	  		("(" parameterList = ParameterList ")")? // TODO: this looks really odd - a chain of [] followed by call s probbly broken
+// {be::BAtExpression.objExpr=current} "[" indexExpr=Expression "]"
 protected class InfixExpression_Group_1_1 extends GroupToken {
 	
 	public InfixExpression_Group_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -19072,8 +19020,7 @@ protected class InfixExpression_IndexExprAssignment_1_1_2 extends AssignmentToke
 	}	
 }
 
-// "]"   
-// //	  		("(" parameterList = ParameterList ")")? // TODO: this looks really odd - a chain of [] followed by call s probbly broken
+// "]"
 protected class InfixExpression_RightSquareBracketKeyword_1_1_3 extends KeywordToken  {
 	
 	public InfixExpression_RightSquareBracketKeyword_1_1_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -22492,16 +22439,11 @@ protected class FeatureCall_OperationCallParserRuleCall extends RuleCallToken {
 /************ begin Rule OperationCall ****************
  *
  * OperationCall returns be::BCallExpression:
- *   {be::BCallExpression} name=( ID | PID ) "(" parameterList=ParameterList? ")"; 
- * 	
- *     
- * 	               
- * //	| target= SuperLiteral '.' name=ID '(' (parameters = ParameterList)? ')'
+ *   {be::BCallExpression} name=( ID | PID ) "(" parameterList=ParameterList? ")";
  *
  **/
 
-// {be::BCallExpression} name=( ID | PID ) "(" parameterList=ParameterList? ")"                
-// //	| target= SuperLiteral '.' name=ID '(' (parameters = ParameterList)? ')'
+// {be::BCallExpression} name=( ID | PID ) "(" parameterList=ParameterList? ")"
 protected class OperationCall_Group extends GroupToken {
 	
 	public OperationCall_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -22663,8 +22605,7 @@ protected class OperationCall_ParameterListAssignment_3 extends AssignmentToken 
 	}	
 }
 
-// ")"    
-// //	| target= SuperLiteral '.' name=ID '(' (parameters = ParameterList)? ')'
+// ")"
 protected class OperationCall_RightParenthesisKeyword_4 extends KeywordToken  {
 	
 	public OperationCall_RightParenthesisKeyword_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -27277,31 +27218,27 @@ protected class LiteralType_TypeAssignment_1 extends AssignmentToken  {
 /************ begin Rule ValueLiteral ****************
  *
  * ValueLiteral returns be::BExpression:
- *   BooleanLiteral|RealLiteral|IntegerLiteral|StringLiteral|UnitLiteral; 
+ *   BooleanLiteral|RealLiteral|IntegerLiteral|NullLiteral|StringLiteral|UnitLiteral; 
  * 
  *      
  * 	   
  * 	     // SEE ISSUE 297089 - must be placed before IntegerLiteral
  * 	    
- * //	| NullLiteral // TODO: 
  * 	   
+ * 	  
  * //	| QueryLiteral
- * //	| ThisLiteral // TODO: remove?
- * //	| SuperLiteral // TODO: remove ?
  *
  **/
 
-// BooleanLiteral|RealLiteral|IntegerLiteral|StringLiteral|UnitLiteral 
+// BooleanLiteral|RealLiteral|IntegerLiteral|NullLiteral|StringLiteral|UnitLiteral 
 // 
 //      
 // 	   
 // 	     // SEE ISSUE 297089 - must be placed before IntegerLiteral
 // 	    
-// //	| NullLiteral // TODO: 
 // 	   
+// 	  
 // //	| QueryLiteral
-// //	| ThisLiteral // TODO: remove?
-// //	| SuperLiteral // TODO: remove ?
 protected class ValueLiteral_Alternatives extends AlternativesToken {
 
 	public ValueLiteral_Alternatives(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -27319,8 +27256,9 @@ protected class ValueLiteral_Alternatives extends AlternativesToken {
 			case 0: return new ValueLiteral_BooleanLiteralParserRuleCall_0(parent, this, 0, inst);
 			case 1: return new ValueLiteral_RealLiteralParserRuleCall_1(parent, this, 1, inst);
 			case 2: return new ValueLiteral_IntegerLiteralParserRuleCall_2(parent, this, 2, inst);
-			case 3: return new ValueLiteral_StringLiteralParserRuleCall_3(parent, this, 3, inst);
-			case 4: return new ValueLiteral_UnitLiteralParserRuleCall_4(parent, this, 4, inst);
+			case 3: return new ValueLiteral_NullLiteralParserRuleCall_3(parent, this, 3, inst);
+			case 4: return new ValueLiteral_StringLiteralParserRuleCall_4(parent, this, 4, inst);
+			case 5: return new ValueLiteral_UnitLiteralParserRuleCall_5(parent, this, 5, inst);
 			default: return null;
 		}	
 	}	
@@ -27402,8 +27340,7 @@ protected class ValueLiteral_RealLiteralParserRuleCall_1 extends RuleCallToken {
 	}	
 }
 
-// IntegerLiteral    
-// //	| NullLiteral // TODO:
+// IntegerLiteral
 protected class ValueLiteral_IntegerLiteralParserRuleCall_2 extends RuleCallToken {
 	
 	public ValueLiteral_IntegerLiteralParserRuleCall_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -27438,19 +27375,52 @@ protected class ValueLiteral_IntegerLiteralParserRuleCall_2 extends RuleCallToke
 	}	
 }
 
-// StringLiteral   
-// //	| QueryLiteral
-// //	| ThisLiteral // TODO: remove?
-// //	| SuperLiteral // TODO: remove ?
-protected class ValueLiteral_StringLiteralParserRuleCall_3 extends RuleCallToken {
+// NullLiteral
+protected class ValueLiteral_NullLiteralParserRuleCall_3 extends RuleCallToken {
 	
-	public ValueLiteral_StringLiteralParserRuleCall_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ValueLiteral_NullLiteralParserRuleCall_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getValueLiteralAccess().getStringLiteralParserRuleCall_3();
+		return grammarAccess.getValueLiteralAccess().getNullLiteralParserRuleCall_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new NullLiteral_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(checkForRecursion(NullLiteral_Group.class, current)) return null;
+		if(!current.isInstanceOf(grammarAccess.getNullLiteralRule().getType().getClassifier())) return null;
+		return current;
+	}
+	
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(next, actIndex , index, inst);
+		}	
+	}	
+}
+
+// StringLiteral   
+// //	| QueryLiteral
+protected class ValueLiteral_StringLiteralParserRuleCall_4 extends RuleCallToken {
+	
+	public ValueLiteral_StringLiteralParserRuleCall_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getValueLiteralAccess().getStringLiteralParserRuleCall_4();
 	}
 
     @Override
@@ -27477,15 +27447,15 @@ protected class ValueLiteral_StringLiteralParserRuleCall_3 extends RuleCallToken
 }
 
 // UnitLiteral
-protected class ValueLiteral_UnitLiteralParserRuleCall_4 extends RuleCallToken {
+protected class ValueLiteral_UnitLiteralParserRuleCall_5 extends RuleCallToken {
 	
-	public ValueLiteral_UnitLiteralParserRuleCall_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ValueLiteral_UnitLiteralParserRuleCall_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getValueLiteralAccess().getUnitLiteralParserRuleCall_4();
+		return grammarAccess.getValueLiteralAccess().getUnitLiteralParserRuleCall_5();
 	}
 
     @Override

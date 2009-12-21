@@ -2908,15 +2908,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSemicolonKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		
 		//ExpressionList:
-		//  (expressions+=Expression ";")+; 
-		//
-		//            
-		//
-		//// Validation makes sure a Function is stated with "function", and Method with "method"
-		////Function returns Function: {Function} func=FunctionOrMethod ;
-		////Method returns Method: {Method} method=FunctionOrMethod ;
-		//
-		//// "method" variant will probbly be removed
+		//  (expressions+=Expression ";")+;
 		public ParserRule getRule() { return rule; }
 
 		//(expressions+=Expression ";")+
@@ -2974,20 +2966,13 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//  +=ParameterDeclaration ("," parameters+=ParameterDeclaration)*)? ")")? (":" funcExpr=
 		//  Expression ";"|funcExpr=BlockExpression); 
 		//
-		//// Validation makes sure a Function is stated with "function", and Method with "method"
-		////Function returns Function: {Function} func=FunctionOrMethod ;
-		////Method returns Method: {Method} method=FunctionOrMethod ;
-		//
-		//// "method" variant will probbly be removed
 		//      
 		//	    
 		//   	    
 		//        	   	
 		//   	    
-		////   	(cached ?= "cached")?
-		//   	 
-		////   	form=("function"|"method")
-		//   	     
+		//   	
+		//   	    
 		//   	 
 		////   	( '<' typeParams+= TypeParamDeclaration (',' typeParams+=TypeParamDeclaration)* '>')? // TODO: add support for this in the model
 		//   	                   
@@ -3009,10 +2994,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//   	    
 		//        	   	
 		//   	    
-		////   	(cached ?= "cached")?
-		//   	 
-		////   	form=("function"|"method")
-		//   	     
+		//   	
+		//   	    
 		//   	 
 		////   	( '<' typeParams+= TypeParamDeclaration (',' typeParams+=TypeParamDeclaration)* '>')? // TODO: add support for this in the model
 		public Group getGroup() { return cGroup; }
@@ -3044,10 +3027,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//"final"
 		public Keyword getFinalFinalKeyword_4_0() { return cFinalFinalKeyword_4_0; }
 
-		//"function" 
-		////   	(cached ?= "cached")?
-		//   	 
-		////   	form=("function"|"method")
+		//"function"
 		public Keyword getFunctionKeyword_5() { return cFunctionKeyword_5; }
 
 		//returnType=TypeRef?
@@ -3388,22 +3368,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ValDeclaration returns be::BExpression:
 		//  {be::BDefValue} final?="final"? immutable?="val" type=TypeRef? name=ID "=" valueExpr=
-		//  Expression; 
-		//
-		//     
-		//	                            
-		//
-		////AssignmentExpression returns be::BExpression:
-		////	// note: VarDecl | OrExpr is order dependant
-		////	 (VarDeclaration | ValDeclaration | OrExpression) ({be::BAssignmentExpression.leftExpr=current} 
-		////	 	functionName=AssignmentOperator rightExpr=AssignmentExpression)?
-		////	;
-		//
-		////VarDeclaration returns be::BExpression 
-		////	: {be::BDefValue} ( final ?= "final")? (( "var" |  type=TypeRef ) name=ID)  ;
-		////
-		////ValDeclaration returns be::BExpression 
-		////	: {be::BDefValue} ( final ?= "final")? immutable ?= "val" (type=TypeRef)? name=ID ;
+		//  Expression;
 		public ParserRule getRule() { return rule; }
 
 		//{be::BDefValue} final?="final"? immutable?="val" type=TypeRef? name=ID "=" valueExpr=
@@ -3455,35 +3420,11 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//TypeRef returns be::IType:
 		//  ClosureTypeRef|SimpleTypeRef; 
-		//
-		////AssignmentExpression returns be::BExpression:
-		////	// note: VarDecl | OrExpr is order dependant
-		////	 (VarDeclaration | ValDeclaration | OrExpression) ({be::BAssignmentExpression.leftExpr=current} 
-		////	 	functionName=AssignmentOperator rightExpr=AssignmentExpression)?
-		////	;
-		//
-		////VarDeclaration returns be::BExpression 
-		////	: {be::BDefValue} ( final ?= "final")? (( "var" |  type=TypeRef ) name=ID)  ;
-		////
-		////ValDeclaration returns be::BExpression 
-		////	: {be::BDefValue} ( final ?= "final")? immutable ?= "val" (type=TypeRef)? name=ID ;
 		//		
 		//             // TODO: gets lots of warnings from this...
 		public ParserRule getRule() { return rule; }
 
 		//ClosureTypeRef|SimpleTypeRef 
-		//
-		////AssignmentExpression returns be::BExpression:
-		////	// note: VarDecl | OrExpr is order dependant
-		////	 (VarDeclaration | ValDeclaration | OrExpression) ({be::BAssignmentExpression.leftExpr=current} 
-		////	 	functionName=AssignmentOperator rightExpr=AssignmentExpression)?
-		////	;
-		//
-		////VarDeclaration returns be::BExpression 
-		////	: {be::BDefValue} ( final ?= "final")? (( "var" |  type=TypeRef ) name=ID)  ;
-		////
-		////ValDeclaration returns be::BExpression 
-		////	: {be::BDefValue} ( final ?= "final")? immutable ?= "val" (type=TypeRef)? name=ID ;
 		//		
 		//             // TODO: gets lots of warnings from this...
 		public Alternatives getAlternatives() { return cAlternatives; }
@@ -4168,10 +4109,32 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cPreopExpressionParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//UnaryOrInfixExpression returns be::BExpression:
-		//  PostopExpression|UnaryExpression|PreopExpression;
+		//  PostopExpression|UnaryExpression|PreopExpression; 
+		//
+		//    
+		//	   
+		//	  
+		//	  
+		//	 
+		//	
+		//// Bitwise unary expression ~ for 2's complement deprecated, b3 language uses a system function instead
+		//// kept as comment here if someone wants to use thi grammar for other purposes. 
+		//// UnaryExpression returns be::BExpression:
+		////	 {be::BUnaryOpExpression} functionName=("!" | "-" | "~") expr=InfixExpression;
 		public ParserRule getRule() { return rule; }
 
-		//PostopExpression|UnaryExpression|PreopExpression
+		//PostopExpression|UnaryExpression|PreopExpression 
+		//
+		//    
+		//	   
+		//	  
+		//	  
+		//	 
+		//	
+		//// Bitwise unary expression ~ for 2's complement deprecated, b3 language uses a system function instead
+		//// kept as comment here if someone wants to use thi grammar for other purposes. 
+		//// UnaryExpression returns be::BExpression:
+		////	 {be::BUnaryOpExpression} functionName=("!" | "-" | "~") expr=InfixExpression;
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//PostopExpression
@@ -4192,24 +4155,28 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cFunctionNameAlternatives_1_0 = (Alternatives)cFunctionNameAssignment_1.eContents().get(0);
 		private final Keyword cFunctionNameExclamationMarkKeyword_1_0_0 = (Keyword)cFunctionNameAlternatives_1_0.eContents().get(0);
 		private final Keyword cFunctionNameHyphenMinusKeyword_1_0_1 = (Keyword)cFunctionNameAlternatives_1_0.eContents().get(1);
-		private final Keyword cFunctionNameTildeKeyword_1_0_2 = (Keyword)cFunctionNameAlternatives_1_0.eContents().get(2);
 		private final Assignment cExprAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cExprInfixExpressionParserRuleCall_2_0 = (RuleCall)cExprAssignment_2.eContents().get(0);
 		
 		//UnaryExpression returns be::BExpression:
-		//  {be::BUnaryOpExpression} functionName=( "!" | "-" | "~" ) expr=InfixExpression;
+		//  {be::BUnaryOpExpression} functionName=( "!" | "-" ) expr=InfixExpression;  
+		//	
+		//// Bitwise unary expression ~ for 2's complement deprecated, b3 language uses a system function instead
+		//// kept as comment here if someone wants to use thi grammar for other purposes. 
+		//// UnaryExpression returns be::BExpression:
+		////	 {be::BUnaryOpExpression} functionName=("!" | "-" | "~") expr=InfixExpression;
 		public ParserRule getRule() { return rule; }
 
-		//{be::BUnaryOpExpression} functionName=( "!" | "-" | "~" ) expr=InfixExpression
+		//{be::BUnaryOpExpression} functionName=( "!" | "-" ) expr=InfixExpression
 		public Group getGroup() { return cGroup; }
 
 		//{be::BUnaryOpExpression}
 		public Action getBUnaryOpExpressionAction_0() { return cBUnaryOpExpressionAction_0; }
 
-		//functionName=( "!" | "-" | "~" )
+		//functionName=( "!" | "-" )
 		public Assignment getFunctionNameAssignment_1() { return cFunctionNameAssignment_1; }
 
-		//"!"|"-"|"~"
+		//"!"|"-"
 		public Alternatives getFunctionNameAlternatives_1_0() { return cFunctionNameAlternatives_1_0; }
 
 		//"!"
@@ -4217,9 +4184,6 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"-"
 		public Keyword getFunctionNameHyphenMinusKeyword_1_0_1() { return cFunctionNameHyphenMinusKeyword_1_0_1; }
-
-		//"~"
-		public Keyword getFunctionNameTildeKeyword_1_0_2() { return cFunctionNameTildeKeyword_1_0_2; }
 
 		//expr=InfixExpression
 		public Assignment getExprAssignment_2() { return cExprAssignment_2; }
@@ -4339,23 +4303,12 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//InfixExpression returns be::BExpression:
 		//  CallExpression ({be::BCallExpression.funcExpr=current} "." name=ID "(" parameterList=
 		//  ParameterList? ")"|{be::BAtExpression.objExpr=current} "[" indexExpr=Expression "]"|
-		//  {be::BFeatureExpression.objExpr=current} "." featureName=ID)*; 
-		//
-		//	
-		//    
-		//	   
-		//	  	               
-		//	  	       
-		////	  		("(" parameterList = ParameterList ")")? // TODO: this looks really odd - a chain of [] followed by call s probbly broken
+		//  {be::BFeatureExpression.objExpr=current} "." featureName=ID)*;
 		public ParserRule getRule() { return rule; }
 
 		//CallExpression ({be::BCallExpression.funcExpr=current} "." name=ID "(" parameterList=
 		//ParameterList? ")"|{be::BAtExpression.objExpr=current} "[" indexExpr=Expression "]"|
-		//{be::BFeatureExpression.objExpr=current} "." featureName=ID)* 
-		//	   
-		//	  	               
-		//	  	       
-		////	  		("(" parameterList = ParameterList ")")? // TODO: this looks really odd - a chain of [] followed by call s probbly broken
+		//{be::BFeatureExpression.objExpr=current} "." featureName=ID)*
 		public Group getGroup() { return cGroup; }
 
 		//CallExpression
@@ -4363,10 +4316,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 		//({be::BCallExpression.funcExpr=current} "." name=ID "(" parameterList=ParameterList?
 		//")"|{be::BAtExpression.objExpr=current} "[" indexExpr=Expression "]"|{be::
-		//BFeatureExpression.objExpr=current} "." featureName=ID)*    
-		//	  	               
-		//	  	       
-		////	  		("(" parameterList = ParameterList ")")? // TODO: this looks really odd - a chain of [] followed by call s probbly broken
+		//BFeatureExpression.objExpr=current} "." featureName=ID)*
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 
 		//{be::BCallExpression.funcExpr=current} "." name=ID "(" parameterList=ParameterList?
@@ -4397,8 +4347,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//")"
 		public Keyword getRightParenthesisKeyword_1_0_5() { return cRightParenthesisKeyword_1_0_5; }
 
-		//{be::BAtExpression.objExpr=current} "[" indexExpr=Expression "]"       
-		////	  		("(" parameterList = ParameterList ")")? // TODO: this looks really odd - a chain of [] followed by call s probbly broken
+		//{be::BAtExpression.objExpr=current} "[" indexExpr=Expression "]"
 		public Group getGroup_1_1() { return cGroup_1_1; }
 
 		//{be::BAtExpression.objExpr=current}
@@ -4413,8 +4362,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//Expression
 		public RuleCall getIndexExprExpressionParserRuleCall_1_1_2_0() { return cIndexExprExpressionParserRuleCall_1_1_2_0; }
 
-		//"]"   
-		////	  		("(" parameterList = ParameterList ")")? // TODO: this looks really odd - a chain of [] followed by call s probbly broken
+		//"]"
 		public Keyword getRightSquareBracketKeyword_1_1_3() { return cRightSquareBracketKeyword_1_1_3; }
 
 		//{be::BFeatureExpression.objExpr=current} "." featureName=ID
@@ -5136,15 +5084,10 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//OperationCall returns be::BCallExpression:
-		//  {be::BCallExpression} name=( ID | PID ) "(" parameterList=ParameterList? ")"; 
-		//	
-		//    
-		//	               
-		////	| target= SuperLiteral '.' name=ID '(' (parameters = ParameterList)? ')'
+		//  {be::BCallExpression} name=( ID | PID ) "(" parameterList=ParameterList? ")";
 		public ParserRule getRule() { return rule; }
 
-		//{be::BCallExpression} name=( ID | PID ) "(" parameterList=ParameterList? ")"                
-		////	| target= SuperLiteral '.' name=ID '(' (parameters = ParameterList)? ')'
+		//{be::BCallExpression} name=( ID | PID ) "(" parameterList=ParameterList? ")"
 		public Group getGroup() { return cGroup; }
 
 		//{be::BCallExpression}
@@ -5171,8 +5114,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//ParameterList
 		public RuleCall getParameterListParameterListParserRuleCall_3_0() { return cParameterListParameterListParserRuleCall_3_0; }
 
-		//")"    
-		////	| target= SuperLiteral '.' name=ID '(' (parameters = ParameterList)? ')'
+		//")"
 		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
 	}
 
@@ -6103,34 +6045,31 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cBooleanLiteralParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cRealLiteralParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cIntegerLiteralParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cStringLiteralParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cUnitLiteralParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cNullLiteralParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cStringLiteralParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cUnitLiteralParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		
 		//ValueLiteral returns be::BExpression:
-		//  BooleanLiteral|RealLiteral|IntegerLiteral|StringLiteral|UnitLiteral; 
+		//  BooleanLiteral|RealLiteral|IntegerLiteral|NullLiteral|StringLiteral|UnitLiteral; 
 		//
 		//     
 		//	   
 		//	     // SEE ISSUE 297089 - must be placed before IntegerLiteral
 		//	    
-		////	| NullLiteral // TODO: 
 		//	   
+		//	  
 		////	| QueryLiteral
-		////	| ThisLiteral // TODO: remove?
-		////	| SuperLiteral // TODO: remove ?
 		public ParserRule getRule() { return rule; }
 
-		//BooleanLiteral|RealLiteral|IntegerLiteral|StringLiteral|UnitLiteral 
+		//BooleanLiteral|RealLiteral|IntegerLiteral|NullLiteral|StringLiteral|UnitLiteral 
 		//
 		//     
 		//	   
 		//	     // SEE ISSUE 297089 - must be placed before IntegerLiteral
 		//	    
-		////	| NullLiteral // TODO: 
 		//	   
+		//	  
 		////	| QueryLiteral
-		////	| ThisLiteral // TODO: remove?
-		////	| SuperLiteral // TODO: remove ?
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//BooleanLiteral
@@ -6139,18 +6078,18 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//RealLiteral      // SEE ISSUE 297089 - must be placed before IntegerLiteral
 		public RuleCall getRealLiteralParserRuleCall_1() { return cRealLiteralParserRuleCall_1; }
 
-		//IntegerLiteral    
-		////	| NullLiteral // TODO:
+		//IntegerLiteral
 		public RuleCall getIntegerLiteralParserRuleCall_2() { return cIntegerLiteralParserRuleCall_2; }
+
+		//NullLiteral
+		public RuleCall getNullLiteralParserRuleCall_3() { return cNullLiteralParserRuleCall_3; }
 
 		//StringLiteral   
 		////	| QueryLiteral
-		////	| ThisLiteral // TODO: remove?
-		////	| SuperLiteral // TODO: remove ?
-		public RuleCall getStringLiteralParserRuleCall_3() { return cStringLiteralParserRuleCall_3; }
+		public RuleCall getStringLiteralParserRuleCall_4() { return cStringLiteralParserRuleCall_4; }
 
 		//UnitLiteral
-		public RuleCall getUnitLiteralParserRuleCall_4() { return cUnitLiteralParserRuleCall_4; }
+		public RuleCall getUnitLiteralParserRuleCall_5() { return cUnitLiteralParserRuleCall_5; }
 	}
 
 	public class BooleanLiteralElements extends AbstractParserRuleElementFinder {
@@ -7949,15 +7888,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ExpressionList:
-	//  (expressions+=Expression ";")+; 
-	//
-	//            
-	//
-	//// Validation makes sure a Function is stated with "function", and Method with "method"
-	////Function returns Function: {Function} func=FunctionOrMethod ;
-	////Method returns Method: {Method} method=FunctionOrMethod ;
-	//
-	//// "method" variant will probbly be removed
+	//  (expressions+=Expression ";")+;
 	public ExpressionListElements getExpressionListAccess() {
 		return (pExpressionList != null) ? pExpressionList : (pExpressionList = new ExpressionListElements());
 	}
@@ -7972,20 +7903,13 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//  +=ParameterDeclaration ("," parameters+=ParameterDeclaration)*)? ")")? (":" funcExpr=
 	//  Expression ";"|funcExpr=BlockExpression); 
 	//
-	//// Validation makes sure a Function is stated with "function", and Method with "method"
-	////Function returns Function: {Function} func=FunctionOrMethod ;
-	////Method returns Method: {Method} method=FunctionOrMethod ;
-	//
-	//// "method" variant will probbly be removed
 	//      
 	//	    
 	//   	    
 	//        	   	
 	//   	    
-	////   	(cached ?= "cached")?
-	//   	 
-	////   	form=("function"|"method")
-	//   	     
+	//   	
+	//   	    
 	//   	 
 	////   	( '<' typeParams+= TypeParamDeclaration (',' typeParams+=TypeParamDeclaration)* '>')? // TODO: add support for this in the model
 	//   	                   
@@ -8073,22 +7997,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 	//ValDeclaration returns be::BExpression:
 	//  {be::BDefValue} final?="final"? immutable?="val" type=TypeRef? name=ID "=" valueExpr=
-	//  Expression; 
-	//
-	//     
-	//	                            
-	//
-	////AssignmentExpression returns be::BExpression:
-	////	// note: VarDecl | OrExpr is order dependant
-	////	 (VarDeclaration | ValDeclaration | OrExpression) ({be::BAssignmentExpression.leftExpr=current} 
-	////	 	functionName=AssignmentOperator rightExpr=AssignmentExpression)?
-	////	;
-	//
-	////VarDeclaration returns be::BExpression 
-	////	: {be::BDefValue} ( final ?= "final")? (( "var" |  type=TypeRef ) name=ID)  ;
-	////
-	////ValDeclaration returns be::BExpression 
-	////	: {be::BDefValue} ( final ?= "final")? immutable ?= "val" (type=TypeRef)? name=ID ;
+	//  Expression;
 	public ValDeclarationElements getValDeclarationAccess() {
 		return (pValDeclaration != null) ? pValDeclaration : (pValDeclaration = new ValDeclarationElements());
 	}
@@ -8099,18 +8008,6 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 	//TypeRef returns be::IType:
 	//  ClosureTypeRef|SimpleTypeRef; 
-	//
-	////AssignmentExpression returns be::BExpression:
-	////	// note: VarDecl | OrExpr is order dependant
-	////	 (VarDeclaration | ValDeclaration | OrExpression) ({be::BAssignmentExpression.leftExpr=current} 
-	////	 	functionName=AssignmentOperator rightExpr=AssignmentExpression)?
-	////	;
-	//
-	////VarDeclaration returns be::BExpression 
-	////	: {be::BDefValue} ( final ?= "final")? (( "var" |  type=TypeRef ) name=ID)  ;
-	////
-	////ValDeclaration returns be::BExpression 
-	////	: {be::BDefValue} ( final ?= "final")? immutable ?= "val" (type=TypeRef)? name=ID ;
 	//		
 	//             // TODO: gets lots of warnings from this...
 	public TypeRefElements getTypeRefAccess() {
@@ -8314,7 +8211,18 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//UnaryOrInfixExpression returns be::BExpression:
-	//  PostopExpression|UnaryExpression|PreopExpression;
+	//  PostopExpression|UnaryExpression|PreopExpression; 
+	//
+	//    
+	//	   
+	//	  
+	//	  
+	//	 
+	//	
+	//// Bitwise unary expression ~ for 2's complement deprecated, b3 language uses a system function instead
+	//// kept as comment here if someone wants to use thi grammar for other purposes. 
+	//// UnaryExpression returns be::BExpression:
+	////	 {be::BUnaryOpExpression} functionName=("!" | "-" | "~") expr=InfixExpression;
 	public UnaryOrInfixExpressionElements getUnaryOrInfixExpressionAccess() {
 		return (pUnaryOrInfixExpression != null) ? pUnaryOrInfixExpression : (pUnaryOrInfixExpression = new UnaryOrInfixExpressionElements());
 	}
@@ -8324,7 +8232,12 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//UnaryExpression returns be::BExpression:
-	//  {be::BUnaryOpExpression} functionName=( "!" | "-" | "~" ) expr=InfixExpression;
+	//  {be::BUnaryOpExpression} functionName=( "!" | "-" ) expr=InfixExpression;  
+	//	
+	//// Bitwise unary expression ~ for 2's complement deprecated, b3 language uses a system function instead
+	//// kept as comment here if someone wants to use thi grammar for other purposes. 
+	//// UnaryExpression returns be::BExpression:
+	////	 {be::BUnaryOpExpression} functionName=("!" | "-" | "~") expr=InfixExpression;
 	public UnaryExpressionElements getUnaryExpressionAccess() {
 		return (pUnaryExpression != null) ? pUnaryExpression : (pUnaryExpression = new UnaryExpressionElements());
 	}
@@ -8357,14 +8270,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//InfixExpression returns be::BExpression:
 	//  CallExpression ({be::BCallExpression.funcExpr=current} "." name=ID "(" parameterList=
 	//  ParameterList? ")"|{be::BAtExpression.objExpr=current} "[" indexExpr=Expression "]"|
-	//  {be::BFeatureExpression.objExpr=current} "." featureName=ID)*; 
-	//
-	//	
-	//    
-	//	   
-	//	  	               
-	//	  	       
-	////	  		("(" parameterList = ParameterList ")")? // TODO: this looks really odd - a chain of [] followed by call s probbly broken
+	//  {be::BFeatureExpression.objExpr=current} "." featureName=ID)*;
 	public InfixExpressionElements getInfixExpressionAccess() {
 		return (pInfixExpression != null) ? pInfixExpression : (pInfixExpression = new InfixExpressionElements());
 	}
@@ -8564,11 +8470,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//OperationCall returns be::BCallExpression:
-	//  {be::BCallExpression} name=( ID | PID ) "(" parameterList=ParameterList? ")"; 
-	//	
-	//    
-	//	               
-	////	| target= SuperLiteral '.' name=ID '(' (parameters = ParameterList)? ')'
+	//  {be::BCallExpression} name=( ID | PID ) "(" parameterList=ParameterList? ")";
 	public OperationCallElements getOperationCallAccess() {
 		return (pOperationCall != null) ? pOperationCall : (pOperationCall = new OperationCallElements());
 	}
@@ -8784,17 +8686,15 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ValueLiteral returns be::BExpression:
-	//  BooleanLiteral|RealLiteral|IntegerLiteral|StringLiteral|UnitLiteral; 
+	//  BooleanLiteral|RealLiteral|IntegerLiteral|NullLiteral|StringLiteral|UnitLiteral; 
 	//
 	//     
 	//	   
 	//	     // SEE ISSUE 297089 - must be placed before IntegerLiteral
 	//	    
-	////	| NullLiteral // TODO: 
 	//	   
+	//	  
 	////	| QueryLiteral
-	////	| ThisLiteral // TODO: remove?
-	////	| SuperLiteral // TODO: remove ?
 	public ValueLiteralElements getValueLiteralAccess() {
 		return (pValueLiteral != null) ? pValueLiteral : (pValueLiteral = new ValueLiteralElements());
 	}

@@ -178,6 +178,6 @@ public class BLiteralExpressionImpl extends BExpressionImpl implements BLiteralE
 	}
 	@Override
 	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
-		return value.getClass();
+		return value == null ? Object.class : value.getClass();
 	}
 } //BLiteralExpressionImpl

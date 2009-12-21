@@ -21,7 +21,6 @@ public class SystemFunctions {
 			@B3Backend(name="actualType")Object actual) throws Throwable {
 			if(!(expected instanceof Type))
 				throw new B3AssertionFailedException(message, expected, actual.getClass());
-//			if(!TypeUtils.isAssignableFrom((Type)expected, actual.getClass()))
 			if(expected != actual.getClass())
 				throw new B3AssertionFailedException(message, expected, actual.getClass());
 			return Boolean.TRUE;

@@ -148,7 +148,7 @@ public class ValueMap {
 		boolean isFinal() { return (markers & FINAL) != 0; }
 		boolean isImmutable() { return (markers & IMMUTABLE) != 0; }
 		boolean isAssignableFrom(Object value) {
-			return TypeUtils.isAssignableFrom(type, value instanceof BFunction ? ((B3Function)value).getSignature() : value.getClass());
+			return TypeUtils.isAssignableFrom(type, value instanceof BFunction ? ((B3Function)value).getSignature() : value);
 		}
 	}
 }

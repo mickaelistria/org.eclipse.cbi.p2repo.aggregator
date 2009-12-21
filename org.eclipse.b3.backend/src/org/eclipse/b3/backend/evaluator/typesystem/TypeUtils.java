@@ -40,6 +40,11 @@ public class TypeUtils {
 			return ((B3FunctionType)baseType).isAssignableFrom(fromType);
 		return getRaw(baseType).isAssignableFrom(getRaw(fromType));
 	}
+	public static boolean isAssignableFrom(Type baseType, Object value) {
+		if(value == null)
+			return true;
+		return isAssignableFrom(baseType, value.getClass());
+	}
 	public static boolean isArray(Type baseType) {
 		return baseType instanceof GenericArrayType || (baseType instanceof Class<?> && ((Class<?>)baseType).isArray());
 //		return getRaw(baseType).isArray();
