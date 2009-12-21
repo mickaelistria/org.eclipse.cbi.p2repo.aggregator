@@ -9,6 +9,7 @@
 package org.eclipse.b3.beelang.junit;
 
 import org.junit.runners.Suite;
+import org.junit.runners.model.InitializationError;
 
 /**
  * <p>
@@ -35,7 +36,7 @@ public class JUnitB3TestRunner extends Suite {
 	/**
 	 * Only called reflectively. Do not use programmatically.
 	 */
-	public JUnitB3TestRunner(Class<?> klass) throws Throwable {
+	public JUnitB3TestRunner(Class<?> klass) throws InitializationError {
 		super(klass, new JUnitB3FileRunnerFactory(klass).getB3FileRunners());
 	}
 
