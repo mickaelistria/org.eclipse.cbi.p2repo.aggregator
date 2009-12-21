@@ -61,25 +61,24 @@ class JUnitB3FileRunnerFactory {
 
 		protected class TestFunctionDescriptor {
 
-			protected BFunction testFunction;
+			protected String testFunctionName;
 
-			protected Description testFunctionDescription;
+			protected Description testDescription;
 
-			public TestFunctionDescriptor(BFunction function) {
-				testFunction = function;
+			public TestFunctionDescriptor(String functionName) {
+				testFunctionName = functionName;
 				// We call Description.createSuiteDescription despite this is really no test suite. This is because the
 				// other Description.create*Description methods take a Class<?> argument which we can't provide since
 				// the tests are actually B3 functions not wrapped by any Java class.
-				testFunctionDescription = Description.createSuiteDescription(String.format("%s(%s)",
-						function.getName(), b3FilePath));
+				testDescription = Description.createSuiteDescription(String.format("%s(%s)", functionName, b3FilePath));
 			}
 
-			public BFunction getFunction() {
-				return testFunction;
+			public String getFunctionName() {
+				return testFunctionName;
 			}
 
 			public Description getDescription() {
-				return testFunctionDescription;
+				return testDescription;
 			}
 
 		}
@@ -132,7 +131,7 @@ class JUnitB3FileRunnerFactory {
 					if(functionName.length() > TEST_FUNCTION_PREFIX.length()
 							&& functionName.startsWith(TEST_FUNCTION_PREFIX)
 							&& function.getParameterTypes().length == 0)
-						testFunctionDescriptors.add(new TestFunctionDescriptor(function));
+						testFunctionDescriptors.add(new TestFunctionDescriptor(function.getName()));
 				}
 			} catch(B3EngineException e) {
 				throw new Exception("Failed to initialize B3Engine in preparation for testing of: " + b3File, e);
@@ -151,16 +150,15 @@ class JUnitB3FileRunnerFactory {
 
 		@Override
 		protected void runChild(TestFunctionDescriptor child, RunNotifier notifier) {
-			Description childDescription = child.getDescription();
-			String childFunctionName = child.getFunction().getName();
+			Description testDescription = child.getDescription();
 
-			notifier.fireTestStarted(childDescription);
+			notifier.fireTestStarted(testDescription);
 			try {
-				b3Engine.getContext().callFunction(childFunctionName, EMPTY_PARAMETER_ARRAY, EMPTY_TYPE_ARRAY);
+				b3Engine.getContext().callFunction(child.getFunctionName(), EMPTY_PARAMETER_ARRAY, EMPTY_TYPE_ARRAY);
 			} catch(Throwable t) {
-				notifier.fireTestFailure(new Failure(childDescription, t));
+				notifier.fireTestFailure(new Failure(testDescription, t));
 			} finally {
-				notifier.fireTestFinished(childDescription);
+				notifier.fireTestFinished(testDescription);
 			}
 		}
 
