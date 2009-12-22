@@ -202,12 +202,6 @@ class JUnitB3FileRunnerFactory {
 
 	protected List<Runner> b3FileRunners;
 
-	{
-		Injector beeLangInjector = new BeeLangStandaloneSetup().createInjectorAndDoEMFRegistration();
-
-		beeLangResourceSet = beeLangInjector.getProvider(XtextResourceSet.class).get();
-	}
-
 	public JUnitB3FileRunnerFactory(Class<?> klass) throws InitializationError {
 		ClassLoader classLoader = klass.getClassLoader();
 
@@ -230,6 +224,12 @@ class JUnitB3FileRunnerFactory {
 				+ klass.getName());
 	}
 
+	protected void createResourceSet() {
+		Injector beeLangInjector = new BeeLangStandaloneSetup().createInjectorAndDoEMFRegistration();
+
+		beeLangResourceSet = beeLangInjector.getProvider(XtextResourceSet.class).get();
+	}
+
 	protected Runner createB3FileRunner(String b3File) throws Exception {
 		return new JUnitB3FileRunner(b3File);
 	}
@@ -240,6 +240,8 @@ class JUnitB3FileRunnerFactory {
 	}
 
 	protected void createB3FileRunners(String[] b3Files) {
+		createResourceSet();
+
 		ArrayList<Runner> runners = new ArrayList<Runner>(b3Files.length);
 
 		for(String b3File : b3Files) {
