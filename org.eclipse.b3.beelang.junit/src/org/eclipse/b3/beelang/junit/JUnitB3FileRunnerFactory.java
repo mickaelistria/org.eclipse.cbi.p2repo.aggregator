@@ -88,10 +88,9 @@ class JUnitB3FileRunnerFactory {
 		public JUnitB3FileRunner(String b3File) throws Exception {
 			super(definitionClass);
 
-			if(b3File.charAt(0) != '/')
-				b3File = '/' + b3File;
-
-			b3FilePath = b3File;
+			b3FilePath = (b3File.charAt(0) != '/')
+					? '/' + b3File
+					: b3File;
 
 			initializeFunctionTests();
 		}
