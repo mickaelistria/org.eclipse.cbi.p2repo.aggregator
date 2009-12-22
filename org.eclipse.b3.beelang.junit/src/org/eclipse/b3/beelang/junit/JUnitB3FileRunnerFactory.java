@@ -168,14 +168,14 @@ class JUnitB3FileRunnerFactory {
 
 	}
 
-	public class ErrorReportingRunner extends Runner {
+	protected static class ErrorReportingRunner extends Runner {
 
 		private final Description testDescription;
 
 		private final Throwable error;
 
-		public ErrorReportingRunner(String b3File, Throwable t) {
-			testDescription = Description.createSuiteDescription(b3File);
+		public ErrorReportingRunner(String testName, Throwable t) {
+			testDescription = Description.createSuiteDescription(testName);
 			error = t;
 		}
 
@@ -230,16 +230,19 @@ class JUnitB3FileRunnerFactory {
 		throw new InitializationError("No @B3Files annotation specified for class: " + klass.getName());
 	}
 
+	protected Runner createB3FileRunner(String b3File) {
+		try {
+			return new JUnitB3FileRunner(b3File);
+		} catch(Throwable t) {
+			return new ErrorReportingRunner(b3File, t);
+		}
+	}
+
 	protected void createB3FileRunners(String[] b3Files) {
 		ArrayList<Runner> runners = new ArrayList<Runner>(b3Files.length);
 
-		for(String b3File : b3Files) {
-			try {
-				runners.add(new JUnitB3FileRunner(b3File));
-			} catch(Throwable t) {
-				runners.add(new ErrorReportingRunner(b3File, t));
-			}
-		}
+		for(String b3File : b3Files)
+			runners.add(createB3FileRunner(b3File));
 
 		b3FileRunners = runners;
 	}
