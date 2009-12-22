@@ -1,11 +1,11 @@
 package org.eclipse.b3.beelang.tests;
 
-import org.eclipse.b3.beelang.junit.B3Files;
+import org.eclipse.b3.beelang.junit.B3TestFiles;
 import org.eclipse.b3.beelang.junit.JUnitB3TestRunner;
 import org.junit.runner.RunWith;
 
 @RunWith (JUnitB3TestRunner.class)
-@B3Files ( { "/src-b3/smoketestFunctionArithmetic.b3", //
+@B3TestFiles ( { "/src-b3/smoketestFunctionArithmetic.b3", //
 		"/src-b3/testArithmeticFunctions.b3", //
 		"/src-b3/testAssertFunctions.b3", //
 		"/src-b3/testAssigmentFunctions.b3", //
