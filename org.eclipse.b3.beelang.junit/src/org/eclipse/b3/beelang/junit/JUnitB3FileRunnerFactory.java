@@ -94,18 +94,22 @@ class JUnitB3FileRunnerFactory {
 			if(b3File.charAt(0) != '/')
 				b3File = '/' + b3File;
 
-			URI b3FileURI = URI.createPlatformPluginURI(containingBundleName + b3File, true);
+			b3FilePath = b3File;
+
+			initializeTests();
+		}
+
+		protected void initializeTests() throws Exception {
+			URI b3FileURI = URI.createPlatformPluginURI(containingBundleName + b3FilePath, true);
 			XtextResource resource = (XtextResource) beeLangResourceSet.createResource(b3FileURI,
 					ContentHandler.UNSPECIFIED_CONTENT_TYPE);
 
 			try {
 				resource.load(null);
 			} catch(IOException e) {
-				throw new Exception("Failed to load B3 file: " + b3File, e);
+				throw new Exception("Failed to load B3 file: " + b3FilePath, e);
 			}
 			// TODO: consult resource.getErrors() and report possible errors
-
-			b3FilePath = b3File;
 
 			BeeModel beeModel = (BeeModel) resource.getParseResult().getRootASTElement();
 			BExecutionContext b3Context = (b3Engine = new B3Engine()).getContext();
@@ -133,7 +137,8 @@ class JUnitB3FileRunnerFactory {
 						testFunctionDescriptors.add(new TestFunctionDescriptor(function.getName()));
 				}
 			} catch(B3EngineException e) {
-				throw new Exception("Failed to initialize B3Engine in preparation for testing of B3 file: " + b3File, e);
+				throw new Exception("Failed to initialize B3Engine in preparation for testing of B3 file: "
+						+ b3FilePath, e);
 			}
 		}
 
