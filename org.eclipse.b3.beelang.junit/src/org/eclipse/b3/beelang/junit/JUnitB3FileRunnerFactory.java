@@ -23,7 +23,6 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.b3.beeLang.BeeModel;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.ContentHandler;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
 import org.junit.runner.Description;
@@ -101,8 +100,7 @@ class JUnitB3FileRunnerFactory {
 
 		protected void initializeFunctionTests() throws Exception {
 			URI b3FileURI = URI.createPlatformPluginURI(containingBundleName + b3FilePath, true);
-			XtextResource resource = (XtextResource) beeLangResourceSet.createResource(b3FileURI,
-					ContentHandler.UNSPECIFIED_CONTENT_TYPE);
+			XtextResource resource = (XtextResource) beeLangResourceSet.createResource(b3FileURI);
 
 			try {
 				resource.load(null);
@@ -235,19 +233,20 @@ class JUnitB3FileRunnerFactory {
 		throw new InitializationError("No @B3Files annotation specified for class: " + klass.getName());
 	}
 
-	protected Runner createB3FileRunner(String b3File) {
-		try {
-			return new JUnitB3FileRunner(b3File);
-		} catch(Throwable t) {
-			return new ErrorReportingRunner(b3File, t);
-		}
+	protected Runner createB3FileRunner(String b3File) throws Exception {
+		return new JUnitB3FileRunner(b3File);
 	}
 
 	protected void createB3FileRunners(String[] b3Files) {
 		ArrayList<Runner> runners = new ArrayList<Runner>(b3Files.length);
 
-		for(String b3File : b3Files)
-			runners.add(createB3FileRunner(b3File));
+		for(String b3File : b3Files) {
+			try {
+				runners.add(createB3FileRunner(b3File));
+			} catch(Throwable t) {
+				runners.add(new ErrorReportingRunner(b3File, t));
+			}
+		}
 
 		b3FileRunners = runners;
 	}
