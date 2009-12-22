@@ -23,6 +23,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.b3.beeLang.BeeModel;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.ContentHandler;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
 import org.junit.runner.Description;
@@ -100,7 +101,8 @@ class JUnitB3FileRunnerFactory {
 
 		protected void initializeFunctionTests() throws Exception {
 			URI b3FileURI = URI.createPlatformPluginURI(containingBundleName + b3FilePath, true);
-			XtextResource resource = (XtextResource) beeLangResourceSet.createResource(b3FileURI);
+			XtextResource resource = (XtextResource) beeLangResourceSet.createResource(b3FileURI,
+					ContentHandler.UNSPECIFIED_CONTENT_TYPE);
 
 			try {
 				resource.load(null);
