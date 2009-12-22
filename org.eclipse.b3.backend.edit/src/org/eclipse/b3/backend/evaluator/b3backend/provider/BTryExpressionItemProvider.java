@@ -307,6 +307,21 @@ public class BTryExpressionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(B3backendPackage.Literals.BTRY_EXPRESSION__TRY_EXPR,
+				 B3backendFactory.eINSTANCE.createBPropertySet()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BTRY_EXPRESSION__TRY_EXPR,
+				 B3backendFactory.eINSTANCE.createBDefaultPropertySet()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BTRY_EXPRESSION__TRY_EXPR,
+				 B3backendFactory.eINSTANCE.createBNamedPropertySet()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(B3backendPackage.Literals.BTRY_EXPRESSION__CATCH_BLOCKS,
 				 B3backendFactory.eINSTANCE.createBCatch()));
 
@@ -454,6 +469,21 @@ public class BTryExpressionItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BTRY_EXPRESSION__FINALLY_EXPR,
 				 B3backendFactory.eINSTANCE.createBDefProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BTRY_EXPRESSION__FINALLY_EXPR,
+				 B3backendFactory.eINSTANCE.createBPropertySet()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BTRY_EXPRESSION__FINALLY_EXPR,
+				 B3backendFactory.eINSTANCE.createBDefaultPropertySet()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BTRY_EXPRESSION__FINALLY_EXPR,
+				 B3backendFactory.eINSTANCE.createBNamedPropertySet()));
 	}
 
 	/**

@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,7 +35,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class SetPropertyOperationImpl extends PropertyOperationImpl implements SetPropertyOperation
+public class SetPropertyOperationImpl extends MinimalEObjectImpl.Container implements SetPropertyOperation
 {
   /**
    * The default value of the '{@link #isFinal() <em>Final</em>}' attribute.

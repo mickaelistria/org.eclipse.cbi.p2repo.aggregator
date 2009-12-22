@@ -300,6 +300,21 @@ public class BChainedExpressionItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BCHAINED_EXPRESSION__EXPRESSIONS,
 				 B3backendFactory.eINSTANCE.createBDefProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCHAINED_EXPRESSION__EXPRESSIONS,
+				 B3backendFactory.eINSTANCE.createBPropertySet()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCHAINED_EXPRESSION__EXPRESSIONS,
+				 B3backendFactory.eINSTANCE.createBDefaultPropertySet()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCHAINED_EXPRESSION__EXPRESSIONS,
+				 B3backendFactory.eINSTANCE.createBNamedPropertySet()));
 	}
 
 }

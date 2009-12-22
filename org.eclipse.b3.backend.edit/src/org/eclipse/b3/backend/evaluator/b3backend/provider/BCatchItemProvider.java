@@ -356,6 +356,21 @@ public class BCatchItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BCATCH__CATCH_EXPR,
 				 B3backendFactory.eINSTANCE.createBDefProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCATCH__CATCH_EXPR,
+				 B3backendFactory.eINSTANCE.createBPropertySet()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCATCH__CATCH_EXPR,
+				 B3backendFactory.eINSTANCE.createBDefaultPropertySet()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCATCH__CATCH_EXPR,
+				 B3backendFactory.eINSTANCE.createBNamedPropertySet()));
 	}
 
 	/**

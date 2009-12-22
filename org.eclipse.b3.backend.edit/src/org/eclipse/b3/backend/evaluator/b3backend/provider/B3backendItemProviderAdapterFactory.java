@@ -1279,6 +1279,167 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySet} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BPropertySetItemProvider bPropertySetItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySet}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBPropertySetAdapter() {
+		if (bPropertySetItemProvider == null) {
+			bPropertySetItemProvider = new BPropertySetItemProvider(this);
+		}
+
+		return bPropertySetItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BDefaultPropertySet} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BDefaultPropertySetItemProvider bDefaultPropertySetItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BDefaultPropertySet}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBDefaultPropertySetAdapter() {
+		if (bDefaultPropertySetItemProvider == null) {
+			bDefaultPropertySetItemProvider = new BDefaultPropertySetItemProvider(this);
+		}
+
+		return bDefaultPropertySetItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BNamedPropertySet} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BNamedPropertySetItemProvider bNamedPropertySetItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BNamedPropertySet}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBNamedPropertySetAdapter() {
+		if (bNamedPropertySetItemProvider == null) {
+			bNamedPropertySetItemProvider = new BNamedPropertySetItemProvider(this);
+		}
+
+		return bNamedPropertySetItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BPropertyOperationItemProvider bPropertyOperationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBPropertyOperationAdapter() {
+		if (bPropertyOperationItemProvider == null) {
+			bPropertyOperationItemProvider = new BPropertyOperationItemProvider(this);
+		}
+
+		return bPropertyOperationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BPropertyDefinitionOperation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BPropertyDefinitionOperationItemProvider bPropertyDefinitionOperationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BPropertyDefinitionOperation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBPropertyDefinitionOperationAdapter() {
+		if (bPropertyDefinitionOperationItemProvider == null) {
+			bPropertyDefinitionOperationItemProvider = new BPropertyDefinitionOperationItemProvider(this);
+		}
+
+		return bPropertyDefinitionOperationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BConditionalPropertyOperation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BConditionalPropertyOperationItemProvider bConditionalPropertyOperationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BConditionalPropertyOperation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBConditionalPropertyOperationAdapter() {
+		if (bConditionalPropertyOperationItemProvider == null) {
+			bConditionalPropertyOperationItemProvider = new BConditionalPropertyOperationItemProvider(this);
+		}
+
+		return bConditionalPropertyOperationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySetOperation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BPropertySetOperationItemProvider bPropertySetOperationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySetOperation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBPropertySetOperationAdapter() {
+		if (bPropertySetOperationItemProvider == null) {
+			bPropertySetOperationItemProvider = new BPropertySetOperationItemProvider(this);
+		}
+
+		return bPropertySetOperationItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1429,6 +1590,13 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 		if (bTypeCalculatorFunctionItemProvider != null) bTypeCalculatorFunctionItemProvider.dispose();
 		if (bInstanceContextItemProvider != null) bInstanceContextItemProvider.dispose();
 		if (bDefPropertyItemProvider != null) bDefPropertyItemProvider.dispose();
+		if (bPropertySetItemProvider != null) bPropertySetItemProvider.dispose();
+		if (bDefaultPropertySetItemProvider != null) bDefaultPropertySetItemProvider.dispose();
+		if (bNamedPropertySetItemProvider != null) bNamedPropertySetItemProvider.dispose();
+		if (bPropertyOperationItemProvider != null) bPropertyOperationItemProvider.dispose();
+		if (bPropertyDefinitionOperationItemProvider != null) bPropertyDefinitionOperationItemProvider.dispose();
+		if (bConditionalPropertyOperationItemProvider != null) bConditionalPropertyOperationItemProvider.dispose();
+		if (bPropertySetOperationItemProvider != null) bPropertySetOperationItemProvider.dispose();
 	}
 
 }

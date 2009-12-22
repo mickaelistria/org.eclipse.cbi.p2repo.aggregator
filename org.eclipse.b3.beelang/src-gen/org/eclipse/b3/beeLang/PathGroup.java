@@ -5,6 +5,8 @@
  */
 package org.eclipse.b3.beeLang;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -53,12 +55,12 @@ public interface PathGroup extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Annotations</em>' containment reference.
-   * @see #setAnnotations(PropertySet)
+   * @see #setAnnotations(BPropertySet)
    * @see org.eclipse.b3.beeLang.BeeLangPackage#getPathGroup_Annotations()
    * @model containment="true"
    * @generated
    */
-  PropertySet getAnnotations();
+  BPropertySet getAnnotations();
 
   /**
    * Sets the value of the '{@link org.eclipse.b3.beeLang.PathGroup#getAnnotations <em>Annotations</em>}' containment reference.
@@ -68,6 +70,6 @@ public interface PathGroup extends EObject
    * @see #getAnnotations()
    * @generated
    */
-  void setAnnotations(PropertySet value);
+  void setAnnotations(BPropertySet value);
 
 } // PathGroup

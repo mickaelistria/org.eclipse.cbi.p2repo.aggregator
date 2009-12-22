@@ -338,6 +338,21 @@ public class BParameterItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BPARAMETER__EXPR,
 				 B3backendFactory.eINSTANCE.createBDefProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BPARAMETER__EXPR,
+				 B3backendFactory.eINSTANCE.createBPropertySet()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BPARAMETER__EXPR,
+				 B3backendFactory.eINSTANCE.createBDefaultPropertySet()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BPARAMETER__EXPR,
+				 B3backendFactory.eINSTANCE.createBNamedPropertySet()));
 	}
 
 	/**

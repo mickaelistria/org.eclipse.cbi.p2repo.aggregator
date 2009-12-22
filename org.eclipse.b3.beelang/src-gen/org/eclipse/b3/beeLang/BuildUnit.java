@@ -6,6 +6,8 @@
 package org.eclipse.b3.beeLang;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
+import org.eclipse.b3.backend.evaluator.b3backend.BNamedPropertySet;
+import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
 
 import org.eclipse.emf.common.util.EList;
@@ -177,12 +179,12 @@ public interface BuildUnit extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Default Properties</em>' containment reference.
-   * @see #setDefaultProperties(PropertySet)
+   * @see #setDefaultProperties(BPropertySet)
    * @see org.eclipse.b3.beeLang.BeeLangPackage#getBuildUnit_DefaultProperties()
    * @model containment="true"
    * @generated
    */
-  PropertySet getDefaultProperties();
+  BPropertySet getDefaultProperties();
 
   /**
    * Sets the value of the '{@link org.eclipse.b3.beeLang.BuildUnit#getDefaultProperties <em>Default Properties</em>}' containment reference.
@@ -192,7 +194,7 @@ public interface BuildUnit extends EObject
    * @see #getDefaultProperties()
    * @generated
    */
-  void setDefaultProperties(PropertySet value);
+  void setDefaultProperties(BPropertySet value);
 
   /**
    * Returns the value of the '<em><b>Provided Capabilities</b></em>' containment reference list.
@@ -324,7 +326,7 @@ public interface BuildUnit extends EObject
 
   /**
    * Returns the value of the '<em><b>Property Sets</b></em>' containment reference list.
-   * The list contents are of type {@link org.eclipse.b3.beeLang.NamedPropertySet}.
+   * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.BNamedPropertySet}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Property Sets</em>' containment reference list isn't clear,
@@ -336,7 +338,7 @@ public interface BuildUnit extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<NamedPropertySet> getPropertySets();
+  EList<BNamedPropertySet> getPropertySets();
 
   /**
    * Returns the value of the '<em><b>Containers</b></em>' containment reference list.

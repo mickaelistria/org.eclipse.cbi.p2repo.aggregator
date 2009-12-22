@@ -7,6 +7,7 @@ package org.eclipse.b3.beeLang.impl;
 
 import java.util.Collection;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
 import org.eclipse.b3.backend.evaluator.b3backend.Visibility;
 
@@ -18,7 +19,6 @@ import org.eclipse.b3.beeLang.ExpressionList;
 import org.eclipse.b3.beeLang.ParameterDeclarationList;
 import org.eclipse.b3.beeLang.PostCondition;
 import org.eclipse.b3.beeLang.PreCondition;
-import org.eclipse.b3.beeLang.PropertySet;
 import org.eclipse.b3.beeLang.ProvidedCapability;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -231,7 +231,7 @@ public class BuilderImpl extends MinimalEObjectImpl.Container implements Builder
    * @generated
    * @ordered
    */
-  protected PropertySet properties;
+  protected BPropertySet properties;
 
   /**
    * The cached value of the '{@link #getInput() <em>Input</em>}' containment reference.
@@ -585,7 +585,7 @@ public class BuilderImpl extends MinimalEObjectImpl.Container implements Builder
    * <!-- end-user-doc -->
    * @generated
    */
-  public PropertySet getProperties()
+  public BPropertySet getProperties()
   {
     return properties;
   }
@@ -595,9 +595,9 @@ public class BuilderImpl extends MinimalEObjectImpl.Container implements Builder
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetProperties(PropertySet newProperties, NotificationChain msgs)
+  public NotificationChain basicSetProperties(BPropertySet newProperties, NotificationChain msgs)
   {
-    PropertySet oldProperties = properties;
+    BPropertySet oldProperties = properties;
     properties = newProperties;
     if (eNotificationRequired())
     {
@@ -612,7 +612,7 @@ public class BuilderImpl extends MinimalEObjectImpl.Container implements Builder
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setProperties(PropertySet newProperties)
+  public void setProperties(BPropertySet newProperties)
   {
     if (newProperties != properties)
     {
@@ -887,7 +887,7 @@ public class BuilderImpl extends MinimalEObjectImpl.Container implements Builder
         setPostCondition((PostCondition)newValue);
         return;
       case BeeLangPackage.BUILDER__PROPERTIES:
-        setProperties((PropertySet)newValue);
+        setProperties((BPropertySet)newValue);
         return;
       case BeeLangPackage.BUILDER__INPUT:
         setInput((BuilderInput)newValue);
@@ -943,7 +943,7 @@ public class BuilderImpl extends MinimalEObjectImpl.Container implements Builder
         setPostCondition((PostCondition)null);
         return;
       case BeeLangPackage.BUILDER__PROPERTIES:
-        setProperties((PropertySet)null);
+        setProperties((BPropertySet)null);
         return;
       case BeeLangPackage.BUILDER__INPUT:
         setInput((BuilderInput)null);

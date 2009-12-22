@@ -130,6 +130,13 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 			case B3backendPackage.BTYPE_CALCULATOR_FUNCTION: return createBTypeCalculatorFunction();
 			case B3backendPackage.BINSTANCE_CONTEXT: return createBInstanceContext();
 			case B3backendPackage.BDEF_PROPERTY: return createBDefProperty();
+			case B3backendPackage.BPROPERTY_SET: return createBPropertySet();
+			case B3backendPackage.BDEFAULT_PROPERTY_SET: return createBDefaultPropertySet();
+			case B3backendPackage.BNAMED_PROPERTY_SET: return createBNamedPropertySet();
+			case B3backendPackage.BPROPERTY_OPERATION: return createBPropertyOperation();
+			case B3backendPackage.BPROPERTY_DEFINITION_OPERATION: return createBPropertyDefinitionOperation();
+			case B3backendPackage.BCONDITIONAL_PROPERTY_OPERATION: return createBConditionalPropertyOperation();
+			case B3backendPackage.BPROPERTY_SET_OPERATION: return createBPropertySetOperation();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -739,6 +746,76 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	public BDefProperty createBDefProperty() {
 		BDefPropertyImpl bDefProperty = new BDefPropertyImpl();
 		return bDefProperty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BPropertySet createBPropertySet() {
+		BPropertySetImpl bPropertySet = new BPropertySetImpl();
+		return bPropertySet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BDefaultPropertySet createBDefaultPropertySet() {
+		BDefaultPropertySetImpl bDefaultPropertySet = new BDefaultPropertySetImpl();
+		return bDefaultPropertySet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BNamedPropertySet createBNamedPropertySet() {
+		BNamedPropertySetImpl bNamedPropertySet = new BNamedPropertySetImpl();
+		return bNamedPropertySet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BPropertyOperation createBPropertyOperation() {
+		BPropertyOperationImpl bPropertyOperation = new BPropertyOperationImpl();
+		return bPropertyOperation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BPropertyDefinitionOperation createBPropertyDefinitionOperation() {
+		BPropertyDefinitionOperationImpl bPropertyDefinitionOperation = new BPropertyDefinitionOperationImpl();
+		return bPropertyDefinitionOperation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BConditionalPropertyOperation createBConditionalPropertyOperation() {
+		BConditionalPropertyOperationImpl bConditionalPropertyOperation = new BConditionalPropertyOperationImpl();
+		return bConditionalPropertyOperation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BPropertySetOperation createBPropertySetOperation() {
+		BPropertySetOperationImpl bPropertySetOperation = new BPropertySetOperationImpl();
+		return bPropertySetOperation;
 	}
 
 	/**

@@ -73,10 +73,6 @@ public class BeeLangFactoryImpl extends EFactoryImpl implements BeeLangFactory
       case BeeLangPackage.REQUIRED_CAPABILITY: return createRequiredCapability();
       case BeeLangPackage.FILTERED_CAPABILITY: return createFilteredCapability();
       case BeeLangPackage.CAPABILITY: return createCapability();
-      case BeeLangPackage.NAMED_PROPERTY_SET: return createNamedPropertySet();
-      case BeeLangPackage.PROPERTY_SET: return createPropertySet();
-      case BeeLangPackage.PROPERTY_OPERATION: return createPropertyOperation();
-      case BeeLangPackage.FILTERED_PROPERTY_OPERATION: return createFilteredPropertyOperation();
       case BeeLangPackage.SET_PROPERTY_OPERATION: return createSetPropertyOperation();
       case BeeLangPackage.UNSET_PROPERTY_OPERATION: return createUnsetPropertyOperation();
       case BeeLangPackage.SYNCHRONIZATION: return createSynchronization();
@@ -184,50 +180,6 @@ public class BeeLangFactoryImpl extends EFactoryImpl implements BeeLangFactory
   {
     CapabilityImpl capability = new CapabilityImpl();
     return capability;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NamedPropertySet createNamedPropertySet()
-  {
-    NamedPropertySetImpl namedPropertySet = new NamedPropertySetImpl();
-    return namedPropertySet;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public PropertySet createPropertySet()
-  {
-    PropertySetImpl propertySet = new PropertySetImpl();
-    return propertySet;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public PropertyOperation createPropertyOperation()
-  {
-    PropertyOperationImpl propertyOperation = new PropertyOperationImpl();
-    return propertyOperation;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public FilteredPropertyOperation createFilteredPropertyOperation()
-  {
-    FilteredPropertyOperationImpl filteredPropertyOperation = new FilteredPropertyOperationImpl();
-    return filteredPropertyOperation;
   }
 
   /**

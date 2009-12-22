@@ -502,6 +502,69 @@ public interface B3backendFactory extends EFactory {
 	BDefProperty createBDefProperty();
 
 	/**
+	 * Returns a new object of class '<em>BProperty Set</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>BProperty Set</em>'.
+	 * @generated
+	 */
+	BPropertySet createBPropertySet();
+
+	/**
+	 * Returns a new object of class '<em>BDefault Property Set</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>BDefault Property Set</em>'.
+	 * @generated
+	 */
+	BDefaultPropertySet createBDefaultPropertySet();
+
+	/**
+	 * Returns a new object of class '<em>BNamed Property Set</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>BNamed Property Set</em>'.
+	 * @generated
+	 */
+	BNamedPropertySet createBNamedPropertySet();
+
+	/**
+	 * Returns a new object of class '<em>BProperty Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>BProperty Operation</em>'.
+	 * @generated
+	 */
+	BPropertyOperation createBPropertyOperation();
+
+	/**
+	 * Returns a new object of class '<em>BProperty Definition Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>BProperty Definition Operation</em>'.
+	 * @generated
+	 */
+	BPropertyDefinitionOperation createBPropertyDefinitionOperation();
+
+	/**
+	 * Returns a new object of class '<em>BConditional Property Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>BConditional Property Operation</em>'.
+	 * @generated
+	 */
+	BConditionalPropertyOperation createBConditionalPropertyOperation();
+
+	/**
+	 * Returns a new object of class '<em>BProperty Set Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>BProperty Set Operation</em>'.
+	 * @generated
+	 */
+	BPropertySetOperation createBPropertySetOperation();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

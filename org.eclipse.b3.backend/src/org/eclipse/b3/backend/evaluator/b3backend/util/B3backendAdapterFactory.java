@@ -343,6 +343,34 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 				return createBDefPropertyAdapter();
 			}
 			@Override
+			public Adapter caseBPropertySet(BPropertySet object) {
+				return createBPropertySetAdapter();
+			}
+			@Override
+			public Adapter caseBDefaultPropertySet(BDefaultPropertySet object) {
+				return createBDefaultPropertySetAdapter();
+			}
+			@Override
+			public Adapter caseBNamedPropertySet(BNamedPropertySet object) {
+				return createBNamedPropertySetAdapter();
+			}
+			@Override
+			public Adapter caseBPropertyOperation(BPropertyOperation object) {
+				return createBPropertyOperationAdapter();
+			}
+			@Override
+			public Adapter caseBPropertyDefinitionOperation(BPropertyDefinitionOperation object) {
+				return createBPropertyDefinitionOperationAdapter();
+			}
+			@Override
+			public Adapter caseBConditionalPropertyOperation(BConditionalPropertyOperation object) {
+				return createBConditionalPropertyOperationAdapter();
+			}
+			@Override
+			public Adapter caseBPropertySetOperation(BPropertySetOperation object) {
+				return createBPropertySetOperationAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -1269,6 +1297,104 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBDefPropertyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySet <em>BProperty Set</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BPropertySet
+	 * @generated
+	 */
+	public Adapter createBPropertySetAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefaultPropertySet <em>BDefault Property Set</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BDefaultPropertySet
+	 * @generated
+	 */
+	public Adapter createBDefaultPropertySetAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BNamedPropertySet <em>BNamed Property Set</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BNamedPropertySet
+	 * @generated
+	 */
+	public Adapter createBNamedPropertySetAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation <em>BProperty Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation
+	 * @generated
+	 */
+	public Adapter createBPropertyOperationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BPropertyDefinitionOperation <em>BProperty Definition Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BPropertyDefinitionOperation
+	 * @generated
+	 */
+	public Adapter createBPropertyDefinitionOperationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BConditionalPropertyOperation <em>BConditional Property Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BConditionalPropertyOperation
+	 * @generated
+	 */
+	public Adapter createBConditionalPropertyOperationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySetOperation <em>BProperty Set Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BPropertySetOperation
+	 * @generated
+	 */
+	public Adapter createBPropertySetOperationAdapter() {
 		return null;
 	}
 

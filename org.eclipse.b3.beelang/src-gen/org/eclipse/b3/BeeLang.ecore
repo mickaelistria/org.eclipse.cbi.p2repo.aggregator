@@ -12,6 +12,9 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="concern" upperBound="-1"
         eType="#//Concern" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="propertySets" upperBound="-1"
+        eType="ecore:EClass platform:/resource/org.eclipse.b3.backend/model/B3Backend.ecore#//BNamedPropertySet"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//BuildUnit"
         containment="true"/>
   </eClassifiers>
@@ -23,7 +26,7 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="implements" unique="false"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultProperties" eType="#//PropertySet"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultProperties" eType="ecore:EClass platform:/resource/org.eclipse.b3.backend/model/B3Backend.ecore#//BPropertySet"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="providedCapabilities" upperBound="-1"
         eType="#//ProvidedCapability" containment="true"/>
@@ -43,7 +46,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="repositoryConfigurations"
         upperBound="-1" eType="#//RepositoryConfiguration" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="propertySets" upperBound="-1"
-        eType="#//NamedPropertySet" containment="true"/>
+        eType="ecore:EClass platform:/resource/org.eclipse.b3.backend/model/B3Backend.ecore#//BNamedPropertySet"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="containers" upperBound="-1"
         eType="#//ContainerConfiguration" containment="true"/>
   </eClassifiers>
@@ -69,31 +73,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="interface" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NamedPropertySet">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//PropertySet"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PropertySet" eSuperTypes="#//PropertyOperation">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="extends" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="operations" upperBound="-1"
-        eType="#//PropertyOperation" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PropertyOperation"/>
-  <eClassifiers xsi:type="ecore:EClass" name="FilteredPropertyOperation" eSuperTypes="#//PropertyOperation">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="filter" eType="#//Filter"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//PropertyOperation"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SetPropertyOperation" eSuperTypes="#//PropertyOperation">
+  <eClassifiers xsi:type="ecore:EClass" name="SetPropertyOperation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="final" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass platform:/resource/org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UnsetPropertyOperation" eSuperTypes="#//PropertyOperation">
+  <eClassifiers xsi:type="ecore:EClass" name="UnsetPropertyOperation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Synchronization">
@@ -103,7 +90,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="PathGroup">
     <eStructuralFeatures xsi:type="ecore:EReference" name="paths" upperBound="-1"
         eType="#//PathVectorElement" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="annotations" eType="#//PropertySet"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="annotations" eType="ecore:EClass platform:/resource/org.eclipse.b3.backend/model/B3Backend.ecore#//BPropertySet"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PathVectorElement"/>
@@ -136,7 +123,8 @@
         eType="ecore:EClass platform:/resource/org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-        eType="#//PropertySet" containment="true"/>
+        eType="ecore:EClass platform:/resource/org.eclipse.b3.backend/model/B3Backend.ecore#//BPropertySet"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="concern" upperBound="-1"
         eType="#//ConcernBlock" containment="true"/>
   </eClassifiers>
@@ -172,7 +160,7 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="postCondition" eType="#//PostCondition"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" eType="#//PropertySet"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" eType="ecore:EClass platform:/resource/org.eclipse.b3.backend/model/B3Backend.ecore#//BPropertySet"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="input" eType="#//BuilderInput"
         containment="true"/>

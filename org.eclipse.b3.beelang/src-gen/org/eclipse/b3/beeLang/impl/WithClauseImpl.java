@@ -8,10 +8,10 @@ package org.eclipse.b3.beeLang.impl;
 import java.util.Collection;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 
 import org.eclipse.b3.beeLang.BeeLangPackage;
 import org.eclipse.b3.beeLang.ConcernBlock;
-import org.eclipse.b3.beeLang.PropertySet;
 import org.eclipse.b3.beeLang.WithClause;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -61,7 +61,7 @@ public class WithClauseImpl extends MinimalEObjectImpl.Container implements With
    * @generated
    * @ordered
    */
-  protected EList<PropertySet> properties;
+  protected EList<BPropertySet> properties;
 
   /**
    * The cached value of the '{@link #getConcern() <em>Concern</em>}' containment reference list.
@@ -113,11 +113,11 @@ public class WithClauseImpl extends MinimalEObjectImpl.Container implements With
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<PropertySet> getProperties()
+  public EList<BPropertySet> getProperties()
   {
     if (properties == null)
     {
-      properties = new EObjectContainmentEList<PropertySet>(PropertySet.class, this, BeeLangPackage.WITH_CLAUSE__PROPERTIES);
+      properties = new EObjectContainmentEList<BPropertySet>(BPropertySet.class, this, BeeLangPackage.WITH_CLAUSE__PROPERTIES);
     }
     return properties;
   }
@@ -193,7 +193,7 @@ public class WithClauseImpl extends MinimalEObjectImpl.Container implements With
         return;
       case BeeLangPackage.WITH_CLAUSE__PROPERTIES:
         getProperties().clear();
-        getProperties().addAll((Collection<? extends PropertySet>)newValue);
+        getProperties().addAll((Collection<? extends BPropertySet>)newValue);
         return;
       case BeeLangPackage.WITH_CLAUSE__CONCERN:
         getConcern().clear();

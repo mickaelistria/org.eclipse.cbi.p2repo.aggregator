@@ -108,26 +108,6 @@ public class BeeLangAdapterFactory extends AdapterFactoryImpl
         return createCapabilityAdapter();
       }
       @Override
-      public Adapter caseNamedPropertySet(NamedPropertySet object)
-      {
-        return createNamedPropertySetAdapter();
-      }
-      @Override
-      public Adapter casePropertySet(PropertySet object)
-      {
-        return createPropertySetAdapter();
-      }
-      @Override
-      public Adapter casePropertyOperation(PropertyOperation object)
-      {
-        return createPropertyOperationAdapter();
-      }
-      @Override
-      public Adapter caseFilteredPropertyOperation(FilteredPropertyOperation object)
-      {
-        return createFilteredPropertyOperationAdapter();
-      }
-      @Override
       public Adapter caseSetPropertyOperation(SetPropertyOperation object)
       {
         return createSetPropertyOperationAdapter();
@@ -425,66 +405,6 @@ public class BeeLangAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createCapabilityAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.b3.beeLang.NamedPropertySet <em>Named Property Set</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.b3.beeLang.NamedPropertySet
-   * @generated
-   */
-  public Adapter createNamedPropertySetAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.b3.beeLang.PropertySet <em>Property Set</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.b3.beeLang.PropertySet
-   * @generated
-   */
-  public Adapter createPropertySetAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.b3.beeLang.PropertyOperation <em>Property Operation</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.b3.beeLang.PropertyOperation
-   * @generated
-   */
-  public Adapter createPropertyOperationAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.b3.beeLang.FilteredPropertyOperation <em>Filtered Property Operation</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.b3.beeLang.FilteredPropertyOperation
-   * @generated
-   */
-  public Adapter createFilteredPropertyOperationAdapter()
   {
     return null;
   }

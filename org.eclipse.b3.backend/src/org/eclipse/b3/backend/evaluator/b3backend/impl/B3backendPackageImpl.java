@@ -36,11 +36,13 @@ import org.eclipse.b3.backend.evaluator.b3backend.BCallExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BCase;
 import org.eclipse.b3.backend.evaluator.b3backend.BCatch;
 import org.eclipse.b3.backend.evaluator.b3backend.BChainedExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BConditionalPropertyOperation;
 import org.eclipse.b3.backend.evaluator.b3backend.BContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefProperty;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefValue;
+import org.eclipse.b3.backend.evaluator.b3backend.BDefaultPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFeatureExpression;
@@ -62,11 +64,16 @@ import org.eclipse.b3.backend.evaluator.b3backend.BLiteralListExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralType;
 import org.eclipse.b3.backend.evaluator.b3backend.BMapEntry;
+import org.eclipse.b3.backend.evaluator.b3backend.BNamedPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.BOrExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameter;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterList;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterizedExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BPropertyDefinitionOperation;
+import org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation;
+import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
+import org.eclipse.b3.backend.evaluator.b3backend.BPropertySetOperation;
 import org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BSourceLink;
 import org.eclipse.b3.backend.evaluator.b3backend.BSwitchExpression;
@@ -565,6 +572,55 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * @generated
 	 */
 	private EClass bDefPropertyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bPropertySetEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bDefaultPropertySetEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bNamedPropertySetEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bPropertyOperationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bPropertyDefinitionOperationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bConditionalPropertyOperationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bPropertySetOperationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2238,6 +2294,132 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getBPropertySet() {
+		return bPropertySetEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBPropertySet_Extends() {
+		return (EReference)bPropertySetEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBPropertySet_Operations() {
+		return (EReference)bPropertySetEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBDefaultPropertySet() {
+		return bDefaultPropertySetEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBNamedPropertySet() {
+		return bNamedPropertySetEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBNamedPropertySet_Name() {
+		return (EAttribute)bNamedPropertySetEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBPropertyOperation() {
+		return bPropertyOperationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBPropertyDefinitionOperation() {
+		return bPropertyDefinitionOperationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBPropertyDefinitionOperation_Definition() {
+		return (EReference)bPropertyDefinitionOperationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBConditionalPropertyOperation() {
+		return bConditionalPropertyOperationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBConditionalPropertyOperation_CondExpr() {
+		return (EReference)bConditionalPropertyOperationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBConditionalPropertyOperation_Body() {
+		return (EReference)bConditionalPropertyOperationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBPropertySetOperation() {
+		return bPropertySetOperationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBPropertySetOperation_PropertySet() {
+		return (EReference)bPropertySetOperationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getVisibility() {
 		return visibilityEEnum;
 	}
@@ -2636,6 +2818,27 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		bDefPropertyEClass = createEClass(BDEF_PROPERTY);
 		createEAttribute(bDefPropertyEClass, BDEF_PROPERTY__MUTABLE);
 
+		bPropertySetEClass = createEClass(BPROPERTY_SET);
+		createEReference(bPropertySetEClass, BPROPERTY_SET__EXTENDS);
+		createEReference(bPropertySetEClass, BPROPERTY_SET__OPERATIONS);
+
+		bDefaultPropertySetEClass = createEClass(BDEFAULT_PROPERTY_SET);
+
+		bNamedPropertySetEClass = createEClass(BNAMED_PROPERTY_SET);
+		createEAttribute(bNamedPropertySetEClass, BNAMED_PROPERTY_SET__NAME);
+
+		bPropertyOperationEClass = createEClass(BPROPERTY_OPERATION);
+
+		bPropertyDefinitionOperationEClass = createEClass(BPROPERTY_DEFINITION_OPERATION);
+		createEReference(bPropertyDefinitionOperationEClass, BPROPERTY_DEFINITION_OPERATION__DEFINITION);
+
+		bConditionalPropertyOperationEClass = createEClass(BCONDITIONAL_PROPERTY_OPERATION);
+		createEReference(bConditionalPropertyOperationEClass, BCONDITIONAL_PROPERTY_OPERATION__COND_EXPR);
+		createEReference(bConditionalPropertyOperationEClass, BCONDITIONAL_PROPERTY_OPERATION__BODY);
+
+		bPropertySetOperationEClass = createEClass(BPROPERTY_SET_OPERATION);
+		createEReference(bPropertySetOperationEClass, BPROPERTY_SET_OPERATION__PROPERTY_SET);
+
 		// Create enums
 		visibilityEEnum = createEEnum(VISIBILITY);
 		executionModeEEnum = createEEnum(EXECUTION_MODE);
@@ -2743,6 +2946,12 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		bTypeCalculatorFunctionEClass.getESuperTypes().add(this.getBTypeCalculator());
 		bInstanceContextEClass.getESuperTypes().add(this.getBInnerContext());
 		bDefPropertyEClass.getESuperTypes().add(this.getBDefValue());
+		bPropertySetEClass.getESuperTypes().add(this.getBExpression());
+		bDefaultPropertySetEClass.getESuperTypes().add(this.getBPropertySet());
+		bNamedPropertySetEClass.getESuperTypes().add(this.getBPropertySet());
+		bPropertyDefinitionOperationEClass.getESuperTypes().add(this.getBPropertyOperation());
+		bConditionalPropertyOperationEClass.getESuperTypes().add(this.getBPropertyOperation());
+		bPropertySetOperationEClass.getESuperTypes().add(this.getBPropertyOperation());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(bExpressionEClass, BExpression.class, "BExpression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3128,6 +3337,27 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 
 		initEClass(bDefPropertyEClass, BDefProperty.class, "BDefProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBDefProperty_Mutable(), ecorePackage.getEBoolean(), "mutable", null, 0, 1, BDefProperty.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		initEClass(bPropertySetEClass, BPropertySet.class, "BPropertySet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBPropertySet_Extends(), this.getBNamedPropertySet(), null, "extends", null, 0, 1, BPropertySet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBPropertySet_Operations(), this.getBPropertyOperation(), null, "operations", null, 0, -1, BPropertySet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(bDefaultPropertySetEClass, BDefaultPropertySet.class, "BDefaultPropertySet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(bNamedPropertySetEClass, BNamedPropertySet.class, "BNamedPropertySet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBNamedPropertySet_Name(), ecorePackage.getEString(), "name", null, 0, 1, BNamedPropertySet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(bPropertyOperationEClass, BPropertyOperation.class, "BPropertyOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(bPropertyDefinitionOperationEClass, BPropertyDefinitionOperation.class, "BPropertyDefinitionOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBPropertyDefinitionOperation_Definition(), this.getBDefProperty(), null, "definition", null, 0, 1, BPropertyDefinitionOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(bConditionalPropertyOperationEClass, BConditionalPropertyOperation.class, "BConditionalPropertyOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBConditionalPropertyOperation_CondExpr(), this.getBExpression(), null, "condExpr", null, 0, 1, BConditionalPropertyOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBConditionalPropertyOperation_Body(), this.getBPropertyOperation(), null, "body", null, 0, 1, BConditionalPropertyOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(bPropertySetOperationEClass, BPropertySetOperation.class, "BPropertySetOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBPropertySetOperation_PropertySet(), this.getBPropertySet(), null, "propertySet", null, 0, 1, BPropertySetOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(visibilityEEnum, Visibility.class, "Visibility");

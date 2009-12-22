@@ -137,41 +137,10 @@ public class BeeLangSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case BeeLangPackage.NAMED_PROPERTY_SET:
-      {
-        NamedPropertySet namedPropertySet = (NamedPropertySet)theEObject;
-        T result = caseNamedPropertySet(namedPropertySet);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case BeeLangPackage.PROPERTY_SET:
-      {
-        PropertySet propertySet = (PropertySet)theEObject;
-        T result = casePropertySet(propertySet);
-        if (result == null) result = casePropertyOperation(propertySet);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case BeeLangPackage.PROPERTY_OPERATION:
-      {
-        PropertyOperation propertyOperation = (PropertyOperation)theEObject;
-        T result = casePropertyOperation(propertyOperation);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case BeeLangPackage.FILTERED_PROPERTY_OPERATION:
-      {
-        FilteredPropertyOperation filteredPropertyOperation = (FilteredPropertyOperation)theEObject;
-        T result = caseFilteredPropertyOperation(filteredPropertyOperation);
-        if (result == null) result = casePropertyOperation(filteredPropertyOperation);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case BeeLangPackage.SET_PROPERTY_OPERATION:
       {
         SetPropertyOperation setPropertyOperation = (SetPropertyOperation)theEObject;
         T result = caseSetPropertyOperation(setPropertyOperation);
-        if (result == null) result = casePropertyOperation(setPropertyOperation);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -179,7 +148,6 @@ public class BeeLangSwitch<T>
       {
         UnsetPropertyOperation unsetPropertyOperation = (UnsetPropertyOperation)theEObject;
         T result = caseUnsetPropertyOperation(unsetPropertyOperation);
-        if (result == null) result = casePropertyOperation(unsetPropertyOperation);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -543,70 +511,6 @@ public class BeeLangSwitch<T>
    * @generated
    */
   public T caseCapability(Capability object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Named Property Set</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Named Property Set</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseNamedPropertySet(NamedPropertySet object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Property Set</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Property Set</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePropertySet(PropertySet object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Property Operation</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Property Operation</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePropertyOperation(PropertyOperation object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Filtered Property Operation</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Filtered Property Operation</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseFilteredPropertyOperation(FilteredPropertyOperation object)
   {
     return null;
   }

@@ -3491,6 +3491,292 @@ public interface B3backendPackage extends EPackage {
 	int BDEF_PROPERTY_FEATURE_COUNT = BDEF_VALUE_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BPropertySetImpl <em>BProperty Set</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BPropertySetImpl
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBPropertySet()
+	 * @generated
+	 */
+	int BPROPERTY_SET = 65;
+
+	/**
+	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BPROPERTY_SET__LINE_NUMBER = BEXPRESSION__LINE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>File Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BPROPERTY_SET__FILE_REFERENCE = BEXPRESSION__FILE_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Extends</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BPROPERTY_SET__EXTENDS = BEXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Operations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BPROPERTY_SET__OPERATIONS = BEXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>BProperty Set</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BPROPERTY_SET_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BDefaultPropertySetImpl <em>BDefault Property Set</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BDefaultPropertySetImpl
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBDefaultPropertySet()
+	 * @generated
+	 */
+	int BDEFAULT_PROPERTY_SET = 66;
+
+	/**
+	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BDEFAULT_PROPERTY_SET__LINE_NUMBER = BPROPERTY_SET__LINE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>File Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BDEFAULT_PROPERTY_SET__FILE_REFERENCE = BPROPERTY_SET__FILE_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Extends</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BDEFAULT_PROPERTY_SET__EXTENDS = BPROPERTY_SET__EXTENDS;
+
+	/**
+	 * The feature id for the '<em><b>Operations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BDEFAULT_PROPERTY_SET__OPERATIONS = BPROPERTY_SET__OPERATIONS;
+
+	/**
+	 * The number of structural features of the '<em>BDefault Property Set</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BDEFAULT_PROPERTY_SET_FEATURE_COUNT = BPROPERTY_SET_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BNamedPropertySetImpl <em>BNamed Property Set</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BNamedPropertySetImpl
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBNamedPropertySet()
+	 * @generated
+	 */
+	int BNAMED_PROPERTY_SET = 67;
+
+	/**
+	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BNAMED_PROPERTY_SET__LINE_NUMBER = BPROPERTY_SET__LINE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>File Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BNAMED_PROPERTY_SET__FILE_REFERENCE = BPROPERTY_SET__FILE_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Extends</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BNAMED_PROPERTY_SET__EXTENDS = BPROPERTY_SET__EXTENDS;
+
+	/**
+	 * The feature id for the '<em><b>Operations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BNAMED_PROPERTY_SET__OPERATIONS = BPROPERTY_SET__OPERATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BNAMED_PROPERTY_SET__NAME = BPROPERTY_SET_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>BNamed Property Set</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BNAMED_PROPERTY_SET_FEATURE_COUNT = BPROPERTY_SET_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BPropertyOperationImpl <em>BProperty Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BPropertyOperationImpl
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBPropertyOperation()
+	 * @generated
+	 */
+	int BPROPERTY_OPERATION = 68;
+
+	/**
+	 * The number of structural features of the '<em>BProperty Operation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BPROPERTY_OPERATION_FEATURE_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BPropertyDefinitionOperationImpl <em>BProperty Definition Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BPropertyDefinitionOperationImpl
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBPropertyDefinitionOperation()
+	 * @generated
+	 */
+	int BPROPERTY_DEFINITION_OPERATION = 69;
+
+	/**
+	 * The feature id for the '<em><b>Definition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BPROPERTY_DEFINITION_OPERATION__DEFINITION = BPROPERTY_OPERATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>BProperty Definition Operation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BPROPERTY_DEFINITION_OPERATION_FEATURE_COUNT = BPROPERTY_OPERATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BConditionalPropertyOperationImpl <em>BConditional Property Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BConditionalPropertyOperationImpl
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBConditionalPropertyOperation()
+	 * @generated
+	 */
+	int BCONDITIONAL_PROPERTY_OPERATION = 70;
+
+	/**
+	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BCONDITIONAL_PROPERTY_OPERATION__COND_EXPR = BPROPERTY_OPERATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Body</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BCONDITIONAL_PROPERTY_OPERATION__BODY = BPROPERTY_OPERATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>BConditional Property Operation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BCONDITIONAL_PROPERTY_OPERATION_FEATURE_COUNT = BPROPERTY_OPERATION_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BPropertySetOperationImpl <em>BProperty Set Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BPropertySetOperationImpl
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBPropertySetOperation()
+	 * @generated
+	 */
+	int BPROPERTY_SET_OPERATION = 71;
+
+	/**
+	 * The feature id for the '<em><b>Property Set</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BPROPERTY_SET_OPERATION__PROPERTY_SET = BPROPERTY_OPERATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>BProperty Set Operation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BPROPERTY_SET_OPERATION_FEATURE_COUNT = BPROPERTY_OPERATION_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.Visibility <em>Visibility</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3498,7 +3784,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getVisibility()
 	 * @generated
 	 */
-	int VISIBILITY = 65;
+	int VISIBILITY = 72;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode <em>Execution Mode</em>}' enum.
@@ -3508,7 +3794,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getExecutionMode()
 	 * @generated
 	 */
-	int EXECUTION_MODE = 66;
+	int EXECUTION_MODE = 73;
 
 	/**
 	 * The meta object id for the '<em>Core Exception</em>' data type.
@@ -3518,7 +3804,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getCoreException()
 	 * @generated
 	 */
-	int CORE_EXCEPTION = 67;
+	int CORE_EXCEPTION = 74;
 
 
 	/**
@@ -3529,7 +3815,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 68;
+	int TYPE = 75;
 
 	/**
 	 * The meta object id for the '<em>Object Array</em>' data type.
@@ -3538,7 +3824,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getObjectArray()
 	 * @generated
 	 */
-	int OBJECT_ARRAY = 69;
+	int OBJECT_ARRAY = 76;
 
 
 	/**
@@ -3549,7 +3835,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getValueMap()
 	 * @generated
 	 */
-	int VALUE_MAP = 70;
+	int VALUE_MAP = 77;
 
 
 	/**
@@ -3560,7 +3846,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3EngineException()
 	 * @generated
 	 */
-	int B3_ENGINE_EXCEPTION = 71;
+	int B3_ENGINE_EXCEPTION = 78;
 
 
 	/**
@@ -3571,7 +3857,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3ExpressionCache()
 	 * @generated
 	 */
-	int B3_EXPRESSION_CACHE = 72;
+	int B3_EXPRESSION_CACHE = 79;
 
 
 	/**
@@ -3582,7 +3868,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getThrowable()
 	 * @generated
 	 */
-	int THROWABLE = 73;
+	int THROWABLE = 80;
 
 	/**
 	 * The meta object id for the '<em>LValue</em>' data type.
@@ -3592,7 +3878,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getLValue()
 	 * @generated
 	 */
-	int LVALUE = 74;
+	int LVALUE = 81;
 
 	/**
 	 * The meta object id for the '<em>Type Array</em>' data type.
@@ -3601,7 +3887,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getTypeArray()
 	 * @generated
 	 */
-	int TYPE_ARRAY = 75;
+	int TYPE_ARRAY = 82;
 
 	/**
 	 * The meta object id for the '<em>Method</em>' data type.
@@ -3611,7 +3897,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getMethod()
 	 * @generated
 	 */
-	int METHOD = 76;
+	int METHOD = 83;
 
 	/**
 	 * The meta object id for the '<em>Type Variable Array</em>' data type.
@@ -3620,7 +3906,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getTypeVariableArray()
 	 * @generated
 	 */
-	int TYPE_VARIABLE_ARRAY = 77;
+	int TYPE_VARIABLE_ARRAY = 84;
 
 	/**
 	 * The meta object id for the '<em>Func Store</em>' data type.
@@ -3630,7 +3916,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getFuncStore()
 	 * @generated
 	 */
-	int FUNC_STORE = 78;
+	int FUNC_STORE = 85;
 
 	/**
 	 * The meta object id for the '<em>Regexp Pattern</em>' data type.
@@ -3640,7 +3926,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getRegexpPattern()
 	 * @generated
 	 */
-	int REGEXP_PATTERN = 79;
+	int REGEXP_PATTERN = 86;
 
 	/**
 	 * The meta object id for the '<em>String Array</em>' data type.
@@ -3649,7 +3935,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getStringArray()
 	 * @generated
 	 */
-	int STRING_ARRAY = 80;
+	int STRING_ARRAY = 87;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BExpression <em>BExpression</em>}'.
@@ -5418,6 +5704,153 @@ public interface B3backendPackage extends EPackage {
 	EAttribute getBDefProperty_Mutable();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySet <em>BProperty Set</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>BProperty Set</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BPropertySet
+	 * @generated
+	 */
+	EClass getBPropertySet();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySet#getExtends <em>Extends</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Extends</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BPropertySet#getExtends()
+	 * @see #getBPropertySet()
+	 * @generated
+	 */
+	EReference getBPropertySet_Extends();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySet#getOperations <em>Operations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Operations</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BPropertySet#getOperations()
+	 * @see #getBPropertySet()
+	 * @generated
+	 */
+	EReference getBPropertySet_Operations();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefaultPropertySet <em>BDefault Property Set</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>BDefault Property Set</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BDefaultPropertySet
+	 * @generated
+	 */
+	EClass getBDefaultPropertySet();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BNamedPropertySet <em>BNamed Property Set</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>BNamed Property Set</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BNamedPropertySet
+	 * @generated
+	 */
+	EClass getBNamedPropertySet();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BNamedPropertySet#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BNamedPropertySet#getName()
+	 * @see #getBNamedPropertySet()
+	 * @generated
+	 */
+	EAttribute getBNamedPropertySet_Name();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation <em>BProperty Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>BProperty Operation</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation
+	 * @generated
+	 */
+	EClass getBPropertyOperation();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BPropertyDefinitionOperation <em>BProperty Definition Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>BProperty Definition Operation</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BPropertyDefinitionOperation
+	 * @generated
+	 */
+	EClass getBPropertyDefinitionOperation();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BPropertyDefinitionOperation#getDefinition <em>Definition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Definition</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BPropertyDefinitionOperation#getDefinition()
+	 * @see #getBPropertyDefinitionOperation()
+	 * @generated
+	 */
+	EReference getBPropertyDefinitionOperation_Definition();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BConditionalPropertyOperation <em>BConditional Property Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>BConditional Property Operation</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BConditionalPropertyOperation
+	 * @generated
+	 */
+	EClass getBConditionalPropertyOperation();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BConditionalPropertyOperation#getCondExpr <em>Cond Expr</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Cond Expr</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BConditionalPropertyOperation#getCondExpr()
+	 * @see #getBConditionalPropertyOperation()
+	 * @generated
+	 */
+	EReference getBConditionalPropertyOperation_CondExpr();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BConditionalPropertyOperation#getBody <em>Body</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Body</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BConditionalPropertyOperation#getBody()
+	 * @see #getBConditionalPropertyOperation()
+	 * @generated
+	 */
+	EReference getBConditionalPropertyOperation_Body();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySetOperation <em>BProperty Set Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>BProperty Set Operation</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BPropertySetOperation
+	 * @generated
+	 */
+	EClass getBPropertySetOperation();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySetOperation#getPropertySet <em>Property Set</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Property Set</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BPropertySetOperation#getPropertySet()
+	 * @see #getBPropertySetOperation()
+	 * @generated
+	 */
+	EReference getBPropertySetOperation_PropertySet();
+
+	/**
 	 * Returns the meta object for enum '{@link org.eclipse.b3.backend.evaluator.b3backend.Visibility <em>Visibility</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7066,6 +7499,132 @@ public interface B3backendPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute BDEF_PROPERTY__MUTABLE = eINSTANCE.getBDefProperty_Mutable();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BPropertySetImpl <em>BProperty Set</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BPropertySetImpl
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBPropertySet()
+		 * @generated
+		 */
+		EClass BPROPERTY_SET = eINSTANCE.getBPropertySet();
+
+		/**
+		 * The meta object literal for the '<em><b>Extends</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BPROPERTY_SET__EXTENDS = eINSTANCE.getBPropertySet_Extends();
+
+		/**
+		 * The meta object literal for the '<em><b>Operations</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BPROPERTY_SET__OPERATIONS = eINSTANCE.getBPropertySet_Operations();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BDefaultPropertySetImpl <em>BDefault Property Set</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BDefaultPropertySetImpl
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBDefaultPropertySet()
+		 * @generated
+		 */
+		EClass BDEFAULT_PROPERTY_SET = eINSTANCE.getBDefaultPropertySet();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BNamedPropertySetImpl <em>BNamed Property Set</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BNamedPropertySetImpl
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBNamedPropertySet()
+		 * @generated
+		 */
+		EClass BNAMED_PROPERTY_SET = eINSTANCE.getBNamedPropertySet();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BNAMED_PROPERTY_SET__NAME = eINSTANCE.getBNamedPropertySet_Name();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BPropertyOperationImpl <em>BProperty Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BPropertyOperationImpl
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBPropertyOperation()
+		 * @generated
+		 */
+		EClass BPROPERTY_OPERATION = eINSTANCE.getBPropertyOperation();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BPropertyDefinitionOperationImpl <em>BProperty Definition Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BPropertyDefinitionOperationImpl
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBPropertyDefinitionOperation()
+		 * @generated
+		 */
+		EClass BPROPERTY_DEFINITION_OPERATION = eINSTANCE.getBPropertyDefinitionOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Definition</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BPROPERTY_DEFINITION_OPERATION__DEFINITION = eINSTANCE.getBPropertyDefinitionOperation_Definition();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BConditionalPropertyOperationImpl <em>BConditional Property Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BConditionalPropertyOperationImpl
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBConditionalPropertyOperation()
+		 * @generated
+		 */
+		EClass BCONDITIONAL_PROPERTY_OPERATION = eINSTANCE.getBConditionalPropertyOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Cond Expr</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BCONDITIONAL_PROPERTY_OPERATION__COND_EXPR = eINSTANCE.getBConditionalPropertyOperation_CondExpr();
+
+		/**
+		 * The meta object literal for the '<em><b>Body</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BCONDITIONAL_PROPERTY_OPERATION__BODY = eINSTANCE.getBConditionalPropertyOperation_Body();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BPropertySetOperationImpl <em>BProperty Set Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BPropertySetOperationImpl
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBPropertySetOperation()
+		 * @generated
+		 */
+		EClass BPROPERTY_SET_OPERATION = eINSTANCE.getBPropertySetOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Property Set</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BPROPERTY_SET_OPERATION__PROPERTY_SET = eINSTANCE.getBPropertySetOperation_PropertySet();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.Visibility <em>Visibility</em>}' enum.

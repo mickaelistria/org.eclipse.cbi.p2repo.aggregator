@@ -80,42 +80,6 @@ public interface BeeLangFactory extends EFactory
   Capability createCapability();
 
   /**
-   * Returns a new object of class '<em>Named Property Set</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Named Property Set</em>'.
-   * @generated
-   */
-  NamedPropertySet createNamedPropertySet();
-
-  /**
-   * Returns a new object of class '<em>Property Set</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Property Set</em>'.
-   * @generated
-   */
-  PropertySet createPropertySet();
-
-  /**
-   * Returns a new object of class '<em>Property Operation</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Property Operation</em>'.
-   * @generated
-   */
-  PropertyOperation createPropertyOperation();
-
-  /**
-   * Returns a new object of class '<em>Filtered Property Operation</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Filtered Property Operation</em>'.
-   * @generated
-   */
-  FilteredPropertyOperation createFilteredPropertyOperation();
-
-  /**
    * Returns a new object of class '<em>Set Property Operation</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

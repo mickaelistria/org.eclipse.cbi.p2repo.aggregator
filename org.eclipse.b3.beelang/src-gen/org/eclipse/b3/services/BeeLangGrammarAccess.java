@@ -26,14 +26,20 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cFunctionsFunctionParserRuleCall_1_0_0 = (RuleCall)cFunctionsAssignment_1_0.eContents().get(0);
 		private final Assignment cConcernAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
 		private final RuleCall cConcernConcernParserRuleCall_1_1_0 = (RuleCall)cConcernAssignment_1_1.eContents().get(0);
+		private final Group cGroup_1_2 = (Group)cAlternatives_1.eContents().get(2);
+		private final Keyword cPropertiesKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
+		private final Assignment cPropertySetsAssignment_1_2_1 = (Assignment)cGroup_1_2.eContents().get(1);
+		private final RuleCall cPropertySetsNamedPropertySetParserRuleCall_1_2_1_0 = (RuleCall)cPropertySetsAssignment_1_2_1.eContents().get(0);
 		private final Assignment cBodyAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cBodyUnitParserRuleCall_2_0 = (RuleCall)cBodyAssignment_2.eContents().get(0);
 		
 		//BeeModel hidden ( WS , SL_COMMENT , ML_COMMENT ):
-		//  imports+=Import* (functions+=Function|concern+=Concern)* body=Unit?;
+		//  imports+=Import* (functions+=Function|concern+=Concern|"properties" propertySets+=
+		//  NamedPropertySet)* body=Unit?;
 		public ParserRule getRule() { return rule; }
 
-		//imports+=Import* (functions+=Function|concern+=Concern)* body=Unit?
+		//imports+=Import* (functions+=Function|concern+=Concern|"properties" propertySets+=
+		//NamedPropertySet)* body=Unit?
 		public Group getGroup() { return cGroup; }
 
 		//imports+=Import*
@@ -42,7 +48,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//Import
 		public RuleCall getImportsImportParserRuleCall_0_0() { return cImportsImportParserRuleCall_0_0; }
 
-		//(functions+=Function|concern+=Concern)*
+		//(functions+=Function|concern+=Concern|"properties" propertySets+=NamedPropertySet
+		//)*
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 
 		//functions+=Function
@@ -56,6 +63,18 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 		//Concern
 		public RuleCall getConcernConcernParserRuleCall_1_1_0() { return cConcernConcernParserRuleCall_1_1_0; }
+
+		//"properties" propertySets+=NamedPropertySet
+		public Group getGroup_1_2() { return cGroup_1_2; }
+
+		//"properties"
+		public Keyword getPropertiesKeyword_1_2_0() { return cPropertiesKeyword_1_2_0; }
+
+		//propertySets+=NamedPropertySet
+		public Assignment getPropertySetsAssignment_1_2_1() { return cPropertySetsAssignment_1_2_1; }
+
+		//NamedPropertySet
+		public RuleCall getPropertySetsNamedPropertySetParserRuleCall_1_2_1_0() { return cPropertySetsNamedPropertySetParserRuleCall_1_2_1_0; }
 
 		//body=Unit?
 		public Assignment getBodyAssignment_2() { return cBodyAssignment_2; }
@@ -810,82 +829,121 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	public class NamedPropertySetElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "NamedPropertySet");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
-		private final Assignment cBodyAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cBodyPropertySetParserRuleCall_1_0 = (RuleCall)cBodyAssignment_1.eContents().get(0);
+		private final Action cBNamedPropertySetAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cExtendsKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cExtendsAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final CrossReference cExtendsBNamedPropertySetCrossReference_2_1_0 = (CrossReference)cExtendsAssignment_2_1.eContents().get(0);
+		private final RuleCall cExtendsBNamedPropertySetQIDREFParserRuleCall_2_1_0_1 = (RuleCall)cExtendsBNamedPropertySetCrossReference_2_1_0.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cOperationsAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cOperationsPropertyOperationParserRuleCall_4_0 = (RuleCall)cOperationsAssignment_4.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
-		//NamedPropertySet:
-		//  name=ID body=PropertySet; 
+		//NamedPropertySet returns be::BNamedPropertySet:
+		//  {be::BNamedPropertySet} name=ID ("extends" extends=[be::BNamedPropertySet|QIDREF])?
+		//  "{" operations+=PropertyOperation* "}"; 
 		//
 		//// An optionally named sequence of property statements
 		//    
-		//	             
+		//	                
+		//	           
 		//	
 		//
 		//// Sequence of possibly filtered property statements
 		public ParserRule getRule() { return rule; }
 
-		//name=ID body=PropertySet
+		//{be::BNamedPropertySet} name=ID ("extends" extends=[be::BNamedPropertySet|QIDREF])?
+		//"{" operations+=PropertyOperation* "}"
 		public Group getGroup() { return cGroup; }
 
+		//{be::BNamedPropertySet}
+		public Action getBNamedPropertySetAction_0() { return cBNamedPropertySetAction_0; }
+
 		//name=ID
-		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
-		//body=PropertySet
-		public Assignment getBodyAssignment_1() { return cBodyAssignment_1; }
+		//("extends" extends=[be::BNamedPropertySet|QIDREF])?
+		public Group getGroup_2() { return cGroup_2; }
 
-		//PropertySet
-		public RuleCall getBodyPropertySetParserRuleCall_1_0() { return cBodyPropertySetParserRuleCall_1_0; }
+		//"extends"
+		public Keyword getExtendsKeyword_2_0() { return cExtendsKeyword_2_0; }
+
+		//extends=[be::BNamedPropertySet|QIDREF]
+		public Assignment getExtendsAssignment_2_1() { return cExtendsAssignment_2_1; }
+
+		//[be::BNamedPropertySet|QIDREF]
+		public CrossReference getExtendsBNamedPropertySetCrossReference_2_1_0() { return cExtendsBNamedPropertySetCrossReference_2_1_0; }
+
+		//QIDREF
+		public RuleCall getExtendsBNamedPropertySetQIDREFParserRuleCall_2_1_0_1() { return cExtendsBNamedPropertySetQIDREFParserRuleCall_2_1_0_1; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
+
+		//operations+=PropertyOperation*
+		public Assignment getOperationsAssignment_4() { return cOperationsAssignment_4; }
+
+		//PropertyOperation
+		public RuleCall getOperationsPropertyOperationParserRuleCall_4_0() { return cOperationsPropertyOperationParserRuleCall_4_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
 
 	public class PropertySetElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PropertySet");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cPropertySetAction_0 = (Action)cGroup.eContents().get(0);
+		private final Action cBPropertySetAction_0 = (Action)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Keyword cExtendsKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final Assignment cExtendsAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cExtendsQIDREFParserRuleCall_1_1_0 = (RuleCall)cExtendsAssignment_1_1.eContents().get(0);
+		private final CrossReference cExtendsBNamedPropertySetCrossReference_1_1_0 = (CrossReference)cExtendsAssignment_1_1.eContents().get(0);
+		private final RuleCall cExtendsBNamedPropertySetQIDREFParserRuleCall_1_1_0_1 = (RuleCall)cExtendsBNamedPropertySetCrossReference_1_1_0.eContents().get(1);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cOperationsAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cOperationsPropertyOperationParserRuleCall_3_0 = (RuleCall)cOperationsAssignment_3.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
-		//PropertySet:
-		//  {PropertySet} ("extends" extends=QIDREF)? "{" operations+=PropertyOperation* "}"; 
+		//PropertySet returns be::BPropertySet:
+		//  {be::BPropertySet} ("extends" extends=[be::BNamedPropertySet|QIDREF])? "{"
+		//  operations+=PropertyOperation* "}"; 
 		//
 		//// Sequence of possibly filtered property statements	
 		//    
-		//	                 
-		////	:  ("extends" extends=[NamedPropertySet | QIDREF])? '{' (operations += PropertyOperation)* '}'
-		//	 
+		//	            
+		//		           
+		//	
 		//
 		//// For model generation, to get supertype correct
 		public ParserRule getRule() { return rule; }
 
-		//{PropertySet} ("extends" extends=QIDREF)? "{" operations+=PropertyOperation* "}"         
-		//        
-		////	:  ("extends" extends=[NamedPropertySet | QIDREF])? '{' (operations += PropertyOperation)* '}'
+		//{be::BPropertySet} ("extends" extends=[be::BNamedPropertySet|QIDREF])? "{"
+		//operations+=PropertyOperation* "}"
 		public Group getGroup() { return cGroup; }
 
-		//{PropertySet}
-		public Action getPropertySetAction_0() { return cPropertySetAction_0; }
+		//{be::BPropertySet}
+		public Action getBPropertySetAction_0() { return cBPropertySetAction_0; }
 
-		//("extends" extends=QIDREF)?
+		//("extends" extends=[be::BNamedPropertySet|QIDREF])?
 		public Group getGroup_1() { return cGroup_1; }
 
 		//"extends"
 		public Keyword getExtendsKeyword_1_0() { return cExtendsKeyword_1_0; }
 
-		//extends=QIDREF
+		//extends=[be::BNamedPropertySet|QIDREF]
 		public Assignment getExtendsAssignment_1_1() { return cExtendsAssignment_1_1; }
 
+		//[be::BNamedPropertySet|QIDREF]
+		public CrossReference getExtendsBNamedPropertySetCrossReference_1_1_0() { return cExtendsBNamedPropertySetCrossReference_1_1_0; }
+
 		//QIDREF
-		public RuleCall getExtendsQIDREFParserRuleCall_1_1_0() { return cExtendsQIDREFParserRuleCall_1_1_0; }
+		public RuleCall getExtendsBNamedPropertySetQIDREFParserRuleCall_1_1_0_1() { return cExtendsBNamedPropertySetQIDREFParserRuleCall_1_1_0_1; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
@@ -896,96 +954,138 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//PropertyOperation
 		public RuleCall getOperationsPropertyOperationParserRuleCall_3_0() { return cOperationsPropertyOperationParserRuleCall_3_0; }
 
-		//"}"   
-		////	:  ("extends" extends=[NamedPropertySet | QIDREF])? '{' (operations += PropertyOperation)* '}'
+		//"}"
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
 	}
 
 	public class PropertyOperationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PropertyOperation");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cFilteredPropertyOperationParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cSetPropertyOperationParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cUnsetPropertyOperationParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cPropertySetParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cConditionalPropertyOperationParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cPropertyDefinitionOperationParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cPropertySetOperationParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
-		//PropertyOperation:
-		//  FilteredPropertyOperation|SetPropertyOperation|UnsetPropertyOperation|
-		//  PropertySet; 
+		//PropertyOperation returns be::BPropertyOperation:
+		//  ConditionalPropertyOperation|PropertyDefinitionOperation|PropertySetOperation; 
 		//
 		//// For model generation, to get supertype correct
 		public ParserRule getRule() { return rule; }
 
-		//FilteredPropertyOperation|SetPropertyOperation|UnsetPropertyOperation|
-		//PropertySet 
+		//ConditionalPropertyOperation|PropertyDefinitionOperation|PropertySetOperation 
 		//
 		//// For model generation, to get supertype correct
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//FilteredPropertyOperation
-		public RuleCall getFilteredPropertyOperationParserRuleCall_0() { return cFilteredPropertyOperationParserRuleCall_0; }
+		//ConditionalPropertyOperation
+		public RuleCall getConditionalPropertyOperationParserRuleCall_0() { return cConditionalPropertyOperationParserRuleCall_0; }
 
-		//SetPropertyOperation
-		public RuleCall getSetPropertyOperationParserRuleCall_1() { return cSetPropertyOperationParserRuleCall_1; }
+		//PropertyDefinitionOperation
+		public RuleCall getPropertyDefinitionOperationParserRuleCall_1() { return cPropertyDefinitionOperationParserRuleCall_1; }
 
-		//UnsetPropertyOperation
-		public RuleCall getUnsetPropertyOperationParserRuleCall_2() { return cUnsetPropertyOperationParserRuleCall_2; }
-
-		//PropertySet
-		public RuleCall getPropertySetParserRuleCall_3() { return cPropertySetParserRuleCall_3; }
+		//PropertySetOperation
+		public RuleCall getPropertySetOperationParserRuleCall_2() { return cPropertySetOperationParserRuleCall_2; }
 	}
 
-	public class FilteredPropertyOperationElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FilteredPropertyOperation");
+	public class ConditionalPropertyOperationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ConditionalPropertyOperation");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cWhenKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cFilterAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cFilterFilterParserRuleCall_1_0 = (RuleCall)cFilterAssignment_1.eContents().get(0);
-		private final Assignment cBodyAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final Alternatives cBodyAlternatives_2_0 = (Alternatives)cBodyAssignment_2.eContents().get(0);
-		private final RuleCall cBodySetPropertyOperationParserRuleCall_2_0_0 = (RuleCall)cBodyAlternatives_2_0.eContents().get(0);
-		private final RuleCall cBodyUnsetPropertyOperationParserRuleCall_2_0_1 = (RuleCall)cBodyAlternatives_2_0.eContents().get(1);
-		private final RuleCall cBodyPropertySetParserRuleCall_2_0_2 = (RuleCall)cBodyAlternatives_2_0.eContents().get(2);
+		private final Action cBConditionalPropertyOperationAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cWhenKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cCondExprAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cCondExprExpressionParserRuleCall_3_0 = (RuleCall)cCondExprAssignment_3.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Alternatives cAlternatives_5 = (Alternatives)cGroup.eContents().get(5);
+		private final Assignment cBodyAssignment_5_0 = (Assignment)cAlternatives_5.eContents().get(0);
+		private final RuleCall cBodyPropertyDefinitionOperationParserRuleCall_5_0_0 = (RuleCall)cBodyAssignment_5_0.eContents().get(0);
+		private final Assignment cBodyAssignment_5_1 = (Assignment)cAlternatives_5.eContents().get(1);
+		private final RuleCall cBodyPropertySetOperationParserRuleCall_5_1_0 = (RuleCall)cBodyAssignment_5_1.eContents().get(0);
 		
-		//FilteredPropertyOperation:
-		//  "when" filter=Filter body=( SetPropertyOperation | UnsetPropertyOperation | PropertySet
-		//  ); 
-		//
+		//ConditionalPropertyOperation returns be::BPropertyOperation:
+		//  {be::BConditionalPropertyOperation} "when" "(" condExpr=Expression ")" (body=
+		//  PropertyDefinitionOperation|body=PropertySetOperation);
+		public ParserRule getRule() { return rule; }
+
+		//{be::BConditionalPropertyOperation} "when" "(" condExpr=Expression ")" (body=
+		//PropertyDefinitionOperation|body=PropertySetOperation)
+		public Group getGroup() { return cGroup; }
+
+		//{be::BConditionalPropertyOperation}
+		public Action getBConditionalPropertyOperationAction_0() { return cBConditionalPropertyOperationAction_0; }
+
+		//"when"
+		public Keyword getWhenKeyword_1() { return cWhenKeyword_1; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_2() { return cLeftParenthesisKeyword_2; }
+
+		//condExpr=Expression
+		public Assignment getCondExprAssignment_3() { return cCondExprAssignment_3; }
+
+		//Expression
+		public RuleCall getCondExprExpressionParserRuleCall_3_0() { return cCondExprExpressionParserRuleCall_3_0; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
+
+		//body=PropertyDefinitionOperation|body=PropertySetOperation
+		public Alternatives getAlternatives_5() { return cAlternatives_5; }
+
+		//body=PropertyDefinitionOperation
+		public Assignment getBodyAssignment_5_0() { return cBodyAssignment_5_0; }
+
+		//PropertyDefinitionOperation
+		public RuleCall getBodyPropertyDefinitionOperationParserRuleCall_5_0_0() { return cBodyPropertyDefinitionOperationParserRuleCall_5_0_0; }
+
+		//body=PropertySetOperation
+		public Assignment getBodyAssignment_5_1() { return cBodyAssignment_5_1; }
+
+		//PropertySetOperation
+		public RuleCall getBodyPropertySetOperationParserRuleCall_5_1_0() { return cBodyPropertySetOperationParserRuleCall_5_1_0; }
+	}
+
+	public class PropertyDefinitionOperationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PropertyDefinitionOperation");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cBPropertyDefinitionOperationAction_0 = (Action)cGroup.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Assignment cDefinitionAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
+		private final RuleCall cDefinitionPropertyValDeclarationParserRuleCall_1_0_0 = (RuleCall)cDefinitionAssignment_1_0.eContents().get(0);
+		private final Assignment cDefinitionAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
+		private final RuleCall cDefinitionPropertyVarDeclarationParserRuleCall_1_1_0 = (RuleCall)cDefinitionAssignment_1_1.eContents().get(0);
+		
+		//PropertyDefinitionOperation returns be::BPropertyOperation:
+		//  {be::BPropertyDefinitionOperation} (definition=PropertyValDeclaration|definition=
+		//  PropertyVarDeclaration); 
 		//    
-		//	    
-		//		         
+		//	                
 		//	
+		//		
 		//// be::BDefProperty   immutable ?= "val"
 		//// property values, must be assigned (but can be assigned null).
 		public ParserRule getRule() { return rule; }
 
-		//"when" filter=Filter body=( SetPropertyOperation | UnsetPropertyOperation | PropertySet
-		//)
+		//{be::BPropertyDefinitionOperation} (definition=PropertyValDeclaration|definition=
+		//PropertyVarDeclaration)
 		public Group getGroup() { return cGroup; }
 
-		//"when"
-		public Keyword getWhenKeyword_0() { return cWhenKeyword_0; }
+		//{be::BPropertyDefinitionOperation}
+		public Action getBPropertyDefinitionOperationAction_0() { return cBPropertyDefinitionOperationAction_0; }
 
-		//filter=Filter
-		public Assignment getFilterAssignment_1() { return cFilterAssignment_1; }
+		//definition=PropertyValDeclaration|definition=PropertyVarDeclaration
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 
-		//Filter
-		public RuleCall getFilterFilterParserRuleCall_1_0() { return cFilterFilterParserRuleCall_1_0; }
+		//definition=PropertyValDeclaration
+		public Assignment getDefinitionAssignment_1_0() { return cDefinitionAssignment_1_0; }
 
-		//body=( SetPropertyOperation | UnsetPropertyOperation | PropertySet )
-		public Assignment getBodyAssignment_2() { return cBodyAssignment_2; }
+		//PropertyValDeclaration
+		public RuleCall getDefinitionPropertyValDeclarationParserRuleCall_1_0_0() { return cDefinitionPropertyValDeclarationParserRuleCall_1_0_0; }
 
-		//SetPropertyOperation|UnsetPropertyOperation|PropertySet
-		public Alternatives getBodyAlternatives_2_0() { return cBodyAlternatives_2_0; }
+		//definition=PropertyVarDeclaration
+		public Assignment getDefinitionAssignment_1_1() { return cDefinitionAssignment_1_1; }
 
-		//SetPropertyOperation
-		public RuleCall getBodySetPropertyOperationParserRuleCall_2_0_0() { return cBodySetPropertyOperationParserRuleCall_2_0_0; }
-
-		//UnsetPropertyOperation
-		public RuleCall getBodyUnsetPropertyOperationParserRuleCall_2_0_1() { return cBodyUnsetPropertyOperationParserRuleCall_2_0_1; }
-
-		//PropertySet
-		public RuleCall getBodyPropertySetParserRuleCall_2_0_2() { return cBodyPropertySetParserRuleCall_2_0_2; }
+		//PropertyVarDeclaration
+		public RuleCall getDefinitionPropertyVarDeclarationParserRuleCall_1_1_0() { return cDefinitionPropertyVarDeclarationParserRuleCall_1_1_0; }
 	}
 
 	public class PropertyValDeclarationElements extends AbstractParserRuleElementFinder {
@@ -1004,16 +1104,18 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cEqualsSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cValueExprAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cValueExprExpressionParserRuleCall_4_0 = (RuleCall)cValueExprAssignment_4.eContents().get(0);
+		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
-		//PropertyValDeclaration returns be::BExpression:
+		//PropertyValDeclaration returns be::BDefProperty:
 		//  {be::BDefProperty} final?="final"? (("property"|type=TypeRef) name=PID) "=" valueExpr
-		//  =Expression; 
+		//  =Expression ";"; 
+		//		
 		//// be::BDefProperty   immutable ?= "val"
 		//// property values, must be assigned (but can be assigned null).
 		public ParserRule getRule() { return rule; }
 
 		//{be::BDefProperty} final?="final"? (("property"|type=TypeRef) name=PID) "=" valueExpr
-		//=Expression
+		//=Expression ";"
 		public Group getGroup() { return cGroup; }
 
 		//{be::BDefProperty}
@@ -1054,6 +1156,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 		//Expression
 		public RuleCall getValueExprExpressionParserRuleCall_4_0() { return cValueExprExpressionParserRuleCall_4_0; }
+
+		//";"
+		public Keyword getSemicolonKeyword_5() { return cSemicolonKeyword_5; }
 	}
 
 	public class PropertyVarDeclarationElements extends AbstractParserRuleElementFinder {
@@ -1075,14 +1180,15 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cEqualsSignKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cValueExprAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
 		private final RuleCall cValueExprExpressionParserRuleCall_4_1_0 = (RuleCall)cValueExprAssignment_4_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
-		//PropertyVarDeclaration returns be::BExpression:
+		//PropertyVarDeclaration returns be::BDefProperty:
 		//  {be::BDefProperty} final?="final"? mutable?="mutable" (("property"|type=TypeRef)
-		//  name=PID) ("=" valueExpr=Expression)?;
+		//  name=PID) ("=" valueExpr=Expression)? ";";
 		public ParserRule getRule() { return rule; }
 
 		//{be::BDefProperty} final?="final"? mutable?="mutable" (("property"|type=TypeRef)
-		//name=PID) ("=" valueExpr=Expression)?
+		//name=PID) ("=" valueExpr=Expression)? ";"
 		public Group getGroup() { return cGroup; }
 
 		//{be::BDefProperty}
@@ -1132,6 +1238,38 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 		//Expression
 		public RuleCall getValueExprExpressionParserRuleCall_4_1_0() { return cValueExprExpressionParserRuleCall_4_1_0; }
+
+		//";"
+		public Keyword getSemicolonKeyword_5() { return cSemicolonKeyword_5; }
+	}
+
+	public class PropertySetOperationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PropertySetOperation");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cBPropertySetOperationAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cPropertySetAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cPropertySetPropertySetParserRuleCall_1_0 = (RuleCall)cPropertySetAssignment_1.eContents().get(0);
+		
+		//PropertySetOperation returns be::BPropertyOperation:
+		//  {be::BPropertySetOperation} propertySet=PropertySet; 
+		//    
+		//	        
+		//	
+		//
+		//// OLD
+		public ParserRule getRule() { return rule; }
+
+		//{be::BPropertySetOperation} propertySet=PropertySet
+		public Group getGroup() { return cGroup; }
+
+		//{be::BPropertySetOperation}
+		public Action getBPropertySetOperationAction_0() { return cBPropertySetOperationAction_0; }
+
+		//propertySet=PropertySet
+		public Assignment getPropertySetAssignment_1() { return cPropertySetAssignment_1; }
+
+		//PropertySet
+		public RuleCall getPropertySetPropertySetParserRuleCall_1_0() { return cPropertySetPropertySetParserRuleCall_1_0; }
 	}
 
 	public class SetPropertyOperationElements extends AbstractParserRuleElementFinder {
@@ -1148,7 +1286,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//SetPropertyOperation:
-		//  final?="final"? key=PropertyName op=AssignmentOperator value=Expression ";";
+		//  final?="final"? key=PropertyName op=AssignmentOperator value=Expression ";"; 
+		//
+		//// OLD
 		public ParserRule getRule() { return rule; }
 
 		//final?="final"? key=PropertyName op=AssignmentOperator value=Expression ";"
@@ -7096,9 +7236,11 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	private NamedPropertySetElements pNamedPropertySet;
 	private PropertySetElements pPropertySet;
 	private PropertyOperationElements pPropertyOperation;
-	private FilteredPropertyOperationElements pFilteredPropertyOperation;
+	private ConditionalPropertyOperationElements pConditionalPropertyOperation;
+	private PropertyDefinitionOperationElements pPropertyDefinitionOperation;
 	private PropertyValDeclarationElements pPropertyValDeclaration;
 	private PropertyVarDeclarationElements pPropertyVarDeclaration;
+	private PropertySetOperationElements pPropertySetOperation;
 	private SetPropertyOperationElements pSetPropertyOperation;
 	private UnsetPropertyOperationElements pUnsetPropertyOperation;
 	private SynchronizationElements pSynchronization;
@@ -7257,7 +7399,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//BeeModel hidden ( WS , SL_COMMENT , ML_COMMENT ):
-	//  imports+=Import* (functions+=Function|concern+=Concern)* body=Unit?;
+	//  imports+=Import* (functions+=Function|concern+=Concern|"properties" propertySets+=
+	//  NamedPropertySet)* body=Unit?;
 	public BeeModelElements getBeeModelAccess() {
 		return (pBeeModel != null) ? pBeeModel : (pBeeModel = new BeeModelElements());
 	}
@@ -7390,12 +7533,14 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getCapabilityAccess().getRule();
 	}
 
-	//NamedPropertySet:
-	//  name=ID body=PropertySet; 
+	//NamedPropertySet returns be::BNamedPropertySet:
+	//  {be::BNamedPropertySet} name=ID ("extends" extends=[be::BNamedPropertySet|QIDREF])?
+	//  "{" operations+=PropertyOperation* "}"; 
 	//
 	//// An optionally named sequence of property statements
 	//    
-	//	             
+	//	                
+	//	           
 	//	
 	//
 	//// Sequence of possibly filtered property statements
@@ -7407,14 +7552,15 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getNamedPropertySetAccess().getRule();
 	}
 
-	//PropertySet:
-	//  {PropertySet} ("extends" extends=QIDREF)? "{" operations+=PropertyOperation* "}"; 
+	//PropertySet returns be::BPropertySet:
+	//  {be::BPropertySet} ("extends" extends=[be::BNamedPropertySet|QIDREF])? "{"
+	//  operations+=PropertyOperation* "}"; 
 	//
 	//// Sequence of possibly filtered property statements	
 	//    
-	//	                 
-	////	:  ("extends" extends=[NamedPropertySet | QIDREF])? '{' (operations += PropertyOperation)* '}'
-	//	 
+	//	            
+	//		           
+	//	
 	//
 	//// For model generation, to get supertype correct
 	public PropertySetElements getPropertySetAccess() {
@@ -7425,9 +7571,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getPropertySetAccess().getRule();
 	}
 
-	//PropertyOperation:
-	//  FilteredPropertyOperation|SetPropertyOperation|UnsetPropertyOperation|
-	//  PropertySet; 
+	//PropertyOperation returns be::BPropertyOperation:
+	//  ConditionalPropertyOperation|PropertyDefinitionOperation|PropertySetOperation; 
 	//
 	//// For model generation, to get supertype correct
 	public PropertyOperationElements getPropertyOperationAccess() {
@@ -7438,27 +7583,38 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getPropertyOperationAccess().getRule();
 	}
 
-	//FilteredPropertyOperation:
-	//  "when" filter=Filter body=( SetPropertyOperation | UnsetPropertyOperation | PropertySet
-	//  ); 
-	//
-	//    
-	//	    
-	//		         
-	//	
-	//// be::BDefProperty   immutable ?= "val"
-	//// property values, must be assigned (but can be assigned null).
-	public FilteredPropertyOperationElements getFilteredPropertyOperationAccess() {
-		return (pFilteredPropertyOperation != null) ? pFilteredPropertyOperation : (pFilteredPropertyOperation = new FilteredPropertyOperationElements());
+	//ConditionalPropertyOperation returns be::BPropertyOperation:
+	//  {be::BConditionalPropertyOperation} "when" "(" condExpr=Expression ")" (body=
+	//  PropertyDefinitionOperation|body=PropertySetOperation);
+	public ConditionalPropertyOperationElements getConditionalPropertyOperationAccess() {
+		return (pConditionalPropertyOperation != null) ? pConditionalPropertyOperation : (pConditionalPropertyOperation = new ConditionalPropertyOperationElements());
 	}
 	
-	public ParserRule getFilteredPropertyOperationRule() {
-		return getFilteredPropertyOperationAccess().getRule();
+	public ParserRule getConditionalPropertyOperationRule() {
+		return getConditionalPropertyOperationAccess().getRule();
 	}
 
-	//PropertyValDeclaration returns be::BExpression:
+	//PropertyDefinitionOperation returns be::BPropertyOperation:
+	//  {be::BPropertyDefinitionOperation} (definition=PropertyValDeclaration|definition=
+	//  PropertyVarDeclaration); 
+	//    
+	//	                
+	//	
+	//		
+	//// be::BDefProperty   immutable ?= "val"
+	//// property values, must be assigned (but can be assigned null).
+	public PropertyDefinitionOperationElements getPropertyDefinitionOperationAccess() {
+		return (pPropertyDefinitionOperation != null) ? pPropertyDefinitionOperation : (pPropertyDefinitionOperation = new PropertyDefinitionOperationElements());
+	}
+	
+	public ParserRule getPropertyDefinitionOperationRule() {
+		return getPropertyDefinitionOperationAccess().getRule();
+	}
+
+	//PropertyValDeclaration returns be::BDefProperty:
 	//  {be::BDefProperty} final?="final"? (("property"|type=TypeRef) name=PID) "=" valueExpr
-	//  =Expression; 
+	//  =Expression ";"; 
+	//		
 	//// be::BDefProperty   immutable ?= "val"
 	//// property values, must be assigned (but can be assigned null).
 	public PropertyValDeclarationElements getPropertyValDeclarationAccess() {
@@ -7469,9 +7625,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getPropertyValDeclarationAccess().getRule();
 	}
 
-	//PropertyVarDeclaration returns be::BExpression:
+	//PropertyVarDeclaration returns be::BDefProperty:
 	//  {be::BDefProperty} final?="final"? mutable?="mutable" (("property"|type=TypeRef)
-	//  name=PID) ("=" valueExpr=Expression)?;
+	//  name=PID) ("=" valueExpr=Expression)? ";";
 	public PropertyVarDeclarationElements getPropertyVarDeclarationAccess() {
 		return (pPropertyVarDeclaration != null) ? pPropertyVarDeclaration : (pPropertyVarDeclaration = new PropertyVarDeclarationElements());
 	}
@@ -7480,8 +7636,25 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getPropertyVarDeclarationAccess().getRule();
 	}
 
+	//PropertySetOperation returns be::BPropertyOperation:
+	//  {be::BPropertySetOperation} propertySet=PropertySet; 
+	//    
+	//	        
+	//	
+	//
+	//// OLD
+	public PropertySetOperationElements getPropertySetOperationAccess() {
+		return (pPropertySetOperation != null) ? pPropertySetOperation : (pPropertySetOperation = new PropertySetOperationElements());
+	}
+	
+	public ParserRule getPropertySetOperationRule() {
+		return getPropertySetOperationAccess().getRule();
+	}
+
 	//SetPropertyOperation:
-	//  final?="final"? key=PropertyName op=AssignmentOperator value=Expression ";";
+	//  final?="final"? key=PropertyName op=AssignmentOperator value=Expression ";"; 
+	//
+	//// OLD
 	public SetPropertyOperationElements getSetPropertyOperationAccess() {
 		return (pSetPropertyOperation != null) ? pSetPropertyOperation : (pSetPropertyOperation = new SetPropertyOperationElements());
 	}

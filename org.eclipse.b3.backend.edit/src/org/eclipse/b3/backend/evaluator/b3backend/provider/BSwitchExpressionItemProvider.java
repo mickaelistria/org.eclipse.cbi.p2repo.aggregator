@@ -305,6 +305,21 @@ public class BSwitchExpressionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(B3backendPackage.Literals.BSWITCH_EXPRESSION__SWITCH_EXPRESSION,
+				 B3backendFactory.eINSTANCE.createBPropertySet()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BSWITCH_EXPRESSION__SWITCH_EXPRESSION,
+				 B3backendFactory.eINSTANCE.createBDefaultPropertySet()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BSWITCH_EXPRESSION__SWITCH_EXPRESSION,
+				 B3backendFactory.eINSTANCE.createBNamedPropertySet()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(B3backendPackage.Literals.BSWITCH_EXPRESSION__CASE_LIST,
 				 B3backendFactory.eINSTANCE.createBCase()));
 	}

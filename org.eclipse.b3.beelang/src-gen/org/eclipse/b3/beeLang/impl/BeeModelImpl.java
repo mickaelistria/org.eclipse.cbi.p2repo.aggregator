@@ -10,6 +10,7 @@ import java.lang.reflect.Type;
 import java.util.Collection;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
+import org.eclipse.b3.backend.evaluator.b3backend.BNamedPropertySet;
 
 import org.eclipse.b3.beeLang.BeeLangPackage;
 import org.eclipse.b3.beeLang.BeeModel;
@@ -40,6 +41,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.b3.beeLang.impl.BeeModelImpl#getImports <em>Imports</em>}</li>
  *   <li>{@link org.eclipse.b3.beeLang.impl.BeeModelImpl#getFunctions <em>Functions</em>}</li>
  *   <li>{@link org.eclipse.b3.beeLang.impl.BeeModelImpl#getConcern <em>Concern</em>}</li>
+ *   <li>{@link org.eclipse.b3.beeLang.impl.BeeModelImpl#getPropertySets <em>Property Sets</em>}</li>
  *   <li>{@link org.eclipse.b3.beeLang.impl.BeeModelImpl#getBody <em>Body</em>}</li>
  * </ul>
  * </p>
@@ -77,6 +79,16 @@ public class BeeModelImpl extends MinimalEObjectImpl.Container implements BeeMod
    * @ordered
    */
   protected EList<Concern> concern;
+
+  /**
+   * The cached value of the '{@link #getPropertySets() <em>Property Sets</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPropertySets()
+   * @generated
+   * @ordered
+   */
+  protected EList<BNamedPropertySet> propertySets;
 
   /**
    * The cached value of the '{@link #getBody() <em>Body</em>}' containment reference.
@@ -156,6 +168,20 @@ public class BeeModelImpl extends MinimalEObjectImpl.Container implements BeeMod
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<BNamedPropertySet> getPropertySets()
+  {
+    if (propertySets == null)
+    {
+      propertySets = new EObjectContainmentEList<BNamedPropertySet>(BNamedPropertySet.class, this, BeeLangPackage.BEE_MODEL__PROPERTY_SETS);
+    }
+    return propertySets;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public BuildUnit getBody()
   {
     return body;
@@ -215,6 +241,8 @@ public class BeeModelImpl extends MinimalEObjectImpl.Container implements BeeMod
         return ((InternalEList<?>)getFunctions()).basicRemove(otherEnd, msgs);
       case BeeLangPackage.BEE_MODEL__CONCERN:
         return ((InternalEList<?>)getConcern()).basicRemove(otherEnd, msgs);
+      case BeeLangPackage.BEE_MODEL__PROPERTY_SETS:
+        return ((InternalEList<?>)getPropertySets()).basicRemove(otherEnd, msgs);
       case BeeLangPackage.BEE_MODEL__BODY:
         return basicSetBody(null, msgs);
     }
@@ -237,6 +265,8 @@ public class BeeModelImpl extends MinimalEObjectImpl.Container implements BeeMod
         return getFunctions();
       case BeeLangPackage.BEE_MODEL__CONCERN:
         return getConcern();
+      case BeeLangPackage.BEE_MODEL__PROPERTY_SETS:
+        return getPropertySets();
       case BeeLangPackage.BEE_MODEL__BODY:
         return getBody();
     }
@@ -266,6 +296,10 @@ public class BeeModelImpl extends MinimalEObjectImpl.Container implements BeeMod
         getConcern().clear();
         getConcern().addAll((Collection<? extends Concern>)newValue);
         return;
+      case BeeLangPackage.BEE_MODEL__PROPERTY_SETS:
+        getPropertySets().clear();
+        getPropertySets().addAll((Collection<? extends BNamedPropertySet>)newValue);
+        return;
       case BeeLangPackage.BEE_MODEL__BODY:
         setBody((BuildUnit)newValue);
         return;
@@ -292,6 +326,9 @@ public class BeeModelImpl extends MinimalEObjectImpl.Container implements BeeMod
       case BeeLangPackage.BEE_MODEL__CONCERN:
         getConcern().clear();
         return;
+      case BeeLangPackage.BEE_MODEL__PROPERTY_SETS:
+        getPropertySets().clear();
+        return;
       case BeeLangPackage.BEE_MODEL__BODY:
         setBody((BuildUnit)null);
         return;
@@ -315,6 +352,8 @@ public class BeeModelImpl extends MinimalEObjectImpl.Container implements BeeMod
         return functions != null && !functions.isEmpty();
       case BeeLangPackage.BEE_MODEL__CONCERN:
         return concern != null && !concern.isEmpty();
+      case BeeLangPackage.BEE_MODEL__PROPERTY_SETS:
+        return propertySets != null && !propertySets.isEmpty();
       case BeeLangPackage.BEE_MODEL__BODY:
         return body != null;
     }

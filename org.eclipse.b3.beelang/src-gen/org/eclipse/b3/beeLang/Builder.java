@@ -5,6 +5,7 @@
  */
 package org.eclipse.b3.beeLang;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
 import org.eclipse.b3.backend.evaluator.b3backend.Visibility;
 
@@ -308,12 +309,12 @@ public interface Builder extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Properties</em>' containment reference.
-   * @see #setProperties(PropertySet)
+   * @see #setProperties(BPropertySet)
    * @see org.eclipse.b3.beeLang.BeeLangPackage#getBuilder_Properties()
    * @model containment="true"
    * @generated
    */
-  PropertySet getProperties();
+  BPropertySet getProperties();
 
   /**
    * Sets the value of the '{@link org.eclipse.b3.beeLang.Builder#getProperties <em>Properties</em>}' containment reference.
@@ -323,7 +324,7 @@ public interface Builder extends EObject
    * @see #getProperties()
    * @generated
    */
-  void setProperties(PropertySet value);
+  void setProperties(BPropertySet value);
 
   /**
    * Returns the value of the '<em><b>Input</b></em>' containment reference.

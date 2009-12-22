@@ -6,6 +6,7 @@
 package org.eclipse.b3.beeLang;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -49,7 +50,7 @@ public interface WithClause extends EObject
 
   /**
    * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
-   * The list contents are of type {@link org.eclipse.b3.beeLang.PropertySet}.
+   * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySet}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Properties</em>' containment reference list isn't clear,
@@ -61,7 +62,7 @@ public interface WithClause extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<PropertySet> getProperties();
+  EList<BPropertySet> getProperties();
 
   /**
    * Returns the value of the '<em><b>Concern</b></em>' containment reference list.

@@ -330,6 +330,21 @@ public class BCallExpressionItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BCALL_EXPRESSION__FUNC_EXPR,
 				 B3backendFactory.eINSTANCE.createBDefProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCALL_EXPRESSION__FUNC_EXPR,
+				 B3backendFactory.eINSTANCE.createBPropertySet()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCALL_EXPRESSION__FUNC_EXPR,
+				 B3backendFactory.eINSTANCE.createBDefaultPropertySet()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCALL_EXPRESSION__FUNC_EXPR,
+				 B3backendFactory.eINSTANCE.createBNamedPropertySet()));
 	}
 
 }

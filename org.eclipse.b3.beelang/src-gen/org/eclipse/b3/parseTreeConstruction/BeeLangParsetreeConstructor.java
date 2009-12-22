@@ -45,115 +45,117 @@ protected class ThisRootNode extends RootToken {
 			case 7: return new NamedPropertySet_Group(this, this, 7, inst);
 			case 8: return new PropertySet_Group(this, this, 8, inst);
 			case 9: return new PropertyOperation_Alternatives(this, this, 9, inst);
-			case 10: return new FilteredPropertyOperation_Group(this, this, 10, inst);
-			case 11: return new PropertyValDeclaration_Group(this, this, 11, inst);
-			case 12: return new PropertyVarDeclaration_Group(this, this, 12, inst);
-			case 13: return new SetPropertyOperation_Group(this, this, 13, inst);
-			case 14: return new UnsetPropertyOperation_Group(this, this, 14, inst);
-			case 15: return new Synchronization_Group(this, this, 15, inst);
-			case 16: return new PathGroup_Group(this, this, 16, inst);
-			case 17: return new PathVectorElement_Alternatives(this, this, 17, inst);
-			case 18: return new FilteredPathVector_Group(this, this, 18, inst);
-			case 19: return new BasePathVector_Group(this, this, 19, inst);
-			case 20: return new UnbasedPathVector_Group(this, this, 20, inst);
-			case 21: return new CompoundPathVector_Group(this, this, 21, inst);
-			case 22: return new Prerequisite_Group(this, this, 22, inst);
-			case 23: return new WithClause_Group(this, this, 23, inst);
-			case 24: return new PrerequisiteEntry_Alternatives(this, this, 24, inst);
-			case 25: return new DirectPartReferemce_Group(this, this, 25, inst);
-			case 26: return new CapabilityReferencedPart_Group(this, this, 26, inst);
-			case 27: return new CompoundReferences_Group(this, this, 27, inst);
-			case 28: return new Builder_Group(this, this, 28, inst);
-			case 29: return new ParameterList_Group(this, this, 29, inst);
-			case 30: return new FirstParameter_Alternatives(this, this, 30, inst);
-			case 31: return new Parameter_Group(this, this, 31, inst);
-			case 32: return new ClosureParameter_Group(this, this, 32, inst);
-			case 33: return new ParameterDeclarationList_Alternatives(this, this, 33, inst);
-			case 34: return new ParameterDeclaration_Group(this, this, 34, inst);
-			case 35: return new ParameterDeclarationEllipse_Group(this, this, 35, inst);
-			case 36: return new BuilderOutput_Group(this, this, 36, inst);
-			case 37: return new BuilderInput_Group(this, this, 37, inst);
-			case 38: return new RepositoryConfiguration_Alternatives(this, this, 38, inst);
-			case 39: return new RepositoryDeclaration_Group(this, this, 39, inst);
-			case 40: return new ResolutionStrategy_Group(this, this, 40, inst);
-			case 41: return new ContainerConfiguration_Group(this, this, 41, inst);
-			case 42: return new Concern_Group(this, this, 42, inst);
-			case 43: return new ConcernBlock_Group(this, this, 43, inst);
-			case 44: return new Filter_Group(this, this, 44, inst);
-			case 45: return new PreCondition_Group(this, this, 45, inst);
-			case 46: return new PostCondition_Group(this, this, 46, inst);
-			case 47: return new AssertionExpression_Group(this, this, 47, inst);
-			case 48: return new ExpressionList_Group(this, this, 48, inst);
-			case 49: return new Function_Group(this, this, 49, inst);
-			case 50: return new TopLevelExpression_Alternatives(this, this, 50, inst);
-			case 51: return new Expression_AssignmentExpressionParserRuleCall(this, this, 51, inst);
-			case 52: return new AssignmentExpression_Group(this, this, 52, inst);
-			case 53: return new VarDeclaration_Group(this, this, 53, inst);
-			case 54: return new ValDeclaration_Group(this, this, 54, inst);
-			case 55: return new TypeRef_Alternatives(this, this, 55, inst);
-			case 56: return new SimpleTypeRef_Group(this, this, 56, inst);
-			case 57: return new ClosureTypeRef_Group(this, this, 57, inst);
-			case 58: return new TypeParam_Alternatives(this, this, 58, inst);
-			case 59: return new TypeRefParam_TypeRefParserRuleCall(this, this, 59, inst);
-			case 60: return new WildcardRefParam_Group(this, this, 60, inst);
-			case 61: return new CachedExpression_Alternatives(this, this, 61, inst);
-			case 62: return new OrExpression_Group(this, this, 62, inst);
-			case 63: return new AndExpression_Group(this, this, 63, inst);
-			case 64: return new RelationalExpression_Group(this, this, 64, inst);
-			case 65: return new InstanceOfExpression_Group(this, this, 65, inst);
-			case 66: return new AdditiveExpression_Group(this, this, 66, inst);
-			case 67: return new MultiplicativeExpression_Group(this, this, 67, inst);
-			case 68: return new SetExpression_Group(this, this, 68, inst);
-			case 69: return new UnaryOrInfixExpression_Alternatives(this, this, 69, inst);
-			case 70: return new UnaryExpression_Group(this, this, 70, inst);
-			case 71: return new PreopExpression_Group(this, this, 71, inst);
-			case 72: return new PostopExpression_Group(this, this, 72, inst);
-			case 73: return new InfixExpression_Group(this, this, 73, inst);
-			case 74: return new CallExpression_Group(this, this, 74, inst);
-			case 75: return new PrimaryExpression_Alternatives(this, this, 75, inst);
-			case 76: return new WildcardExpression_Group(this, this, 76, inst);
-			case 77: return new ThrowExpression_Group(this, this, 77, inst);
-			case 78: return new TryCatchExpression_Group(this, this, 78, inst);
-			case 79: return new CatchBlock_Group(this, this, 79, inst);
-			case 80: return new SwitchExpression_Group(this, this, 80, inst);
-			case 81: return new Case_Group(this, this, 81, inst);
-			case 82: return new BlockExpression_Group(this, this, 82, inst);
-			case 83: return new IfExpression_Group(this, this, 83, inst);
-			case 84: return new ElseIfExpression_Group(this, this, 84, inst);
-			case 85: return new PropertyValue_Group(this, this, 85, inst);
-			case 86: return new VariableValue_Group(this, this, 86, inst);
-			case 87: return new KeywordVariables_Group(this, this, 87, inst);
-			case 88: return new FeatureCall_OperationCallParserRuleCall(this, this, 88, inst);
-			case 89: return new OperationCall_Group(this, this, 89, inst);
-			case 90: return new ConstructorCallExpression_Group(this, this, 90, inst);
-			case 91: return new Context_Group(this, this, 91, inst);
-			case 92: return new ContextSelector_Alternatives(this, this, 92, inst);
-			case 93: return new TypeRefSelector_TypeAssignment(this, this, 93, inst);
-			case 94: return new ExpressionSelector_ExprAssignment(this, this, 94, inst);
-			case 95: return new UnitSelector_Group(this, this, 95, inst);
-			case 96: return new ContextBlock_Group(this, this, 96, inst);
-			case 97: return new FunctionDefinition_Group(this, this, 97, inst);
-			case 98: return new Literal_Alternatives(this, this, 98, inst);
-			case 99: return new LiteralList_Alternatives(this, this, 99, inst);
-			case 100: return new LiteralMap_Alternatives(this, this, 100, inst);
-			case 101: return new LiteralFunction_Group(this, this, 101, inst);
-			case 102: return new ClosureExpression_Group(this, this, 102, inst);
-			case 103: return new OneOrManyExpressions_Alternatives(this, this, 103, inst);
-			case 104: return new BlockExpressionWithoutBrackets_Group(this, this, 104, inst);
-			case 105: return new MapEntry_Group(this, this, 105, inst);
-			case 106: return new KeyLiteral_Group(this, this, 106, inst);
-			case 107: return new LiteralType_Group(this, this, 107, inst);
-			case 108: return new ValueLiteral_Alternatives(this, this, 108, inst);
-			case 109: return new BooleanLiteral_Group(this, this, 109, inst);
-			case 110: return new IntegerLiteral_Group(this, this, 110, inst);
-			case 111: return new UnitLiteral_Group(this, this, 111, inst);
-			case 112: return new StringLiteral_Group(this, this, 112, inst);
-			case 113: return new RealLiteral_Group(this, this, 113, inst);
-			case 114: return new RegexpLiteral_Group(this, this, 114, inst);
-			case 115: return new NullLiteral_Group(this, this, 115, inst);
-			case 116: return new ParanthesizedExpression_Group(this, this, 116, inst);
-			case 117: return new Version_VersionAssignment(this, this, 117, inst);
-			case 118: return new VersionRange_RangeAssignment(this, this, 118, inst);
+			case 10: return new ConditionalPropertyOperation_Group(this, this, 10, inst);
+			case 11: return new PropertyDefinitionOperation_Group(this, this, 11, inst);
+			case 12: return new PropertyValDeclaration_Group(this, this, 12, inst);
+			case 13: return new PropertyVarDeclaration_Group(this, this, 13, inst);
+			case 14: return new PropertySetOperation_Group(this, this, 14, inst);
+			case 15: return new SetPropertyOperation_Group(this, this, 15, inst);
+			case 16: return new UnsetPropertyOperation_Group(this, this, 16, inst);
+			case 17: return new Synchronization_Group(this, this, 17, inst);
+			case 18: return new PathGroup_Group(this, this, 18, inst);
+			case 19: return new PathVectorElement_Alternatives(this, this, 19, inst);
+			case 20: return new FilteredPathVector_Group(this, this, 20, inst);
+			case 21: return new BasePathVector_Group(this, this, 21, inst);
+			case 22: return new UnbasedPathVector_Group(this, this, 22, inst);
+			case 23: return new CompoundPathVector_Group(this, this, 23, inst);
+			case 24: return new Prerequisite_Group(this, this, 24, inst);
+			case 25: return new WithClause_Group(this, this, 25, inst);
+			case 26: return new PrerequisiteEntry_Alternatives(this, this, 26, inst);
+			case 27: return new DirectPartReferemce_Group(this, this, 27, inst);
+			case 28: return new CapabilityReferencedPart_Group(this, this, 28, inst);
+			case 29: return new CompoundReferences_Group(this, this, 29, inst);
+			case 30: return new Builder_Group(this, this, 30, inst);
+			case 31: return new ParameterList_Group(this, this, 31, inst);
+			case 32: return new FirstParameter_Alternatives(this, this, 32, inst);
+			case 33: return new Parameter_Group(this, this, 33, inst);
+			case 34: return new ClosureParameter_Group(this, this, 34, inst);
+			case 35: return new ParameterDeclarationList_Alternatives(this, this, 35, inst);
+			case 36: return new ParameterDeclaration_Group(this, this, 36, inst);
+			case 37: return new ParameterDeclarationEllipse_Group(this, this, 37, inst);
+			case 38: return new BuilderOutput_Group(this, this, 38, inst);
+			case 39: return new BuilderInput_Group(this, this, 39, inst);
+			case 40: return new RepositoryConfiguration_Alternatives(this, this, 40, inst);
+			case 41: return new RepositoryDeclaration_Group(this, this, 41, inst);
+			case 42: return new ResolutionStrategy_Group(this, this, 42, inst);
+			case 43: return new ContainerConfiguration_Group(this, this, 43, inst);
+			case 44: return new Concern_Group(this, this, 44, inst);
+			case 45: return new ConcernBlock_Group(this, this, 45, inst);
+			case 46: return new Filter_Group(this, this, 46, inst);
+			case 47: return new PreCondition_Group(this, this, 47, inst);
+			case 48: return new PostCondition_Group(this, this, 48, inst);
+			case 49: return new AssertionExpression_Group(this, this, 49, inst);
+			case 50: return new ExpressionList_Group(this, this, 50, inst);
+			case 51: return new Function_Group(this, this, 51, inst);
+			case 52: return new TopLevelExpression_Alternatives(this, this, 52, inst);
+			case 53: return new Expression_AssignmentExpressionParserRuleCall(this, this, 53, inst);
+			case 54: return new AssignmentExpression_Group(this, this, 54, inst);
+			case 55: return new VarDeclaration_Group(this, this, 55, inst);
+			case 56: return new ValDeclaration_Group(this, this, 56, inst);
+			case 57: return new TypeRef_Alternatives(this, this, 57, inst);
+			case 58: return new SimpleTypeRef_Group(this, this, 58, inst);
+			case 59: return new ClosureTypeRef_Group(this, this, 59, inst);
+			case 60: return new TypeParam_Alternatives(this, this, 60, inst);
+			case 61: return new TypeRefParam_TypeRefParserRuleCall(this, this, 61, inst);
+			case 62: return new WildcardRefParam_Group(this, this, 62, inst);
+			case 63: return new CachedExpression_Alternatives(this, this, 63, inst);
+			case 64: return new OrExpression_Group(this, this, 64, inst);
+			case 65: return new AndExpression_Group(this, this, 65, inst);
+			case 66: return new RelationalExpression_Group(this, this, 66, inst);
+			case 67: return new InstanceOfExpression_Group(this, this, 67, inst);
+			case 68: return new AdditiveExpression_Group(this, this, 68, inst);
+			case 69: return new MultiplicativeExpression_Group(this, this, 69, inst);
+			case 70: return new SetExpression_Group(this, this, 70, inst);
+			case 71: return new UnaryOrInfixExpression_Alternatives(this, this, 71, inst);
+			case 72: return new UnaryExpression_Group(this, this, 72, inst);
+			case 73: return new PreopExpression_Group(this, this, 73, inst);
+			case 74: return new PostopExpression_Group(this, this, 74, inst);
+			case 75: return new InfixExpression_Group(this, this, 75, inst);
+			case 76: return new CallExpression_Group(this, this, 76, inst);
+			case 77: return new PrimaryExpression_Alternatives(this, this, 77, inst);
+			case 78: return new WildcardExpression_Group(this, this, 78, inst);
+			case 79: return new ThrowExpression_Group(this, this, 79, inst);
+			case 80: return new TryCatchExpression_Group(this, this, 80, inst);
+			case 81: return new CatchBlock_Group(this, this, 81, inst);
+			case 82: return new SwitchExpression_Group(this, this, 82, inst);
+			case 83: return new Case_Group(this, this, 83, inst);
+			case 84: return new BlockExpression_Group(this, this, 84, inst);
+			case 85: return new IfExpression_Group(this, this, 85, inst);
+			case 86: return new ElseIfExpression_Group(this, this, 86, inst);
+			case 87: return new PropertyValue_Group(this, this, 87, inst);
+			case 88: return new VariableValue_Group(this, this, 88, inst);
+			case 89: return new KeywordVariables_Group(this, this, 89, inst);
+			case 90: return new FeatureCall_OperationCallParserRuleCall(this, this, 90, inst);
+			case 91: return new OperationCall_Group(this, this, 91, inst);
+			case 92: return new ConstructorCallExpression_Group(this, this, 92, inst);
+			case 93: return new Context_Group(this, this, 93, inst);
+			case 94: return new ContextSelector_Alternatives(this, this, 94, inst);
+			case 95: return new TypeRefSelector_TypeAssignment(this, this, 95, inst);
+			case 96: return new ExpressionSelector_ExprAssignment(this, this, 96, inst);
+			case 97: return new UnitSelector_Group(this, this, 97, inst);
+			case 98: return new ContextBlock_Group(this, this, 98, inst);
+			case 99: return new FunctionDefinition_Group(this, this, 99, inst);
+			case 100: return new Literal_Alternatives(this, this, 100, inst);
+			case 101: return new LiteralList_Alternatives(this, this, 101, inst);
+			case 102: return new LiteralMap_Alternatives(this, this, 102, inst);
+			case 103: return new LiteralFunction_Group(this, this, 103, inst);
+			case 104: return new ClosureExpression_Group(this, this, 104, inst);
+			case 105: return new OneOrManyExpressions_Alternatives(this, this, 105, inst);
+			case 106: return new BlockExpressionWithoutBrackets_Group(this, this, 106, inst);
+			case 107: return new MapEntry_Group(this, this, 107, inst);
+			case 108: return new KeyLiteral_Group(this, this, 108, inst);
+			case 109: return new LiteralType_Group(this, this, 109, inst);
+			case 110: return new ValueLiteral_Alternatives(this, this, 110, inst);
+			case 111: return new BooleanLiteral_Group(this, this, 111, inst);
+			case 112: return new IntegerLiteral_Group(this, this, 112, inst);
+			case 113: return new UnitLiteral_Group(this, this, 113, inst);
+			case 114: return new StringLiteral_Group(this, this, 114, inst);
+			case 115: return new RealLiteral_Group(this, this, 115, inst);
+			case 116: return new RegexpLiteral_Group(this, this, 116, inst);
+			case 117: return new NullLiteral_Group(this, this, 117, inst);
+			case 118: return new ParanthesizedExpression_Group(this, this, 118, inst);
+			case 119: return new Version_VersionAssignment(this, this, 119, inst);
+			case 120: return new VersionRange_RangeAssignment(this, this, 120, inst);
 			default: return null;
 		}	
 	}	
@@ -163,11 +165,13 @@ protected class ThisRootNode extends RootToken {
 /************ begin Rule BeeModel ****************
  *
  * BeeModel hidden ( WS , SL_COMMENT , ML_COMMENT ):
- *   imports+=Import* (functions+=Function|concern+=Concern)* body=Unit?;
+ *   imports+=Import* (functions+=Function|concern+=Concern|"properties" propertySets+=
+ *   NamedPropertySet)* body=Unit?;
  *
  **/
 
-// imports+=Import* (functions+=Function|concern+=Concern)* body=Unit?
+// imports+=Import* (functions+=Function|concern+=Concern|"properties" propertySets+=
+// NamedPropertySet)* body=Unit?
 protected class BeeModel_Group extends GroupToken {
 	
 	public BeeModel_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -242,7 +246,8 @@ protected class BeeModel_ImportsAssignment_0 extends AssignmentToken  {
 	}	
 }
 
-// (functions+=Function|concern+=Concern)*
+// (functions+=Function|concern+=Concern|"properties" propertySets+=NamedPropertySet
+// )*
 protected class BeeModel_Alternatives_1 extends AlternativesToken {
 
 	public BeeModel_Alternatives_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -259,6 +264,7 @@ protected class BeeModel_Alternatives_1 extends AlternativesToken {
 		switch(index) {
 			case 0: return new BeeModel_FunctionsAssignment_1_0(parent, this, 0, inst);
 			case 1: return new BeeModel_ConcernAssignment_1_1(parent, this, 1, inst);
+			case 2: return new BeeModel_Group_1_2(parent, this, 2, inst);
 			default: return null;
 		}	
 	}	
@@ -358,6 +364,98 @@ protected class BeeModel_ConcernAssignment_1_1 extends AssignmentToken  {
 		}	
 	}	
 }
+
+// "properties" propertySets+=NamedPropertySet
+protected class BeeModel_Group_1_2 extends GroupToken {
+	
+	public BeeModel_Group_1_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getBeeModelAccess().getGroup_1_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new BeeModel_PropertySetsAssignment_1_2_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "properties"
+protected class BeeModel_PropertiesKeyword_1_2_0 extends KeywordToken  {
+	
+	public BeeModel_PropertiesKeyword_1_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getBeeModelAccess().getPropertiesKeyword_1_2_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new BeeModel_Alternatives_1(parent, this, 0, inst);
+			case 1: return new BeeModel_ImportsAssignment_0(parent, this, 1, inst);
+			default: return parent.createParentFollower(this, index, index - 2, inst);
+		}	
+	}	
+		
+}
+
+// propertySets+=NamedPropertySet
+protected class BeeModel_PropertySetsAssignment_1_2_1 extends AssignmentToken  {
+	
+	public BeeModel_PropertySetsAssignment_1_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getBeeModelAccess().getPropertySetsAssignment_1_2_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new NamedPropertySet_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("propertySets",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("propertySets");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getNamedPropertySetRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getBeeModelAccess().getPropertySetsNamedPropertySetParserRuleCall_1_2_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new BeeModel_PropertiesKeyword_1_2_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
 
 
 // body=Unit?
@@ -3783,19 +3881,22 @@ protected class Capability_NameAssignment_2 extends AssignmentToken  {
 
 /************ begin Rule NamedPropertySet ****************
  *
- * NamedPropertySet:
- *   name=ID body=PropertySet; 
+ * NamedPropertySet returns be::BNamedPropertySet:
+ *   {be::BNamedPropertySet} name=ID ("extends" extends=[be::BNamedPropertySet|QIDREF])?
+ *   "{" operations+=PropertyOperation* "}"; 
  * 
  * // An optionally named sequence of property statements
  *     
- * 	             
+ * 	                
+ * 	           
  * 	
  * 
  * // Sequence of possibly filtered property statements
  *
  **/
 
-// name=ID body=PropertySet
+// {be::BNamedPropertySet} name=ID ("extends" extends=[be::BNamedPropertySet|QIDREF])?
+// "{" operations+=PropertyOperation* "}"
 protected class NamedPropertySet_Group extends GroupToken {
 	
 	public NamedPropertySet_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -3810,7 +3911,7 @@ protected class NamedPropertySet_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new NamedPropertySet_BodyAssignment_1(parent, this, 0, inst);
+			case 0: return new NamedPropertySet_RightCurlyBracketKeyword_5(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -3822,16 +3923,16 @@ protected class NamedPropertySet_Group extends GroupToken {
 	}
 }
 
-// name=ID
-protected class NamedPropertySet_NameAssignment_0 extends AssignmentToken  {
-	
-	public NamedPropertySet_NameAssignment_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+// {be::BNamedPropertySet}
+protected class NamedPropertySet_BNamedPropertySetAction_0 extends ActionToken  {
+
+	public NamedPropertySet_BNamedPropertySetAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getNamedPropertySetAccess().getNameAssignment_0();
+	public Action getGrammarElement() {
+		return grammarAccess.getNamedPropertySetAccess().getBNamedPropertySetAction_0();
 	}
 
     @Override
@@ -3841,13 +3942,42 @@ protected class NamedPropertySet_NameAssignment_0 extends AssignmentToken  {
 		}	
 	}	
 		
+	
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(!current.isInstanceOf(grammarAccess.getNamedPropertySetAccess().getBNamedPropertySetAction_0().getType().getClassifier())) return null;
+		if(!current.isConsumed()) return null;
+		return current;
+	}
+}
+
+// name=ID
+protected class NamedPropertySet_NameAssignment_1 extends AssignmentToken  {
+	
+	public NamedPropertySet_NameAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getNamedPropertySetAccess().getNameAssignment_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new NamedPropertySet_BNamedPropertySetAction_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
     @Override	
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("name",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("name");
 		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
 			type = AssignmentType.LRC;
-			element = grammarAccess.getNamedPropertySetAccess().getNameIDTerminalRuleCall_0_0();
+			element = grammarAccess.getNamedPropertySetAccess().getNameIDTerminalRuleCall_1_0();
 			return obj;
 		}
 		return null;
@@ -3855,35 +3985,140 @@ protected class NamedPropertySet_NameAssignment_0 extends AssignmentToken  {
 
 }
 
-// body=PropertySet
-protected class NamedPropertySet_BodyAssignment_1 extends AssignmentToken  {
+// ("extends" extends=[be::BNamedPropertySet|QIDREF])?
+protected class NamedPropertySet_Group_2 extends GroupToken {
 	
-	public NamedPropertySet_BodyAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public NamedPropertySet_Group_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getNamedPropertySetAccess().getBodyAssignment_1();
+	public Group getGrammarElement() {
+		return grammarAccess.getNamedPropertySetAccess().getGroup_2();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new PropertySet_Group(this, this, 0, inst);
+			case 0: return new NamedPropertySet_ExtendsAssignment_2_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "extends"
+protected class NamedPropertySet_ExtendsKeyword_2_0 extends KeywordToken  {
+	
+	public NamedPropertySet_ExtendsKeyword_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getNamedPropertySetAccess().getExtendsKeyword_2_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new NamedPropertySet_NameAssignment_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// extends=[be::BNamedPropertySet|QIDREF]
+protected class NamedPropertySet_ExtendsAssignment_2_1 extends AssignmentToken  {
+	
+	public NamedPropertySet_ExtendsAssignment_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getNamedPropertySetAccess().getExtendsAssignment_2_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new NamedPropertySet_ExtendsKeyword_2_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
 		
     @Override	
 	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("body",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("body");
+		if((value = current.getConsumable("extends",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("extends");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getNamedPropertySetAccess().getExtendsBNamedPropertySetCrossReference_2_1_0().getType().getClassifier())) {
+				type = AssignmentType.CR;
+				element = grammarAccess.getNamedPropertySetAccess().getExtendsBNamedPropertySetCrossReference_2_1_0(); 
+				return obj;
+			}
+		}
+		return null;
+	}
+
+}
+
+
+// "{"
+protected class NamedPropertySet_LeftCurlyBracketKeyword_3 extends KeywordToken  {
+	
+	public NamedPropertySet_LeftCurlyBracketKeyword_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getNamedPropertySetAccess().getLeftCurlyBracketKeyword_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new NamedPropertySet_Group_2(parent, this, 0, inst);
+			case 1: return new NamedPropertySet_NameAssignment_1(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// operations+=PropertyOperation*
+protected class NamedPropertySet_OperationsAssignment_4 extends AssignmentToken  {
+	
+	public NamedPropertySet_OperationsAssignment_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getNamedPropertySetAccess().getOperationsAssignment_4();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new PropertyOperation_Alternatives(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("operations",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("operations");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getPropertySetRule().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getPropertyOperationRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getNamedPropertySetAccess().getBodyPropertySetParserRuleCall_1_0(); 
+				element = grammarAccess.getNamedPropertySetAccess().getOperationsPropertyOperationParserRuleCall_4_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -3895,10 +4130,34 @@ protected class NamedPropertySet_BodyAssignment_1 extends AssignmentToken  {
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new NamedPropertySet_NameAssignment_0(parent, next, actIndex, consumed);
+			case 0: return new NamedPropertySet_OperationsAssignment_4(parent, next, actIndex, consumed);
+			case 1: return new NamedPropertySet_LeftCurlyBracketKeyword_3(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
+}
+
+// "}"
+protected class NamedPropertySet_RightCurlyBracketKeyword_5 extends KeywordToken  {
+	
+	public NamedPropertySet_RightCurlyBracketKeyword_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getNamedPropertySetAccess().getRightCurlyBracketKeyword_5();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new NamedPropertySet_OperationsAssignment_4(parent, this, 0, inst);
+			case 1: return new NamedPropertySet_LeftCurlyBracketKeyword_3(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
 }
 
 
@@ -3907,22 +4166,22 @@ protected class NamedPropertySet_BodyAssignment_1 extends AssignmentToken  {
 
 /************ begin Rule PropertySet ****************
  *
- * PropertySet:
- *   {PropertySet} ("extends" extends=QIDREF)? "{" operations+=PropertyOperation* "}"; 
+ * PropertySet returns be::BPropertySet:
+ *   {be::BPropertySet} ("extends" extends=[be::BNamedPropertySet|QIDREF])? "{"
+ *   operations+=PropertyOperation* "}"; 
  * 
  * // Sequence of possibly filtered property statements	
  *     
- * 	                 
- * //	:  ("extends" extends=[NamedPropertySet | QIDREF])? '{' (operations += PropertyOperation)* '}'
- * 	 
+ * 	            
+ * 		           
+ * 	
  * 
  * // For model generation, to get supertype correct
  *
  **/
 
-// {PropertySet} ("extends" extends=QIDREF)? "{" operations+=PropertyOperation* "}"         
-//         
-// //	:  ("extends" extends=[NamedPropertySet | QIDREF])? '{' (operations += PropertyOperation)* '}'
+// {be::BPropertySet} ("extends" extends=[be::BNamedPropertySet|QIDREF])? "{"
+// operations+=PropertyOperation* "}"
 protected class PropertySet_Group extends GroupToken {
 	
 	public PropertySet_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -3949,16 +4208,16 @@ protected class PropertySet_Group extends GroupToken {
 	}
 }
 
-// {PropertySet}
-protected class PropertySet_PropertySetAction_0 extends ActionToken  {
+// {be::BPropertySet}
+protected class PropertySet_BPropertySetAction_0 extends ActionToken  {
 
-	public PropertySet_PropertySetAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public PropertySet_BPropertySetAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Action getGrammarElement() {
-		return grammarAccess.getPropertySetAccess().getPropertySetAction_0();
+		return grammarAccess.getPropertySetAccess().getBPropertySetAction_0();
 	}
 
     @Override
@@ -3971,13 +4230,13 @@ protected class PropertySet_PropertySetAction_0 extends ActionToken  {
 	
     @Override
 	protected IInstanceDescription tryConsumeVal() {
-		if(!current.isInstanceOf(grammarAccess.getPropertySetAccess().getPropertySetAction_0().getType().getClassifier())) return null;
+		if(!current.isInstanceOf(grammarAccess.getPropertySetAccess().getBPropertySetAction_0().getType().getClassifier())) return null;
 		if(!current.isConsumed()) return null;
 		return current;
 	}
 }
 
-// ("extends" extends=QIDREF)?
+// ("extends" extends=[be::BNamedPropertySet|QIDREF])?
 protected class PropertySet_Group_1 extends GroupToken {
 	
 	public PropertySet_Group_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -4014,14 +4273,14 @@ protected class PropertySet_ExtendsKeyword_1_0 extends KeywordToken  {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new PropertySet_PropertySetAction_0(parent, this, 0, inst);
+			case 0: return new PropertySet_BPropertySetAction_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
 		
 }
 
-// extends=QIDREF
+// extends=[be::BNamedPropertySet|QIDREF]
 protected class PropertySet_ExtendsAssignment_1_1 extends AssignmentToken  {
 	
 	public PropertySet_ExtendsAssignment_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -4045,10 +4304,13 @@ protected class PropertySet_ExtendsAssignment_1_1 extends AssignmentToken  {
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("extends",false)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("extends");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
-			type = AssignmentType.DRC;
-			element = grammarAccess.getPropertySetAccess().getExtendsQIDREFParserRuleCall_1_1_0();
-			return obj;
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getPropertySetAccess().getExtendsBNamedPropertySetCrossReference_1_1_0().getType().getClassifier())) {
+				type = AssignmentType.CR;
+				element = grammarAccess.getPropertySetAccess().getExtendsBNamedPropertySetCrossReference_1_1_0(); 
+				return obj;
+			}
 		}
 		return null;
 	}
@@ -4072,7 +4334,7 @@ protected class PropertySet_LeftCurlyBracketKeyword_2 extends KeywordToken  {
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
 			case 0: return new PropertySet_Group_1(parent, this, 0, inst);
-			case 1: return new PropertySet_PropertySetAction_0(parent, this, 1, inst);
+			case 1: return new PropertySet_BPropertySetAction_0(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -4126,8 +4388,7 @@ protected class PropertySet_OperationsAssignment_3 extends AssignmentToken  {
 	}	
 }
 
-// "}"   
-// //	:  ("extends" extends=[NamedPropertySet | QIDREF])? '{' (operations += PropertyOperation)* '}'
+// "}"
 protected class PropertySet_RightCurlyBracketKeyword_4 extends KeywordToken  {
 	
 	public PropertySet_RightCurlyBracketKeyword_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -4156,16 +4417,14 @@ protected class PropertySet_RightCurlyBracketKeyword_4 extends KeywordToken  {
 
 /************ begin Rule PropertyOperation ****************
  *
- * PropertyOperation:
- *   FilteredPropertyOperation|SetPropertyOperation|UnsetPropertyOperation|
- *   PropertySet; 
+ * PropertyOperation returns be::BPropertyOperation:
+ *   ConditionalPropertyOperation|PropertyDefinitionOperation|PropertySetOperation; 
  * 
  * // For model generation, to get supertype correct
  *
  **/
 
-// FilteredPropertyOperation|SetPropertyOperation|UnsetPropertyOperation|
-// PropertySet 
+// ConditionalPropertyOperation|PropertyDefinitionOperation|PropertySetOperation 
 // 
 // // For model generation, to get supertype correct
 protected class PropertyOperation_Alternatives extends AlternativesToken {
@@ -4182,10 +4441,9 @@ protected class PropertyOperation_Alternatives extends AlternativesToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new PropertyOperation_FilteredPropertyOperationParserRuleCall_0(parent, this, 0, inst);
-			case 1: return new PropertyOperation_SetPropertyOperationParserRuleCall_1(parent, this, 1, inst);
-			case 2: return new PropertyOperation_UnsetPropertyOperationParserRuleCall_2(parent, this, 2, inst);
-			case 3: return new PropertyOperation_PropertySetParserRuleCall_3(parent, this, 3, inst);
+			case 0: return new PropertyOperation_ConditionalPropertyOperationParserRuleCall_0(parent, this, 0, inst);
+			case 1: return new PropertyOperation_PropertyDefinitionOperationParserRuleCall_1(parent, this, 1, inst);
+			case 2: return new PropertyOperation_PropertySetOperationParserRuleCall_2(parent, this, 2, inst);
 			default: return null;
 		}	
 	}	
@@ -4197,30 +4455,30 @@ protected class PropertyOperation_Alternatives extends AlternativesToken {
 	}
 }
 
-// FilteredPropertyOperation
-protected class PropertyOperation_FilteredPropertyOperationParserRuleCall_0 extends RuleCallToken {
+// ConditionalPropertyOperation
+protected class PropertyOperation_ConditionalPropertyOperationParserRuleCall_0 extends RuleCallToken {
 	
-	public PropertyOperation_FilteredPropertyOperationParserRuleCall_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public PropertyOperation_ConditionalPropertyOperationParserRuleCall_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getPropertyOperationAccess().getFilteredPropertyOperationParserRuleCall_0();
+		return grammarAccess.getPropertyOperationAccess().getConditionalPropertyOperationParserRuleCall_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new FilteredPropertyOperation_Group(this, this, 0, inst);
+			case 0: return new ConditionalPropertyOperation_Group(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
 		
     @Override
 	protected IInstanceDescription tryConsumeVal() {
-		if(checkForRecursion(FilteredPropertyOperation_Group.class, current)) return null;
-		if(!current.isInstanceOf(grammarAccess.getFilteredPropertyOperationRule().getType().getClassifier())) return null;
+		if(checkForRecursion(ConditionalPropertyOperation_Group.class, current)) return null;
+		if(!current.isInstanceOf(grammarAccess.getConditionalPropertyOperationRule().getType().getClassifier())) return null;
 		return current;
 	}
 	
@@ -4232,30 +4490,30 @@ protected class PropertyOperation_FilteredPropertyOperationParserRuleCall_0 exte
 	}	
 }
 
-// SetPropertyOperation
-protected class PropertyOperation_SetPropertyOperationParserRuleCall_1 extends RuleCallToken {
+// PropertyDefinitionOperation
+protected class PropertyOperation_PropertyDefinitionOperationParserRuleCall_1 extends RuleCallToken {
 	
-	public PropertyOperation_SetPropertyOperationParserRuleCall_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public PropertyOperation_PropertyDefinitionOperationParserRuleCall_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getPropertyOperationAccess().getSetPropertyOperationParserRuleCall_1();
+		return grammarAccess.getPropertyOperationAccess().getPropertyDefinitionOperationParserRuleCall_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new SetPropertyOperation_Group(this, this, 0, inst);
+			case 0: return new PropertyDefinitionOperation_Group(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
 		
     @Override
 	protected IInstanceDescription tryConsumeVal() {
-		if(checkForRecursion(SetPropertyOperation_Group.class, current)) return null;
-		if(!current.isInstanceOf(grammarAccess.getSetPropertyOperationRule().getType().getClassifier())) return null;
+		if(checkForRecursion(PropertyDefinitionOperation_Group.class, current)) return null;
+		if(!current.isInstanceOf(grammarAccess.getPropertyDefinitionOperationRule().getType().getClassifier())) return null;
 		return current;
 	}
 	
@@ -4267,65 +4525,30 @@ protected class PropertyOperation_SetPropertyOperationParserRuleCall_1 extends R
 	}	
 }
 
-// UnsetPropertyOperation
-protected class PropertyOperation_UnsetPropertyOperationParserRuleCall_2 extends RuleCallToken {
+// PropertySetOperation
+protected class PropertyOperation_PropertySetOperationParserRuleCall_2 extends RuleCallToken {
 	
-	public PropertyOperation_UnsetPropertyOperationParserRuleCall_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public PropertyOperation_PropertySetOperationParserRuleCall_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getPropertyOperationAccess().getUnsetPropertyOperationParserRuleCall_2();
+		return grammarAccess.getPropertyOperationAccess().getPropertySetOperationParserRuleCall_2();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new UnsetPropertyOperation_Group(this, this, 0, inst);
+			case 0: return new PropertySetOperation_Group(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
 		
     @Override
 	protected IInstanceDescription tryConsumeVal() {
-		if(checkForRecursion(UnsetPropertyOperation_Group.class, current)) return null;
-		if(!current.isInstanceOf(grammarAccess.getUnsetPropertyOperationRule().getType().getClassifier())) return null;
-		return current;
-	}
-	
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		switch(index) {
-			default: return parent.createParentFollower(next, actIndex , index, inst);
-		}	
-	}	
-}
-
-// PropertySet
-protected class PropertyOperation_PropertySetParserRuleCall_3 extends RuleCallToken {
-	
-	public PropertyOperation_PropertySetParserRuleCall_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public RuleCall getGrammarElement() {
-		return grammarAccess.getPropertyOperationAccess().getPropertySetParserRuleCall_3();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new PropertySet_Group(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override
-	protected IInstanceDescription tryConsumeVal() {
-		if(checkForRecursion(PropertySet_Group.class, current)) return null;
-		if(!current.isInstanceOf(grammarAccess.getPropertySetRule().getType().getClassifier())) return null;
+		if(checkForRecursion(PropertySetOperation_Group.class, current)) return null;
+		if(!current.isInstanceOf(grammarAccess.getPropertySetOperationRule().getType().getClassifier())) return null;
 		return current;
 	}
 	
@@ -4341,59 +4564,52 @@ protected class PropertyOperation_PropertySetParserRuleCall_3 extends RuleCallTo
 /************ end Rule PropertyOperation ****************/
 
 
-/************ begin Rule FilteredPropertyOperation ****************
+/************ begin Rule ConditionalPropertyOperation ****************
  *
- * FilteredPropertyOperation:
- *   "when" filter=Filter body=( SetPropertyOperation | UnsetPropertyOperation | PropertySet
- *   ); 
- * 
- *     
- * 	    
- * 		         
- * 	
- * // be::BDefProperty   immutable ?= "val"
- * // property values, must be assigned (but can be assigned null).
+ * ConditionalPropertyOperation returns be::BPropertyOperation:
+ *   {be::BConditionalPropertyOperation} "when" "(" condExpr=Expression ")" (body=
+ *   PropertyDefinitionOperation|body=PropertySetOperation);
  *
  **/
 
-// "when" filter=Filter body=( SetPropertyOperation | UnsetPropertyOperation | PropertySet
-// )
-protected class FilteredPropertyOperation_Group extends GroupToken {
+// {be::BConditionalPropertyOperation} "when" "(" condExpr=Expression ")" (body=
+// PropertyDefinitionOperation|body=PropertySetOperation)
+protected class ConditionalPropertyOperation_Group extends GroupToken {
 	
-	public FilteredPropertyOperation_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ConditionalPropertyOperation_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Group getGrammarElement() {
-		return grammarAccess.getFilteredPropertyOperationAccess().getGroup();
+		return grammarAccess.getConditionalPropertyOperationAccess().getGroup();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new FilteredPropertyOperation_BodyAssignment_2(parent, this, 0, inst);
+			case 0: return new ConditionalPropertyOperation_Alternatives_5(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
 		
     @Override
 	public IInstanceDescription tryConsume() {
-		if(!current.isInstanceOf(grammarAccess.getFilteredPropertyOperationRule().getType().getClassifier())) return null;
+		if(!current.isInstanceOf(grammarAccess.getConditionalPropertyOperationRule().getType().getClassifier())) return null;
 		return tryConsumeVal();
 	}
 }
 
-// "when"
-protected class FilteredPropertyOperation_WhenKeyword_0 extends KeywordToken  {
-	
-	public FilteredPropertyOperation_WhenKeyword_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+// {be::BConditionalPropertyOperation}
+protected class ConditionalPropertyOperation_BConditionalPropertyOperationAction_0 extends ActionToken  {
+
+	public ConditionalPropertyOperation_BConditionalPropertyOperationAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getFilteredPropertyOperationAccess().getWhenKeyword_0();
+	public Action getGrammarElement() {
+		return grammarAccess.getConditionalPropertyOperationAccess().getBConditionalPropertyOperationAction_0();
 	}
 
     @Override
@@ -4403,37 +4619,88 @@ protected class FilteredPropertyOperation_WhenKeyword_0 extends KeywordToken  {
 		}	
 	}	
 		
+	
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(!current.isInstanceOf(grammarAccess.getConditionalPropertyOperationAccess().getBConditionalPropertyOperationAction_0().getType().getClassifier())) return null;
+		if(!current.isConsumed()) return null;
+		return current;
+	}
 }
 
-// filter=Filter
-protected class FilteredPropertyOperation_FilterAssignment_1 extends AssignmentToken  {
+// "when"
+protected class ConditionalPropertyOperation_WhenKeyword_1 extends KeywordToken  {
 	
-	public FilteredPropertyOperation_FilterAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ConditionalPropertyOperation_WhenKeyword_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getFilteredPropertyOperationAccess().getFilterAssignment_1();
+	public Keyword getGrammarElement() {
+		return grammarAccess.getConditionalPropertyOperationAccess().getWhenKeyword_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new Filter_Group(this, this, 0, inst);
+			case 0: return new ConditionalPropertyOperation_BConditionalPropertyOperationAction_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "("
+protected class ConditionalPropertyOperation_LeftParenthesisKeyword_2 extends KeywordToken  {
+	
+	public ConditionalPropertyOperation_LeftParenthesisKeyword_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getConditionalPropertyOperationAccess().getLeftParenthesisKeyword_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ConditionalPropertyOperation_WhenKeyword_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// condExpr=Expression
+protected class ConditionalPropertyOperation_CondExprAssignment_3 extends AssignmentToken  {
+	
+	public ConditionalPropertyOperation_CondExprAssignment_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getConditionalPropertyOperationAccess().getCondExprAssignment_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Expression_AssignmentExpressionParserRuleCall(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
 		
     @Override	
 	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("filter",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("filter");
+		if((value = current.getConsumable("condExpr",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("condExpr");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getFilterRule().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getExpressionRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getFilteredPropertyOperationAccess().getFilterFilterParserRuleCall_1_0(); 
+				element = grammarAccess.getConditionalPropertyOperationAccess().getCondExprExpressionParserRuleCall_3_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -4445,30 +4712,73 @@ protected class FilteredPropertyOperation_FilterAssignment_1 extends AssignmentT
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new FilteredPropertyOperation_WhenKeyword_0(parent, next, actIndex, consumed);
+			case 0: return new ConditionalPropertyOperation_LeftParenthesisKeyword_2(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
-// body=( SetPropertyOperation | UnsetPropertyOperation | PropertySet )
-protected class FilteredPropertyOperation_BodyAssignment_2 extends AssignmentToken  {
+// ")"
+protected class ConditionalPropertyOperation_RightParenthesisKeyword_4 extends KeywordToken  {
 	
-	public FilteredPropertyOperation_BodyAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ConditionalPropertyOperation_RightParenthesisKeyword_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getFilteredPropertyOperationAccess().getBodyAssignment_2();
+	public Keyword getGrammarElement() {
+		return grammarAccess.getConditionalPropertyOperationAccess().getRightParenthesisKeyword_4();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new SetPropertyOperation_Group(this, this, 0, inst);
-			case 1: return new UnsetPropertyOperation_Group(this, this, 1, inst);
-			case 2: return new PropertySet_Group(this, this, 2, inst);
+			case 0: return new ConditionalPropertyOperation_CondExprAssignment_3(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// body=PropertyDefinitionOperation|body=PropertySetOperation
+protected class ConditionalPropertyOperation_Alternatives_5 extends AlternativesToken {
+
+	public ConditionalPropertyOperation_Alternatives_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Alternatives getGrammarElement() {
+		return grammarAccess.getConditionalPropertyOperationAccess().getAlternatives_5();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ConditionalPropertyOperation_BodyAssignment_5_0(parent, this, 0, inst);
+			case 1: return new ConditionalPropertyOperation_BodyAssignment_5_1(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// body=PropertyDefinitionOperation
+protected class ConditionalPropertyOperation_BodyAssignment_5_0 extends AssignmentToken  {
+	
+	public ConditionalPropertyOperation_BodyAssignment_5_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getConditionalPropertyOperationAccess().getBodyAssignment_5_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new PropertyDefinitionOperation_Group(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -4479,27 +4789,9 @@ protected class FilteredPropertyOperation_BodyAssignment_2 extends AssignmentTok
 		IInstanceDescription obj = current.cloneAndConsume("body");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getSetPropertyOperationRule().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getPropertyDefinitionOperationRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getFilteredPropertyOperationAccess().getBodySetPropertyOperationParserRuleCall_2_0_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getUnsetPropertyOperationRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getFilteredPropertyOperationAccess().getBodyUnsetPropertyOperationParserRuleCall_2_0_1(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getPropertySetRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getFilteredPropertyOperationAccess().getBodyPropertySetParserRuleCall_2_0_2(); 
+				element = grammarAccess.getConditionalPropertyOperationAccess().getBodyPropertyDefinitionOperationParserRuleCall_5_0_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -4511,28 +4803,266 @@ protected class FilteredPropertyOperation_BodyAssignment_2 extends AssignmentTok
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new FilteredPropertyOperation_FilterAssignment_1(parent, next, actIndex, consumed);
+			case 0: return new ConditionalPropertyOperation_RightParenthesisKeyword_4(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+// body=PropertySetOperation
+protected class ConditionalPropertyOperation_BodyAssignment_5_1 extends AssignmentToken  {
+	
+	public ConditionalPropertyOperation_BodyAssignment_5_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getConditionalPropertyOperationAccess().getBodyAssignment_5_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new PropertySetOperation_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("body",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("body");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getPropertySetOperationRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getConditionalPropertyOperationAccess().getBodyPropertySetOperationParserRuleCall_5_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new ConditionalPropertyOperation_RightParenthesisKeyword_4(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 
-/************ end Rule FilteredPropertyOperation ****************/
+
+/************ end Rule ConditionalPropertyOperation ****************/
+
+
+/************ begin Rule PropertyDefinitionOperation ****************
+ *
+ * PropertyDefinitionOperation returns be::BPropertyOperation:
+ *   {be::BPropertyDefinitionOperation} (definition=PropertyValDeclaration|definition=
+ *   PropertyVarDeclaration); 
+ *     
+ * 	                
+ * 	
+ * 		
+ * // be::BDefProperty   immutable ?= "val"
+ * // property values, must be assigned (but can be assigned null).
+ *
+ **/
+
+// {be::BPropertyDefinitionOperation} (definition=PropertyValDeclaration|definition=
+// PropertyVarDeclaration)
+protected class PropertyDefinitionOperation_Group extends GroupToken {
+	
+	public PropertyDefinitionOperation_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getPropertyDefinitionOperationAccess().getGroup();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new PropertyDefinitionOperation_Alternatives_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getPropertyDefinitionOperationRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// {be::BPropertyDefinitionOperation}
+protected class PropertyDefinitionOperation_BPropertyDefinitionOperationAction_0 extends ActionToken  {
+
+	public PropertyDefinitionOperation_BPropertyDefinitionOperationAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Action getGrammarElement() {
+		return grammarAccess.getPropertyDefinitionOperationAccess().getBPropertyDefinitionOperationAction_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(this, index, index, inst);
+		}	
+	}	
+		
+	
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(!current.isInstanceOf(grammarAccess.getPropertyDefinitionOperationAccess().getBPropertyDefinitionOperationAction_0().getType().getClassifier())) return null;
+		if(!current.isConsumed()) return null;
+		return current;
+	}
+}
+
+// definition=PropertyValDeclaration|definition=PropertyVarDeclaration
+protected class PropertyDefinitionOperation_Alternatives_1 extends AlternativesToken {
+
+	public PropertyDefinitionOperation_Alternatives_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Alternatives getGrammarElement() {
+		return grammarAccess.getPropertyDefinitionOperationAccess().getAlternatives_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new PropertyDefinitionOperation_DefinitionAssignment_1_0(parent, this, 0, inst);
+			case 1: return new PropertyDefinitionOperation_DefinitionAssignment_1_1(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// definition=PropertyValDeclaration
+protected class PropertyDefinitionOperation_DefinitionAssignment_1_0 extends AssignmentToken  {
+	
+	public PropertyDefinitionOperation_DefinitionAssignment_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getPropertyDefinitionOperationAccess().getDefinitionAssignment_1_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new PropertyValDeclaration_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("definition",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("definition");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getPropertyValDeclarationRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getPropertyDefinitionOperationAccess().getDefinitionPropertyValDeclarationParserRuleCall_1_0_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new PropertyDefinitionOperation_BPropertyDefinitionOperationAction_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+// definition=PropertyVarDeclaration
+protected class PropertyDefinitionOperation_DefinitionAssignment_1_1 extends AssignmentToken  {
+	
+	public PropertyDefinitionOperation_DefinitionAssignment_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getPropertyDefinitionOperationAccess().getDefinitionAssignment_1_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new PropertyVarDeclaration_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("definition",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("definition");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getPropertyVarDeclarationRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getPropertyDefinitionOperationAccess().getDefinitionPropertyVarDeclarationParserRuleCall_1_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new PropertyDefinitionOperation_BPropertyDefinitionOperationAction_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+
+
+/************ end Rule PropertyDefinitionOperation ****************/
 
 
 /************ begin Rule PropertyValDeclaration ****************
  *
- * PropertyValDeclaration returns be::BExpression:
+ * PropertyValDeclaration returns be::BDefProperty:
  *   {be::BDefProperty} final?="final"? (("property"|type=TypeRef) name=PID) "=" valueExpr
- *   =Expression; 
+ *   =Expression ";"; 
+ * 		
  * // be::BDefProperty   immutable ?= "val"
  * // property values, must be assigned (but can be assigned null).
  *
  **/
 
 // {be::BDefProperty} final?="final"? (("property"|type=TypeRef) name=PID) "=" valueExpr
-// =Expression
+// =Expression ";"
 protected class PropertyValDeclaration_Group extends GroupToken {
 	
 	public PropertyValDeclaration_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -4547,7 +5077,7 @@ protected class PropertyValDeclaration_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new PropertyValDeclaration_ValueExprAssignment_4(parent, this, 0, inst);
+			case 0: return new PropertyValDeclaration_SemicolonKeyword_5(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -4840,20 +5370,42 @@ protected class PropertyValDeclaration_ValueExprAssignment_4 extends AssignmentT
 	}	
 }
 
+// ";"
+protected class PropertyValDeclaration_SemicolonKeyword_5 extends KeywordToken  {
+	
+	public PropertyValDeclaration_SemicolonKeyword_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getPropertyValDeclarationAccess().getSemicolonKeyword_5();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new PropertyValDeclaration_ValueExprAssignment_4(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
 
 /************ end Rule PropertyValDeclaration ****************/
 
 
 /************ begin Rule PropertyVarDeclaration ****************
  *
- * PropertyVarDeclaration returns be::BExpression:
+ * PropertyVarDeclaration returns be::BDefProperty:
  *   {be::BDefProperty} final?="final"? mutable?="mutable" (("property"|type=TypeRef)
- *   name=PID) ("=" valueExpr=Expression)?;
+ *   name=PID) ("=" valueExpr=Expression)? ";";
  *
  **/
 
 // {be::BDefProperty} final?="final"? mutable?="mutable" (("property"|type=TypeRef)
-// name=PID) ("=" valueExpr=Expression)?
+// name=PID) ("=" valueExpr=Expression)? ";"
 protected class PropertyVarDeclaration_Group extends GroupToken {
 	
 	public PropertyVarDeclaration_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -4868,8 +5420,7 @@ protected class PropertyVarDeclaration_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new PropertyVarDeclaration_Group_4(parent, this, 0, inst);
-			case 1: return new PropertyVarDeclaration_Group_3(parent, this, 1, inst);
+			case 0: return new PropertyVarDeclaration_SemicolonKeyword_5(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -5218,14 +5769,156 @@ protected class PropertyVarDeclaration_ValueExprAssignment_4_1 extends Assignmen
 }
 
 
+// ";"
+protected class PropertyVarDeclaration_SemicolonKeyword_5 extends KeywordToken  {
+	
+	public PropertyVarDeclaration_SemicolonKeyword_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getPropertyVarDeclarationAccess().getSemicolonKeyword_5();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new PropertyVarDeclaration_Group_4(parent, this, 0, inst);
+			case 1: return new PropertyVarDeclaration_Group_3(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
 
 /************ end Rule PropertyVarDeclaration ****************/
+
+
+/************ begin Rule PropertySetOperation ****************
+ *
+ * PropertySetOperation returns be::BPropertyOperation:
+ *   {be::BPropertySetOperation} propertySet=PropertySet; 
+ *     
+ * 	        
+ * 	
+ * 
+ * // OLD
+ *
+ **/
+
+// {be::BPropertySetOperation} propertySet=PropertySet
+protected class PropertySetOperation_Group extends GroupToken {
+	
+	public PropertySetOperation_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getPropertySetOperationAccess().getGroup();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new PropertySetOperation_PropertySetAssignment_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getPropertySetOperationRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// {be::BPropertySetOperation}
+protected class PropertySetOperation_BPropertySetOperationAction_0 extends ActionToken  {
+
+	public PropertySetOperation_BPropertySetOperationAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Action getGrammarElement() {
+		return grammarAccess.getPropertySetOperationAccess().getBPropertySetOperationAction_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(this, index, index, inst);
+		}	
+	}	
+		
+	
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(!current.isInstanceOf(grammarAccess.getPropertySetOperationAccess().getBPropertySetOperationAction_0().getType().getClassifier())) return null;
+		if(!current.isConsumed()) return null;
+		return current;
+	}
+}
+
+// propertySet=PropertySet
+protected class PropertySetOperation_PropertySetAssignment_1 extends AssignmentToken  {
+	
+	public PropertySetOperation_PropertySetAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getPropertySetOperationAccess().getPropertySetAssignment_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new PropertySet_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("propertySet",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("propertySet");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getPropertySetRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getPropertySetOperationAccess().getPropertySetPropertySetParserRuleCall_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new PropertySetOperation_BPropertySetOperationAction_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+
+/************ end Rule PropertySetOperation ****************/
 
 
 /************ begin Rule SetPropertyOperation ****************
  *
  * SetPropertyOperation:
- *   final?="final"? key=PropertyName op=AssignmentOperator value=Expression ";";
+ *   final?="final"? key=PropertyName op=AssignmentOperator value=Expression ";"; 
+ * 
+ * // OLD
  *
  **/
 

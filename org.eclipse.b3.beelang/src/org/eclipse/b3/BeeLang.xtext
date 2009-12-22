@@ -7,8 +7,12 @@ generate beeLang "http://www.eclipse.org/b3/BeeLang"
 
 BeeModel hidden(WS, SL_COMMENT, ML_COMMENT): 
 	(imports += Import)* 
-	((functions+=Function) | (concern+=Concern))* 
-	(body = Unit)? ;
+	(	(functions+=Function) 
+	| 	(concern+=Concern)
+	|	('properties'  propertySets += NamedPropertySet)
+	)* 
+	(body = Unit)? 
+	;
 
 Import returns be::IType: {be::B3JavaImport}(reexport ?='reexport')? "import" qualifiedName = QID ("as" name=ID)? ';' ;
 
@@ -61,39 +65,47 @@ FilteredCapability : ('when' filter=Filter)? capability = Capability ;
 Capability : interface=InterfaceName '/' name=UnitName ;
 
 // An optionally named sequence of property statements
-NamedPropertySet returns NamedPropertySet
-	: name = ID body = PropertySet 
+NamedPropertySet returns be::BNamedPropertySet
+	: {be::BNamedPropertySet} name = ID ("extends" extends=[be::BNamedPropertySet | QIDREF])?
+	'{' (operations += PropertyOperation )* '}' 
 	;
 
 // Sequence of possibly filtered property statements	
-PropertySet returns PropertySet
-	:  {PropertySet} ("extends" extends=QIDREF)? '{' (operations += PropertyOperation)* '}'
-//	:  ("extends" extends=[NamedPropertySet | QIDREF])? '{' (operations += PropertyOperation)* '}'
+PropertySet returns be::BPropertySet
+	:  {be::BPropertySet} ("extends" extends=[be::BNamedPropertySet | QIDREF])? 
+		'{' (operations += PropertyOperation )*  '}'
 	;
 
 // For model generation, to get supertype correct
-PropertyOperation 
-	: FilteredPropertyOperation 
-	| SetPropertyOperation 
-	| UnsetPropertyOperation 
-	| PropertySet
+PropertyOperation returns be::BPropertyOperation
+	: ConditionalPropertyOperation 
+	| PropertyDefinitionOperation 
+	| PropertySetOperation
 	;
 
-FilteredPropertyOperation returns FilteredPropertyOperation
-	: 'when' filter=Filter
-		body=(SetPropertyOperation | UnsetPropertyOperation | PropertySet) 
+ConditionalPropertyOperation returns be::BPropertyOperation
+	: {be::BConditionalPropertyOperation} 'when' '(' condExpr=Expression ')'
+		(body=PropertyDefinitionOperation | body=PropertySetOperation) 
 	;
+PropertyDefinitionOperation returns be::BPropertyOperation
+	: {be::BPropertyDefinitionOperation} (definition = PropertyValDeclaration | definition = PropertyVarDeclaration)
+	;
+		
 // be::BDefProperty   immutable ?= "val"
 // property values, must be assigned (but can be assigned null).
-PropertyValDeclaration returns be::BExpression 
+PropertyValDeclaration returns be::BDefProperty 
 	: {be::BDefProperty} ( final ?= "final")? (("property" |  type=TypeRef ) name=PID) 
-	'=' valueExpr = Expression 
+	'=' valueExpr = Expression ';'
 	;
-PropertyVarDeclaration returns be::BExpression 
+PropertyVarDeclaration returns be::BDefProperty 
 	: {be::BDefProperty} ( final ?= "final")? (mutable ?= "mutable")  (("property" | type=TypeRef) name=PID) 
-	('=' valueExpr = Expression)? 
+	('=' valueExpr = Expression)? ';'
+	;
+PropertySetOperation returns be::BPropertyOperation
+	: {be::BPropertySetOperation} propertySet = PropertySet
 	;
 
+// OLD
 SetPropertyOperation returns SetPropertyOperation
 	: ( (final ?= 'final')? key=PropertyName op=AssignmentOperator value=Expression ';')
 	;

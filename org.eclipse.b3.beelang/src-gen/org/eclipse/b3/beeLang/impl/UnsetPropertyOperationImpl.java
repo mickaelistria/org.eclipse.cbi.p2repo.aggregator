@@ -13,6 +13,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +28,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class UnsetPropertyOperationImpl extends PropertyOperationImpl implements UnsetPropertyOperation
+public class UnsetPropertyOperationImpl extends MinimalEObjectImpl.Container implements UnsetPropertyOperation
 {
   /**
    * The default value of the '{@link #getKey() <em>Key</em>}' attribute.

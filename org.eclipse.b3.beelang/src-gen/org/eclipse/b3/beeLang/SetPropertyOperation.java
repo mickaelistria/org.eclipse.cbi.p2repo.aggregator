@@ -7,6 +7,8 @@ package org.eclipse.b3.beeLang;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Set Property Operation</b></em>'.
@@ -26,7 +28,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
  * @model
  * @generated
  */
-public interface SetPropertyOperation extends PropertyOperation
+public interface SetPropertyOperation extends EObject
 {
   /**
    * Returns the value of the '<em><b>Final</b></em>' attribute.
