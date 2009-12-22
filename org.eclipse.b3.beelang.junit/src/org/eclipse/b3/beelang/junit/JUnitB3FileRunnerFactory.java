@@ -212,7 +212,7 @@ class JUnitB3FileRunnerFactory {
 		ClassLoader classLoader = klass.getClassLoader();
 
 		if(!(classLoader instanceof BundleReference))
-			throw new InitializationError("Failed to find out Bundle containing class: " + klass.getName());
+			throw new InitializationError("Failed to find out bundle containing class: " + klass.getName());
 
 		definitionClass = klass;
 		containingBundleName = ((BundleReference) classLoader).getBundle().getSymbolicName();
@@ -226,7 +226,8 @@ class JUnitB3FileRunnerFactory {
 			}
 		}
 
-		throw new InitializationError("No @B3TestFiles annotation specified for class: " + klass.getName());
+		throw new InitializationError("No @" + B3TestFiles.class.getSimpleName() + " annotation specified for class: "
+				+ klass.getName());
 	}
 
 	protected Runner createB3FileRunner(String b3File) throws Exception {
