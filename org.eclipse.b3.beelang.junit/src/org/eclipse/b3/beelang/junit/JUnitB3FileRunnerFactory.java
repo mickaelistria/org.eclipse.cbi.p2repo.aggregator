@@ -186,8 +186,8 @@ class JUnitB3FileRunnerFactory {
 			notifier.fireTestStarted(description);
 			try {
 				throw new Exception(errorMessage, error);
-			} catch(Exception e) {
-				notifier.fireTestFailure(new Failure(description, e));
+			} catch(Throwable t) {
+				notifier.fireTestFailure(new Failure(description, t));
 			} finally {
 				notifier.fireTestFinished(description);
 			}
