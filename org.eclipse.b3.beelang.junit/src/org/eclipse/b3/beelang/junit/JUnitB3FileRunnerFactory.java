@@ -8,7 +8,6 @@
 
 package org.eclipse.b3.beelang.junit;
 
-import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -16,7 +15,6 @@ import java.util.List;
 
 import org.eclipse.b3.BeeLangStandaloneSetup;
 import org.eclipse.b3.backend.core.B3Engine;
-import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
@@ -103,41 +101,31 @@ class JUnitB3FileRunnerFactory {
 			XtextResource resource = (XtextResource) beeLangResourceSet.createResource(b3FileURI,
 					ContentHandler.UNSPECIFIED_CONTENT_TYPE);
 
-			try {
-				resource.load(null);
-			} catch(IOException e) {
-				throw new Exception("Failed to load B3 file: " + b3FilePath, e);
-			}
+			resource.load(null);
 			// TODO: consult resource.getErrors() and report possible errors
 
 			BeeModel beeModel = (BeeModel) resource.getParseResult().getRootASTElement();
 			BExecutionContext b3Context = (b3Engine = new B3Engine()).getContext();
 
+			// Define all imports as constants
+			for(Type type : beeModel.getImports()) {
+				if(type instanceof B3JavaImport) {
+					Class<?> klass = TypeUtils.getRaw(type);
+					b3Context.defineValue(((B3JavaImport) type).getName(), klass, klass);
+				}
+			}
+
 			testFunctionDescriptors = new ArrayList<TestFunctionDescriptor>();
 
-			try {
-				// Define all imports as constants
-				for(Type type : beeModel.getImports()) {
-					if(type instanceof B3JavaImport) {
-						Class<?> klass = TypeUtils.getRaw(type);
-						b3Context.defineValue(((B3JavaImport) type).getName(), klass, klass);
-					}
-				}
+			// Define all functions and create descriptors of test functions
+			for(BFunction function : beeModel.getFunctions()) {
+				b3Context.defineFunction(function);
 
-				// Define all functions and create descriptors of test functions
-				for(BFunction function : beeModel.getFunctions()) {
-					b3Context.defineFunction(function);
+				String functionName = function.getName();
 
-					String functionName = function.getName();
-
-					if(functionName.length() > TEST_FUNCTION_PREFIX.length()
-							&& functionName.startsWith(TEST_FUNCTION_PREFIX)
-							&& function.getParameterTypes().length == 0)
-						testFunctionDescriptors.add(new TestFunctionDescriptor(function.getName()));
-				}
-			} catch(B3EngineException e) {
-				throw new Exception("Failed to initialize B3Engine in preparation for testing of B3 file: "
-						+ b3FilePath, e);
+				if(functionName.length() > TEST_FUNCTION_PREFIX.length()
+						&& functionName.startsWith(TEST_FUNCTION_PREFIX) && function.getParameterTypes().length == 0)
+					testFunctionDescriptors.add(new TestFunctionDescriptor(function.getName()));
 			}
 		}
 
@@ -178,9 +166,12 @@ class JUnitB3FileRunnerFactory {
 
 		private final Throwable error;
 
-		public ErrorReportingRunner(String testName, Throwable t) {
-			testDescription = Description.createSuiteDescription(testName);
+		private String errorMessage;
+
+		public ErrorReportingRunner(Description description, Throwable t, String message) {
+			testDescription = description;
 			error = t;
+			errorMessage = message;
 		}
 
 		@Override
@@ -193,8 +184,13 @@ class JUnitB3FileRunnerFactory {
 			Description description = getDescription();
 
 			notifier.fireTestStarted(description);
-			notifier.fireTestFailure(new Failure(description, error));
-			notifier.fireTestFinished(description);
+			try {
+				throw new Exception(errorMessage, error);
+			} catch(Exception e) {
+				notifier.fireTestFailure(new Failure(description, e));
+			} finally {
+				notifier.fireTestFinished(description);
+			}
 		}
 
 	}
@@ -238,6 +234,11 @@ class JUnitB3FileRunnerFactory {
 		return new JUnitB3FileRunner(b3File);
 	}
 
+	protected Runner createErrorReportingRunner(String b3File, Throwable t) {
+		return new ErrorReportingRunner(Description.createSuiteDescription(b3File), t,
+				"Test initialization failed for: " + b3File);
+	}
+
 	protected void createB3FileRunners(String[] b3Files) {
 		ArrayList<Runner> runners = new ArrayList<Runner>(b3Files.length);
 
@@ -245,7 +246,7 @@ class JUnitB3FileRunnerFactory {
 			try {
 				runners.add(createB3FileRunner(b3File));
 			} catch(Throwable t) {
-				runners.add(new ErrorReportingRunner(b3File, t));
+				runners.add(createErrorReportingRunner(b3File, t));
 			}
 		}
 
