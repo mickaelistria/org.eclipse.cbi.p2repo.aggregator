@@ -196,43 +196,10 @@ public class BInvocationContextImpl extends BExecutionContextImpl implements BIn
 		result.append(')');
 		return result.toString();
 	}
-//	/**
-//	 * This method returns values from system properties
-//	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getValue(java.lang.String)
-//	 */
-//	@Override
-//	public Object getValue(String name) throws B3EngineException {
-//		if(!name.startsWith("$") || name.length() < 2)
-//			return super.getValue(name);
-//		Object o = super.getValue(name);
-//		if(o != null)
-//			return o;
-//		
-//		String p = System.getProperty(name.substring(1));
-//		if(p != null)
-//			this.defineValue(name, p, String.class);
-//		return p;
-//	}
-//	@Override
-//	public LValue getLValue(String name) throws B3EngineException {
-//		if(!name.startsWith("$") || name.length() < 2)
-//			return super.getLValue(name);
-//		LValue lval = super.getLValue(name);
-//		if(lval != null)
-//			return lval;
-//		
-//		String p = System.getProperty(name.substring(1));
-//		if(p != null) {
-//			defineValue(name, p, String.class);
-//			return super.getLValue(name);
-//		}
-//		return lval;
-//	}
-//	@Override
-//	public Type getDeclaredValueType(String name) throws B3EngineException {
-//		// TODO Auto-generated method stub
-//		return super.getDeclaredValueType(name);
-//	}
+	/**
+	 * Loads all system properties into the value map as immutable values (but the values can be overridden
+	 * in inner contexts).
+	 */
 	private void loadSystemProperties() {
 		Properties properties = System.getProperties();
 		for(Object key : properties.keySet()) {
