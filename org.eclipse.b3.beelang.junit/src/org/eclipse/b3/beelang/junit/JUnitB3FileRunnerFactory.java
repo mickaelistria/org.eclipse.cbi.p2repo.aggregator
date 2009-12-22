@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.b3.BeeLangRuntimeModule;
@@ -169,6 +168,33 @@ class JUnitB3FileRunnerFactory {
 
 	}
 
+	public class ErrorReportingRunner extends Runner {
+
+		private final Description testDescription;
+
+		private final Throwable error;
+
+		public ErrorReportingRunner(String b3File, Throwable t) {
+			testDescription = Description.createSuiteDescription(b3File);
+			error = t;
+		}
+
+		@Override
+		public Description getDescription() {
+			return testDescription;
+		}
+
+		@Override
+		public void run(RunNotifier notifier) {
+			Description description = getDescription();
+
+			notifier.fireTestStarted(description);
+			notifier.fireTestFailure(new Failure(description, error));
+			notifier.fireTestFinished(description);
+		}
+
+	}
+
 	protected XtextResourceSet beeLangResourceSet;
 
 	protected final Class<?> definitionClass;
@@ -204,20 +230,16 @@ class JUnitB3FileRunnerFactory {
 		throw new InitializationError("No @B3Files annotation specified for class: " + klass.getName());
 	}
 
-	protected void createB3FileRunners(String[] b3Files) throws InitializationError {
+	protected void createB3FileRunners(String[] b3Files) {
 		ArrayList<Runner> runners = new ArrayList<Runner>(b3Files.length);
-		LinkedList<Throwable> errors = new LinkedList<Throwable>();
 
 		for(String b3File : b3Files) {
 			try {
 				runners.add(new JUnitB3FileRunner(b3File));
 			} catch(Throwable t) {
-				errors.add(t);
+				runners.add(new ErrorReportingRunner(b3File, t));
 			}
 		}
-
-		if(!errors.isEmpty())
-			throw new InitializationError(errors);
 
 		b3FileRunners = runners;
 	}
