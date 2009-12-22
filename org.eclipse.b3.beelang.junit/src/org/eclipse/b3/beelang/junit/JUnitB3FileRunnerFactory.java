@@ -231,7 +231,7 @@ class JUnitB3FileRunnerFactory {
 			}
 		}
 
-		throw new InitializationError("No @B3Files annotation specified for class: " + klass.getName());
+		throw new InitializationError("No @B3TestFiles annotation specified for class: " + klass.getName());
 	}
 
 	protected Runner createB3FileRunner(String b3File) throws Exception {
