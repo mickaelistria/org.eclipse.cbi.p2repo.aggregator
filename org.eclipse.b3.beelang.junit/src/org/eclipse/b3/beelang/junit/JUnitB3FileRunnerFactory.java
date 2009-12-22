@@ -14,7 +14,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.eclipse.b3.BeeLangRuntimeModule;
+import org.eclipse.b3.BeeLangStandaloneSetup;
 import org.eclipse.b3.backend.core.B3Engine;
 import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
@@ -34,7 +34,6 @@ import org.junit.runners.ParentRunner;
 import org.junit.runners.model.InitializationError;
 import org.osgi.framework.BundleReference;
 
-import com.google.inject.Guice;
 import com.google.inject.Injector;
 
 /**
@@ -209,7 +208,7 @@ class JUnitB3FileRunnerFactory {
 	protected List<Runner> b3FileRunners;
 
 	{
-		Injector beeLangInjector = Guice.createInjector(new BeeLangRuntimeModule());
+		Injector beeLangInjector = new BeeLangStandaloneSetup().createInjectorAndDoEMFRegistration();
 
 		beeLangResourceSet = beeLangInjector.getProvider(XtextResourceSet.class).get();
 	}
