@@ -96,10 +96,10 @@ class JUnitB3FileRunnerFactory {
 
 			b3FilePath = b3File;
 
-			initializeTests();
+			initializeFunctionTests();
 		}
 
-		protected void initializeTests() throws Exception {
+		protected void initializeFunctionTests() throws Exception {
 			URI b3FileURI = URI.createPlatformPluginURI(containingBundleName + b3FilePath, true);
 			XtextResource resource = (XtextResource) beeLangResourceSet.createResource(b3FileURI,
 					ContentHandler.UNSPECIFIED_CONTENT_TYPE);
