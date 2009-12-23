@@ -407,16 +407,11 @@
       <tokens xsi:type="xtext:Assignment" cardinality="?" feature="final" operator="?=">
         <terminal xsi:type="xtext:Keyword" value="final"/>
       </tokens>
-      <tokens xsi:type="xtext:Group">
-        <tokens xsi:type="xtext:Alternatives">
-          <groups xsi:type="xtext:Keyword" value="property"/>
-          <groups xsi:type="xtext:Assignment" feature="type" operator="=">
-            <terminal xsi:type="xtext:RuleCall" rule="//@rules.64"/>
-          </groups>
-        </tokens>
-        <tokens xsi:type="xtext:Assignment" feature="name" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="//@rules.146"/>
-        </tokens>
+      <tokens xsi:type="xtext:Assignment" cardinality="?" feature="type" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.64"/>
+      </tokens>
+      <tokens xsi:type="xtext:Assignment" feature="name" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.146"/>
       </tokens>
       <tokens xsi:type="xtext:Keyword" value="="/>
       <tokens xsi:type="xtext:Assignment" feature="valueExpr" operator="=">
@@ -441,16 +436,11 @@
       <tokens xsi:type="xtext:Assignment" feature="mutable" operator="?=">
         <terminal xsi:type="xtext:Keyword" value="mutable"/>
       </tokens>
-      <tokens xsi:type="xtext:Group">
-        <tokens xsi:type="xtext:Alternatives">
-          <groups xsi:type="xtext:Keyword" value="property"/>
-          <groups xsi:type="xtext:Assignment" feature="type" operator="=">
-            <terminal xsi:type="xtext:RuleCall" rule="//@rules.64"/>
-          </groups>
-        </tokens>
-        <tokens xsi:type="xtext:Assignment" feature="name" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="//@rules.146"/>
-        </tokens>
+      <tokens xsi:type="xtext:Assignment" cardinality="?" feature="type" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.64"/>
+      </tokens>
+      <tokens xsi:type="xtext:Assignment" feature="name" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.146"/>
       </tokens>
       <tokens xsi:type="xtext:Group" cardinality="?">
         <tokens xsi:type="xtext:Keyword" value="="/>

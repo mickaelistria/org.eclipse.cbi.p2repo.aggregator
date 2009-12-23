@@ -94,11 +94,12 @@ PropertyDefinitionOperation returns be::BPropertyOperation
 // be::BDefProperty   immutable ?= "val"
 // property values, must be assigned (but can be assigned null).
 PropertyValDeclaration returns be::BDefProperty 
-	: {be::BDefProperty} ( final ?= "final")? (("property" |  type=TypeRef ) name=PID) 
+//	: {be::BDefProperty} ( final ?= "final")? (("property" |  type=TypeRef ) name=PID) 
+	: {be::BDefProperty} ( final ?= "final")? type=TypeRef? name=PID
 	'=' valueExpr = Expression ';'
 	;
 PropertyVarDeclaration returns be::BDefProperty 
-	: {be::BDefProperty} ( final ?= "final")? (mutable ?= "mutable")  (("property" | type=TypeRef) name=PID) 
+	: {be::BDefProperty} ( final ?= "final")? (mutable ?= "mutable")  type=TypeRef? name=PID
 	('=' valueExpr = Expression)? ';'
 	;
 PropertySetOperation returns be::BPropertyOperation

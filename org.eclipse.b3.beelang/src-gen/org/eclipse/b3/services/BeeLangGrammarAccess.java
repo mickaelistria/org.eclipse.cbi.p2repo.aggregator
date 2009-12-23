@@ -1094,28 +1094,26 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cBDefPropertyAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cFinalAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final Keyword cFinalFinalKeyword_1_0 = (Keyword)cFinalAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Alternatives cAlternatives_2_0 = (Alternatives)cGroup_2.eContents().get(0);
-		private final Keyword cPropertyKeyword_2_0_0 = (Keyword)cAlternatives_2_0.eContents().get(0);
-		private final Assignment cTypeAssignment_2_0_1 = (Assignment)cAlternatives_2_0.eContents().get(1);
-		private final RuleCall cTypeTypeRefParserRuleCall_2_0_1_0 = (RuleCall)cTypeAssignment_2_0_1.eContents().get(0);
-		private final Assignment cNameAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cNamePIDTerminalRuleCall_2_1_0 = (RuleCall)cNameAssignment_2_1.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cValueExprAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cValueExprExpressionParserRuleCall_4_0 = (RuleCall)cValueExprAssignment_4.eContents().get(0);
-		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cTypeTypeRefParserRuleCall_2_0 = (RuleCall)cTypeAssignment_2.eContents().get(0);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNamePIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cValueExprAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cValueExprExpressionParserRuleCall_5_0 = (RuleCall)cValueExprAssignment_5.eContents().get(0);
+		private final Keyword cSemicolonKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//PropertyValDeclaration returns be::BDefProperty:
-		//  {be::BDefProperty} final?="final"? (("property"|type=TypeRef) name=PID) "=" valueExpr
-		//  =Expression ";"; 
+		//  {be::BDefProperty} final?="final"? type=TypeRef? name=PID "=" valueExpr=Expression ";"
+		//; 
 		//		
 		//// be::BDefProperty   immutable ?= "val"
 		//// property values, must be assigned (but can be assigned null).
+		//     
+		////	: {be::BDefProperty} ( final ?= "final")? (("property" |  type=TypeRef ) name=PID)
 		public ParserRule getRule() { return rule; }
 
-		//{be::BDefProperty} final?="final"? (("property"|type=TypeRef) name=PID) "=" valueExpr
-		//=Expression ";"
+		//{be::BDefProperty} final?="final"? type=TypeRef? name=PID "=" valueExpr=Expression ";"
 		public Group getGroup() { return cGroup; }
 
 		//{be::BDefProperty}
@@ -1127,38 +1125,29 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//"final"
 		public Keyword getFinalFinalKeyword_1_0() { return cFinalFinalKeyword_1_0; }
 
-		//("property"|type=TypeRef) name=PID
-		public Group getGroup_2() { return cGroup_2; }
-
-		//"property"|type=TypeRef
-		public Alternatives getAlternatives_2_0() { return cAlternatives_2_0; }
-
-		//"property"
-		public Keyword getPropertyKeyword_2_0_0() { return cPropertyKeyword_2_0_0; }
-
-		//type=TypeRef
-		public Assignment getTypeAssignment_2_0_1() { return cTypeAssignment_2_0_1; }
+		//type=TypeRef?
+		public Assignment getTypeAssignment_2() { return cTypeAssignment_2; }
 
 		//TypeRef
-		public RuleCall getTypeTypeRefParserRuleCall_2_0_1_0() { return cTypeTypeRefParserRuleCall_2_0_1_0; }
+		public RuleCall getTypeTypeRefParserRuleCall_2_0() { return cTypeTypeRefParserRuleCall_2_0; }
 
 		//name=PID
-		public Assignment getNameAssignment_2_1() { return cNameAssignment_2_1; }
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
 
 		//PID
-		public RuleCall getNamePIDTerminalRuleCall_2_1_0() { return cNamePIDTerminalRuleCall_2_1_0; }
+		public RuleCall getNamePIDTerminalRuleCall_3_0() { return cNamePIDTerminalRuleCall_3_0; }
 
 		//"="
-		public Keyword getEqualsSignKeyword_3() { return cEqualsSignKeyword_3; }
+		public Keyword getEqualsSignKeyword_4() { return cEqualsSignKeyword_4; }
 
 		//valueExpr=Expression
-		public Assignment getValueExprAssignment_4() { return cValueExprAssignment_4; }
+		public Assignment getValueExprAssignment_5() { return cValueExprAssignment_5; }
 
 		//Expression
-		public RuleCall getValueExprExpressionParserRuleCall_4_0() { return cValueExprExpressionParserRuleCall_4_0; }
+		public RuleCall getValueExprExpressionParserRuleCall_5_0() { return cValueExprExpressionParserRuleCall_5_0; }
 
 		//";"
-		public Keyword getSemicolonKeyword_5() { return cSemicolonKeyword_5; }
+		public Keyword getSemicolonKeyword_6() { return cSemicolonKeyword_6; }
 	}
 
 	public class PropertyVarDeclarationElements extends AbstractParserRuleElementFinder {
@@ -1169,26 +1158,23 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cFinalFinalKeyword_1_0 = (Keyword)cFinalAssignment_1.eContents().get(0);
 		private final Assignment cMutableAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final Keyword cMutableMutableKeyword_2_0 = (Keyword)cMutableAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Alternatives cAlternatives_3_0 = (Alternatives)cGroup_3.eContents().get(0);
-		private final Keyword cPropertyKeyword_3_0_0 = (Keyword)cAlternatives_3_0.eContents().get(0);
-		private final Assignment cTypeAssignment_3_0_1 = (Assignment)cAlternatives_3_0.eContents().get(1);
-		private final RuleCall cTypeTypeRefParserRuleCall_3_0_1_0 = (RuleCall)cTypeAssignment_3_0_1.eContents().get(0);
-		private final Assignment cNameAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cNamePIDTerminalRuleCall_3_1_0 = (RuleCall)cNameAssignment_3_1.eContents().get(0);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cEqualsSignKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cValueExprAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cValueExprExpressionParserRuleCall_4_1_0 = (RuleCall)cValueExprAssignment_4_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cTypeTypeRefParserRuleCall_3_0 = (RuleCall)cTypeAssignment_3.eContents().get(0);
+		private final Assignment cNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cNamePIDTerminalRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cEqualsSignKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cValueExprAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cValueExprExpressionParserRuleCall_5_1_0 = (RuleCall)cValueExprAssignment_5_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//PropertyVarDeclaration returns be::BDefProperty:
-		//  {be::BDefProperty} final?="final"? mutable?="mutable" (("property"|type=TypeRef)
-		//  name=PID) ("=" valueExpr=Expression)? ";";
+		//  {be::BDefProperty} final?="final"? mutable?="mutable" type=TypeRef? name=PID ("="
+		//  valueExpr=Expression)? ";";
 		public ParserRule getRule() { return rule; }
 
-		//{be::BDefProperty} final?="final"? mutable?="mutable" (("property"|type=TypeRef)
-		//name=PID) ("=" valueExpr=Expression)? ";"
+		//{be::BDefProperty} final?="final"? mutable?="mutable" type=TypeRef? name=PID ("="
+		//valueExpr=Expression)? ";"
 		public Group getGroup() { return cGroup; }
 
 		//{be::BDefProperty}
@@ -1206,41 +1192,32 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//"mutable"
 		public Keyword getMutableMutableKeyword_2_0() { return cMutableMutableKeyword_2_0; }
 
-		//("property"|type=TypeRef) name=PID
-		public Group getGroup_3() { return cGroup_3; }
-
-		//"property"|type=TypeRef
-		public Alternatives getAlternatives_3_0() { return cAlternatives_3_0; }
-
-		//"property"
-		public Keyword getPropertyKeyword_3_0_0() { return cPropertyKeyword_3_0_0; }
-
-		//type=TypeRef
-		public Assignment getTypeAssignment_3_0_1() { return cTypeAssignment_3_0_1; }
+		//type=TypeRef?
+		public Assignment getTypeAssignment_3() { return cTypeAssignment_3; }
 
 		//TypeRef
-		public RuleCall getTypeTypeRefParserRuleCall_3_0_1_0() { return cTypeTypeRefParserRuleCall_3_0_1_0; }
+		public RuleCall getTypeTypeRefParserRuleCall_3_0() { return cTypeTypeRefParserRuleCall_3_0; }
 
 		//name=PID
-		public Assignment getNameAssignment_3_1() { return cNameAssignment_3_1; }
+		public Assignment getNameAssignment_4() { return cNameAssignment_4; }
 
 		//PID
-		public RuleCall getNamePIDTerminalRuleCall_3_1_0() { return cNamePIDTerminalRuleCall_3_1_0; }
+		public RuleCall getNamePIDTerminalRuleCall_4_0() { return cNamePIDTerminalRuleCall_4_0; }
 
 		//("=" valueExpr=Expression)?
-		public Group getGroup_4() { return cGroup_4; }
+		public Group getGroup_5() { return cGroup_5; }
 
 		//"="
-		public Keyword getEqualsSignKeyword_4_0() { return cEqualsSignKeyword_4_0; }
+		public Keyword getEqualsSignKeyword_5_0() { return cEqualsSignKeyword_5_0; }
 
 		//valueExpr=Expression
-		public Assignment getValueExprAssignment_4_1() { return cValueExprAssignment_4_1; }
+		public Assignment getValueExprAssignment_5_1() { return cValueExprAssignment_5_1; }
 
 		//Expression
-		public RuleCall getValueExprExpressionParserRuleCall_4_1_0() { return cValueExprExpressionParserRuleCall_4_1_0; }
+		public RuleCall getValueExprExpressionParserRuleCall_5_1_0() { return cValueExprExpressionParserRuleCall_5_1_0; }
 
 		//";"
-		public Keyword getSemicolonKeyword_5() { return cSemicolonKeyword_5; }
+		public Keyword getSemicolonKeyword_6() { return cSemicolonKeyword_6; }
 	}
 
 	public class PropertySetOperationElements extends AbstractParserRuleElementFinder {
@@ -7612,11 +7589,13 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//PropertyValDeclaration returns be::BDefProperty:
-	//  {be::BDefProperty} final?="final"? (("property"|type=TypeRef) name=PID) "=" valueExpr
-	//  =Expression ";"; 
+	//  {be::BDefProperty} final?="final"? type=TypeRef? name=PID "=" valueExpr=Expression ";"
+	//; 
 	//		
 	//// be::BDefProperty   immutable ?= "val"
 	//// property values, must be assigned (but can be assigned null).
+	//     
+	////	: {be::BDefProperty} ( final ?= "final")? (("property" |  type=TypeRef ) name=PID)
 	public PropertyValDeclarationElements getPropertyValDeclarationAccess() {
 		return (pPropertyValDeclaration != null) ? pPropertyValDeclaration : (pPropertyValDeclaration = new PropertyValDeclarationElements());
 	}
@@ -7626,8 +7605,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//PropertyVarDeclaration returns be::BDefProperty:
-	//  {be::BDefProperty} final?="final"? mutable?="mutable" (("property"|type=TypeRef)
-	//  name=PID) ("=" valueExpr=Expression)? ";";
+	//  {be::BDefProperty} final?="final"? mutable?="mutable" type=TypeRef? name=PID ("="
+	//  valueExpr=Expression)? ";";
 	public PropertyVarDeclarationElements getPropertyVarDeclarationAccess() {
 		return (pPropertyVarDeclaration != null) ? pPropertyVarDeclaration : (pPropertyVarDeclaration = new PropertyVarDeclarationElements());
 	}

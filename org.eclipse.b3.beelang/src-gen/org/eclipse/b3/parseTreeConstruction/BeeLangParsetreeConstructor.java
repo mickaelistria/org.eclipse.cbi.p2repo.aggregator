@@ -5053,16 +5053,17 @@ protected class PropertyDefinitionOperation_DefinitionAssignment_1_1 extends Ass
 /************ begin Rule PropertyValDeclaration ****************
  *
  * PropertyValDeclaration returns be::BDefProperty:
- *   {be::BDefProperty} final?="final"? (("property"|type=TypeRef) name=PID) "=" valueExpr
- *   =Expression ";"; 
+ *   {be::BDefProperty} final?="final"? type=TypeRef? name=PID "=" valueExpr=Expression ";"
+ * ; 
  * 		
  * // be::BDefProperty   immutable ?= "val"
  * // property values, must be assigned (but can be assigned null).
+ *      
+ * //	: {be::BDefProperty} ( final ?= "final")? (("property" |  type=TypeRef ) name=PID)
  *
  **/
 
-// {be::BDefProperty} final?="final"? (("property"|type=TypeRef) name=PID) "=" valueExpr
-// =Expression ";"
+// {be::BDefProperty} final?="final"? type=TypeRef? name=PID "=" valueExpr=Expression ";"
 protected class PropertyValDeclaration_Group extends GroupToken {
 	
 	public PropertyValDeclaration_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -5077,7 +5078,7 @@ protected class PropertyValDeclaration_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new PropertyValDeclaration_SemicolonKeyword_5(parent, this, 0, inst);
+			case 0: return new PropertyValDeclaration_SemicolonKeyword_6(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -5151,84 +5152,16 @@ protected class PropertyValDeclaration_FinalAssignment_1 extends AssignmentToken
 
 }
 
-// ("property"|type=TypeRef) name=PID
-protected class PropertyValDeclaration_Group_2 extends GroupToken {
+// type=TypeRef?
+protected class PropertyValDeclaration_TypeAssignment_2 extends AssignmentToken  {
 	
-	public PropertyValDeclaration_Group_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getPropertyValDeclarationAccess().getGroup_2();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new PropertyValDeclaration_NameAssignment_2_1(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// "property"|type=TypeRef
-protected class PropertyValDeclaration_Alternatives_2_0 extends AlternativesToken {
-
-	public PropertyValDeclaration_Alternatives_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Alternatives getGrammarElement() {
-		return grammarAccess.getPropertyValDeclarationAccess().getAlternatives_2_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new PropertyValDeclaration_PropertyKeyword_2_0_0(parent, this, 0, inst);
-			case 1: return new PropertyValDeclaration_TypeAssignment_2_0_1(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// "property"
-protected class PropertyValDeclaration_PropertyKeyword_2_0_0 extends KeywordToken  {
-	
-	public PropertyValDeclaration_PropertyKeyword_2_0_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getPropertyValDeclarationAccess().getPropertyKeyword_2_0_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new PropertyValDeclaration_FinalAssignment_1(parent, this, 0, inst);
-			case 1: return new PropertyValDeclaration_BDefPropertyAction_0(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// type=TypeRef
-protected class PropertyValDeclaration_TypeAssignment_2_0_1 extends AssignmentToken  {
-	
-	public PropertyValDeclaration_TypeAssignment_2_0_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public PropertyValDeclaration_TypeAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getPropertyValDeclarationAccess().getTypeAssignment_2_0_1();
+		return grammarAccess.getPropertyValDeclarationAccess().getTypeAssignment_2();
 	}
 
     @Override
@@ -5241,13 +5174,13 @@ protected class PropertyValDeclaration_TypeAssignment_2_0_1 extends AssignmentTo
 		
     @Override	
 	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("type",true)) == null) return null;
+		if((value = current.getConsumable("type",false)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("type");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getTypeRefRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getPropertyValDeclarationAccess().getTypeTypeRefParserRuleCall_2_0_1_0(); 
+				element = grammarAccess.getPropertyValDeclarationAccess().getTypeTypeRefParserRuleCall_2_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -5266,23 +5199,24 @@ protected class PropertyValDeclaration_TypeAssignment_2_0_1 extends AssignmentTo
 	}	
 }
 
-
 // name=PID
-protected class PropertyValDeclaration_NameAssignment_2_1 extends AssignmentToken  {
+protected class PropertyValDeclaration_NameAssignment_3 extends AssignmentToken  {
 	
-	public PropertyValDeclaration_NameAssignment_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public PropertyValDeclaration_NameAssignment_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getPropertyValDeclarationAccess().getNameAssignment_2_1();
+		return grammarAccess.getPropertyValDeclarationAccess().getNameAssignment_3();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new PropertyValDeclaration_Alternatives_2_0(parent, this, 0, inst);
+			case 0: return new PropertyValDeclaration_TypeAssignment_2(parent, this, 0, inst);
+			case 1: return new PropertyValDeclaration_FinalAssignment_1(parent, this, 1, inst);
+			case 2: return new PropertyValDeclaration_BDefPropertyAction_0(parent, this, 2, inst);
 			default: return null;
 		}	
 	}	
@@ -5293,7 +5227,7 @@ protected class PropertyValDeclaration_NameAssignment_2_1 extends AssignmentToke
 		IInstanceDescription obj = current.cloneAndConsume("name");
 		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
 			type = AssignmentType.LRC;
-			element = grammarAccess.getPropertyValDeclarationAccess().getNamePIDTerminalRuleCall_2_1_0();
+			element = grammarAccess.getPropertyValDeclarationAccess().getNamePIDTerminalRuleCall_3_0();
 			return obj;
 		}
 		return null;
@@ -5301,23 +5235,22 @@ protected class PropertyValDeclaration_NameAssignment_2_1 extends AssignmentToke
 
 }
 
-
 // "="
-protected class PropertyValDeclaration_EqualsSignKeyword_3 extends KeywordToken  {
+protected class PropertyValDeclaration_EqualsSignKeyword_4 extends KeywordToken  {
 	
-	public PropertyValDeclaration_EqualsSignKeyword_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public PropertyValDeclaration_EqualsSignKeyword_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getPropertyValDeclarationAccess().getEqualsSignKeyword_3();
+		return grammarAccess.getPropertyValDeclarationAccess().getEqualsSignKeyword_4();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new PropertyValDeclaration_Group_2(parent, this, 0, inst);
+			case 0: return new PropertyValDeclaration_NameAssignment_3(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -5325,15 +5258,15 @@ protected class PropertyValDeclaration_EqualsSignKeyword_3 extends KeywordToken 
 }
 
 // valueExpr=Expression
-protected class PropertyValDeclaration_ValueExprAssignment_4 extends AssignmentToken  {
+protected class PropertyValDeclaration_ValueExprAssignment_5 extends AssignmentToken  {
 	
-	public PropertyValDeclaration_ValueExprAssignment_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public PropertyValDeclaration_ValueExprAssignment_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getPropertyValDeclarationAccess().getValueExprAssignment_4();
+		return grammarAccess.getPropertyValDeclarationAccess().getValueExprAssignment_5();
 	}
 
     @Override
@@ -5352,7 +5285,7 @@ protected class PropertyValDeclaration_ValueExprAssignment_4 extends AssignmentT
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getExpressionRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getPropertyValDeclarationAccess().getValueExprExpressionParserRuleCall_4_0(); 
+				element = grammarAccess.getPropertyValDeclarationAccess().getValueExprExpressionParserRuleCall_5_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -5364,28 +5297,28 @@ protected class PropertyValDeclaration_ValueExprAssignment_4 extends AssignmentT
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new PropertyValDeclaration_EqualsSignKeyword_3(parent, next, actIndex, consumed);
+			case 0: return new PropertyValDeclaration_EqualsSignKeyword_4(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 // ";"
-protected class PropertyValDeclaration_SemicolonKeyword_5 extends KeywordToken  {
+protected class PropertyValDeclaration_SemicolonKeyword_6 extends KeywordToken  {
 	
-	public PropertyValDeclaration_SemicolonKeyword_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public PropertyValDeclaration_SemicolonKeyword_6(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getPropertyValDeclarationAccess().getSemicolonKeyword_5();
+		return grammarAccess.getPropertyValDeclarationAccess().getSemicolonKeyword_6();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new PropertyValDeclaration_ValueExprAssignment_4(parent, this, 0, inst);
+			case 0: return new PropertyValDeclaration_ValueExprAssignment_5(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -5399,13 +5332,13 @@ protected class PropertyValDeclaration_SemicolonKeyword_5 extends KeywordToken  
 /************ begin Rule PropertyVarDeclaration ****************
  *
  * PropertyVarDeclaration returns be::BDefProperty:
- *   {be::BDefProperty} final?="final"? mutable?="mutable" (("property"|type=TypeRef)
- *   name=PID) ("=" valueExpr=Expression)? ";";
+ *   {be::BDefProperty} final?="final"? mutable?="mutable" type=TypeRef? name=PID ("="
+ *   valueExpr=Expression)? ";";
  *
  **/
 
-// {be::BDefProperty} final?="final"? mutable?="mutable" (("property"|type=TypeRef)
-// name=PID) ("=" valueExpr=Expression)? ";"
+// {be::BDefProperty} final?="final"? mutable?="mutable" type=TypeRef? name=PID ("="
+// valueExpr=Expression)? ";"
 protected class PropertyVarDeclaration_Group extends GroupToken {
 	
 	public PropertyVarDeclaration_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -5420,7 +5353,7 @@ protected class PropertyVarDeclaration_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new PropertyVarDeclaration_SemicolonKeyword_5(parent, this, 0, inst);
+			case 0: return new PropertyVarDeclaration_SemicolonKeyword_6(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -5529,83 +5462,16 @@ protected class PropertyVarDeclaration_MutableAssignment_2 extends AssignmentTok
 
 }
 
-// ("property"|type=TypeRef) name=PID
-protected class PropertyVarDeclaration_Group_3 extends GroupToken {
+// type=TypeRef?
+protected class PropertyVarDeclaration_TypeAssignment_3 extends AssignmentToken  {
 	
-	public PropertyVarDeclaration_Group_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getPropertyVarDeclarationAccess().getGroup_3();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new PropertyVarDeclaration_NameAssignment_3_1(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// "property"|type=TypeRef
-protected class PropertyVarDeclaration_Alternatives_3_0 extends AlternativesToken {
-
-	public PropertyVarDeclaration_Alternatives_3_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Alternatives getGrammarElement() {
-		return grammarAccess.getPropertyVarDeclarationAccess().getAlternatives_3_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new PropertyVarDeclaration_PropertyKeyword_3_0_0(parent, this, 0, inst);
-			case 1: return new PropertyVarDeclaration_TypeAssignment_3_0_1(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// "property"
-protected class PropertyVarDeclaration_PropertyKeyword_3_0_0 extends KeywordToken  {
-	
-	public PropertyVarDeclaration_PropertyKeyword_3_0_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getPropertyVarDeclarationAccess().getPropertyKeyword_3_0_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new PropertyVarDeclaration_MutableAssignment_2(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// type=TypeRef
-protected class PropertyVarDeclaration_TypeAssignment_3_0_1 extends AssignmentToken  {
-	
-	public PropertyVarDeclaration_TypeAssignment_3_0_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public PropertyVarDeclaration_TypeAssignment_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getPropertyVarDeclarationAccess().getTypeAssignment_3_0_1();
+		return grammarAccess.getPropertyVarDeclarationAccess().getTypeAssignment_3();
 	}
 
     @Override
@@ -5618,13 +5484,13 @@ protected class PropertyVarDeclaration_TypeAssignment_3_0_1 extends AssignmentTo
 		
     @Override	
 	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("type",true)) == null) return null;
+		if((value = current.getConsumable("type",false)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("type");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getTypeRefRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getPropertyVarDeclarationAccess().getTypeTypeRefParserRuleCall_3_0_1_0(); 
+				element = grammarAccess.getPropertyVarDeclarationAccess().getTypeTypeRefParserRuleCall_3_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -5642,23 +5508,23 @@ protected class PropertyVarDeclaration_TypeAssignment_3_0_1 extends AssignmentTo
 	}	
 }
 
-
 // name=PID
-protected class PropertyVarDeclaration_NameAssignment_3_1 extends AssignmentToken  {
+protected class PropertyVarDeclaration_NameAssignment_4 extends AssignmentToken  {
 	
-	public PropertyVarDeclaration_NameAssignment_3_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public PropertyVarDeclaration_NameAssignment_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getPropertyVarDeclarationAccess().getNameAssignment_3_1();
+		return grammarAccess.getPropertyVarDeclarationAccess().getNameAssignment_4();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new PropertyVarDeclaration_Alternatives_3_0(parent, this, 0, inst);
+			case 0: return new PropertyVarDeclaration_TypeAssignment_3(parent, this, 0, inst);
+			case 1: return new PropertyVarDeclaration_MutableAssignment_2(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -5669,7 +5535,7 @@ protected class PropertyVarDeclaration_NameAssignment_3_1 extends AssignmentToke
 		IInstanceDescription obj = current.cloneAndConsume("name");
 		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
 			type = AssignmentType.LRC;
-			element = grammarAccess.getPropertyVarDeclarationAccess().getNamePIDTerminalRuleCall_3_1_0();
+			element = grammarAccess.getPropertyVarDeclarationAccess().getNamePIDTerminalRuleCall_4_0();
 			return obj;
 		}
 		return null;
@@ -5677,23 +5543,22 @@ protected class PropertyVarDeclaration_NameAssignment_3_1 extends AssignmentToke
 
 }
 
-
 // ("=" valueExpr=Expression)?
-protected class PropertyVarDeclaration_Group_4 extends GroupToken {
+protected class PropertyVarDeclaration_Group_5 extends GroupToken {
 	
-	public PropertyVarDeclaration_Group_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public PropertyVarDeclaration_Group_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Group getGrammarElement() {
-		return grammarAccess.getPropertyVarDeclarationAccess().getGroup_4();
+		return grammarAccess.getPropertyVarDeclarationAccess().getGroup_5();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new PropertyVarDeclaration_ValueExprAssignment_4_1(parent, this, 0, inst);
+			case 0: return new PropertyVarDeclaration_ValueExprAssignment_5_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -5701,21 +5566,21 @@ protected class PropertyVarDeclaration_Group_4 extends GroupToken {
 }
 
 // "="
-protected class PropertyVarDeclaration_EqualsSignKeyword_4_0 extends KeywordToken  {
+protected class PropertyVarDeclaration_EqualsSignKeyword_5_0 extends KeywordToken  {
 	
-	public PropertyVarDeclaration_EqualsSignKeyword_4_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public PropertyVarDeclaration_EqualsSignKeyword_5_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getPropertyVarDeclarationAccess().getEqualsSignKeyword_4_0();
+		return grammarAccess.getPropertyVarDeclarationAccess().getEqualsSignKeyword_5_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new PropertyVarDeclaration_Group_3(parent, this, 0, inst);
+			case 0: return new PropertyVarDeclaration_NameAssignment_4(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -5723,15 +5588,15 @@ protected class PropertyVarDeclaration_EqualsSignKeyword_4_0 extends KeywordToke
 }
 
 // valueExpr=Expression
-protected class PropertyVarDeclaration_ValueExprAssignment_4_1 extends AssignmentToken  {
+protected class PropertyVarDeclaration_ValueExprAssignment_5_1 extends AssignmentToken  {
 	
-	public PropertyVarDeclaration_ValueExprAssignment_4_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public PropertyVarDeclaration_ValueExprAssignment_5_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getPropertyVarDeclarationAccess().getValueExprAssignment_4_1();
+		return grammarAccess.getPropertyVarDeclarationAccess().getValueExprAssignment_5_1();
 	}
 
     @Override
@@ -5750,7 +5615,7 @@ protected class PropertyVarDeclaration_ValueExprAssignment_4_1 extends Assignmen
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getExpressionRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getPropertyVarDeclarationAccess().getValueExprExpressionParserRuleCall_4_1_0(); 
+				element = grammarAccess.getPropertyVarDeclarationAccess().getValueExprExpressionParserRuleCall_5_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -5762,7 +5627,7 @@ protected class PropertyVarDeclaration_ValueExprAssignment_4_1 extends Assignmen
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new PropertyVarDeclaration_EqualsSignKeyword_4_0(parent, next, actIndex, consumed);
+			case 0: return new PropertyVarDeclaration_EqualsSignKeyword_5_0(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
@@ -5770,22 +5635,22 @@ protected class PropertyVarDeclaration_ValueExprAssignment_4_1 extends Assignmen
 
 
 // ";"
-protected class PropertyVarDeclaration_SemicolonKeyword_5 extends KeywordToken  {
+protected class PropertyVarDeclaration_SemicolonKeyword_6 extends KeywordToken  {
 	
-	public PropertyVarDeclaration_SemicolonKeyword_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public PropertyVarDeclaration_SemicolonKeyword_6(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getPropertyVarDeclarationAccess().getSemicolonKeyword_5();
+		return grammarAccess.getPropertyVarDeclarationAccess().getSemicolonKeyword_6();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new PropertyVarDeclaration_Group_4(parent, this, 0, inst);
-			case 1: return new PropertyVarDeclaration_Group_3(parent, this, 1, inst);
+			case 0: return new PropertyVarDeclaration_Group_5(parent, this, 0, inst);
+			case 1: return new PropertyVarDeclaration_NameAssignment_4(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
