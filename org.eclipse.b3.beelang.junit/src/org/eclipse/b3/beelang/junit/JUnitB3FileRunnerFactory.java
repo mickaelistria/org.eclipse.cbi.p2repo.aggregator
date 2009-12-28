@@ -119,7 +119,7 @@ class JUnitB3FileRunnerFactory {
 					}
 				}
 
-				throw new MultiProblemException("Multiple errors during parsing of the file", problems);
+				throw new MultiProblemException("There were parse errors in the file", problems);
 			}
 
 			BeeModel beeModel = (BeeModel) resource.getParseResult().getRootASTElement();
