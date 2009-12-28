@@ -24,6 +24,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.ContentHandler;
 import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
+import org.eclipse.xtext.diagnostics.AbstractDiagnostic;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
 import org.junit.runner.Description;
@@ -110,16 +111,15 @@ class JUnitB3FileRunnerFactory {
 
 				for(Diagnostic error : errors) {
 					try {
-						// TODO: getLine(), getColumn() not supported yet
-						// throw new Exception("Problem at line: " + error.getLine() + ", column: " + error.getColumn()
-						// + ": " + error.getMessage());
-						throw new Exception(error.getMessage());
+						if(error instanceof AbstractDiagnostic)
+							throw new Exception("Error at line: " + error.getLine() + ": " + error.getMessage());
+						throw new Exception("Error at unspecified location: " + error.getMessage());
 					} catch(Throwable t) {
 						problems.add(t);
 					}
 				}
 
-				throw new MultiProblemException("Multiple problems during parsing of the file", problems);
+				throw new MultiProblemException("Multiple errors during parsing of the file", problems);
 			}
 
 			BeeModel beeModel = (BeeModel) resource.getParseResult().getRootASTElement();
