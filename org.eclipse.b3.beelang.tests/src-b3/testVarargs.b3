@@ -3,13 +3,20 @@ import java.lang.Integer;
 
 function main(List argv) {
 	testVarargs();
+	testLambdaVarargs();
 }
 function testVarargs() {
 	assertEquals("calling varargs function1 summing all", 6, variable1(1,2,3));
 	assertEquals("calling varargs function2 summing all", 6, variable2(1,2,3));
-	
 }
 
+function testLambdaVarargs() {
+	var l1 = {<Integer> ... Integer v | v.inject(0, _, Integer x, Integer y | x+y ) };	
+	var l2 = {<Integer> ... Integer v | v[0] + v[1] + v[2] };	
+	assertEquals("calling varargs function1 summing all", 6, l1.evaluate(1,2,3));
+	assertEquals("calling varargs function1 summing all", 6, l2.evaluate(1,2,3));
+//		...Integer v | v.inject(0,_, Integer x, Integer y | x + y)); 
+}
 private function variable1(... Integer v) {
 	v.inject(0, _,Integer x, Integer y| x + y );
 }
