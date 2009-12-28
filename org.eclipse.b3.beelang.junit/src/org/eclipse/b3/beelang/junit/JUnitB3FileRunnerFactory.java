@@ -20,8 +20,10 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.b3.beeLang.BeeModel;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.ContentHandler;
+import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
 import org.junit.runner.Description;
@@ -101,7 +103,24 @@ class JUnitB3FileRunnerFactory {
 					ContentHandler.UNSPECIFIED_CONTENT_TYPE);
 
 			resource.load(null);
-			// TODO: consult resource.getErrors() and report possible errors
+
+			EList<Diagnostic> errors = resource.getErrors();
+			if(errors.size() > 0) {
+				ArrayList<Throwable> problems = new ArrayList<Throwable>(errors.size());
+
+				for(Diagnostic error : errors) {
+					try {
+						// TODO: getLine(), getColumn() not supported yet
+						// throw new Exception("Problem at line: " + error.getLine() + ", column: " + error.getColumn()
+						// + ": " + error.getMessage());
+						throw new Exception(error.getMessage());
+					} catch(Throwable t) {
+						problems.add(t);
+					}
+				}
+
+				throw new MultiProblemException("Multiple problems during parsing of the file", problems);
+			}
 
 			BeeModel beeModel = (BeeModel) resource.getParseResult().getRootASTElement();
 			BExecutionContext b3Context = (b3Engine = new B3Engine()).getContext();
@@ -187,6 +206,11 @@ class JUnitB3FileRunnerFactory {
 				throw new Exception(errorMessage, error);
 			} catch(Throwable t) {
 				notifier.fireTestFailure(new Failure(description, t));
+				Throwable cause = t.getCause();
+				if(cause != null && cause instanceof MultiProblemException) {
+					for(Throwable problem : ((MultiProblemException) cause).getProblems())
+						notifier.fireTestFailure(new Failure(description, problem));
+				}
 			} finally {
 				notifier.fireTestFinished(description);
 			}
