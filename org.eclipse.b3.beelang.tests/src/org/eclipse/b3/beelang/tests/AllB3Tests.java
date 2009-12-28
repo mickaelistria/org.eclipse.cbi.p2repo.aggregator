@@ -21,6 +21,7 @@ import org.junit.runner.RunWith;
 		"/src-b3/testLiteralMap.b3", //
 		"/src-b3/testLogicalFunctions.b3", //
 		"/src-b3/testNew.b3", //
+		"/src-b3/testProperties.b3", //
 		"/src-b3/testRelationalFunctions.b3", //
 		"/src-b3/testSequenceExpression.b3", //
 		"/src-b3/testSwitch.b3", //
