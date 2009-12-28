@@ -349,7 +349,12 @@ SimpleTypeRef returns be::IType
 
 // ClosureTypeRef declares parameters and return type	TODO: use TypeRef instead of direct reference to imported class
 ClosureTypeRef returns be::IType
-	: {be::B3FunctionType} ('(' (parameterTypes += [be::B3JavaImport | ID] (',' parameterTypes += [be::B3JavaImport | ID])*)? ')'
+	: {be::B3FunctionType} 
+		('(' 
+			(
+			(parameterTypes += [be::B3JavaImport | ID] (',' parameterTypes += [be::B3JavaImport | ID])* (',' varArgs ?= "..." parameterTypes += [be::B3JavaImport | ID])?)
+			| (varArgs ?= "..." parameterTypes += [be::B3JavaImport | ID])
+			)? ')'
 		'=>' returnType = [be::B3JavaImport | ID] )
 	;
 	
@@ -541,13 +546,19 @@ LiteralMap returns  be::BExpression
 	;
 
 LiteralFunction returns be::BExpression: {be::B3Function} '{' ('<' returnType=TypeRef '>')?
-	(parameters += ParameterDeclaration (',' parameters += ParameterDeclaration)*)? 
+	(
+	(parameters += ParameterDeclaration (',' parameters += ParameterDeclaration)* (',' varArgs?="..." parameters += ParameterDeclaration)?)
+	| (varArgs?="..." parameters += ParameterDeclaration)
+	)? 
 	'|' funcExpr=OneOrManyExpressions '}'
 	;
 
 ClosureExpression returns be::BExpression: {be::B3Function} 
 	('<' returnType=TypeRef '>')?
-	(parameters += ParameterDeclaration (',' parameters += ParameterDeclaration)*)? 
+	(
+	(parameters += ParameterDeclaration (',' parameters += ParameterDeclaration)* (',' varArgs?="..." parameters += ParameterDeclaration)?)
+	| (varArgs?="..." parameters += ParameterDeclaration)
+	)? 
 	'|' funcExpr=OneOrManyExpressions
 	;
 
@@ -555,6 +566,7 @@ OneOrManyExpressions returns be::BExpression
 	: BlockExpressionWithoutBrackets
 	| Expression
 	;
+	
 // TODO VAREXPR - can have variable definitions
 BlockExpressionWithoutBrackets returns be::BExpression : {be::BChainedExpression} (expressions += TopLevelExpression ';')+ ;
 	
