@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://b3build/1.0"
+            class="org.eclipse.b3.build.build.B3BuildPackage"
+            genModel="model/B3Build.genmodel"/>
+   </extension>
+
+</plugin>
