@@ -175,7 +175,7 @@ public class B3FuncStore {
 				// for varargs
 				if(!TypeUtils.isArray(pt[pt.length-1]))
 					throw new IllegalArgumentException(
-						"A method with name: '"+ name + "', declared to have varargs does not have an array as its last parameter");
+						"A function with name: '"+ name + "', declared to have varargs does not have an array as its last parameter");
 				// list can be one item shorter than the list
 				if(types.length < pt.length -1)
 					continue perFunction; // not a match - list is too short
