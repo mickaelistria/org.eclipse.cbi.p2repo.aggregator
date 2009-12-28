@@ -1,0 +1,39 @@
+import java.util.List;
+import java.lang.String;
+import java.lang.System;
+
+properties setA {
+	
+	// typed property
+	String $a.b.c = "hello";
+	
+	// final typed property
+	final String $a.b.c = "hello";
+	
+	// value property (immutable)
+	$x.y.z = 10;
+	
+	// mutable property
+	mutable  $can.be.changed = 10;
+	
+	// final mutable property
+	final mutable  $can.be.changed.but.not.redefined = null;
+	
+	// mutable and typed property
+	mutable String $mutable.typed.property = "change me";
+	
+	final mutable String $final.mutable.typed.property = "foo";
+	
+	$a = {var a = "hello"; a.substring(1,2); };
+	
+	when($a == "el")  $b = 10;
+	
+}
+function main(List argv) {
+	testPropertyValues();
+}
+function testPropertyValues() {
+	assertEquals("java.version", System.getProperty("java.version"), $java.version);
+	assertNotNull("java.version not null", $java.version);
+	
+}
