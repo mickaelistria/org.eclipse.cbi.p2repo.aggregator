@@ -2943,7 +2943,7 @@
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_HRCwU-wtEd67DZoMEVprfQ" points="[-50, -2, -35, 409]$[-95, -2, -80, 409]$[-95, -387, -80, 24]"/>
     </edges>
   </notation:Diagram>
-  <notation:Diagram xmi:id="_PTU_AO6OEd67DZoMEVprfQ" type="EcoreTools" name="Digram Properties" measurementUnit="Pixel">
+  <notation:Diagram xmi:id="_PTU_AO6OEd67DZoMEVprfQ" type="EcoreTools" name="Properties" measurementUnit="Pixel">
     <children xmi:type="notation:Node" xmi:id="_RxwJQO6OEd67DZoMEVprfQ" type="1001">
       <children xmi:type="notation:Node" xmi:id="_RxwwUO6OEd67DZoMEVprfQ" type="4001"/>
       <children xmi:type="notation:Node" xmi:id="_RxwwUe6OEd67DZoMEVprfQ" type="5001">

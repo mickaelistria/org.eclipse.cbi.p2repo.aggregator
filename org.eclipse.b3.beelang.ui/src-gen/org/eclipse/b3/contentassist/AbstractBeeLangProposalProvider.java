@@ -1094,6 +1094,14 @@ public class AbstractBeeLangProposalProvider extends AbstractJavaBasedContentPro
 		}
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
+	public void completeFunction_VarArgs(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		if (logger.isDebugEnabled()) {
+			logger.debug("completeFunction_VarArgs feature '" + assignment.getFeature() + "' terminal '"
+					+ assignment.getTerminal() + "' cardinality '" + assignment.getCardinality() + "' and prefix '"
+					+ context.getPrefix() + "'");
+		}
+		// subclasses may override
+	}
 	public void completeFunction_FuncExpr(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		if (logger.isDebugEnabled()) {
 			logger.debug("completeFunction_FuncExpr feature '" + assignment.getFeature() + "' terminal '"

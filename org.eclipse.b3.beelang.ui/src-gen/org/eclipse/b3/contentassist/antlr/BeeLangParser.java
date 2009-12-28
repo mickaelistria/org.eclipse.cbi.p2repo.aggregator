@@ -55,6 +55,7 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRepositoryDeclarationAccess().getAlternatives_1(), "rule__RepositoryDeclaration__Alternatives_1");
 					put(grammarAccess.getResolutionStrategyAccess().getStrategyAlternatives_0_0(), "rule__ResolutionStrategy__StrategyAlternatives_0_0");
 					put(grammarAccess.getConcernBlockAccess().getAlternatives_3(), "rule__ConcernBlock__Alternatives_3");
+					put(grammarAccess.getFunctionAccess().getAlternatives_8_1(), "rule__Function__Alternatives_8_1");
 					put(grammarAccess.getFunctionAccess().getAlternatives_9(), "rule__Function__Alternatives_9");
 					put(grammarAccess.getAssignmentOperatorAccess().getAlternatives(), "rule__AssignmentOperator__Alternatives");
 					put(grammarAccess.getRelationalOperatorAccess().getAlternatives(), "rule__RelationalOperator__Alternatives");
@@ -208,7 +209,9 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getExpressionListAccess().getGroup(), "rule__ExpressionList__Group__0");
 					put(grammarAccess.getFunctionAccess().getGroup(), "rule__Function__Group__0");
 					put(grammarAccess.getFunctionAccess().getGroup_8(), "rule__Function__Group_8__0");
-					put(grammarAccess.getFunctionAccess().getGroup_8_1(), "rule__Function__Group_8_1__0");
+					put(grammarAccess.getFunctionAccess().getGroup_8_1_0(), "rule__Function__Group_8_1_0__0");
+					put(grammarAccess.getFunctionAccess().getGroup_8_1_0_1(), "rule__Function__Group_8_1_0_1__0");
+					put(grammarAccess.getFunctionAccess().getGroup_8_1_0_2(), "rule__Function__Group_8_1_0_2__0");
 					put(grammarAccess.getFunctionAccess().getGroup_8_1_1(), "rule__Function__Group_8_1_1__0");
 					put(grammarAccess.getFunctionAccess().getGroup_9_0(), "rule__Function__Group_9_0__0");
 					put(grammarAccess.getAssignmentExpressionAccess().getGroup(), "rule__AssignmentExpression__Group__0");
@@ -471,7 +474,11 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFunctionAccess().getFinalAssignment_4(), "rule__Function__FinalAssignment_4");
 					put(grammarAccess.getFunctionAccess().getReturnTypeAssignment_6(), "rule__Function__ReturnTypeAssignment_6");
 					put(grammarAccess.getFunctionAccess().getNameAssignment_7(), "rule__Function__NameAssignment_7");
-					put(grammarAccess.getFunctionAccess().getParametersAssignment_8_1_0(), "rule__Function__ParametersAssignment_8_1_0");
+					put(grammarAccess.getFunctionAccess().getParametersAssignment_8_1_0_0(), "rule__Function__ParametersAssignment_8_1_0_0");
+					put(grammarAccess.getFunctionAccess().getParametersAssignment_8_1_0_1_1(), "rule__Function__ParametersAssignment_8_1_0_1_1");
+					put(grammarAccess.getFunctionAccess().getVarArgsAssignment_8_1_0_2_1(), "rule__Function__VarArgsAssignment_8_1_0_2_1");
+					put(grammarAccess.getFunctionAccess().getParametersAssignment_8_1_0_2_2(), "rule__Function__ParametersAssignment_8_1_0_2_2");
+					put(grammarAccess.getFunctionAccess().getVarArgsAssignment_8_1_1_0(), "rule__Function__VarArgsAssignment_8_1_1_0");
 					put(grammarAccess.getFunctionAccess().getParametersAssignment_8_1_1_1(), "rule__Function__ParametersAssignment_8_1_1_1");
 					put(grammarAccess.getFunctionAccess().getFuncExprAssignment_9_0_1(), "rule__Function__FuncExprAssignment_9_0_1");
 					put(grammarAccess.getFunctionAccess().getFuncExprAssignment_9_1(), "rule__Function__FuncExprAssignment_9_1");

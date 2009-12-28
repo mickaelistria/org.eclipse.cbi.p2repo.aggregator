@@ -12,6 +12,7 @@ import java.util.Set;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BGuard;
+import org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 
 public class B3FuncStore {
@@ -173,7 +174,8 @@ public class B3FuncStore {
 				}
 			else {
 				// for varargs
-				if(!TypeUtils.isArray(pt[pt.length-1]))
+				// A java function must have an array as the last argument to be compatible
+				if(f instanceof BJavaFunction && !TypeUtils.isArray(pt[pt.length-1]))
 					throw new IllegalArgumentException(
 						"A function with name: '"+ name + "', declared to have varargs does not have an array as its last parameter");
 				// list can be one item shorter than the list
@@ -189,7 +191,12 @@ public class B3FuncStore {
 				Class<?> varArgsType;
 				// check compatibility of varargs
 				if(types.length >= pt.length) {
-					varArgsType = TypeUtils.getArrayComponentClass(pt[pt.length-1]);
+					// java functions have an array type for varargs, B3 functions declare it as a regular type, and
+					// the calling logic passes it as a List.
+					if(f instanceof BJavaFunction)
+						varArgsType = TypeUtils.getArrayComponentClass(pt[pt.length-1]);
+					else
+						varArgsType = TypeUtils.getRaw(pt[pt.length-1]);
 					if(varArgsType != Object.class) // no need to check if type is object - anything goes
 						for(int i = limit; i < types.length; i++)
 							if(! TypeUtils.isAssignableFrom(varArgsType, types[i])) // incompatible var arg

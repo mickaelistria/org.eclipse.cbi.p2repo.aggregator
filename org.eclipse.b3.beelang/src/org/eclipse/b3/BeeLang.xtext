@@ -282,7 +282,10 @@ Function returns be::B3Function: {be::B3Function}
    	(returnType = TypeRef)?
    	name=ID 
 //   	( '<' typeParams+= TypeParamDeclaration (',' typeParams+=TypeParamDeclaration)* '>')? // TODO: add support for this in the model
-   	('(' (parameters += ParameterDeclaration (',' parameters += ParameterDeclaration)*)? ')' )?
+   	('(' (
+   		(parameters += ParameterDeclaration (',' parameters += ParameterDeclaration)* (',' varArgs?="..." parameters += ParameterDeclaration)?)
+   		| (varArgs ?= "..." parameters += ParameterDeclaration)
+   		)? ')' )?
    	((':' funcExpr=Expression ';') | (funcExpr=BlockExpression))
 	;
 	

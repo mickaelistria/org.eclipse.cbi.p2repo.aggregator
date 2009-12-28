@@ -27,6 +27,7 @@ import org.junit.runner.RunWith;
 		"/src-b3/testSwitch.b3", //
 		"/src-b3/testSystemFunctions.b3", //
 		"/src-b3/testTypes.b3", //
+		"/src-b3/testVarargs.b3", //
 		"/src-b3/testVarValScope.b3" //
 })
 public class AllB3Tests {
