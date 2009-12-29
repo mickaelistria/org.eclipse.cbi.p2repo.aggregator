@@ -69,7 +69,7 @@ class JUnitB3FileRunnerFactory {
 				// We call Description.createSuiteDescription despite this is really no test suite. This is because the
 				// other Description.create*Description methods take a Class<?> argument which we can't provide since
 				// the tests are actually B3 functions not wrapped by any Java class.
-				testDescription = Description.createSuiteDescription(String.format("%s(%s)", functionName, b3FilePath));
+				testDescription = Description.createSuiteDescription(functionName + '(' + b3FilePath + ')');
 			}
 
 			public String getFunctionName() {
@@ -143,7 +143,7 @@ class JUnitB3FileRunnerFactory {
 
 				if(functionName.length() > TEST_FUNCTION_PREFIX.length()
 						&& functionName.startsWith(TEST_FUNCTION_PREFIX) && function.getParameterTypes().length == 0)
-					testFunctionDescriptors.add(new TestFunctionDescriptor(function.getName()));
+					testFunctionDescriptors.add(new TestFunctionDescriptor(functionName));
 			}
 		}
 
