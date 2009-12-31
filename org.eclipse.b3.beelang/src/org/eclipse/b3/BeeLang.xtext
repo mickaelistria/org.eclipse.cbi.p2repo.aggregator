@@ -2,14 +2,15 @@
 grammar org.eclipse.b3.BeeLang // with org.eclipse.xtext.common.Terminals
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 import "platform:/resource/org.eclipse.b3.backend/model/B3Backend.ecore" as be
-import "platform:/resource/org.eclipse.b3.beelang/src/org/eclipse/b3/BeeLangTypes.ecore" as types
+import "platform:/resource/org.eclipse.b3.build/model/B3Build.ecore" as build
+//import "platform:/resource/org.eclipse.b3.beelang/src/org/eclipse/b3/BeeLangTypes.ecore" as types
 generate beeLang "http://www.eclipse.org/b3/BeeLang"
 
 BeeModel hidden(WS, SL_COMMENT, ML_COMMENT): 
 	(imports += Import)* 
 	(	(functions+=Function) 
-	| 	(concern+=Concern)
-	|	('properties'  propertySets += NamedPropertySet)
+	| 	(concern+=Concern_Named)
+	|	('properties'  propertySets += PropertySet_Named)
 	)* 
 	(body = Unit)? 
 	;
@@ -27,7 +28,7 @@ Import returns be::IType: {be::B3JavaImport}(reexport ?='reexport')? "import" qu
 Unit returns BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT) : {BuildUnit}
 	(documentation = DOCUMENTATION)?
 	(executionMode = ExecutionMode)?
-	'unit' (name=UnitName)? ('version' version = Version)?
+	'unit' (name=UnitName)? ('version' version = VersionLiteral)?
 		('implements' implements += InterfaceName (',' implements+=InterfaceName)*)? 
 	'{'
 		(	//-- PROPERTIES
@@ -45,7 +46,7 @@ Unit returns BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT) : {BuildUnit}
 			| ('env' 'requires' '{' (metaRequiredCapabilities += RequiredCapability ';')+ '}' )
 			| ('env' 'requires' metaRequiredCapabilities += RequiredCapability ';')
 			//--CONCERNS
-			| (concerns+=Concern )
+			| (concerns+=Concern_Named)
 			//--SYNCHRONIZE
 			| ('sequential' '{' (synchronizations += Synchronization )+  '}' )
 			| ('sequential' synchronizations += Synchronization  )
@@ -54,25 +55,36 @@ Unit returns BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT) : {BuildUnit}
 			| (functions += Function )			
 			//-- REPOSITORIES
 			| ('repositories' '{' (repositoryConfigurations+=RepositoryConfiguration)* '}' )
-			| ('properties'  propertySets += NamedPropertySet)
+			| ('properties'  propertySets += PropertySet_Named)
 			| ('containers' '{' containers += ContainerConfiguration* '}' )
 		)*
 	'}';
 
-ProvidedCapability : capability=FilteredCapability  ('/' version=Version)?  ;
-RequiredCapability : capability=FilteredCapability ('/' range=VersionRange)?  ;
-FilteredCapability : ('when' filter=Filter)? capability = Capability ;
-Capability : interface=InterfaceName '/' name=UnitName ;
+ProvidedCapability returns build::VersionedCapability: {build::VersionedCapability}
+	('when' '(' condExpr=Expression ')')?  
+	nameSpace=InterfaceName '/' name=UnitName 
+	('/' version=VersionLiteral)?  
+	;
+	
+RequiredCapability returns build::RequiredCapability: {build::RequiredCapability} 
+	('when' '(' condExpr=Expression ')')?  
+	nameSpace=InterfaceName '/' name=UnitName 
+	('/' versionRange=VersionRangeLiteral)?  
+	;
+	
+//RequiredCapability : capability=FilteredCapability ('/' range=VersionRange)?  ;
+//FilteredCapability : ('when' filter=Filter)? capability = Capability ;
+//Capability returns build::Capability: {build::Capability} nameSpace=InterfaceName '/' name=UnitName ;
 
 // An optionally named sequence of property statements
-NamedPropertySet returns be::BNamedPropertySet
-	: {be::BNamedPropertySet} name = ID ("extends" extends=[be::BNamedPropertySet | QIDREF])?
+PropertySet_Named returns be::BPropertySet
+	: {be::BPropertySet} name = ID ("extends" extends=[be::BPropertySet | QIDREF])?
 	'{' (operations += PropertyOperation )* '}' 
 	;
 
 // Sequence of possibly filtered property statements	
 PropertySet returns be::BPropertySet
-	:  {be::BPropertySet} ("extends" extends=[be::BNamedPropertySet | QIDREF])? 
+	:  {be::BPropertySet} ("extends" extends=[be::BPropertySet | QIDREF])? 
 		'{' (operations += PropertyOperation )*  '}'
 	;
 
@@ -124,27 +136,30 @@ SynchronizedPart
 	| PartName
 	;
 	
-PathGroup : paths+=PathVectorElement+ ('annotations' annotations = PropertySet)? ;
+PathGroup returns build::PathGroup: {build::PathGroup}
+	pathVectors+=PathVector+ ('annotations' annotations = PropertySet)?
+	;
 
-PathVectorElement returns PathVectorElement
-	: FilteredPathVector
-	| BasePathVector
+PathVector returns build::PathVector
+	: BasePathVector
 	| UnbasedPathVector
+	| CompoundPathVector
 	;
 	
-FilteredPathVector returns FilteredPathVector 
-	: 'when' filter=Filter body=(BasePathVector|UnbasedPathVector|CompoundPathVector) 
+BasePathVector returns build::PathVector : {build::PathVectorElement}
+	("when" '(' condExpr=Expression ')')?
+	basePath=Path '[' ( paths+=Path (',' paths+=Path)*)? ']' ';'
 	;
 
-BasePathVector returns PathVector
-	: basePath=Path '[' ( paths+=Path (',' paths+=Path)*)? ']' ';'
-	;
-
-UnbasedPathVector returns PathVector
-	: paths+=Path (',' paths+=Path)* ';'
+UnbasedPathVector returns build::PathVector : {build::PathVectorElement}
+	("when" '(' condExpr=Expression ')')?
+	paths+=Path (',' paths+=Path)* ';'
 	;
 	
-CompoundPathVector returns CompoundPathVector: {CompoundPathVector} '{' body+=PathVectorElement* '}' ;
+CompoundPathVector returns build::PathVector: {build::CompoundPathVector}
+	"when" '(' condExpr=Expression ')'
+	'{' (pathVectors += PathVector)* '}' 
+	;
 
 // A path can be written without quotes if it consists of safe chars 
 Path hidden()
@@ -152,55 +167,59 @@ Path hidden()
 	| ('/')? QID ('/' QID)* ('/')? 
 	;
 
-Prerequisite : 
-		('when' filter=Filter )?
-		(withClause = WithClause)?
-		partReference=PrerequisiteEntry 
-		("as" alias=ID)? ';'
+Prerequisite returns build::Prerequisite : {build::Prerequisite} 
+	('when' '(' condExpr=Expression ')' )?
+	(withExpr = WithClause)?
+	buildResult=BuildResultReference
+	("as" alias=ID)? ';'
 	;
 
 // Validation checks that there is at least one of references, properties or concern.
-WithClause : {WithClause}
+WithClause returns be::BWithExpression: {be::BWithExpression}
 		'with'
-		( '(' references += Expression (',' references += Expression)* ')' )? 
-		(( 'properties' properties += PropertySet ) 
-		| ( 'concern' concern += ConcernBlock ))*
+		( '(' referencedAdvice += [be::BAdvice | ID] (',' referencedAdvice += [be::BAdvice | ID])* ')' )? 
+		(( 'properties' propertySets += PropertySet ) | ( 'concern' concerns += Concern_Anonymous ))*
 		;
 			
-PrerequisiteEntry 
-	: DirectPartReferemce
-	| CapabilityReferencedPart
-	| CompoundReferences
+BuildResultReference returns build::BuildResultReference
+	: DirectBuildResultReference
+	| CapabilityReference
+	| CompoundBuildResultReference
 	;
 	
-DirectPartReferemce	: ((unit=QID)|(unit="unit"))? '#' builder=PartName  (parameters = ParameterList)?; 
+DirectBuildResultReference returns build::BuildResultReference :{build::DirectBuildResultReference} 
+	((name=QID)|("unit"))? '#' builderName=PartName (parameters = ParameterList)? ; 
 	
-CapabilityReferencedPart : 
-	capability=Capability ('/' range=VersionRange)? ('#' partName=PartName) ?
+CapabilityReference returns build::BuildResultReference : {build::IndirectBuildResultReference}
+	nameSpace=InterfaceName '/' name=UnitName
+	('/' versionRange=VersionRangeLiteral)? ('#' builderName=PartName) ?
 	(parameters = ParameterList)?	 
 	;
 	
-CompoundReferences
-	: {CompounddReferences} '{' (prerequisites += Prerequisite)* '}'
+CompoundBuildResultReference returns build::BuildResultReference
+	: {build::CompoundBuildResultReference} '{' (prerequisites += Prerequisite)* '}'
 	;
 	
-Builder returns Builder : {Builder}
+Builder returns build::Builder : {build::Builder}
 	(documentation = DOCUMENTATION)? 
 	(visibility = Visibility)?
     (executionMode = ExecutionMode)?
   	(final ?= "final")?
-	(cached ?= "cached")?
+//	(cached ?= "cached")?
     "builder"
 	name=PartName
-	('(' params = ParameterDeclarationList ')')?
+	('(' 
+		(parameters += ParameterDeclaration (',' parameters += ParameterDeclaration)* (',' varArgs?="..." parameters+=ParameterDeclaration)?)
+		| (varArgs?="..." parameters += ParameterDeclaration)
+	')')?
 	('provides' providedCapabilities += ProvidedCapability (',' providedCapabilities += ProvidedCapability)*  )?
-	(preCondition = PreCondition)?
-	(postCondition = PostCondition)?
+	("precondition" ((':' precondExpr = Expression ';' )|( precondExpr = BlockExpression)))?
+	("postcondition" ((':' postcondExpr = Expression ';' )|( postcondExpr = BlockExpression)))?
 	 '{'
-		('default' 'properties' properties = PropertySet)?
+		('default' 'properties' defaultProperties = PropertySet)?
 	     ( input = BuilderInput )? 
-	     ( output = BuilderOutput )?
-	     (expressionList = ExpressionList)?
+	     ( "output" '{' output = PathGroup '}' )? 
+	     (funcExpr = BlockExpressionWithoutBrackets)?
 	 '}'
 	;
 
@@ -228,13 +247,15 @@ ParameterDeclarationEllipse returns ParameterDeclaration :
 InputKeyword : 'input' ; 
 OutputKeyword : 'output'; 
 	
-BuilderOutput returns BuilderOutput
-	: OutputKeyword '{' body = PathGroup '}' 
+BuilderOutput 
+	: "output" '{' body = PathGroup '}' 
 	;
 	
 
-BuilderInput
-	: InputKeyword (preCondition = PreCondition)? (postCondition = PostCondition)?	 
+BuilderInput returns build::BuilderInput : {build::BuilderInput}
+	"input"
+		("precondition" ((':' precondExpr = Expression ';' )|( precondExpr = BlockExpression)))?
+		("postcondition" ((':' postcondExpr = Expression ';' )|( postcondExpr = BlockExpression)))?
 		'{' (prerequisites += Prerequisite)+ '}'
 	;
 
@@ -255,23 +276,36 @@ ContainerConfiguration :
 	"container" name=ID "agent" type=TypeRef (contextBlock = ContextBlock)? 
 	;
 	
-URI /* returns types::URI */: STRING
+URI /* returns build::URI */: STRING
 	;
 
-Concern : (documentation = DOCUMENTATION)? "concern" name=ID concern = ConcernBlock ;
-
-ConcernBlock : {ConcernBlock}
-	("extends" superConcerns+= ID (',' superConcerns += ID)*)? 
-	'{' ((contexts+=Context) | (functions+=Function))* '}' 
+Concern_Named returns be::BConcern: {be::BConcern} 
+	(documentation = DOCUMENTATION)? "concern" name=ID
+	("extends" superConcerns += [be::BConcern | ID] (',' superConcerns += [be::BConcern | ID])*)? 
+	'{' (
+			("properties" propertySets += PropertySet) 
+		| 	(functions+=Function)
+		|	(functions+=Builder)
+		)* '}' 
 	;
 
-Filter : '(' predicate = Expression ')' ;
 
-PreCondition : "precondition" '{' (asserts += AssertionExpression)+ '}' ;
-PostCondition : "postcondition" '{' (asserts += AssertionExpression)+ '}' ;
-AssertionExpression : 'assert' expr=Expression ',' message=STRING ';' ;
+Concern_Anonymous returns be::BConcern : {be::BConcern}
+	("extends" superConcerns+= [be::BConcern | ID] (',' superConcerns += [be::BConcern | ID])*)? 
+	'{' (
+			("properties" propertySets += PropertySet) 
+		| 	(functions+=Function)
+		|	(functions+=Builder)		
+		)* '}' 
+	;
 
-ExpressionList : (expressions += Expression ';')+ ;
+//Filter : '(' predicate = Expression ')' ;
+
+//PreCondition : "precondition" '{' (asserts += AssertionExpression)+ '}' ;
+//PostCondition : "postcondition" '{' (asserts += AssertionExpression)+ '}' ;
+//AssertionExpression : 'assert' expr=Expression ',' message=STRING ';' ;
+
+//ExpressionList : (expressions += Expression ';')+ ;
 
 Function returns be::B3Function: {be::B3Function}
 	(documentation = DOCUMENTATION)?
@@ -483,37 +517,60 @@ IfExpression returns be::BExpression
 	"endif"
 	;
 
-ElseIfExpression returns be::BExpression 
-	: {be::BIfExpression} "elseif" conditionExpr=Expression "then" thenExpr=Expression 
-		((elseExpr = ElseIfExpression | "else" elseExpr = Expression ))?
+ElseIfExpression returns be::BExpression : {be::BIfExpression} 
+	"elseif" conditionExpr=Expression 
+	"then" thenExpr=Expression 
+	((elseExpr = ElseIfExpression | "else" elseExpr = Expression ))?
 	;
 	
-PropertyValue returns  be::BExpression: {be::BVariableExpression} name = PID;
-VariableValue returns  be::BExpression: {be::BVariableExpression} name = ID ;
-KeywordVariables returns  be::BExpression: {be::BVariableExpression} 
-	name = (InputKeyword | OutputKeyword | "properties" | "unit") ;
+PropertyValue returns  be::BExpression : {be::BVariableExpression}
+	name = PID
+	;
+	
+VariableValue returns  be::BExpression : {be::BVariableExpression} 
+	name = ID 
+	;
+	
+KeywordVariables returns  be::BExpression : {be::BVariableExpression} 
+	name = ("input" | "output" | "properties" | "unit")
+	;
 
-FeatureCall returns be::BExpression:
+FeatureCall returns be::BExpression :
 	OperationCall
 	;
 	
-OperationCall returns be::BCallExpression
-	: {be::BCallExpression} name=(ID|PID) '(' (parameterList = ParameterList)? ')' 
+OperationCall returns be::BCallExpression : {be::BCallExpression}
+	name=(ID|PID) 
+	'(' (parameterList = ParameterList)? ')' 
 	;
 
-ConstructorCallExpression returns be::BExpression
-	: {be::BCreateExpression} "new" typeExpr=LiteralType ('(' (parameterList=ParameterList)? ')')?
-		("as" alias=ID)? (contextBlock = ContextBlock)?
+ConstructorCallExpression returns be::BExpression : {be::BCreateExpression} 
+	"new" typeExpr=LiteralType 
+	('(' (parameterList=ParameterList)? ')')?
+	("as" alias=ID)? 
+	(contextBlock = ContextBlock)?
 	;
 
-Context : "context" selector = ContextSelector block = ContextBlock ;
-ContextSelector : TypeRefSelector | ExpressionSelector | UnitSelector ;
-TypeRefSelector returns ContextSelector: type = TypeRef ;
-ExpressionSelector : expr = Expression ;
-UnitSelector : 
-	"unit" interface=QID 
-	('/' (name=UnitName | namePattern = REGULAR_EXPR) ('/' versionRange=VersionRange)? )? 
-	;
+//Context : 
+//	"context" selector = ContextSelector block = ContextBlock 
+//	;
+//
+//ContextSelector : 
+//	TypeRefSelector | ExpressionSelector | UnitSelector 
+//	;
+//	
+//TypeRefSelector returns ContextSelector :
+//	 type = TypeRef 
+//	 ;
+//	 
+//ExpressionSelector : 
+//	expr = Expression 
+//	;
+//	
+//UnitSelector : 
+//	"unit" interface=QID 
+//	('/' (name=UnitName | namePattern = REGULAR_EXPR) ('/' versionRange=VersionRange)? )? 
+//	;
 
 ContextBlock returns be::BExpression : {be::BChainedExpression} 
 	'{'  ((expressions +=FunctionDefinition) 
@@ -524,7 +581,7 @@ ContextBlock returns be::BExpression : {be::BChainedExpression}
 		;
 					
 //ExpressionStatement returns Statement : {ExpressionStatement} val=Expression ';' ;
-//PropertiesStatement returns Statement : {PropertiesStatement} "properties" properties = NamedPropertySet ;
+//PropertiesStatement returns Statement : {PropertiesStatement} "properties" properties = PropertySet_Named ;
 FunctionDefinition returns be::BExpression : {be::BDefFunction} function = Function;
 //BuilderDefinition returns Statement : {BuilderStatement} builder = Builder;
 
@@ -592,7 +649,7 @@ UnitLiteral returns  be::BExpression: {be::BLiteralExpression} value="unit";
 StringLiteral returns  be::BExpression: {be::BLiteralExpression} value = STRING;
 RealLiteral	returns  be::BExpression: {be::BLiteralExpression} value = RealValue;
 RegexpLiteral returns be::BExpression: {be::BRegularExpression} pattern = REGULAR_EXPR;
-NullLiteral	returns  be::BExpression: {be::BLiteralExpression} "null"; // TODO: check that type is Object
+NullLiteral	returns  be::BExpression: {be::BLiteralExpression} "null";
 
 //ThisLiteral	returns  be::BExpression: {ThisLiteral} val="this";
 //SuperLiteral returns  be::BExpression: {SuperLiteral} val="super";
@@ -610,16 +667,16 @@ ParanthesizedExpression returns be::BExpression
 	:  "(" Expression ")"
 	;	
 
-Version : version = VersionLiteral;
+//Version : version = VersionLiteral;
 
-VersionLiteral returns types::Version
+VersionLiteral returns build::Version
 	: STRING  
 	| AlfanumSym
 	;
 
-VersionRange : range = VersionRangeLiteral ;
+//VersionRange : range = VersionRangeLiteral ;
 
-VersionRangeLiteral returns types::VersionRange
+VersionRangeLiteral returns build::VersionRange
 	: ('[' | '(') (STRING | AlfanumSym) (',' (STRING | AlfanumSym))? (']'|')')
 	| (STRING | AlfanumSym)
 	;

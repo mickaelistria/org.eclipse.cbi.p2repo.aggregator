@@ -5,6 +5,8 @@
  */
 package org.eclipse.b3.beeLang;
 
+import org.eclipse.b3.build.build.PathGroup;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**

@@ -44,6 +44,132 @@ public interface B3BuildFactory extends EFactory {
 	Builder createBuilder();
 
 	/**
+	 * Returns a new object of class '<em>Versioned Capability</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Versioned Capability</em>'.
+	 * @generated
+	 */
+	VersionedCapability createVersionedCapability();
+
+	/**
+	 * Returns a new object of class '<em>Capability</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Capability</em>'.
+	 * @generated
+	 */
+	Capability createCapability();
+
+	/**
+	 * Returns a new object of class '<em>Required Capability</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Required Capability</em>'.
+	 * @generated
+	 */
+	RequiredCapability createRequiredCapability();
+
+	/**
+	 * Returns a new object of class '<em>Path Vector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Path Vector</em>'.
+	 * @generated
+	 */
+	PathVector createPathVector();
+
+	/**
+	 * Returns a new object of class '<em>Compound Path Vector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Compound Path Vector</em>'.
+	 * @generated
+	 */
+	CompoundPathVector createCompoundPathVector();
+
+	/**
+	 * Returns a new object of class '<em>Path Vector Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Path Vector Element</em>'.
+	 * @generated
+	 */
+	PathVectorElement createPathVectorElement();
+
+	/**
+	 * Returns a new object of class '<em>Builder Input</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Builder Input</em>'.
+	 * @generated
+	 */
+	BuilderInput createBuilderInput();
+
+	/**
+	 * Returns a new object of class '<em>Path Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Path Group</em>'.
+	 * @generated
+	 */
+	PathGroup createPathGroup();
+
+	/**
+	 * Returns a new object of class '<em>Prerequisite</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Prerequisite</em>'.
+	 * @generated
+	 */
+	Prerequisite createPrerequisite();
+
+	/**
+	 * Returns a new object of class '<em>Build Result Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Build Result Reference</em>'.
+	 * @generated
+	 */
+	BuildResultReference createBuildResultReference();
+
+	/**
+	 * Returns a new object of class '<em>Compound Build Result Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Compound Build Result Reference</em>'.
+	 * @generated
+	 */
+	CompoundBuildResultReference createCompoundBuildResultReference();
+
+	/**
+	 * Returns a new object of class '<em>Direct Build Result Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Direct Build Result Reference</em>'.
+	 * @generated
+	 */
+	DirectBuildResultReference createDirectBuildResultReference();
+
+	/**
+	 * Returns a new object of class '<em>Unit Build Result Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Unit Build Result Reference</em>'.
+	 * @generated
+	 */
+	UnitBuildResultReference createUnitBuildResultReference();
+
+	/**
+	 * Returns a new object of class '<em>Indirect Build Result Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Indirect Build Result Reference</em>'.
+	 * @generated
+	 */
+	IndirectBuildResultReference createIndirectBuildResultReference();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

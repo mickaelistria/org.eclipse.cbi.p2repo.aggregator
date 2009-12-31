@@ -15,7 +15,6 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 import java.util.Collection;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
-import org.eclipse.b3.backend.evaluator.b3backend.BNamedPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 
@@ -46,7 +45,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class BPropertySetImpl extends BExpressionImpl implements BPropertySet {
+public class BPropertySetImpl extends BAdviceImpl implements BPropertySet {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -62,7 +61,7 @@ public class BPropertySetImpl extends BExpressionImpl implements BPropertySet {
 	 * @generated
 	 * @ordered
 	 */
-	protected BNamedPropertySet extends_;
+	protected BPropertySet extends_;
 
 	/**
 	 * The cached value of the '{@link #getOperations() <em>Operations</em>}' containment reference list.
@@ -98,10 +97,10 @@ public class BPropertySetImpl extends BExpressionImpl implements BPropertySet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BNamedPropertySet getExtends() {
+	public BPropertySet getExtends() {
 		if (extends_ != null && extends_.eIsProxy()) {
 			InternalEObject oldExtends = (InternalEObject)extends_;
-			extends_ = (BNamedPropertySet)eResolveProxy(oldExtends);
+			extends_ = (BPropertySet)eResolveProxy(oldExtends);
 			if (extends_ != oldExtends) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.BPROPERTY_SET__EXTENDS, oldExtends, extends_));
@@ -115,7 +114,7 @@ public class BPropertySetImpl extends BExpressionImpl implements BPropertySet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BNamedPropertySet basicGetExtends() {
+	public BPropertySet basicGetExtends() {
 		return extends_;
 	}
 
@@ -124,8 +123,8 @@ public class BPropertySetImpl extends BExpressionImpl implements BPropertySet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setExtends(BNamedPropertySet newExtends) {
-		BNamedPropertySet oldExtends = extends_;
+	public void setExtends(BPropertySet newExtends) {
+		BPropertySet oldExtends = extends_;
 		extends_ = newExtends;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BPROPERTY_SET__EXTENDS, oldExtends, extends_));
@@ -184,7 +183,7 @@ public class BPropertySetImpl extends BExpressionImpl implements BPropertySet {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case B3backendPackage.BPROPERTY_SET__EXTENDS:
-				setExtends((BNamedPropertySet)newValue);
+				setExtends((BPropertySet)newValue);
 				return;
 			case B3backendPackage.BPROPERTY_SET__OPERATIONS:
 				getOperations().clear();
@@ -203,7 +202,7 @@ public class BPropertySetImpl extends BExpressionImpl implements BPropertySet {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case B3backendPackage.BPROPERTY_SET__EXTENDS:
-				setExtends((BNamedPropertySet)null);
+				setExtends((BPropertySet)null);
 				return;
 			case B3backendPackage.BPROPERTY_SET__OPERATIONS:
 				getOperations().clear();

@@ -566,6 +566,7 @@ public class B3backendSwitch<T> {
 			case B3backendPackage.BPROPERTY_SET: {
 				BPropertySet bPropertySet = (BPropertySet)theEObject;
 				T result = caseBPropertySet(bPropertySet);
+				if (result == null) result = caseBAdvice(bPropertySet);
 				if (result == null) result = caseBExpression(bPropertySet);
 				if (result == null) result = caseBSourceLink(bPropertySet);
 				if (result == null) result = defaultCase(theEObject);
@@ -575,17 +576,9 @@ public class B3backendSwitch<T> {
 				BDefaultPropertySet bDefaultPropertySet = (BDefaultPropertySet)theEObject;
 				T result = caseBDefaultPropertySet(bDefaultPropertySet);
 				if (result == null) result = caseBPropertySet(bDefaultPropertySet);
+				if (result == null) result = caseBAdvice(bDefaultPropertySet);
 				if (result == null) result = caseBExpression(bDefaultPropertySet);
 				if (result == null) result = caseBSourceLink(bDefaultPropertySet);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3backendPackage.BNAMED_PROPERTY_SET: {
-				BNamedPropertySet bNamedPropertySet = (BNamedPropertySet)theEObject;
-				T result = caseBNamedPropertySet(bNamedPropertySet);
-				if (result == null) result = caseBPropertySet(bNamedPropertySet);
-				if (result == null) result = caseBExpression(bNamedPropertySet);
-				if (result == null) result = caseBSourceLink(bNamedPropertySet);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -613,6 +606,31 @@ public class B3backendSwitch<T> {
 				BPropertySetOperation bPropertySetOperation = (BPropertySetOperation)theEObject;
 				T result = caseBPropertySetOperation(bPropertySetOperation);
 				if (result == null) result = caseBPropertyOperation(bPropertySetOperation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3backendPackage.BADVICE: {
+				BAdvice bAdvice = (BAdvice)theEObject;
+				T result = caseBAdvice(bAdvice);
+				if (result == null) result = caseBExpression(bAdvice);
+				if (result == null) result = caseBSourceLink(bAdvice);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3backendPackage.BCONCERN: {
+				BConcern bConcern = (BConcern)theEObject;
+				T result = caseBConcern(bConcern);
+				if (result == null) result = caseBAdvice(bConcern);
+				if (result == null) result = caseBExpression(bConcern);
+				if (result == null) result = caseBSourceLink(bConcern);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3backendPackage.BWITH_EXPRESSION: {
+				BWithExpression bWithExpression = (BWithExpression)theEObject;
+				T result = caseBWithExpression(bWithExpression);
+				if (result == null) result = caseBExpression(bWithExpression);
+				if (result == null) result = caseBSourceLink(bWithExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1626,21 +1644,6 @@ public class B3backendSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>BNamed Property Set</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>BNamed Property Set</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseBNamedPropertySet(BNamedPropertySet object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>BProperty Operation</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1697,6 +1700,51 @@ public class B3backendSwitch<T> {
 	 * @generated
 	 */
 	public T caseBPropertySetOperation(BPropertySetOperation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BAdvice</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BAdvice</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBAdvice(BAdvice object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BConcern</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BConcern</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBConcern(BConcern object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BWith Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BWith Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBWithExpression(BWithExpression object) {
 		return null;
 	}
 

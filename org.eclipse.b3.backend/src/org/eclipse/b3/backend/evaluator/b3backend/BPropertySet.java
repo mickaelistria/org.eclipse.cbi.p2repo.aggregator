@@ -31,7 +31,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface BPropertySet extends BExpression {
+public interface BPropertySet extends BAdvice {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -48,12 +48,12 @@ public interface BPropertySet extends BExpression {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Extends</em>' reference.
-	 * @see #setExtends(BNamedPropertySet)
+	 * @see #setExtends(BPropertySet)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBPropertySet_Extends()
 	 * @model
 	 * @generated
 	 */
-	BNamedPropertySet getExtends();
+	BPropertySet getExtends();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySet#getExtends <em>Extends</em>}' reference.
@@ -63,7 +63,7 @@ public interface BPropertySet extends BExpression {
 	 * @see #getExtends()
 	 * @generated
 	 */
-	void setExtends(BNamedPropertySet value);
+	void setExtends(BPropertySet value);
 
 	/**
 	 * Returns the value of the '<em><b>Operations</b></em>' containment reference list.

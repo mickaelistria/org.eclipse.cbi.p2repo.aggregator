@@ -23,7 +23,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
  * <!-- end-user-doc -->
  * @generated
  */
-public class BPropertySetTest extends BExpressionTest {
+public class BPropertySetTest extends BAdviceTest {
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -7,7 +7,8 @@ package org.eclipse.b3.beeLang.impl;
 
 import org.eclipse.b3.beeLang.BeeLangPackage;
 import org.eclipse.b3.beeLang.BuilderOutput;
-import org.eclipse.b3.beeLang.PathGroup;
+
+import org.eclipse.b3.build.build.PathGroup;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;

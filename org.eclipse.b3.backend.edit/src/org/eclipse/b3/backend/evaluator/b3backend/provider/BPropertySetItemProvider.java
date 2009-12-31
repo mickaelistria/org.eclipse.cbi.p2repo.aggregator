@@ -41,7 +41,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class BPropertySetItemProvider
-	extends BExpressionItemProvider
+	extends BAdviceItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -152,8 +152,10 @@ public class BPropertySetItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		BPropertySet bPropertySet = (BPropertySet)object;
-		return getString("_UI_BPropertySet_type") + " " + bPropertySet.getLineNumber();
+		String label = ((BPropertySet)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_BPropertySet_type") :
+			getString("_UI_BPropertySet_type") + " " + label;
 	}
 
 	/**

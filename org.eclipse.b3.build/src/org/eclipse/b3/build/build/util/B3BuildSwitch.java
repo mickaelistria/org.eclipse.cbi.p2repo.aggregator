@@ -97,6 +97,8 @@ public class B3BuildSwitch<T> {
 			case B3BuildPackage.BUILD_UNIT: {
 				BuildUnit buildUnit = (BuildUnit)theEObject;
 				T result = caseBuildUnit(buildUnit);
+				if (result == null) result = caseVersionedCapability(buildUnit);
+				if (result == null) result = caseCapability(buildUnit);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -108,6 +110,100 @@ public class B3BuildSwitch<T> {
 				if (result == null) result = caseBExpression(builder);
 				if (result == null) result = caseIGenericDeclaration(builder);
 				if (result == null) result = caseBSourceLink(builder);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.VERSIONED_CAPABILITY: {
+				VersionedCapability versionedCapability = (VersionedCapability)theEObject;
+				T result = caseVersionedCapability(versionedCapability);
+				if (result == null) result = caseCapability(versionedCapability);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.BUILDER_INPUT: {
+				BuilderInput builderInput = (BuilderInput)theEObject;
+				T result = caseBuilderInput(builderInput);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.PATH_GROUP: {
+				PathGroup pathGroup = (PathGroup)theEObject;
+				T result = casePathGroup(pathGroup);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.PREREQUISITE: {
+				Prerequisite prerequisite = (Prerequisite)theEObject;
+				T result = casePrerequisite(prerequisite);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.BUILD_RESULT_REFERENCE: {
+				BuildResultReference buildResultReference = (BuildResultReference)theEObject;
+				T result = caseBuildResultReference(buildResultReference);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.COMPOUND_BUILD_RESULT_REFERENCE: {
+				CompoundBuildResultReference compoundBuildResultReference = (CompoundBuildResultReference)theEObject;
+				T result = caseCompoundBuildResultReference(compoundBuildResultReference);
+				if (result == null) result = caseBuildResultReference(compoundBuildResultReference);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.DIRECT_BUILD_RESULT_REFERENCE: {
+				DirectBuildResultReference directBuildResultReference = (DirectBuildResultReference)theEObject;
+				T result = caseDirectBuildResultReference(directBuildResultReference);
+				if (result == null) result = caseUnitBuildResultReference(directBuildResultReference);
+				if (result == null) result = caseBuildResultReference(directBuildResultReference);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.UNIT_BUILD_RESULT_REFERENCE: {
+				UnitBuildResultReference unitBuildResultReference = (UnitBuildResultReference)theEObject;
+				T result = caseUnitBuildResultReference(unitBuildResultReference);
+				if (result == null) result = caseBuildResultReference(unitBuildResultReference);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.INDIRECT_BUILD_RESULT_REFERENCE: {
+				IndirectBuildResultReference indirectBuildResultReference = (IndirectBuildResultReference)theEObject;
+				T result = caseIndirectBuildResultReference(indirectBuildResultReference);
+				if (result == null) result = caseUnitBuildResultReference(indirectBuildResultReference);
+				if (result == null) result = caseBuildResultReference(indirectBuildResultReference);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.CAPABILITY: {
+				Capability capability = (Capability)theEObject;
+				T result = caseCapability(capability);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.REQUIRED_CAPABILITY: {
+				RequiredCapability requiredCapability = (RequiredCapability)theEObject;
+				T result = caseRequiredCapability(requiredCapability);
+				if (result == null) result = caseCapability(requiredCapability);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.PATH_VECTOR: {
+				PathVector pathVector = (PathVector)theEObject;
+				T result = casePathVector(pathVector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.COMPOUND_PATH_VECTOR: {
+				CompoundPathVector compoundPathVector = (CompoundPathVector)theEObject;
+				T result = caseCompoundPathVector(compoundPathVector);
+				if (result == null) result = casePathVector(compoundPathVector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.PATH_VECTOR_ELEMENT: {
+				PathVectorElement pathVectorElement = (PathVectorElement)theEObject;
+				T result = casePathVectorElement(pathVectorElement);
+				if (result == null) result = casePathVector(pathVectorElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -142,6 +238,216 @@ public class B3BuildSwitch<T> {
 	 * @generated
 	 */
 	public T caseBuilder(Builder object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Versioned Capability</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Versioned Capability</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseVersionedCapability(VersionedCapability object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Capability</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Capability</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCapability(Capability object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Required Capability</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Required Capability</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRequiredCapability(RequiredCapability object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Path Vector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Path Vector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePathVector(PathVector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Compound Path Vector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Compound Path Vector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCompoundPathVector(CompoundPathVector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Path Vector Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Path Vector Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePathVectorElement(PathVectorElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Builder Input</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Builder Input</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBuilderInput(BuilderInput object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Path Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Path Group</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePathGroup(PathGroup object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Prerequisite</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Prerequisite</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePrerequisite(Prerequisite object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Build Result Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Build Result Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBuildResultReference(BuildResultReference object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Compound Build Result Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Compound Build Result Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCompoundBuildResultReference(CompoundBuildResultReference object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Direct Build Result Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Direct Build Result Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDirectBuildResultReference(DirectBuildResultReference object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Unit Build Result Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Unit Build Result Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUnitBuildResultReference(UnitBuildResultReference object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Indirect Build Result Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Indirect Build Result Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIndirectBuildResultReference(IndirectBuildResultReference object) {
 		return null;
 	}
 

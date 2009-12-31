@@ -520,15 +520,6 @@ public interface B3backendFactory extends EFactory {
 	BDefaultPropertySet createBDefaultPropertySet();
 
 	/**
-	 * Returns a new object of class '<em>BNamed Property Set</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>BNamed Property Set</em>'.
-	 * @generated
-	 */
-	BNamedPropertySet createBNamedPropertySet();
-
-	/**
 	 * Returns a new object of class '<em>BProperty Operation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -563,6 +554,33 @@ public interface B3backendFactory extends EFactory {
 	 * @generated
 	 */
 	BPropertySetOperation createBPropertySetOperation();
+
+	/**
+	 * Returns a new object of class '<em>BAdvice</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>BAdvice</em>'.
+	 * @generated
+	 */
+	BAdvice createBAdvice();
+
+	/**
+	 * Returns a new object of class '<em>BConcern</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>BConcern</em>'.
+	 * @generated
+	 */
+	BConcern createBConcern();
+
+	/**
+	 * Returns a new object of class '<em>BWith Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>BWith Expression</em>'.
+	 * @generated
+	 */
+	BWithExpression createBWithExpression();
 
 	/**
 	 * Returns the package supported by this factory.

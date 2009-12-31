@@ -485,15 +485,12 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mutable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         volatile="true" transient="true" derived="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BPropertySet" eSuperTypes="#//BExpression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="extends" eType="#//BNamedPropertySet"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BPropertySet" eSuperTypes="#//BAdvice">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="extends" eType="#//BPropertySet"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operations" upperBound="-1"
         eType="#//BPropertyOperation" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BDefaultPropertySet" eSuperTypes="#//BPropertySet"/>
-  <eClassifiers xsi:type="ecore:EClass" name="BNamedPropertySet" eSuperTypes="#//BPropertySet">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BPropertyOperation"/>
   <eClassifiers xsi:type="ecore:EClass" name="BPropertyDefinitionOperation" eSuperTypes="#//BPropertyOperation">
     <eStructuralFeatures xsi:type="ecore:EReference" name="definition" eType="#//BDefProperty"
@@ -508,5 +505,25 @@
   <eClassifiers xsi:type="ecore:EClass" name="BPropertySetOperation" eSuperTypes="#//BPropertyOperation">
     <eStructuralFeatures xsi:type="ecore:EReference" name="propertySet" eType="#//BPropertySet"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BAdvice" eSuperTypes="#//BExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BConcern" eSuperTypes="#//BAdvice">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="superConcerns" upperBound="-1"
+        eType="#//BConcern"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="functions" upperBound="-1"
+        eType="#//BFunction" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="propertySets" upperBound="-1"
+        eType="#//BPropertySet" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BWithExpression" eSuperTypes="#//BExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referencedAdvice" upperBound="-1"
+        eType="#//BAdvice"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="propertySets" upperBound="-1"
+        eType="#//BPropertySet" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="concerns" upperBound="-1"
+        eType="#//BConcern" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

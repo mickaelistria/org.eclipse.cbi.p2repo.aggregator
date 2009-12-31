@@ -7,6 +7,7 @@ public class BeeLangTokenToAttributeIdMapper extends
 		DefaultAntlrTokenToAttributeIdMapper {
 	@Override
 	protected String calculateId(String tokenName, int tokenType) {
+		// DEBUG PRINT System.out.print("Highlight id for token: "+tokenName+"\n");
 
 		// treat, 'true', 'false', and 'null' differently
 		if(tokenName.startsWith("'")&&tokenName.endsWith("'")) {
@@ -18,13 +19,11 @@ public class BeeLangTokenToAttributeIdMapper extends
 		if("RULE_DOCUMENTATION".equals(tokenName)) {
 			return BeeLangLexicalHighlightConfiguration.DOCUMENTATION_ID;
 		}
+
 		if("RULE_REGULAR_EXPR".equals(tokenName)) {
 			return BeeLangLexicalHighlightConfiguration.REGEXP_ID;
 		}
 		
-//		if("RULE_REAL".equals(tokenName)) {
-//			return DefaultLexicalHighlightingConfiguration.NUMBER_ID;
-//		}
 		if("RULE_HEX".equals(tokenName)) {
 			return DefaultLexicalHighlightingConfiguration.NUMBER_ID;
 		}

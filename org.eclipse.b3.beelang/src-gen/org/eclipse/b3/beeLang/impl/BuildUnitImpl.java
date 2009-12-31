@@ -8,20 +8,19 @@ package org.eclipse.b3.beeLang.impl;
 import java.util.Collection;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
-import org.eclipse.b3.backend.evaluator.b3backend.BNamedPropertySet;
+import org.eclipse.b3.backend.evaluator.b3backend.BConcern;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
 
 import org.eclipse.b3.beeLang.BeeLangPackage;
 import org.eclipse.b3.beeLang.BuildUnit;
-import org.eclipse.b3.beeLang.Builder;
-import org.eclipse.b3.beeLang.Concern;
 import org.eclipse.b3.beeLang.ContainerConfiguration;
-import org.eclipse.b3.beeLang.ProvidedCapability;
 import org.eclipse.b3.beeLang.RepositoryConfiguration;
-import org.eclipse.b3.beeLang.RequiredCapability;
 import org.eclipse.b3.beeLang.Synchronization;
-import org.eclipse.b3.beeLang.Version;
+
+import org.eclipse.b3.build.build.Builder;
+import org.eclipse.b3.build.build.RequiredCapability;
+import org.eclipse.b3.build.build.VersionedCapability;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -37,6 +36,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import org.eclipse.equinox.internal.provisional.p2.core.Version;
 
 /**
  * <!-- begin-user-doc -->
@@ -129,14 +130,24 @@ public class BuildUnitImpl extends MinimalEObjectImpl.Container implements Build
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getVersion() <em>Version</em>}' containment reference.
+   * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getVersion()
    * @generated
    * @ordered
    */
-  protected Version version;
+  protected static final Version VERSION_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVersion()
+   * @generated
+   * @ordered
+   */
+  protected Version version = VERSION_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getImplements() <em>Implements</em>}' attribute list.
@@ -166,7 +177,7 @@ public class BuildUnitImpl extends MinimalEObjectImpl.Container implements Build
    * @generated
    * @ordered
    */
-  protected EList<ProvidedCapability> providedCapabilities;
+  protected EList<VersionedCapability> providedCapabilities;
 
   /**
    * The cached value of the '{@link #getRequiredCapabilities() <em>Required Capabilities</em>}' containment reference list.
@@ -196,7 +207,7 @@ public class BuildUnitImpl extends MinimalEObjectImpl.Container implements Build
    * @generated
    * @ordered
    */
-  protected EList<Concern> concerns;
+  protected EList<BConcern> concerns;
 
   /**
    * The cached value of the '{@link #getSynchronizations() <em>Synchronizations</em>}' containment reference list.
@@ -246,7 +257,7 @@ public class BuildUnitImpl extends MinimalEObjectImpl.Container implements Build
    * @generated
    * @ordered
    */
-  protected EList<BNamedPropertySet> propertySets;
+  protected EList<BPropertySet> propertySets;
 
   /**
    * The cached value of the '{@link #getContainers() <em>Containers</em>}' containment reference list.
@@ -363,37 +374,12 @@ public class BuildUnitImpl extends MinimalEObjectImpl.Container implements Build
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetVersion(Version newVersion, NotificationChain msgs)
+  public void setVersion(Version newVersion)
   {
     Version oldVersion = version;
     version = newVersion;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BeeLangPackage.BUILD_UNIT__VERSION, oldVersion, newVersion);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setVersion(Version newVersion)
-  {
-    if (newVersion != version)
-    {
-      NotificationChain msgs = null;
-      if (version != null)
-        msgs = ((InternalEObject)version).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BeeLangPackage.BUILD_UNIT__VERSION, null, msgs);
-      if (newVersion != null)
-        msgs = ((InternalEObject)newVersion).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BeeLangPackage.BUILD_UNIT__VERSION, null, msgs);
-      msgs = basicSetVersion(newVersion, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BeeLangPackage.BUILD_UNIT__VERSION, newVersion, newVersion));
+      eNotify(new ENotificationImpl(this, Notification.SET, BeeLangPackage.BUILD_UNIT__VERSION, oldVersion, version));
   }
 
   /**
@@ -463,11 +449,11 @@ public class BuildUnitImpl extends MinimalEObjectImpl.Container implements Build
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ProvidedCapability> getProvidedCapabilities()
+  public EList<VersionedCapability> getProvidedCapabilities()
   {
     if (providedCapabilities == null)
     {
-      providedCapabilities = new EObjectContainmentEList<ProvidedCapability>(ProvidedCapability.class, this, BeeLangPackage.BUILD_UNIT__PROVIDED_CAPABILITIES);
+      providedCapabilities = new EObjectContainmentEList<VersionedCapability>(VersionedCapability.class, this, BeeLangPackage.BUILD_UNIT__PROVIDED_CAPABILITIES);
     }
     return providedCapabilities;
   }
@@ -505,11 +491,11 @@ public class BuildUnitImpl extends MinimalEObjectImpl.Container implements Build
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Concern> getConcerns()
+  public EList<BConcern> getConcerns()
   {
     if (concerns == null)
     {
-      concerns = new EObjectContainmentEList<Concern>(Concern.class, this, BeeLangPackage.BUILD_UNIT__CONCERNS);
+      concerns = new EObjectContainmentEList<BConcern>(BConcern.class, this, BeeLangPackage.BUILD_UNIT__CONCERNS);
     }
     return concerns;
   }
@@ -575,11 +561,11 @@ public class BuildUnitImpl extends MinimalEObjectImpl.Container implements Build
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<BNamedPropertySet> getPropertySets()
+  public EList<BPropertySet> getPropertySets()
   {
     if (propertySets == null)
     {
-      propertySets = new EObjectContainmentEList<BNamedPropertySet>(BNamedPropertySet.class, this, BeeLangPackage.BUILD_UNIT__PROPERTY_SETS);
+      propertySets = new EObjectContainmentEList<BPropertySet>(BPropertySet.class, this, BeeLangPackage.BUILD_UNIT__PROPERTY_SETS);
     }
     return propertySets;
   }
@@ -608,8 +594,6 @@ public class BuildUnitImpl extends MinimalEObjectImpl.Container implements Build
   {
     switch (featureID)
     {
-      case BeeLangPackage.BUILD_UNIT__VERSION:
-        return basicSetVersion(null, msgs);
       case BeeLangPackage.BUILD_UNIT__DEFAULT_PROPERTIES:
         return basicSetDefaultProperties(null, msgs);
       case BeeLangPackage.BUILD_UNIT__PROVIDED_CAPABILITIES:
@@ -714,7 +698,7 @@ public class BuildUnitImpl extends MinimalEObjectImpl.Container implements Build
         return;
       case BeeLangPackage.BUILD_UNIT__PROVIDED_CAPABILITIES:
         getProvidedCapabilities().clear();
-        getProvidedCapabilities().addAll((Collection<? extends ProvidedCapability>)newValue);
+        getProvidedCapabilities().addAll((Collection<? extends VersionedCapability>)newValue);
         return;
       case BeeLangPackage.BUILD_UNIT__REQUIRED_CAPABILITIES:
         getRequiredCapabilities().clear();
@@ -726,7 +710,7 @@ public class BuildUnitImpl extends MinimalEObjectImpl.Container implements Build
         return;
       case BeeLangPackage.BUILD_UNIT__CONCERNS:
         getConcerns().clear();
-        getConcerns().addAll((Collection<? extends Concern>)newValue);
+        getConcerns().addAll((Collection<? extends BConcern>)newValue);
         return;
       case BeeLangPackage.BUILD_UNIT__SYNCHRONIZATIONS:
         getSynchronizations().clear();
@@ -746,7 +730,7 @@ public class BuildUnitImpl extends MinimalEObjectImpl.Container implements Build
         return;
       case BeeLangPackage.BUILD_UNIT__PROPERTY_SETS:
         getPropertySets().clear();
-        getPropertySets().addAll((Collection<? extends BNamedPropertySet>)newValue);
+        getPropertySets().addAll((Collection<? extends BPropertySet>)newValue);
         return;
       case BeeLangPackage.BUILD_UNIT__CONTAINERS:
         getContainers().clear();
@@ -776,7 +760,7 @@ public class BuildUnitImpl extends MinimalEObjectImpl.Container implements Build
         setName(NAME_EDEFAULT);
         return;
       case BeeLangPackage.BUILD_UNIT__VERSION:
-        setVersion((Version)null);
+        setVersion(VERSION_EDEFAULT);
         return;
       case BeeLangPackage.BUILD_UNIT__IMPLEMENTS:
         getImplements().clear();
@@ -835,7 +819,7 @@ public class BuildUnitImpl extends MinimalEObjectImpl.Container implements Build
       case BeeLangPackage.BUILD_UNIT__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case BeeLangPackage.BUILD_UNIT__VERSION:
-        return version != null;
+        return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
       case BeeLangPackage.BUILD_UNIT__IMPLEMENTS:
         return implements_ != null && !implements_.isEmpty();
       case BeeLangPackage.BUILD_UNIT__DEFAULT_PROPERTIES:
@@ -881,6 +865,8 @@ public class BuildUnitImpl extends MinimalEObjectImpl.Container implements Build
     result.append(executionMode);
     result.append(", name: ");
     result.append(name);
+    result.append(", version: ");
+    result.append(version);
     result.append(", implements: ");
     result.append(implements_);
     result.append(')');

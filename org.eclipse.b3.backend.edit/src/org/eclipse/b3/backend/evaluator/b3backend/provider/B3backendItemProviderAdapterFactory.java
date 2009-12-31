@@ -1325,29 +1325,6 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BNamedPropertySet} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BNamedPropertySetItemProvider bNamedPropertySetItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BNamedPropertySet}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBNamedPropertySetAdapter() {
-		if (bNamedPropertySetItemProvider == null) {
-			bNamedPropertySetItemProvider = new BNamedPropertySetItemProvider(this);
-		}
-
-		return bNamedPropertySetItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1437,6 +1414,75 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 		}
 
 		return bPropertySetOperationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BAdvice} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BAdviceItemProvider bAdviceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BAdvice}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBAdviceAdapter() {
+		if (bAdviceItemProvider == null) {
+			bAdviceItemProvider = new BAdviceItemProvider(this);
+		}
+
+		return bAdviceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BConcern} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BConcernItemProvider bConcernItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BConcern}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBConcernAdapter() {
+		if (bConcernItemProvider == null) {
+			bConcernItemProvider = new BConcernItemProvider(this);
+		}
+
+		return bConcernItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BWithExpression} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BWithExpressionItemProvider bWithExpressionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BWithExpression}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBWithExpressionAdapter() {
+		if (bWithExpressionItemProvider == null) {
+			bWithExpressionItemProvider = new BWithExpressionItemProvider(this);
+		}
+
+		return bWithExpressionItemProvider;
 	}
 
 	/**
@@ -1592,11 +1638,13 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 		if (bDefPropertyItemProvider != null) bDefPropertyItemProvider.dispose();
 		if (bPropertySetItemProvider != null) bPropertySetItemProvider.dispose();
 		if (bDefaultPropertySetItemProvider != null) bDefaultPropertySetItemProvider.dispose();
-		if (bNamedPropertySetItemProvider != null) bNamedPropertySetItemProvider.dispose();
 		if (bPropertyOperationItemProvider != null) bPropertyOperationItemProvider.dispose();
 		if (bPropertyDefinitionOperationItemProvider != null) bPropertyDefinitionOperationItemProvider.dispose();
 		if (bConditionalPropertyOperationItemProvider != null) bConditionalPropertyOperationItemProvider.dispose();
 		if (bPropertySetOperationItemProvider != null) bPropertySetOperationItemProvider.dispose();
+		if (bAdviceItemProvider != null) bAdviceItemProvider.dispose();
+		if (bConcernItemProvider != null) bConcernItemProvider.dispose();
+		if (bWithExpressionItemProvider != null) bWithExpressionItemProvider.dispose();
 	}
 
 }

@@ -87,6 +87,62 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 				return createBuilderAdapter();
 			}
 			@Override
+			public Adapter caseVersionedCapability(VersionedCapability object) {
+				return createVersionedCapabilityAdapter();
+			}
+			@Override
+			public Adapter caseBuilderInput(BuilderInput object) {
+				return createBuilderInputAdapter();
+			}
+			@Override
+			public Adapter casePathGroup(PathGroup object) {
+				return createPathGroupAdapter();
+			}
+			@Override
+			public Adapter casePrerequisite(Prerequisite object) {
+				return createPrerequisiteAdapter();
+			}
+			@Override
+			public Adapter caseBuildResultReference(BuildResultReference object) {
+				return createBuildResultReferenceAdapter();
+			}
+			@Override
+			public Adapter caseCompoundBuildResultReference(CompoundBuildResultReference object) {
+				return createCompoundBuildResultReferenceAdapter();
+			}
+			@Override
+			public Adapter caseDirectBuildResultReference(DirectBuildResultReference object) {
+				return createDirectBuildResultReferenceAdapter();
+			}
+			@Override
+			public Adapter caseUnitBuildResultReference(UnitBuildResultReference object) {
+				return createUnitBuildResultReferenceAdapter();
+			}
+			@Override
+			public Adapter caseIndirectBuildResultReference(IndirectBuildResultReference object) {
+				return createIndirectBuildResultReferenceAdapter();
+			}
+			@Override
+			public Adapter caseCapability(Capability object) {
+				return createCapabilityAdapter();
+			}
+			@Override
+			public Adapter caseRequiredCapability(RequiredCapability object) {
+				return createRequiredCapabilityAdapter();
+			}
+			@Override
+			public Adapter casePathVector(PathVector object) {
+				return createPathVectorAdapter();
+			}
+			@Override
+			public Adapter caseCompoundPathVector(CompoundPathVector object) {
+				return createCompoundPathVectorAdapter();
+			}
+			@Override
+			public Adapter casePathVectorElement(PathVectorElement object) {
+				return createPathVectorElementAdapter();
+			}
+			@Override
 			public Adapter caseBSourceLink(BSourceLink object) {
 				return createBSourceLinkAdapter();
 			}
@@ -151,6 +207,202 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBuilderAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.VersionedCapability <em>Versioned Capability</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.VersionedCapability
+	 * @generated
+	 */
+	public Adapter createVersionedCapabilityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.Capability <em>Capability</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.Capability
+	 * @generated
+	 */
+	public Adapter createCapabilityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.RequiredCapability <em>Required Capability</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.RequiredCapability
+	 * @generated
+	 */
+	public Adapter createRequiredCapabilityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.PathVector <em>Path Vector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.PathVector
+	 * @generated
+	 */
+	public Adapter createPathVectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.CompoundPathVector <em>Compound Path Vector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.CompoundPathVector
+	 * @generated
+	 */
+	public Adapter createCompoundPathVectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.PathVectorElement <em>Path Vector Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.PathVectorElement
+	 * @generated
+	 */
+	public Adapter createPathVectorElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.BuilderInput <em>Builder Input</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.BuilderInput
+	 * @generated
+	 */
+	public Adapter createBuilderInputAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.PathGroup <em>Path Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.PathGroup
+	 * @generated
+	 */
+	public Adapter createPathGroupAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.Prerequisite <em>Prerequisite</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.Prerequisite
+	 * @generated
+	 */
+	public Adapter createPrerequisiteAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.BuildResultReference <em>Build Result Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.BuildResultReference
+	 * @generated
+	 */
+	public Adapter createBuildResultReferenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.CompoundBuildResultReference <em>Compound Build Result Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.CompoundBuildResultReference
+	 * @generated
+	 */
+	public Adapter createCompoundBuildResultReferenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.DirectBuildResultReference <em>Direct Build Result Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.DirectBuildResultReference
+	 * @generated
+	 */
+	public Adapter createDirectBuildResultReferenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.UnitBuildResultReference <em>Unit Build Result Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.UnitBuildResultReference
+	 * @generated
+	 */
+	public Adapter createUnitBuildResultReferenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.IndirectBuildResultReference <em>Indirect Build Result Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.IndirectBuildResultReference
+	 * @generated
+	 */
+	public Adapter createIndirectBuildResultReferenceAdapter() {
 		return null;
 	}
 

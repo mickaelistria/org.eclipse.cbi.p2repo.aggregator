@@ -10,12 +10,12 @@ import java.lang.reflect.Type;
 import java.util.Collection;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
-import org.eclipse.b3.backend.evaluator.b3backend.BNamedPropertySet;
+import org.eclipse.b3.backend.evaluator.b3backend.BConcern;
+import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 
 import org.eclipse.b3.beeLang.BeeLangPackage;
 import org.eclipse.b3.beeLang.BeeModel;
 import org.eclipse.b3.beeLang.BuildUnit;
-import org.eclipse.b3.beeLang.Concern;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -78,7 +78,7 @@ public class BeeModelImpl extends MinimalEObjectImpl.Container implements BeeMod
    * @generated
    * @ordered
    */
-  protected EList<Concern> concern;
+  protected EList<BConcern> concern;
 
   /**
    * The cached value of the '{@link #getPropertySets() <em>Property Sets</em>}' containment reference list.
@@ -88,7 +88,7 @@ public class BeeModelImpl extends MinimalEObjectImpl.Container implements BeeMod
    * @generated
    * @ordered
    */
-  protected EList<BNamedPropertySet> propertySets;
+  protected EList<BPropertySet> propertySets;
 
   /**
    * The cached value of the '{@link #getBody() <em>Body</em>}' containment reference.
@@ -154,11 +154,11 @@ public class BeeModelImpl extends MinimalEObjectImpl.Container implements BeeMod
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Concern> getConcern()
+  public EList<BConcern> getConcern()
   {
     if (concern == null)
     {
-      concern = new EObjectContainmentEList<Concern>(Concern.class, this, BeeLangPackage.BEE_MODEL__CONCERN);
+      concern = new EObjectContainmentEList<BConcern>(BConcern.class, this, BeeLangPackage.BEE_MODEL__CONCERN);
     }
     return concern;
   }
@@ -168,11 +168,11 @@ public class BeeModelImpl extends MinimalEObjectImpl.Container implements BeeMod
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<BNamedPropertySet> getPropertySets()
+  public EList<BPropertySet> getPropertySets()
   {
     if (propertySets == null)
     {
-      propertySets = new EObjectContainmentEList<BNamedPropertySet>(BNamedPropertySet.class, this, BeeLangPackage.BEE_MODEL__PROPERTY_SETS);
+      propertySets = new EObjectContainmentEList<BPropertySet>(BPropertySet.class, this, BeeLangPackage.BEE_MODEL__PROPERTY_SETS);
     }
     return propertySets;
   }
@@ -294,11 +294,11 @@ public class BeeModelImpl extends MinimalEObjectImpl.Container implements BeeMod
         return;
       case BeeLangPackage.BEE_MODEL__CONCERN:
         getConcern().clear();
-        getConcern().addAll((Collection<? extends Concern>)newValue);
+        getConcern().addAll((Collection<? extends BConcern>)newValue);
         return;
       case BeeLangPackage.BEE_MODEL__PROPERTY_SETS:
         getPropertySets().clear();
-        getPropertySets().addAll((Collection<? extends BNamedPropertySet>)newValue);
+        getPropertySets().addAll((Collection<? extends BPropertySet>)newValue);
         return;
       case BeeLangPackage.BEE_MODEL__BODY:
         setBody((BuildUnit)newValue);

@@ -308,6 +308,11 @@ public class BCaseItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BCASE__CONDITION_EXPR,
+				 B3backendFactory.eINSTANCE.createBAdvice()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCASE__CONDITION_EXPR,
 				 B3backendFactory.eINSTANCE.createBPropertySet()));
 
 		newChildDescriptors.add
@@ -318,7 +323,12 @@ public class BCaseItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BCASE__CONDITION_EXPR,
-				 B3backendFactory.eINSTANCE.createBNamedPropertySet()));
+				 B3backendFactory.eINSTANCE.createBConcern()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCASE__CONDITION_EXPR,
+				 B3backendFactory.eINSTANCE.createBWithExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -468,6 +478,11 @@ public class BCaseItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BCASE__THEN_EXPR,
+				 B3backendFactory.eINSTANCE.createBAdvice()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCASE__THEN_EXPR,
 				 B3backendFactory.eINSTANCE.createBPropertySet()));
 
 		newChildDescriptors.add
@@ -478,7 +493,12 @@ public class BCaseItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BCASE__THEN_EXPR,
-				 B3backendFactory.eINSTANCE.createBNamedPropertySet()));
+				 B3backendFactory.eINSTANCE.createBConcern()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCASE__THEN_EXPR,
+				 B3backendFactory.eINSTANCE.createBWithExpression()));
 	}
 
 	/**

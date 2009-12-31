@@ -8,7 +8,8 @@ package org.eclipse.b3.beeLang;
 import java.lang.reflect.Type;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
-import org.eclipse.b3.backend.evaluator.b3backend.BNamedPropertySet;
+import org.eclipse.b3.backend.evaluator.b3backend.BConcern;
+import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -70,7 +71,7 @@ public interface BeeModel extends EObject
 
   /**
    * Returns the value of the '<em><b>Concern</b></em>' containment reference list.
-   * The list contents are of type {@link org.eclipse.b3.beeLang.Concern}.
+   * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.BConcern}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Concern</em>' containment reference list isn't clear,
@@ -82,11 +83,11 @@ public interface BeeModel extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Concern> getConcern();
+  EList<BConcern> getConcern();
 
   /**
    * Returns the value of the '<em><b>Property Sets</b></em>' containment reference list.
-   * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.BNamedPropertySet}.
+   * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySet}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Property Sets</em>' containment reference list isn't clear,
@@ -98,7 +99,7 @@ public interface BeeModel extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<BNamedPropertySet> getPropertySets();
+  EList<BPropertySet> getPropertySets();
 
   /**
    * Returns the value of the '<em><b>Body</b></em>' containment reference.

@@ -1,11 +1,13 @@
 package org.eclipse.b3.validation;
 
 import org.eclipse.b3.beeLang.BeeLangPackage;
-import org.eclipse.b3.beeLang.Builder;
+import org.eclipse.b3.build.build.B3BuildPackage;
+import org.eclipse.b3.build.build.Builder;
+import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
+import org.eclipse.b3.backend.evaluator.b3backend.BWithExpression;
 //import org.eclipse.b3.beeLang.Function;
 //import org.eclipse.b3.beeLang.Method;
 
-import org.eclipse.b3.beeLang.WithClause;
 import org.eclipse.xtext.validation.Check;
 //import org.eclipse.equinox.internal.provisional.p2.core.Version;
 //import org.eclipse.equinox.internal.provisional.p2.core.VersionRange;
@@ -29,25 +31,25 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator {
 //		}
 //	}
 	@Check
-	public void checkWithClauseIsNotEmpty(WithClause withClause) {
-		if (withClause.getReferences().size() == 0 
-				&& withClause.getConcern().size() == 0
-				&& withClause.getProperties().size() == 0
+	public void checkWithClauseIsNotEmpty(BWithExpression withClause) {
+		if (withClause.getReferencedAdvice().size() == 0 
+				&& withClause.getConcerns().size() == 0
+				&& withClause.getPropertySets().size() == 0
 				) {
 			error("with-clause must have at least one of: references, properties, or concern",
 					withClause,
-					BeeLangPackage.WITH_CLAUSE);
+					B3backendPackage.BWITH_EXPRESSION);
 		}
 	}
 	@Check
 	public void checkBuilderMustReturnSomething(Builder builder) {
 		if (builder.getOutput() == null 
 				&& builder.getInput() == null
-				&& (builder.getExpressionList() == null || builder.getExpressionList().getExpressions().size()==0)
+				&& (builder.getFuncExpr() == null )
 				) {
 			error("a builder must have at least one of: input, output or expression",
 					builder,
-					BeeLangPackage.BUILDER__NAME);
+					B3BuildPackage.BUILDER__NAME);
 		}
 	}
 //	@Check

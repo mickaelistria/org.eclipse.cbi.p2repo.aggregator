@@ -6,6 +6,8 @@
 
 	<bean class="org.eclipse.emf.mwe.utils.StandaloneSetup" platformUri="${runtimeProject}/.."
     	registerGeneratedEPackage="org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage"/>
+	<bean class="org.eclipse.emf.mwe.utils.StandaloneSetup" platformUri="${runtimeProject}/.."
+    	registerGeneratedEPackage="org.eclipse.b3.build.build.B3BuildPackage"/>
     	
 	<component class="org.eclipse.emf.mwe.utils.DirectoryCleaner" directory="${runtimeProject}/src-gen"/>
 	<component class="org.eclipse.emf.mwe.utils.DirectoryCleaner" directory="${runtimeProject}.ui/src-gen"/>
@@ -22,7 +24,7 @@
 			
 			<!-- generates Java API for the generated EPackages -->
 			<fragment class="org.eclipse.xtext.generator.ecore.EcoreGeneratorFragment"
-				genModels="platform:/resource/org.eclipse.b3.backend/model/B3Backend.genmodel"
+				genModels="platform:/resource/org.eclipse.b3.backend/model/B3Backend.genmodel,platform:/resource/org.eclipse.b3.build/model/B3Build.genmodel"
 				/>
 			
 			<!-- the serialization component -->

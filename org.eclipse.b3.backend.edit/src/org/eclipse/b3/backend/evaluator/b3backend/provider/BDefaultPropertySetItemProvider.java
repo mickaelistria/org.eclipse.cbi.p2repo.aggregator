@@ -93,8 +93,10 @@ public class BDefaultPropertySetItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		BDefaultPropertySet bDefaultPropertySet = (BDefaultPropertySet)object;
-		return getString("_UI_BDefaultPropertySet_type") + " " + bDefaultPropertySet.getLineNumber();
+		String label = ((BDefaultPropertySet)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_BDefaultPropertySet_type") :
+			getString("_UI_BDefaultPropertySet_type") + " " + label;
 	}
 
 	/**

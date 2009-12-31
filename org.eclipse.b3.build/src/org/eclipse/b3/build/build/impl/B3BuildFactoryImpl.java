@@ -6,15 +6,19 @@
  */
 package org.eclipse.b3.build.build.impl;
 
+import java.net.URI;
 import org.eclipse.b3.build.build.*;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.equinox.internal.provisional.p2.core.Version;
+import org.eclipse.equinox.internal.provisional.p2.core.VersionRange;
 
 /**
  * <!-- begin-user-doc -->
@@ -62,8 +66,60 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 		switch (eClass.getClassifierID()) {
 			case B3BuildPackage.BUILD_UNIT: return createBuildUnit();
 			case B3BuildPackage.BUILDER: return createBuilder();
+			case B3BuildPackage.VERSIONED_CAPABILITY: return createVersionedCapability();
+			case B3BuildPackage.BUILDER_INPUT: return createBuilderInput();
+			case B3BuildPackage.PATH_GROUP: return createPathGroup();
+			case B3BuildPackage.PREREQUISITE: return createPrerequisite();
+			case B3BuildPackage.BUILD_RESULT_REFERENCE: return createBuildResultReference();
+			case B3BuildPackage.COMPOUND_BUILD_RESULT_REFERENCE: return createCompoundBuildResultReference();
+			case B3BuildPackage.DIRECT_BUILD_RESULT_REFERENCE: return createDirectBuildResultReference();
+			case B3BuildPackage.UNIT_BUILD_RESULT_REFERENCE: return createUnitBuildResultReference();
+			case B3BuildPackage.INDIRECT_BUILD_RESULT_REFERENCE: return createIndirectBuildResultReference();
+			case B3BuildPackage.CAPABILITY: return createCapability();
+			case B3BuildPackage.REQUIRED_CAPABILITY: return createRequiredCapability();
+			case B3BuildPackage.PATH_VECTOR: return createPathVector();
+			case B3BuildPackage.COMPOUND_PATH_VECTOR: return createCompoundPathVector();
+			case B3BuildPackage.PATH_VECTOR_ELEMENT: return createPathVectorElement();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case B3BuildPackage.VERSION_RANGE:
+				return createVersionRangeFromString(eDataType, initialValue);
+			case B3BuildPackage.VERSION:
+				return createVersionFromString(eDataType, initialValue);
+			case B3BuildPackage.URI:
+				return createURIFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case B3BuildPackage.VERSION_RANGE:
+				return convertVersionRangeToString(eDataType, instanceValue);
+			case B3BuildPackage.VERSION:
+				return convertVersionToString(eDataType, instanceValue);
+			case B3BuildPackage.URI:
+				return convertURIToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -85,6 +141,200 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	public Builder createBuilder() {
 		BuilderImpl builder = new BuilderImpl();
 		return builder;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VersionedCapability createVersionedCapability() {
+		VersionedCapabilityImpl versionedCapability = new VersionedCapabilityImpl();
+		return versionedCapability;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Capability createCapability() {
+		CapabilityImpl capability = new CapabilityImpl();
+		return capability;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RequiredCapability createRequiredCapability() {
+		RequiredCapabilityImpl requiredCapability = new RequiredCapabilityImpl();
+		return requiredCapability;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PathVector createPathVector() {
+		PathVectorImpl pathVector = new PathVectorImpl();
+		return pathVector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CompoundPathVector createCompoundPathVector() {
+		CompoundPathVectorImpl compoundPathVector = new CompoundPathVectorImpl();
+		return compoundPathVector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PathVectorElement createPathVectorElement() {
+		PathVectorElementImpl pathVectorElement = new PathVectorElementImpl();
+		return pathVectorElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BuilderInput createBuilderInput() {
+		BuilderInputImpl builderInput = new BuilderInputImpl();
+		return builderInput;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PathGroup createPathGroup() {
+		PathGroupImpl pathGroup = new PathGroupImpl();
+		return pathGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Prerequisite createPrerequisite() {
+		PrerequisiteImpl prerequisite = new PrerequisiteImpl();
+		return prerequisite;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BuildResultReference createBuildResultReference() {
+		BuildResultReferenceImpl buildResultReference = new BuildResultReferenceImpl();
+		return buildResultReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CompoundBuildResultReference createCompoundBuildResultReference() {
+		CompoundBuildResultReferenceImpl compoundBuildResultReference = new CompoundBuildResultReferenceImpl();
+		return compoundBuildResultReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DirectBuildResultReference createDirectBuildResultReference() {
+		DirectBuildResultReferenceImpl directBuildResultReference = new DirectBuildResultReferenceImpl();
+		return directBuildResultReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UnitBuildResultReference createUnitBuildResultReference() {
+		UnitBuildResultReferenceImpl unitBuildResultReference = new UnitBuildResultReferenceImpl();
+		return unitBuildResultReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IndirectBuildResultReference createIndirectBuildResultReference() {
+		IndirectBuildResultReferenceImpl indirectBuildResultReference = new IndirectBuildResultReferenceImpl();
+		return indirectBuildResultReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VersionRange createVersionRangeFromString(EDataType eDataType, String initialValue) {
+		return (VersionRange)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertVersionRangeToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Version createVersionFromString(EDataType eDataType, String initialValue) {
+		return (Version)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertVersionToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public URI createURIFromString(EDataType eDataType, String initialValue) {
+		return (URI)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertURIToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**

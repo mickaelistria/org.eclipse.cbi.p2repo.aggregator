@@ -6,13 +6,19 @@
 package org.eclipse.b3.beeLang;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
-import org.eclipse.b3.backend.evaluator.b3backend.BNamedPropertySet;
+import org.eclipse.b3.backend.evaluator.b3backend.BConcern;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
+
+import org.eclipse.b3.build.build.Builder;
+import org.eclipse.b3.build.build.RequiredCapability;
+import org.eclipse.b3.build.build.VersionedCapability;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
+
+import org.eclipse.equinox.internal.provisional.p2.core.Version;
 
 /**
  * <!-- begin-user-doc -->
@@ -129,26 +135,26 @@ public interface BuildUnit extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Version</b></em>' containment reference.
+   * Returns the value of the '<em><b>Version</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Version</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Version</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Version</em>' containment reference.
+   * @return the value of the '<em>Version</em>' attribute.
    * @see #setVersion(Version)
    * @see org.eclipse.b3.beeLang.BeeLangPackage#getBuildUnit_Version()
-   * @model containment="true"
+   * @model dataType="org.eclipse.b3.build.build.Version"
    * @generated
    */
   Version getVersion();
 
   /**
-   * Sets the value of the '{@link org.eclipse.b3.beeLang.BuildUnit#getVersion <em>Version</em>}' containment reference.
+   * Sets the value of the '{@link org.eclipse.b3.beeLang.BuildUnit#getVersion <em>Version</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Version</em>' containment reference.
+   * @param value the new value of the '<em>Version</em>' attribute.
    * @see #getVersion()
    * @generated
    */
@@ -198,7 +204,7 @@ public interface BuildUnit extends EObject
 
   /**
    * Returns the value of the '<em><b>Provided Capabilities</b></em>' containment reference list.
-   * The list contents are of type {@link org.eclipse.b3.beeLang.ProvidedCapability}.
+   * The list contents are of type {@link org.eclipse.b3.build.build.VersionedCapability}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Provided Capabilities</em>' containment reference list isn't clear,
@@ -210,11 +216,11 @@ public interface BuildUnit extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<ProvidedCapability> getProvidedCapabilities();
+  EList<VersionedCapability> getProvidedCapabilities();
 
   /**
    * Returns the value of the '<em><b>Required Capabilities</b></em>' containment reference list.
-   * The list contents are of type {@link org.eclipse.b3.beeLang.RequiredCapability}.
+   * The list contents are of type {@link org.eclipse.b3.build.build.RequiredCapability}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Required Capabilities</em>' containment reference list isn't clear,
@@ -230,7 +236,7 @@ public interface BuildUnit extends EObject
 
   /**
    * Returns the value of the '<em><b>Meta Required Capabilities</b></em>' containment reference list.
-   * The list contents are of type {@link org.eclipse.b3.beeLang.RequiredCapability}.
+   * The list contents are of type {@link org.eclipse.b3.build.build.RequiredCapability}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Meta Required Capabilities</em>' containment reference list isn't clear,
@@ -246,7 +252,7 @@ public interface BuildUnit extends EObject
 
   /**
    * Returns the value of the '<em><b>Concerns</b></em>' containment reference list.
-   * The list contents are of type {@link org.eclipse.b3.beeLang.Concern}.
+   * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.BConcern}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Concerns</em>' containment reference list isn't clear,
@@ -258,7 +264,7 @@ public interface BuildUnit extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Concern> getConcerns();
+  EList<BConcern> getConcerns();
 
   /**
    * Returns the value of the '<em><b>Synchronizations</b></em>' containment reference list.
@@ -278,7 +284,7 @@ public interface BuildUnit extends EObject
 
   /**
    * Returns the value of the '<em><b>Builders</b></em>' containment reference list.
-   * The list contents are of type {@link org.eclipse.b3.beeLang.Builder}.
+   * The list contents are of type {@link org.eclipse.b3.build.build.Builder}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Builders</em>' containment reference list isn't clear,
@@ -326,7 +332,7 @@ public interface BuildUnit extends EObject
 
   /**
    * Returns the value of the '<em><b>Property Sets</b></em>' containment reference list.
-   * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.BNamedPropertySet}.
+   * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySet}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Property Sets</em>' containment reference list isn't clear,
@@ -338,7 +344,7 @@ public interface BuildUnit extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<BNamedPropertySet> getPropertySets();
+  EList<BPropertySet> getPropertySets();
 
   /**
    * Returns the value of the '<em><b>Containers</b></em>' containment reference list.

@@ -170,11 +170,6 @@ public class BPropertySetOperationItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BPROPERTY_SET_OPERATION__PROPERTY_SET,
 				 B3backendFactory.eINSTANCE.createBDefaultPropertySet()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(B3backendPackage.Literals.BPROPERTY_SET_OPERATION__PROPERTY_SET,
-				 B3backendFactory.eINSTANCE.createBNamedPropertySet()));
 	}
 
 }

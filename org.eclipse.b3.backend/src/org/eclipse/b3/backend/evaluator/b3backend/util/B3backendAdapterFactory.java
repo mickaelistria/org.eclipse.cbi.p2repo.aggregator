@@ -351,10 +351,6 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 				return createBDefaultPropertySetAdapter();
 			}
 			@Override
-			public Adapter caseBNamedPropertySet(BNamedPropertySet object) {
-				return createBNamedPropertySetAdapter();
-			}
-			@Override
 			public Adapter caseBPropertyOperation(BPropertyOperation object) {
 				return createBPropertyOperationAdapter();
 			}
@@ -369,6 +365,18 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseBPropertySetOperation(BPropertySetOperation object) {
 				return createBPropertySetOperationAdapter();
+			}
+			@Override
+			public Adapter caseBAdvice(BAdvice object) {
+				return createBAdviceAdapter();
+			}
+			@Override
+			public Adapter caseBConcern(BConcern object) {
+				return createBConcernAdapter();
+			}
+			@Override
+			public Adapter caseBWithExpression(BWithExpression object) {
+				return createBWithExpressionAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -1329,20 +1337,6 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BNamedPropertySet <em>BNamed Property Set</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BNamedPropertySet
-	 * @generated
-	 */
-	public Adapter createBNamedPropertySetAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation <em>BProperty Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -1395,6 +1389,48 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBPropertySetOperationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BAdvice <em>BAdvice</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BAdvice
+	 * @generated
+	 */
+	public Adapter createBAdviceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BConcern <em>BConcern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BConcern
+	 * @generated
+	 */
+	public Adapter createBConcernAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BWithExpression <em>BWith Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BWithExpression
+	 * @generated
+	 */
+	public Adapter createBWithExpressionAdapter() {
 		return null;
 	}
 
