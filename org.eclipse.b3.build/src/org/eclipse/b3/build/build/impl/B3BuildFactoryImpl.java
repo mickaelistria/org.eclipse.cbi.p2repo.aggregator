@@ -72,14 +72,19 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 			case B3BuildPackage.PREREQUISITE: return createPrerequisite();
 			case B3BuildPackage.BUILD_RESULT_REFERENCE: return createBuildResultReference();
 			case B3BuildPackage.COMPOUND_BUILD_RESULT_REFERENCE: return createCompoundBuildResultReference();
-			case B3BuildPackage.DIRECT_BUILD_RESULT_REFERENCE: return createDirectBuildResultReference();
-			case B3BuildPackage.UNIT_BUILD_RESULT_REFERENCE: return createUnitBuildResultReference();
-			case B3BuildPackage.INDIRECT_BUILD_RESULT_REFERENCE: return createIndirectBuildResultReference();
+			case B3BuildPackage.BUILDER_REFERENCE: return createBuilderReference();
 			case B3BuildPackage.CAPABILITY: return createCapability();
 			case B3BuildPackage.REQUIRED_CAPABILITY: return createRequiredCapability();
 			case B3BuildPackage.PATH_VECTOR: return createPathVector();
 			case B3BuildPackage.COMPOUND_PATH_VECTOR: return createCompoundPathVector();
 			case B3BuildPackage.PATH_VECTOR_ELEMENT: return createPathVectorElement();
+			case B3BuildPackage.SYNCHRONIZATION: return createSynchronization();
+			case B3BuildPackage.SYNCHRONIZED_BUILDER: return createSynchronizedBuilder();
+			case B3BuildPackage.REPOSITORY_CONFIGURATION: return createRepositoryConfiguration();
+			case B3BuildPackage.REPOSITORY_DECLARATION: return createRepositoryDeclaration();
+			case B3BuildPackage.RESOLUTION_STRATEGY_FIRST: return createResolutionStrategyFirst();
+			case B3BuildPackage.RESOLUTION_STRATEGY_BEST: return createResolutionStrategyBest();
+			case B3BuildPackage.CONTAINER_CONFIGURATION: return createContainerConfiguration();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -208,6 +213,76 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Synchronization createSynchronization() {
+		SynchronizationImpl synchronization = new SynchronizationImpl();
+		return synchronization;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SynchronizedBuilder createSynchronizedBuilder() {
+		SynchronizedBuilderImpl synchronizedBuilder = new SynchronizedBuilderImpl();
+		return synchronizedBuilder;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RepositoryConfiguration createRepositoryConfiguration() {
+		RepositoryConfigurationImpl repositoryConfiguration = new RepositoryConfigurationImpl();
+		return repositoryConfiguration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RepositoryDeclaration createRepositoryDeclaration() {
+		RepositoryDeclarationImpl repositoryDeclaration = new RepositoryDeclarationImpl();
+		return repositoryDeclaration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ResolutionStrategyFirst createResolutionStrategyFirst() {
+		ResolutionStrategyFirstImpl resolutionStrategyFirst = new ResolutionStrategyFirstImpl();
+		return resolutionStrategyFirst;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ResolutionStrategyBest createResolutionStrategyBest() {
+		ResolutionStrategyBestImpl resolutionStrategyBest = new ResolutionStrategyBestImpl();
+		return resolutionStrategyBest;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ContainerConfiguration createContainerConfiguration() {
+		ContainerConfigurationImpl containerConfiguration = new ContainerConfigurationImpl();
+		return containerConfiguration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public BuilderInput createBuilderInput() {
 		BuilderInputImpl builderInput = new BuilderInputImpl();
 		return builderInput;
@@ -258,29 +333,9 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DirectBuildResultReference createDirectBuildResultReference() {
-		DirectBuildResultReferenceImpl directBuildResultReference = new DirectBuildResultReferenceImpl();
-		return directBuildResultReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UnitBuildResultReference createUnitBuildResultReference() {
-		UnitBuildResultReferenceImpl unitBuildResultReference = new UnitBuildResultReferenceImpl();
-		return unitBuildResultReference;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public IndirectBuildResultReference createIndirectBuildResultReference() {
-		IndirectBuildResultReferenceImpl indirectBuildResultReference = new IndirectBuildResultReferenceImpl();
-		return indirectBuildResultReference;
+	public BuilderReference createBuilderReference() {
+		BuilderReferenceImpl builderReference = new BuilderReferenceImpl();
+		return builderReference;
 	}
 
 	/**

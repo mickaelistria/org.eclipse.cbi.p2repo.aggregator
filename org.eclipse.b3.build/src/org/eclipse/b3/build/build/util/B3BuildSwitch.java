@@ -151,26 +151,10 @@ public class B3BuildSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case B3BuildPackage.DIRECT_BUILD_RESULT_REFERENCE: {
-				DirectBuildResultReference directBuildResultReference = (DirectBuildResultReference)theEObject;
-				T result = caseDirectBuildResultReference(directBuildResultReference);
-				if (result == null) result = caseUnitBuildResultReference(directBuildResultReference);
-				if (result == null) result = caseBuildResultReference(directBuildResultReference);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.UNIT_BUILD_RESULT_REFERENCE: {
-				UnitBuildResultReference unitBuildResultReference = (UnitBuildResultReference)theEObject;
-				T result = caseUnitBuildResultReference(unitBuildResultReference);
-				if (result == null) result = caseBuildResultReference(unitBuildResultReference);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.INDIRECT_BUILD_RESULT_REFERENCE: {
-				IndirectBuildResultReference indirectBuildResultReference = (IndirectBuildResultReference)theEObject;
-				T result = caseIndirectBuildResultReference(indirectBuildResultReference);
-				if (result == null) result = caseUnitBuildResultReference(indirectBuildResultReference);
-				if (result == null) result = caseBuildResultReference(indirectBuildResultReference);
+			case B3BuildPackage.BUILDER_REFERENCE: {
+				BuilderReference builderReference = (BuilderReference)theEObject;
+				T result = caseBuilderReference(builderReference);
+				if (result == null) result = caseBuildResultReference(builderReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -204,6 +188,60 @@ public class B3BuildSwitch<T> {
 				PathVectorElement pathVectorElement = (PathVectorElement)theEObject;
 				T result = casePathVectorElement(pathVectorElement);
 				if (result == null) result = casePathVector(pathVectorElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.SYNCHRONIZATION: {
+				Synchronization synchronization = (Synchronization)theEObject;
+				T result = caseSynchronization(synchronization);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.SYNCHRONIZED_BUILDER: {
+				SynchronizedBuilder synchronizedBuilder = (SynchronizedBuilder)theEObject;
+				T result = caseSynchronizedBuilder(synchronizedBuilder);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.REPOSITORY_CONFIGURATION: {
+				RepositoryConfiguration repositoryConfiguration = (RepositoryConfiguration)theEObject;
+				T result = caseRepositoryConfiguration(repositoryConfiguration);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.REPOSITORY_DECLARATION: {
+				RepositoryDeclaration repositoryDeclaration = (RepositoryDeclaration)theEObject;
+				T result = caseRepositoryDeclaration(repositoryDeclaration);
+				if (result == null) result = caseRepositoryConfiguration(repositoryDeclaration);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.RESOLUTION_STRATEGY: {
+				ResolutionStrategy resolutionStrategy = (ResolutionStrategy)theEObject;
+				T result = caseResolutionStrategy(resolutionStrategy);
+				if (result == null) result = caseRepositoryConfiguration(resolutionStrategy);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.RESOLUTION_STRATEGY_FIRST: {
+				ResolutionStrategyFirst resolutionStrategyFirst = (ResolutionStrategyFirst)theEObject;
+				T result = caseResolutionStrategyFirst(resolutionStrategyFirst);
+				if (result == null) result = caseResolutionStrategy(resolutionStrategyFirst);
+				if (result == null) result = caseRepositoryConfiguration(resolutionStrategyFirst);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.RESOLUTION_STRATEGY_BEST: {
+				ResolutionStrategyBest resolutionStrategyBest = (ResolutionStrategyBest)theEObject;
+				T result = caseResolutionStrategyBest(resolutionStrategyBest);
+				if (result == null) result = caseResolutionStrategy(resolutionStrategyBest);
+				if (result == null) result = caseRepositoryConfiguration(resolutionStrategyBest);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.CONTAINER_CONFIGURATION: {
+				ContainerConfiguration containerConfiguration = (ContainerConfiguration)theEObject;
+				T result = caseContainerConfiguration(containerConfiguration);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -332,6 +370,126 @@ public class B3BuildSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Synchronization</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Synchronization</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSynchronization(Synchronization object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Synchronized Builder</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Synchronized Builder</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSynchronizedBuilder(SynchronizedBuilder object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Repository Configuration</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Repository Configuration</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRepositoryConfiguration(RepositoryConfiguration object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Repository Declaration</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Repository Declaration</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRepositoryDeclaration(RepositoryDeclaration object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Resolution Strategy</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Resolution Strategy</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseResolutionStrategy(ResolutionStrategy object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Resolution Strategy First</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Resolution Strategy First</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseResolutionStrategyFirst(ResolutionStrategyFirst object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Resolution Strategy Best</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Resolution Strategy Best</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseResolutionStrategyBest(ResolutionStrategyBest object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Container Configuration</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Container Configuration</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseContainerConfiguration(ContainerConfiguration object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Builder Input</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -407,47 +565,17 @@ public class B3BuildSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Direct Build Result Reference</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Builder Reference</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Direct Build Result Reference</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Builder Reference</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDirectBuildResultReference(DirectBuildResultReference object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Unit Build Result Reference</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Unit Build Result Reference</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseUnitBuildResultReference(UnitBuildResultReference object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Indirect Build Result Reference</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Indirect Build Result Reference</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIndirectBuildResultReference(IndirectBuildResultReference object) {
+	public T caseBuilderReference(BuilderReference object) {
 		return null;
 	}
 

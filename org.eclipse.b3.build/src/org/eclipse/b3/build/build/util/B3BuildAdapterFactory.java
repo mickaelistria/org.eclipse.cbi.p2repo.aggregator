@@ -111,16 +111,8 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 				return createCompoundBuildResultReferenceAdapter();
 			}
 			@Override
-			public Adapter caseDirectBuildResultReference(DirectBuildResultReference object) {
-				return createDirectBuildResultReferenceAdapter();
-			}
-			@Override
-			public Adapter caseUnitBuildResultReference(UnitBuildResultReference object) {
-				return createUnitBuildResultReferenceAdapter();
-			}
-			@Override
-			public Adapter caseIndirectBuildResultReference(IndirectBuildResultReference object) {
-				return createIndirectBuildResultReferenceAdapter();
+			public Adapter caseBuilderReference(BuilderReference object) {
+				return createBuilderReferenceAdapter();
 			}
 			@Override
 			public Adapter caseCapability(Capability object) {
@@ -141,6 +133,38 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter casePathVectorElement(PathVectorElement object) {
 				return createPathVectorElementAdapter();
+			}
+			@Override
+			public Adapter caseSynchronization(Synchronization object) {
+				return createSynchronizationAdapter();
+			}
+			@Override
+			public Adapter caseSynchronizedBuilder(SynchronizedBuilder object) {
+				return createSynchronizedBuilderAdapter();
+			}
+			@Override
+			public Adapter caseRepositoryConfiguration(RepositoryConfiguration object) {
+				return createRepositoryConfigurationAdapter();
+			}
+			@Override
+			public Adapter caseRepositoryDeclaration(RepositoryDeclaration object) {
+				return createRepositoryDeclarationAdapter();
+			}
+			@Override
+			public Adapter caseResolutionStrategy(ResolutionStrategy object) {
+				return createResolutionStrategyAdapter();
+			}
+			@Override
+			public Adapter caseResolutionStrategyFirst(ResolutionStrategyFirst object) {
+				return createResolutionStrategyFirstAdapter();
+			}
+			@Override
+			public Adapter caseResolutionStrategyBest(ResolutionStrategyBest object) {
+				return createResolutionStrategyBestAdapter();
+			}
+			@Override
+			public Adapter caseContainerConfiguration(ContainerConfiguration object) {
+				return createContainerConfigurationAdapter();
 			}
 			@Override
 			public Adapter caseBSourceLink(BSourceLink object) {
@@ -295,6 +319,118 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.Synchronization <em>Synchronization</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.Synchronization
+	 * @generated
+	 */
+	public Adapter createSynchronizationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.SynchronizedBuilder <em>Synchronized Builder</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.SynchronizedBuilder
+	 * @generated
+	 */
+	public Adapter createSynchronizedBuilderAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.RepositoryConfiguration <em>Repository Configuration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.RepositoryConfiguration
+	 * @generated
+	 */
+	public Adapter createRepositoryConfigurationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.RepositoryDeclaration <em>Repository Declaration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.RepositoryDeclaration
+	 * @generated
+	 */
+	public Adapter createRepositoryDeclarationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.ResolutionStrategy <em>Resolution Strategy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.ResolutionStrategy
+	 * @generated
+	 */
+	public Adapter createResolutionStrategyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.ResolutionStrategyFirst <em>Resolution Strategy First</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.ResolutionStrategyFirst
+	 * @generated
+	 */
+	public Adapter createResolutionStrategyFirstAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.ResolutionStrategyBest <em>Resolution Strategy Best</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.ResolutionStrategyBest
+	 * @generated
+	 */
+	public Adapter createResolutionStrategyBestAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.ContainerConfiguration <em>Container Configuration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.ContainerConfiguration
+	 * @generated
+	 */
+	public Adapter createContainerConfigurationAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.BuilderInput <em>Builder Input</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -365,44 +501,16 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.DirectBuildResultReference <em>Direct Build Result Reference</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.BuilderReference <em>Builder Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.b3.build.build.DirectBuildResultReference
+	 * @see org.eclipse.b3.build.build.BuilderReference
 	 * @generated
 	 */
-	public Adapter createDirectBuildResultReferenceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.UnitBuildResultReference <em>Unit Build Result Reference</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.b3.build.build.UnitBuildResultReference
-	 * @generated
-	 */
-	public Adapter createUnitBuildResultReferenceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.IndirectBuildResultReference <em>Indirect Build Result Reference</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.b3.build.build.IndirectBuildResultReference
-	 * @generated
-	 */
-	public Adapter createIndirectBuildResultReferenceAdapter() {
+	public Adapter createBuilderReferenceAdapter() {
 		return null;
 	}
 

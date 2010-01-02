@@ -98,6 +98,69 @@ public interface B3BuildFactory extends EFactory {
 	PathVectorElement createPathVectorElement();
 
 	/**
+	 * Returns a new object of class '<em>Synchronization</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Synchronization</em>'.
+	 * @generated
+	 */
+	Synchronization createSynchronization();
+
+	/**
+	 * Returns a new object of class '<em>Synchronized Builder</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Synchronized Builder</em>'.
+	 * @generated
+	 */
+	SynchronizedBuilder createSynchronizedBuilder();
+
+	/**
+	 * Returns a new object of class '<em>Repository Configuration</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Repository Configuration</em>'.
+	 * @generated
+	 */
+	RepositoryConfiguration createRepositoryConfiguration();
+
+	/**
+	 * Returns a new object of class '<em>Repository Declaration</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Repository Declaration</em>'.
+	 * @generated
+	 */
+	RepositoryDeclaration createRepositoryDeclaration();
+
+	/**
+	 * Returns a new object of class '<em>Resolution Strategy First</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Resolution Strategy First</em>'.
+	 * @generated
+	 */
+	ResolutionStrategyFirst createResolutionStrategyFirst();
+
+	/**
+	 * Returns a new object of class '<em>Resolution Strategy Best</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Resolution Strategy Best</em>'.
+	 * @generated
+	 */
+	ResolutionStrategyBest createResolutionStrategyBest();
+
+	/**
+	 * Returns a new object of class '<em>Container Configuration</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Container Configuration</em>'.
+	 * @generated
+	 */
+	ContainerConfiguration createContainerConfiguration();
+
+	/**
 	 * Returns a new object of class '<em>Builder Input</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -143,31 +206,13 @@ public interface B3BuildFactory extends EFactory {
 	CompoundBuildResultReference createCompoundBuildResultReference();
 
 	/**
-	 * Returns a new object of class '<em>Direct Build Result Reference</em>'.
+	 * Returns a new object of class '<em>Builder Reference</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Direct Build Result Reference</em>'.
+	 * @return a new object of class '<em>Builder Reference</em>'.
 	 * @generated
 	 */
-	DirectBuildResultReference createDirectBuildResultReference();
-
-	/**
-	 * Returns a new object of class '<em>Unit Build Result Reference</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Unit Build Result Reference</em>'.
-	 * @generated
-	 */
-	UnitBuildResultReference createUnitBuildResultReference();
-
-	/**
-	 * Returns a new object of class '<em>Indirect Build Result Reference</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Indirect Build Result Reference</em>'.
-	 * @generated
-	 */
-	IndirectBuildResultReference createIndirectBuildResultReference();
+	BuilderReference createBuilderReference();
 
 	/**
 	 * Returns the package supported by this factory.
