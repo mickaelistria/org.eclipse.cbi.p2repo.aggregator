@@ -176,6 +176,6 @@ public class BGuardFunctionImpl extends BGuardImpl implements BGuardFunction {
 	public boolean accepts(BFunction function, BExecutionContext ctx,	
 			Object[] parameters, Type[] types) throws Throwable {
 		Object x = func.internalCall(ctx, parameters, types);
-		return x instanceof Boolean ? ((Boolean)x).booleanValue() : Boolean.FALSE;
+		return x instanceof Boolean ? ((Boolean)x).booleanValue() : Boolean.FALSE.booleanValue();
 	}
 } //BGuardFunctionImpl
