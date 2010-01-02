@@ -221,8 +221,9 @@ Builder returns build::Builder : {build::Builder}
     "builder"
 	name=BuilderName
 	('(' 
-		(parameters += ParameterDeclaration (',' parameters += ParameterDeclaration)* (',' varArgs?="..." parameters+=ParameterDeclaration)?)
-		| (varArgs?="..." parameters += ParameterDeclaration)
+		(parameters += ParameterDeclaration (',' parameters += ParameterDeclaration)* 
+			(',' varArgs?="..." parameters+=ParameterDeclaration)?)
+		| 	(    varArgs?="..." parameters += ParameterDeclaration)
 	')')?
 	('provides' providedCapabilities += ProvidedCapability (',' providedCapabilities += ProvidedCapability)*  )?
 	("precondition" ((':' precondExpr = Expression ';' )|( precondExpr = BlockExpression)))?
