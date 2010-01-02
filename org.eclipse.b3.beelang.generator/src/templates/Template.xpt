@@ -2,9 +2,9 @@
 
 «EXTENSION templates::Extensions»
 
-«DEFINE main FOR BuildUnit-»
+«DEFINE main FOR BeeModel-»
 «FILE "output.txt"-»
-«FOREACH this.builders AS p-»
+«FOREACH this.functions AS p-»
 «p.toString()»
 «ENDFOREACH-»
 «ENDFILE-»
