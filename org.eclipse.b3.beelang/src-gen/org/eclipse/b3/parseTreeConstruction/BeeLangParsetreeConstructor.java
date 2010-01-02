@@ -40,41 +40,41 @@ protected class ThisRootNode extends RootToken {
 			case 2: return new Unit_Group(this, this, 2, inst);
 			case 3: return new ProvidedCapability_Group(this, this, 3, inst);
 			case 4: return new RequiredCapability_Group(this, this, 4, inst);
-			case 5: return new PropertySet_Named_Group(this, this, 5, inst);
-			case 6: return new PropertySet_Group(this, this, 6, inst);
-			case 7: return new PropertyOperation_Alternatives(this, this, 7, inst);
-			case 8: return new ConditionalPropertyOperation_Group(this, this, 8, inst);
-			case 9: return new PropertyDefinitionOperation_Group(this, this, 9, inst);
-			case 10: return new PropertyValDeclaration_Group(this, this, 10, inst);
-			case 11: return new PropertyVarDeclaration_Group(this, this, 11, inst);
-			case 12: return new PropertySetOperation_Group(this, this, 12, inst);
-			case 13: return new SetPropertyOperation_Group(this, this, 13, inst);
-			case 14: return new UnsetPropertyOperation_Group(this, this, 14, inst);
+			case 5: return new RequiredCapability_Unfiltered_Group(this, this, 5, inst);
+			case 6: return new RequiredCapability_Unit_Group(this, this, 6, inst);
+			case 7: return new PropertySet_Named_Group(this, this, 7, inst);
+			case 8: return new PropertySet_Group(this, this, 8, inst);
+			case 9: return new PropertyOperation_Alternatives(this, this, 9, inst);
+			case 10: return new ConditionalPropertyOperation_Group(this, this, 10, inst);
+			case 11: return new PropertyDefinitionOperation_Group(this, this, 11, inst);
+			case 12: return new PropertyValDeclaration_Group(this, this, 12, inst);
+			case 13: return new PropertyVarDeclaration_Group(this, this, 13, inst);
+			case 14: return new PropertySetOperation_Group(this, this, 14, inst);
 			case 15: return new Synchronization_Group(this, this, 15, inst);
-			case 16: return new PathGroup_Group(this, this, 16, inst);
-			case 17: return new PathVector_Alternatives(this, this, 17, inst);
-			case 18: return new BasePathVector_Group(this, this, 18, inst);
-			case 19: return new UnbasedPathVector_Group(this, this, 19, inst);
-			case 20: return new CompoundPathVector_Group(this, this, 20, inst);
-			case 21: return new Prerequisite_Group(this, this, 21, inst);
-			case 22: return new WithClause_Group(this, this, 22, inst);
-			case 23: return new BuildResultReference_Alternatives(this, this, 23, inst);
-			case 24: return new DirectBuildResultReference_Group(this, this, 24, inst);
-			case 25: return new CapabilityReference_Group(this, this, 25, inst);
-			case 26: return new CompoundBuildResultReference_Group(this, this, 26, inst);
-			case 27: return new Builder_Group(this, this, 27, inst);
-			case 28: return new ParameterList_Group(this, this, 28, inst);
-			case 29: return new FirstParameter_Alternatives(this, this, 29, inst);
-			case 30: return new Parameter_Group(this, this, 30, inst);
-			case 31: return new ClosureParameter_Group(this, this, 31, inst);
-			case 32: return new ParameterDeclarationList_Alternatives(this, this, 32, inst);
+			case 16: return new SynchronizedBuilder_Alternatives(this, this, 16, inst);
+			case 17: return new PathGroup_Group(this, this, 17, inst);
+			case 18: return new PathVector_Alternatives(this, this, 18, inst);
+			case 19: return new BasePathVector_Group(this, this, 19, inst);
+			case 20: return new UnbasedPathVector_Group(this, this, 20, inst);
+			case 21: return new CompoundPathVector_Group(this, this, 21, inst);
+			case 22: return new Prerequisite_Group(this, this, 22, inst);
+			case 23: return new WithClause_Group(this, this, 23, inst);
+			case 24: return new BuildResultReference_Alternatives(this, this, 24, inst);
+			case 25: return new UnitReference_Group(this, this, 25, inst);
+			case 26: return new CapabilityReference_Group(this, this, 26, inst);
+			case 27: return new CompoundBuildResultReference_Group(this, this, 27, inst);
+			case 28: return new Builder_Group(this, this, 28, inst);
+			case 29: return new ParameterList_Group(this, this, 29, inst);
+			case 30: return new FirstParameter_Alternatives(this, this, 30, inst);
+			case 31: return new Parameter_Group(this, this, 31, inst);
+			case 32: return new ClosureParameter_Group(this, this, 32, inst);
 			case 33: return new ParameterDeclaration_Group(this, this, 33, inst);
-			case 34: return new ParameterDeclarationEllipse_Group(this, this, 34, inst);
-			case 35: return new BuilderOutput_Group(this, this, 35, inst);
-			case 36: return new BuilderInput_Group(this, this, 36, inst);
-			case 37: return new RepositoryConfiguration_Alternatives(this, this, 37, inst);
-			case 38: return new RepositoryDeclaration_Group(this, this, 38, inst);
-			case 39: return new ResolutionStrategy_Group(this, this, 39, inst);
+			case 34: return new BuilderInput_Group(this, this, 34, inst);
+			case 35: return new RepositoryConfiguration_Alternatives(this, this, 35, inst);
+			case 36: return new RepositoryDeclaration_Group(this, this, 36, inst);
+			case 37: return new ResolutionStrategy_Alternatives(this, this, 37, inst);
+			case 38: return new ResolutionStrategyFirst_Group(this, this, 38, inst);
+			case 39: return new ResolutionStrategyBest_Group(this, this, 39, inst);
 			case 40: return new ContainerConfiguration_Group(this, this, 40, inst);
 			case 41: return new Concern_Named_Group(this, this, 41, inst);
 			case 42: return new Concern_Anonymous_Group(this, this, 42, inst);
@@ -121,26 +121,27 @@ protected class ThisRootNode extends RootToken {
 			case 83: return new OperationCall_Group(this, this, 83, inst);
 			case 84: return new ConstructorCallExpression_Group(this, this, 84, inst);
 			case 85: return new ContextBlock_Group(this, this, 85, inst);
-			case 86: return new FunctionDefinition_Group(this, this, 86, inst);
-			case 87: return new Literal_Alternatives(this, this, 87, inst);
-			case 88: return new LiteralList_Alternatives(this, this, 88, inst);
-			case 89: return new LiteralMap_Alternatives(this, this, 89, inst);
-			case 90: return new LiteralFunction_Group(this, this, 90, inst);
-			case 91: return new ClosureExpression_Group(this, this, 91, inst);
-			case 92: return new OneOrManyExpressions_Alternatives(this, this, 92, inst);
-			case 93: return new BlockExpressionWithoutBrackets_Group(this, this, 93, inst);
-			case 94: return new MapEntry_Group(this, this, 94, inst);
-			case 95: return new KeyLiteral_Group(this, this, 95, inst);
-			case 96: return new LiteralType_Group(this, this, 96, inst);
-			case 97: return new ValueLiteral_Alternatives(this, this, 97, inst);
-			case 98: return new BooleanLiteral_Group(this, this, 98, inst);
-			case 99: return new IntegerLiteral_Group(this, this, 99, inst);
-			case 100: return new UnitLiteral_Group(this, this, 100, inst);
-			case 101: return new StringLiteral_Group(this, this, 101, inst);
-			case 102: return new RealLiteral_Group(this, this, 102, inst);
-			case 103: return new RegexpLiteral_Group(this, this, 103, inst);
-			case 104: return new NullLiteral_Group(this, this, 104, inst);
-			case 105: return new ParanthesizedExpression_Group(this, this, 105, inst);
+			case 86: return new ContextBlock_Creation_Group(this, this, 86, inst);
+			case 87: return new FunctionDefinition_Group(this, this, 87, inst);
+			case 88: return new Literal_Alternatives(this, this, 88, inst);
+			case 89: return new LiteralList_Alternatives(this, this, 89, inst);
+			case 90: return new LiteralMap_Alternatives(this, this, 90, inst);
+			case 91: return new LiteralFunction_Group(this, this, 91, inst);
+			case 92: return new ClosureExpression_Group(this, this, 92, inst);
+			case 93: return new OneOrManyExpressions_Alternatives(this, this, 93, inst);
+			case 94: return new BlockExpressionWithoutBrackets_Group(this, this, 94, inst);
+			case 95: return new MapEntry_Group(this, this, 95, inst);
+			case 96: return new KeyLiteral_Group(this, this, 96, inst);
+			case 97: return new LiteralType_Group(this, this, 97, inst);
+			case 98: return new ValueLiteral_Alternatives(this, this, 98, inst);
+			case 99: return new BooleanLiteral_Group(this, this, 99, inst);
+			case 100: return new IntegerLiteral_Group(this, this, 100, inst);
+			case 101: return new UnitLiteral_Group(this, this, 101, inst);
+			case 102: return new StringLiteral_Group(this, this, 102, inst);
+			case 103: return new RealLiteral_Group(this, this, 103, inst);
+			case 104: return new RegexpLiteral_Group(this, this, 104, inst);
+			case 105: return new NullLiteral_Group(this, this, 105, inst);
+			case 106: return new ParanthesizedExpression_Group(this, this, 106, inst);
 			default: return null;
 		}	
 	}	
@@ -500,7 +501,9 @@ protected class BeeModel_BodyAssignment_2 extends AssignmentToken  {
  *   {be::B3JavaImport} reexport?="reexport"? "import" qualifiedName=QID ("as" name=ID)?
  *   ";"; 
  * 
- *                         
+ *         
+ * 	                 
+ * 	
  * 
  * // Wanted later 
  * //Import : (reexport ?='reexport')? 
@@ -767,20 +770,20 @@ protected class Import_SemicolonKeyword_5 extends KeywordToken  {
 
 /************ begin Rule Unit ****************
  *
- * Unit returns BuildUnit hidden ( WS , ML_COMMENT , SL_COMMENT ):
- *   {BuildUnit} documentation=DOCUMENTATION? executionMode=ExecutionMode? "unit" name=
- *   UnitName? ("version" version=VersionLiteral)? ("implements" implements+=
- *   InterfaceName ("," implements+=InterfaceName)*)? "{" ("default" "properties"
- *   defaultProperties=PropertySet)? ("provides" "{" (providedCapabilities+=
- *   ProvidedCapability ";")+ "}"|"provides" providedCapabilities+=ProvidedCapability ";"
- *   |"requires" "{" (requiredCapabilities+=RequiredCapability ";")+ "}"|"requires"
- *   requiredCapabilities+=RequiredCapability ";"|"env" "requires" "{" (
+ * Unit returns build::BuildUnit hidden ( WS , ML_COMMENT , SL_COMMENT ):
+ *   {build::BuildUnit} documentation=DOCUMENTATION? executionMode=ExecutionMode? "unit"
+ *   name=UnitName? ("version" version=VersionLiteral)? ("implements" implements+=
+ *   SimpleTypeRef ("," implements+=SimpleTypeRef)*)? "{" ("default" "properties"
+ *   defaultProperties=PropertySet)? ("provides" "{" (unitProvidedCapabilities+=
+ *   ProvidedCapability ";")+ "}"|"provides" unitProvidedCapabilities+=
+ *   ProvidedCapability ";"|"requires" "{" (requiredCapabilities+=RequiredCapability ";")
+ *   + "}"|"requires" requiredCapabilities+=RequiredCapability ";"|"env" "requires" "{" (
  *   metaRequiredCapabilities+=RequiredCapability ";")+ "}"|"env" "requires"
  *   metaRequiredCapabilities+=RequiredCapability ";"|concerns+=Concern_Named|
  *   "sequential" "{" synchronizations+=Synchronization+ "}"|"sequential"
  *   synchronizations+=Synchronization|builders+=Builder|functions+=Function|
- *   "repositories" "{" repositoryConfigurations+=RepositoryConfiguration* "}"|
- *   "properties" propertySets+=PropertySet_Named|"containers" "{" containers+=
+ *   "repositories" "{" repositories+=RepositoryConfiguration* "}"|"properties"
+ *   propertySets+=PropertySet_Named|"containers" "{" containers+=
  *   ContainerConfiguration* "}")* "}"; 
  * 
  * // Wanted later 
@@ -812,30 +815,30 @@ protected class Import_SemicolonKeyword_5 extends KeywordToken  {
  * 			                  
  * 			            
  * 			//--CONCERNS
- * 			   
+ * 			       
  * 			//--SYNCHRONIZE
  * 			                  
  * 			           
- * 			//--BUILD METHODS & FUNCTIONS
+ * 			//--BUILDERS & FUNCTIONS
  * 			         			
  * 			        			
  * 			//-- REPOSITORIES
  *
  **/
 
-// {BuildUnit} documentation=DOCUMENTATION? executionMode=ExecutionMode? "unit" name=
-// UnitName? ("version" version=VersionLiteral)? ("implements" implements+=
-// InterfaceName ("," implements+=InterfaceName)*)? "{" ("default" "properties"
-// defaultProperties=PropertySet)? ("provides" "{" (providedCapabilities+=
-// ProvidedCapability ";")+ "}"|"provides" providedCapabilities+=ProvidedCapability ";"
-// |"requires" "{" (requiredCapabilities+=RequiredCapability ";")+ "}"|"requires"
-// requiredCapabilities+=RequiredCapability ";"|"env" "requires" "{" (
+// {build::BuildUnit} documentation=DOCUMENTATION? executionMode=ExecutionMode? "unit"
+// name=UnitName? ("version" version=VersionLiteral)? ("implements" implements+=
+// SimpleTypeRef ("," implements+=SimpleTypeRef)*)? "{" ("default" "properties"
+// defaultProperties=PropertySet)? ("provides" "{" (unitProvidedCapabilities+=
+// ProvidedCapability ";")+ "}"|"provides" unitProvidedCapabilities+=
+// ProvidedCapability ";"|"requires" "{" (requiredCapabilities+=RequiredCapability ";")
+// + "}"|"requires" requiredCapabilities+=RequiredCapability ";"|"env" "requires" "{" (
 // metaRequiredCapabilities+=RequiredCapability ";")+ "}"|"env" "requires"
 // metaRequiredCapabilities+=RequiredCapability ";"|concerns+=Concern_Named|
 // "sequential" "{" synchronizations+=Synchronization+ "}"|"sequential"
 // synchronizations+=Synchronization|builders+=Builder|functions+=Function|
-// "repositories" "{" repositoryConfigurations+=RepositoryConfiguration* "}"|
-// "properties" propertySets+=PropertySet_Named|"containers" "{" containers+=
+// "repositories" "{" repositories+=RepositoryConfiguration* "}"|"properties"
+// propertySets+=PropertySet_Named|"containers" "{" containers+=
 // ContainerConfiguration* "}")* "}"   
 // 	    
 // 	    
@@ -857,11 +860,11 @@ protected class Import_SemicolonKeyword_5 extends KeywordToken  {
 // 			                  
 // 			            
 // 			//--CONCERNS
-// 			   
+// 			       
 // 			//--SYNCHRONIZE
 // 			                  
 // 			           
-// 			//--BUILD METHODS & FUNCTIONS
+// 			//--BUILDERS & FUNCTIONS
 // 			         			
 // 			        			
 // 			//-- REPOSITORIES
@@ -891,7 +894,7 @@ protected class Unit_Group extends GroupToken {
 	}
 }
 
-// {BuildUnit}
+// {build::BuildUnit}
 protected class Unit_BuildUnitAction_0 extends ActionToken  {
 
 	public Unit_BuildUnitAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -1126,7 +1129,7 @@ protected class Unit_VersionAssignment_5_1 extends AssignmentToken  {
 }
 
 
-// ("implements" implements+=InterfaceName ("," implements+=InterfaceName)*)?
+// ("implements" implements+=SimpleTypeRef ("," implements+=SimpleTypeRef)*)?
 protected class Unit_Group_6 extends GroupToken {
 	
 	public Unit_Group_6(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -1173,7 +1176,7 @@ protected class Unit_ImplementsKeyword_6_0 extends KeywordToken  {
 		
 }
 
-// implements+=InterfaceName
+// implements+=SimpleTypeRef
 protected class Unit_ImplementsAssignment_6_1 extends AssignmentToken  {
 	
 	public Unit_ImplementsAssignment_6_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -1188,7 +1191,7 @@ protected class Unit_ImplementsAssignment_6_1 extends AssignmentToken  {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new Unit_ImplementsKeyword_6_0(parent, this, 0, inst);
+			case 0: return new SimpleTypeRef_Group(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -1197,17 +1200,29 @@ protected class Unit_ImplementsAssignment_6_1 extends AssignmentToken  {
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("implements",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("implements");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
-			type = AssignmentType.DRC;
-			element = grammarAccess.getUnitAccess().getImplementsInterfaceNameParserRuleCall_6_1_0();
-			return obj;
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getSimpleTypeRefRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getUnitAccess().getImplementsSimpleTypeRefParserRuleCall_6_1_0(); 
+				consumed = obj;
+				return param;
+			}
 		}
 		return null;
 	}
 
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new Unit_ImplementsKeyword_6_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
 }
 
-// ("," implements+=InterfaceName)*
+// ("," implements+=SimpleTypeRef)*
 protected class Unit_Group_6_2 extends GroupToken {
 	
 	public Unit_Group_6_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -1252,7 +1267,7 @@ protected class Unit_CommaKeyword_6_2_0 extends KeywordToken  {
 		
 }
 
-// implements+=InterfaceName
+// implements+=SimpleTypeRef
 protected class Unit_ImplementsAssignment_6_2_1 extends AssignmentToken  {
 	
 	public Unit_ImplementsAssignment_6_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -1267,7 +1282,7 @@ protected class Unit_ImplementsAssignment_6_2_1 extends AssignmentToken  {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new Unit_CommaKeyword_6_2_0(parent, this, 0, inst);
+			case 0: return new SimpleTypeRef_Group(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -1276,14 +1291,26 @@ protected class Unit_ImplementsAssignment_6_2_1 extends AssignmentToken  {
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("implements",false)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("implements");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
-			type = AssignmentType.DRC;
-			element = grammarAccess.getUnitAccess().getImplementsInterfaceNameParserRuleCall_6_2_1_0();
-			return obj;
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getSimpleTypeRefRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getUnitAccess().getImplementsSimpleTypeRefParserRuleCall_6_2_1_0(); 
+				consumed = obj;
+				return param;
+			}
 		}
 		return null;
 	}
 
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new Unit_CommaKeyword_6_2_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
 }
 
 
@@ -1426,16 +1453,16 @@ protected class Unit_DefaultPropertiesAssignment_8_2 extends AssignmentToken  {
 }
 
 
-// ("provides" "{" (providedCapabilities+=ProvidedCapability ";")+ "}"|"provides"
-// providedCapabilities+=ProvidedCapability ";"|"requires" "{" (requiredCapabilities+=
-// RequiredCapability ";")+ "}"|"requires" requiredCapabilities+=RequiredCapability ";"
-// |"env" "requires" "{" (metaRequiredCapabilities+=RequiredCapability ";")+ "}"|"env"
-// "requires" metaRequiredCapabilities+=RequiredCapability ";"|concerns+=
-// Concern_Named|"sequential" "{" synchronizations+=Synchronization+ "}"|"sequential"
-// synchronizations+=Synchronization|builders+=Builder|functions+=Function|
-// "repositories" "{" repositoryConfigurations+=RepositoryConfiguration* "}"|
-// "properties" propertySets+=PropertySet_Named|"containers" "{" containers+=
-// ContainerConfiguration* "}")* 
+// ("provides" "{" (unitProvidedCapabilities+=ProvidedCapability ";")+ "}"|"provides"
+// unitProvidedCapabilities+=ProvidedCapability ";"|"requires" "{" (
+// requiredCapabilities+=RequiredCapability ";")+ "}"|"requires" requiredCapabilities
+// +=RequiredCapability ";"|"env" "requires" "{" (metaRequiredCapabilities+=
+// RequiredCapability ";")+ "}"|"env" "requires" metaRequiredCapabilities+=
+// RequiredCapability ";"|concerns+=Concern_Named|"sequential" "{" synchronizations+=
+// Synchronization+ "}"|"sequential" synchronizations+=Synchronization|builders+=
+// Builder|functions+=Function|"repositories" "{" repositories+=
+// RepositoryConfiguration* "}"|"properties" propertySets+=PropertySet_Named|
+// "containers" "{" containers+=ContainerConfiguration* "}")* 
 // 		 	 //-- PROVIDES
 // 			               
 // 			          
@@ -1445,11 +1472,11 @@ protected class Unit_DefaultPropertiesAssignment_8_2 extends AssignmentToken  {
 // 			                  
 // 			            
 // 			//--CONCERNS
-// 			   
+// 			       
 // 			//--SYNCHRONIZE
 // 			                  
 // 			           
-// 			//--BUILD METHODS & FUNCTIONS
+// 			//--BUILDERS & FUNCTIONS
 // 			         			
 // 			        			
 // 			//-- REPOSITORIES
@@ -1487,7 +1514,7 @@ protected class Unit_Alternatives_9 extends AlternativesToken {
 		
 }
 
-// "provides" "{" (providedCapabilities+=ProvidedCapability ";")+ "}"
+// "provides" "{" (unitProvidedCapabilities+=ProvidedCapability ";")+ "}"
 protected class Unit_Group_9_0 extends GroupToken {
 	
 	public Unit_Group_9_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -1555,7 +1582,7 @@ protected class Unit_LeftCurlyBracketKeyword_9_0_1 extends KeywordToken  {
 		
 }
 
-// (providedCapabilities+=ProvidedCapability ";")+
+// (unitProvidedCapabilities+=ProvidedCapability ";")+
 protected class Unit_Group_9_0_2 extends GroupToken {
 	
 	public Unit_Group_9_0_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -1577,16 +1604,16 @@ protected class Unit_Group_9_0_2 extends GroupToken {
 		
 }
 
-// providedCapabilities+=ProvidedCapability
-protected class Unit_ProvidedCapabilitiesAssignment_9_0_2_0 extends AssignmentToken  {
+// unitProvidedCapabilities+=ProvidedCapability
+protected class Unit_UnitProvidedCapabilitiesAssignment_9_0_2_0 extends AssignmentToken  {
 	
-	public Unit_ProvidedCapabilitiesAssignment_9_0_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public Unit_UnitProvidedCapabilitiesAssignment_9_0_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getUnitAccess().getProvidedCapabilitiesAssignment_9_0_2_0();
+		return grammarAccess.getUnitAccess().getUnitProvidedCapabilitiesAssignment_9_0_2_0();
 	}
 
     @Override
@@ -1599,13 +1626,13 @@ protected class Unit_ProvidedCapabilitiesAssignment_9_0_2_0 extends AssignmentTo
 		
     @Override	
 	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("providedCapabilities",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("providedCapabilities");
+		if((value = current.getConsumable("unitProvidedCapabilities",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("unitProvidedCapabilities");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getProvidedCapabilityRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getUnitAccess().getProvidedCapabilitiesProvidedCapabilityParserRuleCall_9_0_2_0_0(); 
+				element = grammarAccess.getUnitAccess().getUnitProvidedCapabilitiesProvidedCapabilityParserRuleCall_9_0_2_0_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -1639,7 +1666,7 @@ protected class Unit_SemicolonKeyword_9_0_2_1 extends KeywordToken  {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new Unit_ProvidedCapabilitiesAssignment_9_0_2_0(parent, this, 0, inst);
+			case 0: return new Unit_UnitProvidedCapabilitiesAssignment_9_0_2_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -1670,7 +1697,7 @@ protected class Unit_RightCurlyBracketKeyword_9_0_3 extends KeywordToken  {
 }
 
 
-// "provides" providedCapabilities+=ProvidedCapability ";"
+// "provides" unitProvidedCapabilities+=ProvidedCapability ";"
 protected class Unit_Group_9_1 extends GroupToken {
 	
 	public Unit_Group_9_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -1716,16 +1743,16 @@ protected class Unit_ProvidesKeyword_9_1_0 extends KeywordToken  {
 		
 }
 
-// providedCapabilities+=ProvidedCapability
-protected class Unit_ProvidedCapabilitiesAssignment_9_1_1 extends AssignmentToken  {
+// unitProvidedCapabilities+=ProvidedCapability
+protected class Unit_UnitProvidedCapabilitiesAssignment_9_1_1 extends AssignmentToken  {
 	
-	public Unit_ProvidedCapabilitiesAssignment_9_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public Unit_UnitProvidedCapabilitiesAssignment_9_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getUnitAccess().getProvidedCapabilitiesAssignment_9_1_1();
+		return grammarAccess.getUnitAccess().getUnitProvidedCapabilitiesAssignment_9_1_1();
 	}
 
     @Override
@@ -1738,13 +1765,13 @@ protected class Unit_ProvidedCapabilitiesAssignment_9_1_1 extends AssignmentToke
 		
     @Override	
 	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("providedCapabilities",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("providedCapabilities");
+		if((value = current.getConsumable("unitProvidedCapabilities",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("unitProvidedCapabilities");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getProvidedCapabilityRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getUnitAccess().getProvidedCapabilitiesProvidedCapabilityParserRuleCall_9_1_1_0(); 
+				element = grammarAccess.getUnitAccess().getUnitProvidedCapabilitiesProvidedCapabilityParserRuleCall_9_1_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -1777,7 +1804,7 @@ protected class Unit_SemicolonKeyword_9_1_2 extends KeywordToken  {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new Unit_ProvidedCapabilitiesAssignment_9_1_1(parent, this, 0, inst);
+			case 0: return new Unit_UnitProvidedCapabilitiesAssignment_9_1_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -2800,7 +2827,7 @@ protected class Unit_FunctionsAssignment_9_10 extends AssignmentToken  {
 	}	
 }
 
-// "repositories" "{" repositoryConfigurations+=RepositoryConfiguration* "}"
+// "repositories" "{" repositories+=RepositoryConfiguration* "}"
 protected class Unit_Group_9_11 extends GroupToken {
 	
 	public Unit_Group_9_11(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -2868,16 +2895,16 @@ protected class Unit_LeftCurlyBracketKeyword_9_11_1 extends KeywordToken  {
 		
 }
 
-// repositoryConfigurations+=RepositoryConfiguration*
-protected class Unit_RepositoryConfigurationsAssignment_9_11_2 extends AssignmentToken  {
+// repositories+=RepositoryConfiguration*
+protected class Unit_RepositoriesAssignment_9_11_2 extends AssignmentToken  {
 	
-	public Unit_RepositoryConfigurationsAssignment_9_11_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public Unit_RepositoriesAssignment_9_11_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getUnitAccess().getRepositoryConfigurationsAssignment_9_11_2();
+		return grammarAccess.getUnitAccess().getRepositoriesAssignment_9_11_2();
 	}
 
     @Override
@@ -2890,13 +2917,13 @@ protected class Unit_RepositoryConfigurationsAssignment_9_11_2 extends Assignmen
 		
     @Override	
 	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("repositoryConfigurations",false)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("repositoryConfigurations");
+		if((value = current.getConsumable("repositories",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("repositories");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getRepositoryConfigurationRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getUnitAccess().getRepositoryConfigurationsRepositoryConfigurationParserRuleCall_9_11_2_0(); 
+				element = grammarAccess.getUnitAccess().getRepositoriesRepositoryConfigurationParserRuleCall_9_11_2_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -2908,7 +2935,7 @@ protected class Unit_RepositoryConfigurationsAssignment_9_11_2 extends Assignmen
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new Unit_RepositoryConfigurationsAssignment_9_11_2(parent, next, actIndex, consumed);
+			case 0: return new Unit_RepositoriesAssignment_9_11_2(parent, next, actIndex, consumed);
 			case 1: return new Unit_LeftCurlyBracketKeyword_9_11_1(parent, next, actIndex, consumed);
 			default: return null;
 		}	
@@ -2930,7 +2957,7 @@ protected class Unit_RightCurlyBracketKeyword_9_11_3 extends KeywordToken  {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new Unit_RepositoryConfigurationsAssignment_9_11_2(parent, this, 0, inst);
+			case 0: return new Unit_RepositoriesAssignment_9_11_2(parent, this, 0, inst);
 			case 1: return new Unit_LeftCurlyBracketKeyword_9_11_1(parent, this, 1, inst);
 			default: return null;
 		}	
@@ -3204,12 +3231,12 @@ protected class Unit_RightCurlyBracketKeyword_10 extends KeywordToken  {
  *
  * ProvidedCapability returns build::VersionedCapability:
  *   {build::VersionedCapability} ("when" "(" condExpr=Expression ")")? nameSpace=
- *   InterfaceName "/" name=UnitName ("/" version=VersionLiteral)?;
+ *   InterfaceName "/" name=CapabilityName ("/" version=VersionLiteral)?;
  *
  **/
 
 // {build::VersionedCapability} ("when" "(" condExpr=Expression ")")? nameSpace=
-// InterfaceName "/" name=UnitName ("/" version=VersionLiteral)?
+// InterfaceName "/" name=CapabilityName ("/" version=VersionLiteral)?
 protected class ProvidedCapability_Group extends GroupToken {
 	
 	public ProvidedCapability_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -3457,7 +3484,7 @@ protected class ProvidedCapability_SolidusKeyword_3 extends KeywordToken  {
 		
 }
 
-// name=UnitName
+// name=CapabilityName
 protected class ProvidedCapability_NameAssignment_4 extends AssignmentToken  {
 	
 	public ProvidedCapability_NameAssignment_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -3483,7 +3510,7 @@ protected class ProvidedCapability_NameAssignment_4 extends AssignmentToken  {
 		IInstanceDescription obj = current.cloneAndConsume("name");
 		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
 			type = AssignmentType.DRC;
-			element = grammarAccess.getProvidedCapabilityAccess().getNameUnitNameParserRuleCall_4_0();
+			element = grammarAccess.getProvidedCapabilityAccess().getNameCapabilityNameParserRuleCall_4_0();
 			return obj;
 		}
 		return null;
@@ -3578,24 +3605,12 @@ protected class ProvidedCapability_VersionAssignment_5_1 extends AssignmentToken
  *
  * RequiredCapability returns build::RequiredCapability:
  *   {build::RequiredCapability} ("when" "(" condExpr=Expression ")")? nameSpace=
- *   InterfaceName "/" name=UnitName ("/" versionRange=VersionRangeLiteral)?; 
- * 	
- *        
- * 	        
- * 	     
- * 	    
- * 	
- * 	
- * //RequiredCapability : capability=FilteredCapability ('/' range=VersionRange)?  ;
- * //FilteredCapability : ('when' filter=Filter)? capability = Capability ;
- * //Capability returns build::Capability: {build::Capability} nameSpace=InterfaceName '/' name=UnitName ;
- * 
- * // An optionally named sequence of property statements
+ *   InterfaceName "/" name=CapabilityName ("/" versionRange=VersionRangeLiteral)?;
  *
  **/
 
 // {build::RequiredCapability} ("when" "(" condExpr=Expression ")")? nameSpace=
-// InterfaceName "/" name=UnitName ("/" versionRange=VersionRangeLiteral)?
+// InterfaceName "/" name=CapabilityName ("/" versionRange=VersionRangeLiteral)?
 protected class RequiredCapability_Group extends GroupToken {
 	
 	public RequiredCapability_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -3843,7 +3858,7 @@ protected class RequiredCapability_SolidusKeyword_3 extends KeywordToken  {
 		
 }
 
-// name=UnitName
+// name=CapabilityName
 protected class RequiredCapability_NameAssignment_4 extends AssignmentToken  {
 	
 	public RequiredCapability_NameAssignment_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -3869,7 +3884,7 @@ protected class RequiredCapability_NameAssignment_4 extends AssignmentToken  {
 		IInstanceDescription obj = current.cloneAndConsume("name");
 		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
 			type = AssignmentType.DRC;
-			element = grammarAccess.getRequiredCapabilityAccess().getNameUnitNameParserRuleCall_4_0();
+			element = grammarAccess.getRequiredCapabilityAccess().getNameCapabilityNameParserRuleCall_4_0();
 			return obj;
 		}
 		return null;
@@ -3960,20 +3975,391 @@ protected class RequiredCapability_VersionRangeAssignment_5_1 extends Assignment
 /************ end Rule RequiredCapability ****************/
 
 
+/************ begin Rule RequiredCapability_Unfiltered ****************
+ *
+ * RequiredCapability_Unfiltered returns build::RequiredCapability:
+ *   {build::RequiredCapability} nameSpace=InterfaceName "/" name=CapabilityName ("/"
+ *   versionRange=VersionRangeLiteral)?; 
+ * 	
+ *          
+ * 	     
+ * 	    
+ * 	
+ * 
+ * // Requirement on a unit (in build unit namespace)
+ *
+ **/
+
+// {build::RequiredCapability} nameSpace=InterfaceName "/" name=CapabilityName ("/"
+// versionRange=VersionRangeLiteral)?
+protected class RequiredCapability_Unfiltered_Group extends GroupToken {
+	
+	public RequiredCapability_Unfiltered_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getRequiredCapability_UnfilteredAccess().getGroup();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RequiredCapability_Unfiltered_Group_4(parent, this, 0, inst);
+			case 1: return new RequiredCapability_Unfiltered_NameAssignment_3(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getRequiredCapability_UnfilteredRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// {build::RequiredCapability}
+protected class RequiredCapability_Unfiltered_RequiredCapabilityAction_0 extends ActionToken  {
+
+	public RequiredCapability_Unfiltered_RequiredCapabilityAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Action getGrammarElement() {
+		return grammarAccess.getRequiredCapability_UnfilteredAccess().getRequiredCapabilityAction_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(this, index, index, inst);
+		}	
+	}	
+		
+	
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(!current.isInstanceOf(grammarAccess.getRequiredCapability_UnfilteredAccess().getRequiredCapabilityAction_0().getType().getClassifier())) return null;
+		if(!current.isConsumed()) return null;
+		return current;
+	}
+}
+
+// nameSpace=InterfaceName
+protected class RequiredCapability_Unfiltered_NameSpaceAssignment_1 extends AssignmentToken  {
+	
+	public RequiredCapability_Unfiltered_NameSpaceAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getRequiredCapability_UnfilteredAccess().getNameSpaceAssignment_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RequiredCapability_Unfiltered_RequiredCapabilityAction_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("nameSpace",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("nameSpace");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+			type = AssignmentType.DRC;
+			element = grammarAccess.getRequiredCapability_UnfilteredAccess().getNameSpaceInterfaceNameParserRuleCall_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// "/"
+protected class RequiredCapability_Unfiltered_SolidusKeyword_2 extends KeywordToken  {
+	
+	public RequiredCapability_Unfiltered_SolidusKeyword_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getRequiredCapability_UnfilteredAccess().getSolidusKeyword_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RequiredCapability_Unfiltered_NameSpaceAssignment_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// name=CapabilityName
+protected class RequiredCapability_Unfiltered_NameAssignment_3 extends AssignmentToken  {
+	
+	public RequiredCapability_Unfiltered_NameAssignment_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getRequiredCapability_UnfilteredAccess().getNameAssignment_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RequiredCapability_Unfiltered_SolidusKeyword_2(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("name",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("name");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+			type = AssignmentType.DRC;
+			element = grammarAccess.getRequiredCapability_UnfilteredAccess().getNameCapabilityNameParserRuleCall_3_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// ("/" versionRange=VersionRangeLiteral)?
+protected class RequiredCapability_Unfiltered_Group_4 extends GroupToken {
+	
+	public RequiredCapability_Unfiltered_Group_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getRequiredCapability_UnfilteredAccess().getGroup_4();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RequiredCapability_Unfiltered_VersionRangeAssignment_4_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "/"
+protected class RequiredCapability_Unfiltered_SolidusKeyword_4_0 extends KeywordToken  {
+	
+	public RequiredCapability_Unfiltered_SolidusKeyword_4_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getRequiredCapability_UnfilteredAccess().getSolidusKeyword_4_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RequiredCapability_Unfiltered_NameAssignment_3(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// versionRange=VersionRangeLiteral
+protected class RequiredCapability_Unfiltered_VersionRangeAssignment_4_1 extends AssignmentToken  {
+	
+	public RequiredCapability_Unfiltered_VersionRangeAssignment_4_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getRequiredCapability_UnfilteredAccess().getVersionRangeAssignment_4_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RequiredCapability_Unfiltered_SolidusKeyword_4_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("versionRange",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("versionRange");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+			type = AssignmentType.DRC;
+			element = grammarAccess.getRequiredCapability_UnfilteredAccess().getVersionRangeVersionRangeLiteralParserRuleCall_4_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+
+
+/************ end Rule RequiredCapability_Unfiltered ****************/
+
+
+/************ begin Rule RequiredCapability_Unit ****************
+ *
+ * RequiredCapability_Unit returns build::RequiredCapability:
+ *   {build::RequiredCapability} (name=QID|"unit")?; 
+ * 
+ * // Requirement on a unit (in build unit namespace)
+ *          
+ * 	
+ * 	
+ * 	
+ * // An optionally named sequence of property statements
+ *
+ **/
+
+// {build::RequiredCapability} (name=QID|"unit")?
+protected class RequiredCapability_Unit_Group extends GroupToken {
+	
+	public RequiredCapability_Unit_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getRequiredCapability_UnitAccess().getGroup();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RequiredCapability_Unit_Alternatives_1(parent, this, 0, inst);
+			case 1: return new RequiredCapability_Unit_RequiredCapabilityAction_0(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getRequiredCapability_UnitRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// {build::RequiredCapability}
+protected class RequiredCapability_Unit_RequiredCapabilityAction_0 extends ActionToken  {
+
+	public RequiredCapability_Unit_RequiredCapabilityAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Action getGrammarElement() {
+		return grammarAccess.getRequiredCapability_UnitAccess().getRequiredCapabilityAction_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(this, index, index, inst);
+		}	
+	}	
+		
+	
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(!current.isInstanceOf(grammarAccess.getRequiredCapability_UnitAccess().getRequiredCapabilityAction_0().getType().getClassifier())) return null;
+		if(!current.isConsumed()) return null;
+		return current;
+	}
+}
+
+// (name=QID|"unit")?
+protected class RequiredCapability_Unit_Alternatives_1 extends AlternativesToken {
+
+	public RequiredCapability_Unit_Alternatives_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Alternatives getGrammarElement() {
+		return grammarAccess.getRequiredCapability_UnitAccess().getAlternatives_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RequiredCapability_Unit_NameAssignment_1_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// name=QID
+protected class RequiredCapability_Unit_NameAssignment_1_0 extends AssignmentToken  {
+	
+	public RequiredCapability_Unit_NameAssignment_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getRequiredCapability_UnitAccess().getNameAssignment_1_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RequiredCapability_Unit_RequiredCapabilityAction_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("name",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("name");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+			type = AssignmentType.DRC;
+			element = grammarAccess.getRequiredCapability_UnitAccess().getNameQIDParserRuleCall_1_0_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+
+
+/************ end Rule RequiredCapability_Unit ****************/
+
+
 /************ begin Rule PropertySet_Named ****************
  *
  * PropertySet_Named returns be::BPropertySet:
  *   {be::BPropertySet} name=ID ("extends" extends=[be::BPropertySet|QIDREF])? "{"
  *   operations+=PropertyOperation* "}"; 
  * 	
- * //RequiredCapability : capability=FilteredCapability ('/' range=VersionRange)?  ;
- * //FilteredCapability : ('when' filter=Filter)? capability = Capability ;
- * //Capability returns build::Capability: {build::Capability} nameSpace=InterfaceName '/' name=UnitName ;
- * 
  * // An optionally named sequence of property statements
- *     
- * 	                
- * 	           
+ *          
+ * 	                         
  * 	
  * 
  * // Sequence of possibly filtered property statements
@@ -4256,9 +4642,8 @@ protected class PropertySet_Named_RightCurlyBracketKeyword_5 extends KeywordToke
  *   PropertyOperation* "}"; 
  * 
  * // Sequence of possibly filtered property statements	
- *     
- * 	            
- * 		           
+ *          
+ * 	                    
  * 	
  * 
  * // For model generation, to get supertype correct
@@ -4950,11 +5335,10 @@ protected class ConditionalPropertyOperation_BodyAssignment_5_1 extends Assignme
  * PropertyDefinitionOperation returns be::BPropertyOperation:
  *   {be::BPropertyDefinitionOperation} (definition=PropertyValDeclaration|definition=
  *   PropertyVarDeclaration); 
- *     
- * 	                
+ *         
+ * 	            
  * 	
  * 		
- * // be::BDefProperty   immutable ?= "val"
  * // property values, must be assigned (but can be assigned null).
  *
  **/
@@ -5141,10 +5525,12 @@ protected class PropertyDefinitionOperation_DefinitionAssignment_1_1 extends Ass
  *   {be::BDefProperty} final?="final"? type=TypeRef? name=PID "=" valueExpr=Expression ";"
  * ; 
  * 		
- * // be::BDefProperty   immutable ?= "val"
  * // property values, must be assigned (but can be assigned null).
- *      
- * //	: {be::BDefProperty} ( final ?= "final")? (("property" |  type=TypeRef ) name=PID)
+ *          
+ * 	                    
+ * 	
+ * 	
+ * // property variables, value optionally assigned
  *
  **/
 
@@ -5418,7 +5804,9 @@ protected class PropertyValDeclaration_SemicolonKeyword_6 extends KeywordToken  
  *
  * PropertyVarDeclaration returns be::BDefProperty:
  *   {be::BDefProperty} final?="final"? mutable?="mutable" type=TypeRef? name=PID ("="
- *   valueExpr=Expression)? ";";
+ *   valueExpr=Expression)? ";"; 
+ * 	
+ * // property variables, value optionally assigned
  *
  **/
 
@@ -5749,12 +6137,7 @@ protected class PropertyVarDeclaration_SemicolonKeyword_6 extends KeywordToken  
 /************ begin Rule PropertySetOperation ****************
  *
  * PropertySetOperation returns be::BPropertyOperation:
- *   {be::BPropertySetOperation} propertySet=PropertySet; 
- *     
- * 	        
- * 	
- * 
- * // OLD
+ *   {be::BPropertySetOperation} propertySet=PropertySet;
  *
  **/
 
@@ -5863,341 +6246,16 @@ protected class PropertySetOperation_PropertySetAssignment_1 extends AssignmentT
 /************ end Rule PropertySetOperation ****************/
 
 
-/************ begin Rule SetPropertyOperation ****************
- *
- * SetPropertyOperation:
- *   final?="final"? key=PropertyName op=AssignmentOperator value=Expression ";"; 
- * 
- * // OLD
- *
- **/
-
-// final?="final"? key=PropertyName op=AssignmentOperator value=Expression ";"
-protected class SetPropertyOperation_Group extends GroupToken {
-	
-	public SetPropertyOperation_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getSetPropertyOperationAccess().getGroup();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new SetPropertyOperation_SemicolonKeyword_4(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override
-	public IInstanceDescription tryConsume() {
-		if(!current.isInstanceOf(grammarAccess.getSetPropertyOperationRule().getType().getClassifier())) return null;
-		return tryConsumeVal();
-	}
-}
-
-// final?="final"?
-protected class SetPropertyOperation_FinalAssignment_0 extends AssignmentToken  {
-	
-	public SetPropertyOperation_FinalAssignment_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getSetPropertyOperationAccess().getFinalAssignment_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			default: return parent.createParentFollower(this, index, index, inst);
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("final",false)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("final");
-		if(Boolean.TRUE.equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
-			type = AssignmentType.KW;
-			element = grammarAccess.getSetPropertyOperationAccess().getFinalFinalKeyword_0_0();
-			return obj;
-		}
-		return null;
-	}
-
-}
-
-// key=PropertyName
-protected class SetPropertyOperation_KeyAssignment_1 extends AssignmentToken  {
-	
-	public SetPropertyOperation_KeyAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getSetPropertyOperationAccess().getKeyAssignment_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new SetPropertyOperation_FinalAssignment_0(parent, this, 0, inst);
-			default: return parent.createParentFollower(this, index, index - 1, inst);
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("key",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("key");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
-			type = AssignmentType.DRC;
-			element = grammarAccess.getSetPropertyOperationAccess().getKeyPropertyNameParserRuleCall_1_0();
-			return obj;
-		}
-		return null;
-	}
-
-}
-
-// op=AssignmentOperator
-protected class SetPropertyOperation_OpAssignment_2 extends AssignmentToken  {
-	
-	public SetPropertyOperation_OpAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getSetPropertyOperationAccess().getOpAssignment_2();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new SetPropertyOperation_KeyAssignment_1(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("op",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("op");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
-			type = AssignmentType.DRC;
-			element = grammarAccess.getSetPropertyOperationAccess().getOpAssignmentOperatorParserRuleCall_2_0();
-			return obj;
-		}
-		return null;
-	}
-
-}
-
-// value=Expression
-protected class SetPropertyOperation_ValueAssignment_3 extends AssignmentToken  {
-	
-	public SetPropertyOperation_ValueAssignment_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getSetPropertyOperationAccess().getValueAssignment_3();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new Expression_AssignmentExpressionParserRuleCall(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("value",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("value");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getExpressionRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getSetPropertyOperationAccess().getValueExpressionParserRuleCall_3_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
-	}
-
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new SetPropertyOperation_OpAssignment_2(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
-}
-
-// ";"
-protected class SetPropertyOperation_SemicolonKeyword_4 extends KeywordToken  {
-	
-	public SetPropertyOperation_SemicolonKeyword_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getSetPropertyOperationAccess().getSemicolonKeyword_4();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new SetPropertyOperation_ValueAssignment_3(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-
-/************ end Rule SetPropertyOperation ****************/
-
-
-/************ begin Rule UnsetPropertyOperation ****************
- *
- * UnsetPropertyOperation:
- *   "unset" key=PropertyName ";";
- *
- **/
-
-// "unset" key=PropertyName ";"
-protected class UnsetPropertyOperation_Group extends GroupToken {
-	
-	public UnsetPropertyOperation_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getUnsetPropertyOperationAccess().getGroup();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new UnsetPropertyOperation_SemicolonKeyword_2(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override
-	public IInstanceDescription tryConsume() {
-		if(!current.isInstanceOf(grammarAccess.getUnsetPropertyOperationRule().getType().getClassifier())) return null;
-		return tryConsumeVal();
-	}
-}
-
-// "unset"
-protected class UnsetPropertyOperation_UnsetKeyword_0 extends KeywordToken  {
-	
-	public UnsetPropertyOperation_UnsetKeyword_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getUnsetPropertyOperationAccess().getUnsetKeyword_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			default: return parent.createParentFollower(this, index, index, inst);
-		}	
-	}	
-		
-}
-
-// key=PropertyName
-protected class UnsetPropertyOperation_KeyAssignment_1 extends AssignmentToken  {
-	
-	public UnsetPropertyOperation_KeyAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getUnsetPropertyOperationAccess().getKeyAssignment_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new UnsetPropertyOperation_UnsetKeyword_0(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("key",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("key");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
-			type = AssignmentType.DRC;
-			element = grammarAccess.getUnsetPropertyOperationAccess().getKeyPropertyNameParserRuleCall_1_0();
-			return obj;
-		}
-		return null;
-	}
-
-}
-
-// ";"
-protected class UnsetPropertyOperation_SemicolonKeyword_2 extends KeywordToken  {
-	
-	public UnsetPropertyOperation_SemicolonKeyword_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getUnsetPropertyOperationAccess().getSemicolonKeyword_2();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new UnsetPropertyOperation_KeyAssignment_1(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-
-/************ end Rule UnsetPropertyOperation ****************/
-
-
 /************ begin Rule Synchronization ****************
  *
- * Synchronization:
- *   partrefs+=SynchronizedPart ("," partrefs+=SynchronizedPart)+ ";"; 
- * 
- *  
- * 	                // TODO: verify at least 2 partrefs
+ * Synchronization returns build::Synchronization:
+ *   {build::Synchronization} builders+=SynchronizedBuilder ("," builders+=
+ *   SynchronizedBuilder)+ ";";
  *
  **/
 
-// partrefs+=SynchronizedPart ("," partrefs+=SynchronizedPart)+ ";"                 // TODO: verify at least 2 partrefs
+// {build::Synchronization} builders+=SynchronizedBuilder ("," builders+=
+// SynchronizedBuilder)+ ";"
 protected class Synchronization_Group extends GroupToken {
 	
 	public Synchronization_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -6212,7 +6270,7 @@ protected class Synchronization_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new Synchronization_SemicolonKeyword_2(parent, this, 0, inst);
+			case 0: return new Synchronization_SemicolonKeyword_3(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -6224,16 +6282,467 @@ protected class Synchronization_Group extends GroupToken {
 	}
 }
 
-// partrefs+=SynchronizedPart
-protected class Synchronization_PartrefsAssignment_0 extends AssignmentToken  {
+// {build::Synchronization}
+protected class Synchronization_SynchronizationAction_0 extends ActionToken  {
+
+	public Synchronization_SynchronizationAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
 	
-	public Synchronization_PartrefsAssignment_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	@Override
+	public Action getGrammarElement() {
+		return grammarAccess.getSynchronizationAccess().getSynchronizationAction_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(this, index, index, inst);
+		}	
+	}	
+		
+	
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(!current.isInstanceOf(grammarAccess.getSynchronizationAccess().getSynchronizationAction_0().getType().getClassifier())) return null;
+		if(!current.isConsumed()) return null;
+		return current;
+	}
+}
+
+// builders+=SynchronizedBuilder
+protected class Synchronization_BuildersAssignment_1 extends AssignmentToken  {
+	
+	public Synchronization_BuildersAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getSynchronizationAccess().getPartrefsAssignment_0();
+		return grammarAccess.getSynchronizationAccess().getBuildersAssignment_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new SynchronizedBuilder_Alternatives(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("builders",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("builders");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getSynchronizedBuilderRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getSynchronizationAccess().getBuildersSynchronizedBuilderParserRuleCall_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new Synchronization_SynchronizationAction_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+// ("," builders+=SynchronizedBuilder)+
+protected class Synchronization_Group_2 extends GroupToken {
+	
+	public Synchronization_Group_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getSynchronizationAccess().getGroup_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Synchronization_BuildersAssignment_2_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// ","
+protected class Synchronization_CommaKeyword_2_0 extends KeywordToken  {
+	
+	public Synchronization_CommaKeyword_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getSynchronizationAccess().getCommaKeyword_2_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Synchronization_Group_2(parent, this, 0, inst);
+			case 1: return new Synchronization_BuildersAssignment_1(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// builders+=SynchronizedBuilder
+protected class Synchronization_BuildersAssignment_2_1 extends AssignmentToken  {
+	
+	public Synchronization_BuildersAssignment_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getSynchronizationAccess().getBuildersAssignment_2_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new SynchronizedBuilder_Alternatives(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("builders",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("builders");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getSynchronizedBuilderRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getSynchronizationAccess().getBuildersSynchronizedBuilderParserRuleCall_2_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new Synchronization_CommaKeyword_2_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+
+// ";"
+protected class Synchronization_SemicolonKeyword_3 extends KeywordToken  {
+	
+	public Synchronization_SemicolonKeyword_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getSynchronizationAccess().getSemicolonKeyword_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Synchronization_Group_2(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+
+/************ end Rule Synchronization ****************/
+
+
+/************ begin Rule SynchronizedBuilder ****************
+ *
+ * SynchronizedBuilder returns build::SynchronizedBuilder:
+ *   {build::SynchronizedBuilder} nameSpace=EscapedQualifiedName "/" name=
+ *   EscapedQualifiedName ("#" builderName=BuilderName)?|builderName=BuilderName;
+ *
+ **/
+
+// {build::SynchronizedBuilder} nameSpace=EscapedQualifiedName "/" name=
+// EscapedQualifiedName ("#" builderName=BuilderName)?|builderName=BuilderName
+protected class SynchronizedBuilder_Alternatives extends AlternativesToken {
+
+	public SynchronizedBuilder_Alternatives(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Alternatives getGrammarElement() {
+		return grammarAccess.getSynchronizedBuilderAccess().getAlternatives();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new SynchronizedBuilder_Group_0(parent, this, 0, inst);
+			case 1: return new SynchronizedBuilder_BuilderNameAssignment_1(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getSynchronizedBuilderRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// {build::SynchronizedBuilder} nameSpace=EscapedQualifiedName "/" name=
+// EscapedQualifiedName ("#" builderName=BuilderName)?
+protected class SynchronizedBuilder_Group_0 extends GroupToken {
+	
+	public SynchronizedBuilder_Group_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getSynchronizedBuilderAccess().getGroup_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new SynchronizedBuilder_Group_0_4(parent, this, 0, inst);
+			case 1: return new SynchronizedBuilder_NameAssignment_0_3(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// {build::SynchronizedBuilder}
+protected class SynchronizedBuilder_SynchronizedBuilderAction_0_0 extends ActionToken  {
+
+	public SynchronizedBuilder_SynchronizedBuilderAction_0_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Action getGrammarElement() {
+		return grammarAccess.getSynchronizedBuilderAccess().getSynchronizedBuilderAction_0_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(this, index, index, inst);
+		}	
+	}	
+		
+	
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(!current.isInstanceOf(grammarAccess.getSynchronizedBuilderAccess().getSynchronizedBuilderAction_0_0().getType().getClassifier())) return null;
+		if(!current.isConsumed()) return null;
+		return current;
+	}
+}
+
+// nameSpace=EscapedQualifiedName
+protected class SynchronizedBuilder_NameSpaceAssignment_0_1 extends AssignmentToken  {
+	
+	public SynchronizedBuilder_NameSpaceAssignment_0_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getSynchronizedBuilderAccess().getNameSpaceAssignment_0_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new SynchronizedBuilder_SynchronizedBuilderAction_0_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("nameSpace",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("nameSpace");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+			type = AssignmentType.DRC;
+			element = grammarAccess.getSynchronizedBuilderAccess().getNameSpaceEscapedQualifiedNameParserRuleCall_0_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// "/"
+protected class SynchronizedBuilder_SolidusKeyword_0_2 extends KeywordToken  {
+	
+	public SynchronizedBuilder_SolidusKeyword_0_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getSynchronizedBuilderAccess().getSolidusKeyword_0_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new SynchronizedBuilder_NameSpaceAssignment_0_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// name=EscapedQualifiedName
+protected class SynchronizedBuilder_NameAssignment_0_3 extends AssignmentToken  {
+	
+	public SynchronizedBuilder_NameAssignment_0_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getSynchronizedBuilderAccess().getNameAssignment_0_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new SynchronizedBuilder_SolidusKeyword_0_2(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("name",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("name");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+			type = AssignmentType.DRC;
+			element = grammarAccess.getSynchronizedBuilderAccess().getNameEscapedQualifiedNameParserRuleCall_0_3_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// ("#" builderName=BuilderName)?
+protected class SynchronizedBuilder_Group_0_4 extends GroupToken {
+	
+	public SynchronizedBuilder_Group_0_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getSynchronizedBuilderAccess().getGroup_0_4();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new SynchronizedBuilder_BuilderNameAssignment_0_4_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "#"
+protected class SynchronizedBuilder_NumberSignKeyword_0_4_0 extends KeywordToken  {
+	
+	public SynchronizedBuilder_NumberSignKeyword_0_4_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getSynchronizedBuilderAccess().getNumberSignKeyword_0_4_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new SynchronizedBuilder_NameAssignment_0_3(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// builderName=BuilderName
+protected class SynchronizedBuilder_BuilderNameAssignment_0_4_1 extends AssignmentToken  {
+	
+	public SynchronizedBuilder_BuilderNameAssignment_0_4_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getSynchronizedBuilderAccess().getBuilderNameAssignment_0_4_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new SynchronizedBuilder_NumberSignKeyword_0_4_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("builderName",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("builderName");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+			type = AssignmentType.DRC;
+			element = grammarAccess.getSynchronizedBuilderAccess().getBuilderNameBuilderNameParserRuleCall_0_4_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+
+
+// builderName=BuilderName
+protected class SynchronizedBuilder_BuilderNameAssignment_1 extends AssignmentToken  {
+	
+	public SynchronizedBuilder_BuilderNameAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getSynchronizedBuilderAccess().getBuilderNameAssignment_1();
 	}
 
     @Override
@@ -6245,90 +6754,11 @@ protected class Synchronization_PartrefsAssignment_0 extends AssignmentToken  {
 		
     @Override	
 	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("partrefs",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("partrefs");
+		if((value = current.getConsumable("builderName",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("builderName");
 		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
 			type = AssignmentType.DRC;
-			element = grammarAccess.getSynchronizationAccess().getPartrefsSynchronizedPartParserRuleCall_0_0();
-			return obj;
-		}
-		return null;
-	}
-
-}
-
-// ("," partrefs+=SynchronizedPart)+
-protected class Synchronization_Group_1 extends GroupToken {
-	
-	public Synchronization_Group_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getSynchronizationAccess().getGroup_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new Synchronization_PartrefsAssignment_1_1(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// ","
-protected class Synchronization_CommaKeyword_1_0 extends KeywordToken  {
-	
-	public Synchronization_CommaKeyword_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getSynchronizationAccess().getCommaKeyword_1_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new Synchronization_Group_1(parent, this, 0, inst);
-			case 1: return new Synchronization_PartrefsAssignment_0(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// partrefs+=SynchronizedPart
-protected class Synchronization_PartrefsAssignment_1_1 extends AssignmentToken  {
-	
-	public Synchronization_PartrefsAssignment_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getSynchronizationAccess().getPartrefsAssignment_1_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new Synchronization_CommaKeyword_1_0(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("partrefs",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("partrefs");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
-			type = AssignmentType.DRC;
-			element = grammarAccess.getSynchronizationAccess().getPartrefsSynchronizedPartParserRuleCall_1_1_0();
+			element = grammarAccess.getSynchronizedBuilderAccess().getBuilderNameBuilderNameParserRuleCall_1_0();
 			return obj;
 		}
 		return null;
@@ -6337,31 +6767,7 @@ protected class Synchronization_PartrefsAssignment_1_1 extends AssignmentToken  
 }
 
 
-// ";"     // TODO: verify at least 2 partrefs
-protected class Synchronization_SemicolonKeyword_2 extends KeywordToken  {
-	
-	public Synchronization_SemicolonKeyword_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getSynchronizationAccess().getSemicolonKeyword_2();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new Synchronization_Group_1(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-
-/************ end Rule Synchronization ****************/
-
+/************ end Rule SynchronizedBuilder ****************/
 
 
 /************ begin Rule PathGroup ****************
@@ -7506,7 +7912,7 @@ protected class UnbasedPathVector_SemicolonKeyword_4 extends KeywordToken  {
  *   {build::CompoundPathVector} "when" "(" condExpr=Expression ")" "{" pathVectors+=
  *   PathVector* "}"; 
  * 	
- *       
+ *         
  * 	      
  * 	         
  * 	
@@ -8686,11 +9092,11 @@ protected class WithClause_ConcernsAssignment_3_1_1 extends AssignmentToken  {
 /************ begin Rule BuildResultReference ****************
  *
  * BuildResultReference returns build::BuildResultReference:
- *   DirectBuildResultReference|CapabilityReference|CompoundBuildResultReference;
+ *   UnitReference|CapabilityReference|CompoundBuildResultReference;
  *
  **/
 
-// DirectBuildResultReference|CapabilityReference|CompoundBuildResultReference
+// UnitReference|CapabilityReference|CompoundBuildResultReference
 protected class BuildResultReference_Alternatives extends AlternativesToken {
 
 	public BuildResultReference_Alternatives(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -8705,7 +9111,7 @@ protected class BuildResultReference_Alternatives extends AlternativesToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new BuildResultReference_DirectBuildResultReferenceParserRuleCall_0(parent, this, 0, inst);
+			case 0: return new BuildResultReference_UnitReferenceParserRuleCall_0(parent, this, 0, inst);
 			case 1: return new BuildResultReference_CapabilityReferenceParserRuleCall_1(parent, this, 1, inst);
 			case 2: return new BuildResultReference_CompoundBuildResultReferenceParserRuleCall_2(parent, this, 2, inst);
 			default: return null;
@@ -8719,30 +9125,30 @@ protected class BuildResultReference_Alternatives extends AlternativesToken {
 	}
 }
 
-// DirectBuildResultReference
-protected class BuildResultReference_DirectBuildResultReferenceParserRuleCall_0 extends RuleCallToken {
+// UnitReference
+protected class BuildResultReference_UnitReferenceParserRuleCall_0 extends RuleCallToken {
 	
-	public BuildResultReference_DirectBuildResultReferenceParserRuleCall_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BuildResultReference_UnitReferenceParserRuleCall_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getBuildResultReferenceAccess().getDirectBuildResultReferenceParserRuleCall_0();
+		return grammarAccess.getBuildResultReferenceAccess().getUnitReferenceParserRuleCall_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new DirectBuildResultReference_Group(this, this, 0, inst);
+			case 0: return new UnitReference_Group(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
 		
     @Override
 	protected IInstanceDescription tryConsumeVal() {
-		if(checkForRecursion(DirectBuildResultReference_Group.class, current)) return null;
-		if(!current.isInstanceOf(grammarAccess.getDirectBuildResultReferenceRule().getType().getClassifier())) return null;
+		if(checkForRecursion(UnitReference_Group.class, current)) return null;
+		if(!current.isInstanceOf(grammarAccess.getUnitReferenceRule().getType().getClassifier())) return null;
 		return current;
 	}
 	
@@ -8828,53 +9234,53 @@ protected class BuildResultReference_CompoundBuildResultReferenceParserRuleCall_
 /************ end Rule BuildResultReference ****************/
 
 
-/************ begin Rule DirectBuildResultReference ****************
+/************ begin Rule UnitReference ****************
  *
- * DirectBuildResultReference returns build::BuildResultReference:
- *   {build::DirectBuildResultReference} (name=QID|"unit")? "#" builderName=PartName
- *   parameters=ParameterList?;
+ * UnitReference returns build::BuildResultReference:
+ *   {build::BuilderReference} requiredCapability=RequiredCapability_Unit? "#"
+ *   builderName=BuilderName parameters=ParameterList?;
  *
  **/
 
-// {build::DirectBuildResultReference} (name=QID|"unit")? "#" builderName=PartName
-// parameters=ParameterList?
-protected class DirectBuildResultReference_Group extends GroupToken {
+// {build::BuilderReference} requiredCapability=RequiredCapability_Unit? "#"
+// builderName=BuilderName parameters=ParameterList?
+protected class UnitReference_Group extends GroupToken {
 	
-	public DirectBuildResultReference_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public UnitReference_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Group getGrammarElement() {
-		return grammarAccess.getDirectBuildResultReferenceAccess().getGroup();
+		return grammarAccess.getUnitReferenceAccess().getGroup();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new DirectBuildResultReference_ParametersAssignment_4(parent, this, 0, inst);
-			case 1: return new DirectBuildResultReference_BuilderNameAssignment_3(parent, this, 1, inst);
+			case 0: return new UnitReference_ParametersAssignment_4(parent, this, 0, inst);
+			case 1: return new UnitReference_BuilderNameAssignment_3(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
 		
     @Override
 	public IInstanceDescription tryConsume() {
-		if(!current.isInstanceOf(grammarAccess.getDirectBuildResultReferenceRule().getType().getClassifier())) return null;
+		if(!current.isInstanceOf(grammarAccess.getUnitReferenceRule().getType().getClassifier())) return null;
 		return tryConsumeVal();
 	}
 }
 
-// {build::DirectBuildResultReference}
-protected class DirectBuildResultReference_DirectBuildResultReferenceAction_0 extends ActionToken  {
+// {build::BuilderReference}
+protected class UnitReference_BuilderReferenceAction_0 extends ActionToken  {
 
-	public DirectBuildResultReference_DirectBuildResultReferenceAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public UnitReference_BuilderReferenceAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Action getGrammarElement() {
-		return grammarAccess.getDirectBuildResultReferenceAccess().getDirectBuildResultReferenceAction_0();
+		return grammarAccess.getUnitReferenceAccess().getBuilderReferenceAction_0();
 	}
 
     @Override
@@ -8887,108 +9293,97 @@ protected class DirectBuildResultReference_DirectBuildResultReferenceAction_0 ex
 	
     @Override
 	protected IInstanceDescription tryConsumeVal() {
-		if(!current.isInstanceOf(grammarAccess.getDirectBuildResultReferenceAccess().getDirectBuildResultReferenceAction_0().getType().getClassifier())) return null;
+		if(!current.isInstanceOf(grammarAccess.getUnitReferenceAccess().getBuilderReferenceAction_0().getType().getClassifier())) return null;
 		if(!current.isConsumed()) return null;
 		return current;
 	}
 }
 
-// (name=QID|"unit")?
-protected class DirectBuildResultReference_Alternatives_1 extends AlternativesToken {
-
-	public DirectBuildResultReference_Alternatives_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
+// requiredCapability=RequiredCapability_Unit?
+protected class UnitReference_RequiredCapabilityAssignment_1 extends AssignmentToken  {
 	
-	@Override
-	public Alternatives getGrammarElement() {
-		return grammarAccess.getDirectBuildResultReferenceAccess().getAlternatives_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new DirectBuildResultReference_NameAssignment_1_0(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// name=QID
-protected class DirectBuildResultReference_NameAssignment_1_0 extends AssignmentToken  {
-	
-	public DirectBuildResultReference_NameAssignment_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public UnitReference_RequiredCapabilityAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getDirectBuildResultReferenceAccess().getNameAssignment_1_0();
+		return grammarAccess.getUnitReferenceAccess().getRequiredCapabilityAssignment_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new DirectBuildResultReference_DirectBuildResultReferenceAction_0(parent, this, 0, inst);
+			case 0: return new RequiredCapability_Unit_Group(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
 		
     @Override	
 	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("name",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("name");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
-			type = AssignmentType.DRC;
-			element = grammarAccess.getDirectBuildResultReferenceAccess().getNameQIDParserRuleCall_1_0_0();
-			return obj;
+		if((value = current.getConsumable("requiredCapability",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("requiredCapability");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getRequiredCapability_UnitRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getUnitReferenceAccess().getRequiredCapabilityRequiredCapability_UnitParserRuleCall_1_0(); 
+				consumed = obj;
+				return param;
+			}
 		}
 		return null;
 	}
 
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new UnitReference_BuilderReferenceAction_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
 }
 
-
 // "#"
-protected class DirectBuildResultReference_NumberSignKeyword_2 extends KeywordToken  {
+protected class UnitReference_NumberSignKeyword_2 extends KeywordToken  {
 	
-	public DirectBuildResultReference_NumberSignKeyword_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public UnitReference_NumberSignKeyword_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getDirectBuildResultReferenceAccess().getNumberSignKeyword_2();
+		return grammarAccess.getUnitReferenceAccess().getNumberSignKeyword_2();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new DirectBuildResultReference_Alternatives_1(parent, this, 0, inst);
-			case 1: return new DirectBuildResultReference_DirectBuildResultReferenceAction_0(parent, this, 1, inst);
+			case 0: return new UnitReference_RequiredCapabilityAssignment_1(parent, this, 0, inst);
+			case 1: return new UnitReference_BuilderReferenceAction_0(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
 		
 }
 
-// builderName=PartName
-protected class DirectBuildResultReference_BuilderNameAssignment_3 extends AssignmentToken  {
+// builderName=BuilderName
+protected class UnitReference_BuilderNameAssignment_3 extends AssignmentToken  {
 	
-	public DirectBuildResultReference_BuilderNameAssignment_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public UnitReference_BuilderNameAssignment_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getDirectBuildResultReferenceAccess().getBuilderNameAssignment_3();
+		return grammarAccess.getUnitReferenceAccess().getBuilderNameAssignment_3();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new DirectBuildResultReference_NumberSignKeyword_2(parent, this, 0, inst);
+			case 0: return new UnitReference_NumberSignKeyword_2(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -8999,7 +9394,7 @@ protected class DirectBuildResultReference_BuilderNameAssignment_3 extends Assig
 		IInstanceDescription obj = current.cloneAndConsume("builderName");
 		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
 			type = AssignmentType.DRC;
-			element = grammarAccess.getDirectBuildResultReferenceAccess().getBuilderNamePartNameParserRuleCall_3_0();
+			element = grammarAccess.getUnitReferenceAccess().getBuilderNameBuilderNameParserRuleCall_3_0();
 			return obj;
 		}
 		return null;
@@ -9008,15 +9403,15 @@ protected class DirectBuildResultReference_BuilderNameAssignment_3 extends Assig
 }
 
 // parameters=ParameterList?
-protected class DirectBuildResultReference_ParametersAssignment_4 extends AssignmentToken  {
+protected class UnitReference_ParametersAssignment_4 extends AssignmentToken  {
 	
-	public DirectBuildResultReference_ParametersAssignment_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public UnitReference_ParametersAssignment_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getDirectBuildResultReferenceAccess().getParametersAssignment_4();
+		return grammarAccess.getUnitReferenceAccess().getParametersAssignment_4();
 	}
 
     @Override
@@ -9035,7 +9430,7 @@ protected class DirectBuildResultReference_ParametersAssignment_4 extends Assign
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getParameterListRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getDirectBuildResultReferenceAccess().getParametersParameterListParserRuleCall_4_0(); 
+				element = grammarAccess.getUnitReferenceAccess().getParametersParameterListParserRuleCall_4_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -9047,28 +9442,26 @@ protected class DirectBuildResultReference_ParametersAssignment_4 extends Assign
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new DirectBuildResultReference_BuilderNameAssignment_3(parent, next, actIndex, consumed);
+			case 0: return new UnitReference_BuilderNameAssignment_3(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 
-/************ end Rule DirectBuildResultReference ****************/
+/************ end Rule UnitReference ****************/
 
 
 /************ begin Rule CapabilityReference ****************
  *
  * CapabilityReference returns build::BuildResultReference:
- *   {build::IndirectBuildResultReference} nameSpace=InterfaceName "/" name=UnitName ("/"
- *   versionRange=VersionRangeLiteral)? ("#" builderName=PartName)? parameters=
- *   ParameterList?;
+ *   {build::BuilderReference} requiredCapability=RequiredCapability_Unfiltered ("#"
+ *   builderName=BuilderName)? parameters=ParameterList?;
  *
  **/
 
-// {build::IndirectBuildResultReference} nameSpace=InterfaceName "/" name=UnitName ("/"
-// versionRange=VersionRangeLiteral)? ("#" builderName=PartName)? parameters=
-// ParameterList?
+// {build::BuilderReference} requiredCapability=RequiredCapability_Unfiltered ("#"
+// builderName=BuilderName)? parameters=ParameterList?
 protected class CapabilityReference_Group extends GroupToken {
 	
 	public CapabilityReference_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -9083,10 +9476,9 @@ protected class CapabilityReference_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new CapabilityReference_ParametersAssignment_6(parent, this, 0, inst);
-			case 1: return new CapabilityReference_Group_5(parent, this, 1, inst);
-			case 2: return new CapabilityReference_Group_4(parent, this, 2, inst);
-			case 3: return new CapabilityReference_NameAssignment_3(parent, this, 3, inst);
+			case 0: return new CapabilityReference_ParametersAssignment_3(parent, this, 0, inst);
+			case 1: return new CapabilityReference_Group_2(parent, this, 1, inst);
+			case 2: return new CapabilityReference_RequiredCapabilityAssignment_1(parent, this, 2, inst);
 			default: return null;
 		}	
 	}	
@@ -9098,16 +9490,16 @@ protected class CapabilityReference_Group extends GroupToken {
 	}
 }
 
-// {build::IndirectBuildResultReference}
-protected class CapabilityReference_IndirectBuildResultReferenceAction_0 extends ActionToken  {
+// {build::BuilderReference}
+protected class CapabilityReference_BuilderReferenceAction_0 extends ActionToken  {
 
-	public CapabilityReference_IndirectBuildResultReferenceAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public CapabilityReference_BuilderReferenceAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Action getGrammarElement() {
-		return grammarAccess.getCapabilityReferenceAccess().getIndirectBuildResultReferenceAction_0();
+		return grammarAccess.getCapabilityReferenceAccess().getBuilderReferenceAction_0();
 	}
 
     @Override
@@ -9120,197 +9512,74 @@ protected class CapabilityReference_IndirectBuildResultReferenceAction_0 extends
 	
     @Override
 	protected IInstanceDescription tryConsumeVal() {
-		if(!current.isInstanceOf(grammarAccess.getCapabilityReferenceAccess().getIndirectBuildResultReferenceAction_0().getType().getClassifier())) return null;
+		if(!current.isInstanceOf(grammarAccess.getCapabilityReferenceAccess().getBuilderReferenceAction_0().getType().getClassifier())) return null;
 		if(!current.isConsumed()) return null;
 		return current;
 	}
 }
 
-// nameSpace=InterfaceName
-protected class CapabilityReference_NameSpaceAssignment_1 extends AssignmentToken  {
+// requiredCapability=RequiredCapability_Unfiltered
+protected class CapabilityReference_RequiredCapabilityAssignment_1 extends AssignmentToken  {
 	
-	public CapabilityReference_NameSpaceAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public CapabilityReference_RequiredCapabilityAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getCapabilityReferenceAccess().getNameSpaceAssignment_1();
+		return grammarAccess.getCapabilityReferenceAccess().getRequiredCapabilityAssignment_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new CapabilityReference_IndirectBuildResultReferenceAction_0(parent, this, 0, inst);
+			case 0: return new RequiredCapability_Unfiltered_Group(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
 		
     @Override	
 	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("nameSpace",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("nameSpace");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
-			type = AssignmentType.DRC;
-			element = grammarAccess.getCapabilityReferenceAccess().getNameSpaceInterfaceNameParserRuleCall_1_0();
-			return obj;
+		if((value = current.getConsumable("requiredCapability",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("requiredCapability");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getRequiredCapability_UnfilteredRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getCapabilityReferenceAccess().getRequiredCapabilityRequiredCapability_UnfilteredParserRuleCall_1_0(); 
+				consumed = obj;
+				return param;
+			}
 		}
 		return null;
 	}
 
-}
-
-// "/"
-protected class CapabilityReference_SolidusKeyword_2 extends KeywordToken  {
-	
-	public CapabilityReference_SolidusKeyword_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getCapabilityReferenceAccess().getSolidusKeyword_2();
-	}
-
     @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new CapabilityReference_NameSpaceAssignment_1(parent, this, 0, inst);
+			case 0: return new CapabilityReference_BuilderReferenceAction_0(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
-		
 }
 
-// name=UnitName
-protected class CapabilityReference_NameAssignment_3 extends AssignmentToken  {
+// ("#" builderName=BuilderName)?
+protected class CapabilityReference_Group_2 extends GroupToken {
 	
-	public CapabilityReference_NameAssignment_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getCapabilityReferenceAccess().getNameAssignment_3();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new CapabilityReference_SolidusKeyword_2(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("name",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("name");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
-			type = AssignmentType.DRC;
-			element = grammarAccess.getCapabilityReferenceAccess().getNameUnitNameParserRuleCall_3_0();
-			return obj;
-		}
-		return null;
-	}
-
-}
-
-// ("/" versionRange=VersionRangeLiteral)?
-protected class CapabilityReference_Group_4 extends GroupToken {
-	
-	public CapabilityReference_Group_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public CapabilityReference_Group_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Group getGrammarElement() {
-		return grammarAccess.getCapabilityReferenceAccess().getGroup_4();
+		return grammarAccess.getCapabilityReferenceAccess().getGroup_2();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new CapabilityReference_VersionRangeAssignment_4_1(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// "/"
-protected class CapabilityReference_SolidusKeyword_4_0 extends KeywordToken  {
-	
-	public CapabilityReference_SolidusKeyword_4_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getCapabilityReferenceAccess().getSolidusKeyword_4_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new CapabilityReference_NameAssignment_3(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// versionRange=VersionRangeLiteral
-protected class CapabilityReference_VersionRangeAssignment_4_1 extends AssignmentToken  {
-	
-	public CapabilityReference_VersionRangeAssignment_4_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getCapabilityReferenceAccess().getVersionRangeAssignment_4_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new CapabilityReference_SolidusKeyword_4_0(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("versionRange",false)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("versionRange");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
-			type = AssignmentType.DRC;
-			element = grammarAccess.getCapabilityReferenceAccess().getVersionRangeVersionRangeLiteralParserRuleCall_4_1_0();
-			return obj;
-		}
-		return null;
-	}
-
-}
-
-
-// ("#" builderName=PartName)?
-protected class CapabilityReference_Group_5 extends GroupToken {
-	
-	public CapabilityReference_Group_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getCapabilityReferenceAccess().getGroup_5();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new CapabilityReference_BuilderNameAssignment_5_1(parent, this, 0, inst);
+			case 0: return new CapabilityReference_BuilderNameAssignment_2_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -9318,44 +9587,43 @@ protected class CapabilityReference_Group_5 extends GroupToken {
 }
 
 // "#"
-protected class CapabilityReference_NumberSignKeyword_5_0 extends KeywordToken  {
+protected class CapabilityReference_NumberSignKeyword_2_0 extends KeywordToken  {
 	
-	public CapabilityReference_NumberSignKeyword_5_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public CapabilityReference_NumberSignKeyword_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getCapabilityReferenceAccess().getNumberSignKeyword_5_0();
+		return grammarAccess.getCapabilityReferenceAccess().getNumberSignKeyword_2_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new CapabilityReference_Group_4(parent, this, 0, inst);
-			case 1: return new CapabilityReference_NameAssignment_3(parent, this, 1, inst);
+			case 0: return new CapabilityReference_RequiredCapabilityAssignment_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
 		
 }
 
-// builderName=PartName
-protected class CapabilityReference_BuilderNameAssignment_5_1 extends AssignmentToken  {
+// builderName=BuilderName
+protected class CapabilityReference_BuilderNameAssignment_2_1 extends AssignmentToken  {
 	
-	public CapabilityReference_BuilderNameAssignment_5_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public CapabilityReference_BuilderNameAssignment_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getCapabilityReferenceAccess().getBuilderNameAssignment_5_1();
+		return grammarAccess.getCapabilityReferenceAccess().getBuilderNameAssignment_2_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new CapabilityReference_NumberSignKeyword_5_0(parent, this, 0, inst);
+			case 0: return new CapabilityReference_NumberSignKeyword_2_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -9366,7 +9634,7 @@ protected class CapabilityReference_BuilderNameAssignment_5_1 extends Assignment
 		IInstanceDescription obj = current.cloneAndConsume("builderName");
 		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
 			type = AssignmentType.DRC;
-			element = grammarAccess.getCapabilityReferenceAccess().getBuilderNamePartNameParserRuleCall_5_1_0();
+			element = grammarAccess.getCapabilityReferenceAccess().getBuilderNameBuilderNameParserRuleCall_2_1_0();
 			return obj;
 		}
 		return null;
@@ -9376,15 +9644,15 @@ protected class CapabilityReference_BuilderNameAssignment_5_1 extends Assignment
 
 
 // parameters=ParameterList?
-protected class CapabilityReference_ParametersAssignment_6 extends AssignmentToken  {
+protected class CapabilityReference_ParametersAssignment_3 extends AssignmentToken  {
 	
-	public CapabilityReference_ParametersAssignment_6(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public CapabilityReference_ParametersAssignment_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getCapabilityReferenceAccess().getParametersAssignment_6();
+		return grammarAccess.getCapabilityReferenceAccess().getParametersAssignment_3();
 	}
 
     @Override
@@ -9403,7 +9671,7 @@ protected class CapabilityReference_ParametersAssignment_6 extends AssignmentTok
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getParameterListRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getCapabilityReferenceAccess().getParametersParameterListParserRuleCall_6_0(); 
+				element = grammarAccess.getCapabilityReferenceAccess().getParametersParameterListParserRuleCall_3_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -9415,9 +9683,8 @@ protected class CapabilityReference_ParametersAssignment_6 extends AssignmentTok
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new CapabilityReference_Group_5(parent, next, actIndex, consumed);
-			case 1: return new CapabilityReference_Group_4(parent, next, actIndex, consumed);
-			case 2: return new CapabilityReference_NameAssignment_3(parent, next, actIndex, consumed);
+			case 0: return new CapabilityReference_Group_2(parent, next, actIndex, consumed);
+			case 1: return new CapabilityReference_RequiredCapabilityAssignment_1(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
@@ -9589,7 +9856,7 @@ protected class CompoundBuildResultReference_RightCurlyBracketKeyword_3 extends 
  *
  * Builder returns build::Builder:
  *   {build::Builder} documentation=DOCUMENTATION? visibility=Visibility? executionMode=
- *   ExecutionMode? final?="final"? "builder" name=PartName ("(" (parameters+=
+ *   ExecutionMode? final?="final"? "builder" name=BuilderName ("(" (parameters+=
  *   ParameterDeclaration ("," parameters+=ParameterDeclaration)* ("," varArgs?="..."
  *   parameters+=ParameterDeclaration)?)|(varArgs?="..." parameters+=
  *   ParameterDeclaration) ")")? ("provides" providedCapabilities+=ProvidedCapability (
@@ -9609,7 +9876,7 @@ protected class CompoundBuildResultReference_RightCurlyBracketKeyword_3 extends 
  **/
 
 // {build::Builder} documentation=DOCUMENTATION? visibility=Visibility? executionMode=
-// ExecutionMode? final?="final"? "builder" name=PartName ("(" (parameters+=
+// ExecutionMode? final?="final"? "builder" name=BuilderName ("(" (parameters+=
 // ParameterDeclaration ("," parameters+=ParameterDeclaration)* ("," varArgs?="..."
 // parameters+=ParameterDeclaration)?)|(varArgs?="..." parameters+=
 // ParameterDeclaration) ")")? ("provides" providedCapabilities+=ProvidedCapability (
@@ -9846,7 +10113,7 @@ protected class Builder_BuilderKeyword_5 extends KeywordToken  {
 		
 }
 
-// name=PartName
+// name=BuilderName
 protected class Builder_NameAssignment_6 extends AssignmentToken  {
 	
 	public Builder_NameAssignment_6(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -9872,7 +10139,7 @@ protected class Builder_NameAssignment_6 extends AssignmentToken  {
 		IInstanceDescription obj = current.cloneAndConsume("name");
 		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
 			type = AssignmentType.DRC;
-			element = grammarAccess.getBuilderAccess().getNamePartNameParserRuleCall_6_0();
+			element = grammarAccess.getBuilderAccess().getNameBuilderNameParserRuleCall_6_0();
 			return obj;
 		}
 		return null;
@@ -11977,347 +12244,6 @@ protected class ClosureParameter_ExprAssignment_1 extends AssignmentToken  {
 /************ end Rule ClosureParameter ****************/
 
 
-/************ begin Rule ParameterDeclarationList ****************
- *
- * ParameterDeclarationList:
- *   params+=ParameterDeclaration ("," params+=ParameterDeclaration)* ("," params+=
- *   ParameterDeclarationEllipse)?|params+=ParameterDeclarationEllipse;
- *
- **/
-
-// params+=ParameterDeclaration ("," params+=ParameterDeclaration)* ("," params+=
-// ParameterDeclarationEllipse)?|params+=ParameterDeclarationEllipse
-protected class ParameterDeclarationList_Alternatives extends AlternativesToken {
-
-	public ParameterDeclarationList_Alternatives(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Alternatives getGrammarElement() {
-		return grammarAccess.getParameterDeclarationListAccess().getAlternatives();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ParameterDeclarationList_Group_0(parent, this, 0, inst);
-			case 1: return new ParameterDeclarationList_ParamsAssignment_1(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override
-	public IInstanceDescription tryConsume() {
-		if(!current.isInstanceOf(grammarAccess.getParameterDeclarationListRule().getType().getClassifier())) return null;
-		return tryConsumeVal();
-	}
-}
-
-// params+=ParameterDeclaration ("," params+=ParameterDeclaration)* ("," params+=
-// ParameterDeclarationEllipse)?
-protected class ParameterDeclarationList_Group_0 extends GroupToken {
-	
-	public ParameterDeclarationList_Group_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getParameterDeclarationListAccess().getGroup_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ParameterDeclarationList_Group_0_2(parent, this, 0, inst);
-			case 1: return new ParameterDeclarationList_Group_0_1(parent, this, 1, inst);
-			case 2: return new ParameterDeclarationList_ParamsAssignment_0_0(parent, this, 2, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// params+=ParameterDeclaration
-protected class ParameterDeclarationList_ParamsAssignment_0_0 extends AssignmentToken  {
-	
-	public ParameterDeclarationList_ParamsAssignment_0_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getParameterDeclarationListAccess().getParamsAssignment_0_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ParameterDeclaration_Group(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("params",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("params");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getParameterDeclarationRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getParameterDeclarationListAccess().getParamsParameterDeclarationParserRuleCall_0_0_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
-	}
-
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			default: return parent.createParentFollower(next, actIndex , index, consumed);
-		}	
-	}	
-}
-
-// ("," params+=ParameterDeclaration)*
-protected class ParameterDeclarationList_Group_0_1 extends GroupToken {
-	
-	public ParameterDeclarationList_Group_0_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getParameterDeclarationListAccess().getGroup_0_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ParameterDeclarationList_ParamsAssignment_0_1_1(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// ","
-protected class ParameterDeclarationList_CommaKeyword_0_1_0 extends KeywordToken  {
-	
-	public ParameterDeclarationList_CommaKeyword_0_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getParameterDeclarationListAccess().getCommaKeyword_0_1_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ParameterDeclarationList_Group_0_1(parent, this, 0, inst);
-			case 1: return new ParameterDeclarationList_ParamsAssignment_0_0(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// params+=ParameterDeclaration
-protected class ParameterDeclarationList_ParamsAssignment_0_1_1 extends AssignmentToken  {
-	
-	public ParameterDeclarationList_ParamsAssignment_0_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getParameterDeclarationListAccess().getParamsAssignment_0_1_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ParameterDeclaration_Group(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("params",false)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("params");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getParameterDeclarationRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getParameterDeclarationListAccess().getParamsParameterDeclarationParserRuleCall_0_1_1_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
-	}
-
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new ParameterDeclarationList_CommaKeyword_0_1_0(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
-}
-
-
-// ("," params+=ParameterDeclarationEllipse)?
-protected class ParameterDeclarationList_Group_0_2 extends GroupToken {
-	
-	public ParameterDeclarationList_Group_0_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getParameterDeclarationListAccess().getGroup_0_2();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ParameterDeclarationList_ParamsAssignment_0_2_1(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// ","
-protected class ParameterDeclarationList_CommaKeyword_0_2_0 extends KeywordToken  {
-	
-	public ParameterDeclarationList_CommaKeyword_0_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getParameterDeclarationListAccess().getCommaKeyword_0_2_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ParameterDeclarationList_Group_0_1(parent, this, 0, inst);
-			case 1: return new ParameterDeclarationList_ParamsAssignment_0_0(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// params+=ParameterDeclarationEllipse
-protected class ParameterDeclarationList_ParamsAssignment_0_2_1 extends AssignmentToken  {
-	
-	public ParameterDeclarationList_ParamsAssignment_0_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getParameterDeclarationListAccess().getParamsAssignment_0_2_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ParameterDeclarationEllipse_Group(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("params",false)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("params");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getParameterDeclarationEllipseRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getParameterDeclarationListAccess().getParamsParameterDeclarationEllipseParserRuleCall_0_2_1_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
-	}
-
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new ParameterDeclarationList_CommaKeyword_0_2_0(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
-}
-
-
-
-// params+=ParameterDeclarationEllipse
-protected class ParameterDeclarationList_ParamsAssignment_1 extends AssignmentToken  {
-	
-	public ParameterDeclarationList_ParamsAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getParameterDeclarationListAccess().getParamsAssignment_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ParameterDeclarationEllipse_Group(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("params",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("params");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getParameterDeclarationEllipseRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getParameterDeclarationListAccess().getParamsParameterDeclarationEllipseParserRuleCall_1_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
-	}
-
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			default: return parent.createParentFollower(next, actIndex , index, consumed);
-		}	
-	}	
-}
-
-
-/************ end Rule ParameterDeclarationList ****************/
-
-
 /************ begin Rule ParameterDeclaration ****************
  *
  * ParameterDeclaration returns be::BParameterDeclaration:
@@ -12486,326 +12412,6 @@ protected class ParameterDeclaration_NameAssignment_1_1 extends AssignmentToken 
 
 
 /************ end Rule ParameterDeclaration ****************/
-
-
-/************ begin Rule ParameterDeclarationEllipse ****************
- *
- * ParameterDeclarationEllipse returns ParameterDeclaration:
- *   {VarargParameterDeclaration} "..." type=TypeRef? name=ID;
- *
- **/
-
-// {VarargParameterDeclaration} "..." type=TypeRef? name=ID
-protected class ParameterDeclarationEllipse_Group extends GroupToken {
-	
-	public ParameterDeclarationEllipse_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getParameterDeclarationEllipseAccess().getGroup();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ParameterDeclarationEllipse_NameAssignment_3(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override
-	public IInstanceDescription tryConsume() {
-		if(!current.isInstanceOf(grammarAccess.getParameterDeclarationEllipseRule().getType().getClassifier())) return null;
-		return tryConsumeVal();
-	}
-}
-
-// {VarargParameterDeclaration}
-protected class ParameterDeclarationEllipse_VarargParameterDeclarationAction_0 extends ActionToken  {
-
-	public ParameterDeclarationEllipse_VarargParameterDeclarationAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Action getGrammarElement() {
-		return grammarAccess.getParameterDeclarationEllipseAccess().getVarargParameterDeclarationAction_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			default: return parent.createParentFollower(this, index, index, inst);
-		}	
-	}	
-		
-	
-    @Override
-	protected IInstanceDescription tryConsumeVal() {
-		if(!current.isInstanceOf(grammarAccess.getParameterDeclarationEllipseAccess().getVarargParameterDeclarationAction_0().getType().getClassifier())) return null;
-		if(!current.isConsumed()) return null;
-		return current;
-	}
-}
-
-// "..."
-protected class ParameterDeclarationEllipse_FullStopFullStopFullStopKeyword_1 extends KeywordToken  {
-	
-	public ParameterDeclarationEllipse_FullStopFullStopFullStopKeyword_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getParameterDeclarationEllipseAccess().getFullStopFullStopFullStopKeyword_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ParameterDeclarationEllipse_VarargParameterDeclarationAction_0(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// type=TypeRef?
-protected class ParameterDeclarationEllipse_TypeAssignment_2 extends AssignmentToken  {
-	
-	public ParameterDeclarationEllipse_TypeAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getParameterDeclarationEllipseAccess().getTypeAssignment_2();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new TypeRef_Alternatives(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("type",false)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("type");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getTypeRefRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getParameterDeclarationEllipseAccess().getTypeTypeRefParserRuleCall_2_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
-	}
-
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new ParameterDeclarationEllipse_FullStopFullStopFullStopKeyword_1(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
-}
-
-// name=ID
-protected class ParameterDeclarationEllipse_NameAssignment_3 extends AssignmentToken  {
-	
-	public ParameterDeclarationEllipse_NameAssignment_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getParameterDeclarationEllipseAccess().getNameAssignment_3();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ParameterDeclarationEllipse_TypeAssignment_2(parent, this, 0, inst);
-			case 1: return new ParameterDeclarationEllipse_FullStopFullStopFullStopKeyword_1(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("name",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("name");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
-			type = AssignmentType.LRC;
-			element = grammarAccess.getParameterDeclarationEllipseAccess().getNameIDTerminalRuleCall_3_0();
-			return obj;
-		}
-		return null;
-	}
-
-}
-
-
-/************ end Rule ParameterDeclarationEllipse ****************/
-
-
-
-
-/************ begin Rule BuilderOutput ****************
- *
- * BuilderOutput:
- *   "output" "{" body=PathGroup "}";
- *
- **/
-
-// "output" "{" body=PathGroup "}"
-protected class BuilderOutput_Group extends GroupToken {
-	
-	public BuilderOutput_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getBuilderOutputAccess().getGroup();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new BuilderOutput_RightCurlyBracketKeyword_3(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override
-	public IInstanceDescription tryConsume() {
-		if(!current.isInstanceOf(grammarAccess.getBuilderOutputRule().getType().getClassifier())) return null;
-		return tryConsumeVal();
-	}
-}
-
-// "output"
-protected class BuilderOutput_OutputKeyword_0 extends KeywordToken  {
-	
-	public BuilderOutput_OutputKeyword_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getBuilderOutputAccess().getOutputKeyword_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			default: return parent.createParentFollower(this, index, index, inst);
-		}	
-	}	
-		
-}
-
-// "{"
-protected class BuilderOutput_LeftCurlyBracketKeyword_1 extends KeywordToken  {
-	
-	public BuilderOutput_LeftCurlyBracketKeyword_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getBuilderOutputAccess().getLeftCurlyBracketKeyword_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new BuilderOutput_OutputKeyword_0(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// body=PathGroup
-protected class BuilderOutput_BodyAssignment_2 extends AssignmentToken  {
-	
-	public BuilderOutput_BodyAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getBuilderOutputAccess().getBodyAssignment_2();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new PathGroup_Group(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("body",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("body");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getPathGroupRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getBuilderOutputAccess().getBodyPathGroupParserRuleCall_2_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
-	}
-
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new BuilderOutput_LeftCurlyBracketKeyword_1(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
-}
-
-// "}"
-protected class BuilderOutput_RightCurlyBracketKeyword_3 extends KeywordToken  {
-	
-	public BuilderOutput_RightCurlyBracketKeyword_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getBuilderOutputAccess().getRightCurlyBracketKeyword_3();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new BuilderOutput_BodyAssignment_2(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-
-/************ end Rule BuilderOutput ****************/
 
 
 /************ begin Rule BuilderInput ****************
@@ -13452,7 +13058,7 @@ protected class BuilderInput_RightCurlyBracketKeyword_6 extends KeywordToken  {
 
 /************ begin Rule RepositoryConfiguration ****************
  *
- * RepositoryConfiguration:
+ * RepositoryConfiguration returns build::RepositoryConfiguration:
  *   RepositoryDeclaration|ResolutionStrategy;
  *
  **/
@@ -13535,14 +13141,14 @@ protected class RepositoryConfiguration_ResolutionStrategyParserRuleCall_1 exten
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ResolutionStrategy_Group(this, this, 0, inst);
+			case 0: return new ResolutionStrategy_Alternatives(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
 		
     @Override
 	protected IInstanceDescription tryConsumeVal() {
-		if(checkForRecursion(ResolutionStrategy_Group.class, current)) return null;
+		if(checkForRecursion(ResolutionStrategy_Alternatives.class, current)) return null;
 		if(!current.isInstanceOf(grammarAccess.getResolutionStrategyRule().getType().getClassifier())) return null;
 		return current;
 	}
@@ -13561,14 +13167,14 @@ protected class RepositoryConfiguration_ResolutionStrategyParserRuleCall_1 exten
 
 /************ begin Rule RepositoryDeclaration ****************
  *
- * RepositoryDeclaration:
- *   documentation=DOCUMENTATION? (location=URI|"repository" type=TypeRef) context=
- *   ContextBlock?;
+ * RepositoryDeclaration returns build::RepositoryDeclaration:
+ *   {build::RepositoryDeclaration} documentation=DOCUMENTATION? (location=URI|
+ *   "repository" resolverType=TypeRef) contextBlock=ContextBlock_Creation?;
  *
  **/
 
-// documentation=DOCUMENTATION? (location=URI|"repository" type=TypeRef) context=
-// ContextBlock?
+// {build::RepositoryDeclaration} documentation=DOCUMENTATION? (location=URI|
+// "repository" resolverType=TypeRef) contextBlock=ContextBlock_Creation?
 protected class RepositoryDeclaration_Group extends GroupToken {
 	
 	public RepositoryDeclaration_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -13583,8 +13189,8 @@ protected class RepositoryDeclaration_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new RepositoryDeclaration_ContextAssignment_2(parent, this, 0, inst);
-			case 1: return new RepositoryDeclaration_Alternatives_1(parent, this, 1, inst);
+			case 0: return new RepositoryDeclaration_ContextBlockAssignment_3(parent, this, 0, inst);
+			case 1: return new RepositoryDeclaration_Alternatives_2(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -13596,16 +13202,16 @@ protected class RepositoryDeclaration_Group extends GroupToken {
 	}
 }
 
-// documentation=DOCUMENTATION?
-protected class RepositoryDeclaration_DocumentationAssignment_0 extends AssignmentToken  {
-	
-	public RepositoryDeclaration_DocumentationAssignment_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+// {build::RepositoryDeclaration}
+protected class RepositoryDeclaration_RepositoryDeclarationAction_0 extends ActionToken  {
+
+	public RepositoryDeclaration_RepositoryDeclarationAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getRepositoryDeclarationAccess().getDocumentationAssignment_0();
+	public Action getGrammarElement() {
+		return grammarAccess.getRepositoryDeclarationAccess().getRepositoryDeclarationAction_0();
 	}
 
     @Override
@@ -13615,13 +13221,42 @@ protected class RepositoryDeclaration_DocumentationAssignment_0 extends Assignme
 		}	
 	}	
 		
+	
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(!current.isInstanceOf(grammarAccess.getRepositoryDeclarationAccess().getRepositoryDeclarationAction_0().getType().getClassifier())) return null;
+		if(!current.isConsumed()) return null;
+		return current;
+	}
+}
+
+// documentation=DOCUMENTATION?
+protected class RepositoryDeclaration_DocumentationAssignment_1 extends AssignmentToken  {
+	
+	public RepositoryDeclaration_DocumentationAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getRepositoryDeclarationAccess().getDocumentationAssignment_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RepositoryDeclaration_RepositoryDeclarationAction_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
     @Override	
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("documentation",false)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("documentation");
 		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
 			type = AssignmentType.LRC;
-			element = grammarAccess.getRepositoryDeclarationAccess().getDocumentationDOCUMENTATIONTerminalRuleCall_0_0();
+			element = grammarAccess.getRepositoryDeclarationAccess().getDocumentationDOCUMENTATIONTerminalRuleCall_1_0();
 			return obj;
 		}
 		return null;
@@ -13629,23 +13264,23 @@ protected class RepositoryDeclaration_DocumentationAssignment_0 extends Assignme
 
 }
 
-// location=URI|"repository" type=TypeRef
-protected class RepositoryDeclaration_Alternatives_1 extends AlternativesToken {
+// location=URI|"repository" resolverType=TypeRef
+protected class RepositoryDeclaration_Alternatives_2 extends AlternativesToken {
 
-	public RepositoryDeclaration_Alternatives_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public RepositoryDeclaration_Alternatives_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Alternatives getGrammarElement() {
-		return grammarAccess.getRepositoryDeclarationAccess().getAlternatives_1();
+		return grammarAccess.getRepositoryDeclarationAccess().getAlternatives_2();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new RepositoryDeclaration_LocationAssignment_1_0(parent, this, 0, inst);
-			case 1: return new RepositoryDeclaration_Group_1_1(parent, this, 1, inst);
+			case 0: return new RepositoryDeclaration_LocationAssignment_2_0(parent, this, 0, inst);
+			case 1: return new RepositoryDeclaration_Group_2_1(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -13653,22 +13288,23 @@ protected class RepositoryDeclaration_Alternatives_1 extends AlternativesToken {
 }
 
 // location=URI
-protected class RepositoryDeclaration_LocationAssignment_1_0 extends AssignmentToken  {
+protected class RepositoryDeclaration_LocationAssignment_2_0 extends AssignmentToken  {
 	
-	public RepositoryDeclaration_LocationAssignment_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public RepositoryDeclaration_LocationAssignment_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getRepositoryDeclarationAccess().getLocationAssignment_1_0();
+		return grammarAccess.getRepositoryDeclarationAccess().getLocationAssignment_2_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new RepositoryDeclaration_DocumentationAssignment_0(parent, this, 0, inst);
-			default: return parent.createParentFollower(this, index, index - 1, inst);
+			case 0: return new RepositoryDeclaration_DocumentationAssignment_1(parent, this, 0, inst);
+			case 1: return new RepositoryDeclaration_RepositoryDeclarationAction_0(parent, this, 1, inst);
+			default: return null;
 		}	
 	}	
 		
@@ -13678,7 +13314,7 @@ protected class RepositoryDeclaration_LocationAssignment_1_0 extends AssignmentT
 		IInstanceDescription obj = current.cloneAndConsume("location");
 		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
 			type = AssignmentType.DRC;
-			element = grammarAccess.getRepositoryDeclarationAccess().getLocationURIParserRuleCall_1_0_0();
+			element = grammarAccess.getRepositoryDeclarationAccess().getLocationURIParserRuleCall_2_0_0();
 			return obj;
 		}
 		return null;
@@ -13686,22 +13322,22 @@ protected class RepositoryDeclaration_LocationAssignment_1_0 extends AssignmentT
 
 }
 
-// "repository" type=TypeRef
-protected class RepositoryDeclaration_Group_1_1 extends GroupToken {
+// "repository" resolverType=TypeRef
+protected class RepositoryDeclaration_Group_2_1 extends GroupToken {
 	
-	public RepositoryDeclaration_Group_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public RepositoryDeclaration_Group_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Group getGrammarElement() {
-		return grammarAccess.getRepositoryDeclarationAccess().getGroup_1_1();
+		return grammarAccess.getRepositoryDeclarationAccess().getGroup_2_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new RepositoryDeclaration_TypeAssignment_1_1_1(parent, this, 0, inst);
+			case 0: return new RepositoryDeclaration_ResolverTypeAssignment_2_1_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -13709,37 +13345,38 @@ protected class RepositoryDeclaration_Group_1_1 extends GroupToken {
 }
 
 // "repository"
-protected class RepositoryDeclaration_RepositoryKeyword_1_1_0 extends KeywordToken  {
+protected class RepositoryDeclaration_RepositoryKeyword_2_1_0 extends KeywordToken  {
 	
-	public RepositoryDeclaration_RepositoryKeyword_1_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public RepositoryDeclaration_RepositoryKeyword_2_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getRepositoryDeclarationAccess().getRepositoryKeyword_1_1_0();
+		return grammarAccess.getRepositoryDeclarationAccess().getRepositoryKeyword_2_1_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new RepositoryDeclaration_DocumentationAssignment_0(parent, this, 0, inst);
-			default: return parent.createParentFollower(this, index, index - 1, inst);
+			case 0: return new RepositoryDeclaration_DocumentationAssignment_1(parent, this, 0, inst);
+			case 1: return new RepositoryDeclaration_RepositoryDeclarationAction_0(parent, this, 1, inst);
+			default: return null;
 		}	
 	}	
 		
 }
 
-// type=TypeRef
-protected class RepositoryDeclaration_TypeAssignment_1_1_1 extends AssignmentToken  {
+// resolverType=TypeRef
+protected class RepositoryDeclaration_ResolverTypeAssignment_2_1_1 extends AssignmentToken  {
 	
-	public RepositoryDeclaration_TypeAssignment_1_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public RepositoryDeclaration_ResolverTypeAssignment_2_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getRepositoryDeclarationAccess().getTypeAssignment_1_1_1();
+		return grammarAccess.getRepositoryDeclarationAccess().getResolverTypeAssignment_2_1_1();
 	}
 
     @Override
@@ -13752,13 +13389,13 @@ protected class RepositoryDeclaration_TypeAssignment_1_1_1 extends AssignmentTok
 		
     @Override	
 	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("type",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("type");
+		if((value = current.getConsumable("resolverType",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("resolverType");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getTypeRefRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getRepositoryDeclarationAccess().getTypeTypeRefParserRuleCall_1_1_1_0(); 
+				element = grammarAccess.getRepositoryDeclarationAccess().getResolverTypeTypeRefParserRuleCall_2_1_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -13770,7 +13407,7 @@ protected class RepositoryDeclaration_TypeAssignment_1_1_1 extends AssignmentTok
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new RepositoryDeclaration_RepositoryKeyword_1_1_0(parent, next, actIndex, consumed);
+			case 0: return new RepositoryDeclaration_RepositoryKeyword_2_1_0(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
@@ -13778,35 +13415,35 @@ protected class RepositoryDeclaration_TypeAssignment_1_1_1 extends AssignmentTok
 
 
 
-// context=ContextBlock?
-protected class RepositoryDeclaration_ContextAssignment_2 extends AssignmentToken  {
+// contextBlock=ContextBlock_Creation?
+protected class RepositoryDeclaration_ContextBlockAssignment_3 extends AssignmentToken  {
 	
-	public RepositoryDeclaration_ContextAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public RepositoryDeclaration_ContextBlockAssignment_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getRepositoryDeclarationAccess().getContextAssignment_2();
+		return grammarAccess.getRepositoryDeclarationAccess().getContextBlockAssignment_3();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ContextBlock_Group(this, this, 0, inst);
+			case 0: return new ContextBlock_Creation_Group(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
 		
     @Override	
 	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("context",false)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("context");
+		if((value = current.getConsumable("contextBlock",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("contextBlock");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getContextBlockRule().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getContextBlock_CreationRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getRepositoryDeclarationAccess().getContextContextBlockParserRuleCall_2_0(); 
+				element = grammarAccess.getRepositoryDeclarationAccess().getContextBlockContextBlock_CreationParserRuleCall_3_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -13818,7 +13455,7 @@ protected class RepositoryDeclaration_ContextAssignment_2 extends AssignmentToke
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new RepositoryDeclaration_Alternatives_1(parent, next, actIndex, consumed);
+			case 0: return new RepositoryDeclaration_Alternatives_2(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
@@ -13830,29 +13467,28 @@ protected class RepositoryDeclaration_ContextAssignment_2 extends AssignmentToke
 
 /************ begin Rule ResolutionStrategy ****************
  *
- * ResolutionStrategy:
- *   strategy=( "select-first" | "select-best" ) "{" repositoryConfig+=
- *   RepositoryConfiguration* "}";
+ * ResolutionStrategy returns build::ResolutionStrategy:
+ *   ResolutionStrategyFirst|ResolutionStrategyBest;
  *
  **/
 
-// strategy=( "select-first" | "select-best" ) "{" repositoryConfig+=
-// RepositoryConfiguration* "}"
-protected class ResolutionStrategy_Group extends GroupToken {
-	
-	public ResolutionStrategy_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+// ResolutionStrategyFirst|ResolutionStrategyBest
+protected class ResolutionStrategy_Alternatives extends AlternativesToken {
+
+	public ResolutionStrategy_Alternatives(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getResolutionStrategyAccess().getGroup();
+	public Alternatives getGrammarElement() {
+		return grammarAccess.getResolutionStrategyAccess().getAlternatives();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ResolutionStrategy_RightCurlyBracketKeyword_3(parent, this, 0, inst);
+			case 0: return new ResolutionStrategy_ResolutionStrategyFirstParserRuleCall_0(parent, this, 0, inst);
+			case 1: return new ResolutionStrategy_ResolutionStrategyBestParserRuleCall_1(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -13864,16 +13500,126 @@ protected class ResolutionStrategy_Group extends GroupToken {
 	}
 }
 
-// strategy=( "select-first" | "select-best" )
-protected class ResolutionStrategy_StrategyAssignment_0 extends AssignmentToken  {
+// ResolutionStrategyFirst
+protected class ResolutionStrategy_ResolutionStrategyFirstParserRuleCall_0 extends RuleCallToken {
 	
-	public ResolutionStrategy_StrategyAssignment_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ResolutionStrategy_ResolutionStrategyFirstParserRuleCall_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getResolutionStrategyAccess().getStrategyAssignment_0();
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getResolutionStrategyAccess().getResolutionStrategyFirstParserRuleCall_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ResolutionStrategyFirst_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(checkForRecursion(ResolutionStrategyFirst_Group.class, current)) return null;
+		if(!current.isInstanceOf(grammarAccess.getResolutionStrategyFirstRule().getType().getClassifier())) return null;
+		return current;
+	}
+	
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(next, actIndex , index, inst);
+		}	
+	}	
+}
+
+// ResolutionStrategyBest
+protected class ResolutionStrategy_ResolutionStrategyBestParserRuleCall_1 extends RuleCallToken {
+	
+	public ResolutionStrategy_ResolutionStrategyBestParserRuleCall_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getResolutionStrategyAccess().getResolutionStrategyBestParserRuleCall_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ResolutionStrategyBest_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(checkForRecursion(ResolutionStrategyBest_Group.class, current)) return null;
+		if(!current.isInstanceOf(grammarAccess.getResolutionStrategyBestRule().getType().getClassifier())) return null;
+		return current;
+	}
+	
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(next, actIndex , index, inst);
+		}	
+	}	
+}
+
+
+/************ end Rule ResolutionStrategy ****************/
+
+
+/************ begin Rule ResolutionStrategyFirst ****************
+ *
+ * ResolutionStrategyFirst returns build::ResolutionStrategyFirst:
+ *   {build::ResolutionStrategyFirst} "select-first" "{" repositories+=
+ *   RepositoryConfiguration* "}";
+ *
+ **/
+
+// {build::ResolutionStrategyFirst} "select-first" "{" repositories+=
+// RepositoryConfiguration* "}"
+protected class ResolutionStrategyFirst_Group extends GroupToken {
+	
+	public ResolutionStrategyFirst_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getResolutionStrategyFirstAccess().getGroup();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ResolutionStrategyFirst_RightCurlyBracketKeyword_4(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getResolutionStrategyFirstRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// {build::ResolutionStrategyFirst}
+protected class ResolutionStrategyFirst_ResolutionStrategyFirstAction_0 extends ActionToken  {
+
+	public ResolutionStrategyFirst_ResolutionStrategyFirstAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Action getGrammarElement() {
+		return grammarAccess.getResolutionStrategyFirstAccess().getResolutionStrategyFirstAction_0();
 	}
 
     @Override
@@ -13883,57 +13629,69 @@ protected class ResolutionStrategy_StrategyAssignment_0 extends AssignmentToken 
 		}	
 	}	
 		
-    @Override	
+	
+    @Override
 	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("strategy",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("strategy");
-		if("select-first".equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
-			type = AssignmentType.KW;
-			element = grammarAccess.getResolutionStrategyAccess().getStrategySelectFirstKeyword_0_0_0();
-			return obj;
-		}
-		if("select-best".equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
-			type = AssignmentType.KW;
-			element = grammarAccess.getResolutionStrategyAccess().getStrategySelectBestKeyword_0_0_1();
-			return obj;
-		}
-		return null;
+		if(!current.isInstanceOf(grammarAccess.getResolutionStrategyFirstAccess().getResolutionStrategyFirstAction_0().getType().getClassifier())) return null;
+		if(!current.isConsumed()) return null;
+		return current;
 	}
-
 }
 
-// "{"
-protected class ResolutionStrategy_LeftCurlyBracketKeyword_1 extends KeywordToken  {
+// "select-first"
+protected class ResolutionStrategyFirst_SelectFirstKeyword_1 extends KeywordToken  {
 	
-	public ResolutionStrategy_LeftCurlyBracketKeyword_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ResolutionStrategyFirst_SelectFirstKeyword_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getResolutionStrategyAccess().getLeftCurlyBracketKeyword_1();
+		return grammarAccess.getResolutionStrategyFirstAccess().getSelectFirstKeyword_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ResolutionStrategy_StrategyAssignment_0(parent, this, 0, inst);
+			case 0: return new ResolutionStrategyFirst_ResolutionStrategyFirstAction_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
 		
 }
 
-// repositoryConfig+=RepositoryConfiguration*
-protected class ResolutionStrategy_RepositoryConfigAssignment_2 extends AssignmentToken  {
+// "{"
+protected class ResolutionStrategyFirst_LeftCurlyBracketKeyword_2 extends KeywordToken  {
 	
-	public ResolutionStrategy_RepositoryConfigAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ResolutionStrategyFirst_LeftCurlyBracketKeyword_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getResolutionStrategyFirstAccess().getLeftCurlyBracketKeyword_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ResolutionStrategyFirst_SelectFirstKeyword_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// repositories+=RepositoryConfiguration*
+protected class ResolutionStrategyFirst_RepositoriesAssignment_3 extends AssignmentToken  {
+	
+	public ResolutionStrategyFirst_RepositoriesAssignment_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getResolutionStrategyAccess().getRepositoryConfigAssignment_2();
+		return grammarAccess.getResolutionStrategyFirstAccess().getRepositoriesAssignment_3();
 	}
 
     @Override
@@ -13946,13 +13704,13 @@ protected class ResolutionStrategy_RepositoryConfigAssignment_2 extends Assignme
 		
     @Override	
 	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("repositoryConfig",false)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("repositoryConfig");
+		if((value = current.getConsumable("repositories",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("repositories");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getRepositoryConfigurationRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getResolutionStrategyAccess().getRepositoryConfigRepositoryConfigurationParserRuleCall_2_0(); 
+				element = grammarAccess.getResolutionStrategyFirstAccess().getRepositoriesRepositoryConfigurationParserRuleCall_3_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -13964,30 +13722,30 @@ protected class ResolutionStrategy_RepositoryConfigAssignment_2 extends Assignme
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new ResolutionStrategy_RepositoryConfigAssignment_2(parent, next, actIndex, consumed);
-			case 1: return new ResolutionStrategy_LeftCurlyBracketKeyword_1(parent, next, actIndex, consumed);
+			case 0: return new ResolutionStrategyFirst_RepositoriesAssignment_3(parent, next, actIndex, consumed);
+			case 1: return new ResolutionStrategyFirst_LeftCurlyBracketKeyword_2(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 // "}"
-protected class ResolutionStrategy_RightCurlyBracketKeyword_3 extends KeywordToken  {
+protected class ResolutionStrategyFirst_RightCurlyBracketKeyword_4 extends KeywordToken  {
 	
-	public ResolutionStrategy_RightCurlyBracketKeyword_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ResolutionStrategyFirst_RightCurlyBracketKeyword_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getResolutionStrategyAccess().getRightCurlyBracketKeyword_3();
+		return grammarAccess.getResolutionStrategyFirstAccess().getRightCurlyBracketKeyword_4();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ResolutionStrategy_RepositoryConfigAssignment_2(parent, this, 0, inst);
-			case 1: return new ResolutionStrategy_LeftCurlyBracketKeyword_1(parent, this, 1, inst);
+			case 0: return new ResolutionStrategyFirst_RepositoriesAssignment_3(parent, this, 0, inst);
+			case 1: return new ResolutionStrategyFirst_LeftCurlyBracketKeyword_2(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -13995,19 +13753,201 @@ protected class ResolutionStrategy_RightCurlyBracketKeyword_3 extends KeywordTok
 }
 
 
-/************ end Rule ResolutionStrategy ****************/
+/************ end Rule ResolutionStrategyFirst ****************/
+
+
+/************ begin Rule ResolutionStrategyBest ****************
+ *
+ * ResolutionStrategyBest returns build::ResolutionStrategyBest:
+ *   {build::ResolutionStrategyBest} "select-best" "{" repositories+=
+ *   RepositoryConfiguration* "}";
+ *
+ **/
+
+// {build::ResolutionStrategyBest} "select-best" "{" repositories+=
+// RepositoryConfiguration* "}"
+protected class ResolutionStrategyBest_Group extends GroupToken {
+	
+	public ResolutionStrategyBest_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getResolutionStrategyBestAccess().getGroup();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ResolutionStrategyBest_RightCurlyBracketKeyword_4(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getResolutionStrategyBestRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// {build::ResolutionStrategyBest}
+protected class ResolutionStrategyBest_ResolutionStrategyBestAction_0 extends ActionToken  {
+
+	public ResolutionStrategyBest_ResolutionStrategyBestAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Action getGrammarElement() {
+		return grammarAccess.getResolutionStrategyBestAccess().getResolutionStrategyBestAction_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(this, index, index, inst);
+		}	
+	}	
+		
+	
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(!current.isInstanceOf(grammarAccess.getResolutionStrategyBestAccess().getResolutionStrategyBestAction_0().getType().getClassifier())) return null;
+		if(!current.isConsumed()) return null;
+		return current;
+	}
+}
+
+// "select-best"
+protected class ResolutionStrategyBest_SelectBestKeyword_1 extends KeywordToken  {
+	
+	public ResolutionStrategyBest_SelectBestKeyword_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getResolutionStrategyBestAccess().getSelectBestKeyword_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ResolutionStrategyBest_ResolutionStrategyBestAction_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "{"
+protected class ResolutionStrategyBest_LeftCurlyBracketKeyword_2 extends KeywordToken  {
+	
+	public ResolutionStrategyBest_LeftCurlyBracketKeyword_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getResolutionStrategyBestAccess().getLeftCurlyBracketKeyword_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ResolutionStrategyBest_SelectBestKeyword_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// repositories+=RepositoryConfiguration*
+protected class ResolutionStrategyBest_RepositoriesAssignment_3 extends AssignmentToken  {
+	
+	public ResolutionStrategyBest_RepositoriesAssignment_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getResolutionStrategyBestAccess().getRepositoriesAssignment_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RepositoryConfiguration_Alternatives(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("repositories",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("repositories");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getRepositoryConfigurationRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getResolutionStrategyBestAccess().getRepositoriesRepositoryConfigurationParserRuleCall_3_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new ResolutionStrategyBest_RepositoriesAssignment_3(parent, next, actIndex, consumed);
+			case 1: return new ResolutionStrategyBest_LeftCurlyBracketKeyword_2(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+// "}"
+protected class ResolutionStrategyBest_RightCurlyBracketKeyword_4 extends KeywordToken  {
+	
+	public ResolutionStrategyBest_RightCurlyBracketKeyword_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getResolutionStrategyBestAccess().getRightCurlyBracketKeyword_4();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ResolutionStrategyBest_RepositoriesAssignment_3(parent, this, 0, inst);
+			case 1: return new ResolutionStrategyBest_LeftCurlyBracketKeyword_2(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+
+/************ end Rule ResolutionStrategyBest ****************/
 
 
 /************ begin Rule ContainerConfiguration ****************
  *
- * ContainerConfiguration:
- *   documentation=DOCUMENTATION? "container" name=ID "agent" type=TypeRef contextBlock=
- *   ContextBlock?;
+ * ContainerConfiguration returns build::ContainerConfiguration:
+ *   {build::ContainerConfiguration} documentation=DOCUMENTATION? "container" name=ID
+ *   "agent" agentType=TypeRef contextBlock=ContextBlock_Creation?;
  *
  **/
 
-// documentation=DOCUMENTATION? "container" name=ID "agent" type=TypeRef contextBlock=
-// ContextBlock?
+// {build::ContainerConfiguration} documentation=DOCUMENTATION? "container" name=ID
+// "agent" agentType=TypeRef contextBlock=ContextBlock_Creation?
 protected class ContainerConfiguration_Group extends GroupToken {
 	
 	public ContainerConfiguration_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -14022,8 +13962,8 @@ protected class ContainerConfiguration_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ContainerConfiguration_ContextBlockAssignment_5(parent, this, 0, inst);
-			case 1: return new ContainerConfiguration_TypeAssignment_4(parent, this, 1, inst);
+			case 0: return new ContainerConfiguration_ContextBlockAssignment_6(parent, this, 0, inst);
+			case 1: return new ContainerConfiguration_AgentTypeAssignment_5(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -14035,16 +13975,16 @@ protected class ContainerConfiguration_Group extends GroupToken {
 	}
 }
 
-// documentation=DOCUMENTATION?
-protected class ContainerConfiguration_DocumentationAssignment_0 extends AssignmentToken  {
-	
-	public ContainerConfiguration_DocumentationAssignment_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+// {build::ContainerConfiguration}
+protected class ContainerConfiguration_ContainerConfigurationAction_0 extends ActionToken  {
+
+	public ContainerConfiguration_ContainerConfigurationAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getContainerConfigurationAccess().getDocumentationAssignment_0();
+	public Action getGrammarElement() {
+		return grammarAccess.getContainerConfigurationAccess().getContainerConfigurationAction_0();
 	}
 
     @Override
@@ -14054,13 +13994,42 @@ protected class ContainerConfiguration_DocumentationAssignment_0 extends Assignm
 		}	
 	}	
 		
+	
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(!current.isInstanceOf(grammarAccess.getContainerConfigurationAccess().getContainerConfigurationAction_0().getType().getClassifier())) return null;
+		if(!current.isConsumed()) return null;
+		return current;
+	}
+}
+
+// documentation=DOCUMENTATION?
+protected class ContainerConfiguration_DocumentationAssignment_1 extends AssignmentToken  {
+	
+	public ContainerConfiguration_DocumentationAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getContainerConfigurationAccess().getDocumentationAssignment_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ContainerConfiguration_ContainerConfigurationAction_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
     @Override	
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("documentation",false)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("documentation");
 		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
 			type = AssignmentType.LRC;
-			element = grammarAccess.getContainerConfigurationAccess().getDocumentationDOCUMENTATIONTerminalRuleCall_0_0();
+			element = grammarAccess.getContainerConfigurationAccess().getDocumentationDOCUMENTATIONTerminalRuleCall_1_0();
 			return obj;
 		}
 		return null;
@@ -14069,43 +14038,44 @@ protected class ContainerConfiguration_DocumentationAssignment_0 extends Assignm
 }
 
 // "container"
-protected class ContainerConfiguration_ContainerKeyword_1 extends KeywordToken  {
+protected class ContainerConfiguration_ContainerKeyword_2 extends KeywordToken  {
 	
-	public ContainerConfiguration_ContainerKeyword_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ContainerConfiguration_ContainerKeyword_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getContainerConfigurationAccess().getContainerKeyword_1();
+		return grammarAccess.getContainerConfigurationAccess().getContainerKeyword_2();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ContainerConfiguration_DocumentationAssignment_0(parent, this, 0, inst);
-			default: return parent.createParentFollower(this, index, index - 1, inst);
+			case 0: return new ContainerConfiguration_DocumentationAssignment_1(parent, this, 0, inst);
+			case 1: return new ContainerConfiguration_ContainerConfigurationAction_0(parent, this, 1, inst);
+			default: return null;
 		}	
 	}	
 		
 }
 
 // name=ID
-protected class ContainerConfiguration_NameAssignment_2 extends AssignmentToken  {
+protected class ContainerConfiguration_NameAssignment_3 extends AssignmentToken  {
 	
-	public ContainerConfiguration_NameAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ContainerConfiguration_NameAssignment_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getContainerConfigurationAccess().getNameAssignment_2();
+		return grammarAccess.getContainerConfigurationAccess().getNameAssignment_3();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ContainerConfiguration_ContainerKeyword_1(parent, this, 0, inst);
+			case 0: return new ContainerConfiguration_ContainerKeyword_2(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -14116,7 +14086,7 @@ protected class ContainerConfiguration_NameAssignment_2 extends AssignmentToken 
 		IInstanceDescription obj = current.cloneAndConsume("name");
 		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
 			type = AssignmentType.LRC;
-			element = grammarAccess.getContainerConfigurationAccess().getNameIDTerminalRuleCall_2_0();
+			element = grammarAccess.getContainerConfigurationAccess().getNameIDTerminalRuleCall_3_0();
 			return obj;
 		}
 		return null;
@@ -14125,37 +14095,37 @@ protected class ContainerConfiguration_NameAssignment_2 extends AssignmentToken 
 }
 
 // "agent"
-protected class ContainerConfiguration_AgentKeyword_3 extends KeywordToken  {
+protected class ContainerConfiguration_AgentKeyword_4 extends KeywordToken  {
 	
-	public ContainerConfiguration_AgentKeyword_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ContainerConfiguration_AgentKeyword_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getContainerConfigurationAccess().getAgentKeyword_3();
+		return grammarAccess.getContainerConfigurationAccess().getAgentKeyword_4();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ContainerConfiguration_NameAssignment_2(parent, this, 0, inst);
+			case 0: return new ContainerConfiguration_NameAssignment_3(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
 		
 }
 
-// type=TypeRef
-protected class ContainerConfiguration_TypeAssignment_4 extends AssignmentToken  {
+// agentType=TypeRef
+protected class ContainerConfiguration_AgentTypeAssignment_5 extends AssignmentToken  {
 	
-	public ContainerConfiguration_TypeAssignment_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ContainerConfiguration_AgentTypeAssignment_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getContainerConfigurationAccess().getTypeAssignment_4();
+		return grammarAccess.getContainerConfigurationAccess().getAgentTypeAssignment_5();
 	}
 
     @Override
@@ -14168,13 +14138,13 @@ protected class ContainerConfiguration_TypeAssignment_4 extends AssignmentToken 
 		
     @Override	
 	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("type",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("type");
+		if((value = current.getConsumable("agentType",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("agentType");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getTypeRefRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getContainerConfigurationAccess().getTypeTypeRefParserRuleCall_4_0(); 
+				element = grammarAccess.getContainerConfigurationAccess().getAgentTypeTypeRefParserRuleCall_5_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -14186,28 +14156,28 @@ protected class ContainerConfiguration_TypeAssignment_4 extends AssignmentToken 
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new ContainerConfiguration_AgentKeyword_3(parent, next, actIndex, consumed);
+			case 0: return new ContainerConfiguration_AgentKeyword_4(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
-// contextBlock=ContextBlock?
-protected class ContainerConfiguration_ContextBlockAssignment_5 extends AssignmentToken  {
+// contextBlock=ContextBlock_Creation?
+protected class ContainerConfiguration_ContextBlockAssignment_6 extends AssignmentToken  {
 	
-	public ContainerConfiguration_ContextBlockAssignment_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ContainerConfiguration_ContextBlockAssignment_6(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getContainerConfigurationAccess().getContextBlockAssignment_5();
+		return grammarAccess.getContainerConfigurationAccess().getContextBlockAssignment_6();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ContextBlock_Group(this, this, 0, inst);
+			case 0: return new ContextBlock_Creation_Group(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -14218,9 +14188,9 @@ protected class ContainerConfiguration_ContextBlockAssignment_5 extends Assignme
 		IInstanceDescription obj = current.cloneAndConsume("contextBlock");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getContextBlockRule().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getContextBlock_CreationRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getContainerConfigurationAccess().getContextBlockContextBlockParserRuleCall_5_0(); 
+				element = grammarAccess.getContainerConfigurationAccess().getContextBlockContextBlock_CreationParserRuleCall_6_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -14232,7 +14202,7 @@ protected class ContainerConfiguration_ContextBlockAssignment_5 extends Assignme
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new ContainerConfiguration_TypeAssignment_4(parent, next, actIndex, consumed);
+			case 0: return new ContainerConfiguration_AgentTypeAssignment_5(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
@@ -14834,25 +14804,7 @@ protected class Concern_Named_RightCurlyBracketKeyword_7 extends KeywordToken  {
  * Concern_Anonymous returns be::BConcern:
  *   {be::BConcern} ("extends" superConcerns+=[be::BConcern] ("," superConcerns+=[be::
  *   BConcern])*)? "{" ("properties" propertySets+=PropertySet|functions+=Function|
- *   functions+=Builder)* "}"; 
- * 
- * 
- *         
- * 	                     
- * 	  
- * 			       
- * 		 	 
- * 			 		
- * 		   
- * 	
- * 
- * //Filter : '(' predicate = Expression ')' ;
- * 
- * //PreCondition : "precondition" '{' (asserts += AssertionExpression)+ '}' ;
- * //PostCondition : "postcondition" '{' (asserts += AssertionExpression)+ '}' ;
- * //AssertionExpression : 'assert' expr=Expression ',' message=STRING ';' ;
- * 
- * //ExpressionList : (expressions += Expression ';')+ ;
+ *   functions+=Builder)* "}";
  *
  **/
 
@@ -15349,15 +15301,7 @@ protected class Concern_Anonymous_RightCurlyBracketKeyword_4 extends KeywordToke
  *   parameters+=ParameterDeclaration)?|varArgs?="..." parameters+=
  *   ParameterDeclaration)? ")")? (":" funcExpr=Expression ";"|funcExpr=BlockExpression); 
  * 
- * //Filter : '(' predicate = Expression ')' ;
- * 
- * //PreCondition : "precondition" '{' (asserts += AssertionExpression)+ '}' ;
- * //PostCondition : "postcondition" '{' (asserts += AssertionExpression)+ '}' ;
- * //AssertionExpression : 'assert' expr=Expression ',' message=STRING ';' ;
- * 
- * //ExpressionList : (expressions += Expression ';')+ ;
- * 
- *       
+ *         
  * 	    
  *    	    
  *         	   	
@@ -16384,9 +16328,11 @@ protected class Function_FuncExprAssignment_9_1 extends AssignmentToken  {
  * TopLevelExpression returns be::BExpression:
  *   VarDeclaration|ValDeclaration|AssignmentExpression; 
  * 
- * // All expressions, including variable and value definitions
+ * // All expressions, including variable and value definitions. Note: order of rules is significant.
  *      
- * 	           
+ * 	   
+ * 	  
+ * 	   
  * 	
  * 
  * // All expressions except variable and value definitions
@@ -16395,9 +16341,11 @@ protected class Function_FuncExprAssignment_9_1 extends AssignmentToken  {
 
 // VarDeclaration|ValDeclaration|AssignmentExpression 
 // 
-// // All expressions, including variable and value definitions
+// // All expressions, including variable and value definitions. Note: order of rules is significant.
 //      
-// 	           
+// 	   
+// 	  
+// 	   
 // 	
 // 
 // // All expressions except variable and value definitions
@@ -16594,26 +16542,12 @@ protected class Expression_AssignmentExpressionParserRuleCall extends RuleCallTo
  *
  * AssignmentExpression returns be::BExpression:
  *   CachedExpression ({be::BAssignmentExpression.leftExpr=current} functionName=
- *   AssignmentOperator rightExpr=AssignmentExpression)?; 
- * 
- * 
- *     
- * 	// note: VarDecl | OrExpr is order dependant
- * 	      
- * 	 	  
- * 		
- * 
- * //AssignmentExpression returns be::BExpression:
- * //	// note: VarDecl | OrExpr is order dependant
- * //	 (VarDeclaration | ValDeclaration | CachedExpression) ({be::BAssignmentExpression.leftExpr=current} 
- * //	 	functionName=AssignmentOperator rightExpr=AssignmentExpression)?
- * //	;
+ *   AssignmentOperator rightExpr=AssignmentExpression)?;
  *
  **/
 
 // CachedExpression ({be::BAssignmentExpression.leftExpr=current} functionName=
-// AssignmentOperator rightExpr=AssignmentExpression)? 
-// 	// note: VarDecl | OrExpr is order dependant
+// AssignmentOperator rightExpr=AssignmentExpression)?
 protected class AssignmentExpression_Group extends GroupToken {
 	
 	public AssignmentExpression_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -16641,8 +16575,7 @@ protected class AssignmentExpression_Group extends GroupToken {
 	}
 }
 
-// CachedExpression 
-// 	// note: VarDecl | OrExpr is order dependant
+// CachedExpression
 protected class AssignmentExpression_CachedExpressionParserRuleCall_0 extends RuleCallToken {
 	
 	public AssignmentExpression_CachedExpressionParserRuleCall_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -16820,13 +16753,7 @@ protected class AssignmentExpression_RightExprAssignment_1_2 extends AssignmentT
  *
  * VarDeclaration returns be::BExpression:
  *   {be::BDefValue} final?="final"? (("var"|type=TypeRef) name=ID) ("=" valueExpr=
- *   Expression)?; 	
- * 
- * //AssignmentExpression returns be::BExpression:
- * //	// note: VarDecl | OrExpr is order dependant
- * //	 (VarDeclaration | ValDeclaration | CachedExpression) ({be::BAssignmentExpression.leftExpr=current} 
- * //	 	functionName=AssignmentOperator rightExpr=AssignmentExpression)?
- * //	;
+ *   Expression)?;
  *
  **/
 
@@ -17171,7 +17098,22 @@ protected class VarDeclaration_ValueExprAssignment_3_1 extends AssignmentToken  
  *
  * ValDeclaration returns be::BExpression:
  *   {be::BDefValue} final?="final"? immutable?="val" type=TypeRef? name=ID "=" valueExpr=
- *   Expression;
+ *   Expression; 
+ * 
+ *         
+ * 	     
+ * 	         
+ * 	      
+ * 	
+ * 
+ * // TODO: typereference is simplified to only the name of a java type - for model imports
+ * // the model is imported with name == namespace, and types in the model are referenced after
+ * // '::' e.g. "resource:a resouceURi.ecore" as mymodel, and a classifier in this model is
+ * // referenced as mymodel::mytype
+ * // There is more work required to link a reference to such a type and it is therefore deferred
+ * // until we are up on Xtext 0.8 with better scoping and linking.
+ * // For now, this is just proof of concept.
+ * //
  *
  **/
 
@@ -17457,14 +17399,28 @@ protected class ValDeclaration_ValueExprAssignment_6 extends AssignmentToken  {
  *
  * TypeRef returns be::IType:
  *   ClosureTypeRef|SimpleTypeRef; 
- * 		
- *              // TODO: gets lots of warnings from this...
+ * 
+ * // TODO: typereference is simplified to only the name of a java type - for model imports
+ * // the model is imported with name == namespace, and types in the model are referenced after
+ * // '::' e.g. "resource:a resouceURi.ecore" as mymodel, and a classifier in this model is
+ * // referenced as mymodel::mytype
+ * // There is more work required to link a reference to such a type and it is therefore deferred
+ * // until we are up on Xtext 0.8 with better scoping and linking.
+ * // For now, this is just proof of concept.
+ * //
  *
  **/
 
 // ClosureTypeRef|SimpleTypeRef 
-// 		
-//              // TODO: gets lots of warnings from this...
+// 
+// // TODO: typereference is simplified to only the name of a java type - for model imports
+// // the model is imported with name == namespace, and types in the model are referenced after
+// // '::' e.g. "resource:a resouceURi.ecore" as mymodel, and a classifier in this model is
+// // referenced as mymodel::mytype
+// // There is more work required to link a reference to such a type and it is therefore deferred
+// // until we are up on Xtext 0.8 with better scoping and linking.
+// // For now, this is just proof of concept.
+// //
 protected class TypeRef_Alternatives extends AlternativesToken {
 
 	public TypeRef_Alternatives(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -17570,28 +17526,23 @@ protected class TypeRef_SimpleTypeRefParserRuleCall_1 extends RuleCallToken {
  *
  * SimpleTypeRef returns be::IType:
  *   {be::B3ParameterizedType} rawType=[be::B3JavaImport] ("<" actualArgumentsList+=[be
- *   ::B3JavaImport] ("," actualArgumentsList+=[be::B3JavaImport])* ">")?;   // TODO: gets lots of warnings from this...
- *     
- * 	         
+ *   ::B3JavaImport] ("," actualArgumentsList+=[be::B3JavaImport])* ">")?;  
+ * 	
+ *          
+ * 	     
  * 		                  
  * //		('<' actualArgumentsList+=TypeParam (',' actualArgumentsList+=TypeParam)* '>' )? // TODO: Support wildcard as well
  * 	 
  * 	
- * // TODO: typereference is simplified to only the name of a java type - for model imports
- * // the model is imported with name == namespace, and types in the model are referenced after
- * // '::' e.g. "resource:a resouceURi.ecore" as mymodel, and a classifier in this model is
- * // referenced as mymodel::mytype
- * // There is more work required to link a reference to such a type and it is therefore deferred
- * // until we are up on Xtext 0.8 with better scoping and linking.
- * // For now, this is just proof of concept.
- * // 
  * 
- * // ClosureTypeRef declares parameters and return type	TODO: use TypeRef instead of direct reference to imported class
+ * // ClosureTypeRef declares parameters and return type	
+ * // TODO: use TypeRef instead of direct reference to imported class
  *
  **/
 
 // {be::B3ParameterizedType} rawType=[be::B3JavaImport] ("<" actualArgumentsList+=[be
-// ::B3JavaImport] ("," actualArgumentsList+=[be::B3JavaImport])* ">")?          
+// ::B3JavaImport] ("," actualArgumentsList+=[be::B3JavaImport])* ">")?    
+// 	     
 // 		                  
 // //		('<' actualArgumentsList+=TypeParam (',' actualArgumentsList+=TypeParam)* '>' )? // TODO: Support wildcard as well
 protected class SimpleTypeRef_Group extends GroupToken {
@@ -17887,16 +17838,20 @@ protected class SimpleTypeRef_GreaterThanSignKeyword_2_3 extends KeywordToken  {
  *   varArgs?="..." parameterTypes+=[be::B3JavaImport])? ")" "=>" returnType=[be::
  *   B3JavaImport]); 
  * 	
- * // TODO: typereference is simplified to only the name of a java type - for model imports
- * // the model is imported with name == namespace, and types in the model are referenced after
- * // '::' e.g. "resource:a resouceURi.ecore" as mymodel, and a classifier in this model is
- * // referenced as mymodel::mytype
- * // There is more work required to link a reference to such a type and it is therefore deferred
- * // until we are up on Xtext 0.8 with better scoping and linking.
- * // For now, this is just proof of concept.
- * // 
  * 
- * // ClosureTypeRef declares parameters and return type	TODO: use TypeRef instead of direct reference to imported class
+ * // ClosureTypeRef declares parameters and return type	
+ * // TODO: use TypeRef instead of direct reference to imported class
+ *          
+ * 	
+ * 		                     
+ * 			                
+ * 		 	                    
+ * 		 
+ * 	              
+ * 	
+ * 
+ * // TODO: TypeParam's and Wildcard refs currently unused. Support should be added
+ * //
  *
  **/
 
@@ -18477,11 +18432,17 @@ protected class ClosureTypeRef_ReturnTypeAssignment_1_4 extends AssignmentToken 
 /************ begin Rule TypeParam ****************
  *
  * TypeParam returns be::IType:
- *   TypeRefParam|WildcardRefParam;
+ *   TypeRefParam|WildcardRefParam; 
+ * 
+ * // TODO: TypeParam's and Wildcard refs currently unused. Support should be added
+ * //
  *
  **/
 
-// TypeRefParam|WildcardRefParam
+// TypeRefParam|WildcardRefParam 
+// 
+// // TODO: TypeParam's and Wildcard refs currently unused. Support should be added
+// //
 protected class TypeParam_Alternatives extends AlternativesToken {
 
 	public TypeParam_Alternatives(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -19420,11 +19381,12 @@ protected class OrExpression_RightExprAssignment_1_2 extends AssignmentToken  {
  *   RelationalExpression ({be::BAndExpression.leftExpr=current} "&&" rightExpr=
  *   RelationalExpression)*; 
  * 	
- *     
+ *       
  * 	      
+ * 	
  * 
- * // Deprecated - bitwise operators available as system functions (still available in backend if someone wants to
- * // use the backend for some other language.
+ * // DEPRECATED - bitwise operators available as system functions (still available in backend if someone wants to
+ * // use the backend for some other language with a different grammar).
  * // BitwiseExpression returns be::BExpression :
  * // RelationalExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=("&" | "^" | "|") rightExpr=RelationalExpression)*;
  *
@@ -19627,8 +19589,8 @@ protected class AndExpression_RightExprAssignment_1_2 extends AssignmentToken  {
  *   InstanceOfExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=
  *   RelationalOperator rightExpr=InstanceOfExpression)*; 
  * 
- * // Deprecated - bitwise operators available as system functions (still available in backend if someone wants to
- * // use the backend for some other language.
+ * // DEPRECATED - bitwise operators available as system functions (still available in backend if someone wants to
+ * // use the backend for some other language with a different grammar).
  * // BitwiseExpression returns be::BExpression :
  * // RelationalExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=("&" | "^" | "|") rightExpr=RelationalExpression)*;
  *
@@ -19846,9 +19808,10 @@ protected class RelationalExpression_RightExprAssignment_1_2 extends AssignmentT
  * 
  *       
  * 	        
+ * 	
  * 
- * // Deprecated - bitwise operators available as system functions (still available in backend if someone wants to
- * // use the backend for some other language.	
+ * // DEPRECATED - bitwise operators available as system functions (still available in backend if someone wants to
+ * // use the backend for some other language with a different grammar).
  * // ShiftExpression returns be::BExpression:
  * // AdditiveExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=("<<" | ">>" | ">>>") rightExpr=AdditiveExpression)*;
  *
@@ -20064,8 +20027,8 @@ protected class InstanceOfExpression_RightExprAssignment_1_2 extends AssignmentT
  *   MultiplicativeExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=
  *   ( "+" | "-" ) rightExpr=MultiplicativeExpression)*; 
  * 
- * // Deprecated - bitwise operators available as system functions (still available in backend if someone wants to
- * // use the backend for some other language.	
+ * // DEPRECATED - bitwise operators available as system functions (still available in backend if someone wants to
+ * // use the backend for some other language with a different grammar).
  * // ShiftExpression returns be::BExpression:
  * // AdditiveExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=("<<" | ">>" | ">>>") rightExpr=AdditiveExpression)*;
  *
@@ -20725,8 +20688,9 @@ protected class SetExpression_RightExprAssignment_1_2 extends AssignmentToken  {
  * 	  
  * 	 
  * 	
+ * // DEPRECATED - bitwise operators available as system functions (still available in backend if someone wants to
+ * // use the backend for some other language with a different grammar).
  * // Bitwise unary expression ~ for 2's complement deprecated, b3 language uses a system function instead
- * // kept as comment here if someone wants to use thi grammar for other purposes. 
  * // UnaryExpression returns be::BExpression:
  * //	 {be::BUnaryOpExpression} functionName=("!" | "-" | "~") expr=InfixExpression;
  *
@@ -20740,8 +20704,9 @@ protected class SetExpression_RightExprAssignment_1_2 extends AssignmentToken  {
 // 	  
 // 	 
 // 	
+// // DEPRECATED - bitwise operators available as system functions (still available in backend if someone wants to
+// // use the backend for some other language with a different grammar).
 // // Bitwise unary expression ~ for 2's complement deprecated, b3 language uses a system function instead
-// // kept as comment here if someone wants to use thi grammar for other purposes. 
 // // UnaryExpression returns be::BExpression:
 // //	 {be::BUnaryOpExpression} functionName=("!" | "-" | "~") expr=InfixExpression;
 protected class UnaryOrInfixExpression_Alternatives extends AlternativesToken {
@@ -20886,8 +20851,9 @@ protected class UnaryOrInfixExpression_PreopExpressionParserRuleCall_2 extends R
  * UnaryExpression returns be::BExpression:
  *   {be::BUnaryOpExpression} functionName=( "!" | "-" ) expr=InfixExpression;  
  * 	
+ * // DEPRECATED - bitwise operators available as system functions (still available in backend if someone wants to
+ * // use the backend for some other language with a different grammar).
  * // Bitwise unary expression ~ for 2's complement deprecated, b3 language uses a system function instead
- * // kept as comment here if someone wants to use thi grammar for other purposes. 
  * // UnaryExpression returns be::BExpression:
  * //	 {be::BUnaryOpExpression} functionName=("!" | "-" | "~") expr=InfixExpression;
  *
@@ -23677,11 +23643,7 @@ protected class SwitchExpression_EndswitchKeyword_4 extends KeywordToken  {
 /************ begin Rule Case ****************
  *
  * Case returns be::BCase:
- *   {be::BCase} "case" conditionExpr=Expression ":" thenExpr=Expression; 
- * 			
- * 	               
- * 
- * // TODO VAREXPR: Blockexpression can have local variables
+ *   {be::BCase} "case" conditionExpr=Expression ":" thenExpr=Expression;
  *
  **/
 
@@ -23883,9 +23845,7 @@ protected class Case_ThenExprAssignment_4 extends AssignmentToken  {
 /************ begin Rule BlockExpression ****************
  *
  * BlockExpression returns be::BExpression:
- *   {be::BChainedExpression} "{" (expressions+=TopLevelExpression ";")* "}"; 
- * 
- * // TODO VAREXPR: Blockexpression can have local variables
+ *   {be::BChainedExpression} "{" (expressions+=TopLevelExpression ";")* "}";
  *
  **/
 
@@ -25404,7 +25364,7 @@ protected class OperationCall_RightParenthesisKeyword_4 extends KeywordToken  {
  *
  * ConstructorCallExpression returns be::BExpression:
  *   {be::BCreateExpression} "new" typeExpr=LiteralType ("(" parameterList=ParameterList?
- *   ")")? ("as" alias=ID)? contextBlock=ContextBlock?; 
+ *   ")")? ("as" alias=ID)? contextBlock=ContextBlock_Creation?; 
  * 
  *          
  * 	   
@@ -25437,7 +25397,7 @@ protected class OperationCall_RightParenthesisKeyword_4 extends KeywordToken  {
  **/
 
 // {be::BCreateExpression} "new" typeExpr=LiteralType ("(" parameterList=ParameterList?
-// ")")? ("as" alias=ID)? contextBlock=ContextBlock?
+// ")")? ("as" alias=ID)? contextBlock=ContextBlock_Creation?
 protected class ConstructorCallExpression_Group extends GroupToken {
 	
 	public ConstructorCallExpression_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -25757,7 +25717,7 @@ protected class ConstructorCallExpression_AliasAssignment_4_1 extends Assignment
 }
 
 
-// contextBlock=ContextBlock?
+// contextBlock=ContextBlock_Creation?
 protected class ConstructorCallExpression_ContextBlockAssignment_5 extends AssignmentToken  {
 	
 	public ConstructorCallExpression_ContextBlockAssignment_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -25772,7 +25732,7 @@ protected class ConstructorCallExpression_ContextBlockAssignment_5 extends Assig
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ContextBlock_Group(this, this, 0, inst);
+			case 0: return new ContextBlock_Creation_Group(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -25783,9 +25743,9 @@ protected class ConstructorCallExpression_ContextBlockAssignment_5 extends Assig
 		IInstanceDescription obj = current.cloneAndConsume("contextBlock");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getContextBlockRule().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getContextBlock_CreationRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getConstructorCallExpressionAccess().getContextBlockContextBlockParserRuleCall_5_0(); 
+				element = grammarAccess.getConstructorCallExpressionAccess().getContextBlockContextBlock_CreationParserRuleCall_5_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -25841,11 +25801,6 @@ protected class ConstructorCallExpression_ContextBlockAssignment_5 extends Assig
  * //		| (expressions+=BuilderDefinition)   // TODO: How to handle Builder definitions as expressions
  * 		     
  * //		| (expressions+=PropertiesStatement) // TODO: How to handle Properties statements as expressions
- * 		    
- * 		
- * 					
- * //ExpressionStatement returns Statement : {ExpressionStatement} val=Expression ';' ;
- * //PropertiesStatement returns Statement : {PropertiesStatement} "properties" properties = PropertySet_Named ;
  *
  **/
 
@@ -26122,6 +26077,216 @@ protected class ContextBlock_RightCurlyBracketKeyword_3 extends KeywordToken  {
 
 
 /************ end Rule ContextBlock ****************/
+
+
+/************ begin Rule ContextBlock_Creation ****************
+ *
+ * ContextBlock_Creation returns be::BExpression:
+ *   {be::BChainedExpression} "{" (expressions+=TopLevelExpression ";")* "}"; 
+ * 
+ *          
+ * 	       
+ * 	
+ * 					
+ * //ExpressionStatement returns Statement : {ExpressionStatement} val=Expression ';' ;
+ * //PropertiesStatement returns Statement : {PropertiesStatement} "properties" properties = PropertySet_Named ;
+ *
+ **/
+
+// {be::BChainedExpression} "{" (expressions+=TopLevelExpression ";")* "}"
+protected class ContextBlock_Creation_Group extends GroupToken {
+	
+	public ContextBlock_Creation_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getContextBlock_CreationAccess().getGroup();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ContextBlock_Creation_RightCurlyBracketKeyword_3(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override
+	public IInstanceDescription tryConsume() {
+		if(!current.isInstanceOf(grammarAccess.getContextBlock_CreationRule().getType().getClassifier())) return null;
+		return tryConsumeVal();
+	}
+}
+
+// {be::BChainedExpression}
+protected class ContextBlock_Creation_BChainedExpressionAction_0 extends ActionToken  {
+
+	public ContextBlock_Creation_BChainedExpressionAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Action getGrammarElement() {
+		return grammarAccess.getContextBlock_CreationAccess().getBChainedExpressionAction_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(this, index, index, inst);
+		}	
+	}	
+		
+	
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(!current.isInstanceOf(grammarAccess.getContextBlock_CreationAccess().getBChainedExpressionAction_0().getType().getClassifier())) return null;
+		if(!current.isConsumed()) return null;
+		return current;
+	}
+}
+
+// "{"
+protected class ContextBlock_Creation_LeftCurlyBracketKeyword_1 extends KeywordToken  {
+	
+	public ContextBlock_Creation_LeftCurlyBracketKeyword_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getContextBlock_CreationAccess().getLeftCurlyBracketKeyword_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ContextBlock_Creation_BChainedExpressionAction_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// (expressions+=TopLevelExpression ";")*
+protected class ContextBlock_Creation_Group_2 extends GroupToken {
+	
+	public ContextBlock_Creation_Group_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getContextBlock_CreationAccess().getGroup_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ContextBlock_Creation_SemicolonKeyword_2_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// expressions+=TopLevelExpression
+protected class ContextBlock_Creation_ExpressionsAssignment_2_0 extends AssignmentToken  {
+	
+	public ContextBlock_Creation_ExpressionsAssignment_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getContextBlock_CreationAccess().getExpressionsAssignment_2_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new TopLevelExpression_Alternatives(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("expressions",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("expressions");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getTopLevelExpressionRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getContextBlock_CreationAccess().getExpressionsTopLevelExpressionParserRuleCall_2_0_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new ContextBlock_Creation_Group_2(parent, next, actIndex, consumed);
+			case 1: return new ContextBlock_Creation_LeftCurlyBracketKeyword_1(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+// ";"
+protected class ContextBlock_Creation_SemicolonKeyword_2_1 extends KeywordToken  {
+	
+	public ContextBlock_Creation_SemicolonKeyword_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getContextBlock_CreationAccess().getSemicolonKeyword_2_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ContextBlock_Creation_ExpressionsAssignment_2_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+
+// "}"
+protected class ContextBlock_Creation_RightCurlyBracketKeyword_3 extends KeywordToken  {
+	
+	public ContextBlock_Creation_RightCurlyBracketKeyword_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getContextBlock_CreationAccess().getRightCurlyBracketKeyword_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ContextBlock_Creation_Group_2(parent, this, 0, inst);
+			case 1: return new ContextBlock_Creation_LeftCurlyBracketKeyword_1(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+
+/************ end Rule ContextBlock_Creation ****************/
 
 
 /************ begin Rule FunctionDefinition ****************
@@ -27042,13 +27207,27 @@ protected class LiteralList_RightSquareBracketKeyword_1_5 extends KeywordToken  
  * LiteralMap returns be::BExpression:
  *   {be::BLiteralMapExpression} "[" ("<" keyType=TypeRef "," valueType=TypeRef ">")?
  *   entries+=MapEntry ("," entries+=MapEntry)* "]"|{be::BLiteralMapExpression} "[" "<"
- *   keyType=TypeRef "," valueType=TypeRef ">" "]";
+ *   keyType=TypeRef "," valueType=TypeRef ">" "]"; 
+ * 	
+ *      
+ * 	                                
+ * 	                 
+ * 	
+ * 
+ * // A lambda enclosed in { }
  *
  **/
 
 // {be::BLiteralMapExpression} "[" ("<" keyType=TypeRef "," valueType=TypeRef ">")?
 // entries+=MapEntry ("," entries+=MapEntry)* "]"|{be::BLiteralMapExpression} "[" "<"
-// keyType=TypeRef "," valueType=TypeRef ">" "]"
+// keyType=TypeRef "," valueType=TypeRef ">" "]" 
+// 	
+//      
+// 	                                
+// 	                 
+// 	
+// 
+// // A lambda enclosed in { }
 protected class LiteralMap_Alternatives extends AlternativesToken {
 
 	public LiteralMap_Alternatives(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -27753,17 +27932,28 @@ protected class LiteralMap_RightSquareBracketKeyword_1_7 extends KeywordToken  {
 /************ begin Rule LiteralFunction ****************
  *
  * LiteralFunction returns be::BExpression:
- *   {be::B3Function} "{" ("<" returnType=TypeRef ">")? (parameters+=ParameterDeclaration (
- *   "," parameters+=ParameterDeclaration)* ("," varArgs?="..." parameters+=
- *   ParameterDeclaration)?|varArgs?="..." parameters+=ParameterDeclaration)? "|"
- *   funcExpr=OneOrManyExpressions "}";
+ *   "{" ClosureExpression "}"; 
+ * 
+ * // A lambda enclosed in { }
+ *       
+ * 	    
+ * 	
+ * 
+ * //LiteralFunction returns be::BExpression : {be::B3Function} 
+ * //	'{' ('<' returnType=TypeRef '>')?
+ * //	(
+ * //	(parameters += ParameterDeclaration (',' parameters += ParameterDeclaration)* 
+ * //		(',' varArgs?="..." parameters += ParameterDeclaration)?)
+ * //	| 	(    varArgs?="..." parameters += ParameterDeclaration)
+ * //	)? 
+ * //	'|' funcExpr=OneOrManyExpressions '}'
+ * //	;
+ * 
+ * // A lambda (without delimiters)
  *
  **/
 
-// {be::B3Function} "{" ("<" returnType=TypeRef ">")? (parameters+=ParameterDeclaration (
-// "," parameters+=ParameterDeclaration)* ("," varArgs?="..." parameters+=
-// ParameterDeclaration)?|varArgs?="..." parameters+=ParameterDeclaration)? "|"
-// funcExpr=OneOrManyExpressions "}"
+// "{" ClosureExpression "}"
 protected class LiteralFunction_Group extends GroupToken {
 	
 	public LiteralFunction_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -27778,7 +27968,7 @@ protected class LiteralFunction_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new LiteralFunction_RightCurlyBracketKeyword_6(parent, this, 0, inst);
+			case 0: return new LiteralFunction_RightCurlyBracketKeyword_2(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -27790,16 +27980,16 @@ protected class LiteralFunction_Group extends GroupToken {
 	}
 }
 
-// {be::B3Function}
-protected class LiteralFunction_B3FunctionAction_0 extends ActionToken  {
-
-	public LiteralFunction_B3FunctionAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+// "{"
+protected class LiteralFunction_LeftCurlyBracketKeyword_0 extends KeywordToken  {
+	
+	public LiteralFunction_LeftCurlyBracketKeyword_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
-	public Action getGrammarElement() {
-		return grammarAccess.getLiteralFunctionAccess().getB3FunctionAction_0();
+	public Keyword getGrammarElement() {
+		return grammarAccess.getLiteralFunctionAccess().getLeftCurlyBracketKeyword_0();
 	}
 
     @Override
@@ -27809,657 +27999,60 @@ protected class LiteralFunction_B3FunctionAction_0 extends ActionToken  {
 		}	
 	}	
 		
+}
+
+// ClosureExpression
+protected class LiteralFunction_ClosureExpressionParserRuleCall_1 extends RuleCallToken {
 	
+	public LiteralFunction_ClosureExpressionParserRuleCall_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getLiteralFunctionAccess().getClosureExpressionParserRuleCall_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ClosureExpression_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
     @Override
 	protected IInstanceDescription tryConsumeVal() {
-		if(!current.isInstanceOf(grammarAccess.getLiteralFunctionAccess().getB3FunctionAction_0().getType().getClassifier())) return null;
-		if(!current.isConsumed()) return null;
+		if(checkForRecursion(ClosureExpression_Group.class, current)) return null;
+		if(!current.isInstanceOf(grammarAccess.getClosureExpressionRule().getType().getClassifier())) return null;
 		return current;
 	}
-}
-
-// "{"
-protected class LiteralFunction_LeftCurlyBracketKeyword_1 extends KeywordToken  {
 	
-	public LiteralFunction_LeftCurlyBracketKeyword_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getLiteralFunctionAccess().getLeftCurlyBracketKeyword_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new LiteralFunction_B3FunctionAction_0(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// ("<" returnType=TypeRef ">")?
-protected class LiteralFunction_Group_2 extends GroupToken {
-	
-	public LiteralFunction_Group_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getLiteralFunctionAccess().getGroup_2();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new LiteralFunction_GreaterThanSignKeyword_2_2(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// "<"
-protected class LiteralFunction_LessThanSignKeyword_2_0 extends KeywordToken  {
-	
-	public LiteralFunction_LessThanSignKeyword_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getLiteralFunctionAccess().getLessThanSignKeyword_2_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new LiteralFunction_LeftCurlyBracketKeyword_1(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// returnType=TypeRef
-protected class LiteralFunction_ReturnTypeAssignment_2_1 extends AssignmentToken  {
-	
-	public LiteralFunction_ReturnTypeAssignment_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getLiteralFunctionAccess().getReturnTypeAssignment_2_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new TypeRef_Alternatives(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("returnType",false)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("returnType");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getTypeRefRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getLiteralFunctionAccess().getReturnTypeTypeRefParserRuleCall_2_1_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
-	}
-
     @Override
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new LiteralFunction_LessThanSignKeyword_2_0(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
-}
-
-// ">"
-protected class LiteralFunction_GreaterThanSignKeyword_2_2 extends KeywordToken  {
-	
-	public LiteralFunction_GreaterThanSignKeyword_2_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getLiteralFunctionAccess().getGreaterThanSignKeyword_2_2();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new LiteralFunction_ReturnTypeAssignment_2_1(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-
-// (parameters+=ParameterDeclaration ("," parameters+=ParameterDeclaration)* (","
-// varArgs?="..." parameters+=ParameterDeclaration)?|varArgs?="..." parameters+=
-// ParameterDeclaration)?
-protected class LiteralFunction_Alternatives_3 extends AlternativesToken {
-
-	public LiteralFunction_Alternatives_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Alternatives getGrammarElement() {
-		return grammarAccess.getLiteralFunctionAccess().getAlternatives_3();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new LiteralFunction_Group_3_0(parent, this, 0, inst);
-			case 1: return new LiteralFunction_Group_3_1(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// parameters+=ParameterDeclaration ("," parameters+=ParameterDeclaration)* (","
-// varArgs?="..." parameters+=ParameterDeclaration)?
-protected class LiteralFunction_Group_3_0 extends GroupToken {
-	
-	public LiteralFunction_Group_3_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getLiteralFunctionAccess().getGroup_3_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new LiteralFunction_Group_3_0_2(parent, this, 0, inst);
-			case 1: return new LiteralFunction_Group_3_0_1(parent, this, 1, inst);
-			case 2: return new LiteralFunction_ParametersAssignment_3_0_0(parent, this, 2, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// parameters+=ParameterDeclaration
-protected class LiteralFunction_ParametersAssignment_3_0_0 extends AssignmentToken  {
-	
-	public LiteralFunction_ParametersAssignment_3_0_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getLiteralFunctionAccess().getParametersAssignment_3_0_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ParameterDeclaration_Group(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("parameters",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("parameters");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getParameterDeclarationRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getLiteralFunctionAccess().getParametersParameterDeclarationParserRuleCall_3_0_0_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
-	}
-
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new LiteralFunction_Group_2(parent, next, actIndex, consumed);
-			case 1: return new LiteralFunction_LeftCurlyBracketKeyword_1(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
-}
-
-// ("," parameters+=ParameterDeclaration)*
-protected class LiteralFunction_Group_3_0_1 extends GroupToken {
-	
-	public LiteralFunction_Group_3_0_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getLiteralFunctionAccess().getGroup_3_0_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new LiteralFunction_ParametersAssignment_3_0_1_1(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// ","
-protected class LiteralFunction_CommaKeyword_3_0_1_0 extends KeywordToken  {
-	
-	public LiteralFunction_CommaKeyword_3_0_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getLiteralFunctionAccess().getCommaKeyword_3_0_1_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new LiteralFunction_Group_3_0_1(parent, this, 0, inst);
-			case 1: return new LiteralFunction_ParametersAssignment_3_0_0(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// parameters+=ParameterDeclaration
-protected class LiteralFunction_ParametersAssignment_3_0_1_1 extends AssignmentToken  {
-	
-	public LiteralFunction_ParametersAssignment_3_0_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getLiteralFunctionAccess().getParametersAssignment_3_0_1_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ParameterDeclaration_Group(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("parameters",false)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("parameters");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getParameterDeclarationRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getLiteralFunctionAccess().getParametersParameterDeclarationParserRuleCall_3_0_1_1_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
-	}
-
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new LiteralFunction_CommaKeyword_3_0_1_0(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
-}
-
-
-// ("," varArgs?="..." parameters+=ParameterDeclaration)?
-protected class LiteralFunction_Group_3_0_2 extends GroupToken {
-	
-	public LiteralFunction_Group_3_0_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getLiteralFunctionAccess().getGroup_3_0_2();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new LiteralFunction_ParametersAssignment_3_0_2_2(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// ","
-protected class LiteralFunction_CommaKeyword_3_0_2_0 extends KeywordToken  {
-	
-	public LiteralFunction_CommaKeyword_3_0_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getLiteralFunctionAccess().getCommaKeyword_3_0_2_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new LiteralFunction_Group_3_0_1(parent, this, 0, inst);
-			case 1: return new LiteralFunction_ParametersAssignment_3_0_0(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// varArgs?="..."
-protected class LiteralFunction_VarArgsAssignment_3_0_2_1 extends AssignmentToken  {
-	
-	public LiteralFunction_VarArgsAssignment_3_0_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getLiteralFunctionAccess().getVarArgsAssignment_3_0_2_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new LiteralFunction_CommaKeyword_3_0_2_0(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("varArgs",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("varArgs");
-		if(Boolean.TRUE.equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
-			type = AssignmentType.KW;
-			element = grammarAccess.getLiteralFunctionAccess().getVarArgsFullStopFullStopFullStopKeyword_3_0_2_1_0();
-			return obj;
-		}
-		return null;
-	}
-
-}
-
-// parameters+=ParameterDeclaration
-protected class LiteralFunction_ParametersAssignment_3_0_2_2 extends AssignmentToken  {
-	
-	public LiteralFunction_ParametersAssignment_3_0_2_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getLiteralFunctionAccess().getParametersAssignment_3_0_2_2();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ParameterDeclaration_Group(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("parameters",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("parameters");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getParameterDeclarationRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getLiteralFunctionAccess().getParametersParameterDeclarationParserRuleCall_3_0_2_2_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
-	}
-
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new LiteralFunction_VarArgsAssignment_3_0_2_1(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
-}
-
-
-
-// varArgs?="..." parameters+=ParameterDeclaration
-protected class LiteralFunction_Group_3_1 extends GroupToken {
-	
-	public LiteralFunction_Group_3_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getLiteralFunctionAccess().getGroup_3_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new LiteralFunction_ParametersAssignment_3_1_1(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// varArgs?="..."
-protected class LiteralFunction_VarArgsAssignment_3_1_0 extends AssignmentToken  {
-	
-	public LiteralFunction_VarArgsAssignment_3_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getLiteralFunctionAccess().getVarArgsAssignment_3_1_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new LiteralFunction_Group_2(parent, this, 0, inst);
-			case 1: return new LiteralFunction_LeftCurlyBracketKeyword_1(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("varArgs",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("varArgs");
-		if(Boolean.TRUE.equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
-			type = AssignmentType.KW;
-			element = grammarAccess.getLiteralFunctionAccess().getVarArgsFullStopFullStopFullStopKeyword_3_1_0_0();
-			return obj;
-		}
-		return null;
-	}
-
-}
-
-// parameters+=ParameterDeclaration
-protected class LiteralFunction_ParametersAssignment_3_1_1 extends AssignmentToken  {
-	
-	public LiteralFunction_ParametersAssignment_3_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getLiteralFunctionAccess().getParametersAssignment_3_1_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ParameterDeclaration_Group(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("parameters",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("parameters");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getParameterDeclarationRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getLiteralFunctionAccess().getParametersParameterDeclarationParserRuleCall_3_1_1_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
-	}
-
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new LiteralFunction_VarArgsAssignment_3_1_0(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
-}
-
-
-
-// "|"
-protected class LiteralFunction_VerticalLineKeyword_4 extends KeywordToken  {
-	
-	public LiteralFunction_VerticalLineKeyword_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getLiteralFunctionAccess().getVerticalLineKeyword_4();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new LiteralFunction_Alternatives_3(parent, this, 0, inst);
-			case 1: return new LiteralFunction_Group_2(parent, this, 1, inst);
-			case 2: return new LiteralFunction_LeftCurlyBracketKeyword_1(parent, this, 2, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// funcExpr=OneOrManyExpressions
-protected class LiteralFunction_FuncExprAssignment_5 extends AssignmentToken  {
-	
-	public LiteralFunction_FuncExprAssignment_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getLiteralFunctionAccess().getFuncExprAssignment_5();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new OneOrManyExpressions_Alternatives(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("funcExpr",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("funcExpr");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getOneOrManyExpressionsRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getLiteralFunctionAccess().getFuncExprOneOrManyExpressionsParserRuleCall_5_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
-	}
-
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new LiteralFunction_VerticalLineKeyword_4(parent, next, actIndex, consumed);
+			case 0: return new LiteralFunction_LeftCurlyBracketKeyword_0(parent, next, actIndex, inst);
 			default: return null;
 		}	
 	}	
 }
 
 // "}"
-protected class LiteralFunction_RightCurlyBracketKeyword_6 extends KeywordToken  {
+protected class LiteralFunction_RightCurlyBracketKeyword_2 extends KeywordToken  {
 	
-	public LiteralFunction_RightCurlyBracketKeyword_6(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public LiteralFunction_RightCurlyBracketKeyword_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getLiteralFunctionAccess().getRightCurlyBracketKeyword_6();
+		return grammarAccess.getLiteralFunctionAccess().getRightCurlyBracketKeyword_2();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new LiteralFunction_FuncExprAssignment_5(parent, this, 0, inst);
+			case 0: return new LiteralFunction_ClosureExpressionParserRuleCall_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -28476,7 +28069,19 @@ protected class LiteralFunction_RightCurlyBracketKeyword_6 extends KeywordToken 
  *   {be::B3Function} ("<" returnType=TypeRef ">")? (parameters+=ParameterDeclaration (","
  *   parameters+=ParameterDeclaration)* ("," varArgs?="..." parameters+=
  *   ParameterDeclaration)?|varArgs?="..." parameters+=ParameterDeclaration)? "|"
- *   funcExpr=OneOrManyExpressions;
+ *   funcExpr=OneOrManyExpressions; 
+ * 
+ * //LiteralFunction returns be::BExpression : {be::B3Function} 
+ * //	'{' ('<' returnType=TypeRef '>')?
+ * //	(
+ * //	(parameters += ParameterDeclaration (',' parameters += ParameterDeclaration)* 
+ * //		(',' varArgs?="..." parameters += ParameterDeclaration)?)
+ * //	| 	(    varArgs?="..." parameters += ParameterDeclaration)
+ * //	)? 
+ * //	'|' funcExpr=OneOrManyExpressions '}'
+ * //	;
+ * 
+ * // A lambda (without delimiters)
  *
  **/
 
@@ -29149,25 +28754,11 @@ protected class ClosureExpression_FuncExprAssignment_4 extends AssignmentToken  
 /************ begin Rule OneOrManyExpressions ****************
  *
  * OneOrManyExpressions returns be::BExpression:
- *   BlockExpressionWithoutBrackets|Expression; 
- * 
- *     
- * 	  
- * 	  
- * 	
- * 	
- * // TODO VAREXPR - can have variable definitions
+ *   BlockExpressionWithoutBrackets|Expression;
  *
  **/
 
-// BlockExpressionWithoutBrackets|Expression 
-// 
-//     
-// 	  
-// 	  
-// 	
-// 	
-// // TODO VAREXPR - can have variable definitions
+// BlockExpressionWithoutBrackets|Expression
 protected class OneOrManyExpressions_Alternatives extends AlternativesToken {
 
 	public OneOrManyExpressions_Alternatives(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -29272,9 +28863,7 @@ protected class OneOrManyExpressions_ExpressionParserRuleCall_1 extends RuleCall
 /************ begin Rule BlockExpressionWithoutBrackets ****************
  *
  * BlockExpressionWithoutBrackets returns be::BExpression:
- *   {be::BChainedExpression} (expressions+=TopLevelExpression ";")+; 
- * 	
- * // TODO VAREXPR - can have variable definitions
+ *   {be::BChainedExpression} (expressions+=TopLevelExpression ";")+;
  *
  **/
 
@@ -30604,7 +30193,13 @@ protected class RealLiteral_ValueAssignment_1 extends AssignmentToken  {
 /************ begin Rule RegexpLiteral ****************
  *
  * RegexpLiteral returns be::BExpression:
- *   {be::BRegularExpression} pattern=REGULAR_EXPR;
+ *   {be::BRegularExpression} pattern=REGULAR_EXPR; 
+ * 	
+ *         
+ * 	    
+ * 	
+ * 
+ * // Note: NullLiteral has a java null value as its value
  *
  **/
 
@@ -30705,7 +30300,11 @@ protected class RegexpLiteral_PatternAssignment_1 extends AssignmentToken  {
  *
  * NullLiteral returns be::BExpression:
  *   {be::BLiteralExpression} "null"; 
- * 	        
+ * 
+ * // Note: NullLiteral has a java null value as its value
+ * 	         
+ * 	
+ * 	
  * 
  * //ThisLiteral	returns  be::BExpression: {ThisLiteral} val="this";
  * //SuperLiteral returns  be::BExpression: {SuperLiteral} val="super";
@@ -30803,11 +30402,11 @@ protected class NullLiteral_NullKeyword_1 extends KeywordToken  {
  * ParanthesizedExpression returns be::BExpression:
  *   "(" Expression ")"; 
  * 	
- *     
- * 	       
+ *        
+ * 	    
  * 		
  * 
- * //Version : version = VersionLiteral;
+ * // Has conversion rule
  *
  **/
 
@@ -30919,7 +30518,6 @@ protected class ParanthesizedExpression_RightParenthesisKeyword_2 extends Keywor
 
 
 /************ end Rule ParanthesizedExpression ****************/
-
 
 
 

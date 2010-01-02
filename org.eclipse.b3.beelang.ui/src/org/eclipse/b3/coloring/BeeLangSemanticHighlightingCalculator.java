@@ -2,7 +2,7 @@ package org.eclipse.b3.coloring;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression;
 import org.eclipse.b3.beeLang.BeeModel;
-import org.eclipse.b3.beeLang.BuildUnit;
+import org.eclipse.b3.build.build.BuildUnit;
 import org.eclipse.b3.build.build.PathVector;
 
 //import org.eclipse.b3.beeLang.RealLiteral;

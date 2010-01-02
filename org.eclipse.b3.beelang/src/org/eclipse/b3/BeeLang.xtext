@@ -1,21 +1,39 @@
+/*
+ * Copyright (c) 2009, Cloudsmith Inc and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * Contributors:
+ * - Cloudsmith Inc - initial API and implementation.
+ */
 
+// define the grammar. Do not use defaults terminals to get full control.
 grammar org.eclipse.b3.BeeLang // with org.eclipse.xtext.common.Terminals
+
+// enables use of ecore types
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+// backend model defines general expressions
 import "platform:/resource/org.eclipse.b3.backend/model/B3Backend.ecore" as be
+
+// build model defines build specific expression
 import "platform:/resource/org.eclipse.b3.build/model/B3Build.ecore" as build
-//import "platform:/resource/org.eclipse.b3.beelang/src/org/eclipse/b3/BeeLangTypes.ecore" as types
+
 generate beeLang "http://www.eclipse.org/b3/BeeLang"
 
 BeeModel hidden(WS, SL_COMMENT, ML_COMMENT): 
 	(imports += Import)* 
-	(	(functions+=Function) 
-	| 	(concern+=Concern_Named)
+	(	(functions += Function) 
+	| 	(concern += Concern_Named)
 	|	('properties'  propertySets += PropertySet_Named)
 	)* 
 	(body = Unit)? 
 	;
 
-Import returns be::IType: {be::B3JavaImport}(reexport ?='reexport')? "import" qualifiedName = QID ("as" name=ID)? ';' ;
+Import returns be::IType : {be::B3JavaImport}
+	(reexport ?='reexport')? "import" qualifiedName = QID ("as" name=ID)? ';' 
+	;
 
 // Wanted later 
 //Import : (reexport ?='reexport')? 
@@ -25,11 +43,11 @@ Import returns be::IType: {be::B3JavaImport}(reexport ?='reexport')? "import" qu
 //JavaImporter 	: qualifiedName=QID ;
 //NativeImporter 	: uriString = STRING ;
 		
-Unit returns BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT) : {BuildUnit}
+Unit returns build::BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT) : {build::BuildUnit}
 	(documentation = DOCUMENTATION)?
 	(executionMode = ExecutionMode)?
 	'unit' (name=UnitName)? ('version' version = VersionLiteral)?
-		('implements' implements += InterfaceName (',' implements+=InterfaceName)*)? 
+		('implements' implements += SimpleTypeRef (',' implements+=SimpleTypeRef)*)? 
 	'{'
 		(	//-- PROPERTIES
 			// goes first, because they may be used in the other clauses. TODO: can probably be relaxed
@@ -38,54 +56,58 @@ Unit returns BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT) : {BuildUnit}
 			  ('default' 'properties'  defaultProperties = PropertySet)
 		)?
 		( 	//-- PROVIDES
-			  ('provides' '{' (providedCapabilities += ProvidedCapability ';')+ '}')
-			| ('provides' providedCapabilities += ProvidedCapability ';')
+			  ('provides' '{' (unitProvidedCapabilities += ProvidedCapability ';')+ '}')
+			| ('provides' unitProvidedCapabilities += ProvidedCapability ';')
 			//-- REQUIRES & META REQUIRES
 			| ('requires' '{' (requiredCapabilities += RequiredCapability ';')+ '}')
 			| ('requires' requiredCapabilities += RequiredCapability ';')
 			| ('env' 'requires' '{' (metaRequiredCapabilities += RequiredCapability ';')+ '}' )
 			| ('env' 'requires' metaRequiredCapabilities += RequiredCapability ';')
 			//--CONCERNS
-			| (concerns+=Concern_Named)
+			| (concerns += Concern_Named)
 			//--SYNCHRONIZE
 			| ('sequential' '{' (synchronizations += Synchronization )+  '}' )
 			| ('sequential' synchronizations += Synchronization  )
-			//--BUILD METHODS & FUNCTIONS
+			//--BUILDERS & FUNCTIONS
 			| (builders += Builder )			
 			| (functions += Function )			
 			//-- REPOSITORIES
-			| ('repositories' '{' (repositoryConfigurations+=RepositoryConfiguration)* '}' )
+			| ('repositories' '{' (repositories+=RepositoryConfiguration)* '}' )
 			| ('properties'  propertySets += PropertySet_Named)
 			| ('containers' '{' containers += ContainerConfiguration* '}' )
 		)*
 	'}';
 
-ProvidedCapability returns build::VersionedCapability: {build::VersionedCapability}
+ProvidedCapability returns build::VersionedCapability : {build::VersionedCapability}
 	('when' '(' condExpr=Expression ')')?  
-	nameSpace=InterfaceName '/' name=UnitName 
+	nameSpace=InterfaceName '/' name=CapabilityName 
 	('/' version=VersionLiteral)?  
 	;
 	
-RequiredCapability returns build::RequiredCapability: {build::RequiredCapability} 
+RequiredCapability returns build::RequiredCapability : {build::RequiredCapability} 
 	('when' '(' condExpr=Expression ')')?  
-	nameSpace=InterfaceName '/' name=UnitName 
+	nameSpace=InterfaceName '/' name=CapabilityName 
 	('/' versionRange=VersionRangeLiteral)?  
 	;
 	
-//RequiredCapability : capability=FilteredCapability ('/' range=VersionRange)?  ;
-//FilteredCapability : ('when' filter=Filter)? capability = Capability ;
-//Capability returns build::Capability: {build::Capability} nameSpace=InterfaceName '/' name=UnitName ;
+RequiredCapability_Unfiltered returns build::RequiredCapability : {build::RequiredCapability} 
+	nameSpace=InterfaceName '/' name=CapabilityName 
+	('/' versionRange=VersionRangeLiteral)?  
+	;
 
+// Requirement on a unit (in build unit namespace)
+RequiredCapability_Unit returns build::RequiredCapability : {build::RequiredCapability} 
+	((name=QID)|("unit"))?
+	;
+	
 // An optionally named sequence of property statements
-PropertySet_Named returns be::BPropertySet
-	: {be::BPropertySet} name = ID ("extends" extends=[be::BPropertySet | QIDREF])?
-	'{' (operations += PropertyOperation )* '}' 
+PropertySet_Named returns be::BPropertySet : {be::BPropertySet} 
+	name = ID ("extends" extends=[be::BPropertySet | QIDREF])? '{' (operations += PropertyOperation )* '}' 
 	;
 
 // Sequence of possibly filtered property statements	
-PropertySet returns be::BPropertySet
-	:  {be::BPropertySet} ("extends" extends=[be::BPropertySet | QIDREF])? 
-		'{' (operations += PropertyOperation )*  '}'
+PropertySet returns be::BPropertySet :  {be::BPropertySet}
+	("extends" extends=[be::BPropertySet | QIDREF])?  '{' (operations += PropertyOperation )*  '}'
 	;
 
 // For model generation, to get supertype correct
@@ -95,45 +117,35 @@ PropertyOperation returns be::BPropertyOperation
 	| PropertySetOperation
 	;
 
-ConditionalPropertyOperation returns be::BPropertyOperation
-	: {be::BConditionalPropertyOperation} 'when' '(' condExpr=Expression ')'
+ConditionalPropertyOperation returns be::BPropertyOperation : {be::BConditionalPropertyOperation}
+	'when' '(' condExpr=Expression ')' 
 		(body=PropertyDefinitionOperation | body=PropertySetOperation) 
 	;
-PropertyDefinitionOperation returns be::BPropertyOperation
-	: {be::BPropertyDefinitionOperation} (definition = PropertyValDeclaration | definition = PropertyVarDeclaration)
+PropertyDefinitionOperation returns be::BPropertyOperation : {be::BPropertyDefinitionOperation}
+	(definition = PropertyValDeclaration | definition = PropertyVarDeclaration)
 	;
 		
-// be::BDefProperty   immutable ?= "val"
 // property values, must be assigned (but can be assigned null).
-PropertyValDeclaration returns be::BDefProperty 
-//	: {be::BDefProperty} ( final ?= "final")? (("property" |  type=TypeRef ) name=PID) 
-	: {be::BDefProperty} ( final ?= "final")? type=TypeRef? name=PID
-	'=' valueExpr = Expression ';'
-	;
-PropertyVarDeclaration returns be::BDefProperty 
-	: {be::BDefProperty} ( final ?= "final")? (mutable ?= "mutable")  type=TypeRef? name=PID
-	('=' valueExpr = Expression)? ';'
-	;
-PropertySetOperation returns be::BPropertyOperation
-	: {be::BPropertySetOperation} propertySet = PropertySet
-	;
-
-// OLD
-SetPropertyOperation returns SetPropertyOperation
-	: ( (final ?= 'final')? key=PropertyName op=AssignmentOperator value=Expression ';')
-	;
-
-UnsetPropertyOperation returns UnsetPropertyOperation
-	: ('unset' key = PropertyName ';' )
-	;
-
-Synchronization 
-	: (partrefs += SynchronizedPart)(',' partrefs += SynchronizedPart)+ ';' // TODO: verify at least 2 partrefs
+PropertyValDeclaration returns be::BDefProperty : {be::BDefProperty} 
+	( final ?= "final")? type=TypeRef? name=PID '=' valueExpr = Expression ';'
 	;
 	
-SynchronizedPart
-	: CompoundName ('#' PartName)?
-	| PartName
+// property variables, value optionally assigned
+PropertyVarDeclaration returns be::BDefProperty : {be::BDefProperty}
+	( final ?= "final")? (mutable ?= "mutable")  type=TypeRef? name=PID ('=' valueExpr = Expression)? ';'
+	;
+	
+PropertySetOperation returns be::BPropertyOperation : {be::BPropertySetOperation} 
+	propertySet = PropertySet
+	;
+
+Synchronization returns build::Synchronization : {build::Synchronization}
+	(builders += SynchronizedBuilder)(',' builders += SynchronizedBuilder)+ ';'
+	;
+	
+SynchronizedBuilder returns build::SynchronizedBuilder : {build::SynchronizedBuilder}
+	nameSpace=EscapedQualifiedName '/' name=EscapedQualifiedName ('#' builderName = BuilderName)?
+	| builderName = BuilderName
 	;
 	
 PathGroup returns build::PathGroup: {build::PathGroup}
@@ -156,7 +168,7 @@ UnbasedPathVector returns build::PathVector : {build::PathVectorElement}
 	paths+=Path (',' paths+=Path)* ';'
 	;
 	
-CompoundPathVector returns build::PathVector: {build::CompoundPathVector}
+CompoundPathVector returns build::PathVector : {build::CompoundPathVector}
 	"when" '(' condExpr=Expression ')'
 	'{' (pathVectors += PathVector)* '}' 
 	;
@@ -175,29 +187,29 @@ Prerequisite returns build::Prerequisite : {build::Prerequisite}
 	;
 
 // Validation checks that there is at least one of references, properties or concern.
-WithClause returns be::BWithExpression: {be::BWithExpression}
+WithClause returns be::BWithExpression : {be::BWithExpression}
 		'with'
 		( '(' referencedAdvice += [be::BAdvice | ID] (',' referencedAdvice += [be::BAdvice | ID])* ')' )? 
 		(( 'properties' propertySets += PropertySet ) | ( 'concern' concerns += Concern_Anonymous ))*
 		;
 			
 BuildResultReference returns build::BuildResultReference
-	: DirectBuildResultReference
+	: UnitReference
 	| CapabilityReference
 	| CompoundBuildResultReference
 	;
 	
-DirectBuildResultReference returns build::BuildResultReference :{build::DirectBuildResultReference} 
-	((name=QID)|("unit"))? '#' builderName=PartName (parameters = ParameterList)? ; 
+UnitReference returns build::BuildResultReference : {build::BuilderReference} 
+	(requiredCapability = RequiredCapability_Unit)? '#' builderName=BuilderName (parameters = ParameterList)? ; 
+
 	
-CapabilityReference returns build::BuildResultReference : {build::IndirectBuildResultReference}
-	nameSpace=InterfaceName '/' name=UnitName
-	('/' versionRange=VersionRangeLiteral)? ('#' builderName=PartName) ?
+CapabilityReference returns build::BuildResultReference : {build::BuilderReference}
+	requiredCapability = RequiredCapability_Unfiltered ('#' builderName=BuilderName) ?
 	(parameters = ParameterList)?	 
 	;
 	
-CompoundBuildResultReference returns build::BuildResultReference
-	: {build::CompoundBuildResultReference} '{' (prerequisites += Prerequisite)* '}'
+CompoundBuildResultReference returns build::BuildResultReference : {build::CompoundBuildResultReference}
+	'{' (prerequisites += Prerequisite)* '}'
 	;
 	
 Builder returns build::Builder : {build::Builder}
@@ -207,7 +219,7 @@ Builder returns build::Builder : {build::Builder}
   	(final ?= "final")?
 //	(cached ?= "cached")?
     "builder"
-	name=PartName
+	name=BuilderName
 	('(' 
 		(parameters += ParameterDeclaration (',' parameters += ParameterDeclaration)* (',' varArgs?="..." parameters+=ParameterDeclaration)?)
 		| (varArgs?="..." parameters += ParameterDeclaration)
@@ -223,7 +235,7 @@ Builder returns build::Builder : {build::Builder}
 	 '}'
 	;
 
-ParameterList returns be::BParameterList: {be::BParameterList} 
+ParameterList returns be::BParameterList : {be::BParameterList} 
 	parameters += FirstParameter ("," parameters += FirstParameter)*
 	;
 	
@@ -232,54 +244,58 @@ FirstParameter returns be::BParameter
 	| Parameter
 	;
 	
-Parameter returns be::BParameter: {be::BParameter} expr = Expression ;
-ClosureParameter returns be::BParameter : {be::BParameter} (expr = ClosureExpression) ;
+Parameter returns be::BParameter : {be::BParameter} 
+	expr = Expression 
+	;
+	
+ClosureParameter returns be::BParameter : {be::BParameter} 
+	(expr = ClosureExpression) 
+	;
 
-ParameterDeclarationList : 
-	(( params += ParameterDeclaration (',' params+=ParameterDeclaration)*(',' params+=ParameterDeclarationEllipse)?) 
-	| (params+= ParameterDeclarationEllipse))
+ParameterDeclaration returns be::BParameterDeclaration : {be::BParameterDeclaration} 
+	((type=TypeRef)? name = ID) 
 	;
-ParameterDeclaration returns be::BParameterDeclaration: {be::BParameterDeclaration} ((type=TypeRef)? name = ID) ;
-ParameterDeclarationEllipse returns ParameterDeclaration : 
-	{VarargParameterDeclaration} "..." (type=TypeRef)? name=ID
-	;
- 
-InputKeyword : 'input' ; 
-OutputKeyword : 'output'; 
-	
-BuilderOutput 
-	: "output" '{' body = PathGroup '}' 
-	;
-	
 
 BuilderInput returns build::BuilderInput : {build::BuilderInput}
 	"input"
-		("precondition" ((':' precondExpr = Expression ';' )|( precondExpr = BlockExpression)))?
+		("precondition"  ((':' precondExpr  = Expression ';' )|( precondExpr  = BlockExpression)))?
 		("postcondition" ((':' postcondExpr = Expression ';' )|( postcondExpr = BlockExpression)))?
 		'{' (prerequisites += Prerequisite)+ '}'
 	;
 
-RepositoryConfiguration : RepositoryDeclaration | ResolutionStrategy ;
+RepositoryConfiguration returns build::RepositoryConfiguration 
+	: RepositoryDeclaration
+	| ResolutionStrategy 
+	;
 
-RepositoryDeclaration : 
+RepositoryDeclaration returns build::RepositoryDeclaration : {build::RepositoryDeclaration}
 	(documentation = DOCUMENTATION)?
-	(location=URI | 'repository' type=TypeRef ) (context=ContextBlock)?
+	(location=URI | ('repository' resolverType=TypeRef) ) (contextBlock = ContextBlock_Creation)?
 	;
 
-ResolutionStrategy : 
-	strategy = ("select-first" | "select-best") 
-	'{' (repositoryConfig += RepositoryConfiguration)* '}'
-	;
-
-ContainerConfiguration : 
-	(documentation=DOCUMENTATION)? 
-	"container" name=ID "agent" type=TypeRef (contextBlock = ContextBlock)? 
+ResolutionStrategy returns build::ResolutionStrategy 
+	: ResolutionStrategyFirst
+	| ResolutionStrategyBest
 	;
 	
-URI /* returns build::URI */: STRING
+ResolutionStrategyFirst returns build::ResolutionStrategyFirst : {build::ResolutionStrategyFirst}
+	 "select-first" '{' (repositories += RepositoryConfiguration)* '}'
+	;
+	
+ResolutionStrategyBest returns build::ResolutionStrategyBest : {build::ResolutionStrategyBest}
+	"select-best" '{' (repositories += RepositoryConfiguration)* '}'
 	;
 
-Concern_Named returns be::BConcern: {be::BConcern} 
+ContainerConfiguration returns build::ContainerConfiguration: {build::ContainerConfiguration} 
+	(documentation=DOCUMENTATION)? 
+	"container" name=ID "agent" agentType=TypeRef (contextBlock = ContextBlock_Creation)? 
+	;
+	
+URI returns build::URI : 
+	STRING
+	;
+
+Concern_Named returns be::BConcern : {be::BConcern} 
 	(documentation = DOCUMENTATION)? "concern" name=ID
 	("extends" superConcerns += [be::BConcern | ID] (',' superConcerns += [be::BConcern | ID])*)? 
 	'{' (
@@ -299,15 +315,7 @@ Concern_Anonymous returns be::BConcern : {be::BConcern}
 		)* '}' 
 	;
 
-//Filter : '(' predicate = Expression ')' ;
-
-//PreCondition : "precondition" '{' (asserts += AssertionExpression)+ '}' ;
-//PostCondition : "postcondition" '{' (asserts += AssertionExpression)+ '}' ;
-//AssertionExpression : 'assert' expr=Expression ',' message=STRING ';' ;
-
-//ExpressionList : (expressions += Expression ';')+ ;
-
-Function returns be::B3Function: {be::B3Function}
+Function returns be::B3Function : {be::B3Function}
 	(documentation = DOCUMENTATION)?
    	(visibility = Visibility)?
     (executionMode = ExecutionMode)?	   	
@@ -339,39 +347,35 @@ RelationalOperator
 	| ">=" | "<=" | ">" | "<"
 	;
 
-// All expressions, including variable and value definitions
+// All expressions, including variable and value definitions. Note: order of rules is significant.
 TopLevelExpression returns be::BExpression 
-	: VarDeclaration | ValDeclaration | AssignmentExpression 
+	: VarDeclaration 
+	| ValDeclaration
+	| AssignmentExpression 
 	;
 
 // All expressions except variable and value definitions	 
-Expression returns be::BExpression: AssignmentExpression ;
+Expression returns be::BExpression
+	: AssignmentExpression 
+	;
 
-
-AssignmentExpression returns be::BExpression:
-	// note: VarDecl | OrExpr is order dependant
+AssignmentExpression returns be::BExpression :
 	  CachedExpression ({be::BAssignmentExpression.leftExpr=current} 
 	 	functionName=AssignmentOperator rightExpr=AssignmentExpression)?
 	;	
 
-//AssignmentExpression returns be::BExpression:
-//	// note: VarDecl | OrExpr is order dependant
-//	 (VarDeclaration | ValDeclaration | CachedExpression) ({be::BAssignmentExpression.leftExpr=current} 
-//	 	functionName=AssignmentOperator rightExpr=AssignmentExpression)?
-//	;	
-VarDeclaration returns be::BExpression 
-	: {be::BDefValue} ( final ?= "final")? (( "var" |  type=TypeRef ) name=ID) ('=' valueExpr = Expression)? ;
-
-ValDeclaration returns be::BExpression 
-	: {be::BDefValue} ( final ?= "final")? immutable ?= "val" (type=TypeRef)? name=ID '=' valueExpr = Expression;
-		
-TypeRef returns be::IType:  ClosureTypeRef | SimpleTypeRef; // TODO: gets lots of warnings from this...
-SimpleTypeRef returns be::IType
-	: {be::B3ParameterizedType} rawType=[be::B3JavaImport | ID] 
-		('<' actualArgumentsList+=[be::B3JavaImport | ID] (',' actualArgumentsList+=[be::B3JavaImport | ID])* '>' )?
-//		('<' actualArgumentsList+=TypeParam (',' actualArgumentsList+=TypeParam)* '>' )? // TODO: Support wildcard as well
+VarDeclaration returns be::BExpression : {be::BDefValue} 
+	(final ?= "final")? 
+	(( "var" |  type=TypeRef ) name=ID) 
+	('=' valueExpr = Expression)? 
 	;
-	
+
+ValDeclaration returns be::BExpression : {be::BDefValue}
+	(final ?= "final")? 
+	immutable ?= "val" (type=TypeRef)? name=ID 
+	'=' valueExpr = Expression
+	;
+
 // TODO: typereference is simplified to only the name of a java type - for model imports
 // the model is imported with name == namespace, and types in the model are referenced after
 // '::' e.g. "resource:a resouceURi.ecore" as mymodel, and a classifier in this model is
@@ -380,58 +384,80 @@ SimpleTypeRef returns be::IType
 // until we are up on Xtext 0.8 with better scoping and linking.
 // For now, this is just proof of concept.
 // 
-
-// ClosureTypeRef declares parameters and return type	TODO: use TypeRef instead of direct reference to imported class
-ClosureTypeRef returns be::IType
-	: {be::B3FunctionType} 
-		('(' 
-			(
-			(parameterTypes += [be::B3JavaImport | ID] (',' parameterTypes += [be::B3JavaImport | ID])* (',' varArgs ?= "..." parameterTypes += [be::B3JavaImport | ID])?)
-			| (varArgs ?= "..." parameterTypes += [be::B3JavaImport | ID])
-			)? ')'
-		'=>' returnType = [be::B3JavaImport | ID] )
+		
+TypeRef returns be::IType 
+	: ClosureTypeRef 
+	| SimpleTypeRef
+	; 
+	
+SimpleTypeRef returns be::IType : {be::B3ParameterizedType} 
+	rawType=[be::B3JavaImport | ID] 
+		('<' actualArgumentsList+=[be::B3JavaImport | ID] (',' actualArgumentsList+=[be::B3JavaImport | ID])* '>' )?
+//		('<' actualArgumentsList+=TypeParam (',' actualArgumentsList+=TypeParam)* '>' )? // TODO: Support wildcard as well
 	;
 	
+
+// ClosureTypeRef declares parameters and return type	
+// TODO: use TypeRef instead of direct reference to imported class
+ClosureTypeRef returns be::IType : {be::B3FunctionType} 
+	('('(
+		(parameterTypes += [be::B3JavaImport | ID] (',' parameterTypes += [be::B3JavaImport | ID])* 
+			(',' varArgs ?= "..." parameterTypes += [be::B3JavaImport | ID])?)
+		| 	(    varArgs ?= "..." parameterTypes += [be::B3JavaImport | ID])
+		)? 
+	')' '=>' returnType = [be::B3JavaImport | ID] )
+	;
+
+// TODO: TypeParam's and Wildcard refs currently unused. Support should be added
+//	
 TypeParam returns be::IType: TypeRefParam | WildcardRefParam ;
 TypeRefParam returns be::IType: TypeRef ;
 WildcardRefParam returns be::IType: 
 	{be::B3WildcardType}'?' ( ("extends" upperBoundsList+=TypeRef (',' upperBoundsList+=TypeRef)*) | "super" lowerBoundsList+=TypeRef )?;
 
-CachedExpression returns be::BExpression 
-	: {be::BCachedExpression} "cached" 	expr = OrExpression
+CachedExpression returns be::BExpression  : 
+	({be::BCachedExpression} "cached" expr = OrExpression)
 	| OrExpression
 	;
 	
-OrExpression returns be::BExpression:
-	AndExpression ({be::BOrExpression.leftExpr=current} "||" rightExpr=AndExpression)*;
+OrExpression returns be::BExpression :
+	AndExpression ({be::BOrExpression.leftExpr=current} "||" rightExpr=AndExpression)*
+	;
 	
-AndExpression returns be::BExpression:
-	RelationalExpression ({be::BAndExpression.leftExpr=current} "&&" rightExpr=RelationalExpression)*;
+AndExpression returns be::BExpression :
+	RelationalExpression ({be::BAndExpression.leftExpr=current} "&&" rightExpr=RelationalExpression)*
+	;
 
-// Deprecated - bitwise operators available as system functions (still available in backend if someone wants to
-// use the backend for some other language.
+// DEPRECATED - bitwise operators available as system functions (still available in backend if someone wants to
+// use the backend for some other language with a different grammar).
 // BitwiseExpression returns be::BExpression :
 // RelationalExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=("&" | "^" | "|") rightExpr=RelationalExpression)*;
 	
-RelationalExpression returns be::BExpression:
-	InstanceOfExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=RelationalOperator rightExpr=InstanceOfExpression)*;
+RelationalExpression returns be::BExpression :
+	InstanceOfExpression ({be::BBinaryOpExpression.leftExpr=current} 
+		functionName=RelationalOperator rightExpr=InstanceOfExpression)*
+	;
 
 InstanceOfExpression returns be::BExpression :
-	AdditiveExpression ({be::BBinaryOpExpression.leftExpr =current} functionName="instanceof" rightExpr=LiteralType)*;
+	AdditiveExpression ({be::BBinaryOpExpression.leftExpr =current} functionName="instanceof" rightExpr=LiteralType)*
+	;
 
-// Deprecated - bitwise operators available as system functions (still available in backend if someone wants to
-// use the backend for some other language.	
+// DEPRECATED - bitwise operators available as system functions (still available in backend if someone wants to
+// use the backend for some other language with a different grammar).
 // ShiftExpression returns be::BExpression:
 // AdditiveExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=("<<" | ">>" | ">>>") rightExpr=AdditiveExpression)*;
 	
-AdditiveExpression returns be::BExpression:
-	MultiplicativeExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=("+" | "-") rightExpr=MultiplicativeExpression)*;
+AdditiveExpression returns be::BExpression :
+	MultiplicativeExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=("+" | "-") rightExpr=MultiplicativeExpression)*
+	;
 
-MultiplicativeExpression returns be::BExpression:
-	SetExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=("*" | "/" | "%") rightExpr=SetExpression)*;
+MultiplicativeExpression returns be::BExpression :
+	SetExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=("*" | "/" | "%") rightExpr=SetExpression)*
+	;
 
 SetExpression returns be::BExpression:
-	UnaryOrInfixExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=".." rightExpr=UnaryOrInfixExpression)*;
+	UnaryOrInfixExpression ({be::BBinaryOpExpression.leftExpr=current} functionName=".." rightExpr=UnaryOrInfixExpression)*
+	;
 
 UnaryOrInfixExpression returns be::BExpression
 	: PostopExpression 
@@ -439,32 +465,34 @@ UnaryOrInfixExpression returns be::BExpression
 	| PreopExpression
 	; 
 	
+// DEPRECATED - bitwise operators available as system functions (still available in backend if someone wants to
+// use the backend for some other language with a different grammar).
 // Bitwise unary expression ~ for 2's complement deprecated, b3 language uses a system function instead
-// kept as comment here if someone wants to use thi grammar for other purposes. 
 // UnaryExpression returns be::BExpression:
 //	 {be::BUnaryOpExpression} functionName=("!" | "-" | "~") expr=InfixExpression;
 
-UnaryExpression returns be::BExpression:
-	 {be::BUnaryOpExpression} functionName=("!" | "-") expr=InfixExpression;
+UnaryExpression returns be::BExpression : {be::BUnaryOpExpression} 
+	functionName=("!" | "-") expr=InfixExpression
+	;
 
-PreopExpression returns be::BExpression:
-	 {be::BUnaryPreOpExpression} functionName=("++" | "--") expr=InfixExpression;
+PreopExpression returns be::BExpression : {be::BUnaryPreOpExpression}
+	functionName=("++" | "--") expr=InfixExpression
+	;
 
-PostopExpression returns be::BExpression:
+PostopExpression returns be::BExpression :
 	InfixExpression ({be::BUnaryPostOpExpression.expr=current} functionName = ("--" | "++"))?
 	;
 
-	
-InfixExpression returns be::BExpression:
+InfixExpression returns be::BExpression :
 	CallExpression ( 
 	  	({be::BCallExpression.funcExpr=current} "." name=ID  "(" (parameterList = ParameterList)? ")")
 	  |	({be::BAtExpression.objExpr=current} '[' indexExpr=Expression ']' )
 	  | ({be::BFeatureExpression.objExpr=current} "." featureName=ID)
 	)*;
 	
-CallExpression returns be::BExpression: 
+CallExpression returns be::BExpression : 
 	PrimaryExpression ({be::BCallExpression.funcExpr=current}"(" (parameterList = ParameterList)? ")")*
-		;
+	;
 		
 PrimaryExpression returns be::BExpression
 	: FeatureCall
@@ -491,28 +519,37 @@ PrimaryExpression returns be::BExpression
 //	"with" "context" context = Expression expr = BlockExpression
 //	;
 		
-WildcardExpression returns be::BExpression: {be::BLiteralAny} '_' ;
+WildcardExpression returns be::BExpression : {be::BLiteralAny} 
+	'_' 
+	;
 
-ThrowExpression returns be::BExpression: {be::BThrowExpression} "throw"  expr=Expression ;
+ThrowExpression returns be::BExpression : {be::BThrowExpression} 
+	"throw"  expr=Expression 
+	;
 TryCatchExpression returns be::BExpression : {be::BTryExpression} 
 	"try" tryExpr=Expression (catchBlocks+=CatchBlock)*
 	("finally" finallyExpr=Expression)? "endtry" 
 	;
 		
-CatchBlock	returns be::BCatch 
-	: {be::BCatch} "catch" exceptionType=TypeRef varname=ID ':' catchExpr=Expression ;
+CatchBlock	returns be::BCatch  : {be::BCatch} 
+	"catch" exceptionType=TypeRef varname=ID ':' catchExpr=Expression 
+	;
 	
-SwitchExpression returns be::BExpression
-	: {be::BSwitchExpression} "switch" switchExpression=Expression? (caseList+=Case)+  "endswitch" ;
+SwitchExpression returns be::BExpression : {be::BSwitchExpression}
+	"switch" switchExpression=Expression? (caseList+=Case)+  "endswitch" 
+	;
 			
-Case	returns be::BCase : {be::BCase} "case" conditionExpr=Expression ":" thenExpr=Expression;
+Case returns be::BCase : {be::BCase} 
+	"case" conditionExpr=Expression ":" thenExpr=Expression
+	;
 
-// TODO VAREXPR: Blockexpression can have local variables
-BlockExpression returns be::BExpression: {be::BChainedExpression} '{' (expressions += TopLevelExpression ';')* '}' ;
+BlockExpression returns be::BExpression: {be::BChainedExpression} 
+	'{' (expressions += TopLevelExpression ';')* '}' 
+	;
 
-
-IfExpression returns be::BExpression
-	: {be::BIfExpression} 'if'  conditionExpr=Expression "then" thenExpr=Expression 
+IfExpression returns be::BExpression : {be::BIfExpression} 
+	"if" conditionExpr=Expression
+	"then" thenExpr=Expression 
 	((elseExpr = ElseIfExpression | "else" elseExpr = Expression ))?
 	"endif"
 	;
@@ -548,7 +585,7 @@ ConstructorCallExpression returns be::BExpression : {be::BCreateExpression}
 	"new" typeExpr=LiteralType 
 	('(' (parameterList=ParameterList)? ')')?
 	("as" alias=ID)? 
-	(contextBlock = ContextBlock)?
+	(contextBlock = ContextBlock_Creation)?
 	;
 
 //Context : 
@@ -579,6 +616,10 @@ ContextBlock returns be::BExpression : {be::BChainedExpression}
 //		| (expressions+=PropertiesStatement) // TODO: How to handle Properties statements as expressions
 		)* '}' 
 		;
+
+ContextBlock_Creation returns be::BExpression : {be::BChainedExpression} 
+	'{' (expressions+=TopLevelExpression ';')* '}' 
+	;
 					
 //ExpressionStatement returns Statement : {ExpressionStatement} val=Expression ';' ;
 //PropertiesStatement returns Statement : {PropertiesStatement} "properties" properties = PropertySet_Named ;
@@ -597,24 +638,34 @@ LiteralList returns  be::BExpression
 	: {be::BLiteralListExpression} '[' ('<' entryType=TypeRef '>')? entries += Expression (',' entries += Expression)*  ']' 
 	| {be::BLiteralListExpression} '[''<' entryType=TypeRef '>' ']' 
 	;
+	
 LiteralMap returns  be::BExpression
 	: {be::BLiteralMapExpression} '['  ('<' keyType=TypeRef ',' valueType=TypeRef '>')? entries += MapEntry (',' entries += MapEntry)* ']' 
 	| {be::BLiteralMapExpression} '[' '<' keyType=TypeRef ',' valueType=TypeRef '>' ']' 
 	;
 
-LiteralFunction returns be::BExpression: {be::B3Function} '{' ('<' returnType=TypeRef '>')?
-	(
-	(parameters += ParameterDeclaration (',' parameters += ParameterDeclaration)* (',' varArgs?="..." parameters += ParameterDeclaration)?)
-	| (varArgs?="..." parameters += ParameterDeclaration)
-	)? 
-	'|' funcExpr=OneOrManyExpressions '}'
+// A lambda enclosed in { }
+LiteralFunction returns be::BExpression :
+	'{' ClosureExpression '}'
 	;
 
+//LiteralFunction returns be::BExpression : {be::B3Function} 
+//	'{' ('<' returnType=TypeRef '>')?
+//	(
+//	(parameters += ParameterDeclaration (',' parameters += ParameterDeclaration)* 
+//		(',' varArgs?="..." parameters += ParameterDeclaration)?)
+//	| 	(    varArgs?="..." parameters += ParameterDeclaration)
+//	)? 
+//	'|' funcExpr=OneOrManyExpressions '}'
+//	;
+
+// A lambda (without delimiters)
 ClosureExpression returns be::BExpression: {be::B3Function} 
 	('<' returnType=TypeRef '>')?
 	(
-	(parameters += ParameterDeclaration (',' parameters += ParameterDeclaration)* (',' varArgs?="..." parameters += ParameterDeclaration)?)
-	| (varArgs?="..." parameters += ParameterDeclaration)
+	(parameters += ParameterDeclaration (',' parameters += ParameterDeclaration)* 
+		(',' varArgs?="..." parameters += ParameterDeclaration)?)
+	| 	(    varArgs?="..." parameters += ParameterDeclaration)
 	)? 
 	'|' funcExpr=OneOrManyExpressions
 	;
@@ -624,14 +675,21 @@ OneOrManyExpressions returns be::BExpression
 	| Expression
 	;
 	
-// TODO VAREXPR - can have variable definitions
-BlockExpressionWithoutBrackets returns be::BExpression : {be::BChainedExpression} (expressions += TopLevelExpression ';')+ ;
+BlockExpressionWithoutBrackets returns be::BExpression : {be::BChainedExpression} 
+	(expressions += TopLevelExpression ';')+ 
+	;
 	
-MapEntry returns be::BMapEntry: {be::BMapEntry} key = KeyLiteral ':' value= Expression ;
+MapEntry returns be::BMapEntry: {be::BMapEntry} 
+	key = KeyLiteral ':' value= Expression 
+	;
 
-KeyLiteral returns be::BExpression : {be::BLiteralExpression} value = (ID|PID|STRING) ;
+KeyLiteral returns be::BExpression : {be::BLiteralExpression} 
+	value = (ID|PID|STRING) 
+	;
 
-LiteralType returns be::BExpression : {be::BLiteralType} type=TypeRef ;
+LiteralType returns be::BExpression : {be::BLiteralType} 
+	type=TypeRef 
+	;
 
 ValueLiteral returns be::BExpression 
 	: BooleanLiteral 
@@ -643,13 +701,34 @@ ValueLiteral returns be::BExpression
 	| UnitLiteral
 	;
 	
-BooleanLiteral returns  be::BExpression: {be::BLiteralExpression} value = BooleanValue;
-IntegerLiteral returns  be::BExpression: {be::BLiteralExpression} value= IntValue;
-UnitLiteral returns  be::BExpression: {be::BLiteralExpression} value="unit";
-StringLiteral returns  be::BExpression: {be::BLiteralExpression} value = STRING;
-RealLiteral	returns  be::BExpression: {be::BLiteralExpression} value = RealValue;
-RegexpLiteral returns be::BExpression: {be::BRegularExpression} pattern = REGULAR_EXPR;
-NullLiteral	returns  be::BExpression: {be::BLiteralExpression} "null";
+BooleanLiteral returns  be::BExpression : {be::BLiteralExpression} 
+	value = BooleanValue
+	;
+	
+IntegerLiteral returns  be::BExpression : {be::BLiteralExpression} 
+	value= IntValue
+	;
+	
+UnitLiteral returns  be::BExpression : {be::BLiteralExpression} 
+	value="unit"
+	;
+	
+StringLiteral returns  be::BExpression : {be::BLiteralExpression} 
+	value = STRING
+	;
+	
+RealLiteral	returns  be::BExpression : {be::BLiteralExpression}
+	value = RealValue
+	;
+	
+RegexpLiteral returns be::BExpression : {be::BRegularExpression}
+	pattern = REGULAR_EXPR
+	;
+
+// Note: NullLiteral has a java null value as its value
+NullLiteral	returns  be::BExpression : {be::BLiteralExpression} 
+	"null"
+	;
 
 //ThisLiteral	returns  be::BExpression: {ThisLiteral} val="this";
 //SuperLiteral returns  be::BExpression: {SuperLiteral} val="super";
@@ -660,22 +739,20 @@ BooleanValue returns ecore::EBooleanObject : ("true" | "false" );
 // Has conversion rule
 RealValue returns ecore::EDoubleObject: REAL ;
 
-// Has conversion rule that handles dec, oct, and hex values with radix
+// Has conversion rule that handles decimal, octal, and hexadecimal values with radix
 IntValue returns ecore::EIntegerObject : INT | HEX ;
 	
-ParanthesizedExpression returns be::BExpression
-	:  "(" Expression ")"
+ParanthesizedExpression returns be::BExpression : 
+	'(' Expression ')'
 	;	
 
-//Version : version = VersionLiteral;
-
+// Has conversion rule
 VersionLiteral returns build::Version
 	: STRING  
 	| AlfanumSym
 	;
 
-//VersionRange : range = VersionRangeLiteral ;
-
+// Has conversion rule
 VersionRangeLiteral returns build::VersionRange
 	: ('[' | '(') (STRING | AlfanumSym) (',' (STRING | AlfanumSym))? (']'|')')
 	| (STRING | AlfanumSym)
@@ -683,23 +760,20 @@ VersionRangeLiteral returns build::VersionRange
 
 // Reference to qualified named item, possibly in unit, this or super, or
 // this.super, or unit.super
+// TODO: super, unit, this - not yet handled - subject to change?
 QIDREF : (("super" |(("unit" | "this") ('.' "super")?)) ('.' QID)?) | QID ;
 
 // Qualified name
 QID hidden(): ID (INT|HEX|ID)* ('.' ID (INT|HEX|ID)*)* ; 
 
-PropertyName : PID ;
+// Allows a qualified name, or a string to be used as a name
 EscapedQualifiedName:  STRING | QID;
-InterfaceName: QID ;
-
-// CompoundName (whitespace and comments allowed, as sequence can be very long. name parts
-// do not allow being broken across lines.
-//
-CompoundName : EscapedQualifiedName '/' EscapedQualifiedName ;
+InterfaceName	: QID ;
 
 // Aliases that help with unified naming (good for experiments - the indirection can be removed later)
-UnitName : EscapedQualifiedName;
-PartName : EscapedQualifiedName;
+UnitName 		: EscapedQualifiedName ;
+BuilderName 	: EscapedQualifiedName ;
+CapabilityName 	: EscapedQualifiedName ;
 
 enum Visibility 	returns be::Visibility : public | private ;
 enum ExecutionMode 	returns be::ExecutionMode: parallel | sequential ;
@@ -712,9 +786,9 @@ Separator : '.' | '-' | '!' | '@' | '$' | '%' | '&' |'+' | '=' | '*' | '<' | '>'
 AlfanumSym : (ID | INT | HEX | EXT_INT) (Separator|ID|INT|HEX |EXT_INT)* ;
 
 // --TERMINALS
-// (Does not use standard terminals to have full control).
+// (NOTE: Does not use standard terminals to have full control).
 
-// TODO: Possibly use some other char instead of ^ as escape mechanism ??
+// TODO: Possibly use some other char instead of ^ as escape mechanism for keywords??
 terminal ID : ('^')?(('a'..'z')|('A'..'Z')|'_') (('a'..'z')|('A'..'Z')|('0'..'9')|'_')* ;
 
 // Property Names start with $ and are qualified. Must be handled by lexer as
@@ -731,6 +805,7 @@ terminal REGULAR_EXPR returns be::RegexpPattern
 // A string converter may need to handle the u, x, and octal escapes.
 // Regular java string handles XXXX , and gives syntax error if
 // format is not ok, the other two remains, and possibly the null.
+// TODO: check STRING grammar
 terminal STRING :
 '"' ('\\'('b'|'t'|'n'|'f'|'r'|'u'|'x'|'0'|'"'|"'"|'\\') | !('\\'|'"'|'\r'|'\n') )* '"' |
 "'" ('\\'('b'|'t'|'n'|'f'|'r'|'u'|'x'|'0'|'"'|"'"|'\\') | !('\\'|"'"|'\r'|'\n') )* "'";

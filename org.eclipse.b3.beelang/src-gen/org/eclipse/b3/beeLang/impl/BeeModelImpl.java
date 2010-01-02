@@ -15,7 +15,8 @@ import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 
 import org.eclipse.b3.beeLang.BeeLangPackage;
 import org.eclipse.b3.beeLang.BeeModel;
-import org.eclipse.b3.beeLang.BuildUnit;
+
+import org.eclipse.b3.build.build.BuildUnit;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;

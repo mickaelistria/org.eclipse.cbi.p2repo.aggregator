@@ -16,7 +16,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BLiteralMapExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralType;
 import org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression;
-import org.eclipse.b3.beeLang.BuildUnit;
+import org.eclipse.b3.build.build.BuildUnit;
 import org.eclipse.xtext.ui.core.DefaultLabelProvider;
 /**
  * see http://www.eclipse.org/Xtext/documentation/latest/xtext.html#labelProvider
