@@ -17,7 +17,6 @@ import org.eclipse.b3.build.build.Builder;
 import org.eclipse.b3.build.build.BuilderInput;
 import org.eclipse.b3.build.build.Capability;
 import org.eclipse.b3.build.build.PathGroup;
-import org.eclipse.b3.build.build.Prerequisite;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
