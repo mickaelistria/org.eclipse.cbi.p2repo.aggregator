@@ -21,7 +21,7 @@ import org.eclipse.b3.build.build.RepositoryConfiguration;
 import org.eclipse.b3.build.build.RequiredCapability;
 import org.eclipse.b3.build.build.Synchronization;
 import org.eclipse.b3.build.build.VersionedCapability;
-import org.eclipse.b3.build.build.Capability;
+import org.eclipse.b3.build.internal.BuildUnitUtils;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -31,8 +31,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -55,6 +53,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getFunctions <em>Functions</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getRepositories <em>Repositories</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getContainers <em>Containers</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getBuildUnitInterface <em>Build Unit Interface</em>}</li>
  * </ul>
  * </p>
  *
@@ -208,12 +207,34 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	protected EList<ContainerConfiguration> containers;
 
 	/**
+	 * The default value of the '{@link #getBuildUnitInterface() <em>Build Unit Interface</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see #getBuildUnitInterface()
 	 * @generated
+	 * @ordered
+	 */
+	protected static final Type BUILD_UNIT_INTERFACE_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getBuildUnitInterface() <em>Build Unit Interface</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBuildUnitInterface()
+	 * @generated
+	 * @ordered
+	 */
+	protected Type buildUnitInterface = BUILD_UNIT_INTERFACE_EDEFAULT;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
 	 */
 	protected BuildUnitImpl() {
 		super();
+		// TODO: is there a better way to set this?
+		// the default name space for build units
+		setNameSpace("org.eclipse.b3.buildunit");
 	}
 
 	/**
@@ -445,6 +466,45 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns an interface unique to this build unit. The interface is lazily created.
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Type getBuildUnitInterface() {
+		if(buildUnitInterface == null)
+			setBuildUnitInterface(BuildUnitUtils.createBuildUnitInterface(this));
+		return buildUnitInterface;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBuildUnitInterface(Type newBuildUnitInterface) {
+		Type oldBuildUnitInterface = buildUnitInterface;
+		buildUnitInterface = newBuildUnitInterface;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILD_UNIT__BUILD_UNIT_INTERFACE, oldBuildUnitInterface, buildUnitInterface));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Returns a BuildUnit proxy implementing the BuildUnit interface, as well as the special instance
+	 * interface obtained from {@link #getBuildUnitInterface()}. This proxy should be used instead of
+	 * the BuildUnit instance when calling functions to enable poymorphic function selection based on the
+	 * interfaces this build unit implements.
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public BuildUnit getProxy() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -515,6 +575,8 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				return getRepositories();
 			case B3BuildPackage.BUILD_UNIT__CONTAINERS:
 				return getContainers();
+			case B3BuildPackage.BUILD_UNIT__BUILD_UNIT_INTERFACE:
+				return getBuildUnitInterface();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -581,6 +643,9 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				getContainers().clear();
 				getContainers().addAll((Collection<? extends ContainerConfiguration>)newValue);
 				return;
+			case B3BuildPackage.BUILD_UNIT__BUILD_UNIT_INTERFACE:
+				setBuildUnitInterface((Type)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -635,6 +700,9 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 			case B3BuildPackage.BUILD_UNIT__CONTAINERS:
 				getContainers().clear();
 				return;
+			case B3BuildPackage.BUILD_UNIT__BUILD_UNIT_INTERFACE:
+				setBuildUnitInterface(BUILD_UNIT_INTERFACE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -675,6 +743,8 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				return repositories != null && !repositories.isEmpty();
 			case B3BuildPackage.BUILD_UNIT__CONTAINERS:
 				return containers != null && !containers.isEmpty();
+			case B3BuildPackage.BUILD_UNIT__BUILD_UNIT_INTERFACE:
+				return BUILD_UNIT_INTERFACE_EDEFAULT == null ? buildUnitInterface != null : !BUILD_UNIT_INTERFACE_EDEFAULT.equals(buildUnitInterface);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -693,6 +763,8 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 		result.append(documentation);
 		result.append(", executionMode: ");
 		result.append(executionMode);
+		result.append(", buildUnitInterface: ");
+		result.append(buildUnitInterface);
 		result.append(')');
 		return result.toString();
 	}
