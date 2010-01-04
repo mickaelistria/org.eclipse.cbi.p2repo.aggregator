@@ -552,7 +552,7 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 			throw new B3NoContextException("InvocationContext");
 		return getParentContext().getInvocationContext();
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * Creates an inner context (i.e. local blocks which should not be seen from nested outer contexts).
@@ -630,6 +630,20 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		if(getParentContext() == null)
 			throw new B3NoContextException("SystemContext");
 		return getParentContext().getClassLoader();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Returns the first found context that is of the specified class.
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public <T> T getContext(Class<T> clazz) throws B3EngineException {
+		if(clazz.isInstance(this))
+			return clazz.cast(this);
+		if(getParentContext() == null)
+			throw new B3NoContextException(clazz.getName());
+		return getParentContext().getContext(clazz);
 	}
 
 	/**

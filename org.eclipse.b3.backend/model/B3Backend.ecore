@@ -109,6 +109,15 @@
     </eOperations>
     <eOperations name="isPropertyScope" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eOperations name="getClassLoader" eType="#//B3DynamicClassLoader" eExceptions="#//B3EngineException"/>
+    <eOperations name="getContext" eExceptions="#//B3EngineException">
+      <eGenericType eTypeParameter="#//BExecutionContext/getContext/T"/>
+      <eTypeParameters name="T"/>
+      <eParameters name="clazz">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+          <eTypeArguments eTypeParameter="#//BExecutionContext/getContext/T"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parentContext" eType="#//BExecutionContext"
         eOpposite="#//BExecutionContext/childContexts"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="childContexts" upperBound="-1"

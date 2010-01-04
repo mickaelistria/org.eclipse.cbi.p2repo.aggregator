@@ -3188,6 +3188,16 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		op = addEOperation(bExecutionContextEClass, this.getB3DynamicClassLoader(), "getClassLoader", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getB3EngineException());
 
+		op = addEOperation(bExecutionContextEClass, null, "getContext", 0, 1, IS_UNIQUE, IS_ORDERED);
+		ETypeParameter t1 = addETypeParameter(op, "T");
+		g1 = createEGenericType(ecorePackage.getEJavaClass());
+		g2 = createEGenericType(t1);
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "clazz", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getB3EngineException());
+		g1 = createEGenericType(t1);
+		initEOperation(op, g1);
+
 		initEClass(bIfExpressionEClass, BIfExpression.class, "BIfExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBIfExpression_ConditionExpr(), this.getBExpression(), null, "conditionExpr", null, 0, 1, BIfExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBIfExpression_ThenExpr(), this.getBExpression(), null, "thenExpr", null, 0, 1, BIfExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
