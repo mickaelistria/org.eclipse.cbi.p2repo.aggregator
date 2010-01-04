@@ -34,6 +34,10 @@
         eType="#//RepositoryConfiguration" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="containers" upperBound="-1"
         eType="#//ContainerConfiguration" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="buildUnitInterface" eType="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Type"
+        changeable="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="proxy" eType="#//BuildUnit"
+        changeable="false" resolveProxies="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Builder" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//B3Function">
     <eStructuralFeatures xsi:type="ecore:EReference" name="postcondExpr" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"

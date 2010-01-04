@@ -10,6 +10,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
 import java.util.regex.Pattern;
+import org.eclipse.b3.backend.core.B3DynamicClassLoader;
 import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.core.B3FuncStore;
 import org.eclipse.b3.backend.core.LValue;
@@ -182,6 +183,8 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 				return createRegexpPatternFromString(eDataType, initialValue);
 			case B3backendPackage.STRING_ARRAY:
 				return createStringArrayFromString(eDataType, initialValue);
+			case B3backendPackage.B3_DYNAMIC_CLASS_LOADER:
+				return createB3DynamicClassLoaderFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -225,6 +228,8 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 				return convertRegexpPatternToString(eDataType, instanceValue);
 			case B3backendPackage.STRING_ARRAY:
 				return convertStringArrayToString(eDataType, instanceValue);
+			case B3backendPackage.B3_DYNAMIC_CLASS_LOADER:
+				return convertB3DynamicClassLoaderToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -1113,6 +1118,24 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	 */
 	public String convertStringArrayToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public B3DynamicClassLoader createB3DynamicClassLoaderFromString(EDataType eDataType, String initialValue) {
+		return (B3DynamicClassLoader)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertB3DynamicClassLoaderToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**

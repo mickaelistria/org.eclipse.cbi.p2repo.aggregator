@@ -8,6 +8,7 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import java.util.Properties;
 
+import org.eclipse.b3.backend.core.B3DynamicClassLoader;
 import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.core.B3ExpressionCache;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
@@ -58,7 +59,14 @@ public class BInvocationContextImpl extends BExecutionContextImpl implements BIn
 	 * @ordered
 	 */
 	protected B3ExpressionCache expressionCache = EXPRESSION_CACHE_EDEFAULT;
-	private String o;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * A class loader that allows for dynamic loading of byte codes.
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	private B3DynamicClassLoader dynamicClassLoader;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -104,6 +112,7 @@ public class BInvocationContextImpl extends BExecutionContextImpl implements BIn
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BINVOCATION_CONTEXT__EXPRESSION_CACHE, oldExpressionCache, expressionCache));
 	}
+
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -208,5 +217,18 @@ public class BInvocationContextImpl extends BExecutionContextImpl implements BIn
 				org.eclipse.b3.provisional.core.Build.getLogger().error(e, "Failed to load system properties into context", new Object[0]);
 			}
 		}
+	}
+	/**
+	 * Returns the dynamic class loader to use for one invocation. (Obtains the class loader from
+	 * the system context and caches it for the duration of the invocation).
+	 */
+	@Override
+	public B3DynamicClassLoader getClassLoader() throws B3EngineException {
+		// get a dynamic class loader from the system context and cache it
+		synchronized(this) {
+			if(dynamicClassLoader == null)
+				dynamicClassLoader = super.getClassLoader();
+		}
+		return dynamicClassLoader;
 	}
 } //BInvocationContextImpl

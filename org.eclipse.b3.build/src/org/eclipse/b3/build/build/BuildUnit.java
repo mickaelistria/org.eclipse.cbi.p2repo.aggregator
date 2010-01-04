@@ -36,6 +36,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getFunctions <em>Functions</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getRepositories <em>Repositories</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getContainers <em>Containers</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getBuildUnitInterface <em>Build Unit Interface</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getProxy <em>Proxy</em>}</li>
  * </ul>
  * </p>
  *
@@ -301,4 +303,30 @@ public interface BuildUnit extends VersionedCapability {
 	 * @generated
 	 */
 	EList<ContainerConfiguration> getContainers();
+
+	/**
+	 * Returns the value of the '<em><b>Build Unit Interface</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Build Unit Interface</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Build Unit Interface</em>' attribute.
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuildUnit_BuildUnitInterface()
+	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.Type" changeable="false"
+	 * @generated
+	 */
+	Type getBuildUnitInterface();
+
+	/**
+	 * Returns the value of the '<em><b>Proxy</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Proxy</em>' reference.
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuildUnit_Proxy()
+	 * @model resolveProxies="false" changeable="false"
+	 * @generated
+	 */
+	BuildUnit getProxy();
 } // BuildUnit

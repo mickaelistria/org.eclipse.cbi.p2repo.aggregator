@@ -4084,6 +4084,16 @@ public interface B3backendPackage extends EPackage {
 	int STRING_ARRAY = 89;
 
 	/**
+	 * The meta object id for the '<em>B3 Dynamic Class Loader</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.core.B3DynamicClassLoader
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3DynamicClassLoader()
+	 * @generated
+	 */
+	int B3_DYNAMIC_CLASS_LOADER = 90;
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BExpression <em>BExpression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6264,6 +6274,17 @@ public interface B3backendPackage extends EPackage {
 	EDataType getStringArray();
 
 	/**
+	 * Returns the meta object for data type '{@link org.eclipse.b3.backend.core.B3DynamicClassLoader <em>B3 Dynamic Class Loader</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>B3 Dynamic Class Loader</em>'.
+	 * @see org.eclipse.b3.backend.core.B3DynamicClassLoader
+	 * @model instanceClass="org.eclipse.b3.backend.core.B3DynamicClassLoader"
+	 * @generated
+	 */
+	EDataType getB3DynamicClassLoader();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8100,6 +8121,16 @@ public interface B3backendPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType STRING_ARRAY = eINSTANCE.getStringArray();
+
+		/**
+		 * The meta object literal for the '<em>B3 Dynamic Class Loader</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.backend.core.B3DynamicClassLoader
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3DynamicClassLoader()
+		 * @generated
+		 */
+		EDataType B3_DYNAMIC_CLASS_LOADER = eINSTANCE.getB3DynamicClassLoader();
 
 	}
 

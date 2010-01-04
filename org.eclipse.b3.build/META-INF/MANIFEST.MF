@@ -9,9 +9,11 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.eclipse.b3.build.build,
  org.eclipse.b3.build.build.impl,
- org.eclipse.b3.build.build.util
+ org.eclipse.b3.build.build.util,
+ org.eclipse.b3.build.internal;x-friends:="org.eclipse.b3.build.tests"
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- org.eclipse.b3.backend;visibility:=reexport
+ org.eclipse.b3.backend;visibility:=reexport,
+ org.objectweb.asm;bundle-version="3.1.0"
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.equinox.internal.provisional.p2.core

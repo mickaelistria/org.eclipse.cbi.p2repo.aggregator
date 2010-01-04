@@ -13,6 +13,7 @@ import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
 import java.lang.reflect.WildcardType;
 import java.util.regex.Pattern;
+import org.eclipse.b3.backend.core.B3DynamicClassLoader;
 import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.core.B3ExpressionCache;
 import org.eclipse.b3.backend.core.B3FuncStore;
@@ -749,6 +750,13 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * @generated
 	 */
 	private EDataType stringArrayEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType b3DynamicClassLoaderEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -2661,6 +2669,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EDataType getB3DynamicClassLoader() {
+		return b3DynamicClassLoaderEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public B3backendFactory getB3backendFactory() {
 		return (B3backendFactory)getEFactoryInstance();
 	}
@@ -2966,6 +2983,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		funcStoreEDataType = createEDataType(FUNC_STORE);
 		regexpPatternEDataType = createEDataType(REGEXP_PATTERN);
 		stringArrayEDataType = createEDataType(STRING_ARRAY);
+		b3DynamicClassLoaderEDataType = createEDataType(B3_DYNAMIC_CLASS_LOADER);
 	}
 
 	/**
@@ -3166,6 +3184,9 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		addEException(op, this.getThrowable());
 
 		addEOperation(bExecutionContextEClass, ecorePackage.getEBoolean(), "isPropertyScope", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(bExecutionContextEClass, this.getB3DynamicClassLoader(), "getClassLoader", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getB3EngineException());
 
 		initEClass(bIfExpressionEClass, BIfExpression.class, "BIfExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBIfExpression_ConditionExpr(), this.getBExpression(), null, "conditionExpr", null, 0, 1, BIfExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3504,6 +3525,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEDataType(funcStoreEDataType, B3FuncStore.class, "FuncStore", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(regexpPatternEDataType, Pattern.class, "RegexpPattern", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(stringArrayEDataType, String[].class, "StringArray", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(b3DynamicClassLoaderEDataType, B3DynamicClassLoader.class, "B3DynamicClassLoader", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

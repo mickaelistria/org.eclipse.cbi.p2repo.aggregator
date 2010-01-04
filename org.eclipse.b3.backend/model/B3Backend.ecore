@@ -108,6 +108,7 @@
       <eParameters name="types" eType="#//TypeArray"/>
     </eOperations>
     <eOperations name="isPropertyScope" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="getClassLoader" eType="#//B3DynamicClassLoader" eExceptions="#//B3EngineException"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parentContext" eType="#//BExecutionContext"
         eOpposite="#//BExecutionContext/childContexts"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="childContexts" upperBound="-1"
@@ -526,4 +527,5 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="concerns" upperBound="-1"
         eType="#//BConcern" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="B3DynamicClassLoader" instanceClassName="org.eclipse.b3.backend.core.B3DynamicClassLoader"/>
 </ecore:EPackage>

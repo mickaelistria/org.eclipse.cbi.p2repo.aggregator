@@ -28,7 +28,7 @@ BeeModel hidden(WS, SL_COMMENT, ML_COMMENT):
 	| 	(concern += Concern_Named)
 	|	('properties'  propertySets += PropertySet_Named)
 	)* 
-	(body = Unit)? 
+	(body = BuildUnit)? 
 	;
 
 Import returns be::IType : {be::B3JavaImport}
@@ -43,7 +43,7 @@ Import returns be::IType : {be::B3JavaImport}
 //JavaImporter 	: qualifiedName=QID ;
 //NativeImporter 	: uriString = STRING ;
 		
-Unit returns build::BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT) : {build::BuildUnit}
+BuildUnit returns build::BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT) : {build::BuildUnit}
 	(documentation = DOCUMENTATION)?
 	(executionMode = ExecutionMode)?
 	'unit' (name=UnitName)? ('version' version = VersionLiteral)?
@@ -222,9 +222,10 @@ Builder returns build::Builder : {build::Builder}
 	name=BuilderName
 	('(' 
 		(parameters += ParameterDeclaration (',' parameters += ParameterDeclaration)* 
-			(',' varArgs?="..." parameters+=ParameterDeclaration)?)
+			(',' varArgs?="..." parameters += ParameterDeclaration)?)
 		| 	(    varArgs?="..." parameters += ParameterDeclaration)
 	')')?
+	(guard = GuardExpression)?
 	('provides' providedCapabilities += ProvidedCapability (',' providedCapabilities += ProvidedCapability)*  )?
 	("precondition" ((':' precondExpr = Expression ';' )|( precondExpr = BlockExpression)))?
 	("postcondition" ((':' postcondExpr = Expression ';' )|( postcondExpr = BlockExpression)))?
@@ -329,9 +330,13 @@ Function returns be::B3Function : {be::B3Function}
    		(parameters += ParameterDeclaration (',' parameters += ParameterDeclaration)* (',' varArgs?="..." parameters += ParameterDeclaration)?)
    		| (varArgs ?= "..." parameters += ParameterDeclaration)
    		)? ')' )?
+   	(guard = GuardExpression)?
    	((':' funcExpr=Expression ';') | (funcExpr=BlockExpression))
 	;
 	
+GuardExpression returns be::BGuardExpression : {be::BGuardExpression}
+	"when" (':' guardExpr = Expression ';') | (guardExpr = BlockExpression)
+	;
 //TypeParamDeclaration 
 //	: ID ( ("extends" type+= TypeRef ('&' type+=TypeRef)*) | ("super" superType=TypeRef))?
 //	;

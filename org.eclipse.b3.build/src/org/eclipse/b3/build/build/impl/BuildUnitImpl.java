@@ -54,6 +54,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getRepositories <em>Repositories</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getContainers <em>Containers</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getBuildUnitInterface <em>Build Unit Interface</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getProxy <em>Proxy</em>}</li>
  * </ul>
  * </p>
  *
@@ -224,6 +225,16 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * @ordered
 	 */
 	protected Type buildUnitInterface = BUILD_UNIT_INTERFACE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getProxy() <em>Proxy</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProxy()
+	 * @generated
+	 * @ordered
+	 */
+	protected BuildUnit proxy;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -472,20 +483,8 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 */
 	public Type getBuildUnitInterface() {
 		if(buildUnitInterface == null)
-			setBuildUnitInterface(BuildUnitUtils.createBuildUnitInterface(this));
+			buildUnitInterface = BuildUnitUtils.createBuildUnitInterface(this);
 		return buildUnitInterface;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setBuildUnitInterface(Type newBuildUnitInterface) {
-		Type oldBuildUnitInterface = buildUnitInterface;
-		buildUnitInterface = newBuildUnitInterface;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILD_UNIT__BUILD_UNIT_INTERFACE, oldBuildUnitInterface, buildUnitInterface));
 	}
 
 	/**
@@ -498,9 +497,9 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * @generated NOT
 	 */
 	public BuildUnit getProxy() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if(proxy == null)
+			proxy = BuildUnitUtils.createBuildUnitProxy(this);
+		return proxy;
 	}
 
 	/**
@@ -577,6 +576,8 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				return getContainers();
 			case B3BuildPackage.BUILD_UNIT__BUILD_UNIT_INTERFACE:
 				return getBuildUnitInterface();
+			case B3BuildPackage.BUILD_UNIT__PROXY:
+				return getProxy();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -643,9 +644,6 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				getContainers().clear();
 				getContainers().addAll((Collection<? extends ContainerConfiguration>)newValue);
 				return;
-			case B3BuildPackage.BUILD_UNIT__BUILD_UNIT_INTERFACE:
-				setBuildUnitInterface((Type)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -700,9 +698,6 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 			case B3BuildPackage.BUILD_UNIT__CONTAINERS:
 				getContainers().clear();
 				return;
-			case B3BuildPackage.BUILD_UNIT__BUILD_UNIT_INTERFACE:
-				setBuildUnitInterface(BUILD_UNIT_INTERFACE_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -745,6 +740,8 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				return containers != null && !containers.isEmpty();
 			case B3BuildPackage.BUILD_UNIT__BUILD_UNIT_INTERFACE:
 				return BUILD_UNIT_INTERFACE_EDEFAULT == null ? buildUnitInterface != null : !BUILD_UNIT_INTERFACE_EDEFAULT.equals(buildUnitInterface);
+			case B3BuildPackage.BUILD_UNIT__PROXY:
+				return proxy != null;
 		}
 		return super.eIsSet(featureID);
 	}

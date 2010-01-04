@@ -54,6 +54,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getDeclaredValueType(java.lang.String) <em>Get Declared Value Type</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getDeclaredFunctionType(java.lang.String, java.lang.reflect.Type[]) <em>Get Declared Function Type</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#isPropertyScope() <em>Is Property Scope</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getClassLoader() <em>Get Class Loader</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -623,6 +624,19 @@ public abstract class BExecutionContextTest extends TestCase {
 	 * @generated
 	 */
 	public void testIsPropertyScope() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getClassLoader() <em>Get Class Loader</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getClassLoader()
+	 * @generated
+	 */
+	public void testGetClassLoader() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

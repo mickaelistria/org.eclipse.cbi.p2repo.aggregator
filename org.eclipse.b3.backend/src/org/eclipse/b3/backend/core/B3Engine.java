@@ -10,8 +10,8 @@ import org.eclipse.b3.backend.functions.StringFunctions;
 import org.eclipse.b3.backend.functions.SystemFunctions;
 
 public class B3Engine {
-	private BSystemContext systemContext;
-	private BInvocationContext invocationContext;
+	protected BSystemContext systemContext;
+	protected BInvocationContext invocationContext;
 	
 	public B3Engine () {
 		systemContext = B3backendFactory.eINSTANCE.createBSystemContext();

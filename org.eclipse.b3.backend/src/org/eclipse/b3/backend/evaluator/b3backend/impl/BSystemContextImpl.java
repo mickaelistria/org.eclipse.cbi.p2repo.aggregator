@@ -10,6 +10,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
+import org.eclipse.b3.backend.core.B3DynamicClassLoader;
+import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.core.B3NoSuchFunctionSignatureException;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
@@ -112,5 +114,14 @@ public class BSystemContextImpl extends BExecutionContextImpl implements BSystem
 		if(m == null)
 			throw new B3NoSuchFunctionSignatureException(functionName, types);
 		return TypeUtils.objectify(m.getReturnType());
+	}
+	
+	/**
+	 * Returns a new dynamic class loader parented by the class loader loading this class.
+	 * (Note that each call creates a new class loader!).
+	 */
+	@Override
+	public B3DynamicClassLoader getClassLoader() throws B3EngineException {
+		return new B3DynamicClassLoader(getClass().getClassLoader());
 	}
 } //BSystemContextImpl

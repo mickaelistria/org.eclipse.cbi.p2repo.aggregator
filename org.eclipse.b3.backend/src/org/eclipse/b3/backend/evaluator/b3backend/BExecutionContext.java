@@ -7,6 +7,7 @@
 package org.eclipse.b3.backend.evaluator.b3backend;
 
 import java.lang.reflect.Type;
+import org.eclipse.b3.backend.core.B3DynamicClassLoader;
 import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.core.B3FuncStore;
 import org.eclipse.b3.backend.core.LValue;
@@ -212,6 +213,14 @@ public interface BExecutionContext extends EObject {
 	 * @generated
 	 */
 	boolean isPropertyScope();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" dataType="org.eclipse.b3.backend.evaluator.b3backend.B3DynamicClassLoader" exceptions="org.eclipse.b3.backend.evaluator.b3backend.B3EngineException"
+	 * @generated
+	 */
+	B3DynamicClassLoader getClassLoader() throws B3EngineException;
 
 	/**
 	 * <!-- begin-user-doc -->
