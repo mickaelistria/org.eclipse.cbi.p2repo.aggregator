@@ -18,6 +18,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BGuardExpression;
+import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -212,7 +213,8 @@ public class BGuardExpressionImpl extends BGuardImpl implements BGuardExpression
 					if(parameters.length < parameterTypes.length)
 						throw new IllegalArgumentException("B3 Function called with too few arguments. Expected: "+parameters.length +" but got: "+parameterTypes.length);
 					// check type compatibility
-					if(!((Class)parameterTypes[limit]).isAssignableFrom(parameters[limit].getClass()))
+					if(!TypeUtils.isAssignableFrom(parameterTypes[limit], parameters[limit]))
+//					if(!((Class)parameterTypes[limit]).isAssignableFrom(parameters[limit].getClass()))
 						throw new B3IncompatibleTypeException(parameterNames[limit], 
 								parameterTypes[limit].getClass(), parameters[limit].getClass());
 					// ok

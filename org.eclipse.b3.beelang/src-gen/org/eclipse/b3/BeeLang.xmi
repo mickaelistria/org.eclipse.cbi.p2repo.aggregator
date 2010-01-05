@@ -65,7 +65,7 @@
       <tokens xsi:type="xtext:Keyword" value=";"/>
     </alternatives>
   </rules>
-  <rules xsi:type="xtext:ParserRule" name="Unit" definesHiddenTokens="true" hiddenTokens="//@rules.135 //@rules.133 //@rules.134">
+  <rules xsi:type="xtext:ParserRule" name="BuildUnit" definesHiddenTokens="true" hiddenTokens="//@rules.135 //@rules.133 //@rules.134">
     <type metamodel="//@metamodelDeclarations.2">
       <classifier xsi:type="ecore:EClass" href="http://b3build/1.0#//BuildUnit"/>
     </type>
@@ -921,8 +921,11 @@
           <tokens xsi:type="xtext:Keyword" value=")"/>
         </groups>
       </tokens>
-      <tokens xsi:type="xtext:Assignment" cardinality="?" feature="guard" operator="=">
-        <terminal xsi:type="xtext:RuleCall" rule="//@rules.46"/>
+      <tokens xsi:type="xtext:Group" cardinality="?">
+        <tokens xsi:type="xtext:Keyword" value="when"/>
+        <tokens xsi:type="xtext:Assignment" feature="guard" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.46"/>
+        </tokens>
       </tokens>
       <tokens xsi:type="xtext:Group" cardinality="?">
         <tokens xsi:type="xtext:Keyword" value="provides"/>
@@ -1404,8 +1407,11 @@
         </tokens>
         <tokens xsi:type="xtext:Keyword" value=")"/>
       </tokens>
-      <tokens xsi:type="xtext:Assignment" cardinality="?" feature="guard" operator="=">
-        <terminal xsi:type="xtext:RuleCall" rule="//@rules.46"/>
+      <tokens xsi:type="xtext:Group" cardinality="?">
+        <tokens xsi:type="xtext:Keyword" value="when"/>
+        <tokens xsi:type="xtext:Assignment" feature="guard" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.46"/>
+        </tokens>
       </tokens>
       <tokens xsi:type="xtext:Alternatives">
         <groups xsi:type="xtext:Group">
@@ -1432,7 +1438,6 @@
             <classifier xsi:type="ecore:EClass" href="http://b3backend/1.0#//BGuardExpression"/>
           </type>
         </tokens>
-        <tokens xsi:type="xtext:Keyword" value="when"/>
         <tokens xsi:type="xtext:Group">
           <tokens xsi:type="xtext:Keyword" value=":"/>
           <tokens xsi:type="xtext:Assignment" feature="guardExpr" operator="=">

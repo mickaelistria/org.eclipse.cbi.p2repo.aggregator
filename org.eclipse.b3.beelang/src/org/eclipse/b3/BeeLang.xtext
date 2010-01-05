@@ -225,7 +225,7 @@ Builder returns build::Builder : {build::Builder}
 			(',' varArgs?="..." parameters += ParameterDeclaration)?)
 		| 	(    varArgs?="..." parameters += ParameterDeclaration)
 	')')?
-	(guard = GuardExpression)?
+	("when" guard = GuardExpression)?
 	('provides' providedCapabilities += ProvidedCapability (',' providedCapabilities += ProvidedCapability)*  )?
 	("precondition" ((':' precondExpr = Expression ';' )|( precondExpr = BlockExpression)))?
 	("postcondition" ((':' postcondExpr = Expression ';' )|( postcondExpr = BlockExpression)))?
@@ -330,12 +330,12 @@ Function returns be::B3Function : {be::B3Function}
    		(parameters += ParameterDeclaration (',' parameters += ParameterDeclaration)* (',' varArgs?="..." parameters += ParameterDeclaration)?)
    		| (varArgs ?= "..." parameters += ParameterDeclaration)
    		)? ')' )?
-   	(guard = GuardExpression)?
+   	("when" guard = GuardExpression)?
    	((':' funcExpr=Expression ';') | (funcExpr=BlockExpression))
 	;
 	
 GuardExpression returns be::BGuardExpression : {be::BGuardExpression}
-	"when" (':' guardExpr = Expression ';') | (guardExpr = BlockExpression)
+	(':' guardExpr = Expression ';') | (guardExpr = BlockExpression)
 	;
 //TypeParamDeclaration 
 //	: ID ( ("extends" type+= TypeRef ('&' type+=TypeRef)*) | ("super" superType=TypeRef))?
