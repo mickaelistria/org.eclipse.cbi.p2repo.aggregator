@@ -210,7 +210,7 @@ public class B3JavaImportImpl extends EObjectImpl implements B3JavaImport {
 			try {
 				setType(B3BackendActivator.instance.getBundle().loadClass(getQualifiedName()));
 			} catch (ClassNotFoundException e) {
-				// TODO: Need to handle this, so the "not found" surface to the user...
+				// TODO: Need to handle this, so the "not found" surfaces to the user...
 				e.printStackTrace();
 			}
 		}
