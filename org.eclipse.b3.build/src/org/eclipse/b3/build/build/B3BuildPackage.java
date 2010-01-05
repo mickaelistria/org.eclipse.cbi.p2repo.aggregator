@@ -336,31 +336,13 @@ public interface B3BuildPackage extends EPackage {
 	int BUILD_UNIT__CONTAINERS = VERSIONED_CAPABILITY_FEATURE_COUNT + 13;
 
 	/**
-	 * The feature id for the '<em><b>Build Unit Interface</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILD_UNIT__BUILD_UNIT_INTERFACE = VERSIONED_CAPABILITY_FEATURE_COUNT + 14;
-
-	/**
-	 * The feature id for the '<em><b>Proxy</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILD_UNIT__PROXY = VERSIONED_CAPABILITY_FEATURE_COUNT + 15;
-
-	/**
 	 * The number of structural features of the '<em>Build Unit</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT_FEATURE_COUNT = VERSIONED_CAPABILITY_FEATURE_COUNT + 16;
+	int BUILD_UNIT_FEATURE_COUNT = VERSIONED_CAPABILITY_FEATURE_COUNT + 14;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderImpl <em>Builder</em>}' class.
@@ -1319,6 +1301,61 @@ public interface B3BuildPackage extends EPackage {
 	int CONTAINER_CONFIGURATION_FEATURE_COUNT = 4;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuildContextImpl <em>Build Context</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.BuildContextImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuildContext()
+	 * @generated
+	 */
+	int BUILD_CONTEXT = 22;
+
+	/**
+	 * The feature id for the '<em><b>Parent Context</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_CONTEXT__PARENT_CONTEXT = B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Child Contexts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_CONTEXT__CHILD_CONTEXTS = B3backendPackage.BEXECUTION_CONTEXT__CHILD_CONTEXTS;
+
+	/**
+	 * The feature id for the '<em><b>Value Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_CONTEXT__VALUE_MAP = B3backendPackage.BEXECUTION_CONTEXT__VALUE_MAP;
+
+	/**
+	 * The feature id for the '<em><b>Func Store</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_CONTEXT__FUNC_STORE = B3backendPackage.BEXECUTION_CONTEXT__FUNC_STORE;
+
+	/**
+	 * The number of structural features of the '<em>Build Context</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_CONTEXT_FEATURE_COUNT = B3backendPackage.BEXECUTION_CONTEXT_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '<em>Version Range</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1326,7 +1363,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getVersionRange()
 	 * @generated
 	 */
-	int VERSION_RANGE = 22;
+	int VERSION_RANGE = 23;
 
 	/**
 	 * The meta object id for the '<em>Version</em>' data type.
@@ -1336,7 +1373,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getVersion()
 	 * @generated
 	 */
-	int VERSION = 23;
+	int VERSION = 24;
 
 	/**
 	 * The meta object id for the '<em>URI</em>' data type.
@@ -1346,7 +1383,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getURI()
 	 * @generated
 	 */
-	int URI = 24;
+	int URI = 25;
 
 
 	/**
@@ -1512,28 +1549,6 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBuildUnit_Containers();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuildUnit#getBuildUnitInterface <em>Build Unit Interface</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Build Unit Interface</em>'.
-	 * @see org.eclipse.b3.build.build.BuildUnit#getBuildUnitInterface()
-	 * @see #getBuildUnit()
-	 * @generated
-	 */
-	EAttribute getBuildUnit_BuildUnitInterface();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.b3.build.build.BuildUnit#getProxy <em>Proxy</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Proxy</em>'.
-	 * @see org.eclipse.b3.build.build.BuildUnit#getProxy()
-	 * @see #getBuildUnit()
-	 * @generated
-	 */
-	EReference getBuildUnit_Proxy();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.Builder <em>Builder</em>}'.
@@ -1994,6 +2009,16 @@ public interface B3BuildPackage extends EPackage {
 	EReference getContainerConfiguration_ContextBlock();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuildContext <em>Build Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Build Context</em>'.
+	 * @see org.eclipse.b3.build.build.BuildContext
+	 * @generated
+	 */
+	EClass getBuildContext();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuilderInput <em>Builder Input</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2374,22 +2399,6 @@ public interface B3BuildPackage extends EPackage {
 		EReference BUILD_UNIT__CONTAINERS = eINSTANCE.getBuildUnit_Containers();
 
 		/**
-		 * The meta object literal for the '<em><b>Build Unit Interface</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute BUILD_UNIT__BUILD_UNIT_INTERFACE = eINSTANCE.getBuildUnit_BuildUnitInterface();
-
-		/**
-		 * The meta object literal for the '<em><b>Proxy</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BUILD_UNIT__PROXY = eINSTANCE.getBuildUnit_Proxy();
-
-		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuilderImpl <em>Builder</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2762,6 +2771,16 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CONTAINER_CONFIGURATION__CONTEXT_BLOCK = eINSTANCE.getContainerConfiguration_ContextBlock();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuildContextImpl <em>Build Context</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.impl.BuildContextImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuildContext()
+		 * @generated
+		 */
+		EClass BUILD_CONTEXT = eINSTANCE.getBuildContext();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuilderInputImpl <em>Builder Input</em>}' class.

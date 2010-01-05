@@ -9,6 +9,7 @@ package org.eclipse.b3.build.build.util;
 import java.lang.reflect.GenericDeclaration;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
+import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BSourceLink;
@@ -167,6 +168,10 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 				return createContainerConfigurationAdapter();
 			}
 			@Override
+			public Adapter caseBuildContext(BuildContext object) {
+				return createBuildContextAdapter();
+			}
+			@Override
 			public Adapter caseBSourceLink(BSourceLink object) {
 				return createBSourceLinkAdapter();
 			}
@@ -185,6 +190,10 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseB3Function(B3Function object) {
 				return createB3FunctionAdapter();
+			}
+			@Override
+			public Adapter caseBExecutionContext(BExecutionContext object) {
+				return createBExecutionContextAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -431,6 +440,20 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.BuildContext <em>Build Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.BuildContext
+	 * @generated
+	 */
+	public Adapter createBuildContextAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.BuilderInput <em>Builder Input</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -581,6 +604,20 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createB3FunctionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext <em>BExecution Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext
+	 * @generated
+	 */
+	public Adapter createBExecutionContextAdapter() {
 		return null;
 	}
 

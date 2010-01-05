@@ -85,6 +85,7 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 			case B3BuildPackage.RESOLUTION_STRATEGY_FIRST: return createResolutionStrategyFirst();
 			case B3BuildPackage.RESOLUTION_STRATEGY_BEST: return createResolutionStrategyBest();
 			case B3BuildPackage.CONTAINER_CONFIGURATION: return createContainerConfiguration();
+			case B3BuildPackage.BUILD_CONTEXT: return createBuildContext();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -276,6 +277,16 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	public ContainerConfiguration createContainerConfiguration() {
 		ContainerConfigurationImpl containerConfiguration = new ContainerConfigurationImpl();
 		return containerConfiguration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BuildContext createBuildContext() {
+		BuildContextImpl buildContext = new BuildContextImpl();
+		return buildContext;
 	}
 
 	/**

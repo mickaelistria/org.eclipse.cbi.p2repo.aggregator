@@ -11,6 +11,7 @@ import java.lang.reflect.GenericDeclaration;
 import java.util.List;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
+import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BSourceLink;
@@ -242,6 +243,13 @@ public class B3BuildSwitch<T> {
 			case B3BuildPackage.CONTAINER_CONFIGURATION: {
 				ContainerConfiguration containerConfiguration = (ContainerConfiguration)theEObject;
 				T result = caseContainerConfiguration(containerConfiguration);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.BUILD_CONTEXT: {
+				BuildContext buildContext = (BuildContext)theEObject;
+				T result = caseBuildContext(buildContext);
+				if (result == null) result = caseBExecutionContext(buildContext);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -490,6 +498,21 @@ public class B3BuildSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Build Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Build Context</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBuildContext(BuildContext object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Builder Input</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -651,6 +674,21 @@ public class B3BuildSwitch<T> {
 	 * @generated
 	 */
 	public T caseB3Function(B3Function object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BExecution Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BExecution Context</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBExecutionContext(BExecutionContext object) {
 		return null;
 	}
 

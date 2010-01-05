@@ -161,6 +161,15 @@ public interface B3BuildFactory extends EFactory {
 	ContainerConfiguration createContainerConfiguration();
 
 	/**
+	 * Returns a new object of class '<em>Build Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Build Context</em>'.
+	 * @generated
+	 */
+	BuildContext createBuildContext();
+
+	/**
 	 * Returns a new object of class '<em>Builder Input</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

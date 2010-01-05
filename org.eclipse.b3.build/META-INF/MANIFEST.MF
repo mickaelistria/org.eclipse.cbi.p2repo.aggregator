@@ -10,6 +10,7 @@ Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.eclipse.b3.build.build,
  org.eclipse.b3.build.build.impl,
  org.eclipse.b3.build.build.util,
+ org.eclipse.b3.build.core,
  org.eclipse.b3.build.internal;x-friends:="org.eclipse.b3.build.tests"
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
