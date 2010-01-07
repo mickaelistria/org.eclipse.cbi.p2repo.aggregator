@@ -209,6 +209,7 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	 * @generated
 	 * @ordered
 	 */
+	@SuppressWarnings("unchecked")
 	protected static final TypeVariable[] TYPE_PARAMETERS_EDEFAULT = null;
 
 	/**
@@ -219,6 +220,7 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	 * @generated
 	 * @ordered
 	 */
+	@SuppressWarnings("unchecked")
 	protected TypeVariable[] typeParameters = TYPE_PARAMETERS_EDEFAULT;
 
 	/**
@@ -647,7 +649,7 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Returns an array of the parameter types (if already set it is returned, if null, it is calculated
+	 * Returns an array of the effective parameter types (if already set it is returned, if null, it is calculated
 	 * from the list of parameter declarations).
 	 * <!-- end-user-doc -->
 	 * @generated NOT
@@ -655,7 +657,7 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	public Type[] getParameterTypes() {
 		if(parameterTypes != null)
 			return parameterTypes;
-		EList<BParameterDeclaration> pList = getParameters();
+		EList<BParameterDeclaration> pList = getEffectiveParameters();
 		Type[] pTypes = new Type[pList.size()];
 		int i = 0;
 		for(BParameterDeclaration p : pList) {
@@ -703,6 +705,7 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@SuppressWarnings("unchecked")
 	public TypeVariable[] getTypeParameters() {
 		return typeParameters;
 	}
@@ -712,6 +715,7 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	public void setTypeParameters(TypeVariable[] newTypeParameters) {
 		TypeVariable[] oldTypeParameters = typeParameters;
 		typeParameters = newTypeParameters;
@@ -819,7 +823,7 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 		t.setVarArgs(isVarArgs());
 		t.setTypeCalculator(getTypeCalculator());
 		EList<Type> pt = t.getParameterTypes();
-		for(BParameterDeclaration p : getParameters())
+		for(BParameterDeclaration p : getEffectiveParameters())
 			pt.add(p.getType());
 		return t;
 	}
@@ -1147,7 +1151,7 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	}
 	protected void computeParameters() {
 		if(parameterNames == null || parameterTypes == null) {
-			EList<BParameterDeclaration> pList = getParameters();
+			EList<BParameterDeclaration> pList = getEffectiveParameters();
 			parameterNames = new String[pList.size()];
 			parameterTypes = new Type[pList.size()];
 			int i = 0;

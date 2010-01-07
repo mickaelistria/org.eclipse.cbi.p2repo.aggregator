@@ -297,7 +297,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameterNames" eType="#//StringArray"
         transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
-        eType="#//BParameterDeclaration" containment="true"/>
+        eType="#//BParameterDeclaration" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The parameters are the declared parameters. Some parameters may be implicit. Use {@link #getEffetiveParameters} to get all of the parameter declarations."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="varArgs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="returnType" eType="#//IType"

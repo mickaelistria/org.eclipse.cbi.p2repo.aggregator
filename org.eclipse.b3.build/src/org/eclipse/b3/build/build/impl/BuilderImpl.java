@@ -17,7 +17,6 @@ import org.eclipse.b3.backend.evaluator.b3backend.impl.B3FunctionImpl;
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.Builder;
 
-import org.eclipse.b3.build.build.B3BuildFactory;
 import org.eclipse.b3.build.build.BuilderInput;
 import org.eclipse.b3.build.build.Capability;
 import org.eclipse.b3.build.build.PathGroup;
