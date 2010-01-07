@@ -281,11 +281,6 @@ public class BSwitchExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BSWITCH_EXPRESSION__SWITCH_EXPRESSION,
-				 B3backendFactory.eINSTANCE.createBDefFunction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(B3backendPackage.Literals.BSWITCH_EXPRESSION__SWITCH_EXPRESSION,
 				 B3backendFactory.eINSTANCE.createBDefValue()));
 
 		newChildDescriptors.add

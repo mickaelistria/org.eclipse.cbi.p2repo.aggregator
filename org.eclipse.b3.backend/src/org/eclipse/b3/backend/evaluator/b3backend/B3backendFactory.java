@@ -347,15 +347,6 @@ public interface B3backendFactory extends EFactory {
 	BJavaFunction createBJavaFunction();
 
 	/**
-	 * Returns a new object of class '<em>BDef Function</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>BDef Function</em>'.
-	 * @generated
-	 */
-	BDefFunction createBDefFunction();
-
-	/**
 	 * Returns a new object of class '<em>BDef Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

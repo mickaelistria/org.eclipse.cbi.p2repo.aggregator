@@ -8,8 +8,10 @@ package org.eclipse.b3.build.build.impl;
 
 import java.lang.reflect.Type;
 import java.util.Collection;
+import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BConcern;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
 import org.eclipse.b3.build.build.B3BuildPackage;
@@ -29,6 +31,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -38,6 +42,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getFunctions <em>Functions</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getContainerType <em>Container Type</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getUnitProvidedCapabilities <em>Unit Provided Capabilities</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getBuilders <em>Builders</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getDocumentation <em>Documentation</em>}</li>
@@ -49,7 +55,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getDefaultProperties <em>Default Properties</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getPropertySets <em>Property Sets</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getSynchronizations <em>Synchronizations</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getFunctions <em>Functions</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getRepositories <em>Repositories</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getContainers <em>Containers</em>}</li>
  * </ul>
@@ -59,6 +64,33 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit {
 	/**
+	 * The cached value of the '{@link #getFunctions() <em>Functions</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFunctions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<BFunction> functions;
+	/**
+	 * The default value of the '{@link #getContainerType() <em>Container Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContainerType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Type CONTAINER_TYPE_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getContainerType() <em>Container Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContainerType()
+	 * @generated
+	 * @ordered
+	 */
+	protected Type containerType = CONTAINER_TYPE_EDEFAULT;
+	/**
 	 * The cached value of the '{@link #getUnitProvidedCapabilities() <em>Unit Provided Capabilities</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -67,16 +99,6 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * @ordered
 	 */
 	protected EList<VersionedCapability> unitProvidedCapabilities;
-	/**
-	 * The cached value of the '{@link #getBuilders() <em>Builders</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBuilders()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Builder> builders;
-
 	/**
 	 * The default value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -177,15 +199,6 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 */
 	protected EList<Synchronization> synchronizations;
 	/**
-	 * The cached value of the '{@link #getFunctions() <em>Functions</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFunctions()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<BFunction> functions;
-	/**
 	 * The cached value of the '{@link #getRepositories() <em>Repositories</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -240,16 +253,21 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * TODO: Optimize by caching - but needs to invalidate cache if builder has been added.
+	 * Can also be optimized when all functions are builders - as the list is identical (although
+	 * has different generic type parameter)...
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public EList<Builder> getBuilders() {
-		if (builders == null) {
-			builders = new EObjectContainmentEList<Builder>(Builder.class, this, B3BuildPackage.BUILD_UNIT__BUILDERS);
+		EList<Builder> x = new EObjectEList<Builder>(Builder.class,this,B3BuildPackage.BUILD_UNIT__BUILDERS);
+		for(BFunction f : getFunctions()) {
+			if(f instanceof Builder)
+				x.add((Builder)f);
 		}
-		return builders;
+		return x;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -414,9 +432,30 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 */
 	public EList<BFunction> getFunctions() {
 		if (functions == null) {
-			functions = new EObjectContainmentEList<BFunction>(BFunction.class, this, B3BuildPackage.BUILD_UNIT__FUNCTIONS);
+			functions = new EObjectContainmentWithInverseEList<BFunction>(BFunction.class, this, B3BuildPackage.BUILD_UNIT__FUNCTIONS, B3backendPackage.BFUNCTION__CONTAINER);
 		}
 		return functions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Type getContainerType() {
+		return containerType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setContainerType(Type newContainerType) {
+		Type oldContainerType = containerType;
+		containerType = newContainerType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILD_UNIT__CONTAINER_TYPE, oldContainerType, containerType));
 	}
 
 	/**
@@ -449,13 +488,28 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case B3BuildPackage.BUILD_UNIT__FUNCTIONS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getFunctions()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case B3BuildPackage.BUILD_UNIT__FUNCTIONS:
+				return ((InternalEList<?>)getFunctions()).basicRemove(otherEnd, msgs);
 			case B3BuildPackage.BUILD_UNIT__UNIT_PROVIDED_CAPABILITIES:
 				return ((InternalEList<?>)getUnitProvidedCapabilities()).basicRemove(otherEnd, msgs);
-			case B3BuildPackage.BUILD_UNIT__BUILDERS:
-				return ((InternalEList<?>)getBuilders()).basicRemove(otherEnd, msgs);
 			case B3BuildPackage.BUILD_UNIT__REQUIRED_CAPABILITIES:
 				return ((InternalEList<?>)getRequiredCapabilities()).basicRemove(otherEnd, msgs);
 			case B3BuildPackage.BUILD_UNIT__META_REQUIRED_CAPABILITIES:
@@ -470,8 +524,6 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				return ((InternalEList<?>)getPropertySets()).basicRemove(otherEnd, msgs);
 			case B3BuildPackage.BUILD_UNIT__SYNCHRONIZATIONS:
 				return ((InternalEList<?>)getSynchronizations()).basicRemove(otherEnd, msgs);
-			case B3BuildPackage.BUILD_UNIT__FUNCTIONS:
-				return ((InternalEList<?>)getFunctions()).basicRemove(otherEnd, msgs);
 			case B3BuildPackage.BUILD_UNIT__REPOSITORIES:
 				return ((InternalEList<?>)getRepositories()).basicRemove(otherEnd, msgs);
 			case B3BuildPackage.BUILD_UNIT__CONTAINERS:
@@ -488,6 +540,10 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case B3BuildPackage.BUILD_UNIT__FUNCTIONS:
+				return getFunctions();
+			case B3BuildPackage.BUILD_UNIT__CONTAINER_TYPE:
+				return getContainerType();
 			case B3BuildPackage.BUILD_UNIT__UNIT_PROVIDED_CAPABILITIES:
 				return getUnitProvidedCapabilities();
 			case B3BuildPackage.BUILD_UNIT__BUILDERS:
@@ -510,8 +566,6 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				return getPropertySets();
 			case B3BuildPackage.BUILD_UNIT__SYNCHRONIZATIONS:
 				return getSynchronizations();
-			case B3BuildPackage.BUILD_UNIT__FUNCTIONS:
-				return getFunctions();
 			case B3BuildPackage.BUILD_UNIT__REPOSITORIES:
 				return getRepositories();
 			case B3BuildPackage.BUILD_UNIT__CONTAINERS:
@@ -529,13 +583,16 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case B3BuildPackage.BUILD_UNIT__FUNCTIONS:
+				getFunctions().clear();
+				getFunctions().addAll((Collection<? extends BFunction>)newValue);
+				return;
+			case B3BuildPackage.BUILD_UNIT__CONTAINER_TYPE:
+				setContainerType((Type)newValue);
+				return;
 			case B3BuildPackage.BUILD_UNIT__UNIT_PROVIDED_CAPABILITIES:
 				getUnitProvidedCapabilities().clear();
 				getUnitProvidedCapabilities().addAll((Collection<? extends VersionedCapability>)newValue);
-				return;
-			case B3BuildPackage.BUILD_UNIT__BUILDERS:
-				getBuilders().clear();
-				getBuilders().addAll((Collection<? extends Builder>)newValue);
 				return;
 			case B3BuildPackage.BUILD_UNIT__DOCUMENTATION:
 				setDocumentation((String)newValue);
@@ -570,10 +627,6 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				getSynchronizations().clear();
 				getSynchronizations().addAll((Collection<? extends Synchronization>)newValue);
 				return;
-			case B3BuildPackage.BUILD_UNIT__FUNCTIONS:
-				getFunctions().clear();
-				getFunctions().addAll((Collection<? extends BFunction>)newValue);
-				return;
 			case B3BuildPackage.BUILD_UNIT__REPOSITORIES:
 				getRepositories().clear();
 				getRepositories().addAll((Collection<? extends RepositoryConfiguration>)newValue);
@@ -594,11 +647,14 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case B3BuildPackage.BUILD_UNIT__FUNCTIONS:
+				getFunctions().clear();
+				return;
+			case B3BuildPackage.BUILD_UNIT__CONTAINER_TYPE:
+				setContainerType(CONTAINER_TYPE_EDEFAULT);
+				return;
 			case B3BuildPackage.BUILD_UNIT__UNIT_PROVIDED_CAPABILITIES:
 				getUnitProvidedCapabilities().clear();
-				return;
-			case B3BuildPackage.BUILD_UNIT__BUILDERS:
-				getBuilders().clear();
 				return;
 			case B3BuildPackage.BUILD_UNIT__DOCUMENTATION:
 				setDocumentation(DOCUMENTATION_EDEFAULT);
@@ -627,9 +683,6 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 			case B3BuildPackage.BUILD_UNIT__SYNCHRONIZATIONS:
 				getSynchronizations().clear();
 				return;
-			case B3BuildPackage.BUILD_UNIT__FUNCTIONS:
-				getFunctions().clear();
-				return;
 			case B3BuildPackage.BUILD_UNIT__REPOSITORIES:
 				getRepositories().clear();
 				return;
@@ -648,10 +701,14 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case B3BuildPackage.BUILD_UNIT__FUNCTIONS:
+				return functions != null && !functions.isEmpty();
+			case B3BuildPackage.BUILD_UNIT__CONTAINER_TYPE:
+				return CONTAINER_TYPE_EDEFAULT == null ? containerType != null : !CONTAINER_TYPE_EDEFAULT.equals(containerType);
 			case B3BuildPackage.BUILD_UNIT__UNIT_PROVIDED_CAPABILITIES:
 				return unitProvidedCapabilities != null && !unitProvidedCapabilities.isEmpty();
 			case B3BuildPackage.BUILD_UNIT__BUILDERS:
-				return builders != null && !builders.isEmpty();
+				return !getBuilders().isEmpty();
 			case B3BuildPackage.BUILD_UNIT__DOCUMENTATION:
 				return DOCUMENTATION_EDEFAULT == null ? documentation != null : !DOCUMENTATION_EDEFAULT.equals(documentation);
 			case B3BuildPackage.BUILD_UNIT__EXECUTION_MODE:
@@ -670,8 +727,6 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				return propertySets != null && !propertySets.isEmpty();
 			case B3BuildPackage.BUILD_UNIT__SYNCHRONIZATIONS:
 				return synchronizations != null && !synchronizations.isEmpty();
-			case B3BuildPackage.BUILD_UNIT__FUNCTIONS:
-				return functions != null && !functions.isEmpty();
 			case B3BuildPackage.BUILD_UNIT__REPOSITORIES:
 				return repositories != null && !repositories.isEmpty();
 			case B3BuildPackage.BUILD_UNIT__CONTAINERS:
@@ -686,11 +741,47 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * @generated
 	 */
 	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == BFunctionContainer.class) {
+			switch (derivedFeatureID) {
+				case B3BuildPackage.BUILD_UNIT__FUNCTIONS: return B3backendPackage.BFUNCTION_CONTAINER__FUNCTIONS;
+				case B3BuildPackage.BUILD_UNIT__CONTAINER_TYPE: return B3backendPackage.BFUNCTION_CONTAINER__CONTAINER_TYPE;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == BFunctionContainer.class) {
+			switch (baseFeatureID) {
+				case B3backendPackage.BFUNCTION_CONTAINER__FUNCTIONS: return B3BuildPackage.BUILD_UNIT__FUNCTIONS;
+				case B3backendPackage.BFUNCTION_CONTAINER__CONTAINER_TYPE: return B3BuildPackage.BUILD_UNIT__CONTAINER_TYPE;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (documentation: ");
+		result.append(" (containerType: ");
+		result.append(containerType);
+		result.append(", documentation: ");
 		result.append(documentation);
 		result.append(", executionMode: ");
 		result.append(executionMode);

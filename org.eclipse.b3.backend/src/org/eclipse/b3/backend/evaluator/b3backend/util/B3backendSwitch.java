@@ -438,11 +438,9 @@ public class B3backendSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case B3backendPackage.BDEF_FUNCTION: {
-				BDefFunction bDefFunction = (BDefFunction)theEObject;
-				T result = caseBDefFunction(bDefFunction);
-				if (result == null) result = caseBExpression(bDefFunction);
-				if (result == null) result = caseBSourceLink(bDefFunction);
+			case B3backendPackage.BFUNCTION_CONTAINER: {
+				BFunctionContainer bFunctionContainer = (BFunctionContainer)theEObject;
+				T result = caseBFunctionContainer(bFunctionContainer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -621,6 +619,7 @@ public class B3backendSwitch<T> {
 				BConcern bConcern = (BConcern)theEObject;
 				T result = caseBConcern(bConcern);
 				if (result == null) result = caseBAdvice(bConcern);
+				if (result == null) result = caseBFunctionContainer(bConcern);
 				if (result == null) result = caseBExpression(bConcern);
 				if (result == null) result = caseBSourceLink(bConcern);
 				if (result == null) result = defaultCase(theEObject);
@@ -1284,17 +1283,17 @@ public class B3backendSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>BDef Function</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>BFunction Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>BDef Function</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>BFunction Container</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseBDefFunction(BDefFunction object) {
+	public T caseBFunctionContainer(BFunctionContainer object) {
 		return null;
 	}
 

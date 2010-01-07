@@ -3,11 +3,12 @@
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="build"
     nsURI="http://b3build/1.0" nsPrefix="build">
-  <eClassifiers xsi:type="ecore:EClass" name="BuildUnit" eSuperTypes="#//VersionedCapability">
+  <eClassifiers xsi:type="ecore:EClass" name="BuildUnit" eSuperTypes="#//VersionedCapability ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BFunctionContainer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="unitProvidedCapabilities"
         upperBound="-1" eType="#//VersionedCapability" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="builders" upperBound="-1"
-        eType="#//Builder" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="builders" unique="false"
+        upperBound="-1" eType="#//Builder" changeable="false" volatile="true" transient="true"
+        derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="executionMode" eType="ecore:EEnum ../../org.eclipse.b3.backend/model/B3Backend.ecore#//ExecutionMode"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requiredCapabilities" upperBound="-1"
@@ -27,9 +28,6 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="synchronizations" upperBound="-1"
         eType="#//Synchronization" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="functions" upperBound="-1"
-        eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BFunction"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="repositories" upperBound="-1"
         eType="#//RepositoryConfiguration" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="containers" upperBound="-1"

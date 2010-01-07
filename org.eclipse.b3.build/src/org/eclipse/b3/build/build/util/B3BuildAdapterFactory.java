@@ -12,6 +12,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
 import org.eclipse.b3.backend.evaluator.b3backend.BSourceLink;
 
 import org.eclipse.b3.build.build.*;
@@ -170,6 +171,10 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseBuildContext(BuildContext object) {
 				return createBuildContextAdapter();
+			}
+			@Override
+			public Adapter caseBFunctionContainer(BFunctionContainer object) {
+				return createBFunctionContainerAdapter();
 			}
 			@Override
 			public Adapter caseBSourceLink(BSourceLink object) {
@@ -450,6 +455,20 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBuildContextAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer <em>BFunction Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer
+	 * @generated
+	 */
+	public Adapter createBFunctionContainerAdapter() {
 		return null;
 	}
 

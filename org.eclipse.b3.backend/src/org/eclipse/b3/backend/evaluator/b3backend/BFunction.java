@@ -35,6 +35,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getReturnType <em>Return Type</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getClosure <em>Closure</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getTypeCalculator <em>Type Calculator</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getContainer <em>Container</em>}</li>
  * </ul>
  * </p>
  *
@@ -265,6 +266,34 @@ public interface BFunction extends BExpression, GenericDeclaration {
 	void setTypeCalculator(BTypeCalculator value);
 
 	/**
+	 * Returns the value of the '<em><b>Container</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer#getFunctions <em>Functions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Container</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Container</em>' container reference.
+	 * @see #setContainer(BFunctionContainer)
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBFunction_Container()
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer#getFunctions
+	 * @model opposite="functions" transient="false"
+	 * @generated
+	 */
+	BFunctionContainer getContainer();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getContainer <em>Container</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Container</em>' container reference.
+	 * @see #getContainer()
+	 * @generated
+	 */
+	void setContainer(BFunctionContainer value);
+
+	/**
 	 * Returns the value of the '<em><b>Parameter Types</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -459,5 +488,16 @@ public interface BFunction extends BExpression, GenericDeclaration {
 	 * @generated
 	 */
 	Type getReturnTypeForParameterTypes(Type[] types, BExecutionContext ctx);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Returns the effective list of parameter declarations. This list may be different than the declared parameters obtained via getParameters. The intended use is for methods/functions that have implicit (undeclared) parameters. 
+	 * <!-- end-model-doc -->
+	 * @model kind="operation" many="false"
+	 * @generated
+	 */
+	EList<BParameterDeclaration> getEffectiveParameters();
 
 } // BFunction

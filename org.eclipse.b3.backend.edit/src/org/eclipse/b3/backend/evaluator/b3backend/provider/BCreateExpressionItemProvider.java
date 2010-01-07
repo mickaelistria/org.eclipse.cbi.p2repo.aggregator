@@ -308,11 +308,6 @@ public class BCreateExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
-				 B3backendFactory.eINSTANCE.createBDefFunction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
 				 B3backendFactory.eINSTANCE.createBDefValue()));
 
 		newChildDescriptors.add
@@ -474,11 +469,6 @@ public class BCreateExpressionItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
 				 B3backendFactory.eINSTANCE.createBJavaFunction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
-				 B3backendFactory.eINSTANCE.createBDefFunction()));
 
 		newChildDescriptors.add
 			(createChildParameter

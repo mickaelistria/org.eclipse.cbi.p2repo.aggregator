@@ -1775,13 +1775,22 @@ public interface B3backendPackage extends EPackage {
 	int BFUNCTION__TYPE_CALCULATOR = BEXPRESSION_FEATURE_COUNT + 14;
 
 	/**
+	 * The feature id for the '<em><b>Container</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BFUNCTION__CONTAINER = BEXPRESSION_FEATURE_COUNT + 15;
+
+	/**
 	 * The number of structural features of the '<em>BFunction</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BFUNCTION_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 15;
+	int BFUNCTION_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 16;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BGuardImpl <em>BGuard</em>}' class.
@@ -2379,6 +2388,15 @@ public interface B3backendPackage extends EPackage {
 	int B3_FUNCTION__TYPE_CALCULATOR = BFUNCTION__TYPE_CALCULATOR;
 
 	/**
+	 * The feature id for the '<em><b>Container</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int B3_FUNCTION__CONTAINER = BFUNCTION__CONTAINER;
+
+	/**
 	 * The feature id for the '<em><b>Func Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2560,6 +2578,15 @@ public interface B3backendPackage extends EPackage {
 	int BJAVA_FUNCTION__TYPE_CALCULATOR = BFUNCTION__TYPE_CALCULATOR;
 
 	/**
+	 * The feature id for the '<em><b>Container</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BJAVA_FUNCTION__CONTAINER = BFUNCTION__CONTAINER;
+
+	/**
 	 * The feature id for the '<em><b>Method</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2587,50 +2614,41 @@ public interface B3backendPackage extends EPackage {
 	int BJAVA_FUNCTION_FEATURE_COUNT = BFUNCTION_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BDefFunctionImpl <em>BDef Function</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer <em>BFunction Container</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BDefFunctionImpl
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBDefFunction()
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBFunctionContainer()
 	 * @generated
 	 */
-	int BDEF_FUNCTION = 43;
+	int BFUNCTION_CONTAINER = 43;
 
 	/**
-	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
+	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BDEF_FUNCTION__LINE_NUMBER = BEXPRESSION__LINE_NUMBER;
+	int BFUNCTION_CONTAINER__FUNCTIONS = 0;
 
 	/**
-	 * The feature id for the '<em><b>File Reference</b></em>' reference.
+	 * The feature id for the '<em><b>Container Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BDEF_FUNCTION__FILE_REFERENCE = BEXPRESSION__FILE_REFERENCE;
+	int BFUNCTION_CONTAINER__CONTAINER_TYPE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Function</b></em>' containment reference.
+	 * The number of structural features of the '<em>BFunction Container</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BDEF_FUNCTION__FUNCTION = BEXPRESSION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>BDef Function</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BDEF_FUNCTION_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 1;
+	int BFUNCTION_CONTAINER_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BDefValueImpl <em>BDef Value</em>}' class.
@@ -2854,13 +2872,31 @@ public interface B3backendPackage extends EPackage {
 	int BPARAMETER_DECLARATION__TYPE = 1;
 
 	/**
+	 * The feature id for the '<em><b>Final</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BPARAMETER_DECLARATION__FINAL = 2;
+
+	/**
+	 * The feature id for the '<em><b>Immutable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BPARAMETER_DECLARATION__IMMUTABLE = 3;
+
+	/**
 	 * The number of structural features of the '<em>BParameter Declaration</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BPARAMETER_DECLARATION_FEATURE_COUNT = 2;
+	int BPARAMETER_DECLARATION_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link java.lang.reflect.Type <em>IType</em>}' class.
@@ -3814,13 +3850,31 @@ public interface B3backendPackage extends EPackage {
 	int BCONCERN__NAME = BADVICE__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BCONCERN__FUNCTIONS = BADVICE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Container Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BCONCERN__CONTAINER_TYPE = BADVICE_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BCONCERN__DOCUMENTATION = BADVICE_FEATURE_COUNT + 0;
+	int BCONCERN__DOCUMENTATION = BADVICE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Super Concerns</b></em>' reference list.
@@ -3829,16 +3883,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BCONCERN__SUPER_CONCERNS = BADVICE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BCONCERN__FUNCTIONS = BADVICE_FEATURE_COUNT + 2;
+	int BCONCERN__SUPER_CONCERNS = BADVICE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Property Sets</b></em>' containment reference list.
@@ -3847,7 +3892,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BCONCERN__PROPERTY_SETS = BADVICE_FEATURE_COUNT + 3;
+	int BCONCERN__PROPERTY_SETS = BADVICE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>BConcern</em>' class.
@@ -3856,7 +3901,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BCONCERN_FEATURE_COUNT = BADVICE_FEATURE_COUNT + 4;
+	int BCONCERN_FEATURE_COUNT = BADVICE_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWithExpressionImpl <em>BWith Expression</em>}' class.
@@ -4997,6 +5042,17 @@ public interface B3backendPackage extends EPackage {
 	EReference getBFunction_TypeCalculator();
 
 	/**
+	 * Returns the meta object for the container reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getContainer <em>Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Container</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunction#getContainer()
+	 * @see #getBFunction()
+	 * @generated
+	 */
+	EReference getBFunction_Container();
+
+	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getParameterTypes <em>Parameter Types</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5261,25 +5317,36 @@ public interface B3backendPackage extends EPackage {
 	EAttribute getBJavaFunction_SystemCall();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefFunction <em>BDef Function</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer <em>BFunction Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>BDef Function</em>'.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BDefFunction
+	 * @return the meta object for class '<em>BFunction Container</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer
 	 * @generated
 	 */
-	EClass getBDefFunction();
+	EClass getBFunctionContainer();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefFunction#getFunction <em>Function</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer#getFunctions <em>Functions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Function</em>'.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BDefFunction#getFunction()
-	 * @see #getBDefFunction()
+	 * @return the meta object for the containment reference list '<em>Functions</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer#getFunctions()
+	 * @see #getBFunctionContainer()
 	 * @generated
 	 */
-	EReference getBDefFunction_Function();
+	EReference getBFunctionContainer_Functions();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer#getContainerType <em>Container Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Container Type</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer#getContainerType()
+	 * @see #getBFunctionContainer()
+	 * @generated
+	 */
+	EAttribute getBFunctionContainer_ContainerType();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefValue <em>BDef Value</em>}'.
@@ -5451,6 +5518,28 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBParameterDeclaration_Type();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration#isFinal <em>Final</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Final</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration#isFinal()
+	 * @see #getBParameterDeclaration()
+	 * @generated
+	 */
+	EAttribute getBParameterDeclaration_Final();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration#isImmutable <em>Immutable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Immutable</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration#isImmutable()
+	 * @see #getBParameterDeclaration()
+	 * @generated
+	 */
+	EAttribute getBParameterDeclaration_Immutable();
 
 	/**
 	 * Returns the meta object for class '{@link java.lang.reflect.Type <em>IType</em>}'.
@@ -6037,17 +6126,6 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBConcern_SuperConcerns();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.backend.evaluator.b3backend.BConcern#getFunctions <em>Functions</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Functions</em>'.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BConcern#getFunctions()
-	 * @see #getBConcern()
-	 * @generated
-	 */
-	EReference getBConcern_Functions();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.backend.evaluator.b3backend.BConcern#getPropertySets <em>Property Sets</em>}'.
@@ -7051,6 +7129,14 @@ public interface B3backendPackage extends EPackage {
 		EReference BFUNCTION__TYPE_CALCULATOR = eINSTANCE.getBFunction_TypeCalculator();
 
 		/**
+		 * The meta object literal for the '<em><b>Container</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BFUNCTION__CONTAINER = eINSTANCE.getBFunction_Container();
+
+		/**
 		 * The meta object literal for the '<em><b>Parameter Types</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7273,22 +7359,30 @@ public interface B3backendPackage extends EPackage {
 		EAttribute BJAVA_FUNCTION__SYSTEM_CALL = eINSTANCE.getBJavaFunction_SystemCall();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BDefFunctionImpl <em>BDef Function</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer <em>BFunction Container</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BDefFunctionImpl
-		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBDefFunction()
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBFunctionContainer()
 		 * @generated
 		 */
-		EClass BDEF_FUNCTION = eINSTANCE.getBDefFunction();
+		EClass BFUNCTION_CONTAINER = eINSTANCE.getBFunctionContainer();
 
 		/**
-		 * The meta object literal for the '<em><b>Function</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Functions</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BDEF_FUNCTION__FUNCTION = eINSTANCE.getBDefFunction_Function();
+		EReference BFUNCTION_CONTAINER__FUNCTIONS = eINSTANCE.getBFunctionContainer_Functions();
+
+		/**
+		 * The meta object literal for the '<em><b>Container Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BFUNCTION_CONTAINER__CONTAINER_TYPE = eINSTANCE.getBFunctionContainer_ContainerType();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BDefValueImpl <em>BDef Value</em>}' class.
@@ -7427,6 +7521,22 @@ public interface B3backendPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BPARAMETER_DECLARATION__TYPE = eINSTANCE.getBParameterDeclaration_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Final</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BPARAMETER_DECLARATION__FINAL = eINSTANCE.getBParameterDeclaration_Final();
+
+		/**
+		 * The meta object literal for the '<em><b>Immutable</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BPARAMETER_DECLARATION__IMMUTABLE = eINSTANCE.getBParameterDeclaration_Immutable();
 
 		/**
 		 * The meta object literal for the '{@link java.lang.reflect.Type <em>IType</em>}' class.
@@ -7915,14 +8025,6 @@ public interface B3backendPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BCONCERN__SUPER_CONCERNS = eINSTANCE.getBConcern_SuperConcerns();
-
-		/**
-		 * The meta object literal for the '<em><b>Functions</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BCONCERN__FUNCTIONS = eINSTANCE.getBConcern_Functions();
 
 		/**
 		 * The meta object literal for the '<em><b>Property Sets</b></em>' containment reference list feature.

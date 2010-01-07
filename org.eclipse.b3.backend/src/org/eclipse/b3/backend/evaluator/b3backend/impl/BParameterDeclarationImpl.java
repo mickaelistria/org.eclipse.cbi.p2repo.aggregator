@@ -38,6 +38,8 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <ul>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BParameterDeclarationImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BParameterDeclarationImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BParameterDeclarationImpl#isFinal <em>Final</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BParameterDeclarationImpl#isImmutable <em>Immutable</em>}</li>
  * </ul>
  * </p>
  *
@@ -80,6 +82,46 @@ public class BParameterDeclarationImpl extends EObjectImpl implements BParameter
 	 * @ordered
 	 */
 	protected Type type;
+
+	/**
+	 * The default value of the '{@link #isFinal() <em>Final</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isFinal()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean FINAL_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isFinal() <em>Final</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isFinal()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean final_ = FINAL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isImmutable() <em>Immutable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isImmutable()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean IMMUTABLE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isImmutable() <em>Immutable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isImmutable()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean immutable = IMMUTABLE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -176,6 +218,48 @@ public class BParameterDeclarationImpl extends EObjectImpl implements BParameter
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isFinal() {
+		return final_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFinal(boolean newFinal) {
+		boolean oldFinal = final_;
+		final_ = newFinal;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BPARAMETER_DECLARATION__FINAL, oldFinal, final_));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isImmutable() {
+		return immutable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setImmutable(boolean newImmutable) {
+		boolean oldImmutable = immutable;
+		immutable = newImmutable;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BPARAMETER_DECLARATION__IMMUTABLE, oldImmutable, immutable));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -197,6 +281,10 @@ public class BParameterDeclarationImpl extends EObjectImpl implements BParameter
 				return getName();
 			case B3backendPackage.BPARAMETER_DECLARATION__TYPE:
 				return getType();
+			case B3backendPackage.BPARAMETER_DECLARATION__FINAL:
+				return isFinal();
+			case B3backendPackage.BPARAMETER_DECLARATION__IMMUTABLE:
+				return isImmutable();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -214,6 +302,12 @@ public class BParameterDeclarationImpl extends EObjectImpl implements BParameter
 				return;
 			case B3backendPackage.BPARAMETER_DECLARATION__TYPE:
 				setType((Type)newValue);
+				return;
+			case B3backendPackage.BPARAMETER_DECLARATION__FINAL:
+				setFinal((Boolean)newValue);
+				return;
+			case B3backendPackage.BPARAMETER_DECLARATION__IMMUTABLE:
+				setImmutable((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -233,6 +327,12 @@ public class BParameterDeclarationImpl extends EObjectImpl implements BParameter
 			case B3backendPackage.BPARAMETER_DECLARATION__TYPE:
 				setType((Type)null);
 				return;
+			case B3backendPackage.BPARAMETER_DECLARATION__FINAL:
+				setFinal(FINAL_EDEFAULT);
+				return;
+			case B3backendPackage.BPARAMETER_DECLARATION__IMMUTABLE:
+				setImmutable(IMMUTABLE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -249,6 +349,10 @@ public class BParameterDeclarationImpl extends EObjectImpl implements BParameter
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case B3backendPackage.BPARAMETER_DECLARATION__TYPE:
 				return type != null;
+			case B3backendPackage.BPARAMETER_DECLARATION__FINAL:
+				return final_ != FINAL_EDEFAULT;
+			case B3backendPackage.BPARAMETER_DECLARATION__IMMUTABLE:
+				return immutable != IMMUTABLE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -265,6 +369,10 @@ public class BParameterDeclarationImpl extends EObjectImpl implements BParameter
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", final: ");
+		result.append(final_);
+		result.append(", immutable: ");
+		result.append(immutable);
 		result.append(')');
 		return result.toString();
 	}

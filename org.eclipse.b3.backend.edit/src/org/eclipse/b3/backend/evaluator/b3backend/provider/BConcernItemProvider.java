@@ -77,10 +77,33 @@ public class BConcernItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addContainerTypePropertyDescriptor(object);
 			addDocumentationPropertyDescriptor(object);
 			addSuperConcernsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Container Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addContainerTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_BFunctionContainer_containerType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BFunctionContainer_containerType_feature", "_UI_BFunctionContainer_type"),
+				 B3backendPackage.Literals.BFUNCTION_CONTAINER__CONTAINER_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -139,7 +162,7 @@ public class BConcernItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(B3backendPackage.Literals.BCONCERN__FUNCTIONS);
+			childrenFeatures.add(B3backendPackage.Literals.BFUNCTION_CONTAINER__FUNCTIONS);
 			childrenFeatures.add(B3backendPackage.Literals.BCONCERN__PROPERTY_SETS);
 		}
 		return childrenFeatures;
@@ -195,6 +218,7 @@ public class BConcernItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(BConcern.class)) {
+			case B3backendPackage.BCONCERN__CONTAINER_TYPE:
 			case B3backendPackage.BCONCERN__DOCUMENTATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
@@ -219,12 +243,12 @@ public class BConcernItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(B3backendPackage.Literals.BCONCERN__FUNCTIONS,
+				(B3backendPackage.Literals.BFUNCTION_CONTAINER__FUNCTIONS,
 				 B3backendFactory.eINSTANCE.createB3Function()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(B3backendPackage.Literals.BCONCERN__FUNCTIONS,
+				(B3backendPackage.Literals.BFUNCTION_CONTAINER__FUNCTIONS,
 				 B3backendFactory.eINSTANCE.createBJavaFunction()));
 
 		newChildDescriptors.add

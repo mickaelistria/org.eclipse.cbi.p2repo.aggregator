@@ -8,6 +8,7 @@ package org.eclipse.b3.build.build;
 
 import java.lang.reflect.Type;
 import org.eclipse.b3.backend.evaluator.b3backend.BConcern;
+import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
@@ -33,7 +34,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getDefaultProperties <em>Default Properties</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getPropertySets <em>Property Sets</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getSynchronizations <em>Synchronizations</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getFunctions <em>Functions</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getRepositories <em>Repositories</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getContainers <em>Containers</em>}</li>
  * </ul>
@@ -43,7 +43,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface BuildUnit extends VersionedCapability {
+public interface BuildUnit extends VersionedCapability, BFunctionContainer {
 
 	/**
 	 * Returns the value of the '<em><b>Unit Provided Capabilities</b></em>' containment reference list.
@@ -62,7 +62,7 @@ public interface BuildUnit extends VersionedCapability {
 	EList<VersionedCapability> getUnitProvidedCapabilities();
 
 	/**
-	 * Returns the value of the '<em><b>Builders</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Builders</b></em>' reference list.
 	 * The list contents are of type {@link org.eclipse.b3.build.build.Builder}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -70,9 +70,9 @@ public interface BuildUnit extends VersionedCapability {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Builders</em>' containment reference list.
+	 * @return the value of the '<em>Builders</em>' reference list.
 	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuildUnit_Builders()
-	 * @model containment="true"
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	EList<Builder> getBuilders();
@@ -253,22 +253,6 @@ public interface BuildUnit extends VersionedCapability {
 	 * @generated
 	 */
 	EList<Synchronization> getSynchronizations();
-
-	/**
-	 * Returns the value of the '<em><b>Functions</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.BFunction}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Functions</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Functions</em>' containment reference list.
-	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuildUnit_Functions()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<BFunction> getFunctions();
 
 	/**
 	 * Returns the value of the '<em><b>Repositories</b></em>' containment reference list.

@@ -26,6 +26,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#internalCall(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object[], java.lang.reflect.Type[]) <em>Internal Call</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getSignature() <em>Get Signature</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getReturnTypeForParameterTypes(java.lang.reflect.Type[], org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Get Return Type For Parameter Types</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getEffectiveParameters() <em>Get Effective Parameters</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -143,6 +144,19 @@ public abstract class BFunctionTest extends BExpressionTest {
 	 * @generated
 	 */
 	public void testGetReturnTypeForParameterTypes__Type_BExecutionContext() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getEffectiveParameters() <em>Get Effective Parameters</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunction#getEffectiveParameters()
+	 * @generated
+	 */
+	public void testGetEffectiveParameters() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

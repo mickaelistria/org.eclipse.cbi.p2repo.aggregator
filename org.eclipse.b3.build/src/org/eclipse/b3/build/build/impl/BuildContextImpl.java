@@ -85,8 +85,8 @@ public class BuildContextImpl extends BExecutionContextImpl implements BuildCont
 		BuildUnitStore.Info info = unitStore.getInfo(unit);
 		if(info != null)
 			return info;
-		Class<? extends BuildUnit> iface = BuildUnitUtils.createBuildUnitInterface(unit, getClassLoader());
-		BuildUnit proxy = BuildUnitUtils.createBuildUnitProxy(unit, iface, getClassLoader());
+		Class<? extends BuildUnit> iface = BuildUnitUtils.getBuildUnitInterface(unit);
+		BuildUnit proxy = BuildUnitUtils.createBuildUnitProxy(unit);
 		// TODO:
 		// Define all builders
 		

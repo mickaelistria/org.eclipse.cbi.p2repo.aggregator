@@ -236,8 +236,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSequentialKeyword_9_8_0 = (Keyword)cGroup_9_8.eContents().get(0);
 		private final Assignment cSynchronizationsAssignment_9_8_1 = (Assignment)cGroup_9_8.eContents().get(1);
 		private final RuleCall cSynchronizationsSynchronizationParserRuleCall_9_8_1_0 = (RuleCall)cSynchronizationsAssignment_9_8_1.eContents().get(0);
-		private final Assignment cBuildersAssignment_9_9 = (Assignment)cAlternatives_9.eContents().get(9);
-		private final RuleCall cBuildersBuilderParserRuleCall_9_9_0 = (RuleCall)cBuildersAssignment_9_9.eContents().get(0);
+		private final Assignment cFunctionsAssignment_9_9 = (Assignment)cAlternatives_9.eContents().get(9);
+		private final RuleCall cFunctionsBuilderParserRuleCall_9_9_0 = (RuleCall)cFunctionsAssignment_9_9.eContents().get(0);
 		private final Assignment cFunctionsAssignment_9_10 = (Assignment)cAlternatives_9.eContents().get(10);
 		private final RuleCall cFunctionsFunctionParserRuleCall_9_10_0 = (RuleCall)cFunctionsAssignment_9_10.eContents().get(0);
 		private final Group cGroup_9_11 = (Group)cAlternatives_9.eContents().get(11);
@@ -269,7 +269,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//  metaRequiredCapabilities+=RequiredCapability ";")+ "}"|"env" "requires"
 		//  metaRequiredCapabilities+=RequiredCapability ";"|concerns+=Concern_Named|
 		//  "sequential" "{" synchronizations+=Synchronization+ "}"|"sequential"
-		//  synchronizations+=Synchronization|builders+=Builder|functions+=Function|
+		//  synchronizations+=Synchronization|functions+=Builder|functions+=Function|
 		//  "repositories" "{" repositories+=RepositoryConfiguration* "}"|"properties"
 		//  propertySets+=PropertySet_Named|"containers" "{" containers+=
 		//  ContainerConfiguration* "}")* "}"; 
@@ -323,7 +323,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//metaRequiredCapabilities+=RequiredCapability ";")+ "}"|"env" "requires"
 		//metaRequiredCapabilities+=RequiredCapability ";"|concerns+=Concern_Named|
 		//"sequential" "{" synchronizations+=Synchronization+ "}"|"sequential"
-		//synchronizations+=Synchronization|builders+=Builder|functions+=Function|
+		//synchronizations+=Synchronization|functions+=Builder|functions+=Function|
 		//"repositories" "{" repositories+=RepositoryConfiguration* "}"|"properties"
 		//propertySets+=PropertySet_Named|"containers" "{" containers+=
 		//ContainerConfiguration* "}")* "}"   
@@ -441,7 +441,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//+=RequiredCapability ";"|"env" "requires" "{" (metaRequiredCapabilities+=
 		//RequiredCapability ";")+ "}"|"env" "requires" metaRequiredCapabilities+=
 		//RequiredCapability ";"|concerns+=Concern_Named|"sequential" "{" synchronizations+=
-		//Synchronization+ "}"|"sequential" synchronizations+=Synchronization|builders+=
+		//Synchronization+ "}"|"sequential" synchronizations+=Synchronization|functions+=
 		//Builder|functions+=Function|"repositories" "{" repositories+=
 		//RepositoryConfiguration* "}"|"properties" propertySets+=PropertySet_Named|
 		//"containers" "{" containers+=ContainerConfiguration* "}")* 
@@ -623,11 +623,11 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//Synchronization
 		public RuleCall getSynchronizationsSynchronizationParserRuleCall_9_8_1_0() { return cSynchronizationsSynchronizationParserRuleCall_9_8_1_0; }
 
-		//builders+=Builder
-		public Assignment getBuildersAssignment_9_9() { return cBuildersAssignment_9_9; }
+		//functions+=Builder
+		public Assignment getFunctionsAssignment_9_9() { return cFunctionsAssignment_9_9; }
 
 		//Builder
-		public RuleCall getBuildersBuilderParserRuleCall_9_9_0() { return cBuildersBuilderParserRuleCall_9_9_0; }
+		public RuleCall getFunctionsBuilderParserRuleCall_9_9_0() { return cFunctionsBuilderParserRuleCall_9_9_0; }
 
 		//functions+=Function
 		public Assignment getFunctionsAssignment_9_10() { return cFunctionsAssignment_9_10; }
@@ -5856,7 +5856,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
 		private final Assignment cExpressionsAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
-		private final RuleCall cExpressionsFunctionDefinitionParserRuleCall_2_0_0 = (RuleCall)cExpressionsAssignment_2_0.eContents().get(0);
+		private final RuleCall cExpressionsFunctionParserRuleCall_2_0_0 = (RuleCall)cExpressionsAssignment_2_0.eContents().get(0);
 		private final Group cGroup_2_1 = (Group)cAlternatives_2.eContents().get(1);
 		private final Assignment cExpressionsAssignment_2_1_0 = (Assignment)cGroup_2_1.eContents().get(0);
 		private final RuleCall cExpressionsTopLevelExpressionParserRuleCall_2_1_0_0 = (RuleCall)cExpressionsAssignment_2_1_0.eContents().get(0);
@@ -5864,7 +5864,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//ContextBlock returns be::BExpression:
-		//  {be::BChainedExpression} "{" (expressions+=FunctionDefinition|expressions+=
+		//  {be::BChainedExpression} "{" (expressions+=Function|expressions+=
 		//  TopLevelExpression ";")* "}"; 
 		//
 		////Context : 
@@ -5895,7 +5895,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		////		| (expressions+=PropertiesStatement) // TODO: How to handle Properties statements as expressions
 		public ParserRule getRule() { return rule; }
 
-		//{be::BChainedExpression} "{" (expressions+=FunctionDefinition|expressions+=
+		//{be::BChainedExpression} "{" (expressions+=Function|expressions+=
 		//TopLevelExpression ";")* "}"    
 		//	      
 		////		| (expressions+=BuilderDefinition)   // TODO: How to handle Builder definitions as expressions
@@ -5909,17 +5909,17 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 
-		//(expressions+=FunctionDefinition|expressions+=TopLevelExpression ";")*       
+		//(expressions+=Function|expressions+=TopLevelExpression ";")*       
 		////		| (expressions+=BuilderDefinition)   // TODO: How to handle Builder definitions as expressions
 		//		     
 		////		| (expressions+=PropertiesStatement) // TODO: How to handle Properties statements as expressions
 		public Alternatives getAlternatives_2() { return cAlternatives_2; }
 
-		//expressions+=FunctionDefinition
+		//expressions+=Function
 		public Assignment getExpressionsAssignment_2_0() { return cExpressionsAssignment_2_0; }
 
-		//FunctionDefinition
-		public RuleCall getExpressionsFunctionDefinitionParserRuleCall_2_0_0() { return cExpressionsFunctionDefinitionParserRuleCall_2_0_0; }
+		//Function
+		public RuleCall getExpressionsFunctionParserRuleCall_2_0_0() { return cExpressionsFunctionParserRuleCall_2_0_0; }
 
 		//expressions+=TopLevelExpression ";"
 		public Group getGroup_2_1() { return cGroup_2_1; }
@@ -5957,6 +5957,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//					
 		////ExpressionStatement returns Statement : {ExpressionStatement} val=Expression ';' ;
 		////PropertiesStatement returns Statement : {PropertiesStatement} "properties" properties = PropertySet_Named ;
+		////FunctionDefinition returns be::BExpression : {be::BDefFunction} function = Function;
+		////BuilderDefinition returns Statement : {BuilderStatement} builder = Builder;
 		public ParserRule getRule() { return rule; }
 
 		//{be::BChainedExpression} "{" (expressions+=TopLevelExpression ";")* "}"
@@ -5984,35 +5986,6 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
 	}
 
-	public class FunctionDefinitionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FunctionDefinition");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cBDefFunctionAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cFunctionAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cFunctionFunctionParserRuleCall_1_0 = (RuleCall)cFunctionAssignment_1.eContents().get(0);
-		
-		//FunctionDefinition returns be::BExpression:
-		//  {be::BDefFunction} function=Function; 
-		//					
-		////ExpressionStatement returns Statement : {ExpressionStatement} val=Expression ';' ;
-		////PropertiesStatement returns Statement : {PropertiesStatement} "properties" properties = PropertySet_Named ;
-		//              
-		////BuilderDefinition returns Statement : {BuilderStatement} builder = Builder;
-		public ParserRule getRule() { return rule; }
-
-		//{be::BDefFunction} function=Function
-		public Group getGroup() { return cGroup; }
-
-		//{be::BDefFunction}
-		public Action getBDefFunctionAction_0() { return cBDefFunctionAction_0; }
-
-		//function=Function
-		public Assignment getFunctionAssignment_1() { return cFunctionAssignment_1; }
-
-		//Function
-		public RuleCall getFunctionFunctionParserRuleCall_1_0() { return cFunctionFunctionParserRuleCall_1_0; }
-	}
-
 	public class LiteralElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Literal");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -6024,10 +5997,18 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Literal returns be::BExpression:
 		//  ValueLiteral|RegexpLiteral|LiteralMap|LiteralList|LiteralFunction; 
+		//					
+		////ExpressionStatement returns Statement : {ExpressionStatement} val=Expression ';' ;
+		////PropertiesStatement returns Statement : {PropertiesStatement} "properties" properties = PropertySet_Named ;
+		////FunctionDefinition returns be::BExpression : {be::BDefFunction} function = Function;
 		////BuilderDefinition returns Statement : {BuilderStatement} builder = Builder;
 		public ParserRule getRule() { return rule; }
 
 		//ValueLiteral|RegexpLiteral|LiteralMap|LiteralList|LiteralFunction 
+		//					
+		////ExpressionStatement returns Statement : {ExpressionStatement} val=Expression ';' ;
+		////PropertiesStatement returns Statement : {PropertiesStatement} "properties" properties = PropertySet_Named ;
+		////FunctionDefinition returns be::BExpression : {be::BDefFunction} function = Function;
 		////BuilderDefinition returns Statement : {BuilderStatement} builder = Builder;
 		public Alternatives getAlternatives() { return cAlternatives; }
 
@@ -7668,7 +7649,6 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	private ConstructorCallExpressionElements pConstructorCallExpression;
 	private ContextBlockElements pContextBlock;
 	private ContextBlock_CreationElements pContextBlock_Creation;
-	private FunctionDefinitionElements pFunctionDefinition;
 	private LiteralElements pLiteral;
 	private LiteralListElements pLiteralList;
 	private LiteralMapElements pLiteralMap;
@@ -7776,7 +7756,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//  metaRequiredCapabilities+=RequiredCapability ";")+ "}"|"env" "requires"
 	//  metaRequiredCapabilities+=RequiredCapability ";"|concerns+=Concern_Named|
 	//  "sequential" "{" synchronizations+=Synchronization+ "}"|"sequential"
-	//  synchronizations+=Synchronization|builders+=Builder|functions+=Function|
+	//  synchronizations+=Synchronization|functions+=Builder|functions+=Function|
 	//  "repositories" "{" repositories+=RepositoryConfiguration* "}"|"properties"
 	//  propertySets+=PropertySet_Named|"containers" "{" containers+=
 	//  ContainerConfiguration* "}")* "}"; 
@@ -9044,7 +9024,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ContextBlock returns be::BExpression:
-	//  {be::BChainedExpression} "{" (expressions+=FunctionDefinition|expressions+=
+	//  {be::BChainedExpression} "{" (expressions+=Function|expressions+=
 	//  TopLevelExpression ";")* "}"; 
 	//
 	////Context : 
@@ -9090,6 +9070,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//					
 	////ExpressionStatement returns Statement : {ExpressionStatement} val=Expression ';' ;
 	////PropertiesStatement returns Statement : {PropertiesStatement} "properties" properties = PropertySet_Named ;
+	////FunctionDefinition returns be::BExpression : {be::BDefFunction} function = Function;
+	////BuilderDefinition returns Statement : {BuilderStatement} builder = Builder;
 	public ContextBlock_CreationElements getContextBlock_CreationAccess() {
 		return (pContextBlock_Creation != null) ? pContextBlock_Creation : (pContextBlock_Creation = new ContextBlock_CreationElements());
 	}
@@ -9098,23 +9080,12 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getContextBlock_CreationAccess().getRule();
 	}
 
-	//FunctionDefinition returns be::BExpression:
-	//  {be::BDefFunction} function=Function; 
+	//Literal returns be::BExpression:
+	//  ValueLiteral|RegexpLiteral|LiteralMap|LiteralList|LiteralFunction; 
 	//					
 	////ExpressionStatement returns Statement : {ExpressionStatement} val=Expression ';' ;
 	////PropertiesStatement returns Statement : {PropertiesStatement} "properties" properties = PropertySet_Named ;
-	//              
-	////BuilderDefinition returns Statement : {BuilderStatement} builder = Builder;
-	public FunctionDefinitionElements getFunctionDefinitionAccess() {
-		return (pFunctionDefinition != null) ? pFunctionDefinition : (pFunctionDefinition = new FunctionDefinitionElements());
-	}
-	
-	public ParserRule getFunctionDefinitionRule() {
-		return getFunctionDefinitionAccess().getRule();
-	}
-
-	//Literal returns be::BExpression:
-	//  ValueLiteral|RegexpLiteral|LiteralMap|LiteralList|LiteralFunction; 
+	////FunctionDefinition returns be::BExpression : {be::BDefFunction} function = Function;
 	////BuilderDefinition returns Statement : {BuilderStatement} builder = Builder;
 	public LiteralElements getLiteralAccess() {
 		return (pLiteral != null) ? pLiteral : (pLiteral = new LiteralElements());

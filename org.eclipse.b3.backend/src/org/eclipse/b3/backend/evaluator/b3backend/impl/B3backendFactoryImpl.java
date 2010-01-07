@@ -114,7 +114,6 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 			case B3backendPackage.BASSIGNMENT_EXPRESSION: return createBAssignmentExpression();
 			case B3backendPackage.B3_FUNCTION: return createB3Function();
 			case B3backendPackage.BJAVA_FUNCTION: return createBJavaFunction();
-			case B3backendPackage.BDEF_FUNCTION: return createBDefFunction();
 			case B3backendPackage.BDEF_VALUE: return createBDefValue();
 			case B3backendPackage.BREGULAR_EXPRESSION: return createBRegularExpression();
 			case B3backendPackage.BPARAMETER_LIST: return createBParameterList();
@@ -583,16 +582,6 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	public BJavaFunction createBJavaFunction() {
 		BJavaFunctionImpl bJavaFunction = new BJavaFunctionImpl();
 		return bJavaFunction;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BDefFunction createBDefFunction() {
-		BDefFunctionImpl bDefFunction = new BDefFunctionImpl();
-		return bDefFunction;
 	}
 
 	/**

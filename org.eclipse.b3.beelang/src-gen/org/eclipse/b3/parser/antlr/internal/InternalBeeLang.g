@@ -909,9 +909,9 @@ ruleBuildUnit returns [EObject current=null]
     |(
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getBuildUnitAccess().getBuildersBuilderParserRuleCall_9_9_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getBuildUnitAccess().getFunctionsBuilderParserRuleCall_9_9_0(), currentNode); 
 	    }
-		lv_builders_48_0=ruleBuilder		{
+		lv_functions_48_0=ruleBuilder		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getBuildUnitRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -919,8 +919,8 @@ ruleBuildUnit returns [EObject current=null]
 	        try {
 	       		add(
 	       			$current, 
-	       			"builders",
-	        		lv_builders_48_0, 
+	       			"functions",
+	        		lv_functions_48_0, 
 	        		"Builder", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -10838,67 +10838,6 @@ ruleContextBlock_Creation returns [EObject current=null]
         createLeafNode(grammarAccess.getContextBlock_CreationAccess().getRightCurlyBracketKeyword_3(), null); 
     }
 )
-;
-
-
-
-
-
-// Entry rule entryRuleFunctionDefinition
-entryRuleFunctionDefinition returns [EObject current=null] 
-	:
-	{ currentNode = createCompositeNode(grammarAccess.getFunctionDefinitionRule(), currentNode); }
-	 iv_ruleFunctionDefinition=ruleFunctionDefinition 
-	 { $current=$iv_ruleFunctionDefinition.current; } 
-	 EOF 
-;
-
-// Rule FunctionDefinition
-ruleFunctionDefinition returns [EObject current=null] 
-    @init { @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
-    }
-    @after { resetLookahead(); 
-    	lastConsumedNode = currentNode;
-    }:
-((
-	{ 
-	  /* */ 
-	}
-    { 
-        temp=factory.create(grammarAccess.getFunctionDefinitionAccess().getBDefFunctionAction_0().getType().getClassifier());
-        $current = temp; 
-        temp = null;
-        CompositeNode newNode = createCompositeNode(grammarAccess.getFunctionDefinitionAccess().getBDefFunctionAction_0(), currentNode.getParent());
-    newNode.getChildren().add(currentNode);
-    moveLookaheadInfo(currentNode, newNode);
-    currentNode = newNode; 
-        associateNodeWithAstElement(currentNode, $current); 
-    }
-)(
-(
-		{ 
-	        currentNode=createCompositeNode(grammarAccess.getFunctionDefinitionAccess().getFunctionFunctionParserRuleCall_1_0(), currentNode); 
-	    }
-		lv_function_1_0=ruleFunction		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getFunctionDefinitionRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode.getParent(), $current);
-	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"function",
-	        		lv_function_1_0, 
-	        		"Function", 
-	        		currentNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	        currentNode = currentNode.getParent();
-	    }
-
-)
-))
 ;
 
 

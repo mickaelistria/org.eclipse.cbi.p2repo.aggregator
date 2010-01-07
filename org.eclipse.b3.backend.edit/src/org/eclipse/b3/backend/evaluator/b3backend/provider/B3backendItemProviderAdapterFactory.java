@@ -888,29 +888,6 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BDefFunction} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BDefFunctionItemProvider bDefFunctionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BDefFunction}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBDefFunctionAdapter() {
-		if (bDefFunctionItemProvider == null) {
-			bDefFunctionItemProvider = new BDefFunctionItemProvider(this);
-		}
-
-		return bDefFunctionItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BDefValue} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1619,7 +1596,6 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 		if (bAssignmentExpressionItemProvider != null) bAssignmentExpressionItemProvider.dispose();
 		if (b3FunctionItemProvider != null) b3FunctionItemProvider.dispose();
 		if (bJavaFunctionItemProvider != null) bJavaFunctionItemProvider.dispose();
-		if (bDefFunctionItemProvider != null) bDefFunctionItemProvider.dispose();
 		if (bDefValueItemProvider != null) bDefValueItemProvider.dispose();
 		if (bRegularExpressionItemProvider != null) bRegularExpressionItemProvider.dispose();
 		if (bParameterListItemProvider != null) bParameterListItemProvider.dispose();

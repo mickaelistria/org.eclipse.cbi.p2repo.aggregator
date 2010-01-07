@@ -14,6 +14,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
 import org.eclipse.b3.backend.evaluator.b3backend.BSourceLink;
 
 import org.eclipse.b3.build.build.*;
@@ -99,6 +100,7 @@ public class B3BuildSwitch<T> {
 				BuildUnit buildUnit = (BuildUnit)theEObject;
 				T result = caseBuildUnit(buildUnit);
 				if (result == null) result = caseVersionedCapability(buildUnit);
+				if (result == null) result = caseBFunctionContainer(buildUnit);
 				if (result == null) result = caseCapability(buildUnit);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -509,6 +511,21 @@ public class B3BuildSwitch<T> {
 	 * @generated
 	 */
 	public T caseBuildContext(BuildContext object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BFunction Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BFunction Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBFunctionContainer(BFunctionContainer object) {
 		return null;
 	}
 

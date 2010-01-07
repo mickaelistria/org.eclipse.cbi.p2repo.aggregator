@@ -255,8 +255,8 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 				return createBJavaFunctionAdapter();
 			}
 			@Override
-			public Adapter caseBDefFunction(BDefFunction object) {
-				return createBDefFunctionAdapter();
+			public Adapter caseBFunctionContainer(BFunctionContainer object) {
+				return createBFunctionContainerAdapter();
 			}
 			@Override
 			public Adapter caseBDefValue(BDefValue object) {
@@ -1001,16 +1001,16 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefFunction <em>BDef Function</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer <em>BFunction Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BDefFunction
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer
 	 * @generated
 	 */
-	public Adapter createBDefFunctionAdapter() {
+	public Adapter createBFunctionContainerAdapter() {
 		return null;
 	}
 

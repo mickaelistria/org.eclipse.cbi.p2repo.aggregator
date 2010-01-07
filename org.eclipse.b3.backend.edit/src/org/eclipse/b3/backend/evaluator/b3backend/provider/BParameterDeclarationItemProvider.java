@@ -80,6 +80,8 @@ public class BParameterDeclarationItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addFinalPropertyDescriptor(object);
+			addImmutablePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -102,6 +104,50 @@ public class BParameterDeclarationItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Final feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFinalPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_BParameterDeclaration_final_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BParameterDeclaration_final_feature", "_UI_BParameterDeclaration_type"),
+				 B3backendPackage.Literals.BPARAMETER_DECLARATION__FINAL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Immutable feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addImmutablePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_BParameterDeclaration_immutable_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BParameterDeclaration_immutable_feature", "_UI_BParameterDeclaration_type"),
+				 B3backendPackage.Literals.BPARAMETER_DECLARATION__IMMUTABLE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -174,6 +220,8 @@ public class BParameterDeclarationItemProvider
 
 		switch (notification.getFeatureID(BParameterDeclaration.class)) {
 			case B3backendPackage.BPARAMETER_DECLARATION__NAME:
+			case B3backendPackage.BPARAMETER_DECLARATION__FINAL:
+			case B3backendPackage.BPARAMETER_DECLARATION__IMMUTABLE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case B3backendPackage.BPARAMETER_DECLARATION__TYPE:

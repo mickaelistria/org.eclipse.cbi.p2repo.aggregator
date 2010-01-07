@@ -69,7 +69,7 @@ BuildUnit returns build::BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT) : {build::
 			| ('sequential' '{' (synchronizations += Synchronization )+  '}' )
 			| ('sequential' synchronizations += Synchronization  )
 			//--BUILDERS & FUNCTIONS
-			| (builders += Builder )			
+			| (functions += Builder )			
 			| (functions += Function )			
 			//-- REPOSITORIES
 			| ('repositories' '{' (repositories+=RepositoryConfiguration)* '}' )
@@ -616,7 +616,7 @@ ConstructorCallExpression returns be::BExpression : {be::BCreateExpression}
 //	;
 
 ContextBlock returns be::BExpression : {be::BChainedExpression} 
-	'{'  ((expressions +=FunctionDefinition) 
+	'{'  ((expressions +=Function) 
 //		| (expressions+=BuilderDefinition)   // TODO: How to handle Builder definitions as expressions
 		| (expressions+=TopLevelExpression ';')
 //		| (expressions+=PropertiesStatement) // TODO: How to handle Properties statements as expressions
@@ -629,7 +629,7 @@ ContextBlock_Creation returns be::BExpression : {be::BChainedExpression}
 					
 //ExpressionStatement returns Statement : {ExpressionStatement} val=Expression ';' ;
 //PropertiesStatement returns Statement : {PropertiesStatement} "properties" properties = PropertySet_Named ;
-FunctionDefinition returns be::BExpression : {be::BDefFunction} function = Function;
+//FunctionDefinition returns be::BExpression : {be::BDefFunction} function = Function;
 //BuilderDefinition returns Statement : {BuilderStatement} builder = Builder;
 
 Literal returns be::BExpression

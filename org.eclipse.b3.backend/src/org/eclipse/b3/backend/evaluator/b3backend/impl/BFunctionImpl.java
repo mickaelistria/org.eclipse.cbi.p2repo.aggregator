@@ -15,6 +15,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
 import org.eclipse.b3.backend.evaluator.b3backend.BGuard;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
@@ -31,6 +32,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -55,6 +57,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getReturnType <em>Return Type</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getClosure <em>Closure</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getTypeCalculator <em>Type Calculator</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getContainer <em>Container</em>}</li>
  * </ul>
  * </p>
  *
@@ -603,6 +606,47 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BFunctionContainer getContainer() {
+		if (eContainerFeatureID() != B3backendPackage.BFUNCTION__CONTAINER) return null;
+		return (BFunctionContainer)eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetContainer(BFunctionContainer newContainer, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newContainer, B3backendPackage.BFUNCTION__CONTAINER, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setContainer(BFunctionContainer newContainer) {
+		if (newContainer != eInternalContainer() || (eContainerFeatureID() != B3backendPackage.BFUNCTION__CONTAINER && newContainer != null)) {
+			if (EcoreUtil.isAncestor(this, newContainer))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newContainer != null)
+				msgs = ((InternalEObject)newContainer).eInverseAdd(this, B3backendPackage.BFUNCTION_CONTAINER__FUNCTIONS, BFunctionContainer.class, msgs);
+			msgs = basicSetContainer(newContainer, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION__CONTAINER, newContainer, newContainer));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * Returns an array of the parameter types (if already set it is returned, if null, it is calculated
 	 * from the list of parameter declarations).
 	 * <!-- end-user-doc -->
@@ -797,6 +841,32 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * This default implementation returns the same as {@link #getParameters()}.
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public EList<BParameterDeclaration> getEffectiveParameters() {
+		return getParameters();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case B3backendPackage.BFUNCTION__CONTAINER:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetContainer((BFunctionContainer)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -811,8 +881,24 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 				return basicSetReturnType(null, msgs);
 			case B3backendPackage.BFUNCTION__TYPE_CALCULATOR:
 				return basicSetTypeCalculator(null, msgs);
+			case B3backendPackage.BFUNCTION__CONTAINER:
+				return basicSetContainer(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case B3backendPackage.BFUNCTION__CONTAINER:
+				return eInternalContainer().eInverseRemove(this, B3backendPackage.BFUNCTION_CONTAINER__FUNCTIONS, BFunctionContainer.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -854,6 +940,8 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 				return basicGetClosure();
 			case B3backendPackage.BFUNCTION__TYPE_CALCULATOR:
 				return getTypeCalculator();
+			case B3backendPackage.BFUNCTION__CONTAINER:
+				return getContainer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -913,6 +1001,9 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 			case B3backendPackage.BFUNCTION__TYPE_CALCULATOR:
 				setTypeCalculator((BTypeCalculator)newValue);
 				return;
+			case B3backendPackage.BFUNCTION__CONTAINER:
+				setContainer((BFunctionContainer)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -970,6 +1061,9 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 			case B3backendPackage.BFUNCTION__TYPE_CALCULATOR:
 				setTypeCalculator((BTypeCalculator)null);
 				return;
+			case B3backendPackage.BFUNCTION__CONTAINER:
+				setContainer((BFunctionContainer)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1012,6 +1106,8 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 				return closure != null;
 			case B3backendPackage.BFUNCTION__TYPE_CALCULATOR:
 				return typeCalculator != null;
+			case B3backendPackage.BFUNCTION__CONTAINER:
+				return getContainer() != null;
 		}
 		return super.eIsSet(featureID);
 	}

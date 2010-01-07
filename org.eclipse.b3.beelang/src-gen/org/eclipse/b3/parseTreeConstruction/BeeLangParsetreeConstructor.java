@@ -123,26 +123,25 @@ protected class ThisRootNode extends RootToken {
 			case 85: return new ConstructorCallExpression_Group(this, this, 85, inst);
 			case 86: return new ContextBlock_Group(this, this, 86, inst);
 			case 87: return new ContextBlock_Creation_Group(this, this, 87, inst);
-			case 88: return new FunctionDefinition_Group(this, this, 88, inst);
-			case 89: return new Literal_Alternatives(this, this, 89, inst);
-			case 90: return new LiteralList_Alternatives(this, this, 90, inst);
-			case 91: return new LiteralMap_Alternatives(this, this, 91, inst);
-			case 92: return new LiteralFunction_Group(this, this, 92, inst);
-			case 93: return new ClosureExpression_Group(this, this, 93, inst);
-			case 94: return new OneOrManyExpressions_Alternatives(this, this, 94, inst);
-			case 95: return new BlockExpressionWithoutBrackets_Group(this, this, 95, inst);
-			case 96: return new MapEntry_Group(this, this, 96, inst);
-			case 97: return new KeyLiteral_Group(this, this, 97, inst);
-			case 98: return new LiteralType_Group(this, this, 98, inst);
-			case 99: return new ValueLiteral_Alternatives(this, this, 99, inst);
-			case 100: return new BooleanLiteral_Group(this, this, 100, inst);
-			case 101: return new IntegerLiteral_Group(this, this, 101, inst);
-			case 102: return new UnitLiteral_Group(this, this, 102, inst);
-			case 103: return new StringLiteral_Group(this, this, 103, inst);
-			case 104: return new RealLiteral_Group(this, this, 104, inst);
-			case 105: return new RegexpLiteral_Group(this, this, 105, inst);
-			case 106: return new NullLiteral_Group(this, this, 106, inst);
-			case 107: return new ParanthesizedExpression_Group(this, this, 107, inst);
+			case 88: return new Literal_Alternatives(this, this, 88, inst);
+			case 89: return new LiteralList_Alternatives(this, this, 89, inst);
+			case 90: return new LiteralMap_Alternatives(this, this, 90, inst);
+			case 91: return new LiteralFunction_Group(this, this, 91, inst);
+			case 92: return new ClosureExpression_Group(this, this, 92, inst);
+			case 93: return new OneOrManyExpressions_Alternatives(this, this, 93, inst);
+			case 94: return new BlockExpressionWithoutBrackets_Group(this, this, 94, inst);
+			case 95: return new MapEntry_Group(this, this, 95, inst);
+			case 96: return new KeyLiteral_Group(this, this, 96, inst);
+			case 97: return new LiteralType_Group(this, this, 97, inst);
+			case 98: return new ValueLiteral_Alternatives(this, this, 98, inst);
+			case 99: return new BooleanLiteral_Group(this, this, 99, inst);
+			case 100: return new IntegerLiteral_Group(this, this, 100, inst);
+			case 101: return new UnitLiteral_Group(this, this, 101, inst);
+			case 102: return new StringLiteral_Group(this, this, 102, inst);
+			case 103: return new RealLiteral_Group(this, this, 103, inst);
+			case 104: return new RegexpLiteral_Group(this, this, 104, inst);
+			case 105: return new NullLiteral_Group(this, this, 105, inst);
+			case 106: return new ParanthesizedExpression_Group(this, this, 106, inst);
 			default: return null;
 		}	
 	}	
@@ -782,7 +781,7 @@ protected class Import_SemicolonKeyword_5 extends KeywordToken  {
  *   metaRequiredCapabilities+=RequiredCapability ";")+ "}"|"env" "requires"
  *   metaRequiredCapabilities+=RequiredCapability ";"|concerns+=Concern_Named|
  *   "sequential" "{" synchronizations+=Synchronization+ "}"|"sequential"
- *   synchronizations+=Synchronization|builders+=Builder|functions+=Function|
+ *   synchronizations+=Synchronization|functions+=Builder|functions+=Function|
  *   "repositories" "{" repositories+=RepositoryConfiguration* "}"|"properties"
  *   propertySets+=PropertySet_Named|"containers" "{" containers+=
  *   ContainerConfiguration* "}")* "}"; 
@@ -837,7 +836,7 @@ protected class Import_SemicolonKeyword_5 extends KeywordToken  {
 // metaRequiredCapabilities+=RequiredCapability ";")+ "}"|"env" "requires"
 // metaRequiredCapabilities+=RequiredCapability ";"|concerns+=Concern_Named|
 // "sequential" "{" synchronizations+=Synchronization+ "}"|"sequential"
-// synchronizations+=Synchronization|builders+=Builder|functions+=Function|
+// synchronizations+=Synchronization|functions+=Builder|functions+=Function|
 // "repositories" "{" repositories+=RepositoryConfiguration* "}"|"properties"
 // propertySets+=PropertySet_Named|"containers" "{" containers+=
 // ContainerConfiguration* "}")* "}"   
@@ -1460,7 +1459,7 @@ protected class BuildUnit_DefaultPropertiesAssignment_8_2 extends AssignmentToke
 // +=RequiredCapability ";"|"env" "requires" "{" (metaRequiredCapabilities+=
 // RequiredCapability ";")+ "}"|"env" "requires" metaRequiredCapabilities+=
 // RequiredCapability ";"|concerns+=Concern_Named|"sequential" "{" synchronizations+=
-// Synchronization+ "}"|"sequential" synchronizations+=Synchronization|builders+=
+// Synchronization+ "}"|"sequential" synchronizations+=Synchronization|functions+=
 // Builder|functions+=Function|"repositories" "{" repositories+=
 // RepositoryConfiguration* "}"|"properties" propertySets+=PropertySet_Named|
 // "containers" "{" containers+=ContainerConfiguration* "}")* 
@@ -1504,7 +1503,7 @@ protected class BuildUnit_Alternatives_9 extends AlternativesToken {
 			case 6: return new BuildUnit_ConcernsAssignment_9_6(parent, this, 6, inst);
 			case 7: return new BuildUnit_Group_9_7(parent, this, 7, inst);
 			case 8: return new BuildUnit_Group_9_8(parent, this, 8, inst);
-			case 9: return new BuildUnit_BuildersAssignment_9_9(parent, this, 9, inst);
+			case 9: return new BuildUnit_FunctionsAssignment_9_9(parent, this, 9, inst);
 			case 10: return new BuildUnit_FunctionsAssignment_9_10(parent, this, 10, inst);
 			case 11: return new BuildUnit_Group_9_11(parent, this, 11, inst);
 			case 12: return new BuildUnit_Group_9_12(parent, this, 12, inst);
@@ -2732,16 +2731,16 @@ protected class BuildUnit_SynchronizationsAssignment_9_8_1 extends AssignmentTok
 }
 
 
-// builders+=Builder
-protected class BuildUnit_BuildersAssignment_9_9 extends AssignmentToken  {
+// functions+=Builder
+protected class BuildUnit_FunctionsAssignment_9_9 extends AssignmentToken  {
 	
-	public BuildUnit_BuildersAssignment_9_9(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BuildUnit_FunctionsAssignment_9_9(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getBuildUnitAccess().getBuildersAssignment_9_9();
+		return grammarAccess.getBuildUnitAccess().getFunctionsAssignment_9_9();
 	}
 
     @Override
@@ -2754,13 +2753,13 @@ protected class BuildUnit_BuildersAssignment_9_9 extends AssignmentToken  {
 		
     @Override	
 	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("builders",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("builders");
+		if((value = current.getConsumable("functions",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("functions");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getBuilderRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getBuildUnitAccess().getBuildersBuilderParserRuleCall_9_9_0(); 
+				element = grammarAccess.getBuildUnitAccess().getFunctionsBuilderParserRuleCall_9_9_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -26221,7 +26220,7 @@ protected class ConstructorCallExpression_ContextBlockAssignment_5 extends Assig
 /************ begin Rule ContextBlock ****************
  *
  * ContextBlock returns be::BExpression:
- *   {be::BChainedExpression} "{" (expressions+=FunctionDefinition|expressions+=
+ *   {be::BChainedExpression} "{" (expressions+=Function|expressions+=
  *   TopLevelExpression ";")* "}"; 
  * 
  * //Context : 
@@ -26253,7 +26252,7 @@ protected class ConstructorCallExpression_ContextBlockAssignment_5 extends Assig
  *
  **/
 
-// {be::BChainedExpression} "{" (expressions+=FunctionDefinition|expressions+=
+// {be::BChainedExpression} "{" (expressions+=Function|expressions+=
 // TopLevelExpression ";")* "}"    
 // 	      
 // //		| (expressions+=BuilderDefinition)   // TODO: How to handle Builder definitions as expressions
@@ -26335,7 +26334,7 @@ protected class ContextBlock_LeftCurlyBracketKeyword_1 extends KeywordToken  {
 		
 }
 
-// (expressions+=FunctionDefinition|expressions+=TopLevelExpression ";")*       
+// (expressions+=Function|expressions+=TopLevelExpression ";")*       
 // //		| (expressions+=BuilderDefinition)   // TODO: How to handle Builder definitions as expressions
 // 		     
 // //		| (expressions+=PropertiesStatement) // TODO: How to handle Properties statements as expressions
@@ -26361,7 +26360,7 @@ protected class ContextBlock_Alternatives_2 extends AlternativesToken {
 		
 }
 
-// expressions+=FunctionDefinition
+// expressions+=Function
 protected class ContextBlock_ExpressionsAssignment_2_0 extends AssignmentToken  {
 	
 	public ContextBlock_ExpressionsAssignment_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -26376,7 +26375,7 @@ protected class ContextBlock_ExpressionsAssignment_2_0 extends AssignmentToken  
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new FunctionDefinition_Group(this, this, 0, inst);
+			case 0: return new Function_Group(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -26387,9 +26386,9 @@ protected class ContextBlock_ExpressionsAssignment_2_0 extends AssignmentToken  
 		IInstanceDescription obj = current.cloneAndConsume("expressions");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getFunctionDefinitionRule().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getFunctionRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getContextBlockAccess().getExpressionsFunctionDefinitionParserRuleCall_2_0_0(); 
+				element = grammarAccess.getContextBlockAccess().getExpressionsFunctionParserRuleCall_2_0_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -26539,6 +26538,8 @@ protected class ContextBlock_RightCurlyBracketKeyword_3 extends KeywordToken  {
  * 					
  * //ExpressionStatement returns Statement : {ExpressionStatement} val=Expression ';' ;
  * //PropertiesStatement returns Statement : {PropertiesStatement} "properties" properties = PropertySet_Named ;
+ * //FunctionDefinition returns be::BExpression : {be::BDefFunction} function = Function;
+ * //BuilderDefinition returns Statement : {BuilderStatement} builder = Builder;
  *
  **/
 
@@ -26738,132 +26739,23 @@ protected class ContextBlock_Creation_RightCurlyBracketKeyword_3 extends Keyword
 /************ end Rule ContextBlock_Creation ****************/
 
 
-/************ begin Rule FunctionDefinition ****************
- *
- * FunctionDefinition returns be::BExpression:
- *   {be::BDefFunction} function=Function; 
- * 					
- * //ExpressionStatement returns Statement : {ExpressionStatement} val=Expression ';' ;
- * //PropertiesStatement returns Statement : {PropertiesStatement} "properties" properties = PropertySet_Named ;
- *               
- * //BuilderDefinition returns Statement : {BuilderStatement} builder = Builder;
- *
- **/
-
-// {be::BDefFunction} function=Function
-protected class FunctionDefinition_Group extends GroupToken {
-	
-	public FunctionDefinition_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getFunctionDefinitionAccess().getGroup();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new FunctionDefinition_FunctionAssignment_1(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override
-	public IInstanceDescription tryConsume() {
-		if(!current.isInstanceOf(grammarAccess.getFunctionDefinitionRule().getType().getClassifier())) return null;
-		return tryConsumeVal();
-	}
-}
-
-// {be::BDefFunction}
-protected class FunctionDefinition_BDefFunctionAction_0 extends ActionToken  {
-
-	public FunctionDefinition_BDefFunctionAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Action getGrammarElement() {
-		return grammarAccess.getFunctionDefinitionAccess().getBDefFunctionAction_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			default: return parent.createParentFollower(this, index, index, inst);
-		}	
-	}	
-		
-	
-    @Override
-	protected IInstanceDescription tryConsumeVal() {
-		if(!current.isInstanceOf(grammarAccess.getFunctionDefinitionAccess().getBDefFunctionAction_0().getType().getClassifier())) return null;
-		if(!current.isConsumed()) return null;
-		return current;
-	}
-}
-
-// function=Function
-protected class FunctionDefinition_FunctionAssignment_1 extends AssignmentToken  {
-	
-	public FunctionDefinition_FunctionAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getFunctionDefinitionAccess().getFunctionAssignment_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new Function_Group(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("function",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("function");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getFunctionRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getFunctionDefinitionAccess().getFunctionFunctionParserRuleCall_1_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
-	}
-
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new FunctionDefinition_BDefFunctionAction_0(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
-}
-
-
-/************ end Rule FunctionDefinition ****************/
-
-
 /************ begin Rule Literal ****************
  *
  * Literal returns be::BExpression:
  *   ValueLiteral|RegexpLiteral|LiteralMap|LiteralList|LiteralFunction; 
+ * 					
+ * //ExpressionStatement returns Statement : {ExpressionStatement} val=Expression ';' ;
+ * //PropertiesStatement returns Statement : {PropertiesStatement} "properties" properties = PropertySet_Named ;
+ * //FunctionDefinition returns be::BExpression : {be::BDefFunction} function = Function;
  * //BuilderDefinition returns Statement : {BuilderStatement} builder = Builder;
  *
  **/
 
 // ValueLiteral|RegexpLiteral|LiteralMap|LiteralList|LiteralFunction 
+// 					
+// //ExpressionStatement returns Statement : {ExpressionStatement} val=Expression ';' ;
+// //PropertiesStatement returns Statement : {PropertiesStatement} "properties" properties = PropertySet_Named ;
+// //FunctionDefinition returns be::BExpression : {be::BDefFunction} function = Function;
 // //BuilderDefinition returns Statement : {BuilderStatement} builder = Builder;
 protected class Literal_Alternatives extends AlternativesToken {
 

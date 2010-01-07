@@ -7,13 +7,17 @@
 package org.eclipse.b3.build.build.impl;
 
 import java.util.Collection;
+
+import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.B3FunctionImpl;
 
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.Builder;
 
+import org.eclipse.b3.build.build.B3BuildFactory;
 import org.eclipse.b3.build.build.BuilderInput;
 import org.eclipse.b3.build.build.Capability;
 import org.eclipse.b3.build.build.PathGroup;
@@ -21,9 +25,11 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -478,5 +484,21 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 		}
 		return super.eIsSet(featureID);
 	}
-
+	private EList<BParameterDeclaration> cachedEffectiveParameters;
+	@Override
+	public EList<BParameterDeclaration> getEffectiveParameters() {
+		synchronized(this) {
+		if(cachedEffectiveParameters == null)
+			cachedEffectiveParameters = copyParameters();
+			BParameterDeclaration unitParameter = B3backendFactory.eINSTANCE.createBParameterDeclaration();
+			unitParameter.setName("unit");
+			unitParameter.setType(getContainer().getContainerType());
+			cachedEffectiveParameters.add(0, unitParameter);
+		}
+		return cachedEffectiveParameters;
+	}
+	@SuppressWarnings("unchecked")
+	private EList<BParameterDeclaration> copyParameters() {
+		return (EList<BParameterDeclaration>)EcoreUtil.copy((EObject)getParameters());
+	}
 } //BuilderImpl
