@@ -9,6 +9,7 @@ package org.eclipse.b3.build.build.util;
 import java.lang.reflect.GenericDeclaration;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
+import org.eclipse.b3.backend.evaluator.b3backend.BConcernContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
@@ -173,6 +174,58 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 				return createBuildContextAdapter();
 			}
 			@Override
+			public Adapter caseBuildConcernContext(BuildConcernContext object) {
+				return createBuildConcernContextAdapter();
+			}
+			@Override
+			public Adapter caseRequiresPredicate(RequiresPredicate object) {
+				return createRequiresPredicateAdapter();
+			}
+			@Override
+			public Adapter caseCapabilityPredicate(CapabilityPredicate object) {
+				return createCapabilityPredicateAdapter();
+			}
+			@Override
+			public Adapter caseImplementsPredicate(ImplementsPredicate object) {
+				return createImplementsPredicateAdapter();
+			}
+			@Override
+			public Adapter caseProvidesPredicate(ProvidesPredicate object) {
+				return createProvidesPredicateAdapter();
+			}
+			@Override
+			public Adapter caseNamePredicate(NamePredicate object) {
+				return createNamePredicateAdapter();
+			}
+			@Override
+			public Adapter caseNameSpacePredicate(NameSpacePredicate object) {
+				return createNameSpacePredicateAdapter();
+			}
+			@Override
+			public Adapter caseUnitNamePredicate(UnitNamePredicate object) {
+				return createUnitNamePredicateAdapter();
+			}
+			@Override
+			public Adapter caseBuilderNamePredicate(BuilderNamePredicate object) {
+				return createBuilderNamePredicateAdapter();
+			}
+			@Override
+			public Adapter caseInputPredicate(InputPredicate object) {
+				return createInputPredicateAdapter();
+			}
+			@Override
+			public Adapter caseUnitConcernContext(UnitConcernContext object) {
+				return createUnitConcernContextAdapter();
+			}
+			@Override
+			public Adapter caseBuilderConcernContext(BuilderConcernContext object) {
+				return createBuilderConcernContextAdapter();
+			}
+			@Override
+			public Adapter caseOutputPredicate(OutputPredicate object) {
+				return createOutputPredicateAdapter();
+			}
+			@Override
 			public Adapter caseBFunctionContainer(BFunctionContainer object) {
 				return createBFunctionContainerAdapter();
 			}
@@ -199,6 +252,10 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseBExecutionContext(BExecutionContext object) {
 				return createBExecutionContextAdapter();
+			}
+			@Override
+			public Adapter caseBConcernContext(BConcernContext object) {
+				return createBConcernContextAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -459,6 +516,188 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.BuildConcernContext <em>Build Concern Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.BuildConcernContext
+	 * @generated
+	 */
+	public Adapter createBuildConcernContextAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.RequiresPredicate <em>Requires Predicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.RequiresPredicate
+	 * @generated
+	 */
+	public Adapter createRequiresPredicateAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.CapabilityPredicate <em>Capability Predicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.CapabilityPredicate
+	 * @generated
+	 */
+	public Adapter createCapabilityPredicateAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.ImplementsPredicate <em>Implements Predicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.ImplementsPredicate
+	 * @generated
+	 */
+	public Adapter createImplementsPredicateAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.ProvidesPredicate <em>Provides Predicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.ProvidesPredicate
+	 * @generated
+	 */
+	public Adapter createProvidesPredicateAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.NamePredicate <em>Name Predicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.NamePredicate
+	 * @generated
+	 */
+	public Adapter createNamePredicateAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.NameSpacePredicate <em>Name Space Predicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.NameSpacePredicate
+	 * @generated
+	 */
+	public Adapter createNameSpacePredicateAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.UnitNamePredicate <em>Unit Name Predicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.UnitNamePredicate
+	 * @generated
+	 */
+	public Adapter createUnitNamePredicateAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.BuilderNamePredicate <em>Builder Name Predicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.BuilderNamePredicate
+	 * @generated
+	 */
+	public Adapter createBuilderNamePredicateAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.InputPredicate <em>Input Predicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.InputPredicate
+	 * @generated
+	 */
+	public Adapter createInputPredicateAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.UnitConcernContext <em>Unit Concern Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.UnitConcernContext
+	 * @generated
+	 */
+	public Adapter createUnitConcernContextAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.BuilderConcernContext <em>Builder Concern Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.BuilderConcernContext
+	 * @generated
+	 */
+	public Adapter createBuilderConcernContextAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.OutputPredicate <em>Output Predicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.OutputPredicate
+	 * @generated
+	 */
+	public Adapter createOutputPredicateAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer <em>BFunction Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -637,6 +876,20 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBExecutionContextAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BConcernContext <em>BConcern Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BConcernContext
+	 * @generated
+	 */
+	public Adapter createBConcernContextAdapter() {
 		return null;
 	}
 

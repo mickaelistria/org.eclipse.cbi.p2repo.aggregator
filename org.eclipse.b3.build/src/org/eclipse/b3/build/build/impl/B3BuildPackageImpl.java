@@ -10,31 +10,44 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 
 import org.eclipse.b3.build.build.B3BuildFactory;
 import org.eclipse.b3.build.build.B3BuildPackage;
+import org.eclipse.b3.build.build.BuildConcernContext;
 import org.eclipse.b3.build.build.BuildContext;
 import org.eclipse.b3.build.build.BuildResultReference;
 import org.eclipse.b3.build.build.BuildUnit;
 import org.eclipse.b3.build.build.Builder;
 
+import org.eclipse.b3.build.build.BuilderConcernContext;
 import org.eclipse.b3.build.build.BuilderInput;
+import org.eclipse.b3.build.build.BuilderNamePredicate;
 import org.eclipse.b3.build.build.BuilderReference;
 import org.eclipse.b3.build.build.Capability;
+import org.eclipse.b3.build.build.CapabilityPredicate;
 import org.eclipse.b3.build.build.CompoundBuildResultReference;
 import org.eclipse.b3.build.build.CompoundPathVector;
 import org.eclipse.b3.build.build.ContainerConfiguration;
+import org.eclipse.b3.build.build.ImplementsPredicate;
+import org.eclipse.b3.build.build.InputPredicate;
+import org.eclipse.b3.build.build.NamePredicate;
+import org.eclipse.b3.build.build.NameSpacePredicate;
+import org.eclipse.b3.build.build.OutputPredicate;
 import org.eclipse.b3.build.build.DirectBuildResultReference;
 import org.eclipse.b3.build.build.IndirectBuildResultReference;
 import org.eclipse.b3.build.build.PathGroup;
 import org.eclipse.b3.build.build.PathVector;
 import org.eclipse.b3.build.build.PathVectorElement;
 import org.eclipse.b3.build.build.Prerequisite;
+import org.eclipse.b3.build.build.ProvidesPredicate;
 import org.eclipse.b3.build.build.RepositoryConfiguration;
 import org.eclipse.b3.build.build.RepositoryDeclaration;
 import org.eclipse.b3.build.build.RequiredCapability;
+import org.eclipse.b3.build.build.RequiresPredicate;
 import org.eclipse.b3.build.build.ResolutionStrategy;
 import org.eclipse.b3.build.build.ResolutionStrategyBest;
 import org.eclipse.b3.build.build.ResolutionStrategyFirst;
 import org.eclipse.b3.build.build.Synchronization;
 import org.eclipse.b3.build.build.SynchronizedBuilder;
+import org.eclipse.b3.build.build.UnitConcernContext;
+import org.eclipse.b3.build.build.UnitNamePredicate;
 import org.eclipse.b3.build.build.UnitBuildResultReference;
 import org.eclipse.b3.build.build.VersionedCapability;
 import org.eclipse.emf.ecore.EAttribute;
@@ -174,6 +187,97 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * @generated
 	 */
 	private EClass buildContextEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass buildConcernContextEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass requiresPredicateEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass capabilityPredicateEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass implementsPredicateEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass providesPredicateEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass namePredicateEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass nameSpacePredicateEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass unitNamePredicateEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass builderNamePredicateEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass inputPredicateEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass unitConcernContextEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass builderConcernContextEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass outputPredicateEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -829,6 +933,330 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getBuildConcernContext() {
+		return buildConcernContextEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRequiresPredicate() {
+		return requiresPredicateEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRequiresPredicate_CapabilityPredicate() {
+		return (EReference)requiresPredicateEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCapabilityPredicate() {
+		return capabilityPredicateEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCapabilityPredicate_NameSpacePattern() {
+		return (EReference)capabilityPredicateEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCapabilityPredicate_VersionRange() {
+		return (EAttribute)capabilityPredicateEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCapabilityPredicate_NamePredicate() {
+		return (EReference)capabilityPredicateEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCapabilityPredicate_NameSpacePredicate() {
+		return (EReference)capabilityPredicateEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getImplementsPredicate() {
+		return implementsPredicateEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getImplementsPredicate_Type() {
+		return (EReference)implementsPredicateEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getProvidesPredicate() {
+		return providesPredicateEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProvidesPredicate_CapabilityPredicate() {
+		return (EReference)providesPredicateEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getNamePredicate() {
+		return namePredicateEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNamePredicate_Name() {
+		return (EAttribute)namePredicateEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getNamePredicate_NamePattern() {
+		return (EReference)namePredicateEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getNameSpacePredicate() {
+		return nameSpacePredicateEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNameSpacePredicate_NameSpace() {
+		return (EAttribute)nameSpacePredicateEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUnitNamePredicate() {
+		return unitNamePredicateEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBuilderNamePredicate() {
+		return builderNamePredicateEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBuilderNamePredicate_NamePredicate() {
+		return (EReference)builderNamePredicateEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getInputPredicate() {
+		return inputPredicateEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInputPredicate_CapabilityPredicate() {
+		return (EReference)inputPredicateEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInputPredicate_BuilderPredicate() {
+		return (EReference)inputPredicateEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUnitConcernContext() {
+		return unitConcernContextEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUnitConcernContext_BuilderContexts() {
+		return (EReference)unitConcernContextEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUnitConcernContext_Query() {
+		return (EReference)unitConcernContextEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBuilderConcernContext() {
+		return builderConcernContextEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBuilderConcernContext_Query() {
+		return (EReference)builderConcernContextEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBuilderConcernContext_InputAdditions() {
+		return (EReference)builderConcernContextEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBuilderConcernContext_InputRemovals() {
+		return (EReference)builderConcernContextEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBuilderConcernContext_OutputAdditions() {
+		return (EReference)builderConcernContextEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBuilderConcernContext_OutputRemovals() {
+		return (EReference)builderConcernContextEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBuilderConcernContext_FuncExpr() {
+		return (EReference)builderConcernContextEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getOutputPredicate() {
+		return outputPredicateEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOutputPredicate_PathVector() {
+		return (EReference)outputPredicateEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOutputPredicate_PathPattern() {
+		return (EReference)outputPredicateEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBuilderInput() {
 		return builderInputEClass;
 	}
@@ -1150,6 +1578,55 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 
 		buildContextEClass = createEClass(BUILD_CONTEXT);
 
+		buildConcernContextEClass = createEClass(BUILD_CONCERN_CONTEXT);
+
+		requiresPredicateEClass = createEClass(REQUIRES_PREDICATE);
+		createEReference(requiresPredicateEClass, REQUIRES_PREDICATE__CAPABILITY_PREDICATE);
+
+		capabilityPredicateEClass = createEClass(CAPABILITY_PREDICATE);
+		createEReference(capabilityPredicateEClass, CAPABILITY_PREDICATE__NAME_SPACE_PATTERN);
+		createEAttribute(capabilityPredicateEClass, CAPABILITY_PREDICATE__VERSION_RANGE);
+		createEReference(capabilityPredicateEClass, CAPABILITY_PREDICATE__NAME_PREDICATE);
+		createEReference(capabilityPredicateEClass, CAPABILITY_PREDICATE__NAME_SPACE_PREDICATE);
+
+		implementsPredicateEClass = createEClass(IMPLEMENTS_PREDICATE);
+		createEReference(implementsPredicateEClass, IMPLEMENTS_PREDICATE__TYPE);
+
+		providesPredicateEClass = createEClass(PROVIDES_PREDICATE);
+		createEReference(providesPredicateEClass, PROVIDES_PREDICATE__CAPABILITY_PREDICATE);
+
+		namePredicateEClass = createEClass(NAME_PREDICATE);
+		createEAttribute(namePredicateEClass, NAME_PREDICATE__NAME);
+		createEReference(namePredicateEClass, NAME_PREDICATE__NAME_PATTERN);
+
+		nameSpacePredicateEClass = createEClass(NAME_SPACE_PREDICATE);
+		createEAttribute(nameSpacePredicateEClass, NAME_SPACE_PREDICATE__NAME_SPACE);
+
+		unitNamePredicateEClass = createEClass(UNIT_NAME_PREDICATE);
+
+		builderNamePredicateEClass = createEClass(BUILDER_NAME_PREDICATE);
+		createEReference(builderNamePredicateEClass, BUILDER_NAME_PREDICATE__NAME_PREDICATE);
+
+		inputPredicateEClass = createEClass(INPUT_PREDICATE);
+		createEReference(inputPredicateEClass, INPUT_PREDICATE__CAPABILITY_PREDICATE);
+		createEReference(inputPredicateEClass, INPUT_PREDICATE__BUILDER_PREDICATE);
+
+		unitConcernContextEClass = createEClass(UNIT_CONCERN_CONTEXT);
+		createEReference(unitConcernContextEClass, UNIT_CONCERN_CONTEXT__BUILDER_CONTEXTS);
+		createEReference(unitConcernContextEClass, UNIT_CONCERN_CONTEXT__QUERY);
+
+		builderConcernContextEClass = createEClass(BUILDER_CONCERN_CONTEXT);
+		createEReference(builderConcernContextEClass, BUILDER_CONCERN_CONTEXT__QUERY);
+		createEReference(builderConcernContextEClass, BUILDER_CONCERN_CONTEXT__INPUT_ADDITIONS);
+		createEReference(builderConcernContextEClass, BUILDER_CONCERN_CONTEXT__INPUT_REMOVALS);
+		createEReference(builderConcernContextEClass, BUILDER_CONCERN_CONTEXT__OUTPUT_ADDITIONS);
+		createEReference(builderConcernContextEClass, BUILDER_CONCERN_CONTEXT__OUTPUT_REMOVALS);
+		createEReference(builderConcernContextEClass, BUILDER_CONCERN_CONTEXT__FUNC_EXPR);
+
+		outputPredicateEClass = createEClass(OUTPUT_PREDICATE);
+		createEReference(outputPredicateEClass, OUTPUT_PREDICATE__PATH_VECTOR);
+		createEReference(outputPredicateEClass, OUTPUT_PREDICATE__PATH_PATTERN);
+
 		// Create data types
 		versionRangeEDataType = createEDataType(VERSION_RANGE);
 		versionEDataType = createEDataType(VERSION);
@@ -1201,6 +1678,17 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		resolutionStrategyFirstEClass.getESuperTypes().add(this.getResolutionStrategy());
 		resolutionStrategyBestEClass.getESuperTypes().add(this.getResolutionStrategy());
 		buildContextEClass.getESuperTypes().add(theB3backendPackage.getBExecutionContext());
+		buildConcernContextEClass.getESuperTypes().add(theB3backendPackage.getBConcernContext());
+		requiresPredicateEClass.getESuperTypes().add(theB3backendPackage.getBExpression());
+		capabilityPredicateEClass.getESuperTypes().add(theB3backendPackage.getBExpression());
+		implementsPredicateEClass.getESuperTypes().add(theB3backendPackage.getBExpression());
+		providesPredicateEClass.getESuperTypes().add(theB3backendPackage.getBExpression());
+		unitNamePredicateEClass.getESuperTypes().add(this.getCapabilityPredicate());
+		builderNamePredicateEClass.getESuperTypes().add(theB3backendPackage.getBExpression());
+		inputPredicateEClass.getESuperTypes().add(theB3backendPackage.getBExpression());
+		unitConcernContextEClass.getESuperTypes().add(this.getBuildConcernContext());
+		builderConcernContextEClass.getESuperTypes().add(this.getBuildConcernContext());
+		outputPredicateEClass.getESuperTypes().add(theB3backendPackage.getBExpression());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(buildUnitEClass, BuildUnit.class, "BuildUnit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1320,6 +1808,55 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		EGenericType g3 = createEGenericType(this.getBuildUnit());
 		g2.setEUpperBound(g3);
 		initEOperation(op, g1);
+
+		initEClass(buildConcernContextEClass, BuildConcernContext.class, "BuildConcernContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(requiresPredicateEClass, RequiresPredicate.class, "RequiresPredicate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRequiresPredicate_CapabilityPredicate(), this.getCapabilityPredicate(), null, "capabilityPredicate", null, 1, 1, RequiresPredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(capabilityPredicateEClass, CapabilityPredicate.class, "CapabilityPredicate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCapabilityPredicate_NameSpacePattern(), theB3backendPackage.getBExpression(), null, "nameSpacePattern", null, 0, 1, CapabilityPredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCapabilityPredicate_VersionRange(), this.getVersionRange(), "versionRange", null, 0, 1, CapabilityPredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCapabilityPredicate_NamePredicate(), this.getNamePredicate(), null, "namePredicate", null, 0, 1, CapabilityPredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCapabilityPredicate_NameSpacePredicate(), this.getNamePredicate(), null, "nameSpacePredicate", null, 0, 1, CapabilityPredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(implementsPredicateEClass, ImplementsPredicate.class, "ImplementsPredicate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getImplementsPredicate_Type(), theB3backendPackage.getIType(), null, "type", null, 0, 1, ImplementsPredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(providesPredicateEClass, ProvidesPredicate.class, "ProvidesPredicate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getProvidesPredicate_CapabilityPredicate(), this.getCapabilityPredicate(), null, "capabilityPredicate", null, 0, 1, ProvidesPredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(namePredicateEClass, NamePredicate.class, "NamePredicate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNamePredicate_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamePredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNamePredicate_NamePattern(), theB3backendPackage.getBExpression(), null, "namePattern", null, 0, 1, NamePredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(nameSpacePredicateEClass, NameSpacePredicate.class, "NameSpacePredicate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNameSpacePredicate_NameSpace(), ecorePackage.getEString(), "nameSpace", null, 0, 1, NameSpacePredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(unitNamePredicateEClass, UnitNamePredicate.class, "UnitNamePredicate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(builderNamePredicateEClass, BuilderNamePredicate.class, "BuilderNamePredicate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBuilderNamePredicate_NamePredicate(), this.getNamePredicate(), null, "namePredicate", null, 0, 1, BuilderNamePredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(inputPredicateEClass, InputPredicate.class, "InputPredicate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getInputPredicate_CapabilityPredicate(), this.getCapabilityPredicate(), null, "capabilityPredicate", null, 0, 1, InputPredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInputPredicate_BuilderPredicate(), this.getNamePredicate(), null, "builderPredicate", null, 1, 1, InputPredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(unitConcernContextEClass, UnitConcernContext.class, "UnitConcernContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUnitConcernContext_BuilderContexts(), this.getBuilderConcernContext(), null, "builderContexts", null, 0, -1, UnitConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUnitConcernContext_Query(), theB3backendPackage.getBExpression(), null, "query", null, 0, 1, UnitConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(builderConcernContextEClass, BuilderConcernContext.class, "BuilderConcernContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBuilderConcernContext_Query(), theB3backendPackage.getBExpression(), null, "query", null, 0, 1, BuilderConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBuilderConcernContext_InputAdditions(), this.getPrerequisite(), null, "inputAdditions", null, 0, -1, BuilderConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBuilderConcernContext_InputRemovals(), this.getInputPredicate(), null, "inputRemovals", null, 0, -1, BuilderConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBuilderConcernContext_OutputAdditions(), this.getPathVector(), null, "outputAdditions", null, 0, -1, BuilderConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBuilderConcernContext_OutputRemovals(), this.getOutputPredicate(), null, "outputRemovals", null, 0, -1, BuilderConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBuilderConcernContext_FuncExpr(), theB3backendPackage.getBExpression(), null, "funcExpr", null, 0, 1, BuilderConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(outputPredicateEClass, OutputPredicate.class, "OutputPredicate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getOutputPredicate_PathVector(), this.getPathVectorElement(), null, "pathVector", null, 0, 1, OutputPredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOutputPredicate_PathPattern(), theB3backendPackage.getBExpression(), null, "pathPattern", null, 0, 1, OutputPredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(versionRangeEDataType, VersionRange.class, "VersionRange", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

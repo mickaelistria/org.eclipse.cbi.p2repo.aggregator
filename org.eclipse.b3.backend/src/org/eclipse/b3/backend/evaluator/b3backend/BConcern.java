@@ -25,6 +25,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BConcern#getDocumentation <em>Documentation</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BConcern#getSuperConcerns <em>Super Concerns</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BConcern#getPropertySets <em>Property Sets</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BConcern#getContexts <em>Contexts</em>}</li>
  * </ul>
  * </p>
  *
@@ -97,5 +98,21 @@ public interface BConcern extends BAdvice, BFunctionContainer {
 	 * @generated
 	 */
 	EList<BPropertySet> getPropertySets();
+
+	/**
+	 * Returns the value of the '<em><b>Contexts</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.BConcernContext}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Contexts</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Contexts</em>' containment reference list.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBConcern_Contexts()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<BConcernContext> getContexts();
 
 } // BConcern

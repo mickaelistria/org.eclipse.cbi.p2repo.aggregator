@@ -164,6 +164,7 @@ public class BConcernItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(B3backendPackage.Literals.BFUNCTION_CONTAINER__FUNCTIONS);
 			childrenFeatures.add(B3backendPackage.Literals.BCONCERN__PROPERTY_SETS);
+			childrenFeatures.add(B3backendPackage.Literals.BCONCERN__CONTEXTS);
 		}
 		return childrenFeatures;
 	}
@@ -224,6 +225,7 @@ public class BConcernItemProvider
 				return;
 			case B3backendPackage.BCONCERN__FUNCTIONS:
 			case B3backendPackage.BCONCERN__PROPERTY_SETS:
+			case B3backendPackage.BCONCERN__CONTEXTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}

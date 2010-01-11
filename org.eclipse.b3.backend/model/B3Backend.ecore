@@ -543,6 +543,8 @@
         eType="#//BConcern"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="propertySets" upperBound="-1"
         eType="#//BPropertySet" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contexts" upperBound="-1"
+        eType="#//BConcernContext" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BWithExpression" eSuperTypes="#//BExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="referencedAdvice" upperBound="-1"
@@ -553,4 +555,5 @@
         eType="#//BConcern" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="B3DynamicClassLoader" instanceClassName="org.eclipse.b3.backend.core.B3DynamicClassLoader"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BConcernContext" abstract="true" eSuperTypes="#//BFunctionContainer"/>
 </ecore:EPackage>

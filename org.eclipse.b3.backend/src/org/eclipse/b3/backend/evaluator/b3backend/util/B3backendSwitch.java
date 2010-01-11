@@ -633,6 +633,13 @@ public class B3backendSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case B3backendPackage.BCONCERN_CONTEXT: {
+				BConcernContext bConcernContext = (BConcernContext)theEObject;
+				T result = caseBConcernContext(bConcernContext);
+				if (result == null) result = caseBFunctionContainer(bConcernContext);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -1744,6 +1751,21 @@ public class B3backendSwitch<T> {
 	 * @generated
 	 */
 	public T caseBWithExpression(BWithExpression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BConcern Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BConcern Context</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBConcernContext(BConcernContext object) {
 		return null;
 	}
 

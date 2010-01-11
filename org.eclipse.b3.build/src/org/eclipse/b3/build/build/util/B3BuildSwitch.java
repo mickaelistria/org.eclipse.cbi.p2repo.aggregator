@@ -11,6 +11,7 @@ import java.lang.reflect.GenericDeclaration;
 import java.util.List;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
+import org.eclipse.b3.backend.evaluator.b3backend.BConcernContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
@@ -252,6 +253,109 @@ public class B3BuildSwitch<T> {
 				BuildContext buildContext = (BuildContext)theEObject;
 				T result = caseBuildContext(buildContext);
 				if (result == null) result = caseBExecutionContext(buildContext);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.BUILD_CONCERN_CONTEXT: {
+				BuildConcernContext buildConcernContext = (BuildConcernContext)theEObject;
+				T result = caseBuildConcernContext(buildConcernContext);
+				if (result == null) result = caseBConcernContext(buildConcernContext);
+				if (result == null) result = caseBFunctionContainer(buildConcernContext);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.REQUIRES_PREDICATE: {
+				RequiresPredicate requiresPredicate = (RequiresPredicate)theEObject;
+				T result = caseRequiresPredicate(requiresPredicate);
+				if (result == null) result = caseBExpression(requiresPredicate);
+				if (result == null) result = caseBSourceLink(requiresPredicate);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.CAPABILITY_PREDICATE: {
+				CapabilityPredicate capabilityPredicate = (CapabilityPredicate)theEObject;
+				T result = caseCapabilityPredicate(capabilityPredicate);
+				if (result == null) result = caseBExpression(capabilityPredicate);
+				if (result == null) result = caseBSourceLink(capabilityPredicate);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.IMPLEMENTS_PREDICATE: {
+				ImplementsPredicate implementsPredicate = (ImplementsPredicate)theEObject;
+				T result = caseImplementsPredicate(implementsPredicate);
+				if (result == null) result = caseBExpression(implementsPredicate);
+				if (result == null) result = caseBSourceLink(implementsPredicate);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.PROVIDES_PREDICATE: {
+				ProvidesPredicate providesPredicate = (ProvidesPredicate)theEObject;
+				T result = caseProvidesPredicate(providesPredicate);
+				if (result == null) result = caseBExpression(providesPredicate);
+				if (result == null) result = caseBSourceLink(providesPredicate);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.NAME_PREDICATE: {
+				NamePredicate namePredicate = (NamePredicate)theEObject;
+				T result = caseNamePredicate(namePredicate);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.NAME_SPACE_PREDICATE: {
+				NameSpacePredicate nameSpacePredicate = (NameSpacePredicate)theEObject;
+				T result = caseNameSpacePredicate(nameSpacePredicate);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.UNIT_NAME_PREDICATE: {
+				UnitNamePredicate unitNamePredicate = (UnitNamePredicate)theEObject;
+				T result = caseUnitNamePredicate(unitNamePredicate);
+				if (result == null) result = caseCapabilityPredicate(unitNamePredicate);
+				if (result == null) result = caseBExpression(unitNamePredicate);
+				if (result == null) result = caseBSourceLink(unitNamePredicate);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.BUILDER_NAME_PREDICATE: {
+				BuilderNamePredicate builderNamePredicate = (BuilderNamePredicate)theEObject;
+				T result = caseBuilderNamePredicate(builderNamePredicate);
+				if (result == null) result = caseBExpression(builderNamePredicate);
+				if (result == null) result = caseBSourceLink(builderNamePredicate);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.INPUT_PREDICATE: {
+				InputPredicate inputPredicate = (InputPredicate)theEObject;
+				T result = caseInputPredicate(inputPredicate);
+				if (result == null) result = caseBExpression(inputPredicate);
+				if (result == null) result = caseBSourceLink(inputPredicate);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT: {
+				UnitConcernContext unitConcernContext = (UnitConcernContext)theEObject;
+				T result = caseUnitConcernContext(unitConcernContext);
+				if (result == null) result = caseBuildConcernContext(unitConcernContext);
+				if (result == null) result = caseBConcernContext(unitConcernContext);
+				if (result == null) result = caseBFunctionContainer(unitConcernContext);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT: {
+				BuilderConcernContext builderConcernContext = (BuilderConcernContext)theEObject;
+				T result = caseBuilderConcernContext(builderConcernContext);
+				if (result == null) result = caseBuildConcernContext(builderConcernContext);
+				if (result == null) result = caseBConcernContext(builderConcernContext);
+				if (result == null) result = caseBFunctionContainer(builderConcernContext);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.OUTPUT_PREDICATE: {
+				OutputPredicate outputPredicate = (OutputPredicate)theEObject;
+				T result = caseOutputPredicate(outputPredicate);
+				if (result == null) result = caseBExpression(outputPredicate);
+				if (result == null) result = caseBSourceLink(outputPredicate);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -515,6 +619,201 @@ public class B3BuildSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Build Concern Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Build Concern Context</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBuildConcernContext(BuildConcernContext object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Requires Predicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Requires Predicate</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRequiresPredicate(RequiresPredicate object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Capability Predicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Capability Predicate</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCapabilityPredicate(CapabilityPredicate object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Implements Predicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Implements Predicate</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseImplementsPredicate(ImplementsPredicate object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Provides Predicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Provides Predicate</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProvidesPredicate(ProvidesPredicate object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Name Predicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Name Predicate</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNamePredicate(NamePredicate object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Name Space Predicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Name Space Predicate</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNameSpacePredicate(NameSpacePredicate object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Unit Name Predicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Unit Name Predicate</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUnitNamePredicate(UnitNamePredicate object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Builder Name Predicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Builder Name Predicate</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBuilderNamePredicate(BuilderNamePredicate object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Input Predicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Input Predicate</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInputPredicate(InputPredicate object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Unit Concern Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Unit Concern Context</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUnitConcernContext(UnitConcernContext object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Builder Concern Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Builder Concern Context</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBuilderConcernContext(BuilderConcernContext object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Output Predicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Output Predicate</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOutputPredicate(OutputPredicate object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>BFunction Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -706,6 +1005,21 @@ public class B3BuildSwitch<T> {
 	 * @generated
 	 */
 	public T caseBExecutionContext(BExecutionContext object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BConcern Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BConcern Context</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBConcernContext(BConcernContext object) {
 		return null;
 	}
 

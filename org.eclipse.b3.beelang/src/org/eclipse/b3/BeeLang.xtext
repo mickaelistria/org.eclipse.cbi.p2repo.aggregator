@@ -84,6 +84,7 @@ ProvidedCapability returns build::VersionedCapability : {build::VersionedCapabil
 	('/' version=VersionLiteral)?  
 	;
 	
+// Capability required by a unit - always refers to capabilities with at least ns/name	
 RequiredCapability returns build::RequiredCapability : {build::RequiredCapability} 
 	('when' '(' condExpr=Expression ')')?  
 	nameSpace=InterfaceName '/' name=CapabilityName 
@@ -91,13 +92,8 @@ RequiredCapability returns build::RequiredCapability : {build::RequiredCapabilit
 	;
 	
 RequiredCapability_Unfiltered returns build::RequiredCapability : {build::RequiredCapability} 
-	nameSpace=InterfaceName '/' name=CapabilityName 
+	(nameSpace=InterfaceName '/')? name=CapabilityName 
 	('/' versionRange=VersionRangeLiteral)?  
-	;
-
-// Requirement on a unit (in build unit namespace)
-RequiredCapability_Unit returns build::RequiredCapability : {build::RequiredCapability} 
-	((name=QID)|("unit"))?
 	;
 	
 // An optionally named sequence of property statements
@@ -142,7 +138,8 @@ PropertySetOperation returns be::BPropertyOperation : {be::BPropertySetOperation
 Synchronization returns build::Synchronization : {build::Synchronization}
 	(builders += SynchronizedBuilder)(',' builders += SynchronizedBuilder)+ ';'
 	;
-	
+
+// TODO: This is really a builder reference (which could be reused/refactored)	
 SynchronizedBuilder returns build::SynchronizedBuilder : {build::SynchronizedBuilder}
 	nameSpace=EscapedQualifiedName '/' name=EscapedQualifiedName ('#' builderName = BuilderName)?
 	| builderName = BuilderName
@@ -194,18 +191,18 @@ WithClause returns be::BWithExpression : {be::BWithExpression}
 		;
 			
 BuildResultReference returns build::BuildResultReference
-	: UnitReference
-	| CapabilityReference
+	: UnitBuildResultReference
+	| CapabilityBuildResultReference
 	| CompoundBuildResultReference
 	;
 	
-UnitReference returns build::BuildResultReference : {build::BuilderReference} 
-	(requiredCapability = RequiredCapability_Unit)? '#' builderName=BuilderName (parameters = ParameterList)? ; 
+UnitBuildResultReference returns build::BuildResultReference : {build::BuilderReference} 
+	("unit")? '#' builderName=BuilderName ('(' parameters = ParameterList ')')? ; 
 
 	
-CapabilityReference returns build::BuildResultReference : {build::BuilderReference}
+CapabilityBuildResultReference returns build::BuildResultReference : {build::BuilderReference}
 	requiredCapability = RequiredCapability_Unfiltered ('#' builderName=BuilderName) ?
-	(parameters = ParameterList)?	 
+	('(' parameters = ParameterList ')')?	 
 	;
 	
 CompoundBuildResultReference returns build::BuildResultReference : {build::CompoundBuildResultReference}
@@ -303,7 +300,7 @@ Concern_Named returns be::BConcern : {be::BConcern}
 	'{' (
 			("properties" propertySets += PropertySet) 
 		| 	(functions+=Function)
-		|	(functions+=Builder)
+		|	(contexts += BuildConcernContext)
 		)* '}' 
 	;
 
@@ -313,7 +310,7 @@ Concern_Anonymous returns be::BConcern : {be::BConcern}
 	'{' (
 			("properties" propertySets += PropertySet) 
 		| 	(functions+=Function)
-		|	(functions+=Builder)		
+		|	(contexts += BuildConcernContext)		
 		)* '}' 
 	;
 
@@ -594,26 +591,138 @@ ConstructorCallExpression returns be::BExpression : {be::BCreateExpression}
 	(contextBlock = ContextBlock_Creation)?
 	;
 
-//Context : 
-//	"context" selector = ContextSelector block = ContextBlock 
-//	;
-//
-//ContextSelector : 
-//	TypeRefSelector | ExpressionSelector | UnitSelector 
-//	;
-//	
-//TypeRefSelector returns ContextSelector :
-//	 type = TypeRef 
-//	 ;
-//	 
-//ExpressionSelector : 
-//	expr = Expression 
-//	;
-//	
-//UnitSelector : 
-//	"unit" interface=QID 
-//	('/' (name=UnitName | namePattern = REGULAR_EXPR) ('/' versionRange=VersionRange)? )? 
-//	;
+// Used in a concern to describe pointcuts/advice for units and/or builders
+BuildConcernContext returns be::BConcernContext : 
+	  UnitConcernContext
+	| BuilderConcernContext
+	;
+	
+// Advice for units consists of Builders, and advice for Builders
+UnitConcernContext returns build::UnitConcernContext : {build::UnitConcernContext}
+	"context" "unit" query = UnitOrExpression
+	'{'
+	( (functions += Builder)
+	| (builderContexts += BuilderConcernContext)
+	)*
+	'}'
+	;
+	
+// Advice for Builders	
+BuilderConcernContext returns build::BuilderConcernContext : {build::BuilderConcernContext}
+	"context" "builder" query = BuilderOrExpression 
+	'{' ( ('+' "input" inputAdditions += Prerequisite) 
+		| ('-' inputRemovals += InputPredicate ';')
+		)*
+		( ('+' "output" outputAdditions += PathVector)
+		| ('-' "output" outputRemovals += OutputPredicate ';'))*
+		// TODO: annotations
+		(funcExpr = BlockExpression)? // replaces the builder's funcExpression TODO: around? etc?
+	'}'
+	;
+
+UnitOrExpression returns be::BExpression :
+	UnitAndExpression ({be::BOrExpression.leftExpr=current} "||" rightExpr=UnitAndExpression)*
+	;
+	
+UnitAndExpression returns be::BExpression :
+	UnitNotOrPrimaryExpression ({be::BAndExpression.leftExpr=current} "&&" rightExpr=UnitNotOrPrimaryExpression)*
+	;
+	
+UnitNotOrPrimaryExpression returns be::BExpression :
+	UnitNotExpression | UnitPrimaryExpression 
+	;
+		
+UnitNotExpression returns be::BExpression : {be::BUnaryOpExpression} 
+	functionName=("!") expr=UnitPrimaryExpression
+	;
+UnitPrimaryExpression returns be::BExpression :
+	  RequiresPredicate
+	| ImplementsPredcicate
+	| ProvidesPredicate
+	| UnitNamePredicate
+	| GroupedUnitPrimaryExpression
+	;
+GroupedUnitPrimaryExpression returns be::BExpression : '(' UnitOrExpression ')' ;
+
+	
+RequiresPredicate returns be::BExpression : {build::RequiresPredicate}
+	(meta ?= "env")? "requires" capabilityPredicate = CapabilityPredicate 
+	;
+	
+ImplementsPredcicate returns be::BExpression: {build::ImplementsPredicate}
+	"implements" type = TypeRef 
+	;
+	
+ProvidesPredicate returns be::BExpression: {build::ProvidesPredicate}
+	"provides" capabilityPredicate = CapabilityPredicate 
+	;
+	
+UnitNamePredicate returns build::CapabilityPredicate : {build::UnitNamePredicate}
+	namePredicate = NamePredicate
+	('/' versionRange = VersionRangeLiteral)?
+	;
+	
+BuilderNamePredicate returns build::BuilderNamePredicate : {build::BuilderNamePredicate}
+	namePredicate = NamePredicate
+	;
+	
+InputPredicate returns build::InputPredicate: {build::InputPredicate}
+	"input"
+	( (capabilityPredicate = CapabilityPredicate)
+	| (capabilityPredicate = UnitNamePredicate)
+	| ("unit")?
+	)
+	'#' builderPredicate = NamePredicate
+	;
+	
+OutputPredicate returns build::OutputPredicate : {build::OutputPredicate}
+	  pathVector = BasePathPredicate
+	| pathVector = PathPredicate
+	| pathPattern = RegexpLiteral
+	;
+	
+BasePathPredicate returns build::PathVectorElement : {build::PathVectorElement}
+	basePath = Path '[' paths += Path (',' paths += Path)* ']'
+	;
+PathPredicate returns build::PathVectorElement : {build::PathVectorElement}
+	paths += Path (',' paths += Path)*
+	;
+
+CapabilityPredicate returns build::CapabilityPredicate : {build::CapabilityPredicate} 
+	nameSpacePredicate = NamePredicate
+	'/' namePredicate = NamePredicate
+	('/' versionRange=VersionRangeLiteral)? 
+	;
+	 
+NamePredicate returns build::NamePredicate : {build::NamePredicate}
+	(name=EscapedQualifiedName  | namePattern = RegexpLiteral | namePattern = WildcardExpression)
+	;
+	
+BuilderOrExpression returns be::BExpression :
+	BuilderAndExpression ({be::BOrExpression.leftExpr=current} "||" rightExpr=BuilderAndExpression)*
+	;
+	
+BuilderAndExpression returns be::BExpression :
+	BuilderNotOrPrimaryExpression ({be::BAndExpression.leftExpr=current} "&&" rightExpr=BuilderNotOrPrimaryExpression)*
+	;
+	
+BuilderNotOrPrimaryExpression returns be::BExpression :
+	BuilderNotExpression | BuilderPrimaryExpression 
+	;
+		
+BuilderNotExpression returns be::BExpression : {be::BUnaryOpExpression} 
+	functionName=("!") expr=BuilderPrimaryExpression
+	;
+	
+BuilderPrimaryExpression returns be::BExpression :
+	  InputPredicate
+	| ProvidesPredicate
+	| BuilderNamePredicate
+	| GroupedBuilderPrimaryExpression
+	;
+	
+GroupedBuilderPrimaryExpression returns be::BExpression : '(' BuilderOrExpression ')' ;
+
 
 ContextBlock returns be::BExpression : {be::BChainedExpression} 
 	'{'  ((expressions +=Function) 

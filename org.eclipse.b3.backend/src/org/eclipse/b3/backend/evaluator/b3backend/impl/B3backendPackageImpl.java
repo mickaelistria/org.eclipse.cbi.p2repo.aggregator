@@ -39,6 +39,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BCase;
 import org.eclipse.b3.backend.evaluator.b3backend.BCatch;
 import org.eclipse.b3.backend.evaluator.b3backend.BChainedExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BConcern;
+import org.eclipse.b3.backend.evaluator.b3backend.BConcernContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BConditionalPropertyOperation;
 import org.eclipse.b3.backend.evaluator.b3backend.BContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression;
@@ -638,6 +639,13 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * @generated
 	 */
 	private EClass bWithExpressionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bConcernContextEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2516,6 +2524,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getBConcern_Contexts() {
+		return (EReference)bConcernEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBWithExpression() {
 		return bWithExpressionEClass;
 	}
@@ -2545,6 +2562,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 */
 	public EReference getBWithExpression_Concerns() {
 		return (EReference)bWithExpressionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBConcernContext() {
+		return bConcernContextEClass;
 	}
 
 	/**
@@ -2988,11 +3014,14 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		createEAttribute(bConcernEClass, BCONCERN__DOCUMENTATION);
 		createEReference(bConcernEClass, BCONCERN__SUPER_CONCERNS);
 		createEReference(bConcernEClass, BCONCERN__PROPERTY_SETS);
+		createEReference(bConcernEClass, BCONCERN__CONTEXTS);
 
 		bWithExpressionEClass = createEClass(BWITH_EXPRESSION);
 		createEReference(bWithExpressionEClass, BWITH_EXPRESSION__REFERENCED_ADVICE);
 		createEReference(bWithExpressionEClass, BWITH_EXPRESSION__PROPERTY_SETS);
 		createEReference(bWithExpressionEClass, BWITH_EXPRESSION__CONCERNS);
+
+		bConcernContextEClass = createEClass(BCONCERN_CONTEXT);
 
 		// Create enums
 		visibilityEEnum = createEEnum(VISIBILITY);
@@ -3110,6 +3139,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		bConcernEClass.getESuperTypes().add(this.getBAdvice());
 		bConcernEClass.getESuperTypes().add(this.getBFunctionContainer());
 		bWithExpressionEClass.getESuperTypes().add(this.getBExpression());
+		bConcernContextEClass.getESuperTypes().add(this.getBFunctionContainer());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(bExpressionEClass, BExpression.class, "BExpression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3544,11 +3574,14 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEAttribute(getBConcern_Documentation(), ecorePackage.getEString(), "documentation", null, 0, 1, BConcern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBConcern_SuperConcerns(), this.getBConcern(), null, "superConcerns", null, 0, -1, BConcern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBConcern_PropertySets(), this.getBPropertySet(), null, "propertySets", null, 0, -1, BConcern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBConcern_Contexts(), this.getBConcernContext(), null, "contexts", null, 0, -1, BConcern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bWithExpressionEClass, BWithExpression.class, "BWithExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBWithExpression_ReferencedAdvice(), this.getBAdvice(), null, "referencedAdvice", null, 0, -1, BWithExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBWithExpression_PropertySets(), this.getBPropertySet(), null, "propertySets", null, 0, -1, BWithExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBWithExpression_Concerns(), this.getBConcern(), null, "concerns", null, 0, -1, BWithExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(bConcernContextEClass, BConcernContext.class, "BConcernContext", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(visibilityEEnum, Visibility.class, "Visibility");

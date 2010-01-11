@@ -86,6 +86,19 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 			case B3BuildPackage.RESOLUTION_STRATEGY_BEST: return createResolutionStrategyBest();
 			case B3BuildPackage.CONTAINER_CONFIGURATION: return createContainerConfiguration();
 			case B3BuildPackage.BUILD_CONTEXT: return createBuildContext();
+			case B3BuildPackage.BUILD_CONCERN_CONTEXT: return createBuildConcernContext();
+			case B3BuildPackage.REQUIRES_PREDICATE: return createRequiresPredicate();
+			case B3BuildPackage.CAPABILITY_PREDICATE: return createCapabilityPredicate();
+			case B3BuildPackage.IMPLEMENTS_PREDICATE: return createImplementsPredicate();
+			case B3BuildPackage.PROVIDES_PREDICATE: return createProvidesPredicate();
+			case B3BuildPackage.NAME_PREDICATE: return createNamePredicate();
+			case B3BuildPackage.NAME_SPACE_PREDICATE: return createNameSpacePredicate();
+			case B3BuildPackage.UNIT_NAME_PREDICATE: return createUnitNamePredicate();
+			case B3BuildPackage.BUILDER_NAME_PREDICATE: return createBuilderNamePredicate();
+			case B3BuildPackage.INPUT_PREDICATE: return createInputPredicate();
+			case B3BuildPackage.UNIT_CONCERN_CONTEXT: return createUnitConcernContext();
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT: return createBuilderConcernContext();
+			case B3BuildPackage.OUTPUT_PREDICATE: return createOutputPredicate();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -287,6 +300,136 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	public BuildContext createBuildContext() {
 		BuildContextImpl buildContext = new BuildContextImpl();
 		return buildContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BuildConcernContext createBuildConcernContext() {
+		BuildConcernContextImpl buildConcernContext = new BuildConcernContextImpl();
+		return buildConcernContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RequiresPredicate createRequiresPredicate() {
+		RequiresPredicateImpl requiresPredicate = new RequiresPredicateImpl();
+		return requiresPredicate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CapabilityPredicate createCapabilityPredicate() {
+		CapabilityPredicateImpl capabilityPredicate = new CapabilityPredicateImpl();
+		return capabilityPredicate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ImplementsPredicate createImplementsPredicate() {
+		ImplementsPredicateImpl implementsPredicate = new ImplementsPredicateImpl();
+		return implementsPredicate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ProvidesPredicate createProvidesPredicate() {
+		ProvidesPredicateImpl providesPredicate = new ProvidesPredicateImpl();
+		return providesPredicate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NamePredicate createNamePredicate() {
+		NamePredicateImpl namePredicate = new NamePredicateImpl();
+		return namePredicate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NameSpacePredicate createNameSpacePredicate() {
+		NameSpacePredicateImpl nameSpacePredicate = new NameSpacePredicateImpl();
+		return nameSpacePredicate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UnitNamePredicate createUnitNamePredicate() {
+		UnitNamePredicateImpl unitNamePredicate = new UnitNamePredicateImpl();
+		return unitNamePredicate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BuilderNamePredicate createBuilderNamePredicate() {
+		BuilderNamePredicateImpl builderNamePredicate = new BuilderNamePredicateImpl();
+		return builderNamePredicate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public InputPredicate createInputPredicate() {
+		InputPredicateImpl inputPredicate = new InputPredicateImpl();
+		return inputPredicate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UnitConcernContext createUnitConcernContext() {
+		UnitConcernContextImpl unitConcernContext = new UnitConcernContextImpl();
+		return unitConcernContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BuilderConcernContext createBuilderConcernContext() {
+		BuilderConcernContextImpl builderConcernContext = new BuilderConcernContextImpl();
+		return builderConcernContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OutputPredicate createOutputPredicate() {
+		OutputPredicateImpl outputPredicate = new OutputPredicateImpl();
+		return outputPredicate;
 	}
 
 	/**

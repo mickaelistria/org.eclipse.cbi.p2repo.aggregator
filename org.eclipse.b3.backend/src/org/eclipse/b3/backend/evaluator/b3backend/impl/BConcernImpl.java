@@ -17,6 +17,7 @@ import java.util.Collection;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BConcern;
+import org.eclipse.b3.backend.evaluator.b3backend.BConcernContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
@@ -48,6 +49,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BConcernImpl#getDocumentation <em>Documentation</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BConcernImpl#getSuperConcerns <em>Super Concerns</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BConcernImpl#getPropertySets <em>Property Sets</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BConcernImpl#getContexts <em>Contexts</em>}</li>
  * </ul>
  * </p>
  *
@@ -130,6 +132,16 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 	 * @ordered
 	 */
 	protected EList<BPropertySet> propertySets;
+
+	/**
+	 * The cached value of the '{@link #getContexts() <em>Contexts</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContexts()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<BConcernContext> contexts;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -233,6 +245,18 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<BConcernContext> getContexts() {
+		if (contexts == null) {
+			contexts = new EObjectContainmentEList<BConcernContext>(BConcernContext.class, this, B3backendPackage.BCONCERN__CONTEXTS);
+		}
+		return contexts;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -255,6 +279,8 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 				return ((InternalEList<?>)getFunctions()).basicRemove(otherEnd, msgs);
 			case B3backendPackage.BCONCERN__PROPERTY_SETS:
 				return ((InternalEList<?>)getPropertySets()).basicRemove(otherEnd, msgs);
+			case B3backendPackage.BCONCERN__CONTEXTS:
+				return ((InternalEList<?>)getContexts()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -277,6 +303,8 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 				return getSuperConcerns();
 			case B3backendPackage.BCONCERN__PROPERTY_SETS:
 				return getPropertySets();
+			case B3backendPackage.BCONCERN__CONTEXTS:
+				return getContexts();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -308,6 +336,10 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 				getPropertySets().clear();
 				getPropertySets().addAll((Collection<? extends BPropertySet>)newValue);
 				return;
+			case B3backendPackage.BCONCERN__CONTEXTS:
+				getContexts().clear();
+				getContexts().addAll((Collection<? extends BConcernContext>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -335,6 +367,9 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 			case B3backendPackage.BCONCERN__PROPERTY_SETS:
 				getPropertySets().clear();
 				return;
+			case B3backendPackage.BCONCERN__CONTEXTS:
+				getContexts().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -357,6 +392,8 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 				return superConcerns != null && !superConcerns.isEmpty();
 			case B3backendPackage.BCONCERN__PROPERTY_SETS:
 				return propertySets != null && !propertySets.isEmpty();
+			case B3backendPackage.BCONCERN__CONTEXTS:
+				return contexts != null && !contexts.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -1374,6 +1374,694 @@ public interface B3BuildPackage extends EPackage {
 	int BUILD_CONTEXT_FEATURE_COUNT = B3backendPackage.BEXECUTION_CONTEXT_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuildConcernContextImpl <em>Build Concern Context</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.BuildConcernContextImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuildConcernContext()
+	 * @generated
+	 */
+	int BUILD_CONCERN_CONTEXT = 23;
+
+	/**
+	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_CONCERN_CONTEXT__FUNCTIONS = B3backendPackage.BCONCERN_CONTEXT__FUNCTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Container Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_CONCERN_CONTEXT__CONTAINER_TYPE = B3backendPackage.BCONCERN_CONTEXT__CONTAINER_TYPE;
+
+	/**
+	 * The number of structural features of the '<em>Build Concern Context</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_CONCERN_CONTEXT_FEATURE_COUNT = B3backendPackage.BCONCERN_CONTEXT_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.RequiresPredicateImpl <em>Requires Predicate</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.RequiresPredicateImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getRequiresPredicate()
+	 * @generated
+	 */
+	int REQUIRES_PREDICATE = 24;
+
+	/**
+	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRES_PREDICATE__LINE_NUMBER = B3backendPackage.BEXPRESSION__LINE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>File Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRES_PREDICATE__FILE_REFERENCE = B3backendPackage.BEXPRESSION__FILE_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Capability Predicate</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRES_PREDICATE__CAPABILITY_PREDICATE = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Requires Predicate</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRES_PREDICATE_FEATURE_COUNT = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.CapabilityPredicateImpl <em>Capability Predicate</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.CapabilityPredicateImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getCapabilityPredicate()
+	 * @generated
+	 */
+	int CAPABILITY_PREDICATE = 25;
+
+	/**
+	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPABILITY_PREDICATE__LINE_NUMBER = B3backendPackage.BEXPRESSION__LINE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>File Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPABILITY_PREDICATE__FILE_REFERENCE = B3backendPackage.BEXPRESSION__FILE_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Name Space Pattern</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPABILITY_PREDICATE__NAME_SPACE_PATTERN = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Version Range</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPABILITY_PREDICATE__VERSION_RANGE = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Name Predicate</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPABILITY_PREDICATE__NAME_PREDICATE = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Name Space Predicate</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPABILITY_PREDICATE__NAME_SPACE_PREDICATE = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Capability Predicate</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPABILITY_PREDICATE_FEATURE_COUNT = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 4;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ImplementsPredicateImpl <em>Implements Predicate</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.ImplementsPredicateImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getImplementsPredicate()
+	 * @generated
+	 */
+	int IMPLEMENTS_PREDICATE = 26;
+
+	/**
+	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPLEMENTS_PREDICATE__LINE_NUMBER = B3backendPackage.BEXPRESSION__LINE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>File Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPLEMENTS_PREDICATE__FILE_REFERENCE = B3backendPackage.BEXPRESSION__FILE_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPLEMENTS_PREDICATE__TYPE = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Implements Predicate</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPLEMENTS_PREDICATE_FEATURE_COUNT = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ProvidesPredicateImpl <em>Provides Predicate</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.ProvidesPredicateImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getProvidesPredicate()
+	 * @generated
+	 */
+	int PROVIDES_PREDICATE = 27;
+
+	/**
+	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDES_PREDICATE__LINE_NUMBER = B3backendPackage.BEXPRESSION__LINE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>File Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDES_PREDICATE__FILE_REFERENCE = B3backendPackage.BEXPRESSION__FILE_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Capability Predicate</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDES_PREDICATE__CAPABILITY_PREDICATE = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Provides Predicate</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDES_PREDICATE_FEATURE_COUNT = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.NamePredicateImpl <em>Name Predicate</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.NamePredicateImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getNamePredicate()
+	 * @generated
+	 */
+	int NAME_PREDICATE = 28;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAME_PREDICATE__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name Pattern</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAME_PREDICATE__NAME_PATTERN = 1;
+
+	/**
+	 * The number of structural features of the '<em>Name Predicate</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAME_PREDICATE_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.NameSpacePredicateImpl <em>Name Space Predicate</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.NameSpacePredicateImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getNameSpacePredicate()
+	 * @generated
+	 */
+	int NAME_SPACE_PREDICATE = 29;
+
+	/**
+	 * The feature id for the '<em><b>Name Space</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAME_SPACE_PREDICATE__NAME_SPACE = 0;
+
+	/**
+	 * The number of structural features of the '<em>Name Space Predicate</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAME_SPACE_PREDICATE_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.UnitNamePredicateImpl <em>Unit Name Predicate</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.UnitNamePredicateImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getUnitNamePredicate()
+	 * @generated
+	 */
+	int UNIT_NAME_PREDICATE = 30;
+
+	/**
+	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_NAME_PREDICATE__LINE_NUMBER = CAPABILITY_PREDICATE__LINE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>File Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_NAME_PREDICATE__FILE_REFERENCE = CAPABILITY_PREDICATE__FILE_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Name Space Pattern</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_NAME_PREDICATE__NAME_SPACE_PATTERN = CAPABILITY_PREDICATE__NAME_SPACE_PATTERN;
+
+	/**
+	 * The feature id for the '<em><b>Version Range</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_NAME_PREDICATE__VERSION_RANGE = CAPABILITY_PREDICATE__VERSION_RANGE;
+
+	/**
+	 * The feature id for the '<em><b>Name Predicate</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_NAME_PREDICATE__NAME_PREDICATE = CAPABILITY_PREDICATE__NAME_PREDICATE;
+
+	/**
+	 * The feature id for the '<em><b>Name Space Predicate</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_NAME_PREDICATE__NAME_SPACE_PREDICATE = CAPABILITY_PREDICATE__NAME_SPACE_PREDICATE;
+
+	/**
+	 * The number of structural features of the '<em>Unit Name Predicate</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_NAME_PREDICATE_FEATURE_COUNT = CAPABILITY_PREDICATE_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderNamePredicateImpl <em>Builder Name Predicate</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.BuilderNamePredicateImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuilderNamePredicate()
+	 * @generated
+	 */
+	int BUILDER_NAME_PREDICATE = 31;
+
+	/**
+	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_NAME_PREDICATE__LINE_NUMBER = B3backendPackage.BEXPRESSION__LINE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>File Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_NAME_PREDICATE__FILE_REFERENCE = B3backendPackage.BEXPRESSION__FILE_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Name Predicate</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_NAME_PREDICATE__NAME_PREDICATE = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Builder Name Predicate</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_NAME_PREDICATE_FEATURE_COUNT = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.InputPredicateImpl <em>Input Predicate</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.InputPredicateImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getInputPredicate()
+	 * @generated
+	 */
+	int INPUT_PREDICATE = 32;
+
+	/**
+	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PREDICATE__LINE_NUMBER = B3backendPackage.BEXPRESSION__LINE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>File Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PREDICATE__FILE_REFERENCE = B3backendPackage.BEXPRESSION__FILE_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Capability Predicate</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PREDICATE__CAPABILITY_PREDICATE = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Builder Predicate</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PREDICATE__BUILDER_PREDICATE = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Input Predicate</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PREDICATE_FEATURE_COUNT = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl <em>Unit Concern Context</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.UnitConcernContextImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getUnitConcernContext()
+	 * @generated
+	 */
+	int UNIT_CONCERN_CONTEXT = 33;
+
+	/**
+	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_CONCERN_CONTEXT__FUNCTIONS = BUILD_CONCERN_CONTEXT__FUNCTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Container Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_CONCERN_CONTEXT__CONTAINER_TYPE = BUILD_CONCERN_CONTEXT__CONTAINER_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Builder Contexts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_CONCERN_CONTEXT__BUILDER_CONTEXTS = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Query</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_CONCERN_CONTEXT__QUERY = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Unit Concern Context</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_CONCERN_CONTEXT_FEATURE_COUNT = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl <em>Builder Concern Context</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.BuilderConcernContextImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuilderConcernContext()
+	 * @generated
+	 */
+	int BUILDER_CONCERN_CONTEXT = 34;
+
+	/**
+	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_CONCERN_CONTEXT__FUNCTIONS = BUILD_CONCERN_CONTEXT__FUNCTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Container Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_CONCERN_CONTEXT__CONTAINER_TYPE = BUILD_CONCERN_CONTEXT__CONTAINER_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Query</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_CONCERN_CONTEXT__QUERY = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Input Additions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_CONCERN_CONTEXT__INPUT_ADDITIONS = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Input Removals</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_CONCERN_CONTEXT__INPUT_REMOVALS = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Output Additions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_CONCERN_CONTEXT__OUTPUT_ADDITIONS = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Output Removals</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_CONCERN_CONTEXT__OUTPUT_REMOVALS = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Func Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_CONCERN_CONTEXT__FUNC_EXPR = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 5;
+
+	/**
+	 * The number of structural features of the '<em>Builder Concern Context</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_CONCERN_CONTEXT_FEATURE_COUNT = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 6;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.OutputPredicateImpl <em>Output Predicate</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.OutputPredicateImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getOutputPredicate()
+	 * @generated
+	 */
+	int OUTPUT_PREDICATE = 35;
+
+	/**
+	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PREDICATE__LINE_NUMBER = B3backendPackage.BEXPRESSION__LINE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>File Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PREDICATE__FILE_REFERENCE = B3backendPackage.BEXPRESSION__FILE_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Path Vector</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PREDICATE__PATH_VECTOR = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Path Pattern</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PREDICATE__PATH_PATTERN = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Output Predicate</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PREDICATE_FEATURE_COUNT = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 2;
+
+	/**
 	 * The meta object id for the '<em>Version Range</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1381,7 +2069,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getVersionRange()
 	 * @generated
 	 */
-	int VERSION_RANGE = 23;
+	int VERSION_RANGE = 36;
 
 	/**
 	 * The meta object id for the '<em>Version</em>' data type.
@@ -1391,7 +2079,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getVersion()
 	 * @generated
 	 */
-	int VERSION = 24;
+	int VERSION = 37;
 
 	/**
 	 * The meta object id for the '<em>URI</em>' data type.
@@ -1401,7 +2089,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getURI()
 	 * @generated
 	 */
-	int URI = 25;
+	int URI = 38;
 
 
 	/**
@@ -2024,6 +2712,389 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getBuildContext();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuildConcernContext <em>Build Concern Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Build Concern Context</em>'.
+	 * @see org.eclipse.b3.build.build.BuildConcernContext
+	 * @generated
+	 */
+	EClass getBuildConcernContext();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.RequiresPredicate <em>Requires Predicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Requires Predicate</em>'.
+	 * @see org.eclipse.b3.build.build.RequiresPredicate
+	 * @generated
+	 */
+	EClass getRequiresPredicate();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.RequiresPredicate#getCapabilityPredicate <em>Capability Predicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Capability Predicate</em>'.
+	 * @see org.eclipse.b3.build.build.RequiresPredicate#getCapabilityPredicate()
+	 * @see #getRequiresPredicate()
+	 * @generated
+	 */
+	EReference getRequiresPredicate_CapabilityPredicate();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.CapabilityPredicate <em>Capability Predicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Capability Predicate</em>'.
+	 * @see org.eclipse.b3.build.build.CapabilityPredicate
+	 * @generated
+	 */
+	EClass getCapabilityPredicate();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.CapabilityPredicate#getNameSpacePattern <em>Name Space Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Name Space Pattern</em>'.
+	 * @see org.eclipse.b3.build.build.CapabilityPredicate#getNameSpacePattern()
+	 * @see #getCapabilityPredicate()
+	 * @generated
+	 */
+	EReference getCapabilityPredicate_NameSpacePattern();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.CapabilityPredicate#getVersionRange <em>Version Range</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Version Range</em>'.
+	 * @see org.eclipse.b3.build.build.CapabilityPredicate#getVersionRange()
+	 * @see #getCapabilityPredicate()
+	 * @generated
+	 */
+	EAttribute getCapabilityPredicate_VersionRange();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.CapabilityPredicate#getNamePredicate <em>Name Predicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Name Predicate</em>'.
+	 * @see org.eclipse.b3.build.build.CapabilityPredicate#getNamePredicate()
+	 * @see #getCapabilityPredicate()
+	 * @generated
+	 */
+	EReference getCapabilityPredicate_NamePredicate();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.CapabilityPredicate#getNameSpacePredicate <em>Name Space Predicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Name Space Predicate</em>'.
+	 * @see org.eclipse.b3.build.build.CapabilityPredicate#getNameSpacePredicate()
+	 * @see #getCapabilityPredicate()
+	 * @generated
+	 */
+	EReference getCapabilityPredicate_NameSpacePredicate();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.ImplementsPredicate <em>Implements Predicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Implements Predicate</em>'.
+	 * @see org.eclipse.b3.build.build.ImplementsPredicate
+	 * @generated
+	 */
+	EClass getImplementsPredicate();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.ImplementsPredicate#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Type</em>'.
+	 * @see org.eclipse.b3.build.build.ImplementsPredicate#getType()
+	 * @see #getImplementsPredicate()
+	 * @generated
+	 */
+	EReference getImplementsPredicate_Type();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.ProvidesPredicate <em>Provides Predicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Provides Predicate</em>'.
+	 * @see org.eclipse.b3.build.build.ProvidesPredicate
+	 * @generated
+	 */
+	EClass getProvidesPredicate();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.ProvidesPredicate#getCapabilityPredicate <em>Capability Predicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Capability Predicate</em>'.
+	 * @see org.eclipse.b3.build.build.ProvidesPredicate#getCapabilityPredicate()
+	 * @see #getProvidesPredicate()
+	 * @generated
+	 */
+	EReference getProvidesPredicate_CapabilityPredicate();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.NamePredicate <em>Name Predicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Name Predicate</em>'.
+	 * @see org.eclipse.b3.build.build.NamePredicate
+	 * @generated
+	 */
+	EClass getNamePredicate();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.NamePredicate#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.eclipse.b3.build.build.NamePredicate#getName()
+	 * @see #getNamePredicate()
+	 * @generated
+	 */
+	EAttribute getNamePredicate_Name();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.NamePredicate#getNamePattern <em>Name Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Name Pattern</em>'.
+	 * @see org.eclipse.b3.build.build.NamePredicate#getNamePattern()
+	 * @see #getNamePredicate()
+	 * @generated
+	 */
+	EReference getNamePredicate_NamePattern();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.NameSpacePredicate <em>Name Space Predicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Name Space Predicate</em>'.
+	 * @see org.eclipse.b3.build.build.NameSpacePredicate
+	 * @generated
+	 */
+	EClass getNameSpacePredicate();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.NameSpacePredicate#getNameSpace <em>Name Space</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name Space</em>'.
+	 * @see org.eclipse.b3.build.build.NameSpacePredicate#getNameSpace()
+	 * @see #getNameSpacePredicate()
+	 * @generated
+	 */
+	EAttribute getNameSpacePredicate_NameSpace();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.UnitNamePredicate <em>Unit Name Predicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Unit Name Predicate</em>'.
+	 * @see org.eclipse.b3.build.build.UnitNamePredicate
+	 * @generated
+	 */
+	EClass getUnitNamePredicate();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuilderNamePredicate <em>Builder Name Predicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Builder Name Predicate</em>'.
+	 * @see org.eclipse.b3.build.build.BuilderNamePredicate
+	 * @generated
+	 */
+	EClass getBuilderNamePredicate();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.BuilderNamePredicate#getNamePredicate <em>Name Predicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Name Predicate</em>'.
+	 * @see org.eclipse.b3.build.build.BuilderNamePredicate#getNamePredicate()
+	 * @see #getBuilderNamePredicate()
+	 * @generated
+	 */
+	EReference getBuilderNamePredicate_NamePredicate();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.InputPredicate <em>Input Predicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Input Predicate</em>'.
+	 * @see org.eclipse.b3.build.build.InputPredicate
+	 * @generated
+	 */
+	EClass getInputPredicate();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.InputPredicate#getCapabilityPredicate <em>Capability Predicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Capability Predicate</em>'.
+	 * @see org.eclipse.b3.build.build.InputPredicate#getCapabilityPredicate()
+	 * @see #getInputPredicate()
+	 * @generated
+	 */
+	EReference getInputPredicate_CapabilityPredicate();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.InputPredicate#getBuilderPredicate <em>Builder Predicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Builder Predicate</em>'.
+	 * @see org.eclipse.b3.build.build.InputPredicate#getBuilderPredicate()
+	 * @see #getInputPredicate()
+	 * @generated
+	 */
+	EReference getInputPredicate_BuilderPredicate();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.UnitConcernContext <em>Unit Concern Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Unit Concern Context</em>'.
+	 * @see org.eclipse.b3.build.build.UnitConcernContext
+	 * @generated
+	 */
+	EClass getUnitConcernContext();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.UnitConcernContext#getBuilderContexts <em>Builder Contexts</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Builder Contexts</em>'.
+	 * @see org.eclipse.b3.build.build.UnitConcernContext#getBuilderContexts()
+	 * @see #getUnitConcernContext()
+	 * @generated
+	 */
+	EReference getUnitConcernContext_BuilderContexts();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.UnitConcernContext#getQuery <em>Query</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Query</em>'.
+	 * @see org.eclipse.b3.build.build.UnitConcernContext#getQuery()
+	 * @see #getUnitConcernContext()
+	 * @generated
+	 */
+	EReference getUnitConcernContext_Query();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuilderConcernContext <em>Builder Concern Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Builder Concern Context</em>'.
+	 * @see org.eclipse.b3.build.build.BuilderConcernContext
+	 * @generated
+	 */
+	EClass getBuilderConcernContext();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.BuilderConcernContext#getQuery <em>Query</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Query</em>'.
+	 * @see org.eclipse.b3.build.build.BuilderConcernContext#getQuery()
+	 * @see #getBuilderConcernContext()
+	 * @generated
+	 */
+	EReference getBuilderConcernContext_Query();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BuilderConcernContext#getInputAdditions <em>Input Additions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Input Additions</em>'.
+	 * @see org.eclipse.b3.build.build.BuilderConcernContext#getInputAdditions()
+	 * @see #getBuilderConcernContext()
+	 * @generated
+	 */
+	EReference getBuilderConcernContext_InputAdditions();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BuilderConcernContext#getInputRemovals <em>Input Removals</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Input Removals</em>'.
+	 * @see org.eclipse.b3.build.build.BuilderConcernContext#getInputRemovals()
+	 * @see #getBuilderConcernContext()
+	 * @generated
+	 */
+	EReference getBuilderConcernContext_InputRemovals();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BuilderConcernContext#getOutputAdditions <em>Output Additions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Output Additions</em>'.
+	 * @see org.eclipse.b3.build.build.BuilderConcernContext#getOutputAdditions()
+	 * @see #getBuilderConcernContext()
+	 * @generated
+	 */
+	EReference getBuilderConcernContext_OutputAdditions();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BuilderConcernContext#getOutputRemovals <em>Output Removals</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Output Removals</em>'.
+	 * @see org.eclipse.b3.build.build.BuilderConcernContext#getOutputRemovals()
+	 * @see #getBuilderConcernContext()
+	 * @generated
+	 */
+	EReference getBuilderConcernContext_OutputRemovals();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.BuilderConcernContext#getFuncExpr <em>Func Expr</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Func Expr</em>'.
+	 * @see org.eclipse.b3.build.build.BuilderConcernContext#getFuncExpr()
+	 * @see #getBuilderConcernContext()
+	 * @generated
+	 */
+	EReference getBuilderConcernContext_FuncExpr();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.OutputPredicate <em>Output Predicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Output Predicate</em>'.
+	 * @see org.eclipse.b3.build.build.OutputPredicate
+	 * @generated
+	 */
+	EClass getOutputPredicate();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.OutputPredicate#getPathVector <em>Path Vector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Path Vector</em>'.
+	 * @see org.eclipse.b3.build.build.OutputPredicate#getPathVector()
+	 * @see #getOutputPredicate()
+	 * @generated
+	 */
+	EReference getOutputPredicate_PathVector();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.OutputPredicate#getPathPattern <em>Path Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Path Pattern</em>'.
+	 * @see org.eclipse.b3.build.build.OutputPredicate#getPathPattern()
+	 * @see #getOutputPredicate()
+	 * @generated
+	 */
+	EReference getOutputPredicate_PathPattern();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuilderInput <em>Builder Input</em>}'.
@@ -2780,6 +3851,320 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EClass BUILD_CONTEXT = eINSTANCE.getBuildContext();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuildConcernContextImpl <em>Build Concern Context</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.impl.BuildConcernContextImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuildConcernContext()
+		 * @generated
+		 */
+		EClass BUILD_CONCERN_CONTEXT = eINSTANCE.getBuildConcernContext();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.RequiresPredicateImpl <em>Requires Predicate</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.impl.RequiresPredicateImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getRequiresPredicate()
+		 * @generated
+		 */
+		EClass REQUIRES_PREDICATE = eINSTANCE.getRequiresPredicate();
+
+		/**
+		 * The meta object literal for the '<em><b>Capability Predicate</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference REQUIRES_PREDICATE__CAPABILITY_PREDICATE = eINSTANCE.getRequiresPredicate_CapabilityPredicate();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.CapabilityPredicateImpl <em>Capability Predicate</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.impl.CapabilityPredicateImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getCapabilityPredicate()
+		 * @generated
+		 */
+		EClass CAPABILITY_PREDICATE = eINSTANCE.getCapabilityPredicate();
+
+		/**
+		 * The meta object literal for the '<em><b>Name Space Pattern</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CAPABILITY_PREDICATE__NAME_SPACE_PATTERN = eINSTANCE.getCapabilityPredicate_NameSpacePattern();
+
+		/**
+		 * The meta object literal for the '<em><b>Version Range</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CAPABILITY_PREDICATE__VERSION_RANGE = eINSTANCE.getCapabilityPredicate_VersionRange();
+
+		/**
+		 * The meta object literal for the '<em><b>Name Predicate</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CAPABILITY_PREDICATE__NAME_PREDICATE = eINSTANCE.getCapabilityPredicate_NamePredicate();
+
+		/**
+		 * The meta object literal for the '<em><b>Name Space Predicate</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CAPABILITY_PREDICATE__NAME_SPACE_PREDICATE = eINSTANCE.getCapabilityPredicate_NameSpacePredicate();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.ImplementsPredicateImpl <em>Implements Predicate</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.impl.ImplementsPredicateImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getImplementsPredicate()
+		 * @generated
+		 */
+		EClass IMPLEMENTS_PREDICATE = eINSTANCE.getImplementsPredicate();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IMPLEMENTS_PREDICATE__TYPE = eINSTANCE.getImplementsPredicate_Type();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.ProvidesPredicateImpl <em>Provides Predicate</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.impl.ProvidesPredicateImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getProvidesPredicate()
+		 * @generated
+		 */
+		EClass PROVIDES_PREDICATE = eINSTANCE.getProvidesPredicate();
+
+		/**
+		 * The meta object literal for the '<em><b>Capability Predicate</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROVIDES_PREDICATE__CAPABILITY_PREDICATE = eINSTANCE.getProvidesPredicate_CapabilityPredicate();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.NamePredicateImpl <em>Name Predicate</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.impl.NamePredicateImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getNamePredicate()
+		 * @generated
+		 */
+		EClass NAME_PREDICATE = eINSTANCE.getNamePredicate();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NAME_PREDICATE__NAME = eINSTANCE.getNamePredicate_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Name Pattern</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NAME_PREDICATE__NAME_PATTERN = eINSTANCE.getNamePredicate_NamePattern();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.NameSpacePredicateImpl <em>Name Space Predicate</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.impl.NameSpacePredicateImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getNameSpacePredicate()
+		 * @generated
+		 */
+		EClass NAME_SPACE_PREDICATE = eINSTANCE.getNameSpacePredicate();
+
+		/**
+		 * The meta object literal for the '<em><b>Name Space</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NAME_SPACE_PREDICATE__NAME_SPACE = eINSTANCE.getNameSpacePredicate_NameSpace();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.UnitNamePredicateImpl <em>Unit Name Predicate</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.impl.UnitNamePredicateImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getUnitNamePredicate()
+		 * @generated
+		 */
+		EClass UNIT_NAME_PREDICATE = eINSTANCE.getUnitNamePredicate();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuilderNamePredicateImpl <em>Builder Name Predicate</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.impl.BuilderNamePredicateImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuilderNamePredicate()
+		 * @generated
+		 */
+		EClass BUILDER_NAME_PREDICATE = eINSTANCE.getBuilderNamePredicate();
+
+		/**
+		 * The meta object literal for the '<em><b>Name Predicate</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BUILDER_NAME_PREDICATE__NAME_PREDICATE = eINSTANCE.getBuilderNamePredicate_NamePredicate();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.InputPredicateImpl <em>Input Predicate</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.impl.InputPredicateImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getInputPredicate()
+		 * @generated
+		 */
+		EClass INPUT_PREDICATE = eINSTANCE.getInputPredicate();
+
+		/**
+		 * The meta object literal for the '<em><b>Capability Predicate</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INPUT_PREDICATE__CAPABILITY_PREDICATE = eINSTANCE.getInputPredicate_CapabilityPredicate();
+
+		/**
+		 * The meta object literal for the '<em><b>Builder Predicate</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INPUT_PREDICATE__BUILDER_PREDICATE = eINSTANCE.getInputPredicate_BuilderPredicate();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl <em>Unit Concern Context</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.impl.UnitConcernContextImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getUnitConcernContext()
+		 * @generated
+		 */
+		EClass UNIT_CONCERN_CONTEXT = eINSTANCE.getUnitConcernContext();
+
+		/**
+		 * The meta object literal for the '<em><b>Builder Contexts</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UNIT_CONCERN_CONTEXT__BUILDER_CONTEXTS = eINSTANCE.getUnitConcernContext_BuilderContexts();
+
+		/**
+		 * The meta object literal for the '<em><b>Query</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UNIT_CONCERN_CONTEXT__QUERY = eINSTANCE.getUnitConcernContext_Query();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl <em>Builder Concern Context</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.impl.BuilderConcernContextImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuilderConcernContext()
+		 * @generated
+		 */
+		EClass BUILDER_CONCERN_CONTEXT = eINSTANCE.getBuilderConcernContext();
+
+		/**
+		 * The meta object literal for the '<em><b>Query</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BUILDER_CONCERN_CONTEXT__QUERY = eINSTANCE.getBuilderConcernContext_Query();
+
+		/**
+		 * The meta object literal for the '<em><b>Input Additions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BUILDER_CONCERN_CONTEXT__INPUT_ADDITIONS = eINSTANCE.getBuilderConcernContext_InputAdditions();
+
+		/**
+		 * The meta object literal for the '<em><b>Input Removals</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BUILDER_CONCERN_CONTEXT__INPUT_REMOVALS = eINSTANCE.getBuilderConcernContext_InputRemovals();
+
+		/**
+		 * The meta object literal for the '<em><b>Output Additions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BUILDER_CONCERN_CONTEXT__OUTPUT_ADDITIONS = eINSTANCE.getBuilderConcernContext_OutputAdditions();
+
+		/**
+		 * The meta object literal for the '<em><b>Output Removals</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BUILDER_CONCERN_CONTEXT__OUTPUT_REMOVALS = eINSTANCE.getBuilderConcernContext_OutputRemovals();
+
+		/**
+		 * The meta object literal for the '<em><b>Func Expr</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BUILDER_CONCERN_CONTEXT__FUNC_EXPR = eINSTANCE.getBuilderConcernContext_FuncExpr();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.OutputPredicateImpl <em>Output Predicate</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.impl.OutputPredicateImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getOutputPredicate()
+		 * @generated
+		 */
+		EClass OUTPUT_PREDICATE = eINSTANCE.getOutputPredicate();
+
+		/**
+		 * The meta object literal for the '<em><b>Path Vector</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OUTPUT_PREDICATE__PATH_VECTOR = eINSTANCE.getOutputPredicate_PathVector();
+
+		/**
+		 * The meta object literal for the '<em><b>Path Pattern</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OUTPUT_PREDICATE__PATH_PATTERN = eINSTANCE.getOutputPredicate_PathPattern();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuilderInputImpl <em>Builder Input</em>}' class.

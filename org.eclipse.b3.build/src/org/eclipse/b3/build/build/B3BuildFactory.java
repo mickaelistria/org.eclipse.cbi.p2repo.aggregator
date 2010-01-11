@@ -170,6 +170,123 @@ public interface B3BuildFactory extends EFactory {
 	BuildContext createBuildContext();
 
 	/**
+	 * Returns a new object of class '<em>Build Concern Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Build Concern Context</em>'.
+	 * @generated
+	 */
+	BuildConcernContext createBuildConcernContext();
+
+	/**
+	 * Returns a new object of class '<em>Requires Predicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Requires Predicate</em>'.
+	 * @generated
+	 */
+	RequiresPredicate createRequiresPredicate();
+
+	/**
+	 * Returns a new object of class '<em>Capability Predicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Capability Predicate</em>'.
+	 * @generated
+	 */
+	CapabilityPredicate createCapabilityPredicate();
+
+	/**
+	 * Returns a new object of class '<em>Implements Predicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Implements Predicate</em>'.
+	 * @generated
+	 */
+	ImplementsPredicate createImplementsPredicate();
+
+	/**
+	 * Returns a new object of class '<em>Provides Predicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Provides Predicate</em>'.
+	 * @generated
+	 */
+	ProvidesPredicate createProvidesPredicate();
+
+	/**
+	 * Returns a new object of class '<em>Name Predicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Name Predicate</em>'.
+	 * @generated
+	 */
+	NamePredicate createNamePredicate();
+
+	/**
+	 * Returns a new object of class '<em>Name Space Predicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Name Space Predicate</em>'.
+	 * @generated
+	 */
+	NameSpacePredicate createNameSpacePredicate();
+
+	/**
+	 * Returns a new object of class '<em>Unit Name Predicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Unit Name Predicate</em>'.
+	 * @generated
+	 */
+	UnitNamePredicate createUnitNamePredicate();
+
+	/**
+	 * Returns a new object of class '<em>Builder Name Predicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Builder Name Predicate</em>'.
+	 * @generated
+	 */
+	BuilderNamePredicate createBuilderNamePredicate();
+
+	/**
+	 * Returns a new object of class '<em>Input Predicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Input Predicate</em>'.
+	 * @generated
+	 */
+	InputPredicate createInputPredicate();
+
+	/**
+	 * Returns a new object of class '<em>Unit Concern Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Unit Concern Context</em>'.
+	 * @generated
+	 */
+	UnitConcernContext createUnitConcernContext();
+
+	/**
+	 * Returns a new object of class '<em>Builder Concern Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Builder Concern Context</em>'.
+	 * @generated
+	 */
+	BuilderConcernContext createBuilderConcernContext();
+
+	/**
+	 * Returns a new object of class '<em>Output Predicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Output Predicate</em>'.
+	 * @generated
+	 */
+	OutputPredicate createOutputPredicate();
+
+	/**
 	 * Returns a new object of class '<em>Builder Input</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
