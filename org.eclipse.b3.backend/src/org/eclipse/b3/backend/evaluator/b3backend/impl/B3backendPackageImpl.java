@@ -3245,9 +3245,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 
 		addEOperation(bExecutionContextEClass, ecorePackage.getEBoolean(), "isPropertyScope", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(bExecutionContextEClass, this.getB3DynamicClassLoader(), "getClassLoader", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getB3EngineException());
-
 		op = addEOperation(bExecutionContextEClass, null, "getContext", 0, 1, IS_UNIQUE, IS_ORDERED);
 		ETypeParameter t1 = addETypeParameter(op, "T");
 		g1 = createEGenericType(ecorePackage.getEJavaClass());

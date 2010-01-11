@@ -823,7 +823,6 @@
           <layoutConstraint xmi:type="notation:Location" xmi:id="_2UYage5TEd67DZoMEVprfQ"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="__Qc0kPk-Ed6fhZ-cYf2Uvg" type="2002">
-          <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//BExecutionContext/getClassLoader"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="__Qc0kfk-Ed6fhZ-cYf2Uvg"/>
         </children>
         <styles xmi:type="notation:DrawerStyle" xmi:id="_HcXVpc-IEd6QUfNJL03zQw"/>

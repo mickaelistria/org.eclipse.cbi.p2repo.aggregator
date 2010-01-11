@@ -108,7 +108,6 @@
       <eParameters name="types" eType="#//TypeArray"/>
     </eOperations>
     <eOperations name="isPropertyScope" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eOperations name="getClassLoader" eType="#//B3DynamicClassLoader" eExceptions="#//B3EngineException"/>
     <eOperations name="getContext" eExceptions="#//B3EngineException">
       <eGenericType eTypeParameter="#//BExecutionContext/getContext/T"/>
       <eTypeParameters name="T"/>

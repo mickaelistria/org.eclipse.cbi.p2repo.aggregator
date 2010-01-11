@@ -12,7 +12,6 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.Collection;
-import org.eclipse.b3.backend.core.B3DynamicClassLoader;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,10 +32,8 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
-import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BFileReference;
-import org.eclipse.b3.backend.evaluator.b3backend.BGuardExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BGuardFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BInnerContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction;
@@ -617,19 +614,6 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 */
 	public boolean isPropertyScope() {
 		return false;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Returns the class loader from the parent context. If no parent is found returning a class loader
-	 * a {@link B3NoContextException} is thrown.
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public B3DynamicClassLoader getClassLoader() throws B3EngineException {
-		if(getParentContext() == null)
-			throw new B3NoContextException("SystemContext");
-		return getParentContext().getClassLoader();
 	}
 
 	/**

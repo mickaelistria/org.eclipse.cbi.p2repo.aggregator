@@ -217,14 +217,6 @@ public interface BExecutionContext extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" dataType="org.eclipse.b3.backend.evaluator.b3backend.B3DynamicClassLoader" exceptions="org.eclipse.b3.backend.evaluator.b3backend.B3EngineException"
-	 * @generated
-	 */
-	B3DynamicClassLoader getClassLoader() throws B3EngineException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.B3EngineException"
 	 * @generated
 	 */
