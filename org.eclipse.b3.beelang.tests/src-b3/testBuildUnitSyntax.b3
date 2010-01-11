@@ -1,0 +1,104 @@
+/*
+* Test syntax of build unit and related concerns
+*/
+import java.util.List; // cheat, need a type, don't have the actual types yet...
+import java.util.Map; // - " -
+
+function main(List argv) {
+	testBuilUnitSyntax();
+}
+function testBuildUnitSyntax() {
+	true; // test is ok if this file can be parsed without errors
+}
+/**
+* Test the mix of statements (function, unit and builder contexts).
+*/
+concern TestingBuildUnitConcernSyntaxSimple {
+	// define functions
+	function foo() : "foo";
+	
+	// implents with type reference
+	context unit implements List { }
+	
+	function bar() : "bar";
+	
+	context builder someBuilder { }
+	
+	function fee() : "fee";
+}
+/**
+* Test all options regarding selection of units
+*/ 
+concern TestingUnitContextSyntax {
+	
+	//--requires
+	// ns, name (no version)
+	context unit requires a.b/c.d { }
+
+	// any ns, any name
+	context unit requires _/_ { }
+
+	// regexp namespace and name (check for osgi.*, and org.myorg.*
+	context unit requires ~/osgi\..*/ / ~/org\.myorg\..*/ / 1.0.0 { }
+	
+	// ns, name, version range in short form
+	context unit requires a.b/c.d/1.0.0 { }
+	
+	// ns, name, version range in full form
+	context unit requires a.b/c.d/[1.0.0, 2.0.0] { }
+	
+	//--provides
+	context unit provides a.b/c.d/1.0.0.qualifier { }
+	
+	//--unit name
+	context unit _ { }
+	context unit _/1.0.0 { }
+	context unit ~/org\.myorg\..*/ { }
+	context unit "my unit with a funny name & stuff" { }
+	
+	// logical expressions selecting the unit
+	context unit _ && implements List && implements Map && requires a/b/[0.0.0, 9.9.9] || !~/org\.myorg\.fixed/
+	{ }
+}
+concern TestingBuilderContextSyntax {
+	// addresses builder using any input in same unit
+	context builder input #_ {}
+	// same as above, but explicit
+	context builder input unit#_ {}
+	// addresses builder with a complex name in same unit
+	context builder input unit#a.^builder.called.wanda {}
+
+	// selecting a builder that provides a capability	
+	context builder provides a / b {}
+	
+	// selecting a builder that provides a capability of a particular version
+	context builder provides a / c  / 2.0.0.someQualifier {}
+	context builder _ {}
+	context builder "a.builder.with.a.qualified.type" {}
+	context builder input unit#foo {}
+	
+	// regexp for unit reference
+	context builder input ~/my\.unit\..*/#_ {}
+	// regexp for ns and name capability reference
+	context builder input ~/osgi\..*/ / ~/my\.unit\..*/ / 1.0.0 #_ {}
+}
+concern TestingNestedBuilderContextSyntax {
+	context unit _ {
+		context builder input #foo {}
+		context builder input #bar {}
+		builder bar {
+			input { #somebuilder; }
+			output { basePath [somePath/foo]; }
+		}
+	}
+}
+concern TestingBuilderContextBody {
+	context builder _ {
+		+ input when ($this.property.is.set) a / b /1.0.0 #foo ("hello", "goodbye");
+		- input a / b#c ;
+		- input _#x ;
+		+ output /a/basePath [ subpathA, subpathB/c];
+		- output ~/\/a\/b.*/;
+		- output /a/basePath [subpathX];
+	}
+}
