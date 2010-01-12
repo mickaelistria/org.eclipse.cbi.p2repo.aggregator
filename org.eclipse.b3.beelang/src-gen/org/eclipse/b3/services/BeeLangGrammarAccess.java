@@ -6306,28 +6306,28 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cRequiresPredicateAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cMetaAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final Keyword cMetaMetaKeyword_1_0 = (Keyword)cMetaAssignment_1.eContents().get(0);
+		private final Keyword cMetaEnvKeyword_1_0 = (Keyword)cMetaAssignment_1.eContents().get(0);
 		private final Keyword cRequiresKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cCapabilityPredicateAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cCapabilityPredicateCapabilityPredicateParserRuleCall_3_0 = (RuleCall)cCapabilityPredicateAssignment_3.eContents().get(0);
 		
 		//RequiresPredicate returns be::BExpression:
-		//  {build::RequiresPredicate} meta?="meta"? "requires" capabilityPredicate=
+		//  {build::RequiresPredicate} meta?="env"? "requires" capabilityPredicate=
 		//  CapabilityPredicate;
 		public ParserRule getRule() { return rule; }
 
-		//{build::RequiresPredicate} meta?="meta"? "requires" capabilityPredicate=
+		//{build::RequiresPredicate} meta?="env"? "requires" capabilityPredicate=
 		//CapabilityPredicate
 		public Group getGroup() { return cGroup; }
 
 		//{build::RequiresPredicate}
 		public Action getRequiresPredicateAction_0() { return cRequiresPredicateAction_0; }
 
-		//meta?="meta"?
+		//meta?="env"?
 		public Assignment getMetaAssignment_1() { return cMetaAssignment_1; }
 
-		//"meta"
-		public Keyword getMetaMetaKeyword_1_0() { return cMetaMetaKeyword_1_0; }
+		//"env"
+		public Keyword getMetaEnvKeyword_1_0() { return cMetaEnvKeyword_1_0; }
 
 		//"requires"
 		public Keyword getRequiresKeyword_2() { return cRequiresKeyword_2; }
@@ -10237,7 +10237,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//RequiresPredicate returns be::BExpression:
-	//  {build::RequiresPredicate} meta?="meta"? "requires" capabilityPredicate=
+	//  {build::RequiresPredicate} meta?="env"? "requires" capabilityPredicate=
 	//  CapabilityPredicate;
 	public RequiresPredicateElements getRequiresPredicateAccess() {
 		return (pRequiresPredicate != null) ? pRequiresPredicate : (pRequiresPredicate = new RequiresPredicateElements());

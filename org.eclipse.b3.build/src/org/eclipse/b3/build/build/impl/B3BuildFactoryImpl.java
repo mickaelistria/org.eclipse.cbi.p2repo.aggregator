@@ -80,7 +80,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 			case B3BuildPackage.PATH_VECTOR_ELEMENT: return createPathVectorElement();
 			case B3BuildPackage.SYNCHRONIZATION: return createSynchronization();
 			case B3BuildPackage.SYNCHRONIZED_BUILDER: return createSynchronizedBuilder();
-			case B3BuildPackage.REPOSITORY_CONFIGURATION: return createRepositoryConfiguration();
 			case B3BuildPackage.REPOSITORY_DECLARATION: return createRepositoryDeclaration();
 			case B3BuildPackage.RESOLUTION_STRATEGY_FIRST: return createResolutionStrategyFirst();
 			case B3BuildPackage.RESOLUTION_STRATEGY_BEST: return createResolutionStrategyBest();
@@ -240,16 +239,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	public SynchronizedBuilder createSynchronizedBuilder() {
 		SynchronizedBuilderImpl synchronizedBuilder = new SynchronizedBuilderImpl();
 		return synchronizedBuilder;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RepositoryConfiguration createRepositoryConfiguration() {
-		RepositoryConfigurationImpl repositoryConfiguration = new RepositoryConfigurationImpl();
-		return repositoryConfiguration;
 	}
 
 	/**

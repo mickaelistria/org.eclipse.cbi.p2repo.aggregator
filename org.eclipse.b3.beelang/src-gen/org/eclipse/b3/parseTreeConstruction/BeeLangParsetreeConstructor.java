@@ -28482,12 +28482,12 @@ protected class GroupedUnitPrimaryExpression_RightParenthesisKeyword_2 extends K
 /************ begin Rule RequiresPredicate ****************
  *
  * RequiresPredicate returns be::BExpression:
- *   {build::RequiresPredicate} meta?="meta"? "requires" capabilityPredicate=
+ *   {build::RequiresPredicate} meta?="env"? "requires" capabilityPredicate=
  *   CapabilityPredicate;
  *
  **/
 
-// {build::RequiresPredicate} meta?="meta"? "requires" capabilityPredicate=
+// {build::RequiresPredicate} meta?="env"? "requires" capabilityPredicate=
 // CapabilityPredicate
 protected class RequiresPredicate_Group extends GroupToken {
 	
@@ -28543,7 +28543,7 @@ protected class RequiresPredicate_RequiresPredicateAction_0 extends ActionToken 
 	}
 }
 
-// meta?="meta"?
+// meta?="env"?
 protected class RequiresPredicate_MetaAssignment_1 extends AssignmentToken  {
 	
 	public RequiresPredicate_MetaAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -28569,7 +28569,7 @@ protected class RequiresPredicate_MetaAssignment_1 extends AssignmentToken  {
 		IInstanceDescription obj = current.cloneAndConsume("meta");
 		if(Boolean.TRUE.equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
 			type = AssignmentType.KW;
-			element = grammarAccess.getRequiresPredicateAccess().getMetaMetaKeyword_1_0();
+			element = grammarAccess.getRequiresPredicateAccess().getMetaEnvKeyword_1_0();
 			return obj;
 		}
 		return null;

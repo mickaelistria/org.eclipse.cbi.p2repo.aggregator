@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class RepositoryConfigurationImpl extends EObjectImpl implements RepositoryConfiguration {
+public abstract class RepositoryConfigurationImpl extends EObjectImpl implements RepositoryConfiguration {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

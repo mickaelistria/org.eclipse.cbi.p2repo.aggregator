@@ -11564,9 +11564,9 @@ ruleRequiresPredicate returns [EObject current=null]
     }
 )(
 (
-		lv_meta_1_0=	'meta' 
+		lv_meta_1_0=	'env' 
     {
-        createLeafNode(grammarAccess.getRequiresPredicateAccess().getMetaMetaKeyword_1_0(), "meta"); 
+        createLeafNode(grammarAccess.getRequiresPredicateAccess().getMetaEnvKeyword_1_0(), "meta"); 
     }
  
 	    {
@@ -11576,7 +11576,7 @@ ruleRequiresPredicate returns [EObject current=null]
 	        }
 	        
 	        try {
-	       		set($current, "meta", true, "meta", lastConsumedNode);
+	       		set($current, "meta", true, "env", lastConsumedNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }

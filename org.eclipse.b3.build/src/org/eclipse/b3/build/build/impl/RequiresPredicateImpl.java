@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.b3.build.build.impl.RequiresPredicateImpl#getCapabilityPredicate <em>Capability Predicate</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.RequiresPredicateImpl#isMeta <em>Meta</em>}</li>
  * </ul>
  * </p>
  *
@@ -43,6 +44,25 @@ public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPr
 	 * @ordered
 	 */
 	protected CapabilityPredicate capabilityPredicate;
+
+	/**
+	 * The default value of the '{@link #isMeta() <em>Meta</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isMeta()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean META_EDEFAULT = false;
+	/**
+	 * The cached value of the '{@link #isMeta() <em>Meta</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isMeta()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean meta = META_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -111,6 +131,27 @@ public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isMeta() {
+		return meta;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMeta(boolean newMeta) {
+		boolean oldMeta = meta;
+		meta = newMeta;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.REQUIRES_PREDICATE__META, oldMeta, meta));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -130,6 +171,8 @@ public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPr
 		switch (featureID) {
 			case B3BuildPackage.REQUIRES_PREDICATE__CAPABILITY_PREDICATE:
 				return getCapabilityPredicate();
+			case B3BuildPackage.REQUIRES_PREDICATE__META:
+				return isMeta();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -144,6 +187,9 @@ public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPr
 		switch (featureID) {
 			case B3BuildPackage.REQUIRES_PREDICATE__CAPABILITY_PREDICATE:
 				setCapabilityPredicate((CapabilityPredicate)newValue);
+				return;
+			case B3BuildPackage.REQUIRES_PREDICATE__META:
+				setMeta((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -160,6 +206,9 @@ public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPr
 			case B3BuildPackage.REQUIRES_PREDICATE__CAPABILITY_PREDICATE:
 				setCapabilityPredicate((CapabilityPredicate)null);
 				return;
+			case B3BuildPackage.REQUIRES_PREDICATE__META:
+				setMeta(META_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -174,8 +223,26 @@ public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPr
 		switch (featureID) {
 			case B3BuildPackage.REQUIRES_PREDICATE__CAPABILITY_PREDICATE:
 				return capabilityPredicate != null;
+			case B3BuildPackage.REQUIRES_PREDICATE__META:
+				return meta != META_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (meta: ");
+		result.append(meta);
+		result.append(')');
+		return result.toString();
 	}
 
 } //RequiresPredicateImpl

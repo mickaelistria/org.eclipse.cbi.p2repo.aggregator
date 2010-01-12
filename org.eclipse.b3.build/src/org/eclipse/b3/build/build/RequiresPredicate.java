@@ -17,6 +17,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.eclipse.b3.build.build.RequiresPredicate#getCapabilityPredicate <em>Capability Predicate</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.RequiresPredicate#isMeta <em>Meta</em>}</li>
  * </ul>
  * </p>
  *
@@ -50,5 +51,31 @@ public interface RequiresPredicate extends BExpression {
 	 * @generated
 	 */
 	void setCapabilityPredicate(CapabilityPredicate value);
+
+	/**
+	 * Returns the value of the '<em><b>Meta</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Meta</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Meta</em>' attribute.
+	 * @see #setMeta(boolean)
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getRequiresPredicate_Meta()
+	 * @model
+	 * @generated
+	 */
+	boolean isMeta();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.RequiresPredicate#isMeta <em>Meta</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Meta</em>' attribute.
+	 * @see #isMeta()
+	 * @generated
+	 */
+	void setMeta(boolean value);
 
 } // RequiresPredicate

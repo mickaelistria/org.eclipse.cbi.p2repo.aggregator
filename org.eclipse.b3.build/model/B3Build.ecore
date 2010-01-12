@@ -118,7 +118,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="builderName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RepositoryConfiguration"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RepositoryConfiguration" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="RepositoryDeclaration" eSuperTypes="#//RepositoryConfiguration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="#//URI"/>

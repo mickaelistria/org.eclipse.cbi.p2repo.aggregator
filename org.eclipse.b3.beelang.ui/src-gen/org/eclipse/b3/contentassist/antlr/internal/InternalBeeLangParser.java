@@ -22,7 +22,7 @@ import java.util.Map;
 import java.util.HashMap;
 public class InternalBeeLangParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_PID", "RULE_INT", "RULE_HEX", "RULE_EXT_INT", "RULE_DOCUMENTATION", "RULE_REGULAR_EXPR", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'='", "'+='", "'-='", "'*='", "'/='", "'%='", "'~='", "'=='", "'==='", "'!='", "'!=='", "'>='", "'<='", "'>'", "'<'", "'var'", "'+'", "'-'", "'*'", "'/'", "'%'", "'!'", "'++'", "'--'", "'input'", "'output'", "'properties'", "'unit'", "'true'", "'false'", "'['", "'('", "']'", "')'", "'super'", "'this'", "'.'", "'@'", "'$'", "'&'", "':'", "'?'", "'public'", "'private'", "'parallel'", "'sequential'", "'import'", "';'", "'as'", "'{'", "'}'", "'version'", "'implements'", "','", "'default'", "'provides'", "'requires'", "'env'", "'repositories'", "'containers'", "'when'", "'extends'", "'#'", "'annotations'", "'with'", "'concern'", "'builder'", "'precondition'", "'postcondition'", "'repository'", "'select-first'", "'select-best'", "'container'", "'agent'", "'function'", "'=>'", "'cached'", "'||'", "'&&'", "'_'", "'throw'", "'try'", "'endtry'", "'finally'", "'catch'", "'switch'", "'endswitch'", "'case'", "'if'", "'then'", "'endif'", "'else'", "'elseif'", "'new'", "'context'", "'|'", "'null'", "'reexport'", "'final'", "'mutable'", "'...'", "'val'", "'instanceof'", "'..'", "'meta'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_PID", "RULE_INT", "RULE_HEX", "RULE_EXT_INT", "RULE_DOCUMENTATION", "RULE_REGULAR_EXPR", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'='", "'+='", "'-='", "'*='", "'/='", "'%='", "'~='", "'=='", "'==='", "'!='", "'!=='", "'>='", "'<='", "'>'", "'<'", "'var'", "'+'", "'-'", "'*'", "'/'", "'%'", "'!'", "'++'", "'--'", "'input'", "'output'", "'properties'", "'unit'", "'true'", "'false'", "'['", "'('", "']'", "')'", "'super'", "'this'", "'.'", "'@'", "'$'", "'&'", "':'", "'?'", "'public'", "'private'", "'parallel'", "'sequential'", "'import'", "';'", "'as'", "'{'", "'}'", "'version'", "'implements'", "','", "'default'", "'provides'", "'requires'", "'env'", "'repositories'", "'containers'", "'when'", "'extends'", "'#'", "'annotations'", "'with'", "'concern'", "'builder'", "'precondition'", "'postcondition'", "'repository'", "'select-first'", "'select-best'", "'container'", "'agent'", "'function'", "'=>'", "'cached'", "'||'", "'&&'", "'_'", "'throw'", "'try'", "'endtry'", "'finally'", "'catch'", "'switch'", "'endswitch'", "'case'", "'if'", "'then'", "'endif'", "'else'", "'elseif'", "'new'", "'context'", "'|'", "'null'", "'reexport'", "'final'", "'mutable'", "'...'", "'val'", "'instanceof'", "'..'"
     };
     public static final int RULE_ML_COMMENT=12;
     public static final int RULE_ID=5;
@@ -19748,7 +19748,7 @@ public class InternalBeeLangParser extends AbstractInternalContentAssistParser {
             if ( (LA49_0==37) ) {
                 alt49=1;
             }
-            else if ( ((LA49_0>=RULE_STRING && LA49_0<=RULE_ID)||LA49_0==RULE_REGULAR_EXPR||LA49_0==47||LA49_0==68||(LA49_0>=71 && LA49_0<=72)||LA49_0==95||LA49_0==120) ) {
+            else if ( ((LA49_0>=RULE_STRING && LA49_0<=RULE_ID)||LA49_0==RULE_REGULAR_EXPR||LA49_0==47||LA49_0==68||(LA49_0>=71 && LA49_0<=73)||LA49_0==95) ) {
                 alt49=2;
             }
             else {
@@ -19831,7 +19831,7 @@ public class InternalBeeLangParser extends AbstractInternalContentAssistParser {
             int alt50=5;
             switch ( input.LA(1) ) {
             case 72:
-            case 120:
+            case 73:
                 {
                 alt50=1;
                 }
@@ -59595,7 +59595,7 @@ public class InternalBeeLangParser extends AbstractInternalContentAssistParser {
             int alt229=2;
             int LA229_0 = input.LA(1);
 
-            if ( (LA229_0==120) ) {
+            if ( (LA229_0==73) ) {
                 alt229=1;
             }
             switch (alt229) {
@@ -80109,36 +80109,36 @@ public class InternalBeeLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start rule__RequiresPredicate__MetaAssignment_1
-    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:28410:1: rule__RequiresPredicate__MetaAssignment_1 : ( ( 'meta' ) ) ;
+    // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:28410:1: rule__RequiresPredicate__MetaAssignment_1 : ( ( 'env' ) ) ;
     public final void rule__RequiresPredicate__MetaAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:28414:1: ( ( ( 'meta' ) ) )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:28415:1: ( ( 'meta' ) )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:28414:1: ( ( ( 'env' ) ) )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:28415:1: ( ( 'env' ) )
             {
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:28415:1: ( ( 'meta' ) )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:28416:1: ( 'meta' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:28415:1: ( ( 'env' ) )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:28416:1: ( 'env' )
             {
             if ( backtracking==0 ) {
-               before(grammarAccess.getRequiresPredicateAccess().getMetaMetaKeyword_1_0()); 
+               before(grammarAccess.getRequiresPredicateAccess().getMetaEnvKeyword_1_0()); 
             }
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:28417:1: ( 'meta' )
-            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:28418:1: 'meta'
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:28417:1: ( 'env' )
+            // ../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g:28418:1: 'env'
             {
             if ( backtracking==0 ) {
-               before(grammarAccess.getRequiresPredicateAccess().getMetaMetaKeyword_1_0()); 
+               before(grammarAccess.getRequiresPredicateAccess().getMetaEnvKeyword_1_0()); 
             }
-            match(input,120,FOLLOW_120_in_rule__RequiresPredicate__MetaAssignment_156654); if (failed) return ;
+            match(input,73,FOLLOW_73_in_rule__RequiresPredicate__MetaAssignment_156654); if (failed) return ;
             if ( backtracking==0 ) {
-               after(grammarAccess.getRequiresPredicateAccess().getMetaMetaKeyword_1_0()); 
+               after(grammarAccess.getRequiresPredicateAccess().getMetaEnvKeyword_1_0()); 
             }
 
             }
 
             if ( backtracking==0 ) {
-               after(grammarAccess.getRequiresPredicateAccess().getMetaMetaKeyword_1_0()); 
+               after(grammarAccess.getRequiresPredicateAccess().getMetaEnvKeyword_1_0()); 
             }
 
             }
@@ -86188,7 +86188,7 @@ public class InternalBeeLangParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_rule__UnitConcernContext__Group__1_in_rule__UnitConcernContext__Group__039645 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_110_in_rule__UnitConcernContext__Group__139674 = new BitSet(new long[]{0x0000080000000000L});
     public static final BitSet FOLLOW_rule__UnitConcernContext__Group__2_in_rule__UnitConcernContext__Group__139684 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_43_in_rule__UnitConcernContext__Group__239713 = new BitSet(new long[]{0x0000802000000830L,0x0100000080000190L});
+    public static final BitSet FOLLOW_43_in_rule__UnitConcernContext__Group__239713 = new BitSet(new long[]{0x0000802000000830L,0x0000000080000390L});
     public static final BitSet FOLLOW_rule__UnitConcernContext__Group__3_in_rule__UnitConcernContext__Group__239723 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__UnitConcernContext__QueryAssignment_3_in_rule__UnitConcernContext__Group__339751 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
     public static final BitSet FOLLOW_rule__UnitConcernContext__Group__4_in_rule__UnitConcernContext__Group__339760 = new BitSet(new long[]{0x0000000000000002L});
@@ -86239,21 +86239,21 @@ public class InternalBeeLangParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_rule__UnitOrExpression__Group__1_in_rule__UnitOrExpression__Group__040796 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__UnitOrExpression__Group_1__0_in_rule__UnitOrExpression__Group__140824 = new BitSet(new long[]{0x0000000000000002L,0x0000000020000000L});
     public static final BitSet FOLLOW_rule__UnitOrExpression__Group_1__1_in_rule__UnitOrExpression__Group_1__040873 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_93_in_rule__UnitOrExpression__Group_1__140902 = new BitSet(new long[]{0x0000802000000830L,0x0100000080000190L});
+    public static final BitSet FOLLOW_93_in_rule__UnitOrExpression__Group_1__140902 = new BitSet(new long[]{0x0000802000000830L,0x0000000080000390L});
     public static final BitSet FOLLOW_rule__UnitOrExpression__Group_1__2_in_rule__UnitOrExpression__Group_1__140912 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__UnitOrExpression__RightExprAssignment_1_2_in_rule__UnitOrExpression__Group_1__240940 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleUnitNotOrPrimaryExpression_in_rule__UnitAndExpression__Group__040980 = new BitSet(new long[]{0x0000000000000002L,0x0000000040000000L});
     public static final BitSet FOLLOW_rule__UnitAndExpression__Group__1_in_rule__UnitAndExpression__Group__040988 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__UnitAndExpression__Group_1__0_in_rule__UnitAndExpression__Group__141016 = new BitSet(new long[]{0x0000000000000002L,0x0000000040000000L});
     public static final BitSet FOLLOW_rule__UnitAndExpression__Group_1__1_in_rule__UnitAndExpression__Group_1__041065 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_94_in_rule__UnitAndExpression__Group_1__141094 = new BitSet(new long[]{0x0000802000000830L,0x0100000080000190L});
+    public static final BitSet FOLLOW_94_in_rule__UnitAndExpression__Group_1__141094 = new BitSet(new long[]{0x0000802000000830L,0x0000000080000390L});
     public static final BitSet FOLLOW_rule__UnitAndExpression__Group_1__2_in_rule__UnitAndExpression__Group_1__141104 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__UnitAndExpression__RightExprAssignment_1_2_in_rule__UnitAndExpression__Group_1__241132 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__UnitNotExpression__Group__1_in_rule__UnitNotExpression__Group__041182 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__UnitNotExpression__FunctionNameAssignment_1_in_rule__UnitNotExpression__Group__141210 = new BitSet(new long[]{0x0000800000000830L,0x0100000080000190L});
+    public static final BitSet FOLLOW_rule__UnitNotExpression__FunctionNameAssignment_1_in_rule__UnitNotExpression__Group__141210 = new BitSet(new long[]{0x0000800000000830L,0x0000000080000390L});
     public static final BitSet FOLLOW_rule__UnitNotExpression__Group__2_in_rule__UnitNotExpression__Group__141219 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__UnitNotExpression__ExprAssignment_2_in_rule__UnitNotExpression__Group__241247 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_47_in_rule__GroupedUnitPrimaryExpression__Group__041288 = new BitSet(new long[]{0x0000802000000830L,0x0100000080000190L});
+    public static final BitSet FOLLOW_47_in_rule__GroupedUnitPrimaryExpression__Group__041288 = new BitSet(new long[]{0x0000802000000830L,0x0000000080000390L});
     public static final BitSet FOLLOW_rule__GroupedUnitPrimaryExpression__Group__1_in_rule__GroupedUnitPrimaryExpression__Group__041298 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleUnitOrExpression_in_rule__GroupedUnitPrimaryExpression__Group__141326 = new BitSet(new long[]{0x0002000000000000L});
     public static final BitSet FOLLOW_rule__GroupedUnitPrimaryExpression__Group__2_in_rule__GroupedUnitPrimaryExpression__Group__141334 = new BitSet(new long[]{0x0000000000000002L});
@@ -86781,7 +86781,7 @@ public class InternalBeeLangParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_ruleUnitNotOrPrimaryExpression_in_rule__UnitAndExpression__RightExprAssignment_1_256543 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_37_in_rule__UnitNotExpression__FunctionNameAssignment_156579 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleUnitPrimaryExpression_in_rule__UnitNotExpression__ExprAssignment_256618 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_120_in_rule__RequiresPredicate__MetaAssignment_156654 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_73_in_rule__RequiresPredicate__MetaAssignment_156654 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleCapabilityPredicate_in_rule__RequiresPredicate__CapabilityPredicateAssignment_356693 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleTypeRef_in_rule__ImplementsPredcicate__TypeAssignment_256724 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleCapabilityPredicate_in_rule__ProvidesPredicate__CapabilityPredicateAssignment_256755 = new BitSet(new long[]{0x0000000000000002L});

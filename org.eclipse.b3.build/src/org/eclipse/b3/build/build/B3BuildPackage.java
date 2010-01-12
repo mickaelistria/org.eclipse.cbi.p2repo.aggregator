@@ -1448,13 +1448,22 @@ public interface B3BuildPackage extends EPackage {
 	int REQUIRES_PREDICATE__CAPABILITY_PREDICATE = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Meta</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRES_PREDICATE__META = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Requires Predicate</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REQUIRES_PREDICATE_FEATURE_COUNT = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 1;
+	int REQUIRES_PREDICATE_FEATURE_COUNT = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.CapabilityPredicateImpl <em>Capability Predicate</em>}' class.
@@ -2745,6 +2754,17 @@ public interface B3BuildPackage extends EPackage {
 	EReference getRequiresPredicate_CapabilityPredicate();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.RequiresPredicate#isMeta <em>Meta</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Meta</em>'.
+	 * @see org.eclipse.b3.build.build.RequiresPredicate#isMeta()
+	 * @see #getRequiresPredicate()
+	 * @generated
+	 */
+	EAttribute getRequiresPredicate_Meta();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.CapabilityPredicate <em>Capability Predicate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3879,6 +3899,14 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EReference REQUIRES_PREDICATE__CAPABILITY_PREDICATE = eINSTANCE.getRequiresPredicate_CapabilityPredicate();
+
+		/**
+		 * The meta object literal for the '<em><b>Meta</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REQUIRES_PREDICATE__META = eINSTANCE.getRequiresPredicate_Meta();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.CapabilityPredicateImpl <em>Capability Predicate</em>}' class.

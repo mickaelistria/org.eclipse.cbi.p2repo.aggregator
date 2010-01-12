@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  *
  * @see org.eclipse.b3.build.build.B3BuildPackage#getRepositoryConfiguration()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface RepositoryConfiguration extends EObject {

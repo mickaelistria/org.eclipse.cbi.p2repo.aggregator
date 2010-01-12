@@ -116,15 +116,6 @@ public interface B3BuildFactory extends EFactory {
 	SynchronizedBuilder createSynchronizedBuilder();
 
 	/**
-	 * Returns a new object of class '<em>Repository Configuration</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Repository Configuration</em>'.
-	 * @generated
-	 */
-	RepositoryConfiguration createRepositoryConfiguration();
-
-	/**
 	 * Returns a new object of class '<em>Repository Declaration</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

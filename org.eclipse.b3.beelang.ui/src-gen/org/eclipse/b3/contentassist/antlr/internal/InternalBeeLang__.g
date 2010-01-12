@@ -111,7 +111,6 @@ T116 : '...' ;
 T117 : 'val' ;
 T118 : 'instanceof' ;
 T119 : '..' ;
-T120 : 'meta' ;
 
 // $ANTLR src "../org.eclipse.b3.beelang.ui/src-gen/org/eclipse/b3/contentassist/antlr/internal/InternalBeeLang.g" 29324
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;

@@ -28413,16 +28413,16 @@ rule__RequiresPredicate__MetaAssignment_1
     }
 :
 (
-{ before(grammarAccess.getRequiresPredicateAccess().getMetaMetaKeyword_1_0()); }
+{ before(grammarAccess.getRequiresPredicateAccess().getMetaEnvKeyword_1_0()); }
 (
-{ before(grammarAccess.getRequiresPredicateAccess().getMetaMetaKeyword_1_0()); }
+{ before(grammarAccess.getRequiresPredicateAccess().getMetaEnvKeyword_1_0()); }
 
-	'meta' 
+	'env' 
 
-{ after(grammarAccess.getRequiresPredicateAccess().getMetaMetaKeyword_1_0()); }
+{ after(grammarAccess.getRequiresPredicateAccess().getMetaEnvKeyword_1_0()); }
 )
 
-{ after(grammarAccess.getRequiresPredicateAccess().getMetaMetaKeyword_1_0()); }
+{ after(grammarAccess.getRequiresPredicateAccess().getMetaEnvKeyword_1_0()); }
 )
 
 ;
