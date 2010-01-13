@@ -145,6 +145,9 @@ class JUnitB3FileRunnerFactory {
 						&& functionName.startsWith(TEST_FUNCTION_PREFIX) && function.getParameterTypes().length == 0)
 					testFunctionDescriptors.add(new TestFunctionDescriptor(functionName));
 			}
+
+			if(testFunctionDescriptors.isEmpty())
+				throw new Exception("No test functions");
 		}
 
 		@Override
