@@ -56,8 +56,8 @@ BuildUnit returns build::BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT) : {build::
 			  ('default' 'properties'  defaultProperties = PropertySet)
 		)?
 		( 	//-- PROVIDES
-			  ('provides' '{' (unitProvidedCapabilities += ProvidedCapability ';')+ '}')
-			| ('provides' unitProvidedCapabilities += ProvidedCapability ';')
+			  ('provides' '{' (providedCapabilities += ProvidedCapability ';')+ '}')
+			| ('provides' providedCapabilities += ProvidedCapability ';')
 			//-- REQUIRES & META REQUIRES
 			| ('requires' '{' (requiredCapabilities += AliasedRequiredCapability ';')+ '}')
 			| ('requires' requiredCapabilities += AliasedRequiredCapability ';')
@@ -624,6 +624,12 @@ UnitConcernContext returns build::UnitConcernContext : {build::UnitConcernContex
 	'{'
 	( (functions += Builder)
 	| (builderContexts += BuilderConcernContext)
+	| ('+' 'requires' '{' (requiredCapabilities += AliasedRequiredCapability ';')+ '}')
+	| ('+' 'requires' requiredCapabilities += AliasedRequiredCapability ';')
+	| ('-' requiresRemovals += RequiresPredicate ';')
+	| ('+' 'provides' '{' (providedCapabilities += ProvidedCapability ';')+ '}')
+	| ('+' 'provides' providedCapabilities += ProvidedCapability ';')
+	| ('-' providesRemovals += ProvidesPredicate ';')	
 	)*
 	'}'
 	;
@@ -666,7 +672,7 @@ UnitPrimaryExpression returns be::BExpression :
 GroupedUnitPrimaryExpression returns be::BExpression : '(' UnitOrExpression ')' ;
 
 	
-RequiresPredicate returns be::BExpression : {build::RequiresPredicate}
+RequiresPredicate returns build::RequiresPredicate : {build::RequiresPredicate}
 	(meta ?= "env")? "requires" capabilityPredicate = CapabilityPredicate 
 	;
 	
@@ -674,7 +680,7 @@ ImplementsPredcicate returns be::BExpression: {build::ImplementsPredicate}
 	"implements" type = TypeRef 
 	;
 	
-ProvidesPredicate returns be::BExpression: {build::ProvidesPredicate}
+ProvidesPredicate returns build::ProvidesPredicate : {build::ProvidesPredicate}
 	"provides" capabilityPredicate = CapabilityPredicate 
 	;
 	

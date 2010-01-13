@@ -596,9 +596,9 @@ ruleBuildUnit returns [EObject current=null]
 ((
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getBuildUnitAccess().getUnitProvidedCapabilitiesProvidedCapabilityParserRuleCall_9_0_2_0_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getBuildUnitAccess().getProvidedCapabilitiesProvidedCapabilityParserRuleCall_9_0_2_0_0(), currentNode); 
 	    }
-		lv_unitProvidedCapabilities_17_0=ruleProvidedCapability		{
+		lv_providedCapabilities_17_0=ruleProvidedCapability		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getBuildUnitRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -606,8 +606,8 @@ ruleBuildUnit returns [EObject current=null]
 	        try {
 	       		add(
 	       			$current, 
-	       			"unitProvidedCapabilities",
-	        		lv_unitProvidedCapabilities_17_0, 
+	       			"providedCapabilities",
+	        		lv_providedCapabilities_17_0, 
 	        		"ProvidedCapability", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -633,9 +633,9 @@ ruleBuildUnit returns [EObject current=null]
 (
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getBuildUnitAccess().getUnitProvidedCapabilitiesProvidedCapabilityParserRuleCall_9_1_1_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getBuildUnitAccess().getProvidedCapabilitiesProvidedCapabilityParserRuleCall_9_1_1_0(), currentNode); 
 	    }
-		lv_unitProvidedCapabilities_21_0=ruleProvidedCapability		{
+		lv_providedCapabilities_21_0=ruleProvidedCapability		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getBuildUnitRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -643,8 +643,8 @@ ruleBuildUnit returns [EObject current=null]
 	        try {
 	       		add(
 	       			$current, 
-	       			"unitProvidedCapabilities",
-	        		lv_unitProvidedCapabilities_21_0, 
+	       			"providedCapabilities",
+	        		lv_providedCapabilities_21_0, 
 	        		"ProvidedCapability", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -11185,6 +11185,236 @@ ruleUnitConcernContext returns [EObject current=null]
 	    }
 
 )
+)
+    |(	'+' 
+    {
+        createLeafNode(grammarAccess.getUnitConcernContextAccess().getPlusSignKeyword_5_2_0(), null); 
+    }
+	'requires' 
+    {
+        createLeafNode(grammarAccess.getUnitConcernContextAccess().getRequiresKeyword_5_2_1(), null); 
+    }
+	'{' 
+    {
+        createLeafNode(grammarAccess.getUnitConcernContextAccess().getLeftCurlyBracketKeyword_5_2_2(), null); 
+    }
+((
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getUnitConcernContextAccess().getRequiredCapabilitiesAliasedRequiredCapabilityParserRuleCall_5_2_3_0_0(), currentNode); 
+	    }
+		lv_requiredCapabilities_10_0=ruleAliasedRequiredCapability		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getUnitConcernContextRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		add(
+	       			$current, 
+	       			"requiredCapabilities",
+	        		lv_requiredCapabilities_10_0, 
+	        		"AliasedRequiredCapability", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+)	';' 
+    {
+        createLeafNode(grammarAccess.getUnitConcernContextAccess().getSemicolonKeyword_5_2_3_1(), null); 
+    }
+)+	'}' 
+    {
+        createLeafNode(grammarAccess.getUnitConcernContextAccess().getRightCurlyBracketKeyword_5_2_4(), null); 
+    }
+)
+    |(	'+' 
+    {
+        createLeafNode(grammarAccess.getUnitConcernContextAccess().getPlusSignKeyword_5_3_0(), null); 
+    }
+	'requires' 
+    {
+        createLeafNode(grammarAccess.getUnitConcernContextAccess().getRequiresKeyword_5_3_1(), null); 
+    }
+(
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getUnitConcernContextAccess().getRequiredCapabilitiesAliasedRequiredCapabilityParserRuleCall_5_3_2_0(), currentNode); 
+	    }
+		lv_requiredCapabilities_15_0=ruleAliasedRequiredCapability		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getUnitConcernContextRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		add(
+	       			$current, 
+	       			"requiredCapabilities",
+	        		lv_requiredCapabilities_15_0, 
+	        		"AliasedRequiredCapability", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+)	';' 
+    {
+        createLeafNode(grammarAccess.getUnitConcernContextAccess().getSemicolonKeyword_5_3_3(), null); 
+    }
+)
+    |(	'-' 
+    {
+        createLeafNode(grammarAccess.getUnitConcernContextAccess().getHyphenMinusKeyword_5_4_0(), null); 
+    }
+(
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getUnitConcernContextAccess().getRequiresRemovalsRequiresPredicateParserRuleCall_5_4_1_0(), currentNode); 
+	    }
+		lv_requiresRemovals_18_0=ruleRequiresPredicate		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getUnitConcernContextRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		add(
+	       			$current, 
+	       			"requiresRemovals",
+	        		lv_requiresRemovals_18_0, 
+	        		"RequiresPredicate", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+)	';' 
+    {
+        createLeafNode(grammarAccess.getUnitConcernContextAccess().getSemicolonKeyword_5_4_2(), null); 
+    }
+)
+    |(	'+' 
+    {
+        createLeafNode(grammarAccess.getUnitConcernContextAccess().getPlusSignKeyword_5_5_0(), null); 
+    }
+	'provides' 
+    {
+        createLeafNode(grammarAccess.getUnitConcernContextAccess().getProvidesKeyword_5_5_1(), null); 
+    }
+	'{' 
+    {
+        createLeafNode(grammarAccess.getUnitConcernContextAccess().getLeftCurlyBracketKeyword_5_5_2(), null); 
+    }
+((
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getUnitConcernContextAccess().getProvidedCapabilitiesProvidedCapabilityParserRuleCall_5_5_3_0_0(), currentNode); 
+	    }
+		lv_providedCapabilities_23_0=ruleProvidedCapability		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getUnitConcernContextRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		add(
+	       			$current, 
+	       			"providedCapabilities",
+	        		lv_providedCapabilities_23_0, 
+	        		"ProvidedCapability", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+)	';' 
+    {
+        createLeafNode(grammarAccess.getUnitConcernContextAccess().getSemicolonKeyword_5_5_3_1(), null); 
+    }
+)+	'}' 
+    {
+        createLeafNode(grammarAccess.getUnitConcernContextAccess().getRightCurlyBracketKeyword_5_5_4(), null); 
+    }
+)
+    |(	'+' 
+    {
+        createLeafNode(grammarAccess.getUnitConcernContextAccess().getPlusSignKeyword_5_6_0(), null); 
+    }
+	'provides' 
+    {
+        createLeafNode(grammarAccess.getUnitConcernContextAccess().getProvidesKeyword_5_6_1(), null); 
+    }
+(
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getUnitConcernContextAccess().getProvidedCapabilitiesProvidedCapabilityParserRuleCall_5_6_2_0(), currentNode); 
+	    }
+		lv_providedCapabilities_28_0=ruleProvidedCapability		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getUnitConcernContextRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		add(
+	       			$current, 
+	       			"providedCapabilities",
+	        		lv_providedCapabilities_28_0, 
+	        		"ProvidedCapability", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+)	';' 
+    {
+        createLeafNode(grammarAccess.getUnitConcernContextAccess().getSemicolonKeyword_5_6_3(), null); 
+    }
+)
+    |(	'-' 
+    {
+        createLeafNode(grammarAccess.getUnitConcernContextAccess().getHyphenMinusKeyword_5_7_0(), null); 
+    }
+(
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getUnitConcernContextAccess().getProvidesRemovalsProvidesPredicateParserRuleCall_5_7_1_0(), currentNode); 
+	    }
+		lv_providesRemovals_31_0=ruleProvidesPredicate		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getUnitConcernContextRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		add(
+	       			$current, 
+	       			"providesRemovals",
+	        		lv_providesRemovals_31_0, 
+	        		"ProvidesPredicate", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+)	';' 
+    {
+        createLeafNode(grammarAccess.getUnitConcernContextAccess().getSemicolonKeyword_5_7_2(), null); 
+    }
 ))*	'}' 
     {
         createLeafNode(grammarAccess.getUnitConcernContextAccess().getRightCurlyBracketKeyword_6(), null); 

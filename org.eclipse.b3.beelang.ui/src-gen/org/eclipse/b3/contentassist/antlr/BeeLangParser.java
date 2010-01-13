@@ -318,6 +318,14 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getConstructorCallExpressionAccess().getGroup_3(), "rule__ConstructorCallExpression__Group_3__0");
 					put(grammarAccess.getConstructorCallExpressionAccess().getGroup_4(), "rule__ConstructorCallExpression__Group_4__0");
 					put(grammarAccess.getUnitConcernContextAccess().getGroup(), "rule__UnitConcernContext__Group__0");
+					put(grammarAccess.getUnitConcernContextAccess().getGroup_5_2(), "rule__UnitConcernContext__Group_5_2__0");
+					put(grammarAccess.getUnitConcernContextAccess().getGroup_5_2_3(), "rule__UnitConcernContext__Group_5_2_3__0");
+					put(grammarAccess.getUnitConcernContextAccess().getGroup_5_3(), "rule__UnitConcernContext__Group_5_3__0");
+					put(grammarAccess.getUnitConcernContextAccess().getGroup_5_4(), "rule__UnitConcernContext__Group_5_4__0");
+					put(grammarAccess.getUnitConcernContextAccess().getGroup_5_5(), "rule__UnitConcernContext__Group_5_5__0");
+					put(grammarAccess.getUnitConcernContextAccess().getGroup_5_5_3(), "rule__UnitConcernContext__Group_5_5_3__0");
+					put(grammarAccess.getUnitConcernContextAccess().getGroup_5_6(), "rule__UnitConcernContext__Group_5_6__0");
+					put(grammarAccess.getUnitConcernContextAccess().getGroup_5_7(), "rule__UnitConcernContext__Group_5_7__0");
 					put(grammarAccess.getBuilderConcernContextAccess().getGroup(), "rule__BuilderConcernContext__Group__0");
 					put(grammarAccess.getBuilderConcernContextAccess().getGroup_5_0(), "rule__BuilderConcernContext__Group_5_0__0");
 					put(grammarAccess.getBuilderConcernContextAccess().getGroup_5_1(), "rule__BuilderConcernContext__Group_5_1__0");
@@ -407,8 +415,8 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBuildUnitAccess().getImplementsAssignment_6_1(), "rule__BuildUnit__ImplementsAssignment_6_1");
 					put(grammarAccess.getBuildUnitAccess().getImplementsAssignment_6_2_1(), "rule__BuildUnit__ImplementsAssignment_6_2_1");
 					put(grammarAccess.getBuildUnitAccess().getDefaultPropertiesAssignment_8_2(), "rule__BuildUnit__DefaultPropertiesAssignment_8_2");
-					put(grammarAccess.getBuildUnitAccess().getUnitProvidedCapabilitiesAssignment_9_0_2_0(), "rule__BuildUnit__UnitProvidedCapabilitiesAssignment_9_0_2_0");
-					put(grammarAccess.getBuildUnitAccess().getUnitProvidedCapabilitiesAssignment_9_1_1(), "rule__BuildUnit__UnitProvidedCapabilitiesAssignment_9_1_1");
+					put(grammarAccess.getBuildUnitAccess().getProvidedCapabilitiesAssignment_9_0_2_0(), "rule__BuildUnit__ProvidedCapabilitiesAssignment_9_0_2_0");
+					put(grammarAccess.getBuildUnitAccess().getProvidedCapabilitiesAssignment_9_1_1(), "rule__BuildUnit__ProvidedCapabilitiesAssignment_9_1_1");
 					put(grammarAccess.getBuildUnitAccess().getRequiredCapabilitiesAssignment_9_2_2_0(), "rule__BuildUnit__RequiredCapabilitiesAssignment_9_2_2_0");
 					put(grammarAccess.getBuildUnitAccess().getRequiredCapabilitiesAssignment_9_3_1(), "rule__BuildUnit__RequiredCapabilitiesAssignment_9_3_1");
 					put(grammarAccess.getBuildUnitAccess().getMetaRequiredCapabilitiesAssignment_9_4_3_0(), "rule__BuildUnit__MetaRequiredCapabilitiesAssignment_9_4_3_0");
@@ -642,6 +650,12 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUnitConcernContextAccess().getQueryAssignment_3(), "rule__UnitConcernContext__QueryAssignment_3");
 					put(grammarAccess.getUnitConcernContextAccess().getFunctionsAssignment_5_0(), "rule__UnitConcernContext__FunctionsAssignment_5_0");
 					put(grammarAccess.getUnitConcernContextAccess().getBuilderContextsAssignment_5_1(), "rule__UnitConcernContext__BuilderContextsAssignment_5_1");
+					put(grammarAccess.getUnitConcernContextAccess().getRequiredCapabilitiesAssignment_5_2_3_0(), "rule__UnitConcernContext__RequiredCapabilitiesAssignment_5_2_3_0");
+					put(grammarAccess.getUnitConcernContextAccess().getRequiredCapabilitiesAssignment_5_3_2(), "rule__UnitConcernContext__RequiredCapabilitiesAssignment_5_3_2");
+					put(grammarAccess.getUnitConcernContextAccess().getRequiresRemovalsAssignment_5_4_1(), "rule__UnitConcernContext__RequiresRemovalsAssignment_5_4_1");
+					put(grammarAccess.getUnitConcernContextAccess().getProvidedCapabilitiesAssignment_5_5_3_0(), "rule__UnitConcernContext__ProvidedCapabilitiesAssignment_5_5_3_0");
+					put(grammarAccess.getUnitConcernContextAccess().getProvidedCapabilitiesAssignment_5_6_2(), "rule__UnitConcernContext__ProvidedCapabilitiesAssignment_5_6_2");
+					put(grammarAccess.getUnitConcernContextAccess().getProvidesRemovalsAssignment_5_7_1(), "rule__UnitConcernContext__ProvidesRemovalsAssignment_5_7_1");
 					put(grammarAccess.getBuilderConcernContextAccess().getQueryAssignment_3(), "rule__BuilderConcernContext__QueryAssignment_3");
 					put(grammarAccess.getBuilderConcernContextAccess().getInputAdditionsAssignment_5_0_2(), "rule__BuilderConcernContext__InputAdditionsAssignment_5_0_2");
 					put(grammarAccess.getBuilderConcernContextAccess().getInputRemovalsAssignment_5_1_1(), "rule__BuilderConcernContext__InputRemovalsAssignment_5_1_1");
