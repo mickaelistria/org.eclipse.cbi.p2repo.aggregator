@@ -102,6 +102,8 @@ public class B3BuildSwitch<T> {
 				T result = caseBuildUnit(buildUnit);
 				if (result == null) result = caseVersionedCapability(buildUnit);
 				if (result == null) result = caseBFunctionContainer(buildUnit);
+				if (result == null) result = caseIRequiredCapabilityContainer(buildUnit);
+				if (result == null) result = caseIProvidedCapabilityContainer(buildUnit);
 				if (result == null) result = caseCapability(buildUnit);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -110,6 +112,7 @@ public class B3BuildSwitch<T> {
 				Builder builder = (Builder)theEObject;
 				T result = caseBuilder(builder);
 				if (result == null) result = caseB3Function(builder);
+				if (result == null) result = caseIProvidedCapabilityContainer(builder);
 				if (result == null) result = caseBFunction(builder);
 				if (result == null) result = caseBExpression(builder);
 				if (result == null) result = caseIGenericDeclaration(builder);
@@ -337,6 +340,8 @@ public class B3BuildSwitch<T> {
 				UnitConcernContext unitConcernContext = (UnitConcernContext)theEObject;
 				T result = caseUnitConcernContext(unitConcernContext);
 				if (result == null) result = caseBuildConcernContext(unitConcernContext);
+				if (result == null) result = caseIRequiredCapabilityContainer(unitConcernContext);
+				if (result == null) result = caseIProvidedCapabilityContainer(unitConcernContext);
 				if (result == null) result = caseBConcernContext(unitConcernContext);
 				if (result == null) result = caseBFunctionContainer(unitConcernContext);
 				if (result == null) result = defaultCase(theEObject);
@@ -356,6 +361,26 @@ public class B3BuildSwitch<T> {
 				T result = caseOutputPredicate(outputPredicate);
 				if (result == null) result = caseBExpression(outputPredicate);
 				if (result == null) result = caseBSourceLink(outputPredicate);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.ALIASED_REQUIRED_CAPABILITY: {
+				AliasedRequiredCapability aliasedRequiredCapability = (AliasedRequiredCapability)theEObject;
+				T result = caseAliasedRequiredCapability(aliasedRequiredCapability);
+				if (result == null) result = caseRequiredCapability(aliasedRequiredCapability);
+				if (result == null) result = caseCapability(aliasedRequiredCapability);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.IREQUIRED_CAPABILITY_CONTAINER: {
+				IRequiredCapabilityContainer iRequiredCapabilityContainer = (IRequiredCapabilityContainer)theEObject;
+				T result = caseIRequiredCapabilityContainer(iRequiredCapabilityContainer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.IPROVIDED_CAPABILITY_CONTAINER: {
+				IProvidedCapabilityContainer iProvidedCapabilityContainer = (IProvidedCapabilityContainer)theEObject;
+				T result = caseIProvidedCapabilityContainer(iProvidedCapabilityContainer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -810,6 +835,51 @@ public class B3BuildSwitch<T> {
 	 * @generated
 	 */
 	public T caseOutputPredicate(OutputPredicate object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Aliased Required Capability</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Aliased Required Capability</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAliasedRequiredCapability(AliasedRequiredCapability object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IRequired Capability Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IRequired Capability Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIRequiredCapabilityContainer(IRequiredCapabilityContainer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IProvided Capability Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IProvided Capability Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIProvidedCapabilityContainer(IProvidedCapabilityContainer object) {
 		return null;
 	}
 

@@ -19,6 +19,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BParameterList;
  *   <li>{@link org.eclipse.b3.build.build.BuilderReference#getParameters <em>Parameters</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.BuilderReference#getBuilderName <em>Builder Name</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.BuilderReference#getRequiredCapability <em>Required Capability</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.BuilderReference#getRequiredCapabilityReference <em>Required Capability Reference</em>}</li>
  * </ul>
  * </p>
  *
@@ -104,5 +105,31 @@ public interface BuilderReference extends BuildResultReference {
 	 * @generated
 	 */
 	void setRequiredCapability(RequiredCapability value);
+
+	/**
+	 * Returns the value of the '<em><b>Required Capability Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Required Capability Reference</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Required Capability Reference</em>' reference.
+	 * @see #setRequiredCapabilityReference(AliasedRequiredCapability)
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuilderReference_RequiredCapabilityReference()
+	 * @model
+	 * @generated
+	 */
+	AliasedRequiredCapability getRequiredCapabilityReference();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderReference#getRequiredCapabilityReference <em>Required Capability Reference</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Required Capability Reference</em>' reference.
+	 * @see #getRequiredCapabilityReference()
+	 * @generated
+	 */
+	void setRequiredCapabilityReference(AliasedRequiredCapability value);
 
 } // BuilderReference

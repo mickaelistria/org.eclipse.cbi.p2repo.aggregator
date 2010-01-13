@@ -201,13 +201,13 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftCurlyBracketKeyword_9_2_1 = (Keyword)cGroup_9_2.eContents().get(1);
 		private final Group cGroup_9_2_2 = (Group)cGroup_9_2.eContents().get(2);
 		private final Assignment cRequiredCapabilitiesAssignment_9_2_2_0 = (Assignment)cGroup_9_2_2.eContents().get(0);
-		private final RuleCall cRequiredCapabilitiesRequiredCapabilityParserRuleCall_9_2_2_0_0 = (RuleCall)cRequiredCapabilitiesAssignment_9_2_2_0.eContents().get(0);
+		private final RuleCall cRequiredCapabilitiesAliasedRequiredCapabilityParserRuleCall_9_2_2_0_0 = (RuleCall)cRequiredCapabilitiesAssignment_9_2_2_0.eContents().get(0);
 		private final Keyword cSemicolonKeyword_9_2_2_1 = (Keyword)cGroup_9_2_2.eContents().get(1);
 		private final Keyword cRightCurlyBracketKeyword_9_2_3 = (Keyword)cGroup_9_2.eContents().get(3);
 		private final Group cGroup_9_3 = (Group)cAlternatives_9.eContents().get(3);
 		private final Keyword cRequiresKeyword_9_3_0 = (Keyword)cGroup_9_3.eContents().get(0);
 		private final Assignment cRequiredCapabilitiesAssignment_9_3_1 = (Assignment)cGroup_9_3.eContents().get(1);
-		private final RuleCall cRequiredCapabilitiesRequiredCapabilityParserRuleCall_9_3_1_0 = (RuleCall)cRequiredCapabilitiesAssignment_9_3_1.eContents().get(0);
+		private final RuleCall cRequiredCapabilitiesAliasedRequiredCapabilityParserRuleCall_9_3_1_0 = (RuleCall)cRequiredCapabilitiesAssignment_9_3_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_9_3_2 = (Keyword)cGroup_9_3.eContents().get(2);
 		private final Group cGroup_9_4 = (Group)cAlternatives_9.eContents().get(4);
 		private final Keyword cEnvKeyword_9_4_0 = (Keyword)cGroup_9_4.eContents().get(0);
@@ -264,15 +264,15 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//  SimpleTypeRef ("," implements+=SimpleTypeRef)*)? "{" ("default" "properties"
 		//  defaultProperties=PropertySet)? ("provides" "{" (unitProvidedCapabilities+=
 		//  ProvidedCapability ";")+ "}"|"provides" unitProvidedCapabilities+=
-		//  ProvidedCapability ";"|"requires" "{" (requiredCapabilities+=RequiredCapability ";")
-		//  + "}"|"requires" requiredCapabilities+=RequiredCapability ";"|"env" "requires" "{" (
-		//  metaRequiredCapabilities+=RequiredCapability ";")+ "}"|"env" "requires"
-		//  metaRequiredCapabilities+=RequiredCapability ";"|concerns+=Concern_Named|
-		//  "sequential" "{" synchronizations+=Synchronization+ "}"|"sequential"
-		//  synchronizations+=Synchronization|functions+=Builder|functions+=Function|
-		//  "repositories" "{" repositories+=RepositoryConfiguration* "}"|"properties"
-		//  propertySets+=PropertySet_Named|"containers" "{" containers+=
-		//  ContainerConfiguration* "}")* "}"; 
+		//  ProvidedCapability ";"|"requires" "{" (requiredCapabilities+=
+		//  AliasedRequiredCapability ";")+ "}"|"requires" requiredCapabilities+=
+		//  AliasedRequiredCapability ";"|"env" "requires" "{" (metaRequiredCapabilities+=
+		//  RequiredCapability ";")+ "}"|"env" "requires" metaRequiredCapabilities+=
+		//  RequiredCapability ";"|concerns+=Concern_Named|"sequential" "{" synchronizations+=
+		//  Synchronization+ "}"|"sequential" synchronizations+=Synchronization|functions+=
+		//  Builder|functions+=Function|"repositories" "{" repositories+=
+		//  RepositoryConfiguration* "}"|"properties" propertySets+=PropertySet_Named|
+		//  "containers" "{" containers+=ContainerConfiguration* "}")* "}"; 
 		//
 		//// Wanted later 
 		////Import : (reexport ?='reexport')? 
@@ -318,15 +318,15 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//SimpleTypeRef ("," implements+=SimpleTypeRef)*)? "{" ("default" "properties"
 		//defaultProperties=PropertySet)? ("provides" "{" (unitProvidedCapabilities+=
 		//ProvidedCapability ";")+ "}"|"provides" unitProvidedCapabilities+=
-		//ProvidedCapability ";"|"requires" "{" (requiredCapabilities+=RequiredCapability ";")
-		//+ "}"|"requires" requiredCapabilities+=RequiredCapability ";"|"env" "requires" "{" (
-		//metaRequiredCapabilities+=RequiredCapability ";")+ "}"|"env" "requires"
-		//metaRequiredCapabilities+=RequiredCapability ";"|concerns+=Concern_Named|
-		//"sequential" "{" synchronizations+=Synchronization+ "}"|"sequential"
-		//synchronizations+=Synchronization|functions+=Builder|functions+=Function|
-		//"repositories" "{" repositories+=RepositoryConfiguration* "}"|"properties"
-		//propertySets+=PropertySet_Named|"containers" "{" containers+=
-		//ContainerConfiguration* "}")* "}"   
+		//ProvidedCapability ";"|"requires" "{" (requiredCapabilities+=
+		//AliasedRequiredCapability ";")+ "}"|"requires" requiredCapabilities+=
+		//AliasedRequiredCapability ";"|"env" "requires" "{" (metaRequiredCapabilities+=
+		//RequiredCapability ";")+ "}"|"env" "requires" metaRequiredCapabilities+=
+		//RequiredCapability ";"|concerns+=Concern_Named|"sequential" "{" synchronizations+=
+		//Synchronization+ "}"|"sequential" synchronizations+=Synchronization|functions+=
+		//Builder|functions+=Function|"repositories" "{" repositories+=
+		//RepositoryConfiguration* "}"|"properties" propertySets+=PropertySet_Named|
+		//"containers" "{" containers+=ContainerConfiguration* "}")* "}"   
 		//	    
 		//	    
 		//	          
@@ -437,14 +437,15 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 		//("provides" "{" (unitProvidedCapabilities+=ProvidedCapability ";")+ "}"|"provides"
 		//unitProvidedCapabilities+=ProvidedCapability ";"|"requires" "{" (
-		//requiredCapabilities+=RequiredCapability ";")+ "}"|"requires" requiredCapabilities
-		//+=RequiredCapability ";"|"env" "requires" "{" (metaRequiredCapabilities+=
-		//RequiredCapability ";")+ "}"|"env" "requires" metaRequiredCapabilities+=
-		//RequiredCapability ";"|concerns+=Concern_Named|"sequential" "{" synchronizations+=
-		//Synchronization+ "}"|"sequential" synchronizations+=Synchronization|functions+=
-		//Builder|functions+=Function|"repositories" "{" repositories+=
-		//RepositoryConfiguration* "}"|"properties" propertySets+=PropertySet_Named|
-		//"containers" "{" containers+=ContainerConfiguration* "}")* 
+		//requiredCapabilities+=AliasedRequiredCapability ";")+ "}"|"requires"
+		//requiredCapabilities+=AliasedRequiredCapability ";"|"env" "requires" "{" (
+		//metaRequiredCapabilities+=RequiredCapability ";")+ "}"|"env" "requires"
+		//metaRequiredCapabilities+=RequiredCapability ";"|concerns+=Concern_Named|
+		//"sequential" "{" synchronizations+=Synchronization+ "}"|"sequential"
+		//synchronizations+=Synchronization|functions+=Builder|functions+=Function|
+		//"repositories" "{" repositories+=RepositoryConfiguration* "}"|"properties"
+		//propertySets+=PropertySet_Named|"containers" "{" containers+=
+		//ContainerConfiguration* "}")* 
 		//		 	 //-- PROVIDES
 		//			               
 		//			          
@@ -503,7 +504,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//";"
 		public Keyword getSemicolonKeyword_9_1_2() { return cSemicolonKeyword_9_1_2; }
 
-		//"requires" "{" (requiredCapabilities+=RequiredCapability ";")+ "}"
+		//"requires" "{" (requiredCapabilities+=AliasedRequiredCapability ";")+ "}"
 		public Group getGroup_9_2() { return cGroup_9_2; }
 
 		//"requires"
@@ -512,14 +513,14 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_9_2_1() { return cLeftCurlyBracketKeyword_9_2_1; }
 
-		//(requiredCapabilities+=RequiredCapability ";")+
+		//(requiredCapabilities+=AliasedRequiredCapability ";")+
 		public Group getGroup_9_2_2() { return cGroup_9_2_2; }
 
-		//requiredCapabilities+=RequiredCapability
+		//requiredCapabilities+=AliasedRequiredCapability
 		public Assignment getRequiredCapabilitiesAssignment_9_2_2_0() { return cRequiredCapabilitiesAssignment_9_2_2_0; }
 
-		//RequiredCapability
-		public RuleCall getRequiredCapabilitiesRequiredCapabilityParserRuleCall_9_2_2_0_0() { return cRequiredCapabilitiesRequiredCapabilityParserRuleCall_9_2_2_0_0; }
+		//AliasedRequiredCapability
+		public RuleCall getRequiredCapabilitiesAliasedRequiredCapabilityParserRuleCall_9_2_2_0_0() { return cRequiredCapabilitiesAliasedRequiredCapabilityParserRuleCall_9_2_2_0_0; }
 
 		//";"
 		public Keyword getSemicolonKeyword_9_2_2_1() { return cSemicolonKeyword_9_2_2_1; }
@@ -527,17 +528,17 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_9_2_3() { return cRightCurlyBracketKeyword_9_2_3; }
 
-		//"requires" requiredCapabilities+=RequiredCapability ";"
+		//"requires" requiredCapabilities+=AliasedRequiredCapability ";"
 		public Group getGroup_9_3() { return cGroup_9_3; }
 
 		//"requires"
 		public Keyword getRequiresKeyword_9_3_0() { return cRequiresKeyword_9_3_0; }
 
-		//requiredCapabilities+=RequiredCapability
+		//requiredCapabilities+=AliasedRequiredCapability
 		public Assignment getRequiredCapabilitiesAssignment_9_3_1() { return cRequiredCapabilitiesAssignment_9_3_1; }
 
-		//RequiredCapability
-		public RuleCall getRequiredCapabilitiesRequiredCapabilityParserRuleCall_9_3_1_0() { return cRequiredCapabilitiesRequiredCapabilityParserRuleCall_9_3_1_0; }
+		//AliasedRequiredCapability
+		public RuleCall getRequiredCapabilitiesAliasedRequiredCapabilityParserRuleCall_9_3_1_0() { return cRequiredCapabilitiesAliasedRequiredCapabilityParserRuleCall_9_3_1_0; }
 
 		//";"
 		public Keyword getSemicolonKeyword_9_3_2() { return cSemicolonKeyword_9_3_2; }
@@ -716,8 +717,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//	     
 		//	    
 		//	
-		//	
+		//
 		//// Capability required by a unit - always refers to capabilities with at least ns/name
+		//// or the keyword "unit" instead of the namespace for buildunits
 		public ParserRule getRule() { return rule; }
 
 		//{build::VersionedCapability} ("when" "(" condExpr=Expression ")")? nameSpace=
@@ -773,6 +775,121 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getVersionVersionLiteralParserRuleCall_5_1_0() { return cVersionVersionLiteralParserRuleCall_5_1_0; }
 	}
 
+	public class AliasedRequiredCapabilityElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "AliasedRequiredCapability");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cAliasedRequiredCapabilityAction_0 = (Action)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cWhenKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Assignment cCondExprAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cCondExprExpressionParserRuleCall_1_2_0 = (RuleCall)cCondExprAssignment_1_2.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
+		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
+		private final Assignment cNameSpaceAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
+		private final RuleCall cNameSpaceInterfaceNameParserRuleCall_2_0_0 = (RuleCall)cNameSpaceAssignment_2_0.eContents().get(0);
+		private final Keyword cUnitKeyword_2_1 = (Keyword)cAlternatives_2.eContents().get(1);
+		private final Keyword cSolidusKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cNameCapabilityNameParserRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cSolidusKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cVersionRangeAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cVersionRangeVersionRangeLiteralParserRuleCall_5_1_0 = (RuleCall)cVersionRangeAssignment_5_1.eContents().get(0);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cAsKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cAliasAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cAliasIDTerminalRuleCall_6_1_0 = (RuleCall)cAliasAssignment_6_1.eContents().get(0);
+		
+		//AliasedRequiredCapability returns build::RequiredCapability:
+		//  {build::AliasedRequiredCapability} ("when" "(" condExpr=Expression ")")? (nameSpace=
+		//  InterfaceName|"unit") "/" name=CapabilityName ("/" versionRange=VersionRangeLiteral)
+		//  ? ("as" alias=ID)?; 
+		//
+		//// Capability required by a unit - always refers to capabilities with at least ns/name
+		//// or the keyword "unit" instead of the namespace for buildunits
+		//         
+		//	        
+		//	         
+		//	           
+		//	
+		//	
+		//// Capability required by a unit - always refers to capabilities with at least ns/name
+		//// or the keyword "unit" instead of the namespace for buildunits
+		public ParserRule getRule() { return rule; }
+
+		//{build::AliasedRequiredCapability} ("when" "(" condExpr=Expression ")")? (nameSpace=
+		//InterfaceName|"unit") "/" name=CapabilityName ("/" versionRange=VersionRangeLiteral)
+		//? ("as" alias=ID)?
+		public Group getGroup() { return cGroup; }
+
+		//{build::AliasedRequiredCapability}
+		public Action getAliasedRequiredCapabilityAction_0() { return cAliasedRequiredCapabilityAction_0; }
+
+		//("when" "(" condExpr=Expression ")")?
+		public Group getGroup_1() { return cGroup_1; }
+
+		//"when"
+		public Keyword getWhenKeyword_1_0() { return cWhenKeyword_1_0; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_1_1() { return cLeftParenthesisKeyword_1_1; }
+
+		//condExpr=Expression
+		public Assignment getCondExprAssignment_1_2() { return cCondExprAssignment_1_2; }
+
+		//Expression
+		public RuleCall getCondExprExpressionParserRuleCall_1_2_0() { return cCondExprExpressionParserRuleCall_1_2_0; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_1_3() { return cRightParenthesisKeyword_1_3; }
+
+		//nameSpace=InterfaceName|"unit"
+		public Alternatives getAlternatives_2() { return cAlternatives_2; }
+
+		//nameSpace=InterfaceName
+		public Assignment getNameSpaceAssignment_2_0() { return cNameSpaceAssignment_2_0; }
+
+		//InterfaceName
+		public RuleCall getNameSpaceInterfaceNameParserRuleCall_2_0_0() { return cNameSpaceInterfaceNameParserRuleCall_2_0_0; }
+
+		//"unit"
+		public Keyword getUnitKeyword_2_1() { return cUnitKeyword_2_1; }
+
+		//"/"
+		public Keyword getSolidusKeyword_3() { return cSolidusKeyword_3; }
+
+		//name=CapabilityName
+		public Assignment getNameAssignment_4() { return cNameAssignment_4; }
+
+		//CapabilityName
+		public RuleCall getNameCapabilityNameParserRuleCall_4_0() { return cNameCapabilityNameParserRuleCall_4_0; }
+
+		//("/" versionRange=VersionRangeLiteral)?
+		public Group getGroup_5() { return cGroup_5; }
+
+		//"/"
+		public Keyword getSolidusKeyword_5_0() { return cSolidusKeyword_5_0; }
+
+		//versionRange=VersionRangeLiteral
+		public Assignment getVersionRangeAssignment_5_1() { return cVersionRangeAssignment_5_1; }
+
+		//VersionRangeLiteral
+		public RuleCall getVersionRangeVersionRangeLiteralParserRuleCall_5_1_0() { return cVersionRangeVersionRangeLiteralParserRuleCall_5_1_0; }
+
+		//("as" alias=ID)?
+		public Group getGroup_6() { return cGroup_6; }
+
+		//"as"
+		public Keyword getAsKeyword_6_0() { return cAsKeyword_6_0; }
+
+		//alias=ID
+		public Assignment getAliasAssignment_6_1() { return cAliasAssignment_6_1; }
+
+		//ID
+		public RuleCall getAliasIDTerminalRuleCall_6_1_0() { return cAliasIDTerminalRuleCall_6_1_0; }
+	}
+
 	public class RequiredCapabilityElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "RequiredCapability");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -783,8 +900,10 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cCondExprAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
 		private final RuleCall cCondExprExpressionParserRuleCall_1_2_0 = (RuleCall)cCondExprAssignment_1_2.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
-		private final Assignment cNameSpaceAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameSpaceInterfaceNameParserRuleCall_2_0 = (RuleCall)cNameSpaceAssignment_2.eContents().get(0);
+		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
+		private final Assignment cNameSpaceAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
+		private final RuleCall cNameSpaceInterfaceNameParserRuleCall_2_0_0 = (RuleCall)cNameSpaceAssignment_2_0.eContents().get(0);
+		private final Keyword cUnitKeyword_2_1 = (Keyword)cAlternatives_2.eContents().get(1);
 		private final Keyword cSolidusKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cNameCapabilityNameParserRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
@@ -794,14 +913,25 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cVersionRangeVersionRangeLiteralParserRuleCall_5_1_0 = (RuleCall)cVersionRangeAssignment_5_1.eContents().get(0);
 		
 		//RequiredCapability returns build::RequiredCapability:
-		//  {build::RequiredCapability} ("when" "(" condExpr=Expression ")")? nameSpace=
-		//  InterfaceName "/" name=CapabilityName ("/" versionRange=VersionRangeLiteral)?; 
+		//  {build::RequiredCapability} ("when" "(" condExpr=Expression ")")? (nameSpace=
+		//  InterfaceName|"unit") "/" name=CapabilityName ("/" versionRange=VersionRangeLiteral)
+		//  ?; 
 		//	
 		//// Capability required by a unit - always refers to capabilities with at least ns/name
+		//// or the keyword "unit" instead of the namespace for buildunits
+		//         
+		//	        
+		//	         
+		//	    
+		//	
+		//	
+		//// Capability required by a unit - always refers to capabilities with at least ns/name
+		//// or the keyword "unit" instead of the namespace for buildunits
 		public ParserRule getRule() { return rule; }
 
-		//{build::RequiredCapability} ("when" "(" condExpr=Expression ")")? nameSpace=
-		//InterfaceName "/" name=CapabilityName ("/" versionRange=VersionRangeLiteral)?
+		//{build::RequiredCapability} ("when" "(" condExpr=Expression ")")? (nameSpace=
+		//InterfaceName|"unit") "/" name=CapabilityName ("/" versionRange=VersionRangeLiteral)
+		//?
 		public Group getGroup() { return cGroup; }
 
 		//{build::RequiredCapability}
@@ -825,11 +955,17 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//")"
 		public Keyword getRightParenthesisKeyword_1_3() { return cRightParenthesisKeyword_1_3; }
 
+		//nameSpace=InterfaceName|"unit"
+		public Alternatives getAlternatives_2() { return cAlternatives_2; }
+
 		//nameSpace=InterfaceName
-		public Assignment getNameSpaceAssignment_2() { return cNameSpaceAssignment_2; }
+		public Assignment getNameSpaceAssignment_2_0() { return cNameSpaceAssignment_2_0; }
 
 		//InterfaceName
-		public RuleCall getNameSpaceInterfaceNameParserRuleCall_2_0() { return cNameSpaceInterfaceNameParserRuleCall_2_0; }
+		public RuleCall getNameSpaceInterfaceNameParserRuleCall_2_0_0() { return cNameSpaceInterfaceNameParserRuleCall_2_0_0; }
+
+		//"unit"
+		public Keyword getUnitKeyword_2_1() { return cUnitKeyword_2_1; }
 
 		//"/"
 		public Keyword getSolidusKeyword_3() { return cSolidusKeyword_3; }
@@ -857,38 +993,41 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "RequiredCapability_Unfiltered");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cRequiredCapabilityAction_0 = (Action)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Assignment cNameSpaceAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Assignment cNameSpaceAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
 		private final RuleCall cNameSpaceInterfaceNameParserRuleCall_1_0_0 = (RuleCall)cNameSpaceAssignment_1_0.eContents().get(0);
-		private final Keyword cSolidusKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameCapabilityNameParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cSolidusKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cVersionRangeAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cVersionRangeVersionRangeLiteralParserRuleCall_3_1_0 = (RuleCall)cVersionRangeAssignment_3_1.eContents().get(0);
+		private final Keyword cUnitKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
+		private final Keyword cSolidusKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNameCapabilityNameParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cSolidusKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cVersionRangeAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cVersionRangeVersionRangeLiteralParserRuleCall_4_1_0 = (RuleCall)cVersionRangeAssignment_4_1.eContents().get(0);
 		
 		//RequiredCapability_Unfiltered returns build::RequiredCapability:
-		//  {build::RequiredCapability} (nameSpace=InterfaceName "/")? name=CapabilityName ("/"
-		//  versionRange=VersionRangeLiteral)?; 
+		//  {build::RequiredCapability} (nameSpace=InterfaceName|"unit") "/" name=
+		//  CapabilityName ("/" versionRange=VersionRangeLiteral)?; 
 		//	
+		//// Capability required by a unit - always refers to capabilities with at least ns/name
+		//// or the keyword "unit" instead of the namespace for buildunits
 		//         
-		//	     
+		//	         
 		//	    
 		//	
 		//	
 		//// An optionally named sequence of property statements
 		public ParserRule getRule() { return rule; }
 
-		//{build::RequiredCapability} (nameSpace=InterfaceName "/")? name=CapabilityName ("/"
-		//versionRange=VersionRangeLiteral)?
+		//{build::RequiredCapability} (nameSpace=InterfaceName|"unit") "/" name=
+		//CapabilityName ("/" versionRange=VersionRangeLiteral)?
 		public Group getGroup() { return cGroup; }
 
 		//{build::RequiredCapability}
 		public Action getRequiredCapabilityAction_0() { return cRequiredCapabilityAction_0; }
 
-		//(nameSpace=InterfaceName "/")?
-		public Group getGroup_1() { return cGroup_1; }
+		//nameSpace=InterfaceName|"unit"
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 
 		//nameSpace=InterfaceName
 		public Assignment getNameSpaceAssignment_1_0() { return cNameSpaceAssignment_1_0; }
@@ -896,26 +1035,29 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//InterfaceName
 		public RuleCall getNameSpaceInterfaceNameParserRuleCall_1_0_0() { return cNameSpaceInterfaceNameParserRuleCall_1_0_0; }
 
+		//"unit"
+		public Keyword getUnitKeyword_1_1() { return cUnitKeyword_1_1; }
+
 		//"/"
-		public Keyword getSolidusKeyword_1_1() { return cSolidusKeyword_1_1; }
+		public Keyword getSolidusKeyword_2() { return cSolidusKeyword_2; }
 
 		//name=CapabilityName
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
 
 		//CapabilityName
-		public RuleCall getNameCapabilityNameParserRuleCall_2_0() { return cNameCapabilityNameParserRuleCall_2_0; }
+		public RuleCall getNameCapabilityNameParserRuleCall_3_0() { return cNameCapabilityNameParserRuleCall_3_0; }
 
 		//("/" versionRange=VersionRangeLiteral)?
-		public Group getGroup_3() { return cGroup_3; }
+		public Group getGroup_4() { return cGroup_4; }
 
 		//"/"
-		public Keyword getSolidusKeyword_3_0() { return cSolidusKeyword_3_0; }
+		public Keyword getSolidusKeyword_4_0() { return cSolidusKeyword_4_0; }
 
 		//versionRange=VersionRangeLiteral
-		public Assignment getVersionRangeAssignment_3_1() { return cVersionRangeAssignment_3_1; }
+		public Assignment getVersionRangeAssignment_4_1() { return cVersionRangeAssignment_4_1; }
 
 		//VersionRangeLiteral
-		public RuleCall getVersionRangeVersionRangeLiteralParserRuleCall_3_1_0() { return cVersionRangeVersionRangeLiteralParserRuleCall_3_1_0; }
+		public RuleCall getVersionRangeVersionRangeLiteralParserRuleCall_4_1_0() { return cVersionRangeVersionRangeLiteralParserRuleCall_4_1_0; }
 	}
 
 	public class PropertySet_NamedElements extends AbstractParserRuleElementFinder {
@@ -1993,15 +2135,34 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cUnitBuildResultReferenceParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cCapabilityBuildResultReferenceParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cCompoundBuildResultReferenceParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cIndirectCapabilityBuildResultReferenceParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cCompoundBuildResultReferenceParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
 		//BuildResultReference returns build::BuildResultReference:
 		//  UnitBuildResultReference|CapabilityBuildResultReference|
-		//  CompoundBuildResultReference;
+		//  IndirectCapabilityBuildResultReference|CompoundBuildResultReference; 
+		//			
+		//    
+		//	  
+		//	  
+		//	  
+		//	  
+		//	
+		//
+		//// A reference to a builder in the same unit
 		public ParserRule getRule() { return rule; }
 
 		//UnitBuildResultReference|CapabilityBuildResultReference|
-		//CompoundBuildResultReference
+		//IndirectCapabilityBuildResultReference|CompoundBuildResultReference 
+		//			
+		//    
+		//	  
+		//	  
+		//	  
+		//	  
+		//	
+		//
+		//// A reference to a builder in the same unit
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//UnitBuildResultReference
@@ -2010,8 +2171,11 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//CapabilityBuildResultReference
 		public RuleCall getCapabilityBuildResultReferenceParserRuleCall_1() { return cCapabilityBuildResultReferenceParserRuleCall_1; }
 
+		//IndirectCapabilityBuildResultReference
+		public RuleCall getIndirectCapabilityBuildResultReferenceParserRuleCall_2() { return cIndirectCapabilityBuildResultReferenceParserRuleCall_2; }
+
 		//CompoundBuildResultReference
-		public RuleCall getCompoundBuildResultReferenceParserRuleCall_2() { return cCompoundBuildResultReferenceParserRuleCall_2; }
+		public RuleCall getCompoundBuildResultReferenceParserRuleCall_3() { return cCompoundBuildResultReferenceParserRuleCall_3; }
 	}
 
 	public class UnitBuildResultReferenceElements extends AbstractParserRuleElementFinder {
@@ -2030,7 +2194,14 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//UnitBuildResultReference returns build::BuildResultReference:
 		//  {build::BuilderReference} "unit"? "#" builderName=BuilderName ("(" parameters=
-		//  ParameterList ")")?;
+		//  ParameterList ")")?; 
+		//
+		//// A reference to a builder in the same unit
+		//         
+		//	                 
+		//
+		//// A reference to a builder in a unit providing a capability (or if build name is omitted to the
+		//// builder that provides the capability in that unit).
 		public ParserRule getRule() { return rule; }
 
 		//{build::BuilderReference} "unit"? "#" builderName=BuilderName ("(" parameters=
@@ -2086,7 +2257,17 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//CapabilityBuildResultReference returns build::BuildResultReference:
 		//  {build::BuilderReference} requiredCapability=RequiredCapability_Unfiltered ("#"
-		//  builderName=BuilderName)? ("(" parameters=ParameterList ")")?;
+		//  builderName=BuilderName)? ("(" parameters=ParameterList ")")?;  
+		//
+		//// A reference to a builder in a unit providing a capability (or if build name is omitted to the
+		//// builder that provides the capability in that unit).
+		//        
+		//	          
+		//	        	 
+		//	
+		//	
+		//// A reference to a builder in a unit providing a referenced capability (or if build name is omitted to the
+		//// builder that provides the capability in that unit).
 		public ParserRule getRule() { return rule; }
 
 		//{build::BuilderReference} requiredCapability=RequiredCapability_Unfiltered ("#"
@@ -2101,6 +2282,77 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 		//RequiredCapability_Unfiltered
 		public RuleCall getRequiredCapabilityRequiredCapability_UnfilteredParserRuleCall_1_0() { return cRequiredCapabilityRequiredCapability_UnfilteredParserRuleCall_1_0; }
+
+		//("#" builderName=BuilderName)?
+		public Group getGroup_2() { return cGroup_2; }
+
+		//"#"
+		public Keyword getNumberSignKeyword_2_0() { return cNumberSignKeyword_2_0; }
+
+		//builderName=BuilderName
+		public Assignment getBuilderNameAssignment_2_1() { return cBuilderNameAssignment_2_1; }
+
+		//BuilderName
+		public RuleCall getBuilderNameBuilderNameParserRuleCall_2_1_0() { return cBuilderNameBuilderNameParserRuleCall_2_1_0; }
+
+		//("(" parameters=ParameterList ")")?
+		public Group getGroup_3() { return cGroup_3; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_3_0() { return cLeftParenthesisKeyword_3_0; }
+
+		//parameters=ParameterList
+		public Assignment getParametersAssignment_3_1() { return cParametersAssignment_3_1; }
+
+		//ParameterList
+		public RuleCall getParametersParameterListParserRuleCall_3_1_0() { return cParametersParameterListParserRuleCall_3_1_0; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_3_2() { return cRightParenthesisKeyword_3_2; }
+	}
+
+	public class IndirectCapabilityBuildResultReferenceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "IndirectCapabilityBuildResultReference");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cBuilderReferenceAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cRequiredCapabilityReferenceAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cRequiredCapabilityReferenceAliasedRequiredCapabilityCrossReference_1_0 = (CrossReference)cRequiredCapabilityReferenceAssignment_1.eContents().get(0);
+		private final RuleCall cRequiredCapabilityReferenceAliasedRequiredCapabilityIDTerminalRuleCall_1_0_1 = (RuleCall)cRequiredCapabilityReferenceAliasedRequiredCapabilityCrossReference_1_0.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cNumberSignKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cBuilderNameAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cBuilderNameBuilderNameParserRuleCall_2_1_0 = (RuleCall)cBuilderNameAssignment_2_1.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cLeftParenthesisKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cParametersAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cParametersParameterListParserRuleCall_3_1_0 = (RuleCall)cParametersAssignment_3_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
+		
+		//IndirectCapabilityBuildResultReference returns build::BuildResultReference:
+		//  {build::BuilderReference} requiredCapabilityReference=[build::
+		//  AliasedRequiredCapability] ("#" builderName=BuilderName)? ("(" parameters=
+		//  ParameterList ")")?; 
+		//	
+		//// A reference to a builder in a unit providing a referenced capability (or if build name is omitted to the
+		//// builder that provides the capability in that unit).
+		public ParserRule getRule() { return rule; }
+
+		//{build::BuilderReference} requiredCapabilityReference=[build::
+		//AliasedRequiredCapability] ("#" builderName=BuilderName)? ("(" parameters=
+		//ParameterList ")")?
+		public Group getGroup() { return cGroup; }
+
+		//{build::BuilderReference}
+		public Action getBuilderReferenceAction_0() { return cBuilderReferenceAction_0; }
+
+		//requiredCapabilityReference=[build::AliasedRequiredCapability]
+		public Assignment getRequiredCapabilityReferenceAssignment_1() { return cRequiredCapabilityReferenceAssignment_1; }
+
+		//[build::AliasedRequiredCapability]
+		public CrossReference getRequiredCapabilityReferenceAliasedRequiredCapabilityCrossReference_1_0() { return cRequiredCapabilityReferenceAliasedRequiredCapabilityCrossReference_1_0; }
+
+		//ID
+		public RuleCall getRequiredCapabilityReferenceAliasedRequiredCapabilityIDTerminalRuleCall_1_0_1() { return cRequiredCapabilityReferenceAliasedRequiredCapabilityIDTerminalRuleCall_1_0_1; }
 
 		//("#" builderName=BuilderName)?
 		public Group getGroup_2() { return cGroup_2; }
@@ -8638,6 +8890,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	private ImportElements pImport;
 	private BuildUnitElements pBuildUnit;
 	private ProvidedCapabilityElements pProvidedCapability;
+	private AliasedRequiredCapabilityElements pAliasedRequiredCapability;
 	private RequiredCapabilityElements pRequiredCapability;
 	private RequiredCapability_UnfilteredElements pRequiredCapability_Unfiltered;
 	private PropertySet_NamedElements pPropertySet_Named;
@@ -8661,6 +8914,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	private BuildResultReferenceElements pBuildResultReference;
 	private UnitBuildResultReferenceElements pUnitBuildResultReference;
 	private CapabilityBuildResultReferenceElements pCapabilityBuildResultReference;
+	private IndirectCapabilityBuildResultReferenceElements pIndirectCapabilityBuildResultReference;
 	private CompoundBuildResultReferenceElements pCompoundBuildResultReference;
 	private BuilderElements pBuilder;
 	private ParameterListElements pParameterList;
@@ -8853,15 +9107,15 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//  SimpleTypeRef ("," implements+=SimpleTypeRef)*)? "{" ("default" "properties"
 	//  defaultProperties=PropertySet)? ("provides" "{" (unitProvidedCapabilities+=
 	//  ProvidedCapability ";")+ "}"|"provides" unitProvidedCapabilities+=
-	//  ProvidedCapability ";"|"requires" "{" (requiredCapabilities+=RequiredCapability ";")
-	//  + "}"|"requires" requiredCapabilities+=RequiredCapability ";"|"env" "requires" "{" (
-	//  metaRequiredCapabilities+=RequiredCapability ";")+ "}"|"env" "requires"
-	//  metaRequiredCapabilities+=RequiredCapability ";"|concerns+=Concern_Named|
-	//  "sequential" "{" synchronizations+=Synchronization+ "}"|"sequential"
-	//  synchronizations+=Synchronization|functions+=Builder|functions+=Function|
-	//  "repositories" "{" repositories+=RepositoryConfiguration* "}"|"properties"
-	//  propertySets+=PropertySet_Named|"containers" "{" containers+=
-	//  ContainerConfiguration* "}")* "}"; 
+	//  ProvidedCapability ";"|"requires" "{" (requiredCapabilities+=
+	//  AliasedRequiredCapability ";")+ "}"|"requires" requiredCapabilities+=
+	//  AliasedRequiredCapability ";"|"env" "requires" "{" (metaRequiredCapabilities+=
+	//  RequiredCapability ";")+ "}"|"env" "requires" metaRequiredCapabilities+=
+	//  RequiredCapability ";"|concerns+=Concern_Named|"sequential" "{" synchronizations+=
+	//  Synchronization+ "}"|"sequential" synchronizations+=Synchronization|functions+=
+	//  Builder|functions+=Function|"repositories" "{" repositories+=
+	//  RepositoryConfiguration* "}"|"properties" propertySets+=PropertySet_Named|
+	//  "containers" "{" containers+=ContainerConfiguration* "}")* "}"; 
 	//
 	//// Wanted later 
 	////Import : (reexport ?='reexport')? 
@@ -8917,8 +9171,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//	     
 	//	    
 	//	
-	//	
+	//
 	//// Capability required by a unit - always refers to capabilities with at least ns/name
+	//// or the keyword "unit" instead of the namespace for buildunits
 	public ProvidedCapabilityElements getProvidedCapabilityAccess() {
 		return (pProvidedCapability != null) ? pProvidedCapability : (pProvidedCapability = new ProvidedCapabilityElements());
 	}
@@ -8927,11 +9182,44 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getProvidedCapabilityAccess().getRule();
 	}
 
-	//RequiredCapability returns build::RequiredCapability:
-	//  {build::RequiredCapability} ("when" "(" condExpr=Expression ")")? nameSpace=
-	//  InterfaceName "/" name=CapabilityName ("/" versionRange=VersionRangeLiteral)?; 
+	//AliasedRequiredCapability returns build::RequiredCapability:
+	//  {build::AliasedRequiredCapability} ("when" "(" condExpr=Expression ")")? (nameSpace=
+	//  InterfaceName|"unit") "/" name=CapabilityName ("/" versionRange=VersionRangeLiteral)
+	//  ? ("as" alias=ID)?; 
+	//
+	//// Capability required by a unit - always refers to capabilities with at least ns/name
+	//// or the keyword "unit" instead of the namespace for buildunits
+	//         
+	//	        
+	//	         
+	//	           
+	//	
 	//	
 	//// Capability required by a unit - always refers to capabilities with at least ns/name
+	//// or the keyword "unit" instead of the namespace for buildunits
+	public AliasedRequiredCapabilityElements getAliasedRequiredCapabilityAccess() {
+		return (pAliasedRequiredCapability != null) ? pAliasedRequiredCapability : (pAliasedRequiredCapability = new AliasedRequiredCapabilityElements());
+	}
+	
+	public ParserRule getAliasedRequiredCapabilityRule() {
+		return getAliasedRequiredCapabilityAccess().getRule();
+	}
+
+	//RequiredCapability returns build::RequiredCapability:
+	//  {build::RequiredCapability} ("when" "(" condExpr=Expression ")")? (nameSpace=
+	//  InterfaceName|"unit") "/" name=CapabilityName ("/" versionRange=VersionRangeLiteral)
+	//  ?; 
+	//	
+	//// Capability required by a unit - always refers to capabilities with at least ns/name
+	//// or the keyword "unit" instead of the namespace for buildunits
+	//         
+	//	        
+	//	         
+	//	    
+	//	
+	//	
+	//// Capability required by a unit - always refers to capabilities with at least ns/name
+	//// or the keyword "unit" instead of the namespace for buildunits
 	public RequiredCapabilityElements getRequiredCapabilityAccess() {
 		return (pRequiredCapability != null) ? pRequiredCapability : (pRequiredCapability = new RequiredCapabilityElements());
 	}
@@ -8941,11 +9229,13 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//RequiredCapability_Unfiltered returns build::RequiredCapability:
-	//  {build::RequiredCapability} (nameSpace=InterfaceName "/")? name=CapabilityName ("/"
-	//  versionRange=VersionRangeLiteral)?; 
+	//  {build::RequiredCapability} (nameSpace=InterfaceName|"unit") "/" name=
+	//  CapabilityName ("/" versionRange=VersionRangeLiteral)?; 
 	//	
+	//// Capability required by a unit - always refers to capabilities with at least ns/name
+	//// or the keyword "unit" instead of the namespace for buildunits
 	//         
-	//	     
+	//	         
 	//	    
 	//	
 	//	
@@ -9213,7 +9503,16 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 	//BuildResultReference returns build::BuildResultReference:
 	//  UnitBuildResultReference|CapabilityBuildResultReference|
-	//  CompoundBuildResultReference;
+	//  IndirectCapabilityBuildResultReference|CompoundBuildResultReference; 
+	//			
+	//    
+	//	  
+	//	  
+	//	  
+	//	  
+	//	
+	//
+	//// A reference to a builder in the same unit
 	public BuildResultReferenceElements getBuildResultReferenceAccess() {
 		return (pBuildResultReference != null) ? pBuildResultReference : (pBuildResultReference = new BuildResultReferenceElements());
 	}
@@ -9224,7 +9523,14 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 	//UnitBuildResultReference returns build::BuildResultReference:
 	//  {build::BuilderReference} "unit"? "#" builderName=BuilderName ("(" parameters=
-	//  ParameterList ")")?;
+	//  ParameterList ")")?; 
+	//
+	//// A reference to a builder in the same unit
+	//         
+	//	                 
+	//
+	//// A reference to a builder in a unit providing a capability (or if build name is omitted to the
+	//// builder that provides the capability in that unit).
 	public UnitBuildResultReferenceElements getUnitBuildResultReferenceAccess() {
 		return (pUnitBuildResultReference != null) ? pUnitBuildResultReference : (pUnitBuildResultReference = new UnitBuildResultReferenceElements());
 	}
@@ -9235,13 +9541,38 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 	//CapabilityBuildResultReference returns build::BuildResultReference:
 	//  {build::BuilderReference} requiredCapability=RequiredCapability_Unfiltered ("#"
-	//  builderName=BuilderName)? ("(" parameters=ParameterList ")")?;
+	//  builderName=BuilderName)? ("(" parameters=ParameterList ")")?;  
+	//
+	//// A reference to a builder in a unit providing a capability (or if build name is omitted to the
+	//// builder that provides the capability in that unit).
+	//        
+	//	          
+	//	        	 
+	//	
+	//	
+	//// A reference to a builder in a unit providing a referenced capability (or if build name is omitted to the
+	//// builder that provides the capability in that unit).
 	public CapabilityBuildResultReferenceElements getCapabilityBuildResultReferenceAccess() {
 		return (pCapabilityBuildResultReference != null) ? pCapabilityBuildResultReference : (pCapabilityBuildResultReference = new CapabilityBuildResultReferenceElements());
 	}
 	
 	public ParserRule getCapabilityBuildResultReferenceRule() {
 		return getCapabilityBuildResultReferenceAccess().getRule();
+	}
+
+	//IndirectCapabilityBuildResultReference returns build::BuildResultReference:
+	//  {build::BuilderReference} requiredCapabilityReference=[build::
+	//  AliasedRequiredCapability] ("#" builderName=BuilderName)? ("(" parameters=
+	//  ParameterList ")")?; 
+	//	
+	//// A reference to a builder in a unit providing a referenced capability (or if build name is omitted to the
+	//// builder that provides the capability in that unit).
+	public IndirectCapabilityBuildResultReferenceElements getIndirectCapabilityBuildResultReferenceAccess() {
+		return (pIndirectCapabilityBuildResultReference != null) ? pIndirectCapabilityBuildResultReference : (pIndirectCapabilityBuildResultReference = new IndirectCapabilityBuildResultReferenceElements());
+	}
+	
+	public ParserRule getIndirectCapabilityBuildResultReferenceRule() {
+		return getIndirectCapabilityBuildResultReferenceAccess().getRule();
 	}
 
 	//CompoundBuildResultReference returns build::BuildResultReference:

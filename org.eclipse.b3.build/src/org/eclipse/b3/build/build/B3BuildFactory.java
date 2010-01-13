@@ -278,6 +278,15 @@ public interface B3BuildFactory extends EFactory {
 	OutputPredicate createOutputPredicate();
 
 	/**
+	 * Returns a new object of class '<em>Aliased Required Capability</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Aliased Required Capability</em>'.
+	 * @generated
+	 */
+	AliasedRequiredCapability createAliasedRequiredCapability();
+
+	/**
 	 * Returns a new object of class '<em>Builder Input</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

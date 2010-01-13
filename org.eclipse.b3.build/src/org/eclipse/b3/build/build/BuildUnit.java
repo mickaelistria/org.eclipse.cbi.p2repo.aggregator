@@ -23,11 +23,9 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getUnitProvidedCapabilities <em>Unit Provided Capabilities</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getBuilders <em>Builders</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getDocumentation <em>Documentation</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getExecutionMode <em>Execution Mode</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getRequiredCapabilities <em>Required Capabilities</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getMetaRequiredCapabilities <em>Meta Required Capabilities</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getImplements <em>Implements</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getConcerns <em>Concerns</em>}</li>
@@ -43,23 +41,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface BuildUnit extends VersionedCapability, BFunctionContainer {
-
-	/**
-	 * Returns the value of the '<em><b>Unit Provided Capabilities</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.b3.build.build.VersionedCapability}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Unit Provided Capabilities</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Unit Provided Capabilities</em>' containment reference list.
-	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuildUnit_UnitProvidedCapabilities()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<VersionedCapability> getUnitProvidedCapabilities();
+public interface BuildUnit extends VersionedCapability, BFunctionContainer, IRequiredCapabilityContainer, IProvidedCapabilityContainer {
 
 	/**
 	 * Returns the value of the '<em><b>Builders</b></em>' reference list.
@@ -131,22 +113,6 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer {
 	 * @generated
 	 */
 	void setExecutionMode(ExecutionMode value);
-
-	/**
-	 * Returns the value of the '<em><b>Required Capabilities</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.b3.build.build.RequiredCapability}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Required Capabilities</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Required Capabilities</em>' containment reference list.
-	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuildUnit_RequiredCapabilities()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<RequiredCapability> getRequiredCapabilities();
 
 	/**
 	 * Returns the value of the '<em><b>Meta Required Capabilities</b></em>' containment reference list.

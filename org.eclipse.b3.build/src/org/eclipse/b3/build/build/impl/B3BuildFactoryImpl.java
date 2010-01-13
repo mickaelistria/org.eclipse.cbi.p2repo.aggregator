@@ -98,6 +98,7 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 			case B3BuildPackage.UNIT_CONCERN_CONTEXT: return createUnitConcernContext();
 			case B3BuildPackage.BUILDER_CONCERN_CONTEXT: return createBuilderConcernContext();
 			case B3BuildPackage.OUTPUT_PREDICATE: return createOutputPredicate();
+			case B3BuildPackage.ALIASED_REQUIRED_CAPABILITY: return createAliasedRequiredCapability();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -419,6 +420,16 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	public OutputPredicate createOutputPredicate() {
 		OutputPredicateImpl outputPredicate = new OutputPredicateImpl();
 		return outputPredicate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AliasedRequiredCapability createAliasedRequiredCapability() {
+		AliasedRequiredCapabilityImpl aliasedRequiredCapability = new AliasedRequiredCapabilityImpl();
+		return aliasedRequiredCapability;
 	}
 
 	/**

@@ -19,6 +19,7 @@ import org.eclipse.b3.build.build.Builder;
 
 import org.eclipse.b3.build.build.BuilderInput;
 import org.eclipse.b3.build.build.Capability;
+import org.eclipse.b3.build.build.IProvidedCapabilityContainer;
 import org.eclipse.b3.build.build.PathGroup;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -38,9 +39,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getProvidedCapabilities <em>Provided Capabilities</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getPostcondExpr <em>Postcond Expr</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getPrecondExpr <em>Precond Expr</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getProvidedCapabilities <em>Provided Capabilities</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getInput <em>Input</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getOutput <em>Output</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getDefaultProperties <em>Default Properties</em>}</li>
@@ -50,6 +51,15 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class BuilderImpl extends B3FunctionImpl implements Builder {
+	/**
+	 * The cached value of the '{@link #getProvidedCapabilities() <em>Provided Capabilities</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProvidedCapabilities()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Capability> providedCapabilities;
 	/**
 	 * The cached value of the '{@link #getPostcondExpr() <em>Postcond Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -68,15 +78,6 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	 * @ordered
 	 */
 	protected BExpression precondExpr;
-	/**
-	 * The cached value of the '{@link #getProvidedCapabilities() <em>Provided Capabilities</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProvidedCapabilities()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Capability> providedCapabilities;
 	/**
 	 * The cached value of the '{@link #getInput() <em>Input</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -358,12 +359,12 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case B3BuildPackage.BUILDER__PROVIDED_CAPABILITIES:
+				return ((InternalEList<?>)getProvidedCapabilities()).basicRemove(otherEnd, msgs);
 			case B3BuildPackage.BUILDER__POSTCOND_EXPR:
 				return basicSetPostcondExpr(null, msgs);
 			case B3BuildPackage.BUILDER__PRECOND_EXPR:
 				return basicSetPrecondExpr(null, msgs);
-			case B3BuildPackage.BUILDER__PROVIDED_CAPABILITIES:
-				return ((InternalEList<?>)getProvidedCapabilities()).basicRemove(otherEnd, msgs);
 			case B3BuildPackage.BUILDER__INPUT:
 				return basicSetInput(null, msgs);
 			case B3BuildPackage.BUILDER__OUTPUT:
@@ -382,12 +383,12 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case B3BuildPackage.BUILDER__PROVIDED_CAPABILITIES:
+				return getProvidedCapabilities();
 			case B3BuildPackage.BUILDER__POSTCOND_EXPR:
 				return getPostcondExpr();
 			case B3BuildPackage.BUILDER__PRECOND_EXPR:
 				return getPrecondExpr();
-			case B3BuildPackage.BUILDER__PROVIDED_CAPABILITIES:
-				return getProvidedCapabilities();
 			case B3BuildPackage.BUILDER__INPUT:
 				return getInput();
 			case B3BuildPackage.BUILDER__OUTPUT:
@@ -407,15 +408,15 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case B3BuildPackage.BUILDER__PROVIDED_CAPABILITIES:
+				getProvidedCapabilities().clear();
+				getProvidedCapabilities().addAll((Collection<? extends Capability>)newValue);
+				return;
 			case B3BuildPackage.BUILDER__POSTCOND_EXPR:
 				setPostcondExpr((BExpression)newValue);
 				return;
 			case B3BuildPackage.BUILDER__PRECOND_EXPR:
 				setPrecondExpr((BExpression)newValue);
-				return;
-			case B3BuildPackage.BUILDER__PROVIDED_CAPABILITIES:
-				getProvidedCapabilities().clear();
-				getProvidedCapabilities().addAll((Collection<? extends Capability>)newValue);
 				return;
 			case B3BuildPackage.BUILDER__INPUT:
 				setInput((BuilderInput)newValue);
@@ -438,14 +439,14 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case B3BuildPackage.BUILDER__PROVIDED_CAPABILITIES:
+				getProvidedCapabilities().clear();
+				return;
 			case B3BuildPackage.BUILDER__POSTCOND_EXPR:
 				setPostcondExpr((BExpression)null);
 				return;
 			case B3BuildPackage.BUILDER__PRECOND_EXPR:
 				setPrecondExpr((BExpression)null);
-				return;
-			case B3BuildPackage.BUILDER__PROVIDED_CAPABILITIES:
-				getProvidedCapabilities().clear();
 				return;
 			case B3BuildPackage.BUILDER__INPUT:
 				setInput((BuilderInput)null);
@@ -468,12 +469,12 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case B3BuildPackage.BUILDER__PROVIDED_CAPABILITIES:
+				return providedCapabilities != null && !providedCapabilities.isEmpty();
 			case B3BuildPackage.BUILDER__POSTCOND_EXPR:
 				return postcondExpr != null;
 			case B3BuildPackage.BUILDER__PRECOND_EXPR:
 				return precondExpr != null;
-			case B3BuildPackage.BUILDER__PROVIDED_CAPABILITIES:
-				return providedCapabilities != null && !providedCapabilities.isEmpty();
 			case B3BuildPackage.BUILDER__INPUT:
 				return input != null;
 			case B3BuildPackage.BUILDER__OUTPUT:
@@ -482,6 +483,37 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 				return defaultProperties != null;
 		}
 		return super.eIsSet(featureID);
+	}
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == IProvidedCapabilityContainer.class) {
+			switch (derivedFeatureID) {
+				case B3BuildPackage.BUILDER__PROVIDED_CAPABILITIES: return B3BuildPackage.IPROVIDED_CAPABILITY_CONTAINER__PROVIDED_CAPABILITIES;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == IProvidedCapabilityContainer.class) {
+			switch (baseFeatureID) {
+				case B3BuildPackage.IPROVIDED_CAPABILITY_CONTAINER__PROVIDED_CAPABILITIES: return B3BuildPackage.BUILDER__PROVIDED_CAPABILITIES;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 	private EList<BParameterDeclaration> cachedEffectiveParameters;
 	@Override

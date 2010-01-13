@@ -226,6 +226,18 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 				return createOutputPredicateAdapter();
 			}
 			@Override
+			public Adapter caseAliasedRequiredCapability(AliasedRequiredCapability object) {
+				return createAliasedRequiredCapabilityAdapter();
+			}
+			@Override
+			public Adapter caseIRequiredCapabilityContainer(IRequiredCapabilityContainer object) {
+				return createIRequiredCapabilityContainerAdapter();
+			}
+			@Override
+			public Adapter caseIProvidedCapabilityContainer(IProvidedCapabilityContainer object) {
+				return createIProvidedCapabilityContainerAdapter();
+			}
+			@Override
 			public Adapter caseBFunctionContainer(BFunctionContainer object) {
 				return createBFunctionContainerAdapter();
 			}
@@ -694,6 +706,48 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createOutputPredicateAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.AliasedRequiredCapability <em>Aliased Required Capability</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.AliasedRequiredCapability
+	 * @generated
+	 */
+	public Adapter createAliasedRequiredCapabilityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.IRequiredCapabilityContainer <em>IRequired Capability Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.IRequiredCapabilityContainer
+	 * @generated
+	 */
+	public Adapter createIRequiredCapabilityContainerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.IProvidedCapabilityContainer <em>IProvided Capability Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.IProvidedCapabilityContainer
+	 * @generated
+	 */
+	public Adapter createIProvidedCapabilityContainerAdapter() {
 		return null;
 	}
 

@@ -21,7 +21,6 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.eclipse.b3.build.build.Builder#getPostcondExpr <em>Postcond Expr</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.Builder#getPrecondExpr <em>Precond Expr</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.Builder#getProvidedCapabilities <em>Provided Capabilities</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.Builder#getInput <em>Input</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.Builder#getOutput <em>Output</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.Builder#getDefaultProperties <em>Default Properties</em>}</li>
@@ -32,7 +31,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Builder extends B3Function {
+public interface Builder extends B3Function, IProvidedCapabilityContainer {
 
 	/**
 	 * Returns the value of the '<em><b>Postcond Expr</b></em>' containment reference.
@@ -85,22 +84,6 @@ public interface Builder extends B3Function {
 	 * @generated
 	 */
 	void setPrecondExpr(BExpression value);
-
-	/**
-	 * Returns the value of the '<em><b>Provided Capabilities</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.b3.build.build.Capability}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Provided Capabilities</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Provided Capabilities</em>' containment reference list.
-	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuilder_ProvidedCapabilities()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Capability> getProvidedCapabilities();
 
 	/**
 	 * Returns the value of the '<em><b>Input</b></em>' containment reference.

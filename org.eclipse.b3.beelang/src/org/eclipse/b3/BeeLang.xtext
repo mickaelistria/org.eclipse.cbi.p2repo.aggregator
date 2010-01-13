@@ -59,8 +59,8 @@ BuildUnit returns build::BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT) : {build::
 			  ('provides' '{' (unitProvidedCapabilities += ProvidedCapability ';')+ '}')
 			| ('provides' unitProvidedCapabilities += ProvidedCapability ';')
 			//-- REQUIRES & META REQUIRES
-			| ('requires' '{' (requiredCapabilities += RequiredCapability ';')+ '}')
-			| ('requires' requiredCapabilities += RequiredCapability ';')
+			| ('requires' '{' (requiredCapabilities += AliasedRequiredCapability ';')+ '}')
+			| ('requires' requiredCapabilities += AliasedRequiredCapability ';')
 			| ('env' 'requires' '{' (metaRequiredCapabilities += RequiredCapability ';')+ '}' )
 			| ('env' 'requires' metaRequiredCapabilities += RequiredCapability ';')
 			//--CONCERNS
@@ -83,16 +83,27 @@ ProvidedCapability returns build::VersionedCapability : {build::VersionedCapabil
 	nameSpace=InterfaceName '/' name=CapabilityName 
 	('/' version=VersionLiteral)?  
 	;
+
+// Capability required by a unit - always refers to capabilities with at least ns/name
+// or the keyword "unit" instead of the namespace for buildunits
+AliasedRequiredCapability returns build::RequiredCapability : {build::AliasedRequiredCapability} 
+	('when' '(' condExpr=Expression ')')?  
+	((nameSpace=InterfaceName) | "unit") '/' name=CapabilityName 
+	('/' versionRange=VersionRangeLiteral)?  ("as" alias = ID)?
+	;
 	
-// Capability required by a unit - always refers to capabilities with at least ns/name	
+// Capability required by a unit - always refers to capabilities with at least ns/name
+// or the keyword "unit" instead of the namespace for buildunits
 RequiredCapability returns build::RequiredCapability : {build::RequiredCapability} 
 	('when' '(' condExpr=Expression ')')?  
-	nameSpace=InterfaceName '/' name=CapabilityName 
+	((nameSpace=InterfaceName) | "unit") '/' name=CapabilityName 
 	('/' versionRange=VersionRangeLiteral)?  
 	;
 	
+// Capability required by a unit - always refers to capabilities with at least ns/name
+// or the keyword "unit" instead of the namespace for buildunits
 RequiredCapability_Unfiltered returns build::RequiredCapability : {build::RequiredCapability} 
-	(nameSpace=InterfaceName '/')? name=CapabilityName 
+	((nameSpace=InterfaceName) | "unit") '/' name=CapabilityName 
 	('/' versionRange=VersionRangeLiteral)?  
 	;
 	
@@ -193,18 +204,28 @@ WithClause returns be::BWithExpression : {be::BWithExpression}
 BuildResultReference returns build::BuildResultReference
 	: UnitBuildResultReference
 	| CapabilityBuildResultReference
+	| IndirectCapabilityBuildResultReference
 	| CompoundBuildResultReference
 	;
-	
+
+// A reference to a builder in the same unit
 UnitBuildResultReference returns build::BuildResultReference : {build::BuilderReference} 
 	("unit")? '#' builderName=BuilderName ('(' parameters = ParameterList ')')? ; 
 
-	
+// A reference to a builder in a unit providing a capability (or if build name is omitted to the
+// builder that provides the capability in that unit).
 CapabilityBuildResultReference returns build::BuildResultReference : {build::BuilderReference}
 	requiredCapability = RequiredCapability_Unfiltered ('#' builderName=BuilderName) ?
 	('(' parameters = ParameterList ')')?	 
 	;
 	
+// A reference to a builder in a unit providing a referenced capability (or if build name is omitted to the
+// builder that provides the capability in that unit).
+IndirectCapabilityBuildResultReference returns build::BuildResultReference : {build::BuilderReference}
+	requiredCapabilityReference = [build::AliasedRequiredCapability | ID] ('#' builderName=BuilderName) ?
+	('(' parameters = ParameterList ')')?	 
+	;
+
 CompoundBuildResultReference returns build::BuildResultReference : {build::CompoundBuildResultReference}
 	'{' (prerequisites += Prerequisite)* '}'
 	;

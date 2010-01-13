@@ -20,6 +20,8 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.eclipse.b3.build.build.UnitConcernContext#getBuilderContexts <em>Builder Contexts</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.UnitConcernContext#getQuery <em>Query</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.UnitConcernContext#getRequiresRemovals <em>Requires Removals</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.UnitConcernContext#getProvidesRemovals <em>Provides Removals</em>}</li>
  * </ul>
  * </p>
  *
@@ -27,7 +29,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface UnitConcernContext extends BuildConcernContext {
+public interface UnitConcernContext extends BuildConcernContext, IRequiredCapabilityContainer, IProvidedCapabilityContainer {
 	/**
 	 * Returns the value of the '<em><b>Builder Contexts</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.b3.build.build.BuilderConcernContext}.
@@ -69,5 +71,37 @@ public interface UnitConcernContext extends BuildConcernContext {
 	 * @generated
 	 */
 	void setQuery(BExpression value);
+
+	/**
+	 * Returns the value of the '<em><b>Requires Removals</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.b3.build.build.RequiresPredicate}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Requires Removals</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Requires Removals</em>' containment reference list.
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getUnitConcernContext_RequiresRemovals()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<RequiresPredicate> getRequiresRemovals();
+
+	/**
+	 * Returns the value of the '<em><b>Provides Removals</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.b3.build.build.ProvidesPredicate}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Provides Removals</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Provides Removals</em>' containment reference list.
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getUnitConcernContext_ProvidesRemovals()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ProvidesPredicate> getProvidesRemovals();
 
 } // UnitConcernContext

@@ -228,13 +228,22 @@ public interface B3BuildPackage extends EPackage {
 	int BUILD_UNIT__CONTAINER_TYPE = VERSIONED_CAPABILITY_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Unit Provided Capabilities</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Required Capabilities</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT__UNIT_PROVIDED_CAPABILITIES = VERSIONED_CAPABILITY_FEATURE_COUNT + 2;
+	int BUILD_UNIT__REQUIRED_CAPABILITIES = VERSIONED_CAPABILITY_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_UNIT__PROVIDED_CAPABILITIES = VERSIONED_CAPABILITY_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Builders</b></em>' reference list.
@@ -243,7 +252,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT__BUILDERS = VERSIONED_CAPABILITY_FEATURE_COUNT + 3;
+	int BUILD_UNIT__BUILDERS = VERSIONED_CAPABILITY_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
@@ -252,7 +261,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT__DOCUMENTATION = VERSIONED_CAPABILITY_FEATURE_COUNT + 4;
+	int BUILD_UNIT__DOCUMENTATION = VERSIONED_CAPABILITY_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Execution Mode</b></em>' attribute.
@@ -261,16 +270,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT__EXECUTION_MODE = VERSIONED_CAPABILITY_FEATURE_COUNT + 5;
-
-	/**
-	 * The feature id for the '<em><b>Required Capabilities</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILD_UNIT__REQUIRED_CAPABILITIES = VERSIONED_CAPABILITY_FEATURE_COUNT + 6;
+	int BUILD_UNIT__EXECUTION_MODE = VERSIONED_CAPABILITY_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Meta Required Capabilities</b></em>' containment reference list.
@@ -535,13 +535,22 @@ public interface B3BuildPackage extends EPackage {
 	int BUILDER__FUNC_EXPR = B3backendPackage.B3_FUNCTION__FUNC_EXPR;
 
 	/**
+	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER__PROVIDED_CAPABILITIES = B3backendPackage.B3_FUNCTION_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Postcond Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILDER__POSTCOND_EXPR = B3backendPackage.B3_FUNCTION_FEATURE_COUNT + 0;
+	int BUILDER__POSTCOND_EXPR = B3backendPackage.B3_FUNCTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Precond Expr</b></em>' containment reference.
@@ -550,16 +559,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILDER__PRECOND_EXPR = B3backendPackage.B3_FUNCTION_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILDER__PROVIDED_CAPABILITIES = B3backendPackage.B3_FUNCTION_FEATURE_COUNT + 2;
+	int BUILDER__PRECOND_EXPR = B3backendPackage.B3_FUNCTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Input</b></em>' containment reference.
@@ -821,13 +821,22 @@ public interface B3BuildPackage extends EPackage {
 	int BUILDER_REFERENCE__REQUIRED_CAPABILITY = BUILD_RESULT_REFERENCE_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Required Capability Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_REFERENCE__REQUIRED_CAPABILITY_REFERENCE = BUILD_RESULT_REFERENCE_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Builder Reference</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILDER_REFERENCE_FEATURE_COUNT = BUILD_RESULT_REFERENCE_FEATURE_COUNT + 3;
+	int BUILDER_REFERENCE_FEATURE_COUNT = BUILD_RESULT_REFERENCE_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.RequiredCapabilityImpl <em>Required Capability</em>}' class.
@@ -1898,13 +1907,31 @@ public interface B3BuildPackage extends EPackage {
 	int UNIT_CONCERN_CONTEXT__CONTAINER_TYPE = BUILD_CONCERN_CONTEXT__CONTAINER_TYPE;
 
 	/**
+	 * The feature id for the '<em><b>Required Capabilities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_CONCERN_CONTEXT__REQUIRED_CAPABILITIES = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_CONCERN_CONTEXT__PROVIDED_CAPABILITIES = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Builder Contexts</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNIT_CONCERN_CONTEXT__BUILDER_CONTEXTS = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 0;
+	int UNIT_CONCERN_CONTEXT__BUILDER_CONTEXTS = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Query</b></em>' containment reference.
@@ -1913,7 +1940,25 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNIT_CONCERN_CONTEXT__QUERY = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 1;
+	int UNIT_CONCERN_CONTEXT__QUERY = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Requires Removals</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_CONCERN_CONTEXT__REQUIRES_REMOVALS = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Provides Removals</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_CONCERN_CONTEXT__PROVIDES_REMOVALS = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Unit Concern Context</em>' class.
@@ -1922,7 +1967,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNIT_CONCERN_CONTEXT_FEATURE_COUNT = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 2;
+	int UNIT_CONCERN_CONTEXT_FEATURE_COUNT = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl <em>Builder Concern Context</em>}' class.
@@ -2071,6 +2116,126 @@ public interface B3BuildPackage extends EPackage {
 	int OUTPUT_PREDICATE_FEATURE_COUNT = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.AliasedRequiredCapabilityImpl <em>Aliased Required Capability</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.AliasedRequiredCapabilityImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getAliasedRequiredCapability()
+	 * @generated
+	 */
+	int ALIASED_REQUIRED_CAPABILITY = 36;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALIASED_REQUIRED_CAPABILITY__NAME = REQUIRED_CAPABILITY__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Name Space</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALIASED_REQUIRED_CAPABILITY__NAME_SPACE = REQUIRED_CAPABILITY__NAME_SPACE;
+
+	/**
+	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALIASED_REQUIRED_CAPABILITY__COND_EXPR = REQUIRED_CAPABILITY__COND_EXPR;
+
+	/**
+	 * The feature id for the '<em><b>Version Range</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALIASED_REQUIRED_CAPABILITY__VERSION_RANGE = REQUIRED_CAPABILITY__VERSION_RANGE;
+
+	/**
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALIASED_REQUIRED_CAPABILITY__ALIAS = REQUIRED_CAPABILITY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Aliased Required Capability</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALIASED_REQUIRED_CAPABILITY_FEATURE_COUNT = REQUIRED_CAPABILITY_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.IRequiredCapabilityContainer <em>IRequired Capability Container</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.IRequiredCapabilityContainer
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getIRequiredCapabilityContainer()
+	 * @generated
+	 */
+	int IREQUIRED_CAPABILITY_CONTAINER = 37;
+
+	/**
+	 * The feature id for the '<em><b>Required Capabilities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_CAPABILITIES = 0;
+
+	/**
+	 * The number of structural features of the '<em>IRequired Capability Container</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IREQUIRED_CAPABILITY_CONTAINER_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.IProvidedCapabilityContainer <em>IProvided Capability Container</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.IProvidedCapabilityContainer
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getIProvidedCapabilityContainer()
+	 * @generated
+	 */
+	int IPROVIDED_CAPABILITY_CONTAINER = 38;
+
+	/**
+	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IPROVIDED_CAPABILITY_CONTAINER__PROVIDED_CAPABILITIES = 0;
+
+	/**
+	 * The number of structural features of the '<em>IProvided Capability Container</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT = 1;
+
+	/**
 	 * The meta object id for the '<em>Version Range</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2078,7 +2243,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getVersionRange()
 	 * @generated
 	 */
-	int VERSION_RANGE = 36;
+	int VERSION_RANGE = 39;
 
 	/**
 	 * The meta object id for the '<em>Version</em>' data type.
@@ -2088,7 +2253,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getVersion()
 	 * @generated
 	 */
-	int VERSION = 37;
+	int VERSION = 40;
 
 	/**
 	 * The meta object id for the '<em>URI</em>' data type.
@@ -2098,7 +2263,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getURI()
 	 * @generated
 	 */
-	int URI = 38;
+	int URI = 41;
 
 
 	/**
@@ -2110,17 +2275,6 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getBuildUnit();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BuildUnit#getUnitProvidedCapabilities <em>Unit Provided Capabilities</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Unit Provided Capabilities</em>'.
-	 * @see org.eclipse.b3.build.build.BuildUnit#getUnitProvidedCapabilities()
-	 * @see #getBuildUnit()
-	 * @generated
-	 */
-	EReference getBuildUnit_UnitProvidedCapabilities();
 
 	/**
 	 * Returns the meta object for the reference list '{@link org.eclipse.b3.build.build.BuildUnit#getBuilders <em>Builders</em>}'.
@@ -2154,17 +2308,6 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getBuildUnit_ExecutionMode();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BuildUnit#getRequiredCapabilities <em>Required Capabilities</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Required Capabilities</em>'.
-	 * @see org.eclipse.b3.build.build.BuildUnit#getRequiredCapabilities()
-	 * @see #getBuildUnit()
-	 * @generated
-	 */
-	EReference getBuildUnit_RequiredCapabilities();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BuildUnit#getMetaRequiredCapabilities <em>Meta Required Capabilities</em>}'.
@@ -2285,17 +2428,6 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBuilder_PrecondExpr();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.Builder#getProvidedCapabilities <em>Provided Capabilities</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Provided Capabilities</em>'.
-	 * @see org.eclipse.b3.build.build.Builder#getProvidedCapabilities()
-	 * @see #getBuilder()
-	 * @generated
-	 */
-	EReference getBuilder_ProvidedCapabilities();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.Builder#getInput <em>Input</em>}'.
@@ -3009,6 +3141,28 @@ public interface B3BuildPackage extends EPackage {
 	EReference getUnitConcernContext_Query();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.UnitConcernContext#getRequiresRemovals <em>Requires Removals</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Requires Removals</em>'.
+	 * @see org.eclipse.b3.build.build.UnitConcernContext#getRequiresRemovals()
+	 * @see #getUnitConcernContext()
+	 * @generated
+	 */
+	EReference getUnitConcernContext_RequiresRemovals();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.UnitConcernContext#getProvidesRemovals <em>Provides Removals</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Provides Removals</em>'.
+	 * @see org.eclipse.b3.build.build.UnitConcernContext#getProvidesRemovals()
+	 * @see #getUnitConcernContext()
+	 * @generated
+	 */
+	EReference getUnitConcernContext_ProvidesRemovals();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuilderConcernContext <em>Builder Concern Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3115,6 +3269,69 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getOutputPredicate_PathPattern();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.AliasedRequiredCapability <em>Aliased Required Capability</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Aliased Required Capability</em>'.
+	 * @see org.eclipse.b3.build.build.AliasedRequiredCapability
+	 * @generated
+	 */
+	EClass getAliasedRequiredCapability();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.AliasedRequiredCapability#getAlias <em>Alias</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Alias</em>'.
+	 * @see org.eclipse.b3.build.build.AliasedRequiredCapability#getAlias()
+	 * @see #getAliasedRequiredCapability()
+	 * @generated
+	 */
+	EAttribute getAliasedRequiredCapability_Alias();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.IRequiredCapabilityContainer <em>IRequired Capability Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>IRequired Capability Container</em>'.
+	 * @see org.eclipse.b3.build.build.IRequiredCapabilityContainer
+	 * @generated
+	 */
+	EClass getIRequiredCapabilityContainer();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.IRequiredCapabilityContainer#getRequiredCapabilities <em>Required Capabilities</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Required Capabilities</em>'.
+	 * @see org.eclipse.b3.build.build.IRequiredCapabilityContainer#getRequiredCapabilities()
+	 * @see #getIRequiredCapabilityContainer()
+	 * @generated
+	 */
+	EReference getIRequiredCapabilityContainer_RequiredCapabilities();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.IProvidedCapabilityContainer <em>IProvided Capability Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>IProvided Capability Container</em>'.
+	 * @see org.eclipse.b3.build.build.IProvidedCapabilityContainer
+	 * @generated
+	 */
+	EClass getIProvidedCapabilityContainer();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.IProvidedCapabilityContainer#getProvidedCapabilities <em>Provided Capabilities</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Provided Capabilities</em>'.
+	 * @see org.eclipse.b3.build.build.IProvidedCapabilityContainer#getProvidedCapabilities()
+	 * @see #getIProvidedCapabilityContainer()
+	 * @generated
+	 */
+	EReference getIProvidedCapabilityContainer_ProvidedCapabilities();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuilderInput <em>Builder Input</em>}'.
@@ -3320,6 +3537,17 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBuilderReference_RequiredCapability();
 
 	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.build.build.BuilderReference#getRequiredCapabilityReference <em>Required Capability Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Required Capability Reference</em>'.
+	 * @see org.eclipse.b3.build.build.BuilderReference#getRequiredCapabilityReference()
+	 * @see #getBuilderReference()
+	 * @generated
+	 */
+	EReference getBuilderReference_RequiredCapabilityReference();
+
+	/**
 	 * Returns the meta object for data type '{@link org.eclipse.equinox.internal.provisional.p2.core.VersionRange <em>Version Range</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3385,14 +3613,6 @@ public interface B3BuildPackage extends EPackage {
 		EClass BUILD_UNIT = eINSTANCE.getBuildUnit();
 
 		/**
-		 * The meta object literal for the '<em><b>Unit Provided Capabilities</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BUILD_UNIT__UNIT_PROVIDED_CAPABILITIES = eINSTANCE.getBuildUnit_UnitProvidedCapabilities();
-
-		/**
 		 * The meta object literal for the '<em><b>Builders</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3415,14 +3635,6 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute BUILD_UNIT__EXECUTION_MODE = eINSTANCE.getBuildUnit_ExecutionMode();
-
-		/**
-		 * The meta object literal for the '<em><b>Required Capabilities</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BUILD_UNIT__REQUIRED_CAPABILITIES = eINSTANCE.getBuildUnit_RequiredCapabilities();
 
 		/**
 		 * The meta object literal for the '<em><b>Meta Required Capabilities</b></em>' containment reference list feature.
@@ -3513,14 +3725,6 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BUILDER__PRECOND_EXPR = eINSTANCE.getBuilder_PrecondExpr();
-
-		/**
-		 * The meta object literal for the '<em><b>Provided Capabilities</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BUILDER__PROVIDED_CAPABILITIES = eINSTANCE.getBuilder_ProvidedCapabilities();
 
 		/**
 		 * The meta object literal for the '<em><b>Input</b></em>' containment reference feature.
@@ -4111,6 +4315,22 @@ public interface B3BuildPackage extends EPackage {
 		EReference UNIT_CONCERN_CONTEXT__QUERY = eINSTANCE.getUnitConcernContext_Query();
 
 		/**
+		 * The meta object literal for the '<em><b>Requires Removals</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UNIT_CONCERN_CONTEXT__REQUIRES_REMOVALS = eINSTANCE.getUnitConcernContext_RequiresRemovals();
+
+		/**
+		 * The meta object literal for the '<em><b>Provides Removals</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UNIT_CONCERN_CONTEXT__PROVIDES_REMOVALS = eINSTANCE.getUnitConcernContext_ProvidesRemovals();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl <em>Builder Concern Context</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4193,6 +4413,60 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EReference OUTPUT_PREDICATE__PATH_PATTERN = eINSTANCE.getOutputPredicate_PathPattern();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.AliasedRequiredCapabilityImpl <em>Aliased Required Capability</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.impl.AliasedRequiredCapabilityImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getAliasedRequiredCapability()
+		 * @generated
+		 */
+		EClass ALIASED_REQUIRED_CAPABILITY = eINSTANCE.getAliasedRequiredCapability();
+
+		/**
+		 * The meta object literal for the '<em><b>Alias</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ALIASED_REQUIRED_CAPABILITY__ALIAS = eINSTANCE.getAliasedRequiredCapability_Alias();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.IRequiredCapabilityContainer <em>IRequired Capability Container</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.IRequiredCapabilityContainer
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getIRequiredCapabilityContainer()
+		 * @generated
+		 */
+		EClass IREQUIRED_CAPABILITY_CONTAINER = eINSTANCE.getIRequiredCapabilityContainer();
+
+		/**
+		 * The meta object literal for the '<em><b>Required Capabilities</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_CAPABILITIES = eINSTANCE.getIRequiredCapabilityContainer_RequiredCapabilities();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.IProvidedCapabilityContainer <em>IProvided Capability Container</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.IProvidedCapabilityContainer
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getIProvidedCapabilityContainer()
+		 * @generated
+		 */
+		EClass IPROVIDED_CAPABILITY_CONTAINER = eINSTANCE.getIProvidedCapabilityContainer();
+
+		/**
+		 * The meta object literal for the '<em><b>Provided Capabilities</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IPROVIDED_CAPABILITY_CONTAINER__PROVIDED_CAPABILITIES = eINSTANCE.getIProvidedCapabilityContainer_ProvidedCapabilities();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuilderInputImpl <em>Builder Input</em>}' class.
@@ -4357,6 +4631,14 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BUILDER_REFERENCE__REQUIRED_CAPABILITY = eINSTANCE.getBuilderReference_RequiredCapability();
+
+		/**
+		 * The meta object literal for the '<em><b>Required Capability Reference</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BUILDER_REFERENCE__REQUIRED_CAPABILITY_REFERENCE = eINSTANCE.getBuilderReference_RequiredCapabilityReference();
 
 		/**
 		 * The meta object literal for the '<em>Version Range</em>' data type.
