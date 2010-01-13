@@ -3,7 +3,10 @@ package org.eclipse.b3.coloring;
 import org.eclipse.b3.backend.evaluator.b3backend.BLiteralExpression;
 import org.eclipse.b3.beeLang.BeeModel;
 import org.eclipse.b3.build.build.BuildUnit;
+import org.eclipse.b3.build.build.CapabilityPredicate;
 import org.eclipse.b3.build.build.PathVector;
+import org.eclipse.b3.build.build.RequiredCapability;
+import org.eclipse.b3.build.build.VersionedCapability;
 
 //import org.eclipse.b3.beeLang.RealLiteral;
 
@@ -41,14 +44,21 @@ ISemanticHighlightingCalculator {
 				highlightBuildUnit((BuildUnit)o, acceptor);
 			
 			// handle literals
-			if(o instanceof BLiteralExpression) {
+			else if(o instanceof BLiteralExpression) {
 				Object val = ((BLiteralExpression)o).getValue();
 				// handle real numbers (INT and HEX are handled by terminal rules)
 				if(val instanceof Float || val instanceof Double)
 					highlightObject(o, BeeLangSemanticHighligtConfiuration.REAL_ID, acceptor);
 			}
-			if(o instanceof PathVector)
+			else if(o instanceof PathVector)
 				highlightPaths((PathVector)o, acceptor);
+			else if(o instanceof RequiredCapability)
+				highlightRequiredCapability((RequiredCapability)o, acceptor);
+			else if(o instanceof VersionedCapability)
+				highlightVersionedCapability((VersionedCapability)o, acceptor);
+			else if(o instanceof CapabilityPredicate)
+				highlightCapabilityPredicate((CapabilityPredicate)o, acceptor);
+
 			// DEBUG PRINT System.out.print("Highlight instance of: "+ o.getClass().getName() + "\n");
 		}
 		
@@ -60,7 +70,16 @@ ISemanticHighlightingCalculator {
 	public void highlightPaths(PathVector v, IHighlightedPositionAcceptor acceptor){
 		highlightObject(v, BeeLangSemanticHighligtConfiuration.PATH_ID, acceptor);
 	}
-
+	public void highlightRequiredCapability(RequiredCapability rc, IHighlightedPositionAcceptor acceptor) {
+		highlightFirstFeature(rc, "versionRange", BeeLangSemanticHighligtConfiuration.VERSION_ID, acceptor);
+	}
+	public void highlightVersionedCapability(VersionedCapability vc, IHighlightedPositionAcceptor acceptor) {
+		highlightFirstFeature(vc, "version", BeeLangSemanticHighligtConfiuration.VERSION_ID, acceptor);
+	}
+	public void highlightCapabilityPredicate(CapabilityPredicate cp, IHighlightedPositionAcceptor acceptor) {
+		highlightFirstFeature(cp, "versionRange", BeeLangSemanticHighligtConfiuration.VERSION_ID, acceptor);
+	}
+	
 	private void highlightObject(EObject semantic, String highlightID, IHighlightedPositionAcceptor acceptor) {
 		NodeAdapter adapter = NodeUtil.getNodeAdapter(semantic);
 		if(adapter == null) {
