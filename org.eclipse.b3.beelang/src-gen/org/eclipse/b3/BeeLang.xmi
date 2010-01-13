@@ -553,46 +553,46 @@
           <classifier xsi:type="ecore:EClass" href="http://b3build/1.0#//Synchronization"/>
         </type>
       </tokens>
-      <tokens xsi:type="xtext:Assignment" feature="builders" operator="+=">
+      <tokens xsi:type="xtext:Assignment" feature="builderQueries" operator="+=">
         <terminal xsi:type="xtext:RuleCall" rule="//@rules.16"/>
       </tokens>
-      <tokens xsi:type="xtext:Group" cardinality="+">
+      <tokens xsi:type="xtext:Group" cardinality="*">
         <tokens xsi:type="xtext:Keyword" value=","/>
-        <tokens xsi:type="xtext:Assignment" feature="builders" operator="+=">
+        <tokens xsi:type="xtext:Assignment" feature="builderQueries" operator="+=">
           <terminal xsi:type="xtext:RuleCall" rule="//@rules.16"/>
         </tokens>
       </tokens>
       <tokens xsi:type="xtext:Keyword" value=";"/>
     </alternatives>
   </rules>
-  <rules xsi:type="xtext:ParserRule" name="SynchronizedBuilder">
+  <rules xsi:type="xtext:ParserRule" name="BuilderQuery">
     <type metamodel="//@metamodelDeclarations.2">
-      <classifier xsi:type="ecore:EClass" href="http://b3build/1.0#//SynchronizedBuilder"/>
+      <classifier xsi:type="ecore:EClass" href="http://b3build/1.0#//BuilderQuery"/>
     </type>
-    <alternatives xsi:type="xtext:Alternatives">
-      <groups xsi:type="xtext:Group">
-        <tokens xsi:type="xtext:Action">
-          <type metamodel="//@metamodelDeclarations.2">
-            <classifier xsi:type="ecore:EClass" href="http://b3build/1.0#//SynchronizedBuilder"/>
-          </type>
+    <alternatives xsi:type="xtext:Group">
+      <tokens xsi:type="xtext:Action">
+        <type metamodel="//@metamodelDeclarations.2">
+          <classifier xsi:type="ecore:EClass" href="http://b3build/1.0#//BuilderQuery"/>
+        </type>
+      </tokens>
+      <tokens xsi:type="xtext:Group" cardinality="?">
+        <tokens xsi:type="xtext:Keyword" value="unit"/>
+        <tokens xsi:type="xtext:Assignment" feature="unitQuery" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.94"/>
         </tokens>
-        <tokens xsi:type="xtext:Assignment" feature="nameSpace" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="//@rules.145"/>
+      </tokens>
+      <tokens xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Keyword" value="builder"/>
+        <tokens xsi:type="xtext:Assignment" feature="builderQueries" operator="+=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.111"/>
         </tokens>
-        <tokens xsi:type="xtext:Keyword" value="/"/>
-        <tokens xsi:type="xtext:Assignment" feature="name" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="//@rules.145"/>
+      </tokens>
+      <tokens xsi:type="xtext:Group" cardinality="*">
+        <tokens xsi:type="xtext:Keyword" value=","/>
+        <tokens xsi:type="xtext:Assignment" feature="builderQueries" operator="+=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.111"/>
         </tokens>
-        <tokens xsi:type="xtext:Group" cardinality="?">
-          <tokens xsi:type="xtext:Keyword" value="#"/>
-          <tokens xsi:type="xtext:Assignment" feature="builderName" operator="=">
-            <terminal xsi:type="xtext:RuleCall" rule="//@rules.148"/>
-          </tokens>
-        </tokens>
-      </groups>
-      <groups xsi:type="xtext:Assignment" feature="builderName" operator="=">
-        <terminal xsi:type="xtext:RuleCall" rule="//@rules.148"/>
-      </groups>
+      </tokens>
     </alternatives>
   </rules>
   <rules xsi:type="xtext:ParserRule" name="PathGroup">

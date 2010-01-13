@@ -2559,9 +2559,9 @@ ruleSynchronization returns [EObject current=null]
 )(
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getSynchronizationAccess().getBuildersSynchronizedBuilderParserRuleCall_1_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getSynchronizationAccess().getBuilderQueriesBuilderQueryParserRuleCall_1_0(), currentNode); 
 	    }
-		lv_builders_1_0=ruleSynchronizedBuilder		{
+		lv_builderQueries_1_0=ruleBuilderQuery		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getSynchronizationRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -2569,9 +2569,9 @@ ruleSynchronization returns [EObject current=null]
 	        try {
 	       		add(
 	       			$current, 
-	       			"builders",
-	        		lv_builders_1_0, 
-	        		"SynchronizedBuilder", 
+	       			"builderQueries",
+	        		lv_builderQueries_1_0, 
+	        		"BuilderQuery", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
@@ -2587,9 +2587,9 @@ ruleSynchronization returns [EObject current=null]
 (
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getSynchronizationAccess().getBuildersSynchronizedBuilderParserRuleCall_2_1_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getSynchronizationAccess().getBuilderQueriesBuilderQueryParserRuleCall_2_1_0(), currentNode); 
 	    }
-		lv_builders_3_0=ruleSynchronizedBuilder		{
+		lv_builderQueries_3_0=ruleBuilderQuery		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getSynchronizationRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -2597,9 +2597,9 @@ ruleSynchronization returns [EObject current=null]
 	        try {
 	       		add(
 	       			$current, 
-	       			"builders",
-	        		lv_builders_3_0, 
-	        		"SynchronizedBuilder", 
+	       			"builderQueries",
+	        		lv_builderQueries_3_0, 
+	        		"BuilderQuery", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
@@ -2608,7 +2608,7 @@ ruleSynchronization returns [EObject current=null]
 	    }
 
 )
-))+	';' 
+))*	';' 
     {
         createLeafNode(grammarAccess.getSynchronizationAccess().getSemicolonKeyword_3(), null); 
     }
@@ -2619,80 +2619,56 @@ ruleSynchronization returns [EObject current=null]
 
 
 
-// Entry rule entryRuleSynchronizedBuilder
-entryRuleSynchronizedBuilder returns [EObject current=null] 
+// Entry rule entryRuleBuilderQuery
+entryRuleBuilderQuery returns [EObject current=null] 
 	:
-	{ currentNode = createCompositeNode(grammarAccess.getSynchronizedBuilderRule(), currentNode); }
-	 iv_ruleSynchronizedBuilder=ruleSynchronizedBuilder 
-	 { $current=$iv_ruleSynchronizedBuilder.current; } 
+	{ currentNode = createCompositeNode(grammarAccess.getBuilderQueryRule(), currentNode); }
+	 iv_ruleBuilderQuery=ruleBuilderQuery 
+	 { $current=$iv_ruleBuilderQuery.current; } 
 	 EOF 
 ;
 
-// Rule SynchronizedBuilder
-ruleSynchronizedBuilder returns [EObject current=null] 
+// Rule BuilderQuery
+ruleBuilderQuery returns [EObject current=null] 
     @init { @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
     }
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
     }:
-(((
+((
 	{ 
 	  /* */ 
 	}
     { 
-        temp=factory.create(grammarAccess.getSynchronizedBuilderAccess().getSynchronizedBuilderAction_0_0().getType().getClassifier());
+        temp=factory.create(grammarAccess.getBuilderQueryAccess().getBuilderQueryAction_0().getType().getClassifier());
         $current = temp; 
         temp = null;
-        CompositeNode newNode = createCompositeNode(grammarAccess.getSynchronizedBuilderAccess().getSynchronizedBuilderAction_0_0(), currentNode.getParent());
+        CompositeNode newNode = createCompositeNode(grammarAccess.getBuilderQueryAccess().getBuilderQueryAction_0(), currentNode.getParent());
     newNode.getChildren().add(currentNode);
     moveLookaheadInfo(currentNode, newNode);
     currentNode = newNode; 
         associateNodeWithAstElement(currentNode, $current); 
     }
-)(
-(
-		{ 
-	        currentNode=createCompositeNode(grammarAccess.getSynchronizedBuilderAccess().getNameSpaceEscapedQualifiedNameParserRuleCall_0_1_0(), currentNode); 
-	    }
-		lv_nameSpace_1_0=ruleEscapedQualifiedName		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getSynchronizedBuilderRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode.getParent(), $current);
-	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"nameSpace",
-	        		lv_nameSpace_1_0, 
-	        		"EscapedQualifiedName", 
-	        		currentNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	        currentNode = currentNode.getParent();
-	    }
-
-)
-)	'/' 
+)(	'unit' 
     {
-        createLeafNode(grammarAccess.getSynchronizedBuilderAccess().getSolidusKeyword_0_2(), null); 
+        createLeafNode(grammarAccess.getBuilderQueryAccess().getUnitKeyword_1_0(), null); 
     }
 (
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getSynchronizedBuilderAccess().getNameEscapedQualifiedNameParserRuleCall_0_3_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getBuilderQueryAccess().getUnitQueryUnitOrExpressionParserRuleCall_1_1_0(), currentNode); 
 	    }
-		lv_name_3_0=ruleEscapedQualifiedName		{
+		lv_unitQuery_2_0=ruleUnitOrExpression		{
 	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getSynchronizedBuilderRule().getType().getClassifier());
+	            $current = factory.create(grammarAccess.getBuilderQueryRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
 	        }
 	        try {
 	       		set(
 	       			$current, 
-	       			"name",
-	        		lv_name_3_0, 
-	        		"EscapedQualifiedName", 
+	       			"unitQuery",
+	        		lv_unitQuery_2_0, 
+	        		"UnitOrExpression", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
@@ -2701,26 +2677,26 @@ ruleSynchronizedBuilder returns [EObject current=null]
 	    }
 
 )
-)(	'#' 
+))?(	'builder' 
     {
-        createLeafNode(grammarAccess.getSynchronizedBuilderAccess().getNumberSignKeyword_0_4_0(), null); 
+        createLeafNode(grammarAccess.getBuilderQueryAccess().getBuilderKeyword_2_0(), null); 
     }
 (
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getSynchronizedBuilderAccess().getBuilderNameBuilderNameParserRuleCall_0_4_1_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getBuilderQueryAccess().getBuilderQueriesBuilderOrExpressionParserRuleCall_2_1_0(), currentNode); 
 	    }
-		lv_builderName_5_0=ruleBuilderName		{
+		lv_builderQueries_4_0=ruleBuilderOrExpression		{
 	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getSynchronizedBuilderRule().getType().getClassifier());
+	            $current = factory.create(grammarAccess.getBuilderQueryRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
 	        }
 	        try {
-	       		set(
+	       		add(
 	       			$current, 
-	       			"builderName",
-	        		lv_builderName_5_0, 
-	        		"BuilderName", 
+	       			"builderQueries",
+	        		lv_builderQueries_4_0, 
+	        		"BuilderOrExpression", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
@@ -2729,23 +2705,26 @@ ruleSynchronizedBuilder returns [EObject current=null]
 	    }
 
 )
-))?)
-    |(
+))(	',' 
+    {
+        createLeafNode(grammarAccess.getBuilderQueryAccess().getCommaKeyword_3_0(), null); 
+    }
+(
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getSynchronizedBuilderAccess().getBuilderNameBuilderNameParserRuleCall_1_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getBuilderQueryAccess().getBuilderQueriesBuilderOrExpressionParserRuleCall_3_1_0(), currentNode); 
 	    }
-		lv_builderName_6_0=ruleBuilderName		{
+		lv_builderQueries_6_0=ruleBuilderOrExpression		{
 	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getSynchronizedBuilderRule().getType().getClassifier());
+	            $current = factory.create(grammarAccess.getBuilderQueryRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
 	        }
 	        try {
-	       		set(
+	       		add(
 	       			$current, 
-	       			"builderName",
-	        		lv_builderName_6_0, 
-	        		"BuilderName", 
+	       			"builderQueries",
+	        		lv_builderQueries_6_0, 
+	        		"BuilderOrExpression", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
@@ -2754,7 +2733,7 @@ ruleSynchronizedBuilder returns [EObject current=null]
 	    }
 
 )
-))
+))*)
 ;
 
 

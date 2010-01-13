@@ -45,7 +45,6 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPropertyOperationAccess().getAlternatives(), "rule__PropertyOperation__Alternatives");
 					put(grammarAccess.getConditionalPropertyOperationAccess().getAlternatives_5(), "rule__ConditionalPropertyOperation__Alternatives_5");
 					put(grammarAccess.getPropertyDefinitionOperationAccess().getAlternatives_1(), "rule__PropertyDefinitionOperation__Alternatives_1");
-					put(grammarAccess.getSynchronizedBuilderAccess().getAlternatives(), "rule__SynchronizedBuilder__Alternatives");
 					put(grammarAccess.getPathVectorAccess().getAlternatives(), "rule__PathVector__Alternatives");
 					put(grammarAccess.getPathAccess().getAlternatives(), "rule__Path__Alternatives");
 					put(grammarAccess.getWithClauseAccess().getAlternatives_3(), "rule__WithClause__Alternatives_3");
@@ -172,8 +171,10 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPropertySetOperationAccess().getGroup(), "rule__PropertySetOperation__Group__0");
 					put(grammarAccess.getSynchronizationAccess().getGroup(), "rule__Synchronization__Group__0");
 					put(grammarAccess.getSynchronizationAccess().getGroup_2(), "rule__Synchronization__Group_2__0");
-					put(grammarAccess.getSynchronizedBuilderAccess().getGroup_0(), "rule__SynchronizedBuilder__Group_0__0");
-					put(grammarAccess.getSynchronizedBuilderAccess().getGroup_0_4(), "rule__SynchronizedBuilder__Group_0_4__0");
+					put(grammarAccess.getBuilderQueryAccess().getGroup(), "rule__BuilderQuery__Group__0");
+					put(grammarAccess.getBuilderQueryAccess().getGroup_1(), "rule__BuilderQuery__Group_1__0");
+					put(grammarAccess.getBuilderQueryAccess().getGroup_2(), "rule__BuilderQuery__Group_2__0");
+					put(grammarAccess.getBuilderQueryAccess().getGroup_3(), "rule__BuilderQuery__Group_3__0");
 					put(grammarAccess.getPathGroupAccess().getGroup(), "rule__PathGroup__Group__0");
 					put(grammarAccess.getPathGroupAccess().getGroup_2(), "rule__PathGroup__Group_2__0");
 					put(grammarAccess.getBasePathVectorAccess().getGroup(), "rule__BasePathVector__Group__0");
@@ -465,12 +466,11 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPropertyVarDeclarationAccess().getNameAssignment_4(), "rule__PropertyVarDeclaration__NameAssignment_4");
 					put(grammarAccess.getPropertyVarDeclarationAccess().getValueExprAssignment_5_1(), "rule__PropertyVarDeclaration__ValueExprAssignment_5_1");
 					put(grammarAccess.getPropertySetOperationAccess().getPropertySetAssignment_1(), "rule__PropertySetOperation__PropertySetAssignment_1");
-					put(grammarAccess.getSynchronizationAccess().getBuildersAssignment_1(), "rule__Synchronization__BuildersAssignment_1");
-					put(grammarAccess.getSynchronizationAccess().getBuildersAssignment_2_1(), "rule__Synchronization__BuildersAssignment_2_1");
-					put(grammarAccess.getSynchronizedBuilderAccess().getNameSpaceAssignment_0_1(), "rule__SynchronizedBuilder__NameSpaceAssignment_0_1");
-					put(grammarAccess.getSynchronizedBuilderAccess().getNameAssignment_0_3(), "rule__SynchronizedBuilder__NameAssignment_0_3");
-					put(grammarAccess.getSynchronizedBuilderAccess().getBuilderNameAssignment_0_4_1(), "rule__SynchronizedBuilder__BuilderNameAssignment_0_4_1");
-					put(grammarAccess.getSynchronizedBuilderAccess().getBuilderNameAssignment_1(), "rule__SynchronizedBuilder__BuilderNameAssignment_1");
+					put(grammarAccess.getSynchronizationAccess().getBuilderQueriesAssignment_1(), "rule__Synchronization__BuilderQueriesAssignment_1");
+					put(grammarAccess.getSynchronizationAccess().getBuilderQueriesAssignment_2_1(), "rule__Synchronization__BuilderQueriesAssignment_2_1");
+					put(grammarAccess.getBuilderQueryAccess().getUnitQueryAssignment_1_1(), "rule__BuilderQuery__UnitQueryAssignment_1_1");
+					put(grammarAccess.getBuilderQueryAccess().getBuilderQueriesAssignment_2_1(), "rule__BuilderQuery__BuilderQueriesAssignment_2_1");
+					put(grammarAccess.getBuilderQueryAccess().getBuilderQueriesAssignment_3_1(), "rule__BuilderQuery__BuilderQueriesAssignment_3_1");
 					put(grammarAccess.getPathGroupAccess().getPathVectorsAssignment_1(), "rule__PathGroup__PathVectorsAssignment_1");
 					put(grammarAccess.getPathGroupAccess().getAnnotationsAssignment_2_1(), "rule__PathGroup__AnnotationsAssignment_2_1");
 					put(grammarAccess.getBasePathVectorAccess().getCondExprAssignment_1_2(), "rule__BasePathVector__CondExprAssignment_1_2");

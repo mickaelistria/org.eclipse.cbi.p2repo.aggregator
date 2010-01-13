@@ -106,13 +106,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PathVectorElement" eSuperTypes="#//PathVector"/>
   <eClassifiers xsi:type="ecore:EClass" name="Synchronization">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="builders" upperBound="-1"
-        eType="#//SynchronizedBuilder" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SynchronizedBuilder">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nameSpace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="builderName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="builderQueries" upperBound="-1"
+        eType="#//BuilderQuery" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RepositoryConfiguration" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="RepositoryDeclaration" eSuperTypes="#//RepositoryConfiguration">
@@ -245,5 +240,12 @@
       interface="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="providedCapabilities" upperBound="-1"
         eType="#//Capability" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BuilderQuery">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="builderQueries" lowerBound="1"
+        upperBound="-1" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unitQuery" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

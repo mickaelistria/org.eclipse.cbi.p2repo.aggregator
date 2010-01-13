@@ -8,7 +8,9 @@ package org.eclipse.b3.build.build.impl;
 
 import java.util.Collection;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.build.build.B3BuildPackage;
+import org.eclipse.b3.build.build.BuilderQuery;
 import org.eclipse.b3.build.build.Synchronization;
 import org.eclipse.b3.build.build.SynchronizedBuilder;
 
@@ -31,7 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.build.impl.SynchronizationImpl#getBuilders <em>Builders</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.SynchronizationImpl#getBuilderQueries <em>Builder Queries</em>}</li>
  * </ul>
  * </p>
  *
@@ -39,15 +41,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class SynchronizationImpl extends EObjectImpl implements Synchronization {
 	/**
-	 * The cached value of the '{@link #getBuilders() <em>Builders</em>}' containment reference list.
+	 * The cached value of the '{@link #getBuilderQueries() <em>Builder Queries</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBuilders()
+	 * @see #getBuilderQueries()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SynchronizedBuilder> builders;
-
+	protected EList<BuilderQuery> builderQueries;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -72,11 +73,11 @@ public class SynchronizationImpl extends EObjectImpl implements Synchronization 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SynchronizedBuilder> getBuilders() {
-		if (builders == null) {
-			builders = new EObjectContainmentEList<SynchronizedBuilder>(SynchronizedBuilder.class, this, B3BuildPackage.SYNCHRONIZATION__BUILDERS);
+	public EList<BuilderQuery> getBuilderQueries() {
+		if (builderQueries == null) {
+			builderQueries = new EObjectContainmentEList<BuilderQuery>(BuilderQuery.class, this, B3BuildPackage.SYNCHRONIZATION__BUILDER_QUERIES);
 		}
-		return builders;
+		return builderQueries;
 	}
 
 	/**
@@ -87,8 +88,8 @@ public class SynchronizationImpl extends EObjectImpl implements Synchronization 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case B3BuildPackage.SYNCHRONIZATION__BUILDERS:
-				return ((InternalEList<?>)getBuilders()).basicRemove(otherEnd, msgs);
+			case B3BuildPackage.SYNCHRONIZATION__BUILDER_QUERIES:
+				return ((InternalEList<?>)getBuilderQueries()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -101,8 +102,8 @@ public class SynchronizationImpl extends EObjectImpl implements Synchronization 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case B3BuildPackage.SYNCHRONIZATION__BUILDERS:
-				return getBuilders();
+			case B3BuildPackage.SYNCHRONIZATION__BUILDER_QUERIES:
+				return getBuilderQueries();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -116,9 +117,9 @@ public class SynchronizationImpl extends EObjectImpl implements Synchronization 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case B3BuildPackage.SYNCHRONIZATION__BUILDERS:
-				getBuilders().clear();
-				getBuilders().addAll((Collection<? extends SynchronizedBuilder>)newValue);
+			case B3BuildPackage.SYNCHRONIZATION__BUILDER_QUERIES:
+				getBuilderQueries().clear();
+				getBuilderQueries().addAll((Collection<? extends BuilderQuery>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -132,8 +133,8 @@ public class SynchronizationImpl extends EObjectImpl implements Synchronization 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case B3BuildPackage.SYNCHRONIZATION__BUILDERS:
-				getBuilders().clear();
+			case B3BuildPackage.SYNCHRONIZATION__BUILDER_QUERIES:
+				getBuilderQueries().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -147,8 +148,8 @@ public class SynchronizationImpl extends EObjectImpl implements Synchronization 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case B3BuildPackage.SYNCHRONIZATION__BUILDERS:
-				return builders != null && !builders.isEmpty();
+			case B3BuildPackage.SYNCHRONIZATION__BUILDER_QUERIES:
+				return builderQueries != null && !builderQueries.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -28,12 +28,12 @@ RULE_EXT_INT=11
 '>='=71
 '<='=72
 '='=40
-'builder'=48
+'builder'=42
 'endtry'=97
 'catch'=98
 'concern'=47
 ':'=51
-'#'=42
+'#'=48
 'input'=54
 '*'=86
 'requires'=29

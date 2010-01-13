@@ -142,10 +142,6 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 				return createSynchronizationAdapter();
 			}
 			@Override
-			public Adapter caseSynchronizedBuilder(SynchronizedBuilder object) {
-				return createSynchronizedBuilderAdapter();
-			}
-			@Override
 			public Adapter caseRepositoryConfiguration(RepositoryConfiguration object) {
 				return createRepositoryConfigurationAdapter();
 			}
@@ -236,6 +232,10 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseIProvidedCapabilityContainer(IProvidedCapabilityContainer object) {
 				return createIProvidedCapabilityContainerAdapter();
+			}
+			@Override
+			public Adapter caseBuilderQuery(BuilderQuery object) {
+				return createBuilderQueryAdapter();
 			}
 			@Override
 			public Adapter caseBFunctionContainer(BFunctionContainer object) {
@@ -412,20 +412,6 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSynchronizationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.SynchronizedBuilder <em>Synchronized Builder</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.b3.build.build.SynchronizedBuilder
-	 * @generated
-	 */
-	public Adapter createSynchronizedBuilderAdapter() {
 		return null;
 	}
 
@@ -748,6 +734,20 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createIProvidedCapabilityContainerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.BuilderQuery <em>Builder Query</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.BuilderQuery
+	 * @generated
+	 */
+	public Adapter createBuilderQueryAdapter() {
 		return null;
 	}
 

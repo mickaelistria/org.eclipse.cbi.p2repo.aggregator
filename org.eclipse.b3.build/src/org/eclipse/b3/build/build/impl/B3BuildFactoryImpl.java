@@ -26,6 +26,7 @@ import org.eclipse.equinox.internal.provisional.p2.core.VersionRange;
  * <!-- end-user-doc -->
  * @generated
  */
+@SuppressWarnings("restriction")
 public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * Creates the default factory implementation.
@@ -79,7 +80,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 			case B3BuildPackage.COMPOUND_PATH_VECTOR: return createCompoundPathVector();
 			case B3BuildPackage.PATH_VECTOR_ELEMENT: return createPathVectorElement();
 			case B3BuildPackage.SYNCHRONIZATION: return createSynchronization();
-			case B3BuildPackage.SYNCHRONIZED_BUILDER: return createSynchronizedBuilder();
 			case B3BuildPackage.REPOSITORY_DECLARATION: return createRepositoryDeclaration();
 			case B3BuildPackage.RESOLUTION_STRATEGY_FIRST: return createResolutionStrategyFirst();
 			case B3BuildPackage.RESOLUTION_STRATEGY_BEST: return createResolutionStrategyBest();
@@ -99,6 +99,7 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 			case B3BuildPackage.BUILDER_CONCERN_CONTEXT: return createBuilderConcernContext();
 			case B3BuildPackage.OUTPUT_PREDICATE: return createOutputPredicate();
 			case B3BuildPackage.ALIASED_REQUIRED_CAPABILITY: return createAliasedRequiredCapability();
+			case B3BuildPackage.BUILDER_QUERY: return createBuilderQuery();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -230,16 +231,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	public Synchronization createSynchronization() {
 		SynchronizationImpl synchronization = new SynchronizationImpl();
 		return synchronization;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SynchronizedBuilder createSynchronizedBuilder() {
-		SynchronizedBuilderImpl synchronizedBuilder = new SynchronizedBuilderImpl();
-		return synchronizedBuilder;
 	}
 
 	/**
@@ -430,6 +421,16 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	public AliasedRequiredCapability createAliasedRequiredCapability() {
 		AliasedRequiredCapabilityImpl aliasedRequiredCapability = new AliasedRequiredCapabilityImpl();
 		return aliasedRequiredCapability;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BuilderQuery createBuilderQuery() {
+		BuilderQueryImpl builderQuery = new BuilderQueryImpl();
+		return builderQuery;
 	}
 
 	/**

@@ -1051,13 +1051,13 @@ public interface B3BuildPackage extends EPackage {
 	int SYNCHRONIZATION = 14;
 
 	/**
-	 * The feature id for the '<em><b>Builders</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Builder Queries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYNCHRONIZATION__BUILDERS = 0;
+	int SYNCHRONIZATION__BUILDER_QUERIES = 0;
 
 	/**
 	 * The number of structural features of the '<em>Synchronization</em>' class.
@@ -1069,52 +1069,6 @@ public interface B3BuildPackage extends EPackage {
 	int SYNCHRONIZATION_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.SynchronizedBuilderImpl <em>Synchronized Builder</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.impl.SynchronizedBuilderImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getSynchronizedBuilder()
-	 * @generated
-	 */
-	int SYNCHRONIZED_BUILDER = 15;
-
-	/**
-	 * The feature id for the '<em><b>Name Space</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYNCHRONIZED_BUILDER__NAME_SPACE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYNCHRONIZED_BUILDER__NAME = 1;
-
-	/**
-	 * The feature id for the '<em><b>Builder Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYNCHRONIZED_BUILDER__BUILDER_NAME = 2;
-
-	/**
-	 * The number of structural features of the '<em>Synchronized Builder</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYNCHRONIZED_BUILDER_FEATURE_COUNT = 3;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.RepositoryConfigurationImpl <em>Repository Configuration</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1122,7 +1076,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getRepositoryConfiguration()
 	 * @generated
 	 */
-	int REPOSITORY_CONFIGURATION = 16;
+	int REPOSITORY_CONFIGURATION = 15;
 
 	/**
 	 * The number of structural features of the '<em>Repository Configuration</em>' class.
@@ -1141,7 +1095,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getRepositoryDeclaration()
 	 * @generated
 	 */
-	int REPOSITORY_DECLARATION = 17;
+	int REPOSITORY_DECLARATION = 16;
 
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
@@ -1196,7 +1150,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getResolutionStrategy()
 	 * @generated
 	 */
-	int RESOLUTION_STRATEGY = 18;
+	int RESOLUTION_STRATEGY = 17;
 
 	/**
 	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
@@ -1224,7 +1178,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getResolutionStrategyFirst()
 	 * @generated
 	 */
-	int RESOLUTION_STRATEGY_FIRST = 19;
+	int RESOLUTION_STRATEGY_FIRST = 18;
 
 	/**
 	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
@@ -1252,7 +1206,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getResolutionStrategyBest()
 	 * @generated
 	 */
-	int RESOLUTION_STRATEGY_BEST = 20;
+	int RESOLUTION_STRATEGY_BEST = 19;
 
 	/**
 	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
@@ -1280,7 +1234,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getContainerConfiguration()
 	 * @generated
 	 */
-	int CONTAINER_CONFIGURATION = 21;
+	int CONTAINER_CONFIGURATION = 20;
 
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
@@ -1335,7 +1289,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuildContext()
 	 * @generated
 	 */
-	int BUILD_CONTEXT = 22;
+	int BUILD_CONTEXT = 21;
 
 	/**
 	 * The feature id for the '<em><b>Parent Context</b></em>' container reference.
@@ -1390,7 +1344,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuildConcernContext()
 	 * @generated
 	 */
-	int BUILD_CONCERN_CONTEXT = 23;
+	int BUILD_CONCERN_CONTEXT = 22;
 
 	/**
 	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
@@ -1427,7 +1381,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getRequiresPredicate()
 	 * @generated
 	 */
-	int REQUIRES_PREDICATE = 24;
+	int REQUIRES_PREDICATE = 23;
 
 	/**
 	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -1482,7 +1436,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getCapabilityPredicate()
 	 * @generated
 	 */
-	int CAPABILITY_PREDICATE = 25;
+	int CAPABILITY_PREDICATE = 24;
 
 	/**
 	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -1555,7 +1509,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getImplementsPredicate()
 	 * @generated
 	 */
-	int IMPLEMENTS_PREDICATE = 26;
+	int IMPLEMENTS_PREDICATE = 25;
 
 	/**
 	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -1601,7 +1555,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getProvidesPredicate()
 	 * @generated
 	 */
-	int PROVIDES_PREDICATE = 27;
+	int PROVIDES_PREDICATE = 26;
 
 	/**
 	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -1647,7 +1601,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getNamePredicate()
 	 * @generated
 	 */
-	int NAME_PREDICATE = 28;
+	int NAME_PREDICATE = 27;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1684,7 +1638,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getNameSpacePredicate()
 	 * @generated
 	 */
-	int NAME_SPACE_PREDICATE = 29;
+	int NAME_SPACE_PREDICATE = 28;
 
 	/**
 	 * The feature id for the '<em><b>Name Space</b></em>' attribute.
@@ -1712,7 +1666,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getUnitNamePredicate()
 	 * @generated
 	 */
-	int UNIT_NAME_PREDICATE = 30;
+	int UNIT_NAME_PREDICATE = 29;
 
 	/**
 	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -1785,7 +1739,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuilderNamePredicate()
 	 * @generated
 	 */
-	int BUILDER_NAME_PREDICATE = 31;
+	int BUILDER_NAME_PREDICATE = 30;
 
 	/**
 	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -1831,7 +1785,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getInputPredicate()
 	 * @generated
 	 */
-	int INPUT_PREDICATE = 32;
+	int INPUT_PREDICATE = 31;
 
 	/**
 	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -1886,7 +1840,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getUnitConcernContext()
 	 * @generated
 	 */
-	int UNIT_CONCERN_CONTEXT = 33;
+	int UNIT_CONCERN_CONTEXT = 32;
 
 	/**
 	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
@@ -1977,7 +1931,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuilderConcernContext()
 	 * @generated
 	 */
-	int BUILDER_CONCERN_CONTEXT = 34;
+	int BUILDER_CONCERN_CONTEXT = 33;
 
 	/**
 	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
@@ -2068,7 +2022,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getOutputPredicate()
 	 * @generated
 	 */
-	int OUTPUT_PREDICATE = 35;
+	int OUTPUT_PREDICATE = 34;
 
 	/**
 	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
@@ -2123,7 +2077,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getAliasedRequiredCapability()
 	 * @generated
 	 */
-	int ALIASED_REQUIRED_CAPABILITY = 36;
+	int ALIASED_REQUIRED_CAPABILITY = 35;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2187,7 +2141,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getIRequiredCapabilityContainer()
 	 * @generated
 	 */
-	int IREQUIRED_CAPABILITY_CONTAINER = 37;
+	int IREQUIRED_CAPABILITY_CONTAINER = 36;
 
 	/**
 	 * The feature id for the '<em><b>Required Capabilities</b></em>' containment reference list.
@@ -2215,7 +2169,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getIProvidedCapabilityContainer()
 	 * @generated
 	 */
-	int IPROVIDED_CAPABILITY_CONTAINER = 38;
+	int IPROVIDED_CAPABILITY_CONTAINER = 37;
 
 	/**
 	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
@@ -2234,6 +2188,43 @@ public interface B3BuildPackage extends EPackage {
 	 * @ordered
 	 */
 	int IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderQueryImpl <em>Builder Query</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.BuilderQueryImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuilderQuery()
+	 * @generated
+	 */
+	int BUILDER_QUERY = 38;
+
+	/**
+	 * The feature id for the '<em><b>Builder Queries</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_QUERY__BUILDER_QUERIES = 0;
+
+	/**
+	 * The feature id for the '<em><b>Unit Query</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_QUERY__UNIT_QUERY = 1;
+
+	/**
+	 * The number of structural features of the '<em>Builder Query</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_QUERY_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '<em>Version Range</em>' data type.
@@ -2632,58 +2623,15 @@ public interface B3BuildPackage extends EPackage {
 	EClass getSynchronization();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.Synchronization#getBuilders <em>Builders</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.Synchronization#getBuilderQueries <em>Builder Queries</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Builders</em>'.
-	 * @see org.eclipse.b3.build.build.Synchronization#getBuilders()
+	 * @return the meta object for the containment reference list '<em>Builder Queries</em>'.
+	 * @see org.eclipse.b3.build.build.Synchronization#getBuilderQueries()
 	 * @see #getSynchronization()
 	 * @generated
 	 */
-	EReference getSynchronization_Builders();
-
-	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.SynchronizedBuilder <em>Synchronized Builder</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Synchronized Builder</em>'.
-	 * @see org.eclipse.b3.build.build.SynchronizedBuilder
-	 * @generated
-	 */
-	EClass getSynchronizedBuilder();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.SynchronizedBuilder#getNameSpace <em>Name Space</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name Space</em>'.
-	 * @see org.eclipse.b3.build.build.SynchronizedBuilder#getNameSpace()
-	 * @see #getSynchronizedBuilder()
-	 * @generated
-	 */
-	EAttribute getSynchronizedBuilder_NameSpace();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.SynchronizedBuilder#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.eclipse.b3.build.build.SynchronizedBuilder#getName()
-	 * @see #getSynchronizedBuilder()
-	 * @generated
-	 */
-	EAttribute getSynchronizedBuilder_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.SynchronizedBuilder#getBuilderName <em>Builder Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Builder Name</em>'.
-	 * @see org.eclipse.b3.build.build.SynchronizedBuilder#getBuilderName()
-	 * @see #getSynchronizedBuilder()
-	 * @generated
-	 */
-	EAttribute getSynchronizedBuilder_BuilderName();
+	EReference getSynchronization_BuilderQueries();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.RepositoryConfiguration <em>Repository Configuration</em>}'.
@@ -3334,6 +3282,38 @@ public interface B3BuildPackage extends EPackage {
 	EReference getIProvidedCapabilityContainer_ProvidedCapabilities();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuilderQuery <em>Builder Query</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Builder Query</em>'.
+	 * @see org.eclipse.b3.build.build.BuilderQuery
+	 * @generated
+	 */
+	EClass getBuilderQuery();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BuilderQuery#getBuilderQueries <em>Builder Queries</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Builder Queries</em>'.
+	 * @see org.eclipse.b3.build.build.BuilderQuery#getBuilderQueries()
+	 * @see #getBuilderQuery()
+	 * @generated
+	 */
+	EReference getBuilderQuery_BuilderQueries();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.BuilderQuery#getUnitQuery <em>Unit Query</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Unit Query</em>'.
+	 * @see org.eclipse.b3.build.build.BuilderQuery#getUnitQuery()
+	 * @see #getBuilderQuery()
+	 * @generated
+	 */
+	EReference getBuilderQuery_UnitQuery();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuilderInput <em>Builder Input</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3893,46 +3873,12 @@ public interface B3BuildPackage extends EPackage {
 		EClass SYNCHRONIZATION = eINSTANCE.getSynchronization();
 
 		/**
-		 * The meta object literal for the '<em><b>Builders</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Builder Queries</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SYNCHRONIZATION__BUILDERS = eINSTANCE.getSynchronization_Builders();
-
-		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.SynchronizedBuilderImpl <em>Synchronized Builder</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.b3.build.build.impl.SynchronizedBuilderImpl
-		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getSynchronizedBuilder()
-		 * @generated
-		 */
-		EClass SYNCHRONIZED_BUILDER = eINSTANCE.getSynchronizedBuilder();
-
-		/**
-		 * The meta object literal for the '<em><b>Name Space</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SYNCHRONIZED_BUILDER__NAME_SPACE = eINSTANCE.getSynchronizedBuilder_NameSpace();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SYNCHRONIZED_BUILDER__NAME = eINSTANCE.getSynchronizedBuilder_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Builder Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SYNCHRONIZED_BUILDER__BUILDER_NAME = eINSTANCE.getSynchronizedBuilder_BuilderName();
+		EReference SYNCHRONIZATION__BUILDER_QUERIES = eINSTANCE.getSynchronization_BuilderQueries();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.RepositoryConfigurationImpl <em>Repository Configuration</em>}' class.
@@ -4467,6 +4413,32 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EReference IPROVIDED_CAPABILITY_CONTAINER__PROVIDED_CAPABILITIES = eINSTANCE.getIProvidedCapabilityContainer_ProvidedCapabilities();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuilderQueryImpl <em>Builder Query</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.impl.BuilderQueryImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuilderQuery()
+		 * @generated
+		 */
+		EClass BUILDER_QUERY = eINSTANCE.getBuilderQuery();
+
+		/**
+		 * The meta object literal for the '<em><b>Builder Queries</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BUILDER_QUERY__BUILDER_QUERIES = eINSTANCE.getBuilderQuery_BuilderQueries();
+
+		/**
+		 * The meta object literal for the '<em><b>Unit Query</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BUILDER_QUERY__UNIT_QUERY = eINSTANCE.getBuilderQuery_UnitQuery();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuilderInputImpl <em>Builder Input</em>}' class.

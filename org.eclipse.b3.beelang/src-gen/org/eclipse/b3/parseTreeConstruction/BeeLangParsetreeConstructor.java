@@ -51,7 +51,7 @@ protected class ThisRootNode extends RootToken {
 			case 13: return new PropertyVarDeclaration_Group(this, this, 13, inst);
 			case 14: return new PropertySetOperation_Group(this, this, 14, inst);
 			case 15: return new Synchronization_Group(this, this, 15, inst);
-			case 16: return new SynchronizedBuilder_Alternatives(this, this, 16, inst);
+			case 16: return new BuilderQuery_Group(this, this, 16, inst);
 			case 17: return new PathGroup_Group(this, this, 17, inst);
 			case 18: return new PathVector_Alternatives(this, this, 18, inst);
 			case 19: return new BasePathVector_Group(this, this, 19, inst);
@@ -6777,19 +6777,13 @@ protected class PropertySetOperation_PropertySetAssignment_1 extends AssignmentT
 /************ begin Rule Synchronization ****************
  *
  * Synchronization returns build::Synchronization:
- *   {build::Synchronization} builders+=SynchronizedBuilder ("," builders+=
- *   SynchronizedBuilder)+ ";"; 
- * 
- *         
- * 	            
- * 	
- * 
- * // TODO: This is really a builder reference (which could be reused/refactored)
+ *   {build::Synchronization} builderQueries+=BuilderQuery ("," builderQueries+=
+ *   BuilderQuery)* ";";
  *
  **/
 
-// {build::Synchronization} builders+=SynchronizedBuilder ("," builders+=
-// SynchronizedBuilder)+ ";"
+// {build::Synchronization} builderQueries+=BuilderQuery ("," builderQueries+=
+// BuilderQuery)* ";"
 protected class Synchronization_Group extends GroupToken {
 	
 	public Synchronization_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -6844,35 +6838,35 @@ protected class Synchronization_SynchronizationAction_0 extends ActionToken  {
 	}
 }
 
-// builders+=SynchronizedBuilder
-protected class Synchronization_BuildersAssignment_1 extends AssignmentToken  {
+// builderQueries+=BuilderQuery
+protected class Synchronization_BuilderQueriesAssignment_1 extends AssignmentToken  {
 	
-	public Synchronization_BuildersAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public Synchronization_BuilderQueriesAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getSynchronizationAccess().getBuildersAssignment_1();
+		return grammarAccess.getSynchronizationAccess().getBuilderQueriesAssignment_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new SynchronizedBuilder_Alternatives(this, this, 0, inst);
+			case 0: return new BuilderQuery_Group(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
 		
     @Override	
 	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("builders",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("builders");
+		if((value = current.getConsumable("builderQueries",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("builderQueries");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getSynchronizedBuilderRule().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getBuilderQueryRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getSynchronizationAccess().getBuildersSynchronizedBuilderParserRuleCall_1_0(); 
+				element = grammarAccess.getSynchronizationAccess().getBuilderQueriesBuilderQueryParserRuleCall_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -6890,7 +6884,7 @@ protected class Synchronization_BuildersAssignment_1 extends AssignmentToken  {
 	}	
 }
 
-// ("," builders+=SynchronizedBuilder)+
+// ("," builderQueries+=BuilderQuery)*
 protected class Synchronization_Group_2 extends GroupToken {
 	
 	public Synchronization_Group_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -6905,7 +6899,7 @@ protected class Synchronization_Group_2 extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new Synchronization_BuildersAssignment_2_1(parent, this, 0, inst);
+			case 0: return new Synchronization_BuilderQueriesAssignment_2_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -6928,42 +6922,42 @@ protected class Synchronization_CommaKeyword_2_0 extends KeywordToken  {
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
 			case 0: return new Synchronization_Group_2(parent, this, 0, inst);
-			case 1: return new Synchronization_BuildersAssignment_1(parent, this, 1, inst);
+			case 1: return new Synchronization_BuilderQueriesAssignment_1(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
 		
 }
 
-// builders+=SynchronizedBuilder
-protected class Synchronization_BuildersAssignment_2_1 extends AssignmentToken  {
+// builderQueries+=BuilderQuery
+protected class Synchronization_BuilderQueriesAssignment_2_1 extends AssignmentToken  {
 	
-	public Synchronization_BuildersAssignment_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public Synchronization_BuilderQueriesAssignment_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getSynchronizationAccess().getBuildersAssignment_2_1();
+		return grammarAccess.getSynchronizationAccess().getBuilderQueriesAssignment_2_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new SynchronizedBuilder_Alternatives(this, this, 0, inst);
+			case 0: return new BuilderQuery_Group(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
 		
     @Override	
 	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("builders",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("builders");
+		if((value = current.getConsumable("builderQueries",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("builderQueries");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getSynchronizedBuilderRule().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getBuilderQueryRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getSynchronizationAccess().getBuildersSynchronizedBuilderParserRuleCall_2_1_0(); 
+				element = grammarAccess.getSynchronizationAccess().getBuilderQueriesBuilderQueryParserRuleCall_2_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -6998,6 +6992,7 @@ protected class Synchronization_SemicolonKeyword_3 extends KeywordToken  {
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
 			case 0: return new Synchronization_Group_2(parent, this, 0, inst);
+			case 1: return new Synchronization_BuilderQueriesAssignment_1(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -7008,81 +7003,53 @@ protected class Synchronization_SemicolonKeyword_3 extends KeywordToken  {
 /************ end Rule Synchronization ****************/
 
 
-/************ begin Rule SynchronizedBuilder ****************
+/************ begin Rule BuilderQuery ****************
  *
- * SynchronizedBuilder returns build::SynchronizedBuilder:
- *   {build::SynchronizedBuilder} nameSpace=EscapedQualifiedName "/" name=
- *   EscapedQualifiedName ("#" builderName=BuilderName)?|builderName=BuilderName; 
- * 
- * // TODO: This is really a builder reference (which could be reused/refactored)
+ * BuilderQuery returns build::BuilderQuery:
+ *   {build::BuilderQuery} ("unit" unitQuery=UnitOrExpression)? ("builder" builderQueries
+ *   +=BuilderOrExpression) ("," builderQueries+=BuilderOrExpression)*;
  *
  **/
 
-// {build::SynchronizedBuilder} nameSpace=EscapedQualifiedName "/" name=
-// EscapedQualifiedName ("#" builderName=BuilderName)?|builderName=BuilderName 
-// 
-// // TODO: This is really a builder reference (which could be reused/refactored)
-protected class SynchronizedBuilder_Alternatives extends AlternativesToken {
-
-	public SynchronizedBuilder_Alternatives(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+// {build::BuilderQuery} ("unit" unitQuery=UnitOrExpression)? ("builder" builderQueries
+// +=BuilderOrExpression) ("," builderQueries+=BuilderOrExpression)*
+protected class BuilderQuery_Group extends GroupToken {
+	
+	public BuilderQuery_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
-	public Alternatives getGrammarElement() {
-		return grammarAccess.getSynchronizedBuilderAccess().getAlternatives();
+	public Group getGrammarElement() {
+		return grammarAccess.getBuilderQueryAccess().getGroup();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new SynchronizedBuilder_Group_0(parent, this, 0, inst);
-			case 1: return new SynchronizedBuilder_BuilderNameAssignment_1(parent, this, 1, inst);
+			case 0: return new BuilderQuery_Group_3(parent, this, 0, inst);
+			case 1: return new BuilderQuery_Group_2(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
 		
     @Override
 	public IInstanceDescription tryConsume() {
-		if(!current.isInstanceOf(grammarAccess.getSynchronizedBuilderRule().getType().getClassifier())) return null;
+		if(!current.isInstanceOf(grammarAccess.getBuilderQueryRule().getType().getClassifier())) return null;
 		return tryConsumeVal();
 	}
 }
 
-// {build::SynchronizedBuilder} nameSpace=EscapedQualifiedName "/" name=
-// EscapedQualifiedName ("#" builderName=BuilderName)?
-protected class SynchronizedBuilder_Group_0 extends GroupToken {
-	
-	public SynchronizedBuilder_Group_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getSynchronizedBuilderAccess().getGroup_0();
-	}
+// {build::BuilderQuery}
+protected class BuilderQuery_BuilderQueryAction_0 extends ActionToken  {
 
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new SynchronizedBuilder_Group_0_4(parent, this, 0, inst);
-			case 1: return new SynchronizedBuilder_NameAssignment_0_3(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// {build::SynchronizedBuilder}
-protected class SynchronizedBuilder_SynchronizedBuilderAction_0_0 extends ActionToken  {
-
-	public SynchronizedBuilder_SynchronizedBuilderAction_0_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BuilderQuery_BuilderQueryAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Action getGrammarElement() {
-		return grammarAccess.getSynchronizedBuilderAccess().getSynchronizedBuilderAction_0_0();
+		return grammarAccess.getBuilderQueryAccess().getBuilderQueryAction_0();
 	}
 
     @Override
@@ -7095,217 +7062,289 @@ protected class SynchronizedBuilder_SynchronizedBuilderAction_0_0 extends Action
 	
     @Override
 	protected IInstanceDescription tryConsumeVal() {
-		if(!current.isInstanceOf(grammarAccess.getSynchronizedBuilderAccess().getSynchronizedBuilderAction_0_0().getType().getClassifier())) return null;
+		if(!current.isInstanceOf(grammarAccess.getBuilderQueryAccess().getBuilderQueryAction_0().getType().getClassifier())) return null;
 		if(!current.isConsumed()) return null;
 		return current;
 	}
 }
 
-// nameSpace=EscapedQualifiedName
-protected class SynchronizedBuilder_NameSpaceAssignment_0_1 extends AssignmentToken  {
+// ("unit" unitQuery=UnitOrExpression)?
+protected class BuilderQuery_Group_1 extends GroupToken {
 	
-	public SynchronizedBuilder_NameSpaceAssignment_0_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getSynchronizedBuilderAccess().getNameSpaceAssignment_0_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new SynchronizedBuilder_SynchronizedBuilderAction_0_0(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("nameSpace",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("nameSpace");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
-			type = AssignmentType.DRC;
-			element = grammarAccess.getSynchronizedBuilderAccess().getNameSpaceEscapedQualifiedNameParserRuleCall_0_1_0();
-			return obj;
-		}
-		return null;
-	}
-
-}
-
-// "/"
-protected class SynchronizedBuilder_SolidusKeyword_0_2 extends KeywordToken  {
-	
-	public SynchronizedBuilder_SolidusKeyword_0_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getSynchronizedBuilderAccess().getSolidusKeyword_0_2();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new SynchronizedBuilder_NameSpaceAssignment_0_1(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// name=EscapedQualifiedName
-protected class SynchronizedBuilder_NameAssignment_0_3 extends AssignmentToken  {
-	
-	public SynchronizedBuilder_NameAssignment_0_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getSynchronizedBuilderAccess().getNameAssignment_0_3();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new SynchronizedBuilder_SolidusKeyword_0_2(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("name",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("name");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
-			type = AssignmentType.DRC;
-			element = grammarAccess.getSynchronizedBuilderAccess().getNameEscapedQualifiedNameParserRuleCall_0_3_0();
-			return obj;
-		}
-		return null;
-	}
-
-}
-
-// ("#" builderName=BuilderName)?
-protected class SynchronizedBuilder_Group_0_4 extends GroupToken {
-	
-	public SynchronizedBuilder_Group_0_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BuilderQuery_Group_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Group getGrammarElement() {
-		return grammarAccess.getSynchronizedBuilderAccess().getGroup_0_4();
+		return grammarAccess.getBuilderQueryAccess().getGroup_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new SynchronizedBuilder_BuilderNameAssignment_0_4_1(parent, this, 0, inst);
+			case 0: return new BuilderQuery_UnitQueryAssignment_1_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
 		
 }
 
-// "#"
-protected class SynchronizedBuilder_NumberSignKeyword_0_4_0 extends KeywordToken  {
+// "unit"
+protected class BuilderQuery_UnitKeyword_1_0 extends KeywordToken  {
 	
-	public SynchronizedBuilder_NumberSignKeyword_0_4_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BuilderQuery_UnitKeyword_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getSynchronizedBuilderAccess().getNumberSignKeyword_0_4_0();
+		return grammarAccess.getBuilderQueryAccess().getUnitKeyword_1_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new SynchronizedBuilder_NameAssignment_0_3(parent, this, 0, inst);
+			case 0: return new BuilderQuery_BuilderQueryAction_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
 		
 }
 
-// builderName=BuilderName
-protected class SynchronizedBuilder_BuilderNameAssignment_0_4_1 extends AssignmentToken  {
+// unitQuery=UnitOrExpression
+protected class BuilderQuery_UnitQueryAssignment_1_1 extends AssignmentToken  {
 	
-	public SynchronizedBuilder_BuilderNameAssignment_0_4_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BuilderQuery_UnitQueryAssignment_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getSynchronizedBuilderAccess().getBuilderNameAssignment_0_4_1();
+		return grammarAccess.getBuilderQueryAccess().getUnitQueryAssignment_1_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new SynchronizedBuilder_NumberSignKeyword_0_4_0(parent, this, 0, inst);
+			case 0: return new UnitOrExpression_Group(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
 		
     @Override	
 	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("builderName",false)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("builderName");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
-			type = AssignmentType.DRC;
-			element = grammarAccess.getSynchronizedBuilderAccess().getBuilderNameBuilderNameParserRuleCall_0_4_1_0();
-			return obj;
+		if((value = current.getConsumable("unitQuery",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("unitQuery");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getUnitOrExpressionRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getBuilderQueryAccess().getUnitQueryUnitOrExpressionParserRuleCall_1_1_0(); 
+				consumed = obj;
+				return param;
+			}
 		}
 		return null;
 	}
 
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new BuilderQuery_UnitKeyword_1_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
 }
 
 
-
-// builderName=BuilderName
-protected class SynchronizedBuilder_BuilderNameAssignment_1 extends AssignmentToken  {
+// "builder" builderQueries+=BuilderOrExpression
+protected class BuilderQuery_Group_2 extends GroupToken {
 	
-	public SynchronizedBuilder_BuilderNameAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BuilderQuery_Group_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getSynchronizedBuilderAccess().getBuilderNameAssignment_1();
+	public Group getGrammarElement() {
+		return grammarAccess.getBuilderQueryAccess().getGroup_2();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			default: return parent.createParentFollower(this, index, index, inst);
+			case 0: return new BuilderQuery_BuilderQueriesAssignment_2_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "builder"
+protected class BuilderQuery_BuilderKeyword_2_0 extends KeywordToken  {
+	
+	public BuilderQuery_BuilderKeyword_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getBuilderQueryAccess().getBuilderKeyword_2_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new BuilderQuery_Group_1(parent, this, 0, inst);
+			case 1: return new BuilderQuery_BuilderQueryAction_0(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// builderQueries+=BuilderOrExpression
+protected class BuilderQuery_BuilderQueriesAssignment_2_1 extends AssignmentToken  {
+	
+	public BuilderQuery_BuilderQueriesAssignment_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getBuilderQueryAccess().getBuilderQueriesAssignment_2_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new BuilderOrExpression_Group(this, this, 0, inst);
+			default: return null;
 		}	
 	}	
 		
     @Override	
 	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("builderName",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("builderName");
-		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
-			type = AssignmentType.DRC;
-			element = grammarAccess.getSynchronizedBuilderAccess().getBuilderNameBuilderNameParserRuleCall_1_0();
-			return obj;
+		if((value = current.getConsumable("builderQueries",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("builderQueries");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getBuilderOrExpressionRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getBuilderQueryAccess().getBuilderQueriesBuilderOrExpressionParserRuleCall_2_1_0(); 
+				consumed = obj;
+				return param;
+			}
 		}
 		return null;
 	}
 
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new BuilderQuery_BuilderKeyword_2_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
 }
 
 
-/************ end Rule SynchronizedBuilder ****************/
+// ("," builderQueries+=BuilderOrExpression)*
+protected class BuilderQuery_Group_3 extends GroupToken {
+	
+	public BuilderQuery_Group_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getBuilderQueryAccess().getGroup_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new BuilderQuery_BuilderQueriesAssignment_3_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// ","
+protected class BuilderQuery_CommaKeyword_3_0 extends KeywordToken  {
+	
+	public BuilderQuery_CommaKeyword_3_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getBuilderQueryAccess().getCommaKeyword_3_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new BuilderQuery_Group_3(parent, this, 0, inst);
+			case 1: return new BuilderQuery_Group_2(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// builderQueries+=BuilderOrExpression
+protected class BuilderQuery_BuilderQueriesAssignment_3_1 extends AssignmentToken  {
+	
+	public BuilderQuery_BuilderQueriesAssignment_3_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getBuilderQueryAccess().getBuilderQueriesAssignment_3_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new BuilderOrExpression_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("builderQueries",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("builderQueries");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getBuilderOrExpressionRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getBuilderQueryAccess().getBuilderQueriesBuilderOrExpressionParserRuleCall_3_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new BuilderQuery_CommaKeyword_3_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+
+
+/************ end Rule BuilderQuery ****************/
 
 
 /************ begin Rule PathGroup ****************

@@ -20,6 +20,7 @@ import org.eclipse.b3.build.build.Builder;
 import org.eclipse.b3.build.build.BuilderConcernContext;
 import org.eclipse.b3.build.build.BuilderInput;
 import org.eclipse.b3.build.build.BuilderNamePredicate;
+import org.eclipse.b3.build.build.BuilderQuery;
 import org.eclipse.b3.build.build.BuilderReference;
 import org.eclipse.b3.build.build.Capability;
 import org.eclipse.b3.build.build.CapabilityPredicate;
@@ -33,8 +34,6 @@ import org.eclipse.b3.build.build.InputPredicate;
 import org.eclipse.b3.build.build.NamePredicate;
 import org.eclipse.b3.build.build.NameSpacePredicate;
 import org.eclipse.b3.build.build.OutputPredicate;
-import org.eclipse.b3.build.build.DirectBuildResultReference;
-import org.eclipse.b3.build.build.IndirectBuildResultReference;
 import org.eclipse.b3.build.build.PathGroup;
 import org.eclipse.b3.build.build.PathVector;
 import org.eclipse.b3.build.build.PathVectorElement;
@@ -48,10 +47,8 @@ import org.eclipse.b3.build.build.ResolutionStrategy;
 import org.eclipse.b3.build.build.ResolutionStrategyBest;
 import org.eclipse.b3.build.build.ResolutionStrategyFirst;
 import org.eclipse.b3.build.build.Synchronization;
-import org.eclipse.b3.build.build.SynchronizedBuilder;
 import org.eclipse.b3.build.build.UnitConcernContext;
 import org.eclipse.b3.build.build.UnitNamePredicate;
-import org.eclipse.b3.build.build.UnitBuildResultReference;
 import org.eclipse.b3.build.build.VersionedCapability;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -134,13 +131,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * @generated
 	 */
 	private EClass synchronizationEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass synchronizedBuilderEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -302,6 +292,13 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * @generated
 	 */
 	private EClass iProvidedCapabilityContainerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass builderQueryEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -741,44 +738,8 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSynchronization_Builders() {
+	public EReference getSynchronization_BuilderQueries() {
 		return (EReference)synchronizationEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSynchronizedBuilder() {
-		return synchronizedBuilderEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSynchronizedBuilder_NameSpace() {
-		return (EAttribute)synchronizedBuilderEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSynchronizedBuilder_Name() {
-		return (EAttribute)synchronizedBuilderEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSynchronizedBuilder_BuilderName() {
-		return (EAttribute)synchronizedBuilderEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1335,6 +1296,33 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getBuilderQuery() {
+		return builderQueryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBuilderQuery_BuilderQueries() {
+		return (EReference)builderQueryEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBuilderQuery_UnitQuery() {
+		return (EReference)builderQueryEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBuilderInput() {
 		return builderInputEClass;
 	}
@@ -1633,12 +1621,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		pathVectorElementEClass = createEClass(PATH_VECTOR_ELEMENT);
 
 		synchronizationEClass = createEClass(SYNCHRONIZATION);
-		createEReference(synchronizationEClass, SYNCHRONIZATION__BUILDERS);
-
-		synchronizedBuilderEClass = createEClass(SYNCHRONIZED_BUILDER);
-		createEAttribute(synchronizedBuilderEClass, SYNCHRONIZED_BUILDER__NAME_SPACE);
-		createEAttribute(synchronizedBuilderEClass, SYNCHRONIZED_BUILDER__NAME);
-		createEAttribute(synchronizedBuilderEClass, SYNCHRONIZED_BUILDER__BUILDER_NAME);
+		createEReference(synchronizationEClass, SYNCHRONIZATION__BUILDER_QUERIES);
 
 		repositoryConfigurationEClass = createEClass(REPOSITORY_CONFIGURATION);
 
@@ -1723,6 +1706,10 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 
 		iProvidedCapabilityContainerEClass = createEClass(IPROVIDED_CAPABILITY_CONTAINER);
 		createEReference(iProvidedCapabilityContainerEClass, IPROVIDED_CAPABILITY_CONTAINER__PROVIDED_CAPABILITIES);
+
+		builderQueryEClass = createEClass(BUILDER_QUERY);
+		createEReference(builderQueryEClass, BUILDER_QUERY__BUILDER_QUERIES);
+		createEReference(builderQueryEClass, BUILDER_QUERY__UNIT_QUERY);
 
 		// Create data types
 		versionRangeEDataType = createEDataType(VERSION_RANGE);
@@ -1862,12 +1849,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		initEClass(pathVectorElementEClass, PathVectorElement.class, "PathVectorElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(synchronizationEClass, Synchronization.class, "Synchronization", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSynchronization_Builders(), this.getSynchronizedBuilder(), null, "builders", null, 0, -1, Synchronization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(synchronizedBuilderEClass, SynchronizedBuilder.class, "SynchronizedBuilder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSynchronizedBuilder_NameSpace(), ecorePackage.getEString(), "nameSpace", null, 0, 1, SynchronizedBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSynchronizedBuilder_Name(), ecorePackage.getEString(), "name", null, 0, 1, SynchronizedBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSynchronizedBuilder_BuilderName(), ecorePackage.getEString(), "builderName", null, 0, 1, SynchronizedBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSynchronization_BuilderQueries(), this.getBuilderQuery(), null, "builderQueries", null, 0, -1, Synchronization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(repositoryConfigurationEClass, RepositoryConfiguration.class, "RepositoryConfiguration", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1970,6 +1952,10 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 
 		initEClass(iProvidedCapabilityContainerEClass, IProvidedCapabilityContainer.class, "IProvidedCapabilityContainer", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIProvidedCapabilityContainer_ProvidedCapabilities(), this.getCapability(), null, "providedCapabilities", null, 0, -1, IProvidedCapabilityContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(builderQueryEClass, BuilderQuery.class, "BuilderQuery", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBuilderQuery_BuilderQueries(), theB3backendPackage.getBExpression(), null, "builderQueries", null, 1, -1, BuilderQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBuilderQuery_UnitQuery(), theB3backendPackage.getBExpression(), null, "unitQuery", null, 0, 1, BuilderQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(versionRangeEDataType, VersionRange.class, "VersionRange", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

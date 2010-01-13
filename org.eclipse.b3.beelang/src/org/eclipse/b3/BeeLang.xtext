@@ -147,13 +147,12 @@ PropertySetOperation returns be::BPropertyOperation : {be::BPropertySetOperation
 	;
 
 Synchronization returns build::Synchronization : {build::Synchronization}
-	(builders += SynchronizedBuilder)(',' builders += SynchronizedBuilder)+ ';'
+	(builderQueries += BuilderQuery)(',' builderQueries += BuilderQuery)* ';'
 	;
-
-// TODO: This is really a builder reference (which could be reused/refactored)	
-SynchronizedBuilder returns build::SynchronizedBuilder : {build::SynchronizedBuilder}
-	nameSpace=EscapedQualifiedName '/' name=EscapedQualifiedName ('#' builderName = BuilderName)?
-	| builderName = BuilderName
+	
+BuilderQuery returns build::BuilderQuery : {build::BuilderQuery}
+	("unit" unitQuery = UnitOrExpression)?
+	("builder" builderQueries += BuilderOrExpression)(',' builderQueries += BuilderOrExpression)*
 	;
 	
 PathGroup returns build::PathGroup: {build::PathGroup}

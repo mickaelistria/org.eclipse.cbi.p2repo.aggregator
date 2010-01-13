@@ -1482,123 +1482,112 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Synchronization");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cSynchronizationAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cBuildersAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cBuildersSynchronizedBuilderParserRuleCall_1_0 = (RuleCall)cBuildersAssignment_1.eContents().get(0);
+		private final Assignment cBuilderQueriesAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cBuilderQueriesBuilderQueryParserRuleCall_1_0 = (RuleCall)cBuilderQueriesAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Keyword cCommaKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cBuildersAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cBuildersSynchronizedBuilderParserRuleCall_2_1_0 = (RuleCall)cBuildersAssignment_2_1.eContents().get(0);
+		private final Assignment cBuilderQueriesAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cBuilderQueriesBuilderQueryParserRuleCall_2_1_0 = (RuleCall)cBuilderQueriesAssignment_2_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//Synchronization returns build::Synchronization:
-		//  {build::Synchronization} builders+=SynchronizedBuilder ("," builders+=
-		//  SynchronizedBuilder)+ ";"; 
-		//
-		//        
-		//	            
-		//	
-		//
-		//// TODO: This is really a builder reference (which could be reused/refactored)
+		//  {build::Synchronization} builderQueries+=BuilderQuery ("," builderQueries+=
+		//  BuilderQuery)* ";";
 		public ParserRule getRule() { return rule; }
 
-		//{build::Synchronization} builders+=SynchronizedBuilder ("," builders+=
-		//SynchronizedBuilder)+ ";"
+		//{build::Synchronization} builderQueries+=BuilderQuery ("," builderQueries+=
+		//BuilderQuery)* ";"
 		public Group getGroup() { return cGroup; }
 
 		//{build::Synchronization}
 		public Action getSynchronizationAction_0() { return cSynchronizationAction_0; }
 
-		//builders+=SynchronizedBuilder
-		public Assignment getBuildersAssignment_1() { return cBuildersAssignment_1; }
+		//builderQueries+=BuilderQuery
+		public Assignment getBuilderQueriesAssignment_1() { return cBuilderQueriesAssignment_1; }
 
-		//SynchronizedBuilder
-		public RuleCall getBuildersSynchronizedBuilderParserRuleCall_1_0() { return cBuildersSynchronizedBuilderParserRuleCall_1_0; }
+		//BuilderQuery
+		public RuleCall getBuilderQueriesBuilderQueryParserRuleCall_1_0() { return cBuilderQueriesBuilderQueryParserRuleCall_1_0; }
 
-		//("," builders+=SynchronizedBuilder)+
+		//("," builderQueries+=BuilderQuery)*
 		public Group getGroup_2() { return cGroup_2; }
 
 		//","
 		public Keyword getCommaKeyword_2_0() { return cCommaKeyword_2_0; }
 
-		//builders+=SynchronizedBuilder
-		public Assignment getBuildersAssignment_2_1() { return cBuildersAssignment_2_1; }
+		//builderQueries+=BuilderQuery
+		public Assignment getBuilderQueriesAssignment_2_1() { return cBuilderQueriesAssignment_2_1; }
 
-		//SynchronizedBuilder
-		public RuleCall getBuildersSynchronizedBuilderParserRuleCall_2_1_0() { return cBuildersSynchronizedBuilderParserRuleCall_2_1_0; }
+		//BuilderQuery
+		public RuleCall getBuilderQueriesBuilderQueryParserRuleCall_2_1_0() { return cBuilderQueriesBuilderQueryParserRuleCall_2_1_0; }
 
 		//";"
 		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
 	}
 
-	public class SynchronizedBuilderElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SynchronizedBuilder");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Action cSynchronizedBuilderAction_0_0 = (Action)cGroup_0.eContents().get(0);
-		private final Assignment cNameSpaceAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
-		private final RuleCall cNameSpaceEscapedQualifiedNameParserRuleCall_0_1_0 = (RuleCall)cNameSpaceAssignment_0_1.eContents().get(0);
-		private final Keyword cSolidusKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
-		private final Assignment cNameAssignment_0_3 = (Assignment)cGroup_0.eContents().get(3);
-		private final RuleCall cNameEscapedQualifiedNameParserRuleCall_0_3_0 = (RuleCall)cNameAssignment_0_3.eContents().get(0);
-		private final Group cGroup_0_4 = (Group)cGroup_0.eContents().get(4);
-		private final Keyword cNumberSignKeyword_0_4_0 = (Keyword)cGroup_0_4.eContents().get(0);
-		private final Assignment cBuilderNameAssignment_0_4_1 = (Assignment)cGroup_0_4.eContents().get(1);
-		private final RuleCall cBuilderNameBuilderNameParserRuleCall_0_4_1_0 = (RuleCall)cBuilderNameAssignment_0_4_1.eContents().get(0);
-		private final Assignment cBuilderNameAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
-		private final RuleCall cBuilderNameBuilderNameParserRuleCall_1_0 = (RuleCall)cBuilderNameAssignment_1.eContents().get(0);
+	public class BuilderQueryElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "BuilderQuery");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cBuilderQueryAction_0 = (Action)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cUnitKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cUnitQueryAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cUnitQueryUnitOrExpressionParserRuleCall_1_1_0 = (RuleCall)cUnitQueryAssignment_1_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cBuilderKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cBuilderQueriesAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cBuilderQueriesBuilderOrExpressionParserRuleCall_2_1_0 = (RuleCall)cBuilderQueriesAssignment_2_1.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cCommaKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cBuilderQueriesAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cBuilderQueriesBuilderOrExpressionParserRuleCall_3_1_0 = (RuleCall)cBuilderQueriesAssignment_3_1.eContents().get(0);
 		
-		//SynchronizedBuilder returns build::SynchronizedBuilder:
-		//  {build::SynchronizedBuilder} nameSpace=EscapedQualifiedName "/" name=
-		//  EscapedQualifiedName ("#" builderName=BuilderName)?|builderName=BuilderName; 
-		//
-		//// TODO: This is really a builder reference (which could be reused/refactored)
+		//BuilderQuery returns build::BuilderQuery:
+		//  {build::BuilderQuery} ("unit" unitQuery=UnitOrExpression)? ("builder" builderQueries
+		//  +=BuilderOrExpression) ("," builderQueries+=BuilderOrExpression)*;
 		public ParserRule getRule() { return rule; }
 
-		//{build::SynchronizedBuilder} nameSpace=EscapedQualifiedName "/" name=
-		//EscapedQualifiedName ("#" builderName=BuilderName)?|builderName=BuilderName 
-		//
-		//// TODO: This is really a builder reference (which could be reused/refactored)
-		public Alternatives getAlternatives() { return cAlternatives; }
+		//{build::BuilderQuery} ("unit" unitQuery=UnitOrExpression)? ("builder" builderQueries
+		//+=BuilderOrExpression) ("," builderQueries+=BuilderOrExpression)*
+		public Group getGroup() { return cGroup; }
 
-		//{build::SynchronizedBuilder} nameSpace=EscapedQualifiedName "/" name=
-		//EscapedQualifiedName ("#" builderName=BuilderName)?
-		public Group getGroup_0() { return cGroup_0; }
+		//{build::BuilderQuery}
+		public Action getBuilderQueryAction_0() { return cBuilderQueryAction_0; }
 
-		//{build::SynchronizedBuilder}
-		public Action getSynchronizedBuilderAction_0_0() { return cSynchronizedBuilderAction_0_0; }
+		//("unit" unitQuery=UnitOrExpression)?
+		public Group getGroup_1() { return cGroup_1; }
 
-		//nameSpace=EscapedQualifiedName
-		public Assignment getNameSpaceAssignment_0_1() { return cNameSpaceAssignment_0_1; }
+		//"unit"
+		public Keyword getUnitKeyword_1_0() { return cUnitKeyword_1_0; }
 
-		//EscapedQualifiedName
-		public RuleCall getNameSpaceEscapedQualifiedNameParserRuleCall_0_1_0() { return cNameSpaceEscapedQualifiedNameParserRuleCall_0_1_0; }
+		//unitQuery=UnitOrExpression
+		public Assignment getUnitQueryAssignment_1_1() { return cUnitQueryAssignment_1_1; }
 
-		//"/"
-		public Keyword getSolidusKeyword_0_2() { return cSolidusKeyword_0_2; }
+		//UnitOrExpression
+		public RuleCall getUnitQueryUnitOrExpressionParserRuleCall_1_1_0() { return cUnitQueryUnitOrExpressionParserRuleCall_1_1_0; }
 
-		//name=EscapedQualifiedName
-		public Assignment getNameAssignment_0_3() { return cNameAssignment_0_3; }
+		//"builder" builderQueries+=BuilderOrExpression
+		public Group getGroup_2() { return cGroup_2; }
 
-		//EscapedQualifiedName
-		public RuleCall getNameEscapedQualifiedNameParserRuleCall_0_3_0() { return cNameEscapedQualifiedNameParserRuleCall_0_3_0; }
+		//"builder"
+		public Keyword getBuilderKeyword_2_0() { return cBuilderKeyword_2_0; }
 
-		//("#" builderName=BuilderName)?
-		public Group getGroup_0_4() { return cGroup_0_4; }
+		//builderQueries+=BuilderOrExpression
+		public Assignment getBuilderQueriesAssignment_2_1() { return cBuilderQueriesAssignment_2_1; }
 
-		//"#"
-		public Keyword getNumberSignKeyword_0_4_0() { return cNumberSignKeyword_0_4_0; }
+		//BuilderOrExpression
+		public RuleCall getBuilderQueriesBuilderOrExpressionParserRuleCall_2_1_0() { return cBuilderQueriesBuilderOrExpressionParserRuleCall_2_1_0; }
 
-		//builderName=BuilderName
-		public Assignment getBuilderNameAssignment_0_4_1() { return cBuilderNameAssignment_0_4_1; }
+		//("," builderQueries+=BuilderOrExpression)*
+		public Group getGroup_3() { return cGroup_3; }
 
-		//BuilderName
-		public RuleCall getBuilderNameBuilderNameParserRuleCall_0_4_1_0() { return cBuilderNameBuilderNameParserRuleCall_0_4_1_0; }
+		//","
+		public Keyword getCommaKeyword_3_0() { return cCommaKeyword_3_0; }
 
-		//builderName=BuilderName
-		public Assignment getBuilderNameAssignment_1() { return cBuilderNameAssignment_1; }
+		//builderQueries+=BuilderOrExpression
+		public Assignment getBuilderQueriesAssignment_3_1() { return cBuilderQueriesAssignment_3_1; }
 
-		//BuilderName
-		public RuleCall getBuilderNameBuilderNameParserRuleCall_1_0() { return cBuilderNameBuilderNameParserRuleCall_1_0; }
+		//BuilderOrExpression
+		public RuleCall getBuilderQueriesBuilderOrExpressionParserRuleCall_3_1_0() { return cBuilderQueriesBuilderOrExpressionParserRuleCall_3_1_0; }
 	}
 
 	public class PathGroupElements extends AbstractParserRuleElementFinder {
@@ -9082,7 +9071,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	private PropertyVarDeclarationElements pPropertyVarDeclaration;
 	private PropertySetOperationElements pPropertySetOperation;
 	private SynchronizationElements pSynchronization;
-	private SynchronizedBuilderElements pSynchronizedBuilder;
+	private BuilderQueryElements pBuilderQuery;
 	private PathGroupElements pPathGroup;
 	private PathVectorElements pPathVector;
 	private BasePathVectorElements pBasePathVector;
@@ -9545,14 +9534,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Synchronization returns build::Synchronization:
-	//  {build::Synchronization} builders+=SynchronizedBuilder ("," builders+=
-	//  SynchronizedBuilder)+ ";"; 
-	//
-	//        
-	//	            
-	//	
-	//
-	//// TODO: This is really a builder reference (which could be reused/refactored)
+	//  {build::Synchronization} builderQueries+=BuilderQuery ("," builderQueries+=
+	//  BuilderQuery)* ";";
 	public SynchronizationElements getSynchronizationAccess() {
 		return (pSynchronization != null) ? pSynchronization : (pSynchronization = new SynchronizationElements());
 	}
@@ -9561,17 +9544,15 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getSynchronizationAccess().getRule();
 	}
 
-	//SynchronizedBuilder returns build::SynchronizedBuilder:
-	//  {build::SynchronizedBuilder} nameSpace=EscapedQualifiedName "/" name=
-	//  EscapedQualifiedName ("#" builderName=BuilderName)?|builderName=BuilderName; 
-	//
-	//// TODO: This is really a builder reference (which could be reused/refactored)
-	public SynchronizedBuilderElements getSynchronizedBuilderAccess() {
-		return (pSynchronizedBuilder != null) ? pSynchronizedBuilder : (pSynchronizedBuilder = new SynchronizedBuilderElements());
+	//BuilderQuery returns build::BuilderQuery:
+	//  {build::BuilderQuery} ("unit" unitQuery=UnitOrExpression)? ("builder" builderQueries
+	//  +=BuilderOrExpression) ("," builderQueries+=BuilderOrExpression)*;
+	public BuilderQueryElements getBuilderQueryAccess() {
+		return (pBuilderQuery != null) ? pBuilderQuery : (pBuilderQuery = new BuilderQueryElements());
 	}
 	
-	public ParserRule getSynchronizedBuilderRule() {
-		return getSynchronizedBuilderAccess().getRule();
+	public ParserRule getBuilderQueryRule() {
+		return getBuilderQueryAccess().getRule();
 	}
 
 	//PathGroup returns build::PathGroup:

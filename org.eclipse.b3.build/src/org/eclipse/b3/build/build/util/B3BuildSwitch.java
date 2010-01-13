@@ -204,12 +204,6 @@ public class B3BuildSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case B3BuildPackage.SYNCHRONIZED_BUILDER: {
-				SynchronizedBuilder synchronizedBuilder = (SynchronizedBuilder)theEObject;
-				T result = caseSynchronizedBuilder(synchronizedBuilder);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case B3BuildPackage.REPOSITORY_CONFIGURATION: {
 				RepositoryConfiguration repositoryConfiguration = (RepositoryConfiguration)theEObject;
 				T result = caseRepositoryConfiguration(repositoryConfiguration);
@@ -384,6 +378,12 @@ public class B3BuildSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case B3BuildPackage.BUILDER_QUERY: {
+				BuilderQuery builderQuery = (BuilderQuery)theEObject;
+				T result = caseBuilderQuery(builderQuery);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -520,21 +520,6 @@ public class B3BuildSwitch<T> {
 	 * @generated
 	 */
 	public T caseSynchronization(Synchronization object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Synchronized Builder</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Synchronized Builder</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSynchronizedBuilder(SynchronizedBuilder object) {
 		return null;
 	}
 
@@ -880,6 +865,21 @@ public class B3BuildSwitch<T> {
 	 * @generated
 	 */
 	public T caseIProvidedCapabilityContainer(IProvidedCapabilityContainer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Builder Query</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Builder Query</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBuilderQuery(BuilderQuery object) {
 		return null;
 	}
 

@@ -107,15 +107,6 @@ public interface B3BuildFactory extends EFactory {
 	Synchronization createSynchronization();
 
 	/**
-	 * Returns a new object of class '<em>Synchronized Builder</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Synchronized Builder</em>'.
-	 * @generated
-	 */
-	SynchronizedBuilder createSynchronizedBuilder();
-
-	/**
 	 * Returns a new object of class '<em>Repository Declaration</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -285,6 +276,15 @@ public interface B3BuildFactory extends EFactory {
 	 * @generated
 	 */
 	AliasedRequiredCapability createAliasedRequiredCapability();
+
+	/**
+	 * Returns a new object of class '<em>Builder Query</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Builder Query</em>'.
+	 * @generated
+	 */
+	BuilderQuery createBuilderQuery();
 
 	/**
 	 * Returns a new object of class '<em>Builder Input</em>'.
