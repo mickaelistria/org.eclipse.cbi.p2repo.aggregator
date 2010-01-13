@@ -69,8 +69,11 @@ public class BeeLangScopeProvider extends AbstractDeclarativeScopeProvider {
 		while(container != null) {
 			if(container instanceof IRequiredCapabilityContainer) {
 				for(RequiredCapability rc : ((IRequiredCapabilityContainer)container).getRequiredCapabilities())
-					if(rc instanceof AliasedRequiredCapability)
-						result.add(new EObjectDescription(((AliasedRequiredCapability)rc).getAlias(), rc, null));
+					if(rc instanceof AliasedRequiredCapability) {
+						String name = ((AliasedRequiredCapability)rc).getAlias();
+						if(name != null)
+							result.add(new EObjectDescription(name, rc, null));
+					}
 			}
 			container = container.eContainer();
 		}
