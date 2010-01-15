@@ -38,7 +38,7 @@ import org.eclipse.emf.common.util.EList;
  * The following operations are tested:
  * <ul>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#loadFunctions(java.lang.Class) <em>Load Functions</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#defineFunction(org.eclipse.b3.backend.evaluator.b3backend.BFunction) <em>Define Function</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#defineFunction(org.eclipse.b3.backend.evaluator.b3backend.IFunction) <em>Define Function</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#callFunction(java.lang.String, java.lang.Object[], java.lang.reflect.Type[]) <em>Call Function</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getValue(java.lang.String) <em>Get Value</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getLValue(java.lang.String) <em>Get LValue</em>}</li>
@@ -176,6 +176,19 @@ public abstract class BExecutionContextTest extends TestCase {
 			fail();
 		}
 	}
+	/**
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#defineFunction(org.eclipse.b3.backend.evaluator.b3backend.IFunction) <em>Define Function</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#defineFunction(org.eclipse.b3.backend.evaluator.b3backend.IFunction)
+	 * @generated
+	 */
+	public void testDefineFunction__IFunction() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
 	public void testLoadSystemFunctions__Class() {
 		B3backendFactory b3 = B3backendFactory.eINSTANCE;
 		B3Engine engine = new B3Engine();

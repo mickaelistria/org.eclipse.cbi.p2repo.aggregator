@@ -13557,15 +13557,19 @@ protected class ParameterDeclaration_NameAssignment_1_1 extends AssignmentToken 
 /************ begin Rule BuilderInput ****************
  *
  * BuilderInput returns build::BuilderInput:
- *   {build::BuilderInput} "input" ("precondition" (":" precondExpr=Expression ";"|
- *   precondExpr=BlockExpression))? ("postcondition" (":" postcondExpr=Expression ";"|
- *   postcondExpr=BlockExpression))? "{" prerequisites+=Prerequisite+ "}";
+ *   {build::BuilderInput} "input" "{" prerequisites+=Prerequisite+ "}"; 
+ * 
+ *         
+ * 	
+ * //		("precondition"  ((':' precondExpr  = Expression ';' )|( precondExpr  = BlockExpression)))?
+ * //		("postcondition" ((':' postcondExpr = Expression ';' )|( postcondExpr = BlockExpression)))?
  *
  **/
 
-// {build::BuilderInput} "input" ("precondition" (":" precondExpr=Expression ";"|
-// precondExpr=BlockExpression))? ("postcondition" (":" postcondExpr=Expression ";"|
-// postcondExpr=BlockExpression))? "{" prerequisites+=Prerequisite+ "}"
+// {build::BuilderInput} "input" "{" prerequisites+=Prerequisite+ "}"   
+// 	
+// //		("precondition"  ((':' precondExpr  = Expression ';' )|( precondExpr  = BlockExpression)))?
+// //		("postcondition" ((':' postcondExpr = Expression ';' )|( postcondExpr = BlockExpression)))?
 protected class BuilderInput_Group extends GroupToken {
 	
 	public BuilderInput_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -13580,7 +13584,7 @@ protected class BuilderInput_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new BuilderInput_RightCurlyBracketKeyword_6(parent, this, 0, inst);
+			case 0: return new BuilderInput_RightCurlyBracketKeyword_4(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -13620,7 +13624,10 @@ protected class BuilderInput_BuilderInputAction_0 extends ActionToken  {
 	}
 }
 
-// "input"
+// "input" 
+// 	
+// //		("precondition"  ((':' precondExpr  = Expression ';' )|( precondExpr  = BlockExpression)))?
+// //		("postcondition" ((':' postcondExpr = Expression ';' )|( postcondExpr = BlockExpression)))?
 protected class BuilderInput_InputKeyword_1 extends KeywordToken  {
 	
 	public BuilderInput_InputKeyword_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -13642,38 +13649,18 @@ protected class BuilderInput_InputKeyword_1 extends KeywordToken  {
 		
 }
 
-// ("precondition" (":" precondExpr=Expression ";"|precondExpr=BlockExpression))?
-protected class BuilderInput_Group_2 extends GroupToken {
+// "{" 
+// //		("precondition"  ((':' precondExpr  = Expression ';' )|( precondExpr  = BlockExpression)))?
+// //		("postcondition" ((':' postcondExpr = Expression ';' )|( postcondExpr = BlockExpression)))?
+protected class BuilderInput_LeftCurlyBracketKeyword_2 extends KeywordToken  {
 	
-	public BuilderInput_Group_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getBuilderInputAccess().getGroup_2();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new BuilderInput_Alternatives_2_1(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// "precondition"
-protected class BuilderInput_PreconditionKeyword_2_0 extends KeywordToken  {
-	
-	public BuilderInput_PreconditionKeyword_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BuilderInput_LeftCurlyBracketKeyword_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getBuilderInputAccess().getPreconditionKeyword_2_0();
+		return grammarAccess.getBuilderInputAccess().getLeftCurlyBracketKeyword_2();
 	}
 
     @Override
@@ -13686,453 +13673,16 @@ protected class BuilderInput_PreconditionKeyword_2_0 extends KeywordToken  {
 		
 }
 
-// ":" precondExpr=Expression ";"|precondExpr=BlockExpression
-protected class BuilderInput_Alternatives_2_1 extends AlternativesToken {
-
-	public BuilderInput_Alternatives_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Alternatives getGrammarElement() {
-		return grammarAccess.getBuilderInputAccess().getAlternatives_2_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new BuilderInput_Group_2_1_0(parent, this, 0, inst);
-			case 1: return new BuilderInput_PrecondExprAssignment_2_1_1(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// ":" precondExpr=Expression ";"
-protected class BuilderInput_Group_2_1_0 extends GroupToken {
-	
-	public BuilderInput_Group_2_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getBuilderInputAccess().getGroup_2_1_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new BuilderInput_SemicolonKeyword_2_1_0_2(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// ":"
-protected class BuilderInput_ColonKeyword_2_1_0_0 extends KeywordToken  {
-	
-	public BuilderInput_ColonKeyword_2_1_0_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getBuilderInputAccess().getColonKeyword_2_1_0_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new BuilderInput_PreconditionKeyword_2_0(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// precondExpr=Expression
-protected class BuilderInput_PrecondExprAssignment_2_1_0_1 extends AssignmentToken  {
-	
-	public BuilderInput_PrecondExprAssignment_2_1_0_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getBuilderInputAccess().getPrecondExprAssignment_2_1_0_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new Expression_AssignmentExpressionParserRuleCall(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("precondExpr",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("precondExpr");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getExpressionRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getBuilderInputAccess().getPrecondExprExpressionParserRuleCall_2_1_0_1_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
-	}
-
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new BuilderInput_ColonKeyword_2_1_0_0(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
-}
-
-// ";"
-protected class BuilderInput_SemicolonKeyword_2_1_0_2 extends KeywordToken  {
-	
-	public BuilderInput_SemicolonKeyword_2_1_0_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getBuilderInputAccess().getSemicolonKeyword_2_1_0_2();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new BuilderInput_PrecondExprAssignment_2_1_0_1(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-
-// precondExpr=BlockExpression
-protected class BuilderInput_PrecondExprAssignment_2_1_1 extends AssignmentToken  {
-	
-	public BuilderInput_PrecondExprAssignment_2_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getBuilderInputAccess().getPrecondExprAssignment_2_1_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new BlockExpression_Group(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("precondExpr",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("precondExpr");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getBlockExpressionRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getBuilderInputAccess().getPrecondExprBlockExpressionParserRuleCall_2_1_1_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
-	}
-
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new BuilderInput_PreconditionKeyword_2_0(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
-}
-
-
-
-// ("postcondition" (":" postcondExpr=Expression ";"|postcondExpr=BlockExpression))?
-protected class BuilderInput_Group_3 extends GroupToken {
-	
-	public BuilderInput_Group_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getBuilderInputAccess().getGroup_3();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new BuilderInput_Alternatives_3_1(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// "postcondition"
-protected class BuilderInput_PostconditionKeyword_3_0 extends KeywordToken  {
-	
-	public BuilderInput_PostconditionKeyword_3_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getBuilderInputAccess().getPostconditionKeyword_3_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new BuilderInput_Group_2(parent, this, 0, inst);
-			case 1: return new BuilderInput_InputKeyword_1(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// ":" postcondExpr=Expression ";"|postcondExpr=BlockExpression
-protected class BuilderInput_Alternatives_3_1 extends AlternativesToken {
-
-	public BuilderInput_Alternatives_3_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Alternatives getGrammarElement() {
-		return grammarAccess.getBuilderInputAccess().getAlternatives_3_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new BuilderInput_Group_3_1_0(parent, this, 0, inst);
-			case 1: return new BuilderInput_PostcondExprAssignment_3_1_1(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// ":" postcondExpr=Expression ";"
-protected class BuilderInput_Group_3_1_0 extends GroupToken {
-	
-	public BuilderInput_Group_3_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getBuilderInputAccess().getGroup_3_1_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new BuilderInput_SemicolonKeyword_3_1_0_2(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// ":"
-protected class BuilderInput_ColonKeyword_3_1_0_0 extends KeywordToken  {
-	
-	public BuilderInput_ColonKeyword_3_1_0_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getBuilderInputAccess().getColonKeyword_3_1_0_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new BuilderInput_PostconditionKeyword_3_0(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// postcondExpr=Expression
-protected class BuilderInput_PostcondExprAssignment_3_1_0_1 extends AssignmentToken  {
-	
-	public BuilderInput_PostcondExprAssignment_3_1_0_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getBuilderInputAccess().getPostcondExprAssignment_3_1_0_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new Expression_AssignmentExpressionParserRuleCall(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("postcondExpr",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("postcondExpr");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getExpressionRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getBuilderInputAccess().getPostcondExprExpressionParserRuleCall_3_1_0_1_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
-	}
-
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new BuilderInput_ColonKeyword_3_1_0_0(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
-}
-
-// ";"
-protected class BuilderInput_SemicolonKeyword_3_1_0_2 extends KeywordToken  {
-	
-	public BuilderInput_SemicolonKeyword_3_1_0_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getBuilderInputAccess().getSemicolonKeyword_3_1_0_2();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new BuilderInput_PostcondExprAssignment_3_1_0_1(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-
-// postcondExpr=BlockExpression
-protected class BuilderInput_PostcondExprAssignment_3_1_1 extends AssignmentToken  {
-	
-	public BuilderInput_PostcondExprAssignment_3_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getBuilderInputAccess().getPostcondExprAssignment_3_1_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new BlockExpression_Group(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("postcondExpr",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("postcondExpr");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getBlockExpressionRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getBuilderInputAccess().getPostcondExprBlockExpressionParserRuleCall_3_1_1_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
-	}
-
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new BuilderInput_PostconditionKeyword_3_0(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
-}
-
-
-
-// "{"
-protected class BuilderInput_LeftCurlyBracketKeyword_4 extends KeywordToken  {
-	
-	public BuilderInput_LeftCurlyBracketKeyword_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getBuilderInputAccess().getLeftCurlyBracketKeyword_4();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new BuilderInput_Group_3(parent, this, 0, inst);
-			case 1: return new BuilderInput_Group_2(parent, this, 1, inst);
-			case 2: return new BuilderInput_InputKeyword_1(parent, this, 2, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
 // prerequisites+=Prerequisite+
-protected class BuilderInput_PrerequisitesAssignment_5 extends AssignmentToken  {
+protected class BuilderInput_PrerequisitesAssignment_3 extends AssignmentToken  {
 	
-	public BuilderInput_PrerequisitesAssignment_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BuilderInput_PrerequisitesAssignment_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getBuilderInputAccess().getPrerequisitesAssignment_5();
+		return grammarAccess.getBuilderInputAccess().getPrerequisitesAssignment_3();
 	}
 
     @Override
@@ -14151,7 +13701,7 @@ protected class BuilderInput_PrerequisitesAssignment_5 extends AssignmentToken  
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getPrerequisiteRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getBuilderInputAccess().getPrerequisitesPrerequisiteParserRuleCall_5_0(); 
+				element = grammarAccess.getBuilderInputAccess().getPrerequisitesPrerequisiteParserRuleCall_3_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -14163,29 +13713,29 @@ protected class BuilderInput_PrerequisitesAssignment_5 extends AssignmentToken  
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new BuilderInput_PrerequisitesAssignment_5(parent, next, actIndex, consumed);
-			case 1: return new BuilderInput_LeftCurlyBracketKeyword_4(parent, next, actIndex, consumed);
+			case 0: return new BuilderInput_PrerequisitesAssignment_3(parent, next, actIndex, consumed);
+			case 1: return new BuilderInput_LeftCurlyBracketKeyword_2(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 // "}"
-protected class BuilderInput_RightCurlyBracketKeyword_6 extends KeywordToken  {
+protected class BuilderInput_RightCurlyBracketKeyword_4 extends KeywordToken  {
 	
-	public BuilderInput_RightCurlyBracketKeyword_6(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BuilderInput_RightCurlyBracketKeyword_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getBuilderInputAccess().getRightCurlyBracketKeyword_6();
+		return grammarAccess.getBuilderInputAccess().getRightCurlyBracketKeyword_4();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new BuilderInput_PrerequisitesAssignment_5(parent, this, 0, inst);
+			case 0: return new BuilderInput_PrerequisitesAssignment_3(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	

@@ -2937,119 +2937,48 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cBuilderInputAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cInputKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cPreconditionKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Alternatives cAlternatives_2_1 = (Alternatives)cGroup_2.eContents().get(1);
-		private final Group cGroup_2_1_0 = (Group)cAlternatives_2_1.eContents().get(0);
-		private final Keyword cColonKeyword_2_1_0_0 = (Keyword)cGroup_2_1_0.eContents().get(0);
-		private final Assignment cPrecondExprAssignment_2_1_0_1 = (Assignment)cGroup_2_1_0.eContents().get(1);
-		private final RuleCall cPrecondExprExpressionParserRuleCall_2_1_0_1_0 = (RuleCall)cPrecondExprAssignment_2_1_0_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_2_1_0_2 = (Keyword)cGroup_2_1_0.eContents().get(2);
-		private final Assignment cPrecondExprAssignment_2_1_1 = (Assignment)cAlternatives_2_1.eContents().get(1);
-		private final RuleCall cPrecondExprBlockExpressionParserRuleCall_2_1_1_0 = (RuleCall)cPrecondExprAssignment_2_1_1.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cPostconditionKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Alternatives cAlternatives_3_1 = (Alternatives)cGroup_3.eContents().get(1);
-		private final Group cGroup_3_1_0 = (Group)cAlternatives_3_1.eContents().get(0);
-		private final Keyword cColonKeyword_3_1_0_0 = (Keyword)cGroup_3_1_0.eContents().get(0);
-		private final Assignment cPostcondExprAssignment_3_1_0_1 = (Assignment)cGroup_3_1_0.eContents().get(1);
-		private final RuleCall cPostcondExprExpressionParserRuleCall_3_1_0_1_0 = (RuleCall)cPostcondExprAssignment_3_1_0_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_3_1_0_2 = (Keyword)cGroup_3_1_0.eContents().get(2);
-		private final Assignment cPostcondExprAssignment_3_1_1 = (Assignment)cAlternatives_3_1.eContents().get(1);
-		private final RuleCall cPostcondExprBlockExpressionParserRuleCall_3_1_1_0 = (RuleCall)cPostcondExprAssignment_3_1_1.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cPrerequisitesAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cPrerequisitesPrerequisiteParserRuleCall_5_0 = (RuleCall)cPrerequisitesAssignment_5.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cPrerequisitesAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cPrerequisitesPrerequisiteParserRuleCall_3_0 = (RuleCall)cPrerequisitesAssignment_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//BuilderInput returns build::BuilderInput:
-		//  {build::BuilderInput} "input" ("precondition" (":" precondExpr=Expression ";"|
-		//  precondExpr=BlockExpression))? ("postcondition" (":" postcondExpr=Expression ";"|
-		//  postcondExpr=BlockExpression))? "{" prerequisites+=Prerequisite+ "}";
+		//  {build::BuilderInput} "input" "{" prerequisites+=Prerequisite+ "}"; 
+		//
+		//        
+		//	
+		////		("precondition"  ((':' precondExpr  = Expression ';' )|( precondExpr  = BlockExpression)))?
+		////		("postcondition" ((':' postcondExpr = Expression ';' )|( postcondExpr = BlockExpression)))?
 		public ParserRule getRule() { return rule; }
 
-		//{build::BuilderInput} "input" ("precondition" (":" precondExpr=Expression ";"|
-		//precondExpr=BlockExpression))? ("postcondition" (":" postcondExpr=Expression ";"|
-		//postcondExpr=BlockExpression))? "{" prerequisites+=Prerequisite+ "}"
+		//{build::BuilderInput} "input" "{" prerequisites+=Prerequisite+ "}"   
+		//	
+		////		("precondition"  ((':' precondExpr  = Expression ';' )|( precondExpr  = BlockExpression)))?
+		////		("postcondition" ((':' postcondExpr = Expression ';' )|( postcondExpr = BlockExpression)))?
 		public Group getGroup() { return cGroup; }
 
 		//{build::BuilderInput}
 		public Action getBuilderInputAction_0() { return cBuilderInputAction_0; }
 
-		//"input"
+		//"input" 
+		//	
+		////		("precondition"  ((':' precondExpr  = Expression ';' )|( precondExpr  = BlockExpression)))?
+		////		("postcondition" ((':' postcondExpr = Expression ';' )|( postcondExpr = BlockExpression)))?
 		public Keyword getInputKeyword_1() { return cInputKeyword_1; }
 
-		//("precondition" (":" precondExpr=Expression ";"|precondExpr=BlockExpression))?
-		public Group getGroup_2() { return cGroup_2; }
-
-		//"precondition"
-		public Keyword getPreconditionKeyword_2_0() { return cPreconditionKeyword_2_0; }
-
-		//":" precondExpr=Expression ";"|precondExpr=BlockExpression
-		public Alternatives getAlternatives_2_1() { return cAlternatives_2_1; }
-
-		//":" precondExpr=Expression ";"
-		public Group getGroup_2_1_0() { return cGroup_2_1_0; }
-
-		//":"
-		public Keyword getColonKeyword_2_1_0_0() { return cColonKeyword_2_1_0_0; }
-
-		//precondExpr=Expression
-		public Assignment getPrecondExprAssignment_2_1_0_1() { return cPrecondExprAssignment_2_1_0_1; }
-
-		//Expression
-		public RuleCall getPrecondExprExpressionParserRuleCall_2_1_0_1_0() { return cPrecondExprExpressionParserRuleCall_2_1_0_1_0; }
-
-		//";"
-		public Keyword getSemicolonKeyword_2_1_0_2() { return cSemicolonKeyword_2_1_0_2; }
-
-		//precondExpr=BlockExpression
-		public Assignment getPrecondExprAssignment_2_1_1() { return cPrecondExprAssignment_2_1_1; }
-
-		//BlockExpression
-		public RuleCall getPrecondExprBlockExpressionParserRuleCall_2_1_1_0() { return cPrecondExprBlockExpressionParserRuleCall_2_1_1_0; }
-
-		//("postcondition" (":" postcondExpr=Expression ";"|postcondExpr=BlockExpression))?
-		public Group getGroup_3() { return cGroup_3; }
-
-		//"postcondition"
-		public Keyword getPostconditionKeyword_3_0() { return cPostconditionKeyword_3_0; }
-
-		//":" postcondExpr=Expression ";"|postcondExpr=BlockExpression
-		public Alternatives getAlternatives_3_1() { return cAlternatives_3_1; }
-
-		//":" postcondExpr=Expression ";"
-		public Group getGroup_3_1_0() { return cGroup_3_1_0; }
-
-		//":"
-		public Keyword getColonKeyword_3_1_0_0() { return cColonKeyword_3_1_0_0; }
-
-		//postcondExpr=Expression
-		public Assignment getPostcondExprAssignment_3_1_0_1() { return cPostcondExprAssignment_3_1_0_1; }
-
-		//Expression
-		public RuleCall getPostcondExprExpressionParserRuleCall_3_1_0_1_0() { return cPostcondExprExpressionParserRuleCall_3_1_0_1_0; }
-
-		//";"
-		public Keyword getSemicolonKeyword_3_1_0_2() { return cSemicolonKeyword_3_1_0_2; }
-
-		//postcondExpr=BlockExpression
-		public Assignment getPostcondExprAssignment_3_1_1() { return cPostcondExprAssignment_3_1_1; }
-
-		//BlockExpression
-		public RuleCall getPostcondExprBlockExpressionParserRuleCall_3_1_1_0() { return cPostcondExprBlockExpressionParserRuleCall_3_1_1_0; }
-
-		//"{"
-		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
+		//"{" 
+		////		("precondition"  ((':' precondExpr  = Expression ';' )|( precondExpr  = BlockExpression)))?
+		////		("postcondition" ((':' postcondExpr = Expression ';' )|( postcondExpr = BlockExpression)))?
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
 		//prerequisites+=Prerequisite+
-		public Assignment getPrerequisitesAssignment_5() { return cPrerequisitesAssignment_5; }
+		public Assignment getPrerequisitesAssignment_3() { return cPrerequisitesAssignment_3; }
 
 		//Prerequisite
-		public RuleCall getPrerequisitesPrerequisiteParserRuleCall_5_0() { return cPrerequisitesPrerequisiteParserRuleCall_5_0; }
+		public RuleCall getPrerequisitesPrerequisiteParserRuleCall_3_0() { return cPrerequisitesPrerequisiteParserRuleCall_3_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
 	}
 
 	public class RepositoryConfigurationElements extends AbstractParserRuleElementFinder {
@@ -9824,9 +9753,12 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//BuilderInput returns build::BuilderInput:
-	//  {build::BuilderInput} "input" ("precondition" (":" precondExpr=Expression ";"|
-	//  precondExpr=BlockExpression))? ("postcondition" (":" postcondExpr=Expression ";"|
-	//  postcondExpr=BlockExpression))? "{" prerequisites+=Prerequisite+ "}";
+	//  {build::BuilderInput} "input" "{" prerequisites+=Prerequisite+ "}"; 
+	//
+	//        
+	//	
+	////		("precondition"  ((':' precondExpr  = Expression ';' )|( precondExpr  = BlockExpression)))?
+	////		("postcondition" ((':' postcondExpr = Expression ';' )|( postcondExpr = BlockExpression)))?
 	public BuilderInputElements getBuilderInputAccess() {
 		return (pBuilderInput != null) ? pBuilderInput : (pBuilderInput = new BuilderInputElements());
 	}

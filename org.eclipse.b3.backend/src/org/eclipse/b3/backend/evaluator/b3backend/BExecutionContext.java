@@ -145,6 +145,14 @@ public interface BExecutionContext extends EObject {
 	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.B3EngineException"
 	 * @generated
 	 */
+	IFunction defineFunction(IFunction function) throws B3EngineException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.B3EngineException"
+	 * @generated
+	 */
 	Object getValue(String name) throws B3EngineException;
 
 	/**
@@ -273,14 +281,6 @@ public interface BExecutionContext extends EObject {
 	 * @generated
 	 */
 	Object defineFinalVariableValue(String name, Object value, Type type) throws B3EngineException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.B3EngineException"
-	 * @generated
-	 */
-	BFunction defineFunction(BFunction function) throws B3EngineException;
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -190,12 +190,22 @@ public class BConcernContextItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BFUNCTION_CONTAINER__FUNCTIONS,
+				 B3backendFactory.eINSTANCE.createBFunction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BFUNCTION_CONTAINER__FUNCTIONS,
 				 B3backendFactory.eINSTANCE.createB3Function()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BFUNCTION_CONTAINER__FUNCTIONS,
 				 B3backendFactory.eINSTANCE.createBJavaFunction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BFUNCTION_CONTAINER__FUNCTIONS,
+				 B3backendFactory.eINSTANCE.createBFunctionWrapper()));
 	}
 
 	/**

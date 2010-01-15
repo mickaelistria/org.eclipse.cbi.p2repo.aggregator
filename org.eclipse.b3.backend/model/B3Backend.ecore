@@ -33,8 +33,8 @@
         </eGenericType>
       </eParameters>
     </eOperations>
-    <eOperations name="defineFunction" eType="#//BFunction" eExceptions="#//B3EngineException">
-      <eParameters name="function" eType="#//BFunction"/>
+    <eOperations name="defineFunction" eType="#//IFunction" eExceptions="#//B3EngineException">
+      <eParameters name="function" eType="#//IFunction"/>
     </eOperations>
     <eOperations name="callFunction" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
         eExceptions="#//Throwable">
@@ -263,7 +263,8 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="CoreException" instanceClassName="org.eclipse.core.runtime.CoreException"/>
-  <eClassifiers xsi:type="ecore:EClass" name="BFunction" abstract="true" eSuperTypes="#//BExpression #//IGenericDeclaration">
+  <eClassifiers xsi:type="ecore:EClass" name="IFunction" abstract="true" interface="true"
+      eSuperTypes="#//IGenericDeclaration">
     <eOperations name="internalCall" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
         eExceptions="#//Throwable">
       <eParameters name="ctx" eType="#//BExecutionContext"/>
@@ -314,7 +315,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="BGuard" abstract="true">
     <eOperations name="accepts" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         eExceptions="#//Throwable">
-      <eParameters name="function" eType="#//BFunction"/>
+      <eParameters name="function" eType="#//IFunction"/>
       <eParameters name="ctx" eType="#//BExecutionContext"/>
       <eParameters name="parameters" eType="#//ObjectArray"/>
       <eParameters name="types" eType="#//TypeArray"/>
@@ -387,7 +388,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="BFunctionContainer" abstract="true"
       interface="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="functions" upperBound="-1"
-        eType="#//BFunction" containment="true" eOpposite="#//BFunction/container"/>
+        eType="#//IFunction" containment="true" eOpposite="#//IFunction/container"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="containerType" eType="#//Type"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BDefValue" eSuperTypes="#//BExpression">
@@ -468,11 +469,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="B3FuncTypeVariable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="bounds" eType="#//TypeArray"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="genericDeclaration" eType="#//BFunction"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="genericDeclaration" eType="#//IFunction"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eGenericSuperTypes eClassifier="#//ITypeVariable">
-      <eTypeArguments eClassifier="#//BFunction"/>
+      <eTypeArguments eClassifier="#//IFunction"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="B3JavaImport" eSuperTypes="#//IType">
@@ -494,7 +495,7 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BGuardFunction" eSuperTypes="#//BGuard">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="func" eType="#//BFunction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="func" eType="#//IFunction"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BTypeCalculator">
     <eOperations name="getReturnTypeForParameterTypes" eType="#//Type">
@@ -503,7 +504,7 @@
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BTypeCalculatorFunction" eSuperTypes="#//BTypeCalculator">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="func" eType="#//BFunction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="func" eType="#//IFunction"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BInstanceContext" eSuperTypes="#//BInnerContext">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="instance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
@@ -555,4 +556,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="B3DynamicClassLoader" instanceClassName="org.eclipse.b3.backend.core.B3DynamicClassLoader"/>
   <eClassifiers xsi:type="ecore:EClass" name="BConcernContext" abstract="true" eSuperTypes="#//BFunctionContainer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BFunction" eSuperTypes="#//BExpression #//IFunction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BFunctionWrapper" eSuperTypes="#//IFunction #//BExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="wrapper" lowerBound="1"
+        eType="#//IFunction" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="original" eType="#//IFunction"/>
+  </eClassifiers>
 </ecore:EPackage>

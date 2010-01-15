@@ -273,6 +273,11 @@ public class BTryExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BTRY_EXPRESSION__TRY_EXPR,
+				 B3backendFactory.eINSTANCE.createBFunction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BTRY_EXPRESSION__TRY_EXPR,
 				 B3backendFactory.eINSTANCE.createB3Function()));
 
 		newChildDescriptors.add
@@ -324,6 +329,11 @@ public class BTryExpressionItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BTRY_EXPRESSION__TRY_EXPR,
 				 B3backendFactory.eINSTANCE.createBWithExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BTRY_EXPRESSION__TRY_EXPR,
+				 B3backendFactory.eINSTANCE.createBFunctionWrapper()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -443,6 +453,11 @@ public class BTryExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BTRY_EXPRESSION__FINALLY_EXPR,
+				 B3backendFactory.eINSTANCE.createBFunction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BTRY_EXPRESSION__FINALLY_EXPR,
 				 B3backendFactory.eINSTANCE.createB3Function()));
 
 		newChildDescriptors.add
@@ -494,6 +509,11 @@ public class BTryExpressionItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BTRY_EXPRESSION__FINALLY_EXPR,
 				 B3backendFactory.eINSTANCE.createBWithExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BTRY_EXPRESSION__FINALLY_EXPR,
+				 B3backendFactory.eINSTANCE.createBFunctionWrapper()));
 	}
 
 	/**

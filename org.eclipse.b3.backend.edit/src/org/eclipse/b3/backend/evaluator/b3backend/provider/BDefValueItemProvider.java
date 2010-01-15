@@ -354,6 +354,11 @@ public class BDefValueItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BDEF_VALUE__VALUE_EXPR,
+				 B3backendFactory.eINSTANCE.createBFunction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BDEF_VALUE__VALUE_EXPR,
 				 B3backendFactory.eINSTANCE.createB3Function()));
 
 		newChildDescriptors.add
@@ -405,6 +410,11 @@ public class BDefValueItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BDEF_VALUE__VALUE_EXPR,
 				 B3backendFactory.eINSTANCE.createBWithExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BDEF_VALUE__VALUE_EXPR,
+				 B3backendFactory.eINSTANCE.createBFunctionWrapper()));
 
 		newChildDescriptors.add
 			(createChildParameter

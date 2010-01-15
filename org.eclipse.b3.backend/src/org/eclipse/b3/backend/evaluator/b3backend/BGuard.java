@@ -35,5 +35,5 @@ public interface BGuard extends EObject {
 	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable" parametersDataType="org.eclipse.b3.backend.evaluator.b3backend.ObjectArray" typesDataType="org.eclipse.b3.backend.evaluator.b3backend.TypeArray"
 	 * @generated
 	 */
-	boolean accepts(BFunction function, BExecutionContext ctx, Object[] parameters, Type[] types) throws Throwable;
+	boolean accepts(IFunction function, BExecutionContext ctx, Object[] parameters, Type[] types) throws Throwable;
 } // BGuard

@@ -6,21 +6,27 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
+import java.lang.reflect.GenericDeclaration;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
 import java.util.Collection;
 
+import org.eclipse.b3.backend.core.LValue;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
+import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BFileReference;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
 import org.eclipse.b3.backend.evaluator.b3backend.BGuard;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
+import org.eclipse.b3.backend.evaluator.b3backend.BSourceLink;
 import org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator;
 import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
+import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.Visibility;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -31,6 +37,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -63,7 +70,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public abstract class BFunctionImpl extends BExpressionImpl implements BFunction {
+public class BFunctionImpl extends BExpressionImpl implements BFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1122,6 +1129,78 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	 * @generated
 	 */
 	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == GenericDeclaration.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == IFunction.class) {
+			switch (derivedFeatureID) {
+				case B3backendPackage.BFUNCTION__VISIBILITY: return B3backendPackage.IFUNCTION__VISIBILITY;
+				case B3backendPackage.BFUNCTION__FINAL: return B3backendPackage.IFUNCTION__FINAL;
+				case B3backendPackage.BFUNCTION__EXECUTION_MODE: return B3backendPackage.IFUNCTION__EXECUTION_MODE;
+				case B3backendPackage.BFUNCTION__NAME: return B3backendPackage.IFUNCTION__NAME;
+				case B3backendPackage.BFUNCTION__GUARD: return B3backendPackage.IFUNCTION__GUARD;
+				case B3backendPackage.BFUNCTION__PARAMETER_TYPES: return B3backendPackage.IFUNCTION__PARAMETER_TYPES;
+				case B3backendPackage.BFUNCTION__EXCEPTION_TYPES: return B3backendPackage.IFUNCTION__EXCEPTION_TYPES;
+				case B3backendPackage.BFUNCTION__TYPE_PARAMETERS: return B3backendPackage.IFUNCTION__TYPE_PARAMETERS;
+				case B3backendPackage.BFUNCTION__PARAMETER_NAMES: return B3backendPackage.IFUNCTION__PARAMETER_NAMES;
+				case B3backendPackage.BFUNCTION__PARAMETERS: return B3backendPackage.IFUNCTION__PARAMETERS;
+				case B3backendPackage.BFUNCTION__VAR_ARGS: return B3backendPackage.IFUNCTION__VAR_ARGS;
+				case B3backendPackage.BFUNCTION__DOCUMENTATION: return B3backendPackage.IFUNCTION__DOCUMENTATION;
+				case B3backendPackage.BFUNCTION__RETURN_TYPE: return B3backendPackage.IFUNCTION__RETURN_TYPE;
+				case B3backendPackage.BFUNCTION__CLOSURE: return B3backendPackage.IFUNCTION__CLOSURE;
+				case B3backendPackage.BFUNCTION__TYPE_CALCULATOR: return B3backendPackage.IFUNCTION__TYPE_CALCULATOR;
+				case B3backendPackage.BFUNCTION__CONTAINER: return B3backendPackage.IFUNCTION__CONTAINER;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == GenericDeclaration.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == IFunction.class) {
+			switch (baseFeatureID) {
+				case B3backendPackage.IFUNCTION__VISIBILITY: return B3backendPackage.BFUNCTION__VISIBILITY;
+				case B3backendPackage.IFUNCTION__FINAL: return B3backendPackage.BFUNCTION__FINAL;
+				case B3backendPackage.IFUNCTION__EXECUTION_MODE: return B3backendPackage.BFUNCTION__EXECUTION_MODE;
+				case B3backendPackage.IFUNCTION__NAME: return B3backendPackage.BFUNCTION__NAME;
+				case B3backendPackage.IFUNCTION__GUARD: return B3backendPackage.BFUNCTION__GUARD;
+				case B3backendPackage.IFUNCTION__PARAMETER_TYPES: return B3backendPackage.BFUNCTION__PARAMETER_TYPES;
+				case B3backendPackage.IFUNCTION__EXCEPTION_TYPES: return B3backendPackage.BFUNCTION__EXCEPTION_TYPES;
+				case B3backendPackage.IFUNCTION__TYPE_PARAMETERS: return B3backendPackage.BFUNCTION__TYPE_PARAMETERS;
+				case B3backendPackage.IFUNCTION__PARAMETER_NAMES: return B3backendPackage.BFUNCTION__PARAMETER_NAMES;
+				case B3backendPackage.IFUNCTION__PARAMETERS: return B3backendPackage.BFUNCTION__PARAMETERS;
+				case B3backendPackage.IFUNCTION__VAR_ARGS: return B3backendPackage.BFUNCTION__VAR_ARGS;
+				case B3backendPackage.IFUNCTION__DOCUMENTATION: return B3backendPackage.BFUNCTION__DOCUMENTATION;
+				case B3backendPackage.IFUNCTION__RETURN_TYPE: return B3backendPackage.BFUNCTION__RETURN_TYPE;
+				case B3backendPackage.IFUNCTION__CLOSURE: return B3backendPackage.BFUNCTION__CLOSURE;
+				case B3backendPackage.IFUNCTION__TYPE_CALCULATOR: return B3backendPackage.BFUNCTION__TYPE_CALCULATOR;
+				case B3backendPackage.IFUNCTION__CONTAINER: return B3backendPackage.BFUNCTION__CONTAINER;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
@@ -1165,14 +1244,14 @@ public abstract class BFunctionImpl extends BExpressionImpl implements BFunction
 	 * Functions are literal and evaluate to self. When a function is evaluated, it also binds
 	 * to the context where it is defined. 
 	 */
-	@Override
+	//@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 //		if(getClosure() == null)
 			setClosure(ctx);
 		return this; // a function is literal.
 	}
 	
-	@Override
+	//@Override
 	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
 		return getSignature();
 	}

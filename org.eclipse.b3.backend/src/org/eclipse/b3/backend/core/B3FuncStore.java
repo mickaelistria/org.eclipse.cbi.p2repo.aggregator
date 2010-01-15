@@ -13,18 +13,19 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BGuard;
 import org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 
 public class B3FuncStore {
 	private Set<String> dirtyFunctions = new HashSet<String>();
-	private Map<String, List<BFunction>> defined;
-	private Map<String, List<BFunction>> effective;
+	private Map<String, List<IFunction>> defined;
+	private Map<String, List<IFunction>> effective;
 	private B3FuncStore parentStore;
 	
 	public B3FuncStore (B3FuncStore parent) {
 		parentStore = parent;
-		defined = new HashMap<String, List<BFunction>>();
-		effective = new HashMap<String, List<BFunction>>();
+		defined = new HashMap<String, List<IFunction>>();
+		effective = new HashMap<String, List<IFunction>>();
 	}
 	/**
 	 * - If a function with the exact same name and parameters is already installed then:
@@ -33,13 +34,13 @@ public class B3FuncStore {
 	 * @param name
 	 * @param func
 	 */
-	public void defineFunction(String name, BFunction func) {
+	public void defineFunction(String name, IFunction func) {
 		dirtyFunctions.add(name);
 		effective.remove(name);
 		
-		List<BFunction> list = defined.get(name);
+		List<IFunction> list = defined.get(name);
 		if(list == null)
-			defined.put(name, list = new ArrayList<BFunction>());
+			defined.put(name, list = new ArrayList<IFunction>());
 		list.add(func);
 		
 	}
@@ -48,12 +49,12 @@ public class B3FuncStore {
 		effective.remove(name);
 		if(defined == null)
 			return;
-		List<BFunction> fList = defined.get(name);
+		List<IFunction> fList = defined.get(name);
 		if(fList == null)
 			return;
 		fList.remove(func);
 	}
-	private List<BFunction> getFunctionsByName(String name) {
+	private List<IFunction> getFunctionsByName(String name) {
 		if(defined == null)
 			return Collections.emptyList();
 		return defined.get(name);
@@ -64,7 +65,7 @@ public class B3FuncStore {
 		
 		// if there is no function here for the name, delegate the task (do not want to add things to this
 		// cache for non overloaded functions).
-		List<BFunction> f = getFunctionsByName(functionName);
+		List<IFunction> f = getFunctionsByName(functionName);
 		if(f == null || f.size() < 1) {
 			if(parentStore == null)
 				throw new B3NoSuchFunctionException(functionName);
@@ -75,7 +76,7 @@ public class B3FuncStore {
 		if(dirtyFunctions.contains(functionName))
 			updateCache(functionName);
 	
-		BFunction toBeCalled = getBestFunction(functionName, parameters, types, ctx);
+		IFunction toBeCalled = getBestFunction(functionName, parameters, types, ctx);
 		if(toBeCalled == null)
 			throw new B3NoSuchFunctionSignatureException(functionName, types);
 		return toBeCalled.internalCall(ctx.createOuterContext(), parameters, types); 
@@ -84,18 +85,18 @@ public class B3FuncStore {
 		effective.put(name, getEffectiveList(name, getFunctionsByName(name).size()));
 		dirtyFunctions.remove(name);
 	}
-	private List<BFunction> getEffectiveList(String name, int size) throws B3EngineException {
+	private List<IFunction> getEffectiveList(String name, int size) throws B3EngineException {
 		if(parentStore == null) {
-			List<BFunction> thisList = getFunctionsByName(name);
-			List<BFunction> result = new ArrayList<BFunction>(size+thisList.size());
+			List<IFunction> thisList = getFunctionsByName(name);
+			List<IFunction> result = new ArrayList<IFunction>(size+thisList.size());
 			result.addAll(thisList);
 			return result;
 		}
-		List<BFunction> thisList = getFunctionsByName(name);
-		List<BFunction> parentList = parentStore.getEffectiveList(name, size+thisList.size());
-		List<BFunction> overloaded = new ArrayList<BFunction>();
-		for(BFunction f : thisList)
-			for(BFunction f2 : parentList) {
+		List<IFunction> thisList = getFunctionsByName(name);
+		List<IFunction> parentList = parentStore.getEffectiveList(name, size+thisList.size());
+		List<IFunction> overloaded = new ArrayList<IFunction>();
+		for(IFunction f : thisList)
+			for(IFunction f2 : parentList) {
 				// if f has same signature as f2, make it hide predecessor
 				if(hasEqualSignature(f,f2)) {
 					if(!hasCompatibleReturnType(f2, f))
@@ -114,7 +115,7 @@ public class B3FuncStore {
 	 * @param overloading
 	 * @return
 	 */
-	private boolean hasCompatibleReturnType(BFunction overloaded, BFunction overloading)
+	private boolean hasCompatibleReturnType(IFunction overloaded, IFunction overloading)
 	{
 		Type at = overloaded.getReturnType();
 		Type bt = overloading.getReturnType();
@@ -128,7 +129,7 @@ public class B3FuncStore {
 	 * @param b
 	 * @return
 	 */
-	private boolean hasEqualSignature(BFunction a, BFunction b) {
+	private boolean hasEqualSignature(IFunction a, IFunction b) {
 		Type[] pta = a.getParameterTypes();
 		Type[] ptb = b.getParameterTypes();
 		if(pta.length != ptb.length)
@@ -149,13 +150,13 @@ public class B3FuncStore {
 	 * @return best function, or null, if none was found.
 	 * @throws B3EngineException if there are exceptions while evaluating guards, or underlying issues.
 	 */
-	private BFunction getBestFunction(String name, Object[] parameters, Type[] types, BExecutionContext ctx) throws B3EngineException {
-		List<BFunction> list = effective.get(name);
-		List<BFunction> candidates = null;
-		BFunction found = null;
+	private IFunction getBestFunction(String name, Object[] parameters, Type[] types, BExecutionContext ctx) throws B3EngineException {
+		List<IFunction> list = effective.get(name);
+		List<IFunction> candidates = null;
+		IFunction found = null;
 		if(list.size() < 1)
 			throw new B3NoSuchFunctionException(name); // something is really wrong if that happens here
-		perFunction : for(BFunction f : list) {
+		perFunction : for(IFunction f : list) {
 			Type[] pt = f.getParameterTypes();
 			if(!f.isVarArgs()) {
 				if(types.length != pt.length)
@@ -167,7 +168,7 @@ public class B3FuncStore {
 				if(found != null) {
 					// lazy creation of candidate list (typically there is only one candidate)
 					if(candidates == null)
-						candidates = new ArrayList<BFunction>();
+						candidates = new ArrayList<IFunction>();
 					candidates.add(found);
 					}
 				found = f;
@@ -206,7 +207,7 @@ public class B3FuncStore {
 				if(found != null) {
 					// lazy creation of candidate list (typically there is only one candidate)
 					if(candidates != null)
-						candidates = new ArrayList<BFunction>();
+						candidates = new ArrayList<IFunction>();
 					candidates.add(found);
 					}
 				found = f;
@@ -232,9 +233,9 @@ public class B3FuncStore {
 		}
 		candidates.add(found); // to make it easier to process all
 		int best = Integer.MAX_VALUE;
-		BFunction bestFunc = null;
+		IFunction bestFunc = null;
 		List<Throwable> exceptions = null;
-		eachCandidate: for(BFunction candidate : candidates) {
+		eachCandidate: for(IFunction candidate : candidates) {
 			BGuard guard = candidate.getGuard();
 			if(guard != null ) {
 				try {
@@ -276,7 +277,7 @@ public class B3FuncStore {
 	 * @param types
 	 * @return parameter distance from stated types - 0 is most specific
 	 */
-	public int specificity(BFunction f, Type[] types) {
+	public int specificity(IFunction f, Type[] types) {
 		Type[] pt = f.getParameterTypes();
 		int distance = 0;
 		for(int i = 0; i < pt.length;i++)
@@ -295,7 +296,7 @@ public class B3FuncStore {
 		
 		// if there is no function here for the name, delegate the task (do not want to add things to this
 		// cache for non overloaded functions).
-		List<BFunction> f = getFunctionsByName(functionName);
+		List<IFunction> f = getFunctionsByName(functionName);
 		if(f == null || f.size() < 1) {
 			if(parentStore == null)
 				throw new B3NoSuchFunctionException(functionName);
@@ -315,7 +316,7 @@ public class B3FuncStore {
 		// TODO: TYPESYSTEM.
 		//
 		Object[] fakeParameters = new Object[types.length];
-		BFunction toBeCalled = getBestFunction(functionName, fakeParameters, types, ctx);
+		IFunction toBeCalled = getBestFunction(functionName, fakeParameters, types, ctx);
 		if(toBeCalled == null)
 			throw new B3NoSuchFunctionSignatureException(functionName, types);
 

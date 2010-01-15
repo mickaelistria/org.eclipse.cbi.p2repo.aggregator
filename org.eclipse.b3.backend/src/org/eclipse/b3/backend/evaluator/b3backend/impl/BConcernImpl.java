@@ -22,6 +22,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 
+import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -71,7 +72,7 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<BFunction> functions;
+	protected EList<IFunction> functions;
 
 	/**
 	 * The default value of the '{@link #getContainerType() <em>Container Type</em>}' attribute.
@@ -200,9 +201,9 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<BFunction> getFunctions() {
+	public EList<IFunction> getFunctions() {
 		if (functions == null) {
-			functions = new EObjectContainmentWithInverseEList<BFunction>(BFunction.class, this, B3backendPackage.BCONCERN__FUNCTIONS, B3backendPackage.BFUNCTION__CONTAINER);
+			functions = new EObjectContainmentWithInverseEList<IFunction>(IFunction.class, this, B3backendPackage.BCONCERN__FUNCTIONS, B3backendPackage.IFUNCTION__CONTAINER);
 		}
 		return functions;
 	}
@@ -320,7 +321,7 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 		switch (featureID) {
 			case B3backendPackage.BCONCERN__FUNCTIONS:
 				getFunctions().clear();
-				getFunctions().addAll((Collection<? extends BFunction>)newValue);
+				getFunctions().addAll((Collection<? extends IFunction>)newValue);
 				return;
 			case B3backendPackage.BCONCERN__CONTAINER_TYPE:
 				setContainerType((Type)newValue);

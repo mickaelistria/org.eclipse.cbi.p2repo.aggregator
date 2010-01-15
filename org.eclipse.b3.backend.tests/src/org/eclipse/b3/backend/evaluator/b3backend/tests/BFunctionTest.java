@@ -7,6 +7,8 @@
 package org.eclipse.b3.backend.evaluator.b3backend.tests;
 
 
+import junit.textui.TestRunner;
+import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 
 /**
@@ -16,22 +18,25 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
  * <p>
  * The following features are tested:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getParameterTypes() <em>Parameter Types</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getParameterNames() <em>Parameter Names</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getParameterTypes() <em>Parameter Types</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getParameterNames() <em>Parameter Names</em>}</li>
  * </ul>
  * </p>
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#internalCall(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object[], java.lang.reflect.Type[]) <em>Internal Call</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getSignature() <em>Get Signature</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getReturnTypeForParameterTypes(java.lang.reflect.Type[], org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Get Return Type For Parameter Types</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getEffectiveParameters() <em>Get Effective Parameters</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExpression#evaluate(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Evaluate</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExpression#getLValue(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Get LValue</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExpression#getDeclaredType(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Get Declared Type</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#internalCall(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object[], java.lang.reflect.Type[]) <em>Internal Call</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getSignature() <em>Get Signature</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getReturnTypeForParameterTypes(java.lang.reflect.Type[], org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Get Return Type For Parameter Types</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getEffectiveParameters() <em>Get Effective Parameters</em>}</li>
  * </ul>
  * </p>
- * @generated
+ * @generated NOT
  */
-public abstract class BFunctionTest extends BExpressionTest {
+public class BFunctionTest extends BExpressionTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -39,6 +44,22 @@ public abstract class BFunctionTest extends BExpressionTest {
 	 * @generated
 	 */
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
+	/**
+	 * The fixture for this BFunction test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BFunction fixture = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static void main(String[] args) {
+		TestRunner.run(BFunctionTest.class);
+	}
+
 	/**
 	 * Constructs a new BFunction test case with the given name.
 	 * <!-- begin-user-doc -->
@@ -50,21 +71,53 @@ public abstract class BFunctionTest extends BExpressionTest {
 	}
 
 	/**
+	 * Sets the fixture for this BFunction test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void setFixture(BFunction fixture) {
+		this.fixture = fixture;
+	}
+
+	/**
 	 * Returns the fixture for this BFunction test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+//	@Override
 	protected BFunction getFixture() {
-		return (BFunction)fixture;
+		return fixture;
 	}
 
 	/**
-	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getParameterTypes() <em>Parameter Types</em>}' feature getter.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunction#getParameterTypes()
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated
+	 */
+	@Override
+	protected void setUp() throws Exception {
+		setFixture(B3backendFactory.eINSTANCE.createBFunction());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
+	@Override
+	protected void tearDown() throws Exception {
+		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getParameterTypes() <em>Parameter Types</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.IFunction#getParameterTypes()
 	 * @generated
 	 */
 	public void testGetParameterTypes() {
@@ -74,10 +127,10 @@ public abstract class BFunctionTest extends BExpressionTest {
 	}
 
 	/**
-	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#setParameterTypes(java.lang.reflect.Type[]) <em>Parameter Types</em>}' feature setter.
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#setParameterTypes(java.lang.reflect.Type[]) <em>Parameter Types</em>}' feature setter.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunction#setParameterTypes(java.lang.reflect.Type[])
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.IFunction#setParameterTypes(java.lang.reflect.Type[])
 	 * @generated
 	 */
 	public void testSetParameterTypes() {
@@ -87,10 +140,10 @@ public abstract class BFunctionTest extends BExpressionTest {
 	}
 
 	/**
-	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getParameterNames() <em>Parameter Names</em>}' feature getter.
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getParameterNames() <em>Parameter Names</em>}' feature getter.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunction#getParameterNames()
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.IFunction#getParameterNames()
 	 * @generated
 	 */
 	public void testGetParameterNames() {
@@ -100,10 +153,10 @@ public abstract class BFunctionTest extends BExpressionTest {
 	}
 
 	/**
-	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#setParameterNames(java.lang.String[]) <em>Parameter Names</em>}' feature setter.
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#setParameterNames(java.lang.String[]) <em>Parameter Names</em>}' feature setter.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunction#setParameterNames(java.lang.String[])
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.IFunction#setParameterNames(java.lang.String[])
 	 * @generated
 	 */
 	public void testSetParameterNames() {
@@ -124,10 +177,10 @@ public abstract class BFunctionTest extends BExpressionTest {
 		// See BCallExpression testing, and tests of calls using the Context.
 	}
 	/**
-	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getSignature() <em>Get Signature</em>}' operation.
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getSignature() <em>Get Signature</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunction#getSignature()
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.IFunction#getSignature()
 	 * @generated
 	 */
 	public void testGetSignature() {
@@ -137,10 +190,10 @@ public abstract class BFunctionTest extends BExpressionTest {
 	}
 
 	/**
-	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getReturnTypeForParameterTypes(java.lang.reflect.Type[], org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Get Return Type For Parameter Types</em>}' operation.
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getReturnTypeForParameterTypes(java.lang.reflect.Type[], org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Get Return Type For Parameter Types</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunction#getReturnTypeForParameterTypes(java.lang.reflect.Type[], org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.IFunction#getReturnTypeForParameterTypes(java.lang.reflect.Type[], org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
 	 * @generated
 	 */
 	public void testGetReturnTypeForParameterTypes__Type_BExecutionContext() {
@@ -150,10 +203,10 @@ public abstract class BFunctionTest extends BExpressionTest {
 	}
 
 	/**
-	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getEffectiveParameters() <em>Get Effective Parameters</em>}' operation.
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getEffectiveParameters() <em>Get Effective Parameters</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunction#getEffectiveParameters()
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.IFunction#getEffectiveParameters()
 	 * @generated
 	 */
 	public void testGetEffectiveParameters() {
@@ -162,18 +215,19 @@ public abstract class BFunctionTest extends BExpressionTest {
 		fail();
 	}
 
-	@Override
+//	@Override
 	public void testEvaluate__BExecutionContext() {
 		// This is very difficult to test without also testing a lot more infrastructure.
 		// See BCallExpression testing, and tests of calls using the Context.
 	}
-	@Override
+//	@Override
 	public void testGetLValue__BExecutionContext() {
 		super.assertLValShouldFail();
 	}
-	@Override
+//	@Override
 	public void testGetDeclaredType__BExecutionContext() {
 		// This is very difficult to test without also testing a lot more infrastructure.
 		// See BCallExpression testing, and tests of calls using the Context.
 	}
+
 } //BFunctionTest

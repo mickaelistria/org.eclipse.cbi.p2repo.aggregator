@@ -173,7 +173,7 @@ public class BGuardInstanceImpl extends BGuardImpl implements BGuardInstance {
 		result.append(')');
 		return result.toString();
 	}
-	@Override
+//	@Override
 	public boolean accepts(BFunction func, BExecutionContext ctx, Object[] parameters,
 			Type[] types) {
 		return instance == parameters[0];

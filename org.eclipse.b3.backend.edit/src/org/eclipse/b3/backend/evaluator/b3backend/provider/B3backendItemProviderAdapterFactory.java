@@ -1463,6 +1463,52 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BFunction} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BFunctionItemProvider bFunctionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BFunction}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBFunctionAdapter() {
+		if (bFunctionItemProvider == null) {
+			bFunctionItemProvider = new BFunctionItemProvider(this);
+		}
+
+		return bFunctionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BFunctionWrapperItemProvider bFunctionWrapperItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBFunctionWrapperAdapter() {
+		if (bFunctionWrapperItemProvider == null) {
+			bFunctionWrapperItemProvider = new BFunctionWrapperItemProvider(this);
+		}
+
+		return bFunctionWrapperItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1621,6 +1667,8 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 		if (bAdviceItemProvider != null) bAdviceItemProvider.dispose();
 		if (bConcernItemProvider != null) bConcernItemProvider.dispose();
 		if (bWithExpressionItemProvider != null) bWithExpressionItemProvider.dispose();
+		if (bFunctionItemProvider != null) bFunctionItemProvider.dispose();
+		if (bFunctionWrapperItemProvider != null) bFunctionWrapperItemProvider.dispose();
 	}
 
 }

@@ -41,6 +41,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BSystemContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculatorFunction;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BInvocationContext;
+import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -650,7 +651,7 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public BFunction defineFunction(BFunction function) throws B3EngineException {
+	public IFunction defineFunction(IFunction function) throws B3EngineException {
 		createFuncStore();
 		funcStore.defineFunction(function.getName(), function);
 		return function;

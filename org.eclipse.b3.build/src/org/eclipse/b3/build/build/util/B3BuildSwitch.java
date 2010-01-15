@@ -18,6 +18,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
 import org.eclipse.b3.backend.evaluator.b3backend.BSourceLink;
 
+import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.build.build.*;
 
 import org.eclipse.emf.ecore.EClass;
@@ -114,6 +115,7 @@ public class B3BuildSwitch<T> {
 				if (result == null) result = caseB3Function(builder);
 				if (result == null) result = caseIProvidedCapabilityContainer(builder);
 				if (result == null) result = caseBFunction(builder);
+				if (result == null) result = caseIFunction(builder);
 				if (result == null) result = caseBExpression(builder);
 				if (result == null) result = caseIGenericDeclaration(builder);
 				if (result == null) result = caseBSourceLink(builder);
@@ -1030,6 +1032,21 @@ public class B3BuildSwitch<T> {
 	 * @generated
 	 */
 	public T caseIGenericDeclaration(GenericDeclaration object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IFunction</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IFunction</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIFunction(IFunction object) {
 		return null;
 	}
 

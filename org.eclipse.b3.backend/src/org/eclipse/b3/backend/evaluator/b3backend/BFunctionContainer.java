@@ -45,8 +45,8 @@ public interface BFunctionContainer extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Functions</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.BFunction}.
-	 * It is bidirectional and its opposite is '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction#getContainer <em>Container</em>}'.
+	 * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.IFunction}.
+	 * It is bidirectional and its opposite is '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getContainer <em>Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Functions</em>' containment reference list isn't clear,
@@ -55,11 +55,11 @@ public interface BFunctionContainer extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Functions</em>' containment reference list.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBFunctionContainer_Functions()
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunction#getContainer
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.IFunction#getContainer
 	 * @model opposite="container" containment="true"
 	 * @generated
 	 */
-	EList<BFunction> getFunctions();
+	EList<IFunction> getFunctions();
 
 	/**
 	 * Returns the value of the '<em><b>Container Type</b></em>' attribute.

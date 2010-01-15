@@ -17,7 +17,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BGuard;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BGuard#accepts(org.eclipse.b3.backend.evaluator.b3backend.BFunction, org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object[], java.lang.reflect.Type[]) <em>Accepts</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BGuard#accepts(org.eclipse.b3.backend.evaluator.b3backend.IFunction, org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object[], java.lang.reflect.Type[]) <em>Accepts</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -69,13 +69,13 @@ public abstract class BGuardTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BGuard#accepts(org.eclipse.b3.backend.evaluator.b3backend.BFunction, org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object[], java.lang.reflect.Type[]) <em>Accepts</em>}' operation.
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BGuard#accepts(org.eclipse.b3.backend.evaluator.b3backend.IFunction, org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object[], java.lang.reflect.Type[]) <em>Accepts</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BGuard#accepts(org.eclipse.b3.backend.evaluator.b3backend.BFunction, org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object[], java.lang.reflect.Type[])
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BGuard#accepts(org.eclipse.b3.backend.evaluator.b3backend.IFunction, org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object[], java.lang.reflect.Type[])
 	 * @generated
 	 */
-	public void testAccepts__BFunction_BExecutionContext_Object_Type() {
+	public void testAccepts__IFunction_BExecutionContext_Object_Type() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

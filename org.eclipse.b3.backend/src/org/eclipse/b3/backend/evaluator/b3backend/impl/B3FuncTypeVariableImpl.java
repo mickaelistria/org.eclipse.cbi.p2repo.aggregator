@@ -16,6 +16,7 @@ import java.lang.reflect.Type;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 
+import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -74,7 +75,7 @@ public class B3FuncTypeVariableImpl extends EObjectImpl implements B3FuncTypeVar
 	 * @generated
 	 * @ordered
 	 */
-	protected BFunction genericDeclaration;
+	protected IFunction genericDeclaration;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -141,7 +142,7 @@ public class B3FuncTypeVariableImpl extends EObjectImpl implements B3FuncTypeVar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BFunction getGenericDeclaration() {
+	public IFunction getGenericDeclaration() {
 		return genericDeclaration;
 	}
 
@@ -150,8 +151,8 @@ public class B3FuncTypeVariableImpl extends EObjectImpl implements B3FuncTypeVar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetGenericDeclaration(BFunction newGenericDeclaration, NotificationChain msgs) {
-		BFunction oldGenericDeclaration = genericDeclaration;
+	public NotificationChain basicSetGenericDeclaration(IFunction newGenericDeclaration, NotificationChain msgs) {
+		IFunction oldGenericDeclaration = genericDeclaration;
 		genericDeclaration = newGenericDeclaration;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.B3_FUNC_TYPE_VARIABLE__GENERIC_DECLARATION, oldGenericDeclaration, newGenericDeclaration);
@@ -165,7 +166,7 @@ public class B3FuncTypeVariableImpl extends EObjectImpl implements B3FuncTypeVar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setGenericDeclaration(BFunction newGenericDeclaration) {
+	public void setGenericDeclaration(IFunction newGenericDeclaration) {
 		if (newGenericDeclaration != genericDeclaration) {
 			NotificationChain msgs = null;
 			if (genericDeclaration != null)
@@ -244,7 +245,7 @@ public class B3FuncTypeVariableImpl extends EObjectImpl implements B3FuncTypeVar
 				setBounds((Type[])newValue);
 				return;
 			case B3backendPackage.B3_FUNC_TYPE_VARIABLE__GENERIC_DECLARATION:
-				setGenericDeclaration((BFunction)newValue);
+				setGenericDeclaration((IFunction)newValue);
 				return;
 			case B3backendPackage.B3_FUNC_TYPE_VARIABLE__NAME:
 				setName((String)newValue);
@@ -265,7 +266,7 @@ public class B3FuncTypeVariableImpl extends EObjectImpl implements B3FuncTypeVar
 				setBounds(BOUNDS_EDEFAULT);
 				return;
 			case B3backendPackage.B3_FUNC_TYPE_VARIABLE__GENERIC_DECLARATION:
-				setGenericDeclaration((BFunction)null);
+				setGenericDeclaration((IFunction)null);
 				return;
 			case B3backendPackage.B3_FUNC_TYPE_VARIABLE__NAME:
 				setName(NAME_EDEFAULT);

@@ -24,6 +24,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.b3.build.build.Builder#getInput <em>Input</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.Builder#getOutput <em>Output</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.Builder#getDefaultProperties <em>Default Properties</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.Builder#getPostinputcondition <em>Postinputcondition</em>}</li>
  * </ul>
  * </p>
  *
@@ -162,4 +163,30 @@ public interface Builder extends B3Function, IProvidedCapabilityContainer {
 	 * @generated
 	 */
 	void setDefaultProperties(BPropertySet value);
+
+	/**
+	 * Returns the value of the '<em><b>Postinputcondition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Postinputcondition</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Postinputcondition</em>' containment reference.
+	 * @see #setPostinputcondition(BExpression)
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuilder_Postinputcondition()
+	 * @model containment="true"
+	 * @generated
+	 */
+	BExpression getPostinputcondition();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.Builder#getPostinputcondition <em>Postinputcondition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Postinputcondition</em>' containment reference.
+	 * @see #getPostinputcondition()
+	 * @generated
+	 */
+	void setPostinputcondition(BExpression value);
 } // Builder

@@ -364,24 +364,6 @@ public interface B3BuildPackage extends EPackage {
 	int BUILDER = 1;
 
 	/**
-	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILDER__LINE_NUMBER = B3backendPackage.B3_FUNCTION__LINE_NUMBER;
-
-	/**
-	 * The feature id for the '<em><b>File Reference</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILDER__FILE_REFERENCE = B3backendPackage.B3_FUNCTION__FILE_REFERENCE;
-
-	/**
 	 * The feature id for the '<em><b>Visibility</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -526,6 +508,24 @@ public interface B3BuildPackage extends EPackage {
 	int BUILDER__CONTAINER = B3backendPackage.B3_FUNCTION__CONTAINER;
 
 	/**
+	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER__LINE_NUMBER = B3backendPackage.B3_FUNCTION__LINE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>File Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER__FILE_REFERENCE = B3backendPackage.B3_FUNCTION__FILE_REFERENCE;
+
+	/**
 	 * The feature id for the '<em><b>Func Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -589,13 +589,22 @@ public interface B3BuildPackage extends EPackage {
 	int BUILDER__DEFAULT_PROPERTIES = B3backendPackage.B3_FUNCTION_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Postinputcondition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER__POSTINPUTCONDITION = B3backendPackage.B3_FUNCTION_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Builder</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILDER_FEATURE_COUNT = B3backendPackage.B3_FUNCTION_FEATURE_COUNT + 6;
+	int BUILDER_FEATURE_COUNT = B3backendPackage.B3_FUNCTION_FEATURE_COUNT + 7;
 
 
 	/**
@@ -609,31 +618,13 @@ public interface B3BuildPackage extends EPackage {
 	int BUILDER_INPUT = 3;
 
 	/**
-	 * The feature id for the '<em><b>Precond Expr</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILDER_INPUT__PRECOND_EXPR = 0;
-
-	/**
-	 * The feature id for the '<em><b>Postcond Expr</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILDER_INPUT__POSTCOND_EXPR = 1;
-
-	/**
 	 * The feature id for the '<em><b>Prerequisites</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILDER_INPUT__PREREQUISITES = 2;
+	int BUILDER_INPUT__PREREQUISITES = 0;
 
 	/**
 	 * The number of structural features of the '<em>Builder Input</em>' class.
@@ -642,7 +633,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILDER_INPUT_FEATURE_COUNT = 3;
+	int BUILDER_INPUT_FEATURE_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.PathGroupImpl <em>Path Group</em>}' class.
@@ -2454,6 +2445,17 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBuilder_DefaultProperties();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.Builder#getPostinputcondition <em>Postinputcondition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Postinputcondition</em>'.
+	 * @see org.eclipse.b3.build.build.Builder#getPostinputcondition()
+	 * @see #getBuilder()
+	 * @generated
+	 */
+	EReference getBuilder_Postinputcondition();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.VersionedCapability <em>Versioned Capability</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3324,28 +3326,6 @@ public interface B3BuildPackage extends EPackage {
 	EClass getBuilderInput();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.BuilderInput#getPrecondExpr <em>Precond Expr</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Precond Expr</em>'.
-	 * @see org.eclipse.b3.build.build.BuilderInput#getPrecondExpr()
-	 * @see #getBuilderInput()
-	 * @generated
-	 */
-	EReference getBuilderInput_PrecondExpr();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.BuilderInput#getPostcondExpr <em>Postcond Expr</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Postcond Expr</em>'.
-	 * @see org.eclipse.b3.build.build.BuilderInput#getPostcondExpr()
-	 * @see #getBuilderInput()
-	 * @generated
-	 */
-	EReference getBuilderInput_PostcondExpr();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BuilderInput#getPrerequisites <em>Prerequisites</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3729,6 +3709,14 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BUILDER__DEFAULT_PROPERTIES = eINSTANCE.getBuilder_DefaultProperties();
+
+		/**
+		 * The meta object literal for the '<em><b>Postinputcondition</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BUILDER__POSTINPUTCONDITION = eINSTANCE.getBuilder_Postinputcondition();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.VersionedCapabilityImpl <em>Versioned Capability</em>}' class.
@@ -4449,22 +4437,6 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EClass BUILDER_INPUT = eINSTANCE.getBuilderInput();
-
-		/**
-		 * The meta object literal for the '<em><b>Precond Expr</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BUILDER_INPUT__PRECOND_EXPR = eINSTANCE.getBuilderInput_PrecondExpr();
-
-		/**
-		 * The meta object literal for the '<em><b>Postcond Expr</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BUILDER_INPUT__POSTCOND_EXPR = eINSTANCE.getBuilderInput_PostcondExpr();
 
 		/**
 		 * The meta object literal for the '<em><b>Prerequisites</b></em>' containment reference list feature.

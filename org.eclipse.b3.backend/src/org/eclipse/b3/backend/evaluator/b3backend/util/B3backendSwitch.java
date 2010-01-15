@@ -341,12 +341,10 @@ public class B3backendSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case B3backendPackage.BFUNCTION: {
-				BFunction bFunction = (BFunction)theEObject;
-				T result = caseBFunction(bFunction);
-				if (result == null) result = caseBExpression(bFunction);
-				if (result == null) result = caseIGenericDeclaration(bFunction);
-				if (result == null) result = caseBSourceLink(bFunction);
+			case B3backendPackage.IFUNCTION: {
+				IFunction iFunction = (IFunction)theEObject;
+				T result = caseIFunction(iFunction);
+				if (result == null) result = caseIGenericDeclaration(iFunction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -423,8 +421,9 @@ public class B3backendSwitch<T> {
 				T result = caseB3Function(b3Function);
 				if (result == null) result = caseBFunction(b3Function);
 				if (result == null) result = caseBExpression(b3Function);
-				if (result == null) result = caseIGenericDeclaration(b3Function);
+				if (result == null) result = caseIFunction(b3Function);
 				if (result == null) result = caseBSourceLink(b3Function);
+				if (result == null) result = caseIGenericDeclaration(b3Function);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -433,8 +432,9 @@ public class B3backendSwitch<T> {
 				T result = caseBJavaFunction(bJavaFunction);
 				if (result == null) result = caseBFunction(bJavaFunction);
 				if (result == null) result = caseBExpression(bJavaFunction);
-				if (result == null) result = caseIGenericDeclaration(bJavaFunction);
+				if (result == null) result = caseIFunction(bJavaFunction);
 				if (result == null) result = caseBSourceLink(bJavaFunction);
+				if (result == null) result = caseIGenericDeclaration(bJavaFunction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -637,6 +637,26 @@ public class B3backendSwitch<T> {
 				BConcernContext bConcernContext = (BConcernContext)theEObject;
 				T result = caseBConcernContext(bConcernContext);
 				if (result == null) result = caseBFunctionContainer(bConcernContext);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3backendPackage.BFUNCTION: {
+				BFunction bFunction = (BFunction)theEObject;
+				T result = caseBFunction(bFunction);
+				if (result == null) result = caseBExpression(bFunction);
+				if (result == null) result = caseIFunction(bFunction);
+				if (result == null) result = caseBSourceLink(bFunction);
+				if (result == null) result = caseIGenericDeclaration(bFunction);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3backendPackage.BFUNCTION_WRAPPER: {
+				BFunctionWrapper bFunctionWrapper = (BFunctionWrapper)theEObject;
+				T result = caseBFunctionWrapper(bFunctionWrapper);
+				if (result == null) result = caseIFunction(bFunctionWrapper);
+				if (result == null) result = caseBExpression(bFunctionWrapper);
+				if (result == null) result = caseIGenericDeclaration(bFunctionWrapper);
+				if (result == null) result = caseBSourceLink(bFunctionWrapper);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1110,6 +1130,21 @@ public class B3backendSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IFunction</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IFunction</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIFunction(IFunction object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>BFunction</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1121,6 +1156,21 @@ public class B3backendSwitch<T> {
 	 * @generated
 	 */
 	public T caseBFunction(BFunction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BFunction Wrapper</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BFunction Wrapper</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBFunctionWrapper(BFunctionWrapper object) {
 		return null;
 	}
 

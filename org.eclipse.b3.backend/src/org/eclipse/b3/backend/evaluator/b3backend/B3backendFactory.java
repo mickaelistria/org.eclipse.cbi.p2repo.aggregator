@@ -574,6 +574,24 @@ public interface B3backendFactory extends EFactory {
 	BWithExpression createBWithExpression();
 
 	/**
+	 * Returns a new object of class '<em>BFunction</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>BFunction</em>'.
+	 * @generated
+	 */
+	BFunction createBFunction();
+
+	/**
+	 * Returns a new object of class '<em>BFunction Wrapper</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>BFunction Wrapper</em>'.
+	 * @generated
+	 */
+	BFunctionWrapper createBFunctionWrapper();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

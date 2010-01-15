@@ -277,8 +277,8 @@ ParameterDeclaration returns be::BParameterDeclaration : {be::BParameterDeclarat
 
 BuilderInput returns build::BuilderInput : {build::BuilderInput}
 	"input"
-		("precondition"  ((':' precondExpr  = Expression ';' )|( precondExpr  = BlockExpression)))?
-		("postcondition" ((':' postcondExpr = Expression ';' )|( postcondExpr = BlockExpression)))?
+//		("precondition"  ((':' precondExpr  = Expression ';' )|( precondExpr  = BlockExpression)))?
+//		("postcondition" ((':' postcondExpr = Expression ';' )|( postcondExpr = BlockExpression)))?
 		'{' (prerequisites += Prerequisite)+ '}'
 	;
 

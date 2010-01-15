@@ -269,6 +269,11 @@ public class BChainedExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BCHAINED_EXPRESSION__EXPRESSIONS,
+				 B3backendFactory.eINSTANCE.createBFunction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCHAINED_EXPRESSION__EXPRESSIONS,
 				 B3backendFactory.eINSTANCE.createB3Function()));
 
 		newChildDescriptors.add
@@ -320,6 +325,11 @@ public class BChainedExpressionItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BCHAINED_EXPRESSION__EXPRESSIONS,
 				 B3backendFactory.eINSTANCE.createBWithExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCHAINED_EXPRESSION__EXPRESSIONS,
+				 B3backendFactory.eINSTANCE.createBFunctionWrapper()));
 	}
 
 }

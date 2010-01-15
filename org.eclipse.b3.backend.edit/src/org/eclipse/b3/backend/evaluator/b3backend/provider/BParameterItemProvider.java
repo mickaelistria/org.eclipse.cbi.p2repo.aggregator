@@ -307,6 +307,11 @@ public class BParameterItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BPARAMETER__EXPR,
+				 B3backendFactory.eINSTANCE.createBFunction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BPARAMETER__EXPR,
 				 B3backendFactory.eINSTANCE.createB3Function()));
 
 		newChildDescriptors.add
@@ -358,6 +363,11 @@ public class BParameterItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BPARAMETER__EXPR,
 				 B3backendFactory.eINSTANCE.createBWithExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BPARAMETER__EXPR,
+				 B3backendFactory.eINSTANCE.createBFunctionWrapper()));
 	}
 
 	/**

@@ -17,6 +17,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -26,6 +27,7 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -35,7 +37,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class BFunctionItemProvider
-	extends BExpressionItemProvider
+	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -74,15 +76,15 @@ public class BFunctionItemProvider
 			addFinalPropertyDescriptor(object);
 			addExecutionModePropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
-			addGuardPropertyDescriptor(object);
 			addParameterTypesPropertyDescriptor(object);
 			addExceptionTypesPropertyDescriptor(object);
 			addTypeParametersPropertyDescriptor(object);
 			addParameterNamesPropertyDescriptor(object);
 			addVarArgsPropertyDescriptor(object);
 			addDocumentationPropertyDescriptor(object);
-			addReturnTypePropertyDescriptor(object);
 			addClosurePropertyDescriptor(object);
+			addLineNumberPropertyDescriptor(object);
+			addFileReferencePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -98,9 +100,9 @@ public class BFunctionItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BFunction_visibility_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BFunction_visibility_feature", "_UI_BFunction_type"),
-				 B3backendPackage.Literals.BFUNCTION__VISIBILITY,
+				 getString("_UI_IFunction_visibility_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_IFunction_visibility_feature", "_UI_IFunction_type"),
+				 B3backendPackage.Literals.IFUNCTION__VISIBILITY,
 				 true,
 				 false,
 				 false,
@@ -120,9 +122,9 @@ public class BFunctionItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BFunction_final_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BFunction_final_feature", "_UI_BFunction_type"),
-				 B3backendPackage.Literals.BFUNCTION__FINAL,
+				 getString("_UI_IFunction_final_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_IFunction_final_feature", "_UI_IFunction_type"),
+				 B3backendPackage.Literals.IFUNCTION__FINAL,
 				 true,
 				 false,
 				 false,
@@ -142,9 +144,9 @@ public class BFunctionItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BFunction_executionMode_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BFunction_executionMode_feature", "_UI_BFunction_type"),
-				 B3backendPackage.Literals.BFUNCTION__EXECUTION_MODE,
+				 getString("_UI_IFunction_executionMode_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_IFunction_executionMode_feature", "_UI_IFunction_type"),
+				 B3backendPackage.Literals.IFUNCTION__EXECUTION_MODE,
 				 true,
 				 false,
 				 false,
@@ -164,57 +166,13 @@ public class BFunctionItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BFunction_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BFunction_name_feature", "_UI_BFunction_type"),
-				 B3backendPackage.Literals.BFUNCTION__NAME,
+				 getString("_UI_IFunction_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_IFunction_name_feature", "_UI_IFunction_type"),
+				 B3backendPackage.Literals.IFUNCTION__NAME,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Guard feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addGuardPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_BFunction_guard_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BFunction_guard_feature", "_UI_BFunction_type"),
-				 B3backendPackage.Literals.BFUNCTION__GUARD,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Return Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addReturnTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_BFunction_returnType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BFunction_returnType_feature", "_UI_BFunction_type"),
-				 B3backendPackage.Literals.BFUNCTION__RETURN_TYPE,
-				 true,
-				 false,
-				 false,
-				 null,
 				 null,
 				 null));
 	}
@@ -230,9 +188,53 @@ public class BFunctionItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BFunction_closure_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BFunction_closure_feature", "_UI_BFunction_type"),
-				 B3backendPackage.Literals.BFUNCTION__CLOSURE,
+				 getString("_UI_IFunction_closure_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_IFunction_closure_feature", "_UI_IFunction_type"),
+				 B3backendPackage.Literals.IFUNCTION__CLOSURE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Line Number feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLineNumberPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_BSourceLink_lineNumber_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BSourceLink_lineNumber_feature", "_UI_BSourceLink_type"),
+				 B3backendPackage.Literals.BSOURCE_LINK__LINE_NUMBER,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the File Reference feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFileReferencePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_BSourceLink_fileReference_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BSourceLink_fileReference_feature", "_UI_BSourceLink_type"),
+				 B3backendPackage.Literals.BSOURCE_LINK__FILE_REFERENCE,
 				 true,
 				 false,
 				 true,
@@ -252,9 +254,9 @@ public class BFunctionItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BFunction_parameterTypes_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BFunction_parameterTypes_feature", "_UI_BFunction_type"),
-				 B3backendPackage.Literals.BFUNCTION__PARAMETER_TYPES,
+				 getString("_UI_IFunction_parameterTypes_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_IFunction_parameterTypes_feature", "_UI_IFunction_type"),
+				 B3backendPackage.Literals.IFUNCTION__PARAMETER_TYPES,
 				 true,
 				 false,
 				 false,
@@ -274,9 +276,9 @@ public class BFunctionItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BFunction_exceptionTypes_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BFunction_exceptionTypes_feature", "_UI_BFunction_type"),
-				 B3backendPackage.Literals.BFUNCTION__EXCEPTION_TYPES,
+				 getString("_UI_IFunction_exceptionTypes_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_IFunction_exceptionTypes_feature", "_UI_IFunction_type"),
+				 B3backendPackage.Literals.IFUNCTION__EXCEPTION_TYPES,
 				 true,
 				 false,
 				 false,
@@ -296,9 +298,9 @@ public class BFunctionItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BFunction_typeParameters_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BFunction_typeParameters_feature", "_UI_BFunction_type"),
-				 B3backendPackage.Literals.BFUNCTION__TYPE_PARAMETERS,
+				 getString("_UI_IFunction_typeParameters_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_IFunction_typeParameters_feature", "_UI_IFunction_type"),
+				 B3backendPackage.Literals.IFUNCTION__TYPE_PARAMETERS,
 				 true,
 				 false,
 				 false,
@@ -318,9 +320,9 @@ public class BFunctionItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BFunction_parameterNames_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BFunction_parameterNames_feature", "_UI_BFunction_type"),
-				 B3backendPackage.Literals.BFUNCTION__PARAMETER_NAMES,
+				 getString("_UI_IFunction_parameterNames_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_IFunction_parameterNames_feature", "_UI_IFunction_type"),
+				 B3backendPackage.Literals.IFUNCTION__PARAMETER_NAMES,
 				 true,
 				 false,
 				 false,
@@ -340,9 +342,9 @@ public class BFunctionItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BFunction_varArgs_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BFunction_varArgs_feature", "_UI_BFunction_type"),
-				 B3backendPackage.Literals.BFUNCTION__VAR_ARGS,
+				 getString("_UI_IFunction_varArgs_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_IFunction_varArgs_feature", "_UI_IFunction_type"),
+				 B3backendPackage.Literals.IFUNCTION__VAR_ARGS,
 				 true,
 				 false,
 				 false,
@@ -362,9 +364,9 @@ public class BFunctionItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BFunction_documentation_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BFunction_documentation_feature", "_UI_BFunction_type"),
-				 B3backendPackage.Literals.BFUNCTION__DOCUMENTATION,
+				 getString("_UI_IFunction_documentation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_IFunction_documentation_feature", "_UI_IFunction_type"),
+				 B3backendPackage.Literals.IFUNCTION__DOCUMENTATION,
 				 true,
 				 false,
 				 false,
@@ -385,8 +387,10 @@ public class BFunctionItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(B3backendPackage.Literals.BFUNCTION__PARAMETERS);
-			childrenFeatures.add(B3backendPackage.Literals.BFUNCTION__TYPE_CALCULATOR);
+			childrenFeatures.add(B3backendPackage.Literals.IFUNCTION__GUARD);
+			childrenFeatures.add(B3backendPackage.Literals.IFUNCTION__PARAMETERS);
+			childrenFeatures.add(B3backendPackage.Literals.IFUNCTION__RETURN_TYPE);
+			childrenFeatures.add(B3backendPackage.Literals.IFUNCTION__TYPE_CALCULATOR);
 		}
 		return childrenFeatures;
 	}
@@ -451,10 +455,12 @@ public class BFunctionItemProvider
 			case B3backendPackage.BFUNCTION__PARAMETER_NAMES:
 			case B3backendPackage.BFUNCTION__VAR_ARGS:
 			case B3backendPackage.BFUNCTION__DOCUMENTATION:
-			case B3backendPackage.BFUNCTION__RETURN_TYPE:
+			case B3backendPackage.BFUNCTION__LINE_NUMBER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case B3backendPackage.BFUNCTION__GUARD:
 			case B3backendPackage.BFUNCTION__PARAMETERS:
+			case B3backendPackage.BFUNCTION__RETURN_TYPE:
 			case B3backendPackage.BFUNCTION__TYPE_CALCULATOR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -475,18 +481,69 @@ public class BFunctionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(B3backendPackage.Literals.BFUNCTION__PARAMETERS,
+				(B3backendPackage.Literals.IFUNCTION__GUARD,
+				 B3backendFactory.eINSTANCE.createBGuardInstance()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.IFUNCTION__GUARD,
+				 B3backendFactory.eINSTANCE.createBGuardExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.IFUNCTION__GUARD,
+				 B3backendFactory.eINSTANCE.createBGuardFunction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.IFUNCTION__PARAMETERS,
 				 B3backendFactory.eINSTANCE.createBParameterDeclaration()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(B3backendPackage.Literals.BFUNCTION__TYPE_CALCULATOR,
+				(B3backendPackage.Literals.IFUNCTION__RETURN_TYPE,
+				 B3backendFactory.eINSTANCE.createB3FunctionType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.IFUNCTION__RETURN_TYPE,
+				 B3backendFactory.eINSTANCE.createB3ParameterizedType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.IFUNCTION__RETURN_TYPE,
+				 B3backendFactory.eINSTANCE.createB3WildcardType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.IFUNCTION__RETURN_TYPE,
+				 B3backendFactory.eINSTANCE.createB3FuncTypeVariable()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.IFUNCTION__RETURN_TYPE,
+				 B3backendFactory.eINSTANCE.createB3JavaImport()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.IFUNCTION__TYPE_CALCULATOR,
 				 B3backendFactory.eINSTANCE.createBTypeCalculator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(B3backendPackage.Literals.BFUNCTION__TYPE_CALCULATOR,
+				(B3backendPackage.Literals.IFUNCTION__TYPE_CALCULATOR,
 				 B3backendFactory.eINSTANCE.createBTypeCalculatorFunction()));
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return B3BackendEditPlugin.INSTANCE;
 	}
 
 }

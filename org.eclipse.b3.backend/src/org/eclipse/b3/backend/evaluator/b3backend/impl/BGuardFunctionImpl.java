@@ -19,6 +19,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BGuardFunction;
 
+import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -55,7 +56,7 @@ public class BGuardFunctionImpl extends BGuardImpl implements BGuardFunction {
 	 * @generated
 	 * @ordered
 	 */
-	protected BFunction func;
+	protected IFunction func;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -81,10 +82,10 @@ public class BGuardFunctionImpl extends BGuardImpl implements BGuardFunction {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BFunction getFunc() {
+	public IFunction getFunc() {
 		if (func != null && func.eIsProxy()) {
 			InternalEObject oldFunc = (InternalEObject)func;
-			func = (BFunction)eResolveProxy(oldFunc);
+			func = (IFunction)eResolveProxy(oldFunc);
 			if (func != oldFunc) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.BGUARD_FUNCTION__FUNC, oldFunc, func));
@@ -98,7 +99,7 @@ public class BGuardFunctionImpl extends BGuardImpl implements BGuardFunction {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BFunction basicGetFunc() {
+	public IFunction basicGetFunc() {
 		return func;
 	}
 
@@ -107,8 +108,8 @@ public class BGuardFunctionImpl extends BGuardImpl implements BGuardFunction {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFunc(BFunction newFunc) {
-		BFunction oldFunc = func;
+	public void setFunc(IFunction newFunc) {
+		IFunction oldFunc = func;
 		func = newFunc;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BGUARD_FUNCTION__FUNC, oldFunc, func));
@@ -138,7 +139,7 @@ public class BGuardFunctionImpl extends BGuardImpl implements BGuardFunction {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case B3backendPackage.BGUARD_FUNCTION__FUNC:
-				setFunc((BFunction)newValue);
+				setFunc((IFunction)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -153,7 +154,7 @@ public class BGuardFunctionImpl extends BGuardImpl implements BGuardFunction {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case B3backendPackage.BGUARD_FUNCTION__FUNC:
-				setFunc((BFunction)null);
+				setFunc((IFunction)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -173,7 +174,7 @@ public class BGuardFunctionImpl extends BGuardImpl implements BGuardFunction {
 		return super.eIsSet(featureID);
 	}
 	@Override
-	public boolean accepts(BFunction function, BExecutionContext ctx,	
+	public boolean accepts(IFunction function, BExecutionContext ctx,	
 			Object[] parameters, Type[] types) throws Throwable {
 		Object x = func.internalCall(ctx, parameters, types);
 		return x instanceof Boolean ? ((Boolean)x).booleanValue() : Boolean.FALSE.booleanValue();

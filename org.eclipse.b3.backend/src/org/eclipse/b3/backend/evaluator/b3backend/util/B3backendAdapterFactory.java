@@ -207,8 +207,8 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 				return createBCreateExpressionAdapter();
 			}
 			@Override
-			public Adapter caseBFunction(BFunction object) {
-				return createBFunctionAdapter();
+			public Adapter caseIFunction(IFunction object) {
+				return createIFunctionAdapter();
 			}
 			@Override
 			public Adapter caseBGuard(BGuard object) {
@@ -381,6 +381,14 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseBConcernContext(BConcernContext object) {
 				return createBConcernContextAdapter();
+			}
+			@Override
+			public Adapter caseBFunction(BFunction object) {
+				return createBFunctionAdapter();
+			}
+			@Override
+			public Adapter caseBFunctionWrapper(BFunctionWrapper object) {
+				return createBFunctionWrapperAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -837,6 +845,20 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction <em>IFunction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.IFunction
+	 * @generated
+	 */
+	public Adapter createIFunctionAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunction <em>BFunction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -847,6 +869,20 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBFunctionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper <em>BFunction Wrapper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper
+	 * @generated
+	 */
+	public Adapter createBFunctionWrapperAdapter() {
 		return null;
 	}
 

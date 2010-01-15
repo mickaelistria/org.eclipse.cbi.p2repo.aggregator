@@ -276,6 +276,11 @@ public class BConditionalPropertyOperationItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BCONDITIONAL_PROPERTY_OPERATION__COND_EXPR,
+				 B3backendFactory.eINSTANCE.createBFunction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCONDITIONAL_PROPERTY_OPERATION__COND_EXPR,
 				 B3backendFactory.eINSTANCE.createB3Function()));
 
 		newChildDescriptors.add
@@ -327,6 +332,11 @@ public class BConditionalPropertyOperationItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BCONDITIONAL_PROPERTY_OPERATION__COND_EXPR,
 				 B3backendFactory.eINSTANCE.createBWithExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCONDITIONAL_PROPERTY_OPERATION__COND_EXPR,
+				 B3backendFactory.eINSTANCE.createBFunctionWrapper()));
 
 		newChildDescriptors.add
 			(createChildParameter

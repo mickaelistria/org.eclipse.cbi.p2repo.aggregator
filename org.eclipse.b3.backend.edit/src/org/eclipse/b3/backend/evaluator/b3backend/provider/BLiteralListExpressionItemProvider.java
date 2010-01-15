@@ -294,6 +294,11 @@ public class BLiteralListExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BLITERAL_LIST_EXPRESSION__ENTRIES,
+				 B3backendFactory.eINSTANCE.createBFunction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BLITERAL_LIST_EXPRESSION__ENTRIES,
 				 B3backendFactory.eINSTANCE.createB3Function()));
 
 		newChildDescriptors.add
@@ -345,6 +350,11 @@ public class BLiteralListExpressionItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BLITERAL_LIST_EXPRESSION__ENTRIES,
 				 B3backendFactory.eINSTANCE.createBWithExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BLITERAL_LIST_EXPRESSION__ENTRIES,
+				 B3backendFactory.eINSTANCE.createBFunctionWrapper()));
 	}
 
 }

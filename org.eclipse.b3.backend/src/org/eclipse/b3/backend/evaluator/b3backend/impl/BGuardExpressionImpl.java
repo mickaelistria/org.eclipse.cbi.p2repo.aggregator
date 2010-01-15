@@ -192,7 +192,7 @@ public class BGuardExpressionImpl extends BGuardImpl implements BGuardExpression
 		return super.eIsSet(featureID);
 	}
 	@SuppressWarnings("unchecked")
-	@Override
+//	@Override
 	public boolean accepts(BFunction f, BExecutionContext ctx, Object[] parameters, Type[] types) throws Throwable{
 		Type[] parameterTypes = f.getParameterTypes();
 		String[] parameterNames = f.getParameterNames();

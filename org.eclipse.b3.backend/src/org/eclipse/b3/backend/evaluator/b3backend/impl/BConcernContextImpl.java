@@ -18,6 +18,7 @@ import java.util.Collection;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BConcernContext;
+import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -64,7 +65,7 @@ public abstract class BConcernContextImpl extends EObjectImpl implements BConcer
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<BFunction> functions;
+	protected EList<IFunction> functions;
 
 	/**
 	 * The default value of the '{@link #getContainerType() <em>Container Type</em>}' attribute.
@@ -110,9 +111,9 @@ public abstract class BConcernContextImpl extends EObjectImpl implements BConcer
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<BFunction> getFunctions() {
+	public EList<IFunction> getFunctions() {
 		if (functions == null) {
-			functions = new EObjectContainmentWithInverseEList<BFunction>(BFunction.class, this, B3backendPackage.BCONCERN_CONTEXT__FUNCTIONS, B3backendPackage.BFUNCTION__CONTAINER);
+			functions = new EObjectContainmentWithInverseEList<IFunction>(IFunction.class, this, B3backendPackage.BCONCERN_CONTEXT__FUNCTIONS, B3backendPackage.IFUNCTION__CONTAINER);
 		}
 		return functions;
 	}
@@ -194,7 +195,7 @@ public abstract class BConcernContextImpl extends EObjectImpl implements BConcer
 		switch (featureID) {
 			case B3backendPackage.BCONCERN_CONTEXT__FUNCTIONS:
 				getFunctions().clear();
-				getFunctions().addAll((Collection<? extends BFunction>)newValue);
+				getFunctions().addAll((Collection<? extends IFunction>)newValue);
 				return;
 			case B3backendPackage.BCONCERN_CONTEXT__CONTAINER_TYPE:
 				setContainerType((Type)newValue);

@@ -82,7 +82,7 @@ public class BGuardInstanceTest extends BGuardTest {
 	protected void tearDown() throws Exception {
 		setFixture(null);
 	}
-	@Override
+//	@Override
 	public void testAccepts__BFunction_BExecutionContext_Object_Type() {
 		try {
 			B3Engine engine = new B3Engine();

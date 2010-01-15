@@ -46,12 +46,12 @@ public interface BGuardFunction extends BGuard {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Func</em>' reference.
-	 * @see #setFunc(BFunction)
+	 * @see #setFunc(IFunction)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBGuardFunction_Func()
 	 * @model
 	 * @generated
 	 */
-	BFunction getFunc();
+	IFunction getFunc();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BGuardFunction#getFunc <em>Func</em>}' reference.
@@ -61,6 +61,6 @@ public interface BGuardFunction extends BGuard {
 	 * @see #getFunc()
 	 * @generated
 	 */
-	void setFunc(BFunction value);
+	void setFunc(IFunction value);
 
 } // BGuardFunction

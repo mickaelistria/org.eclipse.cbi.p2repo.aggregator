@@ -40,6 +40,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="defaultProperties" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BPropertySet"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="postinputcondition" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="VersionRange" instanceClassName="org.eclipse.equinox.internal.provisional.p2.core.VersionRange"/>
   <eClassifiers xsi:type="ecore:EDataType" name="Version" instanceClassName="org.eclipse.equinox.internal.provisional.p2.core.Version"/>
@@ -48,10 +50,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="#//Version"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BuilderInput">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="precondExpr" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="postcondExpr" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="prerequisites" upperBound="-1"
         eType="#//Prerequisite" containment="true"/>
   </eClassifiers>

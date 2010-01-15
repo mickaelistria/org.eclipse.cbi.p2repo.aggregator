@@ -16,6 +16,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
 import org.eclipse.b3.backend.evaluator.b3backend.BSourceLink;
 
+import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.build.build.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -242,16 +243,20 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 				return createBFunctionContainerAdapter();
 			}
 			@Override
+			public Adapter caseIGenericDeclaration(GenericDeclaration object) {
+				return createIGenericDeclarationAdapter();
+			}
+			@Override
+			public Adapter caseIFunction(IFunction object) {
+				return createIFunctionAdapter();
+			}
+			@Override
 			public Adapter caseBSourceLink(BSourceLink object) {
 				return createBSourceLinkAdapter();
 			}
 			@Override
 			public Adapter caseBExpression(BExpression object) {
 				return createBExpressionAdapter();
-			}
-			@Override
-			public Adapter caseIGenericDeclaration(GenericDeclaration object) {
-				return createIGenericDeclarationAdapter();
 			}
 			@Override
 			public Adapter caseBFunction(BFunction object) {
@@ -888,6 +893,20 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createIGenericDeclarationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction <em>IFunction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.IFunction
+	 * @generated
+	 */
+	public Adapter createIFunctionAdapter() {
 		return null;
 	}
 

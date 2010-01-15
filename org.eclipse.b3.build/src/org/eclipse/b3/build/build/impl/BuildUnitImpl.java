@@ -14,6 +14,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
+import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.build.build.AliasedRequiredCapability;
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.BuildUnit;
@@ -75,7 +76,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<BFunction> functions;
+	protected EList<IFunction> functions;
 	/**
 	 * The default value of the '{@link #getContainerType() <em>Container Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -253,7 +254,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 */
 	public EList<Builder> getBuilders() {
 		EList<Builder> x = new EObjectEList<Builder>(Builder.class,this,B3BuildPackage.BUILD_UNIT__BUILDERS);
-		for(BFunction f : getFunctions()) {
+		for(IFunction f : getFunctions()) {
 			if(f instanceof Builder)
 				x.add((Builder)f);
 		}
@@ -434,9 +435,9 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<BFunction> getFunctions() {
+	public EList<IFunction> getFunctions() {
 		if (functions == null) {
-			functions = new EObjectContainmentWithInverseEList<BFunction>(BFunction.class, this, B3BuildPackage.BUILD_UNIT__FUNCTIONS, B3backendPackage.BFUNCTION__CONTAINER);
+			functions = new EObjectContainmentWithInverseEList<IFunction>(IFunction.class, this, B3BuildPackage.BUILD_UNIT__FUNCTIONS, B3backendPackage.IFUNCTION__CONTAINER);
 		}
 		return functions;
 	}
@@ -589,7 +590,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 		switch (featureID) {
 			case B3BuildPackage.BUILD_UNIT__FUNCTIONS:
 				getFunctions().clear();
-				getFunctions().addAll((Collection<? extends BFunction>)newValue);
+				getFunctions().addAll((Collection<? extends IFunction>)newValue);
 				return;
 			case B3BuildPackage.BUILD_UNIT__CONTAINER_TYPE:
 				setContainerType((Type)newValue);

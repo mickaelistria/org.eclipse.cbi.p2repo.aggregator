@@ -32,10 +32,10 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  *
  * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getB3FuncTypeVariable()
- * @model superTypes="org.eclipse.b3.backend.evaluator.b3backend.ITypeVariable<org.eclipse.b3.backend.evaluator.b3backend.BFunction>"
+ * @model superTypes="org.eclipse.b3.backend.evaluator.b3backend.ITypeVariable<org.eclipse.b3.backend.evaluator.b3backend.IFunction>"
  * @generated
  */
-public interface B3FuncTypeVariable extends EObject, TypeVariable<BFunction> {
+public interface B3FuncTypeVariable extends EObject, TypeVariable<IFunction> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -78,12 +78,12 @@ public interface B3FuncTypeVariable extends EObject, TypeVariable<BFunction> {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Generic Declaration</em>' containment reference.
-	 * @see #setGenericDeclaration(BFunction)
+	 * @see #setGenericDeclaration(IFunction)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getB3FuncTypeVariable_GenericDeclaration()
 	 * @model containment="true"
 	 * @generated
 	 */
-	BFunction getGenericDeclaration();
+	IFunction getGenericDeclaration();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3FuncTypeVariable#getGenericDeclaration <em>Generic Declaration</em>}' containment reference.
@@ -93,7 +93,7 @@ public interface B3FuncTypeVariable extends EObject, TypeVariable<BFunction> {
 	 * @see #getGenericDeclaration()
 	 * @generated
 	 */
-	void setGenericDeclaration(BFunction value);
+	void setGenericDeclaration(IFunction value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

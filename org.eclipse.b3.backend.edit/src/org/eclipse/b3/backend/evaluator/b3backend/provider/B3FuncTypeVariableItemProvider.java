@@ -221,12 +221,22 @@ public class B3FuncTypeVariableItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.B3_FUNC_TYPE_VARIABLE__GENERIC_DECLARATION,
+				 B3backendFactory.eINSTANCE.createBFunction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.B3_FUNC_TYPE_VARIABLE__GENERIC_DECLARATION,
 				 B3backendFactory.eINSTANCE.createB3Function()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.B3_FUNC_TYPE_VARIABLE__GENERIC_DECLARATION,
 				 B3backendFactory.eINSTANCE.createBJavaFunction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.B3_FUNC_TYPE_VARIABLE__GENERIC_DECLARATION,
+				 B3backendFactory.eINSTANCE.createBFunctionWrapper()));
 	}
 
 	/**

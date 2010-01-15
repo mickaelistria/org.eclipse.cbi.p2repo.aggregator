@@ -1155,36 +1155,6 @@
         </type>
       </tokens>
       <tokens xsi:type="xtext:Keyword" value="input"/>
-      <tokens xsi:type="xtext:Group" cardinality="?">
-        <tokens xsi:type="xtext:Keyword" value="precondition"/>
-        <tokens xsi:type="xtext:Alternatives">
-          <groups xsi:type="xtext:Group">
-            <tokens xsi:type="xtext:Keyword" value=":"/>
-            <tokens xsi:type="xtext:Assignment" feature="precondExpr" operator="=">
-              <terminal xsi:type="xtext:RuleCall" rule="//@rules.51"/>
-            </tokens>
-            <tokens xsi:type="xtext:Keyword" value=";"/>
-          </groups>
-          <groups xsi:type="xtext:Assignment" feature="precondExpr" operator="=">
-            <terminal xsi:type="xtext:RuleCall" rule="//@rules.82"/>
-          </groups>
-        </tokens>
-      </tokens>
-      <tokens xsi:type="xtext:Group" cardinality="?">
-        <tokens xsi:type="xtext:Keyword" value="postcondition"/>
-        <tokens xsi:type="xtext:Alternatives">
-          <groups xsi:type="xtext:Group">
-            <tokens xsi:type="xtext:Keyword" value=":"/>
-            <tokens xsi:type="xtext:Assignment" feature="postcondExpr" operator="=">
-              <terminal xsi:type="xtext:RuleCall" rule="//@rules.51"/>
-            </tokens>
-            <tokens xsi:type="xtext:Keyword" value=";"/>
-          </groups>
-          <groups xsi:type="xtext:Assignment" feature="postcondExpr" operator="=">
-            <terminal xsi:type="xtext:RuleCall" rule="//@rules.82"/>
-          </groups>
-        </tokens>
-      </tokens>
       <tokens xsi:type="xtext:Keyword" value="{"/>
       <tokens xsi:type="xtext:Assignment" cardinality="+" feature="prerequisites" operator="+=">
         <terminal xsi:type="xtext:RuleCall" rule="//@rules.23"/>

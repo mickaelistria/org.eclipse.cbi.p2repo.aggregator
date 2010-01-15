@@ -45,6 +45,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getInput <em>Input</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getOutput <em>Output</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getDefaultProperties <em>Default Properties</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getPostinputcondition <em>Postinputcondition</em>}</li>
  * </ul>
  * </p>
  *
@@ -105,6 +106,15 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	 * @ordered
 	 */
 	protected BPropertySet defaultProperties;
+	/**
+	 * The cached value of the '{@link #getPostinputcondition() <em>Postinputcondition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPostinputcondition()
+	 * @generated
+	 * @ordered
+	 */
+	protected BExpression postinputcondition;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -356,6 +366,49 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public BExpression getPostinputcondition() {
+		return postinputcondition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPostinputcondition(BExpression newPostinputcondition, NotificationChain msgs) {
+		BExpression oldPostinputcondition = postinputcondition;
+		postinputcondition = newPostinputcondition;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER__POSTINPUTCONDITION, oldPostinputcondition, newPostinputcondition);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPostinputcondition(BExpression newPostinputcondition) {
+		if (newPostinputcondition != postinputcondition) {
+			NotificationChain msgs = null;
+			if (postinputcondition != null)
+				msgs = ((InternalEObject)postinputcondition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER__POSTINPUTCONDITION, null, msgs);
+			if (newPostinputcondition != null)
+				msgs = ((InternalEObject)newPostinputcondition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER__POSTINPUTCONDITION, null, msgs);
+			msgs = basicSetPostinputcondition(newPostinputcondition, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER__POSTINPUTCONDITION, newPostinputcondition, newPostinputcondition));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -371,6 +424,8 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 				return basicSetOutput(null, msgs);
 			case B3BuildPackage.BUILDER__DEFAULT_PROPERTIES:
 				return basicSetDefaultProperties(null, msgs);
+			case B3BuildPackage.BUILDER__POSTINPUTCONDITION:
+				return basicSetPostinputcondition(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -395,6 +450,8 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 				return getOutput();
 			case B3BuildPackage.BUILDER__DEFAULT_PROPERTIES:
 				return getDefaultProperties();
+			case B3BuildPackage.BUILDER__POSTINPUTCONDITION:
+				return getPostinputcondition();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -427,6 +484,9 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 			case B3BuildPackage.BUILDER__DEFAULT_PROPERTIES:
 				setDefaultProperties((BPropertySet)newValue);
 				return;
+			case B3BuildPackage.BUILDER__POSTINPUTCONDITION:
+				setPostinputcondition((BExpression)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -457,6 +517,9 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 			case B3BuildPackage.BUILDER__DEFAULT_PROPERTIES:
 				setDefaultProperties((BPropertySet)null);
 				return;
+			case B3BuildPackage.BUILDER__POSTINPUTCONDITION:
+				setPostinputcondition((BExpression)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -481,6 +544,8 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 				return output != null;
 			case B3BuildPackage.BUILDER__DEFAULT_PROPERTIES:
 				return defaultProperties != null;
+			case B3BuildPackage.BUILDER__POSTINPUTCONDITION:
+				return postinputcondition != null;
 		}
 		return super.eIsSet(featureID);
 	}
