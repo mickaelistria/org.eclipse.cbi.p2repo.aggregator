@@ -345,6 +345,8 @@ public class B3backendSwitch<T> {
 				IFunction iFunction = (IFunction)theEObject;
 				T result = caseIFunction(iFunction);
 				if (result == null) result = caseIGenericDeclaration(iFunction);
+				if (result == null) result = caseBExpression(iFunction);
+				if (result == null) result = caseBSourceLink(iFunction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -420,8 +422,8 @@ public class B3backendSwitch<T> {
 				B3Function b3Function = (B3Function)theEObject;
 				T result = caseB3Function(b3Function);
 				if (result == null) result = caseBFunction(b3Function);
-				if (result == null) result = caseBExpression(b3Function);
 				if (result == null) result = caseIFunction(b3Function);
+				if (result == null) result = caseBExpression(b3Function);
 				if (result == null) result = caseBSourceLink(b3Function);
 				if (result == null) result = caseIGenericDeclaration(b3Function);
 				if (result == null) result = defaultCase(theEObject);
@@ -431,8 +433,8 @@ public class B3backendSwitch<T> {
 				BJavaFunction bJavaFunction = (BJavaFunction)theEObject;
 				T result = caseBJavaFunction(bJavaFunction);
 				if (result == null) result = caseBFunction(bJavaFunction);
-				if (result == null) result = caseBExpression(bJavaFunction);
 				if (result == null) result = caseIFunction(bJavaFunction);
+				if (result == null) result = caseBExpression(bJavaFunction);
 				if (result == null) result = caseBSourceLink(bJavaFunction);
 				if (result == null) result = caseIGenericDeclaration(bJavaFunction);
 				if (result == null) result = defaultCase(theEObject);
@@ -643,8 +645,8 @@ public class B3backendSwitch<T> {
 			case B3backendPackage.BFUNCTION: {
 				BFunction bFunction = (BFunction)theEObject;
 				T result = caseBFunction(bFunction);
-				if (result == null) result = caseBExpression(bFunction);
 				if (result == null) result = caseIFunction(bFunction);
+				if (result == null) result = caseBExpression(bFunction);
 				if (result == null) result = caseBSourceLink(bFunction);
 				if (result == null) result = caseIGenericDeclaration(bFunction);
 				if (result == null) result = defaultCase(theEObject);
@@ -655,8 +657,8 @@ public class B3backendSwitch<T> {
 				T result = caseBFunctionWrapper(bFunctionWrapper);
 				if (result == null) result = caseIFunction(bFunctionWrapper);
 				if (result == null) result = caseBExpression(bFunctionWrapper);
-				if (result == null) result = caseIGenericDeclaration(bFunctionWrapper);
 				if (result == null) result = caseBSourceLink(bFunctionWrapper);
+				if (result == null) result = caseIGenericDeclaration(bFunctionWrapper);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

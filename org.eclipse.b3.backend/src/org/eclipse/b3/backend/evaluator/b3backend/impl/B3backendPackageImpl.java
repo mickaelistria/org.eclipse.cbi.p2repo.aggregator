@@ -3159,6 +3159,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		bLiteralAnyEClass.getESuperTypes().add(this.getBExpression());
 		bCreateExpressionEClass.getESuperTypes().add(this.getBParameterizedExpression());
 		iFunctionEClass.getESuperTypes().add(this.getIGenericDeclaration());
+		iFunctionEClass.getESuperTypes().add(this.getBExpression());
 		bGuardInstanceEClass.getESuperTypes().add(this.getBGuard());
 		bGuardExpressionEClass.getESuperTypes().add(this.getBGuard());
 		bSystemContextEClass.getESuperTypes().add(this.getBExecutionContext());
@@ -3199,8 +3200,8 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		bConcernContextEClass.getESuperTypes().add(this.getBFunctionContainer());
 		bFunctionEClass.getESuperTypes().add(this.getBExpression());
 		bFunctionEClass.getESuperTypes().add(this.getIFunction());
-		bFunctionWrapperEClass.getESuperTypes().add(this.getIFunction());
 		bFunctionWrapperEClass.getESuperTypes().add(this.getBExpression());
+		bFunctionWrapperEClass.getESuperTypes().add(this.getIFunction());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(bExpressionEClass, BExpression.class, "BExpression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3644,7 +3645,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEClass(bFunctionEClass, BFunction.class, "BFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(bFunctionWrapperEClass, BFunctionWrapper.class, "BFunctionWrapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBFunctionWrapper_Wrapper(), this.getIFunction(), null, "wrapper", null, 1, 1, BFunctionWrapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBFunctionWrapper_Wrapper(), this.getIFunction(), null, "wrapper", null, 1, 1, BFunctionWrapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBFunctionWrapper_Original(), this.getIFunction(), null, "original", null, 0, 1, BFunctionWrapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals

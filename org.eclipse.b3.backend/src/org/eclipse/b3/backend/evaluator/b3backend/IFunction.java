@@ -48,10 +48,10 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  *
  * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getIFunction()
- * @model interface="true" abstract="true" superTypes="org.eclipse.b3.backend.evaluator.b3backend.IGenericDeclaration"
+ * @model interface="true" abstract="true" superTypes="org.eclipse.b3.backend.evaluator.b3backend.IGenericDeclaration org.eclipse.b3.backend.evaluator.b3backend.BExpression"
  * @generated
  */
-public interface IFunction extends EObject, GenericDeclaration {
+public interface IFunction extends GenericDeclaration, BExpression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

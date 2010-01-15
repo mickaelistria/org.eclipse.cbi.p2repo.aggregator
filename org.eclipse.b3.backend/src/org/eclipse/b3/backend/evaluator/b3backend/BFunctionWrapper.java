@@ -30,7 +30,7 @@ package org.eclipse.b3.backend.evaluator.b3backend;
  * @model
  * @generated
  */
-public interface BFunctionWrapper extends IFunction, BExpression {
+public interface BFunctionWrapper extends BExpression, IFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -39,26 +39,26 @@ public interface BFunctionWrapper extends IFunction, BExpression {
 	String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
 
 	/**
-	 * Returns the value of the '<em><b>Wrapper</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Wrapper</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Wrapper</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Wrapper</em>' containment reference.
+	 * @return the value of the '<em>Wrapper</em>' reference.
 	 * @see #setWrapper(IFunction)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBFunctionWrapper_Wrapper()
-	 * @model containment="true" required="true"
+	 * @model required="true"
 	 * @generated
 	 */
 	IFunction getWrapper();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper#getWrapper <em>Wrapper</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper#getWrapper <em>Wrapper</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Wrapper</em>' containment reference.
+	 * @param value the new value of the '<em>Wrapper</em>' reference.
 	 * @see #getWrapper()
 	 * @generated
 	 */

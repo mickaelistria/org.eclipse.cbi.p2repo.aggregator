@@ -1851,13 +1851,31 @@ public interface B3backendPackage extends EPackage {
 	int IFUNCTION = 31;
 
 	/**
+	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IFUNCTION__LINE_NUMBER = IGENERIC_DECLARATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>File Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IFUNCTION__FILE_REFERENCE = IGENERIC_DECLARATION_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Visibility</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IFUNCTION__VISIBILITY = IGENERIC_DECLARATION_FEATURE_COUNT + 0;
+	int IFUNCTION__VISIBILITY = IGENERIC_DECLARATION_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Final</b></em>' attribute.
@@ -1866,7 +1884,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IFUNCTION__FINAL = IGENERIC_DECLARATION_FEATURE_COUNT + 1;
+	int IFUNCTION__FINAL = IGENERIC_DECLARATION_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Execution Mode</b></em>' attribute.
@@ -1875,7 +1893,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IFUNCTION__EXECUTION_MODE = IGENERIC_DECLARATION_FEATURE_COUNT + 2;
+	int IFUNCTION__EXECUTION_MODE = IGENERIC_DECLARATION_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1884,7 +1902,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IFUNCTION__NAME = IGENERIC_DECLARATION_FEATURE_COUNT + 3;
+	int IFUNCTION__NAME = IGENERIC_DECLARATION_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Guard</b></em>' containment reference.
@@ -1893,7 +1911,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IFUNCTION__GUARD = IGENERIC_DECLARATION_FEATURE_COUNT + 4;
+	int IFUNCTION__GUARD = IGENERIC_DECLARATION_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Parameter Types</b></em>' attribute.
@@ -1902,7 +1920,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IFUNCTION__PARAMETER_TYPES = IGENERIC_DECLARATION_FEATURE_COUNT + 5;
+	int IFUNCTION__PARAMETER_TYPES = IGENERIC_DECLARATION_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Exception Types</b></em>' attribute.
@@ -1911,7 +1929,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IFUNCTION__EXCEPTION_TYPES = IGENERIC_DECLARATION_FEATURE_COUNT + 6;
+	int IFUNCTION__EXCEPTION_TYPES = IGENERIC_DECLARATION_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute.
@@ -1920,7 +1938,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IFUNCTION__TYPE_PARAMETERS = IGENERIC_DECLARATION_FEATURE_COUNT + 7;
+	int IFUNCTION__TYPE_PARAMETERS = IGENERIC_DECLARATION_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Parameter Names</b></em>' attribute.
@@ -1929,7 +1947,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IFUNCTION__PARAMETER_NAMES = IGENERIC_DECLARATION_FEATURE_COUNT + 8;
+	int IFUNCTION__PARAMETER_NAMES = IGENERIC_DECLARATION_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -1938,7 +1956,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IFUNCTION__PARAMETERS = IGENERIC_DECLARATION_FEATURE_COUNT + 9;
+	int IFUNCTION__PARAMETERS = IGENERIC_DECLARATION_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Var Args</b></em>' attribute.
@@ -1947,7 +1965,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IFUNCTION__VAR_ARGS = IGENERIC_DECLARATION_FEATURE_COUNT + 10;
+	int IFUNCTION__VAR_ARGS = IGENERIC_DECLARATION_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
@@ -1956,7 +1974,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IFUNCTION__DOCUMENTATION = IGENERIC_DECLARATION_FEATURE_COUNT + 11;
+	int IFUNCTION__DOCUMENTATION = IGENERIC_DECLARATION_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Return Type</b></em>' containment reference.
@@ -1965,7 +1983,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IFUNCTION__RETURN_TYPE = IGENERIC_DECLARATION_FEATURE_COUNT + 12;
+	int IFUNCTION__RETURN_TYPE = IGENERIC_DECLARATION_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Closure</b></em>' reference.
@@ -1974,7 +1992,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IFUNCTION__CLOSURE = IGENERIC_DECLARATION_FEATURE_COUNT + 13;
+	int IFUNCTION__CLOSURE = IGENERIC_DECLARATION_FEATURE_COUNT + 15;
 
 	/**
 	 * The feature id for the '<em><b>Type Calculator</b></em>' containment reference.
@@ -1983,7 +2001,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IFUNCTION__TYPE_CALCULATOR = IGENERIC_DECLARATION_FEATURE_COUNT + 14;
+	int IFUNCTION__TYPE_CALCULATOR = IGENERIC_DECLARATION_FEATURE_COUNT + 16;
 
 	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
@@ -1992,7 +2010,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IFUNCTION__CONTAINER = IGENERIC_DECLARATION_FEATURE_COUNT + 15;
+	int IFUNCTION__CONTAINER = IGENERIC_DECLARATION_FEATURE_COUNT + 17;
 
 	/**
 	 * The number of structural features of the '<em>IFunction</em>' class.
@@ -2001,7 +2019,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IFUNCTION_FEATURE_COUNT = IGENERIC_DECLARATION_FEATURE_COUNT + 16;
+	int IFUNCTION_FEATURE_COUNT = IGENERIC_DECLARATION_FEATURE_COUNT + 18;
 
 	/**
 	 * The number of structural features of the '<em>BGuard</em>' class.
@@ -4187,157 +4205,13 @@ public interface B3backendPackage extends EPackage {
 	int BFUNCTION_WRAPPER = 76;
 
 	/**
-	 * The feature id for the '<em><b>Visibility</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BFUNCTION_WRAPPER__VISIBILITY = IFUNCTION__VISIBILITY;
-
-	/**
-	 * The feature id for the '<em><b>Final</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BFUNCTION_WRAPPER__FINAL = IFUNCTION__FINAL;
-
-	/**
-	 * The feature id for the '<em><b>Execution Mode</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BFUNCTION_WRAPPER__EXECUTION_MODE = IFUNCTION__EXECUTION_MODE;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BFUNCTION_WRAPPER__NAME = IFUNCTION__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Guard</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BFUNCTION_WRAPPER__GUARD = IFUNCTION__GUARD;
-
-	/**
-	 * The feature id for the '<em><b>Parameter Types</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BFUNCTION_WRAPPER__PARAMETER_TYPES = IFUNCTION__PARAMETER_TYPES;
-
-	/**
-	 * The feature id for the '<em><b>Exception Types</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BFUNCTION_WRAPPER__EXCEPTION_TYPES = IFUNCTION__EXCEPTION_TYPES;
-
-	/**
-	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BFUNCTION_WRAPPER__TYPE_PARAMETERS = IFUNCTION__TYPE_PARAMETERS;
-
-	/**
-	 * The feature id for the '<em><b>Parameter Names</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BFUNCTION_WRAPPER__PARAMETER_NAMES = IFUNCTION__PARAMETER_NAMES;
-
-	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BFUNCTION_WRAPPER__PARAMETERS = IFUNCTION__PARAMETERS;
-
-	/**
-	 * The feature id for the '<em><b>Var Args</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BFUNCTION_WRAPPER__VAR_ARGS = IFUNCTION__VAR_ARGS;
-
-	/**
-	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BFUNCTION_WRAPPER__DOCUMENTATION = IFUNCTION__DOCUMENTATION;
-
-	/**
-	 * The feature id for the '<em><b>Return Type</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BFUNCTION_WRAPPER__RETURN_TYPE = IFUNCTION__RETURN_TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Closure</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BFUNCTION_WRAPPER__CLOSURE = IFUNCTION__CLOSURE;
-
-	/**
-	 * The feature id for the '<em><b>Type Calculator</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BFUNCTION_WRAPPER__TYPE_CALCULATOR = IFUNCTION__TYPE_CALCULATOR;
-
-	/**
-	 * The feature id for the '<em><b>Container</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BFUNCTION_WRAPPER__CONTAINER = IFUNCTION__CONTAINER;
-
-	/**
 	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BFUNCTION_WRAPPER__LINE_NUMBER = IFUNCTION_FEATURE_COUNT + 0;
+	int BFUNCTION_WRAPPER__LINE_NUMBER = BEXPRESSION__LINE_NUMBER;
 
 	/**
 	 * The feature id for the '<em><b>File Reference</b></em>' reference.
@@ -4346,16 +4220,160 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BFUNCTION_WRAPPER__FILE_REFERENCE = IFUNCTION_FEATURE_COUNT + 1;
+	int BFUNCTION_WRAPPER__FILE_REFERENCE = BEXPRESSION__FILE_REFERENCE;
 
 	/**
-	 * The feature id for the '<em><b>Wrapper</b></em>' containment reference.
+	 * The feature id for the '<em><b>Visibility</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BFUNCTION_WRAPPER__WRAPPER = IFUNCTION_FEATURE_COUNT + 2;
+	int BFUNCTION_WRAPPER__VISIBILITY = BEXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Final</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BFUNCTION_WRAPPER__FINAL = BEXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Execution Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BFUNCTION_WRAPPER__EXECUTION_MODE = BEXPRESSION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BFUNCTION_WRAPPER__NAME = BEXPRESSION_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Guard</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BFUNCTION_WRAPPER__GUARD = BEXPRESSION_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Parameter Types</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BFUNCTION_WRAPPER__PARAMETER_TYPES = BEXPRESSION_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Exception Types</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BFUNCTION_WRAPPER__EXCEPTION_TYPES = BEXPRESSION_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BFUNCTION_WRAPPER__TYPE_PARAMETERS = BEXPRESSION_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Parameter Names</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BFUNCTION_WRAPPER__PARAMETER_NAMES = BEXPRESSION_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BFUNCTION_WRAPPER__PARAMETERS = BEXPRESSION_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>Var Args</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BFUNCTION_WRAPPER__VAR_ARGS = BEXPRESSION_FEATURE_COUNT + 10;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BFUNCTION_WRAPPER__DOCUMENTATION = BEXPRESSION_FEATURE_COUNT + 11;
+
+	/**
+	 * The feature id for the '<em><b>Return Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BFUNCTION_WRAPPER__RETURN_TYPE = BEXPRESSION_FEATURE_COUNT + 12;
+
+	/**
+	 * The feature id for the '<em><b>Closure</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BFUNCTION_WRAPPER__CLOSURE = BEXPRESSION_FEATURE_COUNT + 13;
+
+	/**
+	 * The feature id for the '<em><b>Type Calculator</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BFUNCTION_WRAPPER__TYPE_CALCULATOR = BEXPRESSION_FEATURE_COUNT + 14;
+
+	/**
+	 * The feature id for the '<em><b>Container</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BFUNCTION_WRAPPER__CONTAINER = BEXPRESSION_FEATURE_COUNT + 15;
+
+	/**
+	 * The feature id for the '<em><b>Wrapper</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BFUNCTION_WRAPPER__WRAPPER = BEXPRESSION_FEATURE_COUNT + 16;
 
 	/**
 	 * The feature id for the '<em><b>Original</b></em>' reference.
@@ -4364,7 +4382,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BFUNCTION_WRAPPER__ORIGINAL = IFUNCTION_FEATURE_COUNT + 3;
+	int BFUNCTION_WRAPPER__ORIGINAL = BEXPRESSION_FEATURE_COUNT + 17;
 
 	/**
 	 * The number of structural features of the '<em>BFunction Wrapper</em>' class.
@@ -4373,7 +4391,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BFUNCTION_WRAPPER_FEATURE_COUNT = IFUNCTION_FEATURE_COUNT + 4;
+	int BFUNCTION_WRAPPER_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 18;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.Visibility <em>Visibility</em>}' enum.
@@ -5558,10 +5576,10 @@ public interface B3backendPackage extends EPackage {
 	EClass getBFunctionWrapper();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper#getWrapper <em>Wrapper</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper#getWrapper <em>Wrapper</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Wrapper</em>'.
+	 * @return the meta object for the reference '<em>Wrapper</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper#getWrapper()
 	 * @see #getBFunctionWrapper()
 	 * @generated
@@ -7684,7 +7702,7 @@ public interface B3backendPackage extends EPackage {
 		EClass BFUNCTION_WRAPPER = eINSTANCE.getBFunctionWrapper();
 
 		/**
-		 * The meta object literal for the '<em><b>Wrapper</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Wrapper</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
