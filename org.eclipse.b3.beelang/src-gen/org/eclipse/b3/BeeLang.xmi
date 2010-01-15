@@ -17,25 +17,32 @@
       <classifier xsi:type="ecore:EClass" href="http://www.eclipse.org/b3/BeeLang#//BeeModel"/>
     </type>
     <alternatives xsi:type="xtext:Group">
-      <tokens xsi:type="xtext:Assignment" cardinality="*" feature="imports" operator="+=">
-        <terminal xsi:type="xtext:RuleCall" rule="//@rules.1"/>
+      <tokens xsi:type="xtext:Action">
+        <type metamodel="//@metamodelDeclarations.3">
+          <classifier xsi:type="ecore:EClass" href="http://www.eclipse.org/b3/BeeLang#//BeeModel"/>
+        </type>
       </tokens>
-      <tokens xsi:type="xtext:Alternatives" cardinality="*">
-        <groups xsi:type="xtext:Assignment" feature="functions" operator="+=">
-          <terminal xsi:type="xtext:RuleCall" rule="//@rules.46"/>
-        </groups>
-        <groups xsi:type="xtext:Assignment" feature="concern" operator="+=">
-          <terminal xsi:type="xtext:RuleCall" rule="//@rules.44"/>
-        </groups>
-        <groups xsi:type="xtext:Group">
-          <tokens xsi:type="xtext:Keyword" value="properties"/>
-          <tokens xsi:type="xtext:Assignment" feature="propertySets" operator="+=">
-            <terminal xsi:type="xtext:RuleCall" rule="//@rules.7"/>
-          </tokens>
-        </groups>
-      </tokens>
-      <tokens xsi:type="xtext:Assignment" cardinality="?" feature="body" operator="=">
-        <terminal xsi:type="xtext:RuleCall" rule="//@rules.2"/>
+      <tokens xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Assignment" cardinality="*" feature="imports" operator="+=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.1"/>
+        </tokens>
+        <tokens xsi:type="xtext:Alternatives" cardinality="*">
+          <groups xsi:type="xtext:Assignment" feature="functions" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.46"/>
+          </groups>
+          <groups xsi:type="xtext:Assignment" feature="concern" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.44"/>
+          </groups>
+          <groups xsi:type="xtext:Group">
+            <tokens xsi:type="xtext:Keyword" value="properties"/>
+            <tokens xsi:type="xtext:Assignment" feature="propertySets" operator="+=">
+              <terminal xsi:type="xtext:RuleCall" rule="//@rules.7"/>
+            </tokens>
+          </groups>
+        </tokens>
+        <tokens xsi:type="xtext:Assignment" cardinality="?" feature="body" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.2"/>
+        </tokens>
       </tokens>
     </alternatives>
   </rules>

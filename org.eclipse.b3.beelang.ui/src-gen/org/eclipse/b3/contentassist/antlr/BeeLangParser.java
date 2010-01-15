@@ -37,7 +37,7 @@ public class BeeLangParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getBeeModelAccess().getAlternatives_1(), "rule__BeeModel__Alternatives_1");
+					put(grammarAccess.getBeeModelAccess().getAlternatives_1_1(), "rule__BeeModel__Alternatives_1_1");
 					put(grammarAccess.getBuildUnitAccess().getAlternatives_9(), "rule__BuildUnit__Alternatives_9");
 					put(grammarAccess.getAliasedRequiredCapabilityAccess().getAlternatives_2(), "rule__AliasedRequiredCapability__Alternatives_2");
 					put(grammarAccess.getRequiredCapabilityAccess().getAlternatives_2(), "rule__RequiredCapability__Alternatives_2");
@@ -123,7 +123,8 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getVisibilityAccess().getAlternatives(), "rule__Visibility__Alternatives");
 					put(grammarAccess.getExecutionModeAccess().getAlternatives(), "rule__ExecutionMode__Alternatives");
 					put(grammarAccess.getBeeModelAccess().getGroup(), "rule__BeeModel__Group__0");
-					put(grammarAccess.getBeeModelAccess().getGroup_1_2(), "rule__BeeModel__Group_1_2__0");
+					put(grammarAccess.getBeeModelAccess().getGroup_1(), "rule__BeeModel__Group_1__0");
+					put(grammarAccess.getBeeModelAccess().getGroup_1_1_2(), "rule__BeeModel__Group_1_1_2__0");
 					put(grammarAccess.getImportAccess().getGroup(), "rule__Import__Group__0");
 					put(grammarAccess.getImportAccess().getGroup_4(), "rule__Import__Group_4__0");
 					put(grammarAccess.getBuildUnitAccess().getGroup(), "rule__BuildUnit__Group__0");
@@ -395,11 +396,11 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getQIDAccess().getGroup_2(), "rule__QID__Group_2__0");
 					put(grammarAccess.getAlfanumSymAccess().getGroup(), "rule__AlfanumSym__Group__0");
 					put(grammarAccess.getREALAccess().getGroup(), "rule__REAL__Group__0");
-					put(grammarAccess.getBeeModelAccess().getImportsAssignment_0(), "rule__BeeModel__ImportsAssignment_0");
-					put(grammarAccess.getBeeModelAccess().getFunctionsAssignment_1_0(), "rule__BeeModel__FunctionsAssignment_1_0");
-					put(grammarAccess.getBeeModelAccess().getConcernAssignment_1_1(), "rule__BeeModel__ConcernAssignment_1_1");
-					put(grammarAccess.getBeeModelAccess().getPropertySetsAssignment_1_2_1(), "rule__BeeModel__PropertySetsAssignment_1_2_1");
-					put(grammarAccess.getBeeModelAccess().getBodyAssignment_2(), "rule__BeeModel__BodyAssignment_2");
+					put(grammarAccess.getBeeModelAccess().getImportsAssignment_1_0(), "rule__BeeModel__ImportsAssignment_1_0");
+					put(grammarAccess.getBeeModelAccess().getFunctionsAssignment_1_1_0(), "rule__BeeModel__FunctionsAssignment_1_1_0");
+					put(grammarAccess.getBeeModelAccess().getConcernAssignment_1_1_1(), "rule__BeeModel__ConcernAssignment_1_1_1");
+					put(grammarAccess.getBeeModelAccess().getPropertySetsAssignment_1_1_2_1(), "rule__BeeModel__PropertySetsAssignment_1_1_2_1");
+					put(grammarAccess.getBeeModelAccess().getBodyAssignment_1_2(), "rule__BeeModel__BodyAssignment_1_2");
 					put(grammarAccess.getImportAccess().getReexportAssignment_1(), "rule__Import__ReexportAssignment_1");
 					put(grammarAccess.getImportAccess().getQualifiedNameAssignment_3(), "rule__Import__QualifiedNameAssignment_3");
 					put(grammarAccess.getImportAccess().getNameAssignment_4_1(), "rule__Import__NameAssignment_4_1");

@@ -4368,27 +4368,27 @@ finally {
 
 
 
-rule__BeeModel__Alternatives_1
+rule__BeeModel__Alternatives_1_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getBeeModelAccess().getFunctionsAssignment_1_0()); }
-(rule__BeeModel__FunctionsAssignment_1_0)
-{ after(grammarAccess.getBeeModelAccess().getFunctionsAssignment_1_0()); }
+{ before(grammarAccess.getBeeModelAccess().getFunctionsAssignment_1_1_0()); }
+(rule__BeeModel__FunctionsAssignment_1_1_0)
+{ after(grammarAccess.getBeeModelAccess().getFunctionsAssignment_1_1_0()); }
 )
 
     |(
-{ before(grammarAccess.getBeeModelAccess().getConcernAssignment_1_1()); }
-(rule__BeeModel__ConcernAssignment_1_1)
-{ after(grammarAccess.getBeeModelAccess().getConcernAssignment_1_1()); }
+{ before(grammarAccess.getBeeModelAccess().getConcernAssignment_1_1_1()); }
+(rule__BeeModel__ConcernAssignment_1_1_1)
+{ after(grammarAccess.getBeeModelAccess().getConcernAssignment_1_1_1()); }
 )
 
     |(
-{ before(grammarAccess.getBeeModelAccess().getGroup_1_2()); }
-(rule__BeeModel__Group_1_2__0)
-{ after(grammarAccess.getBeeModelAccess().getGroup_1_2()); }
+{ before(grammarAccess.getBeeModelAccess().getGroup_1_1_2()); }
+(rule__BeeModel__Group_1_1_2__0)
+{ after(grammarAccess.getBeeModelAccess().getGroup_1_1_2()); }
 )
 
 ;
@@ -6852,9 +6852,11 @@ rule__BeeModel__Group__0
     }
 :
 (
-{ before(grammarAccess.getBeeModelAccess().getImportsAssignment_0()); }
-(rule__BeeModel__ImportsAssignment_0)*
-{ after(grammarAccess.getBeeModelAccess().getImportsAssignment_0()); }
+{ before(grammarAccess.getBeeModelAccess().getBeeModelAction_0()); }
+(
+
+)
+{ after(grammarAccess.getBeeModelAccess().getBeeModelAction_0()); }
 )
 
 	rule__BeeModel__Group__1
@@ -6870,27 +6872,9 @@ rule__BeeModel__Group__1
     }
 :
 (
-{ before(grammarAccess.getBeeModelAccess().getAlternatives_1()); }
-(rule__BeeModel__Alternatives_1)*
-{ after(grammarAccess.getBeeModelAccess().getAlternatives_1()); }
-)
-
-	rule__BeeModel__Group__2
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__BeeModel__Group__2
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getBeeModelAccess().getBodyAssignment_2()); }
-(rule__BeeModel__BodyAssignment_2)?
-{ after(grammarAccess.getBeeModelAccess().getBodyAssignment_2()); }
+{ before(grammarAccess.getBeeModelAccess().getGroup_1()); }
+(rule__BeeModel__Group_1__0)
+{ after(grammarAccess.getBeeModelAccess().getGroup_1()); }
 )
 
 ;
@@ -6903,37 +6887,94 @@ finally {
 
 
 
-
-
-rule__BeeModel__Group_1_2__0
+rule__BeeModel__Group_1__0
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getBeeModelAccess().getPropertiesKeyword_1_2_0()); }
+{ before(grammarAccess.getBeeModelAccess().getImportsAssignment_1_0()); }
+(rule__BeeModel__ImportsAssignment_1_0)*
+{ after(grammarAccess.getBeeModelAccess().getImportsAssignment_1_0()); }
+)
+
+	rule__BeeModel__Group_1__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__BeeModel__Group_1__1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getBeeModelAccess().getAlternatives_1_1()); }
+(rule__BeeModel__Alternatives_1_1)*
+{ after(grammarAccess.getBeeModelAccess().getAlternatives_1_1()); }
+)
+
+	rule__BeeModel__Group_1__2
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__BeeModel__Group_1__2
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getBeeModelAccess().getBodyAssignment_1_2()); }
+(rule__BeeModel__BodyAssignment_1_2)?
+{ after(grammarAccess.getBeeModelAccess().getBodyAssignment_1_2()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
+
+
+
+
+
+rule__BeeModel__Group_1_1_2__0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getBeeModelAccess().getPropertiesKeyword_1_1_2_0()); }
 
 	'properties' 
 
-{ after(grammarAccess.getBeeModelAccess().getPropertiesKeyword_1_2_0()); }
+{ after(grammarAccess.getBeeModelAccess().getPropertiesKeyword_1_1_2_0()); }
 )
 
-	rule__BeeModel__Group_1_2__1
+	rule__BeeModel__Group_1_1_2__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
 
-rule__BeeModel__Group_1_2__1
+rule__BeeModel__Group_1_1_2__1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getBeeModelAccess().getPropertySetsAssignment_1_2_1()); }
-(rule__BeeModel__PropertySetsAssignment_1_2_1)
-{ after(grammarAccess.getBeeModelAccess().getPropertySetsAssignment_1_2_1()); }
+{ before(grammarAccess.getBeeModelAccess().getPropertySetsAssignment_1_1_2_1()); }
+(rule__BeeModel__PropertySetsAssignment_1_1_2_1)
+{ after(grammarAccess.getBeeModelAccess().getPropertySetsAssignment_1_1_2_1()); }
 )
 
 ;
@@ -25403,14 +25444,14 @@ finally {
 
 
 
-rule__BeeModel__ImportsAssignment_0
+rule__BeeModel__ImportsAssignment_1_0
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getBeeModelAccess().getImportsImportParserRuleCall_0_0()); }
-	ruleImport{ after(grammarAccess.getBeeModelAccess().getImportsImportParserRuleCall_0_0()); }
+{ before(grammarAccess.getBeeModelAccess().getImportsImportParserRuleCall_1_0_0()); }
+	ruleImport{ after(grammarAccess.getBeeModelAccess().getImportsImportParserRuleCall_1_0_0()); }
 )
 
 ;
@@ -25418,14 +25459,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__BeeModel__FunctionsAssignment_1_0
+rule__BeeModel__FunctionsAssignment_1_1_0
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getBeeModelAccess().getFunctionsFunctionParserRuleCall_1_0_0()); }
-	ruleFunction{ after(grammarAccess.getBeeModelAccess().getFunctionsFunctionParserRuleCall_1_0_0()); }
+{ before(grammarAccess.getBeeModelAccess().getFunctionsFunctionParserRuleCall_1_1_0_0()); }
+	ruleFunction{ after(grammarAccess.getBeeModelAccess().getFunctionsFunctionParserRuleCall_1_1_0_0()); }
 )
 
 ;
@@ -25433,14 +25474,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__BeeModel__ConcernAssignment_1_1
+rule__BeeModel__ConcernAssignment_1_1_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getBeeModelAccess().getConcernConcern_NamedParserRuleCall_1_1_0()); }
-	ruleConcern_Named{ after(grammarAccess.getBeeModelAccess().getConcernConcern_NamedParserRuleCall_1_1_0()); }
+{ before(grammarAccess.getBeeModelAccess().getConcernConcern_NamedParserRuleCall_1_1_1_0()); }
+	ruleConcern_Named{ after(grammarAccess.getBeeModelAccess().getConcernConcern_NamedParserRuleCall_1_1_1_0()); }
 )
 
 ;
@@ -25448,14 +25489,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__BeeModel__PropertySetsAssignment_1_2_1
+rule__BeeModel__PropertySetsAssignment_1_1_2_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getBeeModelAccess().getPropertySetsPropertySet_NamedParserRuleCall_1_2_1_0()); }
-	rulePropertySet_Named{ after(grammarAccess.getBeeModelAccess().getPropertySetsPropertySet_NamedParserRuleCall_1_2_1_0()); }
+{ before(grammarAccess.getBeeModelAccess().getPropertySetsPropertySet_NamedParserRuleCall_1_1_2_1_0()); }
+	rulePropertySet_Named{ after(grammarAccess.getBeeModelAccess().getPropertySetsPropertySet_NamedParserRuleCall_1_1_2_1_0()); }
 )
 
 ;
@@ -25463,14 +25504,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__BeeModel__BodyAssignment_2
+rule__BeeModel__BodyAssignment_1_2
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getBeeModelAccess().getBodyBuildUnitParserRuleCall_2_0()); }
-	ruleBuildUnit{ after(grammarAccess.getBeeModelAccess().getBodyBuildUnitParserRuleCall_2_0()); }
+{ before(grammarAccess.getBeeModelAccess().getBodyBuildUnitParserRuleCall_1_2_0()); }
+	ruleBuildUnit{ after(grammarAccess.getBeeModelAccess().getBodyBuildUnitParserRuleCall_1_2_0()); }
 )
 
 ;

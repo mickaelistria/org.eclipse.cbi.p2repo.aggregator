@@ -19,68 +19,77 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	public class BeeModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "BeeModel");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cImportsAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cImportsImportParserRuleCall_0_0 = (RuleCall)cImportsAssignment_0.eContents().get(0);
-		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final Assignment cFunctionsAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
-		private final RuleCall cFunctionsFunctionParserRuleCall_1_0_0 = (RuleCall)cFunctionsAssignment_1_0.eContents().get(0);
-		private final Assignment cConcernAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
-		private final RuleCall cConcernConcern_NamedParserRuleCall_1_1_0 = (RuleCall)cConcernAssignment_1_1.eContents().get(0);
-		private final Group cGroup_1_2 = (Group)cAlternatives_1.eContents().get(2);
-		private final Keyword cPropertiesKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
-		private final Assignment cPropertySetsAssignment_1_2_1 = (Assignment)cGroup_1_2.eContents().get(1);
-		private final RuleCall cPropertySetsPropertySet_NamedParserRuleCall_1_2_1_0 = (RuleCall)cPropertySetsAssignment_1_2_1.eContents().get(0);
-		private final Assignment cBodyAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cBodyBuildUnitParserRuleCall_2_0 = (RuleCall)cBodyAssignment_2.eContents().get(0);
+		private final Action cBeeModelAction_0 = (Action)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Assignment cImportsAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final RuleCall cImportsImportParserRuleCall_1_0_0 = (RuleCall)cImportsAssignment_1_0.eContents().get(0);
+		private final Alternatives cAlternatives_1_1 = (Alternatives)cGroup_1.eContents().get(1);
+		private final Assignment cFunctionsAssignment_1_1_0 = (Assignment)cAlternatives_1_1.eContents().get(0);
+		private final RuleCall cFunctionsFunctionParserRuleCall_1_1_0_0 = (RuleCall)cFunctionsAssignment_1_1_0.eContents().get(0);
+		private final Assignment cConcernAssignment_1_1_1 = (Assignment)cAlternatives_1_1.eContents().get(1);
+		private final RuleCall cConcernConcern_NamedParserRuleCall_1_1_1_0 = (RuleCall)cConcernAssignment_1_1_1.eContents().get(0);
+		private final Group cGroup_1_1_2 = (Group)cAlternatives_1_1.eContents().get(2);
+		private final Keyword cPropertiesKeyword_1_1_2_0 = (Keyword)cGroup_1_1_2.eContents().get(0);
+		private final Assignment cPropertySetsAssignment_1_1_2_1 = (Assignment)cGroup_1_1_2.eContents().get(1);
+		private final RuleCall cPropertySetsPropertySet_NamedParserRuleCall_1_1_2_1_0 = (RuleCall)cPropertySetsAssignment_1_1_2_1.eContents().get(0);
+		private final Assignment cBodyAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cBodyBuildUnitParserRuleCall_1_2_0 = (RuleCall)cBodyAssignment_1_2.eContents().get(0);
 		
 		//BeeModel hidden ( WS , SL_COMMENT , ML_COMMENT ):
-		//  imports+=Import* (functions+=Function|concern+=Concern_Named|"properties"
-		//  propertySets+=PropertySet_Named)* body=BuildUnit?;
+		//  {BeeModel} (imports+=Import* (functions+=Function|concern+=Concern_Named|
+		//  "properties" propertySets+=PropertySet_Named)* body=BuildUnit?);
 		public ParserRule getRule() { return rule; }
+
+		//{BeeModel} (imports+=Import* (functions+=Function|concern+=Concern_Named|
+		//"properties" propertySets+=PropertySet_Named)* body=BuildUnit?)
+		public Group getGroup() { return cGroup; }
+
+		//{BeeModel}
+		public Action getBeeModelAction_0() { return cBeeModelAction_0; }
 
 		//imports+=Import* (functions+=Function|concern+=Concern_Named|"properties"
 		//propertySets+=PropertySet_Named)* body=BuildUnit?
-		public Group getGroup() { return cGroup; }
+		public Group getGroup_1() { return cGroup_1; }
 
 		//imports+=Import*
-		public Assignment getImportsAssignment_0() { return cImportsAssignment_0; }
+		public Assignment getImportsAssignment_1_0() { return cImportsAssignment_1_0; }
 
 		//Import
-		public RuleCall getImportsImportParserRuleCall_0_0() { return cImportsImportParserRuleCall_0_0; }
+		public RuleCall getImportsImportParserRuleCall_1_0_0() { return cImportsImportParserRuleCall_1_0_0; }
 
 		//(functions+=Function|concern+=Concern_Named|"properties" propertySets+=
 		//PropertySet_Named)*
-		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		public Alternatives getAlternatives_1_1() { return cAlternatives_1_1; }
 
 		//functions+=Function
-		public Assignment getFunctionsAssignment_1_0() { return cFunctionsAssignment_1_0; }
+		public Assignment getFunctionsAssignment_1_1_0() { return cFunctionsAssignment_1_1_0; }
 
 		//Function
-		public RuleCall getFunctionsFunctionParserRuleCall_1_0_0() { return cFunctionsFunctionParserRuleCall_1_0_0; }
+		public RuleCall getFunctionsFunctionParserRuleCall_1_1_0_0() { return cFunctionsFunctionParserRuleCall_1_1_0_0; }
 
 		//concern+=Concern_Named
-		public Assignment getConcernAssignment_1_1() { return cConcernAssignment_1_1; }
+		public Assignment getConcernAssignment_1_1_1() { return cConcernAssignment_1_1_1; }
 
 		//Concern_Named
-		public RuleCall getConcernConcern_NamedParserRuleCall_1_1_0() { return cConcernConcern_NamedParserRuleCall_1_1_0; }
+		public RuleCall getConcernConcern_NamedParserRuleCall_1_1_1_0() { return cConcernConcern_NamedParserRuleCall_1_1_1_0; }
 
 		//"properties" propertySets+=PropertySet_Named
-		public Group getGroup_1_2() { return cGroup_1_2; }
+		public Group getGroup_1_1_2() { return cGroup_1_1_2; }
 
 		//"properties"
-		public Keyword getPropertiesKeyword_1_2_0() { return cPropertiesKeyword_1_2_0; }
+		public Keyword getPropertiesKeyword_1_1_2_0() { return cPropertiesKeyword_1_1_2_0; }
 
 		//propertySets+=PropertySet_Named
-		public Assignment getPropertySetsAssignment_1_2_1() { return cPropertySetsAssignment_1_2_1; }
+		public Assignment getPropertySetsAssignment_1_1_2_1() { return cPropertySetsAssignment_1_1_2_1; }
 
 		//PropertySet_Named
-		public RuleCall getPropertySetsPropertySet_NamedParserRuleCall_1_2_1_0() { return cPropertySetsPropertySet_NamedParserRuleCall_1_2_1_0; }
+		public RuleCall getPropertySetsPropertySet_NamedParserRuleCall_1_1_2_1_0() { return cPropertySetsPropertySet_NamedParserRuleCall_1_1_2_1_0; }
 
 		//body=BuildUnit?
-		public Assignment getBodyAssignment_2() { return cBodyAssignment_2; }
+		public Assignment getBodyAssignment_1_2() { return cBodyAssignment_1_2; }
 
 		//BuildUnit
-		public RuleCall getBodyBuildUnitParserRuleCall_2_0() { return cBodyBuildUnitParserRuleCall_2_0; }
+		public RuleCall getBodyBuildUnitParserRuleCall_1_2_0() { return cBodyBuildUnitParserRuleCall_1_2_0; }
 	}
 
 	public class ImportElements extends AbstractParserRuleElementFinder {
@@ -9166,8 +9175,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//BeeModel hidden ( WS , SL_COMMENT , ML_COMMENT ):
-	//  imports+=Import* (functions+=Function|concern+=Concern_Named|"properties"
-	//  propertySets+=PropertySet_Named)* body=BuildUnit?;
+	//  {BeeModel} (imports+=Import* (functions+=Function|concern+=Concern_Named|
+	//  "properties" propertySets+=PropertySet_Named)* body=BuildUnit?);
 	public BeeModelElements getBeeModelAccess() {
 		return (pBeeModel != null) ? pBeeModel : (pBeeModel = new BeeModelElements());
 	}

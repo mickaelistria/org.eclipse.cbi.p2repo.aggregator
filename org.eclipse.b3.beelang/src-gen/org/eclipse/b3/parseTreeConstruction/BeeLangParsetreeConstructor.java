@@ -178,13 +178,13 @@ protected class ThisRootNode extends RootToken {
 /************ begin Rule BeeModel ****************
  *
  * BeeModel hidden ( WS , SL_COMMENT , ML_COMMENT ):
- *   imports+=Import* (functions+=Function|concern+=Concern_Named|"properties"
- *   propertySets+=PropertySet_Named)* body=BuildUnit?;
+ *   {BeeModel} (imports+=Import* (functions+=Function|concern+=Concern_Named|
+ *   "properties" propertySets+=PropertySet_Named)* body=BuildUnit?);
  *
  **/
 
-// imports+=Import* (functions+=Function|concern+=Concern_Named|"properties"
-// propertySets+=PropertySet_Named)* body=BuildUnit?
+// {BeeModel} (imports+=Import* (functions+=Function|concern+=Concern_Named|
+// "properties" propertySets+=PropertySet_Named)* body=BuildUnit?)
 protected class BeeModel_Group extends GroupToken {
 	
 	public BeeModel_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -199,9 +199,7 @@ protected class BeeModel_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new BeeModel_BodyAssignment_2(parent, this, 0, inst);
-			case 1: return new BeeModel_Alternatives_1(parent, this, 1, inst);
-			case 2: return new BeeModel_ImportsAssignment_0(parent, this, 2, inst);
+			case 0: return new BeeModel_Group_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -213,16 +211,69 @@ protected class BeeModel_Group extends GroupToken {
 	}
 }
 
-// imports+=Import*
-protected class BeeModel_ImportsAssignment_0 extends AssignmentToken  {
+// {BeeModel}
+protected class BeeModel_BeeModelAction_0 extends ActionToken  {
+
+	public BeeModel_BeeModelAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
 	
-	public BeeModel_ImportsAssignment_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	@Override
+	public Action getGrammarElement() {
+		return grammarAccess.getBeeModelAccess().getBeeModelAction_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(this, index, index, inst);
+		}	
+	}	
+		
+	
+    @Override
+	protected IInstanceDescription tryConsumeVal() {
+		if(!current.isInstanceOf(grammarAccess.getBeeModelAccess().getBeeModelAction_0().getType().getClassifier())) return null;
+		if(!current.isConsumed()) return null;
+		return current;
+	}
+}
+
+// imports+=Import* (functions+=Function|concern+=Concern_Named|"properties"
+// propertySets+=PropertySet_Named)* body=BuildUnit?
+protected class BeeModel_Group_1 extends GroupToken {
+	
+	public BeeModel_Group_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getBeeModelAccess().getGroup_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new BeeModel_BodyAssignment_1_2(parent, this, 0, inst);
+			case 1: return new BeeModel_Alternatives_1_1(parent, this, 1, inst);
+			case 2: return new BeeModel_ImportsAssignment_1_0(parent, this, 2, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// imports+=Import*
+protected class BeeModel_ImportsAssignment_1_0 extends AssignmentToken  {
+	
+	public BeeModel_ImportsAssignment_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getBeeModelAccess().getImportsAssignment_0();
+		return grammarAccess.getBeeModelAccess().getImportsAssignment_1_0();
 	}
 
     @Override
@@ -241,7 +292,7 @@ protected class BeeModel_ImportsAssignment_0 extends AssignmentToken  {
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getImportRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getBeeModelAccess().getImportsImportParserRuleCall_0_0(); 
+				element = grammarAccess.getBeeModelAccess().getImportsImportParserRuleCall_1_0_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -253,31 +304,32 @@ protected class BeeModel_ImportsAssignment_0 extends AssignmentToken  {
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new BeeModel_ImportsAssignment_0(parent, next, actIndex, consumed);
-			default: return parent.createParentFollower(next, actIndex , index - 1, consumed);
+			case 0: return new BeeModel_ImportsAssignment_1_0(parent, next, actIndex, consumed);
+			case 1: return new BeeModel_BeeModelAction_0(parent, next, actIndex, consumed);
+			default: return null;
 		}	
 	}	
 }
 
 // (functions+=Function|concern+=Concern_Named|"properties" propertySets+=
 // PropertySet_Named)*
-protected class BeeModel_Alternatives_1 extends AlternativesToken {
+protected class BeeModel_Alternatives_1_1 extends AlternativesToken {
 
-	public BeeModel_Alternatives_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BeeModel_Alternatives_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Alternatives getGrammarElement() {
-		return grammarAccess.getBeeModelAccess().getAlternatives_1();
+		return grammarAccess.getBeeModelAccess().getAlternatives_1_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new BeeModel_FunctionsAssignment_1_0(parent, this, 0, inst);
-			case 1: return new BeeModel_ConcernAssignment_1_1(parent, this, 1, inst);
-			case 2: return new BeeModel_Group_1_2(parent, this, 2, inst);
+			case 0: return new BeeModel_FunctionsAssignment_1_1_0(parent, this, 0, inst);
+			case 1: return new BeeModel_ConcernAssignment_1_1_1(parent, this, 1, inst);
+			case 2: return new BeeModel_Group_1_1_2(parent, this, 2, inst);
 			default: return null;
 		}	
 	}	
@@ -285,15 +337,15 @@ protected class BeeModel_Alternatives_1 extends AlternativesToken {
 }
 
 // functions+=Function
-protected class BeeModel_FunctionsAssignment_1_0 extends AssignmentToken  {
+protected class BeeModel_FunctionsAssignment_1_1_0 extends AssignmentToken  {
 	
-	public BeeModel_FunctionsAssignment_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BeeModel_FunctionsAssignment_1_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getBeeModelAccess().getFunctionsAssignment_1_0();
+		return grammarAccess.getBeeModelAccess().getFunctionsAssignment_1_1_0();
 	}
 
     @Override
@@ -312,7 +364,7 @@ protected class BeeModel_FunctionsAssignment_1_0 extends AssignmentToken  {
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getFunctionRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getBeeModelAccess().getFunctionsFunctionParserRuleCall_1_0_0(); 
+				element = grammarAccess.getBeeModelAccess().getFunctionsFunctionParserRuleCall_1_1_0_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -324,23 +376,24 @@ protected class BeeModel_FunctionsAssignment_1_0 extends AssignmentToken  {
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new BeeModel_Alternatives_1(parent, next, actIndex, consumed);
-			case 1: return new BeeModel_ImportsAssignment_0(parent, next, actIndex, consumed);
-			default: return parent.createParentFollower(next, actIndex , index - 2, consumed);
+			case 0: return new BeeModel_Alternatives_1_1(parent, next, actIndex, consumed);
+			case 1: return new BeeModel_ImportsAssignment_1_0(parent, next, actIndex, consumed);
+			case 2: return new BeeModel_BeeModelAction_0(parent, next, actIndex, consumed);
+			default: return null;
 		}	
 	}	
 }
 
 // concern+=Concern_Named
-protected class BeeModel_ConcernAssignment_1_1 extends AssignmentToken  {
+protected class BeeModel_ConcernAssignment_1_1_1 extends AssignmentToken  {
 	
-	public BeeModel_ConcernAssignment_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BeeModel_ConcernAssignment_1_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getBeeModelAccess().getConcernAssignment_1_1();
+		return grammarAccess.getBeeModelAccess().getConcernAssignment_1_1_1();
 	}
 
     @Override
@@ -359,7 +412,7 @@ protected class BeeModel_ConcernAssignment_1_1 extends AssignmentToken  {
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getConcern_NamedRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getBeeModelAccess().getConcernConcern_NamedParserRuleCall_1_1_0(); 
+				element = grammarAccess.getBeeModelAccess().getConcernConcern_NamedParserRuleCall_1_1_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -371,29 +424,30 @@ protected class BeeModel_ConcernAssignment_1_1 extends AssignmentToken  {
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new BeeModel_Alternatives_1(parent, next, actIndex, consumed);
-			case 1: return new BeeModel_ImportsAssignment_0(parent, next, actIndex, consumed);
-			default: return parent.createParentFollower(next, actIndex , index - 2, consumed);
+			case 0: return new BeeModel_Alternatives_1_1(parent, next, actIndex, consumed);
+			case 1: return new BeeModel_ImportsAssignment_1_0(parent, next, actIndex, consumed);
+			case 2: return new BeeModel_BeeModelAction_0(parent, next, actIndex, consumed);
+			default: return null;
 		}	
 	}	
 }
 
 // "properties" propertySets+=PropertySet_Named
-protected class BeeModel_Group_1_2 extends GroupToken {
+protected class BeeModel_Group_1_1_2 extends GroupToken {
 	
-	public BeeModel_Group_1_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BeeModel_Group_1_1_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Group getGrammarElement() {
-		return grammarAccess.getBeeModelAccess().getGroup_1_2();
+		return grammarAccess.getBeeModelAccess().getGroup_1_1_2();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new BeeModel_PropertySetsAssignment_1_2_1(parent, this, 0, inst);
+			case 0: return new BeeModel_PropertySetsAssignment_1_1_2_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -401,38 +455,39 @@ protected class BeeModel_Group_1_2 extends GroupToken {
 }
 
 // "properties"
-protected class BeeModel_PropertiesKeyword_1_2_0 extends KeywordToken  {
+protected class BeeModel_PropertiesKeyword_1_1_2_0 extends KeywordToken  {
 	
-	public BeeModel_PropertiesKeyword_1_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BeeModel_PropertiesKeyword_1_1_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getBeeModelAccess().getPropertiesKeyword_1_2_0();
+		return grammarAccess.getBeeModelAccess().getPropertiesKeyword_1_1_2_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new BeeModel_Alternatives_1(parent, this, 0, inst);
-			case 1: return new BeeModel_ImportsAssignment_0(parent, this, 1, inst);
-			default: return parent.createParentFollower(this, index, index - 2, inst);
+			case 0: return new BeeModel_Alternatives_1_1(parent, this, 0, inst);
+			case 1: return new BeeModel_ImportsAssignment_1_0(parent, this, 1, inst);
+			case 2: return new BeeModel_BeeModelAction_0(parent, this, 2, inst);
+			default: return null;
 		}	
 	}	
 		
 }
 
 // propertySets+=PropertySet_Named
-protected class BeeModel_PropertySetsAssignment_1_2_1 extends AssignmentToken  {
+protected class BeeModel_PropertySetsAssignment_1_1_2_1 extends AssignmentToken  {
 	
-	public BeeModel_PropertySetsAssignment_1_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BeeModel_PropertySetsAssignment_1_1_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getBeeModelAccess().getPropertySetsAssignment_1_2_1();
+		return grammarAccess.getBeeModelAccess().getPropertySetsAssignment_1_1_2_1();
 	}
 
     @Override
@@ -451,7 +506,7 @@ protected class BeeModel_PropertySetsAssignment_1_2_1 extends AssignmentToken  {
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getPropertySet_NamedRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getBeeModelAccess().getPropertySetsPropertySet_NamedParserRuleCall_1_2_1_0(); 
+				element = grammarAccess.getBeeModelAccess().getPropertySetsPropertySet_NamedParserRuleCall_1_1_2_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -463,7 +518,7 @@ protected class BeeModel_PropertySetsAssignment_1_2_1 extends AssignmentToken  {
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new BeeModel_PropertiesKeyword_1_2_0(parent, next, actIndex, consumed);
+			case 0: return new BeeModel_PropertiesKeyword_1_1_2_0(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
@@ -472,15 +527,15 @@ protected class BeeModel_PropertySetsAssignment_1_2_1 extends AssignmentToken  {
 
 
 // body=BuildUnit?
-protected class BeeModel_BodyAssignment_2 extends AssignmentToken  {
+protected class BeeModel_BodyAssignment_1_2 extends AssignmentToken  {
 	
-	public BeeModel_BodyAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BeeModel_BodyAssignment_1_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getBeeModelAccess().getBodyAssignment_2();
+		return grammarAccess.getBeeModelAccess().getBodyAssignment_1_2();
 	}
 
     @Override
@@ -499,7 +554,7 @@ protected class BeeModel_BodyAssignment_2 extends AssignmentToken  {
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getBuildUnitRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getBeeModelAccess().getBodyBuildUnitParserRuleCall_2_0(); 
+				element = grammarAccess.getBeeModelAccess().getBodyBuildUnitParserRuleCall_1_2_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -511,12 +566,14 @@ protected class BeeModel_BodyAssignment_2 extends AssignmentToken  {
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new BeeModel_Alternatives_1(parent, next, actIndex, consumed);
-			case 1: return new BeeModel_ImportsAssignment_0(parent, next, actIndex, consumed);
-			default: return parent.createParentFollower(next, actIndex , index - 2, consumed);
+			case 0: return new BeeModel_Alternatives_1_1(parent, next, actIndex, consumed);
+			case 1: return new BeeModel_ImportsAssignment_1_0(parent, next, actIndex, consumed);
+			case 2: return new BeeModel_BeeModelAction_0(parent, next, actIndex, consumed);
+			default: return null;
 		}	
 	}	
 }
+
 
 
 /************ end Rule BeeModel ****************/

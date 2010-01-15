@@ -99,11 +99,25 @@ ruleBeeModel returns [EObject current=null]
     	lastConsumedNode = currentNode;
     }:
 ((
+	{ 
+	  /* */ 
+	}
+    { 
+        temp=factory.create(grammarAccess.getBeeModelAccess().getBeeModelAction_0().getType().getClassifier());
+        $current = temp; 
+        temp = null;
+        CompositeNode newNode = createCompositeNode(grammarAccess.getBeeModelAccess().getBeeModelAction_0(), currentNode.getParent());
+    newNode.getChildren().add(currentNode);
+    moveLookaheadInfo(currentNode, newNode);
+    currentNode = newNode; 
+        associateNodeWithAstElement(currentNode, $current); 
+    }
+)((
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getBeeModelAccess().getImportsImportParserRuleCall_0_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getBeeModelAccess().getImportsImportParserRuleCall_1_0_0(), currentNode); 
 	    }
-		lv_imports_0_0=ruleImport		{
+		lv_imports_1_0=ruleImport		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getBeeModelRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -112,7 +126,7 @@ ruleBeeModel returns [EObject current=null]
 	       		add(
 	       			$current, 
 	       			"imports",
-	        		lv_imports_0_0, 
+	        		lv_imports_1_0, 
 	        		"Import", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -125,9 +139,9 @@ ruleBeeModel returns [EObject current=null]
 )*((
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getBeeModelAccess().getFunctionsFunctionParserRuleCall_1_0_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getBeeModelAccess().getFunctionsFunctionParserRuleCall_1_1_0_0(), currentNode); 
 	    }
-		lv_functions_1_0=ruleFunction		{
+		lv_functions_2_0=ruleFunction		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getBeeModelRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -136,7 +150,7 @@ ruleBeeModel returns [EObject current=null]
 	       		add(
 	       			$current, 
 	       			"functions",
-	        		lv_functions_1_0, 
+	        		lv_functions_2_0, 
 	        		"Function", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -150,9 +164,9 @@ ruleBeeModel returns [EObject current=null]
     |(
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getBeeModelAccess().getConcernConcern_NamedParserRuleCall_1_1_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getBeeModelAccess().getConcernConcern_NamedParserRuleCall_1_1_1_0(), currentNode); 
 	    }
-		lv_concern_2_0=ruleConcern_Named		{
+		lv_concern_3_0=ruleConcern_Named		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getBeeModelRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -161,7 +175,7 @@ ruleBeeModel returns [EObject current=null]
 	       		add(
 	       			$current, 
 	       			"concern",
-	        		lv_concern_2_0, 
+	        		lv_concern_3_0, 
 	        		"Concern_Named", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -174,14 +188,14 @@ ruleBeeModel returns [EObject current=null]
 )
     |(	'properties' 
     {
-        createLeafNode(grammarAccess.getBeeModelAccess().getPropertiesKeyword_1_2_0(), null); 
+        createLeafNode(grammarAccess.getBeeModelAccess().getPropertiesKeyword_1_1_2_0(), null); 
     }
 (
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getBeeModelAccess().getPropertySetsPropertySet_NamedParserRuleCall_1_2_1_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getBeeModelAccess().getPropertySetsPropertySet_NamedParserRuleCall_1_1_2_1_0(), currentNode); 
 	    }
-		lv_propertySets_4_0=rulePropertySet_Named		{
+		lv_propertySets_5_0=rulePropertySet_Named		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getBeeModelRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -190,7 +204,7 @@ ruleBeeModel returns [EObject current=null]
 	       		add(
 	       			$current, 
 	       			"propertySets",
-	        		lv_propertySets_4_0, 
+	        		lv_propertySets_5_0, 
 	        		"PropertySet_Named", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -203,9 +217,9 @@ ruleBeeModel returns [EObject current=null]
 )))*(
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getBeeModelAccess().getBodyBuildUnitParserRuleCall_2_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getBeeModelAccess().getBodyBuildUnitParserRuleCall_1_2_0(), currentNode); 
 	    }
-		lv_body_5_0=ruleBuildUnit		{
+		lv_body_6_0=ruleBuildUnit		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getBeeModelRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -214,7 +228,7 @@ ruleBeeModel returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"body",
-	        		lv_body_5_0, 
+	        		lv_body_6_0, 
 	        		"BuildUnit", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -224,7 +238,7 @@ ruleBeeModel returns [EObject current=null]
 	    }
 
 )
-)?)
+)?))
 ;
 finally {
 	myHiddenTokenState.restore();
