@@ -72,11 +72,7 @@ public class ExecuteHandler extends AbstractHandler {
 			});
 			b3ConsoleOutputStream.println("Result = " + (result == null ? "null" : result.toString()));
 			return null;
-		} catch (Throwable t) {
-			b3ConsoleOutputStream.println("Ended with exception: "+t.getMessage());
-			t.printStackTrace(b3ConsoleOutputStream);
-			return null;
-		} finally {
+		}  finally {
 			b3ConsoleOutputStream.close();
 		}
 	}
