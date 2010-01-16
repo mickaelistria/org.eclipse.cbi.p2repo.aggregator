@@ -20,6 +20,7 @@ import org.eclipse.b3.build.build.BuildUnit;
 import org.eclipse.b3.build.build.Builder;
 import org.eclipse.b3.build.build.Capability;
 import org.eclipse.b3.build.build.ContainerConfiguration;
+import org.eclipse.b3.build.build.IBuilder;
 import org.eclipse.b3.build.build.IProvidedCapabilityContainer;
 import org.eclipse.b3.build.build.IRequiredCapabilityContainer;
 import org.eclipse.b3.build.build.RepositoryConfiguration;
@@ -249,11 +250,11 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public EList<Builder> getBuilders() {
-		EList<Builder> x = new EObjectEList<Builder>(Builder.class,this,B3BuildPackage.BUILD_UNIT__BUILDERS);
+	public EList<IBuilder> getBuilders() {
+		EList<IBuilder> x = new EObjectEList<IBuilder>(IBuilder.class,this,B3BuildPackage.BUILD_UNIT__BUILDERS);
 		for(IFunction f : getFunctions()) {
-			if(f instanceof Builder)
-				x.add((Builder)f);
+			if(f instanceof IBuilder)
+				x.add((IBuilder)f);
 		}
 		return x;
 	}

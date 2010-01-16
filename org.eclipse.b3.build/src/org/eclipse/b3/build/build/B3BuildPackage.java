@@ -361,7 +361,1889 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuilder()
 	 * @generated
 	 */
-	int BUILDER = 1;
+	int BUILDER = 39;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderJavaImpl <em>Builder Java</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.BuilderJavaImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuilderJava()
+	 * @generated
+	 */
+	int BUILDER_JAVA = 40;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderInputImpl <em>Builder Input</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.BuilderInputImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuilderInput()
+	 * @generated
+	 */
+	int BUILDER_INPUT = 3;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.PathGroupImpl <em>Path Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.PathGroupImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getPathGroup()
+	 * @generated
+	 */
+	int PATH_GROUP = 4;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.PrerequisiteImpl <em>Prerequisite</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.PrerequisiteImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getPrerequisite()
+	 * @generated
+	 */
+	int PREREQUISITE = 5;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuildResultReferenceImpl <em>Build Result Reference</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.BuildResultReferenceImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuildResultReference()
+	 * @generated
+	 */
+	int BUILD_RESULT_REFERENCE = 6;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.CompoundBuildResultReferenceImpl <em>Compound Build Result Reference</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.CompoundBuildResultReferenceImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getCompoundBuildResultReference()
+	 * @generated
+	 */
+	int COMPOUND_BUILD_RESULT_REFERENCE = 7;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderReferenceImpl <em>Builder Reference</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.BuilderReferenceImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuilderReference()
+	 * @generated
+	 */
+	int BUILDER_REFERENCE = 8;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.RequiredCapabilityImpl <em>Required Capability</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.RequiredCapabilityImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getRequiredCapability()
+	 * @generated
+	 */
+	int REQUIRED_CAPABILITY = 10;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.PathVectorImpl <em>Path Vector</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.PathVectorImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getPathVector()
+	 * @generated
+	 */
+	int PATH_VECTOR = 11;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.CompoundPathVectorImpl <em>Compound Path Vector</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.CompoundPathVectorImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getCompoundPathVector()
+	 * @generated
+	 */
+	int COMPOUND_PATH_VECTOR = 12;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.PathVectorElementImpl <em>Path Vector Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.PathVectorElementImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getPathVectorElement()
+	 * @generated
+	 */
+	int PATH_VECTOR_ELEMENT = 13;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.SynchronizationImpl <em>Synchronization</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.SynchronizationImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getSynchronization()
+	 * @generated
+	 */
+	int SYNCHRONIZATION = 14;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.RepositoryConfigurationImpl <em>Repository Configuration</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.RepositoryConfigurationImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getRepositoryConfiguration()
+	 * @generated
+	 */
+	int REPOSITORY_CONFIGURATION = 15;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.RepositoryDeclarationImpl <em>Repository Declaration</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.RepositoryDeclarationImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getRepositoryDeclaration()
+	 * @generated
+	 */
+	int REPOSITORY_DECLARATION = 16;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ResolutionStrategyImpl <em>Resolution Strategy</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.ResolutionStrategyImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getResolutionStrategy()
+	 * @generated
+	 */
+	int RESOLUTION_STRATEGY = 17;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ResolutionStrategyFirstImpl <em>Resolution Strategy First</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.ResolutionStrategyFirstImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getResolutionStrategyFirst()
+	 * @generated
+	 */
+	int RESOLUTION_STRATEGY_FIRST = 18;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ResolutionStrategyBestImpl <em>Resolution Strategy Best</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.ResolutionStrategyBestImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getResolutionStrategyBest()
+	 * @generated
+	 */
+	int RESOLUTION_STRATEGY_BEST = 19;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ContainerConfigurationImpl <em>Container Configuration</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.ContainerConfigurationImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getContainerConfiguration()
+	 * @generated
+	 */
+	int CONTAINER_CONFIGURATION = 20;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuildContextImpl <em>Build Context</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.BuildContextImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuildContext()
+	 * @generated
+	 */
+	int BUILD_CONTEXT = 21;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuildConcernContextImpl <em>Build Concern Context</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.BuildConcernContextImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuildConcernContext()
+	 * @generated
+	 */
+	int BUILD_CONCERN_CONTEXT = 22;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.RequiresPredicateImpl <em>Requires Predicate</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.RequiresPredicateImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getRequiresPredicate()
+	 * @generated
+	 */
+	int REQUIRES_PREDICATE = 23;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.CapabilityPredicateImpl <em>Capability Predicate</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.CapabilityPredicateImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getCapabilityPredicate()
+	 * @generated
+	 */
+	int CAPABILITY_PREDICATE = 24;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ImplementsPredicateImpl <em>Implements Predicate</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.ImplementsPredicateImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getImplementsPredicate()
+	 * @generated
+	 */
+	int IMPLEMENTS_PREDICATE = 25;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ProvidesPredicateImpl <em>Provides Predicate</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.ProvidesPredicateImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getProvidesPredicate()
+	 * @generated
+	 */
+	int PROVIDES_PREDICATE = 26;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.NamePredicateImpl <em>Name Predicate</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.NamePredicateImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getNamePredicate()
+	 * @generated
+	 */
+	int NAME_PREDICATE = 27;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.NameSpacePredicateImpl <em>Name Space Predicate</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.NameSpacePredicateImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getNameSpacePredicate()
+	 * @generated
+	 */
+	int NAME_SPACE_PREDICATE = 28;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.UnitNamePredicateImpl <em>Unit Name Predicate</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.UnitNamePredicateImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getUnitNamePredicate()
+	 * @generated
+	 */
+	int UNIT_NAME_PREDICATE = 29;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderNamePredicateImpl <em>Builder Name Predicate</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.BuilderNamePredicateImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuilderNamePredicate()
+	 * @generated
+	 */
+	int BUILDER_NAME_PREDICATE = 30;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.InputPredicateImpl <em>Input Predicate</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.InputPredicateImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getInputPredicate()
+	 * @generated
+	 */
+	int INPUT_PREDICATE = 31;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl <em>Unit Concern Context</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.UnitConcernContextImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getUnitConcernContext()
+	 * @generated
+	 */
+	int UNIT_CONCERN_CONTEXT = 32;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl <em>Builder Concern Context</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.BuilderConcernContextImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuilderConcernContext()
+	 * @generated
+	 */
+	int BUILDER_CONCERN_CONTEXT = 33;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.OutputPredicateImpl <em>Output Predicate</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.OutputPredicateImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getOutputPredicate()
+	 * @generated
+	 */
+	int OUTPUT_PREDICATE = 34;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.AliasedRequiredCapabilityImpl <em>Aliased Required Capability</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.AliasedRequiredCapabilityImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getAliasedRequiredCapability()
+	 * @generated
+	 */
+	int ALIASED_REQUIRED_CAPABILITY = 35;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.IRequiredCapabilityContainer <em>IRequired Capability Container</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.IRequiredCapabilityContainer
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getIRequiredCapabilityContainer()
+	 * @generated
+	 */
+	int IREQUIRED_CAPABILITY_CONTAINER = 36;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.IProvidedCapabilityContainer <em>IProvided Capability Container</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.IProvidedCapabilityContainer
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getIProvidedCapabilityContainer()
+	 * @generated
+	 */
+	int IPROVIDED_CAPABILITY_CONTAINER = 37;
+
+	/**
+	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IPROVIDED_CAPABILITY_CONTAINER__PROVIDED_CAPABILITIES = 0;
+
+	/**
+	 * The number of structural features of the '<em>IProvided Capability Container</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.IBuilder <em>IBuilder</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.IBuilder
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getIBuilder()
+	 * @generated
+	 */
+	int IBUILDER = 1;
+
+	/**
+	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IBUILDER__PROVIDED_CAPABILITIES = IPROVIDED_CAPABILITY_CONTAINER__PROVIDED_CAPABILITIES;
+
+	/**
+	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IBUILDER__LINE_NUMBER = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>File Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IBUILDER__FILE_REFERENCE = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Visibility</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IBUILDER__VISIBILITY = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Final</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IBUILDER__FINAL = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Execution Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IBUILDER__EXECUTION_MODE = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IBUILDER__NAME = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Guard</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IBUILDER__GUARD = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Parameter Types</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IBUILDER__PARAMETER_TYPES = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Exception Types</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IBUILDER__EXCEPTION_TYPES = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IBUILDER__TYPE_PARAMETERS = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>Parameter Names</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IBUILDER__PARAMETER_NAMES = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 10;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IBUILDER__PARAMETERS = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 11;
+
+	/**
+	 * The feature id for the '<em><b>Var Args</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IBUILDER__VAR_ARGS = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 12;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IBUILDER__DOCUMENTATION = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 13;
+
+	/**
+	 * The feature id for the '<em><b>Return Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IBUILDER__RETURN_TYPE = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 14;
+
+	/**
+	 * The feature id for the '<em><b>Closure</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IBUILDER__CLOSURE = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 15;
+
+	/**
+	 * The feature id for the '<em><b>Type Calculator</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IBUILDER__TYPE_CALCULATOR = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 16;
+
+	/**
+	 * The feature id for the '<em><b>Container</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IBUILDER__CONTAINER = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 17;
+
+	/**
+	 * The feature id for the '<em><b>Postcond Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IBUILDER__POSTCOND_EXPR = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 18;
+
+	/**
+	 * The feature id for the '<em><b>Precond Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IBUILDER__PRECOND_EXPR = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 19;
+
+	/**
+	 * The feature id for the '<em><b>Input</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IBUILDER__INPUT = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 20;
+
+	/**
+	 * The feature id for the '<em><b>Output</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IBUILDER__OUTPUT = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 21;
+
+	/**
+	 * The feature id for the '<em><b>Default Properties</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IBUILDER__DEFAULT_PROPERTIES = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 22;
+
+	/**
+	 * The feature id for the '<em><b>Postinputcondition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IBUILDER__POSTINPUTCONDITION = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 23;
+
+	/**
+	 * The number of structural features of the '<em>IBuilder</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IBUILDER_FEATURE_COUNT = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 24;
+
+	/**
+	 * The feature id for the '<em><b>Prerequisites</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_INPUT__PREREQUISITES = 0;
+
+	/**
+	 * The number of structural features of the '<em>Builder Input</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_INPUT_FEATURE_COUNT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATH_GROUP__ANNOTATIONS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Path Vectors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATH_GROUP__PATH_VECTORS = 1;
+
+	/**
+	 * The number of structural features of the '<em>Path Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATH_GROUP_FEATURE_COUNT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PREREQUISITE__COND_EXPR = 0;
+
+	/**
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PREREQUISITE__ALIAS = 1;
+
+	/**
+	 * The feature id for the '<em><b>With Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PREREQUISITE__WITH_EXPR = 2;
+
+	/**
+	 * The feature id for the '<em><b>Build Result</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PREREQUISITE__BUILD_RESULT = 3;
+
+	/**
+	 * The number of structural features of the '<em>Prerequisite</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PREREQUISITE_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of structural features of the '<em>Build Result Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_RESULT_REFERENCE_FEATURE_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Prerequisites</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOUND_BUILD_RESULT_REFERENCE__PREREQUISITES = BUILD_RESULT_REFERENCE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Compound Build Result Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOUND_BUILD_RESULT_REFERENCE_FEATURE_COUNT = BUILD_RESULT_REFERENCE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_REFERENCE__PARAMETERS = BUILD_RESULT_REFERENCE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Builder Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_REFERENCE__BUILDER_NAME = BUILD_RESULT_REFERENCE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Required Capability</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_REFERENCE__REQUIRED_CAPABILITY = BUILD_RESULT_REFERENCE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Required Capability Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_REFERENCE__REQUIRED_CAPABILITY_REFERENCE = BUILD_RESULT_REFERENCE_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Builder Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_REFERENCE_FEATURE_COUNT = BUILD_RESULT_REFERENCE_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRED_CAPABILITY__NAME = CAPABILITY__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Name Space</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRED_CAPABILITY__NAME_SPACE = CAPABILITY__NAME_SPACE;
+
+	/**
+	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRED_CAPABILITY__COND_EXPR = CAPABILITY__COND_EXPR;
+
+	/**
+	 * The feature id for the '<em><b>Version Range</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRED_CAPABILITY__VERSION_RANGE = CAPABILITY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Required Capability</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRED_CAPABILITY_FEATURE_COUNT = CAPABILITY_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATH_VECTOR__COND_EXPR = 0;
+
+	/**
+	 * The feature id for the '<em><b>Base Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATH_VECTOR__BASE_PATH = 1;
+
+	/**
+	 * The feature id for the '<em><b>Paths</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATH_VECTOR__PATHS = 2;
+
+	/**
+	 * The number of structural features of the '<em>Path Vector</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATH_VECTOR_FEATURE_COUNT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOUND_PATH_VECTOR__COND_EXPR = PATH_VECTOR__COND_EXPR;
+
+	/**
+	 * The feature id for the '<em><b>Base Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOUND_PATH_VECTOR__BASE_PATH = PATH_VECTOR__BASE_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Paths</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOUND_PATH_VECTOR__PATHS = PATH_VECTOR__PATHS;
+
+	/**
+	 * The feature id for the '<em><b>Path Vectors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOUND_PATH_VECTOR__PATH_VECTORS = PATH_VECTOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Compound Path Vector</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOUND_PATH_VECTOR_FEATURE_COUNT = PATH_VECTOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATH_VECTOR_ELEMENT__COND_EXPR = PATH_VECTOR__COND_EXPR;
+
+	/**
+	 * The feature id for the '<em><b>Base Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATH_VECTOR_ELEMENT__BASE_PATH = PATH_VECTOR__BASE_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Paths</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATH_VECTOR_ELEMENT__PATHS = PATH_VECTOR__PATHS;
+
+	/**
+	 * The number of structural features of the '<em>Path Vector Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATH_VECTOR_ELEMENT_FEATURE_COUNT = PATH_VECTOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Builder Queries</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYNCHRONIZATION__BUILDER_QUERIES = 0;
+
+	/**
+	 * The number of structural features of the '<em>Synchronization</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYNCHRONIZATION_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of structural features of the '<em>Repository Configuration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_CONFIGURATION_FEATURE_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_DECLARATION__DOCUMENTATION = REPOSITORY_CONFIGURATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_DECLARATION__LOCATION = REPOSITORY_CONFIGURATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Resolver Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_DECLARATION__RESOLVER_TYPE = REPOSITORY_CONFIGURATION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Context Block</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_DECLARATION__CONTEXT_BLOCK = REPOSITORY_CONFIGURATION_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Repository Declaration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_DECLARATION_FEATURE_COUNT = REPOSITORY_CONFIGURATION_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOLUTION_STRATEGY__REPOSITORIES = REPOSITORY_CONFIGURATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Resolution Strategy</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOLUTION_STRATEGY_FEATURE_COUNT = REPOSITORY_CONFIGURATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOLUTION_STRATEGY_FIRST__REPOSITORIES = RESOLUTION_STRATEGY__REPOSITORIES;
+
+	/**
+	 * The number of structural features of the '<em>Resolution Strategy First</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOLUTION_STRATEGY_FIRST_FEATURE_COUNT = RESOLUTION_STRATEGY_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOLUTION_STRATEGY_BEST__REPOSITORIES = RESOLUTION_STRATEGY__REPOSITORIES;
+
+	/**
+	 * The number of structural features of the '<em>Resolution Strategy Best</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOLUTION_STRATEGY_BEST_FEATURE_COUNT = RESOLUTION_STRATEGY_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER_CONFIGURATION__DOCUMENTATION = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER_CONFIGURATION__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Agent Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER_CONFIGURATION__AGENT_TYPE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Context Block</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER_CONFIGURATION__CONTEXT_BLOCK = 3;
+
+	/**
+	 * The number of structural features of the '<em>Container Configuration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINER_CONFIGURATION_FEATURE_COUNT = 4;
+
+	/**
+	 * The feature id for the '<em><b>Parent Context</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_CONTEXT__PARENT_CONTEXT = B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Child Contexts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_CONTEXT__CHILD_CONTEXTS = B3backendPackage.BEXECUTION_CONTEXT__CHILD_CONTEXTS;
+
+	/**
+	 * The feature id for the '<em><b>Value Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_CONTEXT__VALUE_MAP = B3backendPackage.BEXECUTION_CONTEXT__VALUE_MAP;
+
+	/**
+	 * The feature id for the '<em><b>Func Store</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_CONTEXT__FUNC_STORE = B3backendPackage.BEXECUTION_CONTEXT__FUNC_STORE;
+
+	/**
+	 * The number of structural features of the '<em>Build Context</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_CONTEXT_FEATURE_COUNT = B3backendPackage.BEXECUTION_CONTEXT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_CONCERN_CONTEXT__FUNCTIONS = B3backendPackage.BCONCERN_CONTEXT__FUNCTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Container Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_CONCERN_CONTEXT__CONTAINER_TYPE = B3backendPackage.BCONCERN_CONTEXT__CONTAINER_TYPE;
+
+	/**
+	 * The number of structural features of the '<em>Build Concern Context</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_CONCERN_CONTEXT_FEATURE_COUNT = B3backendPackage.BCONCERN_CONTEXT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRES_PREDICATE__LINE_NUMBER = B3backendPackage.BEXPRESSION__LINE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>File Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRES_PREDICATE__FILE_REFERENCE = B3backendPackage.BEXPRESSION__FILE_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Capability Predicate</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRES_PREDICATE__CAPABILITY_PREDICATE = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Meta</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRES_PREDICATE__META = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Requires Predicate</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRES_PREDICATE_FEATURE_COUNT = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPABILITY_PREDICATE__LINE_NUMBER = B3backendPackage.BEXPRESSION__LINE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>File Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPABILITY_PREDICATE__FILE_REFERENCE = B3backendPackage.BEXPRESSION__FILE_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Name Space Pattern</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPABILITY_PREDICATE__NAME_SPACE_PATTERN = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Version Range</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPABILITY_PREDICATE__VERSION_RANGE = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Name Predicate</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPABILITY_PREDICATE__NAME_PREDICATE = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Name Space Predicate</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPABILITY_PREDICATE__NAME_SPACE_PREDICATE = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Capability Predicate</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPABILITY_PREDICATE_FEATURE_COUNT = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPLEMENTS_PREDICATE__LINE_NUMBER = B3backendPackage.BEXPRESSION__LINE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>File Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPLEMENTS_PREDICATE__FILE_REFERENCE = B3backendPackage.BEXPRESSION__FILE_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPLEMENTS_PREDICATE__TYPE = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Implements Predicate</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPLEMENTS_PREDICATE_FEATURE_COUNT = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDES_PREDICATE__LINE_NUMBER = B3backendPackage.BEXPRESSION__LINE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>File Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDES_PREDICATE__FILE_REFERENCE = B3backendPackage.BEXPRESSION__FILE_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Capability Predicate</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDES_PREDICATE__CAPABILITY_PREDICATE = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Provides Predicate</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDES_PREDICATE_FEATURE_COUNT = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAME_PREDICATE__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name Pattern</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAME_PREDICATE__NAME_PATTERN = 1;
+
+	/**
+	 * The number of structural features of the '<em>Name Predicate</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAME_PREDICATE_FEATURE_COUNT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Name Space</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAME_SPACE_PREDICATE__NAME_SPACE = 0;
+
+	/**
+	 * The number of structural features of the '<em>Name Space Predicate</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAME_SPACE_PREDICATE_FEATURE_COUNT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_NAME_PREDICATE__LINE_NUMBER = CAPABILITY_PREDICATE__LINE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>File Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_NAME_PREDICATE__FILE_REFERENCE = CAPABILITY_PREDICATE__FILE_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Name Space Pattern</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_NAME_PREDICATE__NAME_SPACE_PATTERN = CAPABILITY_PREDICATE__NAME_SPACE_PATTERN;
+
+	/**
+	 * The feature id for the '<em><b>Version Range</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_NAME_PREDICATE__VERSION_RANGE = CAPABILITY_PREDICATE__VERSION_RANGE;
+
+	/**
+	 * The feature id for the '<em><b>Name Predicate</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_NAME_PREDICATE__NAME_PREDICATE = CAPABILITY_PREDICATE__NAME_PREDICATE;
+
+	/**
+	 * The feature id for the '<em><b>Name Space Predicate</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_NAME_PREDICATE__NAME_SPACE_PREDICATE = CAPABILITY_PREDICATE__NAME_SPACE_PREDICATE;
+
+	/**
+	 * The number of structural features of the '<em>Unit Name Predicate</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_NAME_PREDICATE_FEATURE_COUNT = CAPABILITY_PREDICATE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_NAME_PREDICATE__LINE_NUMBER = B3backendPackage.BEXPRESSION__LINE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>File Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_NAME_PREDICATE__FILE_REFERENCE = B3backendPackage.BEXPRESSION__FILE_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Name Predicate</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_NAME_PREDICATE__NAME_PREDICATE = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Builder Name Predicate</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_NAME_PREDICATE_FEATURE_COUNT = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PREDICATE__LINE_NUMBER = B3backendPackage.BEXPRESSION__LINE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>File Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PREDICATE__FILE_REFERENCE = B3backendPackage.BEXPRESSION__FILE_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Capability Predicate</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PREDICATE__CAPABILITY_PREDICATE = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Builder Predicate</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PREDICATE__BUILDER_PREDICATE = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Input Predicate</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_PREDICATE_FEATURE_COUNT = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_CONCERN_CONTEXT__FUNCTIONS = BUILD_CONCERN_CONTEXT__FUNCTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Container Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_CONCERN_CONTEXT__CONTAINER_TYPE = BUILD_CONCERN_CONTEXT__CONTAINER_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Required Capabilities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_CONCERN_CONTEXT__REQUIRED_CAPABILITIES = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_CONCERN_CONTEXT__PROVIDED_CAPABILITIES = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Builder Contexts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_CONCERN_CONTEXT__BUILDER_CONTEXTS = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Query</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_CONCERN_CONTEXT__QUERY = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Requires Removals</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_CONCERN_CONTEXT__REQUIRES_REMOVALS = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Provides Removals</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_CONCERN_CONTEXT__PROVIDES_REMOVALS = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 5;
+
+	/**
+	 * The number of structural features of the '<em>Unit Concern Context</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_CONCERN_CONTEXT_FEATURE_COUNT = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_CONCERN_CONTEXT__FUNCTIONS = BUILD_CONCERN_CONTEXT__FUNCTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Container Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_CONCERN_CONTEXT__CONTAINER_TYPE = BUILD_CONCERN_CONTEXT__CONTAINER_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Query</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_CONCERN_CONTEXT__QUERY = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Input Additions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_CONCERN_CONTEXT__INPUT_ADDITIONS = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Input Removals</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_CONCERN_CONTEXT__INPUT_REMOVALS = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Output Additions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_CONCERN_CONTEXT__OUTPUT_ADDITIONS = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Output Removals</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_CONCERN_CONTEXT__OUTPUT_REMOVALS = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Func Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_CONCERN_CONTEXT__FUNC_EXPR = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 5;
+
+	/**
+	 * The number of structural features of the '<em>Builder Concern Context</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_CONCERN_CONTEXT_FEATURE_COUNT = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PREDICATE__LINE_NUMBER = B3backendPackage.BEXPRESSION__LINE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>File Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PREDICATE__FILE_REFERENCE = B3backendPackage.BEXPRESSION__FILE_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Path Vector</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PREDICATE__PATH_VECTOR = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Path Pattern</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PREDICATE__PATH_PATTERN = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Output Predicate</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PREDICATE_FEATURE_COUNT = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALIASED_REQUIRED_CAPABILITY__NAME = REQUIRED_CAPABILITY__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Name Space</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALIASED_REQUIRED_CAPABILITY__NAME_SPACE = REQUIRED_CAPABILITY__NAME_SPACE;
+
+	/**
+	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALIASED_REQUIRED_CAPABILITY__COND_EXPR = REQUIRED_CAPABILITY__COND_EXPR;
+
+	/**
+	 * The feature id for the '<em><b>Version Range</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALIASED_REQUIRED_CAPABILITY__VERSION_RANGE = REQUIRED_CAPABILITY__VERSION_RANGE;
+
+	/**
+	 * The feature id for the '<em><b>Alias</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALIASED_REQUIRED_CAPABILITY__ALIAS = REQUIRED_CAPABILITY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Aliased Required Capability</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALIASED_REQUIRED_CAPABILITY_FEATURE_COUNT = REQUIRED_CAPABILITY_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Required Capabilities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_CAPABILITIES = 0;
+
+	/**
+	 * The number of structural features of the '<em>IRequired Capability Container</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IREQUIRED_CAPABILITY_CONTAINER_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderQueryImpl <em>Builder Query</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.BuilderQueryImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuilderQuery()
+	 * @generated
+	 */
+	int BUILDER_QUERY = 38;
+
+	/**
+	 * The feature id for the '<em><b>Builder Queries</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_QUERY__BUILDER_QUERIES = 0;
+
+	/**
+	 * The feature id for the '<em><b>Unit Query</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_QUERY__UNIT_QUERY = 1;
+
+	/**
+	 * The number of structural features of the '<em>Builder Query</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_QUERY_FEATURE_COUNT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER__LINE_NUMBER = B3backendPackage.B3_FUNCTION__LINE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>File Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER__FILE_REFERENCE = B3backendPackage.B3_FUNCTION__FILE_REFERENCE;
 
 	/**
 	 * The feature id for the '<em><b>Visibility</b></em>' attribute.
@@ -508,24 +2390,6 @@ public interface B3BuildPackage extends EPackage {
 	int BUILDER__CONTAINER = B3backendPackage.B3_FUNCTION__CONTAINER;
 
 	/**
-	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILDER__LINE_NUMBER = B3backendPackage.B3_FUNCTION__LINE_NUMBER;
-
-	/**
-	 * The feature id for the '<em><b>File Reference</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILDER__FILE_REFERENCE = B3backendPackage.B3_FUNCTION__FILE_REFERENCE;
-
-	/**
 	 * The feature id for the '<em><b>Func Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -606,238 +2470,50 @@ public interface B3BuildPackage extends EPackage {
 	 */
 	int BUILDER_FEATURE_COUNT = B3backendPackage.B3_FUNCTION_FEATURE_COUNT + 7;
 
-
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderInputImpl <em>Builder Input</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.impl.BuilderInputImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuilderInput()
-	 * @generated
-	 */
-	int BUILDER_INPUT = 3;
-
-	/**
-	 * The feature id for the '<em><b>Prerequisites</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILDER_INPUT__PREREQUISITES = 0;
+	int BUILDER_JAVA__LINE_NUMBER = B3backendPackage.BJAVA_FUNCTION__LINE_NUMBER;
 
 	/**
-	 * The number of structural features of the '<em>Builder Input</em>' class.
+	 * The feature id for the '<em><b>File Reference</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILDER_INPUT_FEATURE_COUNT = 1;
+	int BUILDER_JAVA__FILE_REFERENCE = B3backendPackage.BJAVA_FUNCTION__FILE_REFERENCE;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.PathGroupImpl <em>Path Group</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.impl.PathGroupImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getPathGroup()
-	 * @generated
-	 */
-	int PATH_GROUP = 4;
-
-	/**
-	 * The feature id for the '<em><b>Annotations</b></em>' containment reference.
+	 * The feature id for the '<em><b>Visibility</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_GROUP__ANNOTATIONS = 0;
+	int BUILDER_JAVA__VISIBILITY = B3backendPackage.BJAVA_FUNCTION__VISIBILITY;
 
 	/**
-	 * The feature id for the '<em><b>Path Vectors</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Final</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_GROUP__PATH_VECTORS = 1;
+	int BUILDER_JAVA__FINAL = B3backendPackage.BJAVA_FUNCTION__FINAL;
 
 	/**
-	 * The number of structural features of the '<em>Path Group</em>' class.
+	 * The feature id for the '<em><b>Execution Mode</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_GROUP_FEATURE_COUNT = 2;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.PrerequisiteImpl <em>Prerequisite</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.impl.PrerequisiteImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getPrerequisite()
-	 * @generated
-	 */
-	int PREREQUISITE = 5;
-
-	/**
-	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PREREQUISITE__COND_EXPR = 0;
-
-	/**
-	 * The feature id for the '<em><b>Alias</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PREREQUISITE__ALIAS = 1;
-
-	/**
-	 * The feature id for the '<em><b>With Expr</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PREREQUISITE__WITH_EXPR = 2;
-
-	/**
-	 * The feature id for the '<em><b>Build Result</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PREREQUISITE__BUILD_RESULT = 3;
-
-	/**
-	 * The number of structural features of the '<em>Prerequisite</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PREREQUISITE_FEATURE_COUNT = 4;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuildResultReferenceImpl <em>Build Result Reference</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.impl.BuildResultReferenceImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuildResultReference()
-	 * @generated
-	 */
-	int BUILD_RESULT_REFERENCE = 6;
-
-	/**
-	 * The number of structural features of the '<em>Build Result Reference</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILD_RESULT_REFERENCE_FEATURE_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.CompoundBuildResultReferenceImpl <em>Compound Build Result Reference</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.impl.CompoundBuildResultReferenceImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getCompoundBuildResultReference()
-	 * @generated
-	 */
-	int COMPOUND_BUILD_RESULT_REFERENCE = 7;
-
-	/**
-	 * The feature id for the '<em><b>Prerequisites</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOUND_BUILD_RESULT_REFERENCE__PREREQUISITES = BUILD_RESULT_REFERENCE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Compound Build Result Reference</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOUND_BUILD_RESULT_REFERENCE_FEATURE_COUNT = BUILD_RESULT_REFERENCE_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderReferenceImpl <em>Builder Reference</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.impl.BuilderReferenceImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuilderReference()
-	 * @generated
-	 */
-	int BUILDER_REFERENCE = 8;
-
-	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILDER_REFERENCE__PARAMETERS = BUILD_RESULT_REFERENCE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Builder Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILDER_REFERENCE__BUILDER_NAME = BUILD_RESULT_REFERENCE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Required Capability</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILDER_REFERENCE__REQUIRED_CAPABILITY = BUILD_RESULT_REFERENCE_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Required Capability Reference</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILDER_REFERENCE__REQUIRED_CAPABILITY_REFERENCE = BUILD_RESULT_REFERENCE_FEATURE_COUNT + 3;
-
-	/**
-	 * The number of structural features of the '<em>Builder Reference</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILDER_REFERENCE_FEATURE_COUNT = BUILD_RESULT_REFERENCE_FEATURE_COUNT + 4;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.RequiredCapabilityImpl <em>Required Capability</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.impl.RequiredCapabilityImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getRequiredCapability()
-	 * @generated
-	 */
-	int REQUIRED_CAPABILITY = 10;
+	int BUILDER_JAVA__EXECUTION_MODE = B3backendPackage.BJAVA_FUNCTION__EXECUTION_MODE;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -846,247 +2522,70 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REQUIRED_CAPABILITY__NAME = CAPABILITY__NAME;
+	int BUILDER_JAVA__NAME = B3backendPackage.BJAVA_FUNCTION__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Name Space</b></em>' attribute.
+	 * The feature id for the '<em><b>Guard</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REQUIRED_CAPABILITY__NAME_SPACE = CAPABILITY__NAME_SPACE;
+	int BUILDER_JAVA__GUARD = B3backendPackage.BJAVA_FUNCTION__GUARD;
 
 	/**
-	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
+	 * The feature id for the '<em><b>Parameter Types</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REQUIRED_CAPABILITY__COND_EXPR = CAPABILITY__COND_EXPR;
+	int BUILDER_JAVA__PARAMETER_TYPES = B3backendPackage.BJAVA_FUNCTION__PARAMETER_TYPES;
 
 	/**
-	 * The feature id for the '<em><b>Version Range</b></em>' attribute.
+	 * The feature id for the '<em><b>Exception Types</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REQUIRED_CAPABILITY__VERSION_RANGE = CAPABILITY_FEATURE_COUNT + 0;
+	int BUILDER_JAVA__EXCEPTION_TYPES = B3backendPackage.BJAVA_FUNCTION__EXCEPTION_TYPES;
 
 	/**
-	 * The number of structural features of the '<em>Required Capability</em>' class.
+	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REQUIRED_CAPABILITY_FEATURE_COUNT = CAPABILITY_FEATURE_COUNT + 1;
+	int BUILDER_JAVA__TYPE_PARAMETERS = B3backendPackage.BJAVA_FUNCTION__TYPE_PARAMETERS;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.PathVectorImpl <em>Path Vector</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.impl.PathVectorImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getPathVector()
-	 * @generated
-	 */
-	int PATH_VECTOR = 11;
-
-	/**
-	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
+	 * The feature id for the '<em><b>Parameter Names</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_VECTOR__COND_EXPR = 0;
+	int BUILDER_JAVA__PARAMETER_NAMES = B3backendPackage.BJAVA_FUNCTION__PARAMETER_NAMES;
 
 	/**
-	 * The feature id for the '<em><b>Base Path</b></em>' attribute.
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_VECTOR__BASE_PATH = 1;
+	int BUILDER_JAVA__PARAMETERS = B3backendPackage.BJAVA_FUNCTION__PARAMETERS;
 
 	/**
-	 * The feature id for the '<em><b>Paths</b></em>' attribute list.
+	 * The feature id for the '<em><b>Var Args</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_VECTOR__PATHS = 2;
-
-	/**
-	 * The number of structural features of the '<em>Path Vector</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATH_VECTOR_FEATURE_COUNT = 3;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.CompoundPathVectorImpl <em>Compound Path Vector</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.impl.CompoundPathVectorImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getCompoundPathVector()
-	 * @generated
-	 */
-	int COMPOUND_PATH_VECTOR = 12;
-
-	/**
-	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOUND_PATH_VECTOR__COND_EXPR = PATH_VECTOR__COND_EXPR;
-
-	/**
-	 * The feature id for the '<em><b>Base Path</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOUND_PATH_VECTOR__BASE_PATH = PATH_VECTOR__BASE_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Paths</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOUND_PATH_VECTOR__PATHS = PATH_VECTOR__PATHS;
-
-	/**
-	 * The feature id for the '<em><b>Path Vectors</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOUND_PATH_VECTOR__PATH_VECTORS = PATH_VECTOR_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Compound Path Vector</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOUND_PATH_VECTOR_FEATURE_COUNT = PATH_VECTOR_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.PathVectorElementImpl <em>Path Vector Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.impl.PathVectorElementImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getPathVectorElement()
-	 * @generated
-	 */
-	int PATH_VECTOR_ELEMENT = 13;
-
-	/**
-	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATH_VECTOR_ELEMENT__COND_EXPR = PATH_VECTOR__COND_EXPR;
-
-	/**
-	 * The feature id for the '<em><b>Base Path</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATH_VECTOR_ELEMENT__BASE_PATH = PATH_VECTOR__BASE_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Paths</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATH_VECTOR_ELEMENT__PATHS = PATH_VECTOR__PATHS;
-
-	/**
-	 * The number of structural features of the '<em>Path Vector Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATH_VECTOR_ELEMENT_FEATURE_COUNT = PATH_VECTOR_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.SynchronizationImpl <em>Synchronization</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.impl.SynchronizationImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getSynchronization()
-	 * @generated
-	 */
-	int SYNCHRONIZATION = 14;
-
-	/**
-	 * The feature id for the '<em><b>Builder Queries</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYNCHRONIZATION__BUILDER_QUERIES = 0;
-
-	/**
-	 * The number of structural features of the '<em>Synchronization</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYNCHRONIZATION_FEATURE_COUNT = 1;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.RepositoryConfigurationImpl <em>Repository Configuration</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.impl.RepositoryConfigurationImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getRepositoryConfiguration()
-	 * @generated
-	 */
-	int REPOSITORY_CONFIGURATION = 15;
-
-	/**
-	 * The number of structural features of the '<em>Repository Configuration</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REPOSITORY_CONFIGURATION_FEATURE_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.RepositoryDeclarationImpl <em>Repository Declaration</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.impl.RepositoryDeclarationImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getRepositoryDeclaration()
-	 * @generated
-	 */
-	int REPOSITORY_DECLARATION = 16;
+	int BUILDER_JAVA__VAR_ARGS = B3backendPackage.BJAVA_FUNCTION__VAR_ARGS;
 
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
@@ -1095,770 +2594,61 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY_DECLARATION__DOCUMENTATION = REPOSITORY_CONFIGURATION_FEATURE_COUNT + 0;
+	int BUILDER_JAVA__DOCUMENTATION = B3backendPackage.BJAVA_FUNCTION__DOCUMENTATION;
 
 	/**
-	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * The feature id for the '<em><b>Return Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY_DECLARATION__LOCATION = REPOSITORY_CONFIGURATION_FEATURE_COUNT + 1;
+	int BUILDER_JAVA__RETURN_TYPE = B3backendPackage.BJAVA_FUNCTION__RETURN_TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Resolver Type</b></em>' containment reference.
+	 * The feature id for the '<em><b>Closure</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY_DECLARATION__RESOLVER_TYPE = REPOSITORY_CONFIGURATION_FEATURE_COUNT + 2;
+	int BUILDER_JAVA__CLOSURE = B3backendPackage.BJAVA_FUNCTION__CLOSURE;
 
 	/**
-	 * The feature id for the '<em><b>Context Block</b></em>' containment reference.
+	 * The feature id for the '<em><b>Type Calculator</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY_DECLARATION__CONTEXT_BLOCK = REPOSITORY_CONFIGURATION_FEATURE_COUNT + 3;
+	int BUILDER_JAVA__TYPE_CALCULATOR = B3backendPackage.BJAVA_FUNCTION__TYPE_CALCULATOR;
 
 	/**
-	 * The number of structural features of the '<em>Repository Declaration</em>' class.
+	 * The feature id for the '<em><b>Container</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY_DECLARATION_FEATURE_COUNT = REPOSITORY_CONFIGURATION_FEATURE_COUNT + 4;
+	int BUILDER_JAVA__CONTAINER = B3backendPackage.BJAVA_FUNCTION__CONTAINER;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ResolutionStrategyImpl <em>Resolution Strategy</em>}' class.
+	 * The feature id for the '<em><b>Method</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.impl.ResolutionStrategyImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getResolutionStrategy()
 	 * @generated
-	 */
-	int RESOLUTION_STRATEGY = 17;
-
-	/**
-	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOLUTION_STRATEGY__REPOSITORIES = REPOSITORY_CONFIGURATION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Resolution Strategy</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOLUTION_STRATEGY_FEATURE_COUNT = REPOSITORY_CONFIGURATION_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ResolutionStrategyFirstImpl <em>Resolution Strategy First</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.impl.ResolutionStrategyFirstImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getResolutionStrategyFirst()
-	 * @generated
-	 */
-	int RESOLUTION_STRATEGY_FIRST = 18;
-
-	/**
-	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOLUTION_STRATEGY_FIRST__REPOSITORIES = RESOLUTION_STRATEGY__REPOSITORIES;
-
-	/**
-	 * The number of structural features of the '<em>Resolution Strategy First</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOLUTION_STRATEGY_FIRST_FEATURE_COUNT = RESOLUTION_STRATEGY_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ResolutionStrategyBestImpl <em>Resolution Strategy Best</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.impl.ResolutionStrategyBestImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getResolutionStrategyBest()
-	 * @generated
-	 */
-	int RESOLUTION_STRATEGY_BEST = 19;
-
-	/**
-	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOLUTION_STRATEGY_BEST__REPOSITORIES = RESOLUTION_STRATEGY__REPOSITORIES;
-
-	/**
-	 * The number of structural features of the '<em>Resolution Strategy Best</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOLUTION_STRATEGY_BEST_FEATURE_COUNT = RESOLUTION_STRATEGY_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ContainerConfigurationImpl <em>Container Configuration</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.impl.ContainerConfigurationImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getContainerConfiguration()
-	 * @generated
-	 */
-	int CONTAINER_CONFIGURATION = 20;
-
-	/**
-	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTAINER_CONFIGURATION__DOCUMENTATION = 0;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTAINER_CONFIGURATION__NAME = 1;
-
-	/**
-	 * The feature id for the '<em><b>Agent Type</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTAINER_CONFIGURATION__AGENT_TYPE = 2;
-
-	/**
-	 * The feature id for the '<em><b>Context Block</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTAINER_CONFIGURATION__CONTEXT_BLOCK = 3;
-
-	/**
-	 * The number of structural features of the '<em>Container Configuration</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTAINER_CONFIGURATION_FEATURE_COUNT = 4;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuildContextImpl <em>Build Context</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.impl.BuildContextImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuildContext()
-	 * @generated
-	 */
-	int BUILD_CONTEXT = 21;
-
-	/**
-	 * The feature id for the '<em><b>Parent Context</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILD_CONTEXT__PARENT_CONTEXT = B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT;
-
-	/**
-	 * The feature id for the '<em><b>Child Contexts</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILD_CONTEXT__CHILD_CONTEXTS = B3backendPackage.BEXECUTION_CONTEXT__CHILD_CONTEXTS;
-
-	/**
-	 * The feature id for the '<em><b>Value Map</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILD_CONTEXT__VALUE_MAP = B3backendPackage.BEXECUTION_CONTEXT__VALUE_MAP;
-
-	/**
-	 * The feature id for the '<em><b>Func Store</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILD_CONTEXT__FUNC_STORE = B3backendPackage.BEXECUTION_CONTEXT__FUNC_STORE;
-
-	/**
-	 * The number of structural features of the '<em>Build Context</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILD_CONTEXT_FEATURE_COUNT = B3backendPackage.BEXECUTION_CONTEXT_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuildConcernContextImpl <em>Build Concern Context</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.impl.BuildConcernContextImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuildConcernContext()
-	 * @generated
-	 */
-	int BUILD_CONCERN_CONTEXT = 22;
-
-	/**
-	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILD_CONCERN_CONTEXT__FUNCTIONS = B3backendPackage.BCONCERN_CONTEXT__FUNCTIONS;
-
-	/**
-	 * The feature id for the '<em><b>Container Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILD_CONCERN_CONTEXT__CONTAINER_TYPE = B3backendPackage.BCONCERN_CONTEXT__CONTAINER_TYPE;
-
-	/**
-	 * The number of structural features of the '<em>Build Concern Context</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILD_CONCERN_CONTEXT_FEATURE_COUNT = B3backendPackage.BCONCERN_CONTEXT_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.RequiresPredicateImpl <em>Requires Predicate</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.impl.RequiresPredicateImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getRequiresPredicate()
-	 * @generated
-	 */
-	int REQUIRES_PREDICATE = 23;
-
-	/**
-	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIRES_PREDICATE__LINE_NUMBER = B3backendPackage.BEXPRESSION__LINE_NUMBER;
-
-	/**
-	 * The feature id for the '<em><b>File Reference</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIRES_PREDICATE__FILE_REFERENCE = B3backendPackage.BEXPRESSION__FILE_REFERENCE;
-
-	/**
-	 * The feature id for the '<em><b>Capability Predicate</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIRES_PREDICATE__CAPABILITY_PREDICATE = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Meta</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIRES_PREDICATE__META = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Requires Predicate</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIRES_PREDICATE_FEATURE_COUNT = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 2;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.CapabilityPredicateImpl <em>Capability Predicate</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.impl.CapabilityPredicateImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getCapabilityPredicate()
-	 * @generated
-	 */
-	int CAPABILITY_PREDICATE = 24;
-
-	/**
-	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAPABILITY_PREDICATE__LINE_NUMBER = B3backendPackage.BEXPRESSION__LINE_NUMBER;
-
-	/**
-	 * The feature id for the '<em><b>File Reference</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAPABILITY_PREDICATE__FILE_REFERENCE = B3backendPackage.BEXPRESSION__FILE_REFERENCE;
-
-	/**
-	 * The feature id for the '<em><b>Name Space Pattern</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAPABILITY_PREDICATE__NAME_SPACE_PATTERN = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Version Range</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAPABILITY_PREDICATE__VERSION_RANGE = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Name Predicate</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAPABILITY_PREDICATE__NAME_PREDICATE = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Name Space Predicate</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAPABILITY_PREDICATE__NAME_SPACE_PREDICATE = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 3;
-
-	/**
-	 * The number of structural features of the '<em>Capability Predicate</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAPABILITY_PREDICATE_FEATURE_COUNT = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 4;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ImplementsPredicateImpl <em>Implements Predicate</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.impl.ImplementsPredicateImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getImplementsPredicate()
-	 * @generated
-	 */
-	int IMPLEMENTS_PREDICATE = 25;
-
-	/**
-	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IMPLEMENTS_PREDICATE__LINE_NUMBER = B3backendPackage.BEXPRESSION__LINE_NUMBER;
-
-	/**
-	 * The feature id for the '<em><b>File Reference</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IMPLEMENTS_PREDICATE__FILE_REFERENCE = B3backendPackage.BEXPRESSION__FILE_REFERENCE;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IMPLEMENTS_PREDICATE__TYPE = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Implements Predicate</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IMPLEMENTS_PREDICATE_FEATURE_COUNT = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ProvidesPredicateImpl <em>Provides Predicate</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.impl.ProvidesPredicateImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getProvidesPredicate()
-	 * @generated
-	 */
-	int PROVIDES_PREDICATE = 26;
-
-	/**
-	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROVIDES_PREDICATE__LINE_NUMBER = B3backendPackage.BEXPRESSION__LINE_NUMBER;
-
-	/**
-	 * The feature id for the '<em><b>File Reference</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROVIDES_PREDICATE__FILE_REFERENCE = B3backendPackage.BEXPRESSION__FILE_REFERENCE;
-
-	/**
-	 * The feature id for the '<em><b>Capability Predicate</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROVIDES_PREDICATE__CAPABILITY_PREDICATE = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Provides Predicate</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROVIDES_PREDICATE_FEATURE_COUNT = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.NamePredicateImpl <em>Name Predicate</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.impl.NamePredicateImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getNamePredicate()
-	 * @generated
-	 */
-	int NAME_PREDICATE = 27;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAME_PREDICATE__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Name Pattern</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAME_PREDICATE__NAME_PATTERN = 1;
-
-	/**
-	 * The number of structural features of the '<em>Name Predicate</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAME_PREDICATE_FEATURE_COUNT = 2;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.NameSpacePredicateImpl <em>Name Space Predicate</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.impl.NameSpacePredicateImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getNameSpacePredicate()
-	 * @generated
-	 */
-	int NAME_SPACE_PREDICATE = 28;
-
-	/**
-	 * The feature id for the '<em><b>Name Space</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAME_SPACE_PREDICATE__NAME_SPACE = 0;
-
-	/**
-	 * The number of structural features of the '<em>Name Space Predicate</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAME_SPACE_PREDICATE_FEATURE_COUNT = 1;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.UnitNamePredicateImpl <em>Unit Name Predicate</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.impl.UnitNamePredicateImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getUnitNamePredicate()
-	 * @generated
-	 */
-	int UNIT_NAME_PREDICATE = 29;
-
-	/**
-	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNIT_NAME_PREDICATE__LINE_NUMBER = CAPABILITY_PREDICATE__LINE_NUMBER;
-
-	/**
-	 * The feature id for the '<em><b>File Reference</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNIT_NAME_PREDICATE__FILE_REFERENCE = CAPABILITY_PREDICATE__FILE_REFERENCE;
-
-	/**
-	 * The feature id for the '<em><b>Name Space Pattern</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNIT_NAME_PREDICATE__NAME_SPACE_PATTERN = CAPABILITY_PREDICATE__NAME_SPACE_PATTERN;
-
-	/**
-	 * The feature id for the '<em><b>Version Range</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNIT_NAME_PREDICATE__VERSION_RANGE = CAPABILITY_PREDICATE__VERSION_RANGE;
-
-	/**
-	 * The feature id for the '<em><b>Name Predicate</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNIT_NAME_PREDICATE__NAME_PREDICATE = CAPABILITY_PREDICATE__NAME_PREDICATE;
-
-	/**
-	 * The feature id for the '<em><b>Name Space Predicate</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNIT_NAME_PREDICATE__NAME_SPACE_PREDICATE = CAPABILITY_PREDICATE__NAME_SPACE_PREDICATE;
-
-	/**
-	 * The number of structural features of the '<em>Unit Name Predicate</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNIT_NAME_PREDICATE_FEATURE_COUNT = CAPABILITY_PREDICATE_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderNamePredicateImpl <em>Builder Name Predicate</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.impl.BuilderNamePredicateImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuilderNamePredicate()
-	 * @generated
-	 */
-	int BUILDER_NAME_PREDICATE = 30;
-
-	/**
-	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILDER_NAME_PREDICATE__LINE_NUMBER = B3backendPackage.BEXPRESSION__LINE_NUMBER;
-
-	/**
-	 * The feature id for the '<em><b>File Reference</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILDER_NAME_PREDICATE__FILE_REFERENCE = B3backendPackage.BEXPRESSION__FILE_REFERENCE;
-
-	/**
-	 * The feature id for the '<em><b>Name Predicate</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILDER_NAME_PREDICATE__NAME_PREDICATE = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Builder Name Predicate</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILDER_NAME_PREDICATE_FEATURE_COUNT = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.InputPredicateImpl <em>Input Predicate</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.impl.InputPredicateImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getInputPredicate()
-	 * @generated
-	 */
-	int INPUT_PREDICATE = 31;
-
-	/**
-	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INPUT_PREDICATE__LINE_NUMBER = B3backendPackage.BEXPRESSION__LINE_NUMBER;
-
-	/**
-	 * The feature id for the '<em><b>File Reference</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INPUT_PREDICATE__FILE_REFERENCE = B3backendPackage.BEXPRESSION__FILE_REFERENCE;
-
-	/**
-	 * The feature id for the '<em><b>Capability Predicate</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INPUT_PREDICATE__CAPABILITY_PREDICATE = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Builder Predicate</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INPUT_PREDICATE__BUILDER_PREDICATE = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Input Predicate</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INPUT_PREDICATE_FEATURE_COUNT = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 2;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl <em>Unit Concern Context</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.impl.UnitConcernContextImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getUnitConcernContext()
-	 * @generated
-	 */
-	int UNIT_CONCERN_CONTEXT = 32;
-
-	/**
-	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNIT_CONCERN_CONTEXT__FUNCTIONS = BUILD_CONCERN_CONTEXT__FUNCTIONS;
-
-	/**
-	 * The feature id for the '<em><b>Container Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
 	 * @ordered
 	 */
-	int UNIT_CONCERN_CONTEXT__CONTAINER_TYPE = BUILD_CONCERN_CONTEXT__CONTAINER_TYPE;
+	int BUILDER_JAVA__METHOD = B3backendPackage.BJAVA_FUNCTION__METHOD;
 
 	/**
-	 * The feature id for the '<em><b>Required Capabilities</b></em>' containment reference list.
+	 * The feature id for the '<em><b>System Call</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNIT_CONCERN_CONTEXT__REQUIRED_CAPABILITIES = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 0;
+	int BUILDER_JAVA__SYSTEM_CALL = B3backendPackage.BJAVA_FUNCTION__SYSTEM_CALL;
 
 	/**
 	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
@@ -1867,355 +2657,70 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNIT_CONCERN_CONTEXT__PROVIDED_CAPABILITIES = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 1;
+	int BUILDER_JAVA__PROVIDED_CAPABILITIES = B3backendPackage.BJAVA_FUNCTION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Builder Contexts</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Postcond Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNIT_CONCERN_CONTEXT__BUILDER_CONTEXTS = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 2;
+	int BUILDER_JAVA__POSTCOND_EXPR = B3backendPackage.BJAVA_FUNCTION_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Query</b></em>' containment reference.
+	 * The feature id for the '<em><b>Precond Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNIT_CONCERN_CONTEXT__QUERY = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 3;
+	int BUILDER_JAVA__PRECOND_EXPR = B3backendPackage.BJAVA_FUNCTION_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Requires Removals</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Input</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNIT_CONCERN_CONTEXT__REQUIRES_REMOVALS = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 4;
+	int BUILDER_JAVA__INPUT = B3backendPackage.BJAVA_FUNCTION_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Provides Removals</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Output</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNIT_CONCERN_CONTEXT__PROVIDES_REMOVALS = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 5;
+	int BUILDER_JAVA__OUTPUT = B3backendPackage.BJAVA_FUNCTION_FEATURE_COUNT + 4;
 
 	/**
-	 * The number of structural features of the '<em>Unit Concern Context</em>' class.
+	 * The feature id for the '<em><b>Default Properties</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNIT_CONCERN_CONTEXT_FEATURE_COUNT = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 6;
+	int BUILDER_JAVA__DEFAULT_PROPERTIES = B3backendPackage.BJAVA_FUNCTION_FEATURE_COUNT + 5;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl <em>Builder Concern Context</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.impl.BuilderConcernContextImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuilderConcernContext()
-	 * @generated
-	 */
-	int BUILDER_CONCERN_CONTEXT = 33;
-
-	/**
-	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Postinputcondition</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILDER_CONCERN_CONTEXT__FUNCTIONS = BUILD_CONCERN_CONTEXT__FUNCTIONS;
+	int BUILDER_JAVA__POSTINPUTCONDITION = B3backendPackage.BJAVA_FUNCTION_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Container Type</b></em>' attribute.
+	 * The number of structural features of the '<em>Builder Java</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILDER_CONCERN_CONTEXT__CONTAINER_TYPE = BUILD_CONCERN_CONTEXT__CONTAINER_TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Query</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILDER_CONCERN_CONTEXT__QUERY = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Input Additions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILDER_CONCERN_CONTEXT__INPUT_ADDITIONS = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Input Removals</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILDER_CONCERN_CONTEXT__INPUT_REMOVALS = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Output Additions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILDER_CONCERN_CONTEXT__OUTPUT_ADDITIONS = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Output Removals</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILDER_CONCERN_CONTEXT__OUTPUT_REMOVALS = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Func Expr</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILDER_CONCERN_CONTEXT__FUNC_EXPR = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 5;
-
-	/**
-	 * The number of structural features of the '<em>Builder Concern Context</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILDER_CONCERN_CONTEXT_FEATURE_COUNT = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 6;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.OutputPredicateImpl <em>Output Predicate</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.impl.OutputPredicateImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getOutputPredicate()
-	 * @generated
-	 */
-	int OUTPUT_PREDICATE = 34;
-
-	/**
-	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OUTPUT_PREDICATE__LINE_NUMBER = B3backendPackage.BEXPRESSION__LINE_NUMBER;
-
-	/**
-	 * The feature id for the '<em><b>File Reference</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OUTPUT_PREDICATE__FILE_REFERENCE = B3backendPackage.BEXPRESSION__FILE_REFERENCE;
-
-	/**
-	 * The feature id for the '<em><b>Path Vector</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OUTPUT_PREDICATE__PATH_VECTOR = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Path Pattern</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OUTPUT_PREDICATE__PATH_PATTERN = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Output Predicate</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OUTPUT_PREDICATE_FEATURE_COUNT = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 2;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.AliasedRequiredCapabilityImpl <em>Aliased Required Capability</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.impl.AliasedRequiredCapabilityImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getAliasedRequiredCapability()
-	 * @generated
-	 */
-	int ALIASED_REQUIRED_CAPABILITY = 35;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ALIASED_REQUIRED_CAPABILITY__NAME = REQUIRED_CAPABILITY__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Name Space</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ALIASED_REQUIRED_CAPABILITY__NAME_SPACE = REQUIRED_CAPABILITY__NAME_SPACE;
-
-	/**
-	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ALIASED_REQUIRED_CAPABILITY__COND_EXPR = REQUIRED_CAPABILITY__COND_EXPR;
-
-	/**
-	 * The feature id for the '<em><b>Version Range</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ALIASED_REQUIRED_CAPABILITY__VERSION_RANGE = REQUIRED_CAPABILITY__VERSION_RANGE;
-
-	/**
-	 * The feature id for the '<em><b>Alias</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ALIASED_REQUIRED_CAPABILITY__ALIAS = REQUIRED_CAPABILITY_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Aliased Required Capability</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ALIASED_REQUIRED_CAPABILITY_FEATURE_COUNT = REQUIRED_CAPABILITY_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.IRequiredCapabilityContainer <em>IRequired Capability Container</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.IRequiredCapabilityContainer
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getIRequiredCapabilityContainer()
-	 * @generated
-	 */
-	int IREQUIRED_CAPABILITY_CONTAINER = 36;
-
-	/**
-	 * The feature id for the '<em><b>Required Capabilities</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_CAPABILITIES = 0;
-
-	/**
-	 * The number of structural features of the '<em>IRequired Capability Container</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IREQUIRED_CAPABILITY_CONTAINER_FEATURE_COUNT = 1;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.IProvidedCapabilityContainer <em>IProvided Capability Container</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.IProvidedCapabilityContainer
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getIProvidedCapabilityContainer()
-	 * @generated
-	 */
-	int IPROVIDED_CAPABILITY_CONTAINER = 37;
-
-	/**
-	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IPROVIDED_CAPABILITY_CONTAINER__PROVIDED_CAPABILITIES = 0;
-
-	/**
-	 * The number of structural features of the '<em>IProvided Capability Container</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT = 1;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderQueryImpl <em>Builder Query</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.impl.BuilderQueryImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuilderQuery()
-	 * @generated
-	 */
-	int BUILDER_QUERY = 38;
-
-	/**
-	 * The feature id for the '<em><b>Builder Queries</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILDER_QUERY__BUILDER_QUERIES = 0;
-
-	/**
-	 * The feature id for the '<em><b>Unit Query</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILDER_QUERY__UNIT_QUERY = 1;
-
-	/**
-	 * The number of structural features of the '<em>Builder Query</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILDER_QUERY_FEATURE_COUNT = 2;
+	int BUILDER_JAVA_FEATURE_COUNT = B3backendPackage.BJAVA_FUNCTION_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '<em>Version Range</em>' data type.
@@ -2225,7 +2730,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getVersionRange()
 	 * @generated
 	 */
-	int VERSION_RANGE = 39;
+	int VERSION_RANGE = 41;
 
 	/**
 	 * The meta object id for the '<em>Version</em>' data type.
@@ -2235,7 +2740,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getVersion()
 	 * @generated
 	 */
-	int VERSION = 40;
+	int VERSION = 42;
 
 	/**
 	 * The meta object id for the '<em>URI</em>' data type.
@@ -2245,7 +2750,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getURI()
 	 * @generated
 	 */
-	int URI = 41;
+	int URI = 43;
 
 
 	/**
@@ -2380,6 +2885,82 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBuildUnit_Containers();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.IBuilder <em>IBuilder</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>IBuilder</em>'.
+	 * @see org.eclipse.b3.build.build.IBuilder
+	 * @generated
+	 */
+	EClass getIBuilder();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.IBuilder#getPostcondExpr <em>Postcond Expr</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Postcond Expr</em>'.
+	 * @see org.eclipse.b3.build.build.IBuilder#getPostcondExpr()
+	 * @see #getIBuilder()
+	 * @generated
+	 */
+	EReference getIBuilder_PostcondExpr();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.IBuilder#getPrecondExpr <em>Precond Expr</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Precond Expr</em>'.
+	 * @see org.eclipse.b3.build.build.IBuilder#getPrecondExpr()
+	 * @see #getIBuilder()
+	 * @generated
+	 */
+	EReference getIBuilder_PrecondExpr();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.IBuilder#getInput <em>Input</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Input</em>'.
+	 * @see org.eclipse.b3.build.build.IBuilder#getInput()
+	 * @see #getIBuilder()
+	 * @generated
+	 */
+	EReference getIBuilder_Input();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.IBuilder#getOutput <em>Output</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Output</em>'.
+	 * @see org.eclipse.b3.build.build.IBuilder#getOutput()
+	 * @see #getIBuilder()
+	 * @generated
+	 */
+	EReference getIBuilder_Output();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.IBuilder#getDefaultProperties <em>Default Properties</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Default Properties</em>'.
+	 * @see org.eclipse.b3.build.build.IBuilder#getDefaultProperties()
+	 * @see #getIBuilder()
+	 * @generated
+	 */
+	EReference getIBuilder_DefaultProperties();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.IBuilder#getPostinputcondition <em>Postinputcondition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Postinputcondition</em>'.
+	 * @see org.eclipse.b3.build.build.IBuilder#getPostinputcondition()
+	 * @see #getIBuilder()
+	 * @generated
+	 */
+	EReference getIBuilder_Postinputcondition();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.Builder <em>Builder</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2390,70 +2971,14 @@ public interface B3BuildPackage extends EPackage {
 	EClass getBuilder();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.Builder#getPostcondExpr <em>Postcond Expr</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuilderJava <em>Builder Java</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Postcond Expr</em>'.
-	 * @see org.eclipse.b3.build.build.Builder#getPostcondExpr()
-	 * @see #getBuilder()
+	 * @return the meta object for class '<em>Builder Java</em>'.
+	 * @see org.eclipse.b3.build.build.BuilderJava
 	 * @generated
 	 */
-	EReference getBuilder_PostcondExpr();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.Builder#getPrecondExpr <em>Precond Expr</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Precond Expr</em>'.
-	 * @see org.eclipse.b3.build.build.Builder#getPrecondExpr()
-	 * @see #getBuilder()
-	 * @generated
-	 */
-	EReference getBuilder_PrecondExpr();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.Builder#getInput <em>Input</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Input</em>'.
-	 * @see org.eclipse.b3.build.build.Builder#getInput()
-	 * @see #getBuilder()
-	 * @generated
-	 */
-	EReference getBuilder_Input();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.Builder#getOutput <em>Output</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Output</em>'.
-	 * @see org.eclipse.b3.build.build.Builder#getOutput()
-	 * @see #getBuilder()
-	 * @generated
-	 */
-	EReference getBuilder_Output();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.Builder#getDefaultProperties <em>Default Properties</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Default Properties</em>'.
-	 * @see org.eclipse.b3.build.build.Builder#getDefaultProperties()
-	 * @see #getBuilder()
-	 * @generated
-	 */
-	EReference getBuilder_DefaultProperties();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.Builder#getPostinputcondition <em>Postinputcondition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Postinputcondition</em>'.
-	 * @see org.eclipse.b3.build.build.Builder#getPostinputcondition()
-	 * @see #getBuilder()
-	 * @generated
-	 */
-	EReference getBuilder_Postinputcondition();
+	EClass getBuilderJava();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.VersionedCapability <em>Versioned Capability</em>}'.
@@ -3661,6 +4186,64 @@ public interface B3BuildPackage extends EPackage {
 		EReference BUILD_UNIT__CONTAINERS = eINSTANCE.getBuildUnit_Containers();
 
 		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.IBuilder <em>IBuilder</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.IBuilder
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getIBuilder()
+		 * @generated
+		 */
+		EClass IBUILDER = eINSTANCE.getIBuilder();
+
+		/**
+		 * The meta object literal for the '<em><b>Postcond Expr</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IBUILDER__POSTCOND_EXPR = eINSTANCE.getIBuilder_PostcondExpr();
+
+		/**
+		 * The meta object literal for the '<em><b>Precond Expr</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IBUILDER__PRECOND_EXPR = eINSTANCE.getIBuilder_PrecondExpr();
+
+		/**
+		 * The meta object literal for the '<em><b>Input</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IBUILDER__INPUT = eINSTANCE.getIBuilder_Input();
+
+		/**
+		 * The meta object literal for the '<em><b>Output</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IBUILDER__OUTPUT = eINSTANCE.getIBuilder_Output();
+
+		/**
+		 * The meta object literal for the '<em><b>Default Properties</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IBUILDER__DEFAULT_PROPERTIES = eINSTANCE.getIBuilder_DefaultProperties();
+
+		/**
+		 * The meta object literal for the '<em><b>Postinputcondition</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IBUILDER__POSTINPUTCONDITION = eINSTANCE.getIBuilder_Postinputcondition();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuilderImpl <em>Builder</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3671,52 +4254,14 @@ public interface B3BuildPackage extends EPackage {
 		EClass BUILDER = eINSTANCE.getBuilder();
 
 		/**
-		 * The meta object literal for the '<em><b>Postcond Expr</b></em>' containment reference feature.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuilderJavaImpl <em>Builder Java</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.impl.BuilderJavaImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuilderJava()
 		 * @generated
 		 */
-		EReference BUILDER__POSTCOND_EXPR = eINSTANCE.getBuilder_PostcondExpr();
-
-		/**
-		 * The meta object literal for the '<em><b>Precond Expr</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BUILDER__PRECOND_EXPR = eINSTANCE.getBuilder_PrecondExpr();
-
-		/**
-		 * The meta object literal for the '<em><b>Input</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BUILDER__INPUT = eINSTANCE.getBuilder_Input();
-
-		/**
-		 * The meta object literal for the '<em><b>Output</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BUILDER__OUTPUT = eINSTANCE.getBuilder_Output();
-
-		/**
-		 * The meta object literal for the '<em><b>Default Properties</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BUILDER__DEFAULT_PROPERTIES = eINSTANCE.getBuilder_DefaultProperties();
-
-		/**
-		 * The meta object literal for the '<em><b>Postinputcondition</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BUILDER__POSTINPUTCONDITION = eINSTANCE.getBuilder_Postinputcondition();
+		EClass BUILDER_JAVA = eINSTANCE.getBuilderJava();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.VersionedCapabilityImpl <em>Versioned Capability</em>}' class.

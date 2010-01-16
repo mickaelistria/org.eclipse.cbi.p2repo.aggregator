@@ -14,6 +14,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
+import org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BSourceLink;
 
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
@@ -87,8 +88,8 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 				return createBuildUnitAdapter();
 			}
 			@Override
-			public Adapter caseBuilder(Builder object) {
-				return createBuilderAdapter();
+			public Adapter caseIBuilder(IBuilder object) {
+				return createIBuilderAdapter();
 			}
 			@Override
 			public Adapter caseVersionedCapability(VersionedCapability object) {
@@ -239,16 +240,20 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 				return createBuilderQueryAdapter();
 			}
 			@Override
+			public Adapter caseBuilder(Builder object) {
+				return createBuilderAdapter();
+			}
+			@Override
+			public Adapter caseBuilderJava(BuilderJava object) {
+				return createBuilderJavaAdapter();
+			}
+			@Override
 			public Adapter caseBFunctionContainer(BFunctionContainer object) {
 				return createBFunctionContainerAdapter();
 			}
 			@Override
 			public Adapter caseIGenericDeclaration(GenericDeclaration object) {
 				return createIGenericDeclarationAdapter();
-			}
-			@Override
-			public Adapter caseIFunction(IFunction object) {
-				return createIFunctionAdapter();
 			}
 			@Override
 			public Adapter caseBSourceLink(BSourceLink object) {
@@ -259,12 +264,8 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 				return createBExpressionAdapter();
 			}
 			@Override
-			public Adapter caseBFunction(BFunction object) {
-				return createBFunctionAdapter();
-			}
-			@Override
-			public Adapter caseB3Function(B3Function object) {
-				return createB3FunctionAdapter();
+			public Adapter caseIFunction(IFunction object) {
+				return createIFunctionAdapter();
 			}
 			@Override
 			public Adapter caseBExecutionContext(BExecutionContext object) {
@@ -273,6 +274,18 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseBConcernContext(BConcernContext object) {
 				return createBConcernContextAdapter();
+			}
+			@Override
+			public Adapter caseBFunction(BFunction object) {
+				return createBFunctionAdapter();
+			}
+			@Override
+			public Adapter caseB3Function(B3Function object) {
+				return createB3FunctionAdapter();
+			}
+			@Override
+			public Adapter caseBJavaFunction(BJavaFunction object) {
+				return createBJavaFunctionAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -309,6 +322,20 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.IBuilder <em>IBuilder</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.IBuilder
+	 * @generated
+	 */
+	public Adapter createIBuilderAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.Builder <em>Builder</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -319,6 +346,20 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBuilderAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.BuilderJava <em>Builder Java</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.BuilderJava
+	 * @generated
+	 */
+	public Adapter createBuilderJavaAdapter() {
 		return null;
 	}
 
@@ -935,6 +976,20 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createB3FunctionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction <em>BJava Function</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction
+	 * @generated
+	 */
+	public Adapter createBJavaFunctionAdapter() {
 		return null;
 	}
 

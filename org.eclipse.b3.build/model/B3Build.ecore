@@ -5,7 +5,7 @@
     nsURI="http://b3build/1.0" nsPrefix="build">
   <eClassifiers xsi:type="ecore:EClass" name="BuildUnit" eSuperTypes="#//VersionedCapability ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BFunctionContainer #//IRequiredCapabilityContainer #//IProvidedCapabilityContainer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="builders" unique="false"
-        upperBound="-1" eType="#//Builder" changeable="false" volatile="true" transient="true"
+        upperBound="-1" eType="#//IBuilder" changeable="false" volatile="true" transient="true"
         derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="executionMode" eType="ecore:EEnum ../../org.eclipse.b3.backend/model/B3Backend.ecore#//ExecutionMode"/>
@@ -29,7 +29,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="containers" upperBound="-1"
         eType="#//ContainerConfiguration" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Builder" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//B3Function #//IProvidedCapabilityContainer">
+  <eClassifiers xsi:type="ecore:EClass" name="IBuilder" abstract="true" interface="true"
+      eSuperTypes="#//IProvidedCapabilityContainer ../../org.eclipse.b3.backend/model/B3Backend.ecore#//IFunction">
     <eStructuralFeatures xsi:type="ecore:EReference" name="postcondExpr" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="precondExpr" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"
@@ -246,4 +247,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="unitQuery" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Builder" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//B3Function #//IBuilder"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BuilderJava" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//BJavaFunction #//IBuilder"/>
 </ecore:EPackage>

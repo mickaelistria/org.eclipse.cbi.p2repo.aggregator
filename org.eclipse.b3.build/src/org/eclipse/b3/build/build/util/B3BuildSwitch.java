@@ -16,6 +16,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
+import org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BSourceLink;
 
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
@@ -109,16 +110,14 @@ public class B3BuildSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case B3BuildPackage.BUILDER: {
-				Builder builder = (Builder)theEObject;
-				T result = caseBuilder(builder);
-				if (result == null) result = caseB3Function(builder);
-				if (result == null) result = caseIProvidedCapabilityContainer(builder);
-				if (result == null) result = caseBFunction(builder);
-				if (result == null) result = caseIFunction(builder);
-				if (result == null) result = caseBExpression(builder);
-				if (result == null) result = caseIGenericDeclaration(builder);
-				if (result == null) result = caseBSourceLink(builder);
+			case B3BuildPackage.IBUILDER: {
+				IBuilder iBuilder = (IBuilder)theEObject;
+				T result = caseIBuilder(iBuilder);
+				if (result == null) result = caseIProvidedCapabilityContainer(iBuilder);
+				if (result == null) result = caseIFunction(iBuilder);
+				if (result == null) result = caseIGenericDeclaration(iBuilder);
+				if (result == null) result = caseBExpression(iBuilder);
+				if (result == null) result = caseBSourceLink(iBuilder);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -386,6 +385,34 @@ public class B3BuildSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case B3BuildPackage.BUILDER: {
+				Builder builder = (Builder)theEObject;
+				T result = caseBuilder(builder);
+				if (result == null) result = caseB3Function(builder);
+				if (result == null) result = caseIBuilder(builder);
+				if (result == null) result = caseBFunction(builder);
+				if (result == null) result = caseIProvidedCapabilityContainer(builder);
+				if (result == null) result = caseIFunction(builder);
+				if (result == null) result = caseBExpression(builder);
+				if (result == null) result = caseBSourceLink(builder);
+				if (result == null) result = caseIGenericDeclaration(builder);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.BUILDER_JAVA: {
+				BuilderJava builderJava = (BuilderJava)theEObject;
+				T result = caseBuilderJava(builderJava);
+				if (result == null) result = caseBJavaFunction(builderJava);
+				if (result == null) result = caseIBuilder(builderJava);
+				if (result == null) result = caseBFunction(builderJava);
+				if (result == null) result = caseIProvidedCapabilityContainer(builderJava);
+				if (result == null) result = caseIFunction(builderJava);
+				if (result == null) result = caseBExpression(builderJava);
+				if (result == null) result = caseBSourceLink(builderJava);
+				if (result == null) result = caseIGenericDeclaration(builderJava);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -406,6 +433,21 @@ public class B3BuildSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IBuilder</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IBuilder</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIBuilder(IBuilder object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Builder</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -417,6 +459,21 @@ public class B3BuildSwitch<T> {
 	 * @generated
 	 */
 	public T caseBuilder(Builder object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Builder Java</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Builder Java</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBuilderJava(BuilderJava object) {
 		return null;
 	}
 
@@ -1077,6 +1134,21 @@ public class B3BuildSwitch<T> {
 	 * @generated
 	 */
 	public T caseB3Function(B3Function object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BJava Function</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BJava Function</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBJavaFunction(BJavaFunction object) {
 		return null;
 	}
 

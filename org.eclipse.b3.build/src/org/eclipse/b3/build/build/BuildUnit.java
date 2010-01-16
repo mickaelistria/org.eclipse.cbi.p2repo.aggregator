@@ -45,7 +45,7 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 
 	/**
 	 * Returns the value of the '<em><b>Builders</b></em>' reference list.
-	 * The list contents are of type {@link org.eclipse.b3.build.build.Builder}.
+	 * The list contents are of type {@link org.eclipse.b3.build.build.IBuilder}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Builders</em>' reference list isn't clear,
@@ -57,7 +57,7 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
-	EList<Builder> getBuilders();
+	EList<IBuilder> getBuilders();
 
 	/**
 	 * Returns the value of the '<em><b>Documentation</b></em>' attribute.

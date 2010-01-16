@@ -66,7 +66,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case B3BuildPackage.BUILD_UNIT: return createBuildUnit();
-			case B3BuildPackage.BUILDER: return createBuilder();
 			case B3BuildPackage.VERSIONED_CAPABILITY: return createVersionedCapability();
 			case B3BuildPackage.BUILDER_INPUT: return createBuilderInput();
 			case B3BuildPackage.PATH_GROUP: return createPathGroup();
@@ -100,6 +99,8 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 			case B3BuildPackage.OUTPUT_PREDICATE: return createOutputPredicate();
 			case B3BuildPackage.ALIASED_REQUIRED_CAPABILITY: return createAliasedRequiredCapability();
 			case B3BuildPackage.BUILDER_QUERY: return createBuilderQuery();
+			case B3BuildPackage.BUILDER: return createBuilder();
+			case B3BuildPackage.BUILDER_JAVA: return createBuilderJava();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -161,6 +162,16 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	public Builder createBuilder() {
 		BuilderImpl builder = new BuilderImpl();
 		return builder;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BuilderJava createBuilderJava() {
+		BuilderJavaImpl builderJava = new BuilderJavaImpl();
+		return builderJava;
 	}
 
 	/**

@@ -19,6 +19,7 @@ import org.eclipse.b3.build.build.Builder;
 
 import org.eclipse.b3.build.build.BuilderConcernContext;
 import org.eclipse.b3.build.build.BuilderInput;
+import org.eclipse.b3.build.build.BuilderJava;
 import org.eclipse.b3.build.build.BuilderNamePredicate;
 import org.eclipse.b3.build.build.BuilderQuery;
 import org.eclipse.b3.build.build.BuilderReference;
@@ -27,6 +28,7 @@ import org.eclipse.b3.build.build.CapabilityPredicate;
 import org.eclipse.b3.build.build.CompoundBuildResultReference;
 import org.eclipse.b3.build.build.CompoundPathVector;
 import org.eclipse.b3.build.build.ContainerConfiguration;
+import org.eclipse.b3.build.build.IBuilder;
 import org.eclipse.b3.build.build.IProvidedCapabilityContainer;
 import org.eclipse.b3.build.build.IRequiredCapabilityContainer;
 import org.eclipse.b3.build.build.ImplementsPredicate;
@@ -81,7 +83,21 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass iBuilderEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass builderEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass builderJavaEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -540,6 +556,69 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getIBuilder() {
+		return iBuilderEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIBuilder_PostcondExpr() {
+		return (EReference)iBuilderEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIBuilder_PrecondExpr() {
+		return (EReference)iBuilderEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIBuilder_Input() {
+		return (EReference)iBuilderEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIBuilder_Output() {
+		return (EReference)iBuilderEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIBuilder_DefaultProperties() {
+		return (EReference)iBuilderEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIBuilder_Postinputcondition() {
+		return (EReference)iBuilderEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBuilder() {
 		return builderEClass;
 	}
@@ -549,53 +628,8 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBuilder_PostcondExpr() {
-		return (EReference)builderEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getBuilder_PrecondExpr() {
-		return (EReference)builderEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getBuilder_Input() {
-		return (EReference)builderEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getBuilder_Output() {
-		return (EReference)builderEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getBuilder_DefaultProperties() {
-		return (EReference)builderEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getBuilder_Postinputcondition() {
-		return (EReference)builderEClass.getEStructuralFeatures().get(5);
+	public EClass getBuilderJava() {
+		return builderJavaEClass;
 	}
 
 	/**
@@ -1557,13 +1591,13 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		createEReference(buildUnitEClass, BUILD_UNIT__REPOSITORIES);
 		createEReference(buildUnitEClass, BUILD_UNIT__CONTAINERS);
 
-		builderEClass = createEClass(BUILDER);
-		createEReference(builderEClass, BUILDER__POSTCOND_EXPR);
-		createEReference(builderEClass, BUILDER__PRECOND_EXPR);
-		createEReference(builderEClass, BUILDER__INPUT);
-		createEReference(builderEClass, BUILDER__OUTPUT);
-		createEReference(builderEClass, BUILDER__DEFAULT_PROPERTIES);
-		createEReference(builderEClass, BUILDER__POSTINPUTCONDITION);
+		iBuilderEClass = createEClass(IBUILDER);
+		createEReference(iBuilderEClass, IBUILDER__POSTCOND_EXPR);
+		createEReference(iBuilderEClass, IBUILDER__PRECOND_EXPR);
+		createEReference(iBuilderEClass, IBUILDER__INPUT);
+		createEReference(iBuilderEClass, IBUILDER__OUTPUT);
+		createEReference(iBuilderEClass, IBUILDER__DEFAULT_PROPERTIES);
+		createEReference(iBuilderEClass, IBUILDER__POSTINPUTCONDITION);
 
 		versionedCapabilityEClass = createEClass(VERSIONED_CAPABILITY);
 		createEAttribute(versionedCapabilityEClass, VERSIONED_CAPABILITY__VERSION);
@@ -1701,6 +1735,10 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		createEReference(builderQueryEClass, BUILDER_QUERY__BUILDER_QUERIES);
 		createEReference(builderQueryEClass, BUILDER_QUERY__UNIT_QUERY);
 
+		builderEClass = createEClass(BUILDER);
+
+		builderJavaEClass = createEClass(BUILDER_JAVA);
+
 		// Create data types
 		versionRangeEDataType = createEDataType(VERSION_RANGE);
 		versionEDataType = createEDataType(VERSION);
@@ -1742,8 +1780,8 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		buildUnitEClass.getESuperTypes().add(theB3backendPackage.getBFunctionContainer());
 		buildUnitEClass.getESuperTypes().add(this.getIRequiredCapabilityContainer());
 		buildUnitEClass.getESuperTypes().add(this.getIProvidedCapabilityContainer());
-		builderEClass.getESuperTypes().add(theB3backendPackage.getB3Function());
-		builderEClass.getESuperTypes().add(this.getIProvidedCapabilityContainer());
+		iBuilderEClass.getESuperTypes().add(this.getIProvidedCapabilityContainer());
+		iBuilderEClass.getESuperTypes().add(theB3backendPackage.getIFunction());
 		versionedCapabilityEClass.getESuperTypes().add(this.getCapability());
 		compoundBuildResultReferenceEClass.getESuperTypes().add(this.getBuildResultReference());
 		builderReferenceEClass.getESuperTypes().add(this.getBuildResultReference());
@@ -1769,10 +1807,14 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		builderConcernContextEClass.getESuperTypes().add(this.getBuildConcernContext());
 		outputPredicateEClass.getESuperTypes().add(theB3backendPackage.getBExpression());
 		aliasedRequiredCapabilityEClass.getESuperTypes().add(this.getRequiredCapability());
+		builderEClass.getESuperTypes().add(theB3backendPackage.getB3Function());
+		builderEClass.getESuperTypes().add(this.getIBuilder());
+		builderJavaEClass.getESuperTypes().add(theB3backendPackage.getBJavaFunction());
+		builderJavaEClass.getESuperTypes().add(this.getIBuilder());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(buildUnitEClass, BuildUnit.class, "BuildUnit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBuildUnit_Builders(), this.getBuilder(), null, "builders", null, 0, -1, BuildUnit.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getBuildUnit_Builders(), this.getIBuilder(), null, "builders", null, 0, -1, BuildUnit.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBuildUnit_Documentation(), ecorePackage.getEString(), "documentation", null, 0, 1, BuildUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBuildUnit_ExecutionMode(), theB3backendPackage.getExecutionMode(), "executionMode", null, 0, 1, BuildUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBuildUnit_MetaRequiredCapabilities(), this.getRequiredCapability(), null, "metaRequiredCapabilities", null, 0, -1, BuildUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1784,13 +1826,13 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		initEReference(getBuildUnit_Repositories(), this.getRepositoryConfiguration(), null, "repositories", null, 0, -1, BuildUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBuildUnit_Containers(), this.getContainerConfiguration(), null, "containers", null, 0, -1, BuildUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(builderEClass, Builder.class, "Builder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBuilder_PostcondExpr(), theB3backendPackage.getBExpression(), null, "postcondExpr", null, 0, 1, Builder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBuilder_PrecondExpr(), theB3backendPackage.getBExpression(), null, "precondExpr", null, 0, 1, Builder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBuilder_Input(), this.getBuilderInput(), null, "input", null, 0, 1, Builder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBuilder_Output(), this.getPathGroup(), null, "output", null, 0, 1, Builder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBuilder_DefaultProperties(), theB3backendPackage.getBPropertySet(), null, "defaultProperties", null, 0, 1, Builder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBuilder_Postinputcondition(), theB3backendPackage.getBExpression(), null, "postinputcondition", null, 0, 1, Builder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(iBuilderEClass, IBuilder.class, "IBuilder", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getIBuilder_PostcondExpr(), theB3backendPackage.getBExpression(), null, "postcondExpr", null, 0, 1, IBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIBuilder_PrecondExpr(), theB3backendPackage.getBExpression(), null, "precondExpr", null, 0, 1, IBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIBuilder_Input(), this.getBuilderInput(), null, "input", null, 0, 1, IBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIBuilder_Output(), this.getPathGroup(), null, "output", null, 0, 1, IBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIBuilder_DefaultProperties(), theB3backendPackage.getBPropertySet(), null, "defaultProperties", null, 0, 1, IBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIBuilder_Postinputcondition(), theB3backendPackage.getBExpression(), null, "postinputcondition", null, 0, 1, IBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(versionedCapabilityEClass, VersionedCapability.class, "VersionedCapability", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getVersionedCapability_Version(), this.getVersion(), "version", null, 0, 1, VersionedCapability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1945,6 +1987,10 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		initEClass(builderQueryEClass, BuilderQuery.class, "BuilderQuery", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBuilderQuery_BuilderQueries(), theB3backendPackage.getBExpression(), null, "builderQueries", null, 1, -1, BuilderQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBuilderQuery_UnitQuery(), theB3backendPackage.getBExpression(), null, "unitQuery", null, 0, 1, BuilderQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(builderEClass, Builder.class, "Builder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(builderJavaEClass, BuilderJava.class, "BuilderJava", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize data types
 		initEDataType(versionRangeEDataType, VersionRange.class, "VersionRange", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

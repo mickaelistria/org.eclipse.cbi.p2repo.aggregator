@@ -44,6 +44,15 @@ public interface B3BuildFactory extends EFactory {
 	Builder createBuilder();
 
 	/**
+	 * Returns a new object of class '<em>Builder Java</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Builder Java</em>'.
+	 * @generated
+	 */
+	BuilderJava createBuilderJava();
+
+	/**
 	 * Returns a new object of class '<em>Versioned Capability</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

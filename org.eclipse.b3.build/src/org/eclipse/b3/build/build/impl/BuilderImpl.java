@@ -19,6 +19,7 @@ import org.eclipse.b3.build.build.Builder;
 
 import org.eclipse.b3.build.build.BuilderInput;
 import org.eclipse.b3.build.build.Capability;
+import org.eclipse.b3.build.build.IBuilder;
 import org.eclipse.b3.build.build.IProvidedCapabilityContainer;
 import org.eclipse.b3.build.build.PathGroup;
 import org.eclipse.emf.common.notify.Notification;
@@ -562,6 +563,17 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 				default: return -1;
 			}
 		}
+		if (baseClass == IBuilder.class) {
+			switch (derivedFeatureID) {
+				case B3BuildPackage.BUILDER__POSTCOND_EXPR: return B3BuildPackage.IBUILDER__POSTCOND_EXPR;
+				case B3BuildPackage.BUILDER__PRECOND_EXPR: return B3BuildPackage.IBUILDER__PRECOND_EXPR;
+				case B3BuildPackage.BUILDER__INPUT: return B3BuildPackage.IBUILDER__INPUT;
+				case B3BuildPackage.BUILDER__OUTPUT: return B3BuildPackage.IBUILDER__OUTPUT;
+				case B3BuildPackage.BUILDER__DEFAULT_PROPERTIES: return B3BuildPackage.IBUILDER__DEFAULT_PROPERTIES;
+				case B3BuildPackage.BUILDER__POSTINPUTCONDITION: return B3BuildPackage.IBUILDER__POSTINPUTCONDITION;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -575,6 +587,17 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 		if (baseClass == IProvidedCapabilityContainer.class) {
 			switch (baseFeatureID) {
 				case B3BuildPackage.IPROVIDED_CAPABILITY_CONTAINER__PROVIDED_CAPABILITIES: return B3BuildPackage.BUILDER__PROVIDED_CAPABILITIES;
+				default: return -1;
+			}
+		}
+		if (baseClass == IBuilder.class) {
+			switch (baseFeatureID) {
+				case B3BuildPackage.IBUILDER__POSTCOND_EXPR: return B3BuildPackage.BUILDER__POSTCOND_EXPR;
+				case B3BuildPackage.IBUILDER__PRECOND_EXPR: return B3BuildPackage.BUILDER__PRECOND_EXPR;
+				case B3BuildPackage.IBUILDER__INPUT: return B3BuildPackage.BUILDER__INPUT;
+				case B3BuildPackage.IBUILDER__OUTPUT: return B3BuildPackage.BUILDER__OUTPUT;
+				case B3BuildPackage.IBUILDER__DEFAULT_PROPERTIES: return B3BuildPackage.BUILDER__DEFAULT_PROPERTIES;
+				case B3BuildPackage.IBUILDER__POSTINPUTCONDITION: return B3BuildPackage.BUILDER__POSTINPUTCONDITION;
 				default: return -1;
 			}
 		}
