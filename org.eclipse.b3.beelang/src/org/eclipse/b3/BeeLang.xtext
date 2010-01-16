@@ -615,10 +615,31 @@ ConstructorCallExpression returns be::BExpression : {be::BCreateExpression}
 BuildConcernContext returns be::BConcernContext : 
 	  UnitConcernContext
 	| BuilderConcernContext
+	| FunctionConcernContext
 	;
+	
 FunctionConcernContext : 
-	"context" "function" 
-	;	
+	"context" "function" namePredicate = NamePredicate 
+   	('(' (
+   		(parameters += ParameterPredicate (',' parameters += ParameterPredicate)* 
+   		   (',' varArgs ?= "..." parameters += ParameterVarargsPredicate)?)
+   		|  (    varArgs ?= "..." parameters += ParameterVarargsPredicate)
+   		)? ')' )?
+	;
+	
+ParameterPredicate :
+	  (typePredicateOp = TypePredicateOp)
+	| (type=TypeRef (name = ID)?) 
+	;
+	
+// Varargs can only be last, and it only makes sense to skip the type (not to use ?*+)	
+ParameterVarargsPredicate :
+	  (typePredicateOp = '_')
+	| (type=TypeRef (name = ID)?) 
+	;
+	
+TypePredicateOp : '_' | '*' | '+' ;
+
 // Advice for units consists of Builders, and advice for Builders
 UnitConcernContext returns build::UnitConcernContext : {build::UnitConcernContext}
 	"context" "unit" query = UnitOrExpression
@@ -722,7 +743,7 @@ CapabilityPredicate returns build::CapabilityPredicate : {build::CapabilityPredi
 	('/' versionRange=VersionRangeLiteral)? 
 	;
 	 
-NamePredicate returns be::NamePredicate : {be::NamePredicate}
+NamePredicate returns be::BNamePredicate : {be::BNamePredicate}
 	(name=EscapedQualifiedName  | namePattern = RegexpLiteral | namePattern = WildcardExpression)
 	;
 	

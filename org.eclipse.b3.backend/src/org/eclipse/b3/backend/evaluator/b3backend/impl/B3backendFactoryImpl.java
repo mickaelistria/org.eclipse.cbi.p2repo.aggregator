@@ -141,8 +141,10 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 			case B3backendPackage.BWITH_EXPRESSION: return createBWithExpression();
 			case B3backendPackage.BFUNCTION: return createBFunction();
 			case B3backendPackage.BFUNCTION_WRAPPER: return createBFunctionWrapper();
-			case B3backendPackage.NAME_PREDICATE: return createNamePredicate();
-			case B3backendPackage.FUNCTION_NAME_PREDICATE: return createFunctionNamePredicate();
+			case B3backendPackage.BNAME_PREDICATE: return createBNamePredicate();
+			case B3backendPackage.BFUNCTION_NAME_PREDICATE: return createBFunctionNamePredicate();
+			case B3backendPackage.BFUNCTION_CONCERN_CONTEXT: return createBFunctionConcernContext();
+			case B3backendPackage.PARAMETER_PREDICATE: return createParameterPredicate();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -863,9 +865,9 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NamePredicate createNamePredicate() {
-		NamePredicateImpl namePredicate = new NamePredicateImpl();
-		return namePredicate;
+	public BNamePredicate createBNamePredicate() {
+		BNamePredicateImpl bNamePredicate = new BNamePredicateImpl();
+		return bNamePredicate;
 	}
 
 	/**
@@ -873,9 +875,29 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FunctionNamePredicate createFunctionNamePredicate() {
-		FunctionNamePredicateImpl functionNamePredicate = new FunctionNamePredicateImpl();
-		return functionNamePredicate;
+	public BFunctionNamePredicate createBFunctionNamePredicate() {
+		BFunctionNamePredicateImpl bFunctionNamePredicate = new BFunctionNamePredicateImpl();
+		return bFunctionNamePredicate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BFunctionConcernContext createBFunctionConcernContext() {
+		BFunctionConcernContextImpl bFunctionConcernContext = new BFunctionConcernContextImpl();
+		return bFunctionConcernContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ParameterPredicate createParameterPredicate() {
+		ParameterPredicateImpl parameterPredicate = new ParameterPredicateImpl();
+		return parameterPredicate;
 	}
 
 	/**

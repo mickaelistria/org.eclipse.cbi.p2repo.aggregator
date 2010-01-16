@@ -6,6 +6,7 @@
  */
 package org.eclipse.b3.build.build.impl;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate;
 import org.eclipse.b3.backend.evaluator.b3backend.NamePredicate;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.BExpressionImpl;
 
@@ -54,7 +55,7 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 	 * @generated
 	 * @ordered
 	 */
-	protected NamePredicate builderPredicate;
+	protected BNamePredicate builderPredicate;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -123,7 +124,7 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NamePredicate getBuilderPredicate() {
+	public BNamePredicate getBuilderPredicate() {
 		return builderPredicate;
 	}
 
@@ -132,8 +133,8 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetBuilderPredicate(NamePredicate newBuilderPredicate, NotificationChain msgs) {
-		NamePredicate oldBuilderPredicate = builderPredicate;
+	public NotificationChain basicSetBuilderPredicate(BNamePredicate newBuilderPredicate, NotificationChain msgs) {
+		BNamePredicate oldBuilderPredicate = builderPredicate;
 		builderPredicate = newBuilderPredicate;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.INPUT_PREDICATE__BUILDER_PREDICATE, oldBuilderPredicate, newBuilderPredicate);
@@ -147,7 +148,7 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBuilderPredicate(NamePredicate newBuilderPredicate) {
+	public void setBuilderPredicate(BNamePredicate newBuilderPredicate) {
 		if (newBuilderPredicate != builderPredicate) {
 			NotificationChain msgs = null;
 			if (builderPredicate != null)
@@ -205,7 +206,7 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 				setCapabilityPredicate((CapabilityPredicate)newValue);
 				return;
 			case B3BuildPackage.INPUT_PREDICATE__BUILDER_PREDICATE:
-				setBuilderPredicate((NamePredicate)newValue);
+				setBuilderPredicate((BNamePredicate)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -223,7 +224,7 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 				setCapabilityPredicate((CapabilityPredicate)null);
 				return;
 			case B3BuildPackage.INPUT_PREDICATE__BUILDER_PREDICATE:
-				setBuilderPredicate((NamePredicate)null);
+				setBuilderPredicate((BNamePredicate)null);
 				return;
 		}
 		super.eUnset(featureID);

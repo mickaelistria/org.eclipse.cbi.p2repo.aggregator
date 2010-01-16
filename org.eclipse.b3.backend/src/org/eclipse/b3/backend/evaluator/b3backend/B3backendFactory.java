@@ -592,22 +592,40 @@ public interface B3backendFactory extends EFactory {
 	BFunctionWrapper createBFunctionWrapper();
 
 	/**
-	 * Returns a new object of class '<em>Name Predicate</em>'.
+	 * Returns a new object of class '<em>BName Predicate</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Name Predicate</em>'.
+	 * @return a new object of class '<em>BName Predicate</em>'.
 	 * @generated
 	 */
-	NamePredicate createNamePredicate();
+	BNamePredicate createBNamePredicate();
 
 	/**
-	 * Returns a new object of class '<em>Function Name Predicate</em>'.
+	 * Returns a new object of class '<em>BFunction Name Predicate</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Function Name Predicate</em>'.
+	 * @return a new object of class '<em>BFunction Name Predicate</em>'.
 	 * @generated
 	 */
-	FunctionNamePredicate createFunctionNamePredicate();
+	BFunctionNamePredicate createBFunctionNamePredicate();
+
+	/**
+	 * Returns a new object of class '<em>BFunction Concern Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>BFunction Concern Context</em>'.
+	 * @generated
+	 */
+	BFunctionConcernContext createBFunctionConcernContext();
+
+	/**
+	 * Returns a new object of class '<em>Parameter Predicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Parameter Predicate</em>'.
+	 * @generated
+	 */
+	ParameterPredicate createParameterPredicate();
 
 	/**
 	 * Returns the package supported by this factory.

@@ -338,7 +338,7 @@ public class BCaseItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BCASE__CONDITION_EXPR,
-				 B3backendFactory.eINSTANCE.createFunctionNamePredicate()));
+				 B3backendFactory.eINSTANCE.createBFunctionNamePredicate()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -518,7 +518,7 @@ public class BCaseItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BCASE__THEN_EXPR,
-				 B3backendFactory.eINSTANCE.createFunctionNamePredicate()));
+				 B3backendFactory.eINSTANCE.createBFunctionNamePredicate()));
 	}
 
 	/**

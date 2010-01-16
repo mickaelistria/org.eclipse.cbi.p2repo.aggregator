@@ -7,6 +7,7 @@
 package org.eclipse.b3.build.build;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate;
 import org.eclipse.b3.backend.evaluator.b3backend.NamePredicate;
 
 /**
@@ -35,12 +36,12 @@ public interface BuilderNamePredicate extends BExpression {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name Predicate</em>' containment reference.
-	 * @see #setNamePredicate(NamePredicate)
+	 * @see #setNamePredicate(BNamePredicate)
 	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuilderNamePredicate_NamePredicate()
 	 * @model containment="true"
 	 * @generated
 	 */
-	NamePredicate getNamePredicate();
+	BNamePredicate getNamePredicate();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderNamePredicate#getNamePredicate <em>Name Predicate</em>}' containment reference.
@@ -50,6 +51,6 @@ public interface BuilderNamePredicate extends BExpression {
 	 * @see #getNamePredicate()
 	 * @generated
 	 */
-	void setNamePredicate(NamePredicate value);
+	void setNamePredicate(BNamePredicate value);
 
 } // BuilderNamePredicate

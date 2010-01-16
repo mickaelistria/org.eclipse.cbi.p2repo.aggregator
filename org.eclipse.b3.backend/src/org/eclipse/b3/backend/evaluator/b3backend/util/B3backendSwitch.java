@@ -662,17 +662,31 @@ public class B3backendSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case B3backendPackage.NAME_PREDICATE: {
-				NamePredicate namePredicate = (NamePredicate)theEObject;
-				T result = caseNamePredicate(namePredicate);
+			case B3backendPackage.BNAME_PREDICATE: {
+				BNamePredicate bNamePredicate = (BNamePredicate)theEObject;
+				T result = caseBNamePredicate(bNamePredicate);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case B3backendPackage.FUNCTION_NAME_PREDICATE: {
-				FunctionNamePredicate functionNamePredicate = (FunctionNamePredicate)theEObject;
-				T result = caseFunctionNamePredicate(functionNamePredicate);
-				if (result == null) result = caseBExpression(functionNamePredicate);
-				if (result == null) result = caseBSourceLink(functionNamePredicate);
+			case B3backendPackage.BFUNCTION_NAME_PREDICATE: {
+				BFunctionNamePredicate bFunctionNamePredicate = (BFunctionNamePredicate)theEObject;
+				T result = caseBFunctionNamePredicate(bFunctionNamePredicate);
+				if (result == null) result = caseBExpression(bFunctionNamePredicate);
+				if (result == null) result = caseBSourceLink(bFunctionNamePredicate);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3backendPackage.BFUNCTION_CONCERN_CONTEXT: {
+				BFunctionConcernContext bFunctionConcernContext = (BFunctionConcernContext)theEObject;
+				T result = caseBFunctionConcernContext(bFunctionConcernContext);
+				if (result == null) result = caseBConcernContext(bFunctionConcernContext);
+				if (result == null) result = caseBFunctionContainer(bFunctionConcernContext);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3backendPackage.PARAMETER_PREDICATE: {
+				ParameterPredicate parameterPredicate = (ParameterPredicate)theEObject;
+				T result = caseParameterPredicate(parameterPredicate);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1191,32 +1205,62 @@ public class B3backendSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Name Predicate</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>BName Predicate</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Name Predicate</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>BName Predicate</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseNamePredicate(NamePredicate object) {
+	public T caseBNamePredicate(BNamePredicate object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Function Name Predicate</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>BFunction Name Predicate</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Function Name Predicate</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>BFunction Name Predicate</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseFunctionNamePredicate(FunctionNamePredicate object) {
+	public T caseBFunctionNamePredicate(BFunctionNamePredicate object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BFunction Concern Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BFunction Concern Context</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBFunctionConcernContext(BFunctionConcernContext object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter Predicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter Predicate</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParameterPredicate(ParameterPredicate object) {
 		return null;
 	}
 

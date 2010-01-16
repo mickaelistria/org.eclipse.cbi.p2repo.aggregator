@@ -7,6 +7,7 @@
 package org.eclipse.b3.build.build;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate;
 import org.eclipse.b3.backend.evaluator.b3backend.NamePredicate;
 
 /**
@@ -62,12 +63,12 @@ public interface InputPredicate extends BExpression {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Builder Predicate</em>' containment reference.
-	 * @see #setBuilderPredicate(NamePredicate)
+	 * @see #setBuilderPredicate(BNamePredicate)
 	 * @see org.eclipse.b3.build.build.B3BuildPackage#getInputPredicate_BuilderPredicate()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	NamePredicate getBuilderPredicate();
+	BNamePredicate getBuilderPredicate();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.build.build.InputPredicate#getBuilderPredicate <em>Builder Predicate</em>}' containment reference.
@@ -77,6 +78,6 @@ public interface InputPredicate extends BExpression {
 	 * @see #getBuilderPredicate()
 	 * @generated
 	 */
-	void setBuilderPredicate(NamePredicate value);
+	void setBuilderPredicate(BNamePredicate value);
 
 } // InputPredicate

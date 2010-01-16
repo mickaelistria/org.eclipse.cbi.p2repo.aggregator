@@ -391,12 +391,20 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 				return createBFunctionWrapperAdapter();
 			}
 			@Override
-			public Adapter caseNamePredicate(NamePredicate object) {
-				return createNamePredicateAdapter();
+			public Adapter caseBNamePredicate(BNamePredicate object) {
+				return createBNamePredicateAdapter();
 			}
 			@Override
-			public Adapter caseFunctionNamePredicate(FunctionNamePredicate object) {
-				return createFunctionNamePredicateAdapter();
+			public Adapter caseBFunctionNamePredicate(BFunctionNamePredicate object) {
+				return createBFunctionNamePredicateAdapter();
+			}
+			@Override
+			public Adapter caseBFunctionConcernContext(BFunctionConcernContext object) {
+				return createBFunctionConcernContextAdapter();
+			}
+			@Override
+			public Adapter caseParameterPredicate(ParameterPredicate object) {
+				return createParameterPredicateAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -895,30 +903,58 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.NamePredicate <em>Name Predicate</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate <em>BName Predicate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.NamePredicate
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate
 	 * @generated
 	 */
-	public Adapter createNamePredicateAdapter() {
+	public Adapter createBNamePredicateAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.FunctionNamePredicate <em>Function Name Predicate</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionNamePredicate <em>BFunction Name Predicate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.FunctionNamePredicate
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunctionNamePredicate
 	 * @generated
 	 */
-	public Adapter createFunctionNamePredicateAdapter() {
+	public Adapter createBFunctionNamePredicateAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext <em>BFunction Concern Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext
+	 * @generated
+	 */
+	public Adapter createBFunctionConcernContextAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.ParameterPredicate <em>Parameter Predicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.ParameterPredicate
+	 * @generated
+	 */
+	public Adapter createParameterPredicateAdapter() {
 		return null;
 	}
 

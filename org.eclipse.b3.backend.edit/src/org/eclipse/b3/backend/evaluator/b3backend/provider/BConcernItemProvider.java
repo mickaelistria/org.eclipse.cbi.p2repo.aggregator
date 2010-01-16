@@ -272,6 +272,11 @@ public class BConcernItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BCONCERN__PROPERTY_SETS,
 				 B3backendFactory.eINSTANCE.createBDefaultPropertySet()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCONCERN__CONTEXTS,
+				 B3backendFactory.eINSTANCE.createBFunctionConcernContext()));
 	}
 
 }

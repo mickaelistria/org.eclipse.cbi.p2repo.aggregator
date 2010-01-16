@@ -10,9 +10,13 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.beeLang.BeeLangFactory;
 import org.eclipse.b3.beeLang.BeeLangPackage;
 import org.eclipse.b3.beeLang.BeeModel;
+import org.eclipse.b3.beeLang.FunctionConcernContext;
+import org.eclipse.b3.beeLang.ParameterPredicate;
+import org.eclipse.b3.beeLang.ParameterVarargsPredicate;
 
 import org.eclipse.b3.build.build.B3BuildPackage;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -33,6 +37,27 @@ public class BeeLangPackageImpl extends EPackageImpl implements BeeLangPackage
    * @generated
    */
   private EClass beeModelEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass functionConcernContextEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass parameterPredicateEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass parameterVarargsPredicateEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -165,6 +190,126 @@ public class BeeLangPackageImpl extends EPackageImpl implements BeeLangPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getFunctionConcernContext()
+  {
+    return functionConcernContextEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getFunctionConcernContext_NamePredicate()
+  {
+    return (EReference)functionConcernContextEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getFunctionConcernContext_Parameters()
+  {
+    return (EReference)functionConcernContextEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFunctionConcernContext_VarArgs()
+  {
+    return (EAttribute)functionConcernContextEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getParameterPredicate()
+  {
+    return parameterPredicateEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getParameterPredicate_TypePredicateOp()
+  {
+    return (EAttribute)parameterPredicateEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getParameterPredicate_Type()
+  {
+    return (EReference)parameterPredicateEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getParameterPredicate_Name()
+  {
+    return (EAttribute)parameterPredicateEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getParameterVarargsPredicate()
+  {
+    return parameterVarargsPredicateEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getParameterVarargsPredicate_TypePredicateOp()
+  {
+    return (EAttribute)parameterVarargsPredicateEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getParameterVarargsPredicate_Type()
+  {
+    return (EReference)parameterVarargsPredicateEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getParameterVarargsPredicate_Name()
+  {
+    return (EAttribute)parameterVarargsPredicateEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public BeeLangFactory getBeeLangFactory()
   {
     return (BeeLangFactory)getEFactoryInstance();
@@ -196,6 +341,21 @@ public class BeeLangPackageImpl extends EPackageImpl implements BeeLangPackage
     createEReference(beeModelEClass, BEE_MODEL__CONCERN);
     createEReference(beeModelEClass, BEE_MODEL__PROPERTY_SETS);
     createEReference(beeModelEClass, BEE_MODEL__BODY);
+
+    functionConcernContextEClass = createEClass(FUNCTION_CONCERN_CONTEXT);
+    createEReference(functionConcernContextEClass, FUNCTION_CONCERN_CONTEXT__NAME_PREDICATE);
+    createEReference(functionConcernContextEClass, FUNCTION_CONCERN_CONTEXT__PARAMETERS);
+    createEAttribute(functionConcernContextEClass, FUNCTION_CONCERN_CONTEXT__VAR_ARGS);
+
+    parameterPredicateEClass = createEClass(PARAMETER_PREDICATE);
+    createEAttribute(parameterPredicateEClass, PARAMETER_PREDICATE__TYPE_PREDICATE_OP);
+    createEReference(parameterPredicateEClass, PARAMETER_PREDICATE__TYPE);
+    createEAttribute(parameterPredicateEClass, PARAMETER_PREDICATE__NAME);
+
+    parameterVarargsPredicateEClass = createEClass(PARAMETER_VARARGS_PREDICATE);
+    createEAttribute(parameterVarargsPredicateEClass, PARAMETER_VARARGS_PREDICATE__TYPE_PREDICATE_OP);
+    createEReference(parameterVarargsPredicateEClass, PARAMETER_VARARGS_PREDICATE__TYPE);
+    createEAttribute(parameterVarargsPredicateEClass, PARAMETER_VARARGS_PREDICATE__NAME);
   }
 
   /**
@@ -231,6 +391,7 @@ public class BeeLangPackageImpl extends EPackageImpl implements BeeLangPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    functionConcernContextEClass.getESuperTypes().add(theB3backendPackage.getBConcernContext());
 
     // Initialize classes and features; add operations and parameters
     initEClass(beeModelEClass, BeeModel.class, "BeeModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -239,6 +400,21 @@ public class BeeLangPackageImpl extends EPackageImpl implements BeeLangPackage
     initEReference(getBeeModel_Concern(), theB3backendPackage.getBConcern(), null, "concern", null, 0, -1, BeeModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBeeModel_PropertySets(), theB3backendPackage.getBPropertySet(), null, "propertySets", null, 0, -1, BeeModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBeeModel_Body(), theB3BuildPackage.getBuildUnit(), null, "body", null, 0, 1, BeeModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(functionConcernContextEClass, FunctionConcernContext.class, "FunctionConcernContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFunctionConcernContext_NamePredicate(), theB3backendPackage.getBNamePredicate(), null, "namePredicate", null, 0, 1, FunctionConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunctionConcernContext_Parameters(), ecorePackage.getEObject(), null, "parameters", null, 0, -1, FunctionConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFunctionConcernContext_VarArgs(), ecorePackage.getEBoolean(), "varArgs", null, 0, 1, FunctionConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(parameterPredicateEClass, ParameterPredicate.class, "ParameterPredicate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getParameterPredicate_TypePredicateOp(), ecorePackage.getEString(), "typePredicateOp", null, 0, 1, ParameterPredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getParameterPredicate_Type(), theB3backendPackage.getIType(), null, "type", null, 0, 1, ParameterPredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getParameterPredicate_Name(), ecorePackage.getEString(), "name", null, 0, 1, ParameterPredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(parameterVarargsPredicateEClass, ParameterVarargsPredicate.class, "ParameterVarargsPredicate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getParameterVarargsPredicate_TypePredicateOp(), ecorePackage.getEString(), "typePredicateOp", null, 0, 1, ParameterVarargsPredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getParameterVarargsPredicate_Type(), theB3backendPackage.getIType(), null, "type", null, 0, 1, ParameterVarargsPredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getParameterVarargsPredicate_Name(), ecorePackage.getEString(), "name", null, 0, 1, ParameterVarargsPredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

@@ -13,8 +13,8 @@
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
-import org.eclipse.b3.backend.evaluator.b3backend.FunctionNamePredicate;
-import org.eclipse.b3.backend.evaluator.b3backend.NamePredicate;
+import org.eclipse.b3.backend.evaluator.b3backend.BFunctionNamePredicate;
+import org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -26,18 +26,18 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Function Name Predicate</b></em>'.
+ * An implementation of the model object '<em><b>BFunction Name Predicate</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.FunctionNamePredicateImpl#getNamePredicate <em>Name Predicate</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionNamePredicateImpl#getNamePredicate <em>Name Predicate</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class FunctionNamePredicateImpl extends BExpressionImpl implements FunctionNamePredicate {
+public class BFunctionNamePredicateImpl extends BExpressionImpl implements BFunctionNamePredicate {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -53,14 +53,14 @@ public class FunctionNamePredicateImpl extends BExpressionImpl implements Functi
 	 * @generated
 	 * @ordered
 	 */
-	protected NamePredicate namePredicate;
+	protected BNamePredicate namePredicate;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected FunctionNamePredicateImpl() {
+	protected BFunctionNamePredicateImpl() {
 		super();
 	}
 
@@ -71,7 +71,7 @@ public class FunctionNamePredicateImpl extends BExpressionImpl implements Functi
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.FUNCTION_NAME_PREDICATE;
+		return B3backendPackage.Literals.BFUNCTION_NAME_PREDICATE;
 	}
 
 	/**
@@ -79,7 +79,7 @@ public class FunctionNamePredicateImpl extends BExpressionImpl implements Functi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NamePredicate getNamePredicate() {
+	public BNamePredicate getNamePredicate() {
 		return namePredicate;
 	}
 
@@ -88,11 +88,11 @@ public class FunctionNamePredicateImpl extends BExpressionImpl implements Functi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetNamePredicate(NamePredicate newNamePredicate, NotificationChain msgs) {
-		NamePredicate oldNamePredicate = namePredicate;
+	public NotificationChain basicSetNamePredicate(BNamePredicate newNamePredicate, NotificationChain msgs) {
+		BNamePredicate oldNamePredicate = namePredicate;
 		namePredicate = newNamePredicate;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.FUNCTION_NAME_PREDICATE__NAME_PREDICATE, oldNamePredicate, newNamePredicate);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION_NAME_PREDICATE__NAME_PREDICATE, oldNamePredicate, newNamePredicate);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -103,18 +103,18 @@ public class FunctionNamePredicateImpl extends BExpressionImpl implements Functi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setNamePredicate(NamePredicate newNamePredicate) {
+	public void setNamePredicate(BNamePredicate newNamePredicate) {
 		if (newNamePredicate != namePredicate) {
 			NotificationChain msgs = null;
 			if (namePredicate != null)
-				msgs = ((InternalEObject)namePredicate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.FUNCTION_NAME_PREDICATE__NAME_PREDICATE, null, msgs);
+				msgs = ((InternalEObject)namePredicate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BFUNCTION_NAME_PREDICATE__NAME_PREDICATE, null, msgs);
 			if (newNamePredicate != null)
-				msgs = ((InternalEObject)newNamePredicate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.FUNCTION_NAME_PREDICATE__NAME_PREDICATE, null, msgs);
+				msgs = ((InternalEObject)newNamePredicate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BFUNCTION_NAME_PREDICATE__NAME_PREDICATE, null, msgs);
 			msgs = basicSetNamePredicate(newNamePredicate, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.FUNCTION_NAME_PREDICATE__NAME_PREDICATE, newNamePredicate, newNamePredicate));
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION_NAME_PREDICATE__NAME_PREDICATE, newNamePredicate, newNamePredicate));
 	}
 
 	/**
@@ -125,7 +125,7 @@ public class FunctionNamePredicateImpl extends BExpressionImpl implements Functi
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case B3backendPackage.FUNCTION_NAME_PREDICATE__NAME_PREDICATE:
+			case B3backendPackage.BFUNCTION_NAME_PREDICATE__NAME_PREDICATE:
 				return basicSetNamePredicate(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -139,7 +139,7 @@ public class FunctionNamePredicateImpl extends BExpressionImpl implements Functi
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case B3backendPackage.FUNCTION_NAME_PREDICATE__NAME_PREDICATE:
+			case B3backendPackage.BFUNCTION_NAME_PREDICATE__NAME_PREDICATE:
 				return getNamePredicate();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -153,8 +153,8 @@ public class FunctionNamePredicateImpl extends BExpressionImpl implements Functi
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case B3backendPackage.FUNCTION_NAME_PREDICATE__NAME_PREDICATE:
-				setNamePredicate((NamePredicate)newValue);
+			case B3backendPackage.BFUNCTION_NAME_PREDICATE__NAME_PREDICATE:
+				setNamePredicate((BNamePredicate)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -168,8 +168,8 @@ public class FunctionNamePredicateImpl extends BExpressionImpl implements Functi
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case B3backendPackage.FUNCTION_NAME_PREDICATE__NAME_PREDICATE:
-				setNamePredicate((NamePredicate)null);
+			case B3backendPackage.BFUNCTION_NAME_PREDICATE__NAME_PREDICATE:
+				setNamePredicate((BNamePredicate)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -183,10 +183,10 @@ public class FunctionNamePredicateImpl extends BExpressionImpl implements Functi
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case B3backendPackage.FUNCTION_NAME_PREDICATE__NAME_PREDICATE:
+			case B3backendPackage.BFUNCTION_NAME_PREDICATE__NAME_PREDICATE:
 				return namePredicate != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //FunctionNamePredicateImpl
+} //BFunctionNamePredicateImpl

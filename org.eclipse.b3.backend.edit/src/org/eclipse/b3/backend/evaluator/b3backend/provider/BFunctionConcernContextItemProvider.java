@@ -13,12 +13,14 @@
 package org.eclipse.b3.backend.evaluator.b3backend.provider;
 
 
+import java.lang.reflect.Type;
+
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
-import org.eclipse.b3.backend.evaluator.b3backend.FunctionNamePredicate;
+import org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -34,13 +36,13 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.FunctionNamePredicate} object.
+ * This is the item provider adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class FunctionNamePredicateItemProvider
-	extends BExpressionItemProvider
+public class BFunctionConcernContextItemProvider
+	extends BConcernContextItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -60,7 +62,7 @@ public class FunctionNamePredicateItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FunctionNamePredicateItemProvider(AdapterFactory adapterFactory) {
+	public BFunctionConcernContextItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -91,7 +93,8 @@ public class FunctionNamePredicateItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(B3backendPackage.Literals.FUNCTION_NAME_PREDICATE__NAME_PREDICATE);
+			childrenFeatures.add(B3backendPackage.Literals.BFUNCTION_CONCERN_CONTEXT__NAME_PREDICATE);
+			childrenFeatures.add(B3backendPackage.Literals.BFUNCTION_CONCERN_CONTEXT__PARAMETER_PREDICATES);
 		}
 		return childrenFeatures;
 	}
@@ -110,14 +113,14 @@ public class FunctionNamePredicateItemProvider
 	}
 
 	/**
-	 * This returns FunctionNamePredicate.gif.
+	 * This returns BFunctionConcernContext.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/FunctionNamePredicate"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BFunctionConcernContext"));
 	}
 
 	/**
@@ -128,8 +131,11 @@ public class FunctionNamePredicateItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		FunctionNamePredicate functionNamePredicate = (FunctionNamePredicate)object;
-		return getString("_UI_FunctionNamePredicate_type") + " " + functionNamePredicate.getLineNumber();
+		Type labelValue = ((BFunctionConcernContext)object).getContainerType();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ?
+			getString("_UI_BFunctionConcernContext_type") :
+			getString("_UI_BFunctionConcernContext_type") + " " + label;
 	}
 
 	/**
@@ -143,8 +149,9 @@ public class FunctionNamePredicateItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(FunctionNamePredicate.class)) {
-			case B3backendPackage.FUNCTION_NAME_PREDICATE__NAME_PREDICATE:
+		switch (notification.getFeatureID(BFunctionConcernContext.class)) {
+			case B3backendPackage.BFUNCTION_CONCERN_CONTEXT__NAME_PREDICATE:
+			case B3backendPackage.BFUNCTION_CONCERN_CONTEXT__PARAMETER_PREDICATES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -164,8 +171,13 @@ public class FunctionNamePredicateItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(B3backendPackage.Literals.FUNCTION_NAME_PREDICATE__NAME_PREDICATE,
-				 B3backendFactory.eINSTANCE.createNamePredicate()));
+				(B3backendPackage.Literals.BFUNCTION_CONCERN_CONTEXT__NAME_PREDICATE,
+				 B3backendFactory.eINSTANCE.createBFunctionNamePredicate()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BFUNCTION_CONCERN_CONTEXT__PARAMETER_PREDICATES,
+				 B3backendFactory.eINSTANCE.createParameterPredicate()));
 	}
 
 }

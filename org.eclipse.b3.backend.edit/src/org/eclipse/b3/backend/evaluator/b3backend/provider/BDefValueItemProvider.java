@@ -419,7 +419,7 @@ public class BDefValueItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BDEF_VALUE__VALUE_EXPR,
-				 B3backendFactory.eINSTANCE.createFunctionNamePredicate()));
+				 B3backendFactory.eINSTANCE.createBFunctionNamePredicate()));
 
 		newChildDescriptors.add
 			(createChildParameter

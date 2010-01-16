@@ -8,6 +8,7 @@ package org.eclipse.b3.build.build;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate;
 import org.eclipse.b3.backend.evaluator.b3backend.NamePredicate;
 import org.eclipse.equinox.internal.provisional.p2.core.VersionRange;
 
@@ -92,12 +93,12 @@ public interface CapabilityPredicate extends BExpression {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name Predicate</em>' containment reference.
-	 * @see #setNamePredicate(NamePredicate)
+	 * @see #setNamePredicate(BNamePredicate)
 	 * @see org.eclipse.b3.build.build.B3BuildPackage#getCapabilityPredicate_NamePredicate()
 	 * @model containment="true"
 	 * @generated
 	 */
-	NamePredicate getNamePredicate();
+	BNamePredicate getNamePredicate();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.build.build.CapabilityPredicate#getNamePredicate <em>Name Predicate</em>}' containment reference.
@@ -107,7 +108,7 @@ public interface CapabilityPredicate extends BExpression {
 	 * @see #getNamePredicate()
 	 * @generated
 	 */
-	void setNamePredicate(NamePredicate value);
+	void setNamePredicate(BNamePredicate value);
 
 	/**
 	 * Returns the value of the '<em><b>Name Space Predicate</b></em>' containment reference.
@@ -118,12 +119,12 @@ public interface CapabilityPredicate extends BExpression {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name Space Predicate</em>' containment reference.
-	 * @see #setNameSpacePredicate(NamePredicate)
+	 * @see #setNameSpacePredicate(BNamePredicate)
 	 * @see org.eclipse.b3.build.build.B3BuildPackage#getCapabilityPredicate_NameSpacePredicate()
 	 * @model containment="true"
 	 * @generated
 	 */
-	NamePredicate getNameSpacePredicate();
+	BNamePredicate getNameSpacePredicate();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.build.build.CapabilityPredicate#getNameSpacePredicate <em>Name Space Predicate</em>}' containment reference.
@@ -133,6 +134,6 @@ public interface CapabilityPredicate extends BExpression {
 	 * @see #getNameSpacePredicate()
 	 * @generated
 	 */
-	void setNameSpacePredicate(NamePredicate value);
+	void setNameSpacePredicate(BNamePredicate value);
 
 } // CapabilityPredicate

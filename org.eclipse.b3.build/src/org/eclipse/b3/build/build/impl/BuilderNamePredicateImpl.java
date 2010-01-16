@@ -6,6 +6,7 @@
  */
 package org.eclipse.b3.build.build.impl;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate;
 import org.eclipse.b3.backend.evaluator.b3backend.NamePredicate;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.BExpressionImpl;
 
@@ -42,7 +43,7 @@ public class BuilderNamePredicateImpl extends BExpressionImpl implements Builder
 	 * @generated
 	 * @ordered
 	 */
-	protected NamePredicate namePredicate;
+	protected BNamePredicate namePredicate;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -68,7 +69,7 @@ public class BuilderNamePredicateImpl extends BExpressionImpl implements Builder
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NamePredicate getNamePredicate() {
+	public BNamePredicate getNamePredicate() {
 		return namePredicate;
 	}
 
@@ -77,8 +78,8 @@ public class BuilderNamePredicateImpl extends BExpressionImpl implements Builder
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetNamePredicate(NamePredicate newNamePredicate, NotificationChain msgs) {
-		NamePredicate oldNamePredicate = namePredicate;
+	public NotificationChain basicSetNamePredicate(BNamePredicate newNamePredicate, NotificationChain msgs) {
+		BNamePredicate oldNamePredicate = namePredicate;
 		namePredicate = newNamePredicate;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_NAME_PREDICATE__NAME_PREDICATE, oldNamePredicate, newNamePredicate);
@@ -92,7 +93,7 @@ public class BuilderNamePredicateImpl extends BExpressionImpl implements Builder
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setNamePredicate(NamePredicate newNamePredicate) {
+	public void setNamePredicate(BNamePredicate newNamePredicate) {
 		if (newNamePredicate != namePredicate) {
 			NotificationChain msgs = null;
 			if (namePredicate != null)
@@ -143,7 +144,7 @@ public class BuilderNamePredicateImpl extends BExpressionImpl implements Builder
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case B3BuildPackage.BUILDER_NAME_PREDICATE__NAME_PREDICATE:
-				setNamePredicate((NamePredicate)newValue);
+				setNamePredicate((BNamePredicate)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -158,7 +159,7 @@ public class BuilderNamePredicateImpl extends BExpressionImpl implements Builder
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case B3BuildPackage.BUILDER_NAME_PREDICATE__NAME_PREDICATE:
-				setNamePredicate((NamePredicate)null);
+				setNamePredicate((BNamePredicate)null);
 				return;
 		}
 		super.eUnset(featureID);

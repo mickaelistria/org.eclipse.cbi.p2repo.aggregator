@@ -8,6 +8,7 @@ package org.eclipse.b3.build.build.impl;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate;
 import org.eclipse.b3.backend.evaluator.b3backend.NamePredicate;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.BExpressionImpl;
 
@@ -80,7 +81,7 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 	 * @generated
 	 * @ordered
 	 */
-	protected NamePredicate namePredicate;
+	protected BNamePredicate namePredicate;
 
 	/**
 	 * The cached value of the '{@link #getNameSpacePredicate() <em>Name Space Predicate</em>}' containment reference.
@@ -90,7 +91,7 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 	 * @generated
 	 * @ordered
 	 */
-	protected NamePredicate nameSpacePredicate;
+	protected BNamePredicate nameSpacePredicate;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -180,7 +181,7 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NamePredicate getNamePredicate() {
+	public BNamePredicate getNamePredicate() {
 		return namePredicate;
 	}
 
@@ -189,8 +190,8 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetNamePredicate(NamePredicate newNamePredicate, NotificationChain msgs) {
-		NamePredicate oldNamePredicate = namePredicate;
+	public NotificationChain basicSetNamePredicate(BNamePredicate newNamePredicate, NotificationChain msgs) {
+		BNamePredicate oldNamePredicate = namePredicate;
 		namePredicate = newNamePredicate;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.CAPABILITY_PREDICATE__NAME_PREDICATE, oldNamePredicate, newNamePredicate);
@@ -204,7 +205,7 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setNamePredicate(NamePredicate newNamePredicate) {
+	public void setNamePredicate(BNamePredicate newNamePredicate) {
 		if (newNamePredicate != namePredicate) {
 			NotificationChain msgs = null;
 			if (namePredicate != null)
@@ -223,7 +224,7 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NamePredicate getNameSpacePredicate() {
+	public BNamePredicate getNameSpacePredicate() {
 		return nameSpacePredicate;
 	}
 
@@ -232,8 +233,8 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetNameSpacePredicate(NamePredicate newNameSpacePredicate, NotificationChain msgs) {
-		NamePredicate oldNameSpacePredicate = nameSpacePredicate;
+	public NotificationChain basicSetNameSpacePredicate(BNamePredicate newNameSpacePredicate, NotificationChain msgs) {
+		BNamePredicate oldNameSpacePredicate = nameSpacePredicate;
 		nameSpacePredicate = newNameSpacePredicate;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.CAPABILITY_PREDICATE__NAME_SPACE_PREDICATE, oldNameSpacePredicate, newNameSpacePredicate);
@@ -247,7 +248,7 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setNameSpacePredicate(NamePredicate newNameSpacePredicate) {
+	public void setNameSpacePredicate(BNamePredicate newNameSpacePredicate) {
 		if (newNameSpacePredicate != nameSpacePredicate) {
 			NotificationChain msgs = null;
 			if (nameSpacePredicate != null)
@@ -314,10 +315,10 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 				setVersionRange((VersionRange)newValue);
 				return;
 			case B3BuildPackage.CAPABILITY_PREDICATE__NAME_PREDICATE:
-				setNamePredicate((NamePredicate)newValue);
+				setNamePredicate((BNamePredicate)newValue);
 				return;
 			case B3BuildPackage.CAPABILITY_PREDICATE__NAME_SPACE_PREDICATE:
-				setNameSpacePredicate((NamePredicate)newValue);
+				setNameSpacePredicate((BNamePredicate)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -338,10 +339,10 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 				setVersionRange(VERSION_RANGE_EDEFAULT);
 				return;
 			case B3BuildPackage.CAPABILITY_PREDICATE__NAME_PREDICATE:
-				setNamePredicate((NamePredicate)null);
+				setNamePredicate((BNamePredicate)null);
 				return;
 			case B3BuildPackage.CAPABILITY_PREDICATE__NAME_SPACE_PREDICATE:
-				setNameSpacePredicate((NamePredicate)null);
+				setNameSpacePredicate((BNamePredicate)null);
 				return;
 		}
 		super.eUnset(featureID);

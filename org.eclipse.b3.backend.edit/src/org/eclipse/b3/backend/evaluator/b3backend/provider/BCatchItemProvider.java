@@ -390,7 +390,7 @@ public class BCatchItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BCATCH__CATCH_EXPR,
-				 B3backendFactory.eINSTANCE.createFunctionNamePredicate()));
+				 B3backendFactory.eINSTANCE.createBFunctionNamePredicate()));
 	}
 
 	/**

@@ -6022,14 +6022,15 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cUnitConcernContextParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cBuilderConcernContextParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cFunctionConcernContextParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//BuildConcernContext returns be::BConcernContext:
-		//  UnitConcernContext|BuilderConcernContext; 
+		//  UnitConcernContext|BuilderConcernContext|FunctionConcernContext; 
 		//
 		//// Used in a concern to describe pointcuts/advice for units and/or builders
 		public ParserRule getRule() { return rule; }
 
-		//UnitConcernContext|BuilderConcernContext 
+		//UnitConcernContext|BuilderConcernContext|FunctionConcernContext 
 		//
 		//// Used in a concern to describe pointcuts/advice for units and/or builders
 		public Alternatives getAlternatives() { return cAlternatives; }
@@ -6039,6 +6040,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 		//BuilderConcernContext
 		public RuleCall getBuilderConcernContextParserRuleCall_1() { return cBuilderConcernContextParserRuleCall_1; }
+
+		//FunctionConcernContext
+		public RuleCall getFunctionConcernContextParserRuleCall_2() { return cFunctionConcernContextParserRuleCall_2; }
 	}
 
 	public class FunctionConcernContextElements extends AbstractParserRuleElementFinder {
@@ -6046,16 +6050,42 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cContextKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cFunctionKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNamePredicateAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNamePredicateNamePredicateParserRuleCall_2_0 = (RuleCall)cNamePredicateAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cLeftParenthesisKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Alternatives cAlternatives_3_1 = (Alternatives)cGroup_3.eContents().get(1);
+		private final Group cGroup_3_1_0 = (Group)cAlternatives_3_1.eContents().get(0);
+		private final Assignment cParametersAssignment_3_1_0_0 = (Assignment)cGroup_3_1_0.eContents().get(0);
+		private final RuleCall cParametersParameterPredicateParserRuleCall_3_1_0_0_0 = (RuleCall)cParametersAssignment_3_1_0_0.eContents().get(0);
+		private final Group cGroup_3_1_0_1 = (Group)cGroup_3_1_0.eContents().get(1);
+		private final Keyword cCommaKeyword_3_1_0_1_0 = (Keyword)cGroup_3_1_0_1.eContents().get(0);
+		private final Assignment cParametersAssignment_3_1_0_1_1 = (Assignment)cGroup_3_1_0_1.eContents().get(1);
+		private final RuleCall cParametersParameterPredicateParserRuleCall_3_1_0_1_1_0 = (RuleCall)cParametersAssignment_3_1_0_1_1.eContents().get(0);
+		private final Group cGroup_3_1_0_2 = (Group)cGroup_3_1_0.eContents().get(2);
+		private final Keyword cCommaKeyword_3_1_0_2_0 = (Keyword)cGroup_3_1_0_2.eContents().get(0);
+		private final Assignment cVarArgsAssignment_3_1_0_2_1 = (Assignment)cGroup_3_1_0_2.eContents().get(1);
+		private final Keyword cVarArgsFullStopFullStopFullStopKeyword_3_1_0_2_1_0 = (Keyword)cVarArgsAssignment_3_1_0_2_1.eContents().get(0);
+		private final Assignment cParametersAssignment_3_1_0_2_2 = (Assignment)cGroup_3_1_0_2.eContents().get(2);
+		private final RuleCall cParametersParameterVarargsPredicateParserRuleCall_3_1_0_2_2_0 = (RuleCall)cParametersAssignment_3_1_0_2_2.eContents().get(0);
+		private final Group cGroup_3_1_1 = (Group)cAlternatives_3_1.eContents().get(1);
+		private final Assignment cVarArgsAssignment_3_1_1_0 = (Assignment)cGroup_3_1_1.eContents().get(0);
+		private final Keyword cVarArgsFullStopFullStopFullStopKeyword_3_1_1_0_0 = (Keyword)cVarArgsAssignment_3_1_1_0.eContents().get(0);
+		private final Assignment cParametersAssignment_3_1_1_1 = (Assignment)cGroup_3_1_1.eContents().get(1);
+		private final RuleCall cParametersParameterVarargsPredicateParserRuleCall_3_1_1_1_0 = (RuleCall)cParametersAssignment_3_1_1_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
 		
-		//FunctionConcernContext returns ecore::EString:
-		//  "context" "function"; 
-		//   
-		//	   
-		//		
-		//// Advice for units consists of Builders, and advice for Builders
+		//FunctionConcernContext:
+		//  "context" "function" namePredicate=NamePredicate ("(" (parameters+=
+		//  ParameterPredicate ("," parameters+=ParameterPredicate)* ("," varArgs?="..."
+		//  parameters+=ParameterVarargsPredicate)?|varArgs?="..." parameters+=
+		//  ParameterVarargsPredicate)? ")")?;
 		public ParserRule getRule() { return rule; }
 
-		//"context" "function"
+		//"context" "function" namePredicate=NamePredicate ("(" (parameters+=
+		//ParameterPredicate ("," parameters+=ParameterPredicate)* ("," varArgs?="..."
+		//parameters+=ParameterVarargsPredicate)?|varArgs?="..." parameters+=
+		//ParameterVarargsPredicate)? ")")?
 		public Group getGroup() { return cGroup; }
 
 		//"context"
@@ -6063,6 +6093,213 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"function"
 		public Keyword getFunctionKeyword_1() { return cFunctionKeyword_1; }
+
+		//namePredicate=NamePredicate
+		public Assignment getNamePredicateAssignment_2() { return cNamePredicateAssignment_2; }
+
+		//NamePredicate
+		public RuleCall getNamePredicateNamePredicateParserRuleCall_2_0() { return cNamePredicateNamePredicateParserRuleCall_2_0; }
+
+		//("(" (parameters+=ParameterPredicate ("," parameters+=ParameterPredicate)* (","
+		//varArgs?="..." parameters+=ParameterVarargsPredicate)?|varArgs?="..." parameters+=
+		//ParameterVarargsPredicate)? ")")?
+		public Group getGroup_3() { return cGroup_3; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_3_0() { return cLeftParenthesisKeyword_3_0; }
+
+		//(parameters+=ParameterPredicate ("," parameters+=ParameterPredicate)* ("," varArgs?=
+		//"..." parameters+=ParameterVarargsPredicate)?|varArgs?="..." parameters+=
+		//ParameterVarargsPredicate)?
+		public Alternatives getAlternatives_3_1() { return cAlternatives_3_1; }
+
+		//parameters+=ParameterPredicate ("," parameters+=ParameterPredicate)* ("," varArgs?=
+		//"..." parameters+=ParameterVarargsPredicate)?
+		public Group getGroup_3_1_0() { return cGroup_3_1_0; }
+
+		//parameters+=ParameterPredicate
+		public Assignment getParametersAssignment_3_1_0_0() { return cParametersAssignment_3_1_0_0; }
+
+		//ParameterPredicate
+		public RuleCall getParametersParameterPredicateParserRuleCall_3_1_0_0_0() { return cParametersParameterPredicateParserRuleCall_3_1_0_0_0; }
+
+		//("," parameters+=ParameterPredicate)*
+		public Group getGroup_3_1_0_1() { return cGroup_3_1_0_1; }
+
+		//","
+		public Keyword getCommaKeyword_3_1_0_1_0() { return cCommaKeyword_3_1_0_1_0; }
+
+		//parameters+=ParameterPredicate
+		public Assignment getParametersAssignment_3_1_0_1_1() { return cParametersAssignment_3_1_0_1_1; }
+
+		//ParameterPredicate
+		public RuleCall getParametersParameterPredicateParserRuleCall_3_1_0_1_1_0() { return cParametersParameterPredicateParserRuleCall_3_1_0_1_1_0; }
+
+		//("," varArgs?="..." parameters+=ParameterVarargsPredicate)?
+		public Group getGroup_3_1_0_2() { return cGroup_3_1_0_2; }
+
+		//","
+		public Keyword getCommaKeyword_3_1_0_2_0() { return cCommaKeyword_3_1_0_2_0; }
+
+		//varArgs?="..."
+		public Assignment getVarArgsAssignment_3_1_0_2_1() { return cVarArgsAssignment_3_1_0_2_1; }
+
+		//"..."
+		public Keyword getVarArgsFullStopFullStopFullStopKeyword_3_1_0_2_1_0() { return cVarArgsFullStopFullStopFullStopKeyword_3_1_0_2_1_0; }
+
+		//parameters+=ParameterVarargsPredicate
+		public Assignment getParametersAssignment_3_1_0_2_2() { return cParametersAssignment_3_1_0_2_2; }
+
+		//ParameterVarargsPredicate
+		public RuleCall getParametersParameterVarargsPredicateParserRuleCall_3_1_0_2_2_0() { return cParametersParameterVarargsPredicateParserRuleCall_3_1_0_2_2_0; }
+
+		//varArgs?="..." parameters+=ParameterVarargsPredicate
+		public Group getGroup_3_1_1() { return cGroup_3_1_1; }
+
+		//varArgs?="..."
+		public Assignment getVarArgsAssignment_3_1_1_0() { return cVarArgsAssignment_3_1_1_0; }
+
+		//"..."
+		public Keyword getVarArgsFullStopFullStopFullStopKeyword_3_1_1_0_0() { return cVarArgsFullStopFullStopFullStopKeyword_3_1_1_0_0; }
+
+		//parameters+=ParameterVarargsPredicate
+		public Assignment getParametersAssignment_3_1_1_1() { return cParametersAssignment_3_1_1_1; }
+
+		//ParameterVarargsPredicate
+		public RuleCall getParametersParameterVarargsPredicateParserRuleCall_3_1_1_1_0() { return cParametersParameterVarargsPredicateParserRuleCall_3_1_1_1_0; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_3_2() { return cRightParenthesisKeyword_3_2; }
+	}
+
+	public class ParameterPredicateElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ParameterPredicate");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Assignment cTypePredicateOpAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final RuleCall cTypePredicateOpTypePredicateOpParserRuleCall_0_0 = (RuleCall)cTypePredicateOpAssignment_0.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Assignment cTypeAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final RuleCall cTypeTypeRefParserRuleCall_1_0_0 = (RuleCall)cTypeAssignment_1_0.eContents().get(0);
+		private final Assignment cNameAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_1_0 = (RuleCall)cNameAssignment_1_1.eContents().get(0);
+		
+		//ParameterPredicate:
+		//  typePredicateOp=TypePredicateOp|type=TypeRef name=ID?; 
+		//	
+		//  
+		//	      
+		//	         
+		//	
+		//	
+		//// Varargs can only be last, and it only makes sense to skip the type (not to use ?*+)
+		public ParserRule getRule() { return rule; }
+
+		//typePredicateOp=TypePredicateOp|type=TypeRef name=ID? 
+		//	
+		//  
+		//	      
+		//	         
+		//	
+		//	
+		//// Varargs can only be last, and it only makes sense to skip the type (not to use ?*+)
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//typePredicateOp=TypePredicateOp
+		public Assignment getTypePredicateOpAssignment_0() { return cTypePredicateOpAssignment_0; }
+
+		//TypePredicateOp
+		public RuleCall getTypePredicateOpTypePredicateOpParserRuleCall_0_0() { return cTypePredicateOpTypePredicateOpParserRuleCall_0_0; }
+
+		//type=TypeRef name=ID?
+		public Group getGroup_1() { return cGroup_1; }
+
+		//type=TypeRef
+		public Assignment getTypeAssignment_1_0() { return cTypeAssignment_1_0; }
+
+		//TypeRef
+		public RuleCall getTypeTypeRefParserRuleCall_1_0_0() { return cTypeTypeRefParserRuleCall_1_0_0; }
+
+		//name=ID?
+		public Assignment getNameAssignment_1_1() { return cNameAssignment_1_1; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_1_0() { return cNameIDTerminalRuleCall_1_1_0; }
+	}
+
+	public class ParameterVarargsPredicateElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ParameterVarargsPredicate");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Assignment cTypePredicateOpAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final Keyword cTypePredicateOp_Keyword_0_0 = (Keyword)cTypePredicateOpAssignment_0.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Assignment cTypeAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final RuleCall cTypeTypeRefParserRuleCall_1_0_0 = (RuleCall)cTypeAssignment_1_0.eContents().get(0);
+		private final Assignment cNameAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_1_0 = (RuleCall)cNameAssignment_1_1.eContents().get(0);
+		
+		//ParameterVarargsPredicate:
+		//  typePredicateOp="_"|type=TypeRef name=ID?; 
+		//	
+		//// Varargs can only be last, and it only makes sense to skip the type (not to use ?*+)
+		public ParserRule getRule() { return rule; }
+
+		//typePredicateOp="_"|type=TypeRef name=ID? 
+		//	
+		//// Varargs can only be last, and it only makes sense to skip the type (not to use ?*+)
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//typePredicateOp="_"
+		public Assignment getTypePredicateOpAssignment_0() { return cTypePredicateOpAssignment_0; }
+
+		//"_"
+		public Keyword getTypePredicateOp_Keyword_0_0() { return cTypePredicateOp_Keyword_0_0; }
+
+		//type=TypeRef name=ID?
+		public Group getGroup_1() { return cGroup_1; }
+
+		//type=TypeRef
+		public Assignment getTypeAssignment_1_0() { return cTypeAssignment_1_0; }
+
+		//TypeRef
+		public RuleCall getTypeTypeRefParserRuleCall_1_0_0() { return cTypeTypeRefParserRuleCall_1_0_0; }
+
+		//name=ID?
+		public Assignment getNameAssignment_1_1() { return cNameAssignment_1_1; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_1_0() { return cNameIDTerminalRuleCall_1_1_0; }
+	}
+
+	public class TypePredicateOpElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "TypePredicateOp");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword c_Keyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cAsteriskKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cPlusSignKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		
+		//TypePredicateOp returns ecore::EString:
+		//  "_"|"*"|"+"; 
+		//	
+		//              
+		//
+		//// Advice for units consists of Builders, and advice for Builders
+		public ParserRule getRule() { return rule; }
+
+		//"_"|"*"|"+" 
+		//	
+		//              
+		//
+		//// Advice for units consists of Builders, and advice for Builders
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//"_"
+		public Keyword get_Keyword_0() { return c_Keyword_0; }
+
+		//"*"
+		public Keyword getAsteriskKeyword_1() { return cAsteriskKeyword_1; }
+
+		//"+"
+		public Keyword getPlusSignKeyword_2() { return cPlusSignKeyword_2; }
 	}
 
 	public class UnitConcernContextElements extends AbstractParserRuleElementFinder {
@@ -6128,7 +6365,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//  requiredCapabilities+=AliasedRequiredCapability ";"|"-" requiresRemovals+=
 		//  RequiresPredicate ";"|"+" "provides" "{" (providedCapabilities+=ProvidedCapability
 		//  ";")+ "}"|"+" "provides" providedCapabilities+=ProvidedCapability ";"|"-"
-		//  providesRemovals+=ProvidesPredicate ";")* "}"; 	
+		//  providesRemovals+=ProvidesPredicate ";")* "}"; 
+		//
 		//// Advice for units consists of Builders, and advice for Builders
 		//        
 		//	        
@@ -7089,7 +7327,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	public class NamePredicateElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "NamePredicate");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cNamePredicateAction_0 = (Action)cGroup.eContents().get(0);
+		private final Action cBNamePredicateAction_0 = (Action)cGroup.eContents().get(0);
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
 		private final Assignment cNameAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
 		private final RuleCall cNameEscapedQualifiedNameParserRuleCall_1_0_0 = (RuleCall)cNameAssignment_1_0.eContents().get(0);
@@ -7098,17 +7336,17 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNamePatternAssignment_1_2 = (Assignment)cAlternatives_1.eContents().get(2);
 		private final RuleCall cNamePatternWildcardExpressionParserRuleCall_1_2_0 = (RuleCall)cNamePatternAssignment_1_2.eContents().get(0);
 		
-		//NamePredicate returns be::NamePredicate:
-		//  {be::NamePredicate} (name=EscapedQualifiedName|namePattern=RegexpLiteral|
+		//NamePredicate returns be::BNamePredicate:
+		//  {be::BNamePredicate} (name=EscapedQualifiedName|namePattern=RegexpLiteral|
 		//  namePattern=WildcardExpression);
 		public ParserRule getRule() { return rule; }
 
-		//{be::NamePredicate} (name=EscapedQualifiedName|namePattern=RegexpLiteral|
+		//{be::BNamePredicate} (name=EscapedQualifiedName|namePattern=RegexpLiteral|
 		//namePattern=WildcardExpression)
 		public Group getGroup() { return cGroup; }
 
-		//{be::NamePredicate}
-		public Action getNamePredicateAction_0() { return cNamePredicateAction_0; }
+		//{be::BNamePredicate}
+		public Action getBNamePredicateAction_0() { return cBNamePredicateAction_0; }
 
 		//name=EscapedQualifiedName|namePattern=RegexpLiteral|namePattern=
 		//WildcardExpression
@@ -9049,6 +9287,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	private ConstructorCallExpressionElements pConstructorCallExpression;
 	private BuildConcernContextElements pBuildConcernContext;
 	private FunctionConcernContextElements pFunctionConcernContext;
+	private ParameterPredicateElements pParameterPredicate;
+	private ParameterVarargsPredicateElements pParameterVarargsPredicate;
+	private TypePredicateOpElements pTypePredicateOp;
 	private UnitConcernContextElements pUnitConcernContext;
 	private BuilderConcernContextElements pBuilderConcernContext;
 	private UnitOrExpressionElements pUnitOrExpression;
@@ -10505,7 +10746,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//BuildConcernContext returns be::BConcernContext:
-	//  UnitConcernContext|BuilderConcernContext; 
+	//  UnitConcernContext|BuilderConcernContext|FunctionConcernContext; 
 	//
 	//// Used in a concern to describe pointcuts/advice for units and/or builders
 	public BuildConcernContextElements getBuildConcernContextAccess() {
@@ -10516,18 +10757,60 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getBuildConcernContextAccess().getRule();
 	}
 
-	//FunctionConcernContext returns ecore::EString:
-	//  "context" "function"; 
-	//   
-	//	   
-	//		
-	//// Advice for units consists of Builders, and advice for Builders
+	//FunctionConcernContext:
+	//  "context" "function" namePredicate=NamePredicate ("(" (parameters+=
+	//  ParameterPredicate ("," parameters+=ParameterPredicate)* ("," varArgs?="..."
+	//  parameters+=ParameterVarargsPredicate)?|varArgs?="..." parameters+=
+	//  ParameterVarargsPredicate)? ")")?;
 	public FunctionConcernContextElements getFunctionConcernContextAccess() {
 		return (pFunctionConcernContext != null) ? pFunctionConcernContext : (pFunctionConcernContext = new FunctionConcernContextElements());
 	}
 	
 	public ParserRule getFunctionConcernContextRule() {
 		return getFunctionConcernContextAccess().getRule();
+	}
+
+	//ParameterPredicate:
+	//  typePredicateOp=TypePredicateOp|type=TypeRef name=ID?; 
+	//	
+	//  
+	//	      
+	//	         
+	//	
+	//	
+	//// Varargs can only be last, and it only makes sense to skip the type (not to use ?*+)
+	public ParameterPredicateElements getParameterPredicateAccess() {
+		return (pParameterPredicate != null) ? pParameterPredicate : (pParameterPredicate = new ParameterPredicateElements());
+	}
+	
+	public ParserRule getParameterPredicateRule() {
+		return getParameterPredicateAccess().getRule();
+	}
+
+	//ParameterVarargsPredicate:
+	//  typePredicateOp="_"|type=TypeRef name=ID?; 
+	//	
+	//// Varargs can only be last, and it only makes sense to skip the type (not to use ?*+)
+	public ParameterVarargsPredicateElements getParameterVarargsPredicateAccess() {
+		return (pParameterVarargsPredicate != null) ? pParameterVarargsPredicate : (pParameterVarargsPredicate = new ParameterVarargsPredicateElements());
+	}
+	
+	public ParserRule getParameterVarargsPredicateRule() {
+		return getParameterVarargsPredicateAccess().getRule();
+	}
+
+	//TypePredicateOp returns ecore::EString:
+	//  "_"|"*"|"+"; 
+	//	
+	//              
+	//
+	//// Advice for units consists of Builders, and advice for Builders
+	public TypePredicateOpElements getTypePredicateOpAccess() {
+		return (pTypePredicateOp != null) ? pTypePredicateOp : (pTypePredicateOp = new TypePredicateOpElements());
+	}
+	
+	public ParserRule getTypePredicateOpRule() {
+		return getTypePredicateOpAccess().getRule();
 	}
 
 	//UnitConcernContext returns build::UnitConcernContext:
@@ -10537,7 +10820,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//  requiredCapabilities+=AliasedRequiredCapability ";"|"-" requiresRemovals+=
 	//  RequiresPredicate ";"|"+" "provides" "{" (providedCapabilities+=ProvidedCapability
 	//  ";")+ "}"|"+" "provides" providedCapabilities+=ProvidedCapability ";"|"-"
-	//  providesRemovals+=ProvidesPredicate ";")* "}"; 	
+	//  providesRemovals+=ProvidesPredicate ";")* "}"; 
+	//
 	//// Advice for units consists of Builders, and advice for Builders
 	//        
 	//	        
@@ -10755,8 +11039,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getCapabilityPredicateAccess().getRule();
 	}
 
-	//NamePredicate returns be::NamePredicate:
-	//  {be::NamePredicate} (name=EscapedQualifiedName|namePattern=RegexpLiteral|
+	//NamePredicate returns be::BNamePredicate:
+	//  {be::BNamePredicate} (name=EscapedQualifiedName|namePattern=RegexpLiteral|
 	//  namePattern=WildcardExpression);
 	public NamePredicateElements getNamePredicateAccess() {
 		return (pNamePredicate != null) ? pNamePredicate : (pNamePredicate = new NamePredicateElements());

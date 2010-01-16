@@ -1509,49 +1509,95 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.NamePredicate} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NamePredicateItemProvider namePredicateItemProvider;
+	protected BNamePredicateItemProvider bNamePredicateItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.NamePredicate}.
+	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createNamePredicateAdapter() {
-		if (namePredicateItemProvider == null) {
-			namePredicateItemProvider = new NamePredicateItemProvider(this);
+	public Adapter createBNamePredicateAdapter() {
+		if (bNamePredicateItemProvider == null) {
+			bNamePredicateItemProvider = new BNamePredicateItemProvider(this);
 		}
 
-		return namePredicateItemProvider;
+		return bNamePredicateItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.FunctionNamePredicate} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionNamePredicate} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected FunctionNamePredicateItemProvider functionNamePredicateItemProvider;
+	protected BFunctionNamePredicateItemProvider bFunctionNamePredicateItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.FunctionNamePredicate}.
+	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionNamePredicate}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createFunctionNamePredicateAdapter() {
-		if (functionNamePredicateItemProvider == null) {
-			functionNamePredicateItemProvider = new FunctionNamePredicateItemProvider(this);
+	public Adapter createBFunctionNamePredicateAdapter() {
+		if (bFunctionNamePredicateItemProvider == null) {
+			bFunctionNamePredicateItemProvider = new BFunctionNamePredicateItemProvider(this);
 		}
 
-		return functionNamePredicateItemProvider;
+		return bFunctionNamePredicateItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BFunctionConcernContextItemProvider bFunctionConcernContextItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBFunctionConcernContextAdapter() {
+		if (bFunctionConcernContextItemProvider == null) {
+			bFunctionConcernContextItemProvider = new BFunctionConcernContextItemProvider(this);
+		}
+
+		return bFunctionConcernContextItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.ParameterPredicate} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ParameterPredicateItemProvider parameterPredicateItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.ParameterPredicate}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createParameterPredicateAdapter() {
+		if (parameterPredicateItemProvider == null) {
+			parameterPredicateItemProvider = new ParameterPredicateItemProvider(this);
+		}
+
+		return parameterPredicateItemProvider;
 	}
 
 	/**
@@ -1715,8 +1761,10 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 		if (bWithExpressionItemProvider != null) bWithExpressionItemProvider.dispose();
 		if (bFunctionItemProvider != null) bFunctionItemProvider.dispose();
 		if (bFunctionWrapperItemProvider != null) bFunctionWrapperItemProvider.dispose();
-		if (namePredicateItemProvider != null) namePredicateItemProvider.dispose();
-		if (functionNamePredicateItemProvider != null) functionNamePredicateItemProvider.dispose();
+		if (bNamePredicateItemProvider != null) bNamePredicateItemProvider.dispose();
+		if (bFunctionNamePredicateItemProvider != null) bFunctionNamePredicateItemProvider.dispose();
+		if (bFunctionConcernContextItemProvider != null) bFunctionConcernContextItemProvider.dispose();
+		if (parameterPredicateItemProvider != null) parameterPredicateItemProvider.dispose();
 	}
 
 }

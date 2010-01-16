@@ -334,7 +334,7 @@ public class BChainedExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BCHAINED_EXPRESSION__EXPRESSIONS,
-				 B3backendFactory.eINSTANCE.createFunctionNamePredicate()));
+				 B3backendFactory.eINSTANCE.createBFunctionNamePredicate()));
 	}
 
 }

@@ -562,13 +562,33 @@
         eType="#//IFunction"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="original" eType="#//IFunction"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NamePredicate">
+  <eClassifiers xsi:type="ecore:EClass" name="BNamePredicate">
     <eStructuralFeatures xsi:type="ecore:EReference" name="namePattern" eType="#//BExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FunctionNamePredicate" eSuperTypes="#//BExpression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="namePredicate" eType="#//NamePredicate"
+  <eClassifiers xsi:type="ecore:EClass" name="BFunctionNamePredicate" eSuperTypes="#//BExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="namePredicate" eType="#//BNamePredicate"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BFunctionConcernContext" eSuperTypes="#//BConcernContext">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="namePredicate" eType="#//BFunctionNamePredicate"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameterPredicates" upperBound="-1"
+        eType="#//ParameterPredicate" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterPredicate">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The name is the name of the accessable parameter in the woven function - it is not a predicate."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//Type"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typePredicateOp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Operators are _ (any type), * (zero or more parameters), + (one or more parameters)"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="varArgs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
 </ecore:EPackage>

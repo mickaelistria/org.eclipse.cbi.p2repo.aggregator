@@ -15,15 +15,15 @@ package org.eclipse.b3.backend.evaluator.b3backend.tests;
 import junit.textui.TestRunner;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
-import org.eclipse.b3.backend.evaluator.b3backend.FunctionNamePredicate;
+import org.eclipse.b3.backend.evaluator.b3backend.BFunctionNamePredicate;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Function Name Predicate</b></em>'.
+ * A test case for the model object '<em><b>BFunction Name Predicate</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class FunctionNamePredicateTest extends BExpressionTest {
+public class BFunctionNamePredicateTest extends BExpressionTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -38,28 +38,28 @@ public class FunctionNamePredicateTest extends BExpressionTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(FunctionNamePredicateTest.class);
+		TestRunner.run(BFunctionNamePredicateTest.class);
 	}
 
 	/**
-	 * Constructs a new Function Name Predicate test case with the given name.
+	 * Constructs a new BFunction Name Predicate test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FunctionNamePredicateTest(String name) {
+	public BFunctionNamePredicateTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Function Name Predicate test case.
+	 * Returns the fixture for this BFunction Name Predicate test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected FunctionNamePredicate getFixture() {
-		return (FunctionNamePredicate)fixture;
+	protected BFunctionNamePredicate getFixture() {
+		return (BFunctionNamePredicate)fixture;
 	}
 
 	/**
@@ -70,7 +70,7 @@ public class FunctionNamePredicateTest extends BExpressionTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(B3backendFactory.eINSTANCE.createFunctionNamePredicate());
+		setFixture(B3backendFactory.eINSTANCE.createBFunctionNamePredicate());
 	}
 
 	/**
@@ -84,4 +84,4 @@ public class FunctionNamePredicateTest extends BExpressionTest {
 		setFixture(null);
 	}
 
-} //FunctionNamePredicateTest
+} //BFunctionNamePredicateTest

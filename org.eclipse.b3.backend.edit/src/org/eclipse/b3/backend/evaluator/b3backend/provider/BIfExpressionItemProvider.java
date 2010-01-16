@@ -338,7 +338,7 @@ public class BIfExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BIF_EXPRESSION__CONDITION_EXPR,
-				 B3backendFactory.eINSTANCE.createFunctionNamePredicate()));
+				 B3backendFactory.eINSTANCE.createBFunctionNamePredicate()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -518,7 +518,7 @@ public class BIfExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BIF_EXPRESSION__THEN_EXPR,
-				 B3backendFactory.eINSTANCE.createFunctionNamePredicate()));
+				 B3backendFactory.eINSTANCE.createBFunctionNamePredicate()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -698,7 +698,7 @@ public class BIfExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BIF_EXPRESSION__ELSE_EXPR,
-				 B3backendFactory.eINSTANCE.createFunctionNamePredicate()));
+				 B3backendFactory.eINSTANCE.createBFunctionNamePredicate()));
 	}
 
 	/**

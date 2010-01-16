@@ -17,15 +17,15 @@ import junit.framework.TestCase;
 import junit.textui.TestRunner;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
-import org.eclipse.b3.backend.evaluator.b3backend.NamePredicate;
+import org.eclipse.b3.backend.evaluator.b3backend.ParameterPredicate;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Name Predicate</b></em>'.
+ * A test case for the model object '<em><b>Parameter Predicate</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class NamePredicateTest extends TestCase {
+public class ParameterPredicateTest extends TestCase {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -35,12 +35,12 @@ public class NamePredicateTest extends TestCase {
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
 
 	/**
-	 * The fixture for this Name Predicate test case.
+	 * The fixture for this Parameter Predicate test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NamePredicate fixture = null;
+	protected ParameterPredicate fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -48,36 +48,36 @@ public class NamePredicateTest extends TestCase {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(NamePredicateTest.class);
+		TestRunner.run(ParameterPredicateTest.class);
 	}
 
 	/**
-	 * Constructs a new Name Predicate test case with the given name.
+	 * Constructs a new Parameter Predicate test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NamePredicateTest(String name) {
+	public ParameterPredicateTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Sets the fixture for this Name Predicate test case.
+	 * Sets the fixture for this Parameter Predicate test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void setFixture(NamePredicate fixture) {
+	protected void setFixture(ParameterPredicate fixture) {
 		this.fixture = fixture;
 	}
 
 	/**
-	 * Returns the fixture for this Name Predicate test case.
+	 * Returns the fixture for this Parameter Predicate test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NamePredicate getFixture() {
+	protected ParameterPredicate getFixture() {
 		return fixture;
 	}
 
@@ -89,7 +89,7 @@ public class NamePredicateTest extends TestCase {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(B3backendFactory.eINSTANCE.createNamePredicate());
+		setFixture(B3backendFactory.eINSTANCE.createParameterPredicate());
 	}
 
 	/**
@@ -103,4 +103,4 @@ public class NamePredicateTest extends TestCase {
 		setFixture(null);
 	}
 
-} //NamePredicateTest
+} //ParameterPredicateTest
