@@ -592,6 +592,24 @@ public interface B3backendFactory extends EFactory {
 	BFunctionWrapper createBFunctionWrapper();
 
 	/**
+	 * Returns a new object of class '<em>Name Predicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Name Predicate</em>'.
+	 * @generated
+	 */
+	NamePredicate createNamePredicate();
+
+	/**
+	 * Returns a new object of class '<em>Function Name Predicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Function Name Predicate</em>'.
+	 * @generated
+	 */
+	FunctionNamePredicate createFunctionNamePredicate();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

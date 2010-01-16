@@ -14,6 +14,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
+import org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper;
 import org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BSourceLink;
 
@@ -192,10 +193,6 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 				return createProvidesPredicateAdapter();
 			}
 			@Override
-			public Adapter caseNamePredicate(NamePredicate object) {
-				return createNamePredicateAdapter();
-			}
-			@Override
 			public Adapter caseNameSpacePredicate(NameSpacePredicate object) {
 				return createNameSpacePredicateAdapter();
 			}
@@ -248,6 +245,10 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 				return createBuilderJavaAdapter();
 			}
 			@Override
+			public Adapter caseBuilderWrapper(BuilderWrapper object) {
+				return createBuilderWrapperAdapter();
+			}
+			@Override
 			public Adapter caseBFunctionContainer(BFunctionContainer object) {
 				return createBFunctionContainerAdapter();
 			}
@@ -286,6 +287,10 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseBJavaFunction(BJavaFunction object) {
 				return createBJavaFunctionAdapter();
+			}
+			@Override
+			public Adapter caseBFunctionWrapper(BFunctionWrapper object) {
+				return createBFunctionWrapperAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -360,6 +365,20 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBuilderJavaAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.BuilderWrapper <em>Builder Wrapper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.BuilderWrapper
+	 * @generated
+	 */
+	public Adapter createBuilderWrapperAdapter() {
 		return null;
 	}
 
@@ -626,20 +645,6 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createProvidesPredicateAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.NamePredicate <em>Name Predicate</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.b3.build.build.NamePredicate
-	 * @generated
-	 */
-	public Adapter createNamePredicateAdapter() {
 		return null;
 	}
 
@@ -990,6 +995,20 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBJavaFunctionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper <em>BFunction Wrapper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper
+	 * @generated
+	 */
+	public Adapter createBFunctionWrapperAdapter() {
 		return null;
 	}
 

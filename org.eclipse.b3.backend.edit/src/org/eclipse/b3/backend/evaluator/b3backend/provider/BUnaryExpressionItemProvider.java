@@ -319,6 +319,11 @@ public class BUnaryExpressionItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BUNARY_EXPRESSION__EXPR,
 				 B3backendFactory.eINSTANCE.createBFunctionWrapper()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BUNARY_EXPRESSION__EXPR,
+				 B3backendFactory.eINSTANCE.createFunctionNamePredicate()));
 	}
 
 }

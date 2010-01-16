@@ -8,6 +8,7 @@ package org.eclipse.b3.build.build;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 
+import org.eclipse.b3.backend.evaluator.b3backend.NamePredicate;
 import org.eclipse.equinox.internal.provisional.p2.core.VersionRange;
 
 /**

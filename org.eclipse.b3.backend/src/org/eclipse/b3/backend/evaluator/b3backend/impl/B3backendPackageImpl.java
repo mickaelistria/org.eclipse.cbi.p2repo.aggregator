@@ -94,7 +94,9 @@ import org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BWithExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
+import org.eclipse.b3.backend.evaluator.b3backend.FunctionNamePredicate;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.NamePredicate;
 import org.eclipse.b3.backend.evaluator.b3backend.Visibility;
 import org.eclipse.core.runtime.CoreException;
 
@@ -361,6 +363,20 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * @generated
 	 */
 	private EClass bFunctionWrapperEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass namePredicateEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass functionNamePredicateEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1714,6 +1730,51 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 */
 	public EReference getBFunctionWrapper_Original() {
 		return (EReference)bFunctionWrapperEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getNamePredicate() {
+		return namePredicateEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getNamePredicate_NamePattern() {
+		return (EReference)namePredicateEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNamePredicate_Name() {
+		return (EAttribute)namePredicateEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getFunctionNamePredicate() {
+		return functionNamePredicateEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFunctionNamePredicate_NamePredicate() {
+		return (EReference)functionNamePredicateEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3081,6 +3142,13 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		createEReference(bFunctionWrapperEClass, BFUNCTION_WRAPPER__WRAPPER);
 		createEReference(bFunctionWrapperEClass, BFUNCTION_WRAPPER__ORIGINAL);
 
+		namePredicateEClass = createEClass(NAME_PREDICATE);
+		createEReference(namePredicateEClass, NAME_PREDICATE__NAME_PATTERN);
+		createEAttribute(namePredicateEClass, NAME_PREDICATE__NAME);
+
+		functionNamePredicateEClass = createEClass(FUNCTION_NAME_PREDICATE);
+		createEReference(functionNamePredicateEClass, FUNCTION_NAME_PREDICATE__NAME_PREDICATE);
+
 		// Create enums
 		visibilityEEnum = createEEnum(VISIBILITY);
 		executionModeEEnum = createEEnum(EXECUTION_MODE);
@@ -3202,6 +3270,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		bFunctionEClass.getESuperTypes().add(this.getIFunction());
 		bFunctionWrapperEClass.getESuperTypes().add(this.getBExpression());
 		bFunctionWrapperEClass.getESuperTypes().add(this.getIFunction());
+		functionNamePredicateEClass.getESuperTypes().add(this.getBExpression());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(bExpressionEClass, BExpression.class, "BExpression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3647,6 +3716,13 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEClass(bFunctionWrapperEClass, BFunctionWrapper.class, "BFunctionWrapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBFunctionWrapper_Wrapper(), this.getIFunction(), null, "wrapper", null, 1, 1, BFunctionWrapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBFunctionWrapper_Original(), this.getIFunction(), null, "original", null, 0, 1, BFunctionWrapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(namePredicateEClass, NamePredicate.class, "NamePredicate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getNamePredicate_NamePattern(), this.getBExpression(), null, "namePattern", null, 0, 1, NamePredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNamePredicate_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamePredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(functionNamePredicateEClass, FunctionNamePredicate.class, "FunctionNamePredicate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getFunctionNamePredicate_NamePredicate(), this.getNamePredicate(), null, "namePredicate", null, 0, 1, FunctionNamePredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(visibilityEEnum, Visibility.class, "Visibility");

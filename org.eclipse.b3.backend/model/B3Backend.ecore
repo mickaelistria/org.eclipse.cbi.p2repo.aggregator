@@ -562,4 +562,13 @@
         eType="#//IFunction"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="original" eType="#//IFunction"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NamePredicate">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="namePattern" eType="#//BExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FunctionNamePredicate" eSuperTypes="#//BExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="namePredicate" eType="#//NamePredicate"
+        containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>

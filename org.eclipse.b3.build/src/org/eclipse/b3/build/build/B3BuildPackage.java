@@ -361,7 +361,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuilder()
 	 * @generated
 	 */
-	int BUILDER = 39;
+	int BUILDER = 38;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderJavaImpl <em>Builder Java</em>}' class.
@@ -371,7 +371,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuilderJava()
 	 * @generated
 	 */
-	int BUILDER_JAVA = 40;
+	int BUILDER_JAVA = 39;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderInputImpl <em>Builder Input</em>}' class.
@@ -604,16 +604,6 @@ public interface B3BuildPackage extends EPackage {
 	int PROVIDES_PREDICATE = 26;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.NamePredicateImpl <em>Name Predicate</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.impl.NamePredicateImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getNamePredicate()
-	 * @generated
-	 */
-	int NAME_PREDICATE = 27;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.NameSpacePredicateImpl <em>Name Space Predicate</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -621,7 +611,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getNameSpacePredicate()
 	 * @generated
 	 */
-	int NAME_SPACE_PREDICATE = 28;
+	int NAME_SPACE_PREDICATE = 27;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.UnitNamePredicateImpl <em>Unit Name Predicate</em>}' class.
@@ -631,7 +621,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getUnitNamePredicate()
 	 * @generated
 	 */
-	int UNIT_NAME_PREDICATE = 29;
+	int UNIT_NAME_PREDICATE = 28;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderNamePredicateImpl <em>Builder Name Predicate</em>}' class.
@@ -641,7 +631,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuilderNamePredicate()
 	 * @generated
 	 */
-	int BUILDER_NAME_PREDICATE = 30;
+	int BUILDER_NAME_PREDICATE = 29;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.InputPredicateImpl <em>Input Predicate</em>}' class.
@@ -651,7 +641,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getInputPredicate()
 	 * @generated
 	 */
-	int INPUT_PREDICATE = 31;
+	int INPUT_PREDICATE = 30;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl <em>Unit Concern Context</em>}' class.
@@ -661,7 +651,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getUnitConcernContext()
 	 * @generated
 	 */
-	int UNIT_CONCERN_CONTEXT = 32;
+	int UNIT_CONCERN_CONTEXT = 31;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl <em>Builder Concern Context</em>}' class.
@@ -671,7 +661,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuilderConcernContext()
 	 * @generated
 	 */
-	int BUILDER_CONCERN_CONTEXT = 33;
+	int BUILDER_CONCERN_CONTEXT = 32;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.OutputPredicateImpl <em>Output Predicate</em>}' class.
@@ -681,7 +671,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getOutputPredicate()
 	 * @generated
 	 */
-	int OUTPUT_PREDICATE = 34;
+	int OUTPUT_PREDICATE = 33;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.AliasedRequiredCapabilityImpl <em>Aliased Required Capability</em>}' class.
@@ -691,7 +681,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getAliasedRequiredCapability()
 	 * @generated
 	 */
-	int ALIASED_REQUIRED_CAPABILITY = 35;
+	int ALIASED_REQUIRED_CAPABILITY = 34;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.IRequiredCapabilityContainer <em>IRequired Capability Container</em>}' class.
@@ -701,7 +691,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getIRequiredCapabilityContainer()
 	 * @generated
 	 */
-	int IREQUIRED_CAPABILITY_CONTAINER = 36;
+	int IREQUIRED_CAPABILITY_CONTAINER = 35;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.IProvidedCapabilityContainer <em>IProvided Capability Container</em>}' class.
@@ -711,7 +701,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getIProvidedCapabilityContainer()
 	 * @generated
 	 */
-	int IPROVIDED_CAPABILITY_CONTAINER = 37;
+	int IPROVIDED_CAPABILITY_CONTAINER = 36;
 
 	/**
 	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
@@ -1723,33 +1713,6 @@ public interface B3BuildPackage extends EPackage {
 	int PROVIDES_PREDICATE_FEATURE_COUNT = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAME_PREDICATE__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Name Pattern</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAME_PREDICATE__NAME_PATTERN = 1;
-
-	/**
-	 * The number of structural features of the '<em>Name Predicate</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAME_PREDICATE_FEATURE_COUNT = 2;
-
-	/**
 	 * The feature id for the '<em><b>Name Space</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2198,7 +2161,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuilderQuery()
 	 * @generated
 	 */
-	int BUILDER_QUERY = 38;
+	int BUILDER_QUERY = 37;
 
 	/**
 	 * The feature id for the '<em><b>Builder Queries</b></em>' containment reference list.
@@ -2723,6 +2686,268 @@ public interface B3BuildPackage extends EPackage {
 	int BUILDER_JAVA_FEATURE_COUNT = B3backendPackage.BJAVA_FUNCTION_FEATURE_COUNT + 7;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderWrapperImpl <em>Builder Wrapper</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.BuilderWrapperImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuilderWrapper()
+	 * @generated
+	 */
+	int BUILDER_WRAPPER = 40;
+
+	/**
+	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_WRAPPER__LINE_NUMBER = B3backendPackage.BFUNCTION_WRAPPER__LINE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>File Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_WRAPPER__FILE_REFERENCE = B3backendPackage.BFUNCTION_WRAPPER__FILE_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Visibility</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_WRAPPER__VISIBILITY = B3backendPackage.BFUNCTION_WRAPPER__VISIBILITY;
+
+	/**
+	 * The feature id for the '<em><b>Final</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_WRAPPER__FINAL = B3backendPackage.BFUNCTION_WRAPPER__FINAL;
+
+	/**
+	 * The feature id for the '<em><b>Execution Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_WRAPPER__EXECUTION_MODE = B3backendPackage.BFUNCTION_WRAPPER__EXECUTION_MODE;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_WRAPPER__NAME = B3backendPackage.BFUNCTION_WRAPPER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Guard</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_WRAPPER__GUARD = B3backendPackage.BFUNCTION_WRAPPER__GUARD;
+
+	/**
+	 * The feature id for the '<em><b>Parameter Types</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_WRAPPER__PARAMETER_TYPES = B3backendPackage.BFUNCTION_WRAPPER__PARAMETER_TYPES;
+
+	/**
+	 * The feature id for the '<em><b>Exception Types</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_WRAPPER__EXCEPTION_TYPES = B3backendPackage.BFUNCTION_WRAPPER__EXCEPTION_TYPES;
+
+	/**
+	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_WRAPPER__TYPE_PARAMETERS = B3backendPackage.BFUNCTION_WRAPPER__TYPE_PARAMETERS;
+
+	/**
+	 * The feature id for the '<em><b>Parameter Names</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_WRAPPER__PARAMETER_NAMES = B3backendPackage.BFUNCTION_WRAPPER__PARAMETER_NAMES;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_WRAPPER__PARAMETERS = B3backendPackage.BFUNCTION_WRAPPER__PARAMETERS;
+
+	/**
+	 * The feature id for the '<em><b>Var Args</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_WRAPPER__VAR_ARGS = B3backendPackage.BFUNCTION_WRAPPER__VAR_ARGS;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_WRAPPER__DOCUMENTATION = B3backendPackage.BFUNCTION_WRAPPER__DOCUMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Return Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_WRAPPER__RETURN_TYPE = B3backendPackage.BFUNCTION_WRAPPER__RETURN_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Closure</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_WRAPPER__CLOSURE = B3backendPackage.BFUNCTION_WRAPPER__CLOSURE;
+
+	/**
+	 * The feature id for the '<em><b>Type Calculator</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_WRAPPER__TYPE_CALCULATOR = B3backendPackage.BFUNCTION_WRAPPER__TYPE_CALCULATOR;
+
+	/**
+	 * The feature id for the '<em><b>Container</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_WRAPPER__CONTAINER = B3backendPackage.BFUNCTION_WRAPPER__CONTAINER;
+
+	/**
+	 * The feature id for the '<em><b>Wrapper</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_WRAPPER__WRAPPER = B3backendPackage.BFUNCTION_WRAPPER__WRAPPER;
+
+	/**
+	 * The feature id for the '<em><b>Original</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_WRAPPER__ORIGINAL = B3backendPackage.BFUNCTION_WRAPPER__ORIGINAL;
+
+	/**
+	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_WRAPPER__PROVIDED_CAPABILITIES = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Postcond Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_WRAPPER__POSTCOND_EXPR = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Precond Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_WRAPPER__PRECOND_EXPR = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Input</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_WRAPPER__INPUT = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Output</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_WRAPPER__OUTPUT = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Default Properties</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_WRAPPER__DEFAULT_PROPERTIES = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Postinputcondition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_WRAPPER__POSTINPUTCONDITION = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 6;
+
+	/**
+	 * The number of structural features of the '<em>Builder Wrapper</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_WRAPPER_FEATURE_COUNT = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 7;
+
+	/**
 	 * The meta object id for the '<em>Version Range</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2979,6 +3204,16 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getBuilderJava();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuilderWrapper <em>Builder Wrapper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Builder Wrapper</em>'.
+	 * @see org.eclipse.b3.build.build.BuilderWrapper
+	 * @generated
+	 */
+	EClass getBuilderWrapper();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.VersionedCapability <em>Versioned Capability</em>}'.
@@ -3466,38 +3701,6 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getProvidesPredicate_CapabilityPredicate();
-
-	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.NamePredicate <em>Name Predicate</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Name Predicate</em>'.
-	 * @see org.eclipse.b3.build.build.NamePredicate
-	 * @generated
-	 */
-	EClass getNamePredicate();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.NamePredicate#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.eclipse.b3.build.build.NamePredicate#getName()
-	 * @see #getNamePredicate()
-	 * @generated
-	 */
-	EAttribute getNamePredicate_Name();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.NamePredicate#getNamePattern <em>Name Pattern</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Name Pattern</em>'.
-	 * @see org.eclipse.b3.build.build.NamePredicate#getNamePattern()
-	 * @see #getNamePredicate()
-	 * @generated
-	 */
-	EReference getNamePredicate_NamePattern();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.NameSpacePredicate <em>Name Space Predicate</em>}'.
@@ -4264,6 +4467,16 @@ public interface B3BuildPackage extends EPackage {
 		EClass BUILDER_JAVA = eINSTANCE.getBuilderJava();
 
 		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuilderWrapperImpl <em>Builder Wrapper</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.impl.BuilderWrapperImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuilderWrapper()
+		 * @generated
+		 */
+		EClass BUILDER_WRAPPER = eINSTANCE.getBuilderWrapper();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.VersionedCapabilityImpl <em>Versioned Capability</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4668,32 +4881,6 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROVIDES_PREDICATE__CAPABILITY_PREDICATE = eINSTANCE.getProvidesPredicate_CapabilityPredicate();
-
-		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.NamePredicateImpl <em>Name Predicate</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.b3.build.build.impl.NamePredicateImpl
-		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getNamePredicate()
-		 * @generated
-		 */
-		EClass NAME_PREDICATE = eINSTANCE.getNamePredicate();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute NAME_PREDICATE__NAME = eINSTANCE.getNamePredicate_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Name Pattern</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference NAME_PREDICATE__NAME_PATTERN = eINSTANCE.getNamePredicate_NamePattern();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.NameSpacePredicateImpl <em>Name Space Predicate</em>}' class.

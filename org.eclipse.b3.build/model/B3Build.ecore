@@ -165,9 +165,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="nameSpacePattern" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="versionRange" eType="#//VersionRange"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="namePredicate" eType="#//NamePredicate"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="namePredicate" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//NamePredicate"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="nameSpacePredicate" eType="#//NamePredicate"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nameSpacePredicate" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//NamePredicate"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ImplementsPredicate" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression">
@@ -178,24 +178,20 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="capabilityPredicate" eType="#//CapabilityPredicate"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NamePredicate">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="namePattern" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"
-        containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NameSpacePredicate">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nameSpace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UnitNamePredicate" eSuperTypes="#//CapabilityPredicate"/>
   <eClassifiers xsi:type="ecore:EClass" name="BuilderNamePredicate" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="namePredicate" eType="#//NamePredicate"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="namePredicate" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//NamePredicate"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InputPredicate" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="capabilityPredicate" eType="#//CapabilityPredicate"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="builderPredicate" lowerBound="1"
-        eType="#//NamePredicate" containment="true"/>
+        eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//NamePredicate"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UnitConcernContext" eSuperTypes="#//BuildConcernContext #//IRequiredCapabilityContainer #//IProvidedCapabilityContainer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="builderContexts" upperBound="-1"
@@ -249,4 +245,5 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Builder" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//B3Function #//IBuilder"/>
   <eClassifiers xsi:type="ecore:EClass" name="BuilderJava" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//BJavaFunction #//IBuilder"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BuilderWrapper" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//BFunctionWrapper #//IBuilder"/>
 </ecore:EPackage>

@@ -53,6 +53,15 @@ public interface B3BuildFactory extends EFactory {
 	BuilderJava createBuilderJava();
 
 	/**
+	 * Returns a new object of class '<em>Builder Wrapper</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Builder Wrapper</em>'.
+	 * @generated
+	 */
+	BuilderWrapper createBuilderWrapper();
+
+	/**
 	 * Returns a new object of class '<em>Versioned Capability</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -204,15 +213,6 @@ public interface B3BuildFactory extends EFactory {
 	 * @generated
 	 */
 	ProvidesPredicate createProvidesPredicate();
-
-	/**
-	 * Returns a new object of class '<em>Name Predicate</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Name Predicate</em>'.
-	 * @generated
-	 */
-	NamePredicate createNamePredicate();
 
 	/**
 	 * Returns a new object of class '<em>Name Space Predicate</em>'.

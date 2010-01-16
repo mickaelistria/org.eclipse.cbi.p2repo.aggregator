@@ -45,7 +45,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class BFunctionWrapperItemProvider
-	extends ItemProviderAdapter
+	extends BExpressionItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -91,8 +91,7 @@ public class BFunctionWrapperItemProvider
 			addVarArgsPropertyDescriptor(object);
 			addDocumentationPropertyDescriptor(object);
 			addClosurePropertyDescriptor(object);
-			addLineNumberPropertyDescriptor(object);
-			addFileReferencePropertyDescriptor(object);
+			addWrapperPropertyDescriptor(object);
 			addOriginalPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -341,41 +340,19 @@ public class BFunctionWrapperItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Line Number feature.
+	 * This adds a property descriptor for the Wrapper feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addLineNumberPropertyDescriptor(Object object) {
+	protected void addWrapperPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BSourceLink_lineNumber_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BSourceLink_lineNumber_feature", "_UI_BSourceLink_type"),
-				 B3backendPackage.Literals.BSOURCE_LINK__LINE_NUMBER,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the File Reference feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addFileReferencePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_BSourceLink_fileReference_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BSourceLink_fileReference_feature", "_UI_BSourceLink_type"),
-				 B3backendPackage.Literals.BSOURCE_LINK__FILE_REFERENCE,
+				 getString("_UI_BFunctionWrapper_wrapper_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BFunctionWrapper_wrapper_feature", "_UI_BFunctionWrapper_type"),
+				 B3backendPackage.Literals.BFUNCTION_WRAPPER__WRAPPER,
 				 true,
 				 false,
 				 true,
@@ -422,7 +399,6 @@ public class BFunctionWrapperItemProvider
 			childrenFeatures.add(B3backendPackage.Literals.IFUNCTION__PARAMETERS);
 			childrenFeatures.add(B3backendPackage.Literals.IFUNCTION__RETURN_TYPE);
 			childrenFeatures.add(B3backendPackage.Literals.IFUNCTION__TYPE_CALCULATOR);
-			childrenFeatures.add(B3backendPackage.Literals.BFUNCTION_WRAPPER__WRAPPER);
 		}
 		return childrenFeatures;
 	}
@@ -487,14 +463,12 @@ public class BFunctionWrapperItemProvider
 			case B3backendPackage.BFUNCTION_WRAPPER__PARAMETER_NAMES:
 			case B3backendPackage.BFUNCTION_WRAPPER__VAR_ARGS:
 			case B3backendPackage.BFUNCTION_WRAPPER__DOCUMENTATION:
-			case B3backendPackage.BFUNCTION_WRAPPER__LINE_NUMBER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case B3backendPackage.BFUNCTION_WRAPPER__GUARD:
 			case B3backendPackage.BFUNCTION_WRAPPER__PARAMETERS:
 			case B3backendPackage.BFUNCTION_WRAPPER__RETURN_TYPE:
 			case B3backendPackage.BFUNCTION_WRAPPER__TYPE_CALCULATOR:
-			case B3backendPackage.BFUNCTION_WRAPPER__WRAPPER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -566,37 +540,6 @@ public class BFunctionWrapperItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.IFUNCTION__TYPE_CALCULATOR,
 				 B3backendFactory.eINSTANCE.createBTypeCalculatorFunction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(B3backendPackage.Literals.BFUNCTION_WRAPPER__WRAPPER,
-				 B3backendFactory.eINSTANCE.createBFunction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(B3backendPackage.Literals.BFUNCTION_WRAPPER__WRAPPER,
-				 B3backendFactory.eINSTANCE.createB3Function()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(B3backendPackage.Literals.BFUNCTION_WRAPPER__WRAPPER,
-				 B3backendFactory.eINSTANCE.createBJavaFunction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(B3backendPackage.Literals.BFUNCTION_WRAPPER__WRAPPER,
-				 B3backendFactory.eINSTANCE.createBFunctionWrapper()));
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return B3BackendEditPlugin.INSTANCE;
 	}
 
 }

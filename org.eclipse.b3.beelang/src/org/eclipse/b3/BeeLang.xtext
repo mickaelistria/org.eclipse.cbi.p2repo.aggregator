@@ -616,7 +616,9 @@ BuildConcernContext returns be::BConcernContext :
 	  UnitConcernContext
 	| BuilderConcernContext
 	;
-	
+FunctionConcernContext : 
+	"context" "function" 
+	;	
 // Advice for units consists of Builders, and advice for Builders
 UnitConcernContext returns build::UnitConcernContext : {build::UnitConcernContext}
 	"context" "unit" query = UnitOrExpression
@@ -720,7 +722,7 @@ CapabilityPredicate returns build::CapabilityPredicate : {build::CapabilityPredi
 	('/' versionRange=VersionRangeLiteral)? 
 	;
 	 
-NamePredicate returns build::NamePredicate : {build::NamePredicate}
+NamePredicate returns be::NamePredicate : {be::NamePredicate}
 	(name=EscapedQualifiedName  | namePattern = RegexpLiteral | namePattern = WildcardExpression)
 	;
 	
@@ -750,13 +752,13 @@ BuilderPrimaryExpression returns be::BExpression :
 GroupedBuilderPrimaryExpression returns be::BExpression : '(' BuilderOrExpression ')' ;
 
 
-ContextBlock returns be::BExpression : {be::BChainedExpression} 
-	'{'  ((expressions +=Function) 
-//		| (expressions+=BuilderDefinition)   // TODO: How to handle Builder definitions as expressions
-		| (expressions+=TopLevelExpression ';')
-//		| (expressions+=PropertiesStatement) // TODO: How to handle Properties statements as expressions
-		)* '}' 
-		;
+//ContextBlock returns be::BExpression : {be::BChainedExpression} 
+//	'{'  ((expressions +=Function) 
+////		| (expressions+=BuilderDefinition)   // TODO: How to handle Builder definitions as expressions
+//		| (expressions+=TopLevelExpression ';')
+////		| (expressions+=PropertiesStatement) // TODO: How to handle Properties statements as expressions
+//		)* '}' 
+//		;
 
 ContextBlock_Creation returns be::BExpression : {be::BChainedExpression} 
 	'{' (expressions+=TopLevelExpression ';')* '}' 

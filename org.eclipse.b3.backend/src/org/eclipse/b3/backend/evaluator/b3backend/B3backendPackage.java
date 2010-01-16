@@ -4394,6 +4394,89 @@ public interface B3backendPackage extends EPackage {
 	int BFUNCTION_WRAPPER_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 18;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.NamePredicateImpl <em>Name Predicate</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.NamePredicateImpl
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getNamePredicate()
+	 * @generated
+	 */
+	int NAME_PREDICATE = 77;
+
+	/**
+	 * The feature id for the '<em><b>Name Pattern</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAME_PREDICATE__NAME_PATTERN = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAME_PREDICATE__NAME = 1;
+
+	/**
+	 * The number of structural features of the '<em>Name Predicate</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAME_PREDICATE_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.FunctionNamePredicateImpl <em>Function Name Predicate</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.FunctionNamePredicateImpl
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getFunctionNamePredicate()
+	 * @generated
+	 */
+	int FUNCTION_NAME_PREDICATE = 78;
+
+	/**
+	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION_NAME_PREDICATE__LINE_NUMBER = BEXPRESSION__LINE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>File Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION_NAME_PREDICATE__FILE_REFERENCE = BEXPRESSION__FILE_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Name Predicate</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION_NAME_PREDICATE__NAME_PREDICATE = BEXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Function Name Predicate</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION_NAME_PREDICATE_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.Visibility <em>Visibility</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4401,7 +4484,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getVisibility()
 	 * @generated
 	 */
-	int VISIBILITY = 77;
+	int VISIBILITY = 79;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode <em>Execution Mode</em>}' enum.
@@ -4411,7 +4494,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getExecutionMode()
 	 * @generated
 	 */
-	int EXECUTION_MODE = 78;
+	int EXECUTION_MODE = 80;
 
 	/**
 	 * The meta object id for the '<em>Core Exception</em>' data type.
@@ -4421,7 +4504,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getCoreException()
 	 * @generated
 	 */
-	int CORE_EXCEPTION = 79;
+	int CORE_EXCEPTION = 81;
 
 
 	/**
@@ -4432,7 +4515,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 80;
+	int TYPE = 82;
 
 	/**
 	 * The meta object id for the '<em>Object Array</em>' data type.
@@ -4441,7 +4524,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getObjectArray()
 	 * @generated
 	 */
-	int OBJECT_ARRAY = 81;
+	int OBJECT_ARRAY = 83;
 
 
 	/**
@@ -4452,7 +4535,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getValueMap()
 	 * @generated
 	 */
-	int VALUE_MAP = 82;
+	int VALUE_MAP = 84;
 
 
 	/**
@@ -4463,7 +4546,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3EngineException()
 	 * @generated
 	 */
-	int B3_ENGINE_EXCEPTION = 83;
+	int B3_ENGINE_EXCEPTION = 85;
 
 
 	/**
@@ -4474,7 +4557,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3ExpressionCache()
 	 * @generated
 	 */
-	int B3_EXPRESSION_CACHE = 84;
+	int B3_EXPRESSION_CACHE = 86;
 
 
 	/**
@@ -4485,7 +4568,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getThrowable()
 	 * @generated
 	 */
-	int THROWABLE = 85;
+	int THROWABLE = 87;
 
 	/**
 	 * The meta object id for the '<em>LValue</em>' data type.
@@ -4495,7 +4578,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getLValue()
 	 * @generated
 	 */
-	int LVALUE = 86;
+	int LVALUE = 88;
 
 	/**
 	 * The meta object id for the '<em>Type Array</em>' data type.
@@ -4504,7 +4587,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getTypeArray()
 	 * @generated
 	 */
-	int TYPE_ARRAY = 87;
+	int TYPE_ARRAY = 89;
 
 	/**
 	 * The meta object id for the '<em>Method</em>' data type.
@@ -4514,7 +4597,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getMethod()
 	 * @generated
 	 */
-	int METHOD = 88;
+	int METHOD = 90;
 
 	/**
 	 * The meta object id for the '<em>Type Variable Array</em>' data type.
@@ -4523,7 +4606,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getTypeVariableArray()
 	 * @generated
 	 */
-	int TYPE_VARIABLE_ARRAY = 89;
+	int TYPE_VARIABLE_ARRAY = 91;
 
 	/**
 	 * The meta object id for the '<em>Func Store</em>' data type.
@@ -4533,7 +4616,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getFuncStore()
 	 * @generated
 	 */
-	int FUNC_STORE = 90;
+	int FUNC_STORE = 92;
 
 	/**
 	 * The meta object id for the '<em>Regexp Pattern</em>' data type.
@@ -4543,7 +4626,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getRegexpPattern()
 	 * @generated
 	 */
-	int REGEXP_PATTERN = 91;
+	int REGEXP_PATTERN = 93;
 
 	/**
 	 * The meta object id for the '<em>String Array</em>' data type.
@@ -4552,7 +4635,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getStringArray()
 	 * @generated
 	 */
-	int STRING_ARRAY = 92;
+	int STRING_ARRAY = 94;
 
 	/**
 	 * The meta object id for the '<em>B3 Dynamic Class Loader</em>' data type.
@@ -4562,7 +4645,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3DynamicClassLoader()
 	 * @generated
 	 */
-	int B3_DYNAMIC_CLASS_LOADER = 93;
+	int B3_DYNAMIC_CLASS_LOADER = 95;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BExpression <em>BExpression</em>}'.
@@ -5596,6 +5679,59 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBFunctionWrapper_Original();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.NamePredicate <em>Name Predicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Name Predicate</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.NamePredicate
+	 * @generated
+	 */
+	EClass getNamePredicate();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.NamePredicate#getNamePattern <em>Name Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Name Pattern</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.NamePredicate#getNamePattern()
+	 * @see #getNamePredicate()
+	 * @generated
+	 */
+	EReference getNamePredicate_NamePattern();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.NamePredicate#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.NamePredicate#getName()
+	 * @see #getNamePredicate()
+	 * @generated
+	 */
+	EAttribute getNamePredicate_Name();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.FunctionNamePredicate <em>Function Name Predicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Function Name Predicate</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.FunctionNamePredicate
+	 * @generated
+	 */
+	EClass getFunctionNamePredicate();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.FunctionNamePredicate#getNamePredicate <em>Name Predicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Name Predicate</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.FunctionNamePredicate#getNamePredicate()
+	 * @see #getFunctionNamePredicate()
+	 * @generated
+	 */
+	EReference getFunctionNamePredicate_NamePredicate();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BGuard <em>BGuard</em>}'.
@@ -7716,6 +7852,50 @@ public interface B3backendPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BFUNCTION_WRAPPER__ORIGINAL = eINSTANCE.getBFunctionWrapper_Original();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.NamePredicateImpl <em>Name Predicate</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.NamePredicateImpl
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getNamePredicate()
+		 * @generated
+		 */
+		EClass NAME_PREDICATE = eINSTANCE.getNamePredicate();
+
+		/**
+		 * The meta object literal for the '<em><b>Name Pattern</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NAME_PREDICATE__NAME_PATTERN = eINSTANCE.getNamePredicate_NamePattern();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NAME_PREDICATE__NAME = eINSTANCE.getNamePredicate_Name();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.FunctionNamePredicateImpl <em>Function Name Predicate</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.FunctionNamePredicateImpl
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getFunctionNamePredicate()
+		 * @generated
+		 */
+		EClass FUNCTION_NAME_PREDICATE = eINSTANCE.getFunctionNamePredicate();
+
+		/**
+		 * The meta object literal for the '<em><b>Name Predicate</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FUNCTION_NAME_PREDICATE__NAME_PREDICATE = eINSTANCE.getFunctionNamePredicate_NamePredicate();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BGuardImpl <em>BGuard</em>}' class.

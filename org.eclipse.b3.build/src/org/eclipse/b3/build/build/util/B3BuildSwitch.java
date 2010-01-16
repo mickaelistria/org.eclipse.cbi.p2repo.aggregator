@@ -16,6 +16,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
+import org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper;
 import org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BSourceLink;
 
@@ -294,12 +295,6 @@ public class B3BuildSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case B3BuildPackage.NAME_PREDICATE: {
-				NamePredicate namePredicate = (NamePredicate)theEObject;
-				T result = caseNamePredicate(namePredicate);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case B3BuildPackage.NAME_SPACE_PREDICATE: {
 				NameSpacePredicate nameSpacePredicate = (NameSpacePredicate)theEObject;
 				T result = caseNameSpacePredicate(nameSpacePredicate);
@@ -413,6 +408,19 @@ public class B3BuildSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case B3BuildPackage.BUILDER_WRAPPER: {
+				BuilderWrapper builderWrapper = (BuilderWrapper)theEObject;
+				T result = caseBuilderWrapper(builderWrapper);
+				if (result == null) result = caseBFunctionWrapper(builderWrapper);
+				if (result == null) result = caseIBuilder(builderWrapper);
+				if (result == null) result = caseIFunction(builderWrapper);
+				if (result == null) result = caseIProvidedCapabilityContainer(builderWrapper);
+				if (result == null) result = caseBExpression(builderWrapper);
+				if (result == null) result = caseBSourceLink(builderWrapper);
+				if (result == null) result = caseIGenericDeclaration(builderWrapper);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -474,6 +482,21 @@ public class B3BuildSwitch<T> {
 	 * @generated
 	 */
 	public T caseBuilderJava(BuilderJava object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Builder Wrapper</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Builder Wrapper</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBuilderWrapper(BuilderWrapper object) {
 		return null;
 	}
 
@@ -759,21 +782,6 @@ public class B3BuildSwitch<T> {
 	 * @generated
 	 */
 	public T caseProvidesPredicate(ProvidesPredicate object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Name Predicate</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Name Predicate</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseNamePredicate(NamePredicate object) {
 		return null;
 	}
 
@@ -1149,6 +1157,21 @@ public class B3BuildSwitch<T> {
 	 * @generated
 	 */
 	public T caseBJavaFunction(BJavaFunction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BFunction Wrapper</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BFunction Wrapper</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBFunctionWrapper(BFunctionWrapper object) {
 		return null;
 	}
 

@@ -37,7 +37,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class BFunctionItemProvider
-	extends ItemProviderAdapter
+	extends BExpressionItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -83,8 +83,6 @@ public class BFunctionItemProvider
 			addVarArgsPropertyDescriptor(object);
 			addDocumentationPropertyDescriptor(object);
 			addClosurePropertyDescriptor(object);
-			addLineNumberPropertyDescriptor(object);
-			addFileReferencePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -191,50 +189,6 @@ public class BFunctionItemProvider
 				 getString("_UI_IFunction_closure_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_IFunction_closure_feature", "_UI_IFunction_type"),
 				 B3backendPackage.Literals.IFUNCTION__CLOSURE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Line Number feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addLineNumberPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_BSourceLink_lineNumber_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BSourceLink_lineNumber_feature", "_UI_BSourceLink_type"),
-				 B3backendPackage.Literals.BSOURCE_LINK__LINE_NUMBER,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the File Reference feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addFileReferencePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_BSourceLink_fileReference_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BSourceLink_fileReference_feature", "_UI_BSourceLink_type"),
-				 B3backendPackage.Literals.BSOURCE_LINK__FILE_REFERENCE,
 				 true,
 				 false,
 				 true,
@@ -455,7 +409,6 @@ public class BFunctionItemProvider
 			case B3backendPackage.BFUNCTION__PARAMETER_NAMES:
 			case B3backendPackage.BFUNCTION__VAR_ARGS:
 			case B3backendPackage.BFUNCTION__DOCUMENTATION:
-			case B3backendPackage.BFUNCTION__LINE_NUMBER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case B3backendPackage.BFUNCTION__GUARD:
@@ -533,17 +486,6 @@ public class BFunctionItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.IFUNCTION__TYPE_CALCULATOR,
 				 B3backendFactory.eINSTANCE.createBTypeCalculatorFunction()));
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return B3BackendEditPlugin.INSTANCE;
 	}
 
 }

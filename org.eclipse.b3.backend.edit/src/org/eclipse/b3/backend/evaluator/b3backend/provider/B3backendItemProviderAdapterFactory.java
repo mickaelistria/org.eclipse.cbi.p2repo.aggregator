@@ -1509,6 +1509,52 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.NamePredicate} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NamePredicateItemProvider namePredicateItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.NamePredicate}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNamePredicateAdapter() {
+		if (namePredicateItemProvider == null) {
+			namePredicateItemProvider = new NamePredicateItemProvider(this);
+		}
+
+		return namePredicateItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.FunctionNamePredicate} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FunctionNamePredicateItemProvider functionNamePredicateItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.FunctionNamePredicate}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFunctionNamePredicateAdapter() {
+		if (functionNamePredicateItemProvider == null) {
+			functionNamePredicateItemProvider = new FunctionNamePredicateItemProvider(this);
+		}
+
+		return functionNamePredicateItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1669,6 +1715,8 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 		if (bWithExpressionItemProvider != null) bWithExpressionItemProvider.dispose();
 		if (bFunctionItemProvider != null) bFunctionItemProvider.dispose();
 		if (bFunctionWrapperItemProvider != null) bFunctionWrapperItemProvider.dispose();
+		if (namePredicateItemProvider != null) namePredicateItemProvider.dispose();
+		if (functionNamePredicateItemProvider != null) functionNamePredicateItemProvider.dispose();
 	}
 
 }

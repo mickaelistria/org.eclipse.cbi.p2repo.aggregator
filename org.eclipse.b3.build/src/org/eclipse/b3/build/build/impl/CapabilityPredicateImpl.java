@@ -8,11 +8,11 @@ package org.eclipse.b3.build.build.impl;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 
+import org.eclipse.b3.backend.evaluator.b3backend.NamePredicate;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.BExpressionImpl;
 
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.CapabilityPredicate;
-import org.eclipse.b3.build.build.NamePredicate;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -40,6 +40,7 @@ import org.eclipse.equinox.internal.provisional.p2.core.VersionRange;
  *
  * @generated
  */
+@SuppressWarnings("restriction")
 public class CapabilityPredicateImpl extends BExpressionImpl implements CapabilityPredicate {
 	/**
 	 * The cached value of the '{@link #getNameSpacePattern() <em>Name Space Pattern</em>}' containment reference.

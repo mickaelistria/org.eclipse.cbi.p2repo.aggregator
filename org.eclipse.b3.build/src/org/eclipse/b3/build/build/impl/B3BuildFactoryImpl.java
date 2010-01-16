@@ -89,7 +89,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 			case B3BuildPackage.CAPABILITY_PREDICATE: return createCapabilityPredicate();
 			case B3BuildPackage.IMPLEMENTS_PREDICATE: return createImplementsPredicate();
 			case B3BuildPackage.PROVIDES_PREDICATE: return createProvidesPredicate();
-			case B3BuildPackage.NAME_PREDICATE: return createNamePredicate();
 			case B3BuildPackage.NAME_SPACE_PREDICATE: return createNameSpacePredicate();
 			case B3BuildPackage.UNIT_NAME_PREDICATE: return createUnitNamePredicate();
 			case B3BuildPackage.BUILDER_NAME_PREDICATE: return createBuilderNamePredicate();
@@ -101,6 +100,7 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 			case B3BuildPackage.BUILDER_QUERY: return createBuilderQuery();
 			case B3BuildPackage.BUILDER: return createBuilder();
 			case B3BuildPackage.BUILDER_JAVA: return createBuilderJava();
+			case B3BuildPackage.BUILDER_WRAPPER: return createBuilderWrapper();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -172,6 +172,16 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	public BuilderJava createBuilderJava() {
 		BuilderJavaImpl builderJava = new BuilderJavaImpl();
 		return builderJava;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BuilderWrapper createBuilderWrapper() {
+		BuilderWrapperImpl builderWrapper = new BuilderWrapperImpl();
+		return builderWrapper;
 	}
 
 	/**
@@ -342,16 +352,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	public ProvidesPredicate createProvidesPredicate() {
 		ProvidesPredicateImpl providesPredicate = new ProvidesPredicateImpl();
 		return providesPredicate;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NamePredicate createNamePredicate() {
-		NamePredicateImpl namePredicate = new NamePredicateImpl();
-		return namePredicate;
 	}
 
 	/**

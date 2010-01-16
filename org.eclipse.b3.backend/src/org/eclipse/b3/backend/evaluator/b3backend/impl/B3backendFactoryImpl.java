@@ -141,6 +141,8 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 			case B3backendPackage.BWITH_EXPRESSION: return createBWithExpression();
 			case B3backendPackage.BFUNCTION: return createBFunction();
 			case B3backendPackage.BFUNCTION_WRAPPER: return createBFunctionWrapper();
+			case B3backendPackage.NAME_PREDICATE: return createNamePredicate();
+			case B3backendPackage.FUNCTION_NAME_PREDICATE: return createFunctionNamePredicate();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -854,6 +856,26 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	public BFunctionWrapper createBFunctionWrapper() {
 		BFunctionWrapperImpl bFunctionWrapper = new BFunctionWrapperImpl();
 		return bFunctionWrapper;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NamePredicate createNamePredicate() {
+		NamePredicateImpl namePredicate = new NamePredicateImpl();
+		return namePredicate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FunctionNamePredicate createFunctionNamePredicate() {
+		FunctionNamePredicateImpl functionNamePredicate = new FunctionNamePredicateImpl();
+		return functionNamePredicate;
 	}
 
 	/**

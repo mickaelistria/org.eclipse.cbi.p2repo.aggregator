@@ -93,7 +93,6 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getNamePredicateAccess().getAlternatives_1(), "rule__NamePredicate__Alternatives_1");
 					put(grammarAccess.getBuilderNotOrPrimaryExpressionAccess().getAlternatives(), "rule__BuilderNotOrPrimaryExpression__Alternatives");
 					put(grammarAccess.getBuilderPrimaryExpressionAccess().getAlternatives(), "rule__BuilderPrimaryExpression__Alternatives");
-					put(grammarAccess.getContextBlockAccess().getAlternatives_2(), "rule__ContextBlock__Alternatives_2");
 					put(grammarAccess.getLiteralAccess().getAlternatives(), "rule__Literal__Alternatives");
 					put(grammarAccess.getLiteralListAccess().getAlternatives(), "rule__LiteralList__Alternatives");
 					put(grammarAccess.getLiteralMapAccess().getAlternatives(), "rule__LiteralMap__Alternatives");
@@ -313,6 +312,7 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getConstructorCallExpressionAccess().getGroup(), "rule__ConstructorCallExpression__Group__0");
 					put(grammarAccess.getConstructorCallExpressionAccess().getGroup_3(), "rule__ConstructorCallExpression__Group_3__0");
 					put(grammarAccess.getConstructorCallExpressionAccess().getGroup_4(), "rule__ConstructorCallExpression__Group_4__0");
+					put(grammarAccess.getFunctionConcernContextAccess().getGroup(), "rule__FunctionConcernContext__Group__0");
 					put(grammarAccess.getUnitConcernContextAccess().getGroup(), "rule__UnitConcernContext__Group__0");
 					put(grammarAccess.getUnitConcernContextAccess().getGroup_5_2(), "rule__UnitConcernContext__Group_5_2__0");
 					put(grammarAccess.getUnitConcernContextAccess().getGroup_5_2_3(), "rule__UnitConcernContext__Group_5_2_3__0");
@@ -354,8 +354,6 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBuilderAndExpressionAccess().getGroup_1(), "rule__BuilderAndExpression__Group_1__0");
 					put(grammarAccess.getBuilderNotExpressionAccess().getGroup(), "rule__BuilderNotExpression__Group__0");
 					put(grammarAccess.getGroupedBuilderPrimaryExpressionAccess().getGroup(), "rule__GroupedBuilderPrimaryExpression__Group__0");
-					put(grammarAccess.getContextBlockAccess().getGroup(), "rule__ContextBlock__Group__0");
-					put(grammarAccess.getContextBlockAccess().getGroup_2_1(), "rule__ContextBlock__Group_2_1__0");
 					put(grammarAccess.getContextBlock_CreationAccess().getGroup(), "rule__ContextBlock_Creation__Group__0");
 					put(grammarAccess.getContextBlock_CreationAccess().getGroup_2(), "rule__ContextBlock_Creation__Group_2__0");
 					put(grammarAccess.getLiteralListAccess().getGroup_0(), "rule__LiteralList__Group_0__0");
@@ -685,8 +683,6 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBuilderAndExpressionAccess().getRightExprAssignment_1_2(), "rule__BuilderAndExpression__RightExprAssignment_1_2");
 					put(grammarAccess.getBuilderNotExpressionAccess().getFunctionNameAssignment_1(), "rule__BuilderNotExpression__FunctionNameAssignment_1");
 					put(grammarAccess.getBuilderNotExpressionAccess().getExprAssignment_2(), "rule__BuilderNotExpression__ExprAssignment_2");
-					put(grammarAccess.getContextBlockAccess().getExpressionsAssignment_2_0(), "rule__ContextBlock__ExpressionsAssignment_2_0");
-					put(grammarAccess.getContextBlockAccess().getExpressionsAssignment_2_1_0(), "rule__ContextBlock__ExpressionsAssignment_2_1_0");
 					put(grammarAccess.getContextBlock_CreationAccess().getExpressionsAssignment_2_0(), "rule__ContextBlock_Creation__ExpressionsAssignment_2_0");
 					put(grammarAccess.getLiteralListAccess().getEntryTypeAssignment_0_2_1(), "rule__LiteralList__EntryTypeAssignment_0_2_1");
 					put(grammarAccess.getLiteralListAccess().getEntriesAssignment_0_3(), "rule__LiteralList__EntriesAssignment_0_3");

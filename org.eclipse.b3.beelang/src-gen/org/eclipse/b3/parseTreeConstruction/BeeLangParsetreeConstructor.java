@@ -148,27 +148,26 @@ protected class ThisRootNode extends RootToken {
 			case 110: return new BuilderNotExpression_Group(this, this, 110, inst);
 			case 111: return new BuilderPrimaryExpression_Alternatives(this, this, 111, inst);
 			case 112: return new GroupedBuilderPrimaryExpression_Group(this, this, 112, inst);
-			case 113: return new ContextBlock_Group(this, this, 113, inst);
-			case 114: return new ContextBlock_Creation_Group(this, this, 114, inst);
-			case 115: return new Literal_Alternatives(this, this, 115, inst);
-			case 116: return new LiteralList_Alternatives(this, this, 116, inst);
-			case 117: return new LiteralMap_Alternatives(this, this, 117, inst);
-			case 118: return new LiteralFunction_Group(this, this, 118, inst);
-			case 119: return new ClosureExpression_Group(this, this, 119, inst);
-			case 120: return new OneOrManyExpressions_Alternatives(this, this, 120, inst);
-			case 121: return new BlockExpressionWithoutBrackets_Group(this, this, 121, inst);
-			case 122: return new MapEntry_Group(this, this, 122, inst);
-			case 123: return new KeyLiteral_Group(this, this, 123, inst);
-			case 124: return new LiteralType_Group(this, this, 124, inst);
-			case 125: return new ValueLiteral_Alternatives(this, this, 125, inst);
-			case 126: return new BooleanLiteral_Group(this, this, 126, inst);
-			case 127: return new IntegerLiteral_Group(this, this, 127, inst);
-			case 128: return new UnitLiteral_Group(this, this, 128, inst);
-			case 129: return new StringLiteral_Group(this, this, 129, inst);
-			case 130: return new RealLiteral_Group(this, this, 130, inst);
-			case 131: return new RegexpLiteral_Group(this, this, 131, inst);
-			case 132: return new NullLiteral_Group(this, this, 132, inst);
-			case 133: return new ParanthesizedExpression_Group(this, this, 133, inst);
+			case 113: return new ContextBlock_Creation_Group(this, this, 113, inst);
+			case 114: return new Literal_Alternatives(this, this, 114, inst);
+			case 115: return new LiteralList_Alternatives(this, this, 115, inst);
+			case 116: return new LiteralMap_Alternatives(this, this, 116, inst);
+			case 117: return new LiteralFunction_Group(this, this, 117, inst);
+			case 118: return new ClosureExpression_Group(this, this, 118, inst);
+			case 119: return new OneOrManyExpressions_Alternatives(this, this, 119, inst);
+			case 120: return new BlockExpressionWithoutBrackets_Group(this, this, 120, inst);
+			case 121: return new MapEntry_Group(this, this, 121, inst);
+			case 122: return new KeyLiteral_Group(this, this, 122, inst);
+			case 123: return new LiteralType_Group(this, this, 123, inst);
+			case 124: return new ValueLiteral_Alternatives(this, this, 124, inst);
+			case 125: return new BooleanLiteral_Group(this, this, 125, inst);
+			case 126: return new IntegerLiteral_Group(this, this, 126, inst);
+			case 127: return new UnitLiteral_Group(this, this, 127, inst);
+			case 128: return new StringLiteral_Group(this, this, 128, inst);
+			case 129: return new RealLiteral_Group(this, this, 129, inst);
+			case 130: return new RegexpLiteral_Group(this, this, 130, inst);
+			case 131: return new NullLiteral_Group(this, this, 131, inst);
+			case 132: return new ParanthesizedExpression_Group(this, this, 132, inst);
 			default: return null;
 		}	
 	}	
@@ -26855,24 +26854,12 @@ protected class ConstructorCallExpression_ContextBlockAssignment_5 extends Assig
  *   UnitConcernContext|BuilderConcernContext; 
  * 
  * // Used in a concern to describe pointcuts/advice for units and/or builders
- *        
- * 	  
- * 	  
- * 	
- * 	
- * // Advice for units consists of Builders, and advice for Builders
  *
  **/
 
 // UnitConcernContext|BuilderConcernContext 
 // 
 // // Used in a concern to describe pointcuts/advice for units and/or builders
-//        
-// 	  
-// 	  
-// 	
-// 	
-// // Advice for units consists of Builders, and advice for Builders
 protected class BuildConcernContext_Alternatives extends AlternativesToken {
 
 	public BuildConcernContext_Alternatives(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -26974,6 +26961,7 @@ protected class BuildConcernContext_BuilderConcernContextParserRuleCall_1 extend
 /************ end Rule BuildConcernContext ****************/
 
 
+
 /************ begin Rule UnitConcernContext ****************
  *
  * UnitConcernContext returns build::UnitConcernContext:
@@ -26983,8 +26971,7 @@ protected class BuildConcernContext_BuilderConcernContextParserRuleCall_1 extend
  *   requiredCapabilities+=AliasedRequiredCapability ";"|"-" requiresRemovals+=
  *   RequiresPredicate ";"|"+" "provides" "{" (providedCapabilities+=ProvidedCapability
  *   ";")+ "}"|"+" "provides" providedCapabilities+=ProvidedCapability ";"|"-"
- *   providesRemovals+=ProvidesPredicate ";")* "}"; 
- * 	
+ *   providesRemovals+=ProvidesPredicate ";")* "}"; 	
  * // Advice for units consists of Builders, and advice for Builders
  *         
  * 	        
@@ -32012,13 +31999,13 @@ protected class CapabilityPredicate_VersionRangeAssignment_4_1 extends Assignmen
 
 /************ begin Rule NamePredicate ****************
  *
- * NamePredicate returns build::NamePredicate:
- *   {build::NamePredicate} (name=EscapedQualifiedName|namePattern=RegexpLiteral|
+ * NamePredicate returns be::NamePredicate:
+ *   {be::NamePredicate} (name=EscapedQualifiedName|namePattern=RegexpLiteral|
  *   namePattern=WildcardExpression);
  *
  **/
 
-// {build::NamePredicate} (name=EscapedQualifiedName|namePattern=RegexpLiteral|
+// {be::NamePredicate} (name=EscapedQualifiedName|namePattern=RegexpLiteral|
 // namePattern=WildcardExpression)
 protected class NamePredicate_Group extends GroupToken {
 	
@@ -32046,7 +32033,7 @@ protected class NamePredicate_Group extends GroupToken {
 	}
 }
 
-// {build::NamePredicate}
+// {be::NamePredicate}
 protected class NamePredicate_NamePredicateAction_0 extends ActionToken  {
 
 	public NamePredicate_NamePredicateAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -33070,7 +33057,18 @@ protected class BuilderPrimaryExpression_GroupedBuilderPrimaryExpressionParserRu
 /************ begin Rule GroupedBuilderPrimaryExpression ****************
  *
  * GroupedBuilderPrimaryExpression returns be::BExpression:
- *   "(" BuilderOrExpression ")";
+ *   "(" BuilderOrExpression ")"; 
+ * 	
+ *               
+ * 
+ * 
+ * //ContextBlock returns be::BExpression : {be::BChainedExpression} 
+ * //	'{'  ((expressions +=Function) 
+ * ////		| (expressions+=BuilderDefinition)   // TODO: How to handle Builder definitions as expressions
+ * //		| (expressions+=TopLevelExpression ';')
+ * ////		| (expressions+=PropertiesStatement) // TODO: How to handle Properties statements as expressions
+ * //		)* '}' 
+ * //		;
  *
  **/
 
@@ -33184,300 +33182,19 @@ protected class GroupedBuilderPrimaryExpression_RightParenthesisKeyword_2 extend
 /************ end Rule GroupedBuilderPrimaryExpression ****************/
 
 
-/************ begin Rule ContextBlock ****************
- *
- * ContextBlock returns be::BExpression:
- *   {be::BChainedExpression} "{" (expressions+=Function|expressions+=
- *   TopLevelExpression ";")* "}"; 
- * 
- * 
- *          
- * 	      
- * //		| (expressions+=BuilderDefinition)   // TODO: How to handle Builder definitions as expressions
- * 		     
- * //		| (expressions+=PropertiesStatement) // TODO: How to handle Properties statements as expressions
- *
- **/
-
-// {be::BChainedExpression} "{" (expressions+=Function|expressions+=
-// TopLevelExpression ";")* "}"    
-// 	      
-// //		| (expressions+=BuilderDefinition)   // TODO: How to handle Builder definitions as expressions
-// 		     
-// //		| (expressions+=PropertiesStatement) // TODO: How to handle Properties statements as expressions
-protected class ContextBlock_Group extends GroupToken {
-	
-	public ContextBlock_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getContextBlockAccess().getGroup();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ContextBlock_RightCurlyBracketKeyword_3(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override
-	public IInstanceDescription tryConsume() {
-		if(!current.isInstanceOf(grammarAccess.getContextBlockRule().getType().getClassifier())) return null;
-		return tryConsumeVal();
-	}
-}
-
-// {be::BChainedExpression}
-protected class ContextBlock_BChainedExpressionAction_0 extends ActionToken  {
-
-	public ContextBlock_BChainedExpressionAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Action getGrammarElement() {
-		return grammarAccess.getContextBlockAccess().getBChainedExpressionAction_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			default: return parent.createParentFollower(this, index, index, inst);
-		}	
-	}	
-		
-	
-    @Override
-	protected IInstanceDescription tryConsumeVal() {
-		if(!current.isInstanceOf(grammarAccess.getContextBlockAccess().getBChainedExpressionAction_0().getType().getClassifier())) return null;
-		if(!current.isConsumed()) return null;
-		return current;
-	}
-}
-
-// "{"
-protected class ContextBlock_LeftCurlyBracketKeyword_1 extends KeywordToken  {
-	
-	public ContextBlock_LeftCurlyBracketKeyword_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getContextBlockAccess().getLeftCurlyBracketKeyword_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ContextBlock_BChainedExpressionAction_0(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// (expressions+=Function|expressions+=TopLevelExpression ";")*       
-// //		| (expressions+=BuilderDefinition)   // TODO: How to handle Builder definitions as expressions
-// 		     
-// //		| (expressions+=PropertiesStatement) // TODO: How to handle Properties statements as expressions
-protected class ContextBlock_Alternatives_2 extends AlternativesToken {
-
-	public ContextBlock_Alternatives_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Alternatives getGrammarElement() {
-		return grammarAccess.getContextBlockAccess().getAlternatives_2();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ContextBlock_ExpressionsAssignment_2_0(parent, this, 0, inst);
-			case 1: return new ContextBlock_Group_2_1(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// expressions+=Function
-protected class ContextBlock_ExpressionsAssignment_2_0 extends AssignmentToken  {
-	
-	public ContextBlock_ExpressionsAssignment_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getContextBlockAccess().getExpressionsAssignment_2_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new Function_Group(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("expressions",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("expressions");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getFunctionRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getContextBlockAccess().getExpressionsFunctionParserRuleCall_2_0_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
-	}
-
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new ContextBlock_Alternatives_2(parent, next, actIndex, consumed);
-			case 1: return new ContextBlock_LeftCurlyBracketKeyword_1(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
-}
-
-// expressions+=TopLevelExpression ";"
-protected class ContextBlock_Group_2_1 extends GroupToken {
-	
-	public ContextBlock_Group_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getContextBlockAccess().getGroup_2_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ContextBlock_SemicolonKeyword_2_1_1(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// expressions+=TopLevelExpression
-protected class ContextBlock_ExpressionsAssignment_2_1_0 extends AssignmentToken  {
-	
-	public ContextBlock_ExpressionsAssignment_2_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getContextBlockAccess().getExpressionsAssignment_2_1_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new TopLevelExpression_Alternatives(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("expressions",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("expressions");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getTopLevelExpressionRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getContextBlockAccess().getExpressionsTopLevelExpressionParserRuleCall_2_1_0_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
-	}
-
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new ContextBlock_Alternatives_2(parent, next, actIndex, consumed);
-			case 1: return new ContextBlock_LeftCurlyBracketKeyword_1(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
-}
-
-// ";"
-protected class ContextBlock_SemicolonKeyword_2_1_1 extends KeywordToken  {
-	
-	public ContextBlock_SemicolonKeyword_2_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getContextBlockAccess().getSemicolonKeyword_2_1_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ContextBlock_ExpressionsAssignment_2_1_0(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-
-
-// "}"
-protected class ContextBlock_RightCurlyBracketKeyword_3 extends KeywordToken  {
-	
-	public ContextBlock_RightCurlyBracketKeyword_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getContextBlockAccess().getRightCurlyBracketKeyword_3();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new ContextBlock_Alternatives_2(parent, this, 0, inst);
-			case 1: return new ContextBlock_LeftCurlyBracketKeyword_1(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-
-/************ end Rule ContextBlock ****************/
-
-
 /************ begin Rule ContextBlock_Creation ****************
  *
  * ContextBlock_Creation returns be::BExpression:
  *   {be::BChainedExpression} "{" (expressions+=TopLevelExpression ";")* "}"; 
+ * 
+ * 
+ * //ContextBlock returns be::BExpression : {be::BChainedExpression} 
+ * //	'{'  ((expressions +=Function) 
+ * ////		| (expressions+=BuilderDefinition)   // TODO: How to handle Builder definitions as expressions
+ * //		| (expressions+=TopLevelExpression ';')
+ * ////		| (expressions+=PropertiesStatement) // TODO: How to handle Properties statements as expressions
+ * //		)* '}' 
+ * //		;
  * 
  *          
  * 	       
