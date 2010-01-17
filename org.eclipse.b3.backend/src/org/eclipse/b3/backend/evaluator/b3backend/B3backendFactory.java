@@ -619,13 +619,22 @@ public interface B3backendFactory extends EFactory {
 	BFunctionConcernContext createBFunctionConcernContext();
 
 	/**
-	 * Returns a new object of class '<em>Parameter Predicate</em>'.
+	 * Returns a new object of class '<em>BParameter Predicate</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Parameter Predicate</em>'.
+	 * @return a new object of class '<em>BParameter Predicate</em>'.
 	 * @generated
 	 */
-	ParameterPredicate createParameterPredicate();
+	BParameterPredicate createBParameterPredicate();
+
+	/**
+	 * Returns a new object of class '<em>BProceed Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>BProceed Expression</em>'.
+	 * @generated
+	 */
+	BProceedExpression createBProceedExpression();
 
 	/**
 	 * Returns the package supported by this factory.

@@ -15,32 +15,33 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 import java.lang.reflect.Type;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
-import org.eclipse.b3.backend.evaluator.b3backend.ParameterPredicate;
+import org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Parameter Predicate</b></em>'.
+ * An implementation of the model object '<em><b>BParameter Predicate</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.ParameterPredicateImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.ParameterPredicateImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.ParameterPredicateImpl#getTypePredicateOp <em>Type Predicate Op</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.ParameterPredicateImpl#isVarArgs <em>Var Args</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BParameterPredicateImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BParameterPredicateImpl#getTypePredicateOp <em>Type Predicate Op</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BParameterPredicateImpl#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ParameterPredicateImpl extends EObjectImpl implements ParameterPredicate {
+public class BParameterPredicateImpl extends EObjectImpl implements BParameterPredicate {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -69,26 +70,6 @@ public class ParameterPredicateImpl extends EObjectImpl implements ParameterPred
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Type TYPE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected Type type = TYPE_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getTypePredicateOp() <em>Type Predicate Op</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -109,31 +90,21 @@ public class ParameterPredicateImpl extends EObjectImpl implements ParameterPred
 	protected String typePredicateOp = TYPE_PREDICATE_OP_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isVarArgs() <em>Var Args</em>}' attribute.
+	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isVarArgs()
+	 * @see #getType()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean VAR_ARGS_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isVarArgs() <em>Var Args</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isVarArgs()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean varArgs = VAR_ARGS_EDEFAULT;
+	protected Type type;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ParameterPredicateImpl() {
+	protected BParameterPredicateImpl() {
 		super();
 	}
 
@@ -144,7 +115,7 @@ public class ParameterPredicateImpl extends EObjectImpl implements ParameterPred
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.PARAMETER_PREDICATE;
+		return B3backendPackage.Literals.BPARAMETER_PREDICATE;
 	}
 
 	/**
@@ -165,7 +136,7 @@ public class ParameterPredicateImpl extends EObjectImpl implements ParameterPred
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.PARAMETER_PREDICATE__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BPARAMETER_PREDICATE__NAME, oldName, name));
 	}
 
 	/**
@@ -182,11 +153,47 @@ public class ParameterPredicateImpl extends EObjectImpl implements ParameterPred
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(Type newType) {
+	public NotificationChain basicSetType(Type newType, NotificationChain msgs) {
 		Type oldType = type;
 		type = newType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.PARAMETER_PREDICATE__TYPE, oldType, type));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BPARAMETER_PREDICATE__TYPE, oldType, newType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setType(Type newType) {
+		if (newType != type) {
+			NotificationChain msgs = null;
+			if (type != null)
+				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BPARAMETER_PREDICATE__TYPE, null, msgs);
+			if (newType != null)
+				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BPARAMETER_PREDICATE__TYPE, null, msgs);
+			msgs = basicSetType(newType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BPARAMETER_PREDICATE__TYPE, newType, newType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case B3backendPackage.BPARAMETER_PREDICATE__TYPE:
+				return basicSetType(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -207,28 +214,7 @@ public class ParameterPredicateImpl extends EObjectImpl implements ParameterPred
 		String oldTypePredicateOp = typePredicateOp;
 		typePredicateOp = newTypePredicateOp;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.PARAMETER_PREDICATE__TYPE_PREDICATE_OP, oldTypePredicateOp, typePredicateOp));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean isVarArgs() {
-		return varArgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setVarArgs(boolean newVarArgs) {
-		boolean oldVarArgs = varArgs;
-		varArgs = newVarArgs;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.PARAMETER_PREDICATE__VAR_ARGS, oldVarArgs, varArgs));
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BPARAMETER_PREDICATE__TYPE_PREDICATE_OP, oldTypePredicateOp, typePredicateOp));
 	}
 
 	/**
@@ -239,14 +225,12 @@ public class ParameterPredicateImpl extends EObjectImpl implements ParameterPred
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case B3backendPackage.PARAMETER_PREDICATE__NAME:
+			case B3backendPackage.BPARAMETER_PREDICATE__NAME:
 				return getName();
-			case B3backendPackage.PARAMETER_PREDICATE__TYPE:
-				return getType();
-			case B3backendPackage.PARAMETER_PREDICATE__TYPE_PREDICATE_OP:
+			case B3backendPackage.BPARAMETER_PREDICATE__TYPE_PREDICATE_OP:
 				return getTypePredicateOp();
-			case B3backendPackage.PARAMETER_PREDICATE__VAR_ARGS:
-				return isVarArgs();
+			case B3backendPackage.BPARAMETER_PREDICATE__TYPE:
+				return getType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -259,17 +243,14 @@ public class ParameterPredicateImpl extends EObjectImpl implements ParameterPred
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case B3backendPackage.PARAMETER_PREDICATE__NAME:
+			case B3backendPackage.BPARAMETER_PREDICATE__NAME:
 				setName((String)newValue);
 				return;
-			case B3backendPackage.PARAMETER_PREDICATE__TYPE:
-				setType((Type)newValue);
-				return;
-			case B3backendPackage.PARAMETER_PREDICATE__TYPE_PREDICATE_OP:
+			case B3backendPackage.BPARAMETER_PREDICATE__TYPE_PREDICATE_OP:
 				setTypePredicateOp((String)newValue);
 				return;
-			case B3backendPackage.PARAMETER_PREDICATE__VAR_ARGS:
-				setVarArgs((Boolean)newValue);
+			case B3backendPackage.BPARAMETER_PREDICATE__TYPE:
+				setType((Type)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -283,17 +264,14 @@ public class ParameterPredicateImpl extends EObjectImpl implements ParameterPred
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case B3backendPackage.PARAMETER_PREDICATE__NAME:
+			case B3backendPackage.BPARAMETER_PREDICATE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case B3backendPackage.PARAMETER_PREDICATE__TYPE:
-				setType(TYPE_EDEFAULT);
-				return;
-			case B3backendPackage.PARAMETER_PREDICATE__TYPE_PREDICATE_OP:
+			case B3backendPackage.BPARAMETER_PREDICATE__TYPE_PREDICATE_OP:
 				setTypePredicateOp(TYPE_PREDICATE_OP_EDEFAULT);
 				return;
-			case B3backendPackage.PARAMETER_PREDICATE__VAR_ARGS:
-				setVarArgs(VAR_ARGS_EDEFAULT);
+			case B3backendPackage.BPARAMETER_PREDICATE__TYPE:
+				setType((Type)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -307,14 +285,12 @@ public class ParameterPredicateImpl extends EObjectImpl implements ParameterPred
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case B3backendPackage.PARAMETER_PREDICATE__NAME:
+			case B3backendPackage.BPARAMETER_PREDICATE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case B3backendPackage.PARAMETER_PREDICATE__TYPE:
-				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
-			case B3backendPackage.PARAMETER_PREDICATE__TYPE_PREDICATE_OP:
+			case B3backendPackage.BPARAMETER_PREDICATE__TYPE_PREDICATE_OP:
 				return TYPE_PREDICATE_OP_EDEFAULT == null ? typePredicateOp != null : !TYPE_PREDICATE_OP_EDEFAULT.equals(typePredicateOp);
-			case B3backendPackage.PARAMETER_PREDICATE__VAR_ARGS:
-				return varArgs != VAR_ARGS_EDEFAULT;
+			case B3backendPackage.BPARAMETER_PREDICATE__TYPE:
+				return type != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -331,14 +307,10 @@ public class ParameterPredicateImpl extends EObjectImpl implements ParameterPred
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
-		result.append(", type: ");
-		result.append(type);
 		result.append(", typePredicateOp: ");
 		result.append(typePredicateOp);
-		result.append(", varArgs: ");
-		result.append(varArgs);
 		result.append(')');
 		return result.toString();
 	}
 
-} //ParameterPredicateImpl
+} //BParameterPredicateImpl

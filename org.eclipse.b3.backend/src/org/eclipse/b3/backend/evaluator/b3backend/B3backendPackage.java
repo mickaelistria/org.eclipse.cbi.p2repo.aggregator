@@ -4514,59 +4514,22 @@ public interface B3backendPackage extends EPackage {
 	int BFUNCTION_CONCERN_CONTEXT__NAME_PREDICATE = BCONCERN_CONTEXT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Parameter Predicates</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BFUNCTION_CONCERN_CONTEXT__PARAMETER_PREDICATES = BCONCERN_CONTEXT_FEATURE_COUNT + 1;
+	int BFUNCTION_CONCERN_CONTEXT__PARAMETERS = BCONCERN_CONTEXT_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>BFunction Concern Context</em>' class.
+	 * The feature id for the '<em><b>Func Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BFUNCTION_CONCERN_CONTEXT_FEATURE_COUNT = BCONCERN_CONTEXT_FEATURE_COUNT + 2;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.ParameterPredicateImpl <em>Parameter Predicate</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.ParameterPredicateImpl
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getParameterPredicate()
-	 * @generated
-	 */
-	int PARAMETER_PREDICATE = 80;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER_PREDICATE__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER_PREDICATE__TYPE = 1;
-
-	/**
-	 * The feature id for the '<em><b>Type Predicate Op</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER_PREDICATE__TYPE_PREDICATE_OP = 2;
+	int BFUNCTION_CONCERN_CONTEXT__FUNC_EXPR = BCONCERN_CONTEXT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Var Args</b></em>' attribute.
@@ -4575,16 +4538,99 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_PREDICATE__VAR_ARGS = 3;
+	int BFUNCTION_CONCERN_CONTEXT__VAR_ARGS = BCONCERN_CONTEXT_FEATURE_COUNT + 3;
 
 	/**
-	 * The number of structural features of the '<em>Parameter Predicate</em>' class.
+	 * The number of structural features of the '<em>BFunction Concern Context</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_PREDICATE_FEATURE_COUNT = 4;
+	int BFUNCTION_CONCERN_CONTEXT_FEATURE_COUNT = BCONCERN_CONTEXT_FEATURE_COUNT + 4;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BParameterPredicateImpl <em>BParameter Predicate</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BParameterPredicateImpl
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBParameterPredicate()
+	 * @generated
+	 */
+	int BPARAMETER_PREDICATE = 80;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BPARAMETER_PREDICATE__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Type Predicate Op</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BPARAMETER_PREDICATE__TYPE_PREDICATE_OP = 1;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BPARAMETER_PREDICATE__TYPE = 2;
+
+	/**
+	 * The number of structural features of the '<em>BParameter Predicate</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BPARAMETER_PREDICATE_FEATURE_COUNT = 3;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BProceedExpressionImpl <em>BProceed Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BProceedExpressionImpl
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBProceedExpression()
+	 * @generated
+	 */
+	int BPROCEED_EXPRESSION = 81;
+
+	/**
+	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BPROCEED_EXPRESSION__LINE_NUMBER = BEXPRESSION__LINE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>File Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BPROCEED_EXPRESSION__FILE_REFERENCE = BEXPRESSION__FILE_REFERENCE;
+
+	/**
+	 * The number of structural features of the '<em>BProceed Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BPROCEED_EXPRESSION_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.Visibility <em>Visibility</em>}' enum.
@@ -4594,7 +4640,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getVisibility()
 	 * @generated
 	 */
-	int VISIBILITY = 81;
+	int VISIBILITY = 82;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode <em>Execution Mode</em>}' enum.
@@ -4604,7 +4650,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getExecutionMode()
 	 * @generated
 	 */
-	int EXECUTION_MODE = 82;
+	int EXECUTION_MODE = 83;
 
 	/**
 	 * The meta object id for the '<em>Core Exception</em>' data type.
@@ -4614,7 +4660,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getCoreException()
 	 * @generated
 	 */
-	int CORE_EXCEPTION = 83;
+	int CORE_EXCEPTION = 84;
 
 
 	/**
@@ -4625,7 +4671,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 84;
+	int TYPE = 85;
 
 	/**
 	 * The meta object id for the '<em>Object Array</em>' data type.
@@ -4634,7 +4680,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getObjectArray()
 	 * @generated
 	 */
-	int OBJECT_ARRAY = 85;
+	int OBJECT_ARRAY = 86;
 
 
 	/**
@@ -4645,7 +4691,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getValueMap()
 	 * @generated
 	 */
-	int VALUE_MAP = 86;
+	int VALUE_MAP = 87;
 
 
 	/**
@@ -4656,7 +4702,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3EngineException()
 	 * @generated
 	 */
-	int B3_ENGINE_EXCEPTION = 87;
+	int B3_ENGINE_EXCEPTION = 88;
 
 
 	/**
@@ -4667,7 +4713,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3ExpressionCache()
 	 * @generated
 	 */
-	int B3_EXPRESSION_CACHE = 88;
+	int B3_EXPRESSION_CACHE = 89;
 
 
 	/**
@@ -4678,7 +4724,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getThrowable()
 	 * @generated
 	 */
-	int THROWABLE = 89;
+	int THROWABLE = 90;
 
 	/**
 	 * The meta object id for the '<em>LValue</em>' data type.
@@ -4688,7 +4734,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getLValue()
 	 * @generated
 	 */
-	int LVALUE = 90;
+	int LVALUE = 91;
 
 	/**
 	 * The meta object id for the '<em>Type Array</em>' data type.
@@ -4697,7 +4743,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getTypeArray()
 	 * @generated
 	 */
-	int TYPE_ARRAY = 91;
+	int TYPE_ARRAY = 92;
 
 	/**
 	 * The meta object id for the '<em>Method</em>' data type.
@@ -4707,7 +4753,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getMethod()
 	 * @generated
 	 */
-	int METHOD = 92;
+	int METHOD = 93;
 
 	/**
 	 * The meta object id for the '<em>Type Variable Array</em>' data type.
@@ -4716,7 +4762,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getTypeVariableArray()
 	 * @generated
 	 */
-	int TYPE_VARIABLE_ARRAY = 93;
+	int TYPE_VARIABLE_ARRAY = 94;
 
 	/**
 	 * The meta object id for the '<em>Func Store</em>' data type.
@@ -4726,7 +4772,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getFuncStore()
 	 * @generated
 	 */
-	int FUNC_STORE = 94;
+	int FUNC_STORE = 95;
 
 	/**
 	 * The meta object id for the '<em>Regexp Pattern</em>' data type.
@@ -4736,7 +4782,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getRegexpPattern()
 	 * @generated
 	 */
-	int REGEXP_PATTERN = 95;
+	int REGEXP_PATTERN = 96;
 
 	/**
 	 * The meta object id for the '<em>String Array</em>' data type.
@@ -4745,7 +4791,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getStringArray()
 	 * @generated
 	 */
-	int STRING_ARRAY = 96;
+	int STRING_ARRAY = 97;
 
 	/**
 	 * The meta object id for the '<em>B3 Dynamic Class Loader</em>' data type.
@@ -4755,7 +4801,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3DynamicClassLoader()
 	 * @generated
 	 */
-	int B3_DYNAMIC_CLASS_LOADER = 97;
+	int B3_DYNAMIC_CLASS_LOADER = 98;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BExpression <em>BExpression</em>}'.
@@ -5865,69 +5911,90 @@ public interface B3backendPackage extends EPackage {
 	EReference getBFunctionConcernContext_NamePredicate();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext#getParameterPredicates <em>Parameter Predicates</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext#getParameters <em>Parameters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Parameter Predicates</em>'.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext#getParameterPredicates()
+	 * @return the meta object for the containment reference list '<em>Parameters</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext#getParameters()
 	 * @see #getBFunctionConcernContext()
 	 * @generated
 	 */
-	EReference getBFunctionConcernContext_ParameterPredicates();
+	EReference getBFunctionConcernContext_Parameters();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.ParameterPredicate <em>Parameter Predicate</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext#getFuncExpr <em>Func Expr</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Parameter Predicate</em>'.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.ParameterPredicate
+	 * @return the meta object for the containment reference '<em>Func Expr</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext#getFuncExpr()
+	 * @see #getBFunctionConcernContext()
 	 * @generated
 	 */
-	EClass getParameterPredicate();
+	EReference getBFunctionConcernContext_FuncExpr();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.ParameterPredicate#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.ParameterPredicate#getName()
-	 * @see #getParameterPredicate()
-	 * @generated
-	 */
-	EAttribute getParameterPredicate_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.ParameterPredicate#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.ParameterPredicate#getType()
-	 * @see #getParameterPredicate()
-	 * @generated
-	 */
-	EAttribute getParameterPredicate_Type();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.ParameterPredicate#getTypePredicateOp <em>Type Predicate Op</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type Predicate Op</em>'.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.ParameterPredicate#getTypePredicateOp()
-	 * @see #getParameterPredicate()
-	 * @generated
-	 */
-	EAttribute getParameterPredicate_TypePredicateOp();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.ParameterPredicate#isVarArgs <em>Var Args</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext#isVarArgs <em>Var Args</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Var Args</em>'.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.ParameterPredicate#isVarArgs()
-	 * @see #getParameterPredicate()
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext#isVarArgs()
+	 * @see #getBFunctionConcernContext()
 	 * @generated
 	 */
-	EAttribute getParameterPredicate_VarArgs();
+	EAttribute getBFunctionConcernContext_VarArgs();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate <em>BParameter Predicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>BParameter Predicate</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate
+	 * @generated
+	 */
+	EClass getBParameterPredicate();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate#getName()
+	 * @see #getBParameterPredicate()
+	 * @generated
+	 */
+	EAttribute getBParameterPredicate_Name();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Type</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate#getType()
+	 * @see #getBParameterPredicate()
+	 * @generated
+	 */
+	EReference getBParameterPredicate_Type();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate#getTypePredicateOp <em>Type Predicate Op</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type Predicate Op</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate#getTypePredicateOp()
+	 * @see #getBParameterPredicate()
+	 * @generated
+	 */
+	EAttribute getBParameterPredicate_TypePredicateOp();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BProceedExpression <em>BProceed Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>BProceed Expression</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BProceedExpression
+	 * @generated
+	 */
+	EClass getBProceedExpression();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BGuard <em>BGuard</em>}'.
@@ -8112,46 +8179,20 @@ public interface B3backendPackage extends EPackage {
 		EReference BFUNCTION_CONCERN_CONTEXT__NAME_PREDICATE = eINSTANCE.getBFunctionConcernContext_NamePredicate();
 
 		/**
-		 * The meta object literal for the '<em><b>Parameter Predicates</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BFUNCTION_CONCERN_CONTEXT__PARAMETER_PREDICATES = eINSTANCE.getBFunctionConcernContext_ParameterPredicates();
+		EReference BFUNCTION_CONCERN_CONTEXT__PARAMETERS = eINSTANCE.getBFunctionConcernContext_Parameters();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.ParameterPredicateImpl <em>Parameter Predicate</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.ParameterPredicateImpl
-		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getParameterPredicate()
-		 * @generated
-		 */
-		EClass PARAMETER_PREDICATE = eINSTANCE.getParameterPredicate();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Func Expr</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PARAMETER_PREDICATE__NAME = eINSTANCE.getParameterPredicate_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PARAMETER_PREDICATE__TYPE = eINSTANCE.getParameterPredicate_Type();
-
-		/**
-		 * The meta object literal for the '<em><b>Type Predicate Op</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PARAMETER_PREDICATE__TYPE_PREDICATE_OP = eINSTANCE.getParameterPredicate_TypePredicateOp();
+		EReference BFUNCTION_CONCERN_CONTEXT__FUNC_EXPR = eINSTANCE.getBFunctionConcernContext_FuncExpr();
 
 		/**
 		 * The meta object literal for the '<em><b>Var Args</b></em>' attribute feature.
@@ -8159,7 +8200,51 @@ public interface B3backendPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PARAMETER_PREDICATE__VAR_ARGS = eINSTANCE.getParameterPredicate_VarArgs();
+		EAttribute BFUNCTION_CONCERN_CONTEXT__VAR_ARGS = eINSTANCE.getBFunctionConcernContext_VarArgs();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BParameterPredicateImpl <em>BParameter Predicate</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BParameterPredicateImpl
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBParameterPredicate()
+		 * @generated
+		 */
+		EClass BPARAMETER_PREDICATE = eINSTANCE.getBParameterPredicate();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BPARAMETER_PREDICATE__NAME = eINSTANCE.getBParameterPredicate_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BPARAMETER_PREDICATE__TYPE = eINSTANCE.getBParameterPredicate_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Type Predicate Op</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BPARAMETER_PREDICATE__TYPE_PREDICATE_OP = eINSTANCE.getBParameterPredicate_TypePredicateOp();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BProceedExpressionImpl <em>BProceed Expression</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BProceedExpressionImpl
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBProceedExpression()
+		 * @generated
+		 */
+		EClass BPROCEED_EXPRESSION = eINSTANCE.getBProceedExpression();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BGuardImpl <em>BGuard</em>}' class.

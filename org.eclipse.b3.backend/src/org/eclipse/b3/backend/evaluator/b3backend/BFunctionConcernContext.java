@@ -23,7 +23,9 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext#getNamePredicate <em>Name Predicate</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext#getParameterPredicates <em>Parameter Predicates</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext#getFuncExpr <em>Func Expr</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext#isVarArgs <em>Var Args</em>}</li>
  * </ul>
  * </p>
  *
@@ -66,19 +68,71 @@ public interface BFunctionConcernContext extends BConcernContext {
 	void setNamePredicate(BFunctionNamePredicate value);
 
 	/**
-	 * Returns the value of the '<em><b>Parameter Predicates</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.ParameterPredicate}.
+	 * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Parameter Predicates</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Parameters</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parameter Predicates</em>' containment reference list.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBFunctionConcernContext_ParameterPredicates()
+	 * @return the value of the '<em>Parameters</em>' containment reference list.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBFunctionConcernContext_Parameters()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ParameterPredicate> getParameterPredicates();
+	EList<BParameterPredicate> getParameters();
+
+	/**
+	 * Returns the value of the '<em><b>Func Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Func Expr</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Func Expr</em>' containment reference.
+	 * @see #setFuncExpr(BExpression)
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBFunctionConcernContext_FuncExpr()
+	 * @model containment="true"
+	 * @generated
+	 */
+	BExpression getFuncExpr();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext#getFuncExpr <em>Func Expr</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Func Expr</em>' containment reference.
+	 * @see #getFuncExpr()
+	 * @generated
+	 */
+	void setFuncExpr(BExpression value);
+
+	/**
+	 * Returns the value of the '<em><b>Var Args</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Var Args</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Var Args</em>' attribute.
+	 * @see #setVarArgs(boolean)
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBFunctionConcernContext_VarArgs()
+	 * @model
+	 * @generated
+	 */
+	boolean isVarArgs();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext#isVarArgs <em>Var Args</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Var Args</em>' attribute.
+	 * @see #isVarArgs()
+	 * @generated
+	 */
+	void setVarArgs(boolean value);
 
 } // BFunctionConcernContext

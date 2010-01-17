@@ -12,20 +12,18 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.tests;
 
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
-import org.eclipse.b3.backend.evaluator.b3backend.ParameterPredicate;
+import org.eclipse.b3.backend.evaluator.b3backend.BProceedExpression;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Parameter Predicate</b></em>'.
+ * A test case for the model object '<em><b>BProceed Expression</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class ParameterPredicateTest extends TestCase {
+public class BProceedExpressionTest extends BExpressionTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -35,50 +33,33 @@ public class ParameterPredicateTest extends TestCase {
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
 
 	/**
-	 * The fixture for this Parameter Predicate test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ParameterPredicate fixture = null;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(ParameterPredicateTest.class);
+		TestRunner.run(BProceedExpressionTest.class);
 	}
 
 	/**
-	 * Constructs a new Parameter Predicate test case with the given name.
+	 * Constructs a new BProceed Expression test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ParameterPredicateTest(String name) {
+	public BProceedExpressionTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Sets the fixture for this Parameter Predicate test case.
+	 * Returns the fixture for this BProceed Expression test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void setFixture(ParameterPredicate fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
-	 * Returns the fixture for this Parameter Predicate test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ParameterPredicate getFixture() {
-		return fixture;
+	@Override
+	protected BProceedExpression getFixture() {
+		return (BProceedExpression)fixture;
 	}
 
 	/**
@@ -89,7 +70,7 @@ public class ParameterPredicateTest extends TestCase {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(B3backendFactory.eINSTANCE.createParameterPredicate());
+		setFixture(B3backendFactory.eINSTANCE.createBProceedExpression());
 	}
 
 	/**
@@ -103,4 +84,4 @@ public class ParameterPredicateTest extends TestCase {
 		setFixture(null);
 	}
 
-} //ParameterPredicateTest
+} //BProceedExpressionTest

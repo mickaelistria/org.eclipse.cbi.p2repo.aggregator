@@ -403,8 +403,12 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 				return createBFunctionConcernContextAdapter();
 			}
 			@Override
-			public Adapter caseParameterPredicate(ParameterPredicate object) {
-				return createParameterPredicateAdapter();
+			public Adapter caseBParameterPredicate(BParameterPredicate object) {
+				return createBParameterPredicateAdapter();
+			}
+			@Override
+			public Adapter caseBProceedExpression(BProceedExpression object) {
+				return createBProceedExpressionAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -945,16 +949,30 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.ParameterPredicate <em>Parameter Predicate</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate <em>BParameter Predicate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.ParameterPredicate
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate
 	 * @generated
 	 */
-	public Adapter createParameterPredicateAdapter() {
+	public Adapter createBParameterPredicateAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BProceedExpression <em>BProceed Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BProceedExpression
+	 * @generated
+	 */
+	public Adapter createBProceedExpressionAdapter() {
 		return null;
 	}
 

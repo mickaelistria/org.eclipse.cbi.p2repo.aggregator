@@ -35,33 +35,6 @@ public interface BeeLangFactory extends EFactory
   BeeModel createBeeModel();
 
   /**
-   * Returns a new object of class '<em>Function Concern Context</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Function Concern Context</em>'.
-   * @generated
-   */
-  FunctionConcernContext createFunctionConcernContext();
-
-  /**
-   * Returns a new object of class '<em>Parameter Predicate</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Parameter Predicate</em>'.
-   * @generated
-   */
-  ParameterPredicate createParameterPredicate();
-
-  /**
-   * Returns a new object of class '<em>Parameter Varargs Predicate</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Parameter Varargs Predicate</em>'.
-   * @generated
-   */
-  ParameterVarargsPredicate createParameterVarargsPredicate();
-
-  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

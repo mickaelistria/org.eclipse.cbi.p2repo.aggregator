@@ -7,9 +7,6 @@ package org.eclipse.b3.beeLang.util;
 
 import java.util.List;
 
-import org.eclipse.b3.backend.evaluator.b3backend.BConcernContext;
-import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
-
 import org.eclipse.b3.beeLang.*;
 
 import org.eclipse.emf.ecore.EClass;
@@ -105,29 +102,6 @@ public class BeeLangSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case BeeLangPackage.FUNCTION_CONCERN_CONTEXT:
-      {
-        FunctionConcernContext functionConcernContext = (FunctionConcernContext)theEObject;
-        T result = caseFunctionConcernContext(functionConcernContext);
-        if (result == null) result = caseBConcernContext(functionConcernContext);
-        if (result == null) result = caseBFunctionContainer(functionConcernContext);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case BeeLangPackage.PARAMETER_PREDICATE:
-      {
-        ParameterPredicate parameterPredicate = (ParameterPredicate)theEObject;
-        T result = caseParameterPredicate(parameterPredicate);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case BeeLangPackage.PARAMETER_VARARGS_PREDICATE:
-      {
-        ParameterVarargsPredicate parameterVarargsPredicate = (ParameterVarargsPredicate)theEObject;
-        T result = caseParameterVarargsPredicate(parameterVarargsPredicate);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       default: return defaultCase(theEObject);
     }
   }
@@ -144,86 +118,6 @@ public class BeeLangSwitch<T>
    * @generated
    */
   public T caseBeeModel(BeeModel object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Function Concern Context</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Function Concern Context</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseFunctionConcernContext(FunctionConcernContext object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Parameter Predicate</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Parameter Predicate</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseParameterPredicate(ParameterPredicate object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Parameter Varargs Predicate</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Parameter Varargs Predicate</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseParameterVarargsPredicate(ParameterVarargsPredicate object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>BFunction Container</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>BFunction Container</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseBFunctionContainer(BFunctionContainer object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>BConcern Context</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>BConcern Context</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseBConcernContext(BConcernContext object)
   {
     return null;
   }

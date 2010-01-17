@@ -1,12 +1,16 @@
 package org.eclipse.b3.validation;
 
-import org.eclipse.b3.beeLang.BeeLangPackage;
+import java.util.List;
+
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.Builder;
+import org.eclipse.b3.build.build.BuilderConcernContext;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
+import org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext;
+import org.eclipse.b3.backend.evaluator.b3backend.BProceedExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BWithExpression;
-//import org.eclipse.b3.beeLang.Function;
-//import org.eclipse.b3.beeLang.Method;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.xtext.validation.Check;
 //import org.eclipse.equinox.internal.provisional.p2.core.Version;
@@ -15,7 +19,15 @@ import org.eclipse.xtext.validation.Check;
 
 //@SuppressWarnings("restriction")
 public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator {
+	
+@Override
+	protected List<EPackage> getEPackages() {
+		List<EPackage> result = super.getEPackages();
+        result.add(B3backendPackage.eINSTANCE);
+        result.add(B3BuildPackage.eINSTANCE);
+        return result;
 
+	}
 //	@Check
 //	public void checkFunctionDeclaredWithFunctionKeyword(Function func) {
 //		if (func.getFunc().getForm().equals("method")) {
@@ -83,5 +95,20 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator {
 //					BeeLangPackage.VERSION_RANGE);
 //		}
 //	}
-
+	/**
+	 * A proceed expression can only occur in expressions that are going to be used for weaving.
+	 * These are specified in a BFunctionConcernContext, or a BuilderConcernContext.
+	 */
+	@Check
+	public void checkBProceedExpression(BProceedExpression proceed){
+		EObject container = proceed.eContainer();
+		while(container != null) {
+			if(container instanceof BFunctionConcernContext || container instanceof BuilderConcernContext)
+				return; // ok
+			container = container.eContainer();
+		}
+		error("A proceed expression can only appear inside a function or builder context in a concern",
+				proceed,
+				B3backendPackage.BPROCEED_EXPRESSION);
+	}
 }

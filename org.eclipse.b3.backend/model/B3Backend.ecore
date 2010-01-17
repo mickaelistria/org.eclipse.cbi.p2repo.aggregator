@@ -574,21 +574,25 @@
   <eClassifiers xsi:type="ecore:EClass" name="BFunctionConcernContext" eSuperTypes="#//BConcernContext">
     <eStructuralFeatures xsi:type="ecore:EReference" name="namePredicate" eType="#//BFunctionNamePredicate"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parameterPredicates" upperBound="-1"
-        eType="#//ParameterPredicate" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="#//BParameterPredicate" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="funcExpr" eType="#//BExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="varArgs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ParameterPredicate">
+  <eClassifiers xsi:type="ecore:EClass" name="BParameterPredicate">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The name is the name of the accessable parameter in the woven function - it is not a predicate."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//Type"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="typePredicateOp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Operators are _ (any type), * (zero or more parameters), + (one or more parameters)"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="varArgs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//IType"
+        containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BProceedExpression" eSuperTypes="#//BExpression"/>
 </ecore:EPackage>

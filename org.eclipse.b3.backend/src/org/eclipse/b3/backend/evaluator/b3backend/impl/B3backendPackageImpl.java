@@ -76,7 +76,9 @@ import org.eclipse.b3.backend.evaluator.b3backend.BOrExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameter;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterList;
+import org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterizedExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BProceedExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertyDefinitionOperation;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
@@ -394,7 +396,14 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass parameterPredicateEClass = null;
+	private EClass bParameterPredicateEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bProceedExpressionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1818,7 +1827,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBFunctionConcernContext_ParameterPredicates() {
+	public EReference getBFunctionConcernContext_Parameters() {
 		return (EReference)bFunctionConcernContextEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1827,8 +1836,8 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getParameterPredicate() {
-		return parameterPredicateEClass;
+	public EReference getBFunctionConcernContext_FuncExpr() {
+		return (EReference)bFunctionConcernContextEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1836,8 +1845,8 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getParameterPredicate_Name() {
-		return (EAttribute)parameterPredicateEClass.getEStructuralFeatures().get(0);
+	public EAttribute getBFunctionConcernContext_VarArgs() {
+		return (EAttribute)bFunctionConcernContextEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1845,8 +1854,8 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getParameterPredicate_Type() {
-		return (EAttribute)parameterPredicateEClass.getEStructuralFeatures().get(1);
+	public EClass getBParameterPredicate() {
+		return bParameterPredicateEClass;
 	}
 
 	/**
@@ -1854,8 +1863,8 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getParameterPredicate_TypePredicateOp() {
-		return (EAttribute)parameterPredicateEClass.getEStructuralFeatures().get(2);
+	public EAttribute getBParameterPredicate_Name() {
+		return (EAttribute)bParameterPredicateEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1863,8 +1872,26 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getParameterPredicate_VarArgs() {
-		return (EAttribute)parameterPredicateEClass.getEStructuralFeatures().get(3);
+	public EReference getBParameterPredicate_Type() {
+		return (EReference)bParameterPredicateEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBParameterPredicate_TypePredicateOp() {
+		return (EAttribute)bParameterPredicateEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBProceedExpression() {
+		return bProceedExpressionEClass;
 	}
 
 	/**
@@ -3241,13 +3268,16 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 
 		bFunctionConcernContextEClass = createEClass(BFUNCTION_CONCERN_CONTEXT);
 		createEReference(bFunctionConcernContextEClass, BFUNCTION_CONCERN_CONTEXT__NAME_PREDICATE);
-		createEReference(bFunctionConcernContextEClass, BFUNCTION_CONCERN_CONTEXT__PARAMETER_PREDICATES);
+		createEReference(bFunctionConcernContextEClass, BFUNCTION_CONCERN_CONTEXT__PARAMETERS);
+		createEReference(bFunctionConcernContextEClass, BFUNCTION_CONCERN_CONTEXT__FUNC_EXPR);
+		createEAttribute(bFunctionConcernContextEClass, BFUNCTION_CONCERN_CONTEXT__VAR_ARGS);
 
-		parameterPredicateEClass = createEClass(PARAMETER_PREDICATE);
-		createEAttribute(parameterPredicateEClass, PARAMETER_PREDICATE__NAME);
-		createEAttribute(parameterPredicateEClass, PARAMETER_PREDICATE__TYPE);
-		createEAttribute(parameterPredicateEClass, PARAMETER_PREDICATE__TYPE_PREDICATE_OP);
-		createEAttribute(parameterPredicateEClass, PARAMETER_PREDICATE__VAR_ARGS);
+		bParameterPredicateEClass = createEClass(BPARAMETER_PREDICATE);
+		createEAttribute(bParameterPredicateEClass, BPARAMETER_PREDICATE__NAME);
+		createEAttribute(bParameterPredicateEClass, BPARAMETER_PREDICATE__TYPE_PREDICATE_OP);
+		createEReference(bParameterPredicateEClass, BPARAMETER_PREDICATE__TYPE);
+
+		bProceedExpressionEClass = createEClass(BPROCEED_EXPRESSION);
 
 		// Create enums
 		visibilityEEnum = createEEnum(VISIBILITY);
@@ -3372,6 +3402,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		bFunctionWrapperEClass.getESuperTypes().add(this.getIFunction());
 		bFunctionNamePredicateEClass.getESuperTypes().add(this.getBExpression());
 		bFunctionConcernContextEClass.getESuperTypes().add(this.getBConcernContext());
+		bProceedExpressionEClass.getESuperTypes().add(this.getBExpression());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(bExpressionEClass, BExpression.class, "BExpression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3827,13 +3858,16 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 
 		initEClass(bFunctionConcernContextEClass, BFunctionConcernContext.class, "BFunctionConcernContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBFunctionConcernContext_NamePredicate(), this.getBFunctionNamePredicate(), null, "namePredicate", null, 0, 1, BFunctionConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBFunctionConcernContext_ParameterPredicates(), this.getParameterPredicate(), null, "parameterPredicates", null, 0, -1, BFunctionConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBFunctionConcernContext_Parameters(), this.getBParameterPredicate(), null, "parameters", null, 0, -1, BFunctionConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBFunctionConcernContext_FuncExpr(), this.getBExpression(), null, "funcExpr", null, 0, 1, BFunctionConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBFunctionConcernContext_VarArgs(), ecorePackage.getEBoolean(), "varArgs", null, 0, 1, BFunctionConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(parameterPredicateEClass, ParameterPredicate.class, "ParameterPredicate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getParameterPredicate_Name(), ecorePackage.getEString(), "name", null, 0, 1, ParameterPredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParameterPredicate_Type(), this.getType(), "type", null, 0, 1, ParameterPredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParameterPredicate_TypePredicateOp(), ecorePackage.getEString(), "typePredicateOp", null, 0, 1, ParameterPredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParameterPredicate_VarArgs(), ecorePackage.getEBoolean(), "varArgs", null, 0, 1, ParameterPredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(bParameterPredicateEClass, BParameterPredicate.class, "BParameterPredicate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBParameterPredicate_Name(), ecorePackage.getEString(), "name", null, 0, 1, BParameterPredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBParameterPredicate_TypePredicateOp(), ecorePackage.getEString(), "typePredicateOp", null, 0, 1, BParameterPredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBParameterPredicate_Type(), this.getIType(), null, "type", null, 0, 1, BParameterPredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(bProceedExpressionEClass, BProceedExpression.class, "BProceedExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(visibilityEEnum, Visibility.class, "Visibility");

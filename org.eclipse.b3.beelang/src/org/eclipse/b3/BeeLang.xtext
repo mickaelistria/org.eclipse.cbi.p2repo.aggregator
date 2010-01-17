@@ -530,6 +530,7 @@ PrimaryExpression returns be::BExpression
 	| SwitchExpression
 	| ThrowExpression
 	| TryCatchExpression
+	| ProceedExpression
 	| WildcardExpression
 //	| WithExpression
 	;
@@ -541,7 +542,11 @@ PrimaryExpression returns be::BExpression
 //WithContextExpression returns Expresion : {WithContextExpression } 
 //	"with" "context" context = Expression expr = BlockExpression
 //	;
-		
+
+ProceedExpression returns be::BExpression : {be::BProceedExpression}
+	"proceed"
+	;
+	
 WildcardExpression returns be::BExpression : {be::BLiteralAny} 
 	'_' 
 	;
@@ -618,22 +623,25 @@ BuildConcernContext returns be::BConcernContext :
 	| FunctionConcernContext
 	;
 	
-FunctionConcernContext : 
-	"context" "function" namePredicate = NamePredicate 
+FunctionConcernContext returns be::BFunctionConcernContext: {be::BFunctionConcernContext} 
+	"context" "function" namePredicate = FunctionNamePredicate 
    	('(' (
    		(parameters += ParameterPredicate (',' parameters += ParameterPredicate)* 
    		   (',' varArgs ?= "..." parameters += ParameterVarargsPredicate)?)
    		|  (    varArgs ?= "..." parameters += ParameterVarargsPredicate)
    		)? ')' )?
+   	funcExpr = BlockExpression
 	;
-	
-ParameterPredicate :
+FunctionNamePredicate returns be::BFunctionNamePredicate : {be::BFunctionNamePredicate }
+	namePredicate = NamePredicate
+	;	
+ParameterPredicate returns be::BParameterPredicate : {be::BParameterPredicate}
 	  (typePredicateOp = TypePredicateOp)
 	| (type=TypeRef (name = ID)?) 
 	;
 	
 // Varargs can only be last, and it only makes sense to skip the type (not to use ?*+)	
-ParameterVarargsPredicate :
+ParameterVarargsPredicate returns be::BParameterPredicate : {be::BParameterPredicate}
 	  (typePredicateOp = '_')
 	| (type=TypeRef (name = ID)?) 
 	;
@@ -772,24 +780,11 @@ BuilderPrimaryExpression returns be::BExpression :
 	
 GroupedBuilderPrimaryExpression returns be::BExpression : '(' BuilderOrExpression ')' ;
 
-
-//ContextBlock returns be::BExpression : {be::BChainedExpression} 
-//	'{'  ((expressions +=Function) 
-////		| (expressions+=BuilderDefinition)   // TODO: How to handle Builder definitions as expressions
-//		| (expressions+=TopLevelExpression ';')
-////		| (expressions+=PropertiesStatement) // TODO: How to handle Properties statements as expressions
-//		)* '}' 
-//		;
-
+// Follows a "new" operation
 ContextBlock_Creation returns be::BExpression : {be::BChainedExpression} 
 	'{' (expressions+=TopLevelExpression ';')* '}' 
 	;
 					
-//ExpressionStatement returns Statement : {ExpressionStatement} val=Expression ';' ;
-//PropertiesStatement returns Statement : {PropertiesStatement} "properties" properties = PropertySet_Named ;
-//FunctionDefinition returns be::BExpression : {be::BDefFunction} function = Function;
-//BuilderDefinition returns Statement : {BuilderStatement} builder = Builder;
-
 Literal returns be::BExpression
 	: ValueLiteral
 	| RegexpLiteral

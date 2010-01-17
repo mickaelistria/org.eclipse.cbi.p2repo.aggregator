@@ -17,7 +17,7 @@ import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
-import org.eclipse.b3.backend.evaluator.b3backend.ParameterPredicate;
+import org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -36,12 +36,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.ParameterPredicate} object.
+ * This is the item provider adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ParameterPredicateItemProvider
+public class BParameterPredicateItemProvider
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -62,7 +62,7 @@ public class ParameterPredicateItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ParameterPredicateItemProvider(AdapterFactory adapterFactory) {
+	public BParameterPredicateItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -78,9 +78,8 @@ public class ParameterPredicateItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
-			addTypePropertyDescriptor(object);
 			addTypePredicateOpPropertyDescriptor(object);
-			addVarArgsPropertyDescriptor(object);
+			addTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -96,9 +95,9 @@ public class ParameterPredicateItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ParameterPredicate_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ParameterPredicate_name_feature", "_UI_ParameterPredicate_type"),
-				 B3backendPackage.Literals.PARAMETER_PREDICATE__NAME,
+				 getString("_UI_BParameterPredicate_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BParameterPredicate_name_feature", "_UI_BParameterPredicate_type"),
+				 B3backendPackage.Literals.BPARAMETER_PREDICATE__NAME,
 				 true,
 				 false,
 				 false,
@@ -118,13 +117,13 @@ public class ParameterPredicateItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ParameterPredicate_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ParameterPredicate_type_feature", "_UI_ParameterPredicate_type"),
-				 B3backendPackage.Literals.PARAMETER_PREDICATE__TYPE,
+				 getString("_UI_BParameterPredicate_type_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BParameterPredicate_type_feature", "_UI_BParameterPredicate_type"),
+				 B3backendPackage.Literals.BPARAMETER_PREDICATE__TYPE,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -140,9 +139,9 @@ public class ParameterPredicateItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ParameterPredicate_typePredicateOp_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ParameterPredicate_typePredicateOp_feature", "_UI_ParameterPredicate_type"),
-				 B3backendPackage.Literals.PARAMETER_PREDICATE__TYPE_PREDICATE_OP,
+				 getString("_UI_BParameterPredicate_typePredicateOp_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BParameterPredicate_typePredicateOp_feature", "_UI_BParameterPredicate_type"),
+				 B3backendPackage.Literals.BPARAMETER_PREDICATE__TYPE_PREDICATE_OP,
 				 true,
 				 false,
 				 false,
@@ -152,36 +151,14 @@ public class ParameterPredicateItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Var Args feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addVarArgsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ParameterPredicate_varArgs_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ParameterPredicate_varArgs_feature", "_UI_ParameterPredicate_type"),
-				 B3backendPackage.Literals.PARAMETER_PREDICATE__VAR_ARGS,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns ParameterPredicate.gif.
+	 * This returns BParameterPredicate.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ParameterPredicate"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BParameterPredicate"));
 	}
 
 	/**
@@ -192,10 +169,10 @@ public class ParameterPredicateItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ParameterPredicate)object).getName();
+		String label = ((BParameterPredicate)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ParameterPredicate_type") :
-			getString("_UI_ParameterPredicate_type") + " " + label;
+			getString("_UI_BParameterPredicate_type") :
+			getString("_UI_BParameterPredicate_type") + " " + label;
 	}
 
 	/**
@@ -209,11 +186,10 @@ public class ParameterPredicateItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ParameterPredicate.class)) {
-			case B3backendPackage.PARAMETER_PREDICATE__NAME:
-			case B3backendPackage.PARAMETER_PREDICATE__TYPE:
-			case B3backendPackage.PARAMETER_PREDICATE__TYPE_PREDICATE_OP:
-			case B3backendPackage.PARAMETER_PREDICATE__VAR_ARGS:
+		switch (notification.getFeatureID(BParameterPredicate.class)) {
+			case B3backendPackage.BPARAMETER_PREDICATE__NAME:
+			case B3backendPackage.BPARAMETER_PREDICATE__TYPE_PREDICATE_OP:
+			case B3backendPackage.BPARAMETER_PREDICATE__TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

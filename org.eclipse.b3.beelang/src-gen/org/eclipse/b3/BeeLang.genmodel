@@ -16,20 +16,5 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BeeLang.ecore#//BeeModel/propertySets"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BeeLang.ecore#//BeeModel/body"/>
     </genClasses>
-    <genClasses ecoreClass="BeeLang.ecore#//FunctionConcernContext">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BeeLang.ecore#//FunctionConcernContext/namePredicate"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BeeLang.ecore#//FunctionConcernContext/parameters"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BeeLang.ecore#//FunctionConcernContext/varArgs"/>
-    </genClasses>
-    <genClasses ecoreClass="BeeLang.ecore#//ParameterPredicate">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BeeLang.ecore#//ParameterPredicate/typePredicateOp"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BeeLang.ecore#//ParameterPredicate/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BeeLang.ecore#//ParameterPredicate/name"/>
-    </genClasses>
-    <genClasses ecoreClass="BeeLang.ecore#//ParameterVarargsPredicate">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BeeLang.ecore#//ParameterVarargsPredicate/typePredicateOp"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BeeLang.ecore#//ParameterVarargsPredicate/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BeeLang.ecore#//ParameterVarargsPredicate/name"/>
-    </genClasses>
   </genPackages>
 </genmodel:GenModel>

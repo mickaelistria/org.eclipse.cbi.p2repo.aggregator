@@ -5254,18 +5254,21 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSwitchExpressionParserRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
 		private final RuleCall cThrowExpressionParserRuleCall_10 = (RuleCall)cAlternatives.eContents().get(10);
 		private final RuleCall cTryCatchExpressionParserRuleCall_11 = (RuleCall)cAlternatives.eContents().get(11);
-		private final RuleCall cWildcardExpressionParserRuleCall_12 = (RuleCall)cAlternatives.eContents().get(12);
+		private final RuleCall cProceedExpressionParserRuleCall_12 = (RuleCall)cAlternatives.eContents().get(12);
+		private final RuleCall cWildcardExpressionParserRuleCall_13 = (RuleCall)cAlternatives.eContents().get(13);
 		
 		//PrimaryExpression returns be::BExpression:
 		//  FeatureCall|ConstructorCallExpression|VariableValue|Literal|PropertyValue|
 		//  KeywordVariables|ParanthesizedExpression|IfExpression|BlockExpression|
-		//  SwitchExpression|ThrowExpression|TryCatchExpression|WildcardExpression; 
+		//  SwitchExpression|ThrowExpression|TryCatchExpression|ProceedExpression|
+		//  WildcardExpression; 
 		//		
 		//    
 		//	  
 		//	  
 		//	  
 		//	   
+		//	  
 		//	  
 		//	  
 		//	  
@@ -5289,13 +5292,15 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 		//FeatureCall|ConstructorCallExpression|VariableValue|Literal|PropertyValue|
 		//KeywordVariables|ParanthesizedExpression|IfExpression|BlockExpression|
-		//SwitchExpression|ThrowExpression|TryCatchExpression|WildcardExpression 
+		//SwitchExpression|ThrowExpression|TryCatchExpression|ProceedExpression|
+		//WildcardExpression 
 		//		
 		//    
 		//	  
 		//	  
 		//	  
 		//	   
+		//	  
 		//	  
 		//	  
 		//	  
@@ -5353,9 +5358,40 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//TryCatchExpression
 		public RuleCall getTryCatchExpressionParserRuleCall_11() { return cTryCatchExpressionParserRuleCall_11; }
 
+		//ProceedExpression
+		public RuleCall getProceedExpressionParserRuleCall_12() { return cProceedExpressionParserRuleCall_12; }
+
 		//WildcardExpression   
 		////	| WithExpression
-		public RuleCall getWildcardExpressionParserRuleCall_12() { return cWildcardExpressionParserRuleCall_12; }
+		public RuleCall getWildcardExpressionParserRuleCall_13() { return cWildcardExpressionParserRuleCall_13; }
+	}
+
+	public class ProceedExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ProceedExpression");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cBProceedExpressionAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cProceedKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//ProceedExpression returns be::BExpression:
+		//  {be::BProceedExpression} "proceed"; 
+		//	
+		////WithExpression returns Expression: WithClauseExpression | WithContextExpression ;
+		////WithClauseExpression returns Expression : {WithClauseExpression} 
+		////	withclause=WithClause expr = BlockExpression 
+		////	;
+		////WithContextExpression returns Expresion : {WithContextExpression } 
+		////	"with" "context" context = Expression expr = BlockExpression
+		////	;
+		public ParserRule getRule() { return rule; }
+
+		//{be::BProceedExpression} "proceed"
+		public Group getGroup() { return cGroup; }
+
+		//{be::BProceedExpression}
+		public Action getBProceedExpressionAction_0() { return cBProceedExpressionAction_0; }
+
+		//"proceed"
+		public Keyword getProceedKeyword_1() { return cProceedKeyword_1; }
 	}
 
 	public class WildcardExpressionElements extends AbstractParserRuleElementFinder {
@@ -5365,15 +5401,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword c_Keyword_1 = (Keyword)cGroup.eContents().get(1);
 		
 		//WildcardExpression returns be::BExpression:
-		//  {be::BLiteralAny} "_"; 
-		//	
-		////WithExpression returns Expression: WithClauseExpression | WithContextExpression ;
-		////WithClauseExpression returns Expression : {WithClauseExpression} 
-		////	withclause=WithClause expr = BlockExpression 
-		////	;
-		////WithContextExpression returns Expresion : {WithContextExpression } 
-		////	"with" "context" context = Expression expr = BlockExpression
-		////	;
+		//  {be::BLiteralAny} "_";
 		public ParserRule getRule() { return rule; }
 
 		//{be::BLiteralAny} "_"
@@ -6048,145 +6076,184 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	public class FunctionConcernContextElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FunctionConcernContext");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cContextKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cFunctionKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cNamePredicateAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNamePredicateNamePredicateParserRuleCall_2_0 = (RuleCall)cNamePredicateAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cLeftParenthesisKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Alternatives cAlternatives_3_1 = (Alternatives)cGroup_3.eContents().get(1);
-		private final Group cGroup_3_1_0 = (Group)cAlternatives_3_1.eContents().get(0);
-		private final Assignment cParametersAssignment_3_1_0_0 = (Assignment)cGroup_3_1_0.eContents().get(0);
-		private final RuleCall cParametersParameterPredicateParserRuleCall_3_1_0_0_0 = (RuleCall)cParametersAssignment_3_1_0_0.eContents().get(0);
-		private final Group cGroup_3_1_0_1 = (Group)cGroup_3_1_0.eContents().get(1);
-		private final Keyword cCommaKeyword_3_1_0_1_0 = (Keyword)cGroup_3_1_0_1.eContents().get(0);
-		private final Assignment cParametersAssignment_3_1_0_1_1 = (Assignment)cGroup_3_1_0_1.eContents().get(1);
-		private final RuleCall cParametersParameterPredicateParserRuleCall_3_1_0_1_1_0 = (RuleCall)cParametersAssignment_3_1_0_1_1.eContents().get(0);
-		private final Group cGroup_3_1_0_2 = (Group)cGroup_3_1_0.eContents().get(2);
-		private final Keyword cCommaKeyword_3_1_0_2_0 = (Keyword)cGroup_3_1_0_2.eContents().get(0);
-		private final Assignment cVarArgsAssignment_3_1_0_2_1 = (Assignment)cGroup_3_1_0_2.eContents().get(1);
-		private final Keyword cVarArgsFullStopFullStopFullStopKeyword_3_1_0_2_1_0 = (Keyword)cVarArgsAssignment_3_1_0_2_1.eContents().get(0);
-		private final Assignment cParametersAssignment_3_1_0_2_2 = (Assignment)cGroup_3_1_0_2.eContents().get(2);
-		private final RuleCall cParametersParameterVarargsPredicateParserRuleCall_3_1_0_2_2_0 = (RuleCall)cParametersAssignment_3_1_0_2_2.eContents().get(0);
-		private final Group cGroup_3_1_1 = (Group)cAlternatives_3_1.eContents().get(1);
-		private final Assignment cVarArgsAssignment_3_1_1_0 = (Assignment)cGroup_3_1_1.eContents().get(0);
-		private final Keyword cVarArgsFullStopFullStopFullStopKeyword_3_1_1_0_0 = (Keyword)cVarArgsAssignment_3_1_1_0.eContents().get(0);
-		private final Assignment cParametersAssignment_3_1_1_1 = (Assignment)cGroup_3_1_1.eContents().get(1);
-		private final RuleCall cParametersParameterVarargsPredicateParserRuleCall_3_1_1_1_0 = (RuleCall)cParametersAssignment_3_1_1_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
+		private final Action cBFunctionConcernContextAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cContextKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cFunctionKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cNamePredicateAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNamePredicateFunctionNamePredicateParserRuleCall_3_0 = (RuleCall)cNamePredicateAssignment_3.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cLeftParenthesisKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Alternatives cAlternatives_4_1 = (Alternatives)cGroup_4.eContents().get(1);
+		private final Group cGroup_4_1_0 = (Group)cAlternatives_4_1.eContents().get(0);
+		private final Assignment cParametersAssignment_4_1_0_0 = (Assignment)cGroup_4_1_0.eContents().get(0);
+		private final RuleCall cParametersParameterPredicateParserRuleCall_4_1_0_0_0 = (RuleCall)cParametersAssignment_4_1_0_0.eContents().get(0);
+		private final Group cGroup_4_1_0_1 = (Group)cGroup_4_1_0.eContents().get(1);
+		private final Keyword cCommaKeyword_4_1_0_1_0 = (Keyword)cGroup_4_1_0_1.eContents().get(0);
+		private final Assignment cParametersAssignment_4_1_0_1_1 = (Assignment)cGroup_4_1_0_1.eContents().get(1);
+		private final RuleCall cParametersParameterPredicateParserRuleCall_4_1_0_1_1_0 = (RuleCall)cParametersAssignment_4_1_0_1_1.eContents().get(0);
+		private final Group cGroup_4_1_0_2 = (Group)cGroup_4_1_0.eContents().get(2);
+		private final Keyword cCommaKeyword_4_1_0_2_0 = (Keyword)cGroup_4_1_0_2.eContents().get(0);
+		private final Assignment cVarArgsAssignment_4_1_0_2_1 = (Assignment)cGroup_4_1_0_2.eContents().get(1);
+		private final Keyword cVarArgsFullStopFullStopFullStopKeyword_4_1_0_2_1_0 = (Keyword)cVarArgsAssignment_4_1_0_2_1.eContents().get(0);
+		private final Assignment cParametersAssignment_4_1_0_2_2 = (Assignment)cGroup_4_1_0_2.eContents().get(2);
+		private final RuleCall cParametersParameterVarargsPredicateParserRuleCall_4_1_0_2_2_0 = (RuleCall)cParametersAssignment_4_1_0_2_2.eContents().get(0);
+		private final Group cGroup_4_1_1 = (Group)cAlternatives_4_1.eContents().get(1);
+		private final Assignment cVarArgsAssignment_4_1_1_0 = (Assignment)cGroup_4_1_1.eContents().get(0);
+		private final Keyword cVarArgsFullStopFullStopFullStopKeyword_4_1_1_0_0 = (Keyword)cVarArgsAssignment_4_1_1_0.eContents().get(0);
+		private final Assignment cParametersAssignment_4_1_1_1 = (Assignment)cGroup_4_1_1.eContents().get(1);
+		private final RuleCall cParametersParameterVarargsPredicateParserRuleCall_4_1_1_1_0 = (RuleCall)cParametersAssignment_4_1_1_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
+		private final Assignment cFuncExprAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cFuncExprBlockExpressionParserRuleCall_5_0 = (RuleCall)cFuncExprAssignment_5.eContents().get(0);
 		
-		//FunctionConcernContext:
-		//  "context" "function" namePredicate=NamePredicate ("(" (parameters+=
-		//  ParameterPredicate ("," parameters+=ParameterPredicate)* ("," varArgs?="..."
-		//  parameters+=ParameterVarargsPredicate)?|varArgs?="..." parameters+=
-		//  ParameterVarargsPredicate)? ")")?;
+		//FunctionConcernContext returns be::BFunctionConcernContext:
+		//  {be::BFunctionConcernContext} "context" "function" namePredicate=
+		//  FunctionNamePredicate ("(" (parameters+=ParameterPredicate ("," parameters+=
+		//  ParameterPredicate)* ("," varArgs?="..." parameters+=ParameterVarargsPredicate)?|
+		//  varArgs?="..." parameters+=ParameterVarargsPredicate)? ")")? funcExpr=
+		//  BlockExpression;
 		public ParserRule getRule() { return rule; }
 
-		//"context" "function" namePredicate=NamePredicate ("(" (parameters+=
-		//ParameterPredicate ("," parameters+=ParameterPredicate)* ("," varArgs?="..."
-		//parameters+=ParameterVarargsPredicate)?|varArgs?="..." parameters+=
-		//ParameterVarargsPredicate)? ")")?
+		//{be::BFunctionConcernContext} "context" "function" namePredicate=
+		//FunctionNamePredicate ("(" (parameters+=ParameterPredicate ("," parameters+=
+		//ParameterPredicate)* ("," varArgs?="..." parameters+=ParameterVarargsPredicate)?|
+		//varArgs?="..." parameters+=ParameterVarargsPredicate)? ")")? funcExpr=
+		//BlockExpression
 		public Group getGroup() { return cGroup; }
 
+		//{be::BFunctionConcernContext}
+		public Action getBFunctionConcernContextAction_0() { return cBFunctionConcernContextAction_0; }
+
 		//"context"
-		public Keyword getContextKeyword_0() { return cContextKeyword_0; }
+		public Keyword getContextKeyword_1() { return cContextKeyword_1; }
 
 		//"function"
-		public Keyword getFunctionKeyword_1() { return cFunctionKeyword_1; }
+		public Keyword getFunctionKeyword_2() { return cFunctionKeyword_2; }
 
-		//namePredicate=NamePredicate
-		public Assignment getNamePredicateAssignment_2() { return cNamePredicateAssignment_2; }
+		//namePredicate=FunctionNamePredicate
+		public Assignment getNamePredicateAssignment_3() { return cNamePredicateAssignment_3; }
 
-		//NamePredicate
-		public RuleCall getNamePredicateNamePredicateParserRuleCall_2_0() { return cNamePredicateNamePredicateParserRuleCall_2_0; }
+		//FunctionNamePredicate
+		public RuleCall getNamePredicateFunctionNamePredicateParserRuleCall_3_0() { return cNamePredicateFunctionNamePredicateParserRuleCall_3_0; }
 
 		//("(" (parameters+=ParameterPredicate ("," parameters+=ParameterPredicate)* (","
 		//varArgs?="..." parameters+=ParameterVarargsPredicate)?|varArgs?="..." parameters+=
 		//ParameterVarargsPredicate)? ")")?
-		public Group getGroup_3() { return cGroup_3; }
+		public Group getGroup_4() { return cGroup_4; }
 
 		//"("
-		public Keyword getLeftParenthesisKeyword_3_0() { return cLeftParenthesisKeyword_3_0; }
+		public Keyword getLeftParenthesisKeyword_4_0() { return cLeftParenthesisKeyword_4_0; }
 
 		//(parameters+=ParameterPredicate ("," parameters+=ParameterPredicate)* ("," varArgs?=
 		//"..." parameters+=ParameterVarargsPredicate)?|varArgs?="..." parameters+=
 		//ParameterVarargsPredicate)?
-		public Alternatives getAlternatives_3_1() { return cAlternatives_3_1; }
+		public Alternatives getAlternatives_4_1() { return cAlternatives_4_1; }
 
 		//parameters+=ParameterPredicate ("," parameters+=ParameterPredicate)* ("," varArgs?=
 		//"..." parameters+=ParameterVarargsPredicate)?
-		public Group getGroup_3_1_0() { return cGroup_3_1_0; }
+		public Group getGroup_4_1_0() { return cGroup_4_1_0; }
 
 		//parameters+=ParameterPredicate
-		public Assignment getParametersAssignment_3_1_0_0() { return cParametersAssignment_3_1_0_0; }
+		public Assignment getParametersAssignment_4_1_0_0() { return cParametersAssignment_4_1_0_0; }
 
 		//ParameterPredicate
-		public RuleCall getParametersParameterPredicateParserRuleCall_3_1_0_0_0() { return cParametersParameterPredicateParserRuleCall_3_1_0_0_0; }
+		public RuleCall getParametersParameterPredicateParserRuleCall_4_1_0_0_0() { return cParametersParameterPredicateParserRuleCall_4_1_0_0_0; }
 
 		//("," parameters+=ParameterPredicate)*
-		public Group getGroup_3_1_0_1() { return cGroup_3_1_0_1; }
+		public Group getGroup_4_1_0_1() { return cGroup_4_1_0_1; }
 
 		//","
-		public Keyword getCommaKeyword_3_1_0_1_0() { return cCommaKeyword_3_1_0_1_0; }
+		public Keyword getCommaKeyword_4_1_0_1_0() { return cCommaKeyword_4_1_0_1_0; }
 
 		//parameters+=ParameterPredicate
-		public Assignment getParametersAssignment_3_1_0_1_1() { return cParametersAssignment_3_1_0_1_1; }
+		public Assignment getParametersAssignment_4_1_0_1_1() { return cParametersAssignment_4_1_0_1_1; }
 
 		//ParameterPredicate
-		public RuleCall getParametersParameterPredicateParserRuleCall_3_1_0_1_1_0() { return cParametersParameterPredicateParserRuleCall_3_1_0_1_1_0; }
+		public RuleCall getParametersParameterPredicateParserRuleCall_4_1_0_1_1_0() { return cParametersParameterPredicateParserRuleCall_4_1_0_1_1_0; }
 
 		//("," varArgs?="..." parameters+=ParameterVarargsPredicate)?
-		public Group getGroup_3_1_0_2() { return cGroup_3_1_0_2; }
+		public Group getGroup_4_1_0_2() { return cGroup_4_1_0_2; }
 
 		//","
-		public Keyword getCommaKeyword_3_1_0_2_0() { return cCommaKeyword_3_1_0_2_0; }
+		public Keyword getCommaKeyword_4_1_0_2_0() { return cCommaKeyword_4_1_0_2_0; }
 
 		//varArgs?="..."
-		public Assignment getVarArgsAssignment_3_1_0_2_1() { return cVarArgsAssignment_3_1_0_2_1; }
+		public Assignment getVarArgsAssignment_4_1_0_2_1() { return cVarArgsAssignment_4_1_0_2_1; }
 
 		//"..."
-		public Keyword getVarArgsFullStopFullStopFullStopKeyword_3_1_0_2_1_0() { return cVarArgsFullStopFullStopFullStopKeyword_3_1_0_2_1_0; }
+		public Keyword getVarArgsFullStopFullStopFullStopKeyword_4_1_0_2_1_0() { return cVarArgsFullStopFullStopFullStopKeyword_4_1_0_2_1_0; }
 
 		//parameters+=ParameterVarargsPredicate
-		public Assignment getParametersAssignment_3_1_0_2_2() { return cParametersAssignment_3_1_0_2_2; }
+		public Assignment getParametersAssignment_4_1_0_2_2() { return cParametersAssignment_4_1_0_2_2; }
 
 		//ParameterVarargsPredicate
-		public RuleCall getParametersParameterVarargsPredicateParserRuleCall_3_1_0_2_2_0() { return cParametersParameterVarargsPredicateParserRuleCall_3_1_0_2_2_0; }
+		public RuleCall getParametersParameterVarargsPredicateParserRuleCall_4_1_0_2_2_0() { return cParametersParameterVarargsPredicateParserRuleCall_4_1_0_2_2_0; }
 
 		//varArgs?="..." parameters+=ParameterVarargsPredicate
-		public Group getGroup_3_1_1() { return cGroup_3_1_1; }
+		public Group getGroup_4_1_1() { return cGroup_4_1_1; }
 
 		//varArgs?="..."
-		public Assignment getVarArgsAssignment_3_1_1_0() { return cVarArgsAssignment_3_1_1_0; }
+		public Assignment getVarArgsAssignment_4_1_1_0() { return cVarArgsAssignment_4_1_1_0; }
 
 		//"..."
-		public Keyword getVarArgsFullStopFullStopFullStopKeyword_3_1_1_0_0() { return cVarArgsFullStopFullStopFullStopKeyword_3_1_1_0_0; }
+		public Keyword getVarArgsFullStopFullStopFullStopKeyword_4_1_1_0_0() { return cVarArgsFullStopFullStopFullStopKeyword_4_1_1_0_0; }
 
 		//parameters+=ParameterVarargsPredicate
-		public Assignment getParametersAssignment_3_1_1_1() { return cParametersAssignment_3_1_1_1; }
+		public Assignment getParametersAssignment_4_1_1_1() { return cParametersAssignment_4_1_1_1; }
 
 		//ParameterVarargsPredicate
-		public RuleCall getParametersParameterVarargsPredicateParserRuleCall_3_1_1_1_0() { return cParametersParameterVarargsPredicateParserRuleCall_3_1_1_1_0; }
+		public RuleCall getParametersParameterVarargsPredicateParserRuleCall_4_1_1_1_0() { return cParametersParameterVarargsPredicateParserRuleCall_4_1_1_1_0; }
 
 		//")"
-		public Keyword getRightParenthesisKeyword_3_2() { return cRightParenthesisKeyword_3_2; }
+		public Keyword getRightParenthesisKeyword_4_2() { return cRightParenthesisKeyword_4_2; }
+
+		//funcExpr=BlockExpression
+		public Assignment getFuncExprAssignment_5() { return cFuncExprAssignment_5; }
+
+		//BlockExpression
+		public RuleCall getFuncExprBlockExpressionParserRuleCall_5_0() { return cFuncExprBlockExpressionParserRuleCall_5_0; }
+	}
+
+	public class FunctionNamePredicateElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FunctionNamePredicate");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cBFunctionNamePredicateAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cNamePredicateAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNamePredicateNamePredicateParserRuleCall_1_0 = (RuleCall)cNamePredicateAssignment_1.eContents().get(0);
+		
+		//FunctionNamePredicate returns be::BFunctionNamePredicate:
+		//  {be::BFunctionNamePredicate} namePredicate=NamePredicate;
+		public ParserRule getRule() { return rule; }
+
+		//{be::BFunctionNamePredicate} namePredicate=NamePredicate
+		public Group getGroup() { return cGroup; }
+
+		//{be::BFunctionNamePredicate}
+		public Action getBFunctionNamePredicateAction_0() { return cBFunctionNamePredicateAction_0; }
+
+		//namePredicate=NamePredicate
+		public Assignment getNamePredicateAssignment_1() { return cNamePredicateAssignment_1; }
+
+		//NamePredicate
+		public RuleCall getNamePredicateNamePredicateParserRuleCall_1_0() { return cNamePredicateNamePredicateParserRuleCall_1_0; }
 	}
 
 	public class ParameterPredicateElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ParameterPredicate");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Assignment cTypePredicateOpAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
-		private final RuleCall cTypePredicateOpTypePredicateOpParserRuleCall_0_0 = (RuleCall)cTypePredicateOpAssignment_0.eContents().get(0);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Action cBParameterPredicateAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final Assignment cTypePredicateOpAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cTypePredicateOpTypePredicateOpParserRuleCall_0_1_0 = (RuleCall)cTypePredicateOpAssignment_0_1.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Assignment cTypeAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
 		private final RuleCall cTypeTypeRefParserRuleCall_1_0_0 = (RuleCall)cTypeAssignment_1_0.eContents().get(0);
 		private final Assignment cNameAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_1_0 = (RuleCall)cNameAssignment_1_1.eContents().get(0);
 		
-		//ParameterPredicate:
-		//  typePredicateOp=TypePredicateOp|type=TypeRef name=ID?; 
-		//	
-		//  
+		//ParameterPredicate returns be::BParameterPredicate:
+		//  {be::BParameterPredicate} typePredicateOp=TypePredicateOp|type=TypeRef name=ID?; 	
+		//        
 		//	      
 		//	         
 		//	
@@ -6194,9 +6261,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//// Varargs can only be last, and it only makes sense to skip the type (not to use ?*+)
 		public ParserRule getRule() { return rule; }
 
-		//typePredicateOp=TypePredicateOp|type=TypeRef name=ID? 
-		//	
-		//  
+		//{be::BParameterPredicate} typePredicateOp=TypePredicateOp|type=TypeRef name=ID? 	
+		//        
 		//	      
 		//	         
 		//	
@@ -6204,11 +6270,17 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//// Varargs can only be last, and it only makes sense to skip the type (not to use ?*+)
 		public Alternatives getAlternatives() { return cAlternatives; }
 
+		//{be::BParameterPredicate} typePredicateOp=TypePredicateOp
+		public Group getGroup_0() { return cGroup_0; }
+
+		//{be::BParameterPredicate}
+		public Action getBParameterPredicateAction_0_0() { return cBParameterPredicateAction_0_0; }
+
 		//typePredicateOp=TypePredicateOp
-		public Assignment getTypePredicateOpAssignment_0() { return cTypePredicateOpAssignment_0; }
+		public Assignment getTypePredicateOpAssignment_0_1() { return cTypePredicateOpAssignment_0_1; }
 
 		//TypePredicateOp
-		public RuleCall getTypePredicateOpTypePredicateOpParserRuleCall_0_0() { return cTypePredicateOpTypePredicateOpParserRuleCall_0_0; }
+		public RuleCall getTypePredicateOpTypePredicateOpParserRuleCall_0_1_0() { return cTypePredicateOpTypePredicateOpParserRuleCall_0_1_0; }
 
 		//type=TypeRef name=ID?
 		public Group getGroup_1() { return cGroup_1; }
@@ -6229,30 +6301,38 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	public class ParameterVarargsPredicateElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ParameterVarargsPredicate");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Assignment cTypePredicateOpAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
-		private final Keyword cTypePredicateOp_Keyword_0_0 = (Keyword)cTypePredicateOpAssignment_0.eContents().get(0);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Action cBParameterPredicateAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final Assignment cTypePredicateOpAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final Keyword cTypePredicateOp_Keyword_0_1_0 = (Keyword)cTypePredicateOpAssignment_0_1.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Assignment cTypeAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
 		private final RuleCall cTypeTypeRefParserRuleCall_1_0_0 = (RuleCall)cTypeAssignment_1_0.eContents().get(0);
 		private final Assignment cNameAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_1_0 = (RuleCall)cNameAssignment_1_1.eContents().get(0);
 		
-		//ParameterVarargsPredicate:
-		//  typePredicateOp="_"|type=TypeRef name=ID?; 
+		//ParameterVarargsPredicate returns be::BParameterPredicate:
+		//  {be::BParameterPredicate} typePredicateOp="_"|type=TypeRef name=ID?; 
 		//	
 		//// Varargs can only be last, and it only makes sense to skip the type (not to use ?*+)
 		public ParserRule getRule() { return rule; }
 
-		//typePredicateOp="_"|type=TypeRef name=ID? 
+		//{be::BParameterPredicate} typePredicateOp="_"|type=TypeRef name=ID? 
 		//	
 		//// Varargs can only be last, and it only makes sense to skip the type (not to use ?*+)
 		public Alternatives getAlternatives() { return cAlternatives; }
 
+		//{be::BParameterPredicate} typePredicateOp="_"
+		public Group getGroup_0() { return cGroup_0; }
+
+		//{be::BParameterPredicate}
+		public Action getBParameterPredicateAction_0_0() { return cBParameterPredicateAction_0_0; }
+
 		//typePredicateOp="_"
-		public Assignment getTypePredicateOpAssignment_0() { return cTypePredicateOpAssignment_0; }
+		public Assignment getTypePredicateOpAssignment_0_1() { return cTypePredicateOpAssignment_0_1; }
 
 		//"_"
-		public Keyword getTypePredicateOp_Keyword_0_0() { return cTypePredicateOp_Keyword_0_0; }
+		public Keyword getTypePredicateOp_Keyword_0_1_0() { return cTypePredicateOp_Keyword_0_1_0; }
 
 		//type=TypeRef name=ID?
 		public Group getGroup_1() { return cGroup_1; }
@@ -7542,14 +7622,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//	
 		//              
 		//
-		//
-		////ContextBlock returns be::BExpression : {be::BChainedExpression} 
-		////	'{'  ((expressions +=Function) 
-		//////		| (expressions+=BuilderDefinition)   // TODO: How to handle Builder definitions as expressions
-		////		| (expressions+=TopLevelExpression ';')
-		//////		| (expressions+=PropertiesStatement) // TODO: How to handle Properties statements as expressions
-		////		)* '}' 
-		////		;
+		//// Follows a "new" operation
 		public ParserRule getRule() { return rule; }
 
 		//"(" BuilderOrExpression ")"
@@ -7579,23 +7652,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//ContextBlock_Creation returns be::BExpression:
 		//  {be::BChainedExpression} "{" (expressions+=TopLevelExpression ";")* "}"; 
 		//
-		//
-		////ContextBlock returns be::BExpression : {be::BChainedExpression} 
-		////	'{'  ((expressions +=Function) 
-		//////		| (expressions+=BuilderDefinition)   // TODO: How to handle Builder definitions as expressions
-		////		| (expressions+=TopLevelExpression ';')
-		//////		| (expressions+=PropertiesStatement) // TODO: How to handle Properties statements as expressions
-		////		)* '}' 
-		////		;
-		//
-		//         
-		//	       
-		//	
-		//					
-		////ExpressionStatement returns Statement : {ExpressionStatement} val=Expression ';' ;
-		////PropertiesStatement returns Statement : {PropertiesStatement} "properties" properties = PropertySet_Named ;
-		////FunctionDefinition returns be::BExpression : {be::BDefFunction} function = Function;
-		////BuilderDefinition returns Statement : {BuilderStatement} builder = Builder;
+		//// Follows a "new" operation
 		public ParserRule getRule() { return rule; }
 
 		//{be::BChainedExpression} "{" (expressions+=TopLevelExpression ";")* "}"
@@ -7633,20 +7690,10 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cLiteralFunctionParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
 		//Literal returns be::BExpression:
-		//  ValueLiteral|RegexpLiteral|LiteralMap|LiteralList|LiteralFunction; 
-		//					
-		////ExpressionStatement returns Statement : {ExpressionStatement} val=Expression ';' ;
-		////PropertiesStatement returns Statement : {PropertiesStatement} "properties" properties = PropertySet_Named ;
-		////FunctionDefinition returns be::BExpression : {be::BDefFunction} function = Function;
-		////BuilderDefinition returns Statement : {BuilderStatement} builder = Builder;
+		//  ValueLiteral|RegexpLiteral|LiteralMap|LiteralList|LiteralFunction;
 		public ParserRule getRule() { return rule; }
 
-		//ValueLiteral|RegexpLiteral|LiteralMap|LiteralList|LiteralFunction 
-		//					
-		////ExpressionStatement returns Statement : {ExpressionStatement} val=Expression ';' ;
-		////PropertiesStatement returns Statement : {PropertiesStatement} "properties" properties = PropertySet_Named ;
-		////FunctionDefinition returns be::BExpression : {be::BDefFunction} function = Function;
-		////BuilderDefinition returns Statement : {BuilderStatement} builder = Builder;
+		//ValueLiteral|RegexpLiteral|LiteralMap|LiteralList|LiteralFunction
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//ValueLiteral
@@ -9270,6 +9317,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	private InfixExpressionElements pInfixExpression;
 	private CallExpressionElements pCallExpression;
 	private PrimaryExpressionElements pPrimaryExpression;
+	private ProceedExpressionElements pProceedExpression;
 	private WildcardExpressionElements pWildcardExpression;
 	private ThrowExpressionElements pThrowExpression;
 	private TryCatchExpressionElements pTryCatchExpression;
@@ -9287,6 +9335,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	private ConstructorCallExpressionElements pConstructorCallExpression;
 	private BuildConcernContextElements pBuildConcernContext;
 	private FunctionConcernContextElements pFunctionConcernContext;
+	private FunctionNamePredicateElements pFunctionNamePredicate;
 	private ParameterPredicateElements pParameterPredicate;
 	private ParameterVarargsPredicateElements pParameterVarargsPredicate;
 	private TypePredicateOpElements pTypePredicateOp;
@@ -10539,13 +10588,15 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//PrimaryExpression returns be::BExpression:
 	//  FeatureCall|ConstructorCallExpression|VariableValue|Literal|PropertyValue|
 	//  KeywordVariables|ParanthesizedExpression|IfExpression|BlockExpression|
-	//  SwitchExpression|ThrowExpression|TryCatchExpression|WildcardExpression; 
+	//  SwitchExpression|ThrowExpression|TryCatchExpression|ProceedExpression|
+	//  WildcardExpression; 
 	//		
 	//    
 	//	  
 	//	  
 	//	  
 	//	   
+	//	  
 	//	  
 	//	  
 	//	  
@@ -10573,8 +10624,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getPrimaryExpressionAccess().getRule();
 	}
 
-	//WildcardExpression returns be::BExpression:
-	//  {be::BLiteralAny} "_"; 
+	//ProceedExpression returns be::BExpression:
+	//  {be::BProceedExpression} "proceed"; 
 	//	
 	////WithExpression returns Expression: WithClauseExpression | WithContextExpression ;
 	////WithClauseExpression returns Expression : {WithClauseExpression} 
@@ -10583,6 +10634,16 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	////WithContextExpression returns Expresion : {WithContextExpression } 
 	////	"with" "context" context = Expression expr = BlockExpression
 	////	;
+	public ProceedExpressionElements getProceedExpressionAccess() {
+		return (pProceedExpression != null) ? pProceedExpression : (pProceedExpression = new ProceedExpressionElements());
+	}
+	
+	public ParserRule getProceedExpressionRule() {
+		return getProceedExpressionAccess().getRule();
+	}
+
+	//WildcardExpression returns be::BExpression:
+	//  {be::BLiteralAny} "_";
 	public WildcardExpressionElements getWildcardExpressionAccess() {
 		return (pWildcardExpression != null) ? pWildcardExpression : (pWildcardExpression = new WildcardExpressionElements());
 	}
@@ -10757,11 +10818,12 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getBuildConcernContextAccess().getRule();
 	}
 
-	//FunctionConcernContext:
-	//  "context" "function" namePredicate=NamePredicate ("(" (parameters+=
-	//  ParameterPredicate ("," parameters+=ParameterPredicate)* ("," varArgs?="..."
-	//  parameters+=ParameterVarargsPredicate)?|varArgs?="..." parameters+=
-	//  ParameterVarargsPredicate)? ")")?;
+	//FunctionConcernContext returns be::BFunctionConcernContext:
+	//  {be::BFunctionConcernContext} "context" "function" namePredicate=
+	//  FunctionNamePredicate ("(" (parameters+=ParameterPredicate ("," parameters+=
+	//  ParameterPredicate)* ("," varArgs?="..." parameters+=ParameterVarargsPredicate)?|
+	//  varArgs?="..." parameters+=ParameterVarargsPredicate)? ")")? funcExpr=
+	//  BlockExpression;
 	public FunctionConcernContextElements getFunctionConcernContextAccess() {
 		return (pFunctionConcernContext != null) ? pFunctionConcernContext : (pFunctionConcernContext = new FunctionConcernContextElements());
 	}
@@ -10770,10 +10832,19 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getFunctionConcernContextAccess().getRule();
 	}
 
-	//ParameterPredicate:
-	//  typePredicateOp=TypePredicateOp|type=TypeRef name=ID?; 
-	//	
-	//  
+	//FunctionNamePredicate returns be::BFunctionNamePredicate:
+	//  {be::BFunctionNamePredicate} namePredicate=NamePredicate;
+	public FunctionNamePredicateElements getFunctionNamePredicateAccess() {
+		return (pFunctionNamePredicate != null) ? pFunctionNamePredicate : (pFunctionNamePredicate = new FunctionNamePredicateElements());
+	}
+	
+	public ParserRule getFunctionNamePredicateRule() {
+		return getFunctionNamePredicateAccess().getRule();
+	}
+
+	//ParameterPredicate returns be::BParameterPredicate:
+	//  {be::BParameterPredicate} typePredicateOp=TypePredicateOp|type=TypeRef name=ID?; 	
+	//        
 	//	      
 	//	         
 	//	
@@ -10787,8 +10858,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getParameterPredicateAccess().getRule();
 	}
 
-	//ParameterVarargsPredicate:
-	//  typePredicateOp="_"|type=TypeRef name=ID?; 
+	//ParameterVarargsPredicate returns be::BParameterPredicate:
+	//  {be::BParameterPredicate} typePredicateOp="_"|type=TypeRef name=ID?; 
 	//	
 	//// Varargs can only be last, and it only makes sense to skip the type (not to use ?*+)
 	public ParameterVarargsPredicateElements getParameterVarargsPredicateAccess() {
@@ -11108,14 +11179,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//	
 	//              
 	//
-	//
-	////ContextBlock returns be::BExpression : {be::BChainedExpression} 
-	////	'{'  ((expressions +=Function) 
-	//////		| (expressions+=BuilderDefinition)   // TODO: How to handle Builder definitions as expressions
-	////		| (expressions+=TopLevelExpression ';')
-	//////		| (expressions+=PropertiesStatement) // TODO: How to handle Properties statements as expressions
-	////		)* '}' 
-	////		;
+	//// Follows a "new" operation
 	public GroupedBuilderPrimaryExpressionElements getGroupedBuilderPrimaryExpressionAccess() {
 		return (pGroupedBuilderPrimaryExpression != null) ? pGroupedBuilderPrimaryExpression : (pGroupedBuilderPrimaryExpression = new GroupedBuilderPrimaryExpressionElements());
 	}
@@ -11127,23 +11191,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//ContextBlock_Creation returns be::BExpression:
 	//  {be::BChainedExpression} "{" (expressions+=TopLevelExpression ";")* "}"; 
 	//
-	//
-	////ContextBlock returns be::BExpression : {be::BChainedExpression} 
-	////	'{'  ((expressions +=Function) 
-	//////		| (expressions+=BuilderDefinition)   // TODO: How to handle Builder definitions as expressions
-	////		| (expressions+=TopLevelExpression ';')
-	//////		| (expressions+=PropertiesStatement) // TODO: How to handle Properties statements as expressions
-	////		)* '}' 
-	////		;
-	//
-	//         
-	//	       
-	//	
-	//					
-	////ExpressionStatement returns Statement : {ExpressionStatement} val=Expression ';' ;
-	////PropertiesStatement returns Statement : {PropertiesStatement} "properties" properties = PropertySet_Named ;
-	////FunctionDefinition returns be::BExpression : {be::BDefFunction} function = Function;
-	////BuilderDefinition returns Statement : {BuilderStatement} builder = Builder;
+	//// Follows a "new" operation
 	public ContextBlock_CreationElements getContextBlock_CreationAccess() {
 		return (pContextBlock_Creation != null) ? pContextBlock_Creation : (pContextBlock_Creation = new ContextBlock_CreationElements());
 	}
@@ -11153,12 +11201,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Literal returns be::BExpression:
-	//  ValueLiteral|RegexpLiteral|LiteralMap|LiteralList|LiteralFunction; 
-	//					
-	////ExpressionStatement returns Statement : {ExpressionStatement} val=Expression ';' ;
-	////PropertiesStatement returns Statement : {PropertiesStatement} "properties" properties = PropertySet_Named ;
-	////FunctionDefinition returns be::BExpression : {be::BDefFunction} function = Function;
-	////BuilderDefinition returns Statement : {BuilderStatement} builder = Builder;
+	//  ValueLiteral|RegexpLiteral|LiteralMap|LiteralList|LiteralFunction;
 	public LiteralElements getLiteralAccess() {
 		return (pLiteral != null) ? pLiteral : (pLiteral = new LiteralElements());
 	}

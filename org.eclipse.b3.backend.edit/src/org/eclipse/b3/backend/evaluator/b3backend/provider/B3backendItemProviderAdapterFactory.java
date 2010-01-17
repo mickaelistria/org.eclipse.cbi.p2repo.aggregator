@@ -1578,26 +1578,49 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.ParameterPredicate} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ParameterPredicateItemProvider parameterPredicateItemProvider;
+	protected BParameterPredicateItemProvider bParameterPredicateItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.ParameterPredicate}.
+	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createParameterPredicateAdapter() {
-		if (parameterPredicateItemProvider == null) {
-			parameterPredicateItemProvider = new ParameterPredicateItemProvider(this);
+	public Adapter createBParameterPredicateAdapter() {
+		if (bParameterPredicateItemProvider == null) {
+			bParameterPredicateItemProvider = new BParameterPredicateItemProvider(this);
 		}
 
-		return parameterPredicateItemProvider;
+		return bParameterPredicateItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BProceedExpression} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BProceedExpressionItemProvider bProceedExpressionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BProceedExpression}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBProceedExpressionAdapter() {
+		if (bProceedExpressionItemProvider == null) {
+			bProceedExpressionItemProvider = new BProceedExpressionItemProvider(this);
+		}
+
+		return bProceedExpressionItemProvider;
 	}
 
 	/**
@@ -1764,7 +1787,8 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 		if (bNamePredicateItemProvider != null) bNamePredicateItemProvider.dispose();
 		if (bFunctionNamePredicateItemProvider != null) bFunctionNamePredicateItemProvider.dispose();
 		if (bFunctionConcernContextItemProvider != null) bFunctionConcernContextItemProvider.dispose();
-		if (parameterPredicateItemProvider != null) parameterPredicateItemProvider.dispose();
+		if (bParameterPredicateItemProvider != null) bParameterPredicateItemProvider.dispose();
+		if (bProceedExpressionItemProvider != null) bProceedExpressionItemProvider.dispose();
 	}
 
 }

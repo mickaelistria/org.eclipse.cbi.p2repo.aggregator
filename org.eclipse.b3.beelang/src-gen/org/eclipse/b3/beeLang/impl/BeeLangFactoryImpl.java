@@ -68,9 +68,6 @@ public class BeeLangFactoryImpl extends EFactoryImpl implements BeeLangFactory
     switch (eClass.getClassifierID())
     {
       case BeeLangPackage.BEE_MODEL: return createBeeModel();
-      case BeeLangPackage.FUNCTION_CONCERN_CONTEXT: return createFunctionConcernContext();
-      case BeeLangPackage.PARAMETER_PREDICATE: return createParameterPredicate();
-      case BeeLangPackage.PARAMETER_VARARGS_PREDICATE: return createParameterVarargsPredicate();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -85,39 +82,6 @@ public class BeeLangFactoryImpl extends EFactoryImpl implements BeeLangFactory
   {
     BeeModelImpl beeModel = new BeeModelImpl();
     return beeModel;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public FunctionConcernContext createFunctionConcernContext()
-  {
-    FunctionConcernContextImpl functionConcernContext = new FunctionConcernContextImpl();
-    return functionConcernContext;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ParameterPredicate createParameterPredicate()
-  {
-    ParameterPredicateImpl parameterPredicate = new ParameterPredicateImpl();
-    return parameterPredicate;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ParameterVarargsPredicate createParameterVarargsPredicate()
-  {
-    ParameterVarargsPredicateImpl parameterVarargsPredicate = new ParameterVarargsPredicateImpl();
-    return parameterVarargsPredicate;
   }
 
   /**

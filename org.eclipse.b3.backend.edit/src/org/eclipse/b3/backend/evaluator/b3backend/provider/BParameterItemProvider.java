@@ -373,6 +373,11 @@ public class BParameterItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BPARAMETER__EXPR,
 				 B3backendFactory.eINSTANCE.createBFunctionNamePredicate()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BPARAMETER__EXPR,
+				 B3backendFactory.eINSTANCE.createBProceedExpression()));
 	}
 
 	/**

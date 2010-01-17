@@ -5,9 +5,6 @@
  */
 package org.eclipse.b3.beeLang.util;
 
-import org.eclipse.b3.backend.evaluator.b3backend.BConcernContext;
-import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
-
 import org.eclipse.b3.beeLang.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -86,31 +83,6 @@ public class BeeLangAdapterFactory extends AdapterFactoryImpl
         return createBeeModelAdapter();
       }
       @Override
-      public Adapter caseFunctionConcernContext(FunctionConcernContext object)
-      {
-        return createFunctionConcernContextAdapter();
-      }
-      @Override
-      public Adapter caseParameterPredicate(ParameterPredicate object)
-      {
-        return createParameterPredicateAdapter();
-      }
-      @Override
-      public Adapter caseParameterVarargsPredicate(ParameterVarargsPredicate object)
-      {
-        return createParameterVarargsPredicateAdapter();
-      }
-      @Override
-      public Adapter caseBFunctionContainer(BFunctionContainer object)
-      {
-        return createBFunctionContainerAdapter();
-      }
-      @Override
-      public Adapter caseBConcernContext(BConcernContext object)
-      {
-        return createBConcernContextAdapter();
-      }
-      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -143,81 +115,6 @@ public class BeeLangAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createBeeModelAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.b3.beeLang.FunctionConcernContext <em>Function Concern Context</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.b3.beeLang.FunctionConcernContext
-   * @generated
-   */
-  public Adapter createFunctionConcernContextAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.b3.beeLang.ParameterPredicate <em>Parameter Predicate</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.b3.beeLang.ParameterPredicate
-   * @generated
-   */
-  public Adapter createParameterPredicateAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.b3.beeLang.ParameterVarargsPredicate <em>Parameter Varargs Predicate</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.b3.beeLang.ParameterVarargsPredicate
-   * @generated
-   */
-  public Adapter createParameterVarargsPredicateAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer <em>BFunction Container</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer
-   * @generated
-   */
-  public Adapter createBFunctionContainerAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BConcernContext <em>BConcern Context</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.b3.backend.evaluator.b3backend.BConcernContext
-   * @generated
-   */
-  public Adapter createBConcernContextAdapter()
   {
     return null;
   }
