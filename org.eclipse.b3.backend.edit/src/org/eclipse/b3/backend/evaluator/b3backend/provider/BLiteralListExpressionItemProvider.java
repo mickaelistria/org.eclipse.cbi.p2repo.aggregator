@@ -344,6 +344,21 @@ public class BLiteralListExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BLITERAL_LIST_EXPRESSION__ENTRIES,
+				 B3backendFactory.eINSTANCE.createBPropertyDefinitionOperation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BLITERAL_LIST_EXPRESSION__ENTRIES,
+				 B3backendFactory.eINSTANCE.createBConditionalPropertyOperation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BLITERAL_LIST_EXPRESSION__ENTRIES,
+				 B3backendFactory.eINSTANCE.createBPropertySetOperation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BLITERAL_LIST_EXPRESSION__ENTRIES,
 				 B3backendFactory.eINSTANCE.createBConcern()));
 
 		newChildDescriptors.add

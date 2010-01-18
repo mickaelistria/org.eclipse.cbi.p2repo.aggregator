@@ -532,8 +532,16 @@ PrimaryExpression returns be::BExpression
 	| TryCatchExpression
 	| ProceedExpression
 	| WildcardExpression
-//	| WithExpression
+	| WithExpression
 	;
+
+// Validation checks that there is at least one of references, properties or concern.
+WithExpression returns be::BWithExpression : {be::BWithExpression}
+		'with'
+		( '(' referencedAdvice += [be::BAdvice | ID] (',' referencedAdvice += [be::BAdvice | ID])* ')' )? 
+		(( 'properties' propertySets += PropertySet ) | ( 'concern' concerns += Concern_Anonymous ))*
+		( (':' funcExpr = Expression ) | ('{' funcExpr = BlockExpressionWithoutBrackets '}' ) )
+		;
 	
 //WithExpression returns Expression: WithClauseExpression | WithContextExpression ;
 //WithClauseExpression returns Expression : {WithClauseExpression} 

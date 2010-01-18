@@ -27,6 +27,12 @@ import org.eclipse.b3.backend.evaluator.b3backend.BDefProperty;
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BDefProperty#isMutable() <em>Mutable</em>}</li>
  * </ul>
  * </p>
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BDefProperty#evaluateDefaults(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Evaluate Defaults</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class BDefPropertyTest extends BDefValueTest {
@@ -112,6 +118,19 @@ public class BDefPropertyTest extends BDefValueTest {
 	 */
 	public void testSetMutable() {
 		// TODO: implement this feature setter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefProperty#evaluateDefaults(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Evaluate Defaults</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BDefProperty#evaluateDefaults(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
+	 * @generated
+	 */
+	public void testEvaluateDefaults__BExecutionContext() {
+		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
 	}

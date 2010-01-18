@@ -32,7 +32,6 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
-import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BFileReference;
 import org.eclipse.b3.backend.evaluator.b3backend.BGuardFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BInnerContext;
@@ -241,12 +240,13 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		setFuncStore(new B3FuncStore(getEffectiveFuncStore()));
 	}
 	/**
-	 * Returns the first found func store (or null, if none is found).
+	 * Returns the first found func store (or null, if none is found). The func store to return is
+	 * obtained via {@link #getFuncStore()} thus giving derived classes a chance to override.
 	 * @return
 	 */
 	protected B3FuncStore getEffectiveFuncStore() {
-		if(funcStore != null)
-			return funcStore;
+		if(getFuncStore() != null)
+			return getFuncStore();
 		BExecutionContext p = getParentContext();
 		while(p != null && p.getFuncStore() == null)
 			p = p.getParentContext();
@@ -449,12 +449,14 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Looks up the value in the value map obtained by calling {@link #getValueMap()} (which derived classes
+	 * may override).
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public Object getValue(String name) throws B3EngineException {
 		try {
-			return valueMap.get(name);
+			return getValueMap().get(name);
 		} catch (B3NoSuchVariableException e) {
 			BExecutionContext parentContext = null;
 			if((parentContext = getParentContext()) == null)
@@ -516,7 +518,7 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 * @generated NOT
 	 */
 	public boolean isFinal(String name) {
-		boolean result = valueMap.isFinal(name);
+		boolean result = getValueMap().isFinal(name);
 		if(result) return result;
 		if(getParentContext() != null)
 			return getParentContext().isFinal(name);
@@ -529,7 +531,7 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 * @generated NOT
 	 */
 	public boolean isImmutable(String name) {
-		boolean result = valueMap.isImmutable(name);
+		boolean result = getValueMap().isImmutable(name);
 		if(result) return result;
 		if(getParentContext() != null)
 			return getParentContext().isImmutable(name);
@@ -637,7 +639,7 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 * @generated NOT
 	 */
 	public LValue getLValue(String name) throws B3EngineException {
-		if(!valueMap.containsKey(name)) {
+		if(!getValueMap().containsKey(name)) {
 			BExecutionContext parentContext = null;
 			if((parentContext = getParentContext()) == null)
 				throw new B3NoSuchVariableException(name);
@@ -656,27 +658,27 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		funcStore.defineFunction(function.getName(), function);
 		return function;
 	}
-	private class ValueMapLVal implements LValue {
+	protected class ValueMapLVal implements LValue {
 		private String name;
 		ValueMapLVal(String name) {
 			this.name = name;
 		}
 		public Object get() throws B3EngineException {
-			return valueMap.get(name);
+			return getValueMap().get(name);
 		}
 
 		public boolean isSettable() {
-			return valueMap.isImmutable(name);
+			return getValueMap().isImmutable(name);
 		}
 
 		public Object set(Object value) throws B3EngineException {
-			return valueMap.set(name, value);
+			return getValueMap().set(name, value);
 		}
 		public Type getDeclaredType() throws B3EngineException {
-			return valueMap.getType(name);
+			return getValueMap().getType(name);
 		}
 		public void setDeclaredType(Type t) throws B3EngineException {
-			valueMap.setType(name, t);
+			getValueMap().setType(name, t);
 		}
 		public boolean isGetable() throws B3EngineException {
 			return true;

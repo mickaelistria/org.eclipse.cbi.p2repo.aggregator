@@ -63,4 +63,12 @@ public interface BDefProperty extends BDefValue {
 	 */
 	void setMutable(boolean value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
+	 * @generated
+	 */
+	Object evaluateDefaults(BExecutionContext ctx) throws Throwable;
+
 } // BDefProperty

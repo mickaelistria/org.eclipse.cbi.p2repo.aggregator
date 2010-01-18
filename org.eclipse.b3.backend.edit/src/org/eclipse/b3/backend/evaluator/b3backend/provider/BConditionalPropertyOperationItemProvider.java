@@ -129,7 +129,8 @@ public class BConditionalPropertyOperationItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_BConditionalPropertyOperation_type");
+		BConditionalPropertyOperation bConditionalPropertyOperation = (BConditionalPropertyOperation)object;
+		return getString("_UI_BConditionalPropertyOperation_type") + " " + bConditionalPropertyOperation.getLineNumber();
 	}
 
 	/**
@@ -326,6 +327,21 @@ public class BConditionalPropertyOperationItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BCONDITIONAL_PROPERTY_OPERATION__COND_EXPR,
+				 B3backendFactory.eINSTANCE.createBPropertyDefinitionOperation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCONDITIONAL_PROPERTY_OPERATION__COND_EXPR,
+				 B3backendFactory.eINSTANCE.createBConditionalPropertyOperation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCONDITIONAL_PROPERTY_OPERATION__COND_EXPR,
+				 B3backendFactory.eINSTANCE.createBPropertySetOperation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCONDITIONAL_PROPERTY_OPERATION__COND_EXPR,
 				 B3backendFactory.eINSTANCE.createBConcern()));
 
 		newChildDescriptors.add
@@ -351,11 +367,6 @@ public class BConditionalPropertyOperationItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BCONDITIONAL_PROPERTY_OPERATION__BODY,
-				 B3backendFactory.eINSTANCE.createBPropertyOperation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(B3backendPackage.Literals.BCONDITIONAL_PROPERTY_OPERATION__BODY,
 				 B3backendFactory.eINSTANCE.createBPropertyDefinitionOperation()));
 
 		newChildDescriptors.add
@@ -367,6 +378,29 @@ public class BConditionalPropertyOperationItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BCONDITIONAL_PROPERTY_OPERATION__BODY,
 				 B3backendFactory.eINSTANCE.createBPropertySetOperation()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == B3backendPackage.Literals.BCONDITIONAL_PROPERTY_OPERATION__COND_EXPR ||
+			childFeature == B3backendPackage.Literals.BCONDITIONAL_PROPERTY_OPERATION__BODY;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }

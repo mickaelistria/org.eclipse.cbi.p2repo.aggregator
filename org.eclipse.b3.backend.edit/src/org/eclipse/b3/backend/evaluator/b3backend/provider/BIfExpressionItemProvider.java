@@ -323,6 +323,21 @@ public class BIfExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BIF_EXPRESSION__CONDITION_EXPR,
+				 B3backendFactory.eINSTANCE.createBPropertyDefinitionOperation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BIF_EXPRESSION__CONDITION_EXPR,
+				 B3backendFactory.eINSTANCE.createBConditionalPropertyOperation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BIF_EXPRESSION__CONDITION_EXPR,
+				 B3backendFactory.eINSTANCE.createBPropertySetOperation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BIF_EXPRESSION__CONDITION_EXPR,
 				 B3backendFactory.eINSTANCE.createBConcern()));
 
 		newChildDescriptors.add
@@ -508,6 +523,21 @@ public class BIfExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BIF_EXPRESSION__THEN_EXPR,
+				 B3backendFactory.eINSTANCE.createBPropertyDefinitionOperation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BIF_EXPRESSION__THEN_EXPR,
+				 B3backendFactory.eINSTANCE.createBConditionalPropertyOperation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BIF_EXPRESSION__THEN_EXPR,
+				 B3backendFactory.eINSTANCE.createBPropertySetOperation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BIF_EXPRESSION__THEN_EXPR,
 				 B3backendFactory.eINSTANCE.createBConcern()));
 
 		newChildDescriptors.add
@@ -689,6 +719,21 @@ public class BIfExpressionItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BIF_EXPRESSION__ELSE_EXPR,
 				 B3backendFactory.eINSTANCE.createBDefaultPropertySet()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BIF_EXPRESSION__ELSE_EXPR,
+				 B3backendFactory.eINSTANCE.createBPropertyDefinitionOperation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BIF_EXPRESSION__ELSE_EXPR,
+				 B3backendFactory.eINSTANCE.createBConditionalPropertyOperation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BIF_EXPRESSION__ELSE_EXPR,
+				 B3backendFactory.eINSTANCE.createBPropertySetOperation()));
 
 		newChildDescriptors.add
 			(createChildParameter

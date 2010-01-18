@@ -411,6 +411,10 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 				return createBProceedExpressionAdapter();
 			}
 			@Override
+			public Adapter caseBDelegatingContext(BDelegatingContext object) {
+				return createBDelegatingContextAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -973,6 +977,20 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBProceedExpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BDelegatingContext <em>BDelegating Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BDelegatingContext
+	 * @generated
+	 */
+	public Adapter createBDelegatingContextAdapter() {
 		return null;
 	}
 

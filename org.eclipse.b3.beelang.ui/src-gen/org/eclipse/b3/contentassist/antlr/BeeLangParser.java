@@ -78,6 +78,8 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPostopExpressionAccess().getFunctionNameAlternatives_1_1_0(), "rule__PostopExpression__FunctionNameAlternatives_1_1_0");
 					put(grammarAccess.getInfixExpressionAccess().getAlternatives_1(), "rule__InfixExpression__Alternatives_1");
 					put(grammarAccess.getPrimaryExpressionAccess().getAlternatives(), "rule__PrimaryExpression__Alternatives");
+					put(grammarAccess.getWithExpressionAccess().getAlternatives_3(), "rule__WithExpression__Alternatives_3");
+					put(grammarAccess.getWithExpressionAccess().getAlternatives_4(), "rule__WithExpression__Alternatives_4");
 					put(grammarAccess.getIfExpressionAccess().getAlternatives_5(), "rule__IfExpression__Alternatives_5");
 					put(grammarAccess.getElseIfExpressionAccess().getAlternatives_5(), "rule__ElseIfExpression__Alternatives_5");
 					put(grammarAccess.getKeywordVariablesAccess().getNameAlternatives_1_0(), "rule__KeywordVariables__NameAlternatives_1_0");
@@ -296,6 +298,13 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getInfixExpressionAccess().getGroup_1_2(), "rule__InfixExpression__Group_1_2__0");
 					put(grammarAccess.getCallExpressionAccess().getGroup(), "rule__CallExpression__Group__0");
 					put(grammarAccess.getCallExpressionAccess().getGroup_1(), "rule__CallExpression__Group_1__0");
+					put(grammarAccess.getWithExpressionAccess().getGroup(), "rule__WithExpression__Group__0");
+					put(grammarAccess.getWithExpressionAccess().getGroup_2(), "rule__WithExpression__Group_2__0");
+					put(grammarAccess.getWithExpressionAccess().getGroup_2_2(), "rule__WithExpression__Group_2_2__0");
+					put(grammarAccess.getWithExpressionAccess().getGroup_3_0(), "rule__WithExpression__Group_3_0__0");
+					put(grammarAccess.getWithExpressionAccess().getGroup_3_1(), "rule__WithExpression__Group_3_1__0");
+					put(grammarAccess.getWithExpressionAccess().getGroup_4_0(), "rule__WithExpression__Group_4_0__0");
+					put(grammarAccess.getWithExpressionAccess().getGroup_4_1(), "rule__WithExpression__Group_4_1__0");
 					put(grammarAccess.getProceedExpressionAccess().getGroup(), "rule__ProceedExpression__Group__0");
 					put(grammarAccess.getWildcardExpressionAccess().getGroup(), "rule__WildcardExpression__Group__0");
 					put(grammarAccess.getThrowExpressionAccess().getGroup(), "rule__ThrowExpression__Group__0");
@@ -622,6 +631,12 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getInfixExpressionAccess().getIndexExprAssignment_1_1_2(), "rule__InfixExpression__IndexExprAssignment_1_1_2");
 					put(grammarAccess.getInfixExpressionAccess().getFeatureNameAssignment_1_2_2(), "rule__InfixExpression__FeatureNameAssignment_1_2_2");
 					put(grammarAccess.getCallExpressionAccess().getParameterListAssignment_1_2(), "rule__CallExpression__ParameterListAssignment_1_2");
+					put(grammarAccess.getWithExpressionAccess().getReferencedAdviceAssignment_2_1(), "rule__WithExpression__ReferencedAdviceAssignment_2_1");
+					put(grammarAccess.getWithExpressionAccess().getReferencedAdviceAssignment_2_2_1(), "rule__WithExpression__ReferencedAdviceAssignment_2_2_1");
+					put(grammarAccess.getWithExpressionAccess().getPropertySetsAssignment_3_0_1(), "rule__WithExpression__PropertySetsAssignment_3_0_1");
+					put(grammarAccess.getWithExpressionAccess().getConcernsAssignment_3_1_1(), "rule__WithExpression__ConcernsAssignment_3_1_1");
+					put(grammarAccess.getWithExpressionAccess().getFuncExprAssignment_4_0_1(), "rule__WithExpression__FuncExprAssignment_4_0_1");
+					put(grammarAccess.getWithExpressionAccess().getFuncExprAssignment_4_1_1(), "rule__WithExpression__FuncExprAssignment_4_1_1");
 					put(grammarAccess.getThrowExpressionAccess().getExprAssignment_2(), "rule__ThrowExpression__ExprAssignment_2");
 					put(grammarAccess.getTryCatchExpressionAccess().getTryExprAssignment_2(), "rule__TryCatchExpression__TryExprAssignment_2");
 					put(grammarAccess.getTryCatchExpressionAccess().getCatchBlocksAssignment_3(), "rule__TryCatchExpression__CatchBlocksAssignment_3");

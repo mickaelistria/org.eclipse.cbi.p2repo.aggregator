@@ -511,15 +511,6 @@ public interface B3backendFactory extends EFactory {
 	BDefaultPropertySet createBDefaultPropertySet();
 
 	/**
-	 * Returns a new object of class '<em>BProperty Operation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>BProperty Operation</em>'.
-	 * @generated
-	 */
-	BPropertyOperation createBPropertyOperation();
-
-	/**
 	 * Returns a new object of class '<em>BProperty Definition Operation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -635,6 +626,15 @@ public interface B3backendFactory extends EFactory {
 	 * @generated
 	 */
 	BProceedExpression createBProceedExpression();
+
+	/**
+	 * Returns a new object of class '<em>BDelegating Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>BDelegating Context</em>'.
+	 * @generated
+	 */
+	BDelegatingContext createBDelegatingContext();
 
 	/**
 	 * Returns the package supported by this factory.

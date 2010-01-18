@@ -92,6 +92,17 @@ public class BDefPropertyImpl extends BDefValueImpl implements BDefProperty {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Object evaluateDefaults(BExecutionContext ctx) throws Throwable {
+		if(ctx.getValueMap().containsKey(name))
+			return this;
+		return evaluate(ctx);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -161,4 +172,5 @@ public class BDefPropertyImpl extends BDefValueImpl implements BDefProperty {
 		// use same semantics as for variables, immutable, variable, value, etc.
 		return super.evaluate(ctxToUse);	
 	}
+	
 } //BDefPropertyImpl

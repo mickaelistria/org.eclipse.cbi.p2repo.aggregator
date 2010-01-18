@@ -128,7 +128,8 @@ public class BPropertySetOperationItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_BPropertySetOperation_type");
+		BPropertySetOperation bPropertySetOperation = (BPropertySetOperation)object;
+		return getString("_UI_BPropertySetOperation_type") + " " + bPropertySetOperation.getLineNumber();
 	}
 
 	/**

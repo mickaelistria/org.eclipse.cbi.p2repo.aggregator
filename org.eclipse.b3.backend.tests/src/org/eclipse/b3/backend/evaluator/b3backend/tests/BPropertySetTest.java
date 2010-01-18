@@ -21,6 +21,12 @@ import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>BProperty Set</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySet#evaluateDefaults(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Evaluate Defaults</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class BPropertySetTest extends BAdviceTest {
@@ -82,6 +88,19 @@ public class BPropertySetTest extends BAdviceTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySet#evaluateDefaults(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Evaluate Defaults</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BPropertySet#evaluateDefaults(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
+	 * @generated
+	 */
+	public void testEvaluateDefaults__BExecutionContext() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //BPropertySetTest

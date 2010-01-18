@@ -87,6 +87,9 @@ public class B3backendTests extends TestSuite {
 		suite.addTestSuite(BDefPropertyTest.class);
 		suite.addTestSuite(BPropertySetTest.class);
 		suite.addTestSuite(BDefaultPropertySetTest.class);
+		suite.addTestSuite(BPropertyDefinitionOperationTest.class);
+		suite.addTestSuite(BConditionalPropertyOperationTest.class);
+		suite.addTestSuite(BPropertySetOperationTest.class);
 		suite.addTestSuite(BAdviceTest.class);
 		suite.addTestSuite(BConcernTest.class);
 		suite.addTestSuite(BWithExpressionTest.class);
@@ -94,6 +97,7 @@ public class B3backendTests extends TestSuite {
 		suite.addTestSuite(BFunctionWrapperTest.class);
 		suite.addTestSuite(BFunctionNamePredicateTest.class);
 		suite.addTestSuite(BProceedExpressionTest.class);
+		suite.addTestSuite(BDelegatingContextTest.class);
 		return suite;
 	}
 

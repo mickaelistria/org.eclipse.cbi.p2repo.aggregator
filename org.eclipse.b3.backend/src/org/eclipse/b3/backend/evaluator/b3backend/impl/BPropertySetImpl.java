@@ -15,6 +15,7 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 import java.util.Collection;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
+import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 
@@ -145,6 +146,22 @@ public class BPropertySetImpl extends BAdviceImpl implements BPropertySet {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Object evaluateDefaults(BExecutionContext ctx) throws Throwable {
+		// start by populating context with extended sets
+		BPropertySet ps = getExtends();
+		if(ps != null)
+			ps.evaluateDefaults(ctx);
+		for(BPropertyOperation po : getOperations()) {
+			po.evaluateDefaults(ctx);
+		}
+		return this;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -226,5 +243,19 @@ public class BPropertySetImpl extends BAdviceImpl implements BPropertySet {
 		}
 		return super.eIsSet(featureID);
 	}
-
+	/**
+	 * Populates the context with values from the property set.
+	 * Returns this.
+	 */
+	@Override
+	public Object evaluate(BExecutionContext ctx) throws Throwable {
+		// start by populating context with extended sets
+		BPropertySet ps = getExtends();
+		if(ps != null)
+			ps.evaluate(ctx);
+		for(BPropertyOperation po : getOperations()) {
+			po.evaluate(ctx);
+		}
+		return this;
+	}
 } //BPropertySetImpl

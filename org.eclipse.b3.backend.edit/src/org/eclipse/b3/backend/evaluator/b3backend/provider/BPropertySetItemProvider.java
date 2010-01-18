@@ -191,11 +191,6 @@ public class BPropertySetItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BPROPERTY_SET__OPERATIONS,
-				 B3backendFactory.eINSTANCE.createBPropertyOperation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(B3backendPackage.Literals.BPROPERTY_SET__OPERATIONS,
 				 B3backendFactory.eINSTANCE.createBPropertyDefinitionOperation()));
 
 		newChildDescriptors.add

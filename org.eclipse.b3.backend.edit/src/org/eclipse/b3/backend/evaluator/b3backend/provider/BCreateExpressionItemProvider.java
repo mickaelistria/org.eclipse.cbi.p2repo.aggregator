@@ -348,6 +348,21 @@ public class BCreateExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
+				 B3backendFactory.eINSTANCE.createBPropertyDefinitionOperation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
+				 B3backendFactory.eINSTANCE.createBConditionalPropertyOperation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
+				 B3backendFactory.eINSTANCE.createBPropertySetOperation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__TYPE_EXPR,
 				 B3backendFactory.eINSTANCE.createBConcern()));
 
 		newChildDescriptors.add
@@ -529,6 +544,21 @@ public class BCreateExpressionItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
 				 B3backendFactory.eINSTANCE.createBDefaultPropertySet()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
+				 B3backendFactory.eINSTANCE.createBPropertyDefinitionOperation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
+				 B3backendFactory.eINSTANCE.createBConditionalPropertyOperation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCREATE_EXPRESSION__CONTEXT_BLOCK,
+				 B3backendFactory.eINSTANCE.createBPropertySetOperation()));
 
 		newChildDescriptors.add
 			(createChildParameter

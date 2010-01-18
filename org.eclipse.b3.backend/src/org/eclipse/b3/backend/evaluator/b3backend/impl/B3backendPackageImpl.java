@@ -46,6 +46,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefProperty;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefValue;
 import org.eclipse.b3.backend.evaluator.b3backend.BDefaultPropertySet;
+import org.eclipse.b3.backend.evaluator.b3backend.BDelegatingContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFeatureExpression;
@@ -404,6 +405,13 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * @generated
 	 */
 	private EClass bProceedExpressionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bDelegatingContextEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1899,6 +1907,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getBDelegatingContext() {
+		return bDelegatingContextEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBGuard() {
 		return bGuardEClass;
 	}
@@ -2799,6 +2816,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getBWithExpression_FuncExpr() {
+		return (EReference)bWithExpressionEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBConcernContext() {
 		return bConcernContextEClass;
 	}
@@ -3250,6 +3276,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		createEReference(bWithExpressionEClass, BWITH_EXPRESSION__REFERENCED_ADVICE);
 		createEReference(bWithExpressionEClass, BWITH_EXPRESSION__PROPERTY_SETS);
 		createEReference(bWithExpressionEClass, BWITH_EXPRESSION__CONCERNS);
+		createEReference(bWithExpressionEClass, BWITH_EXPRESSION__FUNC_EXPR);
 
 		bConcernContextEClass = createEClass(BCONCERN_CONTEXT);
 
@@ -3278,6 +3305,8 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		createEReference(bParameterPredicateEClass, BPARAMETER_PREDICATE__TYPE);
 
 		bProceedExpressionEClass = createEClass(BPROCEED_EXPRESSION);
+
+		bDelegatingContextEClass = createEClass(BDELEGATING_CONTEXT);
 
 		// Create enums
 		visibilityEEnum = createEEnum(VISIBILITY);
@@ -3388,6 +3417,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		bDefPropertyEClass.getESuperTypes().add(this.getBDefValue());
 		bPropertySetEClass.getESuperTypes().add(this.getBAdvice());
 		bDefaultPropertySetEClass.getESuperTypes().add(this.getBPropertySet());
+		bPropertyOperationEClass.getESuperTypes().add(this.getBExpression());
 		bPropertyDefinitionOperationEClass.getESuperTypes().add(this.getBPropertyOperation());
 		bConditionalPropertyOperationEClass.getESuperTypes().add(this.getBPropertyOperation());
 		bPropertySetOperationEClass.getESuperTypes().add(this.getBPropertyOperation());
@@ -3403,6 +3433,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		bFunctionNamePredicateEClass.getESuperTypes().add(this.getBExpression());
 		bFunctionConcernContextEClass.getESuperTypes().add(this.getBConcernContext());
 		bProceedExpressionEClass.getESuperTypes().add(this.getBExpression());
+		bDelegatingContextEClass.getESuperTypes().add(this.getBInnerContext());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(bExpressionEClass, BExpression.class, "BExpression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3809,13 +3840,25 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEClass(bDefPropertyEClass, BDefProperty.class, "BDefProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBDefProperty_Mutable(), ecorePackage.getEBoolean(), "mutable", null, 0, 1, BDefProperty.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
+		op = addEOperation(bDefPropertyEClass, ecorePackage.getEJavaObject(), "evaluateDefaults", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getThrowable());
+
 		initEClass(bPropertySetEClass, BPropertySet.class, "BPropertySet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBPropertySet_Extends(), this.getBPropertySet(), null, "extends", null, 0, 1, BPropertySet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBPropertySet_Operations(), this.getBPropertyOperation(), null, "operations", null, 0, -1, BPropertySet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		op = addEOperation(bPropertySetEClass, ecorePackage.getEJavaObject(), "evaluateDefaults", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getThrowable());
+
 		initEClass(bDefaultPropertySetEClass, BDefaultPropertySet.class, "BDefaultPropertySet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(bPropertyOperationEClass, BPropertyOperation.class, "BPropertyOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(bPropertyOperationEClass, BPropertyOperation.class, "BPropertyOperation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = addEOperation(bPropertyOperationEClass, ecorePackage.getEJavaObject(), "evaluateDefaults", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getThrowable());
 
 		initEClass(bPropertyDefinitionOperationEClass, BPropertyDefinitionOperation.class, "BPropertyDefinitionOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBPropertyDefinitionOperation_Definition(), this.getBDefProperty(), null, "definition", null, 0, 1, BPropertyDefinitionOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3840,6 +3883,10 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEReference(getBWithExpression_ReferencedAdvice(), this.getBAdvice(), null, "referencedAdvice", null, 0, -1, BWithExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBWithExpression_PropertySets(), this.getBPropertySet(), null, "propertySets", null, 0, -1, BWithExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBWithExpression_Concerns(), this.getBConcern(), null, "concerns", null, 0, -1, BWithExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBWithExpression_FuncExpr(), this.getBExpression(), null, "funcExpr", null, 0, 1, BWithExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = addEOperation(bWithExpressionEClass, this.getBInnerContext(), "createContext", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(bConcernContextEClass, BConcernContext.class, "BConcernContext", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -3868,6 +3915,8 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEReference(getBParameterPredicate_Type(), this.getIType(), null, "type", null, 0, 1, BParameterPredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bProceedExpressionEClass, BProceedExpression.class, "BProceedExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(bDelegatingContextEClass, BDelegatingContext.class, "BDelegatingContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(visibilityEEnum, Visibility.class, "Visibility");

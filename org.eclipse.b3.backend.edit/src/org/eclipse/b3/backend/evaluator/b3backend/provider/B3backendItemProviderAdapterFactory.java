@@ -1302,29 +1302,6 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BPropertyOperationItemProvider bPropertyOperationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBPropertyOperationAdapter() {
-		if (bPropertyOperationItemProvider == null) {
-			bPropertyOperationItemProvider = new BPropertyOperationItemProvider(this);
-		}
-
-		return bPropertyOperationItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BPropertyDefinitionOperation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1624,6 +1601,29 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BDelegatingContext} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BDelegatingContextItemProvider bDelegatingContextItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BDelegatingContext}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBDelegatingContextAdapter() {
+		if (bDelegatingContextItemProvider == null) {
+			bDelegatingContextItemProvider = new BDelegatingContextItemProvider(this);
+		}
+
+		return bDelegatingContextItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1775,7 +1775,6 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 		if (bDefPropertyItemProvider != null) bDefPropertyItemProvider.dispose();
 		if (bPropertySetItemProvider != null) bPropertySetItemProvider.dispose();
 		if (bDefaultPropertySetItemProvider != null) bDefaultPropertySetItemProvider.dispose();
-		if (bPropertyOperationItemProvider != null) bPropertyOperationItemProvider.dispose();
 		if (bPropertyDefinitionOperationItemProvider != null) bPropertyDefinitionOperationItemProvider.dispose();
 		if (bConditionalPropertyOperationItemProvider != null) bConditionalPropertyOperationItemProvider.dispose();
 		if (bPropertySetOperationItemProvider != null) bPropertySetOperationItemProvider.dispose();
@@ -1789,6 +1788,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 		if (bFunctionConcernContextItemProvider != null) bFunctionConcernContextItemProvider.dispose();
 		if (bParameterPredicateItemProvider != null) bParameterPredicateItemProvider.dispose();
 		if (bProceedExpressionItemProvider != null) bProceedExpressionItemProvider.dispose();
+		if (bDelegatingContextItemProvider != null) bDelegatingContextItemProvider.dispose();
 	}
 
 }

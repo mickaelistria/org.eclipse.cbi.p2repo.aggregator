@@ -323,6 +323,21 @@ public class BMapEntryItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BMAP_ENTRY__KEY,
+				 B3backendFactory.eINSTANCE.createBPropertyDefinitionOperation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BMAP_ENTRY__KEY,
+				 B3backendFactory.eINSTANCE.createBConditionalPropertyOperation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BMAP_ENTRY__KEY,
+				 B3backendFactory.eINSTANCE.createBPropertySetOperation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BMAP_ENTRY__KEY,
 				 B3backendFactory.eINSTANCE.createBConcern()));
 
 		newChildDescriptors.add
@@ -504,6 +519,21 @@ public class BMapEntryItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BMAP_ENTRY__VALUE,
 				 B3backendFactory.eINSTANCE.createBDefaultPropertySet()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BMAP_ENTRY__VALUE,
+				 B3backendFactory.eINSTANCE.createBPropertyDefinitionOperation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BMAP_ENTRY__VALUE,
+				 B3backendFactory.eINSTANCE.createBConditionalPropertyOperation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BMAP_ENTRY__VALUE,
+				 B3backendFactory.eINSTANCE.createBPropertySetOperation()));
 
 		newChildDescriptors.add
 			(createChildParameter

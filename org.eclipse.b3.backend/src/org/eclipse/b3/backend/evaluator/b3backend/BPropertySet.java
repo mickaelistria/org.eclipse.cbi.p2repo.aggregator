@@ -81,4 +81,12 @@ public interface BPropertySet extends BAdvice {
 	 */
 	EList<BPropertyOperation> getOperations();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
+	 * @generated
+	 */
+	Object evaluateDefaults(BExecutionContext ctx) throws Throwable;
+
 } // BPropertySet

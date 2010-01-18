@@ -510,16 +510,30 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="instance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BDefProperty" eSuperTypes="#//BDefValue">
+    <eOperations name="evaluateDefaults" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
+        eExceptions="#//Throwable">
+      <eParameters name="ctx" eType="#//BExecutionContext"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mutable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BPropertySet" eSuperTypes="#//BAdvice">
+    <eOperations name="evaluateDefaults" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
+        eExceptions="#//Throwable">
+      <eParameters name="ctx" eType="#//BExecutionContext"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="extends" eType="#//BPropertySet"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operations" upperBound="-1"
         eType="#//BPropertyOperation" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BDefaultPropertySet" eSuperTypes="#//BPropertySet"/>
-  <eClassifiers xsi:type="ecore:EClass" name="BPropertyOperation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BPropertyOperation" abstract="true"
+      eSuperTypes="#//BExpression">
+    <eOperations name="evaluateDefaults" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
+        eExceptions="#//Throwable">
+      <eParameters name="ctx" eType="#//BExecutionContext"/>
+    </eOperations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BPropertyDefinitionOperation" eSuperTypes="#//BPropertyOperation">
     <eStructuralFeatures xsi:type="ecore:EReference" name="definition" eType="#//BDefProperty"
         containment="true"/>
@@ -547,12 +561,17 @@
         eType="#//BConcernContext" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BWithExpression" eSuperTypes="#//BExpression">
+    <eOperations name="createContext" eType="#//BInnerContext">
+      <eParameters name="ctx" eType="#//BExecutionContext"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="referencedAdvice" upperBound="-1"
         eType="#//BAdvice"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="propertySets" upperBound="-1"
         eType="#//BPropertySet" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="concerns" upperBound="-1"
         eType="#//BConcern" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="funcExpr" eType="#//BExpression"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="B3DynamicClassLoader" instanceClassName="org.eclipse.b3.backend.core.B3DynamicClassLoader"/>
   <eClassifiers xsi:type="ecore:EClass" name="BConcernContext" abstract="true" eSuperTypes="#//BFunctionContainer"/>
@@ -595,4 +614,5 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BProceedExpression" eSuperTypes="#//BExpression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BDelegatingContext" eSuperTypes="#//BInnerContext"/>
 </ecore:EPackage>

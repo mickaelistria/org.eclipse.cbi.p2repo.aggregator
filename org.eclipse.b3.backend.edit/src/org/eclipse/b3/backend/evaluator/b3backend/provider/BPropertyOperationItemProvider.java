@@ -16,6 +16,7 @@ package org.eclipse.b3.backend.evaluator.b3backend.provider;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -36,7 +37,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
  * @generated
  */
 public class BPropertyOperationItemProvider
-	extends ItemProviderAdapter
+	extends BExpressionItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -94,7 +95,8 @@ public class BPropertyOperationItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_BPropertyOperation_type");
+		BPropertyOperation bPropertyOperation = (BPropertyOperation)object;
+		return getString("_UI_BPropertyOperation_type") + " " + bPropertyOperation.getLineNumber();
 	}
 
 	/**
@@ -120,17 +122,6 @@ public class BPropertyOperationItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return B3BackendEditPlugin.INSTANCE;
 	}
 
 }

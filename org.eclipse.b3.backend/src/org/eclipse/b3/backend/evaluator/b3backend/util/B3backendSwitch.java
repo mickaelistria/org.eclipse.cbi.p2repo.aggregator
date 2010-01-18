@@ -585,6 +585,8 @@ public class B3backendSwitch<T> {
 			case B3backendPackage.BPROPERTY_OPERATION: {
 				BPropertyOperation bPropertyOperation = (BPropertyOperation)theEObject;
 				T result = caseBPropertyOperation(bPropertyOperation);
+				if (result == null) result = caseBExpression(bPropertyOperation);
+				if (result == null) result = caseBSourceLink(bPropertyOperation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -592,6 +594,8 @@ public class B3backendSwitch<T> {
 				BPropertyDefinitionOperation bPropertyDefinitionOperation = (BPropertyDefinitionOperation)theEObject;
 				T result = caseBPropertyDefinitionOperation(bPropertyDefinitionOperation);
 				if (result == null) result = caseBPropertyOperation(bPropertyDefinitionOperation);
+				if (result == null) result = caseBExpression(bPropertyDefinitionOperation);
+				if (result == null) result = caseBSourceLink(bPropertyDefinitionOperation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -599,6 +603,8 @@ public class B3backendSwitch<T> {
 				BConditionalPropertyOperation bConditionalPropertyOperation = (BConditionalPropertyOperation)theEObject;
 				T result = caseBConditionalPropertyOperation(bConditionalPropertyOperation);
 				if (result == null) result = caseBPropertyOperation(bConditionalPropertyOperation);
+				if (result == null) result = caseBExpression(bConditionalPropertyOperation);
+				if (result == null) result = caseBSourceLink(bConditionalPropertyOperation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -606,6 +612,8 @@ public class B3backendSwitch<T> {
 				BPropertySetOperation bPropertySetOperation = (BPropertySetOperation)theEObject;
 				T result = caseBPropertySetOperation(bPropertySetOperation);
 				if (result == null) result = caseBPropertyOperation(bPropertySetOperation);
+				if (result == null) result = caseBExpression(bPropertySetOperation);
+				if (result == null) result = caseBSourceLink(bPropertySetOperation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -695,6 +703,14 @@ public class B3backendSwitch<T> {
 				T result = caseBProceedExpression(bProceedExpression);
 				if (result == null) result = caseBExpression(bProceedExpression);
 				if (result == null) result = caseBSourceLink(bProceedExpression);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3backendPackage.BDELEGATING_CONTEXT: {
+				BDelegatingContext bDelegatingContext = (BDelegatingContext)theEObject;
+				T result = caseBDelegatingContext(bDelegatingContext);
+				if (result == null) result = caseBInnerContext(bDelegatingContext);
+				if (result == null) result = caseBExecutionContext(bDelegatingContext);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1284,6 +1300,21 @@ public class B3backendSwitch<T> {
 	 * @generated
 	 */
 	public T caseBProceedExpression(BProceedExpression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BDelegating Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BDelegating Context</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBDelegatingContext(BDelegatingContext object) {
 		return null;
 	}
 

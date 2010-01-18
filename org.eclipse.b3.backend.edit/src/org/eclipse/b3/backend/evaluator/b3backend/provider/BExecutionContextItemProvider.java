@@ -240,6 +240,11 @@ public class BExecutionContextItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BEXECUTION_CONTEXT__CHILD_CONTEXTS,
 				 B3backendFactory.eINSTANCE.createBInstanceContext()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BEXECUTION_CONTEXT__CHILD_CONTEXTS,
+				 B3backendFactory.eINSTANCE.createBDelegatingContext()));
 	}
 
 	/**

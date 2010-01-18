@@ -14,6 +14,7 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BConditionalPropertyOperation;
+import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation;
 
@@ -255,5 +256,22 @@ public class BConditionalPropertyOperationImpl extends BPropertyOperationImpl im
 		}
 		return super.eIsSet(featureID);
 	}
-
+	@Override
+	public Object evaluate(BExecutionContext ctx) throws Throwable {
+		Object result = Boolean.TRUE;
+		if(condExpr != null)
+			result = condExpr.evaluate(ctx);
+		if(result != null && result instanceof Boolean && ((Boolean)result).booleanValue())
+			body.evaluate(ctx);
+		return this;
+	}
+	@Override
+	public Object evaluateDefaults(BExecutionContext ctx) throws Throwable {
+		Object result = Boolean.TRUE;
+		if(condExpr != null)
+			result = condExpr.evaluate(ctx);
+		if(result != null && result instanceof Boolean && ((Boolean)result).booleanValue())
+			body.evaluateDefaults(ctx);
+		return this;
+	}
 } //BConditionalPropertyOperationImpl

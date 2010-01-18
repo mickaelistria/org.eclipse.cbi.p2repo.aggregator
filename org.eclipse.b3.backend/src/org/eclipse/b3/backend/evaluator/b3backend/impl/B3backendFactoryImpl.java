@@ -132,7 +132,6 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 			case B3backendPackage.BDEF_PROPERTY: return createBDefProperty();
 			case B3backendPackage.BPROPERTY_SET: return createBPropertySet();
 			case B3backendPackage.BDEFAULT_PROPERTY_SET: return createBDefaultPropertySet();
-			case B3backendPackage.BPROPERTY_OPERATION: return createBPropertyOperation();
 			case B3backendPackage.BPROPERTY_DEFINITION_OPERATION: return createBPropertyDefinitionOperation();
 			case B3backendPackage.BCONDITIONAL_PROPERTY_OPERATION: return createBConditionalPropertyOperation();
 			case B3backendPackage.BPROPERTY_SET_OPERATION: return createBPropertySetOperation();
@@ -146,6 +145,7 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 			case B3backendPackage.BFUNCTION_CONCERN_CONTEXT: return createBFunctionConcernContext();
 			case B3backendPackage.BPARAMETER_PREDICATE: return createBParameterPredicate();
 			case B3backendPackage.BPROCEED_EXPRESSION: return createBProceedExpression();
+			case B3backendPackage.BDELEGATING_CONTEXT: return createBDelegatingContext();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -776,16 +776,6 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BPropertyOperation createBPropertyOperation() {
-		BPropertyOperationImpl bPropertyOperation = new BPropertyOperationImpl();
-		return bPropertyOperation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public BPropertyDefinitionOperation createBPropertyDefinitionOperation() {
 		BPropertyDefinitionOperationImpl bPropertyDefinitionOperation = new BPropertyDefinitionOperationImpl();
 		return bPropertyDefinitionOperation;
@@ -909,6 +899,16 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	public BProceedExpression createBProceedExpression() {
 		BProceedExpressionImpl bProceedExpression = new BProceedExpressionImpl();
 		return bProceedExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BDelegatingContext createBDelegatingContext() {
+		BDelegatingContextImpl bDelegatingContext = new BDelegatingContextImpl();
+		return bDelegatingContext;
 	}
 
 	/**
