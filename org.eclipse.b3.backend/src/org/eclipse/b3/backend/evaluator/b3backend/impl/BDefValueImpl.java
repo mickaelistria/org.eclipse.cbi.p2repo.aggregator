@@ -459,8 +459,9 @@ public class BDefValueImpl extends BExpressionImpl implements BDefValue {
 	}
 	@Override
 	public LValue getLValue(BExecutionContext ctx) throws Throwable {
-		// must define it first :)
-		evaluate(ctx);
+		// must define it if getLValue is called before evaluate
+		if(!ctx.getValueMap().containsKey(name))
+			evaluate(ctx);
 		return ctx.getLValue(name);
 	}
 } //BDefValueImpl
