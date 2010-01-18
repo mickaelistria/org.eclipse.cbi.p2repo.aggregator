@@ -335,15 +335,15 @@ public class BWithExpressionImpl extends BExpressionImpl implements BWithExpress
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 		BInnerContext ictx = createContext(ctx);
-
+		BExecutionContext octx = ictx.getOuterContext();
 		// populate all referenced advice
 		for(BAdvice a : getReferencedAdvice())
-			a.evaluate(ctx);
+			a.evaluate(octx);
 		for(BConcern c : getConcerns())
-			c.evaluate(ctx);
+			c.evaluate(octx);
 		// populate properties
 		for(BPropertySet ps : getPropertySets())
-			ps.evaluate(ctx);
+			ps.evaluate(octx);
 
 		if(funcExpr == null)
 			return null;
