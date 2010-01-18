@@ -10,6 +10,7 @@ import org.junit.runner.RunWith;
 		"/src-b3/testAssertFunctions.b3", //
 		"/src-b3/testAssigmentFunctions.b3", //
 		"/src-b3/testBitwiseFunctions.b3", //
+		"/src-b3/testBuildUnitSyntax.b3", //
 		"/src-b3/testCache.b3", //
 		"/src-b3/testExceptions.b3", //
 		"/src-b3/testGuard.b3", //
@@ -22,6 +23,7 @@ import org.junit.runner.RunWith;
 		"/src-b3/testLogicalFunctions.b3", //
 		"/src-b3/testNew.b3", //
 		"/src-b3/testProperties.b3", //
+		"/src-b3/testPropertyAdvice.b3", //
 		"/src-b3/testRelationalFunctions.b3", //
 		"/src-b3/testSequenceExpression.b3", //
 		"/src-b3/testSwitch.b3", //
