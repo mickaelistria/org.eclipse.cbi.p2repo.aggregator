@@ -102,3 +102,14 @@ concern TestingBuilderContextBody {
 		- output /a/basePath [subpathX];
 	}
 }
+concern TestingUnitContextBody {
+	context unit _ {
+		+ requires foo/bar/1.0.0;
+		+ requires { a/b; c/d; e/f; }
+		+ requires when($a.b.c == "green") something/green/[1.0.0,2.0.0] as greenStuff;
+		- requires _/missspelled;
+		
+		// can find the "greenStuff" declared above
+		builder foo { input { greenStuff#files; } }
+	}
+}
