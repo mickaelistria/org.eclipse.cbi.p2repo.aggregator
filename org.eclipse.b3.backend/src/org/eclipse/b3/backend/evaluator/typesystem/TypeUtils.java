@@ -20,9 +20,9 @@ public class TypeUtils {
 
 	private static final String lock = "";
 
-	private static final Map<Type, Type> primitiveToObjectMap = new HashMap<Type, Type>();
-
 	private static final Map<Type, Type> objectToPrimitiveMap = new HashMap<Type, Type>();
+
+	private static final Map<Type, Type> primitiveToObjectMap = new HashMap<Type, Type>();
 
 	private static final Map<Type, Set<Type>> coerceMap = new HashMap<Type, Set<Type>>();
 
@@ -37,8 +37,8 @@ public class TypeUtils {
 			for(Class<?> objectType : objectTypes) {
 				Class<?> primitiveType = getPrimitiveTypeReflectively(objectType);
 
-				primitiveToObjectMap.put(primitiveType, objectType);
 				objectToPrimitiveMap.put(objectType, primitiveType);
+				primitiveToObjectMap.put(primitiveType, objectType);
 
 				coerceTypeSet = new HashSet<Type>(previousCoerceTypeSet);
 				coerceTypeSet.add(primitiveType);
