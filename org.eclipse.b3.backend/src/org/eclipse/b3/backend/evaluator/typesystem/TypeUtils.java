@@ -12,10 +12,12 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 
 public class TypeUtils {
 	static WeakReference<TypeDistance> typeDistance = new WeakReference<TypeDistance>(null);
+
 	static final String lock = "";
+
 	public static Class<?> getRaw(Type t) {
 		if(t instanceof Class<?>)
-			return (Class<?>)t;
+			return (Class<?>) t;
 		if(t instanceof ParameterizedType) {
 			ParameterizedType pt = ParameterizedType.class.cast(t);
 			return getRaw(pt.getRawType());
@@ -31,32 +33,36 @@ public class TypeUtils {
 			B3FunctionType ft = B3FunctionType.class.cast(t);
 			return getRaw(ft.getFunctionType()); // i.e. what type of function this is B3, or Java
 		}
-		throw new UnsupportedOperationException("ONLY CLASS AND PARAMETERIZED TYPE SUPPORTED - was: "+t);
+		throw new UnsupportedOperationException("ONLY CLASS AND PARAMETERIZED TYPE SUPPORTED - was: " + t);
 	}
-	public static boolean isAssignableFrom(Type baseType, Type fromType)
-	{
+
+	public static boolean isAssignableFrom(Type baseType, Type fromType) {
 		if(baseType instanceof B3FunctionType)
-			return ((B3FunctionType)baseType).isAssignableFrom(fromType);
+			return ((B3FunctionType) baseType).isAssignableFrom(fromType);
 		return getRaw(baseType).isAssignableFrom(getRaw(fromType));
 	}
+
 	public static boolean isAssignableFrom(Type baseType, Object value) {
 		if(value == null)
 			return true;
 		return isAssignableFrom(baseType, value.getClass());
 	}
+
 	public static boolean isArray(Type baseType) {
-		return baseType instanceof GenericArrayType || (baseType instanceof Class<?> && ((Class<?>)baseType).isArray());
-//		return getRaw(baseType).isArray();
+		return baseType instanceof GenericArrayType
+				|| (baseType instanceof Class<?> && ((Class<?>) baseType).isArray());
+		// return getRaw(baseType).isArray();
 	}
+
 	/**
-	 * Returns the (best) specificity distance for an interface.
-	 * (A class may restate its implementation of an inherited interface - this will give a shorter
-	 * distance).
+	 * Returns the (best) specificity distance for an interface. (A class may restate its implementation of an inherited
+	 * interface - this will give a shorter distance).
+	 * 
 	 * @param ptc
 	 * @param pc
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings ("unchecked")
 	public static int interfaceDistance(Class ptc, Class pc) {
 		if(ptc == pc)
 			return 0;
@@ -69,32 +75,38 @@ public class TypeUtils {
 					break; // unbeatable
 			}
 		}
-		return best != Integer.MAX_VALUE? best+1 : best;
-	}	
+		return best != Integer.MAX_VALUE
+				? best + 1 : best;
+	}
+
 	public static int typeDistance(Type baseType, Type queriedType) {
 		Class<?> baseClass = getRaw(baseType);
 		if(baseClass.isInterface())
 			return interfaceDistance(baseClass, getRaw(queriedType));
 		return classDistance(baseClass, getRaw(queriedType));
 	}
+
 	/**
 	 * Computes the specificity distance of a class
+	 * 
 	 * @param ptc
 	 * @param pc
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings ("unchecked")
 	public static int classDistance(Class ptc, Class pc) {
 		if(pc == null)
 			throw new IllegalArgumentException("Internal error: type is not a specialization of the class");
 		if(ptc == pc)
 			return 0;
 		if(pc.isInterface())
-			return classDistance(ptc, Object.class)+1;
-		return classDistance(ptc, pc.getSuperclass())+1;
+			return classDistance(ptc, Object.class) + 1;
+		return classDistance(ptc, pc.getSuperclass()) + 1;
 	}
+
 	/**
 	 * Returns the element type of a list or the value type of map
+	 * 
 	 * @param baseType
 	 * @return
 	 */
@@ -103,56 +115,60 @@ public class TypeUtils {
 			ParameterizedType pt = ParameterizedType.class.cast(baseType);
 			int returnTypeIdx = -1;
 			if(List.class.isAssignableFrom(getRaw(pt.getRawType())))
-					returnTypeIdx = 0;
-			else if (Map.class.isAssignableFrom(getRaw(pt.getRawType())))
+				returnTypeIdx = 0;
+			else if(Map.class.isAssignableFrom(getRaw(pt.getRawType())))
 				returnTypeIdx = 1;
 			Type[] typeargs = pt.getActualTypeArguments();
 			// TODO: probably too relaxed, if it was not a List<?> or Map<?>, then Object is returned
 			//
 			if(returnTypeIdx < 0 || typeargs == null || typeargs.length <= returnTypeIdx)
-				return Object.class; // unspecified 
+				return Object.class; // unspecified
 			return typeargs[returnTypeIdx];
 		}
 		// TODO: probably too relaxed
 		return Object.class;
 	}
+
 	public static Type getCommonSuperType(Type[] types) {
-		TypeDistance td = null;;
-		synchronized (lock) {
+		TypeDistance td = null;
+		;
+		synchronized(lock) {
 			td = typeDistance.get();
 			if(td == null)
 				typeDistance = new WeakReference<TypeDistance>(td = new TypeDistance());
 		}
 		return td.getMostSpecificCommonType(types);
-//		Class<?>[] classes = new Class[types.length];
-//		for(int i = 0; i < types.length; i++)
-//			classes[i] = getRaw(types[i]);
-//		
-//		int limit = classes.length;
-//		nexti: for(int i = 0; i < limit; i++) {
-//			nextj: for(int j = 0; j < limit; j++) {
-//				if(i == j)
-//					continue nextj;
-//				if(!classes[i].isAssignableFrom(classes[j]))
-//					continue nexti;
-//			}
-//			return classes[i];
-//		}
-//		return Object.class; // did not find any commonality
+		// Class<?>[] classes = new Class[types.length];
+		// for(int i = 0; i < types.length; i++)
+		// classes[i] = getRaw(types[i]);
+		//		
+		// int limit = classes.length;
+		// nexti: for(int i = 0; i < limit; i++) {
+		// nextj: for(int j = 0; j < limit; j++) {
+		// if(i == j)
+		// continue nextj;
+		// if(!classes[i].isAssignableFrom(classes[j]))
+		// continue nexti;
+		// }
+		// return classes[i];
+		// }
+		// return Object.class; // did not find any commonality
 	}
+
 	public static Class<?> getArrayComponentClass(Type type) {
 		if(type instanceof Class<?>)
-			return ((Class<?>)type).getComponentType();
+			return ((Class<?>) type).getComponentType();
 		if(type instanceof GenericArrayType)
-			type = ((GenericArrayType)type).getGenericComponentType();
+			type = ((GenericArrayType) type).getGenericComponentType();
 		else
 			throw new IllegalArgumentException("Not possible to get array component type from type:" + type);
-		
+
 		return getRaw(type);
 	}
-	
+
 	/**
 	 * Returns the object type corresponding to a primitive type.
+	 * 
 	 * @param t
 	 * @return
 	 */
@@ -160,10 +176,10 @@ public class TypeUtils {
 		Class<?> raw = TypeUtils.getRaw(t);
 		if(!raw.isPrimitive())
 			return t;
-		
+
 		if(t == boolean.class)
 			return Boolean.class;
-		
+
 		if(t == int.class)
 			return Integer.class;
 		if(t == short.class)
@@ -172,23 +188,24 @@ public class TypeUtils {
 			return Long.class;
 		if(t == char.class)
 			return Character.class;
-		
+
 		if(t == double.class)
 			return Double.class;
 		if(t == float.class)
 			return Float.class;
 		return t;
 	}
+
 	public static Type primitivize(Type t) {
 		if(t == Integer.class)
 			return int.class;
-		else if (t == Long.class) 
+		else if(t == Long.class)
 			return long.class;
-		else if(t == Double.class) 
+		else if(t == Double.class)
 			return double.class;
-		else if(t == Float.class) 
+		else if(t == Float.class)
 			return float.class;
-		else if(t == Boolean.class) 
+		else if(t == Boolean.class)
 			return boolean.class;
 		else if(t == Short.class)
 			return short.class;
@@ -196,11 +213,15 @@ public class TypeUtils {
 			return char.class;
 		return t; // give up
 	}
+
 	/**
 	 * Called to trigger autoboxing of primitive type
+	 * 
 	 * @param x
 	 * @return
 	 */
-	public static Object autoBox(Object x) { return x; }
+	public static Object autoBox(Object x) {
+		return x;
+	}
 
 }
