@@ -1,19 +1,75 @@
 package org.eclipse.b3.backend.evaluator.typesystem;
 
 import java.lang.ref.WeakReference;
+import java.lang.reflect.Field;
 import java.lang.reflect.GenericArrayType;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 
 public class TypeUtils {
-	static WeakReference<TypeDistance> typeDistance = new WeakReference<TypeDistance>(null);
+	private static WeakReference<TypeDistance> typeDistance = new WeakReference<TypeDistance>(null);
 
-	static final String lock = "";
+	private static final String lock = "";
+
+	private static final Map<Type, Type> primitiveToObjectMap = new HashMap<Type, Type>();
+
+	private static final Map<Type, Type> objectToPrimitiveMap = new HashMap<Type, Type>();
+
+	private static final Map<Type, Set<Type>> coerceMap = new HashMap<Type, Set<Type>>();
+
+	static {
+		Class<?> objectTypeClasses[][] = { { Boolean.class, Double.class }, { Float.class }, { Long.class },
+				{ Integer.class }, { Character.class, Short.class }, { Byte.class } };
+
+		Set<Type> coerceTypeSet = Collections.emptySet();
+		Set<Type> previousCoerceTypeSet = coerceTypeSet;
+
+		for(Class<?> objectTypes[] : objectTypeClasses) {
+			for(Class<?> objectType : objectTypes) {
+				Class<?> primitiveType = getPrimitiveTypeReflectively(objectType);
+
+				primitiveToObjectMap.put(primitiveType, objectType);
+				objectToPrimitiveMap.put(objectType, primitiveType);
+
+				coerceTypeSet = new HashSet<Type>(previousCoerceTypeSet);
+				coerceTypeSet.add(primitiveType);
+
+				coerceMap.put(objectType, coerceTypeSet);
+				coerceMap.put(primitiveType, coerceTypeSet);
+			}
+
+			previousCoerceTypeSet = coerceTypeSet;
+		}
+	}
+
+	private static Class<?> getPrimitiveTypeReflectively(Class<?> objectType) {
+		Field f;
+
+		try {
+			f = objectType.getField("TYPE");
+		} catch(SecurityException e) {
+			throw new ExceptionInInitializerError(e);
+		} catch(NoSuchFieldException e) {
+			throw new ExceptionInInitializerError(e);
+		}
+
+		try {
+			return (Class<?>) f.get(null);
+		} catch(IllegalArgumentException e) {
+			throw new ExceptionInInitializerError(e);
+		} catch(IllegalAccessException e) {
+			throw new ExceptionInInitializerError(e);
+		}
+	}
 
 	public static Class<?> getRaw(Type t) {
 		if(t instanceof Class<?>)
@@ -40,6 +96,12 @@ public class TypeUtils {
 		if(baseType instanceof B3FunctionType)
 			return ((B3FunctionType) baseType).isAssignableFrom(fromType);
 		return getRaw(baseType).isAssignableFrom(getRaw(fromType));
+	}
+
+	public static boolean isCoercibleFrom(Type baseType, Type fromType) {
+		Set<Type> coerceTypes = coerceMap.get(fromType);
+
+		return coerceTypes != null && coerceTypes.contains(baseType);
 	}
 
 	public static boolean isAssignableFrom(Type baseType, Object value) {
@@ -169,49 +231,21 @@ public class TypeUtils {
 	/**
 	 * Returns the object type corresponding to a primitive type.
 	 * 
-	 * @param t
+	 * @param type
 	 * @return
 	 */
-	public static Type objectify(Type t) {
-		Class<?> raw = TypeUtils.getRaw(t);
-		if(!raw.isPrimitive())
-			return t;
+	public static Type objectify(Type primitiveType) {
+		Type objectType = primitiveToObjectMap.get(primitiveType);
 
-		if(t == boolean.class)
-			return Boolean.class;
-
-		if(t == int.class)
-			return Integer.class;
-		if(t == short.class)
-			return Short.class;
-		if(t == long.class)
-			return Long.class;
-		if(t == char.class)
-			return Character.class;
-
-		if(t == double.class)
-			return Double.class;
-		if(t == float.class)
-			return Float.class;
-		return t;
+		return objectType != null
+				? objectType : primitiveType;
 	}
 
-	public static Type primitivize(Type t) {
-		if(t == Integer.class)
-			return int.class;
-		else if(t == Long.class)
-			return long.class;
-		else if(t == Double.class)
-			return double.class;
-		else if(t == Float.class)
-			return float.class;
-		else if(t == Boolean.class)
-			return boolean.class;
-		else if(t == Short.class)
-			return short.class;
-		else if(t == Character.class)
-			return char.class;
-		return t; // give up
+	public static Type primitivize(Type objectType) {
+		Type primitiveType = objectToPrimitiveMap.get(objectType);
+
+		return primitiveType != null
+				? primitiveType : objectType;
 	}
 
 	/**

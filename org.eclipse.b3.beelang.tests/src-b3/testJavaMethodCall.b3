@@ -1,6 +1,7 @@
 import java.lang.Object;
 import java.util.List;
 import java.lang.Integer;
+import java.lang.Math;
 
 function Object main(List argv) {
 	testJavaCall();
@@ -9,6 +10,8 @@ function Object testJavaCall() {
 	assertEquals("'hello world'.substring(6) == 'world'", "world", "hello world".substring(6));
 	assertEquals("'hello world'.substring(6,8) == 'wo'", "wo", "hello world".substring(6,8));
 	assertTrue("'hello world'.startsWith('hello')", "hello world".startsWith("hello"));
-	
+
 	assertEquals("static method call", 3, Integer.valueOf("3"));
+
+	assertEquals("5 == Math.max(4, 5.0)", 5, Math.max(4, 5.0));
 }

@@ -10,6 +10,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
+import org.eclipse.b3.backend.core.B3AmbiguousFunctionSignatureException;
 import org.eclipse.b3.backend.core.B3NoSuchFunctionSignatureException;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
@@ -82,28 +83,88 @@ public class BSystemContextImpl extends BExecutionContextImpl implements BSystem
 		if(types.length == 0)
 			throw new B3NoSuchFunctionSignatureException(functionName, types);
 
+		Class<?> objectType = TypeUtils.getRaw(types[0]);
 		Class<?>[] parameterTypes = new Class<?>[types.length - 1];
+
 		for(int i = 1; i < types.length; i++)
 			parameterTypes[i - 1] = TypeUtils.getRaw(types[i]);
 
-		Method m = null;
-		try {
-			m = TypeUtils.getRaw(types[0]).getMethod(functionName, parameterTypes);
-		} catch(NoSuchMethodException e) {
+		Method candidate = null;
+		// state:
+		// 0 = no candidate method found
+		// 1 = one candidate method found
+		// other = more than one candidate method found (the method call is ambiguous)
+		byte state = 0;
 
-			// TODO: The following "autoboxing to primitive" is not good enough as a method may
-			// have a mix of object and primitive types
+		METHOD: for(Method method : objectType.getMethods()) {
+			if(!functionName.equals(method.getName()))
+				continue METHOD;
 
-			// may need to lookup using primitive types for int, long, boolean
-			for(int i = 0; i < parameterTypes.length; i++) {
-				Class<?> t = parameterTypes[i];
-				if(!parameterTypes[i].isPrimitive())
-					parameterTypes[i] = TypeUtils.getRaw(TypeUtils.primitivize(t));
+			Type[] methodParameterTypes = method.getParameterTypes();
+
+			// don't bother if the parameter counts don't match
+			if(methodParameterTypes.length != parameterTypes.length)
+				continue METHOD;
+
+			int exactMatch = 0;
+			for(int i = 0; i < parameterTypes.length; ++i) {
+				if(!(TypeUtils.isAssignableFrom(methodParameterTypes[i], parameterTypes[i])
+						&& (exactMatch += TypeUtils.isAssignableFrom(parameterTypes[i], methodParameterTypes[i])
+								? 1 : 0) == exactMatch || TypeUtils.isCoercibleFrom(methodParameterTypes[i],
+						parameterTypes[i])
+						&& (exactMatch += TypeUtils.primitivize(parameterTypes[i]) == methodParameterTypes[i]
+								? 1 : 0) == exactMatch))
+					continue METHOD;
 			}
-			// try again, but give up if it did not work.
-			m = TypeUtils.getRaw(types[0]).getMethod(functionName, parameterTypes);
+
+			// if the method's declared parameters types match exactly the actual parameter types, then stop the search
+			// and return that method immediately
+			if(exactMatch == parameterTypes.length)
+				return objectType.getMethod(method.getName(), method.getParameterTypes());
+
+			switch(state) {
+			case 0: // no candidate method found so far
+				candidate = method;
+				++state;
+				continue METHOD;
+
+			case 1: // one candidate method has been found so far
+				Type[] candidateMethodParameterTypes = candidate.getParameterTypes();
+
+				// check if the current method is more specific than the selected one
+				IS_MORE_SPECIFIC: {
+					for(int i = 0; i < parameterTypes.length; ++i) {
+						if(!(TypeUtils.isAssignableFrom(candidateMethodParameterTypes[i], methodParameterTypes[i]) || TypeUtils
+								.isCoercibleFrom(candidateMethodParameterTypes[i], methodParameterTypes[i])))
+							break IS_MORE_SPECIFIC;
+					}
+					candidate = method;
+					continue METHOD;
+				}
+
+				// verify that the current method is less specific than the selected one
+				IS_LESS_SPECIFIC: {
+					for(int i = 0; i < parameterTypes.length; ++i) {
+						if(!(TypeUtils.isAssignableFrom(methodParameterTypes[i], candidateMethodParameterTypes[i]) || TypeUtils
+								.isCoercibleFrom(methodParameterTypes[i], candidateMethodParameterTypes[i])))
+							break IS_LESS_SPECIFIC;
+					}
+					continue METHOD;
+				}
+
+				// the method is neither less nor more specific, so it is ambiguous
+				++state;
+			}
 		}
-		return m;
+
+		switch(state) {
+		case 0: // no candidate method found
+			return null;
+		case 1: // one candidate method found
+			return objectType.getMethod(candidate.getName(), candidate.getParameterTypes());
+		default: // more than one candidate method found (the method call is ambiguous)
+			throw new B3AmbiguousFunctionSignatureException(functionName, types);
+		}
 	}
 
 	@Override
