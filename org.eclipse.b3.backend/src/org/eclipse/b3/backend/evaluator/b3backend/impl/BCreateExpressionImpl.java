@@ -412,10 +412,9 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 		counter = 0;
 		for(BParameter p : pList)
 			parameters[counter++] = p.getExpr().evaluate(ctx);
-		if(parameters.length == 1)
-			return ctor.newInstance(parameters[0]);
 
-		Object result = ctor.newInstance(parameters);
+		Object result = (parameters.length == 1) ? ctor.newInstance(parameters[0]) : ctor.newInstance(parameters);
+
 		// if creator has a contextBlock and alias, these needs to be processed
 		BExpression cBlock = getContextBlock();
 		if(cBlock != null) {
