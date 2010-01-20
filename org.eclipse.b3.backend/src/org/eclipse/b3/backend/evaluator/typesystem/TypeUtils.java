@@ -20,15 +20,24 @@ public class TypeUtils {
 
 	private static final String lock = "";
 
+	/**
+	 * mapping from object to primitive types
+	 */
 	private static final Map<Type, Type> objectToPrimitiveMap = new HashMap<Type, Type>();
 
+	/**
+	 * mapping from primitive to object types
+	 */
 	private static final Map<Type, Type> primitiveToObjectMap = new HashMap<Type, Type>();
 
+	/**
+	 * map of possible automatic coercions for all appropriate types
+	 */
 	private static final Map<Type, Set<Type>> coerceMap = new HashMap<Type, Set<Type>>();
 
 	static {
-		Class<?> objectTypeClasses[][] = { { Boolean.class, Double.class }, { Float.class }, { Long.class },
-				{ Integer.class }, { Character.class, Short.class }, { Byte.class } };
+		Class<?> objectTypeClasses[][] = { { Void.class, Boolean.class, Double.class }, { Float.class },
+				{ Long.class }, { Integer.class }, { Character.class, Short.class }, { Byte.class } };
 
 		Set<Type> coerceTypeSet = Collections.emptySet();
 		Set<Type> previousCoerceTypeSet = coerceTypeSet;

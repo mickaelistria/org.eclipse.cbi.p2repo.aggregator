@@ -79,7 +79,7 @@ public class BSystemContextImpl extends BExecutionContextImpl implements BSystem
 	}
 
 	private Method findMethod(String functionName, Type[] types) throws Throwable {
-		// In Java, all calls refer to an instance/class (which must be in the first parameter)
+		// in Java, all calls refer to an instance/class (which must be in the first parameter)
 		if(types.length == 0)
 			throw new B3NoSuchFunctionSignatureException(functionName, types);
 
@@ -118,7 +118,8 @@ public class BSystemContextImpl extends BExecutionContextImpl implements BSystem
 			}
 
 			// if the method's declared parameters types match exactly the actual parameter types, then stop the search
-			// and return that method immediately
+			// and return that method immediately (actually return the result of a call to java.lang.Class.getMethod()
+			// to get the most specific implementation of the method)
 			if(exactMatch == parameterTypes.length)
 				return objectType.getMethod(method.getName(), method.getParameterTypes());
 
@@ -131,7 +132,7 @@ public class BSystemContextImpl extends BExecutionContextImpl implements BSystem
 			case 1: // one candidate method has been found so far
 				Type[] candidateMethodParameterTypes = candidate.getParameterTypes();
 
-				// check if the current method is more specific than the selected one
+				// check if the current method is more specific than the candidate
 				IS_MORE_SPECIFIC: {
 					for(int i = 0; i < parameterTypes.length; ++i) {
 						if(!(TypeUtils.isAssignableFrom(candidateMethodParameterTypes[i], methodParameterTypes[i]) || TypeUtils
@@ -142,7 +143,7 @@ public class BSystemContextImpl extends BExecutionContextImpl implements BSystem
 					continue METHOD;
 				}
 
-				// verify that the current method is less specific than the selected one
+				// verify that the current method is less specific than the candidate
 				IS_LESS_SPECIFIC: {
 					for(int i = 0; i < parameterTypes.length; ++i) {
 						if(!(TypeUtils.isAssignableFrom(methodParameterTypes[i], candidateMethodParameterTypes[i]) || TypeUtils
@@ -161,6 +162,8 @@ public class BSystemContextImpl extends BExecutionContextImpl implements BSystem
 		case 0: // no candidate method found
 			return null;
 		case 1: // one candidate method found
+			// return the result of a call to java.lang.Class.getMethod() to get the most specific implementation
+			// of the candidate method
 			return objectType.getMethod(candidate.getName(), candidate.getParameterTypes());
 		default: // more than one candidate method found (the method call is ambiguous)
 			throw new B3AmbiguousFunctionSignatureException(functionName, types);
