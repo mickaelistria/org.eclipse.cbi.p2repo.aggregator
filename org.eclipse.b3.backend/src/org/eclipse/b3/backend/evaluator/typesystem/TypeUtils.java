@@ -257,14 +257,4 @@ public class TypeUtils {
 				? primitiveType : objectType;
 	}
 
-	/**
-	 * Called to trigger autoboxing of primitive type
-	 * 
-	 * @param x
-	 * @return
-	 */
-	public static Object autoBox(Object x) {
-		return x;
-	}
-
 }

@@ -72,7 +72,7 @@ public class BSystemContextImpl extends BExecutionContextImpl implements BSystem
 
 		try {
 			// invoke handles unwrap of non primitive types
-			return TypeUtils.autoBox(m.invoke(parameters[0], callParameters));
+			return m.invoke(parameters[0], callParameters);
 		} catch(InvocationTargetException e) {
 			throw e.getCause();
 		}

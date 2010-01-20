@@ -43,7 +43,7 @@ public class PojoFeatureLValue implements LValue {
 		if(getter == null)
 			throw new B3NoSuchFeatureException(featureName);
 		try {
-			return TypeUtils.autoBox(getter.invoke(lhs));
+			return getter.invoke(lhs);
 		} catch (Throwable e) {
 			throw new B3NoSuchFeatureException(featureName, e);
 		}
