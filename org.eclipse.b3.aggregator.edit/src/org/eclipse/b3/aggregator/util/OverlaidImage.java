@@ -13,8 +13,7 @@ import org.eclipse.emf.edit.provider.ComposedImage;
  * @author Antonin Slezacek, slezicz@gmail.com
  * 
  */
-public class OverlaidImage extends ComposedImage
-{
+public class OverlaidImage extends ComposedImage {
 	public static final int BASIC = 0;
 
 	public static final int OVERLAY_TOP_LEFT = 1;
@@ -29,24 +28,20 @@ public class OverlaidImage extends ComposedImage
 
 	private int[] m_positions;
 
-	public OverlaidImage(Object[] images, int[] positions)
-	{
+	public OverlaidImage(Object[] images, int[] positions) {
 		super(Arrays.asList(images));
 		m_positions = positions;
 	}
 
-	public List<Point> getDrawPoints(Size size)
-	{
+	public List<Point> getDrawPoints(Size size) {
 		List<Point> results = new ArrayList<Point>();
 
 		int i = 0;
-		for(Size imageSize : imageSizes)
-		{
+		for(Size imageSize : imageSizes) {
 			Point point = new Point();
 
 			if(i < m_positions.length)
-				switch(m_positions[i])
-				{
+				switch(m_positions[i]) {
 				case OVERLAY_TOP_RIGHT:
 					point.x = size.width - imageSize.width;
 					point.y = 0;

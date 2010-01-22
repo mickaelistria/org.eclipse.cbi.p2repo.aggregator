@@ -37,15 +37,14 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  */
 public class CategoryItemProvider extends IUPresentationItemProvider implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
-		IItemColorProvider, IItemFontProvider
-{
+		IItemColorProvider, IItemFontProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public CategoryItemProvider(AdapterFactory adapterFactory)
-	{
+	public CategoryItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -55,12 +54,12 @@ public class CategoryItemProvider extends IUPresentationItemProvider implements 
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
-	{
-		if (childrenFeatures == null) {
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if(childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(P2viewPackage.Literals.CATEGORY__CATEGORY_CONTAINER);
 			childrenFeatures.add(P2viewPackage.Literals.CATEGORY__FEATURE_CONTAINER);
@@ -75,23 +74,23 @@ public class CategoryItemProvider extends IUPresentationItemProvider implements 
 	/**
 	 * This returns Category.gif.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public Object getImage(Object object)
-	{
+	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/Category"));
 	}
 
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
-	{
-		if (itemPropertyDescriptors == null) {
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addCategoryContainerPropertyDescriptor(object);
@@ -109,9 +108,8 @@ public class CategoryItemProvider extends IUPresentationItemProvider implements 
 	 * @generated NOT
 	 */
 	@Override
-	public String getText(Object object)
-	{
-		String label = ((Category)object).getLabel();
+	public String getText(Object object) {
+		String label = ((Category) object).getLabel();
 		return label == null || label.length() == 0
 				? "Unknown Category"
 				: label;
@@ -125,8 +123,7 @@ public class CategoryItemProvider extends IUPresentationItemProvider implements 
 	 * @generated
 	 */
 	@Override
-	public void notifyChanged(Notification notification)
-	{
+	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 		super.notifyChanged(notification);
 	}
@@ -134,132 +131,92 @@ public class CategoryItemProvider extends IUPresentationItemProvider implements 
 	/**
 	 * This adds a property descriptor for the Bundle Container feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	protected void addBundleContainerPropertyDescriptor(Object object)
-	{
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Category_bundleContainer_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Category_bundleContainer_feature", "_UI_Category_type"),
-				 P2viewPackage.Literals.CATEGORY__BUNDLE_CONTAINER,
-				 false,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+	protected void addBundleContainerPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Category_bundleContainer_feature"), getString("_UI_PropertyDescriptor_description",
+						"_UI_Category_bundleContainer_feature", "_UI_Category_type"),
+				P2viewPackage.Literals.CATEGORY__BUNDLE_CONTAINER, false, false, true, null, null, null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Category Container feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	protected void addCategoryContainerPropertyDescriptor(Object object)
-	{
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Category_categoryContainer_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Category_categoryContainer_feature", "_UI_Category_type"),
-				 P2viewPackage.Literals.CATEGORY__CATEGORY_CONTAINER,
-				 false,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+	protected void addCategoryContainerPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Category_categoryContainer_feature"), getString("_UI_PropertyDescriptor_description",
+						"_UI_Category_categoryContainer_feature", "_UI_Category_type"),
+				P2viewPackage.Literals.CATEGORY__CATEGORY_CONTAINER, false, false, true, null, null, null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Feature Container feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	protected void addFeatureContainerPropertyDescriptor(Object object)
-	{
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Category_featureContainer_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Category_featureContainer_feature", "_UI_Category_type"),
-				 P2viewPackage.Literals.CATEGORY__FEATURE_CONTAINER,
-				 false,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+	protected void addFeatureContainerPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Category_featureContainer_feature"), getString("_UI_PropertyDescriptor_description",
+						"_UI_Category_featureContainer_feature", "_UI_Category_type"),
+				P2viewPackage.Literals.CATEGORY__FEATURE_CONTAINER, false, false, true, null, null, null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Fragment Container feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	protected void addFragmentContainerPropertyDescriptor(Object object)
-	{
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Category_fragmentContainer_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Category_fragmentContainer_feature", "_UI_Category_type"),
-				 P2viewPackage.Literals.CATEGORY__FRAGMENT_CONTAINER,
-				 false,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+	protected void addFragmentContainerPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Category_fragmentContainer_feature"), getString("_UI_PropertyDescriptor_description",
+						"_UI_Category_fragmentContainer_feature", "_UI_Category_type"),
+				P2viewPackage.Literals.CATEGORY__FRAGMENT_CONTAINER, false, false, true, null, null, null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Product Container feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	protected void addProductContainerPropertyDescriptor(Object object)
-	{
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Category_productContainer_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Category_productContainer_feature", "_UI_Category_type"),
-				 P2viewPackage.Literals.CATEGORY__PRODUCT_CONTAINER,
-				 false,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+	protected void addProductContainerPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Category_productContainer_feature"), getString("_UI_PropertyDescriptor_description",
+						"_UI_Category_productContainer_feature", "_UI_Category_type"),
+				P2viewPackage.Literals.CATEGORY__PRODUCT_CONTAINER, false, false, true, null, null, null));
 	}
 
 	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
-	{
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child)
-	{
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
 		// Check the type of the specified child object and return the proper feature to use for
 		// adding (see {@link AddCommand}) it as a child.
 

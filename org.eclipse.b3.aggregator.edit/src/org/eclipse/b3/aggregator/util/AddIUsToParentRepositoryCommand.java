@@ -30,8 +30,7 @@ import org.eclipse.emf.ecore.EObject;
  * @author Karel Brezina
  * 
  */
-public class AddIUsToParentRepositoryCommand extends AbstractCommand
-{
+public class AddIUsToParentRepositoryCommand extends AbstractCommand {
 	private Aggregator m_aggregator;
 
 	private List<InstallableUnit> m_selectedIUs;
@@ -44,8 +43,7 @@ public class AddIUsToParentRepositoryCommand extends AbstractCommand
 
 	private Map<MappedRepository, List<MapRule>> m_rulesAddedToMappedRepo = new HashMap<MappedRepository, List<MapRule>>();
 
-	public AddIUsToParentRepositoryCommand(Aggregator aggregator, List<InstallableUnit> selectedIUs, int operation)
-	{
+	public AddIUsToParentRepositoryCommand(Aggregator aggregator, List<InstallableUnit> selectedIUs, int operation) {
 		super(AggregatorEditPlugin.INSTANCE.getString("_UI_Add_to_parent_Mapped_Repository"));
 
 		m_aggregator = aggregator;
@@ -53,42 +51,35 @@ public class AddIUsToParentRepositoryCommand extends AbstractCommand
 		m_operation = operation;
 	}
 
-	public void execute()
-	{
+	public void execute() {
 		m_unitsAddedToMappedRepo.clear();
 		m_rulesAddedToMappedRepo.clear();
 
-		for(InstallableUnit iu : m_selectedIUs)
-		{
+		for(InstallableUnit iu : m_selectedIUs) {
 			MappedRepository repo = m_mapIUMappedRepo.get(iu);
 
 			if(!repo.isEnabled())
 				continue;
 
-			if((m_operation & AggregatorEditPlugin.ADD_IU) > 0)
-			{
+			if((m_operation & AggregatorEditPlugin.ADD_IU) > 0) {
 				MappedUnit unit = ItemUtils.findMappedUnit(repo, iu);
 
-				if(unit == null)
-				{
+				if(unit == null) {
 					unit = AggregatorFactory.eINSTANCE.createMappedUnit(iu);
 					repo.addUnit(unit);
 
 					List<MappedUnit> units = m_unitsAddedToMappedRepo.get(repo);
-					if(units == null)
-					{
+					if(units == null) {
 						units = new ArrayList<MappedUnit>();
 						m_unitsAddedToMappedRepo.put(repo, units);
 					}
 					units.add(unit);
 				}
 			}
-			else if((m_operation & (AggregatorEditPlugin.ADD_EXCLUSION_RULE | AggregatorEditPlugin.ADD_VALID_CONFIGURATIONS_RULE)) > 0)
-			{
+			else if((m_operation & (AggregatorEditPlugin.ADD_EXCLUSION_RULE | AggregatorEditPlugin.ADD_VALID_CONFIGURATIONS_RULE)) > 0) {
 				MapRule rule = ItemUtils.findMapRule(repo, iu);
 
-				if(rule == null)
-				{
+				if(rule == null) {
 					rule = AggregatorFactory.eINSTANCE.createMapRule(iu,
 							(m_operation & AggregatorEditPlugin.ADD_EXCLUSION_RULE) > 0
 									? ExclusionRule.class
@@ -96,8 +87,7 @@ public class AddIUsToParentRepositoryCommand extends AbstractCommand
 					repo.getMapRules().add(rule);
 
 					List<MapRule> rules = m_rulesAddedToMappedRepo.get(repo);
-					if(rules == null)
-					{
+					if(rules == null) {
 						rules = new ArrayList<MapRule>();
 						m_rulesAddedToMappedRepo.put(repo, rules);
 					}
@@ -108,10 +98,8 @@ public class AddIUsToParentRepositoryCommand extends AbstractCommand
 
 	}
 
-	public void redo()
-	{
-		for(MappedRepository mappedRepo : m_unitsAddedToMappedRepo.keySet())
-		{
+	public void redo() {
+		for(MappedRepository mappedRepo : m_unitsAddedToMappedRepo.keySet()) {
 			for(MappedUnit unit : m_unitsAddedToMappedRepo.get(mappedRepo))
 				mappedRepo.removeUnit(unit);
 
@@ -121,16 +109,14 @@ public class AddIUsToParentRepositoryCommand extends AbstractCommand
 	}
 
 	@Override
-	protected boolean prepare()
-	{
+	protected boolean prepare() {
 		boolean someEnabled = false;
 
-		for(InstallableUnit iu : m_selectedIUs)
-		{
-			if(!(((EObject)iu).eContainer() instanceof MetadataRepository))
+		for(InstallableUnit iu : m_selectedIUs) {
+			if(!(((EObject) iu).eContainer() instanceof MetadataRepository))
 				return false;
 
-			MetadataRepository mdr = (MetadataRepository)((EObject)iu).eContainer();
+			MetadataRepository mdr = (MetadataRepository) ((EObject) iu).eContainer();
 			MappedRepository mappedRepo = ItemUtils.findMappedRepository(m_aggregator, mdr);
 
 			if(mappedRepo == null)

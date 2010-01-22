@@ -14,7 +14,6 @@ import org.eclipse.b3.aggregator.p2.TouchpointData;
 import org.eclipse.b3.aggregator.provider.AggregatorEditPlugin;
 import org.eclipse.b3.aggregator.provider.AggregatorItemProviderAdapter;
 
-
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.UnexecutableCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -46,15 +45,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  */
 public class TouchpointDataItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
-		IItemColorProvider, IItemFontProvider
-{
+		IItemColorProvider, IItemFontProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public TouchpointDataItemProvider(AdapterFactory adapterFactory)
-	{
+	public TouchpointDataItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -64,12 +62,12 @@ public class TouchpointDataItemProvider extends AggregatorItemProviderAdapter im
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
-	{
-		if (childrenFeatures == null) {
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if(childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(P2Package.Literals.TOUCHPOINT_DATA__INSTRUCTION_MAP);
 		}
@@ -79,23 +77,23 @@ public class TouchpointDataItemProvider extends AggregatorItemProviderAdapter im
 	/**
 	 * This returns TouchpointData.gif.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public Object getImage(Object object)
-	{
+	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/TouchpointData"));
 	}
 
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
-	{
-		if (itemPropertyDescriptors == null) {
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addInstructionMapPropertyDescriptor(object);
@@ -106,22 +104,22 @@ public class TouchpointDataItemProvider extends AggregatorItemProviderAdapter im
 	/**
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public ResourceLocator getResourceLocator()
-	{
+	public ResourceLocator getResourceLocator() {
 		return AggregatorEditPlugin.INSTANCE;
 	}
 
 	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public String getText(Object object)
-	{
+	public String getText(Object object) {
 		return getString("_UI_TouchpointData_type");
 	}
 
@@ -133,14 +131,13 @@ public class TouchpointDataItemProvider extends AggregatorItemProviderAdapter im
 	 * @generated
 	 */
 	@Override
-	public void notifyChanged(Notification notification)
-	{
+	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(TouchpointData.class)) {
-			case P2Package.TOUCHPOINT_DATA__INSTRUCTION_MAP:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
+		switch(notification.getFeatureID(TouchpointData.class)) {
+		case P2Package.TOUCHPOINT_DATA__INSTRUCTION_MAP:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -148,34 +145,26 @@ public class TouchpointDataItemProvider extends AggregatorItemProviderAdapter im
 	/**
 	 * This adds a property descriptor for the Instruction Map feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	protected void addInstructionMapPropertyDescriptor(Object object)
-	{
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_TouchpointData_instructionMap_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TouchpointData_instructionMap_feature", "_UI_TouchpointData_type"),
-				 P2Package.Literals.TOUCHPOINT_DATA__INSTRUCTION_MAP,
-				 false,
-				 false,
-				 false,
-				 null,
-				 null,
-				 null));
+	protected void addInstructionMapPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_TouchpointData_instructionMap_feature"), getString("_UI_PropertyDescriptor_description",
+						"_UI_TouchpointData_instructionMap_feature", "_UI_TouchpointData_type"),
+				P2Package.Literals.TOUCHPOINT_DATA__INSTRUCTION_MAP, false, false, false, null, null, null));
 	}
 
 	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
-	{
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
@@ -185,8 +174,7 @@ public class TouchpointDataItemProvider extends AggregatorItemProviderAdapter im
 	@Override
 	@Deprecated
 	protected Command createRemoveCommand(EditingDomain domain, EObject owner, EReference feature,
-			Collection<?> collection)
-	{
+			Collection<?> collection) {
 		return UnexecutableCommand.INSTANCE;
 	}
 
@@ -195,18 +183,17 @@ public class TouchpointDataItemProvider extends AggregatorItemProviderAdapter im
 	 */
 	@Override
 	protected Command createRemoveCommand(EditingDomain domain, EObject owner, EStructuralFeature feature,
-			Collection<?> collection)
-	{
+			Collection<?> collection) {
 		return UnexecutableCommand.INSTANCE;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child)
-	{
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
 		// Check the type of the specified child object and return the proper feature to use for
 		// adding (see {@link AddCommand}) it as a child.
 

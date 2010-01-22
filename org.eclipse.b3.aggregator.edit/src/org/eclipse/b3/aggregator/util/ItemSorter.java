@@ -28,10 +28,8 @@ import org.eclipse.emf.ecore.EObject;
  * 
  * @author Karel Brezina
  */
-public class ItemSorter
-{
-	public static enum ItemGroup
-	{
+public class ItemSorter {
+	public static enum ItemGroup{
 		MDR, IU, FEATURE, MDR_STRUCTURED, IU_STRUCTURED, FEATURE_STRUCTURED, OTHER
 	}
 
@@ -39,8 +37,7 @@ public class ItemSorter
 
 	private int m_totalItemCount;
 
-	public ItemSorter(Collection<?> items)
-	{
+	public ItemSorter(Collection<?> items) {
 		List<InstallableUnit> ius = new ArrayList<InstallableUnit>();
 		List<InstallableUnit> features = new ArrayList<InstallableUnit>();
 		List<MetadataRepository> mdrs = new ArrayList<MetadataRepository>();
@@ -52,16 +49,13 @@ public class ItemSorter
 		List<Object> others = new ArrayList<Object>();
 
 		if(items != null)
-			for(Object item : items)
-			{
+			for(Object item : items) {
 				m_totalItemCount++;
 
-				if(item instanceof InstallableUnit)
-				{
-					InstallableUnit iu = (InstallableUnit)item;
-					if(((EObject)iu).eContainer() instanceof MetadataRepository
-							&& InstallableUnitUtils.getType(iu) != InstallableUnitType.OTHER)
-					{
+				if(item instanceof InstallableUnit) {
+					InstallableUnit iu = (InstallableUnit) item;
+					if(((EObject) iu).eContainer() instanceof MetadataRepository
+							&& InstallableUnitUtils.getType(iu) != InstallableUnitType.OTHER) {
 						ius.add(iu);
 
 						if(InstallableUnitUtils.getType(iu) == InstallableUnitType.FEATURE)
@@ -71,22 +65,20 @@ public class ItemSorter
 						others.add(item);
 				}
 				else if(item instanceof MetadataRepository)
-					mdrs.add((MetadataRepository)item);
-				else if(item instanceof IUPresentation)
-				{
-					IUPresentation iup = (IUPresentation)item;
-					if(iup.getType() != InstallableUnitType.OTHER)
-					{
+					mdrs.add((MetadataRepository) item);
+				else if(item instanceof IUPresentation) {
+					IUPresentation iup = (IUPresentation) item;
+					if(iup.getType() != InstallableUnitType.OTHER) {
 						iups.add(iup);
 
 						if(iup.getType() == InstallableUnitType.FEATURE)
-							structuredFeatures.add((Feature)iup);
+							structuredFeatures.add((Feature) iup);
 					}
 					else
 						others.add(item);
 				}
 				else if(item instanceof MetadataRepositoryStructuredView)
-					mdrsvs.add((MetadataRepositoryStructuredView)item);
+					mdrsvs.add((MetadataRepositoryStructuredView) item);
 				else
 					others.add(item);
 			}
@@ -100,13 +92,11 @@ public class ItemSorter
 		m_groups.put(ItemGroup.OTHER, others);
 	}
 
-	public List<?> getGroupItems(ItemGroup group)
-	{
+	public List<?> getGroupItems(ItemGroup group) {
 		return m_groups.get(group);
 	}
 
-	public int getTotalItemCount()
-	{
+	public int getTotalItemCount() {
 		return m_totalItemCount;
 	}
 }

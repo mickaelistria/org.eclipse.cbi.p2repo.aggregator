@@ -15,7 +15,6 @@ import org.eclipse.b3.aggregator.provider.AggregatorEditPlugin;
 import org.eclipse.b3.aggregator.provider.AggregatorItemProviderAdapter;
 import org.eclipse.b3.aggregator.util.CapabilityNamespaceImageProvider;
 
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -41,15 +40,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  */
 public class ProvidedCapabilityItemProvider extends AggregatorItemProviderAdapter implements
 		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider,
-		IItemPropertySource, IItemColorProvider, IItemFontProvider
-{
+		IItemPropertySource, IItemColorProvider, IItemFontProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public ProvidedCapabilityItemProvider(AdapterFactory adapterFactory)
-	{
+	public ProvidedCapabilityItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -59,9 +57,8 @@ public class ProvidedCapabilityItemProvider extends AggregatorItemProviderAdapte
 	 * @generated NOT
 	 */
 	@Override
-	public Object getImage(Object object)
-	{
-		ProvidedCapability pc = (ProvidedCapability)object;
+	public Object getImage(Object object) {
+		ProvidedCapability pc = (ProvidedCapability) object;
 
 		Object image = CapabilityNamespaceImageProvider.getImage(pc.getNamespace());
 		if(image == null)
@@ -73,12 +70,12 @@ public class ProvidedCapabilityItemProvider extends AggregatorItemProviderAdapte
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
-	{
-		if (itemPropertyDescriptors == null) {
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
@@ -91,26 +88,26 @@ public class ProvidedCapabilityItemProvider extends AggregatorItemProviderAdapte
 	/**
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public ResourceLocator getResourceLocator()
-	{
+	public ResourceLocator getResourceLocator() {
 		return AggregatorEditPlugin.INSTANCE;
 	}
 
 	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public String getText(Object object)
-	{
-		String label = ((ProvidedCapability)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ProvidedCapability_type") :
-			getString("_UI_ProvidedCapability_type") + " " + label;
+	public String getText(Object object) {
+		String label = ((ProvidedCapability) object).getName();
+		return label == null || label.length() == 0
+				? getString("_UI_ProvidedCapability_type")
+				: getString("_UI_ProvidedCapability_type") + " " + label;
 	}
 
 	/**
@@ -121,16 +118,15 @@ public class ProvidedCapabilityItemProvider extends AggregatorItemProviderAdapte
 	 * @generated
 	 */
 	@Override
-	public void notifyChanged(Notification notification)
-	{
+	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ProvidedCapability.class)) {
-			case P2Package.PROVIDED_CAPABILITY__NAME:
-			case P2Package.PROVIDED_CAPABILITY__NAMESPACE:
-			case P2Package.PROVIDED_CAPABILITY__VERSION:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
+		switch(notification.getFeatureID(ProvidedCapability.class)) {
+		case P2Package.PROVIDED_CAPABILITY__NAME:
+		case P2Package.PROVIDED_CAPABILITY__NAMESPACE:
+		case P2Package.PROVIDED_CAPABILITY__VERSION:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -138,78 +134,57 @@ public class ProvidedCapabilityItemProvider extends AggregatorItemProviderAdapte
 	/**
 	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	protected void addNamePropertyDescriptor(Object object)
-	{
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_IProvidedCapability_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IProvidedCapability_name_feature", "_UI_IProvidedCapability_type"),
-				 P2Package.Literals.IPROVIDED_CAPABILITY__NAME,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_IProvidedCapability_name_feature"), getString("_UI_PropertyDescriptor_description",
+						"_UI_IProvidedCapability_name_feature", "_UI_IProvidedCapability_type"),
+				P2Package.Literals.IPROVIDED_CAPABILITY__NAME, false, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Namespace feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	protected void addNamespacePropertyDescriptor(Object object)
-	{
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_IProvidedCapability_namespace_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IProvidedCapability_namespace_feature", "_UI_IProvidedCapability_type"),
-				 P2Package.Literals.IPROVIDED_CAPABILITY__NAMESPACE,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+	protected void addNamespacePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_IProvidedCapability_namespace_feature"), getString("_UI_PropertyDescriptor_description",
+						"_UI_IProvidedCapability_namespace_feature", "_UI_IProvidedCapability_type"),
+				P2Package.Literals.IPROVIDED_CAPABILITY__NAMESPACE, false, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Version feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	protected void addVersionPropertyDescriptor(Object object)
-	{
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_IProvidedCapability_version_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IProvidedCapability_version_feature", "_UI_IProvidedCapability_type"),
-				 P2Package.Literals.IPROVIDED_CAPABILITY__VERSION,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+	protected void addVersionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_IProvidedCapability_version_feature"), getString("_UI_PropertyDescriptor_description",
+						"_UI_IProvidedCapability_version_feature", "_UI_IProvidedCapability_type"),
+				P2Package.Literals.IPROVIDED_CAPABILITY__VERSION, false, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
-	{
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

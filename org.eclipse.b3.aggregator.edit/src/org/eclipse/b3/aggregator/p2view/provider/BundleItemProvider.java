@@ -33,38 +33,37 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  */
 public class BundleItemProvider extends IUPresentationWithDetailsItemProvider implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
-		IItemColorProvider, IItemFontProvider
-{
+		IItemColorProvider, IItemFontProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public BundleItemProvider(AdapterFactory adapterFactory)
-	{
+	public BundleItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
 	/**
 	 * This returns Bundle.gif.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public Object getImage(Object object)
-	{
+	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/Bundle"));
 	}
 
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
-	{
-		if (itemPropertyDescriptors == null) {
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 		}
@@ -77,9 +76,8 @@ public class BundleItemProvider extends IUPresentationWithDetailsItemProvider im
 	 * @generated NOT
 	 */
 	@Override
-	public String getText(Object object)
-	{
-		String label = ((Bundle)object).getLabel();
+	public String getText(Object object) {
+		String label = ((Bundle) object).getLabel();
 		return label == null || label.length() == 0
 				? "Unknown Bundle"
 				: label;
@@ -93,8 +91,7 @@ public class BundleItemProvider extends IUPresentationWithDetailsItemProvider im
 	 * @generated
 	 */
 	@Override
-	public void notifyChanged(Notification notification)
-	{
+	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 		super.notifyChanged(notification);
 	}
@@ -103,11 +100,11 @@ public class BundleItemProvider extends IUPresentationWithDetailsItemProvider im
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
-	{
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

@@ -12,7 +12,6 @@ package org.eclipse.b3.aggregator.p2view.provider;
 import java.util.Collection;
 import java.util.List;
 
-import org.eclipse.b3.aggregator.p2view.Fragment;
 import org.eclipse.b3.aggregator.p2view.Bundle;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -33,38 +32,37 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  */
 public class FragmentItemProvider extends BundleItemProvider implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
-		IItemColorProvider, IItemFontProvider
-{
+		IItemColorProvider, IItemFontProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public FragmentItemProvider(AdapterFactory adapterFactory)
-	{
+	public FragmentItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
 	/**
 	 * This returns Fragment.gif.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public Object getImage(Object object)
-	{
+	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/Fragment"));
 	}
 
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
-	{
-		if (itemPropertyDescriptors == null) {
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 		}
@@ -77,9 +75,8 @@ public class FragmentItemProvider extends BundleItemProvider implements IEditing
 	 * @generated NOT
 	 */
 	@Override
-	public String getText(Object object)
-	{
-		String label = ((Bundle)object).getLabel();
+	public String getText(Object object) {
+		String label = ((Bundle) object).getLabel();
 		return label == null || label.length() == 0
 				? "Unknown Fragment"
 				: label;
@@ -93,8 +90,7 @@ public class FragmentItemProvider extends BundleItemProvider implements IEditing
 	 * @generated
 	 */
 	@Override
-	public void notifyChanged(Notification notification)
-	{
+	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 		super.notifyChanged(notification);
 	}
@@ -103,11 +99,11 @@ public class FragmentItemProvider extends BundleItemProvider implements IEditing
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
-	{
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

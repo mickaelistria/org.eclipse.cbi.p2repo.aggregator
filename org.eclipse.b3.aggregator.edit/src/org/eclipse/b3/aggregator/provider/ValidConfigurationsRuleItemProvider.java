@@ -31,19 +31,19 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.ValidConfigurationsRule} object.
  * <!-- begin-user-doc --> <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class ValidConfigurationsRuleItemProvider extends MapRuleItemProvider implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
-		IItemColorProvider, IItemFontProvider
-{
+		IItemColorProvider, IItemFontProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public ValidConfigurationsRuleItemProvider(AdapterFactory adapterFactory)
-	{
+	public ValidConfigurationsRuleItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -53,11 +53,10 @@ public class ValidConfigurationsRuleItemProvider extends MapRuleItemProvider imp
 	 * @generated NOT
 	 */
 	@Override
-	public Object getImage(Object object)
-	{
+	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage(
 				"full/obj16/ValidConfigurationsRule"
-						+ (!((ValidConfigurationsRule)object).isBranchDisabledOrMappedRepositoryBroken()
+						+ (!((ValidConfigurationsRule) object).isBranchDisabledOrMappedRepositoryBroken()
 								? ""
 								: "Disabled")));
 	}
@@ -65,12 +64,12 @@ public class ValidConfigurationsRuleItemProvider extends MapRuleItemProvider imp
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
-	{
-		if (itemPropertyDescriptors == null) {
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addValidConfigurationsPropertyDescriptor(object);
@@ -84,22 +83,18 @@ public class ValidConfigurationsRuleItemProvider extends MapRuleItemProvider imp
 	 * @generated NOT
 	 */
 	@Override
-	public String getText(Object object)
-	{
+	public String getText(Object object) {
 		StringBuilder bld = new StringBuilder();
 		bld.append(getString("_UI_ValidConfigurationsRule_type"));
 		bld.append(' ');
-		if(appendIUText(object, bld))
-		{
-			ValidConfigurationsRule vcRule = (ValidConfigurationsRule)object;
+		if(appendIUText(object, bld)) {
+			ValidConfigurationsRule vcRule = (ValidConfigurationsRule) object;
 			List<Configuration> configs = vcRule.getValidConfigurations();
 			int top = configs.size();
-			if(top > 0)
-			{
+			if(top > 0) {
 				bld.append(' ');
 				bld.append(configs.get(0).getName());
-				for(int idx = 1; idx < top; ++idx)
-				{
+				for(int idx = 1; idx < top; ++idx) {
 					bld.append('|');
 					bld.append(configs.get(idx).getName());
 				}
@@ -116,14 +111,13 @@ public class ValidConfigurationsRuleItemProvider extends MapRuleItemProvider imp
 	 * @generated
 	 */
 	@Override
-	public void notifyChanged(Notification notification)
-	{
+	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ValidConfigurationsRule.class)) {
-			case AggregatorPackage.VALID_CONFIGURATIONS_RULE__VALID_CONFIGURATIONS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
+		switch(notification.getFeatureID(ValidConfigurationsRule.class)) {
+		case AggregatorPackage.VALID_CONFIGURATIONS_RULE__VALID_CONFIGURATIONS:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -134,32 +128,25 @@ public class ValidConfigurationsRuleItemProvider extends MapRuleItemProvider imp
 	 * 
 	 * @generated
 	 */
-	protected void addValidConfigurationsPropertyDescriptor(Object object)
-	{
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ValidConfigurationsRule_validConfigurations_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ValidConfigurationsRule_validConfigurations_feature", "_UI_ValidConfigurationsRule_type"),
-				 AggregatorPackage.Literals.VALID_CONFIGURATIONS_RULE__VALID_CONFIGURATIONS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+	protected void addValidConfigurationsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_ValidConfigurationsRule_validConfigurations_feature"), getString(
+						"_UI_PropertyDescriptor_description",
+						"_UI_ValidConfigurationsRule_validConfigurations_feature", "_UI_ValidConfigurationsRule_type"),
+				AggregatorPackage.Literals.VALID_CONFIGURATIONS_RULE__VALID_CONFIGURATIONS, true, false, true, null,
+				null, null));
 	}
 
 	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
-	{
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

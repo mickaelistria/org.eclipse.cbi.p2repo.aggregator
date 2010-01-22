@@ -52,26 +52,25 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.MetadataRepositoryReference} object.
  * <!-- begin-user-doc --> <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProviderAdapter implements
 		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider,
-		IItemPropertySource, IItemColorProvider, IItemFontProvider
-{
+		IItemPropertySource, IItemColorProvider, IItemFontProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public MetadataRepositoryReferenceItemProvider(AdapterFactory adapterFactory)
-	{
+	public MetadataRepositoryReferenceItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
 	@Override
-	public Object getFont(Object object)
-	{
-		return ((StatusProvider)object).getStatus().getCode() == StatusCode.WAITING
+	public Object getFont(Object object) {
+		return ((StatusProvider) object).getStatus().getCode() == StatusCode.WAITING
 				? IItemFontProvider.ITALIC_FONT
 				: null;
 	}
@@ -80,9 +79,8 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	 * Grey out the label if this item is (directly or indirectly) disabled
 	 */
 	@Override
-	public Object getForeground(Object object)
-	{
-		return ((MetadataRepositoryReference)object).isBranchEnabled()
+	public Object getForeground(Object object) {
+		return ((MetadataRepositoryReference) object).isBranchEnabled()
 				? null
 				: IItemColorProvider.GRAYED_OUT_COLOR;
 	}
@@ -93,10 +91,9 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	 * @generated NOT
 	 */
 	@Override
-	public Object getImage(Object object)
-	{
+	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage(
-				"full/obj16/MetadataRepositoryReference" + (((MetadataRepositoryReference)object).isBranchEnabled()
+				"full/obj16/MetadataRepositoryReference" + (((MetadataRepositoryReference) object).isBranchEnabled()
 						? ""
 						: "Disabled")));
 
@@ -105,12 +102,12 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
-	{
-		if (itemPropertyDescriptors == null) {
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addEnabledPropertyDescriptor(object);
@@ -123,11 +120,11 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	/**
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public ResourceLocator getResourceLocator()
-	{
+	public ResourceLocator getResourceLocator() {
 		return AggregatorEditPlugin.INSTANCE;
 	}
 
@@ -137,32 +134,27 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	 * @generated NOT
 	 */
 	@Override
-	public String getText(Object object)
-	{
-		MetadataRepositoryReference repoRef = (MetadataRepositoryReference)object;
+	public String getText(Object object) {
+		MetadataRepositoryReference repoRef = (MetadataRepositoryReference) object;
 		MetadataRepository mdr = repoRef.getMetadataRepository(repoRef.isBranchEnabled());
 		StringBuilder bld = new StringBuilder();
 		bld.append(getString(getTypeName()));
 		bld.append(' ');
-		if(mdr != null)
-		{
+		if(mdr != null) {
 			String name;
 			String nature = repoRef.getNature();
 			URI location;
 
-			if(!((EObject)mdr).eIsProxy())
-			{
+			if(!((EObject) mdr).eIsProxy()) {
 				name = mdr.getName();
 				location = mdr.getLocation();
 			}
-			else
-			{
+			else {
 				name = mdr.getNameFromProxy();
 				location = mdr.getLocationFromProxy();
 			}
 
-			if(location != null)
-			{
+			if(location != null) {
 				bld.append(nature);
 				bld.append(':');
 				bld.append(location);
@@ -170,17 +162,14 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 			else
 				bld.append("no location");
 
-			if(name != null)
-			{
+			if(name != null) {
 				bld.append(" (");
 				bld.append(name);
 				bld.append(')');
 			}
 		}
-		else
-		{
-			if(repoRef.getLocation() != null)
-			{
+		else {
+			if(repoRef.getLocation() != null) {
 				bld.append(repoRef.getNature());
 				bld.append(':');
 				bld.append(repoRef.getLocation());
@@ -203,23 +192,20 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	 * @generated NOT
 	 */
 	@Override
-	public void notifyChanged(Notification notification)
-	{
+	public void notifyChanged(Notification notification) {
 		notifyChangedGen(notification);
 
 		if(notification.getEventType() != Notification.SET)
 			return;
 
-		MetadataRepositoryReference repoRef = (MetadataRepositoryReference)notification.getNotifier();
-		switch(notification.getFeatureID(MetadataRepositoryReference.class))
-		{
+		MetadataRepositoryReference repoRef = (MetadataRepositoryReference) notification.getNotifier();
+		switch(notification.getFeatureID(MetadataRepositoryReference.class)) {
 		case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__NATURE:
 		case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__LOCATION:
 			if(notification.getNewStringValue() != null
 					&& !notification.getNewStringValue().equals(notification.getOldStringValue())
 					|| notification.getOldStringValue() != null
-					&& !notification.getOldStringValue().equals(notification.getNewStringValue()))
-			{
+					&& !notification.getOldStringValue().equals(notification.getNewStringValue())) {
 				onLocationChange(repoRef);
 				// we have started repository load in the background - that's all for now
 				// once the repository is loaded (or fails to load), we'll return again
@@ -235,25 +221,22 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 			affectedNodeLabels.add(repoRef);
 
 			// Go through all direct ancestors first
-			EObject container = ((EObject)repoRef).eContainer();
-			affectedNodeLabels.add(((EObject)repoRef).eResource());
-			while(container != null)
-			{
+			EObject container = ((EObject) repoRef).eContainer();
+			affectedNodeLabels.add(((EObject) repoRef).eResource());
+			while(container != null) {
 				affectedNodeLabels.add(container);
 				container = container.eContainer();
 			}
 
-			if(repoRef instanceof MappedRepository)
-			{
+			if(repoRef instanceof MappedRepository) {
 				// Browse all mapped units which may have changed their virtual status (inherently enabled/disabled)
 				Set<EObject> affectedNodes = new HashSet<EObject>();
-				for(MappedUnit unit : ((MappedRepository)repoRef).getUnits(true))
-				{
-					affectedNodes.add((EObject)unit);
+				for(MappedUnit unit : ((MappedRepository) repoRef).getUnits(true)) {
+					affectedNodes.add((EObject) unit);
 					// And now, find all categories which may contain the feature just being enabled/disabled
 					if(unit instanceof Feature)
-						for(CustomCategory category : ((Feature)unit).getCategories())
-							affectedNodes.add((EObject)category);
+						for(CustomCategory category : ((Feature) unit).getCategories())
+							affectedNodes.add((EObject) category);
 				}
 				for(EObject affectedNode : affectedNodes)
 					fireNotifyChanged(new ViewerNotification(notification, affectedNode, true, true));
@@ -263,8 +246,7 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 				fireNotifyChanged(new ViewerNotification(notification, affectedNode, false, true));
 
 			Aggregator aggregator = repoRef.getAggregator();
-			if(notification.getFeatureID(MetadataRepositoryReference.class) == AggregatorPackage.METADATA_REPOSITORY_REFERENCE__ENABLED)
-			{
+			if(notification.getFeatureID(MetadataRepositoryReference.class) == AggregatorPackage.METADATA_REPOSITORY_REFERENCE__ENABLED) {
 				if(notification.getNewBooleanValue())
 					ResourceUtils.loadResourceForMappedRepository(repoRef);
 				else
@@ -285,16 +267,15 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	 * 
 	 * @generated
 	 */
-	public void notifyChangedGen(Notification notification)
-	{
+	public void notifyChangedGen(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(MetadataRepositoryReference.class)) {
-			case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__ENABLED:
-			case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__LOCATION:
-			case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__NATURE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
+		switch(notification.getFeatureID(MetadataRepositoryReference.class)) {
+		case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__ENABLED:
+		case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__LOCATION:
+		case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__NATURE:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -302,45 +283,32 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	/**
 	 * This adds a property descriptor for the Enabled feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	protected void addEnabledPropertyDescriptor(Object object)
-	{
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_EnabledStatusProvider_enabled_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EnabledStatusProvider_enabled_feature", "_UI_EnabledStatusProvider_type"),
-				 AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__ENABLED,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
+	protected void addEnabledPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_EnabledStatusProvider_enabled_feature"), getString("_UI_PropertyDescriptor_description",
+						"_UI_EnabledStatusProvider_enabled_feature", "_UI_EnabledStatusProvider_type"),
+				AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__ENABLED, true, false, false,
+				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Location feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	protected void addLocationPropertyDescriptor(Object object)
-	{
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_MetadataRepositoryReference_location_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MetadataRepositoryReference_location_feature", "_UI_MetadataRepositoryReference_type"),
-				 AggregatorPackage.Literals.METADATA_REPOSITORY_REFERENCE__LOCATION,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+	protected void addLocationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_MetadataRepositoryReference_location_feature"), getString(
+						"_UI_PropertyDescriptor_description", "_UI_MetadataRepositoryReference_location_feature",
+						"_UI_MetadataRepositoryReference_type"),
+				AggregatorPackage.Literals.METADATA_REPOSITORY_REFERENCE__LOCATION, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -349,29 +317,24 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	 * 
 	 * @generated NOT
 	 */
-	protected void addMetadataRepositoryPropertyDescriptor(Object object)
-	{
+	protected void addMetadataRepositoryPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(new ContributionItemProvider.DynamicItemPropertyDescriptor(
-				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
 				getString("_UI_MetadataRepositoryReference_metadataRepository_feature"), getString(
 						"_UI_PropertyDescriptor_description",
 						"_UI_MetadataRepositoryReference_metadataRepository_feature",
 						"_UI_MetadataRepositoryReference_type"),
 				AggregatorPackage.Literals.METADATA_REPOSITORY_REFERENCE__METADATA_REPOSITORY, true, false, true, null,
-				null, null)
-		{
+				null, null) {
 			@Override
-			public Collection<?> getChoiceOfValues(Object object)
-			{
+			public Collection<?> getChoiceOfValues(Object object) {
 				// Provide a list of repositories that has not already been mapped
 				//
-				MetadataRepositoryReference self = (MetadataRepositoryReference)object;
+				MetadataRepositoryReference self = (MetadataRepositoryReference) object;
 				Aggregator aggregator = self.getAggregator();
 				Collection<?> repos = super.getChoiceOfValues(object);
-				for(Contribution contribution : aggregator.getContributions())
-				{
-					for(MappedRepository mappedRepo : contribution.getRepositories())
-					{
+				for(Contribution contribution : aggregator.getContributions()) {
+					for(MappedRepository mappedRepo : contribution.getRepositories()) {
 						if(mappedRepo == self)
 							continue;
 						MetadataRepository repo = mappedRepo.getMetadataRepository();
@@ -379,8 +342,7 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 							repos.remove(repo);
 					}
 				}
-				for(MetadataRepositoryReference mrRef : aggregator.getValidationRepositories())
-				{
+				for(MetadataRepositoryReference mrRef : aggregator.getValidationRepositories()) {
 					if(mrRef == self)
 						continue;
 					MetadataRepository repo = mrRef.getMetadataRepository();
@@ -397,24 +359,20 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	 * 
 	 * @generated NOT
 	 */
-	protected void addNaturePropertyDescriptor(Object object)
-	{
+	protected void addNaturePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(new ItemPropertyDescriptor(
-				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
 				getString("_UI_MetadataRepositoryReference_nature_feature"), getString(
 						"_UI_PropertyDescriptor_description", "_UI_MetadataRepositoryReference_nature_feature",
 						"_UI_MetadataRepositoryReference_type"),
 				AggregatorPackage.Literals.METADATA_REPOSITORY_REFERENCE__NATURE, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null)
-		{
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null) {
 			@Override
-			public Collection<?> getChoiceOfValues(Object object)
-			{
-				MappedRepository repo = (MappedRepository)object;
+			public Collection<?> getChoiceOfValues(Object object) {
+				MappedRepository repo = (MappedRepository) object;
 				String currentValue = repo.getNature();
 				List<String> supportedValues = AggregatorPlugin.getPlugin().getSupportedRepositoryNatureList();
-				if(!supportedValues.contains(currentValue))
-				{
+				if(!supportedValues.contains(currentValue)) {
 					List<String> globallySupportedValues = supportedValues;
 					supportedValues = new ArrayList<String>(globallySupportedValues.size() + 1);
 					supportedValues.addAll(globallySupportedValues);
@@ -431,21 +389,19 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
-	{
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
-	protected String getTypeName()
-	{
+	protected String getTypeName() {
 		return "_UI_MetadataRepositoryReference_type";
 	}
 
-	private void onLocationChange(MetadataRepositoryReference repository)
-	{
+	private void onLocationChange(MetadataRepositoryReference repository) {
 		repository.startRepositoryLoad(false);
 	}
 }

@@ -41,15 +41,14 @@ import org.eclipse.equinox.internal.provisional.p2.metadata.query.Query;
  */
 public class CategoryItemProvider extends MappedUnitItemProvider implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
-		IItemColorProvider, IItemFontProvider
-{
+		IItemColorProvider, IItemFontProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public CategoryItemProvider(AdapterFactory adapterFactory)
-	{
+	public CategoryItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -59,10 +58,9 @@ public class CategoryItemProvider extends MappedUnitItemProvider implements IEdi
 	 * @generated NOT
 	 */
 	@Override
-	public Object getImage(Object object)
-	{
+	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage(
-				"full/obj16/Category" + (!((Category)object).isBranchDisabledOrMappedRepositoryBroken()
+				"full/obj16/Category" + (!((Category) object).isBranchDisabledOrMappedRepositoryBroken()
 						? ""
 						: "Disabled")));
 	}
@@ -70,12 +68,12 @@ public class CategoryItemProvider extends MappedUnitItemProvider implements IEdi
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
-	{
-		if (itemPropertyDescriptors == null) {
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addLabelOverridePropertyDescriptor(object);
@@ -89,15 +87,13 @@ public class CategoryItemProvider extends MappedUnitItemProvider implements IEdi
 	 * @generated NOT
 	 */
 	@Override
-	public String getText(Object object)
-	{
-		Category category = (Category)object;
+	public String getText(Object object) {
+		Category category = (Category) object;
 		InstallableUnit iu = category.getInstallableUnit();
 		StringBuilder bld = new StringBuilder();
 		bld.append(getString("_UI_Category_type"));
 		bld.append(' ');
-		if(iu != null)
-		{
+		if(iu != null) {
 			String label = iu.getProperty(IInstallableUnit.PROP_NAME);
 			if(label == null)
 				label = iu.getId();
@@ -118,14 +114,13 @@ public class CategoryItemProvider extends MappedUnitItemProvider implements IEdi
 	 * @generated
 	 */
 	@Override
-	public void notifyChanged(Notification notification)
-	{
+	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Category.class)) {
-			case AggregatorPackage.CATEGORY__LABEL_OVERRIDE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
+		switch(notification.getFeatureID(Category.class)) {
+		case AggregatorPackage.CATEGORY__LABEL_OVERRIDE:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -133,52 +128,41 @@ public class CategoryItemProvider extends MappedUnitItemProvider implements IEdi
 	/**
 	 * This adds a property descriptor for the Label Override feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	protected void addLabelOverridePropertyDescriptor(Object object)
-	{
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Category_labelOverride_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Category_labelOverride_feature", "_UI_Category_type"),
-				 AggregatorPackage.Literals.CATEGORY__LABEL_OVERRIDE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+	protected void addLabelOverridePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Category_labelOverride_feature"), getString("_UI_PropertyDescriptor_description",
+						"_UI_Category_labelOverride_feature", "_UI_Category_type"),
+				AggregatorPackage.Literals.CATEGORY__LABEL_OVERRIDE, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
-	{
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
 	@Override
-	protected List<? extends InstallableUnitReference> getContainerChildren(MappedRepository container)
-	{
+	protected List<? extends InstallableUnitReference> getContainerChildren(MappedRepository container) {
 		return container.getCategories();
 	}
 
 	@Override
-	protected Query getInstallableUnitQuery()
-	{
-		return new MatchQuery()
-		{
+	protected Query getInstallableUnitQuery() {
+		return new MatchQuery() {
 			@Override
-			public boolean isMatch(Object candidate)
-			{
-				return InstallableUnitUtils.getType((InstallableUnit)candidate) == InstallableUnitType.CATEGORY;
+			public boolean isMatch(Object candidate) {
+				return InstallableUnitUtils.getType((InstallableUnit) candidate) == InstallableUnitType.CATEGORY;
 			}
 		};
 	}

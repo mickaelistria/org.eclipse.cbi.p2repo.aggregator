@@ -55,15 +55,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  */
 public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceItemProvider implements
 		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider,
-		IItemPropertySource, IItemColorProvider, IItemFontProvider
-{
+		IItemPropertySource, IItemColorProvider, IItemFontProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public MappedRepositoryItemProvider(AdapterFactory adapterFactory)
-	{
+	public MappedRepositoryItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -73,12 +72,12 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
-	{
-		if (childrenFeatures == null) {
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if(childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(AggregatorPackage.Literals.MAPPED_REPOSITORY__PRODUCTS);
 			childrenFeatures.add(AggregatorPackage.Literals.MAPPED_REPOSITORY__BUNDLES);
@@ -95,8 +94,7 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	 * @generated NOT
 	 */
 	@Override
-	public Object getImage(Object object)
-	{
+	public Object getImage(Object object) {
 		return super.getImage(object);
 	}
 
@@ -104,10 +102,9 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	 * Allow adding children only if the repository enabled
 	 */
 	@Override
-	public Collection<?> getNewChildDescriptors(Object object, EditingDomain editingDomain, Object sibling)
-	{
-		if(!(((MappedRepository)object).isBranchEnabled())
-				|| ((MappedRepository)object).getMetadataRepository() == null)
+	public Collection<?> getNewChildDescriptors(Object object, EditingDomain editingDomain, Object sibling) {
+		if(!(((MappedRepository) object).isBranchEnabled())
+				|| ((MappedRepository) object).getMetadataRepository() == null)
 			return Collections.emptySet();
 
 		return super.getNewChildDescriptors(object, editingDomain, sibling);
@@ -116,12 +113,12 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
-	{
-		if (itemPropertyDescriptors == null) {
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addDescriptionPropertyDescriptor(object);
@@ -137,8 +134,7 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	 * @generated NOT
 	 */
 	@Override
-	public String getText(Object object)
-	{
+	public String getText(Object object) {
 		return super.getText(object);
 	}
 
@@ -150,12 +146,10 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	 * @generated NOT
 	 */
 	@Override
-	public void notifyChanged(Notification notification)
-	{
+	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch(notification.getFeatureID(MappedRepository.class))
-		{
+		switch(notification.getFeatureID(MappedRepository.class)) {
 		case AggregatorPackage.MAPPED_REPOSITORY__DESCRIPTION:
 		case AggregatorPackage.MAPPED_REPOSITORY__MIRROR_ARTIFACTS:
 		case AggregatorPackage.MAPPED_REPOSITORY__CATEGORY_PREFIX:
@@ -167,7 +161,7 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 		case AggregatorPackage.MAPPED_REPOSITORY__CATEGORIES:
 		case AggregatorPackage.MAPPED_REPOSITORY__MAP_RULES:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-			((AggregatorResource)((EObject)notification.getNotifier()).eResource()).analyzeResource();
+			((AggregatorResource) ((EObject) notification.getNotifier()).eResource()).analyzeResource();
 			return;
 		}
 		super.notifyChanged(notification);
@@ -176,109 +170,76 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	/**
 	 * This adds a property descriptor for the Category Prefix feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	protected void addCategoryPrefixPropertyDescriptor(Object object)
-	{
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_MappedRepository_categoryPrefix_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MappedRepository_categoryPrefix_feature", "_UI_MappedRepository_type"),
-				 AggregatorPackage.Literals.MAPPED_REPOSITORY__CATEGORY_PREFIX,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+	protected void addCategoryPrefixPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_MappedRepository_categoryPrefix_feature"), getString(
+						"_UI_PropertyDescriptor_description", "_UI_MappedRepository_categoryPrefix_feature",
+						"_UI_MappedRepository_type"), AggregatorPackage.Literals.MAPPED_REPOSITORY__CATEGORY_PREFIX,
+				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Description feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	protected void addDescriptionPropertyDescriptor(Object object)
-	{
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DescriptionProvider_description_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DescriptionProvider_description_feature", "_UI_DescriptionProvider_type"),
-				 AggregatorPackage.Literals.DESCRIPTION_PROVIDER__DESCRIPTION,
-				 true,
-				 true,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_DescriptionProvider_description_feature"), getString(
+						"_UI_PropertyDescriptor_description", "_UI_DescriptionProvider_description_feature",
+						"_UI_DescriptionProvider_type"), AggregatorPackage.Literals.DESCRIPTION_PROVIDER__DESCRIPTION,
+				true, true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Mirror Artifacts feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	protected void addMirrorArtifactsPropertyDescriptor(Object object)
-	{
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_MappedRepository_mirrorArtifacts_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MappedRepository_mirrorArtifacts_feature", "_UI_MappedRepository_type"),
-				 AggregatorPackage.Literals.MAPPED_REPOSITORY__MIRROR_ARTIFACTS,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
+	protected void addMirrorArtifactsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_MappedRepository_mirrorArtifacts_feature"), getString(
+						"_UI_PropertyDescriptor_description", "_UI_MappedRepository_mirrorArtifacts_feature",
+						"_UI_MappedRepository_type"), AggregatorPackage.Literals.MAPPED_REPOSITORY__MIRROR_ARTIFACTS,
+				true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
-	{
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add
-			(createChildParameter
-				(AggregatorPackage.Literals.MAPPED_REPOSITORY__PRODUCTS,
-				 AggregatorFactory.eINSTANCE.createProduct()));
+		newChildDescriptors.add(createChildParameter(AggregatorPackage.Literals.MAPPED_REPOSITORY__PRODUCTS,
+				AggregatorFactory.eINSTANCE.createProduct()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(AggregatorPackage.Literals.MAPPED_REPOSITORY__BUNDLES,
-				 AggregatorFactory.eINSTANCE.createBundle()));
+		newChildDescriptors.add(createChildParameter(AggregatorPackage.Literals.MAPPED_REPOSITORY__BUNDLES,
+				AggregatorFactory.eINSTANCE.createBundle()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(AggregatorPackage.Literals.MAPPED_REPOSITORY__FEATURES,
-				 AggregatorFactory.eINSTANCE.createFeature()));
+		newChildDescriptors.add(createChildParameter(AggregatorPackage.Literals.MAPPED_REPOSITORY__FEATURES,
+				AggregatorFactory.eINSTANCE.createFeature()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(AggregatorPackage.Literals.MAPPED_REPOSITORY__CATEGORIES,
-				 AggregatorFactory.eINSTANCE.createCategory()));
+		newChildDescriptors.add(createChildParameter(AggregatorPackage.Literals.MAPPED_REPOSITORY__CATEGORIES,
+				AggregatorFactory.eINSTANCE.createCategory()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(AggregatorPackage.Literals.MAPPED_REPOSITORY__MAP_RULES,
-				 AggregatorFactory.eINSTANCE.createExclusionRule()));
+		newChildDescriptors.add(createChildParameter(AggregatorPackage.Literals.MAPPED_REPOSITORY__MAP_RULES,
+				AggregatorFactory.eINSTANCE.createExclusionRule()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(AggregatorPackage.Literals.MAPPED_REPOSITORY__MAP_RULES,
-				 AggregatorFactory.eINSTANCE.createValidConfigurationsRule()));
+		newChildDescriptors.add(createChildParameter(AggregatorPackage.Literals.MAPPED_REPOSITORY__MAP_RULES,
+				AggregatorFactory.eINSTANCE.createValidConfigurationsRule()));
 	}
 
 	/**
@@ -286,8 +247,7 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	 */
 	@Override
 	protected Command createDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
-			int operation, Collection<?> collection)
-	{
+			int operation, Collection<?> collection) {
 		if((operation & (AggregatorEditPlugin.ADD_IU | AggregatorEditPlugin.ADD_EXCLUSION_RULE | AggregatorEditPlugin.ADD_VALID_CONFIGURATIONS_RULE)) == 0)
 			operation = AggregatorEditPlugin.ADD_IU;
 
@@ -306,8 +266,7 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	protected ItemPropertyDescriptor createItemPropertyDescriptor(AdapterFactory adapterFactory,
 			ResourceLocator resourceLocator, String displayName, String description, EStructuralFeature feature,
 			boolean isSettable, boolean multiLine, boolean sortChoices, Object staticImage, String category,
-			String[] filterFlags)
-	{
+			String[] filterFlags) {
 		return new ContributionItemProvider.DynamicItemPropertyDescriptor(adapterFactory, resourceLocator, displayName,
 				description, feature, isSettable, multiLine, sortChoices, staticImage, category, filterFlags);
 	}
@@ -318,10 +277,9 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	@Override
 	@Deprecated
 	protected Command createRemoveCommand(EditingDomain domain, EObject owner, EReference feature,
-			Collection<?> collection)
-	{
-		if(((MappedRepository)owner).isBranchEnabled() && ((MappedRepository)owner).getMetadataRepository() != null)
-			return createCompoundRemoveCommand(domain, (MappedRepository)owner, feature, collection);
+			Collection<?> collection) {
+		if(((MappedRepository) owner).isBranchEnabled() && ((MappedRepository) owner).getMetadataRepository() != null)
+			return createCompoundRemoveCommand(domain, (MappedRepository) owner, feature, collection);
 
 		return UnexecutableCommand.INSTANCE;
 	}
@@ -331,15 +289,13 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	 */
 	@Override
 	protected Command createRemoveCommand(EditingDomain domain, EObject owner, EStructuralFeature feature,
-			Collection<?> collection)
-	{
-		if(feature instanceof EReference)
-		{
-			return createRemoveCommand(domain, owner, (EReference)feature, collection);
+			Collection<?> collection) {
+		if(feature instanceof EReference) {
+			return createRemoveCommand(domain, owner, (EReference) feature, collection);
 		}
 
-		if(((MappedRepository)owner).isBranchEnabled() && ((MappedRepository)owner).getMetadataRepository() != null)
-			return createCompoundRemoveCommand(domain, (MappedRepository)owner, feature, collection);
+		if(((MappedRepository) owner).isBranchEnabled() && ((MappedRepository) owner).getMetadataRepository() != null)
+			return createCompoundRemoveCommand(domain, (MappedRepository) owner, feature, collection);
 
 		return UnexecutableCommand.INSTANCE;
 	}
@@ -348,8 +304,7 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	 * Supports copy&paste from IUs to MappedRepo
 	 */
 	@Override
-	protected Command factorAddCommand(EditingDomain domain, CommandParameter commandParameter)
-	{
+	protected Command factorAddCommand(EditingDomain domain, CommandParameter commandParameter) {
 		Command command = createAddIUsToMappedRepositoryCommand(commandParameter.getOwner(),
 				commandParameter.getCollection(), AggregatorEditPlugin.ADD_IU);
 
@@ -361,11 +316,11 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child)
-	{
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
 		// Check the type of the specified child object and return the proper feature to use for
 		// adding (see {@link AddCommand}) it as a child.
 
@@ -373,51 +328,44 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	}
 
 	@Override
-	protected String getTypeName()
-	{
+	protected String getTypeName() {
 		return "_UI_MappedRepository_type";
 	}
 
 	@SuppressWarnings("unchecked")
-	private Command createAddIUsToMappedRepositoryCommand(Object owner, Collection<?> collection, int operation)
-	{
+	private Command createAddIUsToMappedRepositoryCommand(Object owner, Collection<?> collection, int operation) {
 		ItemSorter itemSorter = new ItemSorter(collection);
 
-		if(((MappedRepository)owner).isEnabled()
+		if(((MappedRepository) owner).isEnabled()
 				&& itemSorter.getTotalItemCount() > 0
 				&& (itemSorter.getTotalItemCount() == itemSorter.getGroupItems(ItemGroup.IU).size()
-						&& ItemUtils.haveSameLocation((MappedRepository)owner,
-								(List<InstallableUnit>)itemSorter.getGroupItems(ItemGroup.IU)) || itemSorter.getTotalItemCount() == itemSorter.getGroupItems(
+						&& ItemUtils.haveSameLocation((MappedRepository) owner,
+								(List<InstallableUnit>) itemSorter.getGroupItems(ItemGroup.IU)) || itemSorter.getTotalItemCount() == itemSorter.getGroupItems(
 						ItemGroup.IU_STRUCTURED).size()
 						&& ItemUtils.haveSameLocation(
-								(MappedRepository)owner,
-								ItemUtils.getIUs((List<IUPresentation>)itemSorter.getGroupItems(ItemGroup.IU_STRUCTURED)))))
-		{
+								(MappedRepository) owner,
+								ItemUtils.getIUs((List<IUPresentation>) itemSorter.getGroupItems(ItemGroup.IU_STRUCTURED))))) {
 			List<InstallableUnit> ius = new ArrayList<InstallableUnit>();
 
-			ius.addAll((List<InstallableUnit>)itemSorter.getGroupItems(ItemGroup.IU));
-			ius.addAll(ItemUtils.getIUs((List<IUPresentation>)itemSorter.getGroupItems(ItemGroup.IU_STRUCTURED)));
+			ius.addAll((List<InstallableUnit>) itemSorter.getGroupItems(ItemGroup.IU));
+			ius.addAll(ItemUtils.getIUs((List<IUPresentation>) itemSorter.getGroupItems(ItemGroup.IU_STRUCTURED)));
 
-			return new AddIUsToMappedRepositoryCommand((MappedRepository)owner, ius, operation);
+			return new AddIUsToMappedRepositoryCommand((MappedRepository) owner, ius, operation);
 		}
 
 		return null;
 	}
 
 	private Command createCompoundRemoveCommand(EditingDomain domain, MappedRepository mappedRepository,
-			EStructuralFeature feature, Collection<?> collection)
-	{
+			EStructuralFeature feature, Collection<?> collection) {
 		List<Command> commands = new ArrayList<Command>();
-		commands.add(new RemoveCommand(domain, (EObject)mappedRepository, feature, collection));
+		commands.add(new RemoveCommand(domain, (EObject) mappedRepository, feature, collection));
 
-		if(feature.getFeatureID() == AggregatorPackage.MAPPED_REPOSITORY__FEATURES)
-		{
-			for(Object object : collection)
-			{
-				Feature removedFeature = (Feature)object;
-				for(CustomCategory category : removedFeature.getCategories())
-				{
-					IEditingDomainItemProvider editingDomainItemProvider = (IEditingDomainItemProvider)adapterFactory.adapt(
+		if(feature.getFeatureID() == AggregatorPackage.MAPPED_REPOSITORY__FEATURES) {
+			for(Object object : collection) {
+				Feature removedFeature = (Feature) object;
+				for(CustomCategory category : removedFeature.getCategories()) {
+					IEditingDomainItemProvider editingDomainItemProvider = (IEditingDomainItemProvider) adapterFactory.adapt(
 							category, IEditingDomainItemProvider.class);
 
 					Command cmd = editingDomainItemProvider.createCommand(category, domain, RemoveCommand.class,

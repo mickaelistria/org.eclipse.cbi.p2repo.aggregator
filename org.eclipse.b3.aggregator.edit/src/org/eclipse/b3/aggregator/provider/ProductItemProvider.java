@@ -36,15 +36,14 @@ import org.eclipse.equinox.internal.provisional.p2.metadata.query.Query;
  */
 public class ProductItemProvider extends MappedUnitItemProvider implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
-		IItemColorProvider, IItemFontProvider
-{
+		IItemColorProvider, IItemFontProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public ProductItemProvider(AdapterFactory adapterFactory)
-	{
+	public ProductItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -54,10 +53,9 @@ public class ProductItemProvider extends MappedUnitItemProvider implements IEdit
 	 * @generated NOT
 	 */
 	@Override
-	public Object getImage(Object object)
-	{
+	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage(
-				"full/obj16/Product" + (!((Product)object).isBranchDisabledOrMappedRepositoryBroken()
+				"full/obj16/Product" + (!((Product) object).isBranchDisabledOrMappedRepositoryBroken()
 						? ""
 						: "Disabled")));
 	}
@@ -65,12 +63,12 @@ public class ProductItemProvider extends MappedUnitItemProvider implements IEdit
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
-	{
-		if (itemPropertyDescriptors == null) {
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 		}
@@ -83,8 +81,7 @@ public class ProductItemProvider extends MappedUnitItemProvider implements IEdit
 	 * @generated NOT
 	 */
 	@Override
-	public String getText(Object object)
-	{
+	public String getText(Object object) {
 		StringBuilder bld = new StringBuilder();
 		bld.append(getString("_UI_Product_type"));
 		bld.append(' ');
@@ -100,8 +97,7 @@ public class ProductItemProvider extends MappedUnitItemProvider implements IEdit
 	 * @generated
 	 */
 	@Override
-	public void notifyChanged(Notification notification)
-	{
+	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 		super.notifyChanged(notification);
 	}
@@ -110,29 +106,25 @@ public class ProductItemProvider extends MappedUnitItemProvider implements IEdit
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
-	{
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
 	@Override
-	protected List<? extends InstallableUnitReference> getContainerChildren(MappedRepository container)
-	{
+	protected List<? extends InstallableUnitReference> getContainerChildren(MappedRepository container) {
 		return container.getProducts();
 	}
 
 	@Override
-	protected Query getInstallableUnitQuery()
-	{
-		return new MatchQuery()
-		{
+	protected Query getInstallableUnitQuery() {
+		return new MatchQuery() {
 			@Override
-			public boolean isMatch(Object candidate)
-			{
-				return InstallableUnitUtils.getType((InstallableUnit)candidate) == InstallableUnitType.PRODUCT;
+			public boolean isMatch(Object candidate) {
+				return InstallableUnitUtils.getType((InstallableUnit) candidate) == InstallableUnitType.PRODUCT;
 			}
 		};
 	}

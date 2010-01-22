@@ -16,7 +16,6 @@ import org.eclipse.b3.aggregator.p2.P2Package;
 import org.eclipse.b3.aggregator.provider.AggregatorEditPlugin;
 import org.eclipse.b3.aggregator.provider.AggregatorItemProviderAdapter;
 
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -42,38 +41,37 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  */
 public class CopyrightItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
-		IItemColorProvider, IItemFontProvider
-{
+		IItemColorProvider, IItemFontProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public CopyrightItemProvider(AdapterFactory adapterFactory)
-	{
+	public CopyrightItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
 	/**
 	 * This returns Copyright.gif.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public Object getImage(Object object)
-	{
+	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/Copyright"));
 	}
 
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
-	{
-		if (itemPropertyDescriptors == null) {
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addLocationPropertyDescriptor(object);
@@ -85,27 +83,29 @@ public class CopyrightItemProvider extends AggregatorItemProviderAdapter impleme
 	/**
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public ResourceLocator getResourceLocator()
-	{
+	public ResourceLocator getResourceLocator() {
 		return AggregatorEditPlugin.INSTANCE;
 	}
 
 	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public String getText(Object object)
-	{
-		URI labelValue = ((Copyright)object).getLocation();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Copyright_type") :
-			getString("_UI_Copyright_type") + " " + label;
+	public String getText(Object object) {
+		URI labelValue = ((Copyright) object).getLocation();
+		String label = labelValue == null
+				? null
+				: labelValue.toString();
+		return label == null || label.length() == 0
+				? getString("_UI_Copyright_type")
+				: getString("_UI_Copyright_type") + " " + label;
 	}
 
 	/**
@@ -116,15 +116,14 @@ public class CopyrightItemProvider extends AggregatorItemProviderAdapter impleme
 	 * @generated
 	 */
 	@Override
-	public void notifyChanged(Notification notification)
-	{
+	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Copyright.class)) {
-			case P2Package.COPYRIGHT__LOCATION:
-			case P2Package.COPYRIGHT__BODY:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
+		switch(notification.getFeatureID(Copyright.class)) {
+		case P2Package.COPYRIGHT__LOCATION:
+		case P2Package.COPYRIGHT__BODY:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -132,56 +131,41 @@ public class CopyrightItemProvider extends AggregatorItemProviderAdapter impleme
 	/**
 	 * This adds a property descriptor for the Body feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	protected void addBodyPropertyDescriptor(Object object)
-	{
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ICopyright_body_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ICopyright_body_feature", "_UI_ICopyright_type"),
-				 P2Package.Literals.ICOPYRIGHT__BODY,
-				 false,
-				 true,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+	protected void addBodyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_ICopyright_body_feature"), getString("_UI_PropertyDescriptor_description",
+						"_UI_ICopyright_body_feature", "_UI_ICopyright_type"), P2Package.Literals.ICOPYRIGHT__BODY,
+				false, true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Location feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	protected void addLocationPropertyDescriptor(Object object)
-	{
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ICopyright_location_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ICopyright_location_feature", "_UI_ICopyright_type"),
-				 P2Package.Literals.ICOPYRIGHT__LOCATION,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+	protected void addLocationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_ICopyright_location_feature"), getString("_UI_PropertyDescriptor_description",
+						"_UI_ICopyright_location_feature", "_UI_ICopyright_type"),
+				P2Package.Literals.ICOPYRIGHT__LOCATION, false, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
-	{
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

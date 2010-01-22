@@ -34,15 +34,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  */
 public class ConfigurationItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
-		IItemColorProvider, IItemFontProvider
-{
+		IItemColorProvider, IItemFontProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public ConfigurationItemProvider(AdapterFactory adapterFactory)
-	{
+	public ConfigurationItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -52,10 +51,9 @@ public class ConfigurationItemProvider extends AggregatorItemProviderAdapter imp
 	 * @generated NOT
 	 */
 	@Override
-	public Object getImage(Object object)
-	{
+	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage(
-				"full/obj16/Configuration" + (((Configuration)object).isEnabled()
+				"full/obj16/Configuration" + (((Configuration) object).isEnabled()
 						? ""
 						: "Disabled")));
 	}
@@ -63,12 +61,12 @@ public class ConfigurationItemProvider extends AggregatorItemProviderAdapter imp
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
-	{
-		if (itemPropertyDescriptors == null) {
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addEnabledPropertyDescriptor(object);
@@ -82,11 +80,11 @@ public class ConfigurationItemProvider extends AggregatorItemProviderAdapter imp
 	/**
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public ResourceLocator getResourceLocator()
-	{
+	public ResourceLocator getResourceLocator() {
 		return AggregatorEditPlugin.INSTANCE;
 	}
 
@@ -96,9 +94,8 @@ public class ConfigurationItemProvider extends AggregatorItemProviderAdapter imp
 	 * @generated NOT
 	 */
 	@Override
-	public String getText(Object object)
-	{
-		Configuration config = (Configuration)object;
+	public String getText(Object object) {
+		Configuration config = (Configuration) object;
 		StringBuilder bld = new StringBuilder();
 		bld.append(getString("_UI_Configuration_type"));
 		bld.append(' ');
@@ -114,17 +111,16 @@ public class ConfigurationItemProvider extends AggregatorItemProviderAdapter imp
 	 * @generated
 	 */
 	@Override
-	public void notifyChanged(Notification notification)
-	{
+	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Configuration.class)) {
-			case AggregatorPackage.CONFIGURATION__ENABLED:
-			case AggregatorPackage.CONFIGURATION__OPERATING_SYSTEM:
-			case AggregatorPackage.CONFIGURATION__WINDOW_SYSTEM:
-			case AggregatorPackage.CONFIGURATION__ARCHITECTURE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
+		switch(notification.getFeatureID(Configuration.class)) {
+		case AggregatorPackage.CONFIGURATION__ENABLED:
+		case AggregatorPackage.CONFIGURATION__OPERATING_SYSTEM:
+		case AggregatorPackage.CONFIGURATION__WINDOW_SYSTEM:
+		case AggregatorPackage.CONFIGURATION__ARCHITECTURE:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -132,100 +128,72 @@ public class ConfigurationItemProvider extends AggregatorItemProviderAdapter imp
 	/**
 	 * This adds a property descriptor for the Architecture feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	protected void addArchitecturePropertyDescriptor(Object object)
-	{
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Configuration_architecture_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Configuration_architecture_feature", "_UI_Configuration_type"),
-				 AggregatorPackage.Literals.CONFIGURATION__ARCHITECTURE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+	protected void addArchitecturePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Configuration_architecture_feature"), getString("_UI_PropertyDescriptor_description",
+						"_UI_Configuration_architecture_feature", "_UI_Configuration_type"),
+				AggregatorPackage.Literals.CONFIGURATION__ARCHITECTURE, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Enabled feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	protected void addEnabledPropertyDescriptor(Object object)
-	{
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_EnabledStatusProvider_enabled_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EnabledStatusProvider_enabled_feature", "_UI_EnabledStatusProvider_type"),
-				 AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__ENABLED,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
+	protected void addEnabledPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_EnabledStatusProvider_enabled_feature"), getString("_UI_PropertyDescriptor_description",
+						"_UI_EnabledStatusProvider_enabled_feature", "_UI_EnabledStatusProvider_type"),
+				AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__ENABLED, true, false, false,
+				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Operating System feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	protected void addOperatingSystemPropertyDescriptor(Object object)
-	{
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Configuration_operatingSystem_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Configuration_operatingSystem_feature", "_UI_Configuration_type"),
-				 AggregatorPackage.Literals.CONFIGURATION__OPERATING_SYSTEM,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+	protected void addOperatingSystemPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Configuration_operatingSystem_feature"), getString("_UI_PropertyDescriptor_description",
+						"_UI_Configuration_operatingSystem_feature", "_UI_Configuration_type"),
+				AggregatorPackage.Literals.CONFIGURATION__OPERATING_SYSTEM, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Window System feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	protected void addWindowSystemPropertyDescriptor(Object object)
-	{
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Configuration_windowSystem_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Configuration_windowSystem_feature", "_UI_Configuration_type"),
-				 AggregatorPackage.Literals.CONFIGURATION__WINDOW_SYSTEM,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+	protected void addWindowSystemPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Configuration_windowSystem_feature"), getString("_UI_PropertyDescriptor_description",
+						"_UI_Configuration_windowSystem_feature", "_UI_Configuration_type"),
+				AggregatorPackage.Literals.CONFIGURATION__WINDOW_SYSTEM, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
-	{
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

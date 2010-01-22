@@ -33,15 +33,13 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  */
 public class ComparableItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
-		IItemColorProvider
-{
+		IItemColorProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	public ComparableItemProvider(AdapterFactory adapterFactory)
-	{
+	public ComparableItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -51,10 +49,8 @@ public class ComparableItemProvider extends AggregatorItemProviderAdapter implem
 	 * @generated
 	 */
 	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
-	{
-		if(itemPropertyDescriptors == null)
-		{
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 		}
@@ -67,8 +63,7 @@ public class ComparableItemProvider extends AggregatorItemProviderAdapter implem
 	 * @generated
 	 */
 	@Override
-	public ResourceLocator getResourceLocator()
-	{
+	public ResourceLocator getResourceLocator() {
 		return AggregatorEditPlugin.INSTANCE;
 	}
 
@@ -78,8 +73,7 @@ public class ComparableItemProvider extends AggregatorItemProviderAdapter implem
 	 * @generated
 	 */
 	@Override
-	public String getText(Object object)
-	{
+	public String getText(Object object) {
 		return getString("_UI_Comparable_type");
 	}
 
@@ -91,8 +85,7 @@ public class ComparableItemProvider extends AggregatorItemProviderAdapter implem
 	 * @generated
 	 */
 	@Override
-	public void notifyChanged(Notification notification)
-	{
+	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 		super.notifyChanged(notification);
 	}
@@ -104,8 +97,7 @@ public class ComparableItemProvider extends AggregatorItemProviderAdapter implem
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
-	{
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 

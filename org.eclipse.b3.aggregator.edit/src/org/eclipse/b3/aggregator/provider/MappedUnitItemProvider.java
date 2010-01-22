@@ -45,31 +45,30 @@ public class MappedUnitItemProvider extends InstallableUnitReferenceItemProvider
 		IItemColorProvider, IItemFontProvider
 
 {
-	protected static InstallableUnit getInstallableUnit(InstallableUnitReference iuRef)
-	{
-		MappedUnit mu = (MappedUnit)iuRef;
+	protected static InstallableUnit getInstallableUnit(InstallableUnitReference iuRef) {
+		MappedUnit mu = (MappedUnit) iuRef;
 		return mu.getInstallableUnit(mu.isBranchEnabled() && !mu.isMappedRepositoryBroken());
 	}
 
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public MappedUnitItemProvider(AdapterFactory adapterFactory)
-	{
+	public MappedUnitItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object)
-	{
-		if (itemPropertyDescriptors == null) {
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addEnabledPropertyDescriptor(object);
@@ -81,12 +80,12 @@ public class MappedUnitItemProvider extends InstallableUnitReferenceItemProvider
 	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public String getText(Object object)
-	{
-		MappedUnit mappedUnit = (MappedUnit)object;
+	public String getText(Object object) {
+		MappedUnit mappedUnit = (MappedUnit) object;
 		return getString("_UI_MappedUnit_type") + " " + mappedUnit.isEnabled();
 	}
 
@@ -94,15 +93,13 @@ public class MappedUnitItemProvider extends InstallableUnitReferenceItemProvider
 	 * @generated NOT
 	 */
 	@Override
-	public void notifyChanged(Notification notification)
-	{
+	public void notifyChanged(Notification notification) {
 		notifyChangedGen(notification);
 
 		boolean updateContent = false;
 		boolean updateLabel = true;
 
-		switch(notification.getFeatureID(MappedUnit.class))
-		{
+		switch(notification.getFeatureID(MappedUnit.class)) {
 		case AggregatorPackage.MAPPED_UNIT__ENABLED:
 			updateContent = true;
 			updateLabel = false;
@@ -114,17 +111,16 @@ public class MappedUnitItemProvider extends InstallableUnitReferenceItemProvider
 			Set<Object> affectedNodes = new HashSet<Object>();
 
 			// Go through all direct ancestors first
-			EObject container = ((EObject)notification.getNotifier()).eContainer();
-			affectedNodes.add(((EObject)notification.getNotifier()).eResource());
-			while(container != null)
-			{
+			EObject container = ((EObject) notification.getNotifier()).eContainer();
+			affectedNodes.add(((EObject) notification.getNotifier()).eResource());
+			while(container != null) {
 				affectedNodes.add(container);
 				container = container.eContainer();
 			}
 
 			// And now, find all categories which may contain the feature just being enabled/disabled
 			if(notification.getNotifier() instanceof Feature)
-				for(CustomCategory category : ((Feature)notification.getNotifier()).getCategories())
+				for(CustomCategory category : ((Feature) notification.getNotifier()).getCategories())
 					affectedNodes.add(category);
 
 			for(Object affectedNode : affectedNodes)
@@ -141,14 +137,13 @@ public class MappedUnitItemProvider extends InstallableUnitReferenceItemProvider
 	 * 
 	 * @generated
 	 */
-	public void notifyChangedGen(Notification notification)
-	{
+	public void notifyChangedGen(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(MappedUnit.class)) {
-			case AggregatorPackage.MAPPED_UNIT__ENABLED:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
+		switch(notification.getFeatureID(MappedUnit.class)) {
+		case AggregatorPackage.MAPPED_UNIT__ENABLED:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -156,23 +151,16 @@ public class MappedUnitItemProvider extends InstallableUnitReferenceItemProvider
 	/**
 	 * This adds a property descriptor for the Enabled feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	protected void addEnabledPropertyDescriptor(Object object)
-	{
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_EnabledStatusProvider_enabled_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EnabledStatusProvider_enabled_feature", "_UI_EnabledStatusProvider_type"),
-				 AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__ENABLED,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
+	protected void addEnabledPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_EnabledStatusProvider_enabled_feature"), getString("_UI_PropertyDescriptor_description",
+						"_UI_EnabledStatusProvider_enabled_feature", "_UI_EnabledStatusProvider_type"),
+				AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__ENABLED, true, false, false,
+				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -181,32 +169,24 @@ public class MappedUnitItemProvider extends InstallableUnitReferenceItemProvider
 	 * 
 	 * @generated
 	 */
-	protected void addValidConfigurationsPropertyDescriptor(Object object)
-	{
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_MappedUnit_validConfigurations_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MappedUnit_validConfigurations_feature", "_UI_MappedUnit_type"),
-				 AggregatorPackage.Literals.MAPPED_UNIT__VALID_CONFIGURATIONS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+	protected void addValidConfigurationsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_MappedUnit_validConfigurations_feature"), getString(
+						"_UI_PropertyDescriptor_description", "_UI_MappedUnit_validConfigurations_feature",
+						"_UI_MappedUnit_type"), AggregatorPackage.Literals.MAPPED_UNIT__VALID_CONFIGURATIONS, true,
+				false, true, null, null, null));
 	}
 
 	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
-	{
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
@@ -217,8 +197,7 @@ public class MappedUnitItemProvider extends InstallableUnitReferenceItemProvider
 	protected ItemPropertyDescriptor createItemPropertyDescriptor(AdapterFactory adapterFactory,
 			ResourceLocator resourceLocator, String displayName, String description, EStructuralFeature feature,
 			boolean isSettable, boolean multiLine, boolean sortChoices, Object staticImage, String category,
-			String[] filterFlags)
-	{
+			String[] filterFlags) {
 		return new ContributionItemProvider.DynamicItemPropertyDescriptor(adapterFactory, resourceLocator, displayName,
 				description, feature, isSettable, multiLine, sortChoices, staticImage, category, filterFlags);
 	}

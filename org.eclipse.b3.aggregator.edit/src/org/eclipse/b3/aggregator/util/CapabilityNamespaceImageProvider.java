@@ -19,12 +19,10 @@ import org.eclipse.emf.common.util.ResourceLocator;
  * @author Karel Brezina
  * 
  */
-public class CapabilityNamespaceImageProvider
-{
+public class CapabilityNamespaceImageProvider {
 	private static Map<CapabilityNamespace, String> m_namespaceMap;
 
-	static
-	{
+	static {
 		m_namespaceMap = new HashMap<CapabilityNamespace, String>();
 		m_namespaceMap.put(CapabilityNamespace.FEATURE, "full/obj16/Feature");
 		m_namespaceMap.put(CapabilityNamespace.BUNDLE, "full/obj16/Bundle");
@@ -33,8 +31,7 @@ public class CapabilityNamespaceImageProvider
 		m_namespaceMap.put(CapabilityNamespace.IU, "full/obj16/InstallableUnit");
 	}
 
-	public static Object getImage(String namespace)
-	{
+	public static Object getImage(String namespace) {
 		CapabilityNamespace cn = CapabilityNamespace.byId(namespace);
 		String imageKey = m_namespaceMap.get(cn);
 		return imageKey == null
@@ -42,8 +39,7 @@ public class CapabilityNamespaceImageProvider
 				: getResourceLocator().getImage(imageKey);
 	}
 
-	private static ResourceLocator getResourceLocator()
-	{
+	private static ResourceLocator getResourceLocator() {
 		return AggregatorEditPlugin.INSTANCE;
 	}
 

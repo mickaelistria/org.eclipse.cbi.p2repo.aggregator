@@ -27,8 +27,7 @@ import org.eclipse.emf.edit.command.DragAndDropFeedback;
  * @author Karel Brezina
  * 
  */
-public class AddIUsToMappedRepositoryCommand extends AbstractCommand implements DragAndDropFeedback
-{
+public class AddIUsToMappedRepositoryCommand extends AbstractCommand implements DragAndDropFeedback {
 	private MappedRepository m_mappedRepo;
 
 	private List<InstallableUnit> m_selectedIUs;
@@ -39,13 +38,11 @@ public class AddIUsToMappedRepositoryCommand extends AbstractCommand implements 
 
 	private List<MapRule> m_addedMapRules = new ArrayList<MapRule>();
 
-	public AddIUsToMappedRepositoryCommand(MappedRepository mappedRepo, List<InstallableUnit> selectedIUs)
-	{
+	public AddIUsToMappedRepositoryCommand(MappedRepository mappedRepo, List<InstallableUnit> selectedIUs) {
 		this(mappedRepo, selectedIUs, AggregatorEditPlugin.ADD_IU);
 	}
 
-	public AddIUsToMappedRepositoryCommand(MappedRepository mappedRepo, List<InstallableUnit> selectedIUs, int operation)
-	{
+	public AddIUsToMappedRepositoryCommand(MappedRepository mappedRepo, List<InstallableUnit> selectedIUs, int operation) {
 		super(AggregatorEditPlugin.INSTANCE.getString("_UI_Map_to_command_prefix") + " "
 				+ AggregatorEditPlugin.INSTANCE.getString("_UI_MappedRepository_type") + " " + mappedRepo.getLocation());
 
@@ -54,21 +51,18 @@ public class AddIUsToMappedRepositoryCommand extends AbstractCommand implements 
 		m_operation = operation;
 	}
 
-	public void execute()
-	{
+	public void execute() {
 		m_addedMappedUnits.clear();
 		m_addedMapRules.clear();
 
 		if((m_operation & AggregatorEditPlugin.ADD_IU) > 0)
-			for(InstallableUnit iu : m_selectedIUs)
-			{
+			for(InstallableUnit iu : m_selectedIUs) {
 				MappedUnit newMU = ItemUtils.addIU(m_mappedRepo, iu);
 				if(newMU != null)
 					m_addedMappedUnits.add(newMU);
 			}
 		else if((m_operation & (AggregatorEditPlugin.ADD_EXCLUSION_RULE | AggregatorEditPlugin.ADD_VALID_CONFIGURATIONS_RULE)) > 0)
-			for(InstallableUnit iu : m_selectedIUs)
-			{
+			for(InstallableUnit iu : m_selectedIUs) {
 				MapRule newMR = ItemUtils.addMapRule(m_mappedRepo, iu,
 						(m_operation & AggregatorEditPlugin.ADD_EXCLUSION_RULE) > 0
 								? ExclusionRule.class
@@ -78,46 +72,38 @@ public class AddIUsToMappedRepositoryCommand extends AbstractCommand implements 
 			}
 	}
 
-	public int getFeedback()
-	{
+	public int getFeedback() {
 		return FEEDBACK_SELECT;
 	}
 
-	public int getOperation()
-	{
+	public int getOperation() {
 		return DROP_LINK;
 	}
 
-	public void redo()
-	{
+	public void redo() {
 		execute();
 	}
 
 	@Override
-	public void undo()
-	{
-		for(MappedUnit unit : m_addedMappedUnits)
-		{
-			MappedRepository repo = (MappedRepository)((EObject)unit).eContainer();
+	public void undo() {
+		for(MappedUnit unit : m_addedMappedUnits) {
+			MappedRepository repo = (MappedRepository) ((EObject) unit).eContainer();
 			repo.removeUnit(unit);
 		}
 
-		for(MapRule rule : m_addedMapRules)
-		{
-			MappedRepository repo = (MappedRepository)((EObject)rule).eContainer();
+		for(MapRule rule : m_addedMapRules) {
+			MappedRepository repo = (MappedRepository) ((EObject) rule).eContainer();
 			repo.getMapRules().remove(rule);
 		}
 	}
 
 	// validated prior command creation
-	public boolean validate(Object owner, float location, int operations, int operation, Collection<?> collection)
-	{
+	public boolean validate(Object owner, float location, int operations, int operation, Collection<?> collection) {
 		return true;
 	}
 
 	@Override
-	protected boolean prepare()
-	{
+	protected boolean prepare() {
 		boolean result = m_mappedRepo != null && m_mappedRepo.isBranchEnabled() && m_selectedIUs != null
 				&& m_selectedIUs.size() > 0 && ItemUtils.haveSameLocation(m_mappedRepo, m_selectedIUs);
 
