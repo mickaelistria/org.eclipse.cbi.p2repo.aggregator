@@ -17,13 +17,11 @@ import org.eclipse.ui.IWorkbenchWindow;
  * @author Karel Brezina
  * 
  */
-public class FindNextIUAction extends AbstractHandler
-{
+public class FindNextIUAction extends AbstractHandler {
 
-	public Object execute(ExecutionEvent event) throws ExecutionException
-	{
+	public Object execute(ExecutionEvent event) throws ExecutionException {
 		IWorkbenchWindow wbWindow = AggregatorEditorPlugin.getPlugin().getWorkbench().getActiveWorkbenchWindow();
-		if(!((AggregatorEditor)wbWindow.getActivePage().getActivePart()).findNextIU(true))
+		if(!((AggregatorEditor) wbWindow.getActivePage().getActivePart()).findNextIU(true))
 			wbWindow.getShell().getDisplay().beep();
 
 		return null;

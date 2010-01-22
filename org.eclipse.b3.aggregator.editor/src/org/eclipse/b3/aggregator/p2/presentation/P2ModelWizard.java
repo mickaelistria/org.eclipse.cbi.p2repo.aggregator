@@ -77,7 +77,6 @@ import org.eclipse.b3.aggregator.p2.P2Package;
 import org.eclipse.b3.aggregator.presentation.AggregatorEditorPlugin;
 import org.eclipse.b3.aggregator.provider.AggregatorEditPlugin;
 
-
 import org.eclipse.core.runtime.Path;
 
 import org.eclipse.jface.viewers.ISelection;
@@ -93,15 +92,13 @@ import org.eclipse.ui.PartInitException;
  * 
  * @generated
  */
-public class P2ModelWizard extends Wizard implements INewWizard
-{
+public class P2ModelWizard extends Wizard implements INewWizard {
 	/**
 	 * This is the page where the type of object to create is selected. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	public class P2ModelWizardInitialObjectCreationPage extends WizardPage
-	{
+	public class P2ModelWizardInitialObjectCreationPage extends WizardPage {
 		/**
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
@@ -126,10 +123,8 @@ public class P2ModelWizard extends Wizard implements INewWizard
 		 * 
 		 * @generated
 		 */
-		protected ModifyListener validator = new ModifyListener()
-		{
-			public void modifyText(ModifyEvent e)
-			{
+		protected ModifyListener validator = new ModifyListener() {
+			public void modifyText(ModifyEvent e) {
 				setPageComplete(validatePage());
 			}
 		};
@@ -139,8 +134,7 @@ public class P2ModelWizard extends Wizard implements INewWizard
 		 * 
 		 * @generated
 		 */
-		public P2ModelWizardInitialObjectCreationPage(String pageId)
-		{
+		public P2ModelWizardInitialObjectCreationPage(String pageId) {
 			super(pageId);
 		}
 
@@ -149,8 +143,7 @@ public class P2ModelWizard extends Wizard implements INewWizard
 		 * 
 		 * @generated
 		 */
-		public void createControl(Composite parent)
-		{
+		public void createControl(Composite parent) {
 			Composite composite = new Composite(parent, SWT.NONE);
 			{
 				GridLayout layout = new GridLayout();
@@ -182,13 +175,11 @@ public class P2ModelWizard extends Wizard implements INewWizard
 				initialObjectField.setLayoutData(data);
 			}
 
-			for(String objectName : getInitialObjectNames())
-			{
+			for(String objectName : getInitialObjectNames()) {
 				initialObjectField.add(getLabel(objectName));
 			}
 
-			if(initialObjectField.getItemCount() == 1)
-			{
+			if(initialObjectField.getItemCount() == 1) {
 				initialObjectField.select(0);
 			}
 			initialObjectField.addModifyListener(validator);
@@ -209,8 +200,7 @@ public class P2ModelWizard extends Wizard implements INewWizard
 				encodingField.setLayoutData(data);
 			}
 
-			for(String encoding : getEncodings())
-			{
+			for(String encoding : getEncodings()) {
 				encodingField.add(encoding);
 			}
 
@@ -226,8 +216,7 @@ public class P2ModelWizard extends Wizard implements INewWizard
 		 * 
 		 * @generated
 		 */
-		public String getEncoding()
-		{
+		public String getEncoding() {
 			return encodingField.getText();
 		}
 
@@ -236,14 +225,11 @@ public class P2ModelWizard extends Wizard implements INewWizard
 		 * 
 		 * @generated
 		 */
-		public String getInitialObjectName()
-		{
+		public String getInitialObjectName() {
 			String label = initialObjectField.getText();
 
-			for(String name : getInitialObjectNames())
-			{
-				if(getLabel(name).equals(label))
-				{
+			for(String name : getInitialObjectNames()) {
+				if(getLabel(name).equals(label)) {
 					return name;
 				}
 			}
@@ -256,18 +242,14 @@ public class P2ModelWizard extends Wizard implements INewWizard
 		 * @generated
 		 */
 		@Override
-		public void setVisible(boolean visible)
-		{
+		public void setVisible(boolean visible) {
 			super.setVisible(visible);
-			if(visible)
-			{
-				if(initialObjectField.getItemCount() == 1)
-				{
+			if(visible) {
+				if(initialObjectField.getItemCount() == 1) {
 					initialObjectField.clearSelection();
 					encodingField.setFocus();
 				}
-				else
-				{
+				else {
 					encodingField.clearSelection();
 					initialObjectField.setFocus();
 				}
@@ -279,14 +261,11 @@ public class P2ModelWizard extends Wizard implements INewWizard
 		 * 
 		 * @generated
 		 */
-		protected Collection<String> getEncodings()
-		{
-			if(encodings == null)
-			{
+		protected Collection<String> getEncodings() {
+			if(encodings == null) {
 				encodings = new ArrayList<String>();
 				for(StringTokenizer stringTokenizer = new StringTokenizer(
-						AggregatorEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens();)
-				{
+						AggregatorEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens();) {
 					encodings.add(stringTokenizer.nextToken());
 				}
 			}
@@ -298,14 +277,11 @@ public class P2ModelWizard extends Wizard implements INewWizard
 		 * 
 		 * @generated
 		 */
-		protected String getLabel(String typeName)
-		{
-			try
-			{
+		protected String getLabel(String typeName) {
+			try {
 				return AggregatorEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
 			}
-			catch(MissingResourceException mre)
-			{
+			catch(MissingResourceException mre) {
 				AggregatorEditorPlugin.INSTANCE.log(mre);
 			}
 			return typeName;
@@ -316,8 +292,7 @@ public class P2ModelWizard extends Wizard implements INewWizard
 		 * 
 		 * @generated
 		 */
-		protected boolean validatePage()
-		{
+		protected boolean validatePage() {
 			return getInitialObjectName() != null && getEncodings().contains(encodingField.getText());
 		}
 	}
@@ -327,15 +302,13 @@ public class P2ModelWizard extends Wizard implements INewWizard
 	 * 
 	 * @generated
 	 */
-	public class P2ModelWizardNewFileCreationPage extends WizardNewFileCreationPage
-	{
+	public class P2ModelWizardNewFileCreationPage extends WizardNewFileCreationPage {
 		/**
 		 * Pass in the selection. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
-		public P2ModelWizardNewFileCreationPage(String pageId, IStructuredSelection selection)
-		{
+		public P2ModelWizardNewFileCreationPage(String pageId, IStructuredSelection selection) {
 			super(pageId, selection);
 		}
 
@@ -344,8 +317,7 @@ public class P2ModelWizard extends Wizard implements INewWizard
 		 * 
 		 * @generated
 		 */
-		public IFile getModelFile()
-		{
+		public IFile getModelFile() {
 			return ResourcesPlugin.getWorkspace().getRoot().getFile(getContainerFullPath().append(getFileName()));
 		}
 
@@ -355,13 +327,10 @@ public class P2ModelWizard extends Wizard implements INewWizard
 		 * @generated
 		 */
 		@Override
-		protected boolean validatePage()
-		{
-			if(super.validatePage())
-			{
+		protected boolean validatePage() {
+			if(super.validatePage()) {
 				String extension = new Path(getFileName()).getFileExtension();
-				if(extension == null || !FILE_EXTENSIONS.contains(extension))
-				{
+				if(extension == null || !FILE_EXTENSIONS.contains(extension)) {
 					String key = FILE_EXTENSIONS.size() > 1
 							? "_WARN_FilenameExtensions"
 							: "_WARN_FilenameExtension";
@@ -449,8 +418,7 @@ public class P2ModelWizard extends Wizard implements INewWizard
 	 * @generated
 	 */
 	@Override
-	public void addPages()
-	{
+	public void addPages() {
 		// Create a page, set the title, and the initial model file name.
 		//
 		newFileCreationPage = new P2ModelWizardNewFileCreationPage("Whatever", selection);
@@ -462,25 +430,21 @@ public class P2ModelWizard extends Wizard implements INewWizard
 
 		// Try and get the resource selection to determine a current directory for the file dialog.
 		//
-		if(selection != null && !selection.isEmpty())
-		{
+		if(selection != null && !selection.isEmpty()) {
 			// Get the resource...
 			//
 			Object selectedElement = selection.iterator().next();
-			if(selectedElement instanceof IResource)
-			{
+			if(selectedElement instanceof IResource) {
 				// Get the resource parent, if its a file.
 				//
-				IResource selectedResource = (IResource)selectedElement;
-				if(selectedResource.getType() == IResource.FILE)
-				{
+				IResource selectedResource = (IResource) selectedElement;
+				if(selectedResource.getType() == IResource.FILE) {
 					selectedResource = selectedResource.getParent();
 				}
 
 				// This gives us a directory...
 				//
-				if(selectedResource instanceof IFolder || selectedResource instanceof IProject)
-				{
+				if(selectedResource instanceof IFolder || selectedResource instanceof IProject) {
 					// Set this for the container.
 					//
 					newFileCreationPage.setContainerFullPath(selectedResource.getFullPath());
@@ -490,8 +454,7 @@ public class P2ModelWizard extends Wizard implements INewWizard
 					String defaultModelBaseFilename = AggregatorEditorPlugin.INSTANCE.getString("_UI_P2EditorFilenameDefaultBase");
 					String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
 					String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
-					for(int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i)
-					{
+					for(int i = 1; ((IContainer) selectedResource).findMember(modelFilename) != null; ++i) {
 						modelFilename = defaultModelBaseFilename + i + "." + defaultModelFilenameExtension;
 					}
 					newFileCreationPage.setFileName(modelFilename);
@@ -509,8 +472,7 @@ public class P2ModelWizard extends Wizard implements INewWizard
 	 * 
 	 * @generated
 	 */
-	public IFile getModelFile()
-	{
+	public IFile getModelFile() {
 		return newFileCreationPage.getModelFile();
 	}
 
@@ -519,8 +481,7 @@ public class P2ModelWizard extends Wizard implements INewWizard
 	 * 
 	 * @generated
 	 */
-	public void init(IWorkbench workbench, IStructuredSelection selection)
-	{
+	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
 		setWindowTitle(AggregatorEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
@@ -533,23 +494,18 @@ public class P2ModelWizard extends Wizard implements INewWizard
 	 * @generated
 	 */
 	@Override
-	public boolean performFinish()
-	{
-		try
-		{
+	public boolean performFinish() {
+		try {
 			// Remember the file.
 			//
 			final IFile modelFile = getModelFile();
 
 			// Do the work within an operation.
 			//
-			WorkspaceModifyOperation operation = new WorkspaceModifyOperation()
-			{
+			WorkspaceModifyOperation operation = new WorkspaceModifyOperation() {
 				@Override
-				protected void execute(IProgressMonitor progressMonitor)
-				{
-					try
-					{
+				protected void execute(IProgressMonitor progressMonitor) {
+					try {
 						// Create a resource set
 						//
 						ResourceSet resourceSet = new ResourceSetImpl();
@@ -565,8 +521,7 @@ public class P2ModelWizard extends Wizard implements INewWizard
 						// Add the initial model object to the contents.
 						//
 						EObject rootObject = createInitialModel();
-						if(rootObject != null)
-						{
+						if(rootObject != null) {
 							resource.getContents().add(rootObject);
 						}
 
@@ -576,12 +531,10 @@ public class P2ModelWizard extends Wizard implements INewWizard
 						options.put(XMLResource.OPTION_ENCODING, initialObjectCreationPage.getEncoding());
 						resource.save(options);
 					}
-					catch(Exception exception)
-					{
+					catch(Exception exception) {
 						AggregatorEditorPlugin.INSTANCE.log(exception);
 					}
-					finally
-					{
+					finally {
 						progressMonitor.done();
 					}
 				}
@@ -594,27 +547,22 @@ public class P2ModelWizard extends Wizard implements INewWizard
 			IWorkbenchWindow workbenchWindow = workbench.getActiveWorkbenchWindow();
 			IWorkbenchPage page = workbenchWindow.getActivePage();
 			final IWorkbenchPart activePart = page.getActivePart();
-			if(activePart instanceof ISetSelectionTarget)
-			{
+			if(activePart instanceof ISetSelectionTarget) {
 				final ISelection targetSelection = new StructuredSelection(modelFile);
-				getShell().getDisplay().asyncExec(new Runnable()
-				{
-					public void run()
-					{
-						((ISetSelectionTarget)activePart).selectReveal(targetSelection);
+				getShell().getDisplay().asyncExec(new Runnable() {
+					public void run() {
+						((ISetSelectionTarget) activePart).selectReveal(targetSelection);
 					}
 				});
 			}
 
 			// Open an editor on the new file.
 			//
-			try
-			{
+			try {
 				page.openEditor(new FileEditorInput(modelFile), workbench.getEditorRegistry().getDefaultEditor(
 						modelFile.getFullPath().toString()).getId());
 			}
-			catch(PartInitException exception)
-			{
+			catch(PartInitException exception) {
 				MessageDialog.openError(workbenchWindow.getShell(),
 						AggregatorEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
 				return false;
@@ -622,8 +570,7 @@ public class P2ModelWizard extends Wizard implements INewWizard
 
 			return true;
 		}
-		catch(Exception exception)
-		{
+		catch(Exception exception) {
 			AggregatorEditorPlugin.INSTANCE.log(exception);
 			return false;
 		}
@@ -634,9 +581,8 @@ public class P2ModelWizard extends Wizard implements INewWizard
 	 * 
 	 * @generated
 	 */
-	protected EObject createInitialModel()
-	{
-		EClass eClass = (EClass)p2Package.getEClassifier(initialObjectCreationPage.getInitialObjectName());
+	protected EObject createInitialModel() {
+		EClass eClass = (EClass) p2Package.getEClassifier(initialObjectCreationPage.getInitialObjectName());
 		EObject rootObject = p2Factory.create(eClass);
 		return rootObject;
 	}
@@ -647,18 +593,13 @@ public class P2ModelWizard extends Wizard implements INewWizard
 	 * 
 	 * @generated
 	 */
-	protected Collection<String> getInitialObjectNames()
-	{
-		if(initialObjectNames == null)
-		{
+	protected Collection<String> getInitialObjectNames() {
+		if(initialObjectNames == null) {
 			initialObjectNames = new ArrayList<String>();
-			for(EClassifier eClassifier : p2Package.getEClassifiers())
-			{
-				if(eClassifier instanceof EClass)
-				{
-					EClass eClass = (EClass)eClassifier;
-					if(!eClass.isAbstract())
-					{
+			for(EClassifier eClassifier : p2Package.getEClassifiers()) {
+				if(eClassifier instanceof EClass) {
+					EClass eClass = (EClass) eClassifier;
+					if(!eClass.isAbstract()) {
 						initialObjectNames.add(eClass.getName());
 					}
 				}

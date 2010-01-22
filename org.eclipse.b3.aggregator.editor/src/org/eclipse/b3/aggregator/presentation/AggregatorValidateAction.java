@@ -16,13 +16,10 @@ import org.eclipse.emf.edit.ui.action.ValidateAction;
  * 
  * @author Karel Brezina
  */
-public class AggregatorValidateAction extends ValidateAction
-{
-	public static class AggregatorResourcesUtil extends EclipseResourcesUtil
-	{
+public class AggregatorValidateAction extends ValidateAction {
+	public static class AggregatorResourcesUtil extends EclipseResourcesUtil {
 		@Override
-		protected String getMarkerID()
-		{
+		protected String getMarkerID() {
 			return AggregatorEditor.AGGREGATOR_PERSISTENT_PROBLEM_MARKER;
 		}
 	}

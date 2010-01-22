@@ -16,26 +16,26 @@ import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 /**
  * This is the central singleton for the Aggregator editor plugin.
  * <!-- begin-user-doc --> <!-- end-user-doc -->
+ * 
  * @generated
  */
-public final class AggregatorEditorPlugin extends EMFPlugin
-{
+public final class AggregatorEditorPlugin extends EMFPlugin {
 	/**
 	 * The actual implementation of the Eclipse <b>Plugin</b>.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public static class Implementation extends EclipseUIPlugin
-	{
+	public static class Implementation extends EclipseUIPlugin {
 		/**
 		 * Creates an instance.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @generated
 		 */
-		public Implementation()
-		{
+		public Implementation() {
 			super();
-	
+
 			// Remember the static instance.
 			//
 			plugin = this;
@@ -45,6 +45,7 @@ public final class AggregatorEditorPlugin extends EMFPlugin
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final AggregatorEditorPlugin INSTANCE = new AggregatorEditorPlugin();
@@ -52,6 +53,7 @@ public final class AggregatorEditorPlugin extends EMFPlugin
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private static Implementation plugin;
@@ -59,11 +61,11 @@ public final class AggregatorEditorPlugin extends EMFPlugin
 	/**
 	 * Returns the singleton instance of the Eclipse plugin.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the singleton instance.
 	 * @generated
 	 */
-	public static Implementation getPlugin()
-	{
+	public static Implementation getPlugin() {
 		return plugin;
 	}
 
@@ -72,34 +74,30 @@ public final class AggregatorEditorPlugin extends EMFPlugin
 	/**
 	 * Create the instance.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public AggregatorEditorPlugin()
-	{
-		super
-			(new ResourceLocator [] {
-			});
+	public AggregatorEditorPlugin() {
+		super(new ResourceLocator[] {});
 	}
 
-	public AdapterFactoryEditingDomain getActiveEditingDomain()
-	{
+	public AdapterFactoryEditingDomain getActiveEditingDomain() {
 		return this.editingDomain;
 	}
 
 	/**
 	 * Returns the singleton instance of the Eclipse plugin.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the singleton instance.
 	 * @generated
 	 */
 	@Override
-	public ResourceLocator getPluginResourceLocator()
-	{
+	public ResourceLocator getPluginResourceLocator() {
 		return plugin;
 	}
 
-	public void setActiveEditingDomain(AdapterFactoryEditingDomain editingDomain)
-	{
+	public void setActiveEditingDomain(AdapterFactoryEditingDomain editingDomain) {
 		this.editingDomain = editingDomain;
 	}
 

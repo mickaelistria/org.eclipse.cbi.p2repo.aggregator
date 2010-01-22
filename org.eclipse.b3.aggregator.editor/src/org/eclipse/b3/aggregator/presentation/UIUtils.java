@@ -19,11 +19,9 @@ import org.eclipse.swt.widgets.Text;
  * @author Karel Brezina
  * 
  */
-public class UIUtils
-{
+public class UIUtils {
 
-	public static TreePath createTreePath(EObject eObject)
-	{
+	public static TreePath createTreePath(EObject eObject) {
 		if(eObject == null)
 			return null;
 
@@ -31,8 +29,7 @@ public class UIUtils
 
 		segments.add(eObject);
 
-		while(eObject.eContainer() != null)
-		{
+		while(eObject.eContainer() != null) {
 			eObject = eObject.eContainer();
 			segments.add(0, eObject);
 		}
@@ -40,12 +37,10 @@ public class UIUtils
 		return new TreePath(segments.toArray());
 	}
 
-	public static String trimmedValue(String string)
-	{
+	public static String trimmedValue(String string) {
 		String value = null;
 
-		if(string != null)
-		{
+		if(string != null) {
 			value = string.trim();
 			if(value.length() == 0)
 				value = null;
@@ -53,11 +48,9 @@ public class UIUtils
 		return value;
 	}
 
-	public static String trimmedValue(Text text)
-	{
+	public static String trimmedValue(Text text) {
 		String value = null;
-		if(text != null)
-		{
+		if(text != null) {
 			value = text.getText().trim();
 			if(value.length() == 0)
 				value = null;
