@@ -18,14 +18,11 @@ import org.eclipse.equinox.internal.provisional.p2.metadata.VersionedId;
 /**
  * @author Thomas Hallgren
  */
-public class VersionSuffixGenerator
-{
+public class VersionSuffixGenerator {
 	public static final String VERSION_QUALIFIER = "qualifier";
 
-	private static void appendEncodedCharacter(StringBuilder buffer, int c)
-	{
-		while(c > 62)
-		{
+	private static void appendEncodedCharacter(StringBuilder buffer, int c) {
+		while(c > 62) {
 			buffer.append('z');
 			c -= 63;
 		}
@@ -35,15 +32,13 @@ public class VersionSuffixGenerator
 	// Integer to character conversion in our base-64 encoding scheme. If the
 	// input is out of range, an illegal character will be returned.
 	//
-	private static char base64Character(int number)
-	{
+	private static char base64Character(int number) {
 		return (number < 0 || number > 63)
 				? ' '
 				: BASE_64_ENCODING.charAt(number);
 	}
 
-	private static int charValue(char c)
-	{
+	private static int charValue(char c) {
 		int index = BASE_64_ENCODING.indexOf(c);
 		// The "+ 1" is very intentional. For a blank (or anything else that
 		// is not a legal character), we want to return 0. For legal
@@ -73,22 +68,18 @@ public class VersionSuffixGenerator
 	// "7-" through "76" and "E--" through "E6z" are not legal encodings of
 	// any number. But the benefit of filling in those wasted ranges would not
 	// be worth the added complexity.)
-	private static String lengthPrefixBase64(long number)
-	{
+	private static String lengthPrefixBase64(long number) {
 		int length = 7;
-		for(int i = 0; i < 7; ++i)
-		{
-			if(number < (1L << ((i * 6) + 3)))
-			{
+		for(int i = 0; i < 7; ++i) {
+			if(number < (1L << ((i * 6) + 3))) {
 				length = i;
 				break;
 			}
 		}
 		StringBuilder result = new StringBuilder(length + 1);
-		result.append(base64Character((length << 3) + (int)((number >> (6 * length)) & 0x7)));
-		while(--length >= 0)
-		{
-			result.append(base64Character((int)((number >> (6 * length)) & 0x3f)));
+		result.append(base64Character((length << 3) + (int) ((number >> (6 * length)) & 0x7)));
+		while(--length >= 0) {
+			result.append(base64Character((int) ((number >> (6 * length)) & 0x3f)));
 		}
 		return result.toString();
 	}
@@ -100,13 +91,11 @@ public class VersionSuffixGenerator
 	// The 64 characters that are legal in a version qualifier, in lexicographical order.
 	private static final String BASE_64_ENCODING = "-0123456789_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"; //$NON-NLS-1$
 
-	private static int computeNameSum(String name)
-	{
+	private static int computeNameSum(String name) {
 		int sum = 0;
 		int top = name.length();
 		int lshift = 20;
-		for(int idx = 0; idx < top; ++idx)
-		{
+		for(int idx = 0; idx < top; ++idx) {
 			int c = name.charAt(idx) & 0xffff;
 			if(c == '.' && lshift > 0)
 				lshift -= 4;
@@ -120,13 +109,11 @@ public class VersionSuffixGenerator
 
 	private final int m_significantDigits;
 
-	public VersionSuffixGenerator()
-	{
+	public VersionSuffixGenerator() {
 		this(-1, -1);
 	}
 
-	public VersionSuffixGenerator(int maxVersionSuffixLenght, int significantDigits)
-	{
+	public VersionSuffixGenerator(int maxVersionSuffixLenght, int significantDigits) {
 		m_maxVersionSuffixLength = maxVersionSuffixLenght < 0
 				? 28
 				: maxVersionSuffixLenght;
@@ -135,8 +122,7 @@ public class VersionSuffixGenerator
 				: significantDigits;
 	}
 
-	public void addContextQualifierLength(String context, int length)
-	{
+	public void addContextQualifierLength(String context, int length) {
 		if(m_contextQualifierLengths == null)
 			m_contextQualifierLengths = new HashMap<String, Integer>();
 		m_contextQualifierLengths.put(context, Integer.valueOf(length));
@@ -149,8 +135,7 @@ public class VersionSuffixGenerator
 	 * @return The generated suffix or <code>null</code>
 	 * @throws CoreException
 	 */
-	public String generateSuffix(List<VersionedId> features, List<VersionedId> bundles)
-	{
+	public String generateSuffix(List<VersionedId> features, List<VersionedId> bundles) {
 		if(m_maxVersionSuffixLength <= 0)
 			return null; // do nothing
 
@@ -178,8 +163,7 @@ public class VersionSuffixGenerator
 		// to the running totals and storing the qualifier suffixes.
 		//
 		int idx = 0;
-		for(VersionedId refFeature : features)
-		{
+		for(VersionedId refFeature : features) {
 			Version version = refFeature.getVersion();
 			majorSum += version.getMajor();
 			minorSum += version.getMinor();
@@ -211,8 +195,7 @@ public class VersionSuffixGenerator
 		// Loop through the included plug-ins and fragments, adding the version
 		// number parts to the running totals and storing the qualifiers.
 		//
-		for(VersionedId refBundle : bundles)
-		{
+		for(VersionedId refBundle : bundles) {
 			Version version = refBundle.getVersion();
 			majorSum += version.getMajor();
 			minorSum += version.getMinor();
@@ -221,11 +204,9 @@ public class VersionSuffixGenerator
 			String qualifier = version.isOSGiCompatible()
 					? version.getQualifier()
 					: null;
-			if(qualifier != null && qualifier.endsWith(VERSION_QUALIFIER))
-			{
+			if(qualifier != null && qualifier.endsWith(VERSION_QUALIFIER)) {
 				int resultingLength = qualifier.length() - VERSION_QUALIFIER.length();
-				if(resultingLength > 0)
-				{
+				if(resultingLength > 0) {
 					if(qualifier.charAt(resultingLength - 1) == '.')
 						resultingLength--;
 					qualifier = resultingLength > 0
@@ -242,14 +223,12 @@ public class VersionSuffixGenerator
 		// and figure out what the longest qualifier is.
 		//
 		int longestQualifier = 0;
-		while(--idx >= 0)
-		{
+		while(--idx >= 0) {
 			String qualifier = qualifiers[idx];
 			if(qualifier == null)
 				continue;
 
-			if(qualifier.length() > m_significantDigits)
-			{
+			if(qualifier.length() > m_significantDigits) {
 				qualifier = qualifier.substring(0, m_significantDigits);
 				qualifiers[idx] = qualifier;
 			}
@@ -265,12 +244,10 @@ public class VersionSuffixGenerator
 		result.append(lengthPrefixBase64(serviceSum));
 		result.append(lengthPrefixBase64(nameCharsSum));
 
-		if(longestQualifier > 0)
-		{
+		if(longestQualifier > 0) {
 			// Calculate the sum at each position of the qualifiers.
 			int[] qualifierSums = new int[longestQualifier];
-			for(idx = 0; idx < numElements; ++idx)
-			{
+			for(idx = 0; idx < numElements; ++idx) {
 				String qualifier = qualifiers[idx];
 				if(qualifier == null)
 					continue;
@@ -282,8 +259,7 @@ public class VersionSuffixGenerator
 
 			// Normalize the sums to be base 65.
 			int carry = 0;
-			for(int k = longestQualifier - 1; k >= 1; --k)
-			{
+			for(int k = longestQualifier - 1; k >= 1; --k) {
 				qualifierSums[k] += carry;
 				carry = qualifierSums[k] / 65;
 				qualifierSums[k] = qualifierSums[k] % 65;
