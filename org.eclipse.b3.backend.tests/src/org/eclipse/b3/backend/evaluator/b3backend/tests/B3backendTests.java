@@ -96,8 +96,10 @@ public class B3backendTests extends TestSuite {
 		suite.addTestSuite(BFunctionTest.class);
 		suite.addTestSuite(BFunctionWrapperTest.class);
 		suite.addTestSuite(BFunctionNamePredicateTest.class);
+		suite.addTestSuite(BFunctionConcernContextTest.class);
 		suite.addTestSuite(BProceedExpressionTest.class);
 		suite.addTestSuite(BDelegatingContextTest.class);
+		suite.addTestSuite(BWrappingContextTest.class);
 		return suite;
 	}
 

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -54,12 +55,16 @@ public class B3FuncStore {
 			return;
 		fList.remove(func);
 	}
+	/**
+	 * Returns the list of functions defined in this func store for name (or an empty list).
+	 * @param name
+	 * @return
+	 */
 	private List<IFunction> getFunctionsByName(String name) {
 		if(defined == null)
 			return Collections.emptyList();
 		return defined.get(name);
 	}
-	
 	public Object callFunction(String functionName, Object[] parameters, Type[] types, BExecutionContext ctx) throws Throwable {
 		// find the best matching function, call it, or throw B3NoSuchFunctionException
 		
@@ -79,12 +84,21 @@ public class B3FuncStore {
 		IFunction toBeCalled = getBestFunction(functionName, parameters, types, ctx);
 		if(toBeCalled == null)
 			throw new B3NoSuchFunctionSignatureException(functionName, types);
-		return toBeCalled.internalCall(ctx.createOuterContext(), parameters, types); 
+		return toBeCalled.call(ctx.createOuterContext(), parameters, types); 
 	}
 	private void updateCache(String name) throws B3EngineException {
 		effective.put(name, getEffectiveList(name, getFunctionsByName(name).size()));
 		dirtyFunctions.remove(name);
 	}
+//	/**
+//	 * Updates cache for all functions.
+//	 * @throws B3EngineException
+//	 */
+//	private void updateCache() throws B3EngineException {
+//		for(String name : dirtyFunctions)
+//			effective.put(name, getEffectiveList(name, getFunctionsByName(name).size()));
+//		dirtyFunctions.clear();
+//	}
 	private List<IFunction> getEffectiveList(String name, int size) throws B3EngineException {
 		if(parentStore == null) {
 			List<IFunction> thisList = getFunctionsByName(name);
@@ -322,6 +336,90 @@ public class B3FuncStore {
 
 		return toBeCalled.getReturnTypeForParameterTypes(types,ctx); 
 	}
+	/**
+	 * Returns an iterator over all visible functions having a given name.
+	 * @param name
+	 * @return
+	 */
+	public Iterator<IFunction> getFunctionIterator(String name) {
+		// if the cache is dirty for name - update the cache
+		if(dirtyFunctions.contains(name))
+			try {
+				updateCache(name);
+			} catch (B3EngineException e) {
+				e.printStackTrace();
+				throw new B3InternalError("Failed to update function cache", e);
+			}
+		
+		List<IFunction> f = effective.get(name);
+		if(f == null)
+			return parentStore == null ?  emptyFunctionList().iterator() : parentStore.getFunctionIterator(name);
+		return f.iterator();
+	}
+	/**
+	 * Returns an iterator over all visible functions. This is an expensive operation.
+	 * @return
+	 */
+	public Iterator<IFunction> getFunctionIterator() {
+		// (note: cache gets updated per name by the UberIterator)
+		
+		// construct set of all keys
+		Set<String> allKeys = new HashSet<String>();
+		for(B3FuncStore fs = this; fs != null ; fs = fs.parentStore)
+			if(fs.defined != null)
+				allKeys.addAll(fs.defined.keySet());
+		// use uber iterator to iterate over all names and resulting lists
+		UberIterator itor = new UberIterator(allKeys.iterator());
+		return itor;
+	}
+	private static List<IFunction> emptyFunctionList() {
+		return Collections.emptyList();
+	}
+	public Iterable<IFunction> functionIterable(final String name) {
+		return new Iterable<IFunction>() {
 
+			public Iterator<IFunction> iterator() {
+				return getFunctionIterator(name);
+			}
+		};
+	}
+	public Iterable<IFunction> functionIterable() {
+		return new Iterable<IFunction>() {
 
+			public Iterator<IFunction> iterator() {
+				return getFunctionIterator();
+			}
+		};
+	}
+	/**
+	 * Iterator capable of iterating over all functions when initialized with an iterator of all possible
+	 * function names.
+	 */
+	private class UberIterator implements Iterator<IFunction> {
+		Iterator<String> keyIterator;
+		Iterator<IFunction> currentIterator;
+
+		private UberIterator(Iterator<String> allKeysIterator) {
+			keyIterator = allKeysIterator;
+			currentIterator = keyIterator.hasNext() ? getFunctionIterator(keyIterator.next()) : emptyFunctionList().iterator();
+		}
+		public boolean hasNext() {
+			return currentIterator.hasNext() || keyIterator.hasNext();
+		}
+
+		public IFunction next() {
+			if(currentIterator.hasNext())
+				return currentIterator.next();
+			String key = keyIterator.next();
+			currentIterator = getFunctionIterator(key);
+			return currentIterator.next();
+		}
+		/**
+		 * Throws {@link UnsupportedOperationException}.
+		 */
+		public void remove() {
+			throw new UnsupportedOperationException("remove from function iterator not allowed");			
+		}
+		
+	}
 }

@@ -55,6 +55,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getDeclaredFunctionType(java.lang.String, java.lang.reflect.Type[]) <em>Get Declared Function Type</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#isPropertyScope() <em>Is Property Scope</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getContext(java.lang.Class) <em>Get Context</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getFunctionIterator() <em>Get Function Iterator</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getFunctionIterator(java.lang.String) <em>Get Function Iterator</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -650,6 +652,32 @@ public abstract class BExecutionContextTest extends TestCase {
 	 * @generated
 	 */
 	public void testGetContext__Class() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getFunctionIterator() <em>Get Function Iterator</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getFunctionIterator()
+	 * @generated
+	 */
+	public void testGetFunctionIterator() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getFunctionIterator(java.lang.String) <em>Get Function Iterator</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getFunctionIterator(java.lang.String)
+	 * @generated
+	 */
+	public void testGetFunctionIterator__String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

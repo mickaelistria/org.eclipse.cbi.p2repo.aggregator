@@ -47,7 +47,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class BConcernContextItemProvider
-	extends ItemProviderAdapter
+	extends BExpressionItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -147,11 +147,8 @@ public class BConcernContextItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Type labelValue = ((BConcernContext)object).getContainerType();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_BConcernContext_type") :
-			getString("_UI_BConcernContext_type") + " " + label;
+		BConcernContext bConcernContext = (BConcernContext)object;
+		return getString("_UI_BConcernContext_type") + " " + bConcernContext.getLineNumber();
 	}
 
 	/**
@@ -206,17 +203,6 @@ public class BConcernContextItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BFUNCTION_CONTAINER__FUNCTIONS,
 				 B3backendFactory.eINSTANCE.createBFunctionWrapper()));
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return B3BackendEditPlugin.INSTANCE;
 	}
 
 }

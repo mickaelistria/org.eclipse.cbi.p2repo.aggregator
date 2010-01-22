@@ -1624,6 +1624,29 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BWrappingContextItemProvider bWrappingContextItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBWrappingContextAdapter() {
+		if (bWrappingContextItemProvider == null) {
+			bWrappingContextItemProvider = new BWrappingContextItemProvider(this);
+		}
+
+		return bWrappingContextItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1789,6 +1812,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 		if (bParameterPredicateItemProvider != null) bParameterPredicateItemProvider.dispose();
 		if (bProceedExpressionItemProvider != null) bProceedExpressionItemProvider.dispose();
 		if (bDelegatingContextItemProvider != null) bDelegatingContextItemProvider.dispose();
+		if (bWrappingContextItemProvider != null) bWrappingContextItemProvider.dispose();
 	}
 
 }

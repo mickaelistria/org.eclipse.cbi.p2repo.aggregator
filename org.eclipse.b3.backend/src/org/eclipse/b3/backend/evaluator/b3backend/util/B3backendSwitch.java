@@ -646,7 +646,9 @@ public class B3backendSwitch<T> {
 			case B3backendPackage.BCONCERN_CONTEXT: {
 				BConcernContext bConcernContext = (BConcernContext)theEObject;
 				T result = caseBConcernContext(bConcernContext);
+				if (result == null) result = caseBExpression(bConcernContext);
 				if (result == null) result = caseBFunctionContainer(bConcernContext);
+				if (result == null) result = caseBSourceLink(bConcernContext);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -688,7 +690,9 @@ public class B3backendSwitch<T> {
 				BFunctionConcernContext bFunctionConcernContext = (BFunctionConcernContext)theEObject;
 				T result = caseBFunctionConcernContext(bFunctionConcernContext);
 				if (result == null) result = caseBConcernContext(bFunctionConcernContext);
+				if (result == null) result = caseBExpression(bFunctionConcernContext);
 				if (result == null) result = caseBFunctionContainer(bFunctionConcernContext);
+				if (result == null) result = caseBSourceLink(bFunctionConcernContext);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -711,6 +715,15 @@ public class B3backendSwitch<T> {
 				T result = caseBDelegatingContext(bDelegatingContext);
 				if (result == null) result = caseBInnerContext(bDelegatingContext);
 				if (result == null) result = caseBExecutionContext(bDelegatingContext);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3backendPackage.BWRAPPING_CONTEXT: {
+				BWrappingContext bWrappingContext = (BWrappingContext)theEObject;
+				T result = caseBWrappingContext(bWrappingContext);
+				if (result == null) result = caseBDelegatingContext(bWrappingContext);
+				if (result == null) result = caseBInnerContext(bWrappingContext);
+				if (result == null) result = caseBExecutionContext(bWrappingContext);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1315,6 +1328,21 @@ public class B3backendSwitch<T> {
 	 * @generated
 	 */
 	public T caseBDelegatingContext(BDelegatingContext object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BWrapping Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BWrapping Context</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBWrappingContext(BWrappingContext object) {
 		return null;
 	}
 

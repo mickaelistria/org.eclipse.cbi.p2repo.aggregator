@@ -286,7 +286,7 @@ public class BCallExpressionImpl extends BParameterizedExpressionImpl implements
 		// TODO: Don't know if this treatment is needed elsewhere as well...
 		BExecutionContext useCtx = ((BFunction)target).getClosure();
 		useCtx = useCtx == null ? ctx.createOuterContext() : useCtx.createInnerContext();
-		return ((BFunction)target).internalCall(useCtx, parameters, tparameters);
+		return ((BFunction)target).call(useCtx, parameters, tparameters);
 	}
 
 	private Object namedFunctionCall(BExecutionContext ctx) throws Throwable {

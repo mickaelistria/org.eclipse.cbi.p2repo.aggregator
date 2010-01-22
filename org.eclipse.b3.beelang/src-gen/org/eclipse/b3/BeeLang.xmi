@@ -2612,16 +2612,24 @@
             <classifier xsi:type="ecore:EClass" href="http://b3backend/1.0#//BParameterPredicate"/>
           </type>
         </tokens>
-        <tokens xsi:type="xtext:Assignment" feature="typePredicateOp" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="//@rules.98"/>
+        <tokens xsi:type="xtext:Group">
+          <tokens xsi:type="xtext:Keyword" value="_"/>
+          <tokens xsi:type="xtext:Assignment" cardinality="?" feature="typePredicateOp" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.98"/>
+          </tokens>
         </tokens>
       </groups>
       <groups xsi:type="xtext:Group">
         <tokens xsi:type="xtext:Assignment" feature="type" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="//@rules.55"/>
         </tokens>
-        <tokens xsi:type="xtext:Assignment" cardinality="?" feature="name" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="//@rules.160"/>
+        <tokens xsi:type="xtext:Alternatives" cardinality="?">
+          <groups xsi:type="xtext:Assignment" feature="typePredicateOp" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.98"/>
+          </groups>
+          <groups xsi:type="xtext:Assignment" feature="name" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.160"/>
+          </groups>
         </tokens>
       </groups>
     </alternatives>
@@ -2637,9 +2645,7 @@
             <classifier xsi:type="ecore:EClass" href="http://b3backend/1.0#//BParameterPredicate"/>
           </type>
         </tokens>
-        <tokens xsi:type="xtext:Assignment" feature="typePredicateOp" operator="=">
-          <terminal xsi:type="xtext:Keyword" value="_"/>
-        </tokens>
+        <tokens xsi:type="xtext:Keyword" value="_"/>
       </groups>
       <groups xsi:type="xtext:Group">
         <tokens xsi:type="xtext:Assignment" feature="type" operator="=">
@@ -2656,7 +2662,7 @@
       <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </type>
     <alternatives xsi:type="xtext:Alternatives">
-      <groups xsi:type="xtext:Keyword" value="_"/>
+      <groups xsi:type="xtext:Keyword" value="?"/>
       <groups xsi:type="xtext:Keyword" value="*"/>
       <groups xsi:type="xtext:Keyword" value="+"/>
     </alternatives>

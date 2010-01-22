@@ -4249,13 +4249,31 @@ public interface B3backendPackage extends EPackage {
 	int BCONCERN_CONTEXT = 74;
 
 	/**
+	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BCONCERN_CONTEXT__LINE_NUMBER = BEXPRESSION__LINE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>File Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BCONCERN_CONTEXT__FILE_REFERENCE = BEXPRESSION__FILE_REFERENCE;
+
+	/**
 	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BCONCERN_CONTEXT__FUNCTIONS = BFUNCTION_CONTAINER__FUNCTIONS;
+	int BCONCERN_CONTEXT__FUNCTIONS = BEXPRESSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Container Type</b></em>' attribute.
@@ -4264,7 +4282,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BCONCERN_CONTEXT__CONTAINER_TYPE = BFUNCTION_CONTAINER__CONTAINER_TYPE;
+	int BCONCERN_CONTEXT__CONTAINER_TYPE = BEXPRESSION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>BConcern Context</em>' class.
@@ -4273,7 +4291,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BCONCERN_CONTEXT_FEATURE_COUNT = BFUNCTION_CONTAINER_FEATURE_COUNT + 0;
+	int BCONCERN_CONTEXT_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl <em>BFunction Wrapper</em>}' class.
@@ -4448,13 +4466,13 @@ public interface B3backendPackage extends EPackage {
 	int BFUNCTION_WRAPPER__CONTAINER = BEXPRESSION_FEATURE_COUNT + 15;
 
 	/**
-	 * The feature id for the '<em><b>Wrapper</b></em>' reference.
+	 * The feature id for the '<em><b>Around Expr</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BFUNCTION_WRAPPER__WRAPPER = BEXPRESSION_FEATURE_COUNT + 16;
+	int BFUNCTION_WRAPPER__AROUND_EXPR = BEXPRESSION_FEATURE_COUNT + 16;
 
 	/**
 	 * The feature id for the '<em><b>Original</b></em>' reference.
@@ -4466,13 +4484,31 @@ public interface B3backendPackage extends EPackage {
 	int BFUNCTION_WRAPPER__ORIGINAL = BEXPRESSION_FEATURE_COUNT + 17;
 
 	/**
+	 * The feature id for the '<em><b>Parameter Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BFUNCTION_WRAPPER__PARAMETER_MAP = BEXPRESSION_FEATURE_COUNT + 18;
+
+	/**
+	 * The feature id for the '<em><b>Varargs Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BFUNCTION_WRAPPER__VARARGS_NAME = BEXPRESSION_FEATURE_COUNT + 19;
+
+	/**
 	 * The number of structural features of the '<em>BFunction Wrapper</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BFUNCTION_WRAPPER_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 18;
+	int BFUNCTION_WRAPPER_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 20;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BNamePredicateImpl <em>BName Predicate</em>}' class.
@@ -4566,6 +4602,24 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 */
 	int BFUNCTION_CONCERN_CONTEXT = 79;
+
+	/**
+	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BFUNCTION_CONCERN_CONTEXT__LINE_NUMBER = BCONCERN_CONTEXT__LINE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>File Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BFUNCTION_CONCERN_CONTEXT__FILE_REFERENCE = BCONCERN_CONTEXT__FILE_REFERENCE;
 
 	/**
 	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
@@ -4778,6 +4832,124 @@ public interface B3backendPackage extends EPackage {
 	int BDELEGATING_CONTEXT_FEATURE_COUNT = BINNER_CONTEXT_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWrappingContextImpl <em>BWrapping Context</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BWrappingContextImpl
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBWrappingContext()
+	 * @generated
+	 */
+	int BWRAPPING_CONTEXT = 83;
+
+	/**
+	 * The feature id for the '<em><b>Parent Context</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BWRAPPING_CONTEXT__PARENT_CONTEXT = BDELEGATING_CONTEXT__PARENT_CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Child Contexts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BWRAPPING_CONTEXT__CHILD_CONTEXTS = BDELEGATING_CONTEXT__CHILD_CONTEXTS;
+
+	/**
+	 * The feature id for the '<em><b>Value Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BWRAPPING_CONTEXT__VALUE_MAP = BDELEGATING_CONTEXT__VALUE_MAP;
+
+	/**
+	 * The feature id for the '<em><b>Func Store</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BWRAPPING_CONTEXT__FUNC_STORE = BDELEGATING_CONTEXT__FUNC_STORE;
+
+	/**
+	 * The feature id for the '<em><b>Outer Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BWRAPPING_CONTEXT__OUTER_CONTEXT = BDELEGATING_CONTEXT__OUTER_CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Function Wrapper</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BWRAPPING_CONTEXT__FUNCTION_WRAPPER = BDELEGATING_CONTEXT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Wrapped Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BWRAPPING_CONTEXT__WRAPPED_CONTEXT = BDELEGATING_CONTEXT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BWRAPPING_CONTEXT__PARAMETERS = BDELEGATING_CONTEXT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Parameter Types</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BWRAPPING_CONTEXT__PARAMETER_TYPES = BDELEGATING_CONTEXT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Varargs Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BWRAPPING_CONTEXT__VARARGS_NAME = BDELEGATING_CONTEXT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Varargs Array</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BWRAPPING_CONTEXT__VARARGS_ARRAY = BDELEGATING_CONTEXT_FEATURE_COUNT + 5;
+
+	/**
+	 * The number of structural features of the '<em>BWrapping Context</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BWRAPPING_CONTEXT_FEATURE_COUNT = BDELEGATING_CONTEXT_FEATURE_COUNT + 6;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.Visibility <em>Visibility</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4785,7 +4957,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getVisibility()
 	 * @generated
 	 */
-	int VISIBILITY = 83;
+	int VISIBILITY = 84;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode <em>Execution Mode</em>}' enum.
@@ -4795,7 +4967,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getExecutionMode()
 	 * @generated
 	 */
-	int EXECUTION_MODE = 84;
+	int EXECUTION_MODE = 85;
 
 	/**
 	 * The meta object id for the '<em>Core Exception</em>' data type.
@@ -4805,7 +4977,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getCoreException()
 	 * @generated
 	 */
-	int CORE_EXCEPTION = 85;
+	int CORE_EXCEPTION = 86;
 
 
 	/**
@@ -4816,7 +4988,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 86;
+	int TYPE = 87;
 
 	/**
 	 * The meta object id for the '<em>Object Array</em>' data type.
@@ -4825,7 +4997,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getObjectArray()
 	 * @generated
 	 */
-	int OBJECT_ARRAY = 87;
+	int OBJECT_ARRAY = 88;
 
 
 	/**
@@ -4836,7 +5008,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getValueMap()
 	 * @generated
 	 */
-	int VALUE_MAP = 88;
+	int VALUE_MAP = 89;
 
 
 	/**
@@ -4847,7 +5019,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3EngineException()
 	 * @generated
 	 */
-	int B3_ENGINE_EXCEPTION = 89;
+	int B3_ENGINE_EXCEPTION = 90;
 
 
 	/**
@@ -4858,7 +5030,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3ExpressionCache()
 	 * @generated
 	 */
-	int B3_EXPRESSION_CACHE = 90;
+	int B3_EXPRESSION_CACHE = 91;
 
 
 	/**
@@ -4869,7 +5041,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getThrowable()
 	 * @generated
 	 */
-	int THROWABLE = 91;
+	int THROWABLE = 92;
 
 	/**
 	 * The meta object id for the '<em>LValue</em>' data type.
@@ -4879,7 +5051,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getLValue()
 	 * @generated
 	 */
-	int LVALUE = 92;
+	int LVALUE = 93;
 
 	/**
 	 * The meta object id for the '<em>Type Array</em>' data type.
@@ -4888,7 +5060,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getTypeArray()
 	 * @generated
 	 */
-	int TYPE_ARRAY = 93;
+	int TYPE_ARRAY = 94;
 
 	/**
 	 * The meta object id for the '<em>Method</em>' data type.
@@ -4898,7 +5070,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getMethod()
 	 * @generated
 	 */
-	int METHOD = 94;
+	int METHOD = 95;
 
 	/**
 	 * The meta object id for the '<em>Type Variable Array</em>' data type.
@@ -4907,7 +5079,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getTypeVariableArray()
 	 * @generated
 	 */
-	int TYPE_VARIABLE_ARRAY = 95;
+	int TYPE_VARIABLE_ARRAY = 96;
 
 	/**
 	 * The meta object id for the '<em>Func Store</em>' data type.
@@ -4917,7 +5089,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getFuncStore()
 	 * @generated
 	 */
-	int FUNC_STORE = 96;
+	int FUNC_STORE = 97;
 
 	/**
 	 * The meta object id for the '<em>Regexp Pattern</em>' data type.
@@ -4927,7 +5099,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getRegexpPattern()
 	 * @generated
 	 */
-	int REGEXP_PATTERN = 97;
+	int REGEXP_PATTERN = 98;
 
 	/**
 	 * The meta object id for the '<em>String Array</em>' data type.
@@ -4936,7 +5108,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getStringArray()
 	 * @generated
 	 */
-	int STRING_ARRAY = 98;
+	int STRING_ARRAY = 99;
 
 	/**
 	 * The meta object id for the '<em>B3 Dynamic Class Loader</em>' data type.
@@ -4946,7 +5118,17 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3DynamicClassLoader()
 	 * @generated
 	 */
-	int B3_DYNAMIC_CLASS_LOADER = 99;
+	int B3_DYNAMIC_CLASS_LOADER = 100;
+
+	/**
+	 * The meta object id for the '<em>IFunction Iterator</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.util.Iterator
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getIFunctionIterator()
+	 * @generated
+	 */
+	int IFUNCTION_ITERATOR = 101;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BExpression <em>BExpression</em>}'.
@@ -5960,15 +6142,15 @@ public interface B3backendPackage extends EPackage {
 	EClass getBFunctionWrapper();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper#getWrapper <em>Wrapper</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper#getAroundExpr <em>Around Expr</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Wrapper</em>'.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper#getWrapper()
+	 * @return the meta object for the reference '<em>Around Expr</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper#getAroundExpr()
 	 * @see #getBFunctionWrapper()
 	 * @generated
 	 */
-	EReference getBFunctionWrapper_Wrapper();
+	EReference getBFunctionWrapper_AroundExpr();
 
 	/**
 	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper#getOriginal <em>Original</em>}'.
@@ -5980,6 +6162,28 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBFunctionWrapper_Original();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper#getParameterMap <em>Parameter Map</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Parameter Map</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper#getParameterMap()
+	 * @see #getBFunctionWrapper()
+	 * @generated
+	 */
+	EAttribute getBFunctionWrapper_ParameterMap();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper#getVarargsName <em>Varargs Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Varargs Name</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper#getVarargsName()
+	 * @see #getBFunctionWrapper()
+	 * @generated
+	 */
+	EAttribute getBFunctionWrapper_VarargsName();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate <em>BName Predicate</em>}'.
@@ -6150,6 +6354,82 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getBDelegatingContext();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext <em>BWrapping Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>BWrapping Context</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext
+	 * @generated
+	 */
+	EClass getBWrappingContext();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext#getFunctionWrapper <em>Function Wrapper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Function Wrapper</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext#getFunctionWrapper()
+	 * @see #getBWrappingContext()
+	 * @generated
+	 */
+	EReference getBWrappingContext_FunctionWrapper();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext#getWrappedContext <em>Wrapped Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Wrapped Context</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext#getWrappedContext()
+	 * @see #getBWrappingContext()
+	 * @generated
+	 */
+	EReference getBWrappingContext_WrappedContext();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext#getParameters <em>Parameters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Parameters</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext#getParameters()
+	 * @see #getBWrappingContext()
+	 * @generated
+	 */
+	EAttribute getBWrappingContext_Parameters();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext#getParameterTypes <em>Parameter Types</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Parameter Types</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext#getParameterTypes()
+	 * @see #getBWrappingContext()
+	 * @generated
+	 */
+	EAttribute getBWrappingContext_ParameterTypes();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext#getVarargsName <em>Varargs Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Varargs Name</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext#getVarargsName()
+	 * @see #getBWrappingContext()
+	 * @generated
+	 */
+	EAttribute getBWrappingContext_VarargsName();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext#getVarargsArray <em>Varargs Array</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Varargs Array</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext#getVarargsArray()
+	 * @see #getBWrappingContext()
+	 * @generated
+	 */
+	EAttribute getBWrappingContext_VarargsArray();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BGuard <em>BGuard</em>}'.
@@ -7417,6 +7697,17 @@ public interface B3backendPackage extends EPackage {
 	EDataType getB3DynamicClassLoader();
 
 	/**
+	 * Returns the meta object for data type '{@link java.util.Iterator <em>IFunction Iterator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>IFunction Iterator</em>'.
+	 * @see java.util.Iterator
+	 * @model instanceClass="java.util.Iterator" typeParameters="E"
+	 * @generated
+	 */
+	EDataType getIFunctionIterator();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8267,12 +8558,12 @@ public interface B3backendPackage extends EPackage {
 		EClass BFUNCTION_WRAPPER = eINSTANCE.getBFunctionWrapper();
 
 		/**
-		 * The meta object literal for the '<em><b>Wrapper</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Around Expr</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BFUNCTION_WRAPPER__WRAPPER = eINSTANCE.getBFunctionWrapper_Wrapper();
+		EReference BFUNCTION_WRAPPER__AROUND_EXPR = eINSTANCE.getBFunctionWrapper_AroundExpr();
 
 		/**
 		 * The meta object literal for the '<em><b>Original</b></em>' reference feature.
@@ -8281,6 +8572,22 @@ public interface B3backendPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BFUNCTION_WRAPPER__ORIGINAL = eINSTANCE.getBFunctionWrapper_Original();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameter Map</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BFUNCTION_WRAPPER__PARAMETER_MAP = eINSTANCE.getBFunctionWrapper_ParameterMap();
+
+		/**
+		 * The meta object literal for the '<em><b>Varargs Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BFUNCTION_WRAPPER__VARARGS_NAME = eINSTANCE.getBFunctionWrapper_VarargsName();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BNamePredicateImpl <em>BName Predicate</em>}' class.
@@ -8421,6 +8728,64 @@ public interface B3backendPackage extends EPackage {
 		 * @generated
 		 */
 		EClass BDELEGATING_CONTEXT = eINSTANCE.getBDelegatingContext();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWrappingContextImpl <em>BWrapping Context</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BWrappingContextImpl
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBWrappingContext()
+		 * @generated
+		 */
+		EClass BWRAPPING_CONTEXT = eINSTANCE.getBWrappingContext();
+
+		/**
+		 * The meta object literal for the '<em><b>Function Wrapper</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BWRAPPING_CONTEXT__FUNCTION_WRAPPER = eINSTANCE.getBWrappingContext_FunctionWrapper();
+
+		/**
+		 * The meta object literal for the '<em><b>Wrapped Context</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BWRAPPING_CONTEXT__WRAPPED_CONTEXT = eINSTANCE.getBWrappingContext_WrappedContext();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameters</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BWRAPPING_CONTEXT__PARAMETERS = eINSTANCE.getBWrappingContext_Parameters();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameter Types</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BWRAPPING_CONTEXT__PARAMETER_TYPES = eINSTANCE.getBWrappingContext_ParameterTypes();
+
+		/**
+		 * The meta object literal for the '<em><b>Varargs Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BWRAPPING_CONTEXT__VARARGS_NAME = eINSTANCE.getBWrappingContext_VarargsName();
+
+		/**
+		 * The meta object literal for the '<em><b>Varargs Array</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BWRAPPING_CONTEXT__VARARGS_ARRAY = eINSTANCE.getBWrappingContext_VarargsArray();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BGuardImpl <em>BGuard</em>}' class.
@@ -9489,6 +9854,16 @@ public interface B3backendPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType B3_DYNAMIC_CLASS_LOADER = eINSTANCE.getB3DynamicClassLoader();
+
+		/**
+		 * The meta object literal for the '<em>IFunction Iterator</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.util.Iterator
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getIFunctionIterator()
+		 * @generated
+		 */
+		EDataType IFUNCTION_ITERATOR = eINSTANCE.getIFunctionIterator();
 
 	}
 

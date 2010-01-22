@@ -475,10 +475,34 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Calls the function and returns its value. The context passed to this method is used as the context in which the function may store its parameter bindings.
+	 * 
+	 * <!-- end-model-doc -->
+	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable" parametersDataType="org.eclipse.b3.backend.evaluator.b3backend.ObjectArray" typesDataType="org.eclipse.b3.backend.evaluator.b3backend.TypeArray"
+	 * @generated
+	 */
+	Object call(BExecutionContext ctx, Object[] parameters, Type[] types) throws Throwable;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable" parametersDataType="org.eclipse.b3.backend.evaluator.b3backend.ObjectArray" typesDataType="org.eclipse.b3.backend.evaluator.b3backend.TypeArray"
 	 * @generated
 	 */
 	Object internalCall(BExecutionContext ctx, Object[] parameters, Type[] types) throws Throwable;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Prepares the call (if needed) by processing the parameters and types and updating the context.
+	 * Does not perform the actual call.
+	 * <!-- end-model-doc -->
+	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable" parametersDataType="org.eclipse.b3.backend.evaluator.b3backend.ObjectArray" typesDataType="org.eclipse.b3.backend.evaluator.b3backend.TypeArray"
+	 * @generated
+	 */
+	BExecutionContext prepareCall(BExecutionContext ctx, Object[] parameters, Type[] types) throws Throwable;
 
 	/**
 	 * <!-- begin-user-doc -->

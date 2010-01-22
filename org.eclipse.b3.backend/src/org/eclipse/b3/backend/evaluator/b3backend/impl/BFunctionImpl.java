@@ -9,9 +9,13 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 import java.lang.reflect.GenericDeclaration;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
+import org.eclipse.b3.backend.core.B3IncompatibleTypeException;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
+import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
@@ -24,6 +28,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator;
 import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.Visibility;
+import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -651,6 +656,19 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Calls {@link #prepareCall(BExecutionContext, Object[], Type[])}, 
+	 * and then {@link #internalCall(BExecutionContext, Object[], Type[])}.
+	 * Derived classes can override this method, and the prepare and internal call as they see fit.
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Object call(BExecutionContext ctx, Object[] parameters, Type[] types) throws Throwable {
+		ctx = prepareCall(ctx, parameters, types);
+		return internalCall(ctx, parameters, types);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * Returns an array of the effective parameter types (if already set it is returned, if null, it is calculated
 	 * from the list of parameter declarations).
 	 * <!-- end-user-doc -->
@@ -812,6 +830,69 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Prepares (and returns) a context suitable for performing an internal call.
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public BExecutionContext prepareCall(BExecutionContext octx, Object[] parameters, Type[] types) throws Throwable {
+		computeParameters();
+		if(parameterTypes.length > 0) { // if function takes no parameters, there is no binding to be done
+			int limit = parameterTypes.length -1; // bind all but the last defined parameter
+			if(parameters.length < limit)
+				throw new IllegalArgumentException("B3 Function called with too few arguments");
+			for(int i = 0; i < limit; i++) {
+				// check type compatibility
+				Object o = parameters[i];
+				Type t = o instanceof BFunction ? ((BFunction)o).getSignature() : o.getClass();
+
+				if(!(TypeUtils.isAssignableFrom(parameterTypes[i], t)))
+					throw new B3IncompatibleTypeException(parameterNames[i], 
+							parameterTypes[i].getClass(), parameters[i].getClass());
+				// ok, define it		
+				octx.defineVariableValue(parameterNames[i], parameters[i], parameterTypes[i]);
+			}
+			if(!isVarArgs()) { // if not varargs, bind the last defined parameter
+				if(parameters.length < parameterTypes.length)
+					throw new IllegalArgumentException("B3 Function called with too few arguments. Expected: "+parameterTypes.length +" but got: "+parameters.length);
+				// check type compatibility
+				Object o = parameters[limit];
+				if(o != null) {
+					Type t = o instanceof BFunction ? ((BFunction)o).getSignature() : o.getClass();
+					if(! TypeUtils.isAssignableFrom(parameterTypes[limit], t))
+						throw new B3IncompatibleTypeException(parameterNames[limit], 
+								parameterTypes[limit].getClass(), parameters[limit].getClass());
+				}
+				// ok
+				octx.defineVariableValue(parameterNames[limit], parameters[limit], parameterTypes[limit]);
+			} else {
+				// varargs call, create a list and stuff any remaining parameters there
+				List<Object> varargs = new ArrayList<Object>();
+				Type varargsType = parameterTypes[limit];
+				for(int i = limit; i < parameters.length; i++) {
+					Object o = parameters[i];
+					Type t = o instanceof BFunction ? ((BFunction)o).getSignature() : o.getClass();
+
+					if(!TypeUtils.isAssignableFrom(varargsType, t))
+						throw new B3IncompatibleTypeException(parameterNames[limit], 
+								varargsType, parameters[i].getClass());
+					varargs.add(parameters[i]);
+					}
+				B3ParameterizedType pt = B3backendFactory.eINSTANCE.createB3ParameterizedType();
+				pt.setRawType(List.class);
+				pt.getActualArgumentsList().add(parameterTypes[limit]);
+				// bind the varargs to a List of the declared type (possibly an empty list).
+				octx.defineVariableValue(parameterNames[limit], varargs, pt);
+			}
+		}
+		// mark the processing of parameters as done - (a bit ugly for now, as it requires getting the valueMap
+		// from the context - should be API on the context.
+		octx.getValueMap().markParametersDone(isVarArgs());
+		// returns the prepared context
+		return octx;
 	}
 
 	/**

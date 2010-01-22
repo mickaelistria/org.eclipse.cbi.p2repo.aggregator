@@ -358,6 +358,11 @@ public class BTryExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BTRY_EXPRESSION__TRY_EXPR,
+				 B3backendFactory.eINSTANCE.createBFunctionConcernContext()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BTRY_EXPRESSION__TRY_EXPR,
 				 B3backendFactory.eINSTANCE.createBProceedExpression()));
 
 		newChildDescriptors.add
@@ -559,6 +564,11 @@ public class BTryExpressionItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BTRY_EXPRESSION__FINALLY_EXPR,
 				 B3backendFactory.eINSTANCE.createBFunctionNamePredicate()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BTRY_EXPRESSION__FINALLY_EXPR,
+				 B3backendFactory.eINSTANCE.createBFunctionConcernContext()));
 
 		newChildDescriptors.add
 			(createChildParameter

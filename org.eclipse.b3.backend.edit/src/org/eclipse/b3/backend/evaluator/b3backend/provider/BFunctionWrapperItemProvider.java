@@ -91,8 +91,10 @@ public class BFunctionWrapperItemProvider
 			addVarArgsPropertyDescriptor(object);
 			addDocumentationPropertyDescriptor(object);
 			addClosurePropertyDescriptor(object);
-			addWrapperPropertyDescriptor(object);
+			addAroundExprPropertyDescriptor(object);
 			addOriginalPropertyDescriptor(object);
+			addParameterMapPropertyDescriptor(object);
+			addVarargsNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -340,19 +342,19 @@ public class BFunctionWrapperItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Wrapper feature.
+	 * This adds a property descriptor for the Around Expr feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addWrapperPropertyDescriptor(Object object) {
+	protected void addAroundExprPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BFunctionWrapper_wrapper_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BFunctionWrapper_wrapper_feature", "_UI_BFunctionWrapper_type"),
-				 B3backendPackage.Literals.BFUNCTION_WRAPPER__WRAPPER,
+				 getString("_UI_BFunctionWrapper_aroundExpr_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BFunctionWrapper_aroundExpr_feature", "_UI_BFunctionWrapper_type"),
+				 B3backendPackage.Literals.BFUNCTION_WRAPPER__AROUND_EXPR,
 				 true,
 				 false,
 				 true,
@@ -379,6 +381,50 @@ public class BFunctionWrapperItemProvider
 				 false,
 				 true,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Parameter Map feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addParameterMapPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_BFunctionWrapper_parameterMap_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BFunctionWrapper_parameterMap_feature", "_UI_BFunctionWrapper_type"),
+				 B3backendPackage.Literals.BFUNCTION_WRAPPER__PARAMETER_MAP,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Varargs Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addVarargsNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_BFunctionWrapper_varargsName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BFunctionWrapper_varargsName_feature", "_UI_BFunctionWrapper_type"),
+				 B3backendPackage.Literals.BFUNCTION_WRAPPER__VARARGS_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -463,6 +509,8 @@ public class BFunctionWrapperItemProvider
 			case B3backendPackage.BFUNCTION_WRAPPER__PARAMETER_NAMES:
 			case B3backendPackage.BFUNCTION_WRAPPER__VAR_ARGS:
 			case B3backendPackage.BFUNCTION_WRAPPER__DOCUMENTATION:
+			case B3backendPackage.BFUNCTION_WRAPPER__PARAMETER_MAP:
+			case B3backendPackage.BFUNCTION_WRAPPER__VARARGS_NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case B3backendPackage.BFUNCTION_WRAPPER__GUARD:

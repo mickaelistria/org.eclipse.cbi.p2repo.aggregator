@@ -6396,46 +6396,59 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
 		private final Action cBParameterPredicateAction_0_0 = (Action)cGroup_0.eContents().get(0);
-		private final Assignment cTypePredicateOpAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
-		private final RuleCall cTypePredicateOpTypePredicateOpParserRuleCall_0_1_0 = (RuleCall)cTypePredicateOpAssignment_0_1.eContents().get(0);
+		private final Group cGroup_0_1 = (Group)cGroup_0.eContents().get(1);
+		private final Keyword c_Keyword_0_1_0 = (Keyword)cGroup_0_1.eContents().get(0);
+		private final Assignment cTypePredicateOpAssignment_0_1_1 = (Assignment)cGroup_0_1.eContents().get(1);
+		private final RuleCall cTypePredicateOpTypePredicateOpParserRuleCall_0_1_1_0 = (RuleCall)cTypePredicateOpAssignment_0_1_1.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Assignment cTypeAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
 		private final RuleCall cTypeTypeRefParserRuleCall_1_0_0 = (RuleCall)cTypeAssignment_1_0.eContents().get(0);
-		private final Assignment cNameAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_1_0 = (RuleCall)cNameAssignment_1_1.eContents().get(0);
+		private final Alternatives cAlternatives_1_1 = (Alternatives)cGroup_1.eContents().get(1);
+		private final Assignment cTypePredicateOpAssignment_1_1_0 = (Assignment)cAlternatives_1_1.eContents().get(0);
+		private final RuleCall cTypePredicateOpTypePredicateOpParserRuleCall_1_1_0_0 = (RuleCall)cTypePredicateOpAssignment_1_1_0.eContents().get(0);
+		private final Assignment cNameAssignment_1_1_1 = (Assignment)cAlternatives_1_1.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_1_1_0 = (RuleCall)cNameAssignment_1_1_1.eContents().get(0);
 		
 		//ParameterPredicate returns be::BParameterPredicate:
-		//  {be::BParameterPredicate} typePredicateOp=TypePredicateOp|type=TypeRef name=ID?; 	
+		//  {be::BParameterPredicate} ("_" typePredicateOp=TypePredicateOp?)|type=TypeRef (
+		//  typePredicateOp=TypePredicateOp|name=ID)?; 	
 		//        
-		//	      
-		//	         
+		//	        
+		//	                 
 		//	
 		//	
 		//// Varargs can only be last, and it only makes sense to skip the type (not to use ?*+)
 		public ParserRule getRule() { return rule; }
 
-		//{be::BParameterPredicate} typePredicateOp=TypePredicateOp|type=TypeRef name=ID? 	
+		//{be::BParameterPredicate} ("_" typePredicateOp=TypePredicateOp?)|type=TypeRef (
+		//typePredicateOp=TypePredicateOp|name=ID)? 	
 		//        
-		//	      
-		//	         
+		//	        
+		//	                 
 		//	
 		//	
 		//// Varargs can only be last, and it only makes sense to skip the type (not to use ?*+)
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//{be::BParameterPredicate} typePredicateOp=TypePredicateOp
+		//{be::BParameterPredicate} ("_" typePredicateOp=TypePredicateOp?)
 		public Group getGroup_0() { return cGroup_0; }
 
 		//{be::BParameterPredicate}
 		public Action getBParameterPredicateAction_0_0() { return cBParameterPredicateAction_0_0; }
 
-		//typePredicateOp=TypePredicateOp
-		public Assignment getTypePredicateOpAssignment_0_1() { return cTypePredicateOpAssignment_0_1; }
+		//"_" typePredicateOp=TypePredicateOp?
+		public Group getGroup_0_1() { return cGroup_0_1; }
+
+		//"_"
+		public Keyword get_Keyword_0_1_0() { return c_Keyword_0_1_0; }
+
+		//typePredicateOp=TypePredicateOp?
+		public Assignment getTypePredicateOpAssignment_0_1_1() { return cTypePredicateOpAssignment_0_1_1; }
 
 		//TypePredicateOp
-		public RuleCall getTypePredicateOpTypePredicateOpParserRuleCall_0_1_0() { return cTypePredicateOpTypePredicateOpParserRuleCall_0_1_0; }
+		public RuleCall getTypePredicateOpTypePredicateOpParserRuleCall_0_1_1_0() { return cTypePredicateOpTypePredicateOpParserRuleCall_0_1_1_0; }
 
-		//type=TypeRef name=ID?
+		//type=TypeRef (typePredicateOp=TypePredicateOp|name=ID)?
 		public Group getGroup_1() { return cGroup_1; }
 
 		//type=TypeRef
@@ -6444,11 +6457,20 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//TypeRef
 		public RuleCall getTypeTypeRefParserRuleCall_1_0_0() { return cTypeTypeRefParserRuleCall_1_0_0; }
 
-		//name=ID?
-		public Assignment getNameAssignment_1_1() { return cNameAssignment_1_1; }
+		//(typePredicateOp=TypePredicateOp|name=ID)?
+		public Alternatives getAlternatives_1_1() { return cAlternatives_1_1; }
+
+		//typePredicateOp=TypePredicateOp
+		public Assignment getTypePredicateOpAssignment_1_1_0() { return cTypePredicateOpAssignment_1_1_0; }
+
+		//TypePredicateOp
+		public RuleCall getTypePredicateOpTypePredicateOpParserRuleCall_1_1_0_0() { return cTypePredicateOpTypePredicateOpParserRuleCall_1_1_0_0; }
+
+		//name=ID
+		public Assignment getNameAssignment_1_1_1() { return cNameAssignment_1_1_1; }
 
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_1_0() { return cNameIDTerminalRuleCall_1_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_1_1_0() { return cNameIDTerminalRuleCall_1_1_1_0; }
 	}
 
 	public class ParameterVarargsPredicateElements extends AbstractParserRuleElementFinder {
@@ -6456,8 +6478,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
 		private final Action cBParameterPredicateAction_0_0 = (Action)cGroup_0.eContents().get(0);
-		private final Assignment cTypePredicateOpAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
-		private final Keyword cTypePredicateOp_Keyword_0_1_0 = (Keyword)cTypePredicateOpAssignment_0_1.eContents().get(0);
+		private final Keyword c_Keyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Assignment cTypeAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
 		private final RuleCall cTypeTypeRefParserRuleCall_1_0_0 = (RuleCall)cTypeAssignment_1_0.eContents().get(0);
@@ -6465,27 +6486,24 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_1_1_0 = (RuleCall)cNameAssignment_1_1.eContents().get(0);
 		
 		//ParameterVarargsPredicate returns be::BParameterPredicate:
-		//  {be::BParameterPredicate} typePredicateOp="_"|type=TypeRef name=ID?; 
+		//  {be::BParameterPredicate} "_"|type=TypeRef name=ID?; 
 		//	
 		//// Varargs can only be last, and it only makes sense to skip the type (not to use ?*+)
 		public ParserRule getRule() { return rule; }
 
-		//{be::BParameterPredicate} typePredicateOp="_"|type=TypeRef name=ID? 
+		//{be::BParameterPredicate} "_"|type=TypeRef name=ID? 
 		//	
 		//// Varargs can only be last, and it only makes sense to skip the type (not to use ?*+)
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//{be::BParameterPredicate} typePredicateOp="_"
+		//{be::BParameterPredicate} "_"
 		public Group getGroup_0() { return cGroup_0; }
 
 		//{be::BParameterPredicate}
 		public Action getBParameterPredicateAction_0_0() { return cBParameterPredicateAction_0_0; }
 
-		//typePredicateOp="_"
-		public Assignment getTypePredicateOpAssignment_0_1() { return cTypePredicateOpAssignment_0_1; }
-
 		//"_"
-		public Keyword getTypePredicateOp_Keyword_0_1_0() { return cTypePredicateOp_Keyword_0_1_0; }
+		public Keyword get_Keyword_0_1() { return c_Keyword_0_1; }
 
 		//type=TypeRef name=ID?
 		public Group getGroup_1() { return cGroup_1; }
@@ -6506,27 +6524,27 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	public class TypePredicateOpElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "TypePredicateOp");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Keyword c_Keyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cQuestionMarkKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
 		private final Keyword cAsteriskKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
 		private final Keyword cPlusSignKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
 		
 		//TypePredicateOp returns ecore::EString:
-		//  "_"|"*"|"+"; 
+		//  "?"|"*"|"+"; 
 		//	
 		//              
 		//
 		//// Advice for units consists of Builders, and advice for Builders
 		public ParserRule getRule() { return rule; }
 
-		//"_"|"*"|"+" 
+		//"?"|"*"|"+" 
 		//	
 		//              
 		//
 		//// Advice for units consists of Builders, and advice for Builders
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//"_"
-		public Keyword get_Keyword_0() { return c_Keyword_0; }
+		//"?"
+		public Keyword getQuestionMarkKeyword_0() { return cQuestionMarkKeyword_0; }
 
 		//"*"
 		public Keyword getAsteriskKeyword_1() { return cAsteriskKeyword_1; }
@@ -11020,10 +11038,11 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ParameterPredicate returns be::BParameterPredicate:
-	//  {be::BParameterPredicate} typePredicateOp=TypePredicateOp|type=TypeRef name=ID?; 	
+	//  {be::BParameterPredicate} ("_" typePredicateOp=TypePredicateOp?)|type=TypeRef (
+	//  typePredicateOp=TypePredicateOp|name=ID)?; 	
 	//        
-	//	      
-	//	         
+	//	        
+	//	                 
 	//	
 	//	
 	//// Varargs can only be last, and it only makes sense to skip the type (not to use ?*+)
@@ -11036,7 +11055,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ParameterVarargsPredicate returns be::BParameterPredicate:
-	//  {be::BParameterPredicate} typePredicateOp="_"|type=TypeRef name=ID?; 
+	//  {be::BParameterPredicate} "_"|type=TypeRef name=ID?; 
 	//	
 	//// Varargs can only be last, and it only makes sense to skip the type (not to use ?*+)
 	public ParameterVarargsPredicateElements getParameterVarargsPredicateAccess() {
@@ -11048,7 +11067,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//TypePredicateOp returns ecore::EString:
-	//  "_"|"*"|"+"; 
+	//  "?"|"*"|"+"; 
 	//	
 	//              
 	//

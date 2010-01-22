@@ -230,6 +230,15 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 		result.append(')');
 		return result.toString();
 	}
+	/**
+	 * Overrides inherited calling by skipping the {@link #prepareCall(BExecutionContext, Object[], Type[])} step.
+	 * (The prepare call is normally not needed for calling java functions as it can operate directly on
+	 * the object and type arrays).
+	 */
+	@Override
+	public Object call(BExecutionContext ctx, Object[] parameters, Type[] types) throws Throwable {
+		return internalCall(ctx, parameters, types);
+	}
 	@Override
 	public Object internalCall(BExecutionContext ctx, Object[] parameters, Type[] types) throws Throwable {
 		try {

@@ -7,6 +7,7 @@
 package org.eclipse.b3.backend.evaluator.b3backend;
 
 import java.lang.reflect.Type;
+import java.util.Iterator;
 import org.eclipse.b3.backend.core.B3DynamicClassLoader;
 import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.core.B3FuncStore;
@@ -229,6 +230,22 @@ public interface BExecutionContext extends EObject {
 	 * @generated
 	 */
 	<T> T getContext(Class<T> clazz) throws B3EngineException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" dataType="org.eclipse.b3.backend.evaluator.b3backend.IFunctionIterator<org.eclipse.b3.backend.evaluator.b3backend.IFunction>"
+	 * @generated
+	 */
+	Iterator<IFunction> getFunctionIterator();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.IFunctionIterator<org.eclipse.b3.backend.evaluator.b3backend.IFunction>"
+	 * @generated
+	 */
+	Iterator<IFunction> getFunctionIterator(String name);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -9,6 +9,8 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.regex.Pattern;
 import org.eclipse.b3.backend.core.B3DynamicClassLoader;
 import org.eclipse.b3.backend.core.B3EngineException;
@@ -146,6 +148,7 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 			case B3backendPackage.BPARAMETER_PREDICATE: return createBParameterPredicate();
 			case B3backendPackage.BPROCEED_EXPRESSION: return createBProceedExpression();
 			case B3backendPackage.BDELEGATING_CONTEXT: return createBDelegatingContext();
+			case B3backendPackage.BWRAPPING_CONTEXT: return createBWrappingContext();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -191,6 +194,8 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 				return createStringArrayFromString(eDataType, initialValue);
 			case B3backendPackage.B3_DYNAMIC_CLASS_LOADER:
 				return createB3DynamicClassLoaderFromString(eDataType, initialValue);
+			case B3backendPackage.IFUNCTION_ITERATOR:
+				return createIFunctionIteratorFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -236,6 +241,8 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 				return convertStringArrayToString(eDataType, instanceValue);
 			case B3backendPackage.B3_DYNAMIC_CLASS_LOADER:
 				return convertB3DynamicClassLoaderToString(eDataType, instanceValue);
+			case B3backendPackage.IFUNCTION_ITERATOR:
+				return convertIFunctionIteratorToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -916,6 +923,16 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public BWrappingContext createBWrappingContext() {
+		BWrappingContextImpl bWrappingContext = new BWrappingContextImpl();
+		return bWrappingContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Visibility createVisibilityFromString(EDataType eDataType, String initialValue) {
 		Visibility result = Visibility.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -1202,6 +1219,24 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	 */
 	public String convertB3DynamicClassLoaderToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Iterator<?> createIFunctionIteratorFromString(EDataType eDataType, String initialValue) {
+		return (Iterator<?>)super.createFromString(initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertIFunctionIteratorToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(instanceValue);
 	}
 
 	/**

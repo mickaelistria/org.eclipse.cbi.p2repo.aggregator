@@ -644,17 +644,17 @@ FunctionNamePredicate returns be::BFunctionNamePredicate : {be::BFunctionNamePre
 	namePredicate = NamePredicate
 	;	
 ParameterPredicate returns be::BParameterPredicate : {be::BParameterPredicate}
-	  (typePredicateOp = TypePredicateOp)
-	| (type=TypeRef (name = ID)?) 
+	  ('_' typePredicateOp = TypePredicateOp?)
+	| (type=TypeRef ((typePredicateOp = TypePredicateOp) | (name = ID))?) 
 	;
 	
 // Varargs can only be last, and it only makes sense to skip the type (not to use ?*+)	
 ParameterVarargsPredicate returns be::BParameterPredicate : {be::BParameterPredicate}
-	  (typePredicateOp = '_')
+	  ('_')
 	| (type=TypeRef (name = ID)?) 
 	;
 	
-TypePredicateOp : '_' | '*' | '+' ;
+TypePredicateOp : '?' | '*' | '+' ;
 
 // Advice for units consists of Builders, and advice for Builders
 UnitConcernContext returns build::UnitConcernContext : {build::UnitConcernContext}

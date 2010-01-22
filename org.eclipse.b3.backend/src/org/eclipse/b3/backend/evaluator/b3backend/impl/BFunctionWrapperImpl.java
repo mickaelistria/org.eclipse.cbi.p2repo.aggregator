@@ -17,16 +17,21 @@ import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
 
 import java.util.Collection;
+import java.util.Map;
 
 import org.eclipse.b3.backend.core.LValue;
 
+import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
+import org.eclipse.b3.backend.evaluator.b3backend.BContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
+import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper;
 import org.eclipse.b3.backend.evaluator.b3backend.BGuard;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
 import org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculator;
+import org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext;
 import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.Visibility;
@@ -40,6 +45,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 
@@ -66,22 +73,31 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl#getClosure <em>Closure</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl#getTypeCalculator <em>Type Calculator</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl#getContainer <em>Container</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl#getWrapper <em>Wrapper</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl#getAroundExpr <em>Around Expr</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl#getOriginal <em>Original</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl#getParameterMap <em>Parameter Map</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl#getVarargsName <em>Varargs Name</em>}</li>
  * </ul>
  * </p>
  *
- * @generated NOT
+ * @generated
  */
 public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWrapper {
 
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
 
 	/**
 	 * The default value of the '{@link #getVisibility() <em>Visibility</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getVisibility()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
 	protected static final Visibility VISIBILITY_EDEFAULT = Visibility.PRIVATE;
@@ -91,7 +107,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getVisibility()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
 	protected Visibility visibility = VISIBILITY_EDEFAULT;
@@ -101,7 +117,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #isFinal()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
 	protected static final boolean FINAL_EDEFAULT = false;
@@ -111,7 +127,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #isFinal()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
 	protected boolean final_ = FINAL_EDEFAULT;
@@ -121,7 +137,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getExecutionMode()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
 	protected static final ExecutionMode EXECUTION_MODE_EDEFAULT = ExecutionMode.SEQUENTIAL;
@@ -131,7 +147,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getExecutionMode()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
 	protected ExecutionMode executionMode = EXECUTION_MODE_EDEFAULT;
@@ -141,7 +157,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getName()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
 	protected static final String NAME_EDEFAULT = null;
@@ -151,18 +167,28 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getName()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
 
 
 	/**
+	 * The cached value of the '{@link #getGuard() <em>Guard</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGuard()
+	 * @generated
+	 * @ordered
+	 */
+	protected BGuard guard;
+
+	/**
 	 * The default value of the '{@link #getParameterTypes() <em>Parameter Types</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getParameterTypes()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
 	protected static final Type[] PARAMETER_TYPES_EDEFAULT = null;
@@ -172,7 +198,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getParameterTypes()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
 	protected Type[] parameterTypes = PARAMETER_TYPES_EDEFAULT;
@@ -182,7 +208,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getExceptionTypes()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
 	protected static final Type[] EXCEPTION_TYPES_EDEFAULT = null;
@@ -192,7 +218,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getExceptionTypes()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
 	protected Type[] exceptionTypes = EXCEPTION_TYPES_EDEFAULT;
@@ -202,7 +228,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getTypeParameters()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
 	@SuppressWarnings("unchecked")
@@ -213,7 +239,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getTypeParameters()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
 	@SuppressWarnings("unchecked")
@@ -224,7 +250,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getParameterNames()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
 	protected static final String[] PARAMETER_NAMES_EDEFAULT = null;
@@ -234,51 +260,141 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getParameterNames()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
 	protected String[] parameterNames = PARAMETER_NAMES_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParameters()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<BParameterDeclaration> parameters;
 
 	/**
 	 * The default value of the '{@link #isVarArgs() <em>Var Args</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #isVarArgs()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
 	protected static final boolean VAR_ARGS_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isVarArgs() <em>Var Args</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isVarArgs()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean varArgs = VAR_ARGS_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getDocumentation()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
 	protected static final String DOCUMENTATION_EDEFAULT = null;
 
 
 	/**
-	 * The cached value of the '{@link #getWrapper() <em>Wrapper</em>}' reference.
+	 * The cached value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getWrapper()
+	 * @see #getDocumentation()
 	 * @generated
 	 * @ordered
 	 */
-	protected IFunction wrapper;
+	protected String documentation = DOCUMENTATION_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getReturnType() <em>Return Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReturnType()
+	 * @generated
+	 * @ordered
+	 */
+	protected Type returnType;
+
+	/**
+	 * The cached value of the '{@link #getClosure() <em>Closure</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getClosure()
+	 * @generated
+	 * @ordered
+	 */
+	protected BExecutionContext closure;
+
+	/**
+	 * The cached value of the '{@link #getTypeCalculator() <em>Type Calculator</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTypeCalculator()
+	 * @generated
+	 * @ordered
+	 */
+	protected BTypeCalculator typeCalculator;
+
+	/**
+	 * The cached value of the '{@link #getAroundExpr() <em>Around Expr</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAroundExpr()
+	 * @generated
+	 * @ordered
+	 */
+	protected BExpression aroundExpr;
 
 	/**
 	 * The cached value of the '{@link #getOriginal() <em>Original</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getOriginal()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
 	protected IFunction original;
+
+	/**
+	 * The cached value of the '{@link #getParameterMap() <em>Parameter Map</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParameterMap()
+	 * @generated
+	 * @ordered
+	 */
+	protected Map<String, String> parameterMap;
+
+	/**
+	 * The default value of the '{@link #getVarargsName() <em>Varargs Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVarargsName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String VARARGS_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getVarargsName() <em>Varargs Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVarargsName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String varargsName = VARARGS_NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -305,7 +421,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * @generated NOT
 	 */
 	public Visibility getVisibility() {
-		return getWrapper().getVisibility();
+		return getOriginal().getVisibility();
 	}
 
 	/**
@@ -323,7 +439,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * @generated NOT
 	 */
 	public boolean isFinal() {
-		return getWrapper().isFinal();
+		return getOriginal().isFinal();
 	}
 
 	/**
@@ -341,7 +457,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * @generated NOT
 	 */
 	public ExecutionMode getExecutionMode() {
-		return getWrapper().getExecutionMode();
+		return getOriginal().getExecutionMode();
 	}
 
 	/**
@@ -356,10 +472,10 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public String getName() {
-		return name;
+		return getOriginal().getName();
 	}
 
 	/**
@@ -373,29 +489,46 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * TODO: should be advisable, and the wrapper's guard + the original guard should be in effect !!
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	public BGuard getGuard() {
-		return getWrapper().getGuard();
+		return guard;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	public NotificationChain basicSetGuard(BGuard newGuard, NotificationChain msgs) {
-		throw new UnsupportedOperationException("BFunctionWrapper is immutable");
+		BGuard oldGuard = guard;
+		guard = newGuard;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION_WRAPPER__GUARD, oldGuard, newGuard);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	public void setGuard(BGuard newGuard) {
-		throw new UnsupportedOperationException("BFunctionWrapper is immutable");
+		if (newGuard != guard) {
+			NotificationChain msgs = null;
+			if (guard != null)
+				msgs = ((InternalEObject)guard).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BFUNCTION_WRAPPER__GUARD, null, msgs);
+			if (newGuard != null)
+				msgs = ((InternalEObject)newGuard).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3backendPackage.BFUNCTION_WRAPPER__GUARD, null, msgs);
+			msgs = basicSetGuard(newGuard, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION_WRAPPER__GUARD, newGuard, newGuard));
 	}
 
 	/**
@@ -404,7 +537,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * @generated NOT
 	 */
 	public Type[] getParameterTypes() {
-		return getWrapper().getParameterTypes();
+		return getOriginal().getParameterTypes();
 	}
 
 	/**
@@ -422,7 +555,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * @generated NOT
 	 */
 	public Type[] getExceptionTypes() {
-		return getWrapper().getExceptionTypes();
+		return getOriginal().getExceptionTypes();
 	}
 
 	/**
@@ -441,7 +574,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 */
 	@SuppressWarnings("unchecked")
 	public TypeVariable[] getTypeParameters() {
-		return getWrapper().getTypeParameters();
+		return getOriginal().getTypeParameters();
 	}
 
 	/**
@@ -460,7 +593,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * @generated NOT
 	 */
 	public String[] getParameterNames() {
-		return getWrapper().getParameterNames();
+		return getOriginal().getParameterNames();
 	}
 
 	/**
@@ -478,7 +611,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * @generated NOT
 	 */
 	public EList<BParameterDeclaration> getParameters() {
-		return getWrapper().getParameters();
+		return getOriginal().getParameters();
 	}
 
 	/**
@@ -487,7 +620,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * @generated NOT
 	 */
 	public boolean isVarArgs() {
-		return getWrapper().isVarArgs();
+		return getOriginal().isVarArgs();
 	}
 
 	/**
@@ -501,20 +634,24 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns the original + the wrappers documentation.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public String getDocumentation() {
-		return getWrapper().getDocumentation();
+		return getOriginal().getDocumentation() + documentation != null ? ("\n" + documentation ) : "";
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	public void setDocumentation(String newDocumentation) {
-		throw new UnsupportedOperationException("BFunctionWrapper is immutable");
+		String oldDocumentation = documentation;
+		documentation = newDocumentation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION_WRAPPER__DOCUMENTATION, oldDocumentation, documentation));
 	}
 
 	/**
@@ -523,7 +660,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * @generated NOT
 	 */
 	public Type getReturnType() {
-		return getWrapper().getReturnType();
+		return getOriginal().getReturnType();
 	}
 
 	/**
@@ -550,7 +687,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * @generated NOT
 	 */
 	public BExecutionContext getClosure() {
-		return getWrapper().getClosure();
+		return getOriginal().getClosure();
 	}
 
 	/**
@@ -573,11 +710,12 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * TODO: should perhaps be advisable
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public BTypeCalculator getTypeCalculator() {
-		 return getWrapper().getTypeCalculator();
+		 return getOriginal().getTypeCalculator();
 	}
 
 	/**
@@ -601,55 +739,60 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	public BFunctionContainer getContainer() {
-		return getWrapper().getContainer();
+		if (eContainerFeatureID() != B3backendPackage.BFUNCTION_WRAPPER__CONTAINER) return null;
+		return (BFunctionContainer)eContainer();
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	public NotificationChain basicSetContainer(BFunctionContainer newContainer, NotificationChain msgs) {
-		throw new UnsupportedOperationException("BFunctionWrapper is immutable");
+		msgs = eBasicSetContainer((InternalEObject)newContainer, B3backendPackage.BFUNCTION_WRAPPER__CONTAINER, msgs);
+		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	public void setContainer(BFunctionContainer newContainer) {
-		throw new UnsupportedOperationException("BFunctionWrapper is immutable");
+		if (newContainer != eInternalContainer() || (eContainerFeatureID() != B3backendPackage.BFUNCTION_WRAPPER__CONTAINER && newContainer != null)) {
+			if (EcoreUtil.isAncestor(this, newContainer))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newContainer != null)
+				msgs = ((InternalEObject)newContainer).eInverseAdd(this, B3backendPackage.BFUNCTION_CONTAINER__FUNCTIONS, BFunctionContainer.class, msgs);
+			msgs = basicSetContainer(newContainer, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION_WRAPPER__CONTAINER, newContainer, newContainer));
 	}
 
-	//	/**
-//	 * <!-- begin-user-doc -->
-//	 * Wrapper has its own point in source
-//	 * <!-- end-user-doc -->
-//	 * @generated
-//	 */
-//	public void setFileReference(BFileReference newFileReference) {
-//		throw new UnsupportedOperationException("BFunctionWrapper is immutable");
-//	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IFunction getWrapper() {
-		if (wrapper != null && wrapper.eIsProxy()) {
-			InternalEObject oldWrapper = (InternalEObject)wrapper;
-			wrapper = (IFunction)eResolveProxy(oldWrapper);
-			if (wrapper != oldWrapper) {
+	public BExpression getAroundExpr() {
+		if (aroundExpr != null && aroundExpr.eIsProxy()) {
+			InternalEObject oldAroundExpr = (InternalEObject)aroundExpr;
+			aroundExpr = (BExpression)eResolveProxy(oldAroundExpr);
+			if (aroundExpr != oldAroundExpr) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.BFUNCTION_WRAPPER__WRAPPER, oldWrapper, wrapper));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.BFUNCTION_WRAPPER__AROUND_EXPR, oldAroundExpr, aroundExpr));
 			}
 		}
-		return wrapper;
+		return aroundExpr;
 	}
 
 	/**
@@ -657,8 +800,8 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IFunction basicGetWrapper() {
-		return wrapper;
+	public BExpression basicGetAroundExpr() {
+		return aroundExpr;
 	}
 
 	/**
@@ -666,11 +809,11 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setWrapper(IFunction newWrapper) {
-		IFunction oldWrapper = wrapper;
-		wrapper = newWrapper;
+	public void setAroundExpr(BExpression newAroundExpr) {
+		BExpression oldAroundExpr = aroundExpr;
+		aroundExpr = newAroundExpr;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION_WRAPPER__WRAPPER, oldWrapper, wrapper));
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION_WRAPPER__AROUND_EXPR, oldAroundExpr, aroundExpr));
 	}
 
 	/**
@@ -714,6 +857,58 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Map<String, String> getParameterMap() {
+		return parameterMap;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setParameterMap(Map<String, String> newParameterMap) {
+		Map<String, String> oldParameterMap = parameterMap;
+		parameterMap = newParameterMap;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION_WRAPPER__PARAMETER_MAP, oldParameterMap, parameterMap));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getVarargsName() {
+		return varargsName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setVarargsName(String newVarargsName) {
+		String oldVarargsName = varargsName;
+		varargsName = newVarargsName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION_WRAPPER__VARARGS_NAME, oldVarargsName, varargsName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Object call(BExecutionContext ctx, Object[] parameters, Type[] types) throws Throwable {
+		BExecutionContext octx = prepareCall(ctx, parameters, types);
+		return internalCall(octx, parameters, types);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
@@ -736,7 +931,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * @generated NOT
 	 */
 	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
-		return getWrapper().getDeclaredType(ctx);
+		return getOriginal().getDeclaredType(ctx);
 	}
 
 	/**
@@ -745,7 +940,35 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * @generated NOT
 	 */
 	public Object internalCall(BExecutionContext ctx, Object[] parameters, Type[] types) throws Throwable {
-		return getWrapper().internalCall(ctx, parameters, types);
+		return aroundExpr.evaluate(ctx);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public BExecutionContext prepareCall(BExecutionContext ctx, Object[] parameters, Type[] types) throws Throwable {
+		// prepare the context as it should be for the original function (it may return a different context)
+		BExecutionContext octx = getOriginal().prepareCall(ctx, parameters, types);
+
+		// create a mapped context that handles the advising expression's view of what the parameters are called
+		BWrappingContext mc = B3backendFactory.eINSTANCE.createBWrappingContext();
+		mc.mapContext(octx, getParameterMap(), this);
+		// keep parameters and types for 'proceed' call
+		mc.setParameters(parameters);
+		mc.setParameterTypes(types);
+		mc.setVarargsName(getVarargsName());
+		
+		// get the outer context to use for normal calls out of this context
+		BContext outer = ctx.getContext(BContext.class);
+		// use the outer context as the parent since the advising expression should not see the original's
+		// parameter values.
+		mc.setParentContext(outer);
+		// use the outer context found earlier for outer
+		mc.setOuterContext(outer);
+		// need an inner context for the advising expression's local variables since the mapped context is immutable
+		return mc.createInnerContext();
 	}
 
 	/**
@@ -754,7 +977,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * @generated NOT
 	 */
 	public Type getSignature() {
-		return getWrapper().getSignature();
+		return getOriginal().getSignature();
 	}
 
 	/**
@@ -763,7 +986,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * @generated NOT
 	 */
 	public Type getReturnTypeForParameterTypes(Type[] types, BExecutionContext ctx) {
-		return getWrapper().getReturnTypeForParameterTypes(types, ctx);
+		return getOriginal().getReturnTypeForParameterTypes(types, ctx);
 	}
 
 	/**
@@ -772,7 +995,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * @generated NOT
 	 */
 	public EList<BParameterDeclaration> getEffectiveParameters() {
-		return getWrapper().getEffectiveParameters();
+		return getOriginal().getEffectiveParameters();
 	}
 
 	/**
@@ -868,12 +1091,16 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 				return getTypeCalculator();
 			case B3backendPackage.BFUNCTION_WRAPPER__CONTAINER:
 				return getContainer();
-			case B3backendPackage.BFUNCTION_WRAPPER__WRAPPER:
-				if (resolve) return getWrapper();
-				return basicGetWrapper();
+			case B3backendPackage.BFUNCTION_WRAPPER__AROUND_EXPR:
+				if (resolve) return getAroundExpr();
+				return basicGetAroundExpr();
 			case B3backendPackage.BFUNCTION_WRAPPER__ORIGINAL:
 				if (resolve) return getOriginal();
 				return basicGetOriginal();
+			case B3backendPackage.BFUNCTION_WRAPPER__PARAMETER_MAP:
+				return getParameterMap();
+			case B3backendPackage.BFUNCTION_WRAPPER__VARARGS_NAME:
+				return getVarargsName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -936,11 +1163,17 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 			case B3backendPackage.BFUNCTION_WRAPPER__CONTAINER:
 				setContainer((BFunctionContainer)newValue);
 				return;
-			case B3backendPackage.BFUNCTION_WRAPPER__WRAPPER:
-				setWrapper((IFunction)newValue);
+			case B3backendPackage.BFUNCTION_WRAPPER__AROUND_EXPR:
+				setAroundExpr((BExpression)newValue);
 				return;
 			case B3backendPackage.BFUNCTION_WRAPPER__ORIGINAL:
 				setOriginal((IFunction)newValue);
+				return;
+			case B3backendPackage.BFUNCTION_WRAPPER__PARAMETER_MAP:
+				setParameterMap((Map<String, String>)newValue);
+				return;
+			case B3backendPackage.BFUNCTION_WRAPPER__VARARGS_NAME:
+				setVarargsName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1002,11 +1235,17 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 			case B3backendPackage.BFUNCTION_WRAPPER__CONTAINER:
 				setContainer((BFunctionContainer)null);
 				return;
-			case B3backendPackage.BFUNCTION_WRAPPER__WRAPPER:
-				setWrapper((IFunction)null);
+			case B3backendPackage.BFUNCTION_WRAPPER__AROUND_EXPR:
+				setAroundExpr((BExpression)null);
 				return;
 			case B3backendPackage.BFUNCTION_WRAPPER__ORIGINAL:
 				setOriginal((IFunction)null);
+				return;
+			case B3backendPackage.BFUNCTION_WRAPPER__PARAMETER_MAP:
+				setParameterMap((Map<String, String>)null);
+				return;
+			case B3backendPackage.BFUNCTION_WRAPPER__VARARGS_NAME:
+				setVarargsName(VARARGS_NAME_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -1015,14 +1254,13 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		
 		switch (featureID) {
 			case B3backendPackage.BFUNCTION_WRAPPER__VISIBILITY:
-				return getVisibility() != VISIBILITY_EDEFAULT;
+				return visibility != VISIBILITY_EDEFAULT;
 			case B3backendPackage.BFUNCTION_WRAPPER__FINAL:
 				return final_ != FINAL_EDEFAULT;
 			case B3backendPackage.BFUNCTION_WRAPPER__EXECUTION_MODE:
@@ -1030,7 +1268,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 			case B3backendPackage.BFUNCTION_WRAPPER__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case B3backendPackage.BFUNCTION_WRAPPER__GUARD:
-				return getGuard() != null;
+				return guard != null;
 			case B3backendPackage.BFUNCTION_WRAPPER__PARAMETER_TYPES:
 				return PARAMETER_TYPES_EDEFAULT == null ? parameterTypes != null : !PARAMETER_TYPES_EDEFAULT.equals(parameterTypes);
 			case B3backendPackage.BFUNCTION_WRAPPER__EXCEPTION_TYPES:
@@ -1040,23 +1278,27 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 			case B3backendPackage.BFUNCTION_WRAPPER__PARAMETER_NAMES:
 				return PARAMETER_NAMES_EDEFAULT == null ? parameterNames != null : !PARAMETER_NAMES_EDEFAULT.equals(parameterNames);
 			case B3backendPackage.BFUNCTION_WRAPPER__PARAMETERS:
-				return getParameters() != null && !getParameters().isEmpty();
+				return parameters != null && !parameters.isEmpty();
 			case B3backendPackage.BFUNCTION_WRAPPER__VAR_ARGS:
-				return isVarArgs() != VAR_ARGS_EDEFAULT;
+				return varArgs != VAR_ARGS_EDEFAULT;
 			case B3backendPackage.BFUNCTION_WRAPPER__DOCUMENTATION:
-				return DOCUMENTATION_EDEFAULT == null ? getDocumentation() != null : !DOCUMENTATION_EDEFAULT.equals(getDocumentation());
+				return DOCUMENTATION_EDEFAULT == null ? documentation != null : !DOCUMENTATION_EDEFAULT.equals(documentation);
 			case B3backendPackage.BFUNCTION_WRAPPER__RETURN_TYPE:
-				return getReturnType() != null;
+				return returnType != null;
 			case B3backendPackage.BFUNCTION_WRAPPER__CLOSURE:
-				return getClosure() != null;
+				return closure != null;
 			case B3backendPackage.BFUNCTION_WRAPPER__TYPE_CALCULATOR:
-				return getTypeCalculator() != null;
+				return typeCalculator != null;
 			case B3backendPackage.BFUNCTION_WRAPPER__CONTAINER:
 				return getContainer() != null;
-			case B3backendPackage.BFUNCTION_WRAPPER__WRAPPER:
-				return wrapper != null;
+			case B3backendPackage.BFUNCTION_WRAPPER__AROUND_EXPR:
+				return aroundExpr != null;
 			case B3backendPackage.BFUNCTION_WRAPPER__ORIGINAL:
 				return original != null;
+			case B3backendPackage.BFUNCTION_WRAPPER__PARAMETER_MAP:
+				return parameterMap != null;
+			case B3backendPackage.BFUNCTION_WRAPPER__VARARGS_NAME:
+				return VARARGS_NAME_EDEFAULT == null ? varargsName != null : !VARARGS_NAME_EDEFAULT.equals(varargsName);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1160,9 +1402,13 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 		result.append(", parameterNames: ");
 		result.append(parameterNames);
 		result.append(", varArgs: ");
-		result.append(isVarArgs());
+		result.append(varArgs);
 		result.append(", documentation: ");
-		result.append(getDocumentation());
+		result.append(documentation);
+		result.append(", parameterMap: ");
+		result.append(parameterMap);
+		result.append(", varargsName: ");
+		result.append(varargsName);
 		result.append(')');
 		return result.toString();
 	}

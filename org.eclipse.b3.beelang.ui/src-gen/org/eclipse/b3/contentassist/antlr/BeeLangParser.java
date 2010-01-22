@@ -87,6 +87,7 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBuildConcernContextAccess().getAlternatives(), "rule__BuildConcernContext__Alternatives");
 					put(grammarAccess.getFunctionConcernContextAccess().getAlternatives_4_1(), "rule__FunctionConcernContext__Alternatives_4_1");
 					put(grammarAccess.getParameterPredicateAccess().getAlternatives(), "rule__ParameterPredicate__Alternatives");
+					put(grammarAccess.getParameterPredicateAccess().getAlternatives_1_1(), "rule__ParameterPredicate__Alternatives_1_1");
 					put(grammarAccess.getParameterVarargsPredicateAccess().getAlternatives(), "rule__ParameterVarargsPredicate__Alternatives");
 					put(grammarAccess.getTypePredicateOpAccess().getAlternatives(), "rule__TypePredicateOp__Alternatives");
 					put(grammarAccess.getUnitConcernContextAccess().getAlternatives_5(), "rule__UnitConcernContext__Alternatives_5");
@@ -334,6 +335,7 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFunctionConcernContextAccess().getGroup_4_1_1(), "rule__FunctionConcernContext__Group_4_1_1__0");
 					put(grammarAccess.getFunctionNamePredicateAccess().getGroup(), "rule__FunctionNamePredicate__Group__0");
 					put(grammarAccess.getParameterPredicateAccess().getGroup_0(), "rule__ParameterPredicate__Group_0__0");
+					put(grammarAccess.getParameterPredicateAccess().getGroup_0_1(), "rule__ParameterPredicate__Group_0_1__0");
 					put(grammarAccess.getParameterPredicateAccess().getGroup_1(), "rule__ParameterPredicate__Group_1__0");
 					put(grammarAccess.getParameterVarargsPredicateAccess().getGroup_0(), "rule__ParameterVarargsPredicate__Group_0__0");
 					put(grammarAccess.getParameterVarargsPredicateAccess().getGroup_1(), "rule__ParameterVarargsPredicate__Group_1__0");
@@ -675,10 +677,10 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFunctionConcernContextAccess().getParametersAssignment_4_1_1_1(), "rule__FunctionConcernContext__ParametersAssignment_4_1_1_1");
 					put(grammarAccess.getFunctionConcernContextAccess().getFuncExprAssignment_5(), "rule__FunctionConcernContext__FuncExprAssignment_5");
 					put(grammarAccess.getFunctionNamePredicateAccess().getNamePredicateAssignment_1(), "rule__FunctionNamePredicate__NamePredicateAssignment_1");
-					put(grammarAccess.getParameterPredicateAccess().getTypePredicateOpAssignment_0_1(), "rule__ParameterPredicate__TypePredicateOpAssignment_0_1");
+					put(grammarAccess.getParameterPredicateAccess().getTypePredicateOpAssignment_0_1_1(), "rule__ParameterPredicate__TypePredicateOpAssignment_0_1_1");
 					put(grammarAccess.getParameterPredicateAccess().getTypeAssignment_1_0(), "rule__ParameterPredicate__TypeAssignment_1_0");
-					put(grammarAccess.getParameterPredicateAccess().getNameAssignment_1_1(), "rule__ParameterPredicate__NameAssignment_1_1");
-					put(grammarAccess.getParameterVarargsPredicateAccess().getTypePredicateOpAssignment_0_1(), "rule__ParameterVarargsPredicate__TypePredicateOpAssignment_0_1");
+					put(grammarAccess.getParameterPredicateAccess().getTypePredicateOpAssignment_1_1_0(), "rule__ParameterPredicate__TypePredicateOpAssignment_1_1_0");
+					put(grammarAccess.getParameterPredicateAccess().getNameAssignment_1_1_1(), "rule__ParameterPredicate__NameAssignment_1_1_1");
 					put(grammarAccess.getParameterVarargsPredicateAccess().getTypeAssignment_1_0(), "rule__ParameterVarargsPredicate__TypeAssignment_1_0");
 					put(grammarAccess.getParameterVarargsPredicateAccess().getNameAssignment_1_1(), "rule__ParameterVarargsPredicate__NameAssignment_1_1");
 					put(grammarAccess.getUnitConcernContextAccess().getQueryAssignment_3(), "rule__UnitConcernContext__QueryAssignment_3");

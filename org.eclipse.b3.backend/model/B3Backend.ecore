@@ -117,6 +117,17 @@
         </eGenericType>
       </eParameters>
     </eOperations>
+    <eOperations name="getFunctionIterator">
+      <eGenericType eClassifier="#//IFunctionIterator">
+        <eTypeArguments eClassifier="#//IFunction"/>
+      </eGenericType>
+    </eOperations>
+    <eOperations name="getFunctionIterator">
+      <eGenericType eClassifier="#//IFunctionIterator">
+        <eTypeArguments eClassifier="#//IFunction"/>
+      </eGenericType>
+      <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parentContext" eType="#//BExecutionContext"
         eOpposite="#//BExecutionContext/childContexts"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="childContexts" upperBound="-1"
@@ -265,8 +276,25 @@
   <eClassifiers xsi:type="ecore:EDataType" name="CoreException" instanceClassName="org.eclipse.core.runtime.CoreException"/>
   <eClassifiers xsi:type="ecore:EClass" name="IFunction" abstract="true" interface="true"
       eSuperTypes="#//IGenericDeclaration #//BExpression">
+    <eOperations name="call" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
+        eExceptions="#//Throwable">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Calls the function and returns its value. The context passed to this method is used as the context in which the function may store its parameter bindings.&#xD;"/>
+      </eAnnotations>
+      <eParameters name="ctx" eType="#//BExecutionContext"/>
+      <eParameters name="parameters" eType="#//ObjectArray"/>
+      <eParameters name="types" eType="#//TypeArray"/>
+    </eOperations>
     <eOperations name="internalCall" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
         eExceptions="#//Throwable">
+      <eParameters name="ctx" eType="#//BExecutionContext"/>
+      <eParameters name="parameters" eType="#//ObjectArray"/>
+      <eParameters name="types" eType="#//TypeArray"/>
+    </eOperations>
+    <eOperations name="prepareCall" eType="#//BExecutionContext" eExceptions="#//Throwable">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Prepares the call (if needed) by processing the parameters and types and updating the context.&#xD;Does not perform the actual call."/>
+      </eAnnotations>
       <eParameters name="ctx" eType="#//BExecutionContext"/>
       <eParameters name="parameters" eType="#//ObjectArray"/>
       <eParameters name="types" eType="#//TypeArray"/>
@@ -574,12 +602,19 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="B3DynamicClassLoader" instanceClassName="org.eclipse.b3.backend.core.B3DynamicClassLoader"/>
-  <eClassifiers xsi:type="ecore:EClass" name="BConcernContext" abstract="true" eSuperTypes="#//BFunctionContainer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BConcernContext" abstract="true" eSuperTypes="#//BExpression #//BFunctionContainer"/>
   <eClassifiers xsi:type="ecore:EClass" name="BFunction" eSuperTypes="#//BExpression #//IFunction"/>
   <eClassifiers xsi:type="ecore:EClass" name="BFunctionWrapper" eSuperTypes="#//BExpression #//IFunction">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="wrapper" lowerBound="1"
-        eType="#//IFunction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aroundExpr" lowerBound="1"
+        eType="#//BExpression"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="original" eType="#//IFunction"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameterMap" transient="true">
+      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eGenericType>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="varargsName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BNamePredicate">
     <eStructuralFeatures xsi:type="ecore:EReference" name="namePattern" eType="#//BExpression"
@@ -615,4 +650,26 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BProceedExpression" eSuperTypes="#//BExpression"/>
   <eClassifiers xsi:type="ecore:EClass" name="BDelegatingContext" eSuperTypes="#//BInnerContext"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="IFunctionIterator" instanceClassName="java.util.Iterator">
+    <eTypeParameters name="E"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BWrappingContext" eSuperTypes="#//BDelegatingContext">
+    <eOperations name="mapContext">
+      <eParameters name="ctx" eType="#//BExecutionContext"/>
+      <eParameters name="map">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        </eGenericType>
+      </eParameters>
+      <eParameters name="functionWrapper" eType="#//BFunctionWrapper"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="functionWrapper" eType="#//BFunctionWrapper"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="wrappedContext" eType="#//BExecutionContext"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameters" eType="#//ObjectArray"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameterTypes" eType="#//TypeArray"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="varargsName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="varargsArray" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+  </eClassifiers>
 </ecore:EPackage>

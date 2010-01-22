@@ -403,6 +403,11 @@ public class BWithExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BWITH_EXPRESSION__FUNC_EXPR,
+				 B3backendFactory.eINSTANCE.createBFunctionConcernContext()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BWITH_EXPRESSION__FUNC_EXPR,
 				 B3backendFactory.eINSTANCE.createBProceedExpression()));
 	}
 

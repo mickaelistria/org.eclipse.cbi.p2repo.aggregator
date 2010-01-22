@@ -157,11 +157,8 @@ public class BFunctionConcernContextItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Type labelValue = ((BFunctionConcernContext)object).getContainerType();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_BFunctionConcernContext_type") :
-			getString("_UI_BFunctionConcernContext_type") + " " + label;
+		BFunctionConcernContext bFunctionConcernContext = (BFunctionConcernContext)object;
+		return getString("_UI_BFunctionConcernContext_type") + " " + bFunctionConcernContext.getLineNumber();
 	}
 
 	/**
@@ -403,6 +400,11 @@ public class BFunctionConcernContextItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BFUNCTION_CONCERN_CONTEXT__FUNC_EXPR,
 				 B3backendFactory.eINSTANCE.createBFunctionNamePredicate()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BFUNCTION_CONCERN_CONTEXT__FUNC_EXPR,
+				 B3backendFactory.eINSTANCE.createBFunctionConcernContext()));
 
 		newChildDescriptors.add
 			(createChildParameter

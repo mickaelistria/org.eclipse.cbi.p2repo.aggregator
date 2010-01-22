@@ -18,6 +18,7 @@ import java.util.Collection;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BConcern;
 import org.eclipse.b3.backend.evaluator.b3backend.BConcernContext;
+import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
@@ -450,5 +451,16 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 		result.append(')');
 		return result.toString();
 	}
-
+	@Override
+	public Object evaluate(BExecutionContext ctx) throws Throwable {
+		for(BConcern c : getSuperConcerns())
+			c.evaluate(ctx);
+		for(BPropertySet ps : getPropertySets())
+			ps.evaluate(ctx);
+		for(IFunction f : getFunctions())
+			ctx.defineFunction(f);
+		for(BConcernContext cc : getContexts())
+			cc.evaluate(ctx);
+		return this;
+	}
 } //BConcernImpl

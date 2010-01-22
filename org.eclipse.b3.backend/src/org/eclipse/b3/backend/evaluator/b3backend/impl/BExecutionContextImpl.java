@@ -12,6 +12,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -90,12 +91,14 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	/**
 	 * The default value of the '{@link #getValueMap() <em>Value Map</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * Implementation note: Creates a static instance (that is never used). Generated code modified to set null value. Constructor
+	 * creates a new value.
 	 * <!-- end-user-doc -->
 	 * @see #getValueMap()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-	protected static final ValueMap VALUE_MAP_EDEFAULT = (ValueMap)B3backendFactory.eINSTANCE.createFromString(B3backendPackage.eINSTANCE.getValueMap(), "");
+	protected static final ValueMap VALUE_MAP_EDEFAULT = null; //(ValueMap)B3backendFactory.eINSTANCE.createFromString(B3backendPackage.eINSTANCE.getValueMap(), "");
 	/**
 	 * The cached value of the '{@link #getValueMap() <em>Value Map</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -245,8 +248,9 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 * @return
 	 */
 	protected B3FuncStore getEffectiveFuncStore() {
-		if(getFuncStore() != null)
-			return getFuncStore();
+		B3FuncStore fs = getFuncStore();
+		if(fs != null)
+			return fs;
 		BExecutionContext p = getParentContext();
 		while(p != null && p.getFuncStore() == null)
 			p = p.getParentContext();
@@ -631,6 +635,28 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		if(getParentContext() == null)
 			throw new B3NoContextException(clazz.getName());
 		return getParentContext().getContext(clazz);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Returns an iterator over the effective func store (i.e. it searches up the parent chain
+	 * to find the first context that actually has functions defined.
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Iterator<IFunction> getFunctionIterator() {
+		return getEffectiveFuncStore().getFunctionIterator();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Returns an iterator over the effective func store (i.e. it searches up the parent chain
+	 * to find the first context that actually has functions defined).
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Iterator<IFunction> getFunctionIterator(String name) {
+		return getEffectiveFuncStore().getFunctionIterator(name);
 	}
 
 	/**

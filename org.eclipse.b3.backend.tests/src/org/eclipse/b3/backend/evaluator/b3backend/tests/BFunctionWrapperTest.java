@@ -33,7 +33,9 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper;
  * <p>
  * The following operations are tested:
  * <ul>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#call(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object[], java.lang.reflect.Type[]) <em>Call</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#internalCall(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object[], java.lang.reflect.Type[]) <em>Internal Call</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#prepareCall(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object[], java.lang.reflect.Type[]) <em>Prepare Call</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getSignature() <em>Get Signature</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getReturnTypeForParameterTypes(java.lang.reflect.Type[], org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Get Return Type For Parameter Types</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getEffectiveParameters() <em>Get Effective Parameters</em>}</li>
@@ -155,6 +157,19 @@ public class BFunctionWrapperTest extends BExpressionTest {
 	}
 
 	/**
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#call(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object[], java.lang.reflect.Type[]) <em>Call</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.IFunction#call(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object[], java.lang.reflect.Type[])
+	 * @generated
+	 */
+	public void testCall__BExecutionContext_Object_Type() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
 	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#internalCall(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object[], java.lang.reflect.Type[]) <em>Internal Call</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -162,6 +177,19 @@ public class BFunctionWrapperTest extends BExpressionTest {
 	 * @generated
 	 */
 	public void testInternalCall__BExecutionContext_Object_Type() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#prepareCall(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object[], java.lang.reflect.Type[]) <em>Prepare Call</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.IFunction#prepareCall(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, java.lang.Object[], java.lang.reflect.Type[])
+	 * @generated
+	 */
+	public void testPrepareCall__BExecutionContext_Object_Type() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

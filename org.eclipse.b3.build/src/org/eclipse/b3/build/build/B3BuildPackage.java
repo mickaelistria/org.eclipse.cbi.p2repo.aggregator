@@ -1506,6 +1506,24 @@ public interface B3BuildPackage extends EPackage {
 	int BUILD_CONTEXT_FEATURE_COUNT = B3backendPackage.BEXECUTION_CONTEXT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_CONCERN_CONTEXT__LINE_NUMBER = B3backendPackage.BCONCERN_CONTEXT__LINE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>File Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_CONCERN_CONTEXT__FILE_REFERENCE = B3backendPackage.BCONCERN_CONTEXT__FILE_REFERENCE;
+
+	/**
 	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1875,6 +1893,24 @@ public interface B3BuildPackage extends EPackage {
 	int INPUT_PREDICATE_FEATURE_COUNT = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_CONCERN_CONTEXT__LINE_NUMBER = BUILD_CONCERN_CONTEXT__LINE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>File Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_CONCERN_CONTEXT__FILE_REFERENCE = BUILD_CONCERN_CONTEXT__FILE_REFERENCE;
+
+	/**
 	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1954,6 +1990,24 @@ public interface B3BuildPackage extends EPackage {
 	 * @ordered
 	 */
 	int UNIT_CONCERN_CONTEXT_FEATURE_COUNT = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_CONCERN_CONTEXT__LINE_NUMBER = BUILD_CONCERN_CONTEXT__LINE_NUMBER;
+
+	/**
+	 * The feature id for the '<em><b>File Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_CONCERN_CONTEXT__FILE_REFERENCE = BUILD_CONCERN_CONTEXT__FILE_REFERENCE;
 
 	/**
 	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
@@ -2858,13 +2912,13 @@ public interface B3BuildPackage extends EPackage {
 	int BUILDER_WRAPPER__CONTAINER = B3backendPackage.BFUNCTION_WRAPPER__CONTAINER;
 
 	/**
-	 * The feature id for the '<em><b>Wrapper</b></em>' reference.
+	 * The feature id for the '<em><b>Around Expr</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILDER_WRAPPER__WRAPPER = B3backendPackage.BFUNCTION_WRAPPER__WRAPPER;
+	int BUILDER_WRAPPER__AROUND_EXPR = B3backendPackage.BFUNCTION_WRAPPER__AROUND_EXPR;
 
 	/**
 	 * The feature id for the '<em><b>Original</b></em>' reference.

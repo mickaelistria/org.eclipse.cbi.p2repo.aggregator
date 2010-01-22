@@ -23,7 +23,7 @@ package org.eclipse.b3.backend.evaluator.b3backend;
  * @model abstract="true"
  * @generated
  */
-public interface BConcernContext extends BFunctionContainer {
+public interface BConcernContext extends BExpression, BFunctionContainer {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

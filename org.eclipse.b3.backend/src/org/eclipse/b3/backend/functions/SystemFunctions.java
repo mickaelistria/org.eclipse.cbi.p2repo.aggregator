@@ -120,12 +120,12 @@ public class SystemFunctions {
 			while(c == Boolean.TRUE) {
 				BExecutionContext useCtx = cond.getClosure();
 				useCtx = useCtx == null ? ctx.createOuterContext() : useCtx.createInnerContext();
-				c = cond.internalCall(useCtx, callParams, typeParams);
+				c = cond.call(useCtx, callParams, typeParams);
 				if(c != Boolean.TRUE)
 					return e;
 				useCtx = body.getClosure();
 				useCtx = useCtx == null ? ctx.createOuterContext() : useCtx.createInnerContext();
-				e = body.internalCall(useCtx, callParams, typeParams);
+				e = body.call(useCtx, callParams, typeParams);
 			}
 		}
 		if(params.length == 1) {
@@ -134,7 +134,7 @@ public class SystemFunctions {
 			while(e == Boolean.TRUE) {
 				BExecutionContext useCtx = body.getClosure();
 				useCtx = useCtx == null ? ctx.createOuterContext() : useCtx.createInnerContext();
-				e = body.internalCall(useCtx, callParams, typeParams);
+				e = body.call(useCtx, callParams, typeParams);
 			}
 			return e;
 		}
@@ -153,13 +153,12 @@ public class SystemFunctions {
 			while(c == Boolean.FALSE) {
 				BExecutionContext useCtx = cond.getClosure();
 				useCtx = useCtx == null ? ctx.createOuterContext() : useCtx.createInnerContext();
-				c = cond.internalCall(useCtx, callParams, typeParams);
+				c = cond.call(useCtx, callParams, typeParams);
 				if(c != Boolean.FALSE)
 					return e;
 				useCtx = body.getClosure();
 				useCtx = useCtx == null ? ctx.createOuterContext() : useCtx.createInnerContext();
-				e = body.internalCall(useCtx, callParams, typeParams);
-				e = body.internalCall(useCtx, callParams, typeParams);
+				e = body.call(useCtx, callParams, typeParams);
 			}
 		}
 		if(params.length == 1) {
@@ -168,7 +167,7 @@ public class SystemFunctions {
 			while(e == Boolean.FALSE) {
 				BExecutionContext useCtx = body.getClosure();
 				useCtx = useCtx == null ? ctx.createOuterContext() : useCtx.createInnerContext();
-				e = body.internalCall(useCtx, callParams, typeParams);
+				e = body.call(useCtx, callParams, typeParams);
 			}
 			return e;
 		}
@@ -191,7 +190,7 @@ public class SystemFunctions {
 			if(cur.curry != -1)
 				cur.p[cur.curry] = curryVal;
 			BExecutionContext useCtx = cur.closure == null ? ctx.createOuterContext() : cur.closure.createInnerContext();
-			result = cur.lambda.internalCall(useCtx, cur.p, cur.t);
+			result = cur.lambda.call(useCtx, cur.p, cur.t);
 			}
 		return result;
 	}
@@ -224,7 +223,7 @@ public class SystemFunctions {
 		//
 		BExecutionContext useCtx = func.getClosure();
 		useCtx = useCtx == null ? ctx.createOuterContext() : useCtx.createInnerContext();
-		return func.internalCall(useCtx, callparams, calltypes);
+		return func.call(useCtx, callparams, calltypes);
 	}
 	
 	@B3Backend(systemFunction="_exists", varargs=true)
@@ -245,7 +244,7 @@ public class SystemFunctions {
 			if(cur.curry != -1)
 				cur.p[cur.curry] = curryVal;
 			BExecutionContext useCtx = cur.closure == null ? ctx.createOuterContext() : cur.closure.createInnerContext();
-			result = cur.lambda.internalCall(useCtx, cur.p, cur.t);
+			result = cur.lambda.call(useCtx, cur.p, cur.t);
 			if(result instanceof Boolean && ((Boolean)result) == Boolean.TRUE)
 				return Boolean.TRUE;
 			}
@@ -268,7 +267,7 @@ public class SystemFunctions {
 			if(cur.curry != -1)
 				cur.p[cur.curry] = curryVal;
 			BExecutionContext useCtx = cur.closure == null ? ctx.createOuterContext() : cur.closure.createInnerContext();
-			result = cur.lambda.internalCall(useCtx, cur.p, cur.t);
+			result = cur.lambda.call(useCtx, cur.p, cur.t);
 			if(!(result instanceof Boolean) || ((Boolean)result) == Boolean.FALSE)
 				return Boolean.FALSE;
 			}
@@ -292,7 +291,7 @@ public class SystemFunctions {
 			if(cur.curry != -1)
 				cur.p[cur.curry] = curryVal;
 			BExecutionContext useCtx = cur.closure == null ? ctx.createOuterContext() : cur.closure.createInnerContext();
-			cond = cur.lambda.internalCall(useCtx, cur.p, cur.t);
+			cond = cur.lambda.call(useCtx, cur.p, cur.t);
 			if(cond instanceof Boolean && ((Boolean)cond) == Boolean.TRUE)
 				result.add(curryVal);
 			}
@@ -315,7 +314,7 @@ public class SystemFunctions {
 			if(cur.curry != -1)
 				cur.p[cur.curry] = curryVal;
 			BExecutionContext useCtx = cur.closure == null ? ctx.createOuterContext() : cur.closure.createInnerContext();
-			cond = cur.lambda.internalCall(useCtx, cur.p, cur.t);
+			cond = cur.lambda.call(useCtx, cur.p, cur.t);
 			// if true is returned, the element is not added
 			if(!(cond instanceof Boolean && ((Boolean)cond) == Boolean.TRUE))
 				result.add(curryVal);
@@ -349,7 +348,7 @@ public class SystemFunctions {
 			Object curryVal = cur.itor.next();
 			cur.p[cur.curry] = curryVal;
 			BExecutionContext useCtx = cur.closure == null ? ctx.createOuterContext() : cur.closure.createInnerContext();
-			inject = cur.lambda.internalCall(useCtx, cur.p, cur.t);
+			inject = cur.lambda.call(useCtx, cur.p, cur.t);
 			cur.p[injectPos] = inject;
 			}
 		// if the iterator had no elements, return the injected start value.

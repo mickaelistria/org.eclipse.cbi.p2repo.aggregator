@@ -28709,20 +28709,22 @@ protected class FunctionNamePredicate_NamePredicateAssignment_1 extends Assignme
 /************ begin Rule ParameterPredicate ****************
  *
  * ParameterPredicate returns be::BParameterPredicate:
- *   {be::BParameterPredicate} typePredicateOp=TypePredicateOp|type=TypeRef name=ID?; 	
+ *   {be::BParameterPredicate} ("_" typePredicateOp=TypePredicateOp?)|type=TypeRef (
+ *   typePredicateOp=TypePredicateOp|name=ID)?; 	
  *         
- * 	      
- * 	         
+ * 	        
+ * 	                 
  * 	
  * 	
  * // Varargs can only be last, and it only makes sense to skip the type (not to use ?*+)
  *
  **/
 
-// {be::BParameterPredicate} typePredicateOp=TypePredicateOp|type=TypeRef name=ID? 	
+// {be::BParameterPredicate} ("_" typePredicateOp=TypePredicateOp?)|type=TypeRef (
+// typePredicateOp=TypePredicateOp|name=ID)? 	
 //         
-// 	      
-// 	         
+// 	        
+// 	                 
 // 	
 // 	
 // // Varargs can only be last, and it only makes sense to skip the type (not to use ?*+)
@@ -28753,7 +28755,7 @@ protected class ParameterPredicate_Alternatives extends AlternativesToken {
 	}
 }
 
-// {be::BParameterPredicate} typePredicateOp=TypePredicateOp
+// {be::BParameterPredicate} ("_" typePredicateOp=TypePredicateOp?)
 protected class ParameterPredicate_Group_0 extends GroupToken {
 	
 	public ParameterPredicate_Group_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -28768,7 +28770,7 @@ protected class ParameterPredicate_Group_0 extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ParameterPredicate_TypePredicateOpAssignment_0_1(parent, this, 0, inst);
+			case 0: return new ParameterPredicate_Group_0_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -28803,16 +28805,39 @@ protected class ParameterPredicate_BParameterPredicateAction_0_0 extends ActionT
 	}
 }
 
-// typePredicateOp=TypePredicateOp
-protected class ParameterPredicate_TypePredicateOpAssignment_0_1 extends AssignmentToken  {
+// "_" typePredicateOp=TypePredicateOp?
+protected class ParameterPredicate_Group_0_1 extends GroupToken {
 	
-	public ParameterPredicate_TypePredicateOpAssignment_0_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ParameterPredicate_Group_0_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getParameterPredicateAccess().getTypePredicateOpAssignment_0_1();
+	public Group getGrammarElement() {
+		return grammarAccess.getParameterPredicateAccess().getGroup_0_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ParameterPredicate_TypePredicateOpAssignment_0_1_1(parent, this, 0, inst);
+			case 1: return new ParameterPredicate__Keyword_0_1_0(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "_"
+protected class ParameterPredicate__Keyword_0_1_0 extends KeywordToken  {
+	
+	public ParameterPredicate__Keyword_0_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getParameterPredicateAccess().get_Keyword_0_1_0();
 	}
 
     @Override
@@ -28823,13 +28848,35 @@ protected class ParameterPredicate_TypePredicateOpAssignment_0_1 extends Assignm
 		}	
 	}	
 		
+}
+
+// typePredicateOp=TypePredicateOp?
+protected class ParameterPredicate_TypePredicateOpAssignment_0_1_1 extends AssignmentToken  {
+	
+	public ParameterPredicate_TypePredicateOpAssignment_0_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getParameterPredicateAccess().getTypePredicateOpAssignment_0_1_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ParameterPredicate__Keyword_0_1_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
     @Override	
 	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("typePredicateOp",true)) == null) return null;
+		if((value = current.getConsumable("typePredicateOp",false)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("typePredicateOp");
 		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
 			type = AssignmentType.DRC;
-			element = grammarAccess.getParameterPredicateAccess().getTypePredicateOpTypePredicateOpParserRuleCall_0_1_0();
+			element = grammarAccess.getParameterPredicateAccess().getTypePredicateOpTypePredicateOpParserRuleCall_0_1_1_0();
 			return obj;
 		}
 		return null;
@@ -28838,7 +28885,8 @@ protected class ParameterPredicate_TypePredicateOpAssignment_0_1 extends Assignm
 }
 
 
-// type=TypeRef name=ID?
+
+// type=TypeRef (typePredicateOp=TypePredicateOp|name=ID)?
 protected class ParameterPredicate_Group_1 extends GroupToken {
 	
 	public ParameterPredicate_Group_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -28853,7 +28901,7 @@ protected class ParameterPredicate_Group_1 extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ParameterPredicate_NameAssignment_1_1(parent, this, 0, inst);
+			case 0: return new ParameterPredicate_Alternatives_1_1(parent, this, 0, inst);
 			case 1: return new ParameterPredicate_TypeAssignment_1_0(parent, this, 1, inst);
 			default: return null;
 		}	
@@ -28906,16 +28954,39 @@ protected class ParameterPredicate_TypeAssignment_1_0 extends AssignmentToken  {
 	}	
 }
 
-// name=ID?
-protected class ParameterPredicate_NameAssignment_1_1 extends AssignmentToken  {
+// (typePredicateOp=TypePredicateOp|name=ID)?
+protected class ParameterPredicate_Alternatives_1_1 extends AlternativesToken {
+
+	public ParameterPredicate_Alternatives_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
 	
-	public ParameterPredicate_NameAssignment_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	@Override
+	public Alternatives getGrammarElement() {
+		return grammarAccess.getParameterPredicateAccess().getAlternatives_1_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ParameterPredicate_TypePredicateOpAssignment_1_1_0(parent, this, 0, inst);
+			case 1: return new ParameterPredicate_NameAssignment_1_1_1(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// typePredicateOp=TypePredicateOp
+protected class ParameterPredicate_TypePredicateOpAssignment_1_1_0 extends AssignmentToken  {
+	
+	public ParameterPredicate_TypePredicateOpAssignment_1_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getParameterPredicateAccess().getNameAssignment_1_1();
+		return grammarAccess.getParameterPredicateAccess().getTypePredicateOpAssignment_1_1_0();
 	}
 
     @Override
@@ -28928,11 +28999,45 @@ protected class ParameterPredicate_NameAssignment_1_1 extends AssignmentToken  {
 		
     @Override	
 	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("name",false)) == null) return null;
+		if((value = current.getConsumable("typePredicateOp",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("typePredicateOp");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+			type = AssignmentType.DRC;
+			element = grammarAccess.getParameterPredicateAccess().getTypePredicateOpTypePredicateOpParserRuleCall_1_1_0_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// name=ID
+protected class ParameterPredicate_NameAssignment_1_1_1 extends AssignmentToken  {
+	
+	public ParameterPredicate_NameAssignment_1_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getParameterPredicateAccess().getNameAssignment_1_1_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ParameterPredicate_TypeAssignment_1_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("name",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("name");
 		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
 			type = AssignmentType.LRC;
-			element = grammarAccess.getParameterPredicateAccess().getNameIDTerminalRuleCall_1_1_0();
+			element = grammarAccess.getParameterPredicateAccess().getNameIDTerminalRuleCall_1_1_1_0();
 			return obj;
 		}
 		return null;
@@ -28942,19 +29047,20 @@ protected class ParameterPredicate_NameAssignment_1_1 extends AssignmentToken  {
 
 
 
+
 /************ end Rule ParameterPredicate ****************/
 
 
 /************ begin Rule ParameterVarargsPredicate ****************
  *
  * ParameterVarargsPredicate returns be::BParameterPredicate:
- *   {be::BParameterPredicate} typePredicateOp="_"|type=TypeRef name=ID?; 
+ *   {be::BParameterPredicate} "_"|type=TypeRef name=ID?; 
  * 	
  * // Varargs can only be last, and it only makes sense to skip the type (not to use ?*+)
  *
  **/
 
-// {be::BParameterPredicate} typePredicateOp="_"|type=TypeRef name=ID? 
+// {be::BParameterPredicate} "_"|type=TypeRef name=ID? 
 // 	
 // // Varargs can only be last, and it only makes sense to skip the type (not to use ?*+)
 protected class ParameterVarargsPredicate_Alternatives extends AlternativesToken {
@@ -28984,7 +29090,7 @@ protected class ParameterVarargsPredicate_Alternatives extends AlternativesToken
 	}
 }
 
-// {be::BParameterPredicate} typePredicateOp="_"
+// {be::BParameterPredicate} "_"
 protected class ParameterVarargsPredicate_Group_0 extends GroupToken {
 	
 	public ParameterVarargsPredicate_Group_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -28999,7 +29105,7 @@ protected class ParameterVarargsPredicate_Group_0 extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ParameterVarargsPredicate_TypePredicateOpAssignment_0_1(parent, this, 0, inst);
+			case 0: return new ParameterVarargsPredicate__Keyword_0_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -29034,16 +29140,16 @@ protected class ParameterVarargsPredicate_BParameterPredicateAction_0_0 extends 
 	}
 }
 
-// typePredicateOp="_"
-protected class ParameterVarargsPredicate_TypePredicateOpAssignment_0_1 extends AssignmentToken  {
+// "_"
+protected class ParameterVarargsPredicate__Keyword_0_1 extends KeywordToken  {
 	
-	public ParameterVarargsPredicate_TypePredicateOpAssignment_0_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ParameterVarargsPredicate__Keyword_0_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getParameterVarargsPredicateAccess().getTypePredicateOpAssignment_0_1();
+	public Keyword getGrammarElement() {
+		return grammarAccess.getParameterVarargsPredicateAccess().get_Keyword_0_1();
 	}
 
     @Override
@@ -29054,18 +29160,6 @@ protected class ParameterVarargsPredicate_TypePredicateOpAssignment_0_1 extends 
 		}	
 	}	
 		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("typePredicateOp",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("typePredicateOp");
-		if("_".equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
-			type = AssignmentType.KW;
-			element = grammarAccess.getParameterVarargsPredicateAccess().getTypePredicateOp_Keyword_0_1_0();
-			return obj;
-		}
-		return null;
-	}
-
 }
 
 

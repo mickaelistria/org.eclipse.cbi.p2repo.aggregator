@@ -6,8 +6,11 @@ import java.util.ArrayList;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
+import org.eclipse.b3.backend.evaluator.b3backend.BConcern;
+import org.eclipse.b3.backend.evaluator.b3backend.BWithExpression;
 import org.eclipse.b3.beeLang.BeeModel;
 import org.eclipse.b3.build.build.AliasedRequiredCapability;
+import org.eclipse.b3.build.build.BuildUnit;
 import org.eclipse.b3.build.build.BuilderReference;
 import org.eclipse.b3.build.build.IRequiredCapabilityContainer;
 import org.eclipse.b3.build.build.RequiredCapability;
@@ -29,6 +32,7 @@ import org.eclipse.xtext.scoping.impl.SimpleScope;
  */
 public class BeeLangScopeProvider extends AbstractDeclarativeScopeProvider {
 //	IScope scope_B3ParameterizedType_rawType(B3ParameterizedType ctx, EReference ref) {
+	
 	IScope scope_IType(B3ParameterizedType ctx, EReference ref) {
 		EList<EObject> x = ctx.eResource().getContents();
 		// create an Iterable of IEObjectDescription - instances of EObjectDescription
@@ -79,6 +83,23 @@ public class BeeLangScopeProvider extends AbstractDeclarativeScopeProvider {
 		}
 		if(result.isEmpty())
 			return IScope.NULLSCOPE;
+		return new SimpleScope(result);
+	}
+	
+	IScope scope_BAdvice(BWithExpression ctx, EReference ref) {
+		EList<EObject> x = ctx.eResource().getContents();
+		ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
+		for(EObject y: x) {
+			if(y instanceof BeeModel) {
+				BeeModel model = ((BeeModel)y);
+				for(BConcern concern : model.getConcern())
+					result.add(new EObjectDescription(concern.getName(),concern, null));
+				BuildUnit bu = model.getBody();
+				if(bu != null)
+					for(BConcern concern : bu.getConcerns())
+						result.add(new EObjectDescription(concern.getName(),concern, null));
+			}
+		}
 		return new SimpleScope(result);
 	}
 }

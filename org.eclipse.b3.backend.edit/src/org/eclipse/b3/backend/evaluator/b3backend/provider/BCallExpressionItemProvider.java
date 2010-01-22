@@ -384,6 +384,11 @@ public class BCallExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BCALL_EXPRESSION__FUNC_EXPR,
+				 B3backendFactory.eINSTANCE.createBFunctionConcernContext()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCALL_EXPRESSION__FUNC_EXPR,
 				 B3backendFactory.eINSTANCE.createBProceedExpression()));
 	}
 

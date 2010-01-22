@@ -393,6 +393,11 @@ public class BNamePredicateItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN,
+				 B3backendFactory.eINSTANCE.createBFunctionConcernContext()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN,
 				 B3backendFactory.eINSTANCE.createBProceedExpression()));
 	}
 

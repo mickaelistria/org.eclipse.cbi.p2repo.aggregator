@@ -1,18 +1,18 @@
 package org.eclipse.b3.backend.core;
 
 import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
-import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 
 public class ValueMap {
 	private static int IMMUTABLE = 0x1;
 	private static int FINAL = 0x2;
-		
-	private Map<String, ValueEntry> values = null;
+	private int paramCount = 0;
+	private LinkedHashMap<String, ValueEntry> values = null;
 	
 	public ValueMap() {	
 	}
@@ -100,10 +100,10 @@ public class ValueMap {
 			break isDefined;
 		ve.type = t;
 		return;
+		}
+	throw new B3NoSuchVariableException(key);	
 	}
-	throw new B3NoSuchVariableException(key);
-		
-	}
+	
 	/**
 	 * Sets the value for a particular key. The type must be compatible.
 	 * was not defined.
@@ -133,18 +133,46 @@ public class ValueMap {
 			return false;
 		return values.containsKey(key);
 	}
+	public void markParametersDone(boolean lastWasVararg) {
+		int size = values == null ? 0 : values.size();
+		paramCount = lastWasVararg ? - size : size;
+	}
+	@SuppressWarnings("unchecked")
+	public Object[] getParameterArray() {
+		int limit = paramCount;
+		boolean isVarargs = false;
+		if(paramCount < 0) { limit = -limit; isVarargs = true; }
+		
+		List<Object> result = new ArrayList<Object>();
+		int count = 0;
+		for(ValueEntry e : values.values()) {
+			if(count++ > limit)
+				break;
+			result.add(e.value);
+			}
+		if(isVarargs) {
+			List<Object> varargs = (List<Object>)result.remove(result.size()-1);
+			for(Object o : varargs) 
+				result.add(o);
+		}
+		return result.toArray();
+	}
+//	public Object getVarargsParameter() {
+//		if(paramCount >= 0)
+//			return null;
+//	}
 	private void checkMapExists() {
 		if(values == null)
-			values = new HashMap<String, ValueEntry>();
+			values = new LinkedHashMap<String, ValueEntry>();
 	}
 	private static class ValueEntry {
 		int markers;
 		Object value;
 		Type type;
 		ValueEntry(Object val, Type t)
-		{ markers = 0; value = val; type = t;}
+		{ markers = 0; value = val; type = t; }
 		ValueEntry(int marks, Object val, Type t)
-		{ markers = marks; value = val; type = t;}
+		{ markers = marks; value = val; type = t; }
 		boolean isFinal() { return (markers & FINAL) != 0; }
 		boolean isImmutable() { return (markers & IMMUTABLE) != 0; }
 		boolean isAssignableFrom(Object value) {

@@ -5,6 +5,7 @@ import java.util.List;
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.Builder;
 import org.eclipse.b3.build.build.BuilderConcernContext;
+import org.eclipse.b3.backend.core.TypePattern;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BProceedExpression;
@@ -63,5 +64,17 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator {
 		error("A proceed expression can only appear inside a function or builder context in a concern",
 				proceed,
 				B3backendPackage.BPROCEED_EXPRESSION);
+	}
+	/**
+	 * Validate that the entered parameter pattern is compilable.
+	 * @param fcc
+	 */
+	@Check
+	public void checkFunctionConcernContext(BFunctionConcernContext fcc) {
+		try {
+		TypePattern.compile(fcc.getParameters());
+		} catch(Throwable t) {
+			error(t.getMessage(), fcc, B3backendPackage.BFUNCTION_CONCERN_CONTEXT__PARAMETERS);
+		}
 	}
 }
