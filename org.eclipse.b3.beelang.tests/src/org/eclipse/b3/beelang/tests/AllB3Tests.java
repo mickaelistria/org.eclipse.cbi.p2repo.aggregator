@@ -13,6 +13,7 @@ import org.junit.runner.RunWith;
 		"/src-b3/testBuildUnitSyntax.b3", //
 		"/src-b3/testCache.b3", //
 		"/src-b3/testExceptions.b3", //
+		"/src-b3/testFunctionCrossCuts.b3", //
 		"/src-b3/testGuard.b3", //
 		"/src-b3/testHelloWorld.b3", //
 		"/src-b3/testIfThenElse.b3", //
