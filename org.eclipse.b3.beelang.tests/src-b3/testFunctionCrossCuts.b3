@@ -1,0 +1,35 @@
+import java.lang.Integer;
+import java.util.List;
+
+function Integer foo (Integer a) { a+1; }
+function Integer bar (...Integer several) { several[1]=222; several[0]; }
+
+concern aMatterOfTaste {
+	context function foo (Integer b) {
+		b = 2;
+		proceed;
+	}
+	context function bar(...Integer wrappedSeveral) {
+		wrappedSeveral[0] = 666;
+		var result = proceed;
+		var a = wrappedSeveral[1];
+		assertEquals("modified parameters should work in varargs", 222, a);
+		result;
+	}
+}
+function main(List args) {
+	testWeavingVarargs();
+	testWeaving();
+}
+function testWeavingVarargs() {
+	var a = with  (aMatterOfTaste) : bar(1,2,3);
+	assertEquals("weaving should make this have value 666", 666, a);
+	a = bar(1,2,3);
+	assertEquals("unwoven should have value 1", 1, a);
+}
+function testWeaving() {
+	var a = with  (aMatterOfTaste) : foo(10);
+	assertEquals("weaving should make this have value 3", 3, a);
+	a = foo(10);
+	assertEquals("unwoven should have value 11", 11, a);
+}
