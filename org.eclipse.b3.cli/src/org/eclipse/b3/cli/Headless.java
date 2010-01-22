@@ -229,7 +229,8 @@ public class Headless implements IApplication {
 		PackageAdmin packageAdmin = b3util.getService(PackageAdmin.class);
 		try {
 			for(String bundleName : bundleNames)
-				startEarly(packageAdmin, bundleName);
+				if(!startEarly(packageAdmin, bundleName))
+					throw new Exception("Missing bundle: " + bundleName);
 		}
 		finally {
 			b3util.ungetService(b3util);
