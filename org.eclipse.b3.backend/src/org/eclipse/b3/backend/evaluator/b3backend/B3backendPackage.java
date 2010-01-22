@@ -4932,22 +4932,13 @@ public interface B3backendPackage extends EPackage {
 	int BWRAPPING_CONTEXT__VARARGS_NAME = BDELEGATING_CONTEXT_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Varargs Array</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BWRAPPING_CONTEXT__VARARGS_ARRAY = BDELEGATING_CONTEXT_FEATURE_COUNT + 5;
-
-	/**
 	 * The number of structural features of the '<em>BWrapping Context</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BWRAPPING_CONTEXT_FEATURE_COUNT = BDELEGATING_CONTEXT_FEATURE_COUNT + 6;
+	int BWRAPPING_CONTEXT_FEATURE_COUNT = BDELEGATING_CONTEXT_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.Visibility <em>Visibility</em>}' enum.
@@ -6419,17 +6410,6 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getBWrappingContext_VarargsName();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext#getVarargsArray <em>Varargs Array</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Varargs Array</em>'.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext#getVarargsArray()
-	 * @see #getBWrappingContext()
-	 * @generated
-	 */
-	EAttribute getBWrappingContext_VarargsArray();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BGuard <em>BGuard</em>}'.
@@ -8778,14 +8758,6 @@ public interface B3backendPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute BWRAPPING_CONTEXT__VARARGS_NAME = eINSTANCE.getBWrappingContext_VarargsName();
-
-		/**
-		 * The meta object literal for the '<em><b>Varargs Array</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute BWRAPPING_CONTEXT__VARARGS_ARRAY = eINSTANCE.getBWrappingContext_VarargsArray();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BGuardImpl <em>BGuard</em>}' class.

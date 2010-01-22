@@ -2005,15 +2005,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBWrappingContext_VarargsArray() {
-		return (EAttribute)bWrappingContextEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getBGuard() {
 		return bGuardEClass;
 	}
@@ -3423,7 +3414,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		createEAttribute(bWrappingContextEClass, BWRAPPING_CONTEXT__PARAMETERS);
 		createEAttribute(bWrappingContextEClass, BWRAPPING_CONTEXT__PARAMETER_TYPES);
 		createEAttribute(bWrappingContextEClass, BWRAPPING_CONTEXT__VARARGS_NAME);
-		createEAttribute(bWrappingContextEClass, BWRAPPING_CONTEXT__VARARGS_ARRAY);
 
 		// Create enums
 		visibilityEEnum = createEEnum(VISIBILITY);
@@ -4077,7 +4067,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEAttribute(getBWrappingContext_Parameters(), this.getObjectArray(), "parameters", null, 0, 1, BWrappingContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBWrappingContext_ParameterTypes(), this.getTypeArray(), "parameterTypes", null, 0, 1, BWrappingContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBWrappingContext_VarargsName(), ecorePackage.getEString(), "varargsName", null, 0, 1, BWrappingContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getBWrappingContext_VarargsArray(), ecorePackage.getEJavaObject(), "varargsArray", null, 0, -1, BWrappingContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(bWrappingContextEClass, null, "mapContext", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);

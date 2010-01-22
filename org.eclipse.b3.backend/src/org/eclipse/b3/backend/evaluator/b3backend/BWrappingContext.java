@@ -29,7 +29,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext#getParameters <em>Parameters</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext#getParameterTypes <em>Parameter Types</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext#getVarargsName <em>Varargs Name</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext#getVarargsArray <em>Varargs Array</em>}</li>
  * </ul>
  * </p>
  *
@@ -174,21 +173,5 @@ public interface BWrappingContext extends BDelegatingContext {
 	 * @generated
 	 */
 	void setVarargsName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Varargs Array</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.Object}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Varargs Array</em>' attribute list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Varargs Array</em>' attribute list.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBWrappingContext_VarargsArray()
-	 * @model unique="false"
-	 * @generated
-	 */
-	EList<Object> getVarargsArray();
 
 } // BWrappingContext

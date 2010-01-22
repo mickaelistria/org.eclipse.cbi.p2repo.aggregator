@@ -81,7 +81,6 @@ public class BWrappingContextItemProvider
 			addParametersPropertyDescriptor(object);
 			addParameterTypesPropertyDescriptor(object);
 			addVarargsNamePropertyDescriptor(object);
-			addVarargsArrayPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -197,28 +196,6 @@ public class BWrappingContextItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Varargs Array feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addVarargsArrayPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_BWrappingContext_varargsArray_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BWrappingContext_varargsArray_feature", "_UI_BWrappingContext_type"),
-				 B3backendPackage.Literals.BWRAPPING_CONTEXT__VARARGS_ARRAY,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This returns BWrappingContext.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -258,7 +235,6 @@ public class BWrappingContextItemProvider
 			case B3backendPackage.BWRAPPING_CONTEXT__PARAMETERS:
 			case B3backendPackage.BWRAPPING_CONTEXT__PARAMETER_TYPES:
 			case B3backendPackage.BWRAPPING_CONTEXT__VARARGS_NAME:
-			case B3backendPackage.BWRAPPING_CONTEXT__VARARGS_ARRAY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

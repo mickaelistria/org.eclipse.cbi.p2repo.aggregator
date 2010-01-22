@@ -13,8 +13,6 @@
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import java.lang.reflect.Type;
-import java.util.Collection;
-import java.util.List;
 import java.util.Map;
 
 import org.eclipse.b3.backend.core.B3EngineException;
@@ -29,12 +27,10 @@ import org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext;
 
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -48,7 +44,6 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWrappingContextImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWrappingContextImpl#getParameterTypes <em>Parameter Types</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWrappingContextImpl#getVarargsName <em>Varargs Name</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWrappingContextImpl#getVarargsArray <em>Varargs Array</em>}</li>
  * </ul>
  * </p>
  *
@@ -141,16 +136,6 @@ public class BWrappingContextImpl extends BDelegatingContextImpl implements BWra
 	 * @ordered
 	 */
 	protected String varargsName = VARARGS_NAME_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getVarargsArray() <em>Varargs Array</em>}' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getVarargsArray()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Object> varargsArray;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -339,19 +324,6 @@ public class BWrappingContextImpl extends BDelegatingContextImpl implements BWra
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * TODO: REMOVE Varargs array - not needed
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Object> getVarargsArray() {
-		if (varargsArray == null) {
-			varargsArray = new EDataTypeEList<Object>(Object.class, this, B3backendPackage.BWRAPPING_CONTEXT__VARARGS_ARRAY);
-		}
-		return varargsArray;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -370,8 +342,6 @@ public class BWrappingContextImpl extends BDelegatingContextImpl implements BWra
 				return getParameterTypes();
 			case B3backendPackage.BWRAPPING_CONTEXT__VARARGS_NAME:
 				return getVarargsName();
-			case B3backendPackage.BWRAPPING_CONTEXT__VARARGS_ARRAY:
-				return getVarargsArray();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -400,10 +370,6 @@ public class BWrappingContextImpl extends BDelegatingContextImpl implements BWra
 			case B3backendPackage.BWRAPPING_CONTEXT__VARARGS_NAME:
 				setVarargsName((String)newValue);
 				return;
-			case B3backendPackage.BWRAPPING_CONTEXT__VARARGS_ARRAY:
-				getVarargsArray().clear();
-				getVarargsArray().addAll((Collection<? extends Object>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -431,9 +397,6 @@ public class BWrappingContextImpl extends BDelegatingContextImpl implements BWra
 			case B3backendPackage.BWRAPPING_CONTEXT__VARARGS_NAME:
 				setVarargsName(VARARGS_NAME_EDEFAULT);
 				return;
-			case B3backendPackage.BWRAPPING_CONTEXT__VARARGS_ARRAY:
-				getVarargsArray().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -456,8 +419,6 @@ public class BWrappingContextImpl extends BDelegatingContextImpl implements BWra
 				return PARAMETER_TYPES_EDEFAULT == null ? parameterTypes != null : !PARAMETER_TYPES_EDEFAULT.equals(parameterTypes);
 			case B3backendPackage.BWRAPPING_CONTEXT__VARARGS_NAME:
 				return VARARGS_NAME_EDEFAULT == null ? varargsName != null : !VARARGS_NAME_EDEFAULT.equals(varargsName);
-			case B3backendPackage.BWRAPPING_CONTEXT__VARARGS_ARRAY:
-				return varargsArray != null && !varargsArray.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -478,8 +439,6 @@ public class BWrappingContextImpl extends BDelegatingContextImpl implements BWra
 		result.append(parameterTypes);
 		result.append(", varargsName: ");
 		result.append(varargsName);
-		result.append(", varargsArray: ");
-		result.append(varargsArray);
 		result.append(')');
 		return result.toString();
 	}
