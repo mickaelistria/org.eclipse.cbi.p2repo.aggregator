@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.b3.cli.commands">
+      <command
+            class="org.eclipse.b3.cli.TestCommand"
+            name="testCommand">
+      </command>
+      <command
+            class="org.eclipse.b3.cli.builtin.RunScript"
+            name="runScript">
+      </command>
+   </extension>
+   <extension-point id="commands" name="commands" schema="schema/commands.exsd"/>
+   <extension
+         id="headless"
+         point="org.eclipse.core.runtime.applications">
+      <application
+            cardinality="singleton-global"
+            thread="main"
+            visible="true">
+         <run
+               class="org.eclipse.b3.cli.Headless">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="org.eclipse.b3.cli.headless"
+            name="b3 headless launcher">
+      </product>
+   </extension>
+
+</plugin>
