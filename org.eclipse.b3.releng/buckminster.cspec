@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cs:cspec xmlns:cs="http://www.eclipse.org/buckminster/CSpec-1.0" name="org.eclipse.b3.releng" componentType="buckminster" version="1.0.0">
+    <cs:dependencies>
+        <cs:dependency name="org.eclipse.b3.aggregator.editor.feature" componentType="eclipse.feature"/>
+        <cs:dependency name="org.eclipse.b3.aggregator.engine.maven.indexer.feature" componentType="eclipse.feature"/>
+        <cs:dependency name="org.eclipse.b3.backend" componentType="osgi.bundle"/>
+        <cs:dependency name="org.eclipse.b3.backend.edit" componentType="osgi.bundle"/>
+        <cs:dependency name="org.eclipse.b3.backend.editor"/>
+        <cs:dependency name="org.eclipse.b3.backend.tests"/>
+        <cs:dependency name="org.eclipse.b3.beelang"/>
+        <cs:dependency name="org.eclipse.b3.beelang.junit"/>
+        <cs:dependency name="org.eclipse.b3.beelang.tests"/>
+        <cs:dependency name="org.eclipse.b3.beelang.ui"/>
+        <cs:dependency name="org.eclipse.b3.build"/>
+        <cs:dependency name="org.eclipse.rcp" componentType="eclipse.feature"/>
+    </cs:dependencies>
+</cs:cspec>
