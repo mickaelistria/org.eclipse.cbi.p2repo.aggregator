@@ -28,35 +28,35 @@ public class LogUtils {
 
 	private static final int MAGIC = AggregatorPlugin.getPlugin().getSymbolicName().hashCode();
 
-	public static void debug(String msg, Object... args){
+	public static void debug(String msg, Object... args) {
 		log(DEBUG, msg, args);
 	}
 
-	public static void debug(Throwable t, String msg, Object... args){
+	public static void debug(Throwable t, String msg, Object... args) {
 		log(DEBUG, t, msg, args);
 	}
 
-	public static void error(String msg, Object... args){
+	public static void error(String msg, Object... args) {
 		log(ERROR, msg, args);
 	}
 
-	public static void error(Throwable t, String msg, Object... args){
+	public static void error(Throwable t, String msg, Object... args) {
 		log(ERROR, t, msg, args);
 	}
 
-	public static void info(String msg, Object... args){
+	public static void info(String msg, Object... args) {
 		log(INFO, msg, args);
 	}
 
-	public static void info(Throwable t, String msg, Object... args){
+	public static void info(Throwable t, String msg, Object... args) {
 		log(INFO, t, msg, args);
 	}
 
-	public static void log(int level, String msg, Object... args){
+	public static void log(int level, String msg, Object... args) {
 		log(level, null, msg, args);
 	}
 
-	public static void log(int level, Throwable t, String msg, Object... args){
+	public static void log(int level, Throwable t, String msg, Object... args) {
 		AggregatorPlugin.getLog().log(
 				new Status(level, AggregatorPlugin.getPlugin().getSymbolicName(), MAGIC,
 						(args == null || args.length == 0)
@@ -64,11 +64,11 @@ public class LogUtils {
 								: String.format(msg, args), t));
 	}
 
-	public static void warning(String msg, Object... args){
+	public static void warning(String msg, Object... args) {
 		log(WARNING, msg, args);
 	}
 
-	public static void warning(Throwable t, String msg, Object... args){
+	public static void warning(Throwable t, String msg, Object... args) {
 		log(WARNING, t, msg, args);
 	}
 }

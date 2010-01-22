@@ -15,26 +15,27 @@ import org.eclipse.equinox.internal.provisional.p2.metadata.IUpdateDescriptor;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>IU Details</b></em>'. <!-- end-user-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.b3.aggregator.p2view.IUDetails#getRequiredCapabilitiesContainer <em>Required Capabilities Container</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.p2view.IUDetails#getProvidedCapabilitiesContainer <em>Provided Capabilities Container</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.p2view.IUDetails#getPropertiesContainer <em>Properties Container</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.p2view.IUDetails#getTouchpointsContainer <em>Touchpoints Container</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.p2view.IUDetails#getUpdateDescriptor <em>Update Descriptor</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.p2view.IUDetails#getCopyright <em>Copyright</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.p2view.IUDetails#getLicense <em>License</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.IUDetails#getRequiredCapabilitiesContainer <em>Required Capabilities
+ * Container</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.IUDetails#getProvidedCapabilitiesContainer <em>Provided Capabilities
+ * Container</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.IUDetails#getPropertiesContainer <em>Properties Container</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.IUDetails#getTouchpointsContainer <em>Touchpoints Container</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.IUDetails#getUpdateDescriptor <em>Update Descriptor</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.IUDetails#getCopyright <em>Copyright</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.IUDetails#getLicense <em>License</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getIUDetails()
  * @model
  * @generated
  */
-public interface IUDetails
-{
+public interface IUDetails {
 	/**
 	 * Returns the value of the '<em><b>Copyright</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -43,6 +44,7 @@ public interface IUDetails
 	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Copyright</em>' reference.
 	 * @see #setCopyright(ICopyright)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getIUDetails_Copyright()
@@ -59,6 +61,7 @@ public interface IUDetails
 	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>License</em>' reference.
 	 * @see #setLicense(ILicense)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getIUDetails_License()
@@ -75,6 +78,7 @@ public interface IUDetails
 	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Properties Container</em>' reference.
 	 * @see #setPropertiesContainer(Properties)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getIUDetails_PropertiesContainer()
@@ -91,6 +95,7 @@ public interface IUDetails
 	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Provided Capabilities Container</em>' reference.
 	 * @see #setProvidedCapabilitiesContainer(ProvidedCapabilities)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getIUDetails_ProvidedCapabilitiesContainer()
@@ -107,6 +112,7 @@ public interface IUDetails
 	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Required Capabilities Container</em>' reference.
 	 * @see #setRequiredCapabilitiesContainer(RequiredCapabilities)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getIUDetails_RequiredCapabilitiesContainer()
@@ -123,6 +129,7 @@ public interface IUDetails
 	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Touchpoints Container</em>' reference.
 	 * @see #setTouchpointsContainer(Touchpoints)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getIUDetails_TouchpointsContainer()
@@ -139,6 +146,7 @@ public interface IUDetails
 	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Update Descriptor</em>' reference.
 	 * @see #setUpdateDescriptor(IUpdateDescriptor)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getIUDetails_UpdateDescriptor()
@@ -148,9 +156,12 @@ public interface IUDetails
 	IUpdateDescriptor getUpdateDescriptor();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUDetails#getCopyright <em>Copyright</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUDetails#getCopyright <em>Copyright</em>}'
+	 * reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Copyright</em>' reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Copyright</em>' reference.
 	 * @see #getCopyright()
 	 * @generated
 	 */
@@ -159,52 +170,69 @@ public interface IUDetails
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUDetails#getLicense <em>License</em>}' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>License</em>' reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>License</em>' reference.
 	 * @see #getLicense()
 	 * @generated
 	 */
 	void setLicense(ILicense value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUDetails#getPropertiesContainer <em>Properties Container</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUDetails#getPropertiesContainer
+	 * <em>Properties Container</em>}' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Properties Container</em>' reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Properties Container</em>' reference.
 	 * @see #getPropertiesContainer()
 	 * @generated
 	 */
 	void setPropertiesContainer(Properties value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUDetails#getProvidedCapabilitiesContainer <em>Provided Capabilities Container</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUDetails#getProvidedCapabilitiesContainer
+	 * <em>Provided Capabilities Container</em>}' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Provided Capabilities Container</em>' reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Provided Capabilities Container</em>' reference.
 	 * @see #getProvidedCapabilitiesContainer()
 	 * @generated
 	 */
 	void setProvidedCapabilitiesContainer(ProvidedCapabilities value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUDetails#getRequiredCapabilitiesContainer <em>Required Capabilities Container</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUDetails#getRequiredCapabilitiesContainer
+	 * <em>Required Capabilities Container</em>}' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Required Capabilities Container</em>' reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Required Capabilities Container</em>' reference.
 	 * @see #getRequiredCapabilitiesContainer()
 	 * @generated
 	 */
 	void setRequiredCapabilitiesContainer(RequiredCapabilities value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUDetails#getTouchpointsContainer <em>Touchpoints Container</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUDetails#getTouchpointsContainer
+	 * <em>Touchpoints Container</em>}' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Touchpoints Container</em>' reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Touchpoints Container</em>' reference.
 	 * @see #getTouchpointsContainer()
 	 * @generated
 	 */
 	void setTouchpointsContainer(Touchpoints value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUDetails#getUpdateDescriptor <em>Update Descriptor</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUDetails#getUpdateDescriptor
+	 * <em>Update Descriptor</em>}' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Update Descriptor</em>' reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Update Descriptor</em>' reference.
 	 * @see #getUpdateDescriptor()
 	 * @generated
 	 */

@@ -16,21 +16,20 @@ import org.eclipse.equinox.internal.provisional.p2.metadata.ITouchpointType;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Touchpoints</b></em>'. <!-- end-user-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.b3.aggregator.p2view.Touchpoints#getTouchpointType <em>Touchpoint Type</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.p2view.Touchpoints#getTouchpointDataList <em>Touchpoint Data List</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.Touchpoints#getTouchpointType <em>Touchpoint Type</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.Touchpoints#getTouchpointDataList <em>Touchpoint Data List</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getTouchpoints()
  * @model
  * @generated
  */
-public interface Touchpoints
-{
+public interface Touchpoints {
 	/**
 	 * Returns the value of the '<em><b>Touchpoint Data List</b></em>' reference list.
 	 * The list contents are of type {@link org.eclipse.b3.aggregator.p2.TouchpointData}.
@@ -40,6 +39,7 @@ public interface Touchpoints
 	 * a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Touchpoint Data List</em>' reference list.
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getTouchpoints_TouchpointDataList()
 	 * @model
@@ -55,6 +55,7 @@ public interface Touchpoints
 	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Touchpoint Type</em>' reference.
 	 * @see #setTouchpointType(ITouchpointType)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getTouchpoints_TouchpointType()
@@ -64,9 +65,12 @@ public interface Touchpoints
 	ITouchpointType getTouchpointType();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.Touchpoints#getTouchpointType <em>Touchpoint Type</em>}' reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.Touchpoints#getTouchpointType
+	 * <em>Touchpoint Type</em>}' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Touchpoint Type</em>' reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Touchpoint Type</em>' reference.
 	 * @see #getTouchpointType()
 	 * @generated
 	 */

@@ -13,31 +13,27 @@ import java.util.Comparator;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Label Provider</b></em>'. <!-- end-user-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.b3.aggregator.LabelProvider#getLabel <em>Label</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.LabelProvider#getLabel <em>Label</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipse.b3.aggregator.AggregatorPackage#getLabelProvider()
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface LabelProvider
-{
+public interface LabelProvider {
 
-	static class LabelProviderComparator implements Comparator<LabelProvider>
-	{
+	static class LabelProviderComparator implements Comparator<LabelProvider> {
 
-		public int compare(LabelProvider lp1, LabelProvider lp2)
-		{
+		public int compare(LabelProvider lp1, LabelProvider lp2) {
 			if(lp1 != null)
 				if(lp2 == null)
 					return 1;
-				else
-				{
+				else {
 					String label1 = lp1.getLabel();
 					String label2 = lp2.getLabel();
 
@@ -68,6 +64,7 @@ public interface LabelProvider
 	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Label</em>' attribute.
 	 * @see #setLabel(String)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getLabelProvider_Label()
@@ -79,7 +76,9 @@ public interface LabelProvider
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.LabelProvider#getLabel <em>Label</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Label</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Label</em>' attribute.
 	 * @see #getLabel()
 	 * @generated
 	 */

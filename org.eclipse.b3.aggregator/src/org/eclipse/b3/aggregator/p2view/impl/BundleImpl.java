@@ -19,17 +19,16 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Bundle</b></em>'. <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
-public class BundleImpl extends IUPresentationWithDetailsImpl implements Bundle
-{
+public class BundleImpl extends IUPresentationWithDetailsImpl implements Bundle {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	protected BundleImpl()
-	{
+	protected BundleImpl() {
 		super();
 	}
 
@@ -38,24 +37,22 @@ public class BundleImpl extends IUPresentationWithDetailsImpl implements Bundle
 	 * 
 	 * @generated NOT
 	 */
-	protected BundleImpl(InstallableUnit iu)
-	{
+	protected BundleImpl(InstallableUnit iu) {
 		super(iu);
 	}
 
 	@Override
-	public InstallableUnitType getType()
-	{
+	public InstallableUnitType getType() {
 		return InstallableUnitType.BUNDLE;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return P2viewPackage.Literals.BUNDLE;
 	}
 

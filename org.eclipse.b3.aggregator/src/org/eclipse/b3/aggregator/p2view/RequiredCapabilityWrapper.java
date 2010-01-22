@@ -12,26 +12,24 @@ package org.eclipse.b3.aggregator.p2view;
 import org.eclipse.b3.aggregator.LabelProvider;
 import org.eclipse.b3.aggregator.p2.RequiredCapability;
 
-
 import org.eclipse.equinox.internal.provisional.p2.metadata.IRequiredCapability;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Required Capability Wrapper</b></em>'. <!--
  * end-user-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.b3.aggregator.p2view.RequiredCapabilityWrapper#getGenuine <em>Genuine</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.RequiredCapabilityWrapper#getGenuine <em>Genuine</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getRequiredCapabilityWrapper()
  * @model superTypes="org.eclipse.b3.aggregator.p2.IRequiredCapability org.eclipse.b3.aggregator.LabelProvider"
  * @generated
  */
-public interface RequiredCapabilityWrapper extends IRequiredCapability, LabelProvider
-{
+public interface RequiredCapabilityWrapper extends IRequiredCapability, LabelProvider {
 	/**
 	 * Returns the value of the '<em><b>Genuine</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -40,6 +38,7 @@ public interface RequiredCapabilityWrapper extends IRequiredCapability, LabelPro
 	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Genuine</em>' reference.
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getRequiredCapabilityWrapper_Genuine()
 	 * @model resolveProxies="false" required="true" changeable="false"

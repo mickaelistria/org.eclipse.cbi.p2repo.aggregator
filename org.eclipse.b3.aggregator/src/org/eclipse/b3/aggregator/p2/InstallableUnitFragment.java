@@ -13,20 +13,20 @@ import org.eclipse.equinox.internal.provisional.p2.metadata.IInstallableUnitFrag
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Installable Unit Fragment</b></em>'. <!--
  * end-user-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.b3.aggregator.p2.InstallableUnitFragment#getHostList <em>Host List</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2.InstallableUnitFragment#getHostList <em>Host List</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipse.b3.aggregator.p2.P2Package#getInstallableUnitFragment()
- * @model superTypes="org.eclipse.b3.aggregator.p2.InstallableUnit org.eclipse.b3.aggregator.p2.IInstallableUnitFragment"
+ * @model 
+ *        superTypes="org.eclipse.b3.aggregator.p2.InstallableUnit org.eclipse.b3.aggregator.p2.IInstallableUnitFragment"
  * @generated
  */
-public interface InstallableUnitFragment extends InstallableUnit, IInstallableUnitFragment
-{
+public interface InstallableUnitFragment extends InstallableUnit, IInstallableUnitFragment {
 	/**
 	 * Returns the value of the '<em><b>Host List</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.b3.aggregator.p2.RequiredCapability}.
@@ -36,6 +36,7 @@ public interface InstallableUnitFragment extends InstallableUnit, IInstallableUn
 	 * a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Host List</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.p2.P2Package#getInstallableUnitFragment_HostList()
 	 * @model containment="true"

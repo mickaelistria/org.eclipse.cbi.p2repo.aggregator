@@ -20,17 +20,16 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Fragment</b></em>'. <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
-public class FragmentImpl extends BundleImpl implements Fragment
-{
+public class FragmentImpl extends BundleImpl implements Fragment {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	protected FragmentImpl()
-	{
+	protected FragmentImpl() {
 		super();
 	}
 
@@ -39,24 +38,22 @@ public class FragmentImpl extends BundleImpl implements Fragment
 	 * 
 	 * @generated NOT
 	 */
-	protected FragmentImpl(InstallableUnit iu)
-	{
+	protected FragmentImpl(InstallableUnit iu) {
 		super(iu);
 	}
 
 	@Override
-	public InstallableUnitType getType()
-	{
+	public InstallableUnitType getType() {
 		return InstallableUnitType.FRAGMENT;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return P2viewPackage.Literals.FRAGMENT;
 	}
 

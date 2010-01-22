@@ -11,13 +11,12 @@ package org.eclipse.b3.aggregator.p2view;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Bundle</b></em>'. <!-- end-user-doc -->
- *
- *
+ * 
+ * 
  * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getBundle()
  * @model
  * @generated
  */
-public interface Bundle extends IUPresentationWithDetails
-{
+public interface Bundle extends IUPresentationWithDetails {
 
 } // Bundle

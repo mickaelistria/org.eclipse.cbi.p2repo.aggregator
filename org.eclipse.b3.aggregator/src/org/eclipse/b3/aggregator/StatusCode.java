@@ -18,15 +18,16 @@ import org.eclipse.emf.common.util.Enumerator;
 /**
  * <!-- begin-user-doc --> A representation of the literals of the enumeration '<em><b>Status Code</b></em>', and
  * utility methods for working with them. <!-- end-user-doc -->
+ * 
  * @see org.eclipse.b3.aggregator.AggregatorPackage#getStatusCode()
  * @model
  * @generated
  */
-public enum StatusCode implements Enumerator
-{
+public enum StatusCode implements Enumerator{
 	/**
 	 * The '<em><b>OK</b></em>' literal object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #OK_VALUE
 	 * @generated
 	 * @ordered
@@ -36,6 +37,7 @@ public enum StatusCode implements Enumerator
 	/**
 	 * The '<em><b>BROKEN</b></em>' literal object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #BROKEN_VALUE
 	 * @generated
 	 * @ordered
@@ -45,6 +47,7 @@ public enum StatusCode implements Enumerator
 	/**
 	 * The '<em><b>WAITING</b></em>' literal object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #WAITING_VALUE
 	 * @generated
 	 * @ordered
@@ -59,6 +62,7 @@ public enum StatusCode implements Enumerator
 	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #OK
 	 * @model literal="ok"
 	 * @generated
@@ -74,6 +78,7 @@ public enum StatusCode implements Enumerator
 	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #BROKEN
 	 * @model literal="broken"
 	 * @generated
@@ -89,6 +94,7 @@ public enum StatusCode implements Enumerator
 	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #WAITING
 	 * @model literal="waiting"
 	 * @generated
@@ -99,18 +105,16 @@ public enum StatusCode implements Enumerator
 	/**
 	 * An array of all the '<em><b>Status Code</b></em>' enumerators.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	private static final StatusCode[] VALUES_ARRAY = new StatusCode[] {
-			OK,
-			BROKEN,
-			WAITING,
-		};
+	private static final StatusCode[] VALUES_ARRAY = new StatusCode[] { OK, BROKEN, WAITING, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Status Code</b></em>' enumerators.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static final List<StatusCode> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
@@ -119,14 +123,17 @@ public enum StatusCode implements Enumerator
 	 * Returns the '<em><b>Status Code</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public static StatusCode get(int value)
-	{
-		switch (value) {
-			case OK_VALUE: return OK;
-			case BROKEN_VALUE: return BROKEN;
-			case WAITING_VALUE: return WAITING;
+	public static StatusCode get(int value) {
+		switch(value) {
+		case OK_VALUE:
+			return OK;
+		case BROKEN_VALUE:
+			return BROKEN;
+		case WAITING_VALUE:
+			return WAITING;
 		}
 		return null;
 	}
@@ -135,13 +142,13 @@ public enum StatusCode implements Enumerator
 	 * Returns the '<em><b>Status Code</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public static StatusCode get(String literal)
-	{
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+	public static StatusCode get(String literal) {
+		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
 			StatusCode result = VALUES_ARRAY[i];
-			if (result.toString().equals(literal)) {
+			if(result.toString().equals(literal)) {
 				return result;
 			}
 		}
@@ -152,13 +159,13 @@ public enum StatusCode implements Enumerator
 	 * Returns the '<em><b>Status Code</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public static StatusCode getByName(String name)
-	{
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+	public static StatusCode getByName(String name) {
+		for(int i = 0; i < VALUES_ARRAY.length; ++i) {
 			StatusCode result = VALUES_ARRAY[i];
-			if (result.getName().equals(name)) {
+			if(result.getName().equals(name)) {
 				return result;
 			}
 		}
@@ -167,18 +174,21 @@ public enum StatusCode implements Enumerator
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private final int value;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private final String name;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private final String literal;
@@ -186,10 +196,10 @@ public enum StatusCode implements Enumerator
 	/**
 	 * Only this class can construct instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	private StatusCode(int value, String name, String literal)
-	{
+	private StatusCode(int value, String name, String literal) {
 		this.value = value;
 		this.name = name;
 		this.literal = literal;
@@ -197,40 +207,40 @@ public enum StatusCode implements Enumerator
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public String getLiteral()
-	{
-	  return literal;
+	public String getLiteral() {
+		return literal;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public String getName()
-	{
-	  return name;
+	public String getName() {
+		return name;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public int getValue()
-	{
-	  return value;
+	public int getValue() {
+		return value;
 	}
 
 	/**
 	 * Returns the literal value of the enumerator, which is its string representation.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		return literal;
 	}
 

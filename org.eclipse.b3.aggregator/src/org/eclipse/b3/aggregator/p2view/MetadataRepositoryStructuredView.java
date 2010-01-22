@@ -15,24 +15,25 @@ import org.eclipse.b3.aggregator.p2.MetadataRepository;
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Metadata Repository Structured View</b></em>'.
  * <!-- end-user-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getInstallableUnitList <em>Installable Unit List</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getProperties <em>Properties</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getMetadataRepository <em>Metadata Repository</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#isLoaded <em>Loaded</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getName <em>Name</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getInstallableUnitList <em>Installable
+ * Unit List</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getProperties <em>Properties</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getMetadataRepository <em>Metadata
+ * Repository</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#isLoaded <em>Loaded</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getMetadataRepositoryStructuredView()
  * @model
  * @generated
  */
-public interface MetadataRepositoryStructuredView extends ChildrenProvider<InstallableUnits>
-{
+public interface MetadataRepositoryStructuredView extends ChildrenProvider<InstallableUnits> {
 	/**
 	 * Returns the value of the '<em><b>Installable Unit List</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -41,6 +42,7 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Installable Unit List</em>' containment reference.
 	 * @see #setInstallableUnitList(InstallableUnits)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getMetadataRepositoryStructuredView_InstallableUnitList()
@@ -57,6 +59,7 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Metadata Repository</em>' containment reference.
 	 * @see #setMetadataRepository(MetadataRepository)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getMetadataRepositoryStructuredView_MetadataRepository()
@@ -73,6 +76,7 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	 * If the meaning of the '<em>Name</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getMetadataRepositoryStructuredView_Name()
@@ -89,6 +93,7 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Properties</em>' containment reference.
 	 * @see #setProperties(Properties)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getMetadataRepositoryStructuredView_Properties()
@@ -105,6 +110,7 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Loaded</em>' attribute.
 	 * @see #setLoaded(boolean)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getMetadataRepositoryStructuredView_Loaded()
@@ -114,45 +120,62 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	boolean isLoaded();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getInstallableUnitList <em>Installable Unit List</em>}' containment reference.
+	 * Sets the value of the '
+	 * {@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getInstallableUnitList
+	 * <em>Installable Unit List</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Installable Unit List</em>' containment reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Installable Unit List</em>' containment reference.
 	 * @see #getInstallableUnitList()
 	 * @generated
 	 */
 	void setInstallableUnitList(InstallableUnits value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#isLoaded <em>Loaded</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#isLoaded
+	 * <em>Loaded</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Loaded</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Loaded</em>' attribute.
 	 * @see #isLoaded()
 	 * @generated
 	 */
 	void setLoaded(boolean value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getMetadataRepository <em>Metadata Repository</em>}' containment reference.
+	 * Sets the value of the '
+	 * {@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getMetadataRepository
+	 * <em>Metadata Repository</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Metadata Repository</em>' containment reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Metadata Repository</em>' containment reference.
 	 * @see #getMetadataRepository()
 	 * @generated
 	 */
 	void setMetadataRepository(MetadataRepository value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getName
+	 * <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()
 	 * @generated
 	 */
 	void setName(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getProperties <em>Properties</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView#getProperties
+	 * <em>Properties</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Properties</em>' containment reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Properties</em>' containment reference.
 	 * @see #getProperties()
 	 * @generated
 	 */

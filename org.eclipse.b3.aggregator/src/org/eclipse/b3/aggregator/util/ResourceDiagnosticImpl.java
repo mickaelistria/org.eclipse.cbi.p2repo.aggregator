@@ -14,35 +14,29 @@ import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
  * @author Karel Brezina
  * 
  */
-public class ResourceDiagnosticImpl implements Diagnostic
-{
+public class ResourceDiagnosticImpl implements Diagnostic {
 	private String m_location;
 
 	private String m_message;
 
-	public ResourceDiagnosticImpl(String message, String location)
-	{
+	public ResourceDiagnosticImpl(String message, String location) {
 		m_message = message;
 		m_location = location;
 	}
 
-	public int getColumn()
-	{
+	public int getColumn() {
 		return 0;
 	}
 
-	public int getLine()
-	{
+	public int getLine() {
 		return 0;
 	}
 
-	public String getLocation()
-	{
+	public String getLocation() {
 		return m_location;
 	}
 
-	public String getMessage()
-	{
+	public String getMessage() {
 		return m_message;
 	}
 }

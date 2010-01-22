@@ -18,27 +18,26 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Exclusion Rule</b></em>'. <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
-public class ExclusionRuleImpl extends MapRuleImpl implements ExclusionRule
-{
+public class ExclusionRuleImpl extends MapRuleImpl implements ExclusionRule {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	protected ExclusionRuleImpl()
-	{
+	protected ExclusionRuleImpl() {
 		super();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return AggregatorPackage.Literals.EXCLUSION_RULE;
 	}
 

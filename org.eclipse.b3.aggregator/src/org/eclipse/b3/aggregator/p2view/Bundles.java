@@ -14,20 +14,19 @@ import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Bundles</b></em>'. <!-- end-user-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.b3.aggregator.p2view.Bundles#getBundles <em>Bundles</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.Bundles#getBundles <em>Bundles</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getBundles()
  * @model
  * @generated
  */
-public interface Bundles extends ChildrenProvider<Bundle>
-{
+public interface Bundles extends ChildrenProvider<Bundle> {
 	/**
 	 * Returns the value of the '<em><b>Bundles</b></em>' reference list.
 	 * The list contents are of type {@link org.eclipse.b3.aggregator.p2view.Bundle}.
@@ -37,6 +36,7 @@ public interface Bundles extends ChildrenProvider<Bundle>
 	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Bundles</em>' reference list.
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getBundles_Bundles()
 	 * @model

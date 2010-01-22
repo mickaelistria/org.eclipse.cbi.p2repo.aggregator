@@ -12,20 +12,19 @@ package org.eclipse.b3.aggregator;
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Enabled Status Provider</b></em>'. <!--
  * end-user-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.b3.aggregator.EnabledStatusProvider#isEnabled <em>Enabled</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.EnabledStatusProvider#isEnabled <em>Enabled</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipse.b3.aggregator.AggregatorPackage#getEnabledStatusProvider()
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface EnabledStatusProvider
-{
+public interface EnabledStatusProvider {
 	/**
 	 * Returns the value of the '<em><b>Enabled</b></em>' attribute. The default value is <code>"true"</code>. <!--
 	 * begin-user-doc -->
@@ -44,9 +43,12 @@ public interface EnabledStatusProvider
 	boolean isEnabled();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.EnabledStatusProvider#isEnabled <em>Enabled</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.EnabledStatusProvider#isEnabled <em>Enabled</em>}'
+	 * attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Enabled</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Enabled</em>' attribute.
 	 * @see #isEnabled()
 	 * @generated
 	 */

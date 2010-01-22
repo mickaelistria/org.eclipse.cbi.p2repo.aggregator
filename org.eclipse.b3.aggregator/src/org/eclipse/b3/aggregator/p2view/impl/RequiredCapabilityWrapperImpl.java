@@ -18,8 +18,6 @@ import org.eclipse.b3.aggregator.p2.RequiredCapability;
 import org.eclipse.b3.aggregator.p2view.P2viewPackage;
 import org.eclipse.b3.aggregator.p2view.RequiredCapabilityWrapper;
 
-
-
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.BasicEList;
@@ -42,28 +40,29 @@ import org.eclipse.equinox.internal.provisional.p2.metadata.VersionRange;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequiredCapabilityWrapperImpl#getFilter <em>Filter</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequiredCapabilityWrapperImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequiredCapabilityWrapperImpl#getNamespace <em>Namespace</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequiredCapabilityWrapperImpl#getRange <em>Range</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequiredCapabilityWrapperImpl#isNegation <em>Negation</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequiredCapabilityWrapperImpl#getSelectorList <em>Selector List</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequiredCapabilityWrapperImpl#isMultiple <em>Multiple</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequiredCapabilityWrapperImpl#isOptional <em>Optional</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequiredCapabilityWrapperImpl#isGreedy <em>Greedy</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequiredCapabilityWrapperImpl#getLabel <em>Label</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequiredCapabilityWrapperImpl#getGenuine <em>Genuine</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequiredCapabilityWrapperImpl#getFilter <em>Filter</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequiredCapabilityWrapperImpl#getName <em>Name</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequiredCapabilityWrapperImpl#getNamespace <em>Namespace</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequiredCapabilityWrapperImpl#getRange <em>Range</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequiredCapabilityWrapperImpl#isNegation <em>Negation</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequiredCapabilityWrapperImpl#getSelectorList <em>Selector List
+ * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequiredCapabilityWrapperImpl#isMultiple <em>Multiple</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequiredCapabilityWrapperImpl#isOptional <em>Optional</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequiredCapabilityWrapperImpl#isGreedy <em>Greedy</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequiredCapabilityWrapperImpl#getLabel <em>Label</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequiredCapabilityWrapperImpl#getGenuine <em>Genuine</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 @SuppressWarnings("unused")
-public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container implements RequiredCapabilityWrapper
-{
+public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container implements RequiredCapabilityWrapper {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -73,6 +72,7 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * The default value of the '{@link #getFilter() <em>Filter</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getFilter()
 	 * @generated
 	 * @ordered
@@ -83,6 +83,7 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * The cached value of the '{@link #getFilter() <em>Filter</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getFilter()
 	 * @generated
 	 * @ordered
@@ -113,6 +114,7 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * The default value of the '{@link #getNamespace() <em>Namespace</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getNamespace()
 	 * @generated
 	 * @ordered
@@ -123,6 +125,7 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * The cached value of the '{@link #getNamespace() <em>Namespace</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getNamespace()
 	 * @generated
 	 * @ordered
@@ -133,6 +136,7 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * The default value of the '{@link #getRange() <em>Range</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getRange()
 	 * @generated
 	 * @ordered
@@ -153,6 +157,7 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * The default value of the '{@link #isNegation() <em>Negation</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #isNegation()
 	 * @generated
 	 * @ordered
@@ -163,6 +168,7 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * The flag representing the value of the '{@link #isNegation() <em>Negation</em>}' attribute.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #isNegation()
 	 * @generated
 	 * @ordered
@@ -173,6 +179,7 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * The cached value of the '{@link #getSelectorList() <em>Selector List</em>}' attribute list.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getSelectorList()
 	 * @generated
 	 * @ordered
@@ -183,6 +190,7 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * The default value of the '{@link #isMultiple() <em>Multiple</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #isMultiple()
 	 * @generated
 	 * @ordered
@@ -193,6 +201,7 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * The flag representing the value of the '{@link #isMultiple() <em>Multiple</em>}' attribute.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #isMultiple()
 	 * @generated
 	 * @ordered
@@ -203,6 +212,7 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * The default value of the '{@link #isOptional() <em>Optional</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #isOptional()
 	 * @generated
 	 * @ordered
@@ -213,6 +223,7 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * The flag representing the value of the '{@link #isOptional() <em>Optional</em>}' attribute.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #isOptional()
 	 * @generated
 	 * @ordered
@@ -223,6 +234,7 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * The default value of the '{@link #isGreedy() <em>Greedy</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #isGreedy()
 	 * @generated
 	 * @ordered
@@ -233,6 +245,7 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * The flag representing the value of the '{@link #isGreedy() <em>Greedy</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #isGreedy()
 	 * @generated
 	 * @ordered
@@ -243,6 +256,7 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getLabel()
 	 * @generated
 	 * @ordered
@@ -263,6 +277,7 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * The cached value of the '{@link #getGenuine() <em>Genuine</em>}' reference.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getGenuine()
 	 * @generated
 	 * @ordered
@@ -271,10 +286,10 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	protected RequiredCapabilityWrapperImpl()
-	{
+	protected RequiredCapabilityWrapperImpl() {
 		super();
 	}
 
@@ -283,23 +298,24 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * 
 	 * @generated NOT
 	 */
-	protected RequiredCapabilityWrapperImpl(RequiredCapability rc)
-	{
+	protected RequiredCapabilityWrapperImpl(RequiredCapability rc) {
 		super();
 		genuine = rc;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
-	{
-		if (baseClass == LabelProvider.class) {
-			switch (derivedFeatureID) {
-				case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__LABEL: return AggregatorPackage.LABEL_PROVIDER__LABEL;
-				default: return -1;
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if(baseClass == LabelProvider.class) {
+			switch(derivedFeatureID) {
+			case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__LABEL:
+				return AggregatorPackage.LABEL_PROVIDER__LABEL;
+			default:
+				return -1;
 			}
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
@@ -307,15 +323,17 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
-	{
-		if (baseClass == LabelProvider.class) {
-			switch (baseFeatureID) {
-				case AggregatorPackage.LABEL_PROVIDER__LABEL: return P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__LABEL;
-				default: return -1;
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if(baseClass == LabelProvider.class) {
+			switch(baseFeatureID) {
+			case AggregatorPackage.LABEL_PROVIDER__LABEL:
+				return P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__LABEL;
+			default:
+				return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
@@ -323,34 +341,34 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch (featureID) {
-			case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__FILTER:
-				return getFilter();
-			case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__NAME:
-				return getName();
-			case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__NAMESPACE:
-				return getNamespace();
-			case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__RANGE:
-				return getRange();
-			case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__NEGATION:
-				return isNegation();
-			case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__SELECTOR_LIST:
-				return getSelectorList();
-			case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__MULTIPLE:
-				return isMultiple();
-			case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__OPTIONAL:
-				return isOptional();
-			case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__GREEDY:
-				return isGreedy();
-			case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__LABEL:
-				return getLabel();
-			case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__GENUINE:
-				return getGenuine();
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
+		case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__FILTER:
+			return getFilter();
+		case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__NAME:
+			return getName();
+		case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__NAMESPACE:
+			return getNamespace();
+		case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__RANGE:
+			return getRange();
+		case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__NEGATION:
+			return isNegation();
+		case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__SELECTOR_LIST:
+			return getSelectorList();
+		case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__MULTIPLE:
+			return isMultiple();
+		case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__OPTIONAL:
+			return isOptional();
+		case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__GREEDY:
+			return isGreedy();
+		case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__LABEL:
+			return getLabel();
+		case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__GENUINE:
+			return getGenuine();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -361,10 +379,8 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * @generated NOT
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__LABEL:
 			return LABEL_EDEFAULT == null
 					? label != null
@@ -372,92 +388,92 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 		case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__GENUINE:
 			return genuine != null;
 		default:
-			return ((InternalEObject)genuine).eIsSet(featureID);
+			return ((InternalEObject) genuine).eIsSet(featureID);
 		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch (featureID) {
-			case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__FILTER:
-				setFilter((String)newValue);
-				return;
-			case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__NAME:
-				setName((String)newValue);
-				return;
-			case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__NAMESPACE:
-				setNamespace((String)newValue);
-				return;
-			case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__RANGE:
-				setRange((VersionRange)newValue);
-				return;
-			case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__NEGATION:
-				setNegation((Boolean)newValue);
-				return;
-			case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__SELECTOR_LIST:
-				getSelectorList().clear();
-				getSelectorList().addAll((Collection<? extends String>)newValue);
-				return;
-			case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__MULTIPLE:
-				setMultiple((Boolean)newValue);
-				return;
-			case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__OPTIONAL:
-				setOptional((Boolean)newValue);
-				return;
-			case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__GREEDY:
-				setGreedy((Boolean)newValue);
-				return;
-			case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__LABEL:
-				setLabel((String)newValue);
-				return;
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
+		case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__FILTER:
+			setFilter((String) newValue);
+			return;
+		case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__NAME:
+			setName((String) newValue);
+			return;
+		case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__NAMESPACE:
+			setNamespace((String) newValue);
+			return;
+		case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__RANGE:
+			setRange((VersionRange) newValue);
+			return;
+		case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__NEGATION:
+			setNegation((Boolean) newValue);
+			return;
+		case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__SELECTOR_LIST:
+			getSelectorList().clear();
+			getSelectorList().addAll((Collection<? extends String>) newValue);
+			return;
+		case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__MULTIPLE:
+			setMultiple((Boolean) newValue);
+			return;
+		case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__OPTIONAL:
+			setOptional((Boolean) newValue);
+			return;
+		case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__GREEDY:
+			setGreedy((Boolean) newValue);
+			return;
+		case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__LABEL:
+			setLabel((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch (featureID) {
-			case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__FILTER:
-				setFilter(FILTER_EDEFAULT);
-				return;
-			case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__NAME:
-				setName(NAME_EDEFAULT);
-				return;
-			case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__NAMESPACE:
-				setNamespace(NAMESPACE_EDEFAULT);
-				return;
-			case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__RANGE:
-				setRange(RANGE_EDEFAULT);
-				return;
-			case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__NEGATION:
-				setNegation(NEGATION_EDEFAULT);
-				return;
-			case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__SELECTOR_LIST:
-				getSelectorList().clear();
-				return;
-			case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__MULTIPLE:
-				setMultiple(MULTIPLE_EDEFAULT);
-				return;
-			case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__OPTIONAL:
-				setOptional(OPTIONAL_EDEFAULT);
-				return;
-			case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__GREEDY:
-				setGreedy(GREEDY_EDEFAULT);
-				return;
-			case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__LABEL:
-				setLabel(LABEL_EDEFAULT);
-				return;
+	public void eUnset(int featureID) {
+		switch(featureID) {
+		case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__FILTER:
+			setFilter(FILTER_EDEFAULT);
+			return;
+		case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__NAME:
+			setName(NAME_EDEFAULT);
+			return;
+		case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__NAMESPACE:
+			setNamespace(NAMESPACE_EDEFAULT);
+			return;
+		case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__RANGE:
+			setRange(RANGE_EDEFAULT);
+			return;
+		case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__NEGATION:
+			setNegation(NEGATION_EDEFAULT);
+			return;
+		case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__SELECTOR_LIST:
+			getSelectorList().clear();
+			return;
+		case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__MULTIPLE:
+			setMultiple(MULTIPLE_EDEFAULT);
+			return;
+		case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__OPTIONAL:
+			setOptional(OPTIONAL_EDEFAULT);
+			return;
+		case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__GREEDY:
+			setGreedy(GREEDY_EDEFAULT);
+			return;
+		case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__LABEL:
+			setLabel(LABEL_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -467,26 +483,25 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * 
 	 * @generated NOT
 	 */
-	public String getFilter()
-	{
+	public String getFilter() {
 		return genuine.getFilter();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public RequiredCapability getGenuine()
-	{
+	public RequiredCapability getGenuine() {
 		return genuine;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public String getLabel()
-	{
+	public String getLabel() {
 		return label;
 	}
 
@@ -495,8 +510,7 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * 
 	 * @generated NOT
 	 */
-	public String getName()
-	{
+	public String getName() {
 		return genuine.getName();
 	}
 
@@ -505,8 +519,7 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * 
 	 * @generated NOT
 	 */
-	public String getNamespace()
-	{
+	public String getNamespace() {
 		return genuine.getNamespace();
 	}
 
@@ -515,8 +528,7 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * 
 	 * @generated NOT
 	 */
-	public VersionRange getRange()
-	{
+	public VersionRange getRange() {
 		return genuine.getRange();
 	}
 
@@ -525,8 +537,7 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * 
 	 * @generated NOT
 	 */
-	public EList<String> getSelectorList()
-	{
+	public EList<String> getSelectorList() {
 		EList<String> eList = new BasicEList<String>();
 		eList.addAll(Arrays.asList(genuine.getSelectors()));
 
@@ -538,8 +549,7 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * 
 	 * @generated NOT
 	 */
-	public String[] getSelectors()
-	{
+	public String[] getSelectors() {
 		return genuine.getSelectors();
 	}
 
@@ -548,8 +558,7 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * 
 	 * @generated NOT
 	 */
-	public boolean isGreedy()
-	{
+	public boolean isGreedy() {
 		return genuine.isGreedy();
 	}
 
@@ -558,8 +567,7 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * 
 	 * @generated NOT
 	 */
-	public boolean isMultiple()
-	{
+	public boolean isMultiple() {
 		return genuine.isMultiple();
 	}
 
@@ -568,8 +576,7 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * 
 	 * @generated NOT
 	 */
-	public boolean isNegation()
-	{
+	public boolean isNegation() {
 		return genuine.isNegation();
 	}
 
@@ -578,8 +585,7 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * 
 	 * @generated NOT
 	 */
-	public boolean isOptional()
-	{
+	public boolean isOptional() {
 		return genuine.isOptional();
 	}
 
@@ -588,8 +594,7 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * 
 	 * @generated NOT
 	 */
-	public boolean satisfiedBy(IProvidedCapability capability)
-	{
+	public boolean satisfiedBy(IProvidedCapability capability) {
 		return genuine.satisfiedBy(capability);
 	}
 
@@ -598,8 +603,7 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * 
 	 * @generated NOT
 	 */
-	public void setFilter(String newFilter)
-	{
+	public void setFilter(String newFilter) {
 		String oldFilter = genuine.getFilter();
 		genuine.setFilter(newFilter);
 		if(eNotificationRequired())
@@ -612,21 +616,21 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * 
 	 * @generated NOT
 	 */
-	public void setGreedy(boolean newGreedy)
-	{
+	public void setGreedy(boolean newGreedy) {
 		throw new UnsupportedOperationException();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public void setLabel(String newLabel)
-	{
+	public void setLabel(String newLabel) {
 		String oldLabel = label;
 		label = newLabel;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__LABEL, oldLabel, label));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.REQUIRED_CAPABILITY_WRAPPER__LABEL,
+					oldLabel, label));
 	}
 
 	/**
@@ -634,8 +638,7 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * 
 	 * @generated NOT
 	 */
-	public void setMultiple(boolean newMultiple)
-	{
+	public void setMultiple(boolean newMultiple) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -644,8 +647,7 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * 
 	 * @generated NOT
 	 */
-	public void setName(String newName)
-	{
+	public void setName(String newName) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -654,8 +656,7 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * 
 	 * @generated NOT
 	 */
-	public void setNamespace(String newNamespace)
-	{
+	public void setNamespace(String newNamespace) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -664,8 +665,7 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * 
 	 * @generated NOT
 	 */
-	public void setNegation(boolean newNegation)
-	{
+	public void setNegation(boolean newNegation) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -674,8 +674,7 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * 
 	 * @generated NOT
 	 */
-	public void setOptional(boolean newOptional)
-	{
+	public void setOptional(boolean newOptional) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -684,8 +683,7 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * 
 	 * @generated NOT
 	 */
-	public void setRange(VersionRange newRange)
-	{
+	public void setRange(VersionRange newRange) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -694,8 +692,7 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * 
 	 * @generated NOT
 	 */
-	public void setSelectors(String[] selectors)
-	{
+	public void setSelectors(String[] selectors) {
 		genuine.setSelectors(selectors);
 	}
 
@@ -705,8 +702,7 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * @generated NOT
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
@@ -737,11 +733,11 @@ public class RequiredCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return P2viewPackage.Literals.REQUIRED_CAPABILITY_WRAPPER;
 	}
 

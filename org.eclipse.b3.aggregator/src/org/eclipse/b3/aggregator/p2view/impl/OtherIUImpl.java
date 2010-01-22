@@ -19,17 +19,16 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Other IU</b></em>'. <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
-public class OtherIUImpl extends IUPresentationWithDetailsImpl implements OtherIU
-{
+public class OtherIUImpl extends IUPresentationWithDetailsImpl implements OtherIU {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	protected OtherIUImpl()
-	{
+	protected OtherIUImpl() {
 		super();
 	}
 
@@ -38,23 +37,21 @@ public class OtherIUImpl extends IUPresentationWithDetailsImpl implements OtherI
 	 * 
 	 * @generated NOT
 	 */
-	protected OtherIUImpl(InstallableUnit iu)
-	{
+	protected OtherIUImpl(InstallableUnit iu) {
 		super(iu);
 	}
 
-	public InstallableUnitType getType()
-	{
+	public InstallableUnitType getType() {
 		return InstallableUnitType.OTHER;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return P2viewPackage.Literals.OTHER_IU;
 	}
 

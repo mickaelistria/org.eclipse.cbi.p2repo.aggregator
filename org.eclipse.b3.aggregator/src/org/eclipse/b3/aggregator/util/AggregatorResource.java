@@ -17,8 +17,7 @@ import org.eclipse.emf.ecore.xmi.XMIResource;
  * @author Karel Brezina
  * 
  */
-public interface AggregatorResource extends XMIResource
-{
+public interface AggregatorResource extends XMIResource {
 	/**
 	 * The {@link #getInfos} feature {@link org.eclipse.emf.common.notify.Notification#getFeatureID ID}.
 	 */

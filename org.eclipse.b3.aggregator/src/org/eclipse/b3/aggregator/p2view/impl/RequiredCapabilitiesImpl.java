@@ -29,17 +29,18 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequiredCapabilitiesImpl#getRequiredCapabilities <em>Required Capabilities</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequiredCapabilitiesImpl#getRequiredCapabilities <em>Required
+ * Capabilities</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
-public class RequiredCapabilitiesImpl extends MinimalEObjectImpl.Container implements RequiredCapabilities
-{
+public class RequiredCapabilitiesImpl extends MinimalEObjectImpl.Container implements RequiredCapabilities {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -57,92 +58,93 @@ public class RequiredCapabilitiesImpl extends MinimalEObjectImpl.Container imple
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	protected RequiredCapabilitiesImpl()
-	{
+	protected RequiredCapabilitiesImpl() {
 		super();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch (featureID) {
-			case P2viewPackage.REQUIRED_CAPABILITIES__REQUIRED_CAPABILITIES:
-				return getRequiredCapabilities();
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
+		case P2viewPackage.REQUIRED_CAPABILITIES__REQUIRED_CAPABILITIES:
+			return getRequiredCapabilities();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch (featureID) {
-			case P2viewPackage.REQUIRED_CAPABILITIES__REQUIRED_CAPABILITIES:
-				return requiredCapabilities != null && !requiredCapabilities.isEmpty();
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
+		case P2viewPackage.REQUIRED_CAPABILITIES__REQUIRED_CAPABILITIES:
+			return requiredCapabilities != null && !requiredCapabilities.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch (featureID) {
-			case P2viewPackage.REQUIRED_CAPABILITIES__REQUIRED_CAPABILITIES:
-				getRequiredCapabilities().clear();
-				getRequiredCapabilities().addAll((Collection<? extends RequiredCapabilityWrapper>)newValue);
-				return;
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
+		case P2viewPackage.REQUIRED_CAPABILITIES__REQUIRED_CAPABILITIES:
+			getRequiredCapabilities().clear();
+			getRequiredCapabilities().addAll((Collection<? extends RequiredCapabilityWrapper>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch (featureID) {
-			case P2viewPackage.REQUIRED_CAPABILITIES__REQUIRED_CAPABILITIES:
-				getRequiredCapabilities().clear();
-				return;
+	public void eUnset(int featureID) {
+		switch(featureID) {
+		case P2viewPackage.REQUIRED_CAPABILITIES__REQUIRED_CAPABILITIES:
+			getRequiredCapabilities().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public EList<RequiredCapabilityWrapper> getRequiredCapabilities()
-	{
-		if (requiredCapabilities == null) {
-			requiredCapabilities = new EObjectResolvingEList<RequiredCapabilityWrapper>(RequiredCapabilityWrapper.class, this, P2viewPackage.REQUIRED_CAPABILITIES__REQUIRED_CAPABILITIES);
+	public EList<RequiredCapabilityWrapper> getRequiredCapabilities() {
+		if(requiredCapabilities == null) {
+			requiredCapabilities = new EObjectResolvingEList<RequiredCapabilityWrapper>(
+					RequiredCapabilityWrapper.class, this, P2viewPackage.REQUIRED_CAPABILITIES__REQUIRED_CAPABILITIES);
 		}
 		return requiredCapabilities;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return P2viewPackage.Literals.REQUIRED_CAPABILITIES;
 	}
 

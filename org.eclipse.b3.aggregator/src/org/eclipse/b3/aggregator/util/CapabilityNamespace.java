@@ -19,8 +19,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
  * @author Karel Brezina
  * 
  */
-public enum CapabilityNamespace
-{
+public enum CapabilityNamespace{
 	IU("_UI_Capability_IU_type"), TYPE("_UI_Capability_Type_type"), LOCALIZATION("_UI_Capability_Localization_type"), FLAVOR(
 			"_UI_Capability_Flavor_type"), FEATURE("_UI_Capability_Feature_type"), BUNDLE("_UI_Capability_Bundle_type"), FRAGMENT(
 			"_UI_Capability_Fragment_type"), JAVA_PACKAGE("_UI_Capability_JavaPackage_type"), TOOLING(
@@ -30,8 +29,7 @@ public enum CapabilityNamespace
 
 	private static Map<Pattern, CapabilityNamespace> m_namespaceMatchMap;
 
-	static
-	{
+	static {
 		m_namespaceMap = new HashMap<String, CapabilityNamespace>();
 		m_namespaceMap.put("org.eclipse.equinox.p2.iu", IU);
 		m_namespaceMap.put("org.eclipse.equinox.p2.eclipse.type", TYPE);
@@ -46,8 +44,7 @@ public enum CapabilityNamespace
 		m_namespaceMatchMap.put(Pattern.compile("^tooling.*"), TOOLING);
 	}
 
-	public static CapabilityNamespace byId(String namespaceId)
-	{
+	public static CapabilityNamespace byId(String namespaceId) {
 		CapabilityNamespace namespace = m_namespaceMap.get(namespaceId);
 
 		if(namespace == null)
@@ -55,8 +52,7 @@ public enum CapabilityNamespace
 				if(pattern.matcher(namespaceId).matches())
 					return m_namespaceMatchMap.get(pattern);
 
-		if(namespace == null)
-		{
+		if(namespace == null) {
 			namespace = UNKNOWN;
 			namespace.m_label = namespaceId + ":";
 		}
@@ -64,20 +60,17 @@ public enum CapabilityNamespace
 		return namespace;
 	}
 
-	private static ResourceLocator getResourceLocator()
-	{
+	private static ResourceLocator getResourceLocator() {
 		return AggregatorPlugin.INSTANCE;
 	}
 
 	private String m_label;
 
-	private CapabilityNamespace(String label)
-	{
+	private CapabilityNamespace(String label) {
 		m_label = getResourceLocator().getString(label);
 	}
 
-	public String getLabel()
-	{
+	public String getLabel() {
 		return m_label;
 	}
 

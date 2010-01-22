@@ -20,25 +20,22 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.aggregator.impl.StatusImpl#getCode <em>Code</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.impl.StatusImpl#getMessage <em>Message</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.StatusImpl#getCode <em>Code</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.StatusImpl#getMessage <em>Message</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
-public class StatusImpl extends MinimalEObjectImpl.Container implements Status
-{
+public class StatusImpl extends MinimalEObjectImpl.Container implements Status {
 	private static final Status s_okStatus = new StatusImpl(StatusCode.OK);
 
 	private static final Status s_brokenStatus = new StatusImpl(StatusCode.BROKEN);
 
 	private static final Status s_waitingStatus = new StatusImpl(StatusCode.WAITING);
 
-	public static Status createStatus(StatusCode statusCode)
-	{
-		switch(statusCode)
-		{
+	public static Status createStatus(StatusCode statusCode) {
+		switch(statusCode) {
 		case BROKEN:
 			return s_brokenStatus;
 		case WAITING:
@@ -48,14 +45,14 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status
 		}
 	}
 
-	public static Status createStatus(StatusCode statusCode, String message)
-	{
+	public static Status createStatus(StatusCode statusCode, String message) {
 		return new StatusImpl(statusCode, message);
 	}
 
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -84,6 +81,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status
 	 * The flags representing the default value of the '{@link #getCode() <em>Code</em>}' attribute.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -102,6 +100,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status
 	 * The flags representing the value of the '{@link #getCode() <em>Code</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getCode()
 	 * @generated
 	 * @ordered
@@ -112,6 +111,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status
 	 * The default value of the '{@link #getMessage() <em>Message</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getMessage()
 	 * @generated
 	 * @ordered
@@ -122,6 +122,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status
 	 * The cached value of the '{@link #getMessage() <em>Message</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getMessage()
 	 * @generated
 	 * @ordered
@@ -130,10 +131,10 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	protected StatusImpl()
-	{
+	protected StatusImpl() {
 		super();
 	}
 
@@ -142,8 +143,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status
 	 * 
 	 * @generated NOT
 	 */
-	protected StatusImpl(StatusCode statusCode)
-	{
+	protected StatusImpl(StatusCode statusCode) {
 		this(statusCode, null);
 	}
 
@@ -152,8 +152,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status
 	 * 
 	 * @generated NOT
 	 */
-	protected StatusImpl(StatusCode statusCode, String message)
-	{
+	protected StatusImpl(StatusCode statusCode, String message) {
 		super();
 		eFlags = eFlags & ~CODE_EFLAG | statusCode.ordinal() << CODE_EFLAG_OFFSET;
 		this.message = message;
@@ -161,32 +160,34 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch (featureID) {
-			case AggregatorPackage.STATUS__CODE:
-				return getCode();
-			case AggregatorPackage.STATUS__MESSAGE:
-				return getMessage();
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
+		case AggregatorPackage.STATUS__CODE:
+			return getCode();
+		case AggregatorPackage.STATUS__MESSAGE:
+			return getMessage();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch (featureID) {
-			case AggregatorPackage.STATUS__CODE:
-				return (eFlags & CODE_EFLAG) != CODE_EFLAG_DEFAULT;
-			case AggregatorPackage.STATUS__MESSAGE:
-				return MESSAGE_EDEFAULT == null ? message != null : !MESSAGE_EDEFAULT.equals(message);
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
+		case AggregatorPackage.STATUS__CODE:
+			return (eFlags & CODE_EFLAG) != CODE_EFLAG_DEFAULT;
+		case AggregatorPackage.STATUS__MESSAGE:
+			return MESSAGE_EDEFAULT == null
+					? message != null
+					: !MESSAGE_EDEFAULT.equals(message);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -196,28 +197,28 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status
 	 * 
 	 * @generated NOT
 	 */
-	public StatusCode getCode()
-	{
+	public StatusCode getCode() {
 		return CODE_EFLAG_VALUES[(eFlags & CODE_EFLAG) >>> CODE_EFLAG_OFFSET];
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public String getMessage()
-	{
+	public String getMessage() {
 		return message;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
-		if (eIsProxy()) return super.toString();
+	public String toString() {
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (code: ");
@@ -230,11 +231,11 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return AggregatorPackage.Literals.STATUS;
 	}
 

@@ -19,29 +19,29 @@ import org.eclipse.emf.ecore.xmi.XMLResource;
 
 /**
  * <!-- begin-user-doc --> The <b>Resource Factory</b> associated with the package. <!-- end-user-doc -->
+ * 
  * @see org.eclipse.b3.aggregator.p2view.util.P2viewResourceImpl
  * @generated
  */
-public class P2viewResourceFactoryImpl extends ResourceFactoryImpl
-{
+public class P2viewResourceFactoryImpl extends ResourceFactoryImpl {
 	/**
 	 * Creates an instance of the resource factory.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public P2viewResourceFactoryImpl()
-	{
+	public P2viewResourceFactoryImpl() {
 		super();
 	}
 
 	/**
 	 * Creates an instance of the resource.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public Resource createResource(URI uri)
-	{
+	public Resource createResource(URI uri) {
 		XMLResource result = new P2viewResourceImpl(uri);
 		result.getDefaultSaveOptions().put(XMLResource.OPTION_EXTENDED_META_DATA, Boolean.TRUE);
 		result.getDefaultLoadOptions().put(XMLResource.OPTION_EXTENDED_META_DATA, Boolean.TRUE);

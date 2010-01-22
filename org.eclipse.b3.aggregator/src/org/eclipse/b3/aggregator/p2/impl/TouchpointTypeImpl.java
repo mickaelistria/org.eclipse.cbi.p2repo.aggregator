@@ -32,11 +32,11 @@ import org.eclipse.equinox.internal.provisional.p2.metadata.ITouchpointType;
  * 
  * @generated
  */
-public class TouchpointTypeImpl extends MinimalEObjectImpl.Container implements TouchpointType
-{
+public class TouchpointTypeImpl extends MinimalEObjectImpl.Container implements TouchpointType {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -45,6 +45,7 @@ public class TouchpointTypeImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -54,6 +55,7 @@ public class TouchpointTypeImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -64,6 +66,7 @@ public class TouchpointTypeImpl extends MinimalEObjectImpl.Container implements 
 	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -74,6 +77,7 @@ public class TouchpointTypeImpl extends MinimalEObjectImpl.Container implements 
 	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -82,148 +86,152 @@ public class TouchpointTypeImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	protected TouchpointTypeImpl()
-	{
+	protected TouchpointTypeImpl() {
 		super();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch (featureID) {
-			case P2Package.TOUCHPOINT_TYPE__ID:
-				return getId();
-			case P2Package.TOUCHPOINT_TYPE__VERSION:
-				return getVersion();
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
+		case P2Package.TOUCHPOINT_TYPE__ID:
+			return getId();
+		case P2Package.TOUCHPOINT_TYPE__VERSION:
+			return getVersion();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch (featureID) {
-			case P2Package.TOUCHPOINT_TYPE__ID:
-				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-			case P2Package.TOUCHPOINT_TYPE__VERSION:
-				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
+		case P2Package.TOUCHPOINT_TYPE__ID:
+			return ID_EDEFAULT == null
+					? id != null
+					: !ID_EDEFAULT.equals(id);
+		case P2Package.TOUCHPOINT_TYPE__VERSION:
+			return VERSION_EDEFAULT == null
+					? version != null
+					: !VERSION_EDEFAULT.equals(version);
 		}
 		return super.eIsSet(featureID);
 	}
 
-	public boolean equals(Object obj)
-	{
+	public boolean equals(Object obj) {
 		if(this == obj)
 			return true;
 		if(super.equals(obj))
 			return true;
 		if(obj == null || !(obj instanceof ITouchpointType))
 			return false;
-		ITouchpointType other = (ITouchpointType)obj;
+		ITouchpointType other = (ITouchpointType) obj;
 		return id.equals(other.getId()) && version.equals(other.getVersion());
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch (featureID) {
-			case P2Package.TOUCHPOINT_TYPE__ID:
-				setId((String)newValue);
-				return;
-			case P2Package.TOUCHPOINT_TYPE__VERSION:
-				setVersion((Version)newValue);
-				return;
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
+		case P2Package.TOUCHPOINT_TYPE__ID:
+			setId((String) newValue);
+			return;
+		case P2Package.TOUCHPOINT_TYPE__VERSION:
+			setVersion((Version) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch (featureID) {
-			case P2Package.TOUCHPOINT_TYPE__ID:
-				setId(ID_EDEFAULT);
-				return;
-			case P2Package.TOUCHPOINT_TYPE__VERSION:
-				setVersion(VERSION_EDEFAULT);
-				return;
+	public void eUnset(int featureID) {
+		switch(featureID) {
+		case P2Package.TOUCHPOINT_TYPE__ID:
+			setId(ID_EDEFAULT);
+			return;
+		case P2Package.TOUCHPOINT_TYPE__VERSION:
+			setVersion(VERSION_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public String getId()
-	{
+	public String getId() {
 		return id;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public Version getVersion()
-	{
+	public Version getVersion() {
 		return version;
 	}
 
-	public int hashCode()
-	{
+	public int hashCode() {
 		return 31 * id.hashCode() + version.hashCode();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public void setId(String newId)
-	{
+	public void setId(String newId) {
 		String oldId = id;
 		id = newId;
-		if (eNotificationRequired())
+		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.TOUCHPOINT_TYPE__ID, oldId, id));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public void setVersion(Version newVersion)
-	{
+	public void setVersion(Version newVersion) {
 		Version oldVersion = version;
 		version = newVersion;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.TOUCHPOINT_TYPE__VERSION, oldVersion, version));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.TOUCHPOINT_TYPE__VERSION, oldVersion,
+					version));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
-		if (eIsProxy()) return super.toString();
+	public String toString() {
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (id: ");
@@ -236,11 +244,11 @@ public class TouchpointTypeImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return P2Package.Literals.TOUCHPOINT_TYPE;
 	}
 

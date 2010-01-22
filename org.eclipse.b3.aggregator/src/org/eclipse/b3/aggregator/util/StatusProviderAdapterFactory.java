@@ -21,40 +21,33 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * @author Karel Brezina
  * 
  */
-public class StatusProviderAdapterFactory extends AdapterFactoryImpl
-{
-	static class StatusProviderAdapter extends AdapterImpl implements StatusProvider
-	{
-		public Status getStatus()
-		{
-			synchronized(getTarget())
-			{
+public class StatusProviderAdapterFactory extends AdapterFactoryImpl {
+	static class StatusProviderAdapter extends AdapterImpl implements StatusProvider {
+		public Status getStatus() {
+			synchronized(getTarget()) {
 				if(getTarget() instanceof StatusProvider)
-					return ((StatusProvider)getTarget()).getStatus();
+					return ((StatusProvider) getTarget()).getStatus();
 				if(getTarget() instanceof InstallableUnit)
-					return InstallableUnitUtils.getStatus((InstallableUnit)getTarget());
+					return InstallableUnitUtils.getStatus((InstallableUnit) getTarget());
 			}
 
 			throw new UnsupportedOperationException();
 		}
 
 		@Override
-		public boolean isAdapterForType(Object type)
-		{
+		public boolean isAdapterForType(Object type) {
 			return type == StatusProvider.class;
 		}
 	}
 
-	public boolean isFactoryForType(Object type)
-	{
+	public boolean isFactoryForType(Object type) {
 		if(type instanceof EPackageImpl)
 			return true;
 
 		return type == StatusProvider.class;
 	}
 
-	protected Adapter createAdapter(Notifier target)
-	{
+	protected Adapter createAdapter(Notifier target) {
 		return (target instanceof StatusProvider || target instanceof InstallableUnit)
 				? new StatusProviderAdapter()
 				: null;

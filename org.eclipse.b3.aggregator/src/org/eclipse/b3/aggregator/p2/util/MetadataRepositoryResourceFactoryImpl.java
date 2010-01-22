@@ -16,34 +16,27 @@ import org.eclipse.emf.ecore.resource.Resource;
 
 import org.eclipse.emf.ecore.resource.impl.ResourceFactoryImpl;
 
-public class MetadataRepositoryResourceFactoryImpl extends ResourceFactoryImpl
-{
+public class MetadataRepositoryResourceFactoryImpl extends ResourceFactoryImpl {
 	private IConfigurationElement m_loaderConfiguration = null;
 
-	public MetadataRepositoryResourceFactoryImpl()
-	{
+	public MetadataRepositoryResourceFactoryImpl() {
 		super();
 	}
 
-	public Resource createResource(URI uri)
-	{
+	public Resource createResource(URI uri) {
 		if(m_loaderConfiguration == null || !m_loaderConfiguration.isValid())
-			try
-			{
+			try {
 				m_loaderConfiguration = RepositoryLoaderUtils.getLoaderFor(uri.scheme());
 			}
-			catch(CoreException e)
-			{
+			catch(CoreException e) {
 				throw new RuntimeException(e.getMessage(), e);
 			}
 
-		try
-		{
+		try {
 			return new MetadataRepositoryResourceImpl(uri,
-					(IRepositoryLoader)m_loaderConfiguration.createExecutableExtension("class"));
+					(IRepositoryLoader) m_loaderConfiguration.createExecutableExtension("class"));
 		}
-		catch(CoreException e)
-		{
+		catch(CoreException e) {
 			throw new RuntimeException(e.getMessage(), e);
 		}
 	}

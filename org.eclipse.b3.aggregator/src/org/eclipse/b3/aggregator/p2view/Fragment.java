@@ -11,12 +11,11 @@ package org.eclipse.b3.aggregator.p2view;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Fragment</b></em>'. <!-- end-user-doc -->
- *
- *
+ * 
+ * 
  * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getFragment()
  * @model
  * @generated
  */
-public interface Fragment extends Bundle
-{
+public interface Fragment extends Bundle {
 } // Fragment

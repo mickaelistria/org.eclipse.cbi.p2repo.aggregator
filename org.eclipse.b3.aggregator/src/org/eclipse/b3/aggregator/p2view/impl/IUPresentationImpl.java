@@ -34,11 +34,11 @@ import org.eclipse.equinox.internal.provisional.p2.metadata.Version;
  * 
  * @generated
  */
-public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container implements IUPresentation
-{
+public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container implements IUPresentation {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -47,6 +47,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -56,6 +57,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -66,6 +68,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -76,6 +79,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -106,6 +110,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getLabel()
 	 * @generated
 	 * @ordered
@@ -126,6 +131,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -136,6 +142,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -156,6 +163,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	 * The cached value of the '{@link #getInstallableUnit() <em>Installable Unit</em>}' reference.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getInstallableUnit()
 	 * @generated
 	 * @ordered
@@ -164,10 +172,10 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	protected IUPresentationImpl()
-	{
+	protected IUPresentationImpl() {
 		super();
 	}
 
@@ -176,166 +184,175 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	 * 
 	 * @generated NOT
 	 */
-	protected IUPresentationImpl(InstallableUnit iu)
-	{
+	protected IUPresentationImpl(InstallableUnit iu) {
 		super();
 		this.installableUnit = iu;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch (featureID) {
-			case P2viewPackage.IU_PRESENTATION__ID:
-				return getId();
-			case P2viewPackage.IU_PRESENTATION__VERSION:
-				return getVersion();
-			case P2viewPackage.IU_PRESENTATION__NAME:
-				return getName();
-			case P2viewPackage.IU_PRESENTATION__LABEL:
-				return getLabel();
-			case P2viewPackage.IU_PRESENTATION__DESCRIPTION:
-				return getDescription();
-			case P2viewPackage.IU_PRESENTATION__TYPE:
-				return getType();
-			case P2viewPackage.IU_PRESENTATION__INSTALLABLE_UNIT:
-				return getInstallableUnit();
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
+		case P2viewPackage.IU_PRESENTATION__ID:
+			return getId();
+		case P2viewPackage.IU_PRESENTATION__VERSION:
+			return getVersion();
+		case P2viewPackage.IU_PRESENTATION__NAME:
+			return getName();
+		case P2viewPackage.IU_PRESENTATION__LABEL:
+			return getLabel();
+		case P2viewPackage.IU_PRESENTATION__DESCRIPTION:
+			return getDescription();
+		case P2viewPackage.IU_PRESENTATION__TYPE:
+			return getType();
+		case P2viewPackage.IU_PRESENTATION__INSTALLABLE_UNIT:
+			return getInstallableUnit();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch (featureID) {
-			case P2viewPackage.IU_PRESENTATION__ID:
-				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-			case P2viewPackage.IU_PRESENTATION__VERSION:
-				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
-			case P2viewPackage.IU_PRESENTATION__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case P2viewPackage.IU_PRESENTATION__LABEL:
-				return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
-			case P2viewPackage.IU_PRESENTATION__DESCRIPTION:
-				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case P2viewPackage.IU_PRESENTATION__TYPE:
-				return getType() != TYPE_EDEFAULT;
-			case P2viewPackage.IU_PRESENTATION__INSTALLABLE_UNIT:
-				return installableUnit != null;
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
+		case P2viewPackage.IU_PRESENTATION__ID:
+			return ID_EDEFAULT == null
+					? id != null
+					: !ID_EDEFAULT.equals(id);
+		case P2viewPackage.IU_PRESENTATION__VERSION:
+			return VERSION_EDEFAULT == null
+					? version != null
+					: !VERSION_EDEFAULT.equals(version);
+		case P2viewPackage.IU_PRESENTATION__NAME:
+			return NAME_EDEFAULT == null
+					? name != null
+					: !NAME_EDEFAULT.equals(name);
+		case P2viewPackage.IU_PRESENTATION__LABEL:
+			return LABEL_EDEFAULT == null
+					? label != null
+					: !LABEL_EDEFAULT.equals(label);
+		case P2viewPackage.IU_PRESENTATION__DESCRIPTION:
+			return DESCRIPTION_EDEFAULT == null
+					? description != null
+					: !DESCRIPTION_EDEFAULT.equals(description);
+		case P2viewPackage.IU_PRESENTATION__TYPE:
+			return getType() != TYPE_EDEFAULT;
+		case P2viewPackage.IU_PRESENTATION__INSTALLABLE_UNIT:
+			return installableUnit != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch (featureID) {
-			case P2viewPackage.IU_PRESENTATION__ID:
-				setId((String)newValue);
-				return;
-			case P2viewPackage.IU_PRESENTATION__VERSION:
-				setVersion((Version)newValue);
-				return;
-			case P2viewPackage.IU_PRESENTATION__NAME:
-				setName((String)newValue);
-				return;
-			case P2viewPackage.IU_PRESENTATION__LABEL:
-				setLabel((String)newValue);
-				return;
-			case P2viewPackage.IU_PRESENTATION__DESCRIPTION:
-				setDescription((String)newValue);
-				return;
-			case P2viewPackage.IU_PRESENTATION__INSTALLABLE_UNIT:
-				setInstallableUnit((InstallableUnit)newValue);
-				return;
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
+		case P2viewPackage.IU_PRESENTATION__ID:
+			setId((String) newValue);
+			return;
+		case P2viewPackage.IU_PRESENTATION__VERSION:
+			setVersion((Version) newValue);
+			return;
+		case P2viewPackage.IU_PRESENTATION__NAME:
+			setName((String) newValue);
+			return;
+		case P2viewPackage.IU_PRESENTATION__LABEL:
+			setLabel((String) newValue);
+			return;
+		case P2viewPackage.IU_PRESENTATION__DESCRIPTION:
+			setDescription((String) newValue);
+			return;
+		case P2viewPackage.IU_PRESENTATION__INSTALLABLE_UNIT:
+			setInstallableUnit((InstallableUnit) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch (featureID) {
-			case P2viewPackage.IU_PRESENTATION__ID:
-				setId(ID_EDEFAULT);
-				return;
-			case P2viewPackage.IU_PRESENTATION__VERSION:
-				setVersion(VERSION_EDEFAULT);
-				return;
-			case P2viewPackage.IU_PRESENTATION__NAME:
-				setName(NAME_EDEFAULT);
-				return;
-			case P2viewPackage.IU_PRESENTATION__LABEL:
-				setLabel(LABEL_EDEFAULT);
-				return;
-			case P2viewPackage.IU_PRESENTATION__DESCRIPTION:
-				setDescription(DESCRIPTION_EDEFAULT);
-				return;
-			case P2viewPackage.IU_PRESENTATION__INSTALLABLE_UNIT:
-				setInstallableUnit((InstallableUnit)null);
-				return;
+	public void eUnset(int featureID) {
+		switch(featureID) {
+		case P2viewPackage.IU_PRESENTATION__ID:
+			setId(ID_EDEFAULT);
+			return;
+		case P2viewPackage.IU_PRESENTATION__VERSION:
+			setVersion(VERSION_EDEFAULT);
+			return;
+		case P2viewPackage.IU_PRESENTATION__NAME:
+			setName(NAME_EDEFAULT);
+			return;
+		case P2viewPackage.IU_PRESENTATION__LABEL:
+			setLabel(LABEL_EDEFAULT);
+			return;
+		case P2viewPackage.IU_PRESENTATION__DESCRIPTION:
+			setDescription(DESCRIPTION_EDEFAULT);
+			return;
+		case P2viewPackage.IU_PRESENTATION__INSTALLABLE_UNIT:
+			setInstallableUnit((InstallableUnit) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public String getDescription()
-	{
+	public String getDescription() {
 		return description;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public String getId()
-	{
+	public String getId() {
 		return id;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public InstallableUnit getInstallableUnit()
-	{
+	public InstallableUnit getInstallableUnit() {
 		return installableUnit;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public String getLabel()
-	{
+	public String getLabel() {
 		return label;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public String getName()
-	{
+	public String getName() {
 		return name;
 	}
 
@@ -348,93 +365,97 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public Version getVersion()
-	{
+	public Version getVersion() {
 		return version;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public void setDescription(String newDescription)
-	{
+	public void setDescription(String newDescription) {
 		String oldDescription = description;
 		description = newDescription;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_PRESENTATION__DESCRIPTION, oldDescription, description));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_PRESENTATION__DESCRIPTION,
+					oldDescription, description));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public void setId(String newId)
-	{
+	public void setId(String newId) {
 		String oldId = id;
 		id = newId;
-		if (eNotificationRequired())
+		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_PRESENTATION__ID, oldId, id));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public void setInstallableUnit(InstallableUnit newInstallableUnit)
-	{
+	public void setInstallableUnit(InstallableUnit newInstallableUnit) {
 		InstallableUnit oldInstallableUnit = installableUnit;
 		installableUnit = newInstallableUnit;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_PRESENTATION__INSTALLABLE_UNIT, oldInstallableUnit, installableUnit));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_PRESENTATION__INSTALLABLE_UNIT,
+					oldInstallableUnit, installableUnit));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public void setLabel(String newLabel)
-	{
+	public void setLabel(String newLabel) {
 		String oldLabel = label;
 		label = newLabel;
-		if (eNotificationRequired())
+		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_PRESENTATION__LABEL, oldLabel, label));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public void setName(String newName)
-	{
+	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
-		if (eNotificationRequired())
+		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_PRESENTATION__NAME, oldName, name));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public void setVersion(Version newVersion)
-	{
+	public void setVersion(Version newVersion) {
 		Version oldVersion = version;
 		version = newVersion;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_PRESENTATION__VERSION, oldVersion, version));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_PRESENTATION__VERSION, oldVersion,
+					version));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
-		if (eIsProxy()) return super.toString();
+	public String toString() {
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (id: ");
@@ -453,11 +474,11 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return P2viewPackage.Literals.IU_PRESENTATION;
 	}
 

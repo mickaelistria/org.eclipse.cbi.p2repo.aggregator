@@ -15,8 +15,7 @@ import java.text.MessageFormat;
  * @author Filip Hrbek
  * 
  */
-public class TimeUtils
-{
+public class TimeUtils {
 	private static final MessageFormat TIME_FORMAT = new MessageFormat("{0}{1}");
 
 	private static final double[] LIMITS = { 0, 1, 2 };
@@ -33,19 +32,16 @@ public class TimeUtils
 
 	private static final int SEC_IN_MINUTE = 60;
 
-	static
-	{
+	static {
 		TIME_FORMAT.setFormat(0, MINUTES_FORMAT);
 		TIME_FORMAT.setFormat(1, SECONDS_FORMAT);
 	}
 
-	public static long getDuration(long fromTime)
-	{
+	public static long getDuration(long fromTime) {
 		return System.currentTimeMillis() - fromTime;
 	}
 
-	public static String getFormattedDuration(long fromTime)
-	{
+	public static String getFormattedDuration(long fromTime) {
 		long milliseconds = getDuration(fromTime);
 		long seconds = milliseconds / MS_IN_SECOND;
 		long minutes = seconds / SEC_IN_MINUTE;
@@ -54,8 +50,7 @@ public class TimeUtils
 		return TIME_FORMAT.format(args);
 	}
 
-	public static long getNow()
-	{
+	public static long getNow() {
 		return System.currentTimeMillis();
 	}
 }

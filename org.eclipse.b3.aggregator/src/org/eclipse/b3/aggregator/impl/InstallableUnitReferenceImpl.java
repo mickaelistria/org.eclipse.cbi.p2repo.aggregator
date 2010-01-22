@@ -49,14 +49,14 @@ import org.eclipse.equinox.internal.provisional.p2.metadata.query.Query;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.aggregator.impl.InstallableUnitReferenceImpl#getStatus <em>Status</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.impl.InstallableUnitReferenceImpl#getErrors <em>Errors</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.impl.InstallableUnitReferenceImpl#getWarnings <em>Warnings</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.impl.InstallableUnitReferenceImpl#getInfos <em>Infos</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.impl.InstallableUnitReferenceImpl#getInstallableUnit <em>Installable Unit</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.InstallableUnitReferenceImpl#getStatus <em>Status</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.InstallableUnitReferenceImpl#getErrors <em>Errors</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.InstallableUnitReferenceImpl#getWarnings <em>Warnings</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.InstallableUnitReferenceImpl#getInfos <em>Infos</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.InstallableUnitReferenceImpl#getInstallableUnit <em>Installable Unit</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public abstract class InstallableUnitReferenceImpl extends MinimalEObjectImpl.Container implements
@@ -73,6 +73,7 @@ public abstract class InstallableUnitReferenceImpl extends MinimalEObjectImpl.Co
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -82,6 +83,7 @@ public abstract class InstallableUnitReferenceImpl extends MinimalEObjectImpl.Co
 	 * The cached value of the '{@link #getErrors() <em>Errors</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getErrors()
 	 * @generated
 	 * @ordered
@@ -92,6 +94,7 @@ public abstract class InstallableUnitReferenceImpl extends MinimalEObjectImpl.Co
 	 * The cached value of the '{@link #getWarnings() <em>Warnings</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getWarnings()
 	 * @generated
 	 * @ordered
@@ -102,6 +105,7 @@ public abstract class InstallableUnitReferenceImpl extends MinimalEObjectImpl.Co
 	 * The cached value of the '{@link #getInfos() <em>Infos</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getInfos()
 	 * @generated
 	 * @ordered
@@ -112,6 +116,7 @@ public abstract class InstallableUnitReferenceImpl extends MinimalEObjectImpl.Co
 	 * The cached value of the '{@link #getInstallableUnit() <em>Installable Unit</em>}' reference.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getInstallableUnit()
 	 * @generated
 	 * @ordered
@@ -120,6 +125,7 @@ public abstract class InstallableUnitReferenceImpl extends MinimalEObjectImpl.Co
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected InstallableUnitReferenceImpl() {
@@ -128,6 +134,7 @@ public abstract class InstallableUnitReferenceImpl extends MinimalEObjectImpl.Co
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public InstallableUnit basicGetInstallableUnit() {
@@ -136,16 +143,21 @@ public abstract class InstallableUnitReferenceImpl extends MinimalEObjectImpl.Co
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == InfosProvider.class) {
-			switch (derivedFeatureID) {
-				case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__ERRORS: return AggregatorPackage.INFOS_PROVIDER__ERRORS;
-				case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__WARNINGS: return AggregatorPackage.INFOS_PROVIDER__WARNINGS;
-				case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__INFOS: return AggregatorPackage.INFOS_PROVIDER__INFOS;
-				default: return -1;
+		if(baseClass == InfosProvider.class) {
+			switch(derivedFeatureID) {
+			case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__ERRORS:
+				return AggregatorPackage.INFOS_PROVIDER__ERRORS;
+			case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__WARNINGS:
+				return AggregatorPackage.INFOS_PROVIDER__WARNINGS;
+			case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__INFOS:
+				return AggregatorPackage.INFOS_PROVIDER__INFOS;
+			default:
+				return -1;
 			}
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
@@ -153,16 +165,21 @@ public abstract class InstallableUnitReferenceImpl extends MinimalEObjectImpl.Co
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == InfosProvider.class) {
-			switch (baseFeatureID) {
-				case AggregatorPackage.INFOS_PROVIDER__ERRORS: return AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__ERRORS;
-				case AggregatorPackage.INFOS_PROVIDER__WARNINGS: return AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__WARNINGS;
-				case AggregatorPackage.INFOS_PROVIDER__INFOS: return AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__INFOS;
-				default: return -1;
+		if(baseClass == InfosProvider.class) {
+			switch(baseFeatureID) {
+			case AggregatorPackage.INFOS_PROVIDER__ERRORS:
+				return AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__ERRORS;
+			case AggregatorPackage.INFOS_PROVIDER__WARNINGS:
+				return AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__WARNINGS;
+			case AggregatorPackage.INFOS_PROVIDER__INFOS:
+				return AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__INFOS;
+			default:
+				return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
@@ -170,93 +187,98 @@ public abstract class InstallableUnitReferenceImpl extends MinimalEObjectImpl.Co
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__STATUS:
-				return getStatus();
-			case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__ERRORS:
-				return getErrors();
-			case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__WARNINGS:
-				return getWarnings();
-			case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__INFOS:
-				return getInfos();
-			case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__INSTALLABLE_UNIT:
-				if (resolve) return getInstallableUnit();
-				return basicGetInstallableUnit();
+		switch(featureID) {
+		case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__STATUS:
+			return getStatus();
+		case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__ERRORS:
+			return getErrors();
+		case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__WARNINGS:
+			return getWarnings();
+		case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__INFOS:
+			return getInfos();
+		case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__INSTALLABLE_UNIT:
+			if(resolve)
+				return getInstallableUnit();
+			return basicGetInstallableUnit();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__STATUS:
-				return getStatus() != null;
-			case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__ERRORS:
-				return errors != null && !errors.isEmpty();
-			case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__WARNINGS:
-				return warnings != null && !warnings.isEmpty();
-			case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__INFOS:
-				return infos != null && !infos.isEmpty();
-			case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__INSTALLABLE_UNIT:
-				return installableUnit != null;
+		switch(featureID) {
+		case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__STATUS:
+			return getStatus() != null;
+		case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__ERRORS:
+			return errors != null && !errors.isEmpty();
+		case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__WARNINGS:
+			return warnings != null && !warnings.isEmpty();
+		case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__INFOS:
+			return infos != null && !infos.isEmpty();
+		case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__INSTALLABLE_UNIT:
+			return installableUnit != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__ERRORS:
-				getErrors().clear();
-				getErrors().addAll((Collection<? extends String>)newValue);
-				return;
-			case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__WARNINGS:
-				getWarnings().clear();
-				getWarnings().addAll((Collection<? extends String>)newValue);
-				return;
-			case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__INFOS:
-				getInfos().clear();
-				getInfos().addAll((Collection<? extends String>)newValue);
-				return;
-			case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__INSTALLABLE_UNIT:
-				setInstallableUnit((InstallableUnit)newValue);
-				return;
+		switch(featureID) {
+		case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__ERRORS:
+			getErrors().clear();
+			getErrors().addAll((Collection<? extends String>) newValue);
+			return;
+		case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__WARNINGS:
+			getWarnings().clear();
+			getWarnings().addAll((Collection<? extends String>) newValue);
+			return;
+		case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__INFOS:
+			getInfos().clear();
+			getInfos().addAll((Collection<? extends String>) newValue);
+			return;
+		case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__INSTALLABLE_UNIT:
+			setInstallableUnit((InstallableUnit) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__ERRORS:
-				getErrors().clear();
-				return;
-			case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__WARNINGS:
-				getWarnings().clear();
-				return;
-			case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__INFOS:
-				getInfos().clear();
-				return;
-			case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__INSTALLABLE_UNIT:
-				setInstallableUnit((InstallableUnit)null);
-				return;
+		switch(featureID) {
+		case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__ERRORS:
+			getErrors().clear();
+			return;
+		case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__WARNINGS:
+			getWarnings().clear();
+			return;
+		case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__INFOS:
+			getInfos().clear();
+			return;
+		case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__INSTALLABLE_UNIT:
+			setInstallableUnit((InstallableUnit) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -316,15 +338,18 @@ public abstract class InstallableUnitReferenceImpl extends MinimalEObjectImpl.Co
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public InstallableUnit getInstallableUnitGen() {
-		if (installableUnit != null && ((EObject)installableUnit).eIsProxy()) {
-			InternalEObject oldInstallableUnit = (InternalEObject)installableUnit;
-			installableUnit = (InstallableUnit)eResolveProxy(oldInstallableUnit);
-			if (installableUnit != oldInstallableUnit) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__INSTALLABLE_UNIT, oldInstallableUnit, installableUnit));
+		if(installableUnit != null && ((EObject) installableUnit).eIsProxy()) {
+			InternalEObject oldInstallableUnit = (InternalEObject) installableUnit;
+			installableUnit = (InstallableUnit) eResolveProxy(oldInstallableUnit);
+			if(installableUnit != oldInstallableUnit) {
+				if(eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+							AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__INSTALLABLE_UNIT, oldInstallableUnit,
+							installableUnit));
 			}
 		}
 		return installableUnit;
@@ -380,11 +405,13 @@ public abstract class InstallableUnitReferenceImpl extends MinimalEObjectImpl.Co
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<String> getWarnings() {
-		if (warnings == null) {
-			warnings = new EDataTypeUniqueEList<String>(String.class, this, AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__WARNINGS);
+		if(warnings == null) {
+			warnings = new EDataTypeUniqueEList<String>(String.class, this,
+					AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__WARNINGS);
 		}
 		return warnings;
 	}
@@ -430,22 +457,26 @@ public abstract class InstallableUnitReferenceImpl extends MinimalEObjectImpl.Co
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setInstallableUnit(InstallableUnit newInstallableUnit) {
 		InstallableUnit oldInstallableUnit = installableUnit;
 		installableUnit = newInstallableUnit;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__INSTALLABLE_UNIT, oldInstallableUnit, installableUnit));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					AggregatorPackage.INSTALLABLE_UNIT_REFERENCE__INSTALLABLE_UNIT, oldInstallableUnit, installableUnit));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (errors: ");
@@ -460,6 +491,7 @@ public abstract class InstallableUnitReferenceImpl extends MinimalEObjectImpl.Co
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

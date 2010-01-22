@@ -26,8 +26,7 @@ import org.eclipse.emf.common.util.EList;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface ChildrenProvider<T>
-{
+public interface ChildrenProvider<T> {
 	/**
 	 * Returns the value of the '<em><b>Children</b></em>' reference list. The list contents are of type {@link T}. <!--
 	 * begin-user-doc -->

@@ -11,12 +11,11 @@ import org.eclipse.equinox.internal.provisional.p2.metadata.ITouchpointInstructi
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Touchpoint Instruction</b></em>'. <!--
  * end-user-doc -->
- *
- *
+ * 
+ * 
  * @see org.eclipse.b3.aggregator.p2.P2Package#getTouchpointInstruction()
  * @model superTypes="org.eclipse.b3.aggregator.p2.ITouchpointInstruction"
  * @generated
  */
-public interface TouchpointInstruction extends ITouchpointInstruction
-{
+public interface TouchpointInstruction extends ITouchpointInstruction {
 } // TouchpointInstruction

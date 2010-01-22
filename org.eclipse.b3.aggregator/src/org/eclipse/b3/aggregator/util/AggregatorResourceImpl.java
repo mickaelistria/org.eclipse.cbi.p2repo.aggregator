@@ -27,44 +27,35 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
  * @see org.eclipse.b3.aggregator.util.AggregatorResourceFactoryImpl
  * @generated
  */
-public class AggregatorResourceImpl extends XMIResourceImpl implements AggregatorResource
-{
-	class NotifyAnalyzeResourceFinished extends NotificationImpl
-	{
-		public NotifyAnalyzeResourceFinished()
-		{
+public class AggregatorResourceImpl extends XMIResourceImpl implements AggregatorResource {
+	class NotifyAnalyzeResourceFinished extends NotificationImpl {
+		public NotifyAnalyzeResourceFinished() {
 			super(Notification.SET, false, true);
 		}
 
 		@Override
-		public int getFeatureID(Class<?> expectedClass)
-		{
+		public int getFeatureID(Class<?> expectedClass) {
 			return RESOURCE__ANALYSIS_FINISHED;
 		}
 
 		@Override
-		public Object getNotifier()
-		{
+		public Object getNotifier() {
 			return AggregatorResourceImpl.this;
 		}
 	}
 
-	class NotifyAnalyzeResourceStarted extends NotificationImpl
-	{
-		public NotifyAnalyzeResourceStarted()
-		{
+	class NotifyAnalyzeResourceStarted extends NotificationImpl {
+		public NotifyAnalyzeResourceStarted() {
 			super(Notification.SET, true, false);
 		}
 
 		@Override
-		public int getFeatureID(Class<?> expectedClass)
-		{
+		public int getFeatureID(Class<?> expectedClass) {
 			return RESOURCE__ANALYSIS_STARTED;
 		}
 
 		@Override
-		public Object getNotifier()
-		{
+		public Object getNotifier() {
 			return AggregatorResourceImpl.this;
 		}
 	}
@@ -83,35 +74,30 @@ public class AggregatorResourceImpl extends XMIResourceImpl implements Aggregato
 	/**
 	 * Creates an instance of the resource.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param uri the URI of the new resource.
+	 * 
+	 * @param uri
+	 *            the URI of the new resource.
 	 * @generated
 	 */
-	public AggregatorResourceImpl(URI uri)
-	{
+	public AggregatorResourceImpl(URI uri) {
 		super(uri);
 	}
 
 	/*
 	 * Analysis aggregator errors, warnings & infos
 	 */
-	public void analyzeResource()
-	{
-		Runnable runnable = new Runnable()
-		{
-			public void run()
-			{
-				synchronized(AggregatorResourceImpl.this)
-				{
+	public void analyzeResource() {
+		Runnable runnable = new Runnable() {
+			public void run() {
+				synchronized(AggregatorResourceImpl.this) {
 					while(analysisRequest)
-						try
-						{
+						try {
 							analysisRequest = false;
 							analysisIsRunning = true;
 
 							eNotify(new NotifyAnalyzeResourceStarted());
 
-							if(errors != null)
-							{
+							if(errors != null) {
 								Iterator<Diagnostic> iterator = errors.iterator();
 
 								while(iterator.hasNext())
@@ -119,8 +105,7 @@ public class AggregatorResourceImpl extends XMIResourceImpl implements Aggregato
 										iterator.remove();
 							}
 
-							if(warnings != null)
-							{
+							if(warnings != null) {
 								Iterator<Diagnostic> iterator = warnings.iterator();
 
 								while(iterator.hasNext())
@@ -128,8 +113,7 @@ public class AggregatorResourceImpl extends XMIResourceImpl implements Aggregato
 										iterator.remove();
 							}
 
-							if(infos != null)
-							{
+							if(infos != null) {
 								Iterator<Diagnostic> iterator = infos.iterator();
 
 								while(iterator.hasNext())
@@ -137,12 +121,11 @@ public class AggregatorResourceImpl extends XMIResourceImpl implements Aggregato
 										iterator.remove();
 							}
 
-							Aggregator aggregator = (Aggregator)getContents().get(0);
+							Aggregator aggregator = (Aggregator) getContents().get(0);
 
-							analyze((EObject)aggregator);
+							analyze((EObject) aggregator);
 						}
-						finally
-						{
+						finally {
 							eNotify(new NotifyAnalyzeResourceFinished());
 
 							analysisIsRunning = false;
@@ -162,29 +145,23 @@ public class AggregatorResourceImpl extends XMIResourceImpl implements Aggregato
 		new Thread(runnable).start();
 	}
 
-	public EList<Diagnostic> getInfos()
-	{
-		if(infos == null)
-		{
-			infos = new NotifyingListImpl<Diagnostic>()
-			{
+	public EList<Diagnostic> getInfos() {
+		if(infos == null) {
+			infos = new NotifyingListImpl<Diagnostic>() {
 				private static final long serialVersionUID = 1L;
 
 				@Override
-				public int getFeatureID()
-				{
+				public int getFeatureID() {
 					return RESOURCE__INFOS;
 				}
 
 				@Override
-				public Object getNotifier()
-				{
+				public Object getNotifier() {
 					return AggregatorResourceImpl.this;
 				}
 
 				@Override
-				protected boolean isNotificationRequired()
-				{
+				protected boolean isNotificationRequired() {
 					return AggregatorResourceImpl.this.eNotificationRequired();
 				}
 			};
@@ -192,14 +169,12 @@ public class AggregatorResourceImpl extends XMIResourceImpl implements Aggregato
 		return infos;
 	}
 
-	private void analyze(EObject object)
-	{
-		if(object instanceof EnabledStatusProvider && !((EnabledStatusProvider)object).isEnabled())
+	private void analyze(EObject object) {
+		if(object instanceof EnabledStatusProvider && !((EnabledStatusProvider) object).isEnabled())
 			return;
 
-		if(object instanceof InfosProvider)
-		{
-			InfosProvider iProvider = (InfosProvider)object;
+		if(object instanceof InfosProvider) {
+			InfosProvider iProvider = (InfosProvider) object;
 
 			for(String error : iProvider.getErrors())
 				getErrors().add(new ResourceDiagnosticImpl(error, EcoreUtil.getURI(object).toString()));

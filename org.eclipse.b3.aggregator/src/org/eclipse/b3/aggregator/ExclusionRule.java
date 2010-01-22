@@ -11,12 +11,11 @@ package org.eclipse.b3.aggregator;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Exclusion Rule</b></em>'. <!-- end-user-doc -->
- *
- *
+ * 
+ * 
  * @see org.eclipse.b3.aggregator.AggregatorPackage#getExclusionRule()
  * @model
  * @generated
  */
-public interface ExclusionRule extends MapRule
-{
+public interface ExclusionRule extends MapRule {
 } // ExclusionRule

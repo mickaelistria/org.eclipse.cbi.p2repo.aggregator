@@ -8,31 +8,32 @@ package org.eclipse.b3.aggregator;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Contact</b></em>'. <!-- end-user-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.b3.aggregator.Contact#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.Contact#getEmail <em>Email</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.Contact#getAggregator <em>Aggregator</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.Contact#getName <em>Name</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.Contact#getEmail <em>Email</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.Contact#getAggregator <em>Aggregator</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipse.b3.aggregator.AggregatorPackage#getContact()
  * @model
  * @generated
  */
-public interface Contact
-{
+public interface Contact {
 	/**
 	 * Returns the value of the '<em><b>Aggregator</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link org.eclipse.b3.aggregator.Aggregator#getContacts <em>Contacts</em>}'.
+	 * It is bidirectional and its opposite is '{@link org.eclipse.b3.aggregator.Aggregator#getContacts
+	 * <em>Contacts</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Aggregator</em>' container reference isn't clear, there really should be more of a
 	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Aggregator</em>' container reference.
 	 * @see #setAggregator(Aggregator)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getContact_Aggregator()
@@ -50,6 +51,7 @@ public interface Contact
 	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Email</em>' attribute.
 	 * @see #setEmail(String)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getContact_Email()
@@ -65,6 +67,7 @@ public interface Contact
 	 * If the meaning of the '<em>Name</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getContact_Name()
@@ -74,9 +77,12 @@ public interface Contact
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Contact#getAggregator <em>Aggregator</em>}' container reference.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Contact#getAggregator <em>Aggregator</em>}' container
+	 * reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Aggregator</em>' container reference.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Aggregator</em>' container reference.
 	 * @see #getAggregator()
 	 * @generated
 	 */
@@ -85,7 +91,9 @@ public interface Contact
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.Contact#getEmail <em>Email</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Email</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Email</em>' attribute.
 	 * @see #getEmail()
 	 * @generated
 	 */
