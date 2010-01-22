@@ -28,8 +28,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * 
  * @generated
  */
-public class OrganizationImpl extends EObjectImpl implements Organization
-{
+public class OrganizationImpl extends EObjectImpl implements Organization {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
@@ -74,8 +73,7 @@ public class OrganizationImpl extends EObjectImpl implements Organization
 	 * 
 	 * @generated
 	 */
-	protected OrganizationImpl()
-	{
+	protected OrganizationImpl() {
 		super();
 	}
 
@@ -85,10 +83,8 @@ public class OrganizationImpl extends EObjectImpl implements Organization
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.ORGANIZATION__NAME:
 			return getName();
 		case PomPackage.ORGANIZATION__URL:
@@ -103,10 +99,8 @@ public class OrganizationImpl extends EObjectImpl implements Organization
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.ORGANIZATION__NAME:
 			return NAME_EDEFAULT == null
 					? name != null
@@ -125,15 +119,13 @@ public class OrganizationImpl extends EObjectImpl implements Organization
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.ORGANIZATION__NAME:
-			setName((String)newValue);
+			setName((String) newValue);
 			return;
 		case PomPackage.ORGANIZATION__URL:
-			setUrl((String)newValue);
+			setUrl((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -145,10 +137,8 @@ public class OrganizationImpl extends EObjectImpl implements Organization
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.ORGANIZATION__NAME:
 			setName(NAME_EDEFAULT);
 			return;
@@ -164,8 +154,7 @@ public class OrganizationImpl extends EObjectImpl implements Organization
 	 * 
 	 * @generated
 	 */
-	public String getName()
-	{
+	public String getName() {
 		return name;
 	}
 
@@ -174,8 +163,7 @@ public class OrganizationImpl extends EObjectImpl implements Organization
 	 * 
 	 * @generated
 	 */
-	public String getUrl()
-	{
+	public String getUrl() {
 		return url;
 	}
 
@@ -184,8 +172,7 @@ public class OrganizationImpl extends EObjectImpl implements Organization
 	 * 
 	 * @generated
 	 */
-	public void setName(String newName)
-	{
+	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
 		if(eNotificationRequired())
@@ -197,8 +184,7 @@ public class OrganizationImpl extends EObjectImpl implements Organization
 	 * 
 	 * @generated
 	 */
-	public void setUrl(String newUrl)
-	{
+	public void setUrl(String newUrl) {
 		String oldUrl = url;
 		url = newUrl;
 		if(eNotificationRequired())
@@ -211,8 +197,7 @@ public class OrganizationImpl extends EObjectImpl implements Organization
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
@@ -231,8 +216,7 @@ public class OrganizationImpl extends EObjectImpl implements Organization
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.ORGANIZATION;
 	}
 

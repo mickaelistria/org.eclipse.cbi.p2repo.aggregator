@@ -24,8 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='roles_._type' kind='elementOnly'"
  * @generated
  */
-public interface RolesType extends EObject
-{
+public interface RolesType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Role</b></em>' attribute list. The list contents are of type
 	 * {@link java.lang.String}. <!-- begin-user-doc -->

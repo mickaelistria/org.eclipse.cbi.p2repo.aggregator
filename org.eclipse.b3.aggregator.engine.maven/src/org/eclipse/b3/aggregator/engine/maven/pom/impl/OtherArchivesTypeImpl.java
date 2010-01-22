@@ -25,15 +25,14 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.OtherArchivesTypeImpl#getOtherArchive <em>Other
- * Archive</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.OtherArchivesTypeImpl#getOtherArchive <em>Other Archive
+ * </em>}</li>
  * </ul>
  * </p>
  * 
  * @generated
  */
-public class OtherArchivesTypeImpl extends EObjectImpl implements OtherArchivesType
-{
+public class OtherArchivesTypeImpl extends EObjectImpl implements OtherArchivesType {
 	/**
 	 * The cached value of the '{@link #getOtherArchive() <em>Other Archive</em>}' attribute list. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
@@ -49,8 +48,7 @@ public class OtherArchivesTypeImpl extends EObjectImpl implements OtherArchivesT
 	 * 
 	 * @generated
 	 */
-	protected OtherArchivesTypeImpl()
-	{
+	protected OtherArchivesTypeImpl() {
 		super();
 	}
 
@@ -60,10 +58,8 @@ public class OtherArchivesTypeImpl extends EObjectImpl implements OtherArchivesT
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.OTHER_ARCHIVES_TYPE__OTHER_ARCHIVE:
 			return getOtherArchive();
 		}
@@ -76,10 +72,8 @@ public class OtherArchivesTypeImpl extends EObjectImpl implements OtherArchivesT
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.OTHER_ARCHIVES_TYPE__OTHER_ARCHIVE:
 			return otherArchive != null && !otherArchive.isEmpty();
 		}
@@ -93,13 +87,11 @@ public class OtherArchivesTypeImpl extends EObjectImpl implements OtherArchivesT
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.OTHER_ARCHIVES_TYPE__OTHER_ARCHIVE:
 			getOtherArchive().clear();
-			getOtherArchive().addAll((Collection<? extends String>)newValue);
+			getOtherArchive().addAll((Collection<? extends String>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -111,10 +103,8 @@ public class OtherArchivesTypeImpl extends EObjectImpl implements OtherArchivesT
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.OTHER_ARCHIVES_TYPE__OTHER_ARCHIVE:
 			getOtherArchive().clear();
 			return;
@@ -127,10 +117,8 @@ public class OtherArchivesTypeImpl extends EObjectImpl implements OtherArchivesT
 	 * 
 	 * @generated
 	 */
-	public EList<String> getOtherArchive()
-	{
-		if(otherArchive == null)
-		{
+	public EList<String> getOtherArchive() {
+		if(otherArchive == null) {
 			otherArchive = new EDataTypeEList<String>(String.class, this, PomPackage.OTHER_ARCHIVES_TYPE__OTHER_ARCHIVE);
 		}
 		return otherArchive;
@@ -142,8 +130,7 @@ public class OtherArchivesTypeImpl extends EObjectImpl implements OtherArchivesT
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
@@ -160,8 +147,7 @@ public class OtherArchivesTypeImpl extends EObjectImpl implements OtherArchivesT
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.OTHER_ARCHIVES_TYPE;
 	}
 

@@ -30,15 +30,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.MailingListsTypeImpl#getMailingList <em>Mailing
- * List</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.MailingListsTypeImpl#getMailingList <em>Mailing List</em>}
+ * </li>
  * </ul>
  * </p>
  * 
  * @generated
  */
-public class MailingListsTypeImpl extends EObjectImpl implements MailingListsType
-{
+public class MailingListsTypeImpl extends EObjectImpl implements MailingListsType {
 	/**
 	 * The cached value of the '{@link #getMailingList() <em>Mailing List</em>}' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -54,8 +53,7 @@ public class MailingListsTypeImpl extends EObjectImpl implements MailingListsTyp
 	 * 
 	 * @generated
 	 */
-	protected MailingListsTypeImpl()
-	{
+	protected MailingListsTypeImpl() {
 		super();
 	}
 
@@ -65,10 +63,8 @@ public class MailingListsTypeImpl extends EObjectImpl implements MailingListsTyp
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.MAILING_LISTS_TYPE__MAILING_LIST:
 			return getMailingList();
 		}
@@ -81,12 +77,10 @@ public class MailingListsTypeImpl extends EObjectImpl implements MailingListsTyp
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch(featureID)
-		{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
 		case PomPackage.MAILING_LISTS_TYPE__MAILING_LIST:
-			return ((InternalEList<?>)getMailingList()).basicRemove(otherEnd, msgs);
+			return ((InternalEList<?>) getMailingList()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -97,10 +91,8 @@ public class MailingListsTypeImpl extends EObjectImpl implements MailingListsTyp
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.MAILING_LISTS_TYPE__MAILING_LIST:
 			return mailingList != null && !mailingList.isEmpty();
 		}
@@ -114,13 +106,11 @@ public class MailingListsTypeImpl extends EObjectImpl implements MailingListsTyp
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.MAILING_LISTS_TYPE__MAILING_LIST:
 			getMailingList().clear();
-			getMailingList().addAll((Collection<? extends MailingList>)newValue);
+			getMailingList().addAll((Collection<? extends MailingList>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -132,10 +122,8 @@ public class MailingListsTypeImpl extends EObjectImpl implements MailingListsTyp
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.MAILING_LISTS_TYPE__MAILING_LIST:
 			getMailingList().clear();
 			return;
@@ -148,10 +136,8 @@ public class MailingListsTypeImpl extends EObjectImpl implements MailingListsTyp
 	 * 
 	 * @generated
 	 */
-	public EList<MailingList> getMailingList()
-	{
-		if(mailingList == null)
-		{
+	public EList<MailingList> getMailingList() {
+		if(mailingList == null) {
 			mailingList = new EObjectContainmentEList<MailingList>(MailingList.class, this,
 					PomPackage.MAILING_LISTS_TYPE__MAILING_LIST);
 		}
@@ -164,8 +150,7 @@ public class MailingListsTypeImpl extends EObjectImpl implements MailingListsTyp
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.MAILING_LISTS_TYPE;
 	}
 

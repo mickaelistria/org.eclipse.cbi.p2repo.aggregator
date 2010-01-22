@@ -21,8 +21,7 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  * 
  * @generated
  */
-public class PomFactoryImpl extends EFactoryImpl implements PomFactory
-{
+public class PomFactoryImpl extends EFactoryImpl implements PomFactory {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -30,8 +29,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * @generated
 	 */
 	@Deprecated
-	public static PomPackage getPackage()
-	{
+	public static PomPackage getPackage() {
 		return PomPackage.eINSTANCE;
 	}
 
@@ -40,18 +38,14 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public static PomFactory init()
-	{
-		try
-		{
-			PomFactory thePomFactory = (PomFactory)EPackage.Registry.INSTANCE.getEFactory("http://maven.apache.org/POM/4.0.0");
-			if(thePomFactory != null)
-			{
+	public static PomFactory init() {
+		try {
+			PomFactory thePomFactory = (PomFactory) EPackage.Registry.INSTANCE.getEFactory("http://maven.apache.org/POM/4.0.0");
+			if(thePomFactory != null) {
 				return thePomFactory;
 			}
 		}
-		catch(Exception exception)
-		{
+		catch(Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new PomFactoryImpl();
@@ -62,8 +56,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public PomFactoryImpl()
-	{
+	public PomFactoryImpl() {
 		super();
 	}
 
@@ -73,10 +66,8 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * @generated
 	 */
 	@Override
-	public EObject create(EClass eClass)
-	{
-		switch(eClass.getClassifierID())
-		{
+	public EObject create(EClass eClass) {
+		switch(eClass.getClassifierID()) {
 		case PomPackage.ACTIVATION:
 			return createActivation();
 		case PomPackage.ACTIVATION_FILE:
@@ -219,8 +210,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public Activation createActivation()
-	{
+	public Activation createActivation() {
 		ActivationImpl activation = new ActivationImpl();
 		return activation;
 	}
@@ -230,8 +220,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public ActivationFile createActivationFile()
-	{
+	public ActivationFile createActivationFile() {
 		ActivationFileImpl activationFile = new ActivationFileImpl();
 		return activationFile;
 	}
@@ -241,8 +230,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public ActivationOS createActivationOS()
-	{
+	public ActivationOS createActivationOS() {
 		ActivationOSImpl activationOS = new ActivationOSImpl();
 		return activationOS;
 	}
@@ -252,8 +240,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public ActivationProperty createActivationProperty()
-	{
+	public ActivationProperty createActivationProperty() {
 		ActivationPropertyImpl activationProperty = new ActivationPropertyImpl();
 		return activationProperty;
 	}
@@ -263,8 +250,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public Build createBuild()
-	{
+	public Build createBuild() {
 		BuildImpl build = new BuildImpl();
 		return build;
 	}
@@ -274,8 +260,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public BuildBase createBuildBase()
-	{
+	public BuildBase createBuildBase() {
 		BuildBaseImpl buildBase = new BuildBaseImpl();
 		return buildBase;
 	}
@@ -285,8 +270,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public CiManagement createCiManagement()
-	{
+	public CiManagement createCiManagement() {
 		CiManagementImpl ciManagement = new CiManagementImpl();
 		return ciManagement;
 	}
@@ -296,8 +280,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public ConfigurationType createConfigurationType()
-	{
+	public ConfigurationType createConfigurationType() {
 		ConfigurationTypeImpl configurationType = new ConfigurationTypeImpl();
 		return configurationType;
 	}
@@ -307,8 +290,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public Contributor createContributor()
-	{
+	public Contributor createContributor() {
 		ContributorImpl contributor = new ContributorImpl();
 		return contributor;
 	}
@@ -318,8 +300,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public ContributorsType createContributorsType()
-	{
+	public ContributorsType createContributorsType() {
 		ContributorsTypeImpl contributorsType = new ContributorsTypeImpl();
 		return contributorsType;
 	}
@@ -329,8 +310,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public DependenciesType createDependenciesType()
-	{
+	public DependenciesType createDependenciesType() {
 		DependenciesTypeImpl dependenciesType = new DependenciesTypeImpl();
 		return dependenciesType;
 	}
@@ -340,8 +320,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public Dependency createDependency()
-	{
+	public Dependency createDependency() {
 		DependencyImpl dependency = new DependencyImpl();
 		return dependency;
 	}
@@ -351,8 +330,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public DependencyManagement createDependencyManagement()
-	{
+	public DependencyManagement createDependencyManagement() {
 		DependencyManagementImpl dependencyManagement = new DependencyManagementImpl();
 		return dependencyManagement;
 	}
@@ -362,8 +340,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public DeploymentRepository createDeploymentRepository()
-	{
+	public DeploymentRepository createDeploymentRepository() {
 		DeploymentRepositoryImpl deploymentRepository = new DeploymentRepositoryImpl();
 		return deploymentRepository;
 	}
@@ -373,8 +350,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public Developer createDeveloper()
-	{
+	public Developer createDeveloper() {
 		DeveloperImpl developer = new DeveloperImpl();
 		return developer;
 	}
@@ -384,8 +360,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public DevelopersType createDevelopersType()
-	{
+	public DevelopersType createDevelopersType() {
 		DevelopersTypeImpl developersType = new DevelopersTypeImpl();
 		return developersType;
 	}
@@ -395,8 +370,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public DistributionManagement createDistributionManagement()
-	{
+	public DistributionManagement createDistributionManagement() {
 		DistributionManagementImpl distributionManagement = new DistributionManagementImpl();
 		return distributionManagement;
 	}
@@ -406,8 +380,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public DocumentRoot createDocumentRoot()
-	{
+	public DocumentRoot createDocumentRoot() {
 		DocumentRootImpl documentRoot = new DocumentRootImpl();
 		return documentRoot;
 	}
@@ -417,8 +390,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public ExcludesType createExcludesType()
-	{
+	public ExcludesType createExcludesType() {
 		ExcludesTypeImpl excludesType = new ExcludesTypeImpl();
 		return excludesType;
 	}
@@ -428,8 +400,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public Exclusion createExclusion()
-	{
+	public Exclusion createExclusion() {
 		ExclusionImpl exclusion = new ExclusionImpl();
 		return exclusion;
 	}
@@ -439,8 +410,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public ExclusionsType createExclusionsType()
-	{
+	public ExclusionsType createExclusionsType() {
 		ExclusionsTypeImpl exclusionsType = new ExclusionsTypeImpl();
 		return exclusionsType;
 	}
@@ -450,8 +420,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public ExecutionGoalsType createExecutionGoalsType()
-	{
+	public ExecutionGoalsType createExecutionGoalsType() {
 		ExecutionGoalsTypeImpl executionGoalsType = new ExecutionGoalsTypeImpl();
 		return executionGoalsType;
 	}
@@ -461,8 +430,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public ExecutionsType createExecutionsType()
-	{
+	public ExecutionsType createExecutionsType() {
 		ExecutionsTypeImpl executionsType = new ExecutionsTypeImpl();
 		return executionsType;
 	}
@@ -472,8 +440,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public Extension createExtension()
-	{
+	public Extension createExtension() {
 		ExtensionImpl extension = new ExtensionImpl();
 		return extension;
 	}
@@ -483,8 +450,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public ExtensionsType createExtensionsType()
-	{
+	public ExtensionsType createExtensionsType() {
 		ExtensionsTypeImpl extensionsType = new ExtensionsTypeImpl();
 		return extensionsType;
 	}
@@ -494,8 +460,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public FiltersType createFiltersType()
-	{
+	public FiltersType createFiltersType() {
 		FiltersTypeImpl filtersType = new FiltersTypeImpl();
 		return filtersType;
 	}
@@ -505,8 +470,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public GoalsType createGoalsType()
-	{
+	public GoalsType createGoalsType() {
 		GoalsTypeImpl goalsType = new GoalsTypeImpl();
 		return goalsType;
 	}
@@ -516,8 +480,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public IncludesType createIncludesType()
-	{
+	public IncludesType createIncludesType() {
 		IncludesTypeImpl includesType = new IncludesTypeImpl();
 		return includesType;
 	}
@@ -527,8 +490,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public IssueManagement createIssueManagement()
-	{
+	public IssueManagement createIssueManagement() {
 		IssueManagementImpl issueManagement = new IssueManagementImpl();
 		return issueManagement;
 	}
@@ -538,8 +500,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public License createLicense()
-	{
+	public License createLicense() {
 		LicenseImpl license = new LicenseImpl();
 		return license;
 	}
@@ -549,8 +510,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public LicensesType createLicensesType()
-	{
+	public LicensesType createLicensesType() {
 		LicensesTypeImpl licensesType = new LicensesTypeImpl();
 		return licensesType;
 	}
@@ -560,8 +520,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public MailingList createMailingList()
-	{
+	public MailingList createMailingList() {
 		MailingListImpl mailingList = new MailingListImpl();
 		return mailingList;
 	}
@@ -571,8 +530,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public MailingListsType createMailingListsType()
-	{
+	public MailingListsType createMailingListsType() {
 		MailingListsTypeImpl mailingListsType = new MailingListsTypeImpl();
 		return mailingListsType;
 	}
@@ -582,8 +540,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public Model createModel()
-	{
+	public Model createModel() {
 		ModelImpl model = new ModelImpl();
 		return model;
 	}
@@ -593,8 +550,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public ModulesType createModulesType()
-	{
+	public ModulesType createModulesType() {
 		ModulesTypeImpl modulesType = new ModulesTypeImpl();
 		return modulesType;
 	}
@@ -604,8 +560,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public Notifier createNotifier()
-	{
+	public Notifier createNotifier() {
 		NotifierImpl notifier = new NotifierImpl();
 		return notifier;
 	}
@@ -615,8 +570,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public NotifiersType createNotifiersType()
-	{
+	public NotifiersType createNotifiersType() {
 		NotifiersTypeImpl notifiersType = new NotifiersTypeImpl();
 		return notifiersType;
 	}
@@ -626,8 +580,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public Organization createOrganization()
-	{
+	public Organization createOrganization() {
 		OrganizationImpl organization = new OrganizationImpl();
 		return organization;
 	}
@@ -637,8 +590,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public OtherArchivesType createOtherArchivesType()
-	{
+	public OtherArchivesType createOtherArchivesType() {
 		OtherArchivesTypeImpl otherArchivesType = new OtherArchivesTypeImpl();
 		return otherArchivesType;
 	}
@@ -648,8 +600,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public Parent createParent()
-	{
+	public Parent createParent() {
 		ParentImpl parent = new ParentImpl();
 		return parent;
 	}
@@ -659,8 +610,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public Plugin createPlugin()
-	{
+	public Plugin createPlugin() {
 		PluginImpl plugin = new PluginImpl();
 		return plugin;
 	}
@@ -670,8 +620,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public PluginExecution createPluginExecution()
-	{
+	public PluginExecution createPluginExecution() {
 		PluginExecutionImpl pluginExecution = new PluginExecutionImpl();
 		return pluginExecution;
 	}
@@ -681,8 +630,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public PluginManagement createPluginManagement()
-	{
+	public PluginManagement createPluginManagement() {
 		PluginManagementImpl pluginManagement = new PluginManagementImpl();
 		return pluginManagement;
 	}
@@ -692,8 +640,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public PluginRepositoriesType createPluginRepositoriesType()
-	{
+	public PluginRepositoriesType createPluginRepositoriesType() {
 		PluginRepositoriesTypeImpl pluginRepositoriesType = new PluginRepositoriesTypeImpl();
 		return pluginRepositoriesType;
 	}
@@ -703,8 +650,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public PluginsType createPluginsType()
-	{
+	public PluginsType createPluginsType() {
 		PluginsTypeImpl pluginsType = new PluginsTypeImpl();
 		return pluginsType;
 	}
@@ -714,8 +660,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public Prerequisites createPrerequisites()
-	{
+	public Prerequisites createPrerequisites() {
 		PrerequisitesImpl prerequisites = new PrerequisitesImpl();
 		return prerequisites;
 	}
@@ -725,8 +670,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public Profile createProfile()
-	{
+	public Profile createProfile() {
 		ProfileImpl profile = new ProfileImpl();
 		return profile;
 	}
@@ -736,8 +680,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public ProfilesType createProfilesType()
-	{
+	public ProfilesType createProfilesType() {
 		ProfilesTypeImpl profilesType = new ProfilesTypeImpl();
 		return profilesType;
 	}
@@ -747,8 +690,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public PropertiesType createPropertiesType()
-	{
+	public PropertiesType createPropertiesType() {
 		PropertiesTypeImpl propertiesType = new PropertiesTypeImpl();
 		return propertiesType;
 	}
@@ -758,8 +700,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public Relocation createRelocation()
-	{
+	public Relocation createRelocation() {
 		RelocationImpl relocation = new RelocationImpl();
 		return relocation;
 	}
@@ -769,8 +710,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public Reporting createReporting()
-	{
+	public Reporting createReporting() {
 		ReportingImpl reporting = new ReportingImpl();
 		return reporting;
 	}
@@ -780,8 +720,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public ReportingPluginsType createReportingPluginsType()
-	{
+	public ReportingPluginsType createReportingPluginsType() {
 		ReportingPluginsTypeImpl reportingPluginsType = new ReportingPluginsTypeImpl();
 		return reportingPluginsType;
 	}
@@ -791,8 +730,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public ReportPlugin createReportPlugin()
-	{
+	public ReportPlugin createReportPlugin() {
 		ReportPluginImpl reportPlugin = new ReportPluginImpl();
 		return reportPlugin;
 	}
@@ -802,8 +740,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public ReportSet createReportSet()
-	{
+	public ReportSet createReportSet() {
 		ReportSetImpl reportSet = new ReportSetImpl();
 		return reportSet;
 	}
@@ -813,8 +750,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public ReportSetReportsType createReportSetReportsType()
-	{
+	public ReportSetReportsType createReportSetReportsType() {
 		ReportSetReportsTypeImpl reportSetReportsType = new ReportSetReportsTypeImpl();
 		return reportSetReportsType;
 	}
@@ -824,8 +760,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public ReportSetsType createReportSetsType()
-	{
+	public ReportSetsType createReportSetsType() {
 		ReportSetsTypeImpl reportSetsType = new ReportSetsTypeImpl();
 		return reportSetsType;
 	}
@@ -835,8 +770,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public ReportsType createReportsType()
-	{
+	public ReportsType createReportsType() {
 		ReportsTypeImpl reportsType = new ReportsTypeImpl();
 		return reportsType;
 	}
@@ -846,8 +780,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public RepositoriesType createRepositoriesType()
-	{
+	public RepositoriesType createRepositoriesType() {
 		RepositoriesTypeImpl repositoriesType = new RepositoriesTypeImpl();
 		return repositoriesType;
 	}
@@ -857,8 +790,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public Repository createRepository()
-	{
+	public Repository createRepository() {
 		RepositoryImpl repository = new RepositoryImpl();
 		return repository;
 	}
@@ -868,8 +800,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public RepositoryPolicy createRepositoryPolicy()
-	{
+	public RepositoryPolicy createRepositoryPolicy() {
 		RepositoryPolicyImpl repositoryPolicy = new RepositoryPolicyImpl();
 		return repositoryPolicy;
 	}
@@ -879,8 +810,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public Resource createResource()
-	{
+	public Resource createResource() {
 		ResourceImpl resource = new ResourceImpl();
 		return resource;
 	}
@@ -890,8 +820,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public ResourcesType createResourcesType()
-	{
+	public ResourcesType createResourcesType() {
 		ResourcesTypeImpl resourcesType = new ResourcesTypeImpl();
 		return resourcesType;
 	}
@@ -901,8 +830,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public RolesType createRolesType()
-	{
+	public RolesType createRolesType() {
 		RolesTypeImpl rolesType = new RolesTypeImpl();
 		return rolesType;
 	}
@@ -912,8 +840,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public Scm createScm()
-	{
+	public Scm createScm() {
 		ScmImpl scm = new ScmImpl();
 		return scm;
 	}
@@ -923,8 +850,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public Site createSite()
-	{
+	public Site createSite() {
 		SiteImpl site = new SiteImpl();
 		return site;
 	}
@@ -934,8 +860,7 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public TestResourcesType createTestResourcesType()
-	{
+	public TestResourcesType createTestResourcesType() {
 		TestResourcesTypeImpl testResourcesType = new TestResourcesTypeImpl();
 		return testResourcesType;
 	}
@@ -945,9 +870,8 @@ public class PomFactoryImpl extends EFactoryImpl implements PomFactory
 	 * 
 	 * @generated
 	 */
-	public PomPackage getPomPackage()
-	{
-		return (PomPackage)getEPackage();
+	public PomPackage getPomPackage() {
+		return (PomPackage) getEPackage();
 	}
 
 } // PomFactoryImpl

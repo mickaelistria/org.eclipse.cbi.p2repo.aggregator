@@ -30,15 +30,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ExclusionsTypeImpl#getExclusion <em>Exclusion
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ExclusionsTypeImpl#getExclusion <em>Exclusion </em>}</li>
  * </ul>
  * </p>
  * 
  * @generated
  */
-public class ExclusionsTypeImpl extends EObjectImpl implements ExclusionsType
-{
+public class ExclusionsTypeImpl extends EObjectImpl implements ExclusionsType {
 	/**
 	 * The cached value of the '{@link #getExclusion() <em>Exclusion</em>}' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -54,8 +52,7 @@ public class ExclusionsTypeImpl extends EObjectImpl implements ExclusionsType
 	 * 
 	 * @generated
 	 */
-	protected ExclusionsTypeImpl()
-	{
+	protected ExclusionsTypeImpl() {
 		super();
 	}
 
@@ -65,10 +62,8 @@ public class ExclusionsTypeImpl extends EObjectImpl implements ExclusionsType
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.EXCLUSIONS_TYPE__EXCLUSION:
 			return getExclusion();
 		}
@@ -81,12 +76,10 @@ public class ExclusionsTypeImpl extends EObjectImpl implements ExclusionsType
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch(featureID)
-		{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
 		case PomPackage.EXCLUSIONS_TYPE__EXCLUSION:
-			return ((InternalEList<?>)getExclusion()).basicRemove(otherEnd, msgs);
+			return ((InternalEList<?>) getExclusion()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -97,10 +90,8 @@ public class ExclusionsTypeImpl extends EObjectImpl implements ExclusionsType
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.EXCLUSIONS_TYPE__EXCLUSION:
 			return exclusion != null && !exclusion.isEmpty();
 		}
@@ -114,13 +105,11 @@ public class ExclusionsTypeImpl extends EObjectImpl implements ExclusionsType
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.EXCLUSIONS_TYPE__EXCLUSION:
 			getExclusion().clear();
-			getExclusion().addAll((Collection<? extends Exclusion>)newValue);
+			getExclusion().addAll((Collection<? extends Exclusion>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -132,10 +121,8 @@ public class ExclusionsTypeImpl extends EObjectImpl implements ExclusionsType
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.EXCLUSIONS_TYPE__EXCLUSION:
 			getExclusion().clear();
 			return;
@@ -148,10 +135,8 @@ public class ExclusionsTypeImpl extends EObjectImpl implements ExclusionsType
 	 * 
 	 * @generated
 	 */
-	public EList<Exclusion> getExclusion()
-	{
-		if(exclusion == null)
-		{
+	public EList<Exclusion> getExclusion() {
+		if(exclusion == null) {
 			exclusion = new EObjectContainmentEList<Exclusion>(Exclusion.class, this,
 					PomPackage.EXCLUSIONS_TYPE__EXCLUSION);
 		}
@@ -164,8 +149,7 @@ public class ExclusionsTypeImpl extends EObjectImpl implements ExclusionsType
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.EXCLUSIONS_TYPE;
 	}
 

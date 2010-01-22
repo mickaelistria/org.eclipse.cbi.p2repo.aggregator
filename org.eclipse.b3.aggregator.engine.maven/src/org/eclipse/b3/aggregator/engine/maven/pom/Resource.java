@@ -32,8 +32,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='Resource' kind='elementOnly'"
  * @generated
  */
-public interface Resource extends EObject
-{
+public interface Resource extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Directory</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * <!-- begin-model-doc --> 3.0.0+
@@ -119,8 +118,8 @@ public interface Resource extends EObject
 	boolean isFiltering();
 
 	/**
-	 * Returns whether the value of the '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Resource#isFiltering <em>Filtering</em>}' attribute is
+	 * Returns whether the value of the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.Resource#isFiltering
+	 * <em>Filtering</em>}' attribute is
 	 * set. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return whether the value of the '<em>Filtering</em>' attribute is set.

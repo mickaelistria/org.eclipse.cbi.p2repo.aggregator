@@ -32,19 +32,16 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.PluginImpl#getVersion <em>Version</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.PluginImpl#isExtensions <em>Extensions</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.PluginImpl#getExecutions <em>Executions</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.PluginImpl#getDependencies <em>Dependencies</em>}
- * </li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.PluginImpl#getDependencies <em>Dependencies</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.PluginImpl#getGoals <em>Goals</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.PluginImpl#getInherited <em>Inherited</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.PluginImpl#getConfiguration <em>Configuration
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.PluginImpl#getConfiguration <em>Configuration </em>}</li>
  * </ul>
  * </p>
  * 
  * @generated
  */
-public class PluginImpl extends EObjectImpl implements Plugin
-{
+public class PluginImpl extends EObjectImpl implements Plugin {
 	/**
 	 * The default value of the '{@link #getGroupId() <em>Group Id</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -206,8 +203,7 @@ public class PluginImpl extends EObjectImpl implements Plugin
 	 * 
 	 * @generated
 	 */
-	protected PluginImpl()
-	{
+	protected PluginImpl() {
 		super();
 	}
 
@@ -216,12 +212,10 @@ public class PluginImpl extends EObjectImpl implements Plugin
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetConfiguration(ConfigurationType newConfiguration, NotificationChain msgs)
-	{
+	public NotificationChain basicSetConfiguration(ConfigurationType newConfiguration, NotificationChain msgs) {
 		ConfigurationType oldConfiguration = configuration;
 		configuration = newConfiguration;
-		if(eNotificationRequired())
-		{
+		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					PomPackage.PLUGIN__CONFIGURATION, oldConfiguration, newConfiguration);
 			if(msgs == null)
@@ -237,12 +231,10 @@ public class PluginImpl extends EObjectImpl implements Plugin
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetDependencies(DependenciesType newDependencies, NotificationChain msgs)
-	{
+	public NotificationChain basicSetDependencies(DependenciesType newDependencies, NotificationChain msgs) {
 		DependenciesType oldDependencies = dependencies;
 		dependencies = newDependencies;
-		if(eNotificationRequired())
-		{
+		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					PomPackage.PLUGIN__DEPENDENCIES, oldDependencies, newDependencies);
 			if(msgs == null)
@@ -258,12 +250,10 @@ public class PluginImpl extends EObjectImpl implements Plugin
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetExecutions(ExecutionsType newExecutions, NotificationChain msgs)
-	{
+	public NotificationChain basicSetExecutions(ExecutionsType newExecutions, NotificationChain msgs) {
 		ExecutionsType oldExecutions = executions;
 		executions = newExecutions;
-		if(eNotificationRequired())
-		{
+		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					PomPackage.PLUGIN__EXECUTIONS, oldExecutions, newExecutions);
 			if(msgs == null)
@@ -279,12 +269,10 @@ public class PluginImpl extends EObjectImpl implements Plugin
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetGoals(GoalsType newGoals, NotificationChain msgs)
-	{
+	public NotificationChain basicSetGoals(GoalsType newGoals, NotificationChain msgs) {
 		GoalsType oldGoals = goals;
 		goals = newGoals;
-		if(eNotificationRequired())
-		{
+		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.PLUGIN__GOALS,
 					oldGoals, newGoals);
 			if(msgs == null)
@@ -301,10 +289,8 @@ public class PluginImpl extends EObjectImpl implements Plugin
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.PLUGIN__GROUP_ID:
 			return getGroupId();
 		case PomPackage.PLUGIN__ARTIFACT_ID:
@@ -333,10 +319,8 @@ public class PluginImpl extends EObjectImpl implements Plugin
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch(featureID)
-		{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
 		case PomPackage.PLUGIN__EXECUTIONS:
 			return basicSetExecutions(null, msgs);
 		case PomPackage.PLUGIN__DEPENDENCIES:
@@ -355,10 +339,8 @@ public class PluginImpl extends EObjectImpl implements Plugin
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.PLUGIN__GROUP_ID:
 			return isSetGroupId();
 		case PomPackage.PLUGIN__ARTIFACT_ID:
@@ -393,36 +375,34 @@ public class PluginImpl extends EObjectImpl implements Plugin
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.PLUGIN__GROUP_ID:
-			setGroupId((String)newValue);
+			setGroupId((String) newValue);
 			return;
 		case PomPackage.PLUGIN__ARTIFACT_ID:
-			setArtifactId((String)newValue);
+			setArtifactId((String) newValue);
 			return;
 		case PomPackage.PLUGIN__VERSION:
-			setVersion((String)newValue);
+			setVersion((String) newValue);
 			return;
 		case PomPackage.PLUGIN__EXTENSIONS:
-			setExtensions((Boolean)newValue);
+			setExtensions((Boolean) newValue);
 			return;
 		case PomPackage.PLUGIN__EXECUTIONS:
-			setExecutions((ExecutionsType)newValue);
+			setExecutions((ExecutionsType) newValue);
 			return;
 		case PomPackage.PLUGIN__DEPENDENCIES:
-			setDependencies((DependenciesType)newValue);
+			setDependencies((DependenciesType) newValue);
 			return;
 		case PomPackage.PLUGIN__GOALS:
-			setGoals((GoalsType)newValue);
+			setGoals((GoalsType) newValue);
 			return;
 		case PomPackage.PLUGIN__INHERITED:
-			setInherited((String)newValue);
+			setInherited((String) newValue);
 			return;
 		case PomPackage.PLUGIN__CONFIGURATION:
-			setConfiguration((ConfigurationType)newValue);
+			setConfiguration((ConfigurationType) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -434,10 +414,8 @@ public class PluginImpl extends EObjectImpl implements Plugin
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.PLUGIN__GROUP_ID:
 			unsetGroupId();
 			return;
@@ -451,19 +429,19 @@ public class PluginImpl extends EObjectImpl implements Plugin
 			unsetExtensions();
 			return;
 		case PomPackage.PLUGIN__EXECUTIONS:
-			setExecutions((ExecutionsType)null);
+			setExecutions((ExecutionsType) null);
 			return;
 		case PomPackage.PLUGIN__DEPENDENCIES:
-			setDependencies((DependenciesType)null);
+			setDependencies((DependenciesType) null);
 			return;
 		case PomPackage.PLUGIN__GOALS:
-			setGoals((GoalsType)null);
+			setGoals((GoalsType) null);
 			return;
 		case PomPackage.PLUGIN__INHERITED:
 			setInherited(INHERITED_EDEFAULT);
 			return;
 		case PomPackage.PLUGIN__CONFIGURATION:
-			setConfiguration((ConfigurationType)null);
+			setConfiguration((ConfigurationType) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -474,8 +452,7 @@ public class PluginImpl extends EObjectImpl implements Plugin
 	 * 
 	 * @generated
 	 */
-	public String getArtifactId()
-	{
+	public String getArtifactId() {
 		return artifactId;
 	}
 
@@ -484,8 +461,7 @@ public class PluginImpl extends EObjectImpl implements Plugin
 	 * 
 	 * @generated
 	 */
-	public ConfigurationType getConfiguration()
-	{
+	public ConfigurationType getConfiguration() {
 		return configuration;
 	}
 
@@ -494,8 +470,7 @@ public class PluginImpl extends EObjectImpl implements Plugin
 	 * 
 	 * @generated
 	 */
-	public DependenciesType getDependencies()
-	{
+	public DependenciesType getDependencies() {
 		return dependencies;
 	}
 
@@ -504,8 +479,7 @@ public class PluginImpl extends EObjectImpl implements Plugin
 	 * 
 	 * @generated
 	 */
-	public ExecutionsType getExecutions()
-	{
+	public ExecutionsType getExecutions() {
 		return executions;
 	}
 
@@ -514,8 +488,7 @@ public class PluginImpl extends EObjectImpl implements Plugin
 	 * 
 	 * @generated
 	 */
-	public GoalsType getGoals()
-	{
+	public GoalsType getGoals() {
 		return goals;
 	}
 
@@ -524,8 +497,7 @@ public class PluginImpl extends EObjectImpl implements Plugin
 	 * 
 	 * @generated
 	 */
-	public String getGroupId()
-	{
+	public String getGroupId() {
 		return groupId;
 	}
 
@@ -534,8 +506,7 @@ public class PluginImpl extends EObjectImpl implements Plugin
 	 * 
 	 * @generated
 	 */
-	public String getInherited()
-	{
+	public String getInherited() {
 		return inherited;
 	}
 
@@ -544,8 +515,7 @@ public class PluginImpl extends EObjectImpl implements Plugin
 	 * 
 	 * @generated
 	 */
-	public String getVersion()
-	{
+	public String getVersion() {
 		return version;
 	}
 
@@ -554,8 +524,7 @@ public class PluginImpl extends EObjectImpl implements Plugin
 	 * 
 	 * @generated
 	 */
-	public boolean isExtensions()
-	{
+	public boolean isExtensions() {
 		return extensions;
 	}
 
@@ -564,8 +533,7 @@ public class PluginImpl extends EObjectImpl implements Plugin
 	 * 
 	 * @generated
 	 */
-	public boolean isSetExtensions()
-	{
+	public boolean isSetExtensions() {
 		return extensionsESet;
 	}
 
@@ -574,8 +542,7 @@ public class PluginImpl extends EObjectImpl implements Plugin
 	 * 
 	 * @generated
 	 */
-	public boolean isSetGroupId()
-	{
+	public boolean isSetGroupId() {
 		return groupIdESet;
 	}
 
@@ -584,8 +551,7 @@ public class PluginImpl extends EObjectImpl implements Plugin
 	 * 
 	 * @generated
 	 */
-	public void setArtifactId(String newArtifactId)
-	{
+	public void setArtifactId(String newArtifactId) {
 		String oldArtifactId = artifactId;
 		artifactId = newArtifactId;
 		if(eNotificationRequired())
@@ -598,16 +564,14 @@ public class PluginImpl extends EObjectImpl implements Plugin
 	 * 
 	 * @generated
 	 */
-	public void setConfiguration(ConfigurationType newConfiguration)
-	{
-		if(newConfiguration != configuration)
-		{
+	public void setConfiguration(ConfigurationType newConfiguration) {
+		if(newConfiguration != configuration) {
 			NotificationChain msgs = null;
 			if(configuration != null)
-				msgs = ((InternalEObject)configuration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) configuration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.PLUGIN__CONFIGURATION, null, msgs);
 			if(newConfiguration != null)
-				msgs = ((InternalEObject)newConfiguration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) newConfiguration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.PLUGIN__CONFIGURATION, null, msgs);
 			msgs = basicSetConfiguration(newConfiguration, msgs);
 			if(msgs != null)
@@ -623,16 +587,14 @@ public class PluginImpl extends EObjectImpl implements Plugin
 	 * 
 	 * @generated
 	 */
-	public void setDependencies(DependenciesType newDependencies)
-	{
-		if(newDependencies != dependencies)
-		{
+	public void setDependencies(DependenciesType newDependencies) {
+		if(newDependencies != dependencies) {
 			NotificationChain msgs = null;
 			if(dependencies != null)
-				msgs = ((InternalEObject)dependencies).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) dependencies).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.PLUGIN__DEPENDENCIES, null, msgs);
 			if(newDependencies != null)
-				msgs = ((InternalEObject)newDependencies).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) newDependencies).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.PLUGIN__DEPENDENCIES, null, msgs);
 			msgs = basicSetDependencies(newDependencies, msgs);
 			if(msgs != null)
@@ -648,16 +610,14 @@ public class PluginImpl extends EObjectImpl implements Plugin
 	 * 
 	 * @generated
 	 */
-	public void setExecutions(ExecutionsType newExecutions)
-	{
-		if(newExecutions != executions)
-		{
+	public void setExecutions(ExecutionsType newExecutions) {
+		if(newExecutions != executions) {
 			NotificationChain msgs = null;
 			if(executions != null)
-				msgs = ((InternalEObject)executions).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) executions).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.PLUGIN__EXECUTIONS, null, msgs);
 			if(newExecutions != null)
-				msgs = ((InternalEObject)newExecutions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) newExecutions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.PLUGIN__EXECUTIONS, null, msgs);
 			msgs = basicSetExecutions(newExecutions, msgs);
 			if(msgs != null)
@@ -673,8 +633,7 @@ public class PluginImpl extends EObjectImpl implements Plugin
 	 * 
 	 * @generated
 	 */
-	public void setExtensions(boolean newExtensions)
-	{
+	public void setExtensions(boolean newExtensions) {
 		boolean oldExtensions = extensions;
 		extensions = newExtensions;
 		boolean oldExtensionsESet = extensionsESet;
@@ -689,17 +648,15 @@ public class PluginImpl extends EObjectImpl implements Plugin
 	 * 
 	 * @generated
 	 */
-	public void setGoals(GoalsType newGoals)
-	{
-		if(newGoals != goals)
-		{
+	public void setGoals(GoalsType newGoals) {
+		if(newGoals != goals) {
 			NotificationChain msgs = null;
 			if(goals != null)
-				msgs = ((InternalEObject)goals).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PomPackage.PLUGIN__GOALS,
-						null, msgs);
+				msgs = ((InternalEObject) goals).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.PLUGIN__GOALS, null, msgs);
 			if(newGoals != null)
-				msgs = ((InternalEObject)newGoals).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PomPackage.PLUGIN__GOALS,
-						null, msgs);
+				msgs = ((InternalEObject) newGoals).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PomPackage.PLUGIN__GOALS, null, msgs);
 			msgs = basicSetGoals(newGoals, msgs);
 			if(msgs != null)
 				msgs.dispatch();
@@ -713,8 +670,7 @@ public class PluginImpl extends EObjectImpl implements Plugin
 	 * 
 	 * @generated
 	 */
-	public void setGroupId(String newGroupId)
-	{
+	public void setGroupId(String newGroupId) {
 		String oldGroupId = groupId;
 		groupId = newGroupId;
 		boolean oldGroupIdESet = groupIdESet;
@@ -729,8 +685,7 @@ public class PluginImpl extends EObjectImpl implements Plugin
 	 * 
 	 * @generated
 	 */
-	public void setInherited(String newInherited)
-	{
+	public void setInherited(String newInherited) {
 		String oldInherited = inherited;
 		inherited = newInherited;
 		if(eNotificationRequired())
@@ -742,8 +697,7 @@ public class PluginImpl extends EObjectImpl implements Plugin
 	 * 
 	 * @generated
 	 */
-	public void setVersion(String newVersion)
-	{
+	public void setVersion(String newVersion) {
 		String oldVersion = version;
 		version = newVersion;
 		if(eNotificationRequired())
@@ -756,8 +710,7 @@ public class PluginImpl extends EObjectImpl implements Plugin
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
@@ -787,8 +740,7 @@ public class PluginImpl extends EObjectImpl implements Plugin
 	 * 
 	 * @generated
 	 */
-	public void unsetExtensions()
-	{
+	public void unsetExtensions() {
 		boolean oldExtensions = extensions;
 		boolean oldExtensionsESet = extensionsESet;
 		extensions = EXTENSIONS_EDEFAULT;
@@ -803,8 +755,7 @@ public class PluginImpl extends EObjectImpl implements Plugin
 	 * 
 	 * @generated
 	 */
-	public void unsetGroupId()
-	{
+	public void unsetGroupId() {
 		String oldGroupId = groupId;
 		boolean oldGroupIdESet = groupIdESet;
 		groupId = GROUP_ID_EDEFAULT;
@@ -820,8 +771,7 @@ public class PluginImpl extends EObjectImpl implements Plugin
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.PLUGIN;
 	}
 

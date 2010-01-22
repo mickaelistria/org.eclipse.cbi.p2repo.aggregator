@@ -25,18 +25,15 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are implemented:
  * <ul>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.metadata.impl.MetaDataImpl#getGroupId <em>Group Id</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.metadata.impl.MetaDataImpl#getArtifactId <em>Artifact Id
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.metadata.impl.MetaDataImpl#getArtifactId <em>Artifact Id </em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.metadata.impl.MetaDataImpl#getVersion <em>Version</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.metadata.impl.MetaDataImpl#getVersioning <em>Versioning
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.metadata.impl.MetaDataImpl#getVersioning <em>Versioning </em>}</li>
  * </ul>
  * </p>
  * 
  * @generated
  */
-public class MetaDataImpl extends EObjectImpl implements MetaData
-{
+public class MetaDataImpl extends EObjectImpl implements MetaData {
 	/**
 	 * The default value of the '{@link #getGroupId() <em>Group Id</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -112,8 +109,7 @@ public class MetaDataImpl extends EObjectImpl implements MetaData
 	 * 
 	 * @generated
 	 */
-	protected MetaDataImpl()
-	{
+	protected MetaDataImpl() {
 		super();
 	}
 
@@ -122,12 +118,10 @@ public class MetaDataImpl extends EObjectImpl implements MetaData
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetVersioning(Versioning newVersioning, NotificationChain msgs)
-	{
+	public NotificationChain basicSetVersioning(Versioning newVersioning, NotificationChain msgs) {
 		Versioning oldVersioning = versioning;
 		versioning = newVersioning;
-		if(eNotificationRequired())
-		{
+		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					MetadataPackage.META_DATA__VERSIONING, oldVersioning, newVersioning);
 			if(msgs == null)
@@ -144,10 +138,8 @@ public class MetaDataImpl extends EObjectImpl implements MetaData
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case MetadataPackage.META_DATA__GROUP_ID:
 			return getGroupId();
 		case MetadataPackage.META_DATA__ARTIFACT_ID:
@@ -166,10 +158,8 @@ public class MetaDataImpl extends EObjectImpl implements MetaData
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch(featureID)
-		{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
 		case MetadataPackage.META_DATA__VERSIONING:
 			return basicSetVersioning(null, msgs);
 		}
@@ -182,10 +172,8 @@ public class MetaDataImpl extends EObjectImpl implements MetaData
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case MetadataPackage.META_DATA__GROUP_ID:
 			return GROUP_ID_EDEFAULT == null
 					? groupId != null
@@ -210,21 +198,19 @@ public class MetaDataImpl extends EObjectImpl implements MetaData
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case MetadataPackage.META_DATA__GROUP_ID:
-			setGroupId((String)newValue);
+			setGroupId((String) newValue);
 			return;
 		case MetadataPackage.META_DATA__ARTIFACT_ID:
-			setArtifactId((String)newValue);
+			setArtifactId((String) newValue);
 			return;
 		case MetadataPackage.META_DATA__VERSION:
-			setVersion((String)newValue);
+			setVersion((String) newValue);
 			return;
 		case MetadataPackage.META_DATA__VERSIONING:
-			setVersioning((Versioning)newValue);
+			setVersioning((Versioning) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -236,10 +222,8 @@ public class MetaDataImpl extends EObjectImpl implements MetaData
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case MetadataPackage.META_DATA__GROUP_ID:
 			setGroupId(GROUP_ID_EDEFAULT);
 			return;
@@ -250,7 +234,7 @@ public class MetaDataImpl extends EObjectImpl implements MetaData
 			setVersion(VERSION_EDEFAULT);
 			return;
 		case MetadataPackage.META_DATA__VERSIONING:
-			setVersioning((Versioning)null);
+			setVersioning((Versioning) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -261,8 +245,7 @@ public class MetaDataImpl extends EObjectImpl implements MetaData
 	 * 
 	 * @generated
 	 */
-	public String getArtifactId()
-	{
+	public String getArtifactId() {
 		return artifactId;
 	}
 
@@ -271,8 +254,7 @@ public class MetaDataImpl extends EObjectImpl implements MetaData
 	 * 
 	 * @generated
 	 */
-	public String getGroupId()
-	{
+	public String getGroupId() {
 		return groupId;
 	}
 
@@ -281,8 +263,7 @@ public class MetaDataImpl extends EObjectImpl implements MetaData
 	 * 
 	 * @generated
 	 */
-	public String getVersion()
-	{
+	public String getVersion() {
 		return version;
 	}
 
@@ -291,8 +272,7 @@ public class MetaDataImpl extends EObjectImpl implements MetaData
 	 * 
 	 * @generated
 	 */
-	public Versioning getVersioning()
-	{
+	public Versioning getVersioning() {
 		return versioning;
 	}
 
@@ -301,8 +281,7 @@ public class MetaDataImpl extends EObjectImpl implements MetaData
 	 * 
 	 * @generated
 	 */
-	public void setArtifactId(String newArtifactId)
-	{
+	public void setArtifactId(String newArtifactId) {
 		String oldArtifactId = artifactId;
 		artifactId = newArtifactId;
 		if(eNotificationRequired())
@@ -315,8 +294,7 @@ public class MetaDataImpl extends EObjectImpl implements MetaData
 	 * 
 	 * @generated
 	 */
-	public void setGroupId(String newGroupId)
-	{
+	public void setGroupId(String newGroupId) {
 		String oldGroupId = groupId;
 		groupId = newGroupId;
 		if(eNotificationRequired())
@@ -329,8 +307,7 @@ public class MetaDataImpl extends EObjectImpl implements MetaData
 	 * 
 	 * @generated
 	 */
-	public void setVersion(String newVersion)
-	{
+	public void setVersion(String newVersion) {
 		String oldVersion = version;
 		version = newVersion;
 		if(eNotificationRequired())
@@ -343,16 +320,14 @@ public class MetaDataImpl extends EObjectImpl implements MetaData
 	 * 
 	 * @generated
 	 */
-	public void setVersioning(Versioning newVersioning)
-	{
-		if(newVersioning != versioning)
-		{
+	public void setVersioning(Versioning newVersioning) {
+		if(newVersioning != versioning) {
 			NotificationChain msgs = null;
 			if(versioning != null)
-				msgs = ((InternalEObject)versioning).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) versioning).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
 						- MetadataPackage.META_DATA__VERSIONING, null, msgs);
 			if(newVersioning != null)
-				msgs = ((InternalEObject)newVersioning).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) newVersioning).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
 						- MetadataPackage.META_DATA__VERSIONING, null, msgs);
 			msgs = basicSetVersioning(newVersioning, msgs);
 			if(msgs != null)
@@ -369,8 +344,7 @@ public class MetaDataImpl extends EObjectImpl implements MetaData
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
@@ -391,8 +365,7 @@ public class MetaDataImpl extends EObjectImpl implements MetaData
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return MetadataPackage.Literals.META_DATA;
 	}
 

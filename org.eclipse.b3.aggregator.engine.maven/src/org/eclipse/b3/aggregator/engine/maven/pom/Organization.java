@@ -25,8 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='Organization' kind='elementOnly'"
  * @generated
  */
-public interface Organization extends EObject
-{
+public interface Organization extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
 	 * begin-model-doc --> 3.0.0+ The full name of the organization. <!-- end-model-doc -->

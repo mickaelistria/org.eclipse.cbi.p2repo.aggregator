@@ -29,10 +29,9 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DeveloperImpl#getName <em>Name</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DeveloperImpl#getEmail <em>Email</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DeveloperImpl#getUrl <em>Url</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DeveloperImpl#getOrganization <em>Organization
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DeveloperImpl#getOrganization <em>Organization </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DeveloperImpl#getOrganizationUrl <em>Organization Url
  * </em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DeveloperImpl#getOrganizationUrl <em>Organization
- * Url</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DeveloperImpl#getRoles <em>Roles</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DeveloperImpl#getTimezone <em>Timezone</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DeveloperImpl#getProperties <em>Properties</em>}</li>
@@ -41,8 +40,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * 
  * @generated
  */
-public class DeveloperImpl extends EObjectImpl implements Developer
-{
+public class DeveloperImpl extends EObjectImpl implements Developer {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -205,8 +203,7 @@ public class DeveloperImpl extends EObjectImpl implements Developer
 	 * 
 	 * @generated
 	 */
-	protected DeveloperImpl()
-	{
+	protected DeveloperImpl() {
 		super();
 	}
 
@@ -215,12 +212,10 @@ public class DeveloperImpl extends EObjectImpl implements Developer
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetProperties(PropertiesType newProperties, NotificationChain msgs)
-	{
+	public NotificationChain basicSetProperties(PropertiesType newProperties, NotificationChain msgs) {
 		PropertiesType oldProperties = properties;
 		properties = newProperties;
-		if(eNotificationRequired())
-		{
+		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					PomPackage.DEVELOPER__PROPERTIES, oldProperties, newProperties);
 			if(msgs == null)
@@ -236,12 +231,10 @@ public class DeveloperImpl extends EObjectImpl implements Developer
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetRoles(RolesType newRoles, NotificationChain msgs)
-	{
+	public NotificationChain basicSetRoles(RolesType newRoles, NotificationChain msgs) {
 		RolesType oldRoles = roles;
 		roles = newRoles;
-		if(eNotificationRequired())
-		{
+		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.DEVELOPER__ROLES,
 					oldRoles, newRoles);
 			if(msgs == null)
@@ -258,10 +251,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.DEVELOPER__ID:
 			return getId();
 		case PomPackage.DEVELOPER__NAME:
@@ -290,10 +281,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch(featureID)
-		{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
 		case PomPackage.DEVELOPER__ROLES:
 			return basicSetRoles(null, msgs);
 		case PomPackage.DEVELOPER__PROPERTIES:
@@ -308,10 +297,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.DEVELOPER__ID:
 			return ID_EDEFAULT == null
 					? id != null
@@ -354,36 +341,34 @@ public class DeveloperImpl extends EObjectImpl implements Developer
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.DEVELOPER__ID:
-			setId((String)newValue);
+			setId((String) newValue);
 			return;
 		case PomPackage.DEVELOPER__NAME:
-			setName((String)newValue);
+			setName((String) newValue);
 			return;
 		case PomPackage.DEVELOPER__EMAIL:
-			setEmail((String)newValue);
+			setEmail((String) newValue);
 			return;
 		case PomPackage.DEVELOPER__URL:
-			setUrl((String)newValue);
+			setUrl((String) newValue);
 			return;
 		case PomPackage.DEVELOPER__ORGANIZATION:
-			setOrganization((String)newValue);
+			setOrganization((String) newValue);
 			return;
 		case PomPackage.DEVELOPER__ORGANIZATION_URL:
-			setOrganizationUrl((String)newValue);
+			setOrganizationUrl((String) newValue);
 			return;
 		case PomPackage.DEVELOPER__ROLES:
-			setRoles((RolesType)newValue);
+			setRoles((RolesType) newValue);
 			return;
 		case PomPackage.DEVELOPER__TIMEZONE:
-			setTimezone((String)newValue);
+			setTimezone((String) newValue);
 			return;
 		case PomPackage.DEVELOPER__PROPERTIES:
-			setProperties((PropertiesType)newValue);
+			setProperties((PropertiesType) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -395,10 +380,8 @@ public class DeveloperImpl extends EObjectImpl implements Developer
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.DEVELOPER__ID:
 			setId(ID_EDEFAULT);
 			return;
@@ -418,13 +401,13 @@ public class DeveloperImpl extends EObjectImpl implements Developer
 			setOrganizationUrl(ORGANIZATION_URL_EDEFAULT);
 			return;
 		case PomPackage.DEVELOPER__ROLES:
-			setRoles((RolesType)null);
+			setRoles((RolesType) null);
 			return;
 		case PomPackage.DEVELOPER__TIMEZONE:
 			setTimezone(TIMEZONE_EDEFAULT);
 			return;
 		case PomPackage.DEVELOPER__PROPERTIES:
-			setProperties((PropertiesType)null);
+			setProperties((PropertiesType) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -435,8 +418,7 @@ public class DeveloperImpl extends EObjectImpl implements Developer
 	 * 
 	 * @generated
 	 */
-	public String getEmail()
-	{
+	public String getEmail() {
 		return email;
 	}
 
@@ -445,8 +427,7 @@ public class DeveloperImpl extends EObjectImpl implements Developer
 	 * 
 	 * @generated
 	 */
-	public String getId()
-	{
+	public String getId() {
 		return id;
 	}
 
@@ -455,8 +436,7 @@ public class DeveloperImpl extends EObjectImpl implements Developer
 	 * 
 	 * @generated
 	 */
-	public String getName()
-	{
+	public String getName() {
 		return name;
 	}
 
@@ -465,8 +445,7 @@ public class DeveloperImpl extends EObjectImpl implements Developer
 	 * 
 	 * @generated
 	 */
-	public String getOrganization()
-	{
+	public String getOrganization() {
 		return organization;
 	}
 
@@ -475,8 +454,7 @@ public class DeveloperImpl extends EObjectImpl implements Developer
 	 * 
 	 * @generated
 	 */
-	public String getOrganizationUrl()
-	{
+	public String getOrganizationUrl() {
 		return organizationUrl;
 	}
 
@@ -485,8 +463,7 @@ public class DeveloperImpl extends EObjectImpl implements Developer
 	 * 
 	 * @generated
 	 */
-	public PropertiesType getProperties()
-	{
+	public PropertiesType getProperties() {
 		return properties;
 	}
 
@@ -495,8 +472,7 @@ public class DeveloperImpl extends EObjectImpl implements Developer
 	 * 
 	 * @generated
 	 */
-	public RolesType getRoles()
-	{
+	public RolesType getRoles() {
 		return roles;
 	}
 
@@ -505,8 +481,7 @@ public class DeveloperImpl extends EObjectImpl implements Developer
 	 * 
 	 * @generated
 	 */
-	public String getTimezone()
-	{
+	public String getTimezone() {
 		return timezone;
 	}
 
@@ -515,8 +490,7 @@ public class DeveloperImpl extends EObjectImpl implements Developer
 	 * 
 	 * @generated
 	 */
-	public String getUrl()
-	{
+	public String getUrl() {
 		return url;
 	}
 
@@ -525,8 +499,7 @@ public class DeveloperImpl extends EObjectImpl implements Developer
 	 * 
 	 * @generated
 	 */
-	public void setEmail(String newEmail)
-	{
+	public void setEmail(String newEmail) {
 		String oldEmail = email;
 		email = newEmail;
 		if(eNotificationRequired())
@@ -538,8 +511,7 @@ public class DeveloperImpl extends EObjectImpl implements Developer
 	 * 
 	 * @generated
 	 */
-	public void setId(String newId)
-	{
+	public void setId(String newId) {
 		String oldId = id;
 		id = newId;
 		if(eNotificationRequired())
@@ -551,8 +523,7 @@ public class DeveloperImpl extends EObjectImpl implements Developer
 	 * 
 	 * @generated
 	 */
-	public void setName(String newName)
-	{
+	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
 		if(eNotificationRequired())
@@ -564,8 +535,7 @@ public class DeveloperImpl extends EObjectImpl implements Developer
 	 * 
 	 * @generated
 	 */
-	public void setOrganization(String newOrganization)
-	{
+	public void setOrganization(String newOrganization) {
 		String oldOrganization = organization;
 		organization = newOrganization;
 		if(eNotificationRequired())
@@ -578,8 +548,7 @@ public class DeveloperImpl extends EObjectImpl implements Developer
 	 * 
 	 * @generated
 	 */
-	public void setOrganizationUrl(String newOrganizationUrl)
-	{
+	public void setOrganizationUrl(String newOrganizationUrl) {
 		String oldOrganizationUrl = organizationUrl;
 		organizationUrl = newOrganizationUrl;
 		if(eNotificationRequired())
@@ -592,16 +561,14 @@ public class DeveloperImpl extends EObjectImpl implements Developer
 	 * 
 	 * @generated
 	 */
-	public void setProperties(PropertiesType newProperties)
-	{
-		if(newProperties != properties)
-		{
+	public void setProperties(PropertiesType newProperties) {
+		if(newProperties != properties) {
 			NotificationChain msgs = null;
 			if(properties != null)
-				msgs = ((InternalEObject)properties).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) properties).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.DEVELOPER__PROPERTIES, null, msgs);
 			if(newProperties != null)
-				msgs = ((InternalEObject)newProperties).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) newProperties).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.DEVELOPER__PROPERTIES, null, msgs);
 			msgs = basicSetProperties(newProperties, msgs);
 			if(msgs != null)
@@ -617,16 +584,14 @@ public class DeveloperImpl extends EObjectImpl implements Developer
 	 * 
 	 * @generated
 	 */
-	public void setRoles(RolesType newRoles)
-	{
-		if(newRoles != roles)
-		{
+	public void setRoles(RolesType newRoles) {
+		if(newRoles != roles) {
 			NotificationChain msgs = null;
 			if(roles != null)
-				msgs = ((InternalEObject)roles).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) roles).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.DEVELOPER__ROLES, null, msgs);
 			if(newRoles != null)
-				msgs = ((InternalEObject)newRoles).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) newRoles).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.DEVELOPER__ROLES, null, msgs);
 			msgs = basicSetRoles(newRoles, msgs);
 			if(msgs != null)
@@ -641,8 +606,7 @@ public class DeveloperImpl extends EObjectImpl implements Developer
 	 * 
 	 * @generated
 	 */
-	public void setTimezone(String newTimezone)
-	{
+	public void setTimezone(String newTimezone) {
 		String oldTimezone = timezone;
 		timezone = newTimezone;
 		if(eNotificationRequired())
@@ -654,8 +618,7 @@ public class DeveloperImpl extends EObjectImpl implements Developer
 	 * 
 	 * @generated
 	 */
-	public void setUrl(String newUrl)
-	{
+	public void setUrl(String newUrl) {
 		String oldUrl = url;
 		url = newUrl;
 		if(eNotificationRequired())
@@ -668,8 +631,7 @@ public class DeveloperImpl extends EObjectImpl implements Developer
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
@@ -698,8 +660,7 @@ public class DeveloperImpl extends EObjectImpl implements Developer
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.DEVELOPER;
 	}
 

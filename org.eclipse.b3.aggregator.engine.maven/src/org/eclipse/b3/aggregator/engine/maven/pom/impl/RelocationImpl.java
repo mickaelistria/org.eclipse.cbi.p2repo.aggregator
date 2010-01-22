@@ -22,8 +22,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are implemented:
  * <ul>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.RelocationImpl#getGroupId <em>Group Id</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.RelocationImpl#getArtifactId <em>Artifact Id
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.RelocationImpl#getArtifactId <em>Artifact Id </em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.RelocationImpl#getVersion <em>Version</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.RelocationImpl#getMessage <em>Message</em>}</li>
  * </ul>
@@ -31,8 +30,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * 
  * @generated
  */
-public class RelocationImpl extends EObjectImpl implements Relocation
-{
+public class RelocationImpl extends EObjectImpl implements Relocation {
 	/**
 	 * The default value of the '{@link #getGroupId() <em>Group Id</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -118,8 +116,7 @@ public class RelocationImpl extends EObjectImpl implements Relocation
 	 * 
 	 * @generated
 	 */
-	protected RelocationImpl()
-	{
+	protected RelocationImpl() {
 		super();
 	}
 
@@ -129,10 +126,8 @@ public class RelocationImpl extends EObjectImpl implements Relocation
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.RELOCATION__GROUP_ID:
 			return getGroupId();
 		case PomPackage.RELOCATION__ARTIFACT_ID:
@@ -151,10 +146,8 @@ public class RelocationImpl extends EObjectImpl implements Relocation
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.RELOCATION__GROUP_ID:
 			return GROUP_ID_EDEFAULT == null
 					? groupId != null
@@ -181,21 +174,19 @@ public class RelocationImpl extends EObjectImpl implements Relocation
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.RELOCATION__GROUP_ID:
-			setGroupId((String)newValue);
+			setGroupId((String) newValue);
 			return;
 		case PomPackage.RELOCATION__ARTIFACT_ID:
-			setArtifactId((String)newValue);
+			setArtifactId((String) newValue);
 			return;
 		case PomPackage.RELOCATION__VERSION:
-			setVersion((String)newValue);
+			setVersion((String) newValue);
 			return;
 		case PomPackage.RELOCATION__MESSAGE:
-			setMessage((String)newValue);
+			setMessage((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -207,10 +198,8 @@ public class RelocationImpl extends EObjectImpl implements Relocation
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.RELOCATION__GROUP_ID:
 			setGroupId(GROUP_ID_EDEFAULT);
 			return;
@@ -232,8 +221,7 @@ public class RelocationImpl extends EObjectImpl implements Relocation
 	 * 
 	 * @generated
 	 */
-	public String getArtifactId()
-	{
+	public String getArtifactId() {
 		return artifactId;
 	}
 
@@ -242,8 +230,7 @@ public class RelocationImpl extends EObjectImpl implements Relocation
 	 * 
 	 * @generated
 	 */
-	public String getGroupId()
-	{
+	public String getGroupId() {
 		return groupId;
 	}
 
@@ -252,8 +239,7 @@ public class RelocationImpl extends EObjectImpl implements Relocation
 	 * 
 	 * @generated
 	 */
-	public String getMessage()
-	{
+	public String getMessage() {
 		return message;
 	}
 
@@ -262,8 +248,7 @@ public class RelocationImpl extends EObjectImpl implements Relocation
 	 * 
 	 * @generated
 	 */
-	public String getVersion()
-	{
+	public String getVersion() {
 		return version;
 	}
 
@@ -272,8 +257,7 @@ public class RelocationImpl extends EObjectImpl implements Relocation
 	 * 
 	 * @generated
 	 */
-	public void setArtifactId(String newArtifactId)
-	{
+	public void setArtifactId(String newArtifactId) {
 		String oldArtifactId = artifactId;
 		artifactId = newArtifactId;
 		if(eNotificationRequired())
@@ -286,8 +270,7 @@ public class RelocationImpl extends EObjectImpl implements Relocation
 	 * 
 	 * @generated
 	 */
-	public void setGroupId(String newGroupId)
-	{
+	public void setGroupId(String newGroupId) {
 		String oldGroupId = groupId;
 		groupId = newGroupId;
 		if(eNotificationRequired())
@@ -299,8 +282,7 @@ public class RelocationImpl extends EObjectImpl implements Relocation
 	 * 
 	 * @generated
 	 */
-	public void setMessage(String newMessage)
-	{
+	public void setMessage(String newMessage) {
 		String oldMessage = message;
 		message = newMessage;
 		if(eNotificationRequired())
@@ -312,8 +294,7 @@ public class RelocationImpl extends EObjectImpl implements Relocation
 	 * 
 	 * @generated
 	 */
-	public void setVersion(String newVersion)
-	{
+	public void setVersion(String newVersion) {
 		String oldVersion = version;
 		version = newVersion;
 		if(eNotificationRequired())
@@ -326,8 +307,7 @@ public class RelocationImpl extends EObjectImpl implements Relocation
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
@@ -350,8 +330,7 @@ public class RelocationImpl extends EObjectImpl implements Relocation
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.RELOCATION;
 	}
 

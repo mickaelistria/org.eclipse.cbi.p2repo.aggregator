@@ -25,8 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Developer#getEmail <em>Email</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Developer#getUrl <em>Url</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Developer#getOrganization <em>Organization</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Developer#getOrganizationUrl <em>Organization Url
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Developer#getOrganizationUrl <em>Organization Url </em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Developer#getRoles <em>Roles</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Developer#getTimezone <em>Timezone</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Developer#getProperties <em>Properties</em>}</li>
@@ -37,8 +36,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='Developer' kind='elementOnly'"
  * @generated
  */
-public interface Developer extends EObject
-{
+public interface Developer extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Email</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
 	 * begin-model-doc --> 3.0.0+ The email address of the contributor. <!-- end-model-doc -->

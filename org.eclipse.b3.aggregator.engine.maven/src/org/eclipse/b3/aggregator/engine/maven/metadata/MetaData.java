@@ -32,8 +32,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='MetaData' kind='elementOnly'"
  * @generated
  */
-public interface MetaData extends EObject
-{
+public interface MetaData extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Artifact Id</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->

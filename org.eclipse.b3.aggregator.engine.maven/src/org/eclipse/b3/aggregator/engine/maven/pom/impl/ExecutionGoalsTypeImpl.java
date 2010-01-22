@@ -31,8 +31,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * 
  * @generated
  */
-public class ExecutionGoalsTypeImpl extends EObjectImpl implements ExecutionGoalsType
-{
+public class ExecutionGoalsTypeImpl extends EObjectImpl implements ExecutionGoalsType {
 	/**
 	 * The cached value of the '{@link #getGoal() <em>Goal</em>}' attribute list. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -48,8 +47,7 @@ public class ExecutionGoalsTypeImpl extends EObjectImpl implements ExecutionGoal
 	 * 
 	 * @generated
 	 */
-	protected ExecutionGoalsTypeImpl()
-	{
+	protected ExecutionGoalsTypeImpl() {
 		super();
 	}
 
@@ -59,10 +57,8 @@ public class ExecutionGoalsTypeImpl extends EObjectImpl implements ExecutionGoal
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.EXECUTION_GOALS_TYPE__GOAL:
 			return getGoal();
 		}
@@ -75,10 +71,8 @@ public class ExecutionGoalsTypeImpl extends EObjectImpl implements ExecutionGoal
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.EXECUTION_GOALS_TYPE__GOAL:
 			return goal != null && !goal.isEmpty();
 		}
@@ -92,13 +86,11 @@ public class ExecutionGoalsTypeImpl extends EObjectImpl implements ExecutionGoal
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.EXECUTION_GOALS_TYPE__GOAL:
 			getGoal().clear();
-			getGoal().addAll((Collection<? extends String>)newValue);
+			getGoal().addAll((Collection<? extends String>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -110,10 +102,8 @@ public class ExecutionGoalsTypeImpl extends EObjectImpl implements ExecutionGoal
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.EXECUTION_GOALS_TYPE__GOAL:
 			getGoal().clear();
 			return;
@@ -126,10 +116,8 @@ public class ExecutionGoalsTypeImpl extends EObjectImpl implements ExecutionGoal
 	 * 
 	 * @generated
 	 */
-	public EList<String> getGoal()
-	{
-		if(goal == null)
-		{
+	public EList<String> getGoal() {
+		if(goal == null) {
 			goal = new EDataTypeEList<String>(String.class, this, PomPackage.EXECUTION_GOALS_TYPE__GOAL);
 		}
 		return goal;
@@ -141,8 +129,7 @@ public class ExecutionGoalsTypeImpl extends EObjectImpl implements ExecutionGoal
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
@@ -159,8 +146,7 @@ public class ExecutionGoalsTypeImpl extends EObjectImpl implements ExecutionGoal
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.EXECUTION_GOALS_TYPE;
 	}
 

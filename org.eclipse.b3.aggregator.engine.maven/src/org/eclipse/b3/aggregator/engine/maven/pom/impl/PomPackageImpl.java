@@ -89,8 +89,7 @@ import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
  * 
  * @generated
  */
-public class PomPackageImpl extends EPackageImpl implements PomPackage
-{
+public class PomPackageImpl extends EPackageImpl implements PomPackage {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -573,13 +572,12 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * @see #initializePackageContents()
 	 * @generated
 	 */
-	public static PomPackage init()
-	{
+	public static PomPackage init() {
 		if(isInited)
-			return (PomPackage)EPackage.Registry.INSTANCE.getEPackage(PomPackage.eNS_URI);
+			return (PomPackage) EPackage.Registry.INSTANCE.getEPackage(PomPackage.eNS_URI);
 
 		// Obtain or create and register package
-		PomPackageImpl thePomPackage = (PomPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof PomPackageImpl
+		PomPackageImpl thePomPackage = (PomPackageImpl) (EPackage.Registry.INSTANCE.get(eNS_URI) instanceof PomPackageImpl
 				? EPackage.Registry.INSTANCE.get(eNS_URI)
 				: new PomPackageImpl());
 
@@ -629,8 +627,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * @see #init()
 	 * @generated
 	 */
-	private PomPackageImpl()
-	{
+	private PomPackageImpl() {
 		super(eNS_URI, PomFactory.eINSTANCE);
 	}
 
@@ -640,8 +637,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public void createPackageContents()
-	{
+	public void createPackageContents() {
 		if(isCreated)
 			return;
 		isCreated = true;
@@ -1020,8 +1016,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getActivation()
-	{
+	public EClass getActivation() {
 		return activationEClass;
 	}
 
@@ -1030,9 +1025,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getActivation_ActiveByDefault()
-	{
-		return (EAttribute)activationEClass.getEStructuralFeatures().get(0);
+	public EAttribute getActivation_ActiveByDefault() {
+		return (EAttribute) activationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1040,9 +1034,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getActivation_File()
-	{
-		return (EReference)activationEClass.getEStructuralFeatures().get(4);
+	public EReference getActivation_File() {
+		return (EReference) activationEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1050,9 +1043,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getActivation_Jdk()
-	{
-		return (EAttribute)activationEClass.getEStructuralFeatures().get(1);
+	public EAttribute getActivation_Jdk() {
+		return (EAttribute) activationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1060,9 +1052,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getActivation_Os()
-	{
-		return (EReference)activationEClass.getEStructuralFeatures().get(2);
+	public EReference getActivation_Os() {
+		return (EReference) activationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1070,9 +1061,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getActivation_Property()
-	{
-		return (EReference)activationEClass.getEStructuralFeatures().get(3);
+	public EReference getActivation_Property() {
+		return (EReference) activationEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1080,8 +1070,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getActivationFile()
-	{
+	public EClass getActivationFile() {
 		return activationFileEClass;
 	}
 
@@ -1090,9 +1079,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getActivationFile_Exists()
-	{
-		return (EAttribute)activationFileEClass.getEStructuralFeatures().get(1);
+	public EAttribute getActivationFile_Exists() {
+		return (EAttribute) activationFileEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1100,9 +1088,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getActivationFile_Missing()
-	{
-		return (EAttribute)activationFileEClass.getEStructuralFeatures().get(0);
+	public EAttribute getActivationFile_Missing() {
+		return (EAttribute) activationFileEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1110,8 +1097,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getActivationOS()
-	{
+	public EClass getActivationOS() {
 		return activationOSEClass;
 	}
 
@@ -1120,9 +1106,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getActivationOS_Arch()
-	{
-		return (EAttribute)activationOSEClass.getEStructuralFeatures().get(2);
+	public EAttribute getActivationOS_Arch() {
+		return (EAttribute) activationOSEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1130,9 +1115,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getActivationOS_Family()
-	{
-		return (EAttribute)activationOSEClass.getEStructuralFeatures().get(1);
+	public EAttribute getActivationOS_Family() {
+		return (EAttribute) activationOSEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1140,9 +1124,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getActivationOS_Name()
-	{
-		return (EAttribute)activationOSEClass.getEStructuralFeatures().get(0);
+	public EAttribute getActivationOS_Name() {
+		return (EAttribute) activationOSEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1150,9 +1133,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getActivationOS_Version()
-	{
-		return (EAttribute)activationOSEClass.getEStructuralFeatures().get(3);
+	public EAttribute getActivationOS_Version() {
+		return (EAttribute) activationOSEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1160,8 +1142,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getActivationProperty()
-	{
+	public EClass getActivationProperty() {
 		return activationPropertyEClass;
 	}
 
@@ -1170,9 +1151,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getActivationProperty_Name()
-	{
-		return (EAttribute)activationPropertyEClass.getEStructuralFeatures().get(0);
+	public EAttribute getActivationProperty_Name() {
+		return (EAttribute) activationPropertyEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1180,9 +1160,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getActivationProperty_Value()
-	{
-		return (EAttribute)activationPropertyEClass.getEStructuralFeatures().get(1);
+	public EAttribute getActivationProperty_Value() {
+		return (EAttribute) activationPropertyEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1190,8 +1169,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getBuild()
-	{
+	public EClass getBuild() {
 		return buildEClass;
 	}
 
@@ -1200,9 +1178,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getBuild_DefaultGoal()
-	{
-		return (EAttribute)buildEClass.getEStructuralFeatures().get(6);
+	public EAttribute getBuild_DefaultGoal() {
+		return (EAttribute) buildEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1210,9 +1187,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getBuild_Directory()
-	{
-		return (EAttribute)buildEClass.getEStructuralFeatures().get(9);
+	public EAttribute getBuild_Directory() {
+		return (EAttribute) buildEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -1220,9 +1196,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getBuild_Extensions()
-	{
-		return (EReference)buildEClass.getEStructuralFeatures().get(5);
+	public EReference getBuild_Extensions() {
+		return (EReference) buildEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1230,9 +1205,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getBuild_Filters()
-	{
-		return (EReference)buildEClass.getEStructuralFeatures().get(11);
+	public EReference getBuild_Filters() {
+		return (EReference) buildEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -1240,9 +1214,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getBuild_FinalName()
-	{
-		return (EAttribute)buildEClass.getEStructuralFeatures().get(10);
+	public EAttribute getBuild_FinalName() {
+		return (EAttribute) buildEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -1250,9 +1223,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getBuild_OutputDirectory()
-	{
-		return (EAttribute)buildEClass.getEStructuralFeatures().get(3);
+	public EAttribute getBuild_OutputDirectory() {
+		return (EAttribute) buildEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1260,9 +1232,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getBuild_PluginManagement()
-	{
-		return (EReference)buildEClass.getEStructuralFeatures().get(12);
+	public EReference getBuild_PluginManagement() {
+		return (EReference) buildEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -1270,9 +1241,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getBuild_Plugins()
-	{
-		return (EReference)buildEClass.getEStructuralFeatures().get(13);
+	public EReference getBuild_Plugins() {
+		return (EReference) buildEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -1280,9 +1250,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getBuild_Resources()
-	{
-		return (EReference)buildEClass.getEStructuralFeatures().get(7);
+	public EReference getBuild_Resources() {
+		return (EReference) buildEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -1290,9 +1259,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getBuild_ScriptSourceDirectory()
-	{
-		return (EAttribute)buildEClass.getEStructuralFeatures().get(1);
+	public EAttribute getBuild_ScriptSourceDirectory() {
+		return (EAttribute) buildEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1300,9 +1268,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getBuild_SourceDirectory()
-	{
-		return (EAttribute)buildEClass.getEStructuralFeatures().get(0);
+	public EAttribute getBuild_SourceDirectory() {
+		return (EAttribute) buildEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1310,9 +1277,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getBuild_TestOutputDirectory()
-	{
-		return (EAttribute)buildEClass.getEStructuralFeatures().get(4);
+	public EAttribute getBuild_TestOutputDirectory() {
+		return (EAttribute) buildEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1320,9 +1286,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getBuild_TestResources()
-	{
-		return (EReference)buildEClass.getEStructuralFeatures().get(8);
+	public EReference getBuild_TestResources() {
+		return (EReference) buildEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -1330,9 +1295,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getBuild_TestSourceDirectory()
-	{
-		return (EAttribute)buildEClass.getEStructuralFeatures().get(2);
+	public EAttribute getBuild_TestSourceDirectory() {
+		return (EAttribute) buildEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1340,8 +1304,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getBuildBase()
-	{
+	public EClass getBuildBase() {
 		return buildBaseEClass;
 	}
 
@@ -1350,9 +1313,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getBuildBase_DefaultGoal()
-	{
-		return (EAttribute)buildBaseEClass.getEStructuralFeatures().get(0);
+	public EAttribute getBuildBase_DefaultGoal() {
+		return (EAttribute) buildBaseEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1360,9 +1322,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getBuildBase_Directory()
-	{
-		return (EAttribute)buildBaseEClass.getEStructuralFeatures().get(3);
+	public EAttribute getBuildBase_Directory() {
+		return (EAttribute) buildBaseEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1370,9 +1331,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getBuildBase_Filters()
-	{
-		return (EReference)buildBaseEClass.getEStructuralFeatures().get(5);
+	public EReference getBuildBase_Filters() {
+		return (EReference) buildBaseEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1380,9 +1340,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getBuildBase_FinalName()
-	{
-		return (EAttribute)buildBaseEClass.getEStructuralFeatures().get(4);
+	public EAttribute getBuildBase_FinalName() {
+		return (EAttribute) buildBaseEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1390,9 +1349,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getBuildBase_PluginManagement()
-	{
-		return (EReference)buildBaseEClass.getEStructuralFeatures().get(6);
+	public EReference getBuildBase_PluginManagement() {
+		return (EReference) buildBaseEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1400,9 +1358,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getBuildBase_Plugins()
-	{
-		return (EReference)buildBaseEClass.getEStructuralFeatures().get(7);
+	public EReference getBuildBase_Plugins() {
+		return (EReference) buildBaseEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -1410,9 +1367,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getBuildBase_Resources()
-	{
-		return (EReference)buildBaseEClass.getEStructuralFeatures().get(1);
+	public EReference getBuildBase_Resources() {
+		return (EReference) buildBaseEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1420,9 +1376,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getBuildBase_TestResources()
-	{
-		return (EReference)buildBaseEClass.getEStructuralFeatures().get(2);
+	public EReference getBuildBase_TestResources() {
+		return (EReference) buildBaseEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1430,8 +1385,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getCiManagement()
-	{
+	public EClass getCiManagement() {
 		return ciManagementEClass;
 	}
 
@@ -1440,9 +1394,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getCiManagement_Notifiers()
-	{
-		return (EReference)ciManagementEClass.getEStructuralFeatures().get(2);
+	public EReference getCiManagement_Notifiers() {
+		return (EReference) ciManagementEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1450,9 +1403,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getCiManagement_System()
-	{
-		return (EAttribute)ciManagementEClass.getEStructuralFeatures().get(0);
+	public EAttribute getCiManagement_System() {
+		return (EAttribute) ciManagementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1460,9 +1412,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getCiManagement_Url()
-	{
-		return (EAttribute)ciManagementEClass.getEStructuralFeatures().get(1);
+	public EAttribute getCiManagement_Url() {
+		return (EAttribute) ciManagementEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1470,8 +1421,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getConfigurationType()
-	{
+	public EClass getConfigurationType() {
 		return configurationTypeEClass;
 	}
 
@@ -1480,9 +1430,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getConfigurationType_Any()
-	{
-		return (EAttribute)configurationTypeEClass.getEStructuralFeatures().get(0);
+	public EAttribute getConfigurationType_Any() {
+		return (EAttribute) configurationTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1490,8 +1439,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getContributor()
-	{
+	public EClass getContributor() {
 		return contributorEClass;
 	}
 
@@ -1500,9 +1448,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getContributor_Email()
-	{
-		return (EAttribute)contributorEClass.getEStructuralFeatures().get(1);
+	public EAttribute getContributor_Email() {
+		return (EAttribute) contributorEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1510,9 +1457,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getContributor_Name()
-	{
-		return (EAttribute)contributorEClass.getEStructuralFeatures().get(0);
+	public EAttribute getContributor_Name() {
+		return (EAttribute) contributorEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1520,9 +1466,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getContributor_Organization()
-	{
-		return (EAttribute)contributorEClass.getEStructuralFeatures().get(3);
+	public EAttribute getContributor_Organization() {
+		return (EAttribute) contributorEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1530,9 +1475,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getContributor_OrganizationUrl()
-	{
-		return (EAttribute)contributorEClass.getEStructuralFeatures().get(4);
+	public EAttribute getContributor_OrganizationUrl() {
+		return (EAttribute) contributorEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1540,9 +1484,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getContributor_Properties()
-	{
-		return (EReference)contributorEClass.getEStructuralFeatures().get(7);
+	public EReference getContributor_Properties() {
+		return (EReference) contributorEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -1550,9 +1493,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getContributor_Roles()
-	{
-		return (EReference)contributorEClass.getEStructuralFeatures().get(5);
+	public EReference getContributor_Roles() {
+		return (EReference) contributorEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1560,9 +1502,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getContributor_Timezone()
-	{
-		return (EAttribute)contributorEClass.getEStructuralFeatures().get(6);
+	public EAttribute getContributor_Timezone() {
+		return (EAttribute) contributorEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1570,9 +1511,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getContributor_Url()
-	{
-		return (EAttribute)contributorEClass.getEStructuralFeatures().get(2);
+	public EAttribute getContributor_Url() {
+		return (EAttribute) contributorEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1580,8 +1520,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getContributorsType()
-	{
+	public EClass getContributorsType() {
 		return contributorsTypeEClass;
 	}
 
@@ -1590,9 +1529,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getContributorsType_Contributor()
-	{
-		return (EReference)contributorsTypeEClass.getEStructuralFeatures().get(0);
+	public EReference getContributorsType_Contributor() {
+		return (EReference) contributorsTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1600,8 +1538,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getDependenciesType()
-	{
+	public EClass getDependenciesType() {
 		return dependenciesTypeEClass;
 	}
 
@@ -1610,9 +1547,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getDependenciesType_Dependency()
-	{
-		return (EReference)dependenciesTypeEClass.getEStructuralFeatures().get(0);
+	public EReference getDependenciesType_Dependency() {
+		return (EReference) dependenciesTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1620,8 +1556,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getDependency()
-	{
+	public EClass getDependency() {
 		return dependencyEClass;
 	}
 
@@ -1630,9 +1565,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getDependency_ArtifactId()
-	{
-		return (EAttribute)dependencyEClass.getEStructuralFeatures().get(1);
+	public EAttribute getDependency_ArtifactId() {
+		return (EAttribute) dependencyEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1640,9 +1574,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getDependency_Classifier()
-	{
-		return (EAttribute)dependencyEClass.getEStructuralFeatures().get(4);
+	public EAttribute getDependency_Classifier() {
+		return (EAttribute) dependencyEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1650,9 +1583,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getDependency_Exclusions()
-	{
-		return (EReference)dependencyEClass.getEStructuralFeatures().get(7);
+	public EReference getDependency_Exclusions() {
+		return (EReference) dependencyEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -1660,9 +1592,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getDependency_GroupId()
-	{
-		return (EAttribute)dependencyEClass.getEStructuralFeatures().get(0);
+	public EAttribute getDependency_GroupId() {
+		return (EAttribute) dependencyEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1670,9 +1601,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getDependency_Optional()
-	{
-		return (EAttribute)dependencyEClass.getEStructuralFeatures().get(8);
+	public EAttribute getDependency_Optional() {
+		return (EAttribute) dependencyEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -1680,9 +1610,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getDependency_Scope()
-	{
-		return (EAttribute)dependencyEClass.getEStructuralFeatures().get(5);
+	public EAttribute getDependency_Scope() {
+		return (EAttribute) dependencyEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1690,9 +1619,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getDependency_SystemPath()
-	{
-		return (EAttribute)dependencyEClass.getEStructuralFeatures().get(6);
+	public EAttribute getDependency_SystemPath() {
+		return (EAttribute) dependencyEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1700,9 +1628,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getDependency_Type()
-	{
-		return (EAttribute)dependencyEClass.getEStructuralFeatures().get(3);
+	public EAttribute getDependency_Type() {
+		return (EAttribute) dependencyEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1710,9 +1637,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getDependency_Version()
-	{
-		return (EAttribute)dependencyEClass.getEStructuralFeatures().get(2);
+	public EAttribute getDependency_Version() {
+		return (EAttribute) dependencyEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1720,8 +1646,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getDependencyManagement()
-	{
+	public EClass getDependencyManagement() {
 		return dependencyManagementEClass;
 	}
 
@@ -1730,9 +1655,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getDependencyManagement_Dependencies()
-	{
-		return (EReference)dependencyManagementEClass.getEStructuralFeatures().get(0);
+	public EReference getDependencyManagement_Dependencies() {
+		return (EReference) dependencyManagementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1740,8 +1664,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getDeploymentRepository()
-	{
+	public EClass getDeploymentRepository() {
 		return deploymentRepositoryEClass;
 	}
 
@@ -1750,9 +1673,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getDeploymentRepository_Id()
-	{
-		return (EAttribute)deploymentRepositoryEClass.getEStructuralFeatures().get(1);
+	public EAttribute getDeploymentRepository_Id() {
+		return (EAttribute) deploymentRepositoryEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1760,9 +1682,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getDeploymentRepository_Layout()
-	{
-		return (EAttribute)deploymentRepositoryEClass.getEStructuralFeatures().get(4);
+	public EAttribute getDeploymentRepository_Layout() {
+		return (EAttribute) deploymentRepositoryEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1770,9 +1691,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getDeploymentRepository_Name()
-	{
-		return (EAttribute)deploymentRepositoryEClass.getEStructuralFeatures().get(2);
+	public EAttribute getDeploymentRepository_Name() {
+		return (EAttribute) deploymentRepositoryEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1780,9 +1700,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getDeploymentRepository_UniqueVersion()
-	{
-		return (EAttribute)deploymentRepositoryEClass.getEStructuralFeatures().get(0);
+	public EAttribute getDeploymentRepository_UniqueVersion() {
+		return (EAttribute) deploymentRepositoryEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1790,9 +1709,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getDeploymentRepository_Url()
-	{
-		return (EAttribute)deploymentRepositoryEClass.getEStructuralFeatures().get(3);
+	public EAttribute getDeploymentRepository_Url() {
+		return (EAttribute) deploymentRepositoryEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1800,8 +1718,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getDeveloper()
-	{
+	public EClass getDeveloper() {
 		return developerEClass;
 	}
 
@@ -1810,9 +1727,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getDeveloper_Email()
-	{
-		return (EAttribute)developerEClass.getEStructuralFeatures().get(2);
+	public EAttribute getDeveloper_Email() {
+		return (EAttribute) developerEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1820,9 +1736,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getDeveloper_Id()
-	{
-		return (EAttribute)developerEClass.getEStructuralFeatures().get(0);
+	public EAttribute getDeveloper_Id() {
+		return (EAttribute) developerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1830,9 +1745,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getDeveloper_Name()
-	{
-		return (EAttribute)developerEClass.getEStructuralFeatures().get(1);
+	public EAttribute getDeveloper_Name() {
+		return (EAttribute) developerEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1840,9 +1754,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getDeveloper_Organization()
-	{
-		return (EAttribute)developerEClass.getEStructuralFeatures().get(4);
+	public EAttribute getDeveloper_Organization() {
+		return (EAttribute) developerEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1850,9 +1763,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getDeveloper_OrganizationUrl()
-	{
-		return (EAttribute)developerEClass.getEStructuralFeatures().get(5);
+	public EAttribute getDeveloper_OrganizationUrl() {
+		return (EAttribute) developerEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1860,9 +1772,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getDeveloper_Properties()
-	{
-		return (EReference)developerEClass.getEStructuralFeatures().get(8);
+	public EReference getDeveloper_Properties() {
+		return (EReference) developerEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -1870,9 +1781,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getDeveloper_Roles()
-	{
-		return (EReference)developerEClass.getEStructuralFeatures().get(6);
+	public EReference getDeveloper_Roles() {
+		return (EReference) developerEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1880,9 +1790,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getDeveloper_Timezone()
-	{
-		return (EAttribute)developerEClass.getEStructuralFeatures().get(7);
+	public EAttribute getDeveloper_Timezone() {
+		return (EAttribute) developerEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -1890,9 +1799,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getDeveloper_Url()
-	{
-		return (EAttribute)developerEClass.getEStructuralFeatures().get(3);
+	public EAttribute getDeveloper_Url() {
+		return (EAttribute) developerEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1900,8 +1808,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getDevelopersType()
-	{
+	public EClass getDevelopersType() {
 		return developersTypeEClass;
 	}
 
@@ -1910,9 +1817,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getDevelopersType_Developer()
-	{
-		return (EReference)developersTypeEClass.getEStructuralFeatures().get(0);
+	public EReference getDevelopersType_Developer() {
+		return (EReference) developersTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1920,8 +1826,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getDistributionManagement()
-	{
+	public EClass getDistributionManagement() {
 		return distributionManagementEClass;
 	}
 
@@ -1930,9 +1835,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getDistributionManagement_DownloadUrl()
-	{
-		return (EAttribute)distributionManagementEClass.getEStructuralFeatures().get(3);
+	public EAttribute getDistributionManagement_DownloadUrl() {
+		return (EAttribute) distributionManagementEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1940,9 +1844,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getDistributionManagement_Relocation()
-	{
-		return (EReference)distributionManagementEClass.getEStructuralFeatures().get(4);
+	public EReference getDistributionManagement_Relocation() {
+		return (EReference) distributionManagementEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1950,9 +1853,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getDistributionManagement_Repository()
-	{
-		return (EReference)distributionManagementEClass.getEStructuralFeatures().get(0);
+	public EReference getDistributionManagement_Repository() {
+		return (EReference) distributionManagementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1960,9 +1862,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getDistributionManagement_Site()
-	{
-		return (EReference)distributionManagementEClass.getEStructuralFeatures().get(2);
+	public EReference getDistributionManagement_Site() {
+		return (EReference) distributionManagementEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1970,9 +1871,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getDistributionManagement_SnapshotRepository()
-	{
-		return (EReference)distributionManagementEClass.getEStructuralFeatures().get(1);
+	public EReference getDistributionManagement_SnapshotRepository() {
+		return (EReference) distributionManagementEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1980,9 +1880,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getDistributionManagement_Status()
-	{
-		return (EAttribute)distributionManagementEClass.getEStructuralFeatures().get(5);
+	public EAttribute getDistributionManagement_Status() {
+		return (EAttribute) distributionManagementEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1990,8 +1889,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getDocumentRoot()
-	{
+	public EClass getDocumentRoot() {
 		return documentRootEClass;
 	}
 
@@ -2000,9 +1898,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getDocumentRoot_Mixed()
-	{
-		return (EAttribute)documentRootEClass.getEStructuralFeatures().get(0);
+	public EAttribute getDocumentRoot_Mixed() {
+		return (EAttribute) documentRootEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2010,9 +1907,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Project()
-	{
-		return (EReference)documentRootEClass.getEStructuralFeatures().get(3);
+	public EReference getDocumentRoot_Project() {
+		return (EReference) documentRootEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -2020,9 +1916,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getDocumentRoot_XMLNSPrefixMap()
-	{
-		return (EReference)documentRootEClass.getEStructuralFeatures().get(1);
+	public EReference getDocumentRoot_XMLNSPrefixMap() {
+		return (EReference) documentRootEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2030,9 +1925,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getDocumentRoot_XSISchemaLocation()
-	{
-		return (EReference)documentRootEClass.getEStructuralFeatures().get(2);
+	public EReference getDocumentRoot_XSISchemaLocation() {
+		return (EReference) documentRootEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2040,8 +1934,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getExcludesType()
-	{
+	public EClass getExcludesType() {
 		return excludesTypeEClass;
 	}
 
@@ -2050,9 +1943,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getExcludesType_Exclude()
-	{
-		return (EAttribute)excludesTypeEClass.getEStructuralFeatures().get(0);
+	public EAttribute getExcludesType_Exclude() {
+		return (EAttribute) excludesTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2060,8 +1952,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getExclusion()
-	{
+	public EClass getExclusion() {
 		return exclusionEClass;
 	}
 
@@ -2070,9 +1961,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getExclusion_ArtifactId()
-	{
-		return (EAttribute)exclusionEClass.getEStructuralFeatures().get(0);
+	public EAttribute getExclusion_ArtifactId() {
+		return (EAttribute) exclusionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2080,9 +1970,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getExclusion_GroupId()
-	{
-		return (EAttribute)exclusionEClass.getEStructuralFeatures().get(1);
+	public EAttribute getExclusion_GroupId() {
+		return (EAttribute) exclusionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2090,8 +1979,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getExclusionsType()
-	{
+	public EClass getExclusionsType() {
 		return exclusionsTypeEClass;
 	}
 
@@ -2100,9 +1988,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getExclusionsType_Exclusion()
-	{
-		return (EReference)exclusionsTypeEClass.getEStructuralFeatures().get(0);
+	public EReference getExclusionsType_Exclusion() {
+		return (EReference) exclusionsTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2110,8 +1997,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getExecutionGoalsType()
-	{
+	public EClass getExecutionGoalsType() {
 		return executionGoalsTypeEClass;
 	}
 
@@ -2120,9 +2006,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getExecutionGoalsType_Goal()
-	{
-		return (EAttribute)executionGoalsTypeEClass.getEStructuralFeatures().get(0);
+	public EAttribute getExecutionGoalsType_Goal() {
+		return (EAttribute) executionGoalsTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2130,8 +2015,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getExecutionsType()
-	{
+	public EClass getExecutionsType() {
 		return executionsTypeEClass;
 	}
 
@@ -2140,9 +2024,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getExecutionsType_Execution()
-	{
-		return (EReference)executionsTypeEClass.getEStructuralFeatures().get(0);
+	public EReference getExecutionsType_Execution() {
+		return (EReference) executionsTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2150,8 +2033,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getExtension()
-	{
+	public EClass getExtension() {
 		return extensionEClass;
 	}
 
@@ -2160,9 +2042,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getExtension_ArtifactId()
-	{
-		return (EAttribute)extensionEClass.getEStructuralFeatures().get(1);
+	public EAttribute getExtension_ArtifactId() {
+		return (EAttribute) extensionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2170,9 +2051,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getExtension_GroupId()
-	{
-		return (EAttribute)extensionEClass.getEStructuralFeatures().get(0);
+	public EAttribute getExtension_GroupId() {
+		return (EAttribute) extensionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2180,9 +2060,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getExtension_Version()
-	{
-		return (EAttribute)extensionEClass.getEStructuralFeatures().get(2);
+	public EAttribute getExtension_Version() {
+		return (EAttribute) extensionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2190,8 +2069,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getExtensionsType()
-	{
+	public EClass getExtensionsType() {
 		return extensionsTypeEClass;
 	}
 
@@ -2200,9 +2078,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getExtensionsType_Extension()
-	{
-		return (EReference)extensionsTypeEClass.getEStructuralFeatures().get(0);
+	public EReference getExtensionsType_Extension() {
+		return (EReference) extensionsTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2210,8 +2087,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getFiltersType()
-	{
+	public EClass getFiltersType() {
 		return filtersTypeEClass;
 	}
 
@@ -2220,9 +2096,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getFiltersType_Filter()
-	{
-		return (EAttribute)filtersTypeEClass.getEStructuralFeatures().get(0);
+	public EAttribute getFiltersType_Filter() {
+		return (EAttribute) filtersTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2230,8 +2105,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getGoalsType()
-	{
+	public EClass getGoalsType() {
 		return goalsTypeEClass;
 	}
 
@@ -2240,9 +2114,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getGoalsType_Any()
-	{
-		return (EAttribute)goalsTypeEClass.getEStructuralFeatures().get(0);
+	public EAttribute getGoalsType_Any() {
+		return (EAttribute) goalsTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2250,8 +2123,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getIncludesType()
-	{
+	public EClass getIncludesType() {
 		return includesTypeEClass;
 	}
 
@@ -2260,9 +2132,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getIncludesType_Include()
-	{
-		return (EAttribute)includesTypeEClass.getEStructuralFeatures().get(0);
+	public EAttribute getIncludesType_Include() {
+		return (EAttribute) includesTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2270,8 +2141,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getIssueManagement()
-	{
+	public EClass getIssueManagement() {
 		return issueManagementEClass;
 	}
 
@@ -2280,9 +2150,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getIssueManagement_System()
-	{
-		return (EAttribute)issueManagementEClass.getEStructuralFeatures().get(0);
+	public EAttribute getIssueManagement_System() {
+		return (EAttribute) issueManagementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2290,9 +2159,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getIssueManagement_Url()
-	{
-		return (EAttribute)issueManagementEClass.getEStructuralFeatures().get(1);
+	public EAttribute getIssueManagement_Url() {
+		return (EAttribute) issueManagementEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2300,8 +2168,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getLicense()
-	{
+	public EClass getLicense() {
 		return licenseEClass;
 	}
 
@@ -2310,9 +2177,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getLicense_Comments()
-	{
-		return (EAttribute)licenseEClass.getEStructuralFeatures().get(3);
+	public EAttribute getLicense_Comments() {
+		return (EAttribute) licenseEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -2320,9 +2186,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getLicense_Distribution()
-	{
-		return (EAttribute)licenseEClass.getEStructuralFeatures().get(2);
+	public EAttribute getLicense_Distribution() {
+		return (EAttribute) licenseEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2330,9 +2195,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getLicense_Name()
-	{
-		return (EAttribute)licenseEClass.getEStructuralFeatures().get(0);
+	public EAttribute getLicense_Name() {
+		return (EAttribute) licenseEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2340,9 +2204,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getLicense_Url()
-	{
-		return (EAttribute)licenseEClass.getEStructuralFeatures().get(1);
+	public EAttribute getLicense_Url() {
+		return (EAttribute) licenseEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2350,8 +2213,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getLicensesType()
-	{
+	public EClass getLicensesType() {
 		return licensesTypeEClass;
 	}
 
@@ -2360,9 +2222,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getLicensesType_License()
-	{
-		return (EReference)licensesTypeEClass.getEStructuralFeatures().get(0);
+	public EReference getLicensesType_License() {
+		return (EReference) licensesTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2370,8 +2231,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getMailingList()
-	{
+	public EClass getMailingList() {
 		return mailingListEClass;
 	}
 
@@ -2380,9 +2240,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getMailingList_Archive()
-	{
-		return (EAttribute)mailingListEClass.getEStructuralFeatures().get(4);
+	public EAttribute getMailingList_Archive() {
+		return (EAttribute) mailingListEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -2390,9 +2249,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getMailingList_Name()
-	{
-		return (EAttribute)mailingListEClass.getEStructuralFeatures().get(0);
+	public EAttribute getMailingList_Name() {
+		return (EAttribute) mailingListEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2400,9 +2258,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getMailingList_OtherArchives()
-	{
-		return (EReference)mailingListEClass.getEStructuralFeatures().get(5);
+	public EReference getMailingList_OtherArchives() {
+		return (EReference) mailingListEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -2410,9 +2267,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getMailingList_Post()
-	{
-		return (EAttribute)mailingListEClass.getEStructuralFeatures().get(3);
+	public EAttribute getMailingList_Post() {
+		return (EAttribute) mailingListEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -2420,9 +2276,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getMailingList_Subscribe()
-	{
-		return (EAttribute)mailingListEClass.getEStructuralFeatures().get(1);
+	public EAttribute getMailingList_Subscribe() {
+		return (EAttribute) mailingListEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2430,9 +2285,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getMailingList_Unsubscribe()
-	{
-		return (EAttribute)mailingListEClass.getEStructuralFeatures().get(2);
+	public EAttribute getMailingList_Unsubscribe() {
+		return (EAttribute) mailingListEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2440,8 +2294,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getMailingListsType()
-	{
+	public EClass getMailingListsType() {
 		return mailingListsTypeEClass;
 	}
 
@@ -2450,9 +2303,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getMailingListsType_MailingList()
-	{
-		return (EReference)mailingListsTypeEClass.getEStructuralFeatures().get(0);
+	public EReference getMailingListsType_MailingList() {
+		return (EReference) mailingListsTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2460,8 +2312,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getModel()
-	{
+	public EClass getModel() {
 		return modelEClass;
 	}
 
@@ -2470,9 +2321,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getModel_ArtifactId()
-	{
-		return (EAttribute)modelEClass.getEStructuralFeatures().get(3);
+	public EAttribute getModel_ArtifactId() {
+		return (EAttribute) modelEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -2480,9 +2330,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getModel_Build()
-	{
-		return (EReference)modelEClass.getEStructuralFeatures().get(19);
+	public EReference getModel_Build() {
+		return (EReference) modelEClass.getEStructuralFeatures().get(19);
 	}
 
 	/**
@@ -2490,9 +2339,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getModel_CiManagement()
-	{
-		return (EReference)modelEClass.getEStructuralFeatures().get(11);
+	public EReference getModel_CiManagement() {
+		return (EReference) modelEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -2500,9 +2348,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getModel_Contributors()
-	{
-		return (EReference)modelEClass.getEStructuralFeatures().get(15);
+	public EReference getModel_Contributors() {
+		return (EReference) modelEClass.getEStructuralFeatures().get(15);
 	}
 
 	/**
@@ -2510,9 +2357,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getModel_Dependencies()
-	{
-		return (EReference)modelEClass.getEStructuralFeatures().get(24);
+	public EReference getModel_Dependencies() {
+		return (EReference) modelEClass.getEStructuralFeatures().get(24);
 	}
 
 	/**
@@ -2520,9 +2366,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getModel_DependencyManagement()
-	{
-		return (EReference)modelEClass.getEStructuralFeatures().get(27);
+	public EReference getModel_DependencyManagement() {
+		return (EReference) modelEClass.getEStructuralFeatures().get(27);
 	}
 
 	/**
@@ -2530,9 +2375,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getModel_Description()
-	{
-		return (EAttribute)modelEClass.getEStructuralFeatures().get(7);
+	public EAttribute getModel_Description() {
+		return (EAttribute) modelEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -2540,9 +2384,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getModel_Developers()
-	{
-		return (EReference)modelEClass.getEStructuralFeatures().get(14);
+	public EReference getModel_Developers() {
+		return (EReference) modelEClass.getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -2550,9 +2393,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getModel_DistributionManagement()
-	{
-		return (EReference)modelEClass.getEStructuralFeatures().get(28);
+	public EReference getModel_DistributionManagement() {
+		return (EReference) modelEClass.getEStructuralFeatures().get(28);
 	}
 
 	/**
@@ -2560,9 +2402,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getModel_GroupId()
-	{
-		return (EAttribute)modelEClass.getEStructuralFeatures().get(2);
+	public EAttribute getModel_GroupId() {
+		return (EAttribute) modelEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2570,9 +2411,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getModel_InceptionYear()
-	{
-		return (EAttribute)modelEClass.getEStructuralFeatures().get(12);
+	public EAttribute getModel_InceptionYear() {
+		return (EAttribute) modelEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -2580,9 +2420,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getModel_IssueManagement()
-	{
-		return (EReference)modelEClass.getEStructuralFeatures().get(10);
+	public EReference getModel_IssueManagement() {
+		return (EReference) modelEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -2590,9 +2429,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getModel_Licenses()
-	{
-		return (EReference)modelEClass.getEStructuralFeatures().get(16);
+	public EReference getModel_Licenses() {
+		return (EReference) modelEClass.getEStructuralFeatures().get(16);
 	}
 
 	/**
@@ -2600,9 +2438,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getModel_MailingLists()
-	{
-		return (EReference)modelEClass.getEStructuralFeatures().get(13);
+	public EReference getModel_MailingLists() {
+		return (EReference) modelEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -2610,9 +2447,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getModel_ModelVersion()
-	{
-		return (EAttribute)modelEClass.getEStructuralFeatures().get(1);
+	public EAttribute getModel_ModelVersion() {
+		return (EAttribute) modelEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2620,9 +2456,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getModel_Modules()
-	{
-		return (EReference)modelEClass.getEStructuralFeatures().get(21);
+	public EReference getModel_Modules() {
+		return (EReference) modelEClass.getEStructuralFeatures().get(21);
 	}
 
 	/**
@@ -2630,9 +2465,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getModel_Name()
-	{
-		return (EAttribute)modelEClass.getEStructuralFeatures().get(5);
+	public EAttribute getModel_Name() {
+		return (EAttribute) modelEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -2640,9 +2474,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getModel_Organization()
-	{
-		return (EReference)modelEClass.getEStructuralFeatures().get(18);
+	public EReference getModel_Organization() {
+		return (EReference) modelEClass.getEStructuralFeatures().get(18);
 	}
 
 	/**
@@ -2650,9 +2483,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getModel_Packaging()
-	{
-		return (EAttribute)modelEClass.getEStructuralFeatures().get(4);
+	public EAttribute getModel_Packaging() {
+		return (EAttribute) modelEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -2660,9 +2492,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getModel_Parent()
-	{
-		return (EReference)modelEClass.getEStructuralFeatures().get(0);
+	public EReference getModel_Parent() {
+		return (EReference) modelEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2670,9 +2501,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getModel_PluginRepositories()
-	{
-		return (EReference)modelEClass.getEStructuralFeatures().get(23);
+	public EReference getModel_PluginRepositories() {
+		return (EReference) modelEClass.getEStructuralFeatures().get(23);
 	}
 
 	/**
@@ -2680,9 +2510,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getModel_Prerequisites()
-	{
-		return (EReference)modelEClass.getEStructuralFeatures().get(9);
+	public EReference getModel_Prerequisites() {
+		return (EReference) modelEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -2690,9 +2519,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getModel_Profiles()
-	{
-		return (EReference)modelEClass.getEStructuralFeatures().get(20);
+	public EReference getModel_Profiles() {
+		return (EReference) modelEClass.getEStructuralFeatures().get(20);
 	}
 
 	/**
@@ -2700,9 +2528,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getModel_Properties()
-	{
-		return (EReference)modelEClass.getEStructuralFeatures().get(29);
+	public EReference getModel_Properties() {
+		return (EReference) modelEClass.getEStructuralFeatures().get(29);
 	}
 
 	/**
@@ -2710,9 +2537,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getModel_Reporting()
-	{
-		return (EReference)modelEClass.getEStructuralFeatures().get(26);
+	public EReference getModel_Reporting() {
+		return (EReference) modelEClass.getEStructuralFeatures().get(26);
 	}
 
 	/**
@@ -2720,9 +2546,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getModel_Reports()
-	{
-		return (EReference)modelEClass.getEStructuralFeatures().get(25);
+	public EReference getModel_Reports() {
+		return (EReference) modelEClass.getEStructuralFeatures().get(25);
 	}
 
 	/**
@@ -2730,9 +2555,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getModel_Repositories()
-	{
-		return (EReference)modelEClass.getEStructuralFeatures().get(22);
+	public EReference getModel_Repositories() {
+		return (EReference) modelEClass.getEStructuralFeatures().get(22);
 	}
 
 	/**
@@ -2740,9 +2564,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getModel_Scm()
-	{
-		return (EReference)modelEClass.getEStructuralFeatures().get(17);
+	public EReference getModel_Scm() {
+		return (EReference) modelEClass.getEStructuralFeatures().get(17);
 	}
 
 	/**
@@ -2750,9 +2573,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getModel_Url()
-	{
-		return (EAttribute)modelEClass.getEStructuralFeatures().get(8);
+	public EAttribute getModel_Url() {
+		return (EAttribute) modelEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -2760,9 +2582,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getModel_Version()
-	{
-		return (EAttribute)modelEClass.getEStructuralFeatures().get(6);
+	public EAttribute getModel_Version() {
+		return (EAttribute) modelEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -2770,8 +2591,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getModulesType()
-	{
+	public EClass getModulesType() {
 		return modulesTypeEClass;
 	}
 
@@ -2780,9 +2600,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getModulesType_Module()
-	{
-		return (EAttribute)modulesTypeEClass.getEStructuralFeatures().get(0);
+	public EAttribute getModulesType_Module() {
+		return (EAttribute) modulesTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2790,8 +2609,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getNotifier()
-	{
+	public EClass getNotifier() {
 		return notifierEClass;
 	}
 
@@ -2800,9 +2618,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getNotifier_Address()
-	{
-		return (EAttribute)notifierEClass.getEStructuralFeatures().get(5);
+	public EAttribute getNotifier_Address() {
+		return (EAttribute) notifierEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -2810,9 +2627,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getNotifier_Configuration()
-	{
-		return (EReference)notifierEClass.getEStructuralFeatures().get(6);
+	public EReference getNotifier_Configuration() {
+		return (EReference) notifierEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -2820,9 +2636,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getNotifier_SendOnError()
-	{
-		return (EAttribute)notifierEClass.getEStructuralFeatures().get(1);
+	public EAttribute getNotifier_SendOnError() {
+		return (EAttribute) notifierEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2830,9 +2645,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getNotifier_SendOnFailure()
-	{
-		return (EAttribute)notifierEClass.getEStructuralFeatures().get(2);
+	public EAttribute getNotifier_SendOnFailure() {
+		return (EAttribute) notifierEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2840,9 +2654,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getNotifier_SendOnSuccess()
-	{
-		return (EAttribute)notifierEClass.getEStructuralFeatures().get(3);
+	public EAttribute getNotifier_SendOnSuccess() {
+		return (EAttribute) notifierEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -2850,9 +2663,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getNotifier_SendOnWarning()
-	{
-		return (EAttribute)notifierEClass.getEStructuralFeatures().get(4);
+	public EAttribute getNotifier_SendOnWarning() {
+		return (EAttribute) notifierEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -2860,9 +2672,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getNotifier_Type()
-	{
-		return (EAttribute)notifierEClass.getEStructuralFeatures().get(0);
+	public EAttribute getNotifier_Type() {
+		return (EAttribute) notifierEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2870,8 +2681,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getNotifiersType()
-	{
+	public EClass getNotifiersType() {
 		return notifiersTypeEClass;
 	}
 
@@ -2880,9 +2690,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getNotifiersType_Notifier()
-	{
-		return (EReference)notifiersTypeEClass.getEStructuralFeatures().get(0);
+	public EReference getNotifiersType_Notifier() {
+		return (EReference) notifiersTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2890,8 +2699,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getOrganization()
-	{
+	public EClass getOrganization() {
 		return organizationEClass;
 	}
 
@@ -2900,9 +2708,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getOrganization_Name()
-	{
-		return (EAttribute)organizationEClass.getEStructuralFeatures().get(0);
+	public EAttribute getOrganization_Name() {
+		return (EAttribute) organizationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2910,9 +2717,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getOrganization_Url()
-	{
-		return (EAttribute)organizationEClass.getEStructuralFeatures().get(1);
+	public EAttribute getOrganization_Url() {
+		return (EAttribute) organizationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2920,8 +2726,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getOtherArchivesType()
-	{
+	public EClass getOtherArchivesType() {
 		return otherArchivesTypeEClass;
 	}
 
@@ -2930,9 +2735,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getOtherArchivesType_OtherArchive()
-	{
-		return (EAttribute)otherArchivesTypeEClass.getEStructuralFeatures().get(0);
+	public EAttribute getOtherArchivesType_OtherArchive() {
+		return (EAttribute) otherArchivesTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2940,8 +2744,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getParent()
-	{
+	public EClass getParent() {
 		return parentEClass;
 	}
 
@@ -2950,9 +2753,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getParent_ArtifactId()
-	{
-		return (EAttribute)parentEClass.getEStructuralFeatures().get(0);
+	public EAttribute getParent_ArtifactId() {
+		return (EAttribute) parentEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2960,9 +2762,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getParent_GroupId()
-	{
-		return (EAttribute)parentEClass.getEStructuralFeatures().get(1);
+	public EAttribute getParent_GroupId() {
+		return (EAttribute) parentEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2970,9 +2771,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getParent_RelativePath()
-	{
-		return (EAttribute)parentEClass.getEStructuralFeatures().get(3);
+	public EAttribute getParent_RelativePath() {
+		return (EAttribute) parentEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -2980,9 +2780,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getParent_Version()
-	{
-		return (EAttribute)parentEClass.getEStructuralFeatures().get(2);
+	public EAttribute getParent_Version() {
+		return (EAttribute) parentEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2990,8 +2789,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getPlugin()
-	{
+	public EClass getPlugin() {
 		return pluginEClass;
 	}
 
@@ -3000,9 +2798,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getPlugin_ArtifactId()
-	{
-		return (EAttribute)pluginEClass.getEStructuralFeatures().get(1);
+	public EAttribute getPlugin_ArtifactId() {
+		return (EAttribute) pluginEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -3010,9 +2807,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getPlugin_Configuration()
-	{
-		return (EReference)pluginEClass.getEStructuralFeatures().get(8);
+	public EReference getPlugin_Configuration() {
+		return (EReference) pluginEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -3020,9 +2816,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getPlugin_Dependencies()
-	{
-		return (EReference)pluginEClass.getEStructuralFeatures().get(5);
+	public EReference getPlugin_Dependencies() {
+		return (EReference) pluginEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -3030,9 +2825,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getPlugin_Executions()
-	{
-		return (EReference)pluginEClass.getEStructuralFeatures().get(4);
+	public EReference getPlugin_Executions() {
+		return (EReference) pluginEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -3040,9 +2834,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getPlugin_Extensions()
-	{
-		return (EAttribute)pluginEClass.getEStructuralFeatures().get(3);
+	public EAttribute getPlugin_Extensions() {
+		return (EAttribute) pluginEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -3050,9 +2843,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getPlugin_Goals()
-	{
-		return (EReference)pluginEClass.getEStructuralFeatures().get(6);
+	public EReference getPlugin_Goals() {
+		return (EReference) pluginEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -3060,9 +2852,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getPlugin_GroupId()
-	{
-		return (EAttribute)pluginEClass.getEStructuralFeatures().get(0);
+	public EAttribute getPlugin_GroupId() {
+		return (EAttribute) pluginEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3070,9 +2861,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getPlugin_Inherited()
-	{
-		return (EAttribute)pluginEClass.getEStructuralFeatures().get(7);
+	public EAttribute getPlugin_Inherited() {
+		return (EAttribute) pluginEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -3080,9 +2870,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getPlugin_Version()
-	{
-		return (EAttribute)pluginEClass.getEStructuralFeatures().get(2);
+	public EAttribute getPlugin_Version() {
+		return (EAttribute) pluginEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -3090,8 +2879,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getPluginExecution()
-	{
+	public EClass getPluginExecution() {
 		return pluginExecutionEClass;
 	}
 
@@ -3100,9 +2888,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getPluginExecution_Configuration()
-	{
-		return (EReference)pluginExecutionEClass.getEStructuralFeatures().get(4);
+	public EReference getPluginExecution_Configuration() {
+		return (EReference) pluginExecutionEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -3110,9 +2897,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getPluginExecution_Goals()
-	{
-		return (EReference)pluginExecutionEClass.getEStructuralFeatures().get(2);
+	public EReference getPluginExecution_Goals() {
+		return (EReference) pluginExecutionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -3120,9 +2906,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getPluginExecution_Id()
-	{
-		return (EAttribute)pluginExecutionEClass.getEStructuralFeatures().get(0);
+	public EAttribute getPluginExecution_Id() {
+		return (EAttribute) pluginExecutionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3130,9 +2915,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getPluginExecution_Inherited()
-	{
-		return (EAttribute)pluginExecutionEClass.getEStructuralFeatures().get(3);
+	public EAttribute getPluginExecution_Inherited() {
+		return (EAttribute) pluginExecutionEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -3140,9 +2924,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getPluginExecution_Phase()
-	{
-		return (EAttribute)pluginExecutionEClass.getEStructuralFeatures().get(1);
+	public EAttribute getPluginExecution_Phase() {
+		return (EAttribute) pluginExecutionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -3150,8 +2933,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getPluginManagement()
-	{
+	public EClass getPluginManagement() {
 		return pluginManagementEClass;
 	}
 
@@ -3160,9 +2942,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getPluginManagement_Plugins()
-	{
-		return (EReference)pluginManagementEClass.getEStructuralFeatures().get(0);
+	public EReference getPluginManagement_Plugins() {
+		return (EReference) pluginManagementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3170,8 +2951,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getPluginRepositoriesType()
-	{
+	public EClass getPluginRepositoriesType() {
 		return pluginRepositoriesTypeEClass;
 	}
 
@@ -3180,9 +2960,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getPluginRepositoriesType_PluginRepository()
-	{
-		return (EReference)pluginRepositoriesTypeEClass.getEStructuralFeatures().get(0);
+	public EReference getPluginRepositoriesType_PluginRepository() {
+		return (EReference) pluginRepositoriesTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3190,8 +2969,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getPluginsType()
-	{
+	public EClass getPluginsType() {
 		return pluginsTypeEClass;
 	}
 
@@ -3200,9 +2978,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getPluginsType_Plugin()
-	{
-		return (EReference)pluginsTypeEClass.getEStructuralFeatures().get(0);
+	public EReference getPluginsType_Plugin() {
+		return (EReference) pluginsTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3210,9 +2987,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public PomFactory getPomFactory()
-	{
-		return (PomFactory)getEFactoryInstance();
+	public PomFactory getPomFactory() {
+		return (PomFactory) getEFactoryInstance();
 	}
 
 	/**
@@ -3220,8 +2996,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getPrerequisites()
-	{
+	public EClass getPrerequisites() {
 		return prerequisitesEClass;
 	}
 
@@ -3230,9 +3005,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getPrerequisites_Maven()
-	{
-		return (EAttribute)prerequisitesEClass.getEStructuralFeatures().get(0);
+	public EAttribute getPrerequisites_Maven() {
+		return (EAttribute) prerequisitesEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3240,8 +3014,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getProfile()
-	{
+	public EClass getProfile() {
 		return profileEClass;
 	}
 
@@ -3250,9 +3023,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getProfile_Activation()
-	{
-		return (EReference)profileEClass.getEStructuralFeatures().get(1);
+	public EReference getProfile_Activation() {
+		return (EReference) profileEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -3260,9 +3032,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getProfile_Build()
-	{
-		return (EReference)profileEClass.getEStructuralFeatures().get(2);
+	public EReference getProfile_Build() {
+		return (EReference) profileEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -3270,9 +3041,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getProfile_Dependencies()
-	{
-		return (EReference)profileEClass.getEStructuralFeatures().get(6);
+	public EReference getProfile_Dependencies() {
+		return (EReference) profileEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -3280,9 +3050,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getProfile_DependencyManagement()
-	{
-		return (EReference)profileEClass.getEStructuralFeatures().get(9);
+	public EReference getProfile_DependencyManagement() {
+		return (EReference) profileEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -3290,9 +3059,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getProfile_DistributionManagement()
-	{
-		return (EReference)profileEClass.getEStructuralFeatures().get(10);
+	public EReference getProfile_DistributionManagement() {
+		return (EReference) profileEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -3300,9 +3068,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getProfile_Id()
-	{
-		return (EAttribute)profileEClass.getEStructuralFeatures().get(0);
+	public EAttribute getProfile_Id() {
+		return (EAttribute) profileEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3310,9 +3077,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getProfile_Modules()
-	{
-		return (EReference)profileEClass.getEStructuralFeatures().get(3);
+	public EReference getProfile_Modules() {
+		return (EReference) profileEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -3320,9 +3086,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getProfile_PluginRepositories()
-	{
-		return (EReference)profileEClass.getEStructuralFeatures().get(5);
+	public EReference getProfile_PluginRepositories() {
+		return (EReference) profileEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -3330,9 +3095,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getProfile_Properties()
-	{
-		return (EReference)profileEClass.getEStructuralFeatures().get(11);
+	public EReference getProfile_Properties() {
+		return (EReference) profileEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -3340,9 +3104,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getProfile_Reporting()
-	{
-		return (EReference)profileEClass.getEStructuralFeatures().get(8);
+	public EReference getProfile_Reporting() {
+		return (EReference) profileEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -3350,9 +3113,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getProfile_Reports()
-	{
-		return (EReference)profileEClass.getEStructuralFeatures().get(7);
+	public EReference getProfile_Reports() {
+		return (EReference) profileEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -3360,9 +3122,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getProfile_Repositories()
-	{
-		return (EReference)profileEClass.getEStructuralFeatures().get(4);
+	public EReference getProfile_Repositories() {
+		return (EReference) profileEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -3370,8 +3131,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getProfilesType()
-	{
+	public EClass getProfilesType() {
 		return profilesTypeEClass;
 	}
 
@@ -3380,9 +3140,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getProfilesType_Profile()
-	{
-		return (EReference)profilesTypeEClass.getEStructuralFeatures().get(0);
+	public EReference getProfilesType_Profile() {
+		return (EReference) profilesTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3390,8 +3149,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getPropertiesType()
-	{
+	public EClass getPropertiesType() {
 		return propertiesTypeEClass;
 	}
 
@@ -3400,9 +3158,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getPropertiesType_Any()
-	{
-		return (EAttribute)propertiesTypeEClass.getEStructuralFeatures().get(0);
+	public EAttribute getPropertiesType_Any() {
+		return (EAttribute) propertiesTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3410,8 +3167,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getRelocation()
-	{
+	public EClass getRelocation() {
 		return relocationEClass;
 	}
 
@@ -3420,9 +3176,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getRelocation_ArtifactId()
-	{
-		return (EAttribute)relocationEClass.getEStructuralFeatures().get(1);
+	public EAttribute getRelocation_ArtifactId() {
+		return (EAttribute) relocationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -3430,9 +3185,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getRelocation_GroupId()
-	{
-		return (EAttribute)relocationEClass.getEStructuralFeatures().get(0);
+	public EAttribute getRelocation_GroupId() {
+		return (EAttribute) relocationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3440,9 +3194,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getRelocation_Message()
-	{
-		return (EAttribute)relocationEClass.getEStructuralFeatures().get(3);
+	public EAttribute getRelocation_Message() {
+		return (EAttribute) relocationEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -3450,9 +3203,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getRelocation_Version()
-	{
-		return (EAttribute)relocationEClass.getEStructuralFeatures().get(2);
+	public EAttribute getRelocation_Version() {
+		return (EAttribute) relocationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -3460,8 +3212,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getReporting()
-	{
+	public EClass getReporting() {
 		return reportingEClass;
 	}
 
@@ -3470,9 +3221,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getReporting_ExcludeDefaults()
-	{
-		return (EAttribute)reportingEClass.getEStructuralFeatures().get(0);
+	public EAttribute getReporting_ExcludeDefaults() {
+		return (EAttribute) reportingEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3480,9 +3230,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getReporting_OutputDirectory()
-	{
-		return (EAttribute)reportingEClass.getEStructuralFeatures().get(1);
+	public EAttribute getReporting_OutputDirectory() {
+		return (EAttribute) reportingEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -3490,9 +3239,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getReporting_Plugins()
-	{
-		return (EReference)reportingEClass.getEStructuralFeatures().get(2);
+	public EReference getReporting_Plugins() {
+		return (EReference) reportingEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -3500,8 +3248,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getReportingPluginsType()
-	{
+	public EClass getReportingPluginsType() {
 		return reportingPluginsTypeEClass;
 	}
 
@@ -3510,9 +3257,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getReportingPluginsType_Plugin()
-	{
-		return (EReference)reportingPluginsTypeEClass.getEStructuralFeatures().get(0);
+	public EReference getReportingPluginsType_Plugin() {
+		return (EReference) reportingPluginsTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3520,8 +3266,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getReportPlugin()
-	{
+	public EClass getReportPlugin() {
 		return reportPluginEClass;
 	}
 
@@ -3530,9 +3275,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getReportPlugin_ArtifactId()
-	{
-		return (EAttribute)reportPluginEClass.getEStructuralFeatures().get(1);
+	public EAttribute getReportPlugin_ArtifactId() {
+		return (EAttribute) reportPluginEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -3540,9 +3284,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getReportPlugin_Configuration()
-	{
-		return (EReference)reportPluginEClass.getEStructuralFeatures().get(4);
+	public EReference getReportPlugin_Configuration() {
+		return (EReference) reportPluginEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -3550,9 +3293,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getReportPlugin_GroupId()
-	{
-		return (EAttribute)reportPluginEClass.getEStructuralFeatures().get(0);
+	public EAttribute getReportPlugin_GroupId() {
+		return (EAttribute) reportPluginEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3560,9 +3302,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getReportPlugin_Inherited()
-	{
-		return (EAttribute)reportPluginEClass.getEStructuralFeatures().get(3);
+	public EAttribute getReportPlugin_Inherited() {
+		return (EAttribute) reportPluginEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -3570,9 +3311,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getReportPlugin_ReportSets()
-	{
-		return (EReference)reportPluginEClass.getEStructuralFeatures().get(5);
+	public EReference getReportPlugin_ReportSets() {
+		return (EReference) reportPluginEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -3580,9 +3320,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getReportPlugin_Version()
-	{
-		return (EAttribute)reportPluginEClass.getEStructuralFeatures().get(2);
+	public EAttribute getReportPlugin_Version() {
+		return (EAttribute) reportPluginEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -3590,8 +3329,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getReportSet()
-	{
+	public EClass getReportSet() {
 		return reportSetEClass;
 	}
 
@@ -3600,9 +3338,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getReportSet_Configuration()
-	{
-		return (EReference)reportSetEClass.getEStructuralFeatures().get(1);
+	public EReference getReportSet_Configuration() {
+		return (EReference) reportSetEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -3610,9 +3347,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getReportSet_Id()
-	{
-		return (EAttribute)reportSetEClass.getEStructuralFeatures().get(0);
+	public EAttribute getReportSet_Id() {
+		return (EAttribute) reportSetEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3620,9 +3356,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getReportSet_Inherited()
-	{
-		return (EAttribute)reportSetEClass.getEStructuralFeatures().get(2);
+	public EAttribute getReportSet_Inherited() {
+		return (EAttribute) reportSetEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -3630,9 +3365,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getReportSet_Reports()
-	{
-		return (EReference)reportSetEClass.getEStructuralFeatures().get(3);
+	public EReference getReportSet_Reports() {
+		return (EReference) reportSetEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -3640,8 +3374,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getReportSetReportsType()
-	{
+	public EClass getReportSetReportsType() {
 		return reportSetReportsTypeEClass;
 	}
 
@@ -3650,9 +3383,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getReportSetReportsType_Report()
-	{
-		return (EAttribute)reportSetReportsTypeEClass.getEStructuralFeatures().get(0);
+	public EAttribute getReportSetReportsType_Report() {
+		return (EAttribute) reportSetReportsTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3660,8 +3392,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getReportSetsType()
-	{
+	public EClass getReportSetsType() {
 		return reportSetsTypeEClass;
 	}
 
@@ -3670,9 +3401,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getReportSetsType_ReportSet()
-	{
-		return (EReference)reportSetsTypeEClass.getEStructuralFeatures().get(0);
+	public EReference getReportSetsType_ReportSet() {
+		return (EReference) reportSetsTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3680,8 +3410,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getReportsType()
-	{
+	public EClass getReportsType() {
 		return reportsTypeEClass;
 	}
 
@@ -3690,9 +3419,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getReportsType_Any()
-	{
-		return (EAttribute)reportsTypeEClass.getEStructuralFeatures().get(0);
+	public EAttribute getReportsType_Any() {
+		return (EAttribute) reportsTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3700,8 +3428,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getRepositoriesType()
-	{
+	public EClass getRepositoriesType() {
 		return repositoriesTypeEClass;
 	}
 
@@ -3710,9 +3437,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getRepositoriesType_Repository()
-	{
-		return (EReference)repositoriesTypeEClass.getEStructuralFeatures().get(0);
+	public EReference getRepositoriesType_Repository() {
+		return (EReference) repositoriesTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3720,8 +3446,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getRepository()
-	{
+	public EClass getRepository() {
 		return repositoryEClass;
 	}
 
@@ -3730,9 +3455,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getRepository_Id()
-	{
-		return (EAttribute)repositoryEClass.getEStructuralFeatures().get(2);
+	public EAttribute getRepository_Id() {
+		return (EAttribute) repositoryEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -3740,9 +3464,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getRepository_Layout()
-	{
-		return (EAttribute)repositoryEClass.getEStructuralFeatures().get(5);
+	public EAttribute getRepository_Layout() {
+		return (EAttribute) repositoryEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -3750,9 +3473,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getRepository_Name()
-	{
-		return (EAttribute)repositoryEClass.getEStructuralFeatures().get(3);
+	public EAttribute getRepository_Name() {
+		return (EAttribute) repositoryEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -3760,9 +3482,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getRepository_Releases()
-	{
-		return (EReference)repositoryEClass.getEStructuralFeatures().get(0);
+	public EReference getRepository_Releases() {
+		return (EReference) repositoryEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3770,9 +3491,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getRepository_Snapshots()
-	{
-		return (EReference)repositoryEClass.getEStructuralFeatures().get(1);
+	public EReference getRepository_Snapshots() {
+		return (EReference) repositoryEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -3780,9 +3500,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getRepository_Url()
-	{
-		return (EAttribute)repositoryEClass.getEStructuralFeatures().get(4);
+	public EAttribute getRepository_Url() {
+		return (EAttribute) repositoryEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -3790,8 +3509,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getRepositoryPolicy()
-	{
+	public EClass getRepositoryPolicy() {
 		return repositoryPolicyEClass;
 	}
 
@@ -3800,9 +3518,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getRepositoryPolicy_ChecksumPolicy()
-	{
-		return (EAttribute)repositoryPolicyEClass.getEStructuralFeatures().get(2);
+	public EAttribute getRepositoryPolicy_ChecksumPolicy() {
+		return (EAttribute) repositoryPolicyEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -3810,9 +3527,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getRepositoryPolicy_Enabled()
-	{
-		return (EAttribute)repositoryPolicyEClass.getEStructuralFeatures().get(0);
+	public EAttribute getRepositoryPolicy_Enabled() {
+		return (EAttribute) repositoryPolicyEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3820,9 +3536,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getRepositoryPolicy_UpdatePolicy()
-	{
-		return (EAttribute)repositoryPolicyEClass.getEStructuralFeatures().get(1);
+	public EAttribute getRepositoryPolicy_UpdatePolicy() {
+		return (EAttribute) repositoryPolicyEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -3830,8 +3545,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getResource()
-	{
+	public EClass getResource() {
 		return resourceEClass;
 	}
 
@@ -3840,9 +3554,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getResource_Directory()
-	{
-		return (EAttribute)resourceEClass.getEStructuralFeatures().get(2);
+	public EAttribute getResource_Directory() {
+		return (EAttribute) resourceEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -3850,9 +3563,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getResource_Excludes()
-	{
-		return (EReference)resourceEClass.getEStructuralFeatures().get(4);
+	public EReference getResource_Excludes() {
+		return (EReference) resourceEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -3860,9 +3572,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getResource_Filtering()
-	{
-		return (EAttribute)resourceEClass.getEStructuralFeatures().get(1);
+	public EAttribute getResource_Filtering() {
+		return (EAttribute) resourceEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -3870,9 +3581,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getResource_Includes()
-	{
-		return (EReference)resourceEClass.getEStructuralFeatures().get(3);
+	public EReference getResource_Includes() {
+		return (EReference) resourceEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -3880,9 +3590,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getResource_TargetPath()
-	{
-		return (EAttribute)resourceEClass.getEStructuralFeatures().get(0);
+	public EAttribute getResource_TargetPath() {
+		return (EAttribute) resourceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3890,8 +3599,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getResourcesType()
-	{
+	public EClass getResourcesType() {
 		return resourcesTypeEClass;
 	}
 
@@ -3900,9 +3608,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getResourcesType_Resource()
-	{
-		return (EReference)resourcesTypeEClass.getEStructuralFeatures().get(0);
+	public EReference getResourcesType_Resource() {
+		return (EReference) resourcesTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3910,8 +3617,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getRolesType()
-	{
+	public EClass getRolesType() {
 		return rolesTypeEClass;
 	}
 
@@ -3920,9 +3626,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getRolesType_Role()
-	{
-		return (EAttribute)rolesTypeEClass.getEStructuralFeatures().get(0);
+	public EAttribute getRolesType_Role() {
+		return (EAttribute) rolesTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3930,8 +3635,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getScm()
-	{
+	public EClass getScm() {
 		return scmEClass;
 	}
 
@@ -3940,9 +3644,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getScm_Connection()
-	{
-		return (EAttribute)scmEClass.getEStructuralFeatures().get(0);
+	public EAttribute getScm_Connection() {
+		return (EAttribute) scmEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3950,9 +3653,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getScm_DeveloperConnection()
-	{
-		return (EAttribute)scmEClass.getEStructuralFeatures().get(1);
+	public EAttribute getScm_DeveloperConnection() {
+		return (EAttribute) scmEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -3960,9 +3662,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getScm_Tag()
-	{
-		return (EAttribute)scmEClass.getEStructuralFeatures().get(2);
+	public EAttribute getScm_Tag() {
+		return (EAttribute) scmEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -3970,9 +3671,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getScm_Url()
-	{
-		return (EAttribute)scmEClass.getEStructuralFeatures().get(3);
+	public EAttribute getScm_Url() {
+		return (EAttribute) scmEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -3980,8 +3680,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getSite()
-	{
+	public EClass getSite() {
 		return siteEClass;
 	}
 
@@ -3990,9 +3689,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getSite_Id()
-	{
-		return (EAttribute)siteEClass.getEStructuralFeatures().get(0);
+	public EAttribute getSite_Id() {
+		return (EAttribute) siteEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -4000,9 +3698,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getSite_Name()
-	{
-		return (EAttribute)siteEClass.getEStructuralFeatures().get(1);
+	public EAttribute getSite_Name() {
+		return (EAttribute) siteEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -4010,9 +3707,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getSite_Url()
-	{
-		return (EAttribute)siteEClass.getEStructuralFeatures().get(2);
+	public EAttribute getSite_Url() {
+		return (EAttribute) siteEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -4020,8 +3716,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getTestResourcesType()
-	{
+	public EClass getTestResourcesType() {
 		return testResourcesTypeEClass;
 	}
 
@@ -4030,9 +3725,8 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getTestResourcesType_TestResource()
-	{
-		return (EReference)testResourcesTypeEClass.getEStructuralFeatures().get(0);
+	public EReference getTestResourcesType_TestResource() {
+		return (EReference) testResourcesTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -4041,8 +3735,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	public void initializePackageContents()
-	{
+	public void initializePackageContents() {
 		if(isInitialized)
 			return;
 		isInitialized = true;
@@ -4053,7 +3746,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		XMLTypePackage theXMLTypePackage = (XMLTypePackage)EPackage.Registry.INSTANCE.getEPackage(XMLTypePackage.eNS_URI);
+		XMLTypePackage theXMLTypePackage = (XMLTypePackage) EPackage.Registry.INSTANCE.getEPackage(XMLTypePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -4905,8 +4598,7 @@ public class PomPackageImpl extends EPackageImpl implements PomPackage
 	 * 
 	 * @generated
 	 */
-	protected void createExtendedMetaDataAnnotations()
-	{
+	protected void createExtendedMetaDataAnnotations() {
 		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";
 		addAnnotation(activationEClass, source, new String[] { "name", "Activation", "kind", "elementOnly" });
 		addAnnotation(getActivation_ActiveByDefault(), source, new String[] { "kind", "element", "name",

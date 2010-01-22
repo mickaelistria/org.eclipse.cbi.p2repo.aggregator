@@ -30,8 +30,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * 
  * @generated
  */
-public class IncludesTypeImpl extends EObjectImpl implements IncludesType
-{
+public class IncludesTypeImpl extends EObjectImpl implements IncludesType {
 	/**
 	 * The cached value of the '{@link #getInclude() <em>Include</em>}' attribute list. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -47,8 +46,7 @@ public class IncludesTypeImpl extends EObjectImpl implements IncludesType
 	 * 
 	 * @generated
 	 */
-	protected IncludesTypeImpl()
-	{
+	protected IncludesTypeImpl() {
 		super();
 	}
 
@@ -58,10 +56,8 @@ public class IncludesTypeImpl extends EObjectImpl implements IncludesType
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.INCLUDES_TYPE__INCLUDE:
 			return getInclude();
 		}
@@ -74,10 +70,8 @@ public class IncludesTypeImpl extends EObjectImpl implements IncludesType
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.INCLUDES_TYPE__INCLUDE:
 			return include != null && !include.isEmpty();
 		}
@@ -91,13 +85,11 @@ public class IncludesTypeImpl extends EObjectImpl implements IncludesType
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.INCLUDES_TYPE__INCLUDE:
 			getInclude().clear();
-			getInclude().addAll((Collection<? extends String>)newValue);
+			getInclude().addAll((Collection<? extends String>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -109,10 +101,8 @@ public class IncludesTypeImpl extends EObjectImpl implements IncludesType
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.INCLUDES_TYPE__INCLUDE:
 			getInclude().clear();
 			return;
@@ -125,10 +115,8 @@ public class IncludesTypeImpl extends EObjectImpl implements IncludesType
 	 * 
 	 * @generated
 	 */
-	public EList<String> getInclude()
-	{
-		if(include == null)
-		{
+	public EList<String> getInclude() {
+		if(include == null) {
 			include = new EDataTypeEList<String>(String.class, this, PomPackage.INCLUDES_TYPE__INCLUDE);
 		}
 		return include;
@@ -140,8 +128,7 @@ public class IncludesTypeImpl extends EObjectImpl implements IncludesType
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
@@ -158,8 +145,7 @@ public class IncludesTypeImpl extends EObjectImpl implements IncludesType
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.INCLUDES_TYPE;
 	}
 

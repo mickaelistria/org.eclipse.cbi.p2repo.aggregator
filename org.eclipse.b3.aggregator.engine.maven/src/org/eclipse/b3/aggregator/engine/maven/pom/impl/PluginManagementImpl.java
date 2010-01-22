@@ -25,15 +25,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.PluginManagementImpl#getPlugins <em>Plugins</em>}
- * </li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.PluginManagementImpl#getPlugins <em>Plugins</em>}</li>
  * </ul>
  * </p>
  * 
  * @generated
  */
-public class PluginManagementImpl extends EObjectImpl implements PluginManagement
-{
+public class PluginManagementImpl extends EObjectImpl implements PluginManagement {
 	/**
 	 * The cached value of the '{@link #getPlugins() <em>Plugins</em>}' containment reference. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -49,8 +47,7 @@ public class PluginManagementImpl extends EObjectImpl implements PluginManagemen
 	 * 
 	 * @generated
 	 */
-	protected PluginManagementImpl()
-	{
+	protected PluginManagementImpl() {
 		super();
 	}
 
@@ -59,12 +56,10 @@ public class PluginManagementImpl extends EObjectImpl implements PluginManagemen
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetPlugins(PluginsType newPlugins, NotificationChain msgs)
-	{
+	public NotificationChain basicSetPlugins(PluginsType newPlugins, NotificationChain msgs) {
 		PluginsType oldPlugins = plugins;
 		plugins = newPlugins;
-		if(eNotificationRequired())
-		{
+		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					PomPackage.PLUGIN_MANAGEMENT__PLUGINS, oldPlugins, newPlugins);
 			if(msgs == null)
@@ -81,10 +76,8 @@ public class PluginManagementImpl extends EObjectImpl implements PluginManagemen
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.PLUGIN_MANAGEMENT__PLUGINS:
 			return getPlugins();
 		}
@@ -97,10 +90,8 @@ public class PluginManagementImpl extends EObjectImpl implements PluginManagemen
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch(featureID)
-		{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
 		case PomPackage.PLUGIN_MANAGEMENT__PLUGINS:
 			return basicSetPlugins(null, msgs);
 		}
@@ -113,10 +104,8 @@ public class PluginManagementImpl extends EObjectImpl implements PluginManagemen
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.PLUGIN_MANAGEMENT__PLUGINS:
 			return plugins != null;
 		}
@@ -129,12 +118,10 @@ public class PluginManagementImpl extends EObjectImpl implements PluginManagemen
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.PLUGIN_MANAGEMENT__PLUGINS:
-			setPlugins((PluginsType)newValue);
+			setPlugins((PluginsType) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -146,12 +133,10 @@ public class PluginManagementImpl extends EObjectImpl implements PluginManagemen
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.PLUGIN_MANAGEMENT__PLUGINS:
-			setPlugins((PluginsType)null);
+			setPlugins((PluginsType) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -162,8 +147,7 @@ public class PluginManagementImpl extends EObjectImpl implements PluginManagemen
 	 * 
 	 * @generated
 	 */
-	public PluginsType getPlugins()
-	{
+	public PluginsType getPlugins() {
 		return plugins;
 	}
 
@@ -172,16 +156,14 @@ public class PluginManagementImpl extends EObjectImpl implements PluginManagemen
 	 * 
 	 * @generated
 	 */
-	public void setPlugins(PluginsType newPlugins)
-	{
-		if(newPlugins != plugins)
-		{
+	public void setPlugins(PluginsType newPlugins) {
+		if(newPlugins != plugins) {
 			NotificationChain msgs = null;
 			if(plugins != null)
-				msgs = ((InternalEObject)plugins).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) plugins).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.PLUGIN_MANAGEMENT__PLUGINS, null, msgs);
 			if(newPlugins != null)
-				msgs = ((InternalEObject)newPlugins).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) newPlugins).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.PLUGIN_MANAGEMENT__PLUGINS, null, msgs);
 			msgs = basicSetPlugins(newPlugins, msgs);
 			if(msgs != null)
@@ -198,8 +180,7 @@ public class PluginManagementImpl extends EObjectImpl implements PluginManagemen
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.PLUGIN_MANAGEMENT;
 	}
 

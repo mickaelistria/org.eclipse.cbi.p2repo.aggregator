@@ -27,8 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='Parent' kind='elementOnly'"
  * @generated
  */
-public interface Parent extends EObject
-{
+public interface Parent extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Artifact Id</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * <!-- begin-model-doc --> 4.0.0 The artifact id of the parent project to inherit from. <!-- end-model-doc -->
@@ -94,8 +93,8 @@ public interface Parent extends EObject
 	String getVersion();
 
 	/**
-	 * Returns whether the value of the '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Parent#getRelativePath <em>Relative Path</em>}'
+	 * Returns whether the value of the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.Parent#getRelativePath
+	 * <em>Relative Path</em>}'
 	 * attribute is set. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return whether the value of the '<em>Relative Path</em>' attribute is set.

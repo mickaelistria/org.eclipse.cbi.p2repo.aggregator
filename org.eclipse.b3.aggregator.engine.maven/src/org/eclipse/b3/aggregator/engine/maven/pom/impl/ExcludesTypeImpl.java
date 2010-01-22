@@ -30,8 +30,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * 
  * @generated
  */
-public class ExcludesTypeImpl extends EObjectImpl implements ExcludesType
-{
+public class ExcludesTypeImpl extends EObjectImpl implements ExcludesType {
 	/**
 	 * The cached value of the '{@link #getExclude() <em>Exclude</em>}' attribute list. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -47,8 +46,7 @@ public class ExcludesTypeImpl extends EObjectImpl implements ExcludesType
 	 * 
 	 * @generated
 	 */
-	protected ExcludesTypeImpl()
-	{
+	protected ExcludesTypeImpl() {
 		super();
 	}
 
@@ -58,10 +56,8 @@ public class ExcludesTypeImpl extends EObjectImpl implements ExcludesType
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.EXCLUDES_TYPE__EXCLUDE:
 			return getExclude();
 		}
@@ -74,10 +70,8 @@ public class ExcludesTypeImpl extends EObjectImpl implements ExcludesType
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.EXCLUDES_TYPE__EXCLUDE:
 			return exclude != null && !exclude.isEmpty();
 		}
@@ -91,13 +85,11 @@ public class ExcludesTypeImpl extends EObjectImpl implements ExcludesType
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.EXCLUDES_TYPE__EXCLUDE:
 			getExclude().clear();
-			getExclude().addAll((Collection<? extends String>)newValue);
+			getExclude().addAll((Collection<? extends String>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -109,10 +101,8 @@ public class ExcludesTypeImpl extends EObjectImpl implements ExcludesType
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.EXCLUDES_TYPE__EXCLUDE:
 			getExclude().clear();
 			return;
@@ -125,10 +115,8 @@ public class ExcludesTypeImpl extends EObjectImpl implements ExcludesType
 	 * 
 	 * @generated
 	 */
-	public EList<String> getExclude()
-	{
-		if(exclude == null)
-		{
+	public EList<String> getExclude() {
+		if(exclude == null) {
 			exclude = new EDataTypeEList<String>(String.class, this, PomPackage.EXCLUDES_TYPE__EXCLUDE);
 		}
 		return exclude;
@@ -140,8 +128,7 @@ public class ExcludesTypeImpl extends EObjectImpl implements ExcludesType
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
@@ -158,8 +145,7 @@ public class ExcludesTypeImpl extends EObjectImpl implements ExcludesType
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.EXCLUDES_TYPE;
 	}
 

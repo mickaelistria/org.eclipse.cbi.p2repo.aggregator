@@ -30,15 +30,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.TestResourcesTypeImpl#getTestResource <em>Test
- * Resource</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.TestResourcesTypeImpl#getTestResource <em>Test Resource
+ * </em>}</li>
  * </ul>
  * </p>
  * 
  * @generated
  */
-public class TestResourcesTypeImpl extends EObjectImpl implements TestResourcesType
-{
+public class TestResourcesTypeImpl extends EObjectImpl implements TestResourcesType {
 	/**
 	 * The cached value of the '{@link #getTestResource() <em>Test Resource</em>}' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -54,8 +53,7 @@ public class TestResourcesTypeImpl extends EObjectImpl implements TestResourcesT
 	 * 
 	 * @generated
 	 */
-	protected TestResourcesTypeImpl()
-	{
+	protected TestResourcesTypeImpl() {
 		super();
 	}
 
@@ -65,10 +63,8 @@ public class TestResourcesTypeImpl extends EObjectImpl implements TestResourcesT
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.TEST_RESOURCES_TYPE__TEST_RESOURCE:
 			return getTestResource();
 		}
@@ -81,12 +77,10 @@ public class TestResourcesTypeImpl extends EObjectImpl implements TestResourcesT
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch(featureID)
-		{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
 		case PomPackage.TEST_RESOURCES_TYPE__TEST_RESOURCE:
-			return ((InternalEList<?>)getTestResource()).basicRemove(otherEnd, msgs);
+			return ((InternalEList<?>) getTestResource()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -97,10 +91,8 @@ public class TestResourcesTypeImpl extends EObjectImpl implements TestResourcesT
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.TEST_RESOURCES_TYPE__TEST_RESOURCE:
 			return testResource != null && !testResource.isEmpty();
 		}
@@ -114,13 +106,11 @@ public class TestResourcesTypeImpl extends EObjectImpl implements TestResourcesT
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.TEST_RESOURCES_TYPE__TEST_RESOURCE:
 			getTestResource().clear();
-			getTestResource().addAll((Collection<? extends Resource>)newValue);
+			getTestResource().addAll((Collection<? extends Resource>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -132,10 +122,8 @@ public class TestResourcesTypeImpl extends EObjectImpl implements TestResourcesT
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.TEST_RESOURCES_TYPE__TEST_RESOURCE:
 			getTestResource().clear();
 			return;
@@ -148,10 +136,8 @@ public class TestResourcesTypeImpl extends EObjectImpl implements TestResourcesT
 	 * 
 	 * @generated
 	 */
-	public EList<Resource> getTestResource()
-	{
-		if(testResource == null)
-		{
+	public EList<Resource> getTestResource() {
+		if(testResource == null) {
 			testResource = new EObjectContainmentEList<Resource>(Resource.class, this,
 					PomPackage.TEST_RESOURCES_TYPE__TEST_RESOURCE);
 		}
@@ -164,8 +150,7 @@ public class TestResourcesTypeImpl extends EObjectImpl implements TestResourcesT
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.TEST_RESOURCES_TYPE;
 	}
 

@@ -30,8 +30,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * 
  * @generated
  */
-public class ModulesTypeImpl extends EObjectImpl implements ModulesType
-{
+public class ModulesTypeImpl extends EObjectImpl implements ModulesType {
 	/**
 	 * The cached value of the '{@link #getModule() <em>Module</em>}' attribute list. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -47,8 +46,7 @@ public class ModulesTypeImpl extends EObjectImpl implements ModulesType
 	 * 
 	 * @generated
 	 */
-	protected ModulesTypeImpl()
-	{
+	protected ModulesTypeImpl() {
 		super();
 	}
 
@@ -58,10 +56,8 @@ public class ModulesTypeImpl extends EObjectImpl implements ModulesType
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.MODULES_TYPE__MODULE:
 			return getModule();
 		}
@@ -74,10 +70,8 @@ public class ModulesTypeImpl extends EObjectImpl implements ModulesType
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.MODULES_TYPE__MODULE:
 			return module != null && !module.isEmpty();
 		}
@@ -91,13 +85,11 @@ public class ModulesTypeImpl extends EObjectImpl implements ModulesType
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.MODULES_TYPE__MODULE:
 			getModule().clear();
-			getModule().addAll((Collection<? extends String>)newValue);
+			getModule().addAll((Collection<? extends String>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -109,10 +101,8 @@ public class ModulesTypeImpl extends EObjectImpl implements ModulesType
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.MODULES_TYPE__MODULE:
 			getModule().clear();
 			return;
@@ -125,10 +115,8 @@ public class ModulesTypeImpl extends EObjectImpl implements ModulesType
 	 * 
 	 * @generated
 	 */
-	public EList<String> getModule()
-	{
-		if(module == null)
-		{
+	public EList<String> getModule() {
+		if(module == null) {
 			module = new EDataTypeEList<String>(String.class, this, PomPackage.MODULES_TYPE__MODULE);
 		}
 		return module;
@@ -140,8 +128,7 @@ public class ModulesTypeImpl extends EObjectImpl implements ModulesType
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
@@ -158,8 +145,7 @@ public class ModulesTypeImpl extends EObjectImpl implements ModulesType
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.MODULES_TYPE;
 	}
 

@@ -21,8 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.DeploymentRepository#isUniqueVersion <em>Unique
- * Version</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.DeploymentRepository#isUniqueVersion <em>Unique Version</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.DeploymentRepository#getId <em>Id</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.DeploymentRepository#getName <em>Name</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.DeploymentRepository#getUrl <em>Url</em>}</li>
@@ -34,8 +33,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='DeploymentRepository' kind='elementOnly'"
  * @generated
  */
-public interface DeploymentRepository extends EObject
-{
+public interface DeploymentRepository extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
 	 * begin-model-doc --> 4.0.0
@@ -186,8 +184,7 @@ public interface DeploymentRepository extends EObject
 	void setName(String value);
 
 	/**
-	 * Sets the value of the '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.DeploymentRepository#isUniqueVersion
+	 * Sets the value of the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.DeploymentRepository#isUniqueVersion
 	 * <em>Unique Version</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -211,8 +208,8 @@ public interface DeploymentRepository extends EObject
 	void setUrl(String value);
 
 	/**
-	 * Unsets the value of the '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.DeploymentRepository#getLayout <em>Layout</em>}'
+	 * Unsets the value of the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.DeploymentRepository#getLayout
+	 * <em>Layout</em>}'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isSetLayout()
@@ -223,8 +220,7 @@ public interface DeploymentRepository extends EObject
 	void unsetLayout();
 
 	/**
-	 * Unsets the value of the '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.DeploymentRepository#isUniqueVersion
+	 * Unsets the value of the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.DeploymentRepository#isUniqueVersion
 	 * <em>Unique Version</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #isSetUniqueVersion()

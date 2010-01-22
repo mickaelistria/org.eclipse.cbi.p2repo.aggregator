@@ -46,255 +46,204 @@ import org.eclipse.emf.ecore.resource.Resource;
  * @author Filip Hrbek (filip.hrbek@cloudsmith.com)
  * 
  */
-abstract class ResolvedModelBase implements Model
-{
-	public EList<Adapter> eAdapters()
-	{
+abstract class ResolvedModelBase implements Model {
+	public EList<Adapter> eAdapters() {
 		throw new UnsupportedOperationException();
 	}
 
-	public TreeIterator<EObject> eAllContents()
-	{
+	public TreeIterator<EObject> eAllContents() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EClass eClass()
-	{
+	public EClass eClass() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EObject eContainer()
-	{
+	public EObject eContainer() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EStructuralFeature eContainingFeature()
-	{
+	public EStructuralFeature eContainingFeature() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EReference eContainmentFeature()
-	{
+	public EReference eContainmentFeature() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EList<EObject> eContents()
-	{
+	public EList<EObject> eContents() {
 		throw new UnsupportedOperationException();
 	}
 
-	public EList<EObject> eCrossReferences()
-	{
+	public EList<EObject> eCrossReferences() {
 		throw new UnsupportedOperationException();
 	}
 
-	public boolean eDeliver()
-	{
+	public boolean eDeliver() {
 		throw new UnsupportedOperationException();
 	}
 
-	public Object eGet(EStructuralFeature feature)
-	{
+	public Object eGet(EStructuralFeature feature) {
 		throw new UnsupportedOperationException();
 	}
 
-	public Object eGet(EStructuralFeature feature, boolean resolve)
-	{
+	public Object eGet(EStructuralFeature feature, boolean resolve) {
 		throw new UnsupportedOperationException();
 	}
 
-	public Object eInvoke(EOperation arg0, EList<?> arg1) throws InvocationTargetException
-	{
+	public Object eInvoke(EOperation arg0, EList<?> arg1) throws InvocationTargetException {
 		throw new UnsupportedOperationException();
 	}
 
-	public boolean eIsProxy()
-	{
+	public boolean eIsProxy() {
 		throw new UnsupportedOperationException();
 	}
 
-	public boolean eIsSet(EStructuralFeature feature)
-	{
+	public boolean eIsSet(EStructuralFeature feature) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void eNotify(Notification notification)
-	{
+	public void eNotify(Notification notification) {
 		throw new UnsupportedOperationException();
 	}
 
-	public Resource eResource()
-	{
+	public Resource eResource() {
 		throw new UnsupportedOperationException();
 	}
 
-	public void eSet(EStructuralFeature feature, Object newValue)
-	{
+	public void eSet(EStructuralFeature feature, Object newValue) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void eSetDeliver(boolean deliver)
-	{
+	public void eSetDeliver(boolean deliver) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void eUnset(EStructuralFeature feature)
-	{
+	public void eUnset(EStructuralFeature feature) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void setArtifactId(String value)
-	{
+	public void setArtifactId(String value) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void setBuild(Build value)
-	{
+	public void setBuild(Build value) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void setCiManagement(CiManagement value)
-	{
+	public void setCiManagement(CiManagement value) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void setContributors(ContributorsType value)
-	{
+	public void setContributors(ContributorsType value) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void setDependencies(DependenciesType value)
-	{
+	public void setDependencies(DependenciesType value) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void setDependencyManagement(DependencyManagement value)
-	{
+	public void setDependencyManagement(DependencyManagement value) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void setDescription(String value)
-	{
+	public void setDescription(String value) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void setDevelopers(DevelopersType value)
-	{
+	public void setDevelopers(DevelopersType value) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void setDistributionManagement(DistributionManagement value)
-	{
+	public void setDistributionManagement(DistributionManagement value) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void setGroupId(String value)
-	{
+	public void setGroupId(String value) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void setInceptionYear(String value)
-	{
+	public void setInceptionYear(String value) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void setIssueManagement(IssueManagement value)
-	{
+	public void setIssueManagement(IssueManagement value) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void setLicenses(LicensesType value)
-	{
+	public void setLicenses(LicensesType value) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void setMailingLists(MailingListsType value)
-	{
+	public void setMailingLists(MailingListsType value) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void setModelVersion(String value)
-	{
+	public void setModelVersion(String value) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void setModules(ModulesType value)
-	{
+	public void setModules(ModulesType value) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void setName(String value)
-	{
+	public void setName(String value) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void setOrganization(Organization value)
-	{
+	public void setOrganization(Organization value) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void setPackaging(String value)
-	{
+	public void setPackaging(String value) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void setParent(Parent value)
-	{
+	public void setParent(Parent value) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void setPluginRepositories(PluginRepositoriesType value)
-	{
+	public void setPluginRepositories(PluginRepositoriesType value) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void setPrerequisites(Prerequisites value)
-	{
+	public void setPrerequisites(Prerequisites value) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void setProfiles(ProfilesType value)
-	{
+	public void setProfiles(ProfilesType value) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void setProperties(PropertiesType value)
-	{
+	public void setProperties(PropertiesType value) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void setReporting(Reporting value)
-	{
+	public void setReporting(Reporting value) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void setReports(ReportsType value)
-	{
+	public void setReports(ReportsType value) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void setRepositories(RepositoriesType value)
-	{
+	public void setRepositories(RepositoriesType value) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void setScm(Scm value)
-	{
+	public void setScm(Scm value) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void setUrl(String value)
-	{
+	public void setUrl(String value) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void setVersion(String value)
-	{
+	public void setVersion(String value) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void unsetPackaging()
-	{
+	public void unsetPackaging() {
 		throw new UnsupportedOperationException();
 	}
 

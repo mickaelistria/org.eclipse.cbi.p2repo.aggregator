@@ -30,15 +30,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ReportingPluginsTypeImpl#getPlugin <em>Plugin
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ReportingPluginsTypeImpl#getPlugin <em>Plugin </em>}</li>
  * </ul>
  * </p>
  * 
  * @generated
  */
-public class ReportingPluginsTypeImpl extends EObjectImpl implements ReportingPluginsType
-{
+public class ReportingPluginsTypeImpl extends EObjectImpl implements ReportingPluginsType {
 	/**
 	 * The cached value of the '{@link #getPlugin() <em>Plugin</em>}' containment reference list. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
@@ -54,8 +52,7 @@ public class ReportingPluginsTypeImpl extends EObjectImpl implements ReportingPl
 	 * 
 	 * @generated
 	 */
-	protected ReportingPluginsTypeImpl()
-	{
+	protected ReportingPluginsTypeImpl() {
 		super();
 	}
 
@@ -65,10 +62,8 @@ public class ReportingPluginsTypeImpl extends EObjectImpl implements ReportingPl
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.REPORTING_PLUGINS_TYPE__PLUGIN:
 			return getPlugin();
 		}
@@ -81,12 +76,10 @@ public class ReportingPluginsTypeImpl extends EObjectImpl implements ReportingPl
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch(featureID)
-		{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
 		case PomPackage.REPORTING_PLUGINS_TYPE__PLUGIN:
-			return ((InternalEList<?>)getPlugin()).basicRemove(otherEnd, msgs);
+			return ((InternalEList<?>) getPlugin()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -97,10 +90,8 @@ public class ReportingPluginsTypeImpl extends EObjectImpl implements ReportingPl
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.REPORTING_PLUGINS_TYPE__PLUGIN:
 			return plugin != null && !plugin.isEmpty();
 		}
@@ -114,13 +105,11 @@ public class ReportingPluginsTypeImpl extends EObjectImpl implements ReportingPl
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.REPORTING_PLUGINS_TYPE__PLUGIN:
 			getPlugin().clear();
-			getPlugin().addAll((Collection<? extends ReportPlugin>)newValue);
+			getPlugin().addAll((Collection<? extends ReportPlugin>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -132,10 +121,8 @@ public class ReportingPluginsTypeImpl extends EObjectImpl implements ReportingPl
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.REPORTING_PLUGINS_TYPE__PLUGIN:
 			getPlugin().clear();
 			return;
@@ -148,10 +135,8 @@ public class ReportingPluginsTypeImpl extends EObjectImpl implements ReportingPl
 	 * 
 	 * @generated
 	 */
-	public EList<ReportPlugin> getPlugin()
-	{
-		if(plugin == null)
-		{
+	public EList<ReportPlugin> getPlugin() {
+		if(plugin == null) {
 			plugin = new EObjectContainmentEList<ReportPlugin>(ReportPlugin.class, this,
 					PomPackage.REPORTING_PLUGINS_TYPE__PLUGIN);
 		}
@@ -164,8 +149,7 @@ public class ReportingPluginsTypeImpl extends EObjectImpl implements ReportingPl
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.REPORTING_PLUGINS_TYPE;
 	}
 

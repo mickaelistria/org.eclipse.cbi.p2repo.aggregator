@@ -31,8 +31,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='ActivationOS' kind='elementOnly'"
  * @generated
  */
-public interface ActivationOS extends EObject
-{
+public interface ActivationOS extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Arch</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
 	 * begin-model-doc --> 4.0.0 The architecture of the operating system to be used to activate the profile. <!--

@@ -25,8 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='Exclusion' kind='elementOnly'"
  * @generated
  */
-public interface Exclusion extends EObject
-{
+public interface Exclusion extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Artifact Id</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * <!-- begin-model-doc --> 4.0.0 The artifact ID of the project to exclude. <!-- end-model-doc -->

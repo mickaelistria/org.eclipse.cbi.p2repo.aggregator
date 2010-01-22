@@ -26,19 +26,16 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <ul>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.MailingListImpl#getName <em>Name</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.MailingListImpl#getSubscribe <em>Subscribe</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.MailingListImpl#getUnsubscribe <em>Unsubscribe
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.MailingListImpl#getUnsubscribe <em>Unsubscribe </em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.MailingListImpl#getPost <em>Post</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.MailingListImpl#getArchive <em>Archive</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.MailingListImpl#getOtherArchives <em>Other
- * Archives</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.MailingListImpl#getOtherArchives <em>Other Archives</em>}</li>
  * </ul>
  * </p>
  * 
  * @generated
  */
-public class MailingListImpl extends EObjectImpl implements MailingList
-{
+public class MailingListImpl extends EObjectImpl implements MailingList {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
@@ -154,8 +151,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList
 	 * 
 	 * @generated
 	 */
-	protected MailingListImpl()
-	{
+	protected MailingListImpl() {
 		super();
 	}
 
@@ -164,12 +160,10 @@ public class MailingListImpl extends EObjectImpl implements MailingList
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetOtherArchives(OtherArchivesType newOtherArchives, NotificationChain msgs)
-	{
+	public NotificationChain basicSetOtherArchives(OtherArchivesType newOtherArchives, NotificationChain msgs) {
 		OtherArchivesType oldOtherArchives = otherArchives;
 		otherArchives = newOtherArchives;
-		if(eNotificationRequired())
-		{
+		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					PomPackage.MAILING_LIST__OTHER_ARCHIVES, oldOtherArchives, newOtherArchives);
 			if(msgs == null)
@@ -186,10 +180,8 @@ public class MailingListImpl extends EObjectImpl implements MailingList
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.MAILING_LIST__NAME:
 			return getName();
 		case PomPackage.MAILING_LIST__SUBSCRIBE:
@@ -212,10 +204,8 @@ public class MailingListImpl extends EObjectImpl implements MailingList
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch(featureID)
-		{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
 		case PomPackage.MAILING_LIST__OTHER_ARCHIVES:
 			return basicSetOtherArchives(null, msgs);
 		}
@@ -228,10 +218,8 @@ public class MailingListImpl extends EObjectImpl implements MailingList
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.MAILING_LIST__NAME:
 			return NAME_EDEFAULT == null
 					? name != null
@@ -264,27 +252,25 @@ public class MailingListImpl extends EObjectImpl implements MailingList
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.MAILING_LIST__NAME:
-			setName((String)newValue);
+			setName((String) newValue);
 			return;
 		case PomPackage.MAILING_LIST__SUBSCRIBE:
-			setSubscribe((String)newValue);
+			setSubscribe((String) newValue);
 			return;
 		case PomPackage.MAILING_LIST__UNSUBSCRIBE:
-			setUnsubscribe((String)newValue);
+			setUnsubscribe((String) newValue);
 			return;
 		case PomPackage.MAILING_LIST__POST:
-			setPost((String)newValue);
+			setPost((String) newValue);
 			return;
 		case PomPackage.MAILING_LIST__ARCHIVE:
-			setArchive((String)newValue);
+			setArchive((String) newValue);
 			return;
 		case PomPackage.MAILING_LIST__OTHER_ARCHIVES:
-			setOtherArchives((OtherArchivesType)newValue);
+			setOtherArchives((OtherArchivesType) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -296,10 +282,8 @@ public class MailingListImpl extends EObjectImpl implements MailingList
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.MAILING_LIST__NAME:
 			setName(NAME_EDEFAULT);
 			return;
@@ -316,7 +300,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList
 			setArchive(ARCHIVE_EDEFAULT);
 			return;
 		case PomPackage.MAILING_LIST__OTHER_ARCHIVES:
-			setOtherArchives((OtherArchivesType)null);
+			setOtherArchives((OtherArchivesType) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -327,8 +311,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList
 	 * 
 	 * @generated
 	 */
-	public String getArchive()
-	{
+	public String getArchive() {
 		return archive;
 	}
 
@@ -337,8 +320,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList
 	 * 
 	 * @generated
 	 */
-	public String getName()
-	{
+	public String getName() {
 		return name;
 	}
 
@@ -347,8 +329,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList
 	 * 
 	 * @generated
 	 */
-	public OtherArchivesType getOtherArchives()
-	{
+	public OtherArchivesType getOtherArchives() {
 		return otherArchives;
 	}
 
@@ -357,8 +338,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList
 	 * 
 	 * @generated
 	 */
-	public String getPost()
-	{
+	public String getPost() {
 		return post;
 	}
 
@@ -367,8 +347,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList
 	 * 
 	 * @generated
 	 */
-	public String getSubscribe()
-	{
+	public String getSubscribe() {
 		return subscribe;
 	}
 
@@ -377,8 +356,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList
 	 * 
 	 * @generated
 	 */
-	public String getUnsubscribe()
-	{
+	public String getUnsubscribe() {
 		return unsubscribe;
 	}
 
@@ -387,8 +365,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList
 	 * 
 	 * @generated
 	 */
-	public void setArchive(String newArchive)
-	{
+	public void setArchive(String newArchive) {
 		String oldArchive = archive;
 		archive = newArchive;
 		if(eNotificationRequired())
@@ -400,8 +377,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList
 	 * 
 	 * @generated
 	 */
-	public void setName(String newName)
-	{
+	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
 		if(eNotificationRequired())
@@ -413,16 +389,14 @@ public class MailingListImpl extends EObjectImpl implements MailingList
 	 * 
 	 * @generated
 	 */
-	public void setOtherArchives(OtherArchivesType newOtherArchives)
-	{
-		if(newOtherArchives != otherArchives)
-		{
+	public void setOtherArchives(OtherArchivesType newOtherArchives) {
+		if(newOtherArchives != otherArchives) {
 			NotificationChain msgs = null;
 			if(otherArchives != null)
-				msgs = ((InternalEObject)otherArchives).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) otherArchives).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.MAILING_LIST__OTHER_ARCHIVES, null, msgs);
 			if(newOtherArchives != null)
-				msgs = ((InternalEObject)newOtherArchives).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) newOtherArchives).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.MAILING_LIST__OTHER_ARCHIVES, null, msgs);
 			msgs = basicSetOtherArchives(newOtherArchives, msgs);
 			if(msgs != null)
@@ -438,8 +412,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList
 	 * 
 	 * @generated
 	 */
-	public void setPost(String newPost)
-	{
+	public void setPost(String newPost) {
 		String oldPost = post;
 		post = newPost;
 		if(eNotificationRequired())
@@ -451,8 +424,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList
 	 * 
 	 * @generated
 	 */
-	public void setSubscribe(String newSubscribe)
-	{
+	public void setSubscribe(String newSubscribe) {
 		String oldSubscribe = subscribe;
 		subscribe = newSubscribe;
 		if(eNotificationRequired())
@@ -465,8 +437,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList
 	 * 
 	 * @generated
 	 */
-	public void setUnsubscribe(String newUnsubscribe)
-	{
+	public void setUnsubscribe(String newUnsubscribe) {
 		String oldUnsubscribe = unsubscribe;
 		unsubscribe = newUnsubscribe;
 		if(eNotificationRequired())
@@ -480,8 +451,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
@@ -506,8 +476,7 @@ public class MailingListImpl extends EObjectImpl implements MailingList
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.MAILING_LIST;
 	}
 

@@ -27,8 +27,7 @@ import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
  * 
  * @generated
  */
-public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
-{
+public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -77,13 +76,12 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 	 * @see #initializePackageContents()
 	 * @generated
 	 */
-	public static MetadataPackage init()
-	{
+	public static MetadataPackage init() {
 		if(isInited)
-			return (MetadataPackage)EPackage.Registry.INSTANCE.getEPackage(MetadataPackage.eNS_URI);
+			return (MetadataPackage) EPackage.Registry.INSTANCE.getEPackage(MetadataPackage.eNS_URI);
 
 		// Obtain or create and register package
-		MetadataPackageImpl theMetadataPackage = (MetadataPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof MetadataPackageImpl
+		MetadataPackageImpl theMetadataPackage = (MetadataPackageImpl) (EPackage.Registry.INSTANCE.get(eNS_URI) instanceof MetadataPackageImpl
 				? EPackage.Registry.INSTANCE.get(eNS_URI)
 				: new MetadataPackageImpl());
 
@@ -133,8 +131,7 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 	 * @see #init()
 	 * @generated
 	 */
-	private MetadataPackageImpl()
-	{
+	private MetadataPackageImpl() {
 		super(eNS_URI, MetadataFactory.eINSTANCE);
 	}
 
@@ -144,8 +141,7 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 	 * 
 	 * @generated
 	 */
-	public void createPackageContents()
-	{
+	public void createPackageContents() {
 		if(isCreated)
 			return;
 		isCreated = true;
@@ -177,8 +173,7 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getDocumentRoot()
-	{
+	public EClass getDocumentRoot() {
 		return documentRootEClass;
 	}
 
@@ -187,9 +182,8 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getDocumentRoot_Metadata()
-	{
-		return (EReference)documentRootEClass.getEStructuralFeatures().get(3);
+	public EReference getDocumentRoot_Metadata() {
+		return (EReference) documentRootEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -197,9 +191,8 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getDocumentRoot_Mixed()
-	{
-		return (EAttribute)documentRootEClass.getEStructuralFeatures().get(0);
+	public EAttribute getDocumentRoot_Mixed() {
+		return (EAttribute) documentRootEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -207,9 +200,8 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getDocumentRoot_XMLNSPrefixMap()
-	{
-		return (EReference)documentRootEClass.getEStructuralFeatures().get(1);
+	public EReference getDocumentRoot_XMLNSPrefixMap() {
+		return (EReference) documentRootEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -217,9 +209,8 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getDocumentRoot_XSISchemaLocation()
-	{
-		return (EReference)documentRootEClass.getEStructuralFeatures().get(2);
+	public EReference getDocumentRoot_XSISchemaLocation() {
+		return (EReference) documentRootEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -227,8 +218,7 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getMetaData()
-	{
+	public EClass getMetaData() {
 		return metaDataEClass;
 	}
 
@@ -237,9 +227,8 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getMetaData_ArtifactId()
-	{
-		return (EAttribute)metaDataEClass.getEStructuralFeatures().get(1);
+	public EAttribute getMetaData_ArtifactId() {
+		return (EAttribute) metaDataEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -247,9 +236,8 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getMetaData_GroupId()
-	{
-		return (EAttribute)metaDataEClass.getEStructuralFeatures().get(0);
+	public EAttribute getMetaData_GroupId() {
+		return (EAttribute) metaDataEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -257,9 +245,8 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getMetaData_Version()
-	{
-		return (EAttribute)metaDataEClass.getEStructuralFeatures().get(2);
+	public EAttribute getMetaData_Version() {
+		return (EAttribute) metaDataEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -267,9 +254,8 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getMetaData_Versioning()
-	{
-		return (EReference)metaDataEClass.getEStructuralFeatures().get(3);
+	public EReference getMetaData_Versioning() {
+		return (EReference) metaDataEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -277,9 +263,8 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 	 * 
 	 * @generated
 	 */
-	public MetadataFactory getMetadataFactory()
-	{
-		return (MetadataFactory)getEFactoryInstance();
+	public MetadataFactory getMetadataFactory() {
+		return (MetadataFactory) getEFactoryInstance();
 	}
 
 	/**
@@ -287,8 +272,7 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getVersioning()
-	{
+	public EClass getVersioning() {
 		return versioningEClass;
 	}
 
@@ -297,9 +281,8 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getVersioning_LastUpdated()
-	{
-		return (EAttribute)versioningEClass.getEStructuralFeatures().get(2);
+	public EAttribute getVersioning_LastUpdated() {
+		return (EAttribute) versioningEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -307,9 +290,8 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getVersioning_Release()
-	{
-		return (EAttribute)versioningEClass.getEStructuralFeatures().get(0);
+	public EAttribute getVersioning_Release() {
+		return (EAttribute) versioningEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -317,9 +299,8 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 	 * 
 	 * @generated
 	 */
-	public EReference getVersioning_Versions()
-	{
-		return (EReference)versioningEClass.getEStructuralFeatures().get(1);
+	public EReference getVersioning_Versions() {
+		return (EReference) versioningEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -327,8 +308,7 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 	 * 
 	 * @generated
 	 */
-	public EClass getVersions()
-	{
+	public EClass getVersions() {
 		return versionsEClass;
 	}
 
@@ -337,9 +317,8 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 	 * 
 	 * @generated
 	 */
-	public EAttribute getVersions_Version()
-	{
-		return (EAttribute)versionsEClass.getEStructuralFeatures().get(0);
+	public EAttribute getVersions_Version() {
+		return (EAttribute) versionsEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -348,8 +327,7 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 	 * 
 	 * @generated
 	 */
-	public void initializePackageContents()
-	{
+	public void initializePackageContents() {
 		if(isInitialized)
 			return;
 		isInitialized = true;
@@ -360,7 +338,7 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		XMLTypePackage theXMLTypePackage = (XMLTypePackage)EPackage.Registry.INSTANCE.getEPackage(XMLTypePackage.eNS_URI);
+		XMLTypePackage theXMLTypePackage = (XMLTypePackage) EPackage.Registry.INSTANCE.getEPackage(XMLTypePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -424,8 +402,7 @@ public class MetadataPackageImpl extends EPackageImpl implements MetadataPackage
 	 * 
 	 * @generated
 	 */
-	protected void createExtendedMetaDataAnnotations()
-	{
+	protected void createExtendedMetaDataAnnotations() {
 		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";
 		addAnnotation(documentRootEClass, source, new String[] { "name", "", "kind", "mixed" });
 		addAnnotation(getDocumentRoot_Mixed(), source, new String[] { "kind", "elementWildcard", "name", ":mixed" });

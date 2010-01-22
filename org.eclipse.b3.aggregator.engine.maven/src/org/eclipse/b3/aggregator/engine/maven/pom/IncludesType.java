@@ -24,8 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='includes_._type' kind='elementOnly'"
  * @generated
  */
-public interface IncludesType extends EObject
-{
+public interface IncludesType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Include</b></em>' attribute list. The list contents are of type
 	 * {@link java.lang.String}. <!-- begin-user-doc -->

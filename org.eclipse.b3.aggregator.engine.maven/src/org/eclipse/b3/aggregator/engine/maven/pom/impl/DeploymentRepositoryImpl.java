@@ -22,20 +22,18 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DeploymentRepositoryImpl#isUniqueVersion <em>
- * Unique Version</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DeploymentRepositoryImpl#isUniqueVersion <em> Unique
+ * Version</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DeploymentRepositoryImpl#getId <em>Id</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DeploymentRepositoryImpl#getName <em>Name</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DeploymentRepositoryImpl#getUrl <em>Url</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DeploymentRepositoryImpl#getLayout <em>Layout
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DeploymentRepositoryImpl#getLayout <em>Layout </em>}</li>
  * </ul>
  * </p>
  * 
  * @generated
  */
-public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentRepository
-{
+public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentRepository {
 	/**
 	 * The default value of the '{@link #isUniqueVersion() <em>Unique Version</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -154,8 +152,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	 * 
 	 * @generated
 	 */
-	protected DeploymentRepositoryImpl()
-	{
+	protected DeploymentRepositoryImpl() {
 		super();
 	}
 
@@ -165,10 +162,8 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.DEPLOYMENT_REPOSITORY__UNIQUE_VERSION:
 			return isUniqueVersion();
 		case PomPackage.DEPLOYMENT_REPOSITORY__ID:
@@ -189,10 +184,8 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.DEPLOYMENT_REPOSITORY__UNIQUE_VERSION:
 			return isSetUniqueVersion();
 		case PomPackage.DEPLOYMENT_REPOSITORY__ID:
@@ -219,24 +212,22 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.DEPLOYMENT_REPOSITORY__UNIQUE_VERSION:
-			setUniqueVersion((Boolean)newValue);
+			setUniqueVersion((Boolean) newValue);
 			return;
 		case PomPackage.DEPLOYMENT_REPOSITORY__ID:
-			setId((String)newValue);
+			setId((String) newValue);
 			return;
 		case PomPackage.DEPLOYMENT_REPOSITORY__NAME:
-			setName((String)newValue);
+			setName((String) newValue);
 			return;
 		case PomPackage.DEPLOYMENT_REPOSITORY__URL:
-			setUrl((String)newValue);
+			setUrl((String) newValue);
 			return;
 		case PomPackage.DEPLOYMENT_REPOSITORY__LAYOUT:
-			setLayout((String)newValue);
+			setLayout((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -248,10 +239,8 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.DEPLOYMENT_REPOSITORY__UNIQUE_VERSION:
 			unsetUniqueVersion();
 			return;
@@ -276,8 +265,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	 * 
 	 * @generated
 	 */
-	public String getId()
-	{
+	public String getId() {
 		return id;
 	}
 
@@ -286,8 +274,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	 * 
 	 * @generated
 	 */
-	public String getLayout()
-	{
+	public String getLayout() {
 		return layout;
 	}
 
@@ -296,8 +283,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	 * 
 	 * @generated
 	 */
-	public String getName()
-	{
+	public String getName() {
 		return name;
 	}
 
@@ -306,8 +292,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	 * 
 	 * @generated
 	 */
-	public String getUrl()
-	{
+	public String getUrl() {
 		return url;
 	}
 
@@ -316,8 +301,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	 * 
 	 * @generated
 	 */
-	public boolean isSetLayout()
-	{
+	public boolean isSetLayout() {
 		return layoutESet;
 	}
 
@@ -326,8 +310,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	 * 
 	 * @generated
 	 */
-	public boolean isSetUniqueVersion()
-	{
+	public boolean isSetUniqueVersion() {
 		return uniqueVersionESet;
 	}
 
@@ -336,8 +319,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	 * 
 	 * @generated
 	 */
-	public boolean isUniqueVersion()
-	{
+	public boolean isUniqueVersion() {
 		return uniqueVersion;
 	}
 
@@ -346,8 +328,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	 * 
 	 * @generated
 	 */
-	public void setId(String newId)
-	{
+	public void setId(String newId) {
 		String oldId = id;
 		id = newId;
 		if(eNotificationRequired())
@@ -359,8 +340,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	 * 
 	 * @generated
 	 */
-	public void setLayout(String newLayout)
-	{
+	public void setLayout(String newLayout) {
 		String oldLayout = layout;
 		layout = newLayout;
 		boolean oldLayoutESet = layoutESet;
@@ -375,8 +355,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	 * 
 	 * @generated
 	 */
-	public void setName(String newName)
-	{
+	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
 		if(eNotificationRequired())
@@ -388,8 +367,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	 * 
 	 * @generated
 	 */
-	public void setUniqueVersion(boolean newUniqueVersion)
-	{
+	public void setUniqueVersion(boolean newUniqueVersion) {
 		boolean oldUniqueVersion = uniqueVersion;
 		uniqueVersion = newUniqueVersion;
 		boolean oldUniqueVersionESet = uniqueVersionESet;
@@ -404,8 +382,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	 * 
 	 * @generated
 	 */
-	public void setUrl(String newUrl)
-	{
+	public void setUrl(String newUrl) {
 		String oldUrl = url;
 		url = newUrl;
 		if(eNotificationRequired())
@@ -418,8 +395,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
@@ -449,8 +425,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	 * 
 	 * @generated
 	 */
-	public void unsetLayout()
-	{
+	public void unsetLayout() {
 		String oldLayout = layout;
 		boolean oldLayoutESet = layoutESet;
 		layout = LAYOUT_EDEFAULT;
@@ -465,8 +440,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	 * 
 	 * @generated
 	 */
-	public void unsetUniqueVersion()
-	{
+	public void unsetUniqueVersion() {
 		boolean oldUniqueVersion = uniqueVersion;
 		boolean oldUniqueVersionESet = uniqueVersionESet;
 		uniqueVersion = UNIQUE_VERSION_EDEFAULT;
@@ -482,8 +456,7 @@ public class DeploymentRepositoryImpl extends EObjectImpl implements DeploymentR
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.DEPLOYMENT_REPOSITORY;
 	}
 

@@ -24,8 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='extensions_._type' kind='elementOnly'"
  * @generated
  */
-public interface ExtensionsType extends EObject
-{
+public interface ExtensionsType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Extension</b></em>' containment reference list. The list contents are of type
 	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Extension}. <!-- begin-user-doc -->

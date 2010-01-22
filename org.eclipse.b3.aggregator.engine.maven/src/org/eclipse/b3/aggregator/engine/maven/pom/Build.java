@@ -17,13 +17,11 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Build#getSourceDirectory <em>Source Directory</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Build#getScriptSourceDirectory <em>Script Source
- * Directory</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Build#getTestSourceDirectory <em>Test Source Directory
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Build#getScriptSourceDirectory <em>Script Source Directory
  * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Build#getTestSourceDirectory <em>Test Source Directory </em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Build#getOutputDirectory <em>Output Directory</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Build#getTestOutputDirectory <em>Test Output Directory
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Build#getTestOutputDirectory <em>Test Output Directory </em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Build#getExtensions <em>Extensions</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Build#getDefaultGoal <em>Default Goal</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Build#getResources <em>Resources</em>}</li>
@@ -40,8 +38,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='Build' kind='elementOnly'"
  * @generated
  */
-public interface Build extends EObject
-{
+public interface Build extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Default Goal</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * <!-- begin-model-doc --> 3.0.0+

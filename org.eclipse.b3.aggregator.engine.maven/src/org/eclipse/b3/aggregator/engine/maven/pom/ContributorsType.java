@@ -25,8 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='contributors_._type' kind='elementOnly'"
  * @generated
  */
-public interface ContributorsType extends EObject
-{
+public interface ContributorsType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Contributor</b></em>' containment reference list. The list contents are of type
 	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Contributor}. <!-- begin-user-doc -->

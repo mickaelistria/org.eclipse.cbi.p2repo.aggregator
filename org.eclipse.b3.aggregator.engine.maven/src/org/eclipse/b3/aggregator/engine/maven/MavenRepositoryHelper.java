@@ -11,25 +11,21 @@ package org.eclipse.b3.aggregator.engine.maven;
  * @author Filip Hrbek (filip.hrbek@cloudsmith.com)
  * 
  */
-public class MavenRepositoryHelper
-{
+public class MavenRepositoryHelper {
 	private String[][] m_mappingRules;
 
 	private InstallableUnitMapping m_top;
 
-	public MavenRepositoryHelper(InstallableUnitMapping top, String[][] mappingRules)
-	{
+	public MavenRepositoryHelper(InstallableUnitMapping top, String[][] mappingRules) {
 		m_top = top;
 		m_mappingRules = mappingRules;
 	}
 
-	public String[][] getMappingRules()
-	{
+	public String[][] getMappingRules() {
 		return m_mappingRules;
 	}
 
-	public InstallableUnitMapping getTop()
-	{
+	public InstallableUnitMapping getTop() {
 		return m_top;
 	}
 }

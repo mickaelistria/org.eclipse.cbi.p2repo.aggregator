@@ -24,15 +24,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ParentImpl#getArtifactId <em>Artifact Id</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ParentImpl#getGroupId <em>Group Id</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ParentImpl#getVersion <em>Version</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ParentImpl#getRelativePath <em>Relative Path
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ParentImpl#getRelativePath <em>Relative Path </em>}</li>
  * </ul>
  * </p>
  * 
  * @generated
  */
-public class ParentImpl extends EObjectImpl implements Parent
-{
+public class ParentImpl extends EObjectImpl implements Parent {
 	/**
 	 * The default value of the '{@link #getArtifactId() <em>Artifact Id</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -126,8 +124,7 @@ public class ParentImpl extends EObjectImpl implements Parent
 	 * 
 	 * @generated
 	 */
-	protected ParentImpl()
-	{
+	protected ParentImpl() {
 		super();
 	}
 
@@ -137,10 +134,8 @@ public class ParentImpl extends EObjectImpl implements Parent
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.PARENT__ARTIFACT_ID:
 			return getArtifactId();
 		case PomPackage.PARENT__GROUP_ID:
@@ -159,10 +154,8 @@ public class ParentImpl extends EObjectImpl implements Parent
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.PARENT__ARTIFACT_ID:
 			return ARTIFACT_ID_EDEFAULT == null
 					? artifactId != null
@@ -187,21 +180,19 @@ public class ParentImpl extends EObjectImpl implements Parent
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.PARENT__ARTIFACT_ID:
-			setArtifactId((String)newValue);
+			setArtifactId((String) newValue);
 			return;
 		case PomPackage.PARENT__GROUP_ID:
-			setGroupId((String)newValue);
+			setGroupId((String) newValue);
 			return;
 		case PomPackage.PARENT__VERSION:
-			setVersion((String)newValue);
+			setVersion((String) newValue);
 			return;
 		case PomPackage.PARENT__RELATIVE_PATH:
-			setRelativePath((String)newValue);
+			setRelativePath((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -213,10 +204,8 @@ public class ParentImpl extends EObjectImpl implements Parent
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.PARENT__ARTIFACT_ID:
 			setArtifactId(ARTIFACT_ID_EDEFAULT);
 			return;
@@ -238,8 +227,7 @@ public class ParentImpl extends EObjectImpl implements Parent
 	 * 
 	 * @generated
 	 */
-	public String getArtifactId()
-	{
+	public String getArtifactId() {
 		return artifactId;
 	}
 
@@ -248,8 +236,7 @@ public class ParentImpl extends EObjectImpl implements Parent
 	 * 
 	 * @generated
 	 */
-	public String getGroupId()
-	{
+	public String getGroupId() {
 		return groupId;
 	}
 
@@ -258,8 +245,7 @@ public class ParentImpl extends EObjectImpl implements Parent
 	 * 
 	 * @generated
 	 */
-	public String getRelativePath()
-	{
+	public String getRelativePath() {
 		return relativePath;
 	}
 
@@ -268,8 +254,7 @@ public class ParentImpl extends EObjectImpl implements Parent
 	 * 
 	 * @generated
 	 */
-	public String getVersion()
-	{
+	public String getVersion() {
 		return version;
 	}
 
@@ -278,8 +263,7 @@ public class ParentImpl extends EObjectImpl implements Parent
 	 * 
 	 * @generated
 	 */
-	public boolean isSetRelativePath()
-	{
+	public boolean isSetRelativePath() {
 		return relativePathESet;
 	}
 
@@ -288,8 +272,7 @@ public class ParentImpl extends EObjectImpl implements Parent
 	 * 
 	 * @generated
 	 */
-	public void setArtifactId(String newArtifactId)
-	{
+	public void setArtifactId(String newArtifactId) {
 		String oldArtifactId = artifactId;
 		artifactId = newArtifactId;
 		if(eNotificationRequired())
@@ -302,8 +285,7 @@ public class ParentImpl extends EObjectImpl implements Parent
 	 * 
 	 * @generated
 	 */
-	public void setGroupId(String newGroupId)
-	{
+	public void setGroupId(String newGroupId) {
 		String oldGroupId = groupId;
 		groupId = newGroupId;
 		if(eNotificationRequired())
@@ -315,8 +297,7 @@ public class ParentImpl extends EObjectImpl implements Parent
 	 * 
 	 * @generated
 	 */
-	public void setRelativePath(String newRelativePath)
-	{
+	public void setRelativePath(String newRelativePath) {
 		String oldRelativePath = relativePath;
 		relativePath = newRelativePath;
 		boolean oldRelativePathESet = relativePathESet;
@@ -331,8 +312,7 @@ public class ParentImpl extends EObjectImpl implements Parent
 	 * 
 	 * @generated
 	 */
-	public void setVersion(String newVersion)
-	{
+	public void setVersion(String newVersion) {
 		String oldVersion = version;
 		version = newVersion;
 		if(eNotificationRequired())
@@ -345,8 +325,7 @@ public class ParentImpl extends EObjectImpl implements Parent
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
@@ -371,8 +350,7 @@ public class ParentImpl extends EObjectImpl implements Parent
 	 * 
 	 * @generated
 	 */
-	public void unsetRelativePath()
-	{
+	public void unsetRelativePath() {
 		String oldRelativePath = relativePath;
 		boolean oldRelativePathESet = relativePathESet;
 		relativePath = RELATIVE_PATH_EDEFAULT;
@@ -388,8 +366,7 @@ public class ParentImpl extends EObjectImpl implements Parent
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.PARENT;
 	}
 

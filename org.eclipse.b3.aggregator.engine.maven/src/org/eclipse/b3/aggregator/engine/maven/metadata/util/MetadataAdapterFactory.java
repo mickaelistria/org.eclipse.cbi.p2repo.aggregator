@@ -22,8 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * @see org.eclipse.b3.aggregator.engine.maven.metadata.MetadataPackage
  * @generated
  */
-public class MetadataAdapterFactory extends AdapterFactoryImpl
-{
+public class MetadataAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * The cached model package. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -36,35 +35,29 @@ public class MetadataAdapterFactory extends AdapterFactoryImpl
 	 * 
 	 * @generated
 	 */
-	protected MetadataSwitch<Adapter> modelSwitch = new MetadataSwitch<Adapter>()
-	{
+	protected MetadataSwitch<Adapter> modelSwitch = new MetadataSwitch<Adapter>() {
 		@Override
-		public Adapter caseDocumentRoot(DocumentRoot object)
-		{
+		public Adapter caseDocumentRoot(DocumentRoot object) {
 			return createDocumentRootAdapter();
 		}
 
 		@Override
-		public Adapter caseMetaData(MetaData object)
-		{
+		public Adapter caseMetaData(MetaData object) {
 			return createMetaDataAdapter();
 		}
 
 		@Override
-		public Adapter caseVersioning(Versioning object)
-		{
+		public Adapter caseVersioning(Versioning object) {
 			return createVersioningAdapter();
 		}
 
 		@Override
-		public Adapter caseVersions(Versions object)
-		{
+		public Adapter caseVersions(Versions object) {
 			return createVersionsAdapter();
 		}
 
 		@Override
-		public Adapter defaultCase(EObject object)
-		{
+		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
 	};
@@ -74,10 +67,8 @@ public class MetadataAdapterFactory extends AdapterFactoryImpl
 	 * 
 	 * @generated
 	 */
-	public MetadataAdapterFactory()
-	{
-		if(modelPackage == null)
-		{
+	public MetadataAdapterFactory() {
+		if(modelPackage == null) {
 			modelPackage = MetadataPackage.eINSTANCE;
 		}
 	}
@@ -91,9 +82,8 @@ public class MetadataAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	@Override
-	public Adapter createAdapter(Notifier target)
-	{
-		return modelSwitch.doSwitch((EObject)target);
+	public Adapter createAdapter(Notifier target) {
+		return modelSwitch.doSwitch((EObject) target);
 	}
 
 	/**
@@ -106,8 +96,7 @@ public class MetadataAdapterFactory extends AdapterFactoryImpl
 	 * @see org.eclipse.b3.aggregator.engine.maven.metadata.DocumentRoot
 	 * @generated
 	 */
-	public Adapter createDocumentRootAdapter()
-	{
+	public Adapter createDocumentRootAdapter() {
 		return null;
 	}
 
@@ -118,14 +107,13 @@ public class MetadataAdapterFactory extends AdapterFactoryImpl
 	 * @return the new adapter.
 	 * @generated
 	 */
-	public Adapter createEObjectAdapter()
-	{
+	public Adapter createEObjectAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.metadata.MetaData <em>Meta Data</em>}'. <!--
+	 * Creates a new adapter for an object of class ' {@link org.eclipse.b3.aggregator.engine.maven.metadata.MetaData
+	 * <em>Meta Data</em>}'. <!--
 	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
 	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
 	 * 
@@ -133,14 +121,13 @@ public class MetadataAdapterFactory extends AdapterFactoryImpl
 	 * @see org.eclipse.b3.aggregator.engine.maven.metadata.MetaData
 	 * @generated
 	 */
-	public Adapter createMetaDataAdapter()
-	{
+	public Adapter createMetaDataAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.metadata.Versioning <em>Versioning</em>}'. <!--
+	 * Creates a new adapter for an object of class ' {@link org.eclipse.b3.aggregator.engine.maven.metadata.Versioning
+	 * <em>Versioning</em>}'. <!--
 	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
 	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
 	 * 
@@ -148,14 +135,13 @@ public class MetadataAdapterFactory extends AdapterFactoryImpl
 	 * @see org.eclipse.b3.aggregator.engine.maven.metadata.Versioning
 	 * @generated
 	 */
-	public Adapter createVersioningAdapter()
-	{
+	public Adapter createVersioningAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.metadata.Versions <em>Versions</em>}'. <!-- begin-user-doc
+	 * Creates a new adapter for an object of class ' {@link org.eclipse.b3.aggregator.engine.maven.metadata.Versions
+	 * <em>Versions</em>}'. <!-- begin-user-doc
 	 * --> This default implementation returns null so that we can easily ignore cases; it's useful to ignore a case
 	 * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
 	 * 
@@ -163,8 +149,7 @@ public class MetadataAdapterFactory extends AdapterFactoryImpl
 	 * @see org.eclipse.b3.aggregator.engine.maven.metadata.Versions
 	 * @generated
 	 */
-	public Adapter createVersionsAdapter()
-	{
+	public Adapter createVersionsAdapter() {
 		return null;
 	}
 
@@ -177,15 +162,12 @@ public class MetadataAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	@Override
-	public boolean isFactoryForType(Object object)
-	{
-		if(object == modelPackage)
-		{
+	public boolean isFactoryForType(Object object) {
+		if(object == modelPackage) {
 			return true;
 		}
-		if(object instanceof EObject)
-		{
-			return ((EObject)object).eClass().getEPackage() == modelPackage;
+		if(object instanceof EObject) {
+			return ((EObject) object).eClass().getEPackage() == modelPackage;
 		}
 		return false;
 	}

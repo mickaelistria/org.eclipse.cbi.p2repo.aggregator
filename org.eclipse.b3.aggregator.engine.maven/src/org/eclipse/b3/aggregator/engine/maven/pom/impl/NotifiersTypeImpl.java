@@ -35,8 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * 
  * @generated
  */
-public class NotifiersTypeImpl extends EObjectImpl implements NotifiersType
-{
+public class NotifiersTypeImpl extends EObjectImpl implements NotifiersType {
 	/**
 	 * The cached value of the '{@link #getNotifier() <em>Notifier</em>}' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -52,8 +51,7 @@ public class NotifiersTypeImpl extends EObjectImpl implements NotifiersType
 	 * 
 	 * @generated
 	 */
-	protected NotifiersTypeImpl()
-	{
+	protected NotifiersTypeImpl() {
 		super();
 	}
 
@@ -63,10 +61,8 @@ public class NotifiersTypeImpl extends EObjectImpl implements NotifiersType
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.NOTIFIERS_TYPE__NOTIFIER:
 			return getNotifier();
 		}
@@ -79,12 +75,10 @@ public class NotifiersTypeImpl extends EObjectImpl implements NotifiersType
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch(featureID)
-		{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
 		case PomPackage.NOTIFIERS_TYPE__NOTIFIER:
-			return ((InternalEList<?>)getNotifier()).basicRemove(otherEnd, msgs);
+			return ((InternalEList<?>) getNotifier()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -95,10 +89,8 @@ public class NotifiersTypeImpl extends EObjectImpl implements NotifiersType
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.NOTIFIERS_TYPE__NOTIFIER:
 			return notifier != null && !notifier.isEmpty();
 		}
@@ -112,13 +104,11 @@ public class NotifiersTypeImpl extends EObjectImpl implements NotifiersType
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.NOTIFIERS_TYPE__NOTIFIER:
 			getNotifier().clear();
-			getNotifier().addAll((Collection<? extends Notifier>)newValue);
+			getNotifier().addAll((Collection<? extends Notifier>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -130,10 +120,8 @@ public class NotifiersTypeImpl extends EObjectImpl implements NotifiersType
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.NOTIFIERS_TYPE__NOTIFIER:
 			getNotifier().clear();
 			return;
@@ -146,10 +134,8 @@ public class NotifiersTypeImpl extends EObjectImpl implements NotifiersType
 	 * 
 	 * @generated
 	 */
-	public EList<Notifier> getNotifier()
-	{
-		if(notifier == null)
-		{
+	public EList<Notifier> getNotifier() {
+		if(notifier == null) {
 			notifier = new EObjectContainmentEList<Notifier>(Notifier.class, this, PomPackage.NOTIFIERS_TYPE__NOTIFIER);
 		}
 		return notifier;
@@ -161,8 +147,7 @@ public class NotifiersTypeImpl extends EObjectImpl implements NotifiersType
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.NOTIFIERS_TYPE;
 	}
 

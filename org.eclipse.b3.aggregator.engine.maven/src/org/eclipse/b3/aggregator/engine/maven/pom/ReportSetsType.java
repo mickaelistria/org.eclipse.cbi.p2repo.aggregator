@@ -25,8 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='reportSets_._type' kind='elementOnly'"
  * @generated
  */
-public interface ReportSetsType extends EObject
-{
+public interface ReportSetsType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Report Set</b></em>' containment reference list. The list contents are of type
 	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.ReportSet}. <!-- begin-user-doc -->

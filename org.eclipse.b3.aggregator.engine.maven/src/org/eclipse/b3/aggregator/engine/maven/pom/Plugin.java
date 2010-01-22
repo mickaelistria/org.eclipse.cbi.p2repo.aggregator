@@ -32,8 +32,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='Plugin' kind='elementOnly'"
  * @generated
  */
-public interface Plugin extends EObject
-{
+public interface Plugin extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Artifact Id</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * <!-- begin-model-doc --> 4.0.0 The artifact ID of the plugin in the repository. <!-- end-model-doc -->
@@ -245,8 +244,8 @@ public interface Plugin extends EObject
 	void setExtensions(boolean value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.engine.maven.pom.Plugin#getGoals <em>Goals</em>}
-	 * ' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.engine.maven.pom.Plugin#getGoals <em>Goals</em>} '
+	 * containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
 	 *            the new value of the '<em>Goals</em>' containment reference.

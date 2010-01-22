@@ -24,18 +24,17 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ReportingImpl#isExcludeDefaults <em>Exclude
- * Defaults</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ReportingImpl#getOutputDirectory <em>Output
- * Directory</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ReportingImpl#isExcludeDefaults <em>Exclude Defaults</em>}
+ * </li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ReportingImpl#getOutputDirectory <em>Output Directory
+ * </em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ReportingImpl#getPlugins <em>Plugins</em>}</li>
  * </ul>
  * </p>
  * 
  * @generated
  */
-public class ReportingImpl extends EObjectImpl implements Reporting
-{
+public class ReportingImpl extends EObjectImpl implements Reporting {
 	/**
 	 * The default value of the '{@link #isExcludeDefaults() <em>Exclude Defaults</em>}' attribute. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
@@ -99,8 +98,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting
 	 * 
 	 * @generated
 	 */
-	protected ReportingImpl()
-	{
+	protected ReportingImpl() {
 		super();
 	}
 
@@ -109,12 +107,10 @@ public class ReportingImpl extends EObjectImpl implements Reporting
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetPlugins(ReportingPluginsType newPlugins, NotificationChain msgs)
-	{
+	public NotificationChain basicSetPlugins(ReportingPluginsType newPlugins, NotificationChain msgs) {
 		ReportingPluginsType oldPlugins = plugins;
 		plugins = newPlugins;
-		if(eNotificationRequired())
-		{
+		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					PomPackage.REPORTING__PLUGINS, oldPlugins, newPlugins);
 			if(msgs == null)
@@ -131,10 +127,8 @@ public class ReportingImpl extends EObjectImpl implements Reporting
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.REPORTING__EXCLUDE_DEFAULTS:
 			return isExcludeDefaults();
 		case PomPackage.REPORTING__OUTPUT_DIRECTORY:
@@ -151,10 +145,8 @@ public class ReportingImpl extends EObjectImpl implements Reporting
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch(featureID)
-		{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
 		case PomPackage.REPORTING__PLUGINS:
 			return basicSetPlugins(null, msgs);
 		}
@@ -167,10 +159,8 @@ public class ReportingImpl extends EObjectImpl implements Reporting
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.REPORTING__EXCLUDE_DEFAULTS:
 			return isSetExcludeDefaults();
 		case PomPackage.REPORTING__OUTPUT_DIRECTORY:
@@ -189,18 +179,16 @@ public class ReportingImpl extends EObjectImpl implements Reporting
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.REPORTING__EXCLUDE_DEFAULTS:
-			setExcludeDefaults((Boolean)newValue);
+			setExcludeDefaults((Boolean) newValue);
 			return;
 		case PomPackage.REPORTING__OUTPUT_DIRECTORY:
-			setOutputDirectory((String)newValue);
+			setOutputDirectory((String) newValue);
 			return;
 		case PomPackage.REPORTING__PLUGINS:
-			setPlugins((ReportingPluginsType)newValue);
+			setPlugins((ReportingPluginsType) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -212,10 +200,8 @@ public class ReportingImpl extends EObjectImpl implements Reporting
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.REPORTING__EXCLUDE_DEFAULTS:
 			unsetExcludeDefaults();
 			return;
@@ -223,7 +209,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting
 			setOutputDirectory(OUTPUT_DIRECTORY_EDEFAULT);
 			return;
 		case PomPackage.REPORTING__PLUGINS:
-			setPlugins((ReportingPluginsType)null);
+			setPlugins((ReportingPluginsType) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -234,8 +220,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting
 	 * 
 	 * @generated
 	 */
-	public String getOutputDirectory()
-	{
+	public String getOutputDirectory() {
 		return outputDirectory;
 	}
 
@@ -244,8 +229,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting
 	 * 
 	 * @generated
 	 */
-	public ReportingPluginsType getPlugins()
-	{
+	public ReportingPluginsType getPlugins() {
 		return plugins;
 	}
 
@@ -254,8 +238,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting
 	 * 
 	 * @generated
 	 */
-	public boolean isExcludeDefaults()
-	{
+	public boolean isExcludeDefaults() {
 		return excludeDefaults;
 	}
 
@@ -264,8 +247,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting
 	 * 
 	 * @generated
 	 */
-	public boolean isSetExcludeDefaults()
-	{
+	public boolean isSetExcludeDefaults() {
 		return excludeDefaultsESet;
 	}
 
@@ -274,8 +256,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting
 	 * 
 	 * @generated
 	 */
-	public void setExcludeDefaults(boolean newExcludeDefaults)
-	{
+	public void setExcludeDefaults(boolean newExcludeDefaults) {
 		boolean oldExcludeDefaults = excludeDefaults;
 		excludeDefaults = newExcludeDefaults;
 		boolean oldExcludeDefaultsESet = excludeDefaultsESet;
@@ -290,8 +271,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting
 	 * 
 	 * @generated
 	 */
-	public void setOutputDirectory(String newOutputDirectory)
-	{
+	public void setOutputDirectory(String newOutputDirectory) {
 		String oldOutputDirectory = outputDirectory;
 		outputDirectory = newOutputDirectory;
 		if(eNotificationRequired())
@@ -304,16 +284,14 @@ public class ReportingImpl extends EObjectImpl implements Reporting
 	 * 
 	 * @generated
 	 */
-	public void setPlugins(ReportingPluginsType newPlugins)
-	{
-		if(newPlugins != plugins)
-		{
+	public void setPlugins(ReportingPluginsType newPlugins) {
+		if(newPlugins != plugins) {
 			NotificationChain msgs = null;
 			if(plugins != null)
-				msgs = ((InternalEObject)plugins).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) plugins).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.REPORTING__PLUGINS, null, msgs);
 			if(newPlugins != null)
-				msgs = ((InternalEObject)newPlugins).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) newPlugins).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.REPORTING__PLUGINS, null, msgs);
 			msgs = basicSetPlugins(newPlugins, msgs);
 			if(msgs != null)
@@ -329,8 +307,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
@@ -351,8 +328,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting
 	 * 
 	 * @generated
 	 */
-	public void unsetExcludeDefaults()
-	{
+	public void unsetExcludeDefaults() {
 		boolean oldExcludeDefaults = excludeDefaults;
 		boolean oldExcludeDefaultsESet = excludeDefaultsESet;
 		excludeDefaults = EXCLUDE_DEFAULTS_EDEFAULT;
@@ -368,8 +344,7 @@ public class ReportingImpl extends EObjectImpl implements Reporting
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.REPORTING;
 	}
 

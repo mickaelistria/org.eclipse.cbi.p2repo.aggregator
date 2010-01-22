@@ -24,8 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='developers_._type' kind='elementOnly'"
  * @generated
  */
-public interface DevelopersType extends EObject
-{
+public interface DevelopersType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Developer</b></em>' containment reference list. The list contents are of type
 	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Developer}. <!-- begin-user-doc -->

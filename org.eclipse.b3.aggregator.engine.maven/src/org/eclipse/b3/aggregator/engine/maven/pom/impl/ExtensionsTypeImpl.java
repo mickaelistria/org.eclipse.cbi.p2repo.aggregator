@@ -30,15 +30,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ExtensionsTypeImpl#getExtension <em>Extension
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ExtensionsTypeImpl#getExtension <em>Extension </em>}</li>
  * </ul>
  * </p>
  * 
  * @generated
  */
-public class ExtensionsTypeImpl extends EObjectImpl implements ExtensionsType
-{
+public class ExtensionsTypeImpl extends EObjectImpl implements ExtensionsType {
 	/**
 	 * The cached value of the '{@link #getExtension() <em>Extension</em>}' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -54,8 +52,7 @@ public class ExtensionsTypeImpl extends EObjectImpl implements ExtensionsType
 	 * 
 	 * @generated
 	 */
-	protected ExtensionsTypeImpl()
-	{
+	protected ExtensionsTypeImpl() {
 		super();
 	}
 
@@ -65,10 +62,8 @@ public class ExtensionsTypeImpl extends EObjectImpl implements ExtensionsType
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.EXTENSIONS_TYPE__EXTENSION:
 			return getExtension();
 		}
@@ -81,12 +76,10 @@ public class ExtensionsTypeImpl extends EObjectImpl implements ExtensionsType
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch(featureID)
-		{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
 		case PomPackage.EXTENSIONS_TYPE__EXTENSION:
-			return ((InternalEList<?>)getExtension()).basicRemove(otherEnd, msgs);
+			return ((InternalEList<?>) getExtension()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -97,10 +90,8 @@ public class ExtensionsTypeImpl extends EObjectImpl implements ExtensionsType
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.EXTENSIONS_TYPE__EXTENSION:
 			return extension != null && !extension.isEmpty();
 		}
@@ -114,13 +105,11 @@ public class ExtensionsTypeImpl extends EObjectImpl implements ExtensionsType
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.EXTENSIONS_TYPE__EXTENSION:
 			getExtension().clear();
-			getExtension().addAll((Collection<? extends Extension>)newValue);
+			getExtension().addAll((Collection<? extends Extension>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -132,10 +121,8 @@ public class ExtensionsTypeImpl extends EObjectImpl implements ExtensionsType
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.EXTENSIONS_TYPE__EXTENSION:
 			getExtension().clear();
 			return;
@@ -148,10 +135,8 @@ public class ExtensionsTypeImpl extends EObjectImpl implements ExtensionsType
 	 * 
 	 * @generated
 	 */
-	public EList<Extension> getExtension()
-	{
-		if(extension == null)
-		{
+	public EList<Extension> getExtension() {
+		if(extension == null) {
 			extension = new EObjectContainmentEList<Extension>(Extension.class, this,
 					PomPackage.EXTENSIONS_TYPE__EXTENSION);
 		}
@@ -164,8 +149,7 @@ public class ExtensionsTypeImpl extends EObjectImpl implements ExtensionsType
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.EXTENSIONS_TYPE;
 	}
 

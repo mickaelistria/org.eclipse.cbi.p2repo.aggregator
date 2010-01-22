@@ -32,8 +32,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='ActivationProperty' kind='elementOnly'"
  * @generated
  */
-public interface ActivationProperty extends EObject
-{
+public interface ActivationProperty extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
 	 * begin-model-doc --> 4.0.0 The name of the property to be used to activate a profile. <!-- end-model-doc -->

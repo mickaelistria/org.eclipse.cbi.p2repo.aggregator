@@ -24,8 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='exclusions_._type' kind='elementOnly'"
  * @generated
  */
-public interface ExclusionsType extends EObject
-{
+public interface ExclusionsType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Exclusion</b></em>' containment reference list. The list contents are of type
 	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Exclusion}. <!-- begin-user-doc -->

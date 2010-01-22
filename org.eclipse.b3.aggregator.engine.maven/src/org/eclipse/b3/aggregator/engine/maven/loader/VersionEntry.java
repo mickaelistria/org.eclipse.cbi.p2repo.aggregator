@@ -10,23 +10,20 @@ package org.eclipse.b3.aggregator.engine.maven.loader;
 
 import org.eclipse.equinox.internal.provisional.p2.metadata.Version;
 
-public class VersionEntry
-{
+public class VersionEntry {
 	String groupId;
 
 	String artifactId;
 
 	Version version;
 
-	public VersionEntry(String groupId, String artifactId, Version version)
-	{
+	public VersionEntry(String groupId, String artifactId, Version version) {
 		this.groupId = groupId;
 		this.artifactId = artifactId;
 		this.version = version;
 	}
 
-	public String toString()
-	{
+	public String toString() {
 		StringBuilder sb = new StringBuilder(groupId);
 		sb.append('/');
 		sb.append(artifactId);

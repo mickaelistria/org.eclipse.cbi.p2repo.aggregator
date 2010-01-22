@@ -31,8 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * 
  * @generated
  */
-public class GoalsTypeImpl extends EObjectImpl implements GoalsType
-{
+public class GoalsTypeImpl extends EObjectImpl implements GoalsType {
 	/**
 	 * The cached value of the '{@link #getAny() <em>Any</em>}' attribute list. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -48,8 +47,7 @@ public class GoalsTypeImpl extends EObjectImpl implements GoalsType
 	 * 
 	 * @generated
 	 */
-	protected GoalsTypeImpl()
-	{
+	protected GoalsTypeImpl() {
 		super();
 	}
 
@@ -59,14 +57,12 @@ public class GoalsTypeImpl extends EObjectImpl implements GoalsType
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.GOALS_TYPE__ANY:
 			if(coreType)
 				return getAny();
-			return ((FeatureMap.Internal)getAny()).getWrapper();
+			return ((FeatureMap.Internal) getAny()).getWrapper();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -77,12 +73,10 @@ public class GoalsTypeImpl extends EObjectImpl implements GoalsType
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch(featureID)
-		{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
 		case PomPackage.GOALS_TYPE__ANY:
-			return ((InternalEList<?>)getAny()).basicRemove(otherEnd, msgs);
+			return ((InternalEList<?>) getAny()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -93,10 +87,8 @@ public class GoalsTypeImpl extends EObjectImpl implements GoalsType
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.GOALS_TYPE__ANY:
 			return any != null && !any.isEmpty();
 		}
@@ -109,12 +101,10 @@ public class GoalsTypeImpl extends EObjectImpl implements GoalsType
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.GOALS_TYPE__ANY:
-			((FeatureMap.Internal)getAny()).set(newValue);
+			((FeatureMap.Internal) getAny()).set(newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -126,10 +116,8 @@ public class GoalsTypeImpl extends EObjectImpl implements GoalsType
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.GOALS_TYPE__ANY:
 			getAny().clear();
 			return;
@@ -142,10 +130,8 @@ public class GoalsTypeImpl extends EObjectImpl implements GoalsType
 	 * 
 	 * @generated
 	 */
-	public FeatureMap getAny()
-	{
-		if(any == null)
-		{
+	public FeatureMap getAny() {
+		if(any == null) {
 			any = new BasicFeatureMap(this, PomPackage.GOALS_TYPE__ANY);
 		}
 		return any;
@@ -157,8 +143,7 @@ public class GoalsTypeImpl extends EObjectImpl implements GoalsType
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
@@ -175,8 +160,7 @@ public class GoalsTypeImpl extends EObjectImpl implements GoalsType
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.GOALS_TYPE;
 	}
 

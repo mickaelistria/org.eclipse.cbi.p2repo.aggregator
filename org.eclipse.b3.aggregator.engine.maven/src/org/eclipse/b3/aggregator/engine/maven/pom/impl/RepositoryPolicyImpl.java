@@ -23,17 +23,16 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are implemented:
  * <ul>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.RepositoryPolicyImpl#isEnabled <em>Enabled</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.RepositoryPolicyImpl#getUpdatePolicy <em>Update
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.RepositoryPolicyImpl#getUpdatePolicy <em>Update Policy
+ * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.RepositoryPolicyImpl#getChecksumPolicy <em> Checksum
  * Policy</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.RepositoryPolicyImpl#getChecksumPolicy <em>
- * Checksum Policy</em>}</li>
  * </ul>
  * </p>
  * 
  * @generated
  */
-public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolicy
-{
+public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolicy {
 	/**
 	 * The default value of the '{@link #isEnabled() <em>Enabled</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -107,8 +106,7 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 	 * 
 	 * @generated
 	 */
-	protected RepositoryPolicyImpl()
-	{
+	protected RepositoryPolicyImpl() {
 		super();
 	}
 
@@ -118,10 +116,8 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.REPOSITORY_POLICY__ENABLED:
 			return isEnabled();
 		case PomPackage.REPOSITORY_POLICY__UPDATE_POLICY:
@@ -138,10 +134,8 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.REPOSITORY_POLICY__ENABLED:
 			return isSetEnabled();
 		case PomPackage.REPOSITORY_POLICY__UPDATE_POLICY:
@@ -162,18 +156,16 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.REPOSITORY_POLICY__ENABLED:
-			setEnabled((Boolean)newValue);
+			setEnabled((Boolean) newValue);
 			return;
 		case PomPackage.REPOSITORY_POLICY__UPDATE_POLICY:
-			setUpdatePolicy((String)newValue);
+			setUpdatePolicy((String) newValue);
 			return;
 		case PomPackage.REPOSITORY_POLICY__CHECKSUM_POLICY:
-			setChecksumPolicy((String)newValue);
+			setChecksumPolicy((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -185,10 +177,8 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.REPOSITORY_POLICY__ENABLED:
 			unsetEnabled();
 			return;
@@ -207,8 +197,7 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 	 * 
 	 * @generated
 	 */
-	public String getChecksumPolicy()
-	{
+	public String getChecksumPolicy() {
 		return checksumPolicy;
 	}
 
@@ -217,8 +206,7 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 	 * 
 	 * @generated
 	 */
-	public String getUpdatePolicy()
-	{
+	public String getUpdatePolicy() {
 		return updatePolicy;
 	}
 
@@ -227,8 +215,7 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 	 * 
 	 * @generated
 	 */
-	public boolean isEnabled()
-	{
+	public boolean isEnabled() {
 		return enabled;
 	}
 
@@ -237,8 +224,7 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 	 * 
 	 * @generated
 	 */
-	public boolean isSetEnabled()
-	{
+	public boolean isSetEnabled() {
 		return enabledESet;
 	}
 
@@ -247,8 +233,7 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 	 * 
 	 * @generated
 	 */
-	public void setChecksumPolicy(String newChecksumPolicy)
-	{
+	public void setChecksumPolicy(String newChecksumPolicy) {
 		String oldChecksumPolicy = checksumPolicy;
 		checksumPolicy = newChecksumPolicy;
 		if(eNotificationRequired())
@@ -261,8 +246,7 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 	 * 
 	 * @generated
 	 */
-	public void setEnabled(boolean newEnabled)
-	{
+	public void setEnabled(boolean newEnabled) {
 		boolean oldEnabled = enabled;
 		enabled = newEnabled;
 		boolean oldEnabledESet = enabledESet;
@@ -277,8 +261,7 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 	 * 
 	 * @generated
 	 */
-	public void setUpdatePolicy(String newUpdatePolicy)
-	{
+	public void setUpdatePolicy(String newUpdatePolicy) {
 		String oldUpdatePolicy = updatePolicy;
 		updatePolicy = newUpdatePolicy;
 		if(eNotificationRequired())
@@ -292,8 +275,7 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
@@ -316,8 +298,7 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 	 * 
 	 * @generated
 	 */
-	public void unsetEnabled()
-	{
+	public void unsetEnabled() {
 		boolean oldEnabled = enabled;
 		boolean oldEnabledESet = enabledESet;
 		enabled = ENABLED_EDEFAULT;
@@ -333,8 +314,7 @@ public class RepositoryPolicyImpl extends EObjectImpl implements RepositoryPolic
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.REPOSITORY_POLICY;
 	}
 

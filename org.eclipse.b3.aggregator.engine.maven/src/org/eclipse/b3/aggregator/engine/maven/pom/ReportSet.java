@@ -28,8 +28,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='ReportSet' kind='elementOnly'"
  * @generated
  */
-public interface ReportSet extends EObject
-{
+public interface ReportSet extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Configuration</b></em>' containment reference. <!-- begin-user-doc --> <!--
 	 * end-user-doc --> <!-- begin-model-doc --> 4.0.0 Configuration of the report to be used when generating this set.

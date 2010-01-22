@@ -19,10 +19,9 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  * The following features are supported:
  * <ul>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.DocumentRoot#getMixed <em>Mixed</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.DocumentRoot#getXMLNSPrefixMap <em>XMLNS Prefix Map
- * </em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.DocumentRoot#getXSISchemaLocation <em>XSI Schema
- * Location</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.DocumentRoot#getXMLNSPrefixMap <em>XMLNS Prefix Map </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.DocumentRoot#getXSISchemaLocation <em>XSI Schema Location</em>}
+ * </li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.DocumentRoot#getProject <em>Project</em>}</li>
  * </ul>
  * </p>
@@ -31,8 +30,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  * @model extendedMetaData="name='' kind='mixed'"
  * @generated
  */
-public interface DocumentRoot extends EObject
-{
+public interface DocumentRoot extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Mixed</b></em>' attribute list. The list contents are of type
 	 * {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}. <!-- begin-user-doc -->
@@ -80,6 +78,7 @@ public interface DocumentRoot extends EObject
 	 * @return the value of the '<em>XMLNS Prefix Map</em>' map.
 	 * @see org.eclipse.b3.aggregator.engine.maven.pom.PomPackage#getDocumentRoot_XMLNSPrefixMap()
 	 * @model mapType=
+	 *        
 	 *        "org.eclipse.emf.ecore.EStringToStringMapEntry<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString>"
 	 *        transient="true" extendedMetaData="kind='attribute' name='xmlns:prefix'"
 	 * @generated
@@ -98,6 +97,7 @@ public interface DocumentRoot extends EObject
 	 * @return the value of the '<em>XSI Schema Location</em>' map.
 	 * @see org.eclipse.b3.aggregator.engine.maven.pom.PomPackage#getDocumentRoot_XSISchemaLocation()
 	 * @model mapType=
+	 *        
 	 *        "org.eclipse.emf.ecore.EStringToStringMapEntry<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString>"
 	 *        transient="true" extendedMetaData="kind='attribute' name='xsi:schemaLocation'"
 	 * @generated

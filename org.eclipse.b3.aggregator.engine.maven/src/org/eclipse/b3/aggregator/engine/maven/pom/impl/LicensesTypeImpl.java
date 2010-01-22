@@ -35,8 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * 
  * @generated
  */
-public class LicensesTypeImpl extends EObjectImpl implements LicensesType
-{
+public class LicensesTypeImpl extends EObjectImpl implements LicensesType {
 	/**
 	 * The cached value of the '{@link #getLicense() <em>License</em>}' containment reference list. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
@@ -52,8 +51,7 @@ public class LicensesTypeImpl extends EObjectImpl implements LicensesType
 	 * 
 	 * @generated
 	 */
-	protected LicensesTypeImpl()
-	{
+	protected LicensesTypeImpl() {
 		super();
 	}
 
@@ -63,10 +61,8 @@ public class LicensesTypeImpl extends EObjectImpl implements LicensesType
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.LICENSES_TYPE__LICENSE:
 			return getLicense();
 		}
@@ -79,12 +75,10 @@ public class LicensesTypeImpl extends EObjectImpl implements LicensesType
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch(featureID)
-		{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
 		case PomPackage.LICENSES_TYPE__LICENSE:
-			return ((InternalEList<?>)getLicense()).basicRemove(otherEnd, msgs);
+			return ((InternalEList<?>) getLicense()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -95,10 +89,8 @@ public class LicensesTypeImpl extends EObjectImpl implements LicensesType
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.LICENSES_TYPE__LICENSE:
 			return license != null && !license.isEmpty();
 		}
@@ -112,13 +104,11 @@ public class LicensesTypeImpl extends EObjectImpl implements LicensesType
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.LICENSES_TYPE__LICENSE:
 			getLicense().clear();
-			getLicense().addAll((Collection<? extends License>)newValue);
+			getLicense().addAll((Collection<? extends License>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -130,10 +120,8 @@ public class LicensesTypeImpl extends EObjectImpl implements LicensesType
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.LICENSES_TYPE__LICENSE:
 			getLicense().clear();
 			return;
@@ -146,10 +134,8 @@ public class LicensesTypeImpl extends EObjectImpl implements LicensesType
 	 * 
 	 * @generated
 	 */
-	public EList<License> getLicense()
-	{
-		if(license == null)
-		{
+	public EList<License> getLicense() {
+		if(license == null) {
 			license = new EObjectContainmentEList<License>(License.class, this, PomPackage.LICENSES_TYPE__LICENSE);
 		}
 		return license;
@@ -161,8 +147,7 @@ public class LicensesTypeImpl extends EObjectImpl implements LicensesType
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.LICENSES_TYPE;
 	}
 

@@ -24,8 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='Prerequisites' kind='elementOnly'"
  * @generated
  */
-public interface Prerequisites extends EObject
-{
+public interface Prerequisites extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Maven</b></em>' attribute. The default value is <code>"2.0"</code>. <!--
 	 * begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> 4.0.0 The minimum version of Maven required to
@@ -43,8 +42,8 @@ public interface Prerequisites extends EObject
 	String getMaven();
 
 	/**
-	 * Returns whether the value of the '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Prerequisites#getMaven <em>Maven</em>}' attribute is
+	 * Returns whether the value of the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.Prerequisites#getMaven
+	 * <em>Maven</em>}' attribute is
 	 * set. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return whether the value of the '<em>Maven</em>' attribute is set.

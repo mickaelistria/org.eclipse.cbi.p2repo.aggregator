@@ -15,8 +15,7 @@ import org.eclipse.emf.ecore.EFactory;
  * @see org.eclipse.b3.aggregator.engine.maven.pom.PomPackage
  * @generated
  */
-public interface PomFactory extends EFactory
-{
+public interface PomFactory extends EFactory {
 	/**
 	 * The singleton instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 

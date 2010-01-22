@@ -33,8 +33,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='License' kind='elementOnly'"
  * @generated
  */
-public interface License extends EObject
-{
+public interface License extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Comments</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
 	 * begin-model-doc --> 3.0.0+

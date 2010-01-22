@@ -25,8 +25,7 @@ import org.eclipse.emf.ecore.EReference;
  * @model kind="package"
  * @generated
  */
-public interface PomPackage extends EPackage
-{
+public interface PomPackage extends EPackage {
 	/**
 	 * <!-- begin-user-doc --> Defines literals for the meta objects that represent
 	 * <ul>
@@ -39,11 +38,10 @@ public interface PomPackage extends EPackage
 	 * 
 	 * @generated
 	 */
-	interface Literals
-	{
+	interface Literals {
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ActivationImpl <em>Activation</em>}' class.
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ActivationImpl
+		 * <em>Activation</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.ActivationImpl
@@ -93,8 +91,8 @@ public interface PomPackage extends EPackage
 		EReference ACTIVATION__FILE = eINSTANCE.getActivation_File();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ActivationFileImpl <em>Activation File</em>}'
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ActivationFileImpl
+		 * <em>Activation File</em>}'
 		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.ActivationFileImpl
@@ -120,8 +118,8 @@ public interface PomPackage extends EPackage
 		EAttribute ACTIVATION_FILE__EXISTS = eINSTANCE.getActivationFile_Exists();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ActivationOSImpl <em>Activation OS</em>}'
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ActivationOSImpl
+		 * <em>Activation OS</em>}'
 		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.ActivationOSImpl
@@ -312,8 +310,8 @@ public interface PomPackage extends EPackage
 		EReference BUILD__PLUGINS = eINSTANCE.getBuild_Plugins();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.BuildBaseImpl <em>Build Base</em>}' class.
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.BuildBaseImpl
+		 * <em>Build Base</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.BuildBaseImpl
@@ -387,8 +385,8 @@ public interface PomPackage extends EPackage
 		EReference BUILD_BASE__PLUGINS = eINSTANCE.getBuildBase_Plugins();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.CiManagementImpl <em>Ci Management</em>}'
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.CiManagementImpl
+		 * <em>Ci Management</em>}'
 		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.CiManagementImpl
@@ -441,8 +439,8 @@ public interface PomPackage extends EPackage
 		EAttribute CONFIGURATION_TYPE__ANY = eINSTANCE.getConfigurationType_Any();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ContributorImpl <em>Contributor</em>}' class.
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ContributorImpl
+		 * <em>Contributor</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.ContributorImpl
@@ -554,8 +552,8 @@ public interface PomPackage extends EPackage
 		EReference DEPENDENCIES_TYPE__DEPENDENCY = eINSTANCE.getDependenciesType_Dependency();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DependencyImpl <em>Dependency</em>}' class.
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DependencyImpl
+		 * <em>Dependency</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.DependencyImpl
@@ -707,8 +705,8 @@ public interface PomPackage extends EPackage
 		EAttribute DEPLOYMENT_REPOSITORY__LAYOUT = eINSTANCE.getDeploymentRepository_Layout();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DeveloperImpl <em>Developer</em>}' class.
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DeveloperImpl
+		 * <em>Developer</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.DeveloperImpl
@@ -790,8 +788,8 @@ public interface PomPackage extends EPackage
 		EReference DEVELOPER__PROPERTIES = eINSTANCE.getDeveloper_Properties();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DevelopersTypeImpl <em>Developers Type</em>}'
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DevelopersTypeImpl
+		 * <em>Developers Type</em>}'
 		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.DevelopersTypeImpl
@@ -868,8 +866,8 @@ public interface PomPackage extends EPackage
 		EAttribute DISTRIBUTION_MANAGEMENT__STATUS = eINSTANCE.getDistributionManagement_Status();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DocumentRootImpl <em>Document Root</em>}'
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DocumentRootImpl
+		 * <em>Document Root</em>}'
 		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.DocumentRootImpl
@@ -911,8 +909,8 @@ public interface PomPackage extends EPackage
 		EReference DOCUMENT_ROOT__PROJECT = eINSTANCE.getDocumentRoot_Project();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ExcludesTypeImpl <em>Excludes Type</em>}'
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ExcludesTypeImpl
+		 * <em>Excludes Type</em>}'
 		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.ExcludesTypeImpl
@@ -930,8 +928,8 @@ public interface PomPackage extends EPackage
 		EAttribute EXCLUDES_TYPE__EXCLUDE = eINSTANCE.getExcludesType_Exclude();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ExclusionImpl <em>Exclusion</em>}' class.
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ExclusionImpl
+		 * <em>Exclusion</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.ExclusionImpl
@@ -957,8 +955,8 @@ public interface PomPackage extends EPackage
 		EAttribute EXCLUSION__GROUP_ID = eINSTANCE.getExclusion_GroupId();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ExclusionsTypeImpl <em>Exclusions Type</em>}'
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ExclusionsTypeImpl
+		 * <em>Exclusions Type</em>}'
 		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.ExclusionsTypeImpl
@@ -995,8 +993,8 @@ public interface PomPackage extends EPackage
 		EAttribute EXECUTION_GOALS_TYPE__GOAL = eINSTANCE.getExecutionGoalsType_Goal();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ExecutionsTypeImpl <em>Executions Type</em>}'
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ExecutionsTypeImpl
+		 * <em>Executions Type</em>}'
 		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.ExecutionsTypeImpl
@@ -1014,8 +1012,8 @@ public interface PomPackage extends EPackage
 		EReference EXECUTIONS_TYPE__EXECUTION = eINSTANCE.getExecutionsType_Execution();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ExtensionImpl <em>Extension</em>}' class.
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ExtensionImpl
+		 * <em>Extension</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.ExtensionImpl
@@ -1049,8 +1047,8 @@ public interface PomPackage extends EPackage
 		EAttribute EXTENSION__VERSION = eINSTANCE.getExtension_Version();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ExtensionsTypeImpl <em>Extensions Type</em>}'
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ExtensionsTypeImpl
+		 * <em>Extensions Type</em>}'
 		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.ExtensionsTypeImpl
@@ -1068,8 +1066,8 @@ public interface PomPackage extends EPackage
 		EReference EXTENSIONS_TYPE__EXTENSION = eINSTANCE.getExtensionsType_Extension();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.FiltersTypeImpl <em>Filters Type</em>}'
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.FiltersTypeImpl
+		 * <em>Filters Type</em>}'
 		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.FiltersTypeImpl
@@ -1087,8 +1085,8 @@ public interface PomPackage extends EPackage
 		EAttribute FILTERS_TYPE__FILTER = eINSTANCE.getFiltersType_Filter();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.GoalsTypeImpl <em>Goals Type</em>}' class.
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.GoalsTypeImpl
+		 * <em>Goals Type</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.GoalsTypeImpl
@@ -1106,8 +1104,8 @@ public interface PomPackage extends EPackage
 		EAttribute GOALS_TYPE__ANY = eINSTANCE.getGoalsType_Any();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.IncludesTypeImpl <em>Includes Type</em>}'
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.IncludesTypeImpl
+		 * <em>Includes Type</em>}'
 		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.IncludesTypeImpl
@@ -1125,8 +1123,7 @@ public interface PomPackage extends EPackage
 		EAttribute INCLUDES_TYPE__INCLUDE = eINSTANCE.getIncludesType_Include();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.IssueManagementImpl
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.IssueManagementImpl
 		 * <em>Issue Management</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.IssueManagementImpl
@@ -1194,8 +1191,8 @@ public interface PomPackage extends EPackage
 		EAttribute LICENSE__COMMENTS = eINSTANCE.getLicense_Comments();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.LicensesTypeImpl <em>Licenses Type</em>}'
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.LicensesTypeImpl
+		 * <em>Licenses Type</em>}'
 		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.LicensesTypeImpl
@@ -1213,8 +1210,8 @@ public interface PomPackage extends EPackage
 		EReference LICENSES_TYPE__LICENSE = eINSTANCE.getLicensesType_License();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.MailingListImpl <em>Mailing List</em>}'
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.MailingListImpl
+		 * <em>Mailing List</em>}'
 		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.MailingListImpl
@@ -1541,8 +1538,8 @@ public interface PomPackage extends EPackage
 		EReference MODEL__PROPERTIES = eINSTANCE.getModel_Properties();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ModulesTypeImpl <em>Modules Type</em>}'
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ModulesTypeImpl
+		 * <em>Modules Type</em>}'
 		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.ModulesTypeImpl
@@ -1560,8 +1557,8 @@ public interface PomPackage extends EPackage
 		EAttribute MODULES_TYPE__MODULE = eINSTANCE.getModulesType_Module();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.NotifierImpl <em>Notifier</em>}' class. <!--
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.NotifierImpl
+		 * <em>Notifier</em>}' class. <!--
 		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.NotifierImpl
@@ -1627,8 +1624,8 @@ public interface PomPackage extends EPackage
 		EReference NOTIFIER__CONFIGURATION = eINSTANCE.getNotifier_Configuration();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.NotifiersTypeImpl <em>Notifiers Type</em>}'
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.NotifiersTypeImpl
+		 * <em>Notifiers Type</em>}'
 		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.NotifiersTypeImpl
@@ -1646,8 +1643,8 @@ public interface PomPackage extends EPackage
 		EReference NOTIFIERS_TYPE__NOTIFIER = eINSTANCE.getNotifiersType_Notifier();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.OrganizationImpl <em>Organization</em>}'
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.OrganizationImpl
+		 * <em>Organization</em>}'
 		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.OrganizationImpl
@@ -1816,8 +1813,7 @@ public interface PomPackage extends EPackage
 		EReference PLUGIN__CONFIGURATION = eINSTANCE.getPlugin_Configuration();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.PluginExecutionImpl
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.PluginExecutionImpl
 		 * <em>Plugin Execution</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.PluginExecutionImpl
@@ -1905,8 +1901,8 @@ public interface PomPackage extends EPackage
 		EReference PLUGIN_REPOSITORIES_TYPE__PLUGIN_REPOSITORY = eINSTANCE.getPluginRepositoriesType_PluginRepository();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.PluginsTypeImpl <em>Plugins Type</em>}'
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.PluginsTypeImpl
+		 * <em>Plugins Type</em>}'
 		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.PluginsTypeImpl
@@ -1924,8 +1920,8 @@ public interface PomPackage extends EPackage
 		EReference PLUGINS_TYPE__PLUGIN = eINSTANCE.getPluginsType_Plugin();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.PrerequisitesImpl <em>Prerequisites</em>}'
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.PrerequisitesImpl
+		 * <em>Prerequisites</em>}'
 		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.PrerequisitesImpl
@@ -2049,8 +2045,8 @@ public interface PomPackage extends EPackage
 		EReference PROFILE__PROPERTIES = eINSTANCE.getProfile_Properties();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ProfilesTypeImpl <em>Profiles Type</em>}'
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ProfilesTypeImpl
+		 * <em>Profiles Type</em>}'
 		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.ProfilesTypeImpl
@@ -2068,8 +2064,8 @@ public interface PomPackage extends EPackage
 		EReference PROFILES_TYPE__PROFILE = eINSTANCE.getProfilesType_Profile();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.PropertiesTypeImpl <em>Properties Type</em>}'
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.PropertiesTypeImpl
+		 * <em>Properties Type</em>}'
 		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.PropertiesTypeImpl
@@ -2087,8 +2083,8 @@ public interface PomPackage extends EPackage
 		EAttribute PROPERTIES_TYPE__ANY = eINSTANCE.getPropertiesType_Any();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.RelocationImpl <em>Relocation</em>}' class.
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.RelocationImpl
+		 * <em>Relocation</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.RelocationImpl
@@ -2130,8 +2126,8 @@ public interface PomPackage extends EPackage
 		EAttribute RELOCATION__MESSAGE = eINSTANCE.getRelocation_Message();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ReportingImpl <em>Reporting</em>}' class.
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ReportingImpl
+		 * <em>Reporting</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.ReportingImpl
@@ -2165,8 +2161,8 @@ public interface PomPackage extends EPackage
 		EReference REPORTING__PLUGINS = eINSTANCE.getReporting_Plugins();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ReportPluginImpl <em>Report Plugin</em>}'
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ReportPluginImpl
+		 * <em>Report Plugin</em>}'
 		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.ReportPluginImpl
@@ -2243,8 +2239,8 @@ public interface PomPackage extends EPackage
 		EReference REPORTING_PLUGINS_TYPE__PLUGIN = eINSTANCE.getReportingPluginsType_Plugin();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ReportSetImpl <em>Report Set</em>}' class.
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ReportSetImpl
+		 * <em>Report Set</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.ReportSetImpl
@@ -2305,9 +2301,8 @@ public interface PomPackage extends EPackage
 		EAttribute REPORT_SET_REPORTS_TYPE__REPORT = eINSTANCE.getReportSetReportsType_Report();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ReportSetsTypeImpl <em>Report Sets Type</em>}
-		 * ' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ReportSetsTypeImpl
+		 * <em>Report Sets Type</em>} ' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.ReportSetsTypeImpl
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.PomPackageImpl#getReportSetsType()
@@ -2324,8 +2319,8 @@ public interface PomPackage extends EPackage
 		EReference REPORT_SETS_TYPE__REPORT_SET = eINSTANCE.getReportSetsType_ReportSet();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ReportsTypeImpl <em>Reports Type</em>}'
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ReportsTypeImpl
+		 * <em>Reports Type</em>}'
 		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.ReportsTypeImpl
@@ -2362,8 +2357,8 @@ public interface PomPackage extends EPackage
 		EReference REPOSITORIES_TYPE__REPOSITORY = eINSTANCE.getRepositoriesType_Repository();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.RepositoryImpl <em>Repository</em>}' class.
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.RepositoryImpl
+		 * <em>Repository</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.RepositoryImpl
@@ -2456,8 +2451,8 @@ public interface PomPackage extends EPackage
 		EAttribute REPOSITORY_POLICY__CHECKSUM_POLICY = eINSTANCE.getRepositoryPolicy_ChecksumPolicy();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ResourceImpl <em>Resource</em>}' class. <!--
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ResourceImpl
+		 * <em>Resource</em>}' class. <!--
 		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.ResourceImpl
@@ -2507,8 +2502,8 @@ public interface PomPackage extends EPackage
 		EReference RESOURCE__EXCLUDES = eINSTANCE.getResource_Excludes();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ResourcesTypeImpl <em>Resources Type</em>}'
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ResourcesTypeImpl
+		 * <em>Resources Type</em>}'
 		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.ResourcesTypeImpl
@@ -2526,8 +2521,8 @@ public interface PomPackage extends EPackage
 		EReference RESOURCES_TYPE__RESOURCE = eINSTANCE.getResourcesType_Resource();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.RolesTypeImpl <em>Roles Type</em>}' class.
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.RolesTypeImpl
+		 * <em>Roles Type</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.RolesTypeImpl
@@ -2818,8 +2813,7 @@ public interface PomPackage extends EPackage
 	int ACTIVATION_OS_FEATURE_COUNT = 4;
 
 	/**
-	 * The meta object id for the '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ActivationPropertyImpl
+	 * The meta object id for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ActivationPropertyImpl
 	 * <em>Activation Property</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.ActivationPropertyImpl
@@ -3127,8 +3121,7 @@ public interface PomPackage extends EPackage
 	int CI_MANAGEMENT_FEATURE_COUNT = 3;
 
 	/**
-	 * The meta object id for the '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ConfigurationTypeImpl
+	 * The meta object id for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ConfigurationTypeImpl
 	 * <em>Configuration Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.ConfigurationTypeImpl
@@ -3389,8 +3382,7 @@ public interface PomPackage extends EPackage
 	int DEPENDENCY_FEATURE_COUNT = 9;
 
 	/**
-	 * The meta object id for the '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DependencyManagementImpl
+	 * The meta object id for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DependencyManagementImpl
 	 * <em>Dependency Management</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.DependencyManagementImpl
@@ -3418,8 +3410,7 @@ public interface PomPackage extends EPackage
 	int DEPENDENCY_MANAGEMENT_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DeploymentRepositoryImpl
+	 * The meta object id for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DeploymentRepositoryImpl
 	 * <em>Deployment Repository</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.DeploymentRepositoryImpl
@@ -3600,8 +3591,7 @@ public interface PomPackage extends EPackage
 	int DEVELOPERS_TYPE_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DistributionManagementImpl
+	 * The meta object id for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DistributionManagementImpl
 	 * <em>Distribution Management</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.DistributionManagementImpl
@@ -3814,8 +3804,7 @@ public interface PomPackage extends EPackage
 	int EXCLUSIONS_TYPE_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ExecutionGoalsTypeImpl
+	 * The meta object id for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ExecutionGoalsTypeImpl
 	 * <em>Execution Goals Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.ExecutionGoalsTypeImpl
@@ -4674,8 +4663,7 @@ public interface PomPackage extends EPackage
 	int ORGANIZATION_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.OtherArchivesTypeImpl
+	 * The meta object id for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.OtherArchivesTypeImpl
 	 * <em>Other Archives Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.OtherArchivesTypeImpl
@@ -4936,8 +4924,7 @@ public interface PomPackage extends EPackage
 	int PLUGIN_MANAGEMENT_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.PluginRepositoriesTypeImpl
+	 * The meta object id for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.PluginRepositoriesTypeImpl
 	 * <em>Plugin Repositories Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.PluginRepositoriesTypeImpl
@@ -5366,8 +5353,7 @@ public interface PomPackage extends EPackage
 	int REPORT_PLUGIN_FEATURE_COUNT = 6;
 
 	/**
-	 * The meta object id for the '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ReportingPluginsTypeImpl
+	 * The meta object id for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ReportingPluginsTypeImpl
 	 * <em>Reporting Plugins Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.ReportingPluginsTypeImpl
@@ -5448,8 +5434,7 @@ public interface PomPackage extends EPackage
 	int REPORT_SET_FEATURE_COUNT = 4;
 
 	/**
-	 * The meta object id for the '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ReportSetReportsTypeImpl
+	 * The meta object id for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ReportSetReportsTypeImpl
 	 * <em>Report Set Reports Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.ReportSetReportsTypeImpl
@@ -5786,8 +5771,8 @@ public interface PomPackage extends EPackage
 	int ROLES_TYPE_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ScmImpl <em>Scm</em>}
-	 * ' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ScmImpl <em>Scm</em>} ' class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.ScmImpl
 	 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.PomPackageImpl#getScm()
@@ -5879,8 +5864,7 @@ public interface PomPackage extends EPackage
 	int SITE_FEATURE_COUNT = 3;
 
 	/**
-	 * The meta object id for the '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.TestResourcesTypeImpl
+	 * The meta object id for the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.impl.TestResourcesTypeImpl
 	 * <em>Test Resources Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.aggregator.engine.maven.pom.impl.TestResourcesTypeImpl
@@ -5942,8 +5926,8 @@ public interface PomPackage extends EPackage
 	EReference getActivation_File();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Activation#getJdk <em>Jdk</em>}'. <!-- begin-user-doc
+	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.aggregator.engine.maven.pom.Activation#getJdk
+	 * <em>Jdk</em>}'. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Jdk</em>'.
@@ -6126,8 +6110,8 @@ public interface PomPackage extends EPackage
 	EAttribute getBuild_DefaultGoal();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Build#getDirectory <em>Directory</em>}'. <!--
+	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.aggregator.engine.maven.pom.Build#getDirectory
+	 * <em>Directory</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Directory</em>'.
@@ -6162,8 +6146,8 @@ public interface PomPackage extends EPackage
 	EReference getBuild_Filters();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Build#getFinalName <em>Final Name</em>}'. <!--
+	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.aggregator.engine.maven.pom.Build#getFinalName
+	 * <em>Final Name</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Final Name</em>'.
@@ -6187,8 +6171,8 @@ public interface PomPackage extends EPackage
 
 	/**
 	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Build#getPluginManagement <em>Plugin Management</em>}
-	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Build#getPluginManagement <em>Plugin Management</em>} '. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Plugin Management</em>'.
 	 * @see org.eclipse.b3.aggregator.engine.maven.pom.Build#getPluginManagement()
@@ -6550,8 +6534,8 @@ public interface PomPackage extends EPackage
 	EAttribute getContributor_Timezone();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Contributor#getUrl <em>Url</em>}'. <!-- begin-user-doc
+	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.aggregator.engine.maven.pom.Contributor#getUrl
+	 * <em>Url</em>}'. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Url</em>'.
@@ -6573,8 +6557,8 @@ public interface PomPackage extends EPackage
 
 	/**
 	 * Returns the meta object for the containment reference list '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.ContributorsType#getContributor <em>Contributor</em>}
-	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.ContributorsType#getContributor <em>Contributor</em>} '. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference list '<em>Contributor</em>'.
 	 * @see org.eclipse.b3.aggregator.engine.maven.pom.ContributorsType#getContributor()
@@ -6700,8 +6684,8 @@ public interface PomPackage extends EPackage
 	EAttribute getDependency_SystemPath();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Dependency#getType <em>Type</em>}'. <!--
+	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.aggregator.engine.maven.pom.Dependency#getType
+	 * <em>Type</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Type</em>'.
@@ -6724,8 +6708,8 @@ public interface PomPackage extends EPackage
 	EAttribute getDependency_Version();
 
 	/**
-	 * Returns the meta object for class '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.DependencyManagement <em>Dependency Management</em>}'.
+	 * Returns the meta object for class ' {@link org.eclipse.b3.aggregator.engine.maven.pom.DependencyManagement
+	 * <em>Dependency Management</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Dependency Management</em>'.
@@ -6747,8 +6731,8 @@ public interface PomPackage extends EPackage
 	EReference getDependencyManagement_Dependencies();
 
 	/**
-	 * Returns the meta object for class '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.DeploymentRepository <em>Deployment Repository</em>}'.
+	 * Returns the meta object for class ' {@link org.eclipse.b3.aggregator.engine.maven.pom.DeploymentRepository
+	 * <em>Deployment Repository</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Deployment Repository</em>'.
@@ -6828,8 +6812,8 @@ public interface PomPackage extends EPackage
 	EClass getDeveloper();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Developer#getEmail <em>Email</em>}'. <!--
+	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.aggregator.engine.maven.pom.Developer#getEmail
+	 * <em>Email</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Email</em>'.
@@ -6840,8 +6824,8 @@ public interface PomPackage extends EPackage
 	EAttribute getDeveloper_Email();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Developer#getId <em>Id</em>}'. <!-- begin-user-doc -->
+	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.aggregator.engine.maven.pom.Developer#getId
+	 * <em>Id</em>}'. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Id</em>'.
@@ -6852,8 +6836,8 @@ public interface PomPackage extends EPackage
 	EAttribute getDeveloper_Id();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Developer#getName <em>Name</em>}'. <!-- begin-user-doc
+	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.aggregator.engine.maven.pom.Developer#getName
+	 * <em>Name</em>}'. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Name</em>'.
@@ -6924,8 +6908,8 @@ public interface PomPackage extends EPackage
 	EAttribute getDeveloper_Timezone();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Developer#getUrl <em>Url</em>}'. <!-- begin-user-doc
+	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.aggregator.engine.maven.pom.Developer#getUrl
+	 * <em>Url</em>}'. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Url</em>'.
@@ -6958,8 +6942,7 @@ public interface PomPackage extends EPackage
 	EReference getDevelopersType_Developer();
 
 	/**
-	 * Returns the meta object for class '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.DistributionManagement
+	 * Returns the meta object for class ' {@link org.eclipse.b3.aggregator.engine.maven.pom.DistributionManagement
 	 * <em>Distribution Management</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Distribution Management</em>'.
@@ -7423,8 +7406,8 @@ public interface PomPackage extends EPackage
 	EAttribute getLicense_Distribution();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.License#getName <em>Name</em>}'. <!-- begin-user-doc
+	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.aggregator.engine.maven.pom.License#getName
+	 * <em>Name</em>}'. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Name</em>'.
@@ -7435,8 +7418,8 @@ public interface PomPackage extends EPackage
 	EAttribute getLicense_Name();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.License#getUrl <em>Url</em>}'. <!-- begin-user-doc -->
+	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.aggregator.engine.maven.pom.License#getUrl
+	 * <em>Url</em>}'. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Url</em>'.
@@ -7504,8 +7487,8 @@ public interface PomPackage extends EPackage
 
 	/**
 	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.MailingList#getOtherArchives <em>Other Archives</em>}
-	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.MailingList#getOtherArchives <em>Other Archives</em>} '. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Other Archives</em>'.
 	 * @see org.eclipse.b3.aggregator.engine.maven.pom.MailingList#getOtherArchives()
@@ -7562,8 +7545,8 @@ public interface PomPackage extends EPackage
 
 	/**
 	 * Returns the meta object for the containment reference list '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.MailingListsType#getMailingList <em>Mailing List</em>}
-	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.MailingListsType#getMailingList <em>Mailing List</em>} '. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference list '<em>Mailing List</em>'.
 	 * @see org.eclipse.b3.aggregator.engine.maven.pom.MailingListsType#getMailingList()
@@ -7691,8 +7674,8 @@ public interface PomPackage extends EPackage
 	EReference getModel_DistributionManagement();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Model#getGroupId <em>Group Id</em>}'. <!--
+	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.aggregator.engine.maven.pom.Model#getGroupId
+	 * <em>Group Id</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Group Id</em>'.
@@ -7775,8 +7758,8 @@ public interface PomPackage extends EPackage
 	EReference getModel_Modules();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Model#getName <em>Name</em>}'. <!-- begin-user-doc -->
+	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.aggregator.engine.maven.pom.Model#getName
+	 * <em>Name</em>}'. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Name</em>'.
@@ -7799,8 +7782,8 @@ public interface PomPackage extends EPackage
 	EReference getModel_Organization();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Model#getPackaging <em>Packaging</em>}'. <!--
+	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.aggregator.engine.maven.pom.Model#getPackaging
+	 * <em>Packaging</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Packaging</em>'.
@@ -7919,8 +7902,8 @@ public interface PomPackage extends EPackage
 	EReference getModel_Scm();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Model#getUrl <em>Url</em>}'. <!-- begin-user-doc -->
+	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.aggregator.engine.maven.pom.Model#getUrl
+	 * <em>Url</em>}'. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Url</em>'.
@@ -7931,8 +7914,8 @@ public interface PomPackage extends EPackage
 	EAttribute getModel_Url();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Model#getVersion <em>Version</em>}'. <!--
+	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.aggregator.engine.maven.pom.Model#getVersion
+	 * <em>Version</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Version</em>'.
@@ -8047,8 +8030,8 @@ public interface PomPackage extends EPackage
 	EAttribute getNotifier_SendOnWarning();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Notifier#getType <em>Type</em>}'. <!-- begin-user-doc
+	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.aggregator.engine.maven.pom.Notifier#getType
+	 * <em>Type</em>}'. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Type</em>'.
@@ -8159,8 +8142,8 @@ public interface PomPackage extends EPackage
 	EAttribute getParent_ArtifactId();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Parent#getGroupId <em>Group Id</em>}'. <!--
+	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.aggregator.engine.maven.pom.Parent#getGroupId
+	 * <em>Group Id</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Group Id</em>'.
@@ -8183,8 +8166,8 @@ public interface PomPackage extends EPackage
 	EAttribute getParent_RelativePath();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Parent#getVersion <em>Version</em>}'. <!--
+	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.aggregator.engine.maven.pom.Parent#getVersion
+	 * <em>Version</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Version</em>'.
@@ -8277,8 +8260,8 @@ public interface PomPackage extends EPackage
 	EReference getPlugin_Goals();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Plugin#getGroupId <em>Group Id</em>}'. <!--
+	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.aggregator.engine.maven.pom.Plugin#getGroupId
+	 * <em>Group Id</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Group Id</em>'.
@@ -8301,8 +8284,8 @@ public interface PomPackage extends EPackage
 	EAttribute getPlugin_Inherited();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Plugin#getVersion <em>Version</em>}'. <!--
+	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.aggregator.engine.maven.pom.Plugin#getVersion
+	 * <em>Version</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Version</em>'.
@@ -8405,8 +8388,7 @@ public interface PomPackage extends EPackage
 	EReference getPluginManagement_Plugins();
 
 	/**
-	 * Returns the meta object for class '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.PluginRepositoriesType
+	 * Returns the meta object for class ' {@link org.eclipse.b3.aggregator.engine.maven.pom.PluginRepositoriesType
 	 * <em>Plugin Repositories Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Plugin Repositories Type</em>'.
@@ -8550,8 +8532,8 @@ public interface PomPackage extends EPackage
 	EReference getProfile_DistributionManagement();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Profile#getId <em>Id</em>}'. <!-- begin-user-doc -->
+	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.aggregator.engine.maven.pom.Profile#getId
+	 * <em>Id</em>}'. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Id</em>'.
@@ -8747,8 +8729,8 @@ public interface PomPackage extends EPackage
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Reporting#isExcludeDefaults <em>Exclude Defaults</em>}
-	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Reporting#isExcludeDefaults <em>Exclude Defaults</em>} '. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Exclude Defaults</em>'.
 	 * @see org.eclipse.b3.aggregator.engine.maven.pom.Reporting#isExcludeDefaults()
@@ -8782,9 +8764,8 @@ public interface PomPackage extends EPackage
 	EReference getReporting_Plugins();
 
 	/**
-	 * Returns the meta object for class '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.ReportingPluginsType <em>Reporting Plugins Type</em>}
-	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class ' {@link org.eclipse.b3.aggregator.engine.maven.pom.ReportingPluginsType
+	 * <em>Reporting Plugins Type</em>} '. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Reporting Plugins Type</em>'.
 	 * @see org.eclipse.b3.aggregator.engine.maven.pom.ReportingPluginsType
@@ -8828,8 +8809,8 @@ public interface PomPackage extends EPackage
 
 	/**
 	 * Returns the meta object for the containment reference '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.ReportPlugin#getConfiguration <em>Configuration</em>}
-	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.ReportPlugin#getConfiguration <em>Configuration</em>} '. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the containment reference '<em>Configuration</em>'.
 	 * @see org.eclipse.b3.aggregator.engine.maven.pom.ReportPlugin#getConfiguration()
@@ -8909,8 +8890,8 @@ public interface PomPackage extends EPackage
 	EReference getReportSet_Configuration();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.ReportSet#getId <em>Id</em>}'. <!-- begin-user-doc -->
+	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.aggregator.engine.maven.pom.ReportSet#getId
+	 * <em>Id</em>}'. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Id</em>'.
@@ -8945,9 +8926,8 @@ public interface PomPackage extends EPackage
 	EReference getReportSet_Reports();
 
 	/**
-	 * Returns the meta object for class '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.ReportSetReportsType <em>Report Set Reports Type</em>}
-	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class ' {@link org.eclipse.b3.aggregator.engine.maven.pom.ReportSetReportsType
+	 * <em>Report Set Reports Type</em>} '. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Report Set Reports Type</em>'.
 	 * @see org.eclipse.b3.aggregator.engine.maven.pom.ReportSetReportsType
@@ -9044,8 +9024,8 @@ public interface PomPackage extends EPackage
 	EClass getRepository();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Repository#getId <em>Id</em>}'. <!-- begin-user-doc
+	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.aggregator.engine.maven.pom.Repository#getId
+	 * <em>Id</em>}'. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Id</em>'.
@@ -9068,8 +9048,8 @@ public interface PomPackage extends EPackage
 	EAttribute getRepository_Layout();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Repository#getName <em>Name</em>}'. <!--
+	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.aggregator.engine.maven.pom.Repository#getName
+	 * <em>Name</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Name</em>'.
@@ -9104,8 +9084,8 @@ public interface PomPackage extends EPackage
 	EReference getRepository_Snapshots();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Repository#getUrl <em>Url</em>}'. <!-- begin-user-doc
+	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.aggregator.engine.maven.pom.Repository#getUrl
+	 * <em>Url</em>}'. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Url</em>'.
@@ -9286,8 +9266,8 @@ public interface PomPackage extends EPackage
 	EClass getScm();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Scm#getConnection <em>Connection</em>}'. <!--
+	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.aggregator.engine.maven.pom.Scm#getConnection
+	 * <em>Connection</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Connection</em>'.
@@ -9332,8 +9312,8 @@ public interface PomPackage extends EPackage
 	EAttribute getScm_Url();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.engine.maven.pom.Site <em>Site</em>}
-	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.engine.maven.pom.Site <em>Site</em>} '. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for class '<em>Site</em>'.
 	 * @see org.eclipse.b3.aggregator.engine.maven.pom.Site
@@ -9353,8 +9333,8 @@ public interface PomPackage extends EPackage
 	EAttribute getSite_Id();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Site#getName <em>Name</em>}'. <!-- begin-user-doc -->
+	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.aggregator.engine.maven.pom.Site#getName
+	 * <em>Name</em>}'. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Name</em>'.
@@ -9365,8 +9345,8 @@ public interface PomPackage extends EPackage
 	EAttribute getSite_Name();
 
 	/**
-	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Site#getUrl <em>Url</em>}'. <!-- begin-user-doc -->
+	 * Returns the meta object for the attribute ' {@link org.eclipse.b3.aggregator.engine.maven.pom.Site#getUrl
+	 * <em>Url</em>}'. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Url</em>'.

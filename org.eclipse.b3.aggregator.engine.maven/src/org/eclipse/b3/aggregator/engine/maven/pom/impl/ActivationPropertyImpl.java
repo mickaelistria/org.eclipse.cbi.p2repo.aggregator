@@ -29,8 +29,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * 
  * @generated
  */
-public class ActivationPropertyImpl extends EObjectImpl implements ActivationProperty
-{
+public class ActivationPropertyImpl extends EObjectImpl implements ActivationProperty {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
@@ -76,8 +75,7 @@ public class ActivationPropertyImpl extends EObjectImpl implements ActivationPro
 	 * 
 	 * @generated
 	 */
-	protected ActivationPropertyImpl()
-	{
+	protected ActivationPropertyImpl() {
 		super();
 	}
 
@@ -87,10 +85,8 @@ public class ActivationPropertyImpl extends EObjectImpl implements ActivationPro
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.ACTIVATION_PROPERTY__NAME:
 			return getName();
 		case PomPackage.ACTIVATION_PROPERTY__VALUE:
@@ -105,10 +101,8 @@ public class ActivationPropertyImpl extends EObjectImpl implements ActivationPro
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.ACTIVATION_PROPERTY__NAME:
 			return NAME_EDEFAULT == null
 					? name != null
@@ -127,15 +121,13 @@ public class ActivationPropertyImpl extends EObjectImpl implements ActivationPro
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.ACTIVATION_PROPERTY__NAME:
-			setName((String)newValue);
+			setName((String) newValue);
 			return;
 		case PomPackage.ACTIVATION_PROPERTY__VALUE:
-			setValue((String)newValue);
+			setValue((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -147,10 +139,8 @@ public class ActivationPropertyImpl extends EObjectImpl implements ActivationPro
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.ACTIVATION_PROPERTY__NAME:
 			setName(NAME_EDEFAULT);
 			return;
@@ -166,8 +156,7 @@ public class ActivationPropertyImpl extends EObjectImpl implements ActivationPro
 	 * 
 	 * @generated
 	 */
-	public String getName()
-	{
+	public String getName() {
 		return name;
 	}
 
@@ -176,8 +165,7 @@ public class ActivationPropertyImpl extends EObjectImpl implements ActivationPro
 	 * 
 	 * @generated
 	 */
-	public String getValue()
-	{
+	public String getValue() {
 		return value;
 	}
 
@@ -186,8 +174,7 @@ public class ActivationPropertyImpl extends EObjectImpl implements ActivationPro
 	 * 
 	 * @generated
 	 */
-	public void setName(String newName)
-	{
+	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
 		if(eNotificationRequired())
@@ -199,8 +186,7 @@ public class ActivationPropertyImpl extends EObjectImpl implements ActivationPro
 	 * 
 	 * @generated
 	 */
-	public void setValue(String newValue)
-	{
+	public void setValue(String newValue) {
 		String oldValue = value;
 		value = newValue;
 		if(eNotificationRequired())
@@ -214,8 +200,7 @@ public class ActivationPropertyImpl extends EObjectImpl implements ActivationPro
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
@@ -234,8 +219,7 @@ public class ActivationPropertyImpl extends EObjectImpl implements ActivationPro
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.ACTIVATION_PROPERTY;
 	}
 

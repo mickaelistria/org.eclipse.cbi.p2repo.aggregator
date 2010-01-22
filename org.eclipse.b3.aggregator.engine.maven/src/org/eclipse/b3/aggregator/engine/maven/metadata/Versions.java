@@ -29,8 +29,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='Versions' kind='elementOnly'"
  * @generated
  */
-public interface Versions extends EObject
-{
+public interface Versions extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Version</b></em>' attribute list. The list contents are of type
 	 * {@link java.lang.String}. <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->

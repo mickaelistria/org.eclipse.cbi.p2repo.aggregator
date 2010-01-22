@@ -24,8 +24,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  * @model extendedMetaData="name='goals_._type' kind='elementOnly'"
  * @generated
  */
-public interface GoalsType extends EObject
-{
+public interface GoalsType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Any</b></em>' attribute list. The list contents are of type
 	 * {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}. <!-- begin-user-doc -->

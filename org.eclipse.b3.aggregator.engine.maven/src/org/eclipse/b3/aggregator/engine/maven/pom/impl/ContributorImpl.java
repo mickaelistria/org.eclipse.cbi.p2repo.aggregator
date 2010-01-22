@@ -28,21 +28,18 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ContributorImpl#getName <em>Name</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ContributorImpl#getEmail <em>Email</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ContributorImpl#getUrl <em>Url</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ContributorImpl#getOrganization <em>Organization
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ContributorImpl#getOrganization <em>Organization </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ContributorImpl#getOrganizationUrl <em> Organization Url
  * </em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ContributorImpl#getOrganizationUrl <em>
- * Organization Url</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ContributorImpl#getRoles <em>Roles</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ContributorImpl#getTimezone <em>Timezone</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ContributorImpl#getProperties <em>Properties
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ContributorImpl#getProperties <em>Properties </em>}</li>
  * </ul>
  * </p>
  * 
  * @generated
  */
-public class ContributorImpl extends EObjectImpl implements Contributor
-{
+public class ContributorImpl extends EObjectImpl implements Contributor {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
@@ -187,8 +184,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor
 	 * 
 	 * @generated
 	 */
-	protected ContributorImpl()
-	{
+	protected ContributorImpl() {
 		super();
 	}
 
@@ -197,12 +193,10 @@ public class ContributorImpl extends EObjectImpl implements Contributor
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetProperties(PropertiesType newProperties, NotificationChain msgs)
-	{
+	public NotificationChain basicSetProperties(PropertiesType newProperties, NotificationChain msgs) {
 		PropertiesType oldProperties = properties;
 		properties = newProperties;
-		if(eNotificationRequired())
-		{
+		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					PomPackage.CONTRIBUTOR__PROPERTIES, oldProperties, newProperties);
 			if(msgs == null)
@@ -218,12 +212,10 @@ public class ContributorImpl extends EObjectImpl implements Contributor
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetRoles(RolesType newRoles, NotificationChain msgs)
-	{
+	public NotificationChain basicSetRoles(RolesType newRoles, NotificationChain msgs) {
 		RolesType oldRoles = roles;
 		roles = newRoles;
-		if(eNotificationRequired())
-		{
+		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					PomPackage.CONTRIBUTOR__ROLES, oldRoles, newRoles);
 			if(msgs == null)
@@ -240,10 +232,8 @@ public class ContributorImpl extends EObjectImpl implements Contributor
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.CONTRIBUTOR__NAME:
 			return getName();
 		case PomPackage.CONTRIBUTOR__EMAIL:
@@ -270,10 +260,8 @@ public class ContributorImpl extends EObjectImpl implements Contributor
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch(featureID)
-		{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
 		case PomPackage.CONTRIBUTOR__ROLES:
 			return basicSetRoles(null, msgs);
 		case PomPackage.CONTRIBUTOR__PROPERTIES:
@@ -288,10 +276,8 @@ public class ContributorImpl extends EObjectImpl implements Contributor
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.CONTRIBUTOR__NAME:
 			return NAME_EDEFAULT == null
 					? name != null
@@ -330,33 +316,31 @@ public class ContributorImpl extends EObjectImpl implements Contributor
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.CONTRIBUTOR__NAME:
-			setName((String)newValue);
+			setName((String) newValue);
 			return;
 		case PomPackage.CONTRIBUTOR__EMAIL:
-			setEmail((String)newValue);
+			setEmail((String) newValue);
 			return;
 		case PomPackage.CONTRIBUTOR__URL:
-			setUrl((String)newValue);
+			setUrl((String) newValue);
 			return;
 		case PomPackage.CONTRIBUTOR__ORGANIZATION:
-			setOrganization((String)newValue);
+			setOrganization((String) newValue);
 			return;
 		case PomPackage.CONTRIBUTOR__ORGANIZATION_URL:
-			setOrganizationUrl((String)newValue);
+			setOrganizationUrl((String) newValue);
 			return;
 		case PomPackage.CONTRIBUTOR__ROLES:
-			setRoles((RolesType)newValue);
+			setRoles((RolesType) newValue);
 			return;
 		case PomPackage.CONTRIBUTOR__TIMEZONE:
-			setTimezone((String)newValue);
+			setTimezone((String) newValue);
 			return;
 		case PomPackage.CONTRIBUTOR__PROPERTIES:
-			setProperties((PropertiesType)newValue);
+			setProperties((PropertiesType) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -368,10 +352,8 @@ public class ContributorImpl extends EObjectImpl implements Contributor
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.CONTRIBUTOR__NAME:
 			setName(NAME_EDEFAULT);
 			return;
@@ -388,13 +370,13 @@ public class ContributorImpl extends EObjectImpl implements Contributor
 			setOrganizationUrl(ORGANIZATION_URL_EDEFAULT);
 			return;
 		case PomPackage.CONTRIBUTOR__ROLES:
-			setRoles((RolesType)null);
+			setRoles((RolesType) null);
 			return;
 		case PomPackage.CONTRIBUTOR__TIMEZONE:
 			setTimezone(TIMEZONE_EDEFAULT);
 			return;
 		case PomPackage.CONTRIBUTOR__PROPERTIES:
-			setProperties((PropertiesType)null);
+			setProperties((PropertiesType) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -405,8 +387,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor
 	 * 
 	 * @generated
 	 */
-	public String getEmail()
-	{
+	public String getEmail() {
 		return email;
 	}
 
@@ -415,8 +396,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor
 	 * 
 	 * @generated
 	 */
-	public String getName()
-	{
+	public String getName() {
 		return name;
 	}
 
@@ -425,8 +405,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor
 	 * 
 	 * @generated
 	 */
-	public String getOrganization()
-	{
+	public String getOrganization() {
 		return organization;
 	}
 
@@ -435,8 +414,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor
 	 * 
 	 * @generated
 	 */
-	public String getOrganizationUrl()
-	{
+	public String getOrganizationUrl() {
 		return organizationUrl;
 	}
 
@@ -445,8 +423,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor
 	 * 
 	 * @generated
 	 */
-	public PropertiesType getProperties()
-	{
+	public PropertiesType getProperties() {
 		return properties;
 	}
 
@@ -455,8 +432,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor
 	 * 
 	 * @generated
 	 */
-	public RolesType getRoles()
-	{
+	public RolesType getRoles() {
 		return roles;
 	}
 
@@ -465,8 +441,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor
 	 * 
 	 * @generated
 	 */
-	public String getTimezone()
-	{
+	public String getTimezone() {
 		return timezone;
 	}
 
@@ -475,8 +450,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor
 	 * 
 	 * @generated
 	 */
-	public String getUrl()
-	{
+	public String getUrl() {
 		return url;
 	}
 
@@ -485,8 +459,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor
 	 * 
 	 * @generated
 	 */
-	public void setEmail(String newEmail)
-	{
+	public void setEmail(String newEmail) {
 		String oldEmail = email;
 		email = newEmail;
 		if(eNotificationRequired())
@@ -498,8 +471,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor
 	 * 
 	 * @generated
 	 */
-	public void setName(String newName)
-	{
+	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
 		if(eNotificationRequired())
@@ -511,8 +483,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor
 	 * 
 	 * @generated
 	 */
-	public void setOrganization(String newOrganization)
-	{
+	public void setOrganization(String newOrganization) {
 		String oldOrganization = organization;
 		organization = newOrganization;
 		if(eNotificationRequired())
@@ -525,8 +496,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor
 	 * 
 	 * @generated
 	 */
-	public void setOrganizationUrl(String newOrganizationUrl)
-	{
+	public void setOrganizationUrl(String newOrganizationUrl) {
 		String oldOrganizationUrl = organizationUrl;
 		organizationUrl = newOrganizationUrl;
 		if(eNotificationRequired())
@@ -539,16 +509,14 @@ public class ContributorImpl extends EObjectImpl implements Contributor
 	 * 
 	 * @generated
 	 */
-	public void setProperties(PropertiesType newProperties)
-	{
-		if(newProperties != properties)
-		{
+	public void setProperties(PropertiesType newProperties) {
+		if(newProperties != properties) {
 			NotificationChain msgs = null;
 			if(properties != null)
-				msgs = ((InternalEObject)properties).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) properties).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.CONTRIBUTOR__PROPERTIES, null, msgs);
 			if(newProperties != null)
-				msgs = ((InternalEObject)newProperties).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) newProperties).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.CONTRIBUTOR__PROPERTIES, null, msgs);
 			msgs = basicSetProperties(newProperties, msgs);
 			if(msgs != null)
@@ -564,16 +532,14 @@ public class ContributorImpl extends EObjectImpl implements Contributor
 	 * 
 	 * @generated
 	 */
-	public void setRoles(RolesType newRoles)
-	{
-		if(newRoles != roles)
-		{
+	public void setRoles(RolesType newRoles) {
+		if(newRoles != roles) {
 			NotificationChain msgs = null;
 			if(roles != null)
-				msgs = ((InternalEObject)roles).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) roles).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.CONTRIBUTOR__ROLES, null, msgs);
 			if(newRoles != null)
-				msgs = ((InternalEObject)newRoles).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) newRoles).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.CONTRIBUTOR__ROLES, null, msgs);
 			msgs = basicSetRoles(newRoles, msgs);
 			if(msgs != null)
@@ -588,8 +554,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor
 	 * 
 	 * @generated
 	 */
-	public void setTimezone(String newTimezone)
-	{
+	public void setTimezone(String newTimezone) {
 		String oldTimezone = timezone;
 		timezone = newTimezone;
 		if(eNotificationRequired())
@@ -602,8 +567,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor
 	 * 
 	 * @generated
 	 */
-	public void setUrl(String newUrl)
-	{
+	public void setUrl(String newUrl) {
 		String oldUrl = url;
 		url = newUrl;
 		if(eNotificationRequired())
@@ -616,8 +580,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
@@ -644,8 +607,7 @@ public class ContributorImpl extends EObjectImpl implements Contributor
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.CONTRIBUTOR;
 	}
 

@@ -19,16 +19,14 @@ import org.eclipse.emf.ecore.xmi.util.XMLProcessor;
  * 
  * @generated
  */
-public class MetadataXMLProcessor extends XMLProcessor
-{
+public class MetadataXMLProcessor extends XMLProcessor {
 
 	/**
 	 * Public constructor to instantiate the helper. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	public MetadataXMLProcessor()
-	{
+	public MetadataXMLProcessor() {
 		super((EPackage.Registry.INSTANCE));
 		MetadataPackage.eINSTANCE.eClass();
 	}
@@ -40,10 +38,8 @@ public class MetadataXMLProcessor extends XMLProcessor
 	 * @generated
 	 */
 	@Override
-	protected Map<String, Resource.Factory> getRegistrations()
-	{
-		if(registrations == null)
-		{
+	protected Map<String, Resource.Factory> getRegistrations() {
+		if(registrations == null) {
 			super.getRegistrations();
 			registrations.put(XML_EXTENSION, new MetadataResourceFactoryImpl());
 			registrations.put(STAR_EXTENSION, new MetadataResourceFactoryImpl());

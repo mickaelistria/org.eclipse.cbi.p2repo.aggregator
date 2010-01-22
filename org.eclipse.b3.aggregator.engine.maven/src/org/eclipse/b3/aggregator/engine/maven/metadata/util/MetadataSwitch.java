@@ -22,8 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * @see org.eclipse.b3.aggregator.engine.maven.metadata.MetadataPackage
  * @generated
  */
-public class MetadataSwitch<T>
-{
+public class MetadataSwitch<T> {
 	/**
 	 * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -36,10 +35,8 @@ public class MetadataSwitch<T>
 	 * 
 	 * @generated
 	 */
-	public MetadataSwitch()
-	{
-		if(modelPackage == null)
-		{
+	public MetadataSwitch() {
+		if(modelPackage == null) {
 			modelPackage = MetadataPackage.eINSTANCE;
 		}
 	}
@@ -54,8 +51,7 @@ public class MetadataSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDocumentRoot(DocumentRoot object)
-	{
+	public T caseDocumentRoot(DocumentRoot object) {
 		return null;
 	}
 
@@ -69,8 +65,7 @@ public class MetadataSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseMetaData(MetaData object)
-	{
+	public T caseMetaData(MetaData object) {
 		return null;
 	}
 
@@ -84,8 +79,7 @@ public class MetadataSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseVersioning(Versioning object)
-	{
+	public T caseVersioning(Versioning object) {
 		return null;
 	}
 
@@ -99,8 +93,7 @@ public class MetadataSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseVersions(Versions object)
-	{
+	public T caseVersions(Versions object) {
 		return null;
 	}
 
@@ -115,8 +108,7 @@ public class MetadataSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-	public T defaultCase(EObject object)
-	{
+	public T defaultCase(EObject object) {
 		return null;
 	}
 
@@ -127,8 +119,7 @@ public class MetadataSwitch<T>
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
-	public T doSwitch(EObject theEObject)
-	{
+	public T doSwitch(EObject theEObject) {
 		return doSwitch(theEObject.eClass(), theEObject);
 	}
 
@@ -139,14 +130,11 @@ public class MetadataSwitch<T>
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
-	protected T doSwitch(EClass theEClass, EObject theEObject)
-	{
-		if(theEClass.eContainer() == modelPackage)
-		{
+	protected T doSwitch(EClass theEClass, EObject theEObject) {
+		if(theEClass.eContainer() == modelPackage) {
 			return doSwitch(theEClass.getClassifierID(), theEObject);
 		}
-		else
-		{
+		else {
 			List<EClass> eSuperTypes = theEClass.getESuperTypes();
 			return eSuperTypes.isEmpty()
 					? defaultCase(theEObject)
@@ -161,37 +149,31 @@ public class MetadataSwitch<T>
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
-	protected T doSwitch(int classifierID, EObject theEObject)
-	{
-		switch(classifierID)
-		{
-		case MetadataPackage.DOCUMENT_ROOT:
-		{
-			DocumentRoot documentRoot = (DocumentRoot)theEObject;
+	protected T doSwitch(int classifierID, EObject theEObject) {
+		switch(classifierID) {
+		case MetadataPackage.DOCUMENT_ROOT: {
+			DocumentRoot documentRoot = (DocumentRoot) theEObject;
 			T result = caseDocumentRoot(documentRoot);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case MetadataPackage.META_DATA:
-		{
-			MetaData metaData = (MetaData)theEObject;
+		case MetadataPackage.META_DATA: {
+			MetaData metaData = (MetaData) theEObject;
 			T result = caseMetaData(metaData);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case MetadataPackage.VERSIONING:
-		{
-			Versioning versioning = (Versioning)theEObject;
+		case MetadataPackage.VERSIONING: {
+			Versioning versioning = (Versioning) theEObject;
 			T result = caseVersioning(versioning);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case MetadataPackage.VERSIONS:
-		{
-			Versions versions = (Versions)theEObject;
+		case MetadataPackage.VERSIONS: {
+			Versions versions = (Versions) theEObject;
 			T result = caseVersions(versions);
 			if(result == null)
 				result = defaultCase(theEObject);

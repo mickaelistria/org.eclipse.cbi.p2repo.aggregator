@@ -33,8 +33,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='Repository' kind='elementOnly'"
  * @generated
  */
-public interface Repository extends EObject
-{
+public interface Repository extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
 	 * begin-model-doc --> 4.0.0
@@ -134,8 +133,8 @@ public interface Repository extends EObject
 	String getUrl();
 
 	/**
-	 * Returns whether the value of the '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Repository#getLayout <em>Layout</em>}' attribute is
+	 * Returns whether the value of the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.Repository#getLayout
+	 * <em>Layout</em>}' attribute is
 	 * set. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return whether the value of the '<em>Layout</em>' attribute is set.
@@ -204,8 +203,8 @@ public interface Repository extends EObject
 	void setSnapshots(RepositoryPolicy value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.engine.maven.pom.Repository#getUrl <em>Url</em>}
-	 * ' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.engine.maven.pom.Repository#getUrl <em>Url</em>} '
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
 	 *            the new value of the '<em>Url</em>' attribute.

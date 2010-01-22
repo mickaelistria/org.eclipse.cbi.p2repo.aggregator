@@ -33,18 +33,17 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DocumentRootImpl#getMixed <em>Mixed</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DocumentRootImpl#getXMLNSPrefixMap <em>XMLNS
- * Prefix Map</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DocumentRootImpl#getXSISchemaLocation <em>XSI
- * Schema Location</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DocumentRootImpl#getXMLNSPrefixMap <em>XMLNS Prefix Map
+ * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DocumentRootImpl#getXSISchemaLocation <em>XSI Schema
+ * Location</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DocumentRootImpl#getProject <em>Project</em>}</li>
  * </ul>
  * </p>
  * 
  * @generated
  */
-public class DocumentRootImpl extends EObjectImpl implements DocumentRoot
-{
+public class DocumentRootImpl extends EObjectImpl implements DocumentRoot {
 	/**
 	 * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute list. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -80,8 +79,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot
 	 * 
 	 * @generated
 	 */
-	protected DocumentRootImpl()
-	{
+	protected DocumentRootImpl() {
 		super();
 	}
 
@@ -90,9 +88,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetProject(Model newProject, NotificationChain msgs)
-	{
-		return ((FeatureMap.Internal)getMixed()).basicAdd(PomPackage.Literals.DOCUMENT_ROOT__PROJECT, newProject, msgs);
+	public NotificationChain basicSetProject(Model newProject, NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(PomPackage.Literals.DOCUMENT_ROOT__PROJECT, newProject, msgs);
 	}
 
 	/**
@@ -101,14 +98,12 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.DOCUMENT_ROOT__MIXED:
 			if(coreType)
 				return getMixed();
-			return ((FeatureMap.Internal)getMixed()).getWrapper();
+			return ((FeatureMap.Internal) getMixed()).getWrapper();
 		case PomPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
 			if(coreType)
 				return getXMLNSPrefixMap();
@@ -131,16 +126,14 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch(featureID)
-		{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
 		case PomPackage.DOCUMENT_ROOT__MIXED:
-			return ((InternalEList<?>)getMixed()).basicRemove(otherEnd, msgs);
+			return ((InternalEList<?>) getMixed()).basicRemove(otherEnd, msgs);
 		case PomPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
-			return ((InternalEList<?>)getXMLNSPrefixMap()).basicRemove(otherEnd, msgs);
+			return ((InternalEList<?>) getXMLNSPrefixMap()).basicRemove(otherEnd, msgs);
 		case PomPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
-			return ((InternalEList<?>)getXSISchemaLocation()).basicRemove(otherEnd, msgs);
+			return ((InternalEList<?>) getXSISchemaLocation()).basicRemove(otherEnd, msgs);
 		case PomPackage.DOCUMENT_ROOT__PROJECT:
 			return basicSetProject(null, msgs);
 		}
@@ -153,10 +146,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.DOCUMENT_ROOT__MIXED:
 			return mixed != null && !mixed.isEmpty();
 		case PomPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
@@ -175,21 +166,19 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.DOCUMENT_ROOT__MIXED:
-			((FeatureMap.Internal)getMixed()).set(newValue);
+			((FeatureMap.Internal) getMixed()).set(newValue);
 			return;
 		case PomPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP:
-			((EStructuralFeature.Setting)getXMLNSPrefixMap()).set(newValue);
+			((EStructuralFeature.Setting) getXMLNSPrefixMap()).set(newValue);
 			return;
 		case PomPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION:
-			((EStructuralFeature.Setting)getXSISchemaLocation()).set(newValue);
+			((EStructuralFeature.Setting) getXSISchemaLocation()).set(newValue);
 			return;
 		case PomPackage.DOCUMENT_ROOT__PROJECT:
-			setProject((Model)newValue);
+			setProject((Model) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -201,10 +190,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.DOCUMENT_ROOT__MIXED:
 			getMixed().clear();
 			return;
@@ -215,7 +202,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot
 			getXSISchemaLocation().clear();
 			return;
 		case PomPackage.DOCUMENT_ROOT__PROJECT:
-			setProject((Model)null);
+			setProject((Model) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -226,10 +213,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot
 	 * 
 	 * @generated
 	 */
-	public FeatureMap getMixed()
-	{
-		if(mixed == null)
-		{
+	public FeatureMap getMixed() {
+		if(mixed == null) {
 			mixed = new BasicFeatureMap(this, PomPackage.DOCUMENT_ROOT__MIXED);
 		}
 		return mixed;
@@ -240,9 +225,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot
 	 * 
 	 * @generated
 	 */
-	public Model getProject()
-	{
-		return (Model)getMixed().get(PomPackage.Literals.DOCUMENT_ROOT__PROJECT, true);
+	public Model getProject() {
+		return (Model) getMixed().get(PomPackage.Literals.DOCUMENT_ROOT__PROJECT, true);
 	}
 
 	/**
@@ -250,10 +234,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot
 	 * 
 	 * @generated
 	 */
-	public EMap<String, String> getXMLNSPrefixMap()
-	{
-		if(xMLNSPrefixMap == null)
-		{
+	public EMap<String, String> getXMLNSPrefixMap() {
+		if(xMLNSPrefixMap == null) {
 			xMLNSPrefixMap = new EcoreEMap<String, String>(EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY,
 					EStringToStringMapEntryImpl.class, this, PomPackage.DOCUMENT_ROOT__XMLNS_PREFIX_MAP);
 		}
@@ -265,10 +247,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot
 	 * 
 	 * @generated
 	 */
-	public EMap<String, String> getXSISchemaLocation()
-	{
-		if(xSISchemaLocation == null)
-		{
+	public EMap<String, String> getXSISchemaLocation() {
+		if(xSISchemaLocation == null) {
 			xSISchemaLocation = new EcoreEMap<String, String>(EcorePackage.Literals.ESTRING_TO_STRING_MAP_ENTRY,
 					EStringToStringMapEntryImpl.class, this, PomPackage.DOCUMENT_ROOT__XSI_SCHEMA_LOCATION);
 		}
@@ -280,9 +260,8 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot
 	 * 
 	 * @generated
 	 */
-	public void setProject(Model newProject)
-	{
-		((FeatureMap.Internal)getMixed()).set(PomPackage.Literals.DOCUMENT_ROOT__PROJECT, newProject);
+	public void setProject(Model newProject) {
+		((FeatureMap.Internal) getMixed()).set(PomPackage.Literals.DOCUMENT_ROOT__PROJECT, newProject);
 	}
 
 	/**
@@ -291,8 +270,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
@@ -309,8 +287,7 @@ public class DocumentRootImpl extends EObjectImpl implements DocumentRoot
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.DOCUMENT_ROOT;
 	}
 

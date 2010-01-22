@@ -22,8 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.BuildBase#getDirectory <em>Directory</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.BuildBase#getFinalName <em>Final Name</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.BuildBase#getFilters <em>Filters</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.BuildBase#getPluginManagement <em>Plugin Management
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.BuildBase#getPluginManagement <em>Plugin Management </em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.BuildBase#getPlugins <em>Plugins</em>}</li>
  * </ul>
  * </p>
@@ -32,8 +31,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='BuildBase' kind='elementOnly'"
  * @generated
  */
-public interface BuildBase extends EObject
-{
+public interface BuildBase extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Default Goal</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * <!-- begin-model-doc --> 3.0.0+

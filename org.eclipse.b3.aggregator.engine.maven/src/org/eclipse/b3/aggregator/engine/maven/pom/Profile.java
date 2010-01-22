@@ -25,15 +25,14 @@ import org.eclipse.emf.ecore.EObject;
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Profile#getBuild <em>Build</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Profile#getModules <em>Modules</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Profile#getRepositories <em>Repositories</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Profile#getPluginRepositories <em>Plugin Repositories
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Profile#getPluginRepositories <em>Plugin Repositories </em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Profile#getDependencies <em>Dependencies</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Profile#getReports <em>Reports</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Profile#getReporting <em>Reporting</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Profile#getDependencyManagement <em>Dependency
- * Management</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Profile#getDistributionManagement <em>Distribution
- * Management</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Profile#getDependencyManagement <em>Dependency Management</em>}
+ * </li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Profile#getDistributionManagement <em>Distribution Management
+ * </em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Profile#getProperties <em>Properties</em>}</li>
  * </ul>
  * </p>
@@ -42,8 +41,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='Profile' kind='elementOnly'"
  * @generated
  */
-public interface Profile extends EObject
-{
+public interface Profile extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Activation</b></em>' containment reference. <!-- begin-user-doc --> <!--
 	 * end-user-doc --> <!-- begin-model-doc --> 4.0.0 The conditional logic which will automatically trigger the
@@ -267,8 +265,7 @@ public interface Profile extends EObject
 	void setDependencies(DependenciesType value);
 
 	/**
-	 * Sets the value of the '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Profile#getDependencyManagement
+	 * Sets the value of the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.Profile#getDependencyManagement
 	 * <em>Dependency Management</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -279,8 +276,7 @@ public interface Profile extends EObject
 	void setDependencyManagement(DependencyManagement value);
 
 	/**
-	 * Sets the value of the '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Profile#getDistributionManagement
+	 * Sets the value of the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.Profile#getDistributionManagement
 	 * <em>Distribution Management</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

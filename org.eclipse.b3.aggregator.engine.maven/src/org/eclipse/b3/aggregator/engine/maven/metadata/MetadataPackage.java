@@ -25,8 +25,7 @@ import org.eclipse.emf.ecore.EReference;
  * @model kind="package"
  * @generated
  */
-public interface MetadataPackage extends EPackage
-{
+public interface MetadataPackage extends EPackage {
 	/**
 	 * <!-- begin-user-doc --> Defines literals for the meta objects that represent
 	 * <ul>
@@ -39,12 +38,11 @@ public interface MetadataPackage extends EPackage
 	 * 
 	 * @generated
 	 */
-	interface Literals
-	{
+	interface Literals {
 		/**
 		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.metadata.impl.DocumentRootImpl <em>Document Root</em>}
-		 * ' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * {@link org.eclipse.b3.aggregator.engine.maven.metadata.impl.DocumentRootImpl <em>Document Root</em>} ' class.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.metadata.impl.DocumentRootImpl
 		 * @see org.eclipse.b3.aggregator.engine.maven.metadata.impl.MetadataPackageImpl#getDocumentRoot()
@@ -85,8 +83,8 @@ public interface MetadataPackage extends EPackage
 		EReference DOCUMENT_ROOT__METADATA = eINSTANCE.getDocumentRoot_Metadata();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.metadata.impl.MetaDataImpl <em>Meta Data</em>}' class.
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.metadata.impl.MetaDataImpl
+		 * <em>Meta Data</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.metadata.impl.MetaDataImpl
@@ -128,8 +126,8 @@ public interface MetadataPackage extends EPackage
 		EReference META_DATA__VERSIONING = eINSTANCE.getMetaData_Versioning();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.metadata.impl.VersioningImpl <em>Versioning</em>}'
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.metadata.impl.VersioningImpl
+		 * <em>Versioning</em>}'
 		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.metadata.impl.VersioningImpl
@@ -163,8 +161,8 @@ public interface MetadataPackage extends EPackage
 		EAttribute VERSIONING__LAST_UPDATED = eINSTANCE.getVersioning_LastUpdated();
 
 		/**
-		 * The meta object literal for the '
-		 * {@link org.eclipse.b3.aggregator.engine.maven.metadata.impl.VersionsImpl <em>Versions</em>}' class.
+		 * The meta object literal for the ' {@link org.eclipse.b3.aggregator.engine.maven.metadata.impl.VersionsImpl
+		 * <em>Versions</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @see org.eclipse.b3.aggregator.engine.maven.metadata.impl.VersionsImpl
@@ -212,8 +210,8 @@ public interface MetadataPackage extends EPackage
 	MetadataPackage eINSTANCE = org.eclipse.b3.aggregator.engine.maven.metadata.impl.MetadataPackageImpl.init();
 
 	/**
-	 * The meta object id for the '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.metadata.impl.DocumentRootImpl <em>Document Root</em>}'
+	 * The meta object id for the ' {@link org.eclipse.b3.aggregator.engine.maven.metadata.impl.DocumentRootImpl
+	 * <em>Document Root</em>}'
 	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see org.eclipse.b3.aggregator.engine.maven.metadata.impl.DocumentRootImpl
@@ -522,8 +520,8 @@ public interface MetadataPackage extends EPackage
 
 	/**
 	 * Returns the meta object for the attribute '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.metadata.Versioning#getLastUpdated <em>Last Updated</em>}
-	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * {@link org.eclipse.b3.aggregator.engine.maven.metadata.Versioning#getLastUpdated <em>Last Updated</em>} '. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the attribute '<em>Last Updated</em>'.
 	 * @see org.eclipse.b3.aggregator.engine.maven.metadata.Versioning#getLastUpdated()

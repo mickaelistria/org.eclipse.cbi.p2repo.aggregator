@@ -26,15 +26,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <ul>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.CiManagementImpl#getSystem <em>System</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.CiManagementImpl#getUrl <em>Url</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.CiManagementImpl#getNotifiers <em>Notifiers</em>}
- * </li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.CiManagementImpl#getNotifiers <em>Notifiers</em>}</li>
  * </ul>
  * </p>
  * 
  * @generated
  */
-public class CiManagementImpl extends EObjectImpl implements CiManagement
-{
+public class CiManagementImpl extends EObjectImpl implements CiManagement {
 	/**
 	 * The default value of the '{@link #getSystem() <em>System</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -89,8 +87,7 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement
 	 * 
 	 * @generated
 	 */
-	protected CiManagementImpl()
-	{
+	protected CiManagementImpl() {
 		super();
 	}
 
@@ -99,12 +96,10 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetNotifiers(NotifiersType newNotifiers, NotificationChain msgs)
-	{
+	public NotificationChain basicSetNotifiers(NotifiersType newNotifiers, NotificationChain msgs) {
 		NotifiersType oldNotifiers = notifiers;
 		notifiers = newNotifiers;
-		if(eNotificationRequired())
-		{
+		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					PomPackage.CI_MANAGEMENT__NOTIFIERS, oldNotifiers, newNotifiers);
 			if(msgs == null)
@@ -121,10 +116,8 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.CI_MANAGEMENT__SYSTEM:
 			return getSystem();
 		case PomPackage.CI_MANAGEMENT__URL:
@@ -141,10 +134,8 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch(featureID)
-		{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
 		case PomPackage.CI_MANAGEMENT__NOTIFIERS:
 			return basicSetNotifiers(null, msgs);
 		}
@@ -157,10 +148,8 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.CI_MANAGEMENT__SYSTEM:
 			return SYSTEM_EDEFAULT == null
 					? system != null
@@ -181,18 +170,16 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.CI_MANAGEMENT__SYSTEM:
-			setSystem((String)newValue);
+			setSystem((String) newValue);
 			return;
 		case PomPackage.CI_MANAGEMENT__URL:
-			setUrl((String)newValue);
+			setUrl((String) newValue);
 			return;
 		case PomPackage.CI_MANAGEMENT__NOTIFIERS:
-			setNotifiers((NotifiersType)newValue);
+			setNotifiers((NotifiersType) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -204,10 +191,8 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.CI_MANAGEMENT__SYSTEM:
 			setSystem(SYSTEM_EDEFAULT);
 			return;
@@ -215,7 +200,7 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement
 			setUrl(URL_EDEFAULT);
 			return;
 		case PomPackage.CI_MANAGEMENT__NOTIFIERS:
-			setNotifiers((NotifiersType)null);
+			setNotifiers((NotifiersType) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -226,8 +211,7 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement
 	 * 
 	 * @generated
 	 */
-	public NotifiersType getNotifiers()
-	{
+	public NotifiersType getNotifiers() {
 		return notifiers;
 	}
 
@@ -236,8 +220,7 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement
 	 * 
 	 * @generated
 	 */
-	public String getSystem()
-	{
+	public String getSystem() {
 		return system;
 	}
 
@@ -246,8 +229,7 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement
 	 * 
 	 * @generated
 	 */
-	public String getUrl()
-	{
+	public String getUrl() {
 		return url;
 	}
 
@@ -256,16 +238,14 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement
 	 * 
 	 * @generated
 	 */
-	public void setNotifiers(NotifiersType newNotifiers)
-	{
-		if(newNotifiers != notifiers)
-		{
+	public void setNotifiers(NotifiersType newNotifiers) {
+		if(newNotifiers != notifiers) {
 			NotificationChain msgs = null;
 			if(notifiers != null)
-				msgs = ((InternalEObject)notifiers).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) notifiers).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.CI_MANAGEMENT__NOTIFIERS, null, msgs);
 			if(newNotifiers != null)
-				msgs = ((InternalEObject)newNotifiers).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) newNotifiers).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.CI_MANAGEMENT__NOTIFIERS, null, msgs);
 			msgs = basicSetNotifiers(newNotifiers, msgs);
 			if(msgs != null)
@@ -281,8 +261,7 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement
 	 * 
 	 * @generated
 	 */
-	public void setSystem(String newSystem)
-	{
+	public void setSystem(String newSystem) {
 		String oldSystem = system;
 		system = newSystem;
 		if(eNotificationRequired())
@@ -294,8 +273,7 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement
 	 * 
 	 * @generated
 	 */
-	public void setUrl(String newUrl)
-	{
+	public void setUrl(String newUrl) {
 		String oldUrl = url;
 		url = newUrl;
 		if(eNotificationRequired())
@@ -308,8 +286,7 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
@@ -328,8 +305,7 @@ public class CiManagementImpl extends EObjectImpl implements CiManagement
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.CI_MANAGEMENT;
 	}
 

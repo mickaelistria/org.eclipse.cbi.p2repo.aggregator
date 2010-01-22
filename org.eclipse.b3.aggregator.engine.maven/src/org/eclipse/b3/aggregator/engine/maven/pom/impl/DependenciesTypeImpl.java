@@ -30,15 +30,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DependenciesTypeImpl#getDependency <em>Dependency
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DependenciesTypeImpl#getDependency <em>Dependency </em>}</li>
  * </ul>
  * </p>
  * 
  * @generated
  */
-public class DependenciesTypeImpl extends EObjectImpl implements DependenciesType
-{
+public class DependenciesTypeImpl extends EObjectImpl implements DependenciesType {
 	/**
 	 * The cached value of the '{@link #getDependency() <em>Dependency</em>}' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -54,8 +52,7 @@ public class DependenciesTypeImpl extends EObjectImpl implements DependenciesTyp
 	 * 
 	 * @generated
 	 */
-	protected DependenciesTypeImpl()
-	{
+	protected DependenciesTypeImpl() {
 		super();
 	}
 
@@ -65,10 +62,8 @@ public class DependenciesTypeImpl extends EObjectImpl implements DependenciesTyp
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.DEPENDENCIES_TYPE__DEPENDENCY:
 			return getDependency();
 		}
@@ -81,12 +76,10 @@ public class DependenciesTypeImpl extends EObjectImpl implements DependenciesTyp
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch(featureID)
-		{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
 		case PomPackage.DEPENDENCIES_TYPE__DEPENDENCY:
-			return ((InternalEList<?>)getDependency()).basicRemove(otherEnd, msgs);
+			return ((InternalEList<?>) getDependency()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -97,10 +90,8 @@ public class DependenciesTypeImpl extends EObjectImpl implements DependenciesTyp
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.DEPENDENCIES_TYPE__DEPENDENCY:
 			return dependency != null && !dependency.isEmpty();
 		}
@@ -114,13 +105,11 @@ public class DependenciesTypeImpl extends EObjectImpl implements DependenciesTyp
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.DEPENDENCIES_TYPE__DEPENDENCY:
 			getDependency().clear();
-			getDependency().addAll((Collection<? extends Dependency>)newValue);
+			getDependency().addAll((Collection<? extends Dependency>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -132,10 +121,8 @@ public class DependenciesTypeImpl extends EObjectImpl implements DependenciesTyp
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.DEPENDENCIES_TYPE__DEPENDENCY:
 			getDependency().clear();
 			return;
@@ -148,10 +135,8 @@ public class DependenciesTypeImpl extends EObjectImpl implements DependenciesTyp
 	 * 
 	 * @generated
 	 */
-	public EList<Dependency> getDependency()
-	{
-		if(dependency == null)
-		{
+	public EList<Dependency> getDependency() {
+		if(dependency == null) {
 			dependency = new EObjectContainmentEList<Dependency>(Dependency.class, this,
 					PomPackage.DEPENDENCIES_TYPE__DEPENDENCY);
 		}
@@ -164,8 +149,7 @@ public class DependenciesTypeImpl extends EObjectImpl implements DependenciesTyp
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.DEPENDENCIES_TYPE;
 	}
 

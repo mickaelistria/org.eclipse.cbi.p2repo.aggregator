@@ -18,10 +18,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.RepositoryPolicy#isEnabled <em>Enabled</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.RepositoryPolicy#getUpdatePolicy <em>Update Policy
- * </em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.RepositoryPolicy#getChecksumPolicy <em>Checksum Policy
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.RepositoryPolicy#getUpdatePolicy <em>Update Policy </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.RepositoryPolicy#getChecksumPolicy <em>Checksum Policy </em>}</li>
  * </ul>
  * </p>
  * 
@@ -29,8 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='RepositoryPolicy' kind='elementOnly'"
  * @generated
  */
-public interface RepositoryPolicy extends EObject
-{
+public interface RepositoryPolicy extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Checksum Policy</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * --> <!-- begin-model-doc --> 4.0.0
@@ -85,8 +82,8 @@ public interface RepositoryPolicy extends EObject
 	boolean isEnabled();
 
 	/**
-	 * Returns whether the value of the '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.RepositoryPolicy#isEnabled <em>Enabled</em>}'
+	 * Returns whether the value of the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.RepositoryPolicy#isEnabled
+	 * <em>Enabled</em>}'
 	 * attribute is set. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return whether the value of the '<em>Enabled</em>' attribute is set.
@@ -98,8 +95,7 @@ public interface RepositoryPolicy extends EObject
 	boolean isSetEnabled();
 
 	/**
-	 * Sets the value of the '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.RepositoryPolicy#getChecksumPolicy
+	 * Sets the value of the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.RepositoryPolicy#getChecksumPolicy
 	 * <em>Checksum Policy</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -123,8 +119,7 @@ public interface RepositoryPolicy extends EObject
 	void setEnabled(boolean value);
 
 	/**
-	 * Sets the value of the '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.RepositoryPolicy#getUpdatePolicy
+	 * Sets the value of the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.RepositoryPolicy#getUpdatePolicy
 	 * <em>Update Policy</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

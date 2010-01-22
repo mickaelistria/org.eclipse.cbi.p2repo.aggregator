@@ -22,15 +22,12 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.DistributionManagement#getRepository <em>Repository
- * </em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.DistributionManagement#getSnapshotRepository <em>
- * Snapshot Repository</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.DistributionManagement#getRepository <em>Repository </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.DistributionManagement#getSnapshotRepository <em> Snapshot
+ * Repository</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.DistributionManagement#getSite <em>Site</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.DistributionManagement#getDownloadUrl <em>Download Url
- * </em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.DistributionManagement#getRelocation <em>Relocation
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.DistributionManagement#getDownloadUrl <em>Download Url </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.DistributionManagement#getRelocation <em>Relocation </em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.DistributionManagement#getStatus <em>Status</em>}</li>
  * </ul>
  * </p>
@@ -39,8 +36,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='DistributionManagement' kind='elementOnly'"
  * @generated
  */
-public interface DistributionManagement extends EObject
-{
+public interface DistributionManagement extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Download Url</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * <!-- begin-model-doc --> 4.0.0+
@@ -149,8 +145,7 @@ public interface DistributionManagement extends EObject
 	String getStatus();
 
 	/**
-	 * Sets the value of the '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.DistributionManagement#getDownloadUrl
+	 * Sets the value of the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.DistributionManagement#getDownloadUrl
 	 * <em>Download Url</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -161,8 +156,7 @@ public interface DistributionManagement extends EObject
 	void setDownloadUrl(String value);
 
 	/**
-	 * Sets the value of the '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.DistributionManagement#getRelocation
+	 * Sets the value of the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.DistributionManagement#getRelocation
 	 * <em>Relocation</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -173,8 +167,7 @@ public interface DistributionManagement extends EObject
 	void setRelocation(Relocation value);
 
 	/**
-	 * Sets the value of the '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.DistributionManagement#getRepository
+	 * Sets the value of the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.DistributionManagement#getRepository
 	 * <em>Repository</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
@@ -208,8 +201,8 @@ public interface DistributionManagement extends EObject
 	void setSnapshotRepository(DeploymentRepository value);
 
 	/**
-	 * Sets the value of the '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.DistributionManagement#getStatus <em>Status</em>}'
+	 * Sets the value of the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.DistributionManagement#getStatus
+	 * <em>Status</em>}'
 	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

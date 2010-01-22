@@ -30,15 +30,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ContributorsTypeImpl#getContributor <em>
- * Contributor</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ContributorsTypeImpl#getContributor <em> Contributor</em>}
+ * </li>
  * </ul>
  * </p>
  * 
  * @generated
  */
-public class ContributorsTypeImpl extends EObjectImpl implements ContributorsType
-{
+public class ContributorsTypeImpl extends EObjectImpl implements ContributorsType {
 	/**
 	 * The cached value of the '{@link #getContributor() <em>Contributor</em>}' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -54,8 +53,7 @@ public class ContributorsTypeImpl extends EObjectImpl implements ContributorsTyp
 	 * 
 	 * @generated
 	 */
-	protected ContributorsTypeImpl()
-	{
+	protected ContributorsTypeImpl() {
 		super();
 	}
 
@@ -65,10 +63,8 @@ public class ContributorsTypeImpl extends EObjectImpl implements ContributorsTyp
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.CONTRIBUTORS_TYPE__CONTRIBUTOR:
 			return getContributor();
 		}
@@ -81,12 +77,10 @@ public class ContributorsTypeImpl extends EObjectImpl implements ContributorsTyp
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch(featureID)
-		{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
 		case PomPackage.CONTRIBUTORS_TYPE__CONTRIBUTOR:
-			return ((InternalEList<?>)getContributor()).basicRemove(otherEnd, msgs);
+			return ((InternalEList<?>) getContributor()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -97,10 +91,8 @@ public class ContributorsTypeImpl extends EObjectImpl implements ContributorsTyp
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.CONTRIBUTORS_TYPE__CONTRIBUTOR:
 			return contributor != null && !contributor.isEmpty();
 		}
@@ -114,13 +106,11 @@ public class ContributorsTypeImpl extends EObjectImpl implements ContributorsTyp
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.CONTRIBUTORS_TYPE__CONTRIBUTOR:
 			getContributor().clear();
-			getContributor().addAll((Collection<? extends Contributor>)newValue);
+			getContributor().addAll((Collection<? extends Contributor>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -132,10 +122,8 @@ public class ContributorsTypeImpl extends EObjectImpl implements ContributorsTyp
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.CONTRIBUTORS_TYPE__CONTRIBUTOR:
 			getContributor().clear();
 			return;
@@ -148,10 +136,8 @@ public class ContributorsTypeImpl extends EObjectImpl implements ContributorsTyp
 	 * 
 	 * @generated
 	 */
-	public EList<Contributor> getContributor()
-	{
-		if(contributor == null)
-		{
+	public EList<Contributor> getContributor() {
+		if(contributor == null) {
 			contributor = new EObjectContainmentEList<Contributor>(Contributor.class, this,
 					PomPackage.CONTRIBUTORS_TYPE__CONTRIBUTOR);
 		}
@@ -164,8 +150,7 @@ public class ContributorsTypeImpl extends EObjectImpl implements ContributorsTyp
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.CONTRIBUTORS_TYPE;
 	}
 

@@ -29,8 +29,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='PluginManagement' kind='elementOnly'"
  * @generated
  */
-public interface PluginManagement extends EObject
-{
+public interface PluginManagement extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Plugins</b></em>' containment reference. <!-- begin-user-doc --> <!--
 	 * end-user-doc --> <!-- begin-model-doc --> 4.0.0

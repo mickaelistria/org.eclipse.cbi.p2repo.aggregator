@@ -29,34 +29,29 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.BuildImpl#getSourceDirectory <em>Source Directory
- * </em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.BuildImpl#getScriptSourceDirectory <em>Script
- * Source Directory</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.BuildImpl#getTestSourceDirectory <em>Test Source
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.BuildImpl#getSourceDirectory <em>Source Directory </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.BuildImpl#getScriptSourceDirectory <em>Script Source
  * Directory</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.BuildImpl#getOutputDirectory <em>Output Directory
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.BuildImpl#getTestSourceDirectory <em>Test Source Directory
  * </em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.BuildImpl#getTestOutputDirectory <em>Test Output
- * Directory</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.BuildImpl#getOutputDirectory <em>Output Directory </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.BuildImpl#getTestOutputDirectory <em>Test Output Directory
+ * </em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.BuildImpl#getExtensions <em>Extensions</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.BuildImpl#getDefaultGoal <em>Default Goal</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.BuildImpl#getResources <em>Resources</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.BuildImpl#getTestResources <em>Test Resources
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.BuildImpl#getTestResources <em>Test Resources </em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.BuildImpl#getDirectory <em>Directory</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.BuildImpl#getFinalName <em>Final Name</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.BuildImpl#getFilters <em>Filters</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.BuildImpl#getPluginManagement <em>Plugin
- * Management</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.BuildImpl#getPluginManagement <em>Plugin Management</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.BuildImpl#getPlugins <em>Plugins</em>}</li>
  * </ul>
  * </p>
  * 
  * @generated
  */
-public class BuildImpl extends EObjectImpl implements Build
-{
+public class BuildImpl extends EObjectImpl implements Build {
 	/**
 	 * The default value of the '{@link #getSourceDirectory() <em>Source Directory</em>}' attribute. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
@@ -282,8 +277,7 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * 
 	 * @generated
 	 */
-	protected BuildImpl()
-	{
+	protected BuildImpl() {
 		super();
 	}
 
@@ -292,12 +286,10 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetExtensions(ExtensionsType newExtensions, NotificationChain msgs)
-	{
+	public NotificationChain basicSetExtensions(ExtensionsType newExtensions, NotificationChain msgs) {
 		ExtensionsType oldExtensions = extensions;
 		extensions = newExtensions;
-		if(eNotificationRequired())
-		{
+		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					PomPackage.BUILD__EXTENSIONS, oldExtensions, newExtensions);
 			if(msgs == null)
@@ -313,12 +305,10 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetFilters(FiltersType newFilters, NotificationChain msgs)
-	{
+	public NotificationChain basicSetFilters(FiltersType newFilters, NotificationChain msgs) {
 		FiltersType oldFilters = filters;
 		filters = newFilters;
-		if(eNotificationRequired())
-		{
+		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.BUILD__FILTERS,
 					oldFilters, newFilters);
 			if(msgs == null)
@@ -334,12 +324,10 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetPluginManagement(PluginManagement newPluginManagement, NotificationChain msgs)
-	{
+	public NotificationChain basicSetPluginManagement(PluginManagement newPluginManagement, NotificationChain msgs) {
 		PluginManagement oldPluginManagement = pluginManagement;
 		pluginManagement = newPluginManagement;
-		if(eNotificationRequired())
-		{
+		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					PomPackage.BUILD__PLUGIN_MANAGEMENT, oldPluginManagement, newPluginManagement);
 			if(msgs == null)
@@ -355,12 +343,10 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetPlugins(PluginsType newPlugins, NotificationChain msgs)
-	{
+	public NotificationChain basicSetPlugins(PluginsType newPlugins, NotificationChain msgs) {
 		PluginsType oldPlugins = plugins;
 		plugins = newPlugins;
-		if(eNotificationRequired())
-		{
+		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.BUILD__PLUGINS,
 					oldPlugins, newPlugins);
 			if(msgs == null)
@@ -376,12 +362,10 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetResources(ResourcesType newResources, NotificationChain msgs)
-	{
+	public NotificationChain basicSetResources(ResourcesType newResources, NotificationChain msgs) {
 		ResourcesType oldResources = resources;
 		resources = newResources;
-		if(eNotificationRequired())
-		{
+		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.BUILD__RESOURCES,
 					oldResources, newResources);
 			if(msgs == null)
@@ -397,12 +381,10 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetTestResources(TestResourcesType newTestResources, NotificationChain msgs)
-	{
+	public NotificationChain basicSetTestResources(TestResourcesType newTestResources, NotificationChain msgs) {
 		TestResourcesType oldTestResources = testResources;
 		testResources = newTestResources;
-		if(eNotificationRequired())
-		{
+		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					PomPackage.BUILD__TEST_RESOURCES, oldTestResources, newTestResources);
 			if(msgs == null)
@@ -419,10 +401,8 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.BUILD__SOURCE_DIRECTORY:
 			return getSourceDirectory();
 		case PomPackage.BUILD__SCRIPT_SOURCE_DIRECTORY:
@@ -461,10 +441,8 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch(featureID)
-		{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
 		case PomPackage.BUILD__EXTENSIONS:
 			return basicSetExtensions(null, msgs);
 		case PomPackage.BUILD__RESOURCES:
@@ -487,10 +465,8 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.BUILD__SOURCE_DIRECTORY:
 			return SOURCE_DIRECTORY_EDEFAULT == null
 					? sourceDirectory != null
@@ -545,51 +521,49 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.BUILD__SOURCE_DIRECTORY:
-			setSourceDirectory((String)newValue);
+			setSourceDirectory((String) newValue);
 			return;
 		case PomPackage.BUILD__SCRIPT_SOURCE_DIRECTORY:
-			setScriptSourceDirectory((String)newValue);
+			setScriptSourceDirectory((String) newValue);
 			return;
 		case PomPackage.BUILD__TEST_SOURCE_DIRECTORY:
-			setTestSourceDirectory((String)newValue);
+			setTestSourceDirectory((String) newValue);
 			return;
 		case PomPackage.BUILD__OUTPUT_DIRECTORY:
-			setOutputDirectory((String)newValue);
+			setOutputDirectory((String) newValue);
 			return;
 		case PomPackage.BUILD__TEST_OUTPUT_DIRECTORY:
-			setTestOutputDirectory((String)newValue);
+			setTestOutputDirectory((String) newValue);
 			return;
 		case PomPackage.BUILD__EXTENSIONS:
-			setExtensions((ExtensionsType)newValue);
+			setExtensions((ExtensionsType) newValue);
 			return;
 		case PomPackage.BUILD__DEFAULT_GOAL:
-			setDefaultGoal((String)newValue);
+			setDefaultGoal((String) newValue);
 			return;
 		case PomPackage.BUILD__RESOURCES:
-			setResources((ResourcesType)newValue);
+			setResources((ResourcesType) newValue);
 			return;
 		case PomPackage.BUILD__TEST_RESOURCES:
-			setTestResources((TestResourcesType)newValue);
+			setTestResources((TestResourcesType) newValue);
 			return;
 		case PomPackage.BUILD__DIRECTORY:
-			setDirectory((String)newValue);
+			setDirectory((String) newValue);
 			return;
 		case PomPackage.BUILD__FINAL_NAME:
-			setFinalName((String)newValue);
+			setFinalName((String) newValue);
 			return;
 		case PomPackage.BUILD__FILTERS:
-			setFilters((FiltersType)newValue);
+			setFilters((FiltersType) newValue);
 			return;
 		case PomPackage.BUILD__PLUGIN_MANAGEMENT:
-			setPluginManagement((PluginManagement)newValue);
+			setPluginManagement((PluginManagement) newValue);
 			return;
 		case PomPackage.BUILD__PLUGINS:
-			setPlugins((PluginsType)newValue);
+			setPlugins((PluginsType) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -601,10 +575,8 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.BUILD__SOURCE_DIRECTORY:
 			setSourceDirectory(SOURCE_DIRECTORY_EDEFAULT);
 			return;
@@ -621,16 +593,16 @@ public class BuildImpl extends EObjectImpl implements Build
 			setTestOutputDirectory(TEST_OUTPUT_DIRECTORY_EDEFAULT);
 			return;
 		case PomPackage.BUILD__EXTENSIONS:
-			setExtensions((ExtensionsType)null);
+			setExtensions((ExtensionsType) null);
 			return;
 		case PomPackage.BUILD__DEFAULT_GOAL:
 			setDefaultGoal(DEFAULT_GOAL_EDEFAULT);
 			return;
 		case PomPackage.BUILD__RESOURCES:
-			setResources((ResourcesType)null);
+			setResources((ResourcesType) null);
 			return;
 		case PomPackage.BUILD__TEST_RESOURCES:
-			setTestResources((TestResourcesType)null);
+			setTestResources((TestResourcesType) null);
 			return;
 		case PomPackage.BUILD__DIRECTORY:
 			setDirectory(DIRECTORY_EDEFAULT);
@@ -639,13 +611,13 @@ public class BuildImpl extends EObjectImpl implements Build
 			setFinalName(FINAL_NAME_EDEFAULT);
 			return;
 		case PomPackage.BUILD__FILTERS:
-			setFilters((FiltersType)null);
+			setFilters((FiltersType) null);
 			return;
 		case PomPackage.BUILD__PLUGIN_MANAGEMENT:
-			setPluginManagement((PluginManagement)null);
+			setPluginManagement((PluginManagement) null);
 			return;
 		case PomPackage.BUILD__PLUGINS:
-			setPlugins((PluginsType)null);
+			setPlugins((PluginsType) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -656,8 +628,7 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * 
 	 * @generated
 	 */
-	public String getDefaultGoal()
-	{
+	public String getDefaultGoal() {
 		return defaultGoal;
 	}
 
@@ -666,8 +637,7 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * 
 	 * @generated
 	 */
-	public String getDirectory()
-	{
+	public String getDirectory() {
 		return directory;
 	}
 
@@ -676,8 +646,7 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * 
 	 * @generated
 	 */
-	public ExtensionsType getExtensions()
-	{
+	public ExtensionsType getExtensions() {
 		return extensions;
 	}
 
@@ -686,8 +655,7 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * 
 	 * @generated
 	 */
-	public FiltersType getFilters()
-	{
+	public FiltersType getFilters() {
 		return filters;
 	}
 
@@ -696,8 +664,7 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * 
 	 * @generated
 	 */
-	public String getFinalName()
-	{
+	public String getFinalName() {
 		return finalName;
 	}
 
@@ -706,8 +673,7 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * 
 	 * @generated
 	 */
-	public String getOutputDirectory()
-	{
+	public String getOutputDirectory() {
 		return outputDirectory;
 	}
 
@@ -716,8 +682,7 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * 
 	 * @generated
 	 */
-	public PluginManagement getPluginManagement()
-	{
+	public PluginManagement getPluginManagement() {
 		return pluginManagement;
 	}
 
@@ -726,8 +691,7 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * 
 	 * @generated
 	 */
-	public PluginsType getPlugins()
-	{
+	public PluginsType getPlugins() {
 		return plugins;
 	}
 
@@ -736,8 +700,7 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * 
 	 * @generated
 	 */
-	public ResourcesType getResources()
-	{
+	public ResourcesType getResources() {
 		return resources;
 	}
 
@@ -746,8 +709,7 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * 
 	 * @generated
 	 */
-	public String getScriptSourceDirectory()
-	{
+	public String getScriptSourceDirectory() {
 		return scriptSourceDirectory;
 	}
 
@@ -756,8 +718,7 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * 
 	 * @generated
 	 */
-	public String getSourceDirectory()
-	{
+	public String getSourceDirectory() {
 		return sourceDirectory;
 	}
 
@@ -766,8 +727,7 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * 
 	 * @generated
 	 */
-	public String getTestOutputDirectory()
-	{
+	public String getTestOutputDirectory() {
 		return testOutputDirectory;
 	}
 
@@ -776,8 +736,7 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * 
 	 * @generated
 	 */
-	public TestResourcesType getTestResources()
-	{
+	public TestResourcesType getTestResources() {
 		return testResources;
 	}
 
@@ -786,8 +745,7 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * 
 	 * @generated
 	 */
-	public String getTestSourceDirectory()
-	{
+	public String getTestSourceDirectory() {
 		return testSourceDirectory;
 	}
 
@@ -796,8 +754,7 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * 
 	 * @generated
 	 */
-	public void setDefaultGoal(String newDefaultGoal)
-	{
+	public void setDefaultGoal(String newDefaultGoal) {
 		String oldDefaultGoal = defaultGoal;
 		defaultGoal = newDefaultGoal;
 		if(eNotificationRequired())
@@ -810,8 +767,7 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * 
 	 * @generated
 	 */
-	public void setDirectory(String newDirectory)
-	{
+	public void setDirectory(String newDirectory) {
 		String oldDirectory = directory;
 		directory = newDirectory;
 		if(eNotificationRequired())
@@ -823,16 +779,14 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * 
 	 * @generated
 	 */
-	public void setExtensions(ExtensionsType newExtensions)
-	{
-		if(newExtensions != extensions)
-		{
+	public void setExtensions(ExtensionsType newExtensions) {
+		if(newExtensions != extensions) {
 			NotificationChain msgs = null;
 			if(extensions != null)
-				msgs = ((InternalEObject)extensions).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) extensions).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.BUILD__EXTENSIONS, null, msgs);
 			if(newExtensions != null)
-				msgs = ((InternalEObject)newExtensions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) newExtensions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.BUILD__EXTENSIONS, null, msgs);
 			msgs = basicSetExtensions(newExtensions, msgs);
 			if(msgs != null)
@@ -848,16 +802,14 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * 
 	 * @generated
 	 */
-	public void setFilters(FiltersType newFilters)
-	{
-		if(newFilters != filters)
-		{
+	public void setFilters(FiltersType newFilters) {
+		if(newFilters != filters) {
 			NotificationChain msgs = null;
 			if(filters != null)
-				msgs = ((InternalEObject)filters).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) filters).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.BUILD__FILTERS, null, msgs);
 			if(newFilters != null)
-				msgs = ((InternalEObject)newFilters).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) newFilters).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.BUILD__FILTERS, null, msgs);
 			msgs = basicSetFilters(newFilters, msgs);
 			if(msgs != null)
@@ -872,8 +824,7 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * 
 	 * @generated
 	 */
-	public void setFinalName(String newFinalName)
-	{
+	public void setFinalName(String newFinalName) {
 		String oldFinalName = finalName;
 		finalName = newFinalName;
 		if(eNotificationRequired())
@@ -885,8 +836,7 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * 
 	 * @generated
 	 */
-	public void setOutputDirectory(String newOutputDirectory)
-	{
+	public void setOutputDirectory(String newOutputDirectory) {
 		String oldOutputDirectory = outputDirectory;
 		outputDirectory = newOutputDirectory;
 		if(eNotificationRequired())
@@ -899,16 +849,14 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * 
 	 * @generated
 	 */
-	public void setPluginManagement(PluginManagement newPluginManagement)
-	{
-		if(newPluginManagement != pluginManagement)
-		{
+	public void setPluginManagement(PluginManagement newPluginManagement) {
+		if(newPluginManagement != pluginManagement) {
 			NotificationChain msgs = null;
 			if(pluginManagement != null)
-				msgs = ((InternalEObject)pluginManagement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) pluginManagement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.BUILD__PLUGIN_MANAGEMENT, null, msgs);
 			if(newPluginManagement != null)
-				msgs = ((InternalEObject)newPluginManagement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) newPluginManagement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.BUILD__PLUGIN_MANAGEMENT, null, msgs);
 			msgs = basicSetPluginManagement(newPluginManagement, msgs);
 			if(msgs != null)
@@ -924,16 +872,14 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * 
 	 * @generated
 	 */
-	public void setPlugins(PluginsType newPlugins)
-	{
-		if(newPlugins != plugins)
-		{
+	public void setPlugins(PluginsType newPlugins) {
+		if(newPlugins != plugins) {
 			NotificationChain msgs = null;
 			if(plugins != null)
-				msgs = ((InternalEObject)plugins).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) plugins).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.BUILD__PLUGINS, null, msgs);
 			if(newPlugins != null)
-				msgs = ((InternalEObject)newPlugins).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) newPlugins).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.BUILD__PLUGINS, null, msgs);
 			msgs = basicSetPlugins(newPlugins, msgs);
 			if(msgs != null)
@@ -948,16 +894,14 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * 
 	 * @generated
 	 */
-	public void setResources(ResourcesType newResources)
-	{
-		if(newResources != resources)
-		{
+	public void setResources(ResourcesType newResources) {
+		if(newResources != resources) {
 			NotificationChain msgs = null;
 			if(resources != null)
-				msgs = ((InternalEObject)resources).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) resources).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.BUILD__RESOURCES, null, msgs);
 			if(newResources != null)
-				msgs = ((InternalEObject)newResources).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) newResources).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.BUILD__RESOURCES, null, msgs);
 			msgs = basicSetResources(newResources, msgs);
 			if(msgs != null)
@@ -973,8 +917,7 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * 
 	 * @generated
 	 */
-	public void setScriptSourceDirectory(String newScriptSourceDirectory)
-	{
+	public void setScriptSourceDirectory(String newScriptSourceDirectory) {
 		String oldScriptSourceDirectory = scriptSourceDirectory;
 		scriptSourceDirectory = newScriptSourceDirectory;
 		if(eNotificationRequired())
@@ -987,8 +930,7 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * 
 	 * @generated
 	 */
-	public void setSourceDirectory(String newSourceDirectory)
-	{
+	public void setSourceDirectory(String newSourceDirectory) {
 		String oldSourceDirectory = sourceDirectory;
 		sourceDirectory = newSourceDirectory;
 		if(eNotificationRequired())
@@ -1001,8 +943,7 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * 
 	 * @generated
 	 */
-	public void setTestOutputDirectory(String newTestOutputDirectory)
-	{
+	public void setTestOutputDirectory(String newTestOutputDirectory) {
 		String oldTestOutputDirectory = testOutputDirectory;
 		testOutputDirectory = newTestOutputDirectory;
 		if(eNotificationRequired())
@@ -1015,16 +956,14 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * 
 	 * @generated
 	 */
-	public void setTestResources(TestResourcesType newTestResources)
-	{
-		if(newTestResources != testResources)
-		{
+	public void setTestResources(TestResourcesType newTestResources) {
+		if(newTestResources != testResources) {
 			NotificationChain msgs = null;
 			if(testResources != null)
-				msgs = ((InternalEObject)testResources).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) testResources).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.BUILD__TEST_RESOURCES, null, msgs);
 			if(newTestResources != null)
-				msgs = ((InternalEObject)newTestResources).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) newTestResources).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.BUILD__TEST_RESOURCES, null, msgs);
 			msgs = basicSetTestResources(newTestResources, msgs);
 			if(msgs != null)
@@ -1040,8 +979,7 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * 
 	 * @generated
 	 */
-	public void setTestSourceDirectory(String newTestSourceDirectory)
-	{
+	public void setTestSourceDirectory(String newTestSourceDirectory) {
 		String oldTestSourceDirectory = testSourceDirectory;
 		testSourceDirectory = newTestSourceDirectory;
 		if(eNotificationRequired())
@@ -1055,8 +993,7 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
@@ -1087,8 +1024,7 @@ public class BuildImpl extends EObjectImpl implements Build
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.BUILD;
 	}
 

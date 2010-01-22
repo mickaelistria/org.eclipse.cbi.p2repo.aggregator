@@ -25,8 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='execution_._goals_._type' kind='elementOnly'"
  * @generated
  */
-public interface ExecutionGoalsType extends EObject
-{
+public interface ExecutionGoalsType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Goal</b></em>' attribute list. The list contents are of type
 	 * {@link java.lang.String}. <!-- begin-user-doc -->

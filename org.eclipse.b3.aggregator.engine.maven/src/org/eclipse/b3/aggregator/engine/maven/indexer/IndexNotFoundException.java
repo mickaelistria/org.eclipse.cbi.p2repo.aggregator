@@ -12,19 +12,16 @@ package org.eclipse.b3.aggregator.engine.maven.indexer;
  * @author Filip Hrbek (filip.hrbek@cloudsmith.com)
  * 
  */
-public class IndexNotFoundException extends Exception
-{
+public class IndexNotFoundException extends Exception {
 	private static final long serialVersionUID = -802899846175692819L;
 
-	public IndexNotFoundException()
-	{
+	public IndexNotFoundException() {
 	}
 
 	/**
 	 * @param message
 	 */
-	public IndexNotFoundException(String message)
-	{
+	public IndexNotFoundException(String message) {
 		super(message);
 	}
 
@@ -32,16 +29,14 @@ public class IndexNotFoundException extends Exception
 	 * @param message
 	 * @param cause
 	 */
-	public IndexNotFoundException(String message, Throwable cause)
-	{
+	public IndexNotFoundException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
 	/**
 	 * @param cause
 	 */
-	public IndexNotFoundException(Throwable cause)
-	{
+	public IndexNotFoundException(Throwable cause) {
 		super(cause);
 	}
 

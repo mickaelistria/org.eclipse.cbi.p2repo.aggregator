@@ -29,8 +29,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * 
  * @generated
  */
-public class ActivationFileImpl extends EObjectImpl implements ActivationFile
-{
+public class ActivationFileImpl extends EObjectImpl implements ActivationFile {
 	/**
 	 * The default value of the '{@link #getMissing() <em>Missing</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -76,8 +75,7 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile
 	 * 
 	 * @generated
 	 */
-	protected ActivationFileImpl()
-	{
+	protected ActivationFileImpl() {
 		super();
 	}
 
@@ -87,10 +85,8 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.ACTIVATION_FILE__MISSING:
 			return getMissing();
 		case PomPackage.ACTIVATION_FILE__EXISTS:
@@ -105,10 +101,8 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.ACTIVATION_FILE__MISSING:
 			return MISSING_EDEFAULT == null
 					? missing != null
@@ -127,15 +121,13 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.ACTIVATION_FILE__MISSING:
-			setMissing((String)newValue);
+			setMissing((String) newValue);
 			return;
 		case PomPackage.ACTIVATION_FILE__EXISTS:
-			setExists((String)newValue);
+			setExists((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -147,10 +139,8 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.ACTIVATION_FILE__MISSING:
 			setMissing(MISSING_EDEFAULT);
 			return;
@@ -166,8 +156,7 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile
 	 * 
 	 * @generated
 	 */
-	public String getExists()
-	{
+	public String getExists() {
 		return exists;
 	}
 
@@ -176,8 +165,7 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile
 	 * 
 	 * @generated
 	 */
-	public String getMissing()
-	{
+	public String getMissing() {
 		return missing;
 	}
 
@@ -186,8 +174,7 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile
 	 * 
 	 * @generated
 	 */
-	public void setExists(String newExists)
-	{
+	public void setExists(String newExists) {
 		String oldExists = exists;
 		exists = newExists;
 		if(eNotificationRequired())
@@ -199,8 +186,7 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile
 	 * 
 	 * @generated
 	 */
-	public void setMissing(String newMissing)
-	{
+	public void setMissing(String newMissing) {
 		String oldMissing = missing;
 		missing = newMissing;
 		if(eNotificationRequired())
@@ -214,8 +200,7 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
@@ -234,8 +219,7 @@ public class ActivationFileImpl extends EObjectImpl implements ActivationFile
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.ACTIVATION_FILE;
 	}
 

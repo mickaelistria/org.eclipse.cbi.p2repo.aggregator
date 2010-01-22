@@ -22,8 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * @see org.eclipse.b3.aggregator.engine.maven.pom.PomPackage
  * @generated
  */
-public class PomSwitch<T>
-{
+public class PomSwitch<T> {
 	/**
 	 * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -36,10 +35,8 @@ public class PomSwitch<T>
 	 * 
 	 * @generated
 	 */
-	public PomSwitch()
-	{
-		if(modelPackage == null)
-		{
+	public PomSwitch() {
+		if(modelPackage == null) {
 			modelPackage = PomPackage.eINSTANCE;
 		}
 	}
@@ -54,8 +51,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseActivation(Activation object)
-	{
+	public T caseActivation(Activation object) {
 		return null;
 	}
 
@@ -70,8 +66,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseActivationFile(ActivationFile object)
-	{
+	public T caseActivationFile(ActivationFile object) {
 		return null;
 	}
 
@@ -85,8 +80,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseActivationOS(ActivationOS object)
-	{
+	public T caseActivationOS(ActivationOS object) {
 		return null;
 	}
 
@@ -101,8 +95,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseActivationProperty(ActivationProperty object)
-	{
+	public T caseActivationProperty(ActivationProperty object) {
 		return null;
 	}
 
@@ -116,8 +109,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseBuild(Build object)
-	{
+	public T caseBuild(Build object) {
 		return null;
 	}
 
@@ -131,8 +123,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseBuildBase(BuildBase object)
-	{
+	public T caseBuildBase(BuildBase object) {
 		return null;
 	}
 
@@ -146,8 +137,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseCiManagement(CiManagement object)
-	{
+	public T caseCiManagement(CiManagement object) {
 		return null;
 	}
 
@@ -162,8 +152,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseConfigurationType(ConfigurationType object)
-	{
+	public T caseConfigurationType(ConfigurationType object) {
 		return null;
 	}
 
@@ -177,8 +166,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseContributor(Contributor object)
-	{
+	public T caseContributor(Contributor object) {
 		return null;
 	}
 
@@ -193,8 +181,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseContributorsType(ContributorsType object)
-	{
+	public T caseContributorsType(ContributorsType object) {
 		return null;
 	}
 
@@ -209,8 +196,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDependenciesType(DependenciesType object)
-	{
+	public T caseDependenciesType(DependenciesType object) {
 		return null;
 	}
 
@@ -224,8 +210,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDependency(Dependency object)
-	{
+	public T caseDependency(Dependency object) {
 		return null;
 	}
 
@@ -240,8 +225,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDependencyManagement(DependencyManagement object)
-	{
+	public T caseDependencyManagement(DependencyManagement object) {
 		return null;
 	}
 
@@ -256,8 +240,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDeploymentRepository(DeploymentRepository object)
-	{
+	public T caseDeploymentRepository(DeploymentRepository object) {
 		return null;
 	}
 
@@ -271,8 +254,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDeveloper(Developer object)
-	{
+	public T caseDeveloper(Developer object) {
 		return null;
 	}
 
@@ -287,8 +269,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDevelopersType(DevelopersType object)
-	{
+	public T caseDevelopersType(DevelopersType object) {
 		return null;
 	}
 
@@ -303,8 +284,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDistributionManagement(DistributionManagement object)
-	{
+	public T caseDistributionManagement(DistributionManagement object) {
 		return null;
 	}
 
@@ -318,8 +298,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDocumentRoot(DocumentRoot object)
-	{
+	public T caseDocumentRoot(DocumentRoot object) {
 		return null;
 	}
 
@@ -333,8 +312,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseExcludesType(ExcludesType object)
-	{
+	public T caseExcludesType(ExcludesType object) {
 		return null;
 	}
 
@@ -348,8 +326,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseExclusion(Exclusion object)
-	{
+	public T caseExclusion(Exclusion object) {
 		return null;
 	}
 
@@ -364,8 +341,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseExclusionsType(ExclusionsType object)
-	{
+	public T caseExclusionsType(ExclusionsType object) {
 		return null;
 	}
 
@@ -380,8 +356,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseExecutionGoalsType(ExecutionGoalsType object)
-	{
+	public T caseExecutionGoalsType(ExecutionGoalsType object) {
 		return null;
 	}
 
@@ -396,8 +371,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseExecutionsType(ExecutionsType object)
-	{
+	public T caseExecutionsType(ExecutionsType object) {
 		return null;
 	}
 
@@ -411,8 +385,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseExtension(Extension object)
-	{
+	public T caseExtension(Extension object) {
 		return null;
 	}
 
@@ -427,8 +400,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseExtensionsType(ExtensionsType object)
-	{
+	public T caseExtensionsType(ExtensionsType object) {
 		return null;
 	}
 
@@ -442,8 +414,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseFiltersType(FiltersType object)
-	{
+	public T caseFiltersType(FiltersType object) {
 		return null;
 	}
 
@@ -457,8 +428,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseGoalsType(GoalsType object)
-	{
+	public T caseGoalsType(GoalsType object) {
 		return null;
 	}
 
@@ -472,8 +442,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseIncludesType(IncludesType object)
-	{
+	public T caseIncludesType(IncludesType object) {
 		return null;
 	}
 
@@ -488,8 +457,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseIssueManagement(IssueManagement object)
-	{
+	public T caseIssueManagement(IssueManagement object) {
 		return null;
 	}
 
@@ -503,8 +471,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseLicense(License object)
-	{
+	public T caseLicense(License object) {
 		return null;
 	}
 
@@ -518,8 +485,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseLicensesType(LicensesType object)
-	{
+	public T caseLicensesType(LicensesType object) {
 		return null;
 	}
 
@@ -533,8 +499,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseMailingList(MailingList object)
-	{
+	public T caseMailingList(MailingList object) {
 		return null;
 	}
 
@@ -549,8 +514,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseMailingListsType(MailingListsType object)
-	{
+	public T caseMailingListsType(MailingListsType object) {
 		return null;
 	}
 
@@ -564,8 +528,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseModel(Model object)
-	{
+	public T caseModel(Model object) {
 		return null;
 	}
 
@@ -579,8 +542,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseModulesType(ModulesType object)
-	{
+	public T caseModulesType(ModulesType object) {
 		return null;
 	}
 
@@ -594,8 +556,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseNotifier(Notifier object)
-	{
+	public T caseNotifier(Notifier object) {
 		return null;
 	}
 
@@ -610,8 +571,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseNotifiersType(NotifiersType object)
-	{
+	public T caseNotifiersType(NotifiersType object) {
 		return null;
 	}
 
@@ -625,8 +585,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseOrganization(Organization object)
-	{
+	public T caseOrganization(Organization object) {
 		return null;
 	}
 
@@ -641,8 +600,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseOtherArchivesType(OtherArchivesType object)
-	{
+	public T caseOtherArchivesType(OtherArchivesType object) {
 		return null;
 	}
 
@@ -656,8 +614,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseParent(Parent object)
-	{
+	public T caseParent(Parent object) {
 		return null;
 	}
 
@@ -671,8 +628,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePlugin(Plugin object)
-	{
+	public T casePlugin(Plugin object) {
 		return null;
 	}
 
@@ -687,8 +643,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePluginExecution(PluginExecution object)
-	{
+	public T casePluginExecution(PluginExecution object) {
 		return null;
 	}
 
@@ -703,8 +658,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePluginManagement(PluginManagement object)
-	{
+	public T casePluginManagement(PluginManagement object) {
 		return null;
 	}
 
@@ -719,8 +673,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePluginRepositoriesType(PluginRepositoriesType object)
-	{
+	public T casePluginRepositoriesType(PluginRepositoriesType object) {
 		return null;
 	}
 
@@ -734,8 +687,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePluginsType(PluginsType object)
-	{
+	public T casePluginsType(PluginsType object) {
 		return null;
 	}
 
@@ -749,8 +701,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePrerequisites(Prerequisites object)
-	{
+	public T casePrerequisites(Prerequisites object) {
 		return null;
 	}
 
@@ -764,8 +715,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseProfile(Profile object)
-	{
+	public T caseProfile(Profile object) {
 		return null;
 	}
 
@@ -779,8 +729,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseProfilesType(ProfilesType object)
-	{
+	public T caseProfilesType(ProfilesType object) {
 		return null;
 	}
 
@@ -795,8 +744,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropertiesType(PropertiesType object)
-	{
+	public T casePropertiesType(PropertiesType object) {
 		return null;
 	}
 
@@ -810,8 +758,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRelocation(Relocation object)
-	{
+	public T caseRelocation(Relocation object) {
 		return null;
 	}
 
@@ -825,8 +772,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseReporting(Reporting object)
-	{
+	public T caseReporting(Reporting object) {
 		return null;
 	}
 
@@ -841,8 +787,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseReportingPluginsType(ReportingPluginsType object)
-	{
+	public T caseReportingPluginsType(ReportingPluginsType object) {
 		return null;
 	}
 
@@ -856,8 +801,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseReportPlugin(ReportPlugin object)
-	{
+	public T caseReportPlugin(ReportPlugin object) {
 		return null;
 	}
 
@@ -871,8 +815,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseReportSet(ReportSet object)
-	{
+	public T caseReportSet(ReportSet object) {
 		return null;
 	}
 
@@ -887,8 +830,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseReportSetReportsType(ReportSetReportsType object)
-	{
+	public T caseReportSetReportsType(ReportSetReportsType object) {
 		return null;
 	}
 
@@ -903,8 +845,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseReportSetsType(ReportSetsType object)
-	{
+	public T caseReportSetsType(ReportSetsType object) {
 		return null;
 	}
 
@@ -918,8 +859,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseReportsType(ReportsType object)
-	{
+	public T caseReportsType(ReportsType object) {
 		return null;
 	}
 
@@ -934,8 +874,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRepositoriesType(RepositoriesType object)
-	{
+	public T caseRepositoriesType(RepositoriesType object) {
 		return null;
 	}
 
@@ -949,8 +888,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRepository(Repository object)
-	{
+	public T caseRepository(Repository object) {
 		return null;
 	}
 
@@ -965,8 +903,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRepositoryPolicy(RepositoryPolicy object)
-	{
+	public T caseRepositoryPolicy(RepositoryPolicy object) {
 		return null;
 	}
 
@@ -980,8 +917,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseResource(Resource object)
-	{
+	public T caseResource(Resource object) {
 		return null;
 	}
 
@@ -996,8 +932,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseResourcesType(ResourcesType object)
-	{
+	public T caseResourcesType(ResourcesType object) {
 		return null;
 	}
 
@@ -1011,8 +946,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRolesType(RolesType object)
-	{
+	public T caseRolesType(RolesType object) {
 		return null;
 	}
 
@@ -1026,8 +960,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseScm(Scm object)
-	{
+	public T caseScm(Scm object) {
 		return null;
 	}
 
@@ -1041,8 +974,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSite(Site object)
-	{
+	public T caseSite(Site object) {
 		return null;
 	}
 
@@ -1057,8 +989,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseTestResourcesType(TestResourcesType object)
-	{
+	public T caseTestResourcesType(TestResourcesType object) {
 		return null;
 	}
 
@@ -1073,8 +1004,7 @@ public class PomSwitch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-	public T defaultCase(EObject object)
-	{
+	public T defaultCase(EObject object) {
 		return null;
 	}
 
@@ -1085,8 +1015,7 @@ public class PomSwitch<T>
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
-	public T doSwitch(EObject theEObject)
-	{
+	public T doSwitch(EObject theEObject) {
 		return doSwitch(theEObject.eClass(), theEObject);
 	}
 
@@ -1097,14 +1026,11 @@ public class PomSwitch<T>
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
-	protected T doSwitch(EClass theEClass, EObject theEObject)
-	{
-		if(theEClass.eContainer() == modelPackage)
-		{
+	protected T doSwitch(EClass theEClass, EObject theEObject) {
+		if(theEClass.eContainer() == modelPackage) {
 			return doSwitch(theEClass.getClassifierID(), theEObject);
 		}
-		else
-		{
+		else {
 			List<EClass> eSuperTypes = theEClass.getESuperTypes();
 			return eSuperTypes.isEmpty()
 					? defaultCase(theEObject)
@@ -1119,533 +1045,465 @@ public class PomSwitch<T>
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
-	protected T doSwitch(int classifierID, EObject theEObject)
-	{
-		switch(classifierID)
-		{
-		case PomPackage.ACTIVATION:
-		{
-			Activation activation = (Activation)theEObject;
+	protected T doSwitch(int classifierID, EObject theEObject) {
+		switch(classifierID) {
+		case PomPackage.ACTIVATION: {
+			Activation activation = (Activation) theEObject;
 			T result = caseActivation(activation);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.ACTIVATION_FILE:
-		{
-			ActivationFile activationFile = (ActivationFile)theEObject;
+		case PomPackage.ACTIVATION_FILE: {
+			ActivationFile activationFile = (ActivationFile) theEObject;
 			T result = caseActivationFile(activationFile);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.ACTIVATION_OS:
-		{
-			ActivationOS activationOS = (ActivationOS)theEObject;
+		case PomPackage.ACTIVATION_OS: {
+			ActivationOS activationOS = (ActivationOS) theEObject;
 			T result = caseActivationOS(activationOS);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.ACTIVATION_PROPERTY:
-		{
-			ActivationProperty activationProperty = (ActivationProperty)theEObject;
+		case PomPackage.ACTIVATION_PROPERTY: {
+			ActivationProperty activationProperty = (ActivationProperty) theEObject;
 			T result = caseActivationProperty(activationProperty);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.BUILD:
-		{
-			Build build = (Build)theEObject;
+		case PomPackage.BUILD: {
+			Build build = (Build) theEObject;
 			T result = caseBuild(build);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.BUILD_BASE:
-		{
-			BuildBase buildBase = (BuildBase)theEObject;
+		case PomPackage.BUILD_BASE: {
+			BuildBase buildBase = (BuildBase) theEObject;
 			T result = caseBuildBase(buildBase);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.CI_MANAGEMENT:
-		{
-			CiManagement ciManagement = (CiManagement)theEObject;
+		case PomPackage.CI_MANAGEMENT: {
+			CiManagement ciManagement = (CiManagement) theEObject;
 			T result = caseCiManagement(ciManagement);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.CONFIGURATION_TYPE:
-		{
-			ConfigurationType configurationType = (ConfigurationType)theEObject;
+		case PomPackage.CONFIGURATION_TYPE: {
+			ConfigurationType configurationType = (ConfigurationType) theEObject;
 			T result = caseConfigurationType(configurationType);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.CONTRIBUTOR:
-		{
-			Contributor contributor = (Contributor)theEObject;
+		case PomPackage.CONTRIBUTOR: {
+			Contributor contributor = (Contributor) theEObject;
 			T result = caseContributor(contributor);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.CONTRIBUTORS_TYPE:
-		{
-			ContributorsType contributorsType = (ContributorsType)theEObject;
+		case PomPackage.CONTRIBUTORS_TYPE: {
+			ContributorsType contributorsType = (ContributorsType) theEObject;
 			T result = caseContributorsType(contributorsType);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.DEPENDENCIES_TYPE:
-		{
-			DependenciesType dependenciesType = (DependenciesType)theEObject;
+		case PomPackage.DEPENDENCIES_TYPE: {
+			DependenciesType dependenciesType = (DependenciesType) theEObject;
 			T result = caseDependenciesType(dependenciesType);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.DEPENDENCY:
-		{
-			Dependency dependency = (Dependency)theEObject;
+		case PomPackage.DEPENDENCY: {
+			Dependency dependency = (Dependency) theEObject;
 			T result = caseDependency(dependency);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.DEPENDENCY_MANAGEMENT:
-		{
-			DependencyManagement dependencyManagement = (DependencyManagement)theEObject;
+		case PomPackage.DEPENDENCY_MANAGEMENT: {
+			DependencyManagement dependencyManagement = (DependencyManagement) theEObject;
 			T result = caseDependencyManagement(dependencyManagement);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.DEPLOYMENT_REPOSITORY:
-		{
-			DeploymentRepository deploymentRepository = (DeploymentRepository)theEObject;
+		case PomPackage.DEPLOYMENT_REPOSITORY: {
+			DeploymentRepository deploymentRepository = (DeploymentRepository) theEObject;
 			T result = caseDeploymentRepository(deploymentRepository);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.DEVELOPER:
-		{
-			Developer developer = (Developer)theEObject;
+		case PomPackage.DEVELOPER: {
+			Developer developer = (Developer) theEObject;
 			T result = caseDeveloper(developer);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.DEVELOPERS_TYPE:
-		{
-			DevelopersType developersType = (DevelopersType)theEObject;
+		case PomPackage.DEVELOPERS_TYPE: {
+			DevelopersType developersType = (DevelopersType) theEObject;
 			T result = caseDevelopersType(developersType);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.DISTRIBUTION_MANAGEMENT:
-		{
-			DistributionManagement distributionManagement = (DistributionManagement)theEObject;
+		case PomPackage.DISTRIBUTION_MANAGEMENT: {
+			DistributionManagement distributionManagement = (DistributionManagement) theEObject;
 			T result = caseDistributionManagement(distributionManagement);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.DOCUMENT_ROOT:
-		{
-			DocumentRoot documentRoot = (DocumentRoot)theEObject;
+		case PomPackage.DOCUMENT_ROOT: {
+			DocumentRoot documentRoot = (DocumentRoot) theEObject;
 			T result = caseDocumentRoot(documentRoot);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.EXCLUDES_TYPE:
-		{
-			ExcludesType excludesType = (ExcludesType)theEObject;
+		case PomPackage.EXCLUDES_TYPE: {
+			ExcludesType excludesType = (ExcludesType) theEObject;
 			T result = caseExcludesType(excludesType);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.EXCLUSION:
-		{
-			Exclusion exclusion = (Exclusion)theEObject;
+		case PomPackage.EXCLUSION: {
+			Exclusion exclusion = (Exclusion) theEObject;
 			T result = caseExclusion(exclusion);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.EXCLUSIONS_TYPE:
-		{
-			ExclusionsType exclusionsType = (ExclusionsType)theEObject;
+		case PomPackage.EXCLUSIONS_TYPE: {
+			ExclusionsType exclusionsType = (ExclusionsType) theEObject;
 			T result = caseExclusionsType(exclusionsType);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.EXECUTION_GOALS_TYPE:
-		{
-			ExecutionGoalsType executionGoalsType = (ExecutionGoalsType)theEObject;
+		case PomPackage.EXECUTION_GOALS_TYPE: {
+			ExecutionGoalsType executionGoalsType = (ExecutionGoalsType) theEObject;
 			T result = caseExecutionGoalsType(executionGoalsType);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.EXECUTIONS_TYPE:
-		{
-			ExecutionsType executionsType = (ExecutionsType)theEObject;
+		case PomPackage.EXECUTIONS_TYPE: {
+			ExecutionsType executionsType = (ExecutionsType) theEObject;
 			T result = caseExecutionsType(executionsType);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.EXTENSION:
-		{
-			Extension extension = (Extension)theEObject;
+		case PomPackage.EXTENSION: {
+			Extension extension = (Extension) theEObject;
 			T result = caseExtension(extension);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.EXTENSIONS_TYPE:
-		{
-			ExtensionsType extensionsType = (ExtensionsType)theEObject;
+		case PomPackage.EXTENSIONS_TYPE: {
+			ExtensionsType extensionsType = (ExtensionsType) theEObject;
 			T result = caseExtensionsType(extensionsType);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.FILTERS_TYPE:
-		{
-			FiltersType filtersType = (FiltersType)theEObject;
+		case PomPackage.FILTERS_TYPE: {
+			FiltersType filtersType = (FiltersType) theEObject;
 			T result = caseFiltersType(filtersType);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.GOALS_TYPE:
-		{
-			GoalsType goalsType = (GoalsType)theEObject;
+		case PomPackage.GOALS_TYPE: {
+			GoalsType goalsType = (GoalsType) theEObject;
 			T result = caseGoalsType(goalsType);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.INCLUDES_TYPE:
-		{
-			IncludesType includesType = (IncludesType)theEObject;
+		case PomPackage.INCLUDES_TYPE: {
+			IncludesType includesType = (IncludesType) theEObject;
 			T result = caseIncludesType(includesType);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.ISSUE_MANAGEMENT:
-		{
-			IssueManagement issueManagement = (IssueManagement)theEObject;
+		case PomPackage.ISSUE_MANAGEMENT: {
+			IssueManagement issueManagement = (IssueManagement) theEObject;
 			T result = caseIssueManagement(issueManagement);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.LICENSE:
-		{
-			License license = (License)theEObject;
+		case PomPackage.LICENSE: {
+			License license = (License) theEObject;
 			T result = caseLicense(license);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.LICENSES_TYPE:
-		{
-			LicensesType licensesType = (LicensesType)theEObject;
+		case PomPackage.LICENSES_TYPE: {
+			LicensesType licensesType = (LicensesType) theEObject;
 			T result = caseLicensesType(licensesType);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.MAILING_LIST:
-		{
-			MailingList mailingList = (MailingList)theEObject;
+		case PomPackage.MAILING_LIST: {
+			MailingList mailingList = (MailingList) theEObject;
 			T result = caseMailingList(mailingList);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.MAILING_LISTS_TYPE:
-		{
-			MailingListsType mailingListsType = (MailingListsType)theEObject;
+		case PomPackage.MAILING_LISTS_TYPE: {
+			MailingListsType mailingListsType = (MailingListsType) theEObject;
 			T result = caseMailingListsType(mailingListsType);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.MODEL:
-		{
-			Model model = (Model)theEObject;
+		case PomPackage.MODEL: {
+			Model model = (Model) theEObject;
 			T result = caseModel(model);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.MODULES_TYPE:
-		{
-			ModulesType modulesType = (ModulesType)theEObject;
+		case PomPackage.MODULES_TYPE: {
+			ModulesType modulesType = (ModulesType) theEObject;
 			T result = caseModulesType(modulesType);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.NOTIFIER:
-		{
-			Notifier notifier = (Notifier)theEObject;
+		case PomPackage.NOTIFIER: {
+			Notifier notifier = (Notifier) theEObject;
 			T result = caseNotifier(notifier);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.NOTIFIERS_TYPE:
-		{
-			NotifiersType notifiersType = (NotifiersType)theEObject;
+		case PomPackage.NOTIFIERS_TYPE: {
+			NotifiersType notifiersType = (NotifiersType) theEObject;
 			T result = caseNotifiersType(notifiersType);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.ORGANIZATION:
-		{
-			Organization organization = (Organization)theEObject;
+		case PomPackage.ORGANIZATION: {
+			Organization organization = (Organization) theEObject;
 			T result = caseOrganization(organization);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.OTHER_ARCHIVES_TYPE:
-		{
-			OtherArchivesType otherArchivesType = (OtherArchivesType)theEObject;
+		case PomPackage.OTHER_ARCHIVES_TYPE: {
+			OtherArchivesType otherArchivesType = (OtherArchivesType) theEObject;
 			T result = caseOtherArchivesType(otherArchivesType);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.PARENT:
-		{
-			Parent parent = (Parent)theEObject;
+		case PomPackage.PARENT: {
+			Parent parent = (Parent) theEObject;
 			T result = caseParent(parent);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.PLUGIN:
-		{
-			Plugin plugin = (Plugin)theEObject;
+		case PomPackage.PLUGIN: {
+			Plugin plugin = (Plugin) theEObject;
 			T result = casePlugin(plugin);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.PLUGIN_EXECUTION:
-		{
-			PluginExecution pluginExecution = (PluginExecution)theEObject;
+		case PomPackage.PLUGIN_EXECUTION: {
+			PluginExecution pluginExecution = (PluginExecution) theEObject;
 			T result = casePluginExecution(pluginExecution);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.PLUGIN_MANAGEMENT:
-		{
-			PluginManagement pluginManagement = (PluginManagement)theEObject;
+		case PomPackage.PLUGIN_MANAGEMENT: {
+			PluginManagement pluginManagement = (PluginManagement) theEObject;
 			T result = casePluginManagement(pluginManagement);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.PLUGIN_REPOSITORIES_TYPE:
-		{
-			PluginRepositoriesType pluginRepositoriesType = (PluginRepositoriesType)theEObject;
+		case PomPackage.PLUGIN_REPOSITORIES_TYPE: {
+			PluginRepositoriesType pluginRepositoriesType = (PluginRepositoriesType) theEObject;
 			T result = casePluginRepositoriesType(pluginRepositoriesType);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.PLUGINS_TYPE:
-		{
-			PluginsType pluginsType = (PluginsType)theEObject;
+		case PomPackage.PLUGINS_TYPE: {
+			PluginsType pluginsType = (PluginsType) theEObject;
 			T result = casePluginsType(pluginsType);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.PREREQUISITES:
-		{
-			Prerequisites prerequisites = (Prerequisites)theEObject;
+		case PomPackage.PREREQUISITES: {
+			Prerequisites prerequisites = (Prerequisites) theEObject;
 			T result = casePrerequisites(prerequisites);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.PROFILE:
-		{
-			Profile profile = (Profile)theEObject;
+		case PomPackage.PROFILE: {
+			Profile profile = (Profile) theEObject;
 			T result = caseProfile(profile);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.PROFILES_TYPE:
-		{
-			ProfilesType profilesType = (ProfilesType)theEObject;
+		case PomPackage.PROFILES_TYPE: {
+			ProfilesType profilesType = (ProfilesType) theEObject;
 			T result = caseProfilesType(profilesType);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.PROPERTIES_TYPE:
-		{
-			PropertiesType propertiesType = (PropertiesType)theEObject;
+		case PomPackage.PROPERTIES_TYPE: {
+			PropertiesType propertiesType = (PropertiesType) theEObject;
 			T result = casePropertiesType(propertiesType);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.RELOCATION:
-		{
-			Relocation relocation = (Relocation)theEObject;
+		case PomPackage.RELOCATION: {
+			Relocation relocation = (Relocation) theEObject;
 			T result = caseRelocation(relocation);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.REPORTING:
-		{
-			Reporting reporting = (Reporting)theEObject;
+		case PomPackage.REPORTING: {
+			Reporting reporting = (Reporting) theEObject;
 			T result = caseReporting(reporting);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.REPORT_PLUGIN:
-		{
-			ReportPlugin reportPlugin = (ReportPlugin)theEObject;
+		case PomPackage.REPORT_PLUGIN: {
+			ReportPlugin reportPlugin = (ReportPlugin) theEObject;
 			T result = caseReportPlugin(reportPlugin);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.REPORTING_PLUGINS_TYPE:
-		{
-			ReportingPluginsType reportingPluginsType = (ReportingPluginsType)theEObject;
+		case PomPackage.REPORTING_PLUGINS_TYPE: {
+			ReportingPluginsType reportingPluginsType = (ReportingPluginsType) theEObject;
 			T result = caseReportingPluginsType(reportingPluginsType);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.REPORT_SET:
-		{
-			ReportSet reportSet = (ReportSet)theEObject;
+		case PomPackage.REPORT_SET: {
+			ReportSet reportSet = (ReportSet) theEObject;
 			T result = caseReportSet(reportSet);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.REPORT_SET_REPORTS_TYPE:
-		{
-			ReportSetReportsType reportSetReportsType = (ReportSetReportsType)theEObject;
+		case PomPackage.REPORT_SET_REPORTS_TYPE: {
+			ReportSetReportsType reportSetReportsType = (ReportSetReportsType) theEObject;
 			T result = caseReportSetReportsType(reportSetReportsType);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.REPORT_SETS_TYPE:
-		{
-			ReportSetsType reportSetsType = (ReportSetsType)theEObject;
+		case PomPackage.REPORT_SETS_TYPE: {
+			ReportSetsType reportSetsType = (ReportSetsType) theEObject;
 			T result = caseReportSetsType(reportSetsType);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.REPORTS_TYPE:
-		{
-			ReportsType reportsType = (ReportsType)theEObject;
+		case PomPackage.REPORTS_TYPE: {
+			ReportsType reportsType = (ReportsType) theEObject;
 			T result = caseReportsType(reportsType);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.REPOSITORIES_TYPE:
-		{
-			RepositoriesType repositoriesType = (RepositoriesType)theEObject;
+		case PomPackage.REPOSITORIES_TYPE: {
+			RepositoriesType repositoriesType = (RepositoriesType) theEObject;
 			T result = caseRepositoriesType(repositoriesType);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.REPOSITORY:
-		{
-			Repository repository = (Repository)theEObject;
+		case PomPackage.REPOSITORY: {
+			Repository repository = (Repository) theEObject;
 			T result = caseRepository(repository);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.REPOSITORY_POLICY:
-		{
-			RepositoryPolicy repositoryPolicy = (RepositoryPolicy)theEObject;
+		case PomPackage.REPOSITORY_POLICY: {
+			RepositoryPolicy repositoryPolicy = (RepositoryPolicy) theEObject;
 			T result = caseRepositoryPolicy(repositoryPolicy);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.RESOURCE:
-		{
-			Resource resource = (Resource)theEObject;
+		case PomPackage.RESOURCE: {
+			Resource resource = (Resource) theEObject;
 			T result = caseResource(resource);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.RESOURCES_TYPE:
-		{
-			ResourcesType resourcesType = (ResourcesType)theEObject;
+		case PomPackage.RESOURCES_TYPE: {
+			ResourcesType resourcesType = (ResourcesType) theEObject;
 			T result = caseResourcesType(resourcesType);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.ROLES_TYPE:
-		{
-			RolesType rolesType = (RolesType)theEObject;
+		case PomPackage.ROLES_TYPE: {
+			RolesType rolesType = (RolesType) theEObject;
 			T result = caseRolesType(rolesType);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.SCM:
-		{
-			Scm scm = (Scm)theEObject;
+		case PomPackage.SCM: {
+			Scm scm = (Scm) theEObject;
 			T result = caseScm(scm);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.SITE:
-		{
-			Site site = (Site)theEObject;
+		case PomPackage.SITE: {
+			Site site = (Site) theEObject;
 			T result = caseSite(site);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case PomPackage.TEST_RESOURCES_TYPE:
-		{
-			TestResourcesType testResourcesType = (TestResourcesType)theEObject;
+		case PomPackage.TEST_RESOURCES_TYPE: {
+			TestResourcesType testResourcesType = (TestResourcesType) theEObject;
 			T result = caseTestResourcesType(testResourcesType);
 			if(result == null)
 				result = defaultCase(theEObject);

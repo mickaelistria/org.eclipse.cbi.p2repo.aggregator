@@ -17,8 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Scm#getConnection <em>Connection</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Scm#getDeveloperConnection <em>Developer Connection
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Scm#getDeveloperConnection <em>Developer Connection </em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Scm#getTag <em>Tag</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Scm#getUrl <em>Url</em>}</li>
  * </ul>
@@ -28,8 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='Scm' kind='elementOnly'"
  * @generated
  */
-public interface Scm extends EObject
-{
+public interface Scm extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Connection</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * <!-- begin-model-doc --> 4.0.0

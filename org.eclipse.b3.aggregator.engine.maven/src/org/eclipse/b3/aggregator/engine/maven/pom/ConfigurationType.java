@@ -25,8 +25,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  * @model extendedMetaData="name='configuration_._type' kind='elementOnly'"
  * @generated
  */
-public interface ConfigurationType extends EObject
-{
+public interface ConfigurationType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Any</b></em>' attribute list. The list contents are of type
 	 * {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}. <!-- begin-user-doc -->

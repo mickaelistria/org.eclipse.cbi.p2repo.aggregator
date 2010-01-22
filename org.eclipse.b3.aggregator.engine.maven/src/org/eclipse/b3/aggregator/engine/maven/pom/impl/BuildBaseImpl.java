@@ -28,24 +28,21 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.BuildBaseImpl#getDefaultGoal <em>Default Goal
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.BuildBaseImpl#getDefaultGoal <em>Default Goal </em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.BuildBaseImpl#getResources <em>Resources</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.BuildBaseImpl#getTestResources <em>Test Resources
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.BuildBaseImpl#getTestResources <em>Test Resources </em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.BuildBaseImpl#getDirectory <em>Directory</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.BuildBaseImpl#getFinalName <em>Final Name</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.BuildBaseImpl#getFilters <em>Filters</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.BuildBaseImpl#getPluginManagement <em>Plugin
- * Management</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.BuildBaseImpl#getPluginManagement <em>Plugin Management
+ * </em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.BuildBaseImpl#getPlugins <em>Plugins</em>}</li>
  * </ul>
  * </p>
  * 
  * @generated
  */
-public class BuildBaseImpl extends EObjectImpl implements BuildBase
-{
+public class BuildBaseImpl extends EObjectImpl implements BuildBase {
 	/**
 	 * The default value of the '{@link #getDefaultGoal() <em>Default Goal</em>}' attribute. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -161,8 +158,7 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase
 	 * 
 	 * @generated
 	 */
-	protected BuildBaseImpl()
-	{
+	protected BuildBaseImpl() {
 		super();
 	}
 
@@ -171,12 +167,10 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetFilters(FiltersType newFilters, NotificationChain msgs)
-	{
+	public NotificationChain basicSetFilters(FiltersType newFilters, NotificationChain msgs) {
 		FiltersType oldFilters = filters;
 		filters = newFilters;
-		if(eNotificationRequired())
-		{
+		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					PomPackage.BUILD_BASE__FILTERS, oldFilters, newFilters);
 			if(msgs == null)
@@ -192,12 +186,10 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetPluginManagement(PluginManagement newPluginManagement, NotificationChain msgs)
-	{
+	public NotificationChain basicSetPluginManagement(PluginManagement newPluginManagement, NotificationChain msgs) {
 		PluginManagement oldPluginManagement = pluginManagement;
 		pluginManagement = newPluginManagement;
-		if(eNotificationRequired())
-		{
+		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					PomPackage.BUILD_BASE__PLUGIN_MANAGEMENT, oldPluginManagement, newPluginManagement);
 			if(msgs == null)
@@ -213,12 +205,10 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetPlugins(PluginsType newPlugins, NotificationChain msgs)
-	{
+	public NotificationChain basicSetPlugins(PluginsType newPlugins, NotificationChain msgs) {
 		PluginsType oldPlugins = plugins;
 		plugins = newPlugins;
-		if(eNotificationRequired())
-		{
+		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					PomPackage.BUILD_BASE__PLUGINS, oldPlugins, newPlugins);
 			if(msgs == null)
@@ -234,12 +224,10 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetResources(ResourcesType newResources, NotificationChain msgs)
-	{
+	public NotificationChain basicSetResources(ResourcesType newResources, NotificationChain msgs) {
 		ResourcesType oldResources = resources;
 		resources = newResources;
-		if(eNotificationRequired())
-		{
+		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					PomPackage.BUILD_BASE__RESOURCES, oldResources, newResources);
 			if(msgs == null)
@@ -255,12 +243,10 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetTestResources(TestResourcesType newTestResources, NotificationChain msgs)
-	{
+	public NotificationChain basicSetTestResources(TestResourcesType newTestResources, NotificationChain msgs) {
 		TestResourcesType oldTestResources = testResources;
 		testResources = newTestResources;
-		if(eNotificationRequired())
-		{
+		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					PomPackage.BUILD_BASE__TEST_RESOURCES, oldTestResources, newTestResources);
 			if(msgs == null)
@@ -277,10 +263,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.BUILD_BASE__DEFAULT_GOAL:
 			return getDefaultGoal();
 		case PomPackage.BUILD_BASE__RESOURCES:
@@ -307,10 +291,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch(featureID)
-		{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
 		case PomPackage.BUILD_BASE__RESOURCES:
 			return basicSetResources(null, msgs);
 		case PomPackage.BUILD_BASE__TEST_RESOURCES:
@@ -331,10 +313,8 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.BUILD_BASE__DEFAULT_GOAL:
 			return DEFAULT_GOAL_EDEFAULT == null
 					? defaultGoal != null
@@ -367,33 +347,31 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.BUILD_BASE__DEFAULT_GOAL:
-			setDefaultGoal((String)newValue);
+			setDefaultGoal((String) newValue);
 			return;
 		case PomPackage.BUILD_BASE__RESOURCES:
-			setResources((ResourcesType)newValue);
+			setResources((ResourcesType) newValue);
 			return;
 		case PomPackage.BUILD_BASE__TEST_RESOURCES:
-			setTestResources((TestResourcesType)newValue);
+			setTestResources((TestResourcesType) newValue);
 			return;
 		case PomPackage.BUILD_BASE__DIRECTORY:
-			setDirectory((String)newValue);
+			setDirectory((String) newValue);
 			return;
 		case PomPackage.BUILD_BASE__FINAL_NAME:
-			setFinalName((String)newValue);
+			setFinalName((String) newValue);
 			return;
 		case PomPackage.BUILD_BASE__FILTERS:
-			setFilters((FiltersType)newValue);
+			setFilters((FiltersType) newValue);
 			return;
 		case PomPackage.BUILD_BASE__PLUGIN_MANAGEMENT:
-			setPluginManagement((PluginManagement)newValue);
+			setPluginManagement((PluginManagement) newValue);
 			return;
 		case PomPackage.BUILD_BASE__PLUGINS:
-			setPlugins((PluginsType)newValue);
+			setPlugins((PluginsType) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -405,18 +383,16 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.BUILD_BASE__DEFAULT_GOAL:
 			setDefaultGoal(DEFAULT_GOAL_EDEFAULT);
 			return;
 		case PomPackage.BUILD_BASE__RESOURCES:
-			setResources((ResourcesType)null);
+			setResources((ResourcesType) null);
 			return;
 		case PomPackage.BUILD_BASE__TEST_RESOURCES:
-			setTestResources((TestResourcesType)null);
+			setTestResources((TestResourcesType) null);
 			return;
 		case PomPackage.BUILD_BASE__DIRECTORY:
 			setDirectory(DIRECTORY_EDEFAULT);
@@ -425,13 +401,13 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase
 			setFinalName(FINAL_NAME_EDEFAULT);
 			return;
 		case PomPackage.BUILD_BASE__FILTERS:
-			setFilters((FiltersType)null);
+			setFilters((FiltersType) null);
 			return;
 		case PomPackage.BUILD_BASE__PLUGIN_MANAGEMENT:
-			setPluginManagement((PluginManagement)null);
+			setPluginManagement((PluginManagement) null);
 			return;
 		case PomPackage.BUILD_BASE__PLUGINS:
-			setPlugins((PluginsType)null);
+			setPlugins((PluginsType) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -442,8 +418,7 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase
 	 * 
 	 * @generated
 	 */
-	public String getDefaultGoal()
-	{
+	public String getDefaultGoal() {
 		return defaultGoal;
 	}
 
@@ -452,8 +427,7 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase
 	 * 
 	 * @generated
 	 */
-	public String getDirectory()
-	{
+	public String getDirectory() {
 		return directory;
 	}
 
@@ -462,8 +436,7 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase
 	 * 
 	 * @generated
 	 */
-	public FiltersType getFilters()
-	{
+	public FiltersType getFilters() {
 		return filters;
 	}
 
@@ -472,8 +445,7 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase
 	 * 
 	 * @generated
 	 */
-	public String getFinalName()
-	{
+	public String getFinalName() {
 		return finalName;
 	}
 
@@ -482,8 +454,7 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase
 	 * 
 	 * @generated
 	 */
-	public PluginManagement getPluginManagement()
-	{
+	public PluginManagement getPluginManagement() {
 		return pluginManagement;
 	}
 
@@ -492,8 +463,7 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase
 	 * 
 	 * @generated
 	 */
-	public PluginsType getPlugins()
-	{
+	public PluginsType getPlugins() {
 		return plugins;
 	}
 
@@ -502,8 +472,7 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase
 	 * 
 	 * @generated
 	 */
-	public ResourcesType getResources()
-	{
+	public ResourcesType getResources() {
 		return resources;
 	}
 
@@ -512,8 +481,7 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase
 	 * 
 	 * @generated
 	 */
-	public TestResourcesType getTestResources()
-	{
+	public TestResourcesType getTestResources() {
 		return testResources;
 	}
 
@@ -522,8 +490,7 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase
 	 * 
 	 * @generated
 	 */
-	public void setDefaultGoal(String newDefaultGoal)
-	{
+	public void setDefaultGoal(String newDefaultGoal) {
 		String oldDefaultGoal = defaultGoal;
 		defaultGoal = newDefaultGoal;
 		if(eNotificationRequired())
@@ -536,8 +503,7 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase
 	 * 
 	 * @generated
 	 */
-	public void setDirectory(String newDirectory)
-	{
+	public void setDirectory(String newDirectory) {
 		String oldDirectory = directory;
 		directory = newDirectory;
 		if(eNotificationRequired())
@@ -550,16 +516,14 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase
 	 * 
 	 * @generated
 	 */
-	public void setFilters(FiltersType newFilters)
-	{
-		if(newFilters != filters)
-		{
+	public void setFilters(FiltersType newFilters) {
+		if(newFilters != filters) {
 			NotificationChain msgs = null;
 			if(filters != null)
-				msgs = ((InternalEObject)filters).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) filters).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.BUILD_BASE__FILTERS, null, msgs);
 			if(newFilters != null)
-				msgs = ((InternalEObject)newFilters).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) newFilters).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.BUILD_BASE__FILTERS, null, msgs);
 			msgs = basicSetFilters(newFilters, msgs);
 			if(msgs != null)
@@ -575,8 +539,7 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase
 	 * 
 	 * @generated
 	 */
-	public void setFinalName(String newFinalName)
-	{
+	public void setFinalName(String newFinalName) {
 		String oldFinalName = finalName;
 		finalName = newFinalName;
 		if(eNotificationRequired())
@@ -589,16 +552,14 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase
 	 * 
 	 * @generated
 	 */
-	public void setPluginManagement(PluginManagement newPluginManagement)
-	{
-		if(newPluginManagement != pluginManagement)
-		{
+	public void setPluginManagement(PluginManagement newPluginManagement) {
+		if(newPluginManagement != pluginManagement) {
 			NotificationChain msgs = null;
 			if(pluginManagement != null)
-				msgs = ((InternalEObject)pluginManagement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) pluginManagement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.BUILD_BASE__PLUGIN_MANAGEMENT, null, msgs);
 			if(newPluginManagement != null)
-				msgs = ((InternalEObject)newPluginManagement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) newPluginManagement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.BUILD_BASE__PLUGIN_MANAGEMENT, null, msgs);
 			msgs = basicSetPluginManagement(newPluginManagement, msgs);
 			if(msgs != null)
@@ -614,16 +575,14 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase
 	 * 
 	 * @generated
 	 */
-	public void setPlugins(PluginsType newPlugins)
-	{
-		if(newPlugins != plugins)
-		{
+	public void setPlugins(PluginsType newPlugins) {
+		if(newPlugins != plugins) {
 			NotificationChain msgs = null;
 			if(plugins != null)
-				msgs = ((InternalEObject)plugins).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) plugins).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.BUILD_BASE__PLUGINS, null, msgs);
 			if(newPlugins != null)
-				msgs = ((InternalEObject)newPlugins).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) newPlugins).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.BUILD_BASE__PLUGINS, null, msgs);
 			msgs = basicSetPlugins(newPlugins, msgs);
 			if(msgs != null)
@@ -639,16 +598,14 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase
 	 * 
 	 * @generated
 	 */
-	public void setResources(ResourcesType newResources)
-	{
-		if(newResources != resources)
-		{
+	public void setResources(ResourcesType newResources) {
+		if(newResources != resources) {
 			NotificationChain msgs = null;
 			if(resources != null)
-				msgs = ((InternalEObject)resources).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) resources).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.BUILD_BASE__RESOURCES, null, msgs);
 			if(newResources != null)
-				msgs = ((InternalEObject)newResources).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) newResources).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.BUILD_BASE__RESOURCES, null, msgs);
 			msgs = basicSetResources(newResources, msgs);
 			if(msgs != null)
@@ -664,16 +621,14 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase
 	 * 
 	 * @generated
 	 */
-	public void setTestResources(TestResourcesType newTestResources)
-	{
-		if(newTestResources != testResources)
-		{
+	public void setTestResources(TestResourcesType newTestResources) {
+		if(newTestResources != testResources) {
 			NotificationChain msgs = null;
 			if(testResources != null)
-				msgs = ((InternalEObject)testResources).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) testResources).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.BUILD_BASE__TEST_RESOURCES, null, msgs);
 			if(newTestResources != null)
-				msgs = ((InternalEObject)newTestResources).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) newTestResources).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.BUILD_BASE__TEST_RESOURCES, null, msgs);
 			msgs = basicSetTestResources(newTestResources, msgs);
 			if(msgs != null)
@@ -690,8 +645,7 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
@@ -712,8 +666,7 @@ public class BuildBaseImpl extends EObjectImpl implements BuildBase
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.BUILD_BASE;
 	}
 

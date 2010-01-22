@@ -30,15 +30,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.RepositoriesTypeImpl#getRepository <em>Repository
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.RepositoriesTypeImpl#getRepository <em>Repository </em>}</li>
  * </ul>
  * </p>
  * 
  * @generated
  */
-public class RepositoriesTypeImpl extends EObjectImpl implements RepositoriesType
-{
+public class RepositoriesTypeImpl extends EObjectImpl implements RepositoriesType {
 	/**
 	 * The cached value of the '{@link #getRepository() <em>Repository</em>}' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -54,8 +52,7 @@ public class RepositoriesTypeImpl extends EObjectImpl implements RepositoriesTyp
 	 * 
 	 * @generated
 	 */
-	protected RepositoriesTypeImpl()
-	{
+	protected RepositoriesTypeImpl() {
 		super();
 	}
 
@@ -65,10 +62,8 @@ public class RepositoriesTypeImpl extends EObjectImpl implements RepositoriesTyp
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.REPOSITORIES_TYPE__REPOSITORY:
 			return getRepository();
 		}
@@ -81,12 +76,10 @@ public class RepositoriesTypeImpl extends EObjectImpl implements RepositoriesTyp
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch(featureID)
-		{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
 		case PomPackage.REPOSITORIES_TYPE__REPOSITORY:
-			return ((InternalEList<?>)getRepository()).basicRemove(otherEnd, msgs);
+			return ((InternalEList<?>) getRepository()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -97,10 +90,8 @@ public class RepositoriesTypeImpl extends EObjectImpl implements RepositoriesTyp
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.REPOSITORIES_TYPE__REPOSITORY:
 			return repository != null && !repository.isEmpty();
 		}
@@ -114,13 +105,11 @@ public class RepositoriesTypeImpl extends EObjectImpl implements RepositoriesTyp
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.REPOSITORIES_TYPE__REPOSITORY:
 			getRepository().clear();
-			getRepository().addAll((Collection<? extends Repository>)newValue);
+			getRepository().addAll((Collection<? extends Repository>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -132,10 +121,8 @@ public class RepositoriesTypeImpl extends EObjectImpl implements RepositoriesTyp
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.REPOSITORIES_TYPE__REPOSITORY:
 			getRepository().clear();
 			return;
@@ -148,10 +135,8 @@ public class RepositoriesTypeImpl extends EObjectImpl implements RepositoriesTyp
 	 * 
 	 * @generated
 	 */
-	public EList<Repository> getRepository()
-	{
-		if(repository == null)
-		{
+	public EList<Repository> getRepository() {
+		if(repository == null) {
 			repository = new EObjectContainmentEList<Repository>(Repository.class, this,
 					PomPackage.REPOSITORIES_TYPE__REPOSITORY);
 		}
@@ -164,8 +149,7 @@ public class RepositoriesTypeImpl extends EObjectImpl implements RepositoriesTyp
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.REPOSITORIES_TYPE;
 	}
 

@@ -26,8 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='Extension' kind='elementOnly'"
  * @generated
  */
-public interface Extension extends EObject
-{
+public interface Extension extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Artifact Id</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * <!-- begin-model-doc --> 4.0.0 The artifact ID of the extension. <!-- end-model-doc -->

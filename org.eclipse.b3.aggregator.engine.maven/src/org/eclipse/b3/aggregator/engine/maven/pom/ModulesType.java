@@ -24,8 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='modules_._type' kind='elementOnly'"
  * @generated
  */
-public interface ModulesType extends EObject
-{
+public interface ModulesType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Module</b></em>' attribute list. The list contents are of type
 	 * {@link java.lang.String}. <!-- begin-user-doc -->

@@ -44,15 +44,13 @@ import org.eclipse.emf.ecore.EObject;
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Model#getProfiles <em>Profiles</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Model#getModules <em>Modules</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Model#getRepositories <em>Repositories</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Model#getPluginRepositories <em>Plugin Repositories
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Model#getPluginRepositories <em>Plugin Repositories </em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Model#getDependencies <em>Dependencies</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Model#getReports <em>Reports</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Model#getReporting <em>Reporting</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Model#getDependencyManagement <em>Dependency
- * Management</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Model#getDistributionManagement <em>Distribution
- * Management</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Model#getDependencyManagement <em>Dependency Management</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Model#getDistributionManagement <em>Distribution Management
+ * </em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Model#getProperties <em>Properties</em>}</li>
  * </ul>
  * </p>
@@ -61,8 +59,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='Model' kind='elementOnly'"
  * @generated
  */
-public interface Model extends EObject
-{
+public interface Model extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Artifact Id</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * <!-- begin-model-doc --> 3.0.0+
@@ -660,8 +657,7 @@ public interface Model extends EObject
 	void setDevelopers(DevelopersType value);
 
 	/**
-	 * Sets the value of the '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Model#getDistributionManagement
+	 * Sets the value of the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.Model#getDistributionManagement
 	 * <em>Distribution Management</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

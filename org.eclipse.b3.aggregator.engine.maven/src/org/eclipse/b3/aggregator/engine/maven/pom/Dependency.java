@@ -32,8 +32,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='Dependency' kind='elementOnly'"
  * @generated
  */
-public interface Dependency extends EObject
-{
+public interface Dependency extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Artifact Id</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * <!-- begin-model-doc --> 3.0.0+
@@ -209,8 +208,8 @@ public interface Dependency extends EObject
 	boolean isOptional();
 
 	/**
-	 * Returns whether the value of the '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Dependency#isOptional <em>Optional</em>}' attribute is
+	 * Returns whether the value of the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.Dependency#isOptional
+	 * <em>Optional</em>}' attribute is
 	 * set. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return whether the value of the '<em>Optional</em>' attribute is set.

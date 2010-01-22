@@ -30,8 +30,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='Versioning' kind='elementOnly'"
  * @generated
  */
-public interface Versioning extends EObject
-{
+public interface Versioning extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Last Updated</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->

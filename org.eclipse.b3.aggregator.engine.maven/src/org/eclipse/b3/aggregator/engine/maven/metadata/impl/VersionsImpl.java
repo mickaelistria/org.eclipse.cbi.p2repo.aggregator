@@ -28,8 +28,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * 
  * @generated
  */
-public class VersionsImpl extends EObjectImpl implements Versions
-{
+public class VersionsImpl extends EObjectImpl implements Versions {
 	/**
 	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute list. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -45,8 +44,7 @@ public class VersionsImpl extends EObjectImpl implements Versions
 	 * 
 	 * @generated
 	 */
-	protected VersionsImpl()
-	{
+	protected VersionsImpl() {
 		super();
 	}
 
@@ -56,10 +54,8 @@ public class VersionsImpl extends EObjectImpl implements Versions
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case MetadataPackage.VERSIONS__VERSION:
 			return getVersion();
 		}
@@ -72,10 +68,8 @@ public class VersionsImpl extends EObjectImpl implements Versions
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case MetadataPackage.VERSIONS__VERSION:
 			return version != null && !version.isEmpty();
 		}
@@ -89,13 +83,11 @@ public class VersionsImpl extends EObjectImpl implements Versions
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case MetadataPackage.VERSIONS__VERSION:
 			getVersion().clear();
-			getVersion().addAll((Collection<? extends String>)newValue);
+			getVersion().addAll((Collection<? extends String>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -107,10 +99,8 @@ public class VersionsImpl extends EObjectImpl implements Versions
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case MetadataPackage.VERSIONS__VERSION:
 			getVersion().clear();
 			return;
@@ -123,10 +113,8 @@ public class VersionsImpl extends EObjectImpl implements Versions
 	 * 
 	 * @generated
 	 */
-	public EList<String> getVersion()
-	{
-		if(version == null)
-		{
+	public EList<String> getVersion() {
+		if(version == null) {
 			version = new EDataTypeUniqueEList<String>(String.class, this, MetadataPackage.VERSIONS__VERSION);
 		}
 		return version;
@@ -138,8 +126,7 @@ public class VersionsImpl extends EObjectImpl implements Versions
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
@@ -156,8 +143,7 @@ public class VersionsImpl extends EObjectImpl implements Versions
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return MetadataPackage.Literals.VERSIONS;
 	}
 

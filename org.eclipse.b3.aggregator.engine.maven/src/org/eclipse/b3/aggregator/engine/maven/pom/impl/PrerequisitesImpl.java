@@ -27,8 +27,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * 
  * @generated
  */
-public class PrerequisitesImpl extends EObjectImpl implements Prerequisites
-{
+public class PrerequisitesImpl extends EObjectImpl implements Prerequisites {
 	/**
 	 * The default value of the '{@link #getMaven() <em>Maven</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -62,8 +61,7 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites
 	 * 
 	 * @generated
 	 */
-	protected PrerequisitesImpl()
-	{
+	protected PrerequisitesImpl() {
 		super();
 	}
 
@@ -73,10 +71,8 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.PREREQUISITES__MAVEN:
 			return getMaven();
 		}
@@ -89,10 +85,8 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.PREREQUISITES__MAVEN:
 			return isSetMaven();
 		}
@@ -105,12 +99,10 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.PREREQUISITES__MAVEN:
-			setMaven((String)newValue);
+			setMaven((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -122,10 +114,8 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.PREREQUISITES__MAVEN:
 			unsetMaven();
 			return;
@@ -138,8 +128,7 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites
 	 * 
 	 * @generated
 	 */
-	public String getMaven()
-	{
+	public String getMaven() {
 		return maven;
 	}
 
@@ -148,8 +137,7 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites
 	 * 
 	 * @generated
 	 */
-	public boolean isSetMaven()
-	{
+	public boolean isSetMaven() {
 		return mavenESet;
 	}
 
@@ -158,8 +146,7 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites
 	 * 
 	 * @generated
 	 */
-	public void setMaven(String newMaven)
-	{
+	public void setMaven(String newMaven) {
 		String oldMaven = maven;
 		maven = newMaven;
 		boolean oldMavenESet = mavenESet;
@@ -175,8 +162,7 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
@@ -195,8 +181,7 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites
 	 * 
 	 * @generated
 	 */
-	public void unsetMaven()
-	{
+	public void unsetMaven() {
 		String oldMaven = maven;
 		boolean oldMavenESet = mavenESet;
 		maven = MAVEN_EDEFAULT;
@@ -212,8 +197,7 @@ public class PrerequisitesImpl extends EObjectImpl implements Prerequisites
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.PREREQUISITES;
 	}
 

@@ -25,8 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='report_._set_._reports_._type' kind='elementOnly'"
  * @generated
  */
-public interface ReportSetReportsType extends EObject
-{
+public interface ReportSetReportsType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Report</b></em>' attribute list. The list contents are of type
 	 * {@link java.lang.String}. <!-- begin-user-doc -->

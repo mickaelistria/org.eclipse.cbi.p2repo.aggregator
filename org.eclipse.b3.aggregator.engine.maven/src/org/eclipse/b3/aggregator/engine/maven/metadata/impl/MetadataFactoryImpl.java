@@ -21,8 +21,7 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  * 
  * @generated
  */
-public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
-{
+public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -30,8 +29,7 @@ public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
 	 * @generated
 	 */
 	@Deprecated
-	public static MetadataPackage getPackage()
-	{
+	public static MetadataPackage getPackage() {
 		return MetadataPackage.eINSTANCE;
 	}
 
@@ -40,18 +38,14 @@ public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
 	 * 
 	 * @generated
 	 */
-	public static MetadataFactory init()
-	{
-		try
-		{
-			MetadataFactory theMetadataFactory = (MetadataFactory)EPackage.Registry.INSTANCE.getEFactory("http://maven.apache.org/METADATA/1.0.0");
-			if(theMetadataFactory != null)
-			{
+	public static MetadataFactory init() {
+		try {
+			MetadataFactory theMetadataFactory = (MetadataFactory) EPackage.Registry.INSTANCE.getEFactory("http://maven.apache.org/METADATA/1.0.0");
+			if(theMetadataFactory != null) {
 				return theMetadataFactory;
 			}
 		}
-		catch(Exception exception)
-		{
+		catch(Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new MetadataFactoryImpl();
@@ -62,8 +56,7 @@ public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
 	 * 
 	 * @generated
 	 */
-	public MetadataFactoryImpl()
-	{
+	public MetadataFactoryImpl() {
 		super();
 	}
 
@@ -73,10 +66,8 @@ public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
 	 * @generated
 	 */
 	@Override
-	public EObject create(EClass eClass)
-	{
-		switch(eClass.getClassifierID())
-		{
+	public EObject create(EClass eClass) {
+		switch(eClass.getClassifierID()) {
 		case MetadataPackage.DOCUMENT_ROOT:
 			return createDocumentRoot();
 		case MetadataPackage.META_DATA:
@@ -95,8 +86,7 @@ public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
 	 * 
 	 * @generated
 	 */
-	public DocumentRoot createDocumentRoot()
-	{
+	public DocumentRoot createDocumentRoot() {
 		DocumentRootImpl documentRoot = new DocumentRootImpl();
 		return documentRoot;
 	}
@@ -106,8 +96,7 @@ public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
 	 * 
 	 * @generated
 	 */
-	public MetaData createMetaData()
-	{
+	public MetaData createMetaData() {
 		MetaDataImpl metaData = new MetaDataImpl();
 		return metaData;
 	}
@@ -117,8 +106,7 @@ public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
 	 * 
 	 * @generated
 	 */
-	public Versioning createVersioning()
-	{
+	public Versioning createVersioning() {
 		VersioningImpl versioning = new VersioningImpl();
 		return versioning;
 	}
@@ -128,8 +116,7 @@ public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
 	 * 
 	 * @generated
 	 */
-	public Versions createVersions()
-	{
+	public Versions createVersions() {
 		VersionsImpl versions = new VersionsImpl();
 		return versions;
 	}
@@ -139,9 +126,8 @@ public class MetadataFactoryImpl extends EFactoryImpl implements MetadataFactory
 	 * 
 	 * @generated
 	 */
-	public MetadataPackage getMetadataPackage()
-	{
-		return (MetadataPackage)getEPackage();
+	public MetadataPackage getMetadataPackage() {
+		return (MetadataPackage) getEPackage();
 	}
 
 } // MetadataFactoryImpl

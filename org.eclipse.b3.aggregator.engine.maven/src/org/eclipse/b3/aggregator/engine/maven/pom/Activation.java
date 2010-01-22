@@ -20,8 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Activation#isActiveByDefault <em>Active By Default
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Activation#isActiveByDefault <em>Active By Default </em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Activation#getJdk <em>Jdk</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Activation#getOs <em>Os</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Activation#getProperty <em>Property</em>}</li>
@@ -33,8 +32,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='Activation' kind='elementOnly'"
  * @generated
  */
-public interface Activation extends EObject
-{
+public interface Activation extends EObject {
 	/**
 	 * Returns the value of the '<em><b>File</b></em>' containment reference. <!-- begin-user-doc --> <!-- end-user-doc
 	 * --> <!-- begin-model-doc --> 4.0.0
@@ -156,8 +154,8 @@ public interface Activation extends EObject
 	void setFile(ActivationFile value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.engine.maven.pom.Activation#getJdk <em>Jdk</em>}
-	 * ' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.engine.maven.pom.Activation#getJdk <em>Jdk</em>} '
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value
 	 *            the new value of the '<em>Jdk</em>' attribute.

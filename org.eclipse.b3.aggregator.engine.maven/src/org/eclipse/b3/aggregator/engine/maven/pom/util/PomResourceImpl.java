@@ -19,8 +19,7 @@ import org.eclipse.emf.common.util.URI;
  * @see org.eclipse.b3.aggregator.engine.maven.pom.util.PomResourceFactoryImpl
  * @generated NOT
  */
-public class PomResourceImpl extends XMLResourceImplWithCheck
-{
+public class PomResourceImpl extends XMLResourceImplWithCheck {
 	private String md5;
 
 	private String sha1;
@@ -34,17 +33,14 @@ public class PomResourceImpl extends XMLResourceImplWithCheck
 	 *            the URI of the new resource.
 	 * @generated NOT
 	 */
-	public PomResourceImpl(URI uri)
-	{
+	public PomResourceImpl(URI uri) {
 		super(uri);
 	}
 
 	@Override
-	public void doLoad(InputStream is, Map<?, ?> options) throws IOException
-	{
-		if(is instanceof InputStreamWithInfo)
-		{
-			InputStreamWithInfo isi = (InputStreamWithInfo)is;
+	public void doLoad(InputStream is, Map<?, ?> options) throws IOException {
+		if(is instanceof InputStreamWithInfo) {
+			InputStreamWithInfo isi = (InputStreamWithInfo) is;
 			timestamp = isi.getTimestamp();
 			md5 = isi.getMd5();
 			sha1 = isi.getSha1();
@@ -53,18 +49,15 @@ public class PomResourceImpl extends XMLResourceImplWithCheck
 		super.doLoad(is, options);
 	}
 
-	public String getMd5()
-	{
+	public String getMd5() {
 		return md5;
 	}
 
-	public String getSha1()
-	{
+	public String getSha1() {
 		return sha1;
 	}
 
-	public Long getTimestamp()
-	{
+	public Long getTimestamp() {
 		return timestamp;
 	}
 } // PomResourceImpl

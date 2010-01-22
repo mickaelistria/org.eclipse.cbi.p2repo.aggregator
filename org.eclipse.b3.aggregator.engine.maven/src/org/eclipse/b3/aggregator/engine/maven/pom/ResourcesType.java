@@ -24,8 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='resources_._type' kind='elementOnly'"
  * @generated
  */
-public interface ResourcesType extends EObject
-{
+public interface ResourcesType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Resource</b></em>' containment reference list. The list contents are of type
 	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Resource}. <!-- begin-user-doc -->

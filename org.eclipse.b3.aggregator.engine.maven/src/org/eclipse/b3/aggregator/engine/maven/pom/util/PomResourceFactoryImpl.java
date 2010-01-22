@@ -24,8 +24,7 @@ import org.eclipse.emf.ecore.xmi.XMLResource;
  * @see org.eclipse.b3.aggregator.engine.maven.pom.util.PomResourceImpl
  * @generated
  */
-public class PomResourceFactoryImpl extends ResourceFactoryImpl
-{
+public class PomResourceFactoryImpl extends ResourceFactoryImpl {
 	protected ExtendedMetaData extendedMetaData;
 
 	/**
@@ -33,23 +32,19 @@ public class PomResourceFactoryImpl extends ResourceFactoryImpl
 	 * 
 	 * @generated NOT
 	 */
-	public PomResourceFactoryImpl()
-	{
+	public PomResourceFactoryImpl() {
 		super();
 
-		extendedMetaData = new BasicExtendedMetaData(new EPackageRegistryImpl(EPackage.Registry.INSTANCE))
-		{
+		extendedMetaData = new BasicExtendedMetaData(new EPackageRegistryImpl(EPackage.Registry.INSTANCE)) {
 			@Override
-			public EStructuralFeature getElement(String namespace, String name)
-			{
+			public EStructuralFeature getElement(String namespace, String name) {
 				if(namespace == null)
 					namespace = PomPackage.eNS_URI;
 				return super.getElement(namespace, name);
 			}
 
 			@Override
-			public EStructuralFeature getLocalElement(EClass eClass, String namespace, String name)
-			{
+			public EStructuralFeature getLocalElement(EClass eClass, String namespace, String name) {
 				if(namespace == null)
 					namespace = PomPackage.eNS_URI;
 				return super.getLocalElement(eClass, namespace, name);
@@ -64,8 +59,7 @@ public class PomResourceFactoryImpl extends ResourceFactoryImpl
 	 * @generated NOT
 	 */
 	@Override
-	public Resource createResource(URI uri)
-	{
+	public Resource createResource(URI uri) {
 		XMLResource result = new PomResourceImpl(uri);
 		result.getDefaultSaveOptions().put(XMLResource.OPTION_EXTENDED_META_DATA, extendedMetaData);
 		result.getDefaultLoadOptions().put(XMLResource.OPTION_EXTENDED_META_DATA, extendedMetaData);

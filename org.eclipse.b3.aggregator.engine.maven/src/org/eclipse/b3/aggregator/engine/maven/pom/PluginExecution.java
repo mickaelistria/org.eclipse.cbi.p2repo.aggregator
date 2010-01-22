@@ -21,8 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.PluginExecution#getPhase <em>Phase</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.PluginExecution#getGoals <em>Goals</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.PluginExecution#getInherited <em>Inherited</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.PluginExecution#getConfiguration <em>Configuration
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.PluginExecution#getConfiguration <em>Configuration </em>}</li>
  * </ul>
  * </p>
  * 
@@ -30,8 +29,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='PluginExecution' kind='elementOnly'"
  * @generated
  */
-public interface PluginExecution extends EObject
-{
+public interface PluginExecution extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Configuration</b></em>' containment reference. <!-- begin-user-doc --> <!--
 	 * end-user-doc --> <!-- begin-model-doc --> 0.0.0+ <!-- end-model-doc -->
@@ -103,8 +101,8 @@ public interface PluginExecution extends EObject
 	String getPhase();
 
 	/**
-	 * Returns whether the value of the '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.PluginExecution#getId <em>Id</em>}' attribute is set.
+	 * Returns whether the value of the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.PluginExecution#getId
+	 * <em>Id</em>}' attribute is set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return whether the value of the '<em>Id</em>' attribute is set.
@@ -116,8 +114,7 @@ public interface PluginExecution extends EObject
 	boolean isSetId();
 
 	/**
-	 * Sets the value of the '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.PluginExecution#getConfiguration
+	 * Sets the value of the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.PluginExecution#getConfiguration
 	 * <em>Configuration</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

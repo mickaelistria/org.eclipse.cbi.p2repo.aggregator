@@ -15,8 +15,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
  * @see org.eclipse.b3.aggregator.engine.maven.metadata.util.MetadataResourceFactoryImpl
  * @generated
  */
-public class MetadataResourceImpl extends XMLResourceImpl
-{
+public class MetadataResourceImpl extends XMLResourceImpl {
 	/**
 	 * Creates an instance of the resource. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -24,8 +23,7 @@ public class MetadataResourceImpl extends XMLResourceImpl
 	 *            the URI of the new resource.
 	 * @generated NOT
 	 */
-	public MetadataResourceImpl(URI uri)
-	{
+	public MetadataResourceImpl(URI uri) {
 		super(uri);
 	}
 

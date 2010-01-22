@@ -24,8 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='plugins_._type' kind='elementOnly'"
  * @generated
  */
-public interface PluginsType extends EObject
-{
+public interface PluginsType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Plugin</b></em>' containment reference list. The list contents are of type
 	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Plugin}. <!-- begin-user-doc -->

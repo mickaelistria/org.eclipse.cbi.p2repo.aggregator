@@ -35,8 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * 
  * @generated
  */
-public class ResourcesTypeImpl extends EObjectImpl implements ResourcesType
-{
+public class ResourcesTypeImpl extends EObjectImpl implements ResourcesType {
 	/**
 	 * The cached value of the '{@link #getResource() <em>Resource</em>}' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -52,8 +51,7 @@ public class ResourcesTypeImpl extends EObjectImpl implements ResourcesType
 	 * 
 	 * @generated
 	 */
-	protected ResourcesTypeImpl()
-	{
+	protected ResourcesTypeImpl() {
 		super();
 	}
 
@@ -63,10 +61,8 @@ public class ResourcesTypeImpl extends EObjectImpl implements ResourcesType
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.RESOURCES_TYPE__RESOURCE:
 			return getResource();
 		}
@@ -79,12 +75,10 @@ public class ResourcesTypeImpl extends EObjectImpl implements ResourcesType
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch(featureID)
-		{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
 		case PomPackage.RESOURCES_TYPE__RESOURCE:
-			return ((InternalEList<?>)getResource()).basicRemove(otherEnd, msgs);
+			return ((InternalEList<?>) getResource()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -95,10 +89,8 @@ public class ResourcesTypeImpl extends EObjectImpl implements ResourcesType
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.RESOURCES_TYPE__RESOURCE:
 			return resource != null && !resource.isEmpty();
 		}
@@ -112,13 +104,11 @@ public class ResourcesTypeImpl extends EObjectImpl implements ResourcesType
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.RESOURCES_TYPE__RESOURCE:
 			getResource().clear();
-			getResource().addAll((Collection<? extends Resource>)newValue);
+			getResource().addAll((Collection<? extends Resource>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -130,10 +120,8 @@ public class ResourcesTypeImpl extends EObjectImpl implements ResourcesType
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.RESOURCES_TYPE__RESOURCE:
 			getResource().clear();
 			return;
@@ -146,10 +134,8 @@ public class ResourcesTypeImpl extends EObjectImpl implements ResourcesType
 	 * 
 	 * @generated
 	 */
-	public EList<Resource> getResource()
-	{
-		if(resource == null)
-		{
+	public EList<Resource> getResource() {
+		if(resource == null) {
 			resource = new EObjectContainmentEList<Resource>(Resource.class, this, PomPackage.RESOURCES_TYPE__RESOURCE);
 		}
 		return resource;
@@ -161,8 +147,7 @@ public class ResourcesTypeImpl extends EObjectImpl implements ResourcesType
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.RESOURCES_TYPE;
 	}
 

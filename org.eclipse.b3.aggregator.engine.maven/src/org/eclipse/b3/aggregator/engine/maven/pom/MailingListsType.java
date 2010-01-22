@@ -17,8 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.MailingListsType#getMailingList <em>Mailing List</em>}
- * </li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.MailingListsType#getMailingList <em>Mailing List</em>}</li>
  * </ul>
  * </p>
  * 
@@ -26,8 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='mailingLists_._type' kind='elementOnly'"
  * @generated
  */
-public interface MailingListsType extends EObject
-{
+public interface MailingListsType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Mailing List</b></em>' containment reference list. The list contents are of type
 	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.MailingList}. <!-- begin-user-doc -->

@@ -25,25 +25,20 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are implemented:
  * <ul>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DependencyImpl#getGroupId <em>Group Id</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DependencyImpl#getArtifactId <em>Artifact Id
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DependencyImpl#getArtifactId <em>Artifact Id </em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DependencyImpl#getVersion <em>Version</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DependencyImpl#getType <em>Type</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DependencyImpl#getClassifier <em>Classifier</em>}
- * </li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DependencyImpl#getClassifier <em>Classifier</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DependencyImpl#getScope <em>Scope</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DependencyImpl#getSystemPath <em>System Path
- * </em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DependencyImpl#getExclusions <em>Exclusions</em>}
- * </li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DependencyImpl#getSystemPath <em>System Path </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DependencyImpl#getExclusions <em>Exclusions</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DependencyImpl#isOptional <em>Optional</em>}</li>
  * </ul>
  * </p>
  * 
  * @generated
  */
-public class DependencyImpl extends EObjectImpl implements Dependency
-{
+public class DependencyImpl extends EObjectImpl implements Dependency {
 	/**
 	 * The default value of the '{@link #getGroupId() <em>Group Id</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -235,8 +230,7 @@ public class DependencyImpl extends EObjectImpl implements Dependency
 	 * 
 	 * @generated
 	 */
-	protected DependencyImpl()
-	{
+	protected DependencyImpl() {
 		super();
 	}
 
@@ -245,12 +239,10 @@ public class DependencyImpl extends EObjectImpl implements Dependency
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetExclusions(ExclusionsType newExclusions, NotificationChain msgs)
-	{
+	public NotificationChain basicSetExclusions(ExclusionsType newExclusions, NotificationChain msgs) {
 		ExclusionsType oldExclusions = exclusions;
 		exclusions = newExclusions;
-		if(eNotificationRequired())
-		{
+		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					PomPackage.DEPENDENCY__EXCLUSIONS, oldExclusions, newExclusions);
 			if(msgs == null)
@@ -267,10 +259,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.DEPENDENCY__GROUP_ID:
 			return getGroupId();
 		case PomPackage.DEPENDENCY__ARTIFACT_ID:
@@ -299,10 +289,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch(featureID)
-		{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
 		case PomPackage.DEPENDENCY__EXCLUSIONS:
 			return basicSetExclusions(null, msgs);
 		}
@@ -315,10 +303,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.DEPENDENCY__GROUP_ID:
 			return GROUP_ID_EDEFAULT == null
 					? groupId != null
@@ -359,36 +345,34 @@ public class DependencyImpl extends EObjectImpl implements Dependency
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.DEPENDENCY__GROUP_ID:
-			setGroupId((String)newValue);
+			setGroupId((String) newValue);
 			return;
 		case PomPackage.DEPENDENCY__ARTIFACT_ID:
-			setArtifactId((String)newValue);
+			setArtifactId((String) newValue);
 			return;
 		case PomPackage.DEPENDENCY__VERSION:
-			setVersion((String)newValue);
+			setVersion((String) newValue);
 			return;
 		case PomPackage.DEPENDENCY__TYPE:
-			setType((String)newValue);
+			setType((String) newValue);
 			return;
 		case PomPackage.DEPENDENCY__CLASSIFIER:
-			setClassifier((String)newValue);
+			setClassifier((String) newValue);
 			return;
 		case PomPackage.DEPENDENCY__SCOPE:
-			setScope((String)newValue);
+			setScope((String) newValue);
 			return;
 		case PomPackage.DEPENDENCY__SYSTEM_PATH:
-			setSystemPath((String)newValue);
+			setSystemPath((String) newValue);
 			return;
 		case PomPackage.DEPENDENCY__EXCLUSIONS:
-			setExclusions((ExclusionsType)newValue);
+			setExclusions((ExclusionsType) newValue);
 			return;
 		case PomPackage.DEPENDENCY__OPTIONAL:
-			setOptional((Boolean)newValue);
+			setOptional((Boolean) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -400,10 +384,8 @@ public class DependencyImpl extends EObjectImpl implements Dependency
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.DEPENDENCY__GROUP_ID:
 			setGroupId(GROUP_ID_EDEFAULT);
 			return;
@@ -426,7 +408,7 @@ public class DependencyImpl extends EObjectImpl implements Dependency
 			setSystemPath(SYSTEM_PATH_EDEFAULT);
 			return;
 		case PomPackage.DEPENDENCY__EXCLUSIONS:
-			setExclusions((ExclusionsType)null);
+			setExclusions((ExclusionsType) null);
 			return;
 		case PomPackage.DEPENDENCY__OPTIONAL:
 			unsetOptional();
@@ -440,8 +422,7 @@ public class DependencyImpl extends EObjectImpl implements Dependency
 	 * 
 	 * @generated
 	 */
-	public String getArtifactId()
-	{
+	public String getArtifactId() {
 		return artifactId;
 	}
 
@@ -450,8 +431,7 @@ public class DependencyImpl extends EObjectImpl implements Dependency
 	 * 
 	 * @generated
 	 */
-	public String getClassifier()
-	{
+	public String getClassifier() {
 		return classifier;
 	}
 
@@ -460,8 +440,7 @@ public class DependencyImpl extends EObjectImpl implements Dependency
 	 * 
 	 * @generated
 	 */
-	public ExclusionsType getExclusions()
-	{
+	public ExclusionsType getExclusions() {
 		return exclusions;
 	}
 
@@ -470,8 +449,7 @@ public class DependencyImpl extends EObjectImpl implements Dependency
 	 * 
 	 * @generated
 	 */
-	public String getGroupId()
-	{
+	public String getGroupId() {
 		return groupId;
 	}
 
@@ -480,8 +458,7 @@ public class DependencyImpl extends EObjectImpl implements Dependency
 	 * 
 	 * @generated
 	 */
-	public String getScope()
-	{
+	public String getScope() {
 		return scope;
 	}
 
@@ -490,8 +467,7 @@ public class DependencyImpl extends EObjectImpl implements Dependency
 	 * 
 	 * @generated
 	 */
-	public String getSystemPath()
-	{
+	public String getSystemPath() {
 		return systemPath;
 	}
 
@@ -500,8 +476,7 @@ public class DependencyImpl extends EObjectImpl implements Dependency
 	 * 
 	 * @generated
 	 */
-	public String getType()
-	{
+	public String getType() {
 		return type;
 	}
 
@@ -510,8 +485,7 @@ public class DependencyImpl extends EObjectImpl implements Dependency
 	 * 
 	 * @generated
 	 */
-	public String getVersion()
-	{
+	public String getVersion() {
 		return version;
 	}
 
@@ -520,8 +494,7 @@ public class DependencyImpl extends EObjectImpl implements Dependency
 	 * 
 	 * @generated
 	 */
-	public boolean isOptional()
-	{
+	public boolean isOptional() {
 		return optional;
 	}
 
@@ -530,8 +503,7 @@ public class DependencyImpl extends EObjectImpl implements Dependency
 	 * 
 	 * @generated
 	 */
-	public boolean isSetOptional()
-	{
+	public boolean isSetOptional() {
 		return optionalESet;
 	}
 
@@ -540,8 +512,7 @@ public class DependencyImpl extends EObjectImpl implements Dependency
 	 * 
 	 * @generated
 	 */
-	public boolean isSetType()
-	{
+	public boolean isSetType() {
 		return typeESet;
 	}
 
@@ -550,8 +521,7 @@ public class DependencyImpl extends EObjectImpl implements Dependency
 	 * 
 	 * @generated
 	 */
-	public void setArtifactId(String newArtifactId)
-	{
+	public void setArtifactId(String newArtifactId) {
 		String oldArtifactId = artifactId;
 		artifactId = newArtifactId;
 		if(eNotificationRequired())
@@ -564,8 +534,7 @@ public class DependencyImpl extends EObjectImpl implements Dependency
 	 * 
 	 * @generated
 	 */
-	public void setClassifier(String newClassifier)
-	{
+	public void setClassifier(String newClassifier) {
 		String oldClassifier = classifier;
 		classifier = newClassifier;
 		if(eNotificationRequired())
@@ -578,16 +547,14 @@ public class DependencyImpl extends EObjectImpl implements Dependency
 	 * 
 	 * @generated
 	 */
-	public void setExclusions(ExclusionsType newExclusions)
-	{
-		if(newExclusions != exclusions)
-		{
+	public void setExclusions(ExclusionsType newExclusions) {
+		if(newExclusions != exclusions) {
 			NotificationChain msgs = null;
 			if(exclusions != null)
-				msgs = ((InternalEObject)exclusions).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) exclusions).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.DEPENDENCY__EXCLUSIONS, null, msgs);
 			if(newExclusions != null)
-				msgs = ((InternalEObject)newExclusions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) newExclusions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.DEPENDENCY__EXCLUSIONS, null, msgs);
 			msgs = basicSetExclusions(newExclusions, msgs);
 			if(msgs != null)
@@ -603,8 +570,7 @@ public class DependencyImpl extends EObjectImpl implements Dependency
 	 * 
 	 * @generated
 	 */
-	public void setGroupId(String newGroupId)
-	{
+	public void setGroupId(String newGroupId) {
 		String oldGroupId = groupId;
 		groupId = newGroupId;
 		if(eNotificationRequired())
@@ -616,8 +582,7 @@ public class DependencyImpl extends EObjectImpl implements Dependency
 	 * 
 	 * @generated
 	 */
-	public void setOptional(boolean newOptional)
-	{
+	public void setOptional(boolean newOptional) {
 		boolean oldOptional = optional;
 		optional = newOptional;
 		boolean oldOptionalESet = optionalESet;
@@ -632,8 +597,7 @@ public class DependencyImpl extends EObjectImpl implements Dependency
 	 * 
 	 * @generated
 	 */
-	public void setScope(String newScope)
-	{
+	public void setScope(String newScope) {
 		String oldScope = scope;
 		scope = newScope;
 		if(eNotificationRequired())
@@ -645,8 +609,7 @@ public class DependencyImpl extends EObjectImpl implements Dependency
 	 * 
 	 * @generated
 	 */
-	public void setSystemPath(String newSystemPath)
-	{
+	public void setSystemPath(String newSystemPath) {
 		String oldSystemPath = systemPath;
 		systemPath = newSystemPath;
 		if(eNotificationRequired())
@@ -659,8 +622,7 @@ public class DependencyImpl extends EObjectImpl implements Dependency
 	 * 
 	 * @generated
 	 */
-	public void setType(String newType)
-	{
+	public void setType(String newType) {
 		String oldType = type;
 		type = newType;
 		boolean oldTypeESet = typeESet;
@@ -675,8 +637,7 @@ public class DependencyImpl extends EObjectImpl implements Dependency
 	 * 
 	 * @generated
 	 */
-	public void setVersion(String newVersion)
-	{
+	public void setVersion(String newVersion) {
 		String oldVersion = version;
 		version = newVersion;
 		if(eNotificationRequired())
@@ -689,8 +650,7 @@ public class DependencyImpl extends EObjectImpl implements Dependency
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
@@ -726,8 +686,7 @@ public class DependencyImpl extends EObjectImpl implements Dependency
 	 * 
 	 * @generated
 	 */
-	public void unsetOptional()
-	{
+	public void unsetOptional() {
 		boolean oldOptional = optional;
 		boolean oldOptionalESet = optionalESet;
 		optional = OPTIONAL_EDEFAULT;
@@ -742,8 +701,7 @@ public class DependencyImpl extends EObjectImpl implements Dependency
 	 * 
 	 * @generated
 	 */
-	public void unsetType()
-	{
+	public void unsetType() {
 		String oldType = type;
 		boolean oldTypeESet = typeESet;
 		type = TYPE_EDEFAULT;
@@ -759,8 +717,7 @@ public class DependencyImpl extends EObjectImpl implements Dependency
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.DEPENDENCY;
 	}
 

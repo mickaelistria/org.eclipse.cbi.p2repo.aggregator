@@ -16,20 +16,15 @@ import org.eclipse.core.runtime.Platform;
  * @author Filip Hrbek (filip.hrbek@cloudsmith.com)
  * 
  */
-public class IndexerUtils
-{
-	public static IMaven2Indexer getIndexer(String name)
-	{
+public class IndexerUtils {
+	public static IMaven2Indexer getIndexer(String name) {
 		for(IConfigurationElement extension : Platform.getExtensionRegistry().getConfigurationElementsFor(
-				IMaven2Indexer.EXTENSION_POINT_ID))
-		{
+				IMaven2Indexer.EXTENSION_POINT_ID)) {
 			if(name.equals(extension.getAttribute(IMaven2Indexer.EXTENSION_POINT_ATTRIBUTE_ID)))
-				try
-				{
-					return (IMaven2Indexer)extension.createExecutableExtension("class");
+				try {
+					return (IMaven2Indexer) extension.createExecutableExtension("class");
 				}
-				catch(CoreException e)
-				{
+				catch(CoreException e) {
 					// try another one
 				}
 		}

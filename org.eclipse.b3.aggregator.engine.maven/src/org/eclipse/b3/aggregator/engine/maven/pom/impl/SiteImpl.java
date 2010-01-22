@@ -29,8 +29,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * 
  * @generated
  */
-public class SiteImpl extends EObjectImpl implements Site
-{
+public class SiteImpl extends EObjectImpl implements Site {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -93,8 +92,7 @@ public class SiteImpl extends EObjectImpl implements Site
 	 * 
 	 * @generated
 	 */
-	protected SiteImpl()
-	{
+	protected SiteImpl() {
 		super();
 	}
 
@@ -104,10 +102,8 @@ public class SiteImpl extends EObjectImpl implements Site
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.SITE__ID:
 			return getId();
 		case PomPackage.SITE__NAME:
@@ -124,10 +120,8 @@ public class SiteImpl extends EObjectImpl implements Site
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.SITE__ID:
 			return ID_EDEFAULT == null
 					? id != null
@@ -150,18 +144,16 @@ public class SiteImpl extends EObjectImpl implements Site
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.SITE__ID:
-			setId((String)newValue);
+			setId((String) newValue);
 			return;
 		case PomPackage.SITE__NAME:
-			setName((String)newValue);
+			setName((String) newValue);
 			return;
 		case PomPackage.SITE__URL:
-			setUrl((String)newValue);
+			setUrl((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -173,10 +165,8 @@ public class SiteImpl extends EObjectImpl implements Site
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.SITE__ID:
 			setId(ID_EDEFAULT);
 			return;
@@ -195,8 +185,7 @@ public class SiteImpl extends EObjectImpl implements Site
 	 * 
 	 * @generated
 	 */
-	public String getId()
-	{
+	public String getId() {
 		return id;
 	}
 
@@ -205,8 +194,7 @@ public class SiteImpl extends EObjectImpl implements Site
 	 * 
 	 * @generated
 	 */
-	public String getName()
-	{
+	public String getName() {
 		return name;
 	}
 
@@ -215,8 +203,7 @@ public class SiteImpl extends EObjectImpl implements Site
 	 * 
 	 * @generated
 	 */
-	public String getUrl()
-	{
+	public String getUrl() {
 		return url;
 	}
 
@@ -225,8 +212,7 @@ public class SiteImpl extends EObjectImpl implements Site
 	 * 
 	 * @generated
 	 */
-	public void setId(String newId)
-	{
+	public void setId(String newId) {
 		String oldId = id;
 		id = newId;
 		if(eNotificationRequired())
@@ -238,8 +224,7 @@ public class SiteImpl extends EObjectImpl implements Site
 	 * 
 	 * @generated
 	 */
-	public void setName(String newName)
-	{
+	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
 		if(eNotificationRequired())
@@ -251,8 +236,7 @@ public class SiteImpl extends EObjectImpl implements Site
 	 * 
 	 * @generated
 	 */
-	public void setUrl(String newUrl)
-	{
+	public void setUrl(String newUrl) {
 		String oldUrl = url;
 		url = newUrl;
 		if(eNotificationRequired())
@@ -265,8 +249,7 @@ public class SiteImpl extends EObjectImpl implements Site
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
@@ -287,8 +270,7 @@ public class SiteImpl extends EObjectImpl implements Site
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.SITE;
 	}
 

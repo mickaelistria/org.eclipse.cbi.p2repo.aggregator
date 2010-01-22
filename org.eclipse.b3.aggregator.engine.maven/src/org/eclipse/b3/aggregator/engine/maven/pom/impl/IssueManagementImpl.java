@@ -29,8 +29,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * 
  * @generated
  */
-public class IssueManagementImpl extends EObjectImpl implements IssueManagement
-{
+public class IssueManagementImpl extends EObjectImpl implements IssueManagement {
 	/**
 	 * The default value of the '{@link #getSystem() <em>System</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -75,8 +74,7 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement
 	 * 
 	 * @generated
 	 */
-	protected IssueManagementImpl()
-	{
+	protected IssueManagementImpl() {
 		super();
 	}
 
@@ -86,10 +84,8 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.ISSUE_MANAGEMENT__SYSTEM:
 			return getSystem();
 		case PomPackage.ISSUE_MANAGEMENT__URL:
@@ -104,10 +100,8 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.ISSUE_MANAGEMENT__SYSTEM:
 			return SYSTEM_EDEFAULT == null
 					? system != null
@@ -126,15 +120,13 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.ISSUE_MANAGEMENT__SYSTEM:
-			setSystem((String)newValue);
+			setSystem((String) newValue);
 			return;
 		case PomPackage.ISSUE_MANAGEMENT__URL:
-			setUrl((String)newValue);
+			setUrl((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -146,10 +138,8 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.ISSUE_MANAGEMENT__SYSTEM:
 			setSystem(SYSTEM_EDEFAULT);
 			return;
@@ -165,8 +155,7 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement
 	 * 
 	 * @generated
 	 */
-	public String getSystem()
-	{
+	public String getSystem() {
 		return system;
 	}
 
@@ -175,8 +164,7 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement
 	 * 
 	 * @generated
 	 */
-	public String getUrl()
-	{
+	public String getUrl() {
 		return url;
 	}
 
@@ -185,8 +173,7 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement
 	 * 
 	 * @generated
 	 */
-	public void setSystem(String newSystem)
-	{
+	public void setSystem(String newSystem) {
 		String oldSystem = system;
 		system = newSystem;
 		if(eNotificationRequired())
@@ -199,8 +186,7 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement
 	 * 
 	 * @generated
 	 */
-	public void setUrl(String newUrl)
-	{
+	public void setUrl(String newUrl) {
 		String oldUrl = url;
 		url = newUrl;
 		if(eNotificationRequired())
@@ -213,8 +199,7 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
@@ -233,8 +218,7 @@ public class IssueManagementImpl extends EObjectImpl implements IssueManagement
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.ISSUE_MANAGEMENT;
 	}
 

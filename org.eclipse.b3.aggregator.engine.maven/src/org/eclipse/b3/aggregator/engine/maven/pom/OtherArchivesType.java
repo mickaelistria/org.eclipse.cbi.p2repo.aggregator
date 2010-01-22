@@ -17,8 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.OtherArchivesType#getOtherArchive <em>Other Archive
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.OtherArchivesType#getOtherArchive <em>Other Archive </em>}</li>
  * </ul>
  * </p>
  * 
@@ -26,8 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='otherArchives_._type' kind='elementOnly'"
  * @generated
  */
-public interface OtherArchivesType extends EObject
-{
+public interface OtherArchivesType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Other Archive</b></em>' attribute list. The list contents are of type
 	 * {@link java.lang.String}. <!-- begin-user-doc -->

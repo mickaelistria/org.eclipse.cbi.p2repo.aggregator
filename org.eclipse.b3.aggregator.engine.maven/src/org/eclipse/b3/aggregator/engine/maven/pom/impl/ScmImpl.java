@@ -22,8 +22,8 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are implemented:
  * <ul>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ScmImpl#getConnection <em>Connection</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ScmImpl#getDeveloperConnection <em>Developer
- * Connection</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ScmImpl#getDeveloperConnection <em>Developer Connection
+ * </em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ScmImpl#getTag <em>Tag</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ScmImpl#getUrl <em>Url</em>}</li>
  * </ul>
@@ -31,8 +31,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * 
  * @generated
  */
-public class ScmImpl extends EObjectImpl implements Scm
-{
+public class ScmImpl extends EObjectImpl implements Scm {
 	/**
 	 * The default value of the '{@link #getConnection() <em>Connection</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -124,8 +123,7 @@ public class ScmImpl extends EObjectImpl implements Scm
 	 * 
 	 * @generated
 	 */
-	protected ScmImpl()
-	{
+	protected ScmImpl() {
 		super();
 	}
 
@@ -135,10 +133,8 @@ public class ScmImpl extends EObjectImpl implements Scm
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.SCM__CONNECTION:
 			return getConnection();
 		case PomPackage.SCM__DEVELOPER_CONNECTION:
@@ -157,10 +153,8 @@ public class ScmImpl extends EObjectImpl implements Scm
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.SCM__CONNECTION:
 			return CONNECTION_EDEFAULT == null
 					? connection != null
@@ -185,21 +179,19 @@ public class ScmImpl extends EObjectImpl implements Scm
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.SCM__CONNECTION:
-			setConnection((String)newValue);
+			setConnection((String) newValue);
 			return;
 		case PomPackage.SCM__DEVELOPER_CONNECTION:
-			setDeveloperConnection((String)newValue);
+			setDeveloperConnection((String) newValue);
 			return;
 		case PomPackage.SCM__TAG:
-			setTag((String)newValue);
+			setTag((String) newValue);
 			return;
 		case PomPackage.SCM__URL:
-			setUrl((String)newValue);
+			setUrl((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -211,10 +203,8 @@ public class ScmImpl extends EObjectImpl implements Scm
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.SCM__CONNECTION:
 			setConnection(CONNECTION_EDEFAULT);
 			return;
@@ -236,8 +226,7 @@ public class ScmImpl extends EObjectImpl implements Scm
 	 * 
 	 * @generated
 	 */
-	public String getConnection()
-	{
+	public String getConnection() {
 		return connection;
 	}
 
@@ -246,8 +235,7 @@ public class ScmImpl extends EObjectImpl implements Scm
 	 * 
 	 * @generated
 	 */
-	public String getDeveloperConnection()
-	{
+	public String getDeveloperConnection() {
 		return developerConnection;
 	}
 
@@ -256,8 +244,7 @@ public class ScmImpl extends EObjectImpl implements Scm
 	 * 
 	 * @generated
 	 */
-	public String getTag()
-	{
+	public String getTag() {
 		return tag;
 	}
 
@@ -266,8 +253,7 @@ public class ScmImpl extends EObjectImpl implements Scm
 	 * 
 	 * @generated
 	 */
-	public String getUrl()
-	{
+	public String getUrl() {
 		return url;
 	}
 
@@ -276,8 +262,7 @@ public class ScmImpl extends EObjectImpl implements Scm
 	 * 
 	 * @generated
 	 */
-	public boolean isSetTag()
-	{
+	public boolean isSetTag() {
 		return tagESet;
 	}
 
@@ -286,8 +271,7 @@ public class ScmImpl extends EObjectImpl implements Scm
 	 * 
 	 * @generated
 	 */
-	public void setConnection(String newConnection)
-	{
+	public void setConnection(String newConnection) {
 		String oldConnection = connection;
 		connection = newConnection;
 		if(eNotificationRequired())
@@ -299,8 +283,7 @@ public class ScmImpl extends EObjectImpl implements Scm
 	 * 
 	 * @generated
 	 */
-	public void setDeveloperConnection(String newDeveloperConnection)
-	{
+	public void setDeveloperConnection(String newDeveloperConnection) {
 		String oldDeveloperConnection = developerConnection;
 		developerConnection = newDeveloperConnection;
 		if(eNotificationRequired())
@@ -313,8 +296,7 @@ public class ScmImpl extends EObjectImpl implements Scm
 	 * 
 	 * @generated
 	 */
-	public void setTag(String newTag)
-	{
+	public void setTag(String newTag) {
 		String oldTag = tag;
 		tag = newTag;
 		boolean oldTagESet = tagESet;
@@ -328,8 +310,7 @@ public class ScmImpl extends EObjectImpl implements Scm
 	 * 
 	 * @generated
 	 */
-	public void setUrl(String newUrl)
-	{
+	public void setUrl(String newUrl) {
 		String oldUrl = url;
 		url = newUrl;
 		if(eNotificationRequired())
@@ -342,8 +323,7 @@ public class ScmImpl extends EObjectImpl implements Scm
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
@@ -368,8 +348,7 @@ public class ScmImpl extends EObjectImpl implements Scm
 	 * 
 	 * @generated
 	 */
-	public void unsetTag()
-	{
+	public void unsetTag() {
 		String oldTag = tag;
 		boolean oldTagESet = tagESet;
 		tag = TAG_EDEFAULT;
@@ -385,8 +364,7 @@ public class ScmImpl extends EObjectImpl implements Scm
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.SCM;
 	}
 

@@ -31,8 +31,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='ActivationFile' kind='elementOnly'"
  * @generated
  */
-public interface ActivationFile extends EObject
-{
+public interface ActivationFile extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Exists</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
 	 * begin-model-doc --> 4.0.0 The name of the file that must exist to activate the profile. <!-- end-model-doc -->

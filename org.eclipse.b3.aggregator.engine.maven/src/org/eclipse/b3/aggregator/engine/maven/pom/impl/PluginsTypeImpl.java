@@ -35,8 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * 
  * @generated
  */
-public class PluginsTypeImpl extends EObjectImpl implements PluginsType
-{
+public class PluginsTypeImpl extends EObjectImpl implements PluginsType {
 	/**
 	 * The cached value of the '{@link #getPlugin() <em>Plugin</em>}' containment reference list. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
@@ -52,8 +51,7 @@ public class PluginsTypeImpl extends EObjectImpl implements PluginsType
 	 * 
 	 * @generated
 	 */
-	protected PluginsTypeImpl()
-	{
+	protected PluginsTypeImpl() {
 		super();
 	}
 
@@ -63,10 +61,8 @@ public class PluginsTypeImpl extends EObjectImpl implements PluginsType
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.PLUGINS_TYPE__PLUGIN:
 			return getPlugin();
 		}
@@ -79,12 +75,10 @@ public class PluginsTypeImpl extends EObjectImpl implements PluginsType
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch(featureID)
-		{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
 		case PomPackage.PLUGINS_TYPE__PLUGIN:
-			return ((InternalEList<?>)getPlugin()).basicRemove(otherEnd, msgs);
+			return ((InternalEList<?>) getPlugin()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -95,10 +89,8 @@ public class PluginsTypeImpl extends EObjectImpl implements PluginsType
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.PLUGINS_TYPE__PLUGIN:
 			return plugin != null && !plugin.isEmpty();
 		}
@@ -112,13 +104,11 @@ public class PluginsTypeImpl extends EObjectImpl implements PluginsType
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.PLUGINS_TYPE__PLUGIN:
 			getPlugin().clear();
-			getPlugin().addAll((Collection<? extends Plugin>)newValue);
+			getPlugin().addAll((Collection<? extends Plugin>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -130,10 +120,8 @@ public class PluginsTypeImpl extends EObjectImpl implements PluginsType
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.PLUGINS_TYPE__PLUGIN:
 			getPlugin().clear();
 			return;
@@ -146,10 +134,8 @@ public class PluginsTypeImpl extends EObjectImpl implements PluginsType
 	 * 
 	 * @generated
 	 */
-	public EList<Plugin> getPlugin()
-	{
-		if(plugin == null)
-		{
+	public EList<Plugin> getPlugin() {
+		if(plugin == null) {
 			plugin = new EObjectContainmentEList<Plugin>(Plugin.class, this, PomPackage.PLUGINS_TYPE__PLUGIN);
 		}
 		return plugin;
@@ -161,8 +147,7 @@ public class PluginsTypeImpl extends EObjectImpl implements PluginsType
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.PLUGINS_TYPE;
 	}
 

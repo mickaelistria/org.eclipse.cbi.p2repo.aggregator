@@ -24,8 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='executions_._type' kind='elementOnly'"
  * @generated
  */
-public interface ExecutionsType extends EObject
-{
+public interface ExecutionsType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Execution</b></em>' containment reference list. The list contents are of type
 	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.PluginExecution}. <!-- begin-user-doc -->

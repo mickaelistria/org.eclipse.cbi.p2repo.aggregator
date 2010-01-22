@@ -30,8 +30,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='IssueManagement' kind='elementOnly'"
  * @generated
  */
-public interface IssueManagement extends EObject
-{
+public interface IssueManagement extends EObject {
 	/**
 	 * Returns the value of the '<em><b>System</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
 	 * begin-model-doc --> 4.0.0 The name of the issue management system, e.g. Bugzilla <!-- end-model-doc -->

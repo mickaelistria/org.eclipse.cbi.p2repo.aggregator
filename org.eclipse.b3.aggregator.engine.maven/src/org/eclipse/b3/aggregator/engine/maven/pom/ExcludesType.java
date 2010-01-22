@@ -24,8 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='excludes_._type' kind='elementOnly'"
  * @generated
  */
-public interface ExcludesType extends EObject
-{
+public interface ExcludesType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Exclude</b></em>' attribute list. The list contents are of type
 	 * {@link java.lang.String}. <!-- begin-user-doc -->

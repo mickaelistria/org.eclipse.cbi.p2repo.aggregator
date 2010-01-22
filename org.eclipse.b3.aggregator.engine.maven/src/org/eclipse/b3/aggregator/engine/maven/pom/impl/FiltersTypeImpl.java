@@ -30,8 +30,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * 
  * @generated
  */
-public class FiltersTypeImpl extends EObjectImpl implements FiltersType
-{
+public class FiltersTypeImpl extends EObjectImpl implements FiltersType {
 	/**
 	 * The cached value of the '{@link #getFilter() <em>Filter</em>}' attribute list. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -47,8 +46,7 @@ public class FiltersTypeImpl extends EObjectImpl implements FiltersType
 	 * 
 	 * @generated
 	 */
-	protected FiltersTypeImpl()
-	{
+	protected FiltersTypeImpl() {
 		super();
 	}
 
@@ -58,10 +56,8 @@ public class FiltersTypeImpl extends EObjectImpl implements FiltersType
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.FILTERS_TYPE__FILTER:
 			return getFilter();
 		}
@@ -74,10 +70,8 @@ public class FiltersTypeImpl extends EObjectImpl implements FiltersType
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.FILTERS_TYPE__FILTER:
 			return filter != null && !filter.isEmpty();
 		}
@@ -91,13 +85,11 @@ public class FiltersTypeImpl extends EObjectImpl implements FiltersType
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.FILTERS_TYPE__FILTER:
 			getFilter().clear();
-			getFilter().addAll((Collection<? extends String>)newValue);
+			getFilter().addAll((Collection<? extends String>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -109,10 +101,8 @@ public class FiltersTypeImpl extends EObjectImpl implements FiltersType
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.FILTERS_TYPE__FILTER:
 			getFilter().clear();
 			return;
@@ -125,10 +115,8 @@ public class FiltersTypeImpl extends EObjectImpl implements FiltersType
 	 * 
 	 * @generated
 	 */
-	public EList<String> getFilter()
-	{
-		if(filter == null)
-		{
+	public EList<String> getFilter() {
+		if(filter == null) {
 			filter = new EDataTypeEList<String>(String.class, this, PomPackage.FILTERS_TYPE__FILTER);
 		}
 		return filter;
@@ -140,8 +128,7 @@ public class FiltersTypeImpl extends EObjectImpl implements FiltersType
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
@@ -158,8 +145,7 @@ public class FiltersTypeImpl extends EObjectImpl implements FiltersType
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.FILTERS_TYPE;
 	}
 

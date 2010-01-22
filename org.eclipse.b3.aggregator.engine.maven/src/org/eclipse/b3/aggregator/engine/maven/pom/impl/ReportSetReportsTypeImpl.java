@@ -25,15 +25,13 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ReportSetReportsTypeImpl#getReport <em>Report
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ReportSetReportsTypeImpl#getReport <em>Report </em>}</li>
  * </ul>
  * </p>
  * 
  * @generated
  */
-public class ReportSetReportsTypeImpl extends EObjectImpl implements ReportSetReportsType
-{
+public class ReportSetReportsTypeImpl extends EObjectImpl implements ReportSetReportsType {
 	/**
 	 * The cached value of the '{@link #getReport() <em>Report</em>}' attribute list. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -49,8 +47,7 @@ public class ReportSetReportsTypeImpl extends EObjectImpl implements ReportSetRe
 	 * 
 	 * @generated
 	 */
-	protected ReportSetReportsTypeImpl()
-	{
+	protected ReportSetReportsTypeImpl() {
 		super();
 	}
 
@@ -60,10 +57,8 @@ public class ReportSetReportsTypeImpl extends EObjectImpl implements ReportSetRe
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.REPORT_SET_REPORTS_TYPE__REPORT:
 			return getReport();
 		}
@@ -76,10 +71,8 @@ public class ReportSetReportsTypeImpl extends EObjectImpl implements ReportSetRe
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.REPORT_SET_REPORTS_TYPE__REPORT:
 			return report != null && !report.isEmpty();
 		}
@@ -93,13 +86,11 @@ public class ReportSetReportsTypeImpl extends EObjectImpl implements ReportSetRe
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.REPORT_SET_REPORTS_TYPE__REPORT:
 			getReport().clear();
-			getReport().addAll((Collection<? extends String>)newValue);
+			getReport().addAll((Collection<? extends String>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -111,10 +102,8 @@ public class ReportSetReportsTypeImpl extends EObjectImpl implements ReportSetRe
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.REPORT_SET_REPORTS_TYPE__REPORT:
 			getReport().clear();
 			return;
@@ -127,10 +116,8 @@ public class ReportSetReportsTypeImpl extends EObjectImpl implements ReportSetRe
 	 * 
 	 * @generated
 	 */
-	public EList<String> getReport()
-	{
-		if(report == null)
-		{
+	public EList<String> getReport() {
+		if(report == null) {
 			report = new EDataTypeEList<String>(String.class, this, PomPackage.REPORT_SET_REPORTS_TYPE__REPORT);
 		}
 		return report;
@@ -142,8 +129,7 @@ public class ReportSetReportsTypeImpl extends EObjectImpl implements ReportSetRe
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
@@ -160,8 +146,7 @@ public class ReportSetReportsTypeImpl extends EObjectImpl implements ReportSetRe
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.REPORT_SET_REPORTS_TYPE;
 	}
 

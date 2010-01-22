@@ -23,16 +23,14 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <ul>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.LicenseImpl#getName <em>Name</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.LicenseImpl#getUrl <em>Url</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.LicenseImpl#getDistribution <em>Distribution
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.LicenseImpl#getDistribution <em>Distribution </em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.LicenseImpl#getComments <em>Comments</em>}</li>
  * </ul>
  * </p>
  * 
  * @generated
  */
-public class LicenseImpl extends EObjectImpl implements License
-{
+public class LicenseImpl extends EObjectImpl implements License {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
@@ -117,8 +115,7 @@ public class LicenseImpl extends EObjectImpl implements License
 	 * 
 	 * @generated
 	 */
-	protected LicenseImpl()
-	{
+	protected LicenseImpl() {
 		super();
 	}
 
@@ -128,10 +125,8 @@ public class LicenseImpl extends EObjectImpl implements License
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.LICENSE__NAME:
 			return getName();
 		case PomPackage.LICENSE__URL:
@@ -150,10 +145,8 @@ public class LicenseImpl extends EObjectImpl implements License
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.LICENSE__NAME:
 			return NAME_EDEFAULT == null
 					? name != null
@@ -180,21 +173,19 @@ public class LicenseImpl extends EObjectImpl implements License
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.LICENSE__NAME:
-			setName((String)newValue);
+			setName((String) newValue);
 			return;
 		case PomPackage.LICENSE__URL:
-			setUrl((String)newValue);
+			setUrl((String) newValue);
 			return;
 		case PomPackage.LICENSE__DISTRIBUTION:
-			setDistribution((String)newValue);
+			setDistribution((String) newValue);
 			return;
 		case PomPackage.LICENSE__COMMENTS:
-			setComments((String)newValue);
+			setComments((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -206,10 +197,8 @@ public class LicenseImpl extends EObjectImpl implements License
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.LICENSE__NAME:
 			setName(NAME_EDEFAULT);
 			return;
@@ -231,8 +220,7 @@ public class LicenseImpl extends EObjectImpl implements License
 	 * 
 	 * @generated
 	 */
-	public String getComments()
-	{
+	public String getComments() {
 		return comments;
 	}
 
@@ -241,8 +229,7 @@ public class LicenseImpl extends EObjectImpl implements License
 	 * 
 	 * @generated
 	 */
-	public String getDistribution()
-	{
+	public String getDistribution() {
 		return distribution;
 	}
 
@@ -251,8 +238,7 @@ public class LicenseImpl extends EObjectImpl implements License
 	 * 
 	 * @generated
 	 */
-	public String getName()
-	{
+	public String getName() {
 		return name;
 	}
 
@@ -261,8 +247,7 @@ public class LicenseImpl extends EObjectImpl implements License
 	 * 
 	 * @generated
 	 */
-	public String getUrl()
-	{
+	public String getUrl() {
 		return url;
 	}
 
@@ -271,8 +256,7 @@ public class LicenseImpl extends EObjectImpl implements License
 	 * 
 	 * @generated
 	 */
-	public void setComments(String newComments)
-	{
+	public void setComments(String newComments) {
 		String oldComments = comments;
 		comments = newComments;
 		if(eNotificationRequired())
@@ -284,8 +268,7 @@ public class LicenseImpl extends EObjectImpl implements License
 	 * 
 	 * @generated
 	 */
-	public void setDistribution(String newDistribution)
-	{
+	public void setDistribution(String newDistribution) {
 		String oldDistribution = distribution;
 		distribution = newDistribution;
 		if(eNotificationRequired())
@@ -298,8 +281,7 @@ public class LicenseImpl extends EObjectImpl implements License
 	 * 
 	 * @generated
 	 */
-	public void setName(String newName)
-	{
+	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
 		if(eNotificationRequired())
@@ -311,8 +293,7 @@ public class LicenseImpl extends EObjectImpl implements License
 	 * 
 	 * @generated
 	 */
-	public void setUrl(String newUrl)
-	{
+	public void setUrl(String newUrl) {
 		String oldUrl = url;
 		url = newUrl;
 		if(eNotificationRequired())
@@ -325,8 +306,7 @@ public class LicenseImpl extends EObjectImpl implements License
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
@@ -349,8 +329,7 @@ public class LicenseImpl extends EObjectImpl implements License
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.LICENSE;
 	}
 

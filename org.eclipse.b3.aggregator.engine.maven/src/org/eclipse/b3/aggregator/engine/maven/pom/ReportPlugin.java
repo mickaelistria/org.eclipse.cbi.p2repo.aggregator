@@ -29,8 +29,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='ReportPlugin' kind='elementOnly'"
  * @generated
  */
-public interface ReportPlugin extends EObject
-{
+public interface ReportPlugin extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Artifact Id</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * <!-- begin-model-doc --> 4.0.0 The artifact ID of the reporting plugin in the repository. <!-- end-model-doc -->
@@ -114,8 +113,8 @@ public interface ReportPlugin extends EObject
 	String getVersion();
 
 	/**
-	 * Returns whether the value of the '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.ReportPlugin#getGroupId <em>Group Id</em>}' attribute
+	 * Returns whether the value of the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.ReportPlugin#getGroupId
+	 * <em>Group Id</em>}' attribute
 	 * is set. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return whether the value of the '<em>Group Id</em>' attribute is set.

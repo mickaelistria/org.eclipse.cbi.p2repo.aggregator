@@ -26,8 +26,8 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ActivationImpl#isActiveByDefault <em>Active By
- * Default</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ActivationImpl#isActiveByDefault <em>Active By Default
+ * </em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ActivationImpl#getJdk <em>Jdk</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ActivationImpl#getOs <em>Os</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ActivationImpl#getProperty <em>Property</em>}</li>
@@ -37,8 +37,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * 
  * @generated
  */
-public class ActivationImpl extends EObjectImpl implements Activation
-{
+public class ActivationImpl extends EObjectImpl implements Activation {
 	/**
 	 * The default value of the '{@link #isActiveByDefault() <em>Active By Default</em>}' attribute. <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
@@ -121,8 +120,7 @@ public class ActivationImpl extends EObjectImpl implements Activation
 	 * 
 	 * @generated
 	 */
-	protected ActivationImpl()
-	{
+	protected ActivationImpl() {
 		super();
 	}
 
@@ -131,12 +129,10 @@ public class ActivationImpl extends EObjectImpl implements Activation
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetFile(ActivationFile newFile, NotificationChain msgs)
-	{
+	public NotificationChain basicSetFile(ActivationFile newFile, NotificationChain msgs) {
 		ActivationFile oldFile = file;
 		file = newFile;
-		if(eNotificationRequired())
-		{
+		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.ACTIVATION__FILE,
 					oldFile, newFile);
 			if(msgs == null)
@@ -152,12 +148,10 @@ public class ActivationImpl extends EObjectImpl implements Activation
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetOs(ActivationOS newOs, NotificationChain msgs)
-	{
+	public NotificationChain basicSetOs(ActivationOS newOs, NotificationChain msgs) {
 		ActivationOS oldOs = os;
 		os = newOs;
-		if(eNotificationRequired())
-		{
+		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PomPackage.ACTIVATION__OS,
 					oldOs, newOs);
 			if(msgs == null)
@@ -173,12 +167,10 @@ public class ActivationImpl extends EObjectImpl implements Activation
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetProperty(ActivationProperty newProperty, NotificationChain msgs)
-	{
+	public NotificationChain basicSetProperty(ActivationProperty newProperty, NotificationChain msgs) {
 		ActivationProperty oldProperty = property;
 		property = newProperty;
-		if(eNotificationRequired())
-		{
+		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					PomPackage.ACTIVATION__PROPERTY, oldProperty, newProperty);
 			if(msgs == null)
@@ -195,10 +187,8 @@ public class ActivationImpl extends EObjectImpl implements Activation
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.ACTIVATION__ACTIVE_BY_DEFAULT:
 			return isActiveByDefault();
 		case PomPackage.ACTIVATION__JDK:
@@ -219,10 +209,8 @@ public class ActivationImpl extends EObjectImpl implements Activation
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch(featureID)
-		{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
 		case PomPackage.ACTIVATION__OS:
 			return basicSetOs(null, msgs);
 		case PomPackage.ACTIVATION__PROPERTY:
@@ -239,10 +227,8 @@ public class ActivationImpl extends EObjectImpl implements Activation
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.ACTIVATION__ACTIVE_BY_DEFAULT:
 			return isSetActiveByDefault();
 		case PomPackage.ACTIVATION__JDK:
@@ -265,24 +251,22 @@ public class ActivationImpl extends EObjectImpl implements Activation
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.ACTIVATION__ACTIVE_BY_DEFAULT:
-			setActiveByDefault((Boolean)newValue);
+			setActiveByDefault((Boolean) newValue);
 			return;
 		case PomPackage.ACTIVATION__JDK:
-			setJdk((String)newValue);
+			setJdk((String) newValue);
 			return;
 		case PomPackage.ACTIVATION__OS:
-			setOs((ActivationOS)newValue);
+			setOs((ActivationOS) newValue);
 			return;
 		case PomPackage.ACTIVATION__PROPERTY:
-			setProperty((ActivationProperty)newValue);
+			setProperty((ActivationProperty) newValue);
 			return;
 		case PomPackage.ACTIVATION__FILE:
-			setFile((ActivationFile)newValue);
+			setFile((ActivationFile) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -294,10 +278,8 @@ public class ActivationImpl extends EObjectImpl implements Activation
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.ACTIVATION__ACTIVE_BY_DEFAULT:
 			unsetActiveByDefault();
 			return;
@@ -305,13 +287,13 @@ public class ActivationImpl extends EObjectImpl implements Activation
 			setJdk(JDK_EDEFAULT);
 			return;
 		case PomPackage.ACTIVATION__OS:
-			setOs((ActivationOS)null);
+			setOs((ActivationOS) null);
 			return;
 		case PomPackage.ACTIVATION__PROPERTY:
-			setProperty((ActivationProperty)null);
+			setProperty((ActivationProperty) null);
 			return;
 		case PomPackage.ACTIVATION__FILE:
-			setFile((ActivationFile)null);
+			setFile((ActivationFile) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -322,8 +304,7 @@ public class ActivationImpl extends EObjectImpl implements Activation
 	 * 
 	 * @generated
 	 */
-	public ActivationFile getFile()
-	{
+	public ActivationFile getFile() {
 		return file;
 	}
 
@@ -332,8 +313,7 @@ public class ActivationImpl extends EObjectImpl implements Activation
 	 * 
 	 * @generated
 	 */
-	public String getJdk()
-	{
+	public String getJdk() {
 		return jdk;
 	}
 
@@ -342,8 +322,7 @@ public class ActivationImpl extends EObjectImpl implements Activation
 	 * 
 	 * @generated
 	 */
-	public ActivationOS getOs()
-	{
+	public ActivationOS getOs() {
 		return os;
 	}
 
@@ -352,8 +331,7 @@ public class ActivationImpl extends EObjectImpl implements Activation
 	 * 
 	 * @generated
 	 */
-	public ActivationProperty getProperty()
-	{
+	public ActivationProperty getProperty() {
 		return property;
 	}
 
@@ -362,8 +340,7 @@ public class ActivationImpl extends EObjectImpl implements Activation
 	 * 
 	 * @generated
 	 */
-	public boolean isActiveByDefault()
-	{
+	public boolean isActiveByDefault() {
 		return activeByDefault;
 	}
 
@@ -372,8 +349,7 @@ public class ActivationImpl extends EObjectImpl implements Activation
 	 * 
 	 * @generated
 	 */
-	public boolean isSetActiveByDefault()
-	{
+	public boolean isSetActiveByDefault() {
 		return activeByDefaultESet;
 	}
 
@@ -382,8 +358,7 @@ public class ActivationImpl extends EObjectImpl implements Activation
 	 * 
 	 * @generated
 	 */
-	public void setActiveByDefault(boolean newActiveByDefault)
-	{
+	public void setActiveByDefault(boolean newActiveByDefault) {
 		boolean oldActiveByDefault = activeByDefault;
 		activeByDefault = newActiveByDefault;
 		boolean oldActiveByDefaultESet = activeByDefaultESet;
@@ -398,16 +373,14 @@ public class ActivationImpl extends EObjectImpl implements Activation
 	 * 
 	 * @generated
 	 */
-	public void setFile(ActivationFile newFile)
-	{
-		if(newFile != file)
-		{
+	public void setFile(ActivationFile newFile) {
+		if(newFile != file) {
 			NotificationChain msgs = null;
 			if(file != null)
-				msgs = ((InternalEObject)file).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) file).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.ACTIVATION__FILE, null, msgs);
 			if(newFile != null)
-				msgs = ((InternalEObject)newFile).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) newFile).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.ACTIVATION__FILE, null, msgs);
 			msgs = basicSetFile(newFile, msgs);
 			if(msgs != null)
@@ -422,8 +395,7 @@ public class ActivationImpl extends EObjectImpl implements Activation
 	 * 
 	 * @generated
 	 */
-	public void setJdk(String newJdk)
-	{
+	public void setJdk(String newJdk) {
 		String oldJdk = jdk;
 		jdk = newJdk;
 		if(eNotificationRequired())
@@ -435,16 +407,14 @@ public class ActivationImpl extends EObjectImpl implements Activation
 	 * 
 	 * @generated
 	 */
-	public void setOs(ActivationOS newOs)
-	{
-		if(newOs != os)
-		{
+	public void setOs(ActivationOS newOs) {
+		if(newOs != os) {
 			NotificationChain msgs = null;
 			if(os != null)
-				msgs = ((InternalEObject)os).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PomPackage.ACTIVATION__OS,
+				msgs = ((InternalEObject) os).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PomPackage.ACTIVATION__OS,
 						null, msgs);
 			if(newOs != null)
-				msgs = ((InternalEObject)newOs).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PomPackage.ACTIVATION__OS,
+				msgs = ((InternalEObject) newOs).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PomPackage.ACTIVATION__OS,
 						null, msgs);
 			msgs = basicSetOs(newOs, msgs);
 			if(msgs != null)
@@ -459,16 +429,14 @@ public class ActivationImpl extends EObjectImpl implements Activation
 	 * 
 	 * @generated
 	 */
-	public void setProperty(ActivationProperty newProperty)
-	{
-		if(newProperty != property)
-		{
+	public void setProperty(ActivationProperty newProperty) {
+		if(newProperty != property) {
 			NotificationChain msgs = null;
 			if(property != null)
-				msgs = ((InternalEObject)property).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) property).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.ACTIVATION__PROPERTY, null, msgs);
 			if(newProperty != null)
-				msgs = ((InternalEObject)newProperty).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) newProperty).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.ACTIVATION__PROPERTY, null, msgs);
 			msgs = basicSetProperty(newProperty, msgs);
 			if(msgs != null)
@@ -485,8 +453,7 @@ public class ActivationImpl extends EObjectImpl implements Activation
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
@@ -507,8 +474,7 @@ public class ActivationImpl extends EObjectImpl implements Activation
 	 * 
 	 * @generated
 	 */
-	public void unsetActiveByDefault()
-	{
+	public void unsetActiveByDefault() {
 		boolean oldActiveByDefault = activeByDefault;
 		boolean oldActiveByDefaultESet = activeByDefaultESet;
 		activeByDefault = ACTIVE_BY_DEFAULT_EDEFAULT;
@@ -524,8 +490,7 @@ public class ActivationImpl extends EObjectImpl implements Activation
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.ACTIVATION;
 	}
 

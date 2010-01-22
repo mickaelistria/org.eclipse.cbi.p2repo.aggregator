@@ -30,15 +30,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DevelopersTypeImpl#getDeveloper <em>Developer
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DevelopersTypeImpl#getDeveloper <em>Developer </em>}</li>
  * </ul>
  * </p>
  * 
  * @generated
  */
-public class DevelopersTypeImpl extends EObjectImpl implements DevelopersType
-{
+public class DevelopersTypeImpl extends EObjectImpl implements DevelopersType {
 	/**
 	 * The cached value of the '{@link #getDeveloper() <em>Developer</em>}' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -54,8 +52,7 @@ public class DevelopersTypeImpl extends EObjectImpl implements DevelopersType
 	 * 
 	 * @generated
 	 */
-	protected DevelopersTypeImpl()
-	{
+	protected DevelopersTypeImpl() {
 		super();
 	}
 
@@ -65,10 +62,8 @@ public class DevelopersTypeImpl extends EObjectImpl implements DevelopersType
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.DEVELOPERS_TYPE__DEVELOPER:
 			return getDeveloper();
 		}
@@ -81,12 +76,10 @@ public class DevelopersTypeImpl extends EObjectImpl implements DevelopersType
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch(featureID)
-		{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
 		case PomPackage.DEVELOPERS_TYPE__DEVELOPER:
-			return ((InternalEList<?>)getDeveloper()).basicRemove(otherEnd, msgs);
+			return ((InternalEList<?>) getDeveloper()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -97,10 +90,8 @@ public class DevelopersTypeImpl extends EObjectImpl implements DevelopersType
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.DEVELOPERS_TYPE__DEVELOPER:
 			return developer != null && !developer.isEmpty();
 		}
@@ -114,13 +105,11 @@ public class DevelopersTypeImpl extends EObjectImpl implements DevelopersType
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.DEVELOPERS_TYPE__DEVELOPER:
 			getDeveloper().clear();
-			getDeveloper().addAll((Collection<? extends Developer>)newValue);
+			getDeveloper().addAll((Collection<? extends Developer>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -132,10 +121,8 @@ public class DevelopersTypeImpl extends EObjectImpl implements DevelopersType
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.DEVELOPERS_TYPE__DEVELOPER:
 			getDeveloper().clear();
 			return;
@@ -148,10 +135,8 @@ public class DevelopersTypeImpl extends EObjectImpl implements DevelopersType
 	 * 
 	 * @generated
 	 */
-	public EList<Developer> getDeveloper()
-	{
-		if(developer == null)
-		{
+	public EList<Developer> getDeveloper() {
+		if(developer == null) {
 			developer = new EObjectContainmentEList<Developer>(Developer.class, this,
 					PomPackage.DEVELOPERS_TYPE__DEVELOPER);
 		}
@@ -164,8 +149,7 @@ public class DevelopersTypeImpl extends EObjectImpl implements DevelopersType
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.DEVELOPERS_TYPE;
 	}
 

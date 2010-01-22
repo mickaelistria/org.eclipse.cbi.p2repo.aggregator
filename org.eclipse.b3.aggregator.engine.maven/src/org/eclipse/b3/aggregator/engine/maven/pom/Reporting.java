@@ -16,10 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Reporting#isExcludeDefaults <em>Exclude Defaults</em>}
- * </li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Reporting#getOutputDirectory <em>Output Directory
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Reporting#isExcludeDefaults <em>Exclude Defaults</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Reporting#getOutputDirectory <em>Output Directory </em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.Reporting#getPlugins <em>Plugins</em>}</li>
  * </ul>
  * </p>
@@ -28,8 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='Reporting' kind='elementOnly'"
  * @generated
  */
-public interface Reporting extends EObject
-{
+public interface Reporting extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Output Directory</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * --> <!-- begin-model-doc --> 4.0.0
@@ -79,9 +76,8 @@ public interface Reporting extends EObject
 	boolean isExcludeDefaults();
 
 	/**
-	 * Returns whether the value of the '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.Reporting#isExcludeDefaults <em>Exclude Defaults</em>}
-	 * ' attribute is set. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns whether the value of the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.Reporting#isExcludeDefaults
+	 * <em>Exclude Defaults</em>} ' attribute is set. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @return whether the value of the '<em>Exclude Defaults</em>' attribute is set.
 	 * @see #unsetExcludeDefaults()

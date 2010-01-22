@@ -34,8 +34,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='MailingList' kind='elementOnly'"
  * @generated
  */
-public interface MailingList extends EObject
-{
+public interface MailingList extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Archive</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
 	 * begin-model-doc --> 3.0.0+

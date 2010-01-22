@@ -35,8 +35,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * 
  * @generated
  */
-public class ResourceImpl extends EObjectImpl implements Resource
-{
+public class ResourceImpl extends EObjectImpl implements Resource {
 	/**
 	 * The default value of the '{@link #getTargetPath() <em>Target Path</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -130,8 +129,7 @@ public class ResourceImpl extends EObjectImpl implements Resource
 	 * 
 	 * @generated
 	 */
-	protected ResourceImpl()
-	{
+	protected ResourceImpl() {
 		super();
 	}
 
@@ -140,12 +138,10 @@ public class ResourceImpl extends EObjectImpl implements Resource
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetExcludes(ExcludesType newExcludes, NotificationChain msgs)
-	{
+	public NotificationChain basicSetExcludes(ExcludesType newExcludes, NotificationChain msgs) {
 		ExcludesType oldExcludes = excludes;
 		excludes = newExcludes;
-		if(eNotificationRequired())
-		{
+		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					PomPackage.RESOURCE__EXCLUDES, oldExcludes, newExcludes);
 			if(msgs == null)
@@ -161,12 +157,10 @@ public class ResourceImpl extends EObjectImpl implements Resource
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetIncludes(IncludesType newIncludes, NotificationChain msgs)
-	{
+	public NotificationChain basicSetIncludes(IncludesType newIncludes, NotificationChain msgs) {
 		IncludesType oldIncludes = includes;
 		includes = newIncludes;
-		if(eNotificationRequired())
-		{
+		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					PomPackage.RESOURCE__INCLUDES, oldIncludes, newIncludes);
 			if(msgs == null)
@@ -183,10 +177,8 @@ public class ResourceImpl extends EObjectImpl implements Resource
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.RESOURCE__TARGET_PATH:
 			return getTargetPath();
 		case PomPackage.RESOURCE__FILTERING:
@@ -207,10 +199,8 @@ public class ResourceImpl extends EObjectImpl implements Resource
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch(featureID)
-		{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
 		case PomPackage.RESOURCE__INCLUDES:
 			return basicSetIncludes(null, msgs);
 		case PomPackage.RESOURCE__EXCLUDES:
@@ -225,10 +215,8 @@ public class ResourceImpl extends EObjectImpl implements Resource
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.RESOURCE__TARGET_PATH:
 			return TARGET_PATH_EDEFAULT == null
 					? targetPath != null
@@ -253,24 +241,22 @@ public class ResourceImpl extends EObjectImpl implements Resource
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.RESOURCE__TARGET_PATH:
-			setTargetPath((String)newValue);
+			setTargetPath((String) newValue);
 			return;
 		case PomPackage.RESOURCE__FILTERING:
-			setFiltering((Boolean)newValue);
+			setFiltering((Boolean) newValue);
 			return;
 		case PomPackage.RESOURCE__DIRECTORY:
-			setDirectory((String)newValue);
+			setDirectory((String) newValue);
 			return;
 		case PomPackage.RESOURCE__INCLUDES:
-			setIncludes((IncludesType)newValue);
+			setIncludes((IncludesType) newValue);
 			return;
 		case PomPackage.RESOURCE__EXCLUDES:
-			setExcludes((ExcludesType)newValue);
+			setExcludes((ExcludesType) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -282,10 +268,8 @@ public class ResourceImpl extends EObjectImpl implements Resource
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.RESOURCE__TARGET_PATH:
 			setTargetPath(TARGET_PATH_EDEFAULT);
 			return;
@@ -296,10 +280,10 @@ public class ResourceImpl extends EObjectImpl implements Resource
 			setDirectory(DIRECTORY_EDEFAULT);
 			return;
 		case PomPackage.RESOURCE__INCLUDES:
-			setIncludes((IncludesType)null);
+			setIncludes((IncludesType) null);
 			return;
 		case PomPackage.RESOURCE__EXCLUDES:
-			setExcludes((ExcludesType)null);
+			setExcludes((ExcludesType) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -310,8 +294,7 @@ public class ResourceImpl extends EObjectImpl implements Resource
 	 * 
 	 * @generated
 	 */
-	public String getDirectory()
-	{
+	public String getDirectory() {
 		return directory;
 	}
 
@@ -320,8 +303,7 @@ public class ResourceImpl extends EObjectImpl implements Resource
 	 * 
 	 * @generated
 	 */
-	public ExcludesType getExcludes()
-	{
+	public ExcludesType getExcludes() {
 		return excludes;
 	}
 
@@ -330,8 +312,7 @@ public class ResourceImpl extends EObjectImpl implements Resource
 	 * 
 	 * @generated
 	 */
-	public IncludesType getIncludes()
-	{
+	public IncludesType getIncludes() {
 		return includes;
 	}
 
@@ -340,8 +321,7 @@ public class ResourceImpl extends EObjectImpl implements Resource
 	 * 
 	 * @generated
 	 */
-	public String getTargetPath()
-	{
+	public String getTargetPath() {
 		return targetPath;
 	}
 
@@ -350,8 +330,7 @@ public class ResourceImpl extends EObjectImpl implements Resource
 	 * 
 	 * @generated
 	 */
-	public boolean isFiltering()
-	{
+	public boolean isFiltering() {
 		return filtering;
 	}
 
@@ -360,8 +339,7 @@ public class ResourceImpl extends EObjectImpl implements Resource
 	 * 
 	 * @generated
 	 */
-	public boolean isSetFiltering()
-	{
+	public boolean isSetFiltering() {
 		return filteringESet;
 	}
 
@@ -370,8 +348,7 @@ public class ResourceImpl extends EObjectImpl implements Resource
 	 * 
 	 * @generated
 	 */
-	public void setDirectory(String newDirectory)
-	{
+	public void setDirectory(String newDirectory) {
 		String oldDirectory = directory;
 		directory = newDirectory;
 		if(eNotificationRequired())
@@ -384,16 +361,14 @@ public class ResourceImpl extends EObjectImpl implements Resource
 	 * 
 	 * @generated
 	 */
-	public void setExcludes(ExcludesType newExcludes)
-	{
-		if(newExcludes != excludes)
-		{
+	public void setExcludes(ExcludesType newExcludes) {
+		if(newExcludes != excludes) {
 			NotificationChain msgs = null;
 			if(excludes != null)
-				msgs = ((InternalEObject)excludes).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) excludes).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.RESOURCE__EXCLUDES, null, msgs);
 			if(newExcludes != null)
-				msgs = ((InternalEObject)newExcludes).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) newExcludes).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.RESOURCE__EXCLUDES, null, msgs);
 			msgs = basicSetExcludes(newExcludes, msgs);
 			if(msgs != null)
@@ -409,8 +384,7 @@ public class ResourceImpl extends EObjectImpl implements Resource
 	 * 
 	 * @generated
 	 */
-	public void setFiltering(boolean newFiltering)
-	{
+	public void setFiltering(boolean newFiltering) {
 		boolean oldFiltering = filtering;
 		filtering = newFiltering;
 		boolean oldFilteringESet = filteringESet;
@@ -425,16 +399,14 @@ public class ResourceImpl extends EObjectImpl implements Resource
 	 * 
 	 * @generated
 	 */
-	public void setIncludes(IncludesType newIncludes)
-	{
-		if(newIncludes != includes)
-		{
+	public void setIncludes(IncludesType newIncludes) {
+		if(newIncludes != includes) {
 			NotificationChain msgs = null;
 			if(includes != null)
-				msgs = ((InternalEObject)includes).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) includes).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.RESOURCE__INCLUDES, null, msgs);
 			if(newIncludes != null)
-				msgs = ((InternalEObject)newIncludes).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) newIncludes).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.RESOURCE__INCLUDES, null, msgs);
 			msgs = basicSetIncludes(newIncludes, msgs);
 			if(msgs != null)
@@ -450,8 +422,7 @@ public class ResourceImpl extends EObjectImpl implements Resource
 	 * 
 	 * @generated
 	 */
-	public void setTargetPath(String newTargetPath)
-	{
+	public void setTargetPath(String newTargetPath) {
 		String oldTargetPath = targetPath;
 		targetPath = newTargetPath;
 		if(eNotificationRequired())
@@ -465,8 +436,7 @@ public class ResourceImpl extends EObjectImpl implements Resource
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
@@ -489,8 +459,7 @@ public class ResourceImpl extends EObjectImpl implements Resource
 	 * 
 	 * @generated
 	 */
-	public void unsetFiltering()
-	{
+	public void unsetFiltering() {
 		boolean oldFiltering = filtering;
 		boolean oldFilteringESet = filteringESet;
 		filtering = FILTERING_EDEFAULT;
@@ -506,8 +475,7 @@ public class ResourceImpl extends EObjectImpl implements Resource
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.RESOURCE;
 	}
 

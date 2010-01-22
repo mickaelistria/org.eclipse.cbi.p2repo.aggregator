@@ -21,8 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.DependencyManagement#getDependencies <em>Dependencies
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.DependencyManagement#getDependencies <em>Dependencies </em>}</li>
  * </ul>
  * </p>
  * 
@@ -30,8 +29,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='DependencyManagement' kind='elementOnly'"
  * @generated
  */
-public interface DependencyManagement extends EObject
-{
+public interface DependencyManagement extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Dependencies</b></em>' containment reference. <!-- begin-user-doc --> <!--
 	 * end-user-doc --> <!-- begin-model-doc --> 4.0.0
@@ -50,8 +48,7 @@ public interface DependencyManagement extends EObject
 	DependenciesType getDependencies();
 
 	/**
-	 * Sets the value of the '
-	 * {@link org.eclipse.b3.aggregator.engine.maven.pom.DependencyManagement#getDependencies
+	 * Sets the value of the ' {@link org.eclipse.b3.aggregator.engine.maven.pom.DependencyManagement#getDependencies
 	 * <em>Dependencies</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param value

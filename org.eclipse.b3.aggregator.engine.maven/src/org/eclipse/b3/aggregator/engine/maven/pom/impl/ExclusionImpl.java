@@ -21,16 +21,14 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ExclusionImpl#getArtifactId <em>Artifact Id</em>}
- * </li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ExclusionImpl#getArtifactId <em>Artifact Id</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ExclusionImpl#getGroupId <em>Group Id</em>}</li>
  * </ul>
  * </p>
  * 
  * @generated
  */
-public class ExclusionImpl extends EObjectImpl implements Exclusion
-{
+public class ExclusionImpl extends EObjectImpl implements Exclusion {
 	/**
 	 * The default value of the '{@link #getArtifactId() <em>Artifact Id</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -76,8 +74,7 @@ public class ExclusionImpl extends EObjectImpl implements Exclusion
 	 * 
 	 * @generated
 	 */
-	protected ExclusionImpl()
-	{
+	protected ExclusionImpl() {
 		super();
 	}
 
@@ -87,10 +84,8 @@ public class ExclusionImpl extends EObjectImpl implements Exclusion
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.EXCLUSION__ARTIFACT_ID:
 			return getArtifactId();
 		case PomPackage.EXCLUSION__GROUP_ID:
@@ -105,10 +100,8 @@ public class ExclusionImpl extends EObjectImpl implements Exclusion
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.EXCLUSION__ARTIFACT_ID:
 			return ARTIFACT_ID_EDEFAULT == null
 					? artifactId != null
@@ -127,15 +120,13 @@ public class ExclusionImpl extends EObjectImpl implements Exclusion
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.EXCLUSION__ARTIFACT_ID:
-			setArtifactId((String)newValue);
+			setArtifactId((String) newValue);
 			return;
 		case PomPackage.EXCLUSION__GROUP_ID:
-			setGroupId((String)newValue);
+			setGroupId((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -147,10 +138,8 @@ public class ExclusionImpl extends EObjectImpl implements Exclusion
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.EXCLUSION__ARTIFACT_ID:
 			setArtifactId(ARTIFACT_ID_EDEFAULT);
 			return;
@@ -166,8 +155,7 @@ public class ExclusionImpl extends EObjectImpl implements Exclusion
 	 * 
 	 * @generated
 	 */
-	public String getArtifactId()
-	{
+	public String getArtifactId() {
 		return artifactId;
 	}
 
@@ -176,8 +164,7 @@ public class ExclusionImpl extends EObjectImpl implements Exclusion
 	 * 
 	 * @generated
 	 */
-	public String getGroupId()
-	{
+	public String getGroupId() {
 		return groupId;
 	}
 
@@ -186,8 +173,7 @@ public class ExclusionImpl extends EObjectImpl implements Exclusion
 	 * 
 	 * @generated
 	 */
-	public void setArtifactId(String newArtifactId)
-	{
+	public void setArtifactId(String newArtifactId) {
 		String oldArtifactId = artifactId;
 		artifactId = newArtifactId;
 		if(eNotificationRequired())
@@ -200,8 +186,7 @@ public class ExclusionImpl extends EObjectImpl implements Exclusion
 	 * 
 	 * @generated
 	 */
-	public void setGroupId(String newGroupId)
-	{
+	public void setGroupId(String newGroupId) {
 		String oldGroupId = groupId;
 		groupId = newGroupId;
 		if(eNotificationRequired())
@@ -214,8 +199,7 @@ public class ExclusionImpl extends EObjectImpl implements Exclusion
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
@@ -234,8 +218,7 @@ public class ExclusionImpl extends EObjectImpl implements Exclusion
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.EXCLUSION;
 	}
 

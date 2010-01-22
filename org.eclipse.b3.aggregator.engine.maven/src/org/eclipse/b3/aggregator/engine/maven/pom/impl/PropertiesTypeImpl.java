@@ -32,8 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * 
  * @generated
  */
-public class PropertiesTypeImpl extends EObjectImpl implements PropertiesType
-{
+public class PropertiesTypeImpl extends EObjectImpl implements PropertiesType {
 	/**
 	 * The cached value of the '{@link #getAny() <em>Any</em>}' attribute list. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -49,8 +48,7 @@ public class PropertiesTypeImpl extends EObjectImpl implements PropertiesType
 	 * 
 	 * @generated
 	 */
-	protected PropertiesTypeImpl()
-	{
+	protected PropertiesTypeImpl() {
 		super();
 	}
 
@@ -60,14 +58,12 @@ public class PropertiesTypeImpl extends EObjectImpl implements PropertiesType
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.PROPERTIES_TYPE__ANY:
 			if(coreType)
 				return getAny();
-			return ((FeatureMap.Internal)getAny()).getWrapper();
+			return ((FeatureMap.Internal) getAny()).getWrapper();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -78,12 +74,10 @@ public class PropertiesTypeImpl extends EObjectImpl implements PropertiesType
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch(featureID)
-		{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
 		case PomPackage.PROPERTIES_TYPE__ANY:
-			return ((InternalEList<?>)getAny()).basicRemove(otherEnd, msgs);
+			return ((InternalEList<?>) getAny()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -94,10 +88,8 @@ public class PropertiesTypeImpl extends EObjectImpl implements PropertiesType
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.PROPERTIES_TYPE__ANY:
 			return any != null && !any.isEmpty();
 		}
@@ -110,12 +102,10 @@ public class PropertiesTypeImpl extends EObjectImpl implements PropertiesType
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.PROPERTIES_TYPE__ANY:
-			((FeatureMap.Internal)getAny()).set(newValue);
+			((FeatureMap.Internal) getAny()).set(newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -127,10 +117,8 @@ public class PropertiesTypeImpl extends EObjectImpl implements PropertiesType
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.PROPERTIES_TYPE__ANY:
 			getAny().clear();
 			return;
@@ -143,10 +131,8 @@ public class PropertiesTypeImpl extends EObjectImpl implements PropertiesType
 	 * 
 	 * @generated
 	 */
-	public FeatureMap getAny()
-	{
-		if(any == null)
-		{
+	public FeatureMap getAny() {
+		if(any == null) {
 			any = new BasicFeatureMap(this, PomPackage.PROPERTIES_TYPE__ANY);
 		}
 		return any;
@@ -158,8 +144,7 @@ public class PropertiesTypeImpl extends EObjectImpl implements PropertiesType
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
@@ -176,8 +161,7 @@ public class PropertiesTypeImpl extends EObjectImpl implements PropertiesType
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.PROPERTIES_TYPE;
 	}
 

@@ -30,8 +30,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * 
  * @generated
  */
-public class ActivationOSImpl extends EObjectImpl implements ActivationOS
-{
+public class ActivationOSImpl extends EObjectImpl implements ActivationOS {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
@@ -117,8 +116,7 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS
 	 * 
 	 * @generated
 	 */
-	protected ActivationOSImpl()
-	{
+	protected ActivationOSImpl() {
 		super();
 	}
 
@@ -128,10 +126,8 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.ACTIVATION_OS__NAME:
 			return getName();
 		case PomPackage.ACTIVATION_OS__FAMILY:
@@ -150,10 +146,8 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.ACTIVATION_OS__NAME:
 			return NAME_EDEFAULT == null
 					? name != null
@@ -180,21 +174,19 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.ACTIVATION_OS__NAME:
-			setName((String)newValue);
+			setName((String) newValue);
 			return;
 		case PomPackage.ACTIVATION_OS__FAMILY:
-			setFamily((String)newValue);
+			setFamily((String) newValue);
 			return;
 		case PomPackage.ACTIVATION_OS__ARCH:
-			setArch((String)newValue);
+			setArch((String) newValue);
 			return;
 		case PomPackage.ACTIVATION_OS__VERSION:
-			setVersion((String)newValue);
+			setVersion((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -206,10 +198,8 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.ACTIVATION_OS__NAME:
 			setName(NAME_EDEFAULT);
 			return;
@@ -231,8 +221,7 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS
 	 * 
 	 * @generated
 	 */
-	public String getArch()
-	{
+	public String getArch() {
 		return arch;
 	}
 
@@ -241,8 +230,7 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS
 	 * 
 	 * @generated
 	 */
-	public String getFamily()
-	{
+	public String getFamily() {
 		return family;
 	}
 
@@ -251,8 +239,7 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS
 	 * 
 	 * @generated
 	 */
-	public String getName()
-	{
+	public String getName() {
 		return name;
 	}
 
@@ -261,8 +248,7 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS
 	 * 
 	 * @generated
 	 */
-	public String getVersion()
-	{
+	public String getVersion() {
 		return version;
 	}
 
@@ -271,8 +257,7 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS
 	 * 
 	 * @generated
 	 */
-	public void setArch(String newArch)
-	{
+	public void setArch(String newArch) {
 		String oldArch = arch;
 		arch = newArch;
 		if(eNotificationRequired())
@@ -284,8 +269,7 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS
 	 * 
 	 * @generated
 	 */
-	public void setFamily(String newFamily)
-	{
+	public void setFamily(String newFamily) {
 		String oldFamily = family;
 		family = newFamily;
 		if(eNotificationRequired())
@@ -297,8 +281,7 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS
 	 * 
 	 * @generated
 	 */
-	public void setName(String newName)
-	{
+	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
 		if(eNotificationRequired())
@@ -310,8 +293,7 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS
 	 * 
 	 * @generated
 	 */
-	public void setVersion(String newVersion)
-	{
+	public void setVersion(String newVersion) {
 		String oldVersion = version;
 		version = newVersion;
 		if(eNotificationRequired())
@@ -325,8 +307,7 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
@@ -349,8 +330,7 @@ public class ActivationOSImpl extends EObjectImpl implements ActivationOS
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.ACTIVATION_OS;
 	}
 

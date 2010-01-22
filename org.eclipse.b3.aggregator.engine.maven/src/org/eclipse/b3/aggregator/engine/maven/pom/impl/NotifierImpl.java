@@ -25,24 +25,18 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are implemented:
  * <ul>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.NotifierImpl#getType <em>Type</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.NotifierImpl#isSendOnError <em>Send On Error
- * </em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.NotifierImpl#isSendOnFailure <em>Send On Failure
- * </em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.NotifierImpl#isSendOnSuccess <em>Send On Success
- * </em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.NotifierImpl#isSendOnWarning <em>Send On Warning
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.NotifierImpl#isSendOnError <em>Send On Error </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.NotifierImpl#isSendOnFailure <em>Send On Failure </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.NotifierImpl#isSendOnSuccess <em>Send On Success </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.NotifierImpl#isSendOnWarning <em>Send On Warning </em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.NotifierImpl#getAddress <em>Address</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.NotifierImpl#getConfiguration <em>Configuration
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.NotifierImpl#getConfiguration <em>Configuration </em>}</li>
  * </ul>
  * </p>
  * 
  * @generated
  */
-public class NotifierImpl extends EObjectImpl implements Notifier
-{
+public class NotifierImpl extends EObjectImpl implements Notifier {
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
@@ -218,8 +212,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier
 	 * 
 	 * @generated
 	 */
-	protected NotifierImpl()
-	{
+	protected NotifierImpl() {
 		super();
 	}
 
@@ -228,12 +221,10 @@ public class NotifierImpl extends EObjectImpl implements Notifier
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetConfiguration(ConfigurationType newConfiguration, NotificationChain msgs)
-	{
+	public NotificationChain basicSetConfiguration(ConfigurationType newConfiguration, NotificationChain msgs) {
 		ConfigurationType oldConfiguration = configuration;
 		configuration = newConfiguration;
-		if(eNotificationRequired())
-		{
+		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					PomPackage.NOTIFIER__CONFIGURATION, oldConfiguration, newConfiguration);
 			if(msgs == null)
@@ -250,10 +241,8 @@ public class NotifierImpl extends EObjectImpl implements Notifier
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.NOTIFIER__TYPE:
 			return getType();
 		case PomPackage.NOTIFIER__SEND_ON_ERROR:
@@ -278,10 +267,8 @@ public class NotifierImpl extends EObjectImpl implements Notifier
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch(featureID)
-		{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
 		case PomPackage.NOTIFIER__CONFIGURATION:
 			return basicSetConfiguration(null, msgs);
 		}
@@ -294,10 +281,8 @@ public class NotifierImpl extends EObjectImpl implements Notifier
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.NOTIFIER__TYPE:
 			return isSetType();
 		case PomPackage.NOTIFIER__SEND_ON_ERROR:
@@ -324,30 +309,28 @@ public class NotifierImpl extends EObjectImpl implements Notifier
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.NOTIFIER__TYPE:
-			setType((String)newValue);
+			setType((String) newValue);
 			return;
 		case PomPackage.NOTIFIER__SEND_ON_ERROR:
-			setSendOnError((Boolean)newValue);
+			setSendOnError((Boolean) newValue);
 			return;
 		case PomPackage.NOTIFIER__SEND_ON_FAILURE:
-			setSendOnFailure((Boolean)newValue);
+			setSendOnFailure((Boolean) newValue);
 			return;
 		case PomPackage.NOTIFIER__SEND_ON_SUCCESS:
-			setSendOnSuccess((Boolean)newValue);
+			setSendOnSuccess((Boolean) newValue);
 			return;
 		case PomPackage.NOTIFIER__SEND_ON_WARNING:
-			setSendOnWarning((Boolean)newValue);
+			setSendOnWarning((Boolean) newValue);
 			return;
 		case PomPackage.NOTIFIER__ADDRESS:
-			setAddress((String)newValue);
+			setAddress((String) newValue);
 			return;
 		case PomPackage.NOTIFIER__CONFIGURATION:
-			setConfiguration((ConfigurationType)newValue);
+			setConfiguration((ConfigurationType) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -359,10 +342,8 @@ public class NotifierImpl extends EObjectImpl implements Notifier
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.NOTIFIER__TYPE:
 			unsetType();
 			return;
@@ -382,7 +363,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier
 			setAddress(ADDRESS_EDEFAULT);
 			return;
 		case PomPackage.NOTIFIER__CONFIGURATION:
-			setConfiguration((ConfigurationType)null);
+			setConfiguration((ConfigurationType) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -393,8 +374,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier
 	 * 
 	 * @generated
 	 */
-	public String getAddress()
-	{
+	public String getAddress() {
 		return address;
 	}
 
@@ -403,8 +383,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier
 	 * 
 	 * @generated
 	 */
-	public ConfigurationType getConfiguration()
-	{
+	public ConfigurationType getConfiguration() {
 		return configuration;
 	}
 
@@ -413,8 +392,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier
 	 * 
 	 * @generated
 	 */
-	public String getType()
-	{
+	public String getType() {
 		return type;
 	}
 
@@ -423,8 +401,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier
 	 * 
 	 * @generated
 	 */
-	public boolean isSendOnError()
-	{
+	public boolean isSendOnError() {
 		return sendOnError;
 	}
 
@@ -433,8 +410,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier
 	 * 
 	 * @generated
 	 */
-	public boolean isSendOnFailure()
-	{
+	public boolean isSendOnFailure() {
 		return sendOnFailure;
 	}
 
@@ -443,8 +419,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier
 	 * 
 	 * @generated
 	 */
-	public boolean isSendOnSuccess()
-	{
+	public boolean isSendOnSuccess() {
 		return sendOnSuccess;
 	}
 
@@ -453,8 +428,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier
 	 * 
 	 * @generated
 	 */
-	public boolean isSendOnWarning()
-	{
+	public boolean isSendOnWarning() {
 		return sendOnWarning;
 	}
 
@@ -463,8 +437,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier
 	 * 
 	 * @generated
 	 */
-	public boolean isSetSendOnError()
-	{
+	public boolean isSetSendOnError() {
 		return sendOnErrorESet;
 	}
 
@@ -473,8 +446,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier
 	 * 
 	 * @generated
 	 */
-	public boolean isSetSendOnFailure()
-	{
+	public boolean isSetSendOnFailure() {
 		return sendOnFailureESet;
 	}
 
@@ -483,8 +455,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier
 	 * 
 	 * @generated
 	 */
-	public boolean isSetSendOnSuccess()
-	{
+	public boolean isSetSendOnSuccess() {
 		return sendOnSuccessESet;
 	}
 
@@ -493,8 +464,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier
 	 * 
 	 * @generated
 	 */
-	public boolean isSetSendOnWarning()
-	{
+	public boolean isSetSendOnWarning() {
 		return sendOnWarningESet;
 	}
 
@@ -503,8 +473,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier
 	 * 
 	 * @generated
 	 */
-	public boolean isSetType()
-	{
+	public boolean isSetType() {
 		return typeESet;
 	}
 
@@ -513,8 +482,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier
 	 * 
 	 * @generated
 	 */
-	public void setAddress(String newAddress)
-	{
+	public void setAddress(String newAddress) {
 		String oldAddress = address;
 		address = newAddress;
 		if(eNotificationRequired())
@@ -526,16 +494,14 @@ public class NotifierImpl extends EObjectImpl implements Notifier
 	 * 
 	 * @generated
 	 */
-	public void setConfiguration(ConfigurationType newConfiguration)
-	{
-		if(newConfiguration != configuration)
-		{
+	public void setConfiguration(ConfigurationType newConfiguration) {
+		if(newConfiguration != configuration) {
 			NotificationChain msgs = null;
 			if(configuration != null)
-				msgs = ((InternalEObject)configuration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) configuration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.NOTIFIER__CONFIGURATION, null, msgs);
 			if(newConfiguration != null)
-				msgs = ((InternalEObject)newConfiguration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) newConfiguration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.NOTIFIER__CONFIGURATION, null, msgs);
 			msgs = basicSetConfiguration(newConfiguration, msgs);
 			if(msgs != null)
@@ -551,8 +517,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier
 	 * 
 	 * @generated
 	 */
-	public void setSendOnError(boolean newSendOnError)
-	{
+	public void setSendOnError(boolean newSendOnError) {
 		boolean oldSendOnError = sendOnError;
 		sendOnError = newSendOnError;
 		boolean oldSendOnErrorESet = sendOnErrorESet;
@@ -567,8 +532,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier
 	 * 
 	 * @generated
 	 */
-	public void setSendOnFailure(boolean newSendOnFailure)
-	{
+	public void setSendOnFailure(boolean newSendOnFailure) {
 		boolean oldSendOnFailure = sendOnFailure;
 		sendOnFailure = newSendOnFailure;
 		boolean oldSendOnFailureESet = sendOnFailureESet;
@@ -583,8 +547,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier
 	 * 
 	 * @generated
 	 */
-	public void setSendOnSuccess(boolean newSendOnSuccess)
-	{
+	public void setSendOnSuccess(boolean newSendOnSuccess) {
 		boolean oldSendOnSuccess = sendOnSuccess;
 		sendOnSuccess = newSendOnSuccess;
 		boolean oldSendOnSuccessESet = sendOnSuccessESet;
@@ -599,8 +562,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier
 	 * 
 	 * @generated
 	 */
-	public void setSendOnWarning(boolean newSendOnWarning)
-	{
+	public void setSendOnWarning(boolean newSendOnWarning) {
 		boolean oldSendOnWarning = sendOnWarning;
 		sendOnWarning = newSendOnWarning;
 		boolean oldSendOnWarningESet = sendOnWarningESet;
@@ -615,8 +577,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier
 	 * 
 	 * @generated
 	 */
-	public void setType(String newType)
-	{
+	public void setType(String newType) {
 		String oldType = type;
 		type = newType;
 		boolean oldTypeESet = typeESet;
@@ -632,8 +593,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
@@ -674,8 +634,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier
 	 * 
 	 * @generated
 	 */
-	public void unsetSendOnError()
-	{
+	public void unsetSendOnError() {
 		boolean oldSendOnError = sendOnError;
 		boolean oldSendOnErrorESet = sendOnErrorESet;
 		sendOnError = SEND_ON_ERROR_EDEFAULT;
@@ -690,8 +649,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier
 	 * 
 	 * @generated
 	 */
-	public void unsetSendOnFailure()
-	{
+	public void unsetSendOnFailure() {
 		boolean oldSendOnFailure = sendOnFailure;
 		boolean oldSendOnFailureESet = sendOnFailureESet;
 		sendOnFailure = SEND_ON_FAILURE_EDEFAULT;
@@ -706,8 +664,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier
 	 * 
 	 * @generated
 	 */
-	public void unsetSendOnSuccess()
-	{
+	public void unsetSendOnSuccess() {
 		boolean oldSendOnSuccess = sendOnSuccess;
 		boolean oldSendOnSuccessESet = sendOnSuccessESet;
 		sendOnSuccess = SEND_ON_SUCCESS_EDEFAULT;
@@ -722,8 +679,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier
 	 * 
 	 * @generated
 	 */
-	public void unsetSendOnWarning()
-	{
+	public void unsetSendOnWarning() {
 		boolean oldSendOnWarning = sendOnWarning;
 		boolean oldSendOnWarningESet = sendOnWarningESet;
 		sendOnWarning = SEND_ON_WARNING_EDEFAULT;
@@ -738,8 +694,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier
 	 * 
 	 * @generated
 	 */
-	public void unsetType()
-	{
+	public void unsetType() {
 		String oldType = type;
 		boolean oldTypeESet = typeESet;
 		type = TYPE_EDEFAULT;
@@ -755,8 +710,7 @@ public class NotifierImpl extends EObjectImpl implements Notifier
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.NOTIFIER;
 	}
 

@@ -35,8 +35,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * 
  * @generated
  */
-public class RepositoryImpl extends EObjectImpl implements Repository
-{
+public class RepositoryImpl extends EObjectImpl implements Repository {
 	/**
 	 * The cached value of the '{@link #getReleases() <em>Releases</em>}' containment reference. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -147,8 +146,7 @@ public class RepositoryImpl extends EObjectImpl implements Repository
 	 * 
 	 * @generated
 	 */
-	protected RepositoryImpl()
-	{
+	protected RepositoryImpl() {
 		super();
 	}
 
@@ -157,12 +155,10 @@ public class RepositoryImpl extends EObjectImpl implements Repository
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetReleases(RepositoryPolicy newReleases, NotificationChain msgs)
-	{
+	public NotificationChain basicSetReleases(RepositoryPolicy newReleases, NotificationChain msgs) {
 		RepositoryPolicy oldReleases = releases;
 		releases = newReleases;
-		if(eNotificationRequired())
-		{
+		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					PomPackage.REPOSITORY__RELEASES, oldReleases, newReleases);
 			if(msgs == null)
@@ -178,12 +174,10 @@ public class RepositoryImpl extends EObjectImpl implements Repository
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetSnapshots(RepositoryPolicy newSnapshots, NotificationChain msgs)
-	{
+	public NotificationChain basicSetSnapshots(RepositoryPolicy newSnapshots, NotificationChain msgs) {
 		RepositoryPolicy oldSnapshots = snapshots;
 		snapshots = newSnapshots;
-		if(eNotificationRequired())
-		{
+		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					PomPackage.REPOSITORY__SNAPSHOTS, oldSnapshots, newSnapshots);
 			if(msgs == null)
@@ -200,10 +194,8 @@ public class RepositoryImpl extends EObjectImpl implements Repository
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.REPOSITORY__RELEASES:
 			return getReleases();
 		case PomPackage.REPOSITORY__SNAPSHOTS:
@@ -226,10 +218,8 @@ public class RepositoryImpl extends EObjectImpl implements Repository
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch(featureID)
-		{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
 		case PomPackage.REPOSITORY__RELEASES:
 			return basicSetReleases(null, msgs);
 		case PomPackage.REPOSITORY__SNAPSHOTS:
@@ -244,10 +234,8 @@ public class RepositoryImpl extends EObjectImpl implements Repository
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.REPOSITORY__RELEASES:
 			return releases != null;
 		case PomPackage.REPOSITORY__SNAPSHOTS:
@@ -276,27 +264,25 @@ public class RepositoryImpl extends EObjectImpl implements Repository
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.REPOSITORY__RELEASES:
-			setReleases((RepositoryPolicy)newValue);
+			setReleases((RepositoryPolicy) newValue);
 			return;
 		case PomPackage.REPOSITORY__SNAPSHOTS:
-			setSnapshots((RepositoryPolicy)newValue);
+			setSnapshots((RepositoryPolicy) newValue);
 			return;
 		case PomPackage.REPOSITORY__ID:
-			setId((String)newValue);
+			setId((String) newValue);
 			return;
 		case PomPackage.REPOSITORY__NAME:
-			setName((String)newValue);
+			setName((String) newValue);
 			return;
 		case PomPackage.REPOSITORY__URL:
-			setUrl((String)newValue);
+			setUrl((String) newValue);
 			return;
 		case PomPackage.REPOSITORY__LAYOUT:
-			setLayout((String)newValue);
+			setLayout((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -308,15 +294,13 @@ public class RepositoryImpl extends EObjectImpl implements Repository
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.REPOSITORY__RELEASES:
-			setReleases((RepositoryPolicy)null);
+			setReleases((RepositoryPolicy) null);
 			return;
 		case PomPackage.REPOSITORY__SNAPSHOTS:
-			setSnapshots((RepositoryPolicy)null);
+			setSnapshots((RepositoryPolicy) null);
 			return;
 		case PomPackage.REPOSITORY__ID:
 			setId(ID_EDEFAULT);
@@ -339,8 +323,7 @@ public class RepositoryImpl extends EObjectImpl implements Repository
 	 * 
 	 * @generated
 	 */
-	public String getId()
-	{
+	public String getId() {
 		return id;
 	}
 
@@ -349,8 +332,7 @@ public class RepositoryImpl extends EObjectImpl implements Repository
 	 * 
 	 * @generated
 	 */
-	public String getLayout()
-	{
+	public String getLayout() {
 		return layout;
 	}
 
@@ -359,8 +341,7 @@ public class RepositoryImpl extends EObjectImpl implements Repository
 	 * 
 	 * @generated
 	 */
-	public String getName()
-	{
+	public String getName() {
 		return name;
 	}
 
@@ -369,8 +350,7 @@ public class RepositoryImpl extends EObjectImpl implements Repository
 	 * 
 	 * @generated
 	 */
-	public RepositoryPolicy getReleases()
-	{
+	public RepositoryPolicy getReleases() {
 		return releases;
 	}
 
@@ -379,8 +359,7 @@ public class RepositoryImpl extends EObjectImpl implements Repository
 	 * 
 	 * @generated
 	 */
-	public RepositoryPolicy getSnapshots()
-	{
+	public RepositoryPolicy getSnapshots() {
 		return snapshots;
 	}
 
@@ -389,8 +368,7 @@ public class RepositoryImpl extends EObjectImpl implements Repository
 	 * 
 	 * @generated
 	 */
-	public String getUrl()
-	{
+	public String getUrl() {
 		return url;
 	}
 
@@ -399,8 +377,7 @@ public class RepositoryImpl extends EObjectImpl implements Repository
 	 * 
 	 * @generated
 	 */
-	public boolean isSetLayout()
-	{
+	public boolean isSetLayout() {
 		return layoutESet;
 	}
 
@@ -409,8 +386,7 @@ public class RepositoryImpl extends EObjectImpl implements Repository
 	 * 
 	 * @generated
 	 */
-	public void setId(String newId)
-	{
+	public void setId(String newId) {
 		String oldId = id;
 		id = newId;
 		if(eNotificationRequired())
@@ -422,8 +398,7 @@ public class RepositoryImpl extends EObjectImpl implements Repository
 	 * 
 	 * @generated
 	 */
-	public void setLayout(String newLayout)
-	{
+	public void setLayout(String newLayout) {
 		String oldLayout = layout;
 		layout = newLayout;
 		boolean oldLayoutESet = layoutESet;
@@ -438,8 +413,7 @@ public class RepositoryImpl extends EObjectImpl implements Repository
 	 * 
 	 * @generated
 	 */
-	public void setName(String newName)
-	{
+	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
 		if(eNotificationRequired())
@@ -451,16 +425,14 @@ public class RepositoryImpl extends EObjectImpl implements Repository
 	 * 
 	 * @generated
 	 */
-	public void setReleases(RepositoryPolicy newReleases)
-	{
-		if(newReleases != releases)
-		{
+	public void setReleases(RepositoryPolicy newReleases) {
+		if(newReleases != releases) {
 			NotificationChain msgs = null;
 			if(releases != null)
-				msgs = ((InternalEObject)releases).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) releases).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.REPOSITORY__RELEASES, null, msgs);
 			if(newReleases != null)
-				msgs = ((InternalEObject)newReleases).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) newReleases).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.REPOSITORY__RELEASES, null, msgs);
 			msgs = basicSetReleases(newReleases, msgs);
 			if(msgs != null)
@@ -476,16 +448,14 @@ public class RepositoryImpl extends EObjectImpl implements Repository
 	 * 
 	 * @generated
 	 */
-	public void setSnapshots(RepositoryPolicy newSnapshots)
-	{
-		if(newSnapshots != snapshots)
-		{
+	public void setSnapshots(RepositoryPolicy newSnapshots) {
+		if(newSnapshots != snapshots) {
 			NotificationChain msgs = null;
 			if(snapshots != null)
-				msgs = ((InternalEObject)snapshots).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) snapshots).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.REPOSITORY__SNAPSHOTS, null, msgs);
 			if(newSnapshots != null)
-				msgs = ((InternalEObject)newSnapshots).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) newSnapshots).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.REPOSITORY__SNAPSHOTS, null, msgs);
 			msgs = basicSetSnapshots(newSnapshots, msgs);
 			if(msgs != null)
@@ -501,8 +471,7 @@ public class RepositoryImpl extends EObjectImpl implements Repository
 	 * 
 	 * @generated
 	 */
-	public void setUrl(String newUrl)
-	{
+	public void setUrl(String newUrl) {
 		String oldUrl = url;
 		url = newUrl;
 		if(eNotificationRequired())
@@ -515,8 +484,7 @@ public class RepositoryImpl extends EObjectImpl implements Repository
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
@@ -541,8 +509,7 @@ public class RepositoryImpl extends EObjectImpl implements Repository
 	 * 
 	 * @generated
 	 */
-	public void unsetLayout()
-	{
+	public void unsetLayout() {
 		String oldLayout = layout;
 		boolean oldLayoutESet = layoutESet;
 		layout = LAYOUT_EDEFAULT;
@@ -558,8 +525,7 @@ public class RepositoryImpl extends EObjectImpl implements Repository
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.REPOSITORY;
 	}
 

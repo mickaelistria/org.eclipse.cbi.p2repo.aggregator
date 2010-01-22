@@ -30,8 +30,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='Site' kind='elementOnly'"
  * @generated
  */
-public interface Site extends EObject
-{
+public interface Site extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
 	 * begin-model-doc --> 4.0.0

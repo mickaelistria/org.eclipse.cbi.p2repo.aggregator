@@ -22,16 +22,14 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are implemented:
  * <ul>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ExtensionImpl#getGroupId <em>Group Id</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ExtensionImpl#getArtifactId <em>Artifact Id</em>}
- * </li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ExtensionImpl#getArtifactId <em>Artifact Id</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ExtensionImpl#getVersion <em>Version</em>}</li>
  * </ul>
  * </p>
  * 
  * @generated
  */
-public class ExtensionImpl extends EObjectImpl implements Extension
-{
+public class ExtensionImpl extends EObjectImpl implements Extension {
 	/**
 	 * The default value of the '{@link #getGroupId() <em>Group Id</em>}' attribute. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -97,8 +95,7 @@ public class ExtensionImpl extends EObjectImpl implements Extension
 	 * 
 	 * @generated
 	 */
-	protected ExtensionImpl()
-	{
+	protected ExtensionImpl() {
 		super();
 	}
 
@@ -108,10 +105,8 @@ public class ExtensionImpl extends EObjectImpl implements Extension
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.EXTENSION__GROUP_ID:
 			return getGroupId();
 		case PomPackage.EXTENSION__ARTIFACT_ID:
@@ -128,10 +123,8 @@ public class ExtensionImpl extends EObjectImpl implements Extension
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.EXTENSION__GROUP_ID:
 			return GROUP_ID_EDEFAULT == null
 					? groupId != null
@@ -154,18 +147,16 @@ public class ExtensionImpl extends EObjectImpl implements Extension
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.EXTENSION__GROUP_ID:
-			setGroupId((String)newValue);
+			setGroupId((String) newValue);
 			return;
 		case PomPackage.EXTENSION__ARTIFACT_ID:
-			setArtifactId((String)newValue);
+			setArtifactId((String) newValue);
 			return;
 		case PomPackage.EXTENSION__VERSION:
-			setVersion((String)newValue);
+			setVersion((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -177,10 +168,8 @@ public class ExtensionImpl extends EObjectImpl implements Extension
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.EXTENSION__GROUP_ID:
 			setGroupId(GROUP_ID_EDEFAULT);
 			return;
@@ -199,8 +188,7 @@ public class ExtensionImpl extends EObjectImpl implements Extension
 	 * 
 	 * @generated
 	 */
-	public String getArtifactId()
-	{
+	public String getArtifactId() {
 		return artifactId;
 	}
 
@@ -209,8 +197,7 @@ public class ExtensionImpl extends EObjectImpl implements Extension
 	 * 
 	 * @generated
 	 */
-	public String getGroupId()
-	{
+	public String getGroupId() {
 		return groupId;
 	}
 
@@ -219,8 +206,7 @@ public class ExtensionImpl extends EObjectImpl implements Extension
 	 * 
 	 * @generated
 	 */
-	public String getVersion()
-	{
+	public String getVersion() {
 		return version;
 	}
 
@@ -229,8 +215,7 @@ public class ExtensionImpl extends EObjectImpl implements Extension
 	 * 
 	 * @generated
 	 */
-	public void setArtifactId(String newArtifactId)
-	{
+	public void setArtifactId(String newArtifactId) {
 		String oldArtifactId = artifactId;
 		artifactId = newArtifactId;
 		if(eNotificationRequired())
@@ -243,8 +228,7 @@ public class ExtensionImpl extends EObjectImpl implements Extension
 	 * 
 	 * @generated
 	 */
-	public void setGroupId(String newGroupId)
-	{
+	public void setGroupId(String newGroupId) {
 		String oldGroupId = groupId;
 		groupId = newGroupId;
 		if(eNotificationRequired())
@@ -256,8 +240,7 @@ public class ExtensionImpl extends EObjectImpl implements Extension
 	 * 
 	 * @generated
 	 */
-	public void setVersion(String newVersion)
-	{
+	public void setVersion(String newVersion) {
 		String oldVersion = version;
 		version = newVersion;
 		if(eNotificationRequired())
@@ -270,8 +253,7 @@ public class ExtensionImpl extends EObjectImpl implements Extension
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if(eIsProxy())
 			return super.toString();
 
@@ -292,8 +274,7 @@ public class ExtensionImpl extends EObjectImpl implements Extension
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.EXTENSION;
 	}
 

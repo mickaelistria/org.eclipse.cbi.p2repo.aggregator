@@ -25,15 +25,14 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DependencyManagementImpl#getDependencies <em>
- * Dependencies</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.DependencyManagementImpl#getDependencies <em> Dependencies
+ * </em>}</li>
  * </ul>
  * </p>
  * 
  * @generated
  */
-public class DependencyManagementImpl extends EObjectImpl implements DependencyManagement
-{
+public class DependencyManagementImpl extends EObjectImpl implements DependencyManagement {
 	/**
 	 * The cached value of the '{@link #getDependencies() <em>Dependencies</em>}' containment reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -49,8 +48,7 @@ public class DependencyManagementImpl extends EObjectImpl implements DependencyM
 	 * 
 	 * @generated
 	 */
-	protected DependencyManagementImpl()
-	{
+	protected DependencyManagementImpl() {
 		super();
 	}
 
@@ -59,12 +57,10 @@ public class DependencyManagementImpl extends EObjectImpl implements DependencyM
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetDependencies(DependenciesType newDependencies, NotificationChain msgs)
-	{
+	public NotificationChain basicSetDependencies(DependenciesType newDependencies, NotificationChain msgs) {
 		DependenciesType oldDependencies = dependencies;
 		dependencies = newDependencies;
-		if(eNotificationRequired())
-		{
+		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					PomPackage.DEPENDENCY_MANAGEMENT__DEPENDENCIES, oldDependencies, newDependencies);
 			if(msgs == null)
@@ -81,10 +77,8 @@ public class DependencyManagementImpl extends EObjectImpl implements DependencyM
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.DEPENDENCY_MANAGEMENT__DEPENDENCIES:
 			return getDependencies();
 		}
@@ -97,10 +91,8 @@ public class DependencyManagementImpl extends EObjectImpl implements DependencyM
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch(featureID)
-		{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
 		case PomPackage.DEPENDENCY_MANAGEMENT__DEPENDENCIES:
 			return basicSetDependencies(null, msgs);
 		}
@@ -113,10 +105,8 @@ public class DependencyManagementImpl extends EObjectImpl implements DependencyM
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.DEPENDENCY_MANAGEMENT__DEPENDENCIES:
 			return dependencies != null;
 		}
@@ -129,12 +119,10 @@ public class DependencyManagementImpl extends EObjectImpl implements DependencyM
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.DEPENDENCY_MANAGEMENT__DEPENDENCIES:
-			setDependencies((DependenciesType)newValue);
+			setDependencies((DependenciesType) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -146,12 +134,10 @@ public class DependencyManagementImpl extends EObjectImpl implements DependencyM
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.DEPENDENCY_MANAGEMENT__DEPENDENCIES:
-			setDependencies((DependenciesType)null);
+			setDependencies((DependenciesType) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -162,8 +148,7 @@ public class DependencyManagementImpl extends EObjectImpl implements DependencyM
 	 * 
 	 * @generated
 	 */
-	public DependenciesType getDependencies()
-	{
+	public DependenciesType getDependencies() {
 		return dependencies;
 	}
 
@@ -172,16 +157,14 @@ public class DependencyManagementImpl extends EObjectImpl implements DependencyM
 	 * 
 	 * @generated
 	 */
-	public void setDependencies(DependenciesType newDependencies)
-	{
-		if(newDependencies != dependencies)
-		{
+	public void setDependencies(DependenciesType newDependencies) {
+		if(newDependencies != dependencies) {
 			NotificationChain msgs = null;
 			if(dependencies != null)
-				msgs = ((InternalEObject)dependencies).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) dependencies).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.DEPENDENCY_MANAGEMENT__DEPENDENCIES, null, msgs);
 			if(newDependencies != null)
-				msgs = ((InternalEObject)newDependencies).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+				msgs = ((InternalEObject) newDependencies).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
 						- PomPackage.DEPENDENCY_MANAGEMENT__DEPENDENCIES, null, msgs);
 			msgs = basicSetDependencies(newDependencies, msgs);
 			if(msgs != null)
@@ -198,8 +181,7 @@ public class DependencyManagementImpl extends EObjectImpl implements DependencyM
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.DEPENDENCY_MANAGEMENT;
 	}
 

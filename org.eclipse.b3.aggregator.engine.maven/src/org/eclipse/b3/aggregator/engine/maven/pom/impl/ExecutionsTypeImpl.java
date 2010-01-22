@@ -30,15 +30,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ExecutionsTypeImpl#getExecution <em>Execution
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.engine.maven.pom.impl.ExecutionsTypeImpl#getExecution <em>Execution </em>}</li>
  * </ul>
  * </p>
  * 
  * @generated
  */
-public class ExecutionsTypeImpl extends EObjectImpl implements ExecutionsType
-{
+public class ExecutionsTypeImpl extends EObjectImpl implements ExecutionsType {
 	/**
 	 * The cached value of the '{@link #getExecution() <em>Execution</em>}' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -54,8 +52,7 @@ public class ExecutionsTypeImpl extends EObjectImpl implements ExecutionsType
 	 * 
 	 * @generated
 	 */
-	protected ExecutionsTypeImpl()
-	{
+	protected ExecutionsTypeImpl() {
 		super();
 	}
 
@@ -65,10 +62,8 @@ public class ExecutionsTypeImpl extends EObjectImpl implements ExecutionsType
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch(featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch(featureID) {
 		case PomPackage.EXECUTIONS_TYPE__EXECUTION:
 			return getExecution();
 		}
@@ -81,12 +76,10 @@ public class ExecutionsTypeImpl extends EObjectImpl implements ExecutionsType
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch(featureID)
-		{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch(featureID) {
 		case PomPackage.EXECUTIONS_TYPE__EXECUTION:
-			return ((InternalEList<?>)getExecution()).basicRemove(otherEnd, msgs);
+			return ((InternalEList<?>) getExecution()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -97,10 +90,8 @@ public class ExecutionsTypeImpl extends EObjectImpl implements ExecutionsType
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch(featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch(featureID) {
 		case PomPackage.EXECUTIONS_TYPE__EXECUTION:
 			return execution != null && !execution.isEmpty();
 		}
@@ -114,13 +105,11 @@ public class ExecutionsTypeImpl extends EObjectImpl implements ExecutionsType
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch(featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch(featureID) {
 		case PomPackage.EXECUTIONS_TYPE__EXECUTION:
 			getExecution().clear();
-			getExecution().addAll((Collection<? extends PluginExecution>)newValue);
+			getExecution().addAll((Collection<? extends PluginExecution>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -132,10 +121,8 @@ public class ExecutionsTypeImpl extends EObjectImpl implements ExecutionsType
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch(featureID)
-		{
+	public void eUnset(int featureID) {
+		switch(featureID) {
 		case PomPackage.EXECUTIONS_TYPE__EXECUTION:
 			getExecution().clear();
 			return;
@@ -148,10 +135,8 @@ public class ExecutionsTypeImpl extends EObjectImpl implements ExecutionsType
 	 * 
 	 * @generated
 	 */
-	public EList<PluginExecution> getExecution()
-	{
-		if(execution == null)
-		{
+	public EList<PluginExecution> getExecution() {
+		if(execution == null) {
 			execution = new EObjectContainmentEList<PluginExecution>(PluginExecution.class, this,
 					PomPackage.EXECUTIONS_TYPE__EXECUTION);
 		}
@@ -164,8 +149,7 @@ public class ExecutionsTypeImpl extends EObjectImpl implements ExecutionsType
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return PomPackage.Literals.EXECUTIONS_TYPE;
 	}
 

@@ -26,8 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='CiManagement' kind='elementOnly'"
  * @generated
  */
-public interface CiManagement extends EObject
-{
+public interface CiManagement extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Notifiers</b></em>' containment reference. <!-- begin-user-doc --> <!--
 	 * end-user-doc --> <!-- begin-model-doc --> 4.0.0
