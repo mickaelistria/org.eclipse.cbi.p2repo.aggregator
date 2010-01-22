@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.b3.cli.commands">
+      <command
+            class="org.eclipse.b3.aggregator.engine.Builder"
+            name="aggregate">
+      </command>
+   </extension>
+</plugin>
