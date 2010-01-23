@@ -193,6 +193,11 @@ public class B3WildcardTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(B3backendPackage.Literals.B3_WILDCARD_TYPE__LOWER_BOUNDS_LIST,
+				 B3backendFactory.eINSTANCE.createB3MetaClass()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(B3backendPackage.Literals.B3_WILDCARD_TYPE__UPPER_BOUNDS_LIST,
 				 B3backendFactory.eINSTANCE.createB3FunctionType()));
 
@@ -215,6 +220,11 @@ public class B3WildcardTypeItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.B3_WILDCARD_TYPE__UPPER_BOUNDS_LIST,
 				 B3backendFactory.eINSTANCE.createB3JavaImport()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.B3_WILDCARD_TYPE__UPPER_BOUNDS_LIST,
+				 B3backendFactory.eINSTANCE.createB3MetaClass()));
 	}
 
 	/**

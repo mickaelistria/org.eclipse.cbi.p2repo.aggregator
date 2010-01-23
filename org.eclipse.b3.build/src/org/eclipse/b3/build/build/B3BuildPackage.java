@@ -903,13 +903,22 @@ public interface B3BuildPackage extends EPackage {
 	int IBUILDER__CONTAINER = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 17;
 
 	/**
+	 * The feature id for the '<em><b>Class Function</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IBUILDER__CLASS_FUNCTION = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 18;
+
+	/**
 	 * The feature id for the '<em><b>Postcond Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IBUILDER__POSTCOND_EXPR = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 18;
+	int IBUILDER__POSTCOND_EXPR = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 19;
 
 	/**
 	 * The feature id for the '<em><b>Precond Expr</b></em>' containment reference.
@@ -918,7 +927,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IBUILDER__PRECOND_EXPR = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 19;
+	int IBUILDER__PRECOND_EXPR = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 20;
 
 	/**
 	 * The feature id for the '<em><b>Input</b></em>' containment reference.
@@ -927,7 +936,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IBUILDER__INPUT = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 20;
+	int IBUILDER__INPUT = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 21;
 
 	/**
 	 * The feature id for the '<em><b>Output</b></em>' containment reference.
@@ -936,7 +945,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IBUILDER__OUTPUT = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 21;
+	int IBUILDER__OUTPUT = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 22;
 
 	/**
 	 * The feature id for the '<em><b>Default Properties</b></em>' containment reference.
@@ -945,7 +954,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IBUILDER__DEFAULT_PROPERTIES = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 22;
+	int IBUILDER__DEFAULT_PROPERTIES = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 23;
 
 	/**
 	 * The feature id for the '<em><b>Postinputcondition</b></em>' containment reference.
@@ -954,7 +963,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IBUILDER__POSTINPUTCONDITION = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 23;
+	int IBUILDER__POSTINPUTCONDITION = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 24;
 
 	/**
 	 * The number of structural features of the '<em>IBuilder</em>' class.
@@ -963,7 +972,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IBUILDER_FEATURE_COUNT = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 24;
+	int IBUILDER_FEATURE_COUNT = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 25;
 
 	/**
 	 * The feature id for the '<em><b>Prerequisites</b></em>' containment reference list.
@@ -2407,6 +2416,15 @@ public interface B3BuildPackage extends EPackage {
 	int BUILDER__CONTAINER = B3backendPackage.B3_FUNCTION__CONTAINER;
 
 	/**
+	 * The feature id for the '<em><b>Class Function</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER__CLASS_FUNCTION = B3backendPackage.B3_FUNCTION__CLASS_FUNCTION;
+
+	/**
 	 * The feature id for the '<em><b>Func Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2650,6 +2668,15 @@ public interface B3BuildPackage extends EPackage {
 	int BUILDER_JAVA__CONTAINER = B3backendPackage.BJAVA_FUNCTION__CONTAINER;
 
 	/**
+	 * The feature id for the '<em><b>Class Function</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_JAVA__CLASS_FUNCTION = B3backendPackage.BJAVA_FUNCTION__CLASS_FUNCTION;
+
+	/**
 	 * The feature id for the '<em><b>Method</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2658,14 +2685,15 @@ public interface B3BuildPackage extends EPackage {
 	 */
 	int BUILDER_JAVA__METHOD = B3backendPackage.BJAVA_FUNCTION__METHOD;
 
+
 	/**
-	 * The feature id for the '<em><b>System Call</b></em>' attribute.
+	 * The feature id for the '<em><b>Call Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILDER_JAVA__SYSTEM_CALL = B3backendPackage.BJAVA_FUNCTION__SYSTEM_CALL;
+	int BUILDER_JAVA__CALL_TYPE = B3backendPackage.BJAVA_FUNCTION__CALL_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
@@ -2912,6 +2940,15 @@ public interface B3BuildPackage extends EPackage {
 	int BUILDER_WRAPPER__CONTAINER = B3backendPackage.BFUNCTION_WRAPPER__CONTAINER;
 
 	/**
+	 * The feature id for the '<em><b>Class Function</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_WRAPPER__CLASS_FUNCTION = B3backendPackage.BFUNCTION_WRAPPER__CLASS_FUNCTION;
+
+	/**
 	 * The feature id for the '<em><b>Around Expr</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2928,6 +2965,24 @@ public interface B3BuildPackage extends EPackage {
 	 * @ordered
 	 */
 	int BUILDER_WRAPPER__ORIGINAL = B3backendPackage.BFUNCTION_WRAPPER__ORIGINAL;
+
+	/**
+	 * The feature id for the '<em><b>Parameter Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_WRAPPER__PARAMETER_MAP = B3backendPackage.BFUNCTION_WRAPPER__PARAMETER_MAP;
+
+	/**
+	 * The feature id for the '<em><b>Varargs Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_WRAPPER__VARARGS_NAME = B3backendPackage.BFUNCTION_WRAPPER__VARARGS_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.

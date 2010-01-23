@@ -242,6 +242,11 @@ public class BParameterPredicateItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BPARAMETER_PREDICATE__TYPE,
 				 B3backendFactory.eINSTANCE.createB3JavaImport()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BPARAMETER_PREDICATE__TYPE,
+				 B3backendFactory.eINSTANCE.createB3MetaClass()));
 	}
 
 	/**

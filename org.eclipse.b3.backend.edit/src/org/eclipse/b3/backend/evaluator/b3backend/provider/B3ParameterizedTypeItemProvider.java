@@ -234,6 +234,11 @@ public class B3ParameterizedTypeItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.B3_PARAMETERIZED_TYPE__OWNER_TYPE,
 				 B3backendFactory.eINSTANCE.createB3JavaImport()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.B3_PARAMETERIZED_TYPE__OWNER_TYPE,
+				 B3backendFactory.eINSTANCE.createB3MetaClass()));
 	}
 
 	/**

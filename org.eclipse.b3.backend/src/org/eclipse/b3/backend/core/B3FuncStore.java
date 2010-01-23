@@ -138,6 +138,7 @@ public class B3FuncStore {
 	
 	/**
 	 * Returns true if the functions have the same number of parameters, compatible var args flag,
+	 * compatible classFunction flag,
 	 * and equal parameter types.
 	 * @param a
 	 * @param b
@@ -147,6 +148,8 @@ public class B3FuncStore {
 		Type[] pta = a.getParameterTypes();
 		Type[] ptb = b.getParameterTypes();
 		if(pta.length != ptb.length)
+			return false;
+		if(a.isClassFunction() != b.isClassFunction())
 			return false;
 		if(a.isVarArgs() != b.isVarArgs())
 			return false;
@@ -175,9 +178,17 @@ public class B3FuncStore {
 			if(!f.isVarArgs()) {
 				if(types.length != pt.length)
 					continue perFunction; // not a match
-				for(int i = 0; i < pt.length; i++)
+				for(int i = 0; i < pt.length; i++) {
+//					if(f.isClassFunction()) {
+//						Type ptype = pt[i];
+//						Type argtype = types[i];
+//						// debug here
+//						System.out.print("DEBUG HERE - UNFINISHED BUSINESS...\n");
+//					}
+//					else 
 					if(!TypeUtils.isAssignableFrom(pt[i], types[i]))
 						continue perFunction;
+				}
 				// found a candidate
 				if(found != null) {
 					// lazy creation of candidate list (typically there is only one candidate)
@@ -199,10 +210,17 @@ public class B3FuncStore {
 
 				// compare all types except last (which is the varargs spec)
 				int limit = pt.length-1;
-				for(int i = 0; i < limit; i++)
+				for(int i = 0; i < limit; i++) {
+//					if(f.isClassFunction()) {
+//						Type ptype = pt[i];
+//						Type argtype = types[i];
+//						// debug here
+//						System.out.print("DEBUG HERE - UNFINISHED BUSINESS...\n");
+//					}
+
 					if(!TypeUtils.isAssignableFrom(pt[i], types[i]))
 						continue perFunction;
-				
+				}
 				Class<?> varArgsType;
 				// check compatibility of varargs
 				if(types.length >= pt.length) {

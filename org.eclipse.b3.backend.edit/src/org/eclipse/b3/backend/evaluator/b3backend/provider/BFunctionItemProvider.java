@@ -83,6 +83,7 @@ public class BFunctionItemProvider
 			addVarArgsPropertyDescriptor(object);
 			addDocumentationPropertyDescriptor(object);
 			addClosurePropertyDescriptor(object);
+			addClassFunctionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -193,6 +194,28 @@ public class BFunctionItemProvider
 				 false,
 				 true,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Class Function feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addClassFunctionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_IFunction_classFunction_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_IFunction_classFunction_feature", "_UI_IFunction_type"),
+				 B3backendPackage.Literals.IFUNCTION__CLASS_FUNCTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -409,6 +432,7 @@ public class BFunctionItemProvider
 			case B3backendPackage.BFUNCTION__PARAMETER_NAMES:
 			case B3backendPackage.BFUNCTION__VAR_ARGS:
 			case B3backendPackage.BFUNCTION__DOCUMENTATION:
+			case B3backendPackage.BFUNCTION__CLASS_FUNCTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case B3backendPackage.BFUNCTION__GUARD:
@@ -476,6 +500,11 @@ public class BFunctionItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.IFUNCTION__RETURN_TYPE,
 				 B3backendFactory.eINSTANCE.createB3JavaImport()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.IFUNCTION__RETURN_TYPE,
+				 B3backendFactory.eINSTANCE.createB3MetaClass()));
 
 		newChildDescriptors.add
 			(createChildParameter

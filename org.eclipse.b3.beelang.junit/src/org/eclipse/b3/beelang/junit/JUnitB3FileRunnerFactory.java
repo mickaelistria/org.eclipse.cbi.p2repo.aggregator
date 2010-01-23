@@ -16,6 +16,8 @@ import java.util.List;
 import org.eclipse.b3.BeeLangStandaloneSetup;
 import org.eclipse.b3.backend.core.B3Engine;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
+import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
+import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
@@ -129,7 +131,10 @@ class JUnitB3FileRunnerFactory {
 			for(Type type : beeModel.getImports()) {
 				if(type instanceof B3JavaImport) {
 					Class<?> klass = TypeUtils.getRaw(type);
-					b3Context.defineValue(((B3JavaImport) type).getName(), klass, klass);
+					B3MetaClass metaClass = B3backendFactory.eINSTANCE.createB3MetaClass();
+					metaClass.setInstanceClass(klass);
+
+					b3Context.defineValue(((B3JavaImport) type).getName(), klass, metaClass);
 				}
 			}
 

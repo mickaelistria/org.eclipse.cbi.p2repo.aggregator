@@ -6,6 +6,7 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend;
 
+import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import java.util.Iterator;
 import org.eclipse.b3.backend.core.B3DynamicClassLoader;
@@ -139,6 +140,14 @@ public interface BExecutionContext extends EObject {
 	 * @generated
 	 */
 	void loadFunctions(Class<? extends Object> clazz) throws B3EngineException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.B3EngineException" methodDataType="org.eclipse.b3.backend.evaluator.b3backend.Method"
+	 * @generated
+	 */
+	BJavaFunction loadFunction(Method method) throws B3EngineException;
 
 	/**
 	 * <!-- begin-user-doc -->

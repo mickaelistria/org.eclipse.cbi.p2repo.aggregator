@@ -266,6 +266,11 @@ public class BParameterDeclarationItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BPARAMETER_DECLARATION__TYPE,
 				 B3backendFactory.eINSTANCE.createB3JavaImport()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BPARAMETER_DECLARATION__TYPE,
+				 B3backendFactory.eINSTANCE.createB3MetaClass()));
 	}
 
 	/**

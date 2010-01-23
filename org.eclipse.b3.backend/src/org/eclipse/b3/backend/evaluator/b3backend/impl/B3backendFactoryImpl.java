@@ -149,6 +149,7 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 			case B3backendPackage.BPROCEED_EXPRESSION: return createBProceedExpression();
 			case B3backendPackage.BDELEGATING_CONTEXT: return createBDelegatingContext();
 			case B3backendPackage.BWRAPPING_CONTEXT: return createBWrappingContext();
+			case B3backendPackage.B3_META_CLASS: return createB3MetaClass();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -166,6 +167,8 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 				return createVisibilityFromString(eDataType, initialValue);
 			case B3backendPackage.EXECUTION_MODE:
 				return createExecutionModeFromString(eDataType, initialValue);
+			case B3backendPackage.BJAVA_CALL_TYPE:
+				return createBJavaCallTypeFromString(eDataType, initialValue);
 			case B3backendPackage.CORE_EXCEPTION:
 				return createCoreExceptionFromString(eDataType, initialValue);
 			case B3backendPackage.TYPE:
@@ -213,6 +216,8 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 				return convertVisibilityToString(eDataType, instanceValue);
 			case B3backendPackage.EXECUTION_MODE:
 				return convertExecutionModeToString(eDataType, instanceValue);
+			case B3backendPackage.BJAVA_CALL_TYPE:
+				return convertBJavaCallTypeToString(eDataType, instanceValue);
 			case B3backendPackage.CORE_EXCEPTION:
 				return convertCoreExceptionToString(eDataType, instanceValue);
 			case B3backendPackage.TYPE:
@@ -933,6 +938,16 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public B3MetaClass createB3MetaClass() {
+		B3MetaClassImpl b3MetaClass = new B3MetaClassImpl();
+		return b3MetaClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Visibility createVisibilityFromString(EDataType eDataType, String initialValue) {
 		Visibility result = Visibility.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -965,6 +980,26 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	 * @generated
 	 */
 	public String convertExecutionModeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BJavaCallType createBJavaCallTypeFromString(EDataType eDataType, String initialValue) {
+		BJavaCallType result = BJavaCallType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertBJavaCallTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

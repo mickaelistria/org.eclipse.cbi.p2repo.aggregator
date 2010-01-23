@@ -73,6 +73,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl#getClosure <em>Closure</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl#getTypeCalculator <em>Type Calculator</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl#getContainer <em>Container</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl#isClassFunction <em>Class Function</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl#getAroundExpr <em>Around Expr</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl#getOriginal <em>Original</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl#getParameterMap <em>Parameter Map</em>}</li>
@@ -345,6 +346,26 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * @ordered
 	 */
 	protected BTypeCalculator typeCalculator;
+
+	/**
+	 * The default value of the '{@link #isClassFunction() <em>Class Function</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isClassFunction()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean CLASS_FUNCTION_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isClassFunction() <em>Class Function</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isClassFunction()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean classFunction = CLASS_FUNCTION_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getAroundExpr() <em>Around Expr</em>}' reference.
@@ -783,6 +804,27 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isClassFunction() {
+		return classFunction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setClassFunction(boolean newClassFunction) {
+		boolean oldClassFunction = classFunction;
+		classFunction = newClassFunction;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION_WRAPPER__CLASS_FUNCTION, oldClassFunction, classFunction));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public BExpression getAroundExpr() {
 		if (aroundExpr != null && aroundExpr.eIsProxy()) {
 			InternalEObject oldAroundExpr = (InternalEObject)aroundExpr;
@@ -1091,6 +1133,8 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 				return getTypeCalculator();
 			case B3backendPackage.BFUNCTION_WRAPPER__CONTAINER:
 				return getContainer();
+			case B3backendPackage.BFUNCTION_WRAPPER__CLASS_FUNCTION:
+				return isClassFunction();
 			case B3backendPackage.BFUNCTION_WRAPPER__AROUND_EXPR:
 				if (resolve) return getAroundExpr();
 				return basicGetAroundExpr();
@@ -1162,6 +1206,9 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 				return;
 			case B3backendPackage.BFUNCTION_WRAPPER__CONTAINER:
 				setContainer((BFunctionContainer)newValue);
+				return;
+			case B3backendPackage.BFUNCTION_WRAPPER__CLASS_FUNCTION:
+				setClassFunction((Boolean)newValue);
 				return;
 			case B3backendPackage.BFUNCTION_WRAPPER__AROUND_EXPR:
 				setAroundExpr((BExpression)newValue);
@@ -1235,6 +1282,9 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 			case B3backendPackage.BFUNCTION_WRAPPER__CONTAINER:
 				setContainer((BFunctionContainer)null);
 				return;
+			case B3backendPackage.BFUNCTION_WRAPPER__CLASS_FUNCTION:
+				setClassFunction(CLASS_FUNCTION_EDEFAULT);
+				return;
 			case B3backendPackage.BFUNCTION_WRAPPER__AROUND_EXPR:
 				setAroundExpr((BExpression)null);
 				return;
@@ -1291,6 +1341,8 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 				return typeCalculator != null;
 			case B3backendPackage.BFUNCTION_WRAPPER__CONTAINER:
 				return getContainer() != null;
+			case B3backendPackage.BFUNCTION_WRAPPER__CLASS_FUNCTION:
+				return classFunction != CLASS_FUNCTION_EDEFAULT;
 			case B3backendPackage.BFUNCTION_WRAPPER__AROUND_EXPR:
 				return aroundExpr != null;
 			case B3backendPackage.BFUNCTION_WRAPPER__ORIGINAL:
@@ -1333,6 +1385,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 				case B3backendPackage.BFUNCTION_WRAPPER__CLOSURE: return B3backendPackage.IFUNCTION__CLOSURE;
 				case B3backendPackage.BFUNCTION_WRAPPER__TYPE_CALCULATOR: return B3backendPackage.IFUNCTION__TYPE_CALCULATOR;
 				case B3backendPackage.BFUNCTION_WRAPPER__CONTAINER: return B3backendPackage.IFUNCTION__CONTAINER;
+				case B3backendPackage.BFUNCTION_WRAPPER__CLASS_FUNCTION: return B3backendPackage.IFUNCTION__CLASS_FUNCTION;
 				default: return -1;
 			}
 		}
@@ -1369,6 +1422,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 				case B3backendPackage.IFUNCTION__CLOSURE: return B3backendPackage.BFUNCTION_WRAPPER__CLOSURE;
 				case B3backendPackage.IFUNCTION__TYPE_CALCULATOR: return B3backendPackage.BFUNCTION_WRAPPER__TYPE_CALCULATOR;
 				case B3backendPackage.IFUNCTION__CONTAINER: return B3backendPackage.BFUNCTION_WRAPPER__CONTAINER;
+				case B3backendPackage.IFUNCTION__CLASS_FUNCTION: return B3backendPackage.BFUNCTION_WRAPPER__CLASS_FUNCTION;
 				default: return -1;
 			}
 		}
@@ -1405,6 +1459,8 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 		result.append(varArgs);
 		result.append(", documentation: ");
 		result.append(documentation);
+		result.append(", classFunction: ");
+		result.append(classFunction);
 		result.append(", parameterMap: ");
 		result.append(parameterMap);
 		result.append(", varargsName: ");

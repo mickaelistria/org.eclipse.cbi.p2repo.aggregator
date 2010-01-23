@@ -1647,6 +1647,29 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected B3MetaClassItemProvider b3MetaClassItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createB3MetaClassAdapter() {
+		if (b3MetaClassItemProvider == null) {
+			b3MetaClassItemProvider = new B3MetaClassItemProvider(this);
+		}
+
+		return b3MetaClassItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1813,6 +1836,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 		if (bProceedExpressionItemProvider != null) bProceedExpressionItemProvider.dispose();
 		if (bDelegatingContextItemProvider != null) bDelegatingContextItemProvider.dispose();
 		if (bWrappingContextItemProvider != null) bWrappingContextItemProvider.dispose();
+		if (b3MetaClassItemProvider != null) b3MetaClassItemProvider.dispose();
 	}
 
 }

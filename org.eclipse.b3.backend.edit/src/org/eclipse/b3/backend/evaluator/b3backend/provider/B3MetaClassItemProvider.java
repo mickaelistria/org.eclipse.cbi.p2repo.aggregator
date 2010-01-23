@@ -16,31 +16,33 @@ package org.eclipse.b3.backend.evaluator.b3backend.provider;
 import java.util.Collection;
 import java.util.List;
 
-import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
+import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
-import org.eclipse.b3.backend.evaluator.b3backend.BLiteralType;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BLiteralType} object.
+ * This is the item provider adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class BLiteralTypeItemProvider
-	extends BExpressionItemProvider
+public class B3MetaClassItemProvider
+	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -60,7 +62,7 @@ public class BLiteralTypeItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BLiteralTypeItemProvider(AdapterFactory adapterFactory) {
+	public B3MetaClassItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -75,49 +77,42 @@ public class BLiteralTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addInstanceClassPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * This adds a property descriptor for the Instance Class feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(B3backendPackage.Literals.BLITERAL_TYPE__TYPE);
-		}
-		return childrenFeatures;
+	protected void addInstanceClassPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_B3MetaClass_instanceClass_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_B3MetaClass_instanceClass_feature", "_UI_B3MetaClass_type"),
+				 B3backendPackage.Literals.B3_META_CLASS__INSTANCE_CLASS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * This returns BLiteralType.gif.
+	 * This returns B3MetaClass.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/BLiteralType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/B3MetaClass"));
 	}
 
 	/**
@@ -128,8 +123,11 @@ public class BLiteralTypeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		BLiteralType bLiteralType = (BLiteralType)object;
-		return getString("_UI_BLiteralType_type") + " " + bLiteralType.getLineNumber();
+		Class labelValue = ((B3MetaClass)object).getInstanceClass();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ?
+			getString("_UI_B3MetaClass_type") :
+			getString("_UI_B3MetaClass_type") + " " + label;
 	}
 
 	/**
@@ -143,9 +141,9 @@ public class BLiteralTypeItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(BLiteralType.class)) {
-			case B3backendPackage.BLITERAL_TYPE__TYPE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+		switch (notification.getFeatureID(B3MetaClass.class)) {
+			case B3backendPackage.B3_META_CLASS__INSTANCE_CLASS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -161,36 +159,17 @@ public class BLiteralTypeItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
 
-		newChildDescriptors.add
-			(createChildParameter
-				(B3backendPackage.Literals.BLITERAL_TYPE__TYPE,
-				 B3backendFactory.eINSTANCE.createB3FunctionType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(B3backendPackage.Literals.BLITERAL_TYPE__TYPE,
-				 B3backendFactory.eINSTANCE.createB3ParameterizedType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(B3backendPackage.Literals.BLITERAL_TYPE__TYPE,
-				 B3backendFactory.eINSTANCE.createB3WildcardType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(B3backendPackage.Literals.BLITERAL_TYPE__TYPE,
-				 B3backendFactory.eINSTANCE.createB3FuncTypeVariable()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(B3backendPackage.Literals.BLITERAL_TYPE__TYPE,
-				 B3backendFactory.eINSTANCE.createB3JavaImport()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(B3backendPackage.Literals.BLITERAL_TYPE__TYPE,
-				 B3backendFactory.eINSTANCE.createB3MetaClass()));
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return B3BackendEditPlugin.INSTANCE;
 	}
 
 }

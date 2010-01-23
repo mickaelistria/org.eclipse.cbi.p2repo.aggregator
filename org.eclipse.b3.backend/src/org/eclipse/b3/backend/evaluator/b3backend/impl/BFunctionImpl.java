@@ -65,6 +65,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getClosure <em>Closure</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getTypeCalculator <em>Type Calculator</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getContainer <em>Container</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#isClassFunction <em>Class Function</em>}</li>
  * </ul>
  * </p>
  *
@@ -329,6 +330,26 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 	 * @ordered
 	 */
 	protected BTypeCalculator typeCalculator;
+
+	/**
+	 * The default value of the '{@link #isClassFunction() <em>Class Function</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isClassFunction()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean CLASS_FUNCTION_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isClassFunction() <em>Class Function</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isClassFunction()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean classFunction = CLASS_FUNCTION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -652,6 +673,27 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION__CONTAINER, newContainer, newContainer));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isClassFunction() {
+		return classFunction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setClassFunction(boolean newClassFunction) {
+		boolean oldClassFunction = classFunction;
+		classFunction = newClassFunction;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION__CLASS_FUNCTION, oldClassFunction, classFunction));
 	}
 
 	/**
@@ -1029,6 +1071,8 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 				return getTypeCalculator();
 			case B3backendPackage.BFUNCTION__CONTAINER:
 				return getContainer();
+			case B3backendPackage.BFUNCTION__CLASS_FUNCTION:
+				return isClassFunction();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1091,6 +1135,9 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 			case B3backendPackage.BFUNCTION__CONTAINER:
 				setContainer((BFunctionContainer)newValue);
 				return;
+			case B3backendPackage.BFUNCTION__CLASS_FUNCTION:
+				setClassFunction((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1151,6 +1198,9 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 			case B3backendPackage.BFUNCTION__CONTAINER:
 				setContainer((BFunctionContainer)null);
 				return;
+			case B3backendPackage.BFUNCTION__CLASS_FUNCTION:
+				setClassFunction(CLASS_FUNCTION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1195,6 +1245,8 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 				return typeCalculator != null;
 			case B3backendPackage.BFUNCTION__CONTAINER:
 				return getContainer() != null;
+			case B3backendPackage.BFUNCTION__CLASS_FUNCTION:
+				return classFunction != CLASS_FUNCTION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1229,6 +1281,7 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 				case B3backendPackage.BFUNCTION__CLOSURE: return B3backendPackage.IFUNCTION__CLOSURE;
 				case B3backendPackage.BFUNCTION__TYPE_CALCULATOR: return B3backendPackage.IFUNCTION__TYPE_CALCULATOR;
 				case B3backendPackage.BFUNCTION__CONTAINER: return B3backendPackage.IFUNCTION__CONTAINER;
+				case B3backendPackage.BFUNCTION__CLASS_FUNCTION: return B3backendPackage.IFUNCTION__CLASS_FUNCTION;
 				default: return -1;
 			}
 		}
@@ -1265,6 +1318,7 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 				case B3backendPackage.IFUNCTION__CLOSURE: return B3backendPackage.BFUNCTION__CLOSURE;
 				case B3backendPackage.IFUNCTION__TYPE_CALCULATOR: return B3backendPackage.BFUNCTION__TYPE_CALCULATOR;
 				case B3backendPackage.IFUNCTION__CONTAINER: return B3backendPackage.BFUNCTION__CONTAINER;
+				case B3backendPackage.IFUNCTION__CLASS_FUNCTION: return B3backendPackage.BFUNCTION__CLASS_FUNCTION;
 				default: return -1;
 			}
 		}
@@ -1301,6 +1355,8 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 		result.append(varArgs);
 		result.append(", documentation: ");
 		result.append(documentation);
+		result.append(", classFunction: ");
+		result.append(classFunction);
 		result.append(')');
 		return result.toString();
 	}

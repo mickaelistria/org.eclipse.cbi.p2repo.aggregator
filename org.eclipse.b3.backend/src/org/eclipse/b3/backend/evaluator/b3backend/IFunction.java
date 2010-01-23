@@ -44,6 +44,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getClosure <em>Closure</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getTypeCalculator <em>Type Calculator</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getContainer <em>Container</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#isClassFunction <em>Class Function</em>}</li>
  * </ul>
  * </p>
  *
@@ -471,6 +472,32 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * @generated
 	 */
 	void setContainer(BFunctionContainer value);
+
+	/**
+	 * Returns the value of the '<em><b>Class Function</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Class Function</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Class Function</em>' attribute.
+	 * @see #setClassFunction(boolean)
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getIFunction_ClassFunction()
+	 * @model
+	 * @generated
+	 */
+	boolean isClassFunction();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#isClassFunction <em>Class Function</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Class Function</em>' attribute.
+	 * @see #isClassFunction()
+	 * @generated
+	 */
+	void setClassFunction(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->

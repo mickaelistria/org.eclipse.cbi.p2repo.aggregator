@@ -69,7 +69,7 @@ public class BJavaFunctionItemProvider
 			super.getPropertyDescriptors(object);
 
 			addMethodPropertyDescriptor(object);
-			addSystemCallPropertyDescriptor(object);
+			addCallTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -97,23 +97,23 @@ public class BJavaFunctionItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the System Call feature.
+	 * This adds a property descriptor for the Call Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSystemCallPropertyDescriptor(Object object) {
+	protected void addCallTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BJavaFunction_systemCall_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BJavaFunction_systemCall_feature", "_UI_BJavaFunction_type"),
-				 B3backendPackage.Literals.BJAVA_FUNCTION__SYSTEM_CALL,
+				 getString("_UI_BJavaFunction_callType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BJavaFunction_callType_feature", "_UI_BJavaFunction_type"),
+				 B3backendPackage.Literals.BJAVA_FUNCTION__CALL_TYPE,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -156,7 +156,7 @@ public class BJavaFunctionItemProvider
 
 		switch (notification.getFeatureID(BJavaFunction.class)) {
 			case B3backendPackage.BJAVA_FUNCTION__METHOD:
-			case B3backendPackage.BJAVA_FUNCTION__SYSTEM_CALL:
+			case B3backendPackage.BJAVA_FUNCTION__CALL_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

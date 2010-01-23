@@ -470,6 +470,11 @@ public class BDefValueItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BDEF_VALUE__TYPE,
 				 B3backendFactory.eINSTANCE.createB3JavaImport()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BDEF_VALUE__TYPE,
+				 B3backendFactory.eINSTANCE.createB3MetaClass()));
 	}
 
 }

@@ -646,6 +646,15 @@ public interface B3backendFactory extends EFactory {
 	BWrappingContext createBWrappingContext();
 
 	/**
+	 * Returns a new object of class '<em>B3 Meta Class</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>B3 Meta Class</em>'.
+	 * @generated
+	 */
+	B3MetaClass createB3MetaClass();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

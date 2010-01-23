@@ -38,6 +38,7 @@ import org.eclipse.emf.common.util.EList;
  * The following operations are tested:
  * <ul>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#loadFunctions(java.lang.Class) <em>Load Functions</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#loadFunction(java.lang.reflect.Method) <em>Load Function</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#defineFunction(org.eclipse.b3.backend.evaluator.b3backend.IFunction) <em>Define Function</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#callFunction(java.lang.String, java.lang.Object[], java.lang.reflect.Type[]) <em>Call Function</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getValue(java.lang.String) <em>Get Value</em>}</li>
@@ -178,6 +179,19 @@ public abstract class BExecutionContextTest extends TestCase {
 			fail();
 		}
 	}
+	/**
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#loadFunction(java.lang.reflect.Method) <em>Load Function</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#loadFunction(java.lang.reflect.Method)
+	 * @generated
+	 */
+	public void testLoadFunction__Method() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
 	/**
 	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#defineFunction(org.eclipse.b3.backend.evaluator.b3backend.IFunction) <em>Define Function</em>}' operation.
 	 * <!-- begin-user-doc -->

@@ -7,6 +7,8 @@ import java.util.List;
 
 import org.eclipse.b3.backend.core.B3Engine;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
+import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
+import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.b3.beeLang.BeeModel;
@@ -47,7 +49,9 @@ public class ExecuteHandler extends AbstractHandler {
 					for(Type t : ((BeeModel) state).getImports()) {
 						if(t instanceof B3JavaImport) {
 							Class<?> x = TypeUtils.getRaw(t);
-							engine.getContext().defineValue(((B3JavaImport) t).getName(), x, x);
+							B3MetaClass metaClass = B3backendFactory.eINSTANCE.createB3MetaClass();
+							metaClass.setInstanceClass(x);
+							engine.getContext().defineValue(((B3JavaImport) t).getName(), x, metaClass);
 						}
 					}
 					if(main == null)

@@ -19,6 +19,7 @@ public class B3NoSuchFunctionSignatureException extends B3EngineException {
 				buffer.append(", ");
 			buffer.append(types[i].toString());
 		}
+		buffer.append(']');
 		return buffer.toString();
 	}
 }

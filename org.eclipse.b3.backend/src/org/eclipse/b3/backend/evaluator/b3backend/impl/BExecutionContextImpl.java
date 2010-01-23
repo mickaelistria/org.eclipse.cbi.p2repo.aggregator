@@ -23,12 +23,14 @@ import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.core.B3FuncStore;
 import org.eclipse.b3.backend.core.B3FunctionLoadException;
 import org.eclipse.b3.backend.core.B3NoSuchFunctionException;
+import org.eclipse.b3.backend.core.B3NoSuchFunctionSignatureException;
 import org.eclipse.b3.backend.core.LValue;
 import org.eclipse.b3.backend.core.B3FinalVariableRedefinitionException;
 import org.eclipse.b3.backend.core.B3NoContextException;
 import org.eclipse.b3.backend.core.B3NoSuchVariableException;
 import org.eclipse.b3.backend.core.ValueMap;
 import org.eclipse.b3.backend.evaluator.BackendHelper;
+import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BContext;
@@ -36,12 +38,14 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFileReference;
 import org.eclipse.b3.backend.evaluator.b3backend.BGuardFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BInnerContext;
+import org.eclipse.b3.backend.evaluator.b3backend.BJavaCallType;
 import org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BSystemContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculatorFunction;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BInvocationContext;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
+import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -291,6 +295,7 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 				f.setLineNumber(counter); // not a line number, but at least unique
 				f.setName(m.getName());	// set original name (as default)
 				f.setFinal(Modifier.isFinal(modifiers)); // make it final in b3 as well
+				f.setCallType(BJavaCallType.FUNCTION); // may later change to system call
 				f.setMethod(m); // add the thing to call
 
 				// check for annotations
@@ -338,7 +343,7 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 				else if (annotation != null && annotation.guard()) {
 					guards.put(f.getName(), f);
 					// guards are called using system calling convention
-					f.setSystemCall(true);
+					f.setCallType(BJavaCallType.SYSTEM);
 				}
 				else if (annotation != null && annotation.typeCalculator()) {
 					typeCalculators.put(f.getName(), f);
@@ -391,7 +396,7 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 					throw new B3FunctionLoadException("reference to system function: "
 							+e.getKey()+" can not be satisfied - no such method found.", s.getMethod());
 				// patch the method in the func store with values from the system function
-				s.setSystemCall(true);
+				s.setCallType(BJavaCallType.SYSTEM);
 				s.setMethod(sys.getMethod());
 			}
 		}
@@ -431,6 +436,77 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Loads a single method as a function. The method may be static.
+	 * If the method is not public, null is returned, and a function was not defined.
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public BJavaFunction loadFunction(Method m) throws B3EngineException {
+		createFuncStore();
+		Class<?> clazz = m.getDeclaringClass();
+		BFileReference fileRef = B3backendFactory.eINSTANCE.createBFileReference();
+		String fileName = clazz.getCanonicalName();
+		fileRef.setFileName(fileName == null ? "anonymous class" : fileName);
+		final int modifiers = m.getModifiers();
+		boolean isStatic = Modifier.isStatic(modifiers);
+		// create and initialize a BJavaFunction to represent the method m
+		
+		if(Modifier.isPublic(modifiers)) {
+			BJavaFunction f = B3backendFactory.eINSTANCE.createBJavaFunction();
+			f.setFileReference(fileRef);
+			f.setLineNumber(1); // not a line number unfortunately
+			f.setName(m.getName());	
+			f.setFinal(Modifier.isFinal(modifiers)); // make it final in b3 as well
+			f.setClassFunction(isStatic); // invokable via class - i.e. "static" in java
+			f.setCallType(BJavaCallType.METHOD); // i.e. first parameter is not passed as parameter
+			f.setMethod(m); // add the thing to call
+
+			f.setReturnType(m.getGenericReturnType());
+			f.setExceptionTypes(m.getGenericExceptionTypes());
+			// set parameter types, but add the declaring class as the first parameter
+			f.setParameterTypes(getGenericParameterTypes(m, isStatic));
+			f.setVarArgs(m.isVarArgs());
+			// there may be parameter annotations, but very unlikely - at least there is
+			// an empty array of parameter annotations, so can just as well use this
+			Annotation[][] pa = m.getParameterAnnotations();
+			String pNames[] = new String[pa.length + (isStatic ? 0 : 1)];
+			f.setParameterNames(pNames);
+			if(!isStatic)
+				pNames[0] = "this";
+			for(int i = 0; i < pa.length; i++) {
+				Annotation[] pan = pa[i];
+				if(pan == null || pan.length == 0)
+					pNames[i+ (isStatic ? 0 : 1)] = String.valueOf((char)('a'+i));
+				else {
+					for(int j = 0; j < pan.length; j++) {
+						if(pan[j] instanceof B3Backend) {
+							pNames[i+ (isStatic ? 0 : 1)]=((B3Backend)pan[j]).name();
+							break; // only use first named declared for the parameter
+						}
+					}
+				}
+			}
+			f.setTypeParameters(m.getTypeParameters());
+
+			funcStore.defineFunction(m.getName(), f);
+			return f;
+		}
+		return null;
+	}
+	private Type[] getGenericParameterTypes(Method m, boolean isStatic) {
+		Type[] original = m.getGenericParameterTypes();
+//		if(isStatic)
+//			return original;
+		Type[] rewritten = new Type[original.length+1];
+		B3MetaClass metaClass = B3backendFactory.eINSTANCE.createB3MetaClass();
+		metaClass.setInstanceClass(m.getDeclaringClass());
+		rewritten[0] = metaClass;
+		for(int i = 0; i < original.length;i++)
+			rewritten[i+1] = original[i];
+		return rewritten;
+	}
+	/**
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
@@ -441,7 +517,26 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 			try {
 				return fStore.callFunction(functionName, parameters, types, this);
 			} catch (B3NoSuchFunctionException e) {
-				/* ignore - try java context later */
+				/* ignore - and try java context later */
+			} catch (B3NoSuchFunctionSignatureException e2) {
+				/* found function-name, but with incompatible signature, try a class call */
+				try {
+					if(parameters.length > 0) {
+					Object[] newParameters = new Object[parameters.length+1];
+					System.arraycopy(parameters, 0, newParameters, 1, parameters.length);
+					B3MetaClass metaClass = B3backendFactory.eINSTANCE.createB3MetaClass();
+					metaClass.setInstanceClass(TypeUtils.getRaw(types[0]));
+					newParameters[0] = types[0];
+					Type[] newTypes = new Type[types.length+1];
+					System.arraycopy(types, 0, newTypes, 1, types.length);
+					newTypes[0] = metaClass;
+					return fStore.callFunction(functionName, newParameters, newTypes, this);
+					}
+				} catch (B3NoSuchFunctionException e3) {
+					/* ignore - try java context later */
+				} catch (B3NoSuchFunctionSignatureException e4) {
+					/* ignore - try java context later */
+				}
 			}
 
 			// try java context
@@ -599,13 +694,28 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	public Type getDeclaredFunctionType(String functionName, Type[] types) throws Throwable {
 		B3FuncStore fStore = getEffectiveFuncStore();
 
+		// try regular lookup, then a lookup using static access, then java context
 		if(fStore != null) 
 			try {
 				return fStore.getDeclaredFunctionType(functionName, types, this);
 			} catch (B3NoSuchFunctionException e) {
 				/* ignore - try java context later */
-			}
+			} catch (B3NoSuchFunctionSignatureException e2) {
+				/* found function-name, but with incompatible signature, try a class call */
+				try {
+					B3MetaClass metaClass = B3backendFactory.eINSTANCE.createB3MetaClass();
+					metaClass.setInstanceClass(TypeUtils.getRaw(types[0]));
+					Type[] newTypes = new Type[types.length+1];
+					System.arraycopy(types, 0, newTypes, 1, types.length);
+					newTypes[0] = metaClass;
+					return fStore.getDeclaredFunctionType(functionName, newTypes, this);
 
+				} catch (B3NoSuchFunctionException e3) {
+					/* ignore - try java context later */
+				} catch (B3NoSuchFunctionSignatureException e4) {
+					/* ignore - try java context later */
+				}
+			}
 			// try java context
 			BExecutionContext systemCtx = this.getInvocationContext().getParentContext();
 			if(!(systemCtx instanceof BSystemContext))

@@ -14,6 +14,7 @@ import java.util.Set;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
+import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
 
 public class TypeUtils {
 	private static WeakReference<TypeDistance> typeDistance = new WeakReference<TypeDistance>(null);
@@ -102,12 +103,17 @@ public class TypeUtils {
 			B3FunctionType ft = B3FunctionType.class.cast(t);
 			return getRaw(ft.getFunctionType()); // i.e. what type of function this is B3, or Java
 		}
-		throw new UnsupportedOperationException("ONLY CLASS AND PARAMETERIZED TYPE SUPPORTED - was: " + t);
+		if(t instanceof B3MetaClass) {
+			return ((B3MetaClass)t).getInstanceClass();
+		}
+		throw new UnsupportedOperationException("UNSUPPORTED TYPE CLASS - was: " + t);
 	}
 
 	public static boolean isAssignableFrom(Type baseType, Type fromType) {
 		if(baseType instanceof B3FunctionType)
 			return ((B3FunctionType) baseType).isAssignableFrom(fromType);
+		if(baseType instanceof B3MetaClass)
+			return ((B3MetaClass)baseType).isAssignableFrom(fromType);
 		return getRaw(baseType).isAssignableFrom(getRaw(fromType));
 	}
 
@@ -116,7 +122,13 @@ public class TypeUtils {
 
 		return coerceTypes != null && coerceTypes.contains(baseType);
 	}
-
+	/**
+	 * Is equivalent to calling {@link #isAssignableFrom(Type, Type)} with baseType, value.getClass(), but 
+	 * handles the special case when value is null.
+	 * @param baseType
+	 * @param value
+	 * @return
+	 */
 	public static boolean isAssignableFrom(Type baseType, Object value) {
 		if(value == null)
 			return true;

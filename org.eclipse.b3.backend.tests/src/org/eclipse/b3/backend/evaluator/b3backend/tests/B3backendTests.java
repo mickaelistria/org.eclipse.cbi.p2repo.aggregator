@@ -100,6 +100,7 @@ public class B3backendTests extends TestSuite {
 		suite.addTestSuite(BProceedExpressionTest.class);
 		suite.addTestSuite(BDelegatingContextTest.class);
 		suite.addTestSuite(BWrappingContextTest.class);
+		suite.addTestSuite(B3MetaClassTest.class);
 		return suite;
 	}
 

@@ -1,5 +1,8 @@
 package org.eclipse.b3.backend.core;
 
+import java.lang.reflect.Array;
+import java.lang.reflect.Method;
+
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BInvocationContext;
@@ -26,8 +29,25 @@ public class B3Engine {
 			// should not really happen as this is loading default functions
 			e.printStackTrace();
 		}
+		loadInstanceMethods(); // experimental
 	}
 	public BExecutionContext getContext() {
 		return invocationContext;
+	}
+	/** 
+	 * Experimental code - to be removed
+	 */
+	private void loadInstanceMethods() {
+		Method m = null;
+		try {
+			m = String.class.getMethod("format", String.class, Array.newInstance(Object.class, 0).getClass());
+		} catch (Throwable e) {
+			e.printStackTrace();
+		} 
+		try {
+			invocationContext.loadFunction(m);
+		} catch (B3EngineException e) {
+			e.printStackTrace();
+		}
 	}
 }

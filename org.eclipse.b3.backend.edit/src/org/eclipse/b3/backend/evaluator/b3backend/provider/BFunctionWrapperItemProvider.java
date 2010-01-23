@@ -91,6 +91,7 @@ public class BFunctionWrapperItemProvider
 			addVarArgsPropertyDescriptor(object);
 			addDocumentationPropertyDescriptor(object);
 			addClosurePropertyDescriptor(object);
+			addClassFunctionPropertyDescriptor(object);
 			addAroundExprPropertyDescriptor(object);
 			addOriginalPropertyDescriptor(object);
 			addParameterMapPropertyDescriptor(object);
@@ -342,6 +343,28 @@ public class BFunctionWrapperItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Class Function feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addClassFunctionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_IFunction_classFunction_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_IFunction_classFunction_feature", "_UI_IFunction_type"),
+				 B3backendPackage.Literals.IFUNCTION__CLASS_FUNCTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Around Expr feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -509,6 +532,7 @@ public class BFunctionWrapperItemProvider
 			case B3backendPackage.BFUNCTION_WRAPPER__PARAMETER_NAMES:
 			case B3backendPackage.BFUNCTION_WRAPPER__VAR_ARGS:
 			case B3backendPackage.BFUNCTION_WRAPPER__DOCUMENTATION:
+			case B3backendPackage.BFUNCTION_WRAPPER__CLASS_FUNCTION:
 			case B3backendPackage.BFUNCTION_WRAPPER__PARAMETER_MAP:
 			case B3backendPackage.BFUNCTION_WRAPPER__VARARGS_NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
@@ -578,6 +602,11 @@ public class BFunctionWrapperItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.IFUNCTION__RETURN_TYPE,
 				 B3backendFactory.eINSTANCE.createB3JavaImport()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.IFUNCTION__RETURN_TYPE,
+				 B3backendFactory.eINSTANCE.createB3MetaClass()));
 
 		newChildDescriptors.add
 			(createChildParameter

@@ -17,7 +17,7 @@ import java.lang.reflect.Method;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction#getMethod <em>Method</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction#isSystemCall <em>System Call</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction#getCallType <em>Call Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -60,28 +60,56 @@ public interface BJavaFunction extends BFunction {
 	void setMethod(Method value);
 
 	/**
-	 * Returns the value of the '<em><b>System Call</b></em>' attribute.
+	 * Returns the value of the '<em><b>Call Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.eclipse.b3.backend.evaluator.b3backend.BJavaCallType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Call Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Call Type</em>' attribute.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BJavaCallType
+	 * @see #setCallType(BJavaCallType)
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBJavaFunction_CallType()
+	 * @model
+	 * @generated
+	 */
+	BJavaCallType getCallType();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction#getCallType <em>Call Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Indicates if the call should be made on the form f(BExecutionContext ctx, Object[] params, Types[] types) or as a regular call, where no access to the context and types is provided.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>System Call</em>' attribute.
-	 * @see #setSystemCall(boolean)
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBJavaFunction_SystemCall()
-	 * @model
+	 * @param value the new value of the '<em>Call Type</em>' attribute.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BJavaCallType
+	 * @see #getCallType()
+	 * @generated
+	 */
+	void setCallType(BJavaCallType value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
 	 * @generated
 	 */
 	boolean isSystemCall();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction#isSystemCall <em>System Call</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>System Call</em>' attribute.
-	 * @see #isSystemCall()
+	 * @model kind="operation"
 	 * @generated
 	 */
-	void setSystemCall(boolean value);
+	boolean isFunctionCall();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	boolean isMethodCall();
 
 } // BJavaFunction

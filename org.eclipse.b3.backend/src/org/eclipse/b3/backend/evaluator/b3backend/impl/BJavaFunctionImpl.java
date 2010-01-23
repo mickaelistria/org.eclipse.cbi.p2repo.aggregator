@@ -13,6 +13,7 @@ import java.lang.reflect.Type;
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
+import org.eclipse.b3.backend.evaluator.b3backend.BJavaCallType;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction;
 
@@ -30,7 +31,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BJavaFunctionImpl#getMethod <em>Method</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BJavaFunctionImpl#isSystemCall <em>System Call</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BJavaFunctionImpl#getCallType <em>Call Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -65,24 +66,24 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	protected Method method = METHOD_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isSystemCall() <em>System Call</em>}' attribute.
+	 * The default value of the '{@link #getCallType() <em>Call Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isSystemCall()
+	 * @see #getCallType()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean SYSTEM_CALL_EDEFAULT = false;
+	protected static final BJavaCallType CALL_TYPE_EDEFAULT = BJavaCallType.FUNCTION;
 
 	/**
-	 * The cached value of the '{@link #isSystemCall() <em>System Call</em>}' attribute.
+	 * The cached value of the '{@link #getCallType() <em>Call Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isSystemCall()
+	 * @see #getCallType()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean systemCall = SYSTEM_CALL_EDEFAULT;
+	protected BJavaCallType callType = CALL_TYPE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -129,8 +130,8 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isSystemCall() {
-		return systemCall;
+	public BJavaCallType getCallType() {
+		return callType;
 	}
 
 	/**
@@ -138,11 +139,38 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSystemCall(boolean newSystemCall) {
-		boolean oldSystemCall = systemCall;
-		systemCall = newSystemCall;
+	public void setCallType(BJavaCallType newCallType) {
+		BJavaCallType oldCallType = callType;
+		callType = newCallType == null ? CALL_TYPE_EDEFAULT : newCallType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BJAVA_FUNCTION__SYSTEM_CALL, oldSystemCall, systemCall));
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BJAVA_FUNCTION__CALL_TYPE, oldCallType, callType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean isSystemCall() {
+		return getCallType().getValue() == BJavaCallType.SYSTEM_VALUE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean isFunctionCall() {
+		return getCallType().getValue() == BJavaCallType.FUNCTION_VALUE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean isMethodCall() {
+		return getCallType().getValue() == BJavaCallType.METHOD_VALUE;
 	}
 
 	/**
@@ -155,8 +183,8 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 		switch (featureID) {
 			case B3backendPackage.BJAVA_FUNCTION__METHOD:
 				return getMethod();
-			case B3backendPackage.BJAVA_FUNCTION__SYSTEM_CALL:
-				return isSystemCall();
+			case B3backendPackage.BJAVA_FUNCTION__CALL_TYPE:
+				return getCallType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -172,8 +200,8 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 			case B3backendPackage.BJAVA_FUNCTION__METHOD:
 				setMethod((Method)newValue);
 				return;
-			case B3backendPackage.BJAVA_FUNCTION__SYSTEM_CALL:
-				setSystemCall((Boolean)newValue);
+			case B3backendPackage.BJAVA_FUNCTION__CALL_TYPE:
+				setCallType((BJavaCallType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -190,8 +218,8 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 			case B3backendPackage.BJAVA_FUNCTION__METHOD:
 				setMethod(METHOD_EDEFAULT);
 				return;
-			case B3backendPackage.BJAVA_FUNCTION__SYSTEM_CALL:
-				setSystemCall(SYSTEM_CALL_EDEFAULT);
+			case B3backendPackage.BJAVA_FUNCTION__CALL_TYPE:
+				setCallType(CALL_TYPE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -207,8 +235,8 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 		switch (featureID) {
 			case B3backendPackage.BJAVA_FUNCTION__METHOD:
 				return METHOD_EDEFAULT == null ? method != null : !METHOD_EDEFAULT.equals(method);
-			case B3backendPackage.BJAVA_FUNCTION__SYSTEM_CALL:
-				return systemCall != SYSTEM_CALL_EDEFAULT;
+			case B3backendPackage.BJAVA_FUNCTION__CALL_TYPE:
+				return callType != CALL_TYPE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -225,8 +253,8 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (method: ");
 		result.append(method);
-		result.append(", systemCall: ");
-		result.append(systemCall);
+		result.append(", callType: ");
+		result.append(callType);
 		result.append(')');
 		return result.toString();
 	}
@@ -242,9 +270,38 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	@Override
 	public Object internalCall(BExecutionContext ctx, Object[] parameters, Type[] types) throws Throwable {
 		try {
-		if(systemCall)
+		if(isSystemCall())
 			return method.invoke(null, ctx, parameters, types);
-		return method.invoke(null, parameters);
+		Object instance = null;
+		int start = 0; 
+		int vStart = -1; // no varargs copy needed
+		int pSize = getParameterTypes().length;
+		if(isMethodCall()) {
+			instance = parameters[0];
+			start = 1;
+			pSize--;
+			}
+		
+		int limit = parameters.length;
+		if(isVarArgs()) {
+			vStart = getParameterTypes().length-1;
+			if(vStart < limit)
+				limit = vStart;
+			}
+		if(start >= 1 || vStart >= 0) {
+			Object[] newParameters = new Object[pSize];
+			for(int i = start; i < limit; i++)
+				newParameters[i-start] = parameters[i];
+			if(vStart >= 0) {
+				Object[] variable = new Object[parameters.length-limit];
+				for(int j = 0, i = vStart; i < parameters.length;i++,j++)
+					variable[j] = parameters[i];
+				newParameters[limit-start] = variable;
+			}
+			parameters = newParameters;
+		}
+
+		return method.invoke(instance, parameters);
 		} catch (InvocationTargetException e) {
 			throw e.getCause();
 		}
