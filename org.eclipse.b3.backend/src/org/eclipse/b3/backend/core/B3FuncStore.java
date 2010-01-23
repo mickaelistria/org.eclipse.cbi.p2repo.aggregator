@@ -116,7 +116,6 @@ public class B3FuncStore {
 					if(!hasCompatibleReturnType(f2, f))
 						throw new B3IncompatibleReturnTypeException(f2.getReturnType(), f.getReturnType());
 					overloaded.add(f2);
-					// TODO: f.setOverloads(f2); // for 'proceed' functionality
 				}
 			}
 		parentList.removeAll(overloaded);
@@ -179,13 +178,6 @@ public class B3FuncStore {
 				if(types.length != pt.length)
 					continue perFunction; // not a match
 				for(int i = 0; i < pt.length; i++) {
-//					if(f.isClassFunction()) {
-//						Type ptype = pt[i];
-//						Type argtype = types[i];
-//						// debug here
-//						System.out.print("DEBUG HERE - UNFINISHED BUSINESS...\n");
-//					}
-//					else 
 					if(!TypeUtils.isAssignableFrom(pt[i], types[i]))
 						continue perFunction;
 				}
@@ -211,13 +203,6 @@ public class B3FuncStore {
 				// compare all types except last (which is the varargs spec)
 				int limit = pt.length-1;
 				for(int i = 0; i < limit; i++) {
-//					if(f.isClassFunction()) {
-//						Type ptype = pt[i];
-//						Type argtype = types[i];
-//						// debug here
-//						System.out.print("DEBUG HERE - UNFINISHED BUSINESS...\n");
-//					}
-
 					if(!TypeUtils.isAssignableFrom(pt[i], types[i]))
 						continue perFunction;
 				}
