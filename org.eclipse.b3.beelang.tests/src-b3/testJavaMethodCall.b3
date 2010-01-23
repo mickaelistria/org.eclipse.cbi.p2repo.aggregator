@@ -7,6 +7,8 @@ import java.lang.String;
 
 function Object main(List argv) {
 	testJavaCall();
+	testStaticJavaVarargsCall();
+	testJavaVarargsCall();
 }
 function Object testJavaCall() {
 	assertEquals("'hello world'.substring(6) == 'world'", "world", "hello world".substring(6));
@@ -16,7 +18,12 @@ function Object testJavaCall() {
 	assertEquals("static method call", 3, Integer.valueOf("3"));
 
 	assertEquals("5 == Math.max(4, 5.0)", 5, Math.max(4, 5.0));
+}
+function testStaticJavaVarargsCall() {
+	assertEquals("static varargs call to java", "ab", String.format("%s%s", "a", "b"));
+}
+function testJavaVarargsCall() {
+	assertEquals("varargs call to java", "ab", "%s%s".format("a", "b"));
 	assertEquals("0 == Math.sin(0)", 0, Math.sin(0));
-
 	assertEquals("\"Hello, World! - FF\" == String.format(\"%s, %s! - %02X\", \"Hello\", \"World\", 0xff)", "Hello, World! - FF", String.format("%s, %s! - %02X", "Hello", "World", 0xff)); 
 }
