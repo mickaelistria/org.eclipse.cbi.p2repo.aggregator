@@ -80,6 +80,10 @@ public class TypeUtils {
 		}
 	}
 
+	public enum CandidateState {
+		NONE, VARIABLE_ARITY_BY_CONVERSION, VARIABLE_ARITY_BY_SUBTYPING, FIXED_ARITY_BY_CONVERSION, FIXED_ARITY_BY_SUBTYPING;
+	}
+
 	public static Class<?> getRaw(Type t) {
 		if(t instanceof Class<?>)
 			return (Class<?>) t;
