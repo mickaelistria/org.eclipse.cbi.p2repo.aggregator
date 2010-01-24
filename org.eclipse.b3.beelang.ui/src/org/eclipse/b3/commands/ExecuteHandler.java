@@ -10,6 +10,7 @@ import org.eclipse.b3.backend.core.B3Engine;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
+import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.b3.beeLang.BeeModel;
@@ -20,6 +21,9 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.expressions.EvaluationContext;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.ui.console.MessageConsole;
+import org.eclipse.xtext.parsetree.CompositeNode;
+import org.eclipse.xtext.parsetree.NodeAdapter;
+import org.eclipse.xtext.parsetree.NodeUtil;
 import org.eclipse.xtext.ui.common.editor.outline.ContentOutlineNode;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 
@@ -63,14 +67,29 @@ public class ExecuteHandler extends AbstractHandler {
 								new Type[] { List.class });
 					} catch(B3BackendException exprException) {
 						exprException.printStackTrace();
+						int lineNumber = 0;
+						BExpression expr = exprException.getExpression();
+						if(expr != null) {
+							NodeAdapter adapter = NodeUtil.getNodeAdapter(expr);
+							if(adapter != null) {
+								CompositeNode node = adapter.getParserNode();
+								if(node != null) {
+									lineNumber = node.getLine();
+								}
+							}
+						}
+					
 						PrintStream b3ConsoleErrorStream = BeeLangConsoleUtils.getConsoleErrorStream(b3Console);
 						try {
 							b3ConsoleErrorStream.println(exprException.getMessage());
-							b3ConsoleErrorStream.println("    at <function name tbd>("
+							b3ConsoleErrorStream.println("        at <function name TBD>("
 									+exprException.getLocationString()
 									+":"
-									+exprException.getExpression().getLineNumber()
-									+")");
+									+ lineNumber
+									+").");
+							if(exprException.getCause() != null) {
+								b3ConsoleErrorStream.println("Caused by: " + exprException.getCause().getMessage());
+							}
 							
 						} finally {
 							b3ConsoleErrorStream.close();
