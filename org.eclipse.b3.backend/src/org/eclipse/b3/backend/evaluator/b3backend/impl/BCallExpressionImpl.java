@@ -8,6 +8,9 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import java.lang.reflect.Type;
 
+import org.eclipse.b3.backend.core.B3BackendException;
+import org.eclipse.b3.backend.core.B3NoSuchFunctionException;
+import org.eclipse.b3.backend.core.B3NoSuchFunctionSignatureException;
 import org.eclipse.b3.backend.evaluator.BackendHelper;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BCallExpression;
@@ -259,6 +262,8 @@ public class BCallExpressionImpl extends BParameterizedExpressionImpl implements
 
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
+		Throwable lastError = null;
+		try {
 		// if call is on the form "x.f(...)" => "f(x,...)"
 		if(funcExpr != null && name != null)
 			return targetCall(ctx);
@@ -266,6 +271,12 @@ public class BCallExpressionImpl extends BParameterizedExpressionImpl implements
 			return namedFunctionCall(ctx);
 
 		return expressionCall(ctx);
+		} catch(B3NoSuchFunctionSignatureException e) {
+			lastError = e;
+		} catch(B3NoSuchFunctionException e) {
+			lastError = e;
+		}
+		throw B3BackendException.fromMessage(this, lastError, "Call failed - see details.");
 	}
 	private Object expressionCall(BExecutionContext ctx) throws Throwable {
 		Object target = funcExpr.evaluate(ctx);
@@ -280,7 +291,7 @@ public class BCallExpressionImpl extends BParameterizedExpressionImpl implements
 			tparameters[counter++] = e.getDeclaredType(ctx);
 		}
 		if(!(target instanceof BFunction))
-			throw BackendHelper.createException(this, "call on non BFunction - was : {0}", new Object[]{target.getClass()});
+			throw B3BackendException.fromMessage(this, "Attempt to call non Function - was type : {0}", new Object[]{target.getClass()});
 
 		// if the function comes with a closure, call it in an inner context, else a fresh outer context.
 		// TODO: Don't know if this treatment is needed elsewhere as well...

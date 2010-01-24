@@ -517,9 +517,9 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 * @generated NOT
 	 */
 	public Object callFunction(String functionName, Object[] parameters,Type[] types) throws Throwable {
-//		if("substring".equals(functionName)) {
-//			functionName = functionName + ""; // dummy for debugging
-//		}
+		if("max".equals(functionName)) {
+			functionName = functionName + ""; // dummy for debugging
+		}
 		B3FuncStore fStore = getEffectiveFuncStore();
 		if(fStore == null)
 			throw new B3InternalError("Could not find an effective function store - engine/context setup is broken!");
@@ -728,34 +728,91 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 */
 	public Type getDeclaredFunctionType(String functionName, Type[] types) throws Throwable {
 		B3FuncStore fStore = getEffectiveFuncStore();
-
-		// try regular lookup, then a lookup using static access, then java context
-		if(fStore != null) 
-			try {
-				return fStore.getDeclaredFunctionType(functionName, types, this);
-			} catch (B3NoSuchFunctionException e) {
-				/* ignore - try java context later */
-			} catch (B3NoSuchFunctionSignatureException e2) {
-				/* found function-name, but with incompatible signature, try a class call */
+		if(fStore == null)
+			throw new B3InternalError("Could not find an effective function store - engine/context setup is broken!");
+		Throwable lastError = null;
+		ATTEMPTS: for(int attempts = 0; attempts < 5; attempts++) {
+			switch(attempts) {
+			case 0:	// fall through
+			case 3: // try a call with the parameters as stated
 				try {
+					return fStore.getDeclaredFunctionType(functionName, types, this);
+				} catch (B3NoSuchFunctionException e) {
+					attempts++; // skip second attempt
+					lastError = e;
+					continue;
+				} catch (B3NoSuchFunctionSignatureException e2) {
+					lastError = e2;
+					continue;
+				}
+			case 1: // fall through
+			case 4: // try a static call
+				try {
+					if(types.length > 0) {
 					B3MetaClass metaClass = B3backendFactory.eINSTANCE.createB3MetaClass();
 					metaClass.setInstanceClass(TypeUtils.getRaw(types[0]));
 					Type[] newTypes = new Type[types.length+1];
 					System.arraycopy(types, 0, newTypes, 1, types.length);
 					newTypes[0] = metaClass;
 					return fStore.getDeclaredFunctionType(functionName, newTypes, this);
-
+					}
 				} catch (B3NoSuchFunctionException e3) {
-					/* ignore - try java context later */
+					lastError = e3;
+					continue;
 				} catch (B3NoSuchFunctionSignatureException e4) {
-					/* ignore - try java context later */
+					lastError = e4;
+					continue;
 				}
+				break;
+			case 2: // try loading the method in the java context
+				BExecutionContext systemCtx = this.getInvocationContext().getParentContext();
+				if(!(systemCtx instanceof BSystemContext))
+					throw new B3InternalError("The parent of the invocation context must be an instance of BSystemContext");
+				if(((BSystemContext)systemCtx).loadMethod(functionName, types)) {
+					// TODO: apply bequests for the just loaded function (but not for any other)
+					continue; // attempt calling the (possibly advised) function
+				}
+				break ATTEMPTS;
+			default:
+				throw new B3InternalError("BExecutionContextImpl#getDeclaredFunctionType() - broken call strategy loop :" + String.valueOf(attempts));
 			}
-			// try java context
-			BExecutionContext systemCtx = this.getInvocationContext().getParentContext();
-			if(!(systemCtx instanceof BSystemContext))
-				throw new IllegalStateException("The parent of the invocation context must be an instance of BSystemContext");
-			return ((BSystemContext)systemCtx).getDeclaredFunctionType(functionName, types);
+		}
+		// Successful call should have returned result already - only error conditions remain
+		if(lastError == null)
+			throw new B3InternalError("BExecutionContextImpl#getDeclaredFunctionType() did not return ok, and had no last error");
+		
+		throw lastError;
+	
+//		/// OLD IMPL
+//		B3FuncStore fStore = getEffectiveFuncStore();
+//
+//		// try regular lookup, then a lookup using static access, then java context
+//		if(fStore != null) 
+//			try {
+//				return fStore.getDeclaredFunctionType(functionName, types, this);
+//			} catch (B3NoSuchFunctionException e) {
+//				/* ignore - try java context later */
+//			} catch (B3NoSuchFunctionSignatureException e2) {
+//				/* found function-name, but with incompatible signature, try a class call */
+//				try {
+//					B3MetaClass metaClass = B3backendFactory.eINSTANCE.createB3MetaClass();
+//					metaClass.setInstanceClass(TypeUtils.getRaw(types[0]));
+//					Type[] newTypes = new Type[types.length+1];
+//					System.arraycopy(types, 0, newTypes, 1, types.length);
+//					newTypes[0] = metaClass;
+//					return fStore.getDeclaredFunctionType(functionName, newTypes, this);
+//
+//				} catch (B3NoSuchFunctionException e3) {
+//					/* ignore - try java context later */
+//				} catch (B3NoSuchFunctionSignatureException e4) {
+//					/* ignore - try java context later */
+//				}
+//			}
+//			// try java context
+//			BExecutionContext systemCtx = this.getInvocationContext().getParentContext();
+//			if(!(systemCtx instanceof BSystemContext))
+//				throw new IllegalStateException("The parent of the invocation context must be an instance of BSystemContext");
+//			return ((BSystemContext)systemCtx).getDeclaredFunctionType(functionName, types);
 	}
 
 	/**

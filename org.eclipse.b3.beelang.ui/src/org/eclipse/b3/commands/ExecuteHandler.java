@@ -5,6 +5,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.b3.backend.core.B3BackendException;
 import org.eclipse.b3.backend.core.B3Engine;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
@@ -60,6 +61,21 @@ public class ExecuteHandler extends AbstractHandler {
 					try {
 						return engine.getContext().callFunction("main", new Object[] { argv },
 								new Type[] { List.class });
+					} catch(B3BackendException exprException) {
+						exprException.printStackTrace();
+						PrintStream b3ConsoleErrorStream = BeeLangConsoleUtils.getConsoleErrorStream(b3Console);
+						try {
+							b3ConsoleErrorStream.println(exprException.getMessage());
+							b3ConsoleErrorStream.println("    at <function name tbd>("
+									+exprException.getLocationString()
+									+":"
+									+exprException.getExpression().getLineNumber()
+									+")");
+							
+						} finally {
+							b3ConsoleErrorStream.close();
+						}
+						
 					} catch(Throwable e) {
 						// Just print some errors
 						e.printStackTrace();
