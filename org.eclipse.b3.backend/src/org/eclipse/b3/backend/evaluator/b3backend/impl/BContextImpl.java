@@ -37,6 +37,9 @@ public class BContextImpl extends BExecutionContextImpl implements BContext {
 	 */
 	protected BContextImpl() {
 		super();
+		// BContexts uses for bequests may get functions defined after child contexts have been spawned
+		// and current implementation will fail to link the func stores if BContext is missing one.
+		createFuncStore();  
 	}
 
 	/**
