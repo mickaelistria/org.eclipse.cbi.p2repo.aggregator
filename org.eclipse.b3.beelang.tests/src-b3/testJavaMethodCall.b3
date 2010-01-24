@@ -6,24 +6,36 @@ import java.lang.StringBuilder;
 import java.lang.String;
 
 function Object main(List argv) {
-	testJavaCall();
-	testStaticJavaVarargsCall();
-	testJavaVarargsCall();
+	testSubstring1();
+	testSubstring2();
+	testStartsWith();
+	testStaticIntegerValueOf();
+	testMathMax();
+	testStaticStringFormat()();
+	testStringFormat();
 }
-function Object testJavaCall() {
+function Object testSubstring1() {
 	assertEquals("'hello world'.substring(6) == 'world'", "world", "hello world".substring(6));
+}
+function testSubstring2() {
 	assertEquals("'hello world'.substring(6,8) == 'wo'", "wo", "hello world".substring(6,8));
+}
+function testStartsWith(){
 	assertTrue("'hello world'.startsWith('hello')", "hello world".startsWith("hello"));
-
+}
+function testStaticIntegerValueOf() {
 	assertEquals("static method call", 3, Integer.valueOf("3"));
-
+}
+function testMathMax() {
 	assertEquals("5 == Math.max(4, 5.0)", 5, Math.max(4, 5.0));
 }
-function testStaticJavaVarargsCall() {
-	assertEquals("static varargs call to java", "ab", String.format("%s%s", "a", "b"));
-}
-function testJavaVarargsCall() {
-	assertEquals("varargs call to java", "ab", "%s%s".format("a", "b"));
+function testMathSin() {
 	assertEquals("0 == Math.sin(0)", 0, Math.sin(0));
+}
+function testStaticStringFormat() {
+	assertEquals("static varargs call to java", "ab", String.format("%s%s", "a", "b"));
 	assertEquals("\"Hello, World! - FF\" == String.format(\"%s, %s! - %02X\", \"Hello\", \"World\", 0xff)", "Hello, World! - FF", String.format("%s, %s! - %02X", "Hello", "World", 0xff)); 
+}
+function testStringFormat() {
+	assertEquals("varargs call to java", "ab", "%s%s".format("a", "b"));
 }
