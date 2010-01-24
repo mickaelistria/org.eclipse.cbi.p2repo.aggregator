@@ -11,7 +11,8 @@ function Object main(List argv) {
 	testStartsWith();
 	testStaticIntegerValueOf();
 	testMathMax();
-	testStaticStringFormat()();
+	testMathSin();
+	testStaticStringFormat();
 	testStringFormat();
 }
 function Object testSubstring1() {
