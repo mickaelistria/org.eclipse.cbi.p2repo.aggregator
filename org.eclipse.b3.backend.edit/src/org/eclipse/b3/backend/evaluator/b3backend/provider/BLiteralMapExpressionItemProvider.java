@@ -170,8 +170,7 @@ public class BLiteralMapExpressionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		BLiteralMapExpression bLiteralMapExpression = (BLiteralMapExpression)object;
-		return getString("_UI_BLiteralMapExpression_type") + " " + bLiteralMapExpression.getLineNumber();
+		return getString("_UI_BLiteralMapExpression_type");
 	}
 
 	/**

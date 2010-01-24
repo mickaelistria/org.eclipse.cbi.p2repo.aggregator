@@ -157,8 +157,11 @@ public class BFunctionConcernContextItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		BFunctionConcernContext bFunctionConcernContext = (BFunctionConcernContext)object;
-		return getString("_UI_BFunctionConcernContext_type") + " " + bFunctionConcernContext.getLineNumber();
+		Type labelValue = ((BFunctionConcernContext)object).getContainerType();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ?
+			getString("_UI_BFunctionConcernContext_type") :
+			getString("_UI_BFunctionConcernContext_type") + " " + label;
 	}
 
 	/**

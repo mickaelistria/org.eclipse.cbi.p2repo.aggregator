@@ -13,8 +13,7 @@ public class BackendHelper {
 	{
 		if(exprValue instanceof Number)
 			return ((Number)exprValue).intValue();
-		throw B3BackendException.fromMessage(expr.getFileReference().getFileName(), expr.getLineNumber(), 
-				null, "expression is not an integer vakue", (Object[])null);
+		throw B3BackendException.fromMessage(expr, "Expression is not an number");
 	}
 	public static CoreException createException(BExpression expr, String message) {
 		return createException(expr, message, (Object[])null);

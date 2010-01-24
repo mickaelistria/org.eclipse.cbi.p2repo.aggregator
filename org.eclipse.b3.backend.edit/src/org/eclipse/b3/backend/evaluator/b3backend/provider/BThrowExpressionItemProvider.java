@@ -87,8 +87,7 @@ public class BThrowExpressionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		BThrowExpression bThrowExpression = (BThrowExpression)object;
-		return getString("_UI_BThrowExpression_type") + " " + bThrowExpression.getLineNumber();
+		return getString("_UI_BThrowExpression_type");
 	}
 
 	/**

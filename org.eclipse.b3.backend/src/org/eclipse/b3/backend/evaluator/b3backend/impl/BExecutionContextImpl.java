@@ -274,9 +274,6 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		// (under the guidance of B3Backend annotations)
 		//
 		Method[] methods = clazz.getDeclaredMethods();
-		BFileReference fileRef = B3backendFactory.eINSTANCE.createBFileReference();
-		String fileName = clazz.getCanonicalName();
-		fileRef.setFileName(fileName == null ? "anonymous class" : fileName);
 		Map<String, BJavaFunction> systemFunctions = new HashMap<String, BJavaFunction>();
 		Map<String, BJavaFunction> guards = new HashMap<String, BJavaFunction>();
 		Map<String, BJavaFunction> typeCalculators = new HashMap<String, BJavaFunction>();
@@ -292,8 +289,10 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 			final int modifiers = m.getModifiers();
 			if(Modifier.isStatic(modifiers) && Modifier.isPublic(modifiers)) {
 				BJavaFunction f = B3backendFactory.eINSTANCE.createBJavaFunction();
-				f.setFileReference(fileRef);
-				f.setLineNumber(counter); // not a line number, but at least unique
+				// TODO: f's Resource ?!?
+//				String fileName = clazz.getCanonicalName();
+//				fileRef.setFileName(fileName == null ? "anonymous class" : fileName);
+
 				f.setName(m.getName());	// set original name (as default)
 				f.setFinal(Modifier.isFinal(modifiers)); // make it final in b3 as well
 				f.setCallType(BJavaCallType.FUNCTION); // may later change to system call
@@ -444,18 +443,13 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 */
 	public BJavaFunction loadFunction(Method m) throws B3EngineException {
 		createFuncStore();
-		Class<?> clazz = m.getDeclaringClass();
-		BFileReference fileRef = B3backendFactory.eINSTANCE.createBFileReference();
-		String fileName = clazz.getCanonicalName();
-		fileRef.setFileName(fileName == null ? "anonymous class" : fileName);
 		final int modifiers = m.getModifiers();
 		boolean isStatic = Modifier.isStatic(modifiers);
 		// create and initialize a BJavaFunction to represent the method m
 		
 		if(Modifier.isPublic(modifiers)) {
 			BJavaFunction f = B3backendFactory.eINSTANCE.createBJavaFunction();
-			f.setFileReference(fileRef);
-			f.setLineNumber(1); // not a line number unfortunately
+			// TODO: f's resource ?
 			f.setName(m.getName());	
 			f.setFinal(Modifier.isFinal(modifiers)); // make it final in b3 as well
 			f.setClassFunction(isStatic); // invokable via class - i.e. "static" in java

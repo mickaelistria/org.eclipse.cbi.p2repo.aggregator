@@ -3,7 +3,7 @@
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="b3backend"
     nsURI="http://b3backend/1.0" nsPrefix="b3backend">
-  <eClassifiers xsi:type="ecore:EClass" name="BExpression" abstract="true" eSuperTypes="#//BSourceLink">
+  <eClassifiers xsi:type="ecore:EClass" name="BExpression" abstract="true">
     <eOperations name="evaluate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
         eExceptions="#//Throwable">
       <eParameters name="ctx" eType="#//BExecutionContext"/>
@@ -14,13 +14,6 @@
     <eOperations name="getDeclaredType" eType="#//Type" eExceptions="#//Throwable">
       <eParameters name="ctx" eType="#//BExecutionContext"/>
     </eOperations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BSourceLink" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lineNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="fileReference" eType="#//BFileReference"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BFileReference">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fileName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BLineReference"/>
   <eClassifiers xsi:type="ecore:EClass" name="BExecutionContext" abstract="true">

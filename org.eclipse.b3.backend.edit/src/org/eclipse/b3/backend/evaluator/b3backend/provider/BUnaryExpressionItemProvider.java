@@ -111,8 +111,7 @@ public class BUnaryExpressionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		BUnaryExpression bUnaryExpression = (BUnaryExpression)object;
-		return getString("_UI_BUnaryExpression_type") + " " + bUnaryExpression.getLineNumber();
+		return getString("_UI_BUnaryExpression_type");
 	}
 
 	/**

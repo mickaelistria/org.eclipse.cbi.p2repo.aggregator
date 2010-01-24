@@ -16,6 +16,7 @@ package org.eclipse.b3.backend.evaluator.b3backend.provider;
 import java.util.Collection;
 import java.util.List;
 
+import java.util.regex.Pattern;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression;
 
@@ -120,8 +121,11 @@ public class BRegularExpressionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		BRegularExpression bRegularExpression = (BRegularExpression)object;
-		return getString("_UI_BRegularExpression_type") + " " + bRegularExpression.getLineNumber();
+		Pattern labelValue = ((BRegularExpression)object).getPattern();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ?
+			getString("_UI_BRegularExpression_type") :
+			getString("_UI_BRegularExpression_type") + " " + label;
 	}
 
 	/**

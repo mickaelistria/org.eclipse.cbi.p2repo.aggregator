@@ -88,8 +88,7 @@ public class BAndExpressionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		BAndExpression bAndExpression = (BAndExpression)object;
-		return getString("_UI_BAndExpression_type") + " " + bAndExpression.getLineNumber();
+		return getString("_UI_BAndExpression_type");
 	}
 
 	/**

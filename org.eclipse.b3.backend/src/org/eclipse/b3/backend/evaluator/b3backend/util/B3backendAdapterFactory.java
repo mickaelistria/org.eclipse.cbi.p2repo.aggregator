@@ -87,14 +87,6 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 				return createBExpressionAdapter();
 			}
 			@Override
-			public Adapter caseBSourceLink(BSourceLink object) {
-				return createBSourceLinkAdapter();
-			}
-			@Override
-			public Adapter caseBFileReference(BFileReference object) {
-				return createBFileReferenceAdapter();
-			}
-			@Override
 			public Adapter caseBLineReference(BLineReference object) {
 				return createBLineReferenceAdapter();
 			}
@@ -453,34 +445,6 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBExpressionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BSourceLink <em>BSource Link</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BSourceLink
-	 * @generated
-	 */
-	public Adapter createBSourceLinkAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BFileReference <em>BFile Reference</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFileReference
-	 * @generated
-	 */
-	public Adapter createBFileReferenceAdapter() {
 		return null;
 	}
 

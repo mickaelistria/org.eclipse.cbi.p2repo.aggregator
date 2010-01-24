@@ -87,8 +87,7 @@ public class BCachedExpressionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		BCachedExpression bCachedExpression = (BCachedExpression)object;
-		return getString("_UI_BCachedExpression_type") + " " + bCachedExpression.getLineNumber();
+		return getString("_UI_BCachedExpression_type");
 	}
 
 	/**

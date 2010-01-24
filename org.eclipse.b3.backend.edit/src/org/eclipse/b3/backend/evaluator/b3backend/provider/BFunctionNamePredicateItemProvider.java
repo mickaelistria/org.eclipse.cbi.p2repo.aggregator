@@ -128,8 +128,7 @@ public class BFunctionNamePredicateItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		BFunctionNamePredicate bFunctionNamePredicate = (BFunctionNamePredicate)object;
-		return getString("_UI_BFunctionNamePredicate_type") + " " + bFunctionNamePredicate.getLineNumber();
+		return getString("_UI_BFunctionNamePredicate_type");
 	}
 
 	/**

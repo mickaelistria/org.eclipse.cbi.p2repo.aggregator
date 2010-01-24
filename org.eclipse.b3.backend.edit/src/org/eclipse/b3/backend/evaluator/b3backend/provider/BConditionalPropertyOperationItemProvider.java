@@ -129,8 +129,7 @@ public class BConditionalPropertyOperationItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		BConditionalPropertyOperation bConditionalPropertyOperation = (BConditionalPropertyOperation)object;
-		return getString("_UI_BConditionalPropertyOperation_type") + " " + bConditionalPropertyOperation.getLineNumber();
+		return getString("_UI_BConditionalPropertyOperation_type");
 	}
 
 	/**

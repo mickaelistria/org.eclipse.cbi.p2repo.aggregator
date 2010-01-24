@@ -83,29 +83,6 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BFileReference} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BFileReferenceItemProvider bFileReferenceItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BFileReference}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBFileReferenceAdapter() {
-		if (bFileReferenceItemProvider == null) {
-			bFileReferenceItemProvider = new BFileReferenceItemProvider(this);
-		}
-
-		return bFileReferenceItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BLineReference} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1768,7 +1745,6 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	 * @generated
 	 */
 	public void dispose() {
-		if (bFileReferenceItemProvider != null) bFileReferenceItemProvider.dispose();
 		if (bLineReferenceItemProvider != null) bLineReferenceItemProvider.dispose();
 		if (bIfExpressionItemProvider != null) bIfExpressionItemProvider.dispose();
 		if (bSwitchExpressionItemProvider != null) bSwitchExpressionItemProvider.dispose();

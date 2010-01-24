@@ -123,8 +123,7 @@ public class BSwitchExpressionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		BSwitchExpression bSwitchExpression = (BSwitchExpression)object;
-		return getString("_UI_BSwitchExpression_type") + " " + bSwitchExpression.getLineNumber();
+		return getString("_UI_BSwitchExpression_type");
 	}
 
 	/**

@@ -32,15 +32,6 @@ public interface B3backendFactory extends EFactory {
 	B3backendFactory eINSTANCE = org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>BFile Reference</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>BFile Reference</em>'.
-	 * @generated
-	 */
-	BFileReference createBFileReference();
-
-	/**
 	 * Returns a new object of class '<em>BLine Reference</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

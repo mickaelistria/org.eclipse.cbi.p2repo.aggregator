@@ -11,6 +11,7 @@ import java.io.IOException;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
+import org.eclipse.b3.backend.evaluator.b3backend.BLineReference;
 import org.eclipse.b3.backend.evaluator.b3backend.BFileReference;
 
 import org.eclipse.emf.common.util.Diagnostic;
@@ -71,7 +72,7 @@ public class B3backendExample {
 			System.out.println("Enter a list of file paths or URIs that have content like this:");
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.b3backend"));
-				BFileReference root = B3backendFactory.eINSTANCE.createBFileReference();
+				BLineReference root = B3backendFactory.eINSTANCE.createBLineReference();
 				resource.getContents().add(root);
 				resource.save(System.out, null);
 			}

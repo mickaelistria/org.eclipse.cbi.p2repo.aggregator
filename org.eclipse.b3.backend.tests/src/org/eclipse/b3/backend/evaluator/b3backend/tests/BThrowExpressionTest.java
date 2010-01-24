@@ -93,13 +93,7 @@ public class BThrowExpressionTest extends BUnaryExpressionTest {
 			BThrowExpression eThrow = b3.createBThrowExpression();
 			BLiteralExpression e;
 			eThrow.setExpr(e = b3.createBLiteralExpression());
-			e.setValue("Ooops! My Bad.");
-			BFileReference fileRef;
-			eThrow.setFileReference(fileRef = b3.createBFileReference());
-			fileRef.setFileName("opsis.kalopsis");
-			e.setFileReference(fileRef);
-			eThrow.setLineNumber(666);
-			
+			e.setValue("Ooops! My Bad.");			
 			eThrow.evaluate(ctx);
 			
 		} catch (AssertionFailedError e) {

@@ -112,8 +112,7 @@ public class BBinaryExpressionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		BBinaryExpression bBinaryExpression = (BBinaryExpression)object;
-		return getString("_UI_BBinaryExpression_type") + " " + bBinaryExpression.getLineNumber();
+		return getString("_UI_BBinaryExpression_type");
 	}
 
 	/**

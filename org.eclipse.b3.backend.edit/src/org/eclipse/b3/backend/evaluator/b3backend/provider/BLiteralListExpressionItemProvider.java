@@ -147,8 +147,7 @@ public class BLiteralListExpressionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		BLiteralListExpression bLiteralListExpression = (BLiteralListExpression)object;
-		return getString("_UI_BLiteralListExpression_type") + " " + bLiteralListExpression.getLineNumber();
+		return getString("_UI_BLiteralListExpression_type");
 	}
 
 	/**

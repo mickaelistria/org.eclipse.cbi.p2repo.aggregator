@@ -124,8 +124,7 @@ public class BIfExpressionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		BIfExpression bIfExpression = (BIfExpression)object;
-		return getString("_UI_BIfExpression_type") + " " + bIfExpression.getLineNumber();
+		return getString("_UI_BIfExpression_type");
 	}
 
 	/**

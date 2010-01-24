@@ -135,8 +135,7 @@ public class BAtExpressionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		BAtExpression bAtExpression = (BAtExpression)object;
-		return getString("_UI_BAtExpression_type") + " " + bAtExpression.getLineNumber();
+		return getString("_UI_BAtExpression_type");
 	}
 
 	/**

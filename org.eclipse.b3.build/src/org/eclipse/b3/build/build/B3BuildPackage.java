@@ -741,31 +741,13 @@ public interface B3BuildPackage extends EPackage {
 	int IBUILDER__PROVIDED_CAPABILITIES = IPROVIDED_CAPABILITY_CONTAINER__PROVIDED_CAPABILITIES;
 
 	/**
-	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IBUILDER__LINE_NUMBER = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>File Reference</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IBUILDER__FILE_REFERENCE = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Visibility</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IBUILDER__VISIBILITY = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 2;
+	int IBUILDER__VISIBILITY = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Final</b></em>' attribute.
@@ -774,7 +756,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IBUILDER__FINAL = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 3;
+	int IBUILDER__FINAL = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Execution Mode</b></em>' attribute.
@@ -783,7 +765,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IBUILDER__EXECUTION_MODE = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 4;
+	int IBUILDER__EXECUTION_MODE = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -792,7 +774,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IBUILDER__NAME = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 5;
+	int IBUILDER__NAME = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Guard</b></em>' containment reference.
@@ -801,7 +783,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IBUILDER__GUARD = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 6;
+	int IBUILDER__GUARD = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Parameter Types</b></em>' attribute.
@@ -810,7 +792,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IBUILDER__PARAMETER_TYPES = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 7;
+	int IBUILDER__PARAMETER_TYPES = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Exception Types</b></em>' attribute.
@@ -819,7 +801,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IBUILDER__EXCEPTION_TYPES = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 8;
+	int IBUILDER__EXCEPTION_TYPES = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Type Parameters</b></em>' attribute.
@@ -828,7 +810,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IBUILDER__TYPE_PARAMETERS = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 9;
+	int IBUILDER__TYPE_PARAMETERS = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Parameter Names</b></em>' attribute.
@@ -837,7 +819,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IBUILDER__PARAMETER_NAMES = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 10;
+	int IBUILDER__PARAMETER_NAMES = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -846,7 +828,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IBUILDER__PARAMETERS = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 11;
+	int IBUILDER__PARAMETERS = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Var Args</b></em>' attribute.
@@ -855,7 +837,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IBUILDER__VAR_ARGS = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 12;
+	int IBUILDER__VAR_ARGS = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
@@ -864,7 +846,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IBUILDER__DOCUMENTATION = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 13;
+	int IBUILDER__DOCUMENTATION = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Return Type</b></em>' containment reference.
@@ -873,7 +855,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IBUILDER__RETURN_TYPE = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 14;
+	int IBUILDER__RETURN_TYPE = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Closure</b></em>' reference.
@@ -882,7 +864,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IBUILDER__CLOSURE = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 15;
+	int IBUILDER__CLOSURE = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Type Calculator</b></em>' containment reference.
@@ -891,7 +873,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IBUILDER__TYPE_CALCULATOR = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 16;
+	int IBUILDER__TYPE_CALCULATOR = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Container</b></em>' container reference.
@@ -900,7 +882,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IBUILDER__CONTAINER = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 17;
+	int IBUILDER__CONTAINER = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 15;
 
 	/**
 	 * The feature id for the '<em><b>Class Function</b></em>' attribute.
@@ -909,7 +891,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IBUILDER__CLASS_FUNCTION = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 18;
+	int IBUILDER__CLASS_FUNCTION = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 16;
 
 	/**
 	 * The feature id for the '<em><b>Postcond Expr</b></em>' containment reference.
@@ -918,7 +900,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IBUILDER__POSTCOND_EXPR = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 19;
+	int IBUILDER__POSTCOND_EXPR = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 17;
 
 	/**
 	 * The feature id for the '<em><b>Precond Expr</b></em>' containment reference.
@@ -927,7 +909,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IBUILDER__PRECOND_EXPR = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 20;
+	int IBUILDER__PRECOND_EXPR = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 18;
 
 	/**
 	 * The feature id for the '<em><b>Input</b></em>' containment reference.
@@ -936,7 +918,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IBUILDER__INPUT = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 21;
+	int IBUILDER__INPUT = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 19;
 
 	/**
 	 * The feature id for the '<em><b>Output</b></em>' containment reference.
@@ -945,7 +927,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IBUILDER__OUTPUT = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 22;
+	int IBUILDER__OUTPUT = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 20;
 
 	/**
 	 * The feature id for the '<em><b>Default Properties</b></em>' containment reference.
@@ -954,7 +936,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IBUILDER__DEFAULT_PROPERTIES = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 23;
+	int IBUILDER__DEFAULT_PROPERTIES = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 21;
 
 	/**
 	 * The feature id for the '<em><b>Postinputcondition</b></em>' containment reference.
@@ -963,7 +945,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IBUILDER__POSTINPUTCONDITION = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 24;
+	int IBUILDER__POSTINPUTCONDITION = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 22;
 
 	/**
 	 * The number of structural features of the '<em>IBuilder</em>' class.
@@ -972,7 +954,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IBUILDER_FEATURE_COUNT = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 25;
+	int IBUILDER_FEATURE_COUNT = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 23;
 
 	/**
 	 * The feature id for the '<em><b>Prerequisites</b></em>' containment reference list.
@@ -1515,24 +1497,6 @@ public interface B3BuildPackage extends EPackage {
 	int BUILD_CONTEXT_FEATURE_COUNT = B3backendPackage.BEXECUTION_CONTEXT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILD_CONCERN_CONTEXT__LINE_NUMBER = B3backendPackage.BCONCERN_CONTEXT__LINE_NUMBER;
-
-	/**
-	 * The feature id for the '<em><b>File Reference</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILD_CONCERN_CONTEXT__FILE_REFERENCE = B3backendPackage.BCONCERN_CONTEXT__FILE_REFERENCE;
-
-	/**
 	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1560,24 +1524,6 @@ public interface B3BuildPackage extends EPackage {
 	int BUILD_CONCERN_CONTEXT_FEATURE_COUNT = B3backendPackage.BCONCERN_CONTEXT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIRES_PREDICATE__LINE_NUMBER = B3backendPackage.BEXPRESSION__LINE_NUMBER;
-
-	/**
-	 * The feature id for the '<em><b>File Reference</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIRES_PREDICATE__FILE_REFERENCE = B3backendPackage.BEXPRESSION__FILE_REFERENCE;
-
-	/**
 	 * The feature id for the '<em><b>Capability Predicate</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1603,24 +1549,6 @@ public interface B3BuildPackage extends EPackage {
 	 * @ordered
 	 */
 	int REQUIRES_PREDICATE_FEATURE_COUNT = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAPABILITY_PREDICATE__LINE_NUMBER = B3backendPackage.BEXPRESSION__LINE_NUMBER;
-
-	/**
-	 * The feature id for the '<em><b>File Reference</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAPABILITY_PREDICATE__FILE_REFERENCE = B3backendPackage.BEXPRESSION__FILE_REFERENCE;
 
 	/**
 	 * The feature id for the '<em><b>Name Space Pattern</b></em>' containment reference.
@@ -1668,24 +1596,6 @@ public interface B3BuildPackage extends EPackage {
 	int CAPABILITY_PREDICATE_FEATURE_COUNT = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IMPLEMENTS_PREDICATE__LINE_NUMBER = B3backendPackage.BEXPRESSION__LINE_NUMBER;
-
-	/**
-	 * The feature id for the '<em><b>File Reference</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IMPLEMENTS_PREDICATE__FILE_REFERENCE = B3backendPackage.BEXPRESSION__FILE_REFERENCE;
-
-	/**
 	 * The feature id for the '<em><b>Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1702,24 +1612,6 @@ public interface B3BuildPackage extends EPackage {
 	 * @ordered
 	 */
 	int IMPLEMENTS_PREDICATE_FEATURE_COUNT = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROVIDES_PREDICATE__LINE_NUMBER = B3backendPackage.BEXPRESSION__LINE_NUMBER;
-
-	/**
-	 * The feature id for the '<em><b>File Reference</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROVIDES_PREDICATE__FILE_REFERENCE = B3backendPackage.BEXPRESSION__FILE_REFERENCE;
 
 	/**
 	 * The feature id for the '<em><b>Capability Predicate</b></em>' containment reference.
@@ -1756,24 +1648,6 @@ public interface B3BuildPackage extends EPackage {
 	 * @ordered
 	 */
 	int NAME_SPACE_PREDICATE_FEATURE_COUNT = 1;
-
-	/**
-	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNIT_NAME_PREDICATE__LINE_NUMBER = CAPABILITY_PREDICATE__LINE_NUMBER;
-
-	/**
-	 * The feature id for the '<em><b>File Reference</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNIT_NAME_PREDICATE__FILE_REFERENCE = CAPABILITY_PREDICATE__FILE_REFERENCE;
 
 	/**
 	 * The feature id for the '<em><b>Name Space Pattern</b></em>' containment reference.
@@ -1821,24 +1695,6 @@ public interface B3BuildPackage extends EPackage {
 	int UNIT_NAME_PREDICATE_FEATURE_COUNT = CAPABILITY_PREDICATE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILDER_NAME_PREDICATE__LINE_NUMBER = B3backendPackage.BEXPRESSION__LINE_NUMBER;
-
-	/**
-	 * The feature id for the '<em><b>File Reference</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILDER_NAME_PREDICATE__FILE_REFERENCE = B3backendPackage.BEXPRESSION__FILE_REFERENCE;
-
-	/**
 	 * The feature id for the '<em><b>Name Predicate</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1855,24 +1711,6 @@ public interface B3BuildPackage extends EPackage {
 	 * @ordered
 	 */
 	int BUILDER_NAME_PREDICATE_FEATURE_COUNT = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INPUT_PREDICATE__LINE_NUMBER = B3backendPackage.BEXPRESSION__LINE_NUMBER;
-
-	/**
-	 * The feature id for the '<em><b>File Reference</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INPUT_PREDICATE__FILE_REFERENCE = B3backendPackage.BEXPRESSION__FILE_REFERENCE;
 
 	/**
 	 * The feature id for the '<em><b>Capability Predicate</b></em>' containment reference.
@@ -1900,24 +1738,6 @@ public interface B3BuildPackage extends EPackage {
 	 * @ordered
 	 */
 	int INPUT_PREDICATE_FEATURE_COUNT = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNIT_CONCERN_CONTEXT__LINE_NUMBER = BUILD_CONCERN_CONTEXT__LINE_NUMBER;
-
-	/**
-	 * The feature id for the '<em><b>File Reference</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNIT_CONCERN_CONTEXT__FILE_REFERENCE = BUILD_CONCERN_CONTEXT__FILE_REFERENCE;
 
 	/**
 	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
@@ -2001,24 +1821,6 @@ public interface B3BuildPackage extends EPackage {
 	int UNIT_CONCERN_CONTEXT_FEATURE_COUNT = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILDER_CONCERN_CONTEXT__LINE_NUMBER = BUILD_CONCERN_CONTEXT__LINE_NUMBER;
-
-	/**
-	 * The feature id for the '<em><b>File Reference</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILDER_CONCERN_CONTEXT__FILE_REFERENCE = BUILD_CONCERN_CONTEXT__FILE_REFERENCE;
-
-	/**
 	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2098,24 +1900,6 @@ public interface B3BuildPackage extends EPackage {
 	 * @ordered
 	 */
 	int BUILDER_CONCERN_CONTEXT_FEATURE_COUNT = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 6;
-
-	/**
-	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OUTPUT_PREDICATE__LINE_NUMBER = B3backendPackage.BEXPRESSION__LINE_NUMBER;
-
-	/**
-	 * The feature id for the '<em><b>File Reference</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OUTPUT_PREDICATE__FILE_REFERENCE = B3backendPackage.BEXPRESSION__FILE_REFERENCE;
 
 	/**
 	 * The feature id for the '<em><b>Path Vector</b></em>' containment reference.
@@ -2252,24 +2036,6 @@ public interface B3BuildPackage extends EPackage {
 	 * @ordered
 	 */
 	int BUILDER_QUERY_FEATURE_COUNT = 2;
-
-	/**
-	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILDER__LINE_NUMBER = B3backendPackage.B3_FUNCTION__LINE_NUMBER;
-
-	/**
-	 * The feature id for the '<em><b>File Reference</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILDER__FILE_REFERENCE = B3backendPackage.B3_FUNCTION__FILE_REFERENCE;
 
 	/**
 	 * The feature id for the '<em><b>Visibility</b></em>' attribute.
@@ -2504,24 +2270,6 @@ public interface B3BuildPackage extends EPackage {
 	 * @ordered
 	 */
 	int BUILDER_FEATURE_COUNT = B3backendPackage.B3_FUNCTION_FEATURE_COUNT + 7;
-
-	/**
-	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILDER_JAVA__LINE_NUMBER = B3backendPackage.BJAVA_FUNCTION__LINE_NUMBER;
-
-	/**
-	 * The feature id for the '<em><b>File Reference</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILDER_JAVA__FILE_REFERENCE = B3backendPackage.BJAVA_FUNCTION__FILE_REFERENCE;
 
 	/**
 	 * The feature id for the '<em><b>Visibility</b></em>' attribute.
@@ -2776,24 +2524,6 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	int BUILDER_WRAPPER = 40;
-
-	/**
-	 * The feature id for the '<em><b>Line Number</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILDER_WRAPPER__LINE_NUMBER = B3backendPackage.BFUNCTION_WRAPPER__LINE_NUMBER;
-
-	/**
-	 * The feature id for the '<em><b>File Reference</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILDER_WRAPPER__FILE_REFERENCE = B3backendPackage.BFUNCTION_WRAPPER__FILE_REFERENCE;
 
 	/**
 	 * The feature id for the '<em><b>Visibility</b></em>' attribute.

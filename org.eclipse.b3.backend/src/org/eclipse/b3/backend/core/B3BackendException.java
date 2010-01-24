@@ -35,24 +35,20 @@ public class B3BackendException extends BuildException{
 	 */
 	public String getLocationString() {
 		String location = null;
-		if(expr != null && expr.getFileReference() != null)
-			location = expr.getFileReference().getFileName();
-		if(location == null || location.length() < 1) {
-			Resource r = expr.eResource();
-			if(r != null) {
-				URI uri = r.getURI();
-				if(uri != null) {
-					if(uri.isFile())
-						location = uri.toFileString();
-					else if(uri.isPlatform())
-						location = uri.toPlatformString(true);
-					else
-						location = uri.toString();
-				}
+		Resource r = expr.eResource();
+		if(r != null) {
+			URI uri = r.getURI();
+			if(uri != null) {
+				if(uri.isFile())
+					location = uri.toFileString();
+				else if(uri.isPlatform())
+					location = uri.toPlatformString(true);
+				else
+					location = uri.toString();
 			}
 		}
 		if(location == null || location.length() < 1)
-			location = "unknown source";
+			location = "unknown resource";
 
 		return location;
 		

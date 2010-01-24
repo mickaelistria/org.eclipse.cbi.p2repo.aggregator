@@ -154,8 +154,7 @@ public class BWithExpressionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		BWithExpression bWithExpression = (BWithExpression)object;
-		return getString("_UI_BWithExpression_type") + " " + bWithExpression.getLineNumber();
+		return getString("_UI_BWithExpression_type");
 	}
 
 	/**

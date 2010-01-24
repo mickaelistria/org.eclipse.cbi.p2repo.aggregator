@@ -147,8 +147,10 @@ public class BCreateExpressionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		BCreateExpression bCreateExpression = (BCreateExpression)object;
-		return getString("_UI_BCreateExpression_type") + " " + bCreateExpression.getLineNumber();
+		String label = ((BCreateExpression)object).getAlias();
+		return label == null || label.length() == 0 ?
+			getString("_UI_BCreateExpression_type") :
+			getString("_UI_BCreateExpression_type") + " " + label;
 	}
 
 	/**

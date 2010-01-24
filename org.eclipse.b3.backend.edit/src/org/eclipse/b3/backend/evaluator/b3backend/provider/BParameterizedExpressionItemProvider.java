@@ -111,8 +111,7 @@ public class BParameterizedExpressionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		BParameterizedExpression bParameterizedExpression = (BParameterizedExpression)object;
-		return getString("_UI_BParameterizedExpression_type") + " " + bParameterizedExpression.getLineNumber();
+		return getString("_UI_BParameterizedExpression_type");
 	}
 
 	/**

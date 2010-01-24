@@ -122,8 +122,7 @@ public class BChainedExpressionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		BChainedExpression bChainedExpression = (BChainedExpression)object;
-		return getString("_UI_BChainedExpression_type") + " " + bChainedExpression.getLineNumber();
+		return getString("_UI_BChainedExpression_type");
 	}
 
 	/**

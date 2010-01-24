@@ -88,8 +88,7 @@ public class BOrExpressionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		BOrExpression bOrExpression = (BOrExpression)object;
-		return getString("_UI_BOrExpression_type") + " " + bOrExpression.getLineNumber();
+		return getString("_UI_BOrExpression_type");
 	}
 
 	/**

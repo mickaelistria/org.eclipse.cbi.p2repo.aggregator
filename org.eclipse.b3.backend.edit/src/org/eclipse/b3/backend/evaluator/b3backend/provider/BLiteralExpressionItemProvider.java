@@ -114,8 +114,11 @@ public class BLiteralExpressionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		BLiteralExpression bLiteralExpression = (BLiteralExpression)object;
-		return getString("_UI_BLiteralExpression_type") + " " + bLiteralExpression.getLineNumber();
+		Object labelValue = ((BLiteralExpression)object).getValue();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ?
+			getString("_UI_BLiteralExpression_type") :
+			getString("_UI_BLiteralExpression_type") + " " + label;
 	}
 
 	/**

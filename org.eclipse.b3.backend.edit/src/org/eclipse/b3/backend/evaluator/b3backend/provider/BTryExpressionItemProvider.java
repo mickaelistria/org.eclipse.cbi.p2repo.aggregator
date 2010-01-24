@@ -124,8 +124,7 @@ public class BTryExpressionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		BTryExpression bTryExpression = (BTryExpression)object;
-		return getString("_UI_BTryExpression_type") + " " + bTryExpression.getLineNumber();
+		return getString("_UI_BTryExpression_type");
 	}
 
 	/**

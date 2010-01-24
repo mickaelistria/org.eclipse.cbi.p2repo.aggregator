@@ -118,7 +118,6 @@ public class B3BuildSwitch<T> {
 				if (result == null) result = caseIFunction(iBuilder);
 				if (result == null) result = caseIGenericDeclaration(iBuilder);
 				if (result == null) result = caseBExpression(iBuilder);
-				if (result == null) result = caseBSourceLink(iBuilder);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -261,7 +260,6 @@ public class B3BuildSwitch<T> {
 				if (result == null) result = caseBConcernContext(buildConcernContext);
 				if (result == null) result = caseBExpression(buildConcernContext);
 				if (result == null) result = caseBFunctionContainer(buildConcernContext);
-				if (result == null) result = caseBSourceLink(buildConcernContext);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -269,7 +267,6 @@ public class B3BuildSwitch<T> {
 				RequiresPredicate requiresPredicate = (RequiresPredicate)theEObject;
 				T result = caseRequiresPredicate(requiresPredicate);
 				if (result == null) result = caseBExpression(requiresPredicate);
-				if (result == null) result = caseBSourceLink(requiresPredicate);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -277,7 +274,6 @@ public class B3BuildSwitch<T> {
 				CapabilityPredicate capabilityPredicate = (CapabilityPredicate)theEObject;
 				T result = caseCapabilityPredicate(capabilityPredicate);
 				if (result == null) result = caseBExpression(capabilityPredicate);
-				if (result == null) result = caseBSourceLink(capabilityPredicate);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -285,7 +281,6 @@ public class B3BuildSwitch<T> {
 				ImplementsPredicate implementsPredicate = (ImplementsPredicate)theEObject;
 				T result = caseImplementsPredicate(implementsPredicate);
 				if (result == null) result = caseBExpression(implementsPredicate);
-				if (result == null) result = caseBSourceLink(implementsPredicate);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -293,7 +288,6 @@ public class B3BuildSwitch<T> {
 				ProvidesPredicate providesPredicate = (ProvidesPredicate)theEObject;
 				T result = caseProvidesPredicate(providesPredicate);
 				if (result == null) result = caseBExpression(providesPredicate);
-				if (result == null) result = caseBSourceLink(providesPredicate);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -308,7 +302,6 @@ public class B3BuildSwitch<T> {
 				T result = caseUnitNamePredicate(unitNamePredicate);
 				if (result == null) result = caseCapabilityPredicate(unitNamePredicate);
 				if (result == null) result = caseBExpression(unitNamePredicate);
-				if (result == null) result = caseBSourceLink(unitNamePredicate);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -316,7 +309,6 @@ public class B3BuildSwitch<T> {
 				BuilderNamePredicate builderNamePredicate = (BuilderNamePredicate)theEObject;
 				T result = caseBuilderNamePredicate(builderNamePredicate);
 				if (result == null) result = caseBExpression(builderNamePredicate);
-				if (result == null) result = caseBSourceLink(builderNamePredicate);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -324,7 +316,6 @@ public class B3BuildSwitch<T> {
 				InputPredicate inputPredicate = (InputPredicate)theEObject;
 				T result = caseInputPredicate(inputPredicate);
 				if (result == null) result = caseBExpression(inputPredicate);
-				if (result == null) result = caseBSourceLink(inputPredicate);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -337,7 +328,6 @@ public class B3BuildSwitch<T> {
 				if (result == null) result = caseBConcernContext(unitConcernContext);
 				if (result == null) result = caseBExpression(unitConcernContext);
 				if (result == null) result = caseBFunctionContainer(unitConcernContext);
-				if (result == null) result = caseBSourceLink(unitConcernContext);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -348,7 +338,6 @@ public class B3BuildSwitch<T> {
 				if (result == null) result = caseBConcernContext(builderConcernContext);
 				if (result == null) result = caseBExpression(builderConcernContext);
 				if (result == null) result = caseBFunctionContainer(builderConcernContext);
-				if (result == null) result = caseBSourceLink(builderConcernContext);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -356,7 +345,6 @@ public class B3BuildSwitch<T> {
 				OutputPredicate outputPredicate = (OutputPredicate)theEObject;
 				T result = caseOutputPredicate(outputPredicate);
 				if (result == null) result = caseBExpression(outputPredicate);
-				if (result == null) result = caseBSourceLink(outputPredicate);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -395,7 +383,6 @@ public class B3BuildSwitch<T> {
 				if (result == null) result = caseIProvidedCapabilityContainer(builder);
 				if (result == null) result = caseIFunction(builder);
 				if (result == null) result = caseBExpression(builder);
-				if (result == null) result = caseBSourceLink(builder);
 				if (result == null) result = caseIGenericDeclaration(builder);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -409,7 +396,6 @@ public class B3BuildSwitch<T> {
 				if (result == null) result = caseIProvidedCapabilityContainer(builderJava);
 				if (result == null) result = caseIFunction(builderJava);
 				if (result == null) result = caseBExpression(builderJava);
-				if (result == null) result = caseBSourceLink(builderJava);
 				if (result == null) result = caseIGenericDeclaration(builderJava);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -422,7 +408,6 @@ public class B3BuildSwitch<T> {
 				if (result == null) result = caseIFunction(builderWrapper);
 				if (result == null) result = caseIProvidedCapabilityContainer(builderWrapper);
 				if (result == null) result = caseBExpression(builderWrapper);
-				if (result == null) result = caseBSourceLink(builderWrapper);
 				if (result == null) result = caseIGenericDeclaration(builderWrapper);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -1058,21 +1043,6 @@ public class B3BuildSwitch<T> {
 	 * @generated
 	 */
 	public T caseBuilderReference(BuilderReference object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>BSource Link</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>BSource Link</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseBSourceLink(BSourceLink object) {
 		return null;
 	}
 

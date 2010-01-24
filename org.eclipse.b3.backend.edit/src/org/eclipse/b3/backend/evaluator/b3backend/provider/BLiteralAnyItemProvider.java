@@ -87,8 +87,7 @@ public class BLiteralAnyItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		BLiteralAny bLiteralAny = (BLiteralAny)object;
-		return getString("_UI_BLiteralAny_type") + " " + bLiteralAny.getLineNumber();
+		return getString("_UI_BLiteralAny_type");
 	}
 
 	/**

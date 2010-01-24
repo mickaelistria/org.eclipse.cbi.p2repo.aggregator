@@ -150,20 +150,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass bSourceLinkEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass bFileReferenceEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass bLineReferenceEClass = null;
 
 	/**
@@ -934,51 +920,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 */
 	public EClass getBExpression() {
 		return bExpressionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getBSourceLink() {
-		return bSourceLinkEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBSourceLink_LineNumber() {
-		return (EAttribute)bSourceLinkEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getBSourceLink_FileReference() {
-		return (EReference)bSourceLinkEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getBFileReference() {
-		return bFileReferenceEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBFileReference_FileName() {
-		return (EAttribute)bFileReferenceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3162,13 +3103,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		// Create classes and their features
 		bExpressionEClass = createEClass(BEXPRESSION);
 
-		bSourceLinkEClass = createEClass(BSOURCE_LINK);
-		createEAttribute(bSourceLinkEClass, BSOURCE_LINK__LINE_NUMBER);
-		createEReference(bSourceLinkEClass, BSOURCE_LINK__FILE_REFERENCE);
-
-		bFileReferenceEClass = createEClass(BFILE_REFERENCE);
-		createEAttribute(bFileReferenceEClass, BFILE_REFERENCE__FILE_NAME);
-
 		bLineReferenceEClass = createEClass(BLINE_REFERENCE);
 
 		bExecutionContextEClass = createEClass(BEXECUTION_CONTEXT);
@@ -3527,7 +3461,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		iTypeVariableEClass_D.getEBounds().add(g1);
 
 		// Add supertypes to classes
-		bExpressionEClass.getESuperTypes().add(this.getBSourceLink());
 		bIfExpressionEClass.getESuperTypes().add(this.getBExpression());
 		bSwitchExpressionEClass.getESuperTypes().add(this.getBExpression());
 		bTryExpressionEClass.getESuperTypes().add(this.getBExpression());
@@ -3617,13 +3550,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		op = addEOperation(bExpressionEClass, this.getType(), "getDeclaredType", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getThrowable());
-
-		initEClass(bSourceLinkEClass, BSourceLink.class, "BSourceLink", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getBSourceLink_LineNumber(), ecorePackage.getEInt(), "lineNumber", null, 0, 1, BSourceLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBSourceLink_FileReference(), this.getBFileReference(), null, "fileReference", null, 0, 1, BSourceLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(bFileReferenceEClass, BFileReference.class, "BFileReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getBFileReference_FileName(), ecorePackage.getEString(), "fileName", null, 0, 1, BFileReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bLineReferenceEClass, BLineReference.class, "BLineReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

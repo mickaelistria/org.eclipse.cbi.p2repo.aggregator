@@ -93,8 +93,7 @@ public class BProceedExpressionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		BProceedExpression bProceedExpression = (BProceedExpression)object;
-		return getString("_UI_BProceedExpression_type") + " " + bProceedExpression.getLineNumber();
+		return getString("_UI_BProceedExpression_type");
 	}
 
 	/**

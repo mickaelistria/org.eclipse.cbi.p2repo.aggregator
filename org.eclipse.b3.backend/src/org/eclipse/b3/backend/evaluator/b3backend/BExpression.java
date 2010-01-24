@@ -8,6 +8,7 @@ package org.eclipse.b3.backend.evaluator.b3backend;
 
 import java.lang.reflect.Type;
 import org.eclipse.b3.backend.core.LValue;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.core.runtime.CoreException;
 
 /**
@@ -20,7 +21,7 @@ import org.eclipse.core.runtime.CoreException;
  * @model abstract="true"
  * @generated
  */
-public interface BExpression extends BSourceLink {
+public interface BExpression extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -81,7 +81,6 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case B3backendPackage.BFILE_REFERENCE: return createBFileReference();
 			case B3backendPackage.BLINE_REFERENCE: return createBLineReference();
 			case B3backendPackage.BIF_EXPRESSION: return createBIfExpression();
 			case B3backendPackage.BSWITCH_EXPRESSION: return createBSwitchExpression();
@@ -251,16 +250,6 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BFileReference createBFileReference() {
-		BFileReferenceImpl bFileReference = new BFileReferenceImpl();
-		return bFileReference;
 	}
 
 	/**

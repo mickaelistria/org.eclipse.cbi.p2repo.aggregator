@@ -57,7 +57,7 @@ public class BThrowExpressionImpl extends BUnaryExpressionImpl implements BThrow
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 		Object e = expr.evaluate(ctx);
 		if(!(e instanceof Throwable))
-			throw new B3UserException(getFileReference().getFileName(), getLineNumber(), e);
+			throw new B3UserException(this, e);
 		throw (Throwable) e;
 	}
 	@Override

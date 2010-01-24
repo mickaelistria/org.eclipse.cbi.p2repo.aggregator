@@ -101,19 +101,6 @@ public class B3backendSwitch<T> {
 			case B3backendPackage.BEXPRESSION: {
 				BExpression bExpression = (BExpression)theEObject;
 				T result = caseBExpression(bExpression);
-				if (result == null) result = caseBSourceLink(bExpression);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3backendPackage.BSOURCE_LINK: {
-				BSourceLink bSourceLink = (BSourceLink)theEObject;
-				T result = caseBSourceLink(bSourceLink);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3backendPackage.BFILE_REFERENCE: {
-				BFileReference bFileReference = (BFileReference)theEObject;
-				T result = caseBFileReference(bFileReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -133,7 +120,6 @@ public class B3backendSwitch<T> {
 				BIfExpression bIfExpression = (BIfExpression)theEObject;
 				T result = caseBIfExpression(bIfExpression);
 				if (result == null) result = caseBExpression(bIfExpression);
-				if (result == null) result = caseBSourceLink(bIfExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -141,7 +127,6 @@ public class B3backendSwitch<T> {
 				BSwitchExpression bSwitchExpression = (BSwitchExpression)theEObject;
 				T result = caseBSwitchExpression(bSwitchExpression);
 				if (result == null) result = caseBExpression(bSwitchExpression);
-				if (result == null) result = caseBSourceLink(bSwitchExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -155,7 +140,6 @@ public class B3backendSwitch<T> {
 				BTryExpression bTryExpression = (BTryExpression)theEObject;
 				T result = caseBTryExpression(bTryExpression);
 				if (result == null) result = caseBExpression(bTryExpression);
-				if (result == null) result = caseBSourceLink(bTryExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -169,7 +153,6 @@ public class B3backendSwitch<T> {
 				BBinaryExpression bBinaryExpression = (BBinaryExpression)theEObject;
 				T result = caseBBinaryExpression(bBinaryExpression);
 				if (result == null) result = caseBExpression(bBinaryExpression);
-				if (result == null) result = caseBSourceLink(bBinaryExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -178,7 +161,6 @@ public class B3backendSwitch<T> {
 				T result = caseBOrExpression(bOrExpression);
 				if (result == null) result = caseBBinaryExpression(bOrExpression);
 				if (result == null) result = caseBExpression(bOrExpression);
-				if (result == null) result = caseBSourceLink(bOrExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -187,7 +169,6 @@ public class B3backendSwitch<T> {
 				T result = caseBAndExpression(bAndExpression);
 				if (result == null) result = caseBBinaryExpression(bAndExpression);
 				if (result == null) result = caseBExpression(bAndExpression);
-				if (result == null) result = caseBSourceLink(bAndExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -195,7 +176,6 @@ public class B3backendSwitch<T> {
 				BChainedExpression bChainedExpression = (BChainedExpression)theEObject;
 				T result = caseBChainedExpression(bChainedExpression);
 				if (result == null) result = caseBExpression(bChainedExpression);
-				if (result == null) result = caseBSourceLink(bChainedExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -203,7 +183,6 @@ public class B3backendSwitch<T> {
 				BUnaryExpression bUnaryExpression = (BUnaryExpression)theEObject;
 				T result = caseBUnaryExpression(bUnaryExpression);
 				if (result == null) result = caseBExpression(bUnaryExpression);
-				if (result == null) result = caseBSourceLink(bUnaryExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -212,7 +191,6 @@ public class B3backendSwitch<T> {
 				T result = caseBThrowExpression(bThrowExpression);
 				if (result == null) result = caseBUnaryExpression(bThrowExpression);
 				if (result == null) result = caseBExpression(bThrowExpression);
-				if (result == null) result = caseBSourceLink(bThrowExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -221,7 +199,6 @@ public class B3backendSwitch<T> {
 				T result = caseBUnaryOpExpression(bUnaryOpExpression);
 				if (result == null) result = caseBUnaryExpression(bUnaryOpExpression);
 				if (result == null) result = caseBExpression(bUnaryOpExpression);
-				if (result == null) result = caseBSourceLink(bUnaryOpExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -231,7 +208,6 @@ public class B3backendSwitch<T> {
 				if (result == null) result = caseBUnaryOpExpression(bUnaryPostOpExpression);
 				if (result == null) result = caseBUnaryExpression(bUnaryPostOpExpression);
 				if (result == null) result = caseBExpression(bUnaryPostOpExpression);
-				if (result == null) result = caseBSourceLink(bUnaryPostOpExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -240,7 +216,6 @@ public class B3backendSwitch<T> {
 				T result = caseBBinaryOpExpression(bBinaryOpExpression);
 				if (result == null) result = caseBBinaryExpression(bBinaryOpExpression);
 				if (result == null) result = caseBExpression(bBinaryOpExpression);
-				if (result == null) result = caseBSourceLink(bBinaryOpExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -249,7 +224,6 @@ public class B3backendSwitch<T> {
 				T result = caseBCachedExpression(bCachedExpression);
 				if (result == null) result = caseBUnaryExpression(bCachedExpression);
 				if (result == null) result = caseBExpression(bCachedExpression);
-				if (result == null) result = caseBSourceLink(bCachedExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -257,7 +231,6 @@ public class B3backendSwitch<T> {
 				BLiteralExpression bLiteralExpression = (BLiteralExpression)theEObject;
 				T result = caseBLiteralExpression(bLiteralExpression);
 				if (result == null) result = caseBExpression(bLiteralExpression);
-				if (result == null) result = caseBSourceLink(bLiteralExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -265,7 +238,6 @@ public class B3backendSwitch<T> {
 				BLiteralListExpression bLiteralListExpression = (BLiteralListExpression)theEObject;
 				T result = caseBLiteralListExpression(bLiteralListExpression);
 				if (result == null) result = caseBExpression(bLiteralListExpression);
-				if (result == null) result = caseBSourceLink(bLiteralListExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -273,7 +245,6 @@ public class B3backendSwitch<T> {
 				BLiteralMapExpression bLiteralMapExpression = (BLiteralMapExpression)theEObject;
 				T result = caseBLiteralMapExpression(bLiteralMapExpression);
 				if (result == null) result = caseBExpression(bLiteralMapExpression);
-				if (result == null) result = caseBSourceLink(bLiteralMapExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -287,7 +258,6 @@ public class B3backendSwitch<T> {
 				BFeatureExpression bFeatureExpression = (BFeatureExpression)theEObject;
 				T result = caseBFeatureExpression(bFeatureExpression);
 				if (result == null) result = caseBExpression(bFeatureExpression);
-				if (result == null) result = caseBSourceLink(bFeatureExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -295,7 +265,6 @@ public class B3backendSwitch<T> {
 				BAtExpression bAtExpression = (BAtExpression)theEObject;
 				T result = caseBAtExpression(bAtExpression);
 				if (result == null) result = caseBExpression(bAtExpression);
-				if (result == null) result = caseBSourceLink(bAtExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -303,7 +272,6 @@ public class B3backendSwitch<T> {
 				BVariableExpression bVariableExpression = (BVariableExpression)theEObject;
 				T result = caseBVariableExpression(bVariableExpression);
 				if (result == null) result = caseBExpression(bVariableExpression);
-				if (result == null) result = caseBSourceLink(bVariableExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -312,7 +280,6 @@ public class B3backendSwitch<T> {
 				T result = caseBCallExpression(bCallExpression);
 				if (result == null) result = caseBParameterizedExpression(bCallExpression);
 				if (result == null) result = caseBExpression(bCallExpression);
-				if (result == null) result = caseBSourceLink(bCallExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -320,7 +287,6 @@ public class B3backendSwitch<T> {
 				BParameterizedExpression bParameterizedExpression = (BParameterizedExpression)theEObject;
 				T result = caseBParameterizedExpression(bParameterizedExpression);
 				if (result == null) result = caseBExpression(bParameterizedExpression);
-				if (result == null) result = caseBSourceLink(bParameterizedExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -328,7 +294,6 @@ public class B3backendSwitch<T> {
 				BLiteralAny bLiteralAny = (BLiteralAny)theEObject;
 				T result = caseBLiteralAny(bLiteralAny);
 				if (result == null) result = caseBExpression(bLiteralAny);
-				if (result == null) result = caseBSourceLink(bLiteralAny);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -337,7 +302,6 @@ public class B3backendSwitch<T> {
 				T result = caseBCreateExpression(bCreateExpression);
 				if (result == null) result = caseBParameterizedExpression(bCreateExpression);
 				if (result == null) result = caseBExpression(bCreateExpression);
-				if (result == null) result = caseBSourceLink(bCreateExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -346,7 +310,6 @@ public class B3backendSwitch<T> {
 				T result = caseIFunction(iFunction);
 				if (result == null) result = caseIGenericDeclaration(iFunction);
 				if (result == null) result = caseBExpression(iFunction);
-				if (result == null) result = caseBSourceLink(iFunction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -404,7 +367,6 @@ public class B3backendSwitch<T> {
 				if (result == null) result = caseBUnaryOpExpression(bUnaryPreOpExpression);
 				if (result == null) result = caseBUnaryExpression(bUnaryPreOpExpression);
 				if (result == null) result = caseBExpression(bUnaryPreOpExpression);
-				if (result == null) result = caseBSourceLink(bUnaryPreOpExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -414,7 +376,6 @@ public class B3backendSwitch<T> {
 				if (result == null) result = caseBBinaryOpExpression(bAssignmentExpression);
 				if (result == null) result = caseBBinaryExpression(bAssignmentExpression);
 				if (result == null) result = caseBExpression(bAssignmentExpression);
-				if (result == null) result = caseBSourceLink(bAssignmentExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -424,7 +385,6 @@ public class B3backendSwitch<T> {
 				if (result == null) result = caseBFunction(b3Function);
 				if (result == null) result = caseIFunction(b3Function);
 				if (result == null) result = caseBExpression(b3Function);
-				if (result == null) result = caseBSourceLink(b3Function);
 				if (result == null) result = caseIGenericDeclaration(b3Function);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -435,7 +395,6 @@ public class B3backendSwitch<T> {
 				if (result == null) result = caseBFunction(bJavaFunction);
 				if (result == null) result = caseIFunction(bJavaFunction);
 				if (result == null) result = caseBExpression(bJavaFunction);
-				if (result == null) result = caseBSourceLink(bJavaFunction);
 				if (result == null) result = caseIGenericDeclaration(bJavaFunction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -450,7 +409,6 @@ public class B3backendSwitch<T> {
 				BDefValue bDefValue = (BDefValue)theEObject;
 				T result = caseBDefValue(bDefValue);
 				if (result == null) result = caseBExpression(bDefValue);
-				if (result == null) result = caseBSourceLink(bDefValue);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -458,7 +416,6 @@ public class B3backendSwitch<T> {
 				BRegularExpression bRegularExpression = (BRegularExpression)theEObject;
 				T result = caseBRegularExpression(bRegularExpression);
 				if (result == null) result = caseBExpression(bRegularExpression);
-				if (result == null) result = caseBSourceLink(bRegularExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -522,7 +479,6 @@ public class B3backendSwitch<T> {
 				BLiteralType bLiteralType = (BLiteralType)theEObject;
 				T result = caseBLiteralType(bLiteralType);
 				if (result == null) result = caseBExpression(bLiteralType);
-				if (result == null) result = caseBSourceLink(bLiteralType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -559,7 +515,6 @@ public class B3backendSwitch<T> {
 				T result = caseBDefProperty(bDefProperty);
 				if (result == null) result = caseBDefValue(bDefProperty);
 				if (result == null) result = caseBExpression(bDefProperty);
-				if (result == null) result = caseBSourceLink(bDefProperty);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -568,7 +523,6 @@ public class B3backendSwitch<T> {
 				T result = caseBPropertySet(bPropertySet);
 				if (result == null) result = caseBAdvice(bPropertySet);
 				if (result == null) result = caseBExpression(bPropertySet);
-				if (result == null) result = caseBSourceLink(bPropertySet);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -578,7 +532,6 @@ public class B3backendSwitch<T> {
 				if (result == null) result = caseBPropertySet(bDefaultPropertySet);
 				if (result == null) result = caseBAdvice(bDefaultPropertySet);
 				if (result == null) result = caseBExpression(bDefaultPropertySet);
-				if (result == null) result = caseBSourceLink(bDefaultPropertySet);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -586,7 +539,6 @@ public class B3backendSwitch<T> {
 				BPropertyOperation bPropertyOperation = (BPropertyOperation)theEObject;
 				T result = caseBPropertyOperation(bPropertyOperation);
 				if (result == null) result = caseBExpression(bPropertyOperation);
-				if (result == null) result = caseBSourceLink(bPropertyOperation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -595,7 +547,6 @@ public class B3backendSwitch<T> {
 				T result = caseBPropertyDefinitionOperation(bPropertyDefinitionOperation);
 				if (result == null) result = caseBPropertyOperation(bPropertyDefinitionOperation);
 				if (result == null) result = caseBExpression(bPropertyDefinitionOperation);
-				if (result == null) result = caseBSourceLink(bPropertyDefinitionOperation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -604,7 +555,6 @@ public class B3backendSwitch<T> {
 				T result = caseBConditionalPropertyOperation(bConditionalPropertyOperation);
 				if (result == null) result = caseBPropertyOperation(bConditionalPropertyOperation);
 				if (result == null) result = caseBExpression(bConditionalPropertyOperation);
-				if (result == null) result = caseBSourceLink(bConditionalPropertyOperation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -613,7 +563,6 @@ public class B3backendSwitch<T> {
 				T result = caseBPropertySetOperation(bPropertySetOperation);
 				if (result == null) result = caseBPropertyOperation(bPropertySetOperation);
 				if (result == null) result = caseBExpression(bPropertySetOperation);
-				if (result == null) result = caseBSourceLink(bPropertySetOperation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -621,7 +570,6 @@ public class B3backendSwitch<T> {
 				BAdvice bAdvice = (BAdvice)theEObject;
 				T result = caseBAdvice(bAdvice);
 				if (result == null) result = caseBExpression(bAdvice);
-				if (result == null) result = caseBSourceLink(bAdvice);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -631,7 +579,6 @@ public class B3backendSwitch<T> {
 				if (result == null) result = caseBAdvice(bConcern);
 				if (result == null) result = caseBFunctionContainer(bConcern);
 				if (result == null) result = caseBExpression(bConcern);
-				if (result == null) result = caseBSourceLink(bConcern);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -639,7 +586,6 @@ public class B3backendSwitch<T> {
 				BWithExpression bWithExpression = (BWithExpression)theEObject;
 				T result = caseBWithExpression(bWithExpression);
 				if (result == null) result = caseBExpression(bWithExpression);
-				if (result == null) result = caseBSourceLink(bWithExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -648,7 +594,6 @@ public class B3backendSwitch<T> {
 				T result = caseBConcernContext(bConcernContext);
 				if (result == null) result = caseBExpression(bConcernContext);
 				if (result == null) result = caseBFunctionContainer(bConcernContext);
-				if (result == null) result = caseBSourceLink(bConcernContext);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -657,7 +602,6 @@ public class B3backendSwitch<T> {
 				T result = caseBFunction(bFunction);
 				if (result == null) result = caseIFunction(bFunction);
 				if (result == null) result = caseBExpression(bFunction);
-				if (result == null) result = caseBSourceLink(bFunction);
 				if (result == null) result = caseIGenericDeclaration(bFunction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -667,7 +611,6 @@ public class B3backendSwitch<T> {
 				T result = caseBFunctionWrapper(bFunctionWrapper);
 				if (result == null) result = caseIFunction(bFunctionWrapper);
 				if (result == null) result = caseBExpression(bFunctionWrapper);
-				if (result == null) result = caseBSourceLink(bFunctionWrapper);
 				if (result == null) result = caseIGenericDeclaration(bFunctionWrapper);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -682,7 +625,6 @@ public class B3backendSwitch<T> {
 				BFunctionNamePredicate bFunctionNamePredicate = (BFunctionNamePredicate)theEObject;
 				T result = caseBFunctionNamePredicate(bFunctionNamePredicate);
 				if (result == null) result = caseBExpression(bFunctionNamePredicate);
-				if (result == null) result = caseBSourceLink(bFunctionNamePredicate);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -692,7 +634,6 @@ public class B3backendSwitch<T> {
 				if (result == null) result = caseBConcernContext(bFunctionConcernContext);
 				if (result == null) result = caseBExpression(bFunctionConcernContext);
 				if (result == null) result = caseBFunctionContainer(bFunctionConcernContext);
-				if (result == null) result = caseBSourceLink(bFunctionConcernContext);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -706,7 +647,6 @@ public class B3backendSwitch<T> {
 				BProceedExpression bProceedExpression = (BProceedExpression)theEObject;
 				T result = caseBProceedExpression(bProceedExpression);
 				if (result == null) result = caseBExpression(bProceedExpression);
-				if (result == null) result = caseBSourceLink(bProceedExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -750,36 +690,6 @@ public class B3backendSwitch<T> {
 	 * @generated
 	 */
 	public T caseBExpression(BExpression object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>BSource Link</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>BSource Link</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseBSourceLink(BSourceLink object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>BFile Reference</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>BFile Reference</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseBFileReference(BFileReference object) {
 		return null;
 	}
 

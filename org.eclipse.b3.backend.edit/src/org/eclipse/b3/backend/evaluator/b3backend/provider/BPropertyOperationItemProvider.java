@@ -84,8 +84,7 @@ public class BPropertyOperationItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		BPropertyOperation bPropertyOperation = (BPropertyOperation)object;
-		return getString("_UI_BPropertyOperation_type") + " " + bPropertyOperation.getLineNumber();
+		return getString("_UI_BPropertyOperation_type");
 	}
 
 	/**
