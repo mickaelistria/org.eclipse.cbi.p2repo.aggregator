@@ -45,7 +45,7 @@ public class B3Engine {
 			e.printStackTrace();
 		} 
 		try {
-			invocationContext.loadFunction(m);
+			systemContext.loadFunction(m);
 		} catch (B3EngineException e) {
 			e.printStackTrace();
 		}

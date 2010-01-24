@@ -63,7 +63,10 @@ public class B3FuncStore {
 	private List<IFunction> getFunctionsByName(String name) {
 		if(defined == null)
 			return Collections.emptyList();
-		return defined.get(name);
+		List<IFunction> result = defined.get(name);
+		if(result == null)
+			return Collections.emptyList();
+		return result;
 	}
 	public Object callFunction(String functionName, Object[] parameters, Type[] types, BExecutionContext ctx) throws Throwable {
 		// find the best matching function, call it, or throw B3NoSuchFunctionException

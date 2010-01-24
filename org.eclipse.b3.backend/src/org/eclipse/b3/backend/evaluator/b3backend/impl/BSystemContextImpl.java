@@ -46,6 +46,7 @@ public class BSystemContextImpl extends BExecutionContextImpl implements BSystem
 	 */
 	protected BSystemContextImpl() {
 		super();
+		createFuncStore();
 	}
 
 	/**
