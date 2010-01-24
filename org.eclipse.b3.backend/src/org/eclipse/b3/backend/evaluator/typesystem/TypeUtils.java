@@ -3,8 +3,10 @@ package org.eclipse.b3.backend.evaluator.typesystem;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
 import java.lang.reflect.GenericArrayType;
+import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.lang.reflect.TypeVariable;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -105,6 +107,11 @@ public class TypeUtils {
 		}
 		if(t instanceof B3MetaClass) {
 			return ((B3MetaClass)t).getInstanceClass();
+		}
+		if(t instanceof TypeVariable<?>) {
+			TypeVariable tv = TypeVariable.class.cast(t);
+			// TODO: OMG - this is cheating...
+			return getRaw(tv.getBounds()[0]);
 		}
 		throw new UnsupportedOperationException("UNSUPPORTED TYPE CLASS - was: " + t);
 	}
@@ -261,16 +268,12 @@ public class TypeUtils {
 	 */
 	public static Type objectify(Type primitiveType) {
 		Type objectType = primitiveToObjectMap.get(primitiveType);
-
-		return objectType != null
-				? objectType : primitiveType;
+		return objectType != null ? objectType : primitiveType;
 	}
 
 	public static Type primitivize(Type objectType) {
 		Type primitiveType = objectToPrimitiveMap.get(objectType);
-
-		return primitiveType != null
-				? primitiveType : objectType;
+		return primitiveType != null ? primitiveType : objectType;
 	}
 
 }

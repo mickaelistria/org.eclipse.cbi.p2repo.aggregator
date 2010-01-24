@@ -18,7 +18,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BSystemContext;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BSystemContext#callFunction(java.lang.String, java.lang.Object[], java.lang.reflect.Type[], org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Call Function</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BSystemContext#loadMethod(java.lang.String, java.lang.reflect.Type[]) <em>Load Method</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -82,6 +82,19 @@ public class BSystemContextTest extends BExecutionContextTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BSystemContext#loadMethod(java.lang.String, java.lang.reflect.Type[]) <em>Load Method</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BSystemContext#loadMethod(java.lang.String, java.lang.reflect.Type[])
+	 * @generated
+	 */
+	public void testLoadMethod__String_Type() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 	/**

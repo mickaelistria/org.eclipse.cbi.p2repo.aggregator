@@ -3908,12 +3908,10 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 
 		initEClass(bSystemContextEClass, BSystemContext.class, "BSystemContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = addEOperation(bSystemContextEClass, ecorePackage.getEJavaObject(), "callFunction", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(bSystemContextEClass, ecorePackage.getEBoolean(), "loadMethod", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "functionName", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getObjectArray(), "parameters", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTypeArray(), "types", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getThrowable());
+		addEException(op, this.getB3EngineException());
 
 		initEClass(bContextEClass, BContext.class, "BContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

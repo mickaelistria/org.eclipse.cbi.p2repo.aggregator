@@ -8,6 +8,7 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BContext;
+import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -33,13 +34,10 @@ public class BContextImpl extends BExecutionContextImpl implements BContext {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	protected BContextImpl() {
 		super();
-		// BContexts uses for bequests may get functions defined after child contexts have been spawned
-		// and current implementation will fail to link the func stores if BContext is missing one.
-		createFuncStore();  
 	}
 
 	/**
@@ -54,5 +52,12 @@ public class BContextImpl extends BExecutionContextImpl implements BContext {
 	@Override
 	public boolean isPropertyScope() {
 		return true;
+	}
+	@Override
+	public void setParentContext(BExecutionContext newParentContext) {
+		super.setParentContext(newParentContext);
+		// BContexts uses for bequests may get functions defined after child contexts have been spawned
+		// and current implementation will fail to link the func stores if BContext is missing one.
+		createFuncStore();
 	}
 } //BContextImpl

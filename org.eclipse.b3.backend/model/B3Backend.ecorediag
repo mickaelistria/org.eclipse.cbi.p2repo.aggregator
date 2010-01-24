@@ -876,7 +876,7 @@
       </children>
       <children xmi:type="notation:Node" xmi:id="_tDhc5NE4Ed6QUfNJL03zQw" type="5002">
         <children xmi:type="notation:Node" xmi:id="_EAuxkNOAEd699tXLE8UuqA" type="2002">
-          <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//BSystemContext/callFunction"/>
+          <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//BSystemContext/loadMethod"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_EAuxkdOAEd699tXLE8UuqA"/>
         </children>
         <styles xmi:type="notation:DrawerStyle" xmi:id="_tDhc5dE4Ed6QUfNJL03zQw"/>

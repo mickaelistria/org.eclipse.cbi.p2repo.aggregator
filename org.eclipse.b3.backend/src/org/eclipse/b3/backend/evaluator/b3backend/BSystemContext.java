@@ -7,6 +7,7 @@
 package org.eclipse.b3.backend.evaluator.b3backend;
 
 import java.lang.reflect.Type;
+import org.eclipse.b3.backend.core.B3EngineException;
 
 
 /**
@@ -34,8 +35,8 @@ public interface BSystemContext extends BExecutionContext {
 	 * <!-- begin-model-doc -->
 	 * Evaluate the function referenced by name in the specified context. 
 	 * <!-- end-model-doc -->
-	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable" parametersDataType="org.eclipse.b3.backend.evaluator.b3backend.ObjectArray" typesDataType="org.eclipse.b3.backend.evaluator.b3backend.TypeArray"
+	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.B3EngineException" typesDataType="org.eclipse.b3.backend.evaluator.b3backend.TypeArray"
 	 * @generated
 	 */
-	Object callFunction(String functionName, Object[] parameters, Type[] types, BExecutionContext ctx) throws Throwable;
+	boolean loadMethod(String functionName, Type[] types) throws B3EngineException;
 } // BSystemContext
