@@ -517,9 +517,9 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 * @generated NOT
 	 */
 	public Object callFunction(String functionName, Object[] parameters,Type[] types) throws Throwable {
-		if("substring".equals(functionName)) {
-			functionName = functionName + ""; // dummy for debugging
-		}
+//		if("substring".equals(functionName)) {
+//			functionName = functionName + ""; // dummy for debugging
+//		}
 		B3FuncStore fStore = getEffectiveFuncStore();
 		if(fStore == null)
 			throw new B3InternalError("Could not find an effective function store - engine/context setup is broken!");
