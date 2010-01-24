@@ -33,7 +33,7 @@ public class BContextImpl extends BExecutionContextImpl implements BContext {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected BContextImpl() {
 		super();
