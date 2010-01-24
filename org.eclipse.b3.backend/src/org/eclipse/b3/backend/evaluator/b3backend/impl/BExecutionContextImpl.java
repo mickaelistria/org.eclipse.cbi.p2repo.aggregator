@@ -573,35 +573,6 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 				throw new B3InternalError("BExecutionContextImpl#callFunction() - broken call strategy loop :" + String.valueOf(attempts));
 			}
 		}
-//			try {
-//				return fStore.callFunction(functionName, parameters, types, this);
-//			} catch (B3NoSuchFunctionException e) {
-//				/* ignore - and try java context later */
-//			} catch (B3NoSuchFunctionSignatureException e2) {
-//				/* found function-name, but with incompatible signature, try a class call */
-//				try {
-//					if(parameters.length > 0) {
-//					Object[] newParameters = new Object[parameters.length+1];
-//					System.arraycopy(parameters, 0, newParameters, 1, parameters.length);
-//					B3MetaClass metaClass = B3backendFactory.eINSTANCE.createB3MetaClass();
-//					metaClass.setInstanceClass(TypeUtils.getRaw(types[0]));
-//					newParameters[0] = types[0];
-//					Type[] newTypes = new Type[types.length+1];
-//					System.arraycopy(types, 0, newTypes, 1, types.length);
-//					newTypes[0] = metaClass;
-//					return fStore.callFunction(functionName, newParameters, newTypes, this);
-//					}
-//				} catch (B3NoSuchFunctionException e3) {
-//					/* ignore - try java context later */
-//				} catch (B3NoSuchFunctionSignatureException e4) {
-//					/* ignore - try java context later */
-//				}
-//			}
-//			// try java context
-//			BExecutionContext systemCtx = this.getInvocationContext().getParentContext();
-//			if(!(systemCtx instanceof BSystemContext))
-//				throw new IllegalStateException("The parent of the invocation context must be an instance of BSystemContext");
-////			return ((BSystemContext)systemCtx).callFunction(functionName, parameters, types,this);
 		// Successful call should have returned result already - only error conditions remain
 		if(lastError == null)
 			throw new B3InternalError("BExecutionContextImpl#callFunction() did not return ok, and had no last error");
