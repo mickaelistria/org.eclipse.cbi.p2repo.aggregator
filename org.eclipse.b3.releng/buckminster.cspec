@@ -12,6 +12,9 @@
         <cs:dependency name="org.eclipse.b3.beelang.tests"/>
         <cs:dependency name="org.eclipse.b3.beelang.ui"/>
         <cs:dependency name="org.eclipse.b3.build"/>
+        <cs:dependency name="org.eclipse.b3.core"/>
+        <cs:dependency name="org.eclipse.b3.util" componentType="osgi.bundle"/>
         <cs:dependency name="org.eclipse.rcp" componentType="eclipse.feature"/>
+        <cs:dependency name="org.kohsuke.args4j" componentType="osgi.bundle"/>
     </cs:dependencies>
 </cs:cspec>
