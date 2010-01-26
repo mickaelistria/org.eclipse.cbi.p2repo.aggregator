@@ -334,7 +334,7 @@ public class TypeUtils {
 						if(specificityCompareResult > 0)
 							// the "current" is more specific then "candidate", we can remove the "candidate"
 							candidateIterator.remove();
-						// at this point we know the "current" is not less specific than then "candidate" (at worst
+						// at this point we know the "current" is not less specific than the "candidate" (at worst
 						// it is ambiguous)
 						isLessSpecific = false;
 					}
