@@ -245,10 +245,10 @@ public class B3FuncStore {
 				try {
 					if(guard.accepts(found, ctx, parameters, types))
 						return found;
-					throw new B3NotAcceptedByGuardException(name, types);
 				} catch (Throwable e) {
 					throw new B3EngineException("evaluation of guard ended with exception", e);
 				}
+				throw new B3NotAcceptedByGuardException(name, types);
 			}
 			return found;
 		}

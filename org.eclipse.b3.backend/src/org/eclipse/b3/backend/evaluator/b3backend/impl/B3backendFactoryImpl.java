@@ -105,7 +105,6 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 			case B3backendPackage.BCALL_EXPRESSION: return createBCallExpression();
 			case B3backendPackage.BLITERAL_ANY: return createBLiteralAny();
 			case B3backendPackage.BCREATE_EXPRESSION: return createBCreateExpression();
-			case B3backendPackage.BGUARD_INSTANCE: return createBGuardInstance();
 			case B3backendPackage.BGUARD_EXPRESSION: return createBGuardExpression();
 			case B3backendPackage.BSYSTEM_CONTEXT: return createBSystemContext();
 			case B3backendPackage.BCONTEXT: return createBContext();
@@ -490,16 +489,6 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	public BCreateExpression createBCreateExpression() {
 		BCreateExpressionImpl bCreateExpression = new BCreateExpressionImpl();
 		return bCreateExpression;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BGuardInstance createBGuardInstance() {
-		BGuardInstanceImpl bGuardInstance = new BGuardInstanceImpl();
-		return bGuardInstance;
 	}
 
 	/**

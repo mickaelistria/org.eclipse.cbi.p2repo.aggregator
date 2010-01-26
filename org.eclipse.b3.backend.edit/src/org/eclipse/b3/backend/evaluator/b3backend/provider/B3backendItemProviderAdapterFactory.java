@@ -635,29 +635,6 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BGuardInstance} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BGuardInstanceItemProvider bGuardInstanceItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BGuardInstance}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBGuardInstanceAdapter() {
-		if (bGuardInstanceItemProvider == null) {
-			bGuardInstanceItemProvider = new BGuardInstanceItemProvider(this);
-		}
-
-		return bGuardInstanceItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BGuardExpression} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1769,7 +1746,6 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 		if (bCallExpressionItemProvider != null) bCallExpressionItemProvider.dispose();
 		if (bLiteralAnyItemProvider != null) bLiteralAnyItemProvider.dispose();
 		if (bCreateExpressionItemProvider != null) bCreateExpressionItemProvider.dispose();
-		if (bGuardInstanceItemProvider != null) bGuardInstanceItemProvider.dispose();
 		if (bGuardExpressionItemProvider != null) bGuardExpressionItemProvider.dispose();
 		if (bSystemContextItemProvider != null) bSystemContextItemProvider.dispose();
 		if (bContextItemProvider != null) bContextItemProvider.dispose();

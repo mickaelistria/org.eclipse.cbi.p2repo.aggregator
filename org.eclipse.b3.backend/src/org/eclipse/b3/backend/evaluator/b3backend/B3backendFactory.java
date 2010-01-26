@@ -248,15 +248,6 @@ public interface B3backendFactory extends EFactory {
 	BCreateExpression createBCreateExpression();
 
 	/**
-	 * Returns a new object of class '<em>BGuard Instance</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>BGuard Instance</em>'.
-	 * @generated
-	 */
-	BGuardInstance createBGuardInstance();
-
-	/**
 	 * Returns a new object of class '<em>BGuard Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

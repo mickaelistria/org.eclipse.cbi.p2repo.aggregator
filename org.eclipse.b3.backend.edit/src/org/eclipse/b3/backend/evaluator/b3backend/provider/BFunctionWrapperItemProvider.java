@@ -561,11 +561,6 @@ public class BFunctionWrapperItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(B3backendPackage.Literals.IFUNCTION__GUARD,
-				 B3backendFactory.eINSTANCE.createBGuardInstance()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(B3backendPackage.Literals.IFUNCTION__GUARD,
 				 B3backendFactory.eINSTANCE.createBGuardExpression()));
 
 		newChildDescriptors.add

@@ -207,10 +207,6 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 				return createBGuardAdapter();
 			}
 			@Override
-			public Adapter caseBGuardInstance(BGuardInstance object) {
-				return createBGuardInstanceAdapter();
-			}
-			@Override
 			public Adapter caseBGuardExpression(BGuardExpression object) {
 				return createBGuardExpressionAdapter();
 			}
@@ -1005,20 +1001,6 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBGuardAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BGuardInstance <em>BGuard Instance</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BGuardInstance
-	 * @generated
-	 */
-	public Adapter createBGuardInstanceAdapter() {
 		return null;
 	}
 

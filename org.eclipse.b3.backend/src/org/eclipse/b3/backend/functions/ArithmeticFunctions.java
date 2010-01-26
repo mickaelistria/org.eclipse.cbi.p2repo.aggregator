@@ -4,7 +4,6 @@ import java.lang.reflect.Type;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
-import org.eclipse.b3.backend.core.AbstractSequence;
 import org.eclipse.b3.backend.core.B3Backend;
 import org.eclipse.b3.backend.core.DoubleSequence;
 import org.eclipse.b3.backend.core.IntegerSequence;
@@ -318,17 +317,10 @@ public class ArithmeticFunctions {
 		if(types == null)
 			return Boolean.TRUE; // don't mind no parameters
 		for(int i = 0; i < types.length; i++) {
-			if(parameters[i] != null) {
-				// TODO: TYPESYSTEM IMPROVEMENT - checking the types of the actual arguments is a hack we want to check
-				// the types passed in the types parameter directly but we need them to be accurate first
-				Class<?> clazz = parameters[i].getClass();
-				if(!(clazz == Byte.class || clazz == Short.class || clazz == Integer.class || clazz == Long.class || clazz == BigInteger.class))
-					return Boolean.FALSE;
-			} else {
-				Class<?> clazz = TypeUtils.getRaw(types[i]);
-				if(clazz == Float.class || clazz == Double.class || clazz == BigDecimal.class)
-					return Boolean.FALSE;
-			}
+			// note that parameters are guaranteed to be Type instances in guard functions
+			Class<?> clazz = TypeUtils.getRaw(((Type[])parameters)[i]);
+			if(clazz == Float.class || clazz == Double.class || clazz == BigDecimal.class)
+				return Boolean.FALSE;
 		}
 		return Boolean.TRUE;
 	}

@@ -348,9 +348,6 @@
       <eParameters name="types" eType="#//TypeArray"/>
     </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BGuardInstance" eSuperTypes="#//BGuard">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="instance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BGuardExpression" eSuperTypes="#//BGuard">
     <eStructuralFeatures xsi:type="ecore:EReference" name="guardExpr" eType="#//BExpression"
         containment="true"/>

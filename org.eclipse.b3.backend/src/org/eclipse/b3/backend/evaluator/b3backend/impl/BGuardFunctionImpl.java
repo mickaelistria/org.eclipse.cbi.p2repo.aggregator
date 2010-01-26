@@ -174,9 +174,17 @@ public class BGuardFunctionImpl extends BGuardImpl implements BGuardFunction {
 		return super.eIsSet(featureID);
 	}
 	@Override
-	public boolean accepts(IFunction function, BExecutionContext ctx,	
-			Object[] parameters, Type[] types) throws Throwable {
-		Object x = func.call(ctx, parameters, types);
+	public boolean accepts(IFunction function, BExecutionContext ctx, Object[] parameters, Type[] types) throws Throwable {
+//		BExecutionContext octx = ctx.createOuterContext();
+		
+		Object[] paramsToUse = types;
+		Type[] typesToUse = new Type[types.length];
+		for(int i = 0; i < types.length; i++) {
+			paramsToUse[i] = types[i];
+			typesToUse[i] = types[i].getClass();
+		}
+
+		Object x = func.call(ctx, paramsToUse, typesToUse);
 		return x instanceof Boolean ? ((Boolean)x).booleanValue() : Boolean.FALSE.booleanValue();
 	}
 } //BGuardFunctionImpl

@@ -430,13 +430,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass bGuardInstanceEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass bGuardExpressionEClass = null;
 
 	/**
@@ -2007,24 +2000,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getBGuardInstance() {
-		return bGuardInstanceEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBGuardInstance_Instance() {
-		return (EAttribute)bGuardInstanceEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getBGuardExpression() {
 		return bGuardExpressionEClass;
 	}
@@ -3232,9 +3207,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 
 		bGuardEClass = createEClass(BGUARD);
 
-		bGuardInstanceEClass = createEClass(BGUARD_INSTANCE);
-		createEAttribute(bGuardInstanceEClass, BGUARD_INSTANCE__INSTANCE);
-
 		bGuardExpressionEClass = createEClass(BGUARD_EXPRESSION);
 		createEReference(bGuardExpressionEClass, BGUARD_EXPRESSION__GUARD_EXPR);
 
@@ -3496,7 +3468,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		bCreateExpressionEClass.getESuperTypes().add(this.getBParameterizedExpression());
 		iFunctionEClass.getESuperTypes().add(this.getIGenericDeclaration());
 		iFunctionEClass.getESuperTypes().add(this.getBExpression());
-		bGuardInstanceEClass.getESuperTypes().add(this.getBGuard());
 		bGuardExpressionEClass.getESuperTypes().add(this.getBGuard());
 		bSystemContextEClass.getESuperTypes().add(this.getBExecutionContext());
 		bContextEClass.getESuperTypes().add(this.getBExecutionContext());
@@ -3836,9 +3807,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		addEParameter(op, this.getObjectArray(), "parameters", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTypeArray(), "types", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getThrowable());
-
-		initEClass(bGuardInstanceEClass, BGuardInstance.class, "BGuardInstance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getBGuardInstance_Instance(), ecorePackage.getEJavaObject(), "instance", null, 0, 1, BGuardInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bGuardExpressionEClass, BGuardExpression.class, "BGuardExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBGuardExpression_GuardExpr(), this.getBExpression(), null, "guardExpr", null, 0, 1, BGuardExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
