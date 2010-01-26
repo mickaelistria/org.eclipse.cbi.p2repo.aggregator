@@ -38,5 +38,5 @@ public interface BSystemContext extends BExecutionContext {
 	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.B3EngineException" typesDataType="org.eclipse.b3.backend.evaluator.b3backend.TypeArray"
 	 * @generated
 	 */
-	boolean loadMethod(String functionName, Type[] types) throws B3EngineException;
+	IFunction loadMethod(String functionName, Type[] types) throws B3EngineException;
 } // BSystemContext

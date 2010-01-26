@@ -403,7 +403,6 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 		Matcher matcher = pattern.match(f.getEffectiveParameters());
 		if(!matcher.isMatch())
 			return false;
-		
 		// create a map of parameter name in advise and parameter name in matched function
 		Map<String, String> nameMap = new HashMap<String,String>();
 		EList<BParameterPredicate> plist = getParameters(); // i.e. predicates

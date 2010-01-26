@@ -33,6 +33,7 @@ import org.eclipse.b3.backend.core.B3NoSuchVariableException;
 import org.eclipse.b3.backend.core.ValueMap;
 import org.eclipse.b3.backend.evaluator.BackendHelper;
 import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
+import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BConcern;
@@ -43,6 +44,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BGuardFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BInnerContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BJavaCallType;
 import org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
 import org.eclipse.b3.backend.evaluator.b3backend.BSystemContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculatorFunction;
 
@@ -53,6 +55,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -485,13 +488,13 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 			f.setReturnType(TypeUtils.objectify(m.getGenericReturnType()));
 			f.setExceptionTypes(m.getGenericExceptionTypes());
 			// set parameter types, but add the declaring class as the first parameter
-			f.setParameterTypes(getGenericParameterTypes(m, isStatic));
+//			f.setParameterTypes(getGenericParameterTypes(m, isStatic));
 			f.setVarArgs(m.isVarArgs());
 			// there may be parameter annotations, but very unlikely - at least there is
 			// an empty array of parameter annotations, so can just as well use this
 			Annotation[][] pa = m.getParameterAnnotations();
 			String pNames[] = new String[pa.length + (isStatic ? 0 : 1)];
-			f.setParameterNames(pNames);
+//			f.setParameterNames(pNames);
 			if(!isStatic)
 				pNames[0] = "this";
 			for(int i = 0; i < pa.length; i++) {
@@ -507,6 +510,7 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 					}
 				}
 			}
+			setParameterDeclarations(f, getGenericParameterTypes(m, isStatic), pNames);
 			f.setTypeParameters(m.getTypeParameters());
 
 			funcStore.defineFunction(m.getName(), f);
@@ -514,7 +518,21 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		}
 		return null;
 	}
-
+	private void setParameterDeclarations(IFunction f, Type[] types, String[] names) {
+		EList<BParameterDeclaration> plist = f.getParameters();
+		for(int i = 0; i < types.length; i++) {
+			BParameterDeclaration decl = B3backendFactory.eINSTANCE.createBParameterDeclaration();
+			decl.setName(names[i]);
+			Type t = types[i];
+			if(!(t instanceof EObject)) {
+				B3ParameterizedType b3t = B3backendFactory.eINSTANCE.createB3ParameterizedType();
+				b3t.setRawType(t);
+				t = b3t;
+			}
+			decl.setType(t);
+			plist.add(decl);
+		}
+	}
 	private Type[] getGenericParameterTypes(Method m, boolean isStatic) {
 		Type[] original = m.getGenericParameterTypes();
 		Type[] rewritten = new Type[original.length + 1];
@@ -537,9 +555,9 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 * @generated NOT
 	 */
 	public Object callFunction(String functionName, Object[] parameters,Type[] types) throws Throwable {
-		if("addedLater".equals(functionName)) {
-			functionName = functionName + ""; // dummy for debugging
-		}
+//		if("addedLater".equals(functionName)) {
+//			functionName = functionName + ""; // dummy for debugging
+//		}
 		B3FuncStore fStore = getEffectiveFuncStore();
 		if(fStore == null)
 			throw new B3InternalError("Could not find an effective function store - engine/context setup is broken!");
@@ -584,8 +602,9 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 				BExecutionContext systemCtx = this.getInvocationContext().getParentContext();
 				if(!(systemCtx instanceof BSystemContext))
 					throw new B3InternalError("The parent of the invocation context must be an instance of BSystemContext");
-				if(((BSystemContext)systemCtx).loadMethod(functionName, types)) {
-					// TODO: apply bequests for the just loaded function (but not for any other)
+				IFunction loaded = null;
+				if((loaded=((BSystemContext)systemCtx).loadMethod(functionName, types)) != null) {
+					weaveLoaded(loaded, this);
 					continue; // attempt calling the (possibly advised) function
 				}
 				break ATTEMPTS;
@@ -600,7 +619,23 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		throw lastError;
 
 	}
-
+	private void weaveLoaded(IFunction f, BExecutionContext ctx) throws B3WeavingFailedException{
+		if(ctx == null)
+			return;
+		weaveLoaded(f, ctx.getParentContext());
+		for(BConcern c : ctx.getEffectiveConcerns()) {
+			boolean savedWeaving = isWeaving;
+			try {
+				isWeaving = true;
+				c.evaluateIfMatching(f, ctx);
+			} catch (Throwable e) {
+				throw new B3WeavingFailedException(e);
+			} finally {
+				isWeaving = savedWeaving;
+			}
+		}
+				
+	}
 	/**
 	 * <!-- begin-user-doc -->
 	 * Looks up the value in the value map obtained by calling {@link #getValueMap()} (which derived classes
@@ -788,8 +823,9 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 				BExecutionContext systemCtx = this.getInvocationContext().getParentContext();
 				if(!(systemCtx instanceof BSystemContext))
 					throw new B3InternalError("The parent of the invocation context must be an instance of BSystemContext");
-				if(((BSystemContext)systemCtx).loadMethod(functionName, types)) {
-					// TODO: apply bequests for the just loaded function (but not for any other)
+				IFunction loaded = null;
+				if((loaded = ((BSystemContext)systemCtx).loadMethod(functionName, types)) != null) {
+					weaveLoaded(loaded, this);
 					continue; // attempt calling the (possibly advised) function
 				}
 				break ATTEMPTS;
@@ -802,37 +838,6 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 			throw new B3InternalError("BExecutionContextImpl#getDeclaredFunctionType() did not return ok, and had no last error");
 		
 		throw lastError;
-	
-//		/// OLD IMPL
-//		B3FuncStore fStore = getEffectiveFuncStore();
-//
-//		// try regular lookup, then a lookup using static access, then java context
-//		if(fStore != null) 
-//			try {
-//				return fStore.getDeclaredFunctionType(functionName, types, this);
-//			} catch (B3NoSuchFunctionException e) {
-//				/* ignore - try java context later */
-//			} catch (B3NoSuchFunctionSignatureException e2) {
-//				/* found function-name, but with incompatible signature, try a class call */
-//				try {
-//					B3MetaClass metaClass = B3backendFactory.eINSTANCE.createB3MetaClass();
-//					metaClass.setInstanceClass(TypeUtils.getRaw(types[0]));
-//					Type[] newTypes = new Type[types.length+1];
-//					System.arraycopy(types, 0, newTypes, 1, types.length);
-//					newTypes[0] = metaClass;
-//					return fStore.getDeclaredFunctionType(functionName, newTypes, this);
-//
-//				} catch (B3NoSuchFunctionException e3) {
-//					/* ignore - try java context later */
-//				} catch (B3NoSuchFunctionSignatureException e4) {
-//					/* ignore - try java context later */
-//				}
-//			}
-//			// try java context
-//			BExecutionContext systemCtx = this.getInvocationContext().getParentContext();
-//			if(!(systemCtx instanceof BSystemContext))
-//				throw new IllegalStateException("The parent of the invocation context must be an instance of BSystemContext");
-//			return ((BSystemContext)systemCtx).getDeclaredFunctionType(functionName, types);
 	}
 
 	/**
@@ -902,9 +907,9 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 * @generated NOT
 	 */
 	public IFunction defineFunction(IFunction function) throws B3EngineException {
-		if("addedLater".equals(function.getName())) {
-			function = function;
-		}
+//		if("addedLater".equals(function.getName())) {
+//			function = function;
+//		}
 		createFuncStore();
 		boolean woven = false;
 		if(!isWeaving)

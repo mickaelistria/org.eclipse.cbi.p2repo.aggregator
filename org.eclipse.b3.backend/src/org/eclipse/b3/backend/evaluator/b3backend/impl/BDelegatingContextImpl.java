@@ -17,8 +17,10 @@ import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.core.B3FuncStore;
 import org.eclipse.b3.backend.core.ValueMap;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
+import org.eclipse.b3.backend.evaluator.b3backend.BConcern;
 import org.eclipse.b3.backend.evaluator.b3backend.BDelegatingContext;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -174,13 +176,17 @@ public class BDelegatingContextImpl extends BInnerContextImpl implements BDelega
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Throws UnssuportedOperationException as the delegating context is immutable.
+	 * Delegates function definition to the outer context. This is used when system context functions are woven as they 
+	 * are lazily added.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
 	public IFunction defineFunction(IFunction function) throws B3EngineException {
-		throw new UnsupportedOperationException("Can not perform defineFunction() on a delegating context.");
+		return getOuterContext().defineFunction(function);
 	}
-	
+	@Override
+	public EList<BConcern> getEffectiveConcerns() {
+		return getOuterContext().getEffectiveConcerns();
+	}
 } //BDelegatingContextImpl

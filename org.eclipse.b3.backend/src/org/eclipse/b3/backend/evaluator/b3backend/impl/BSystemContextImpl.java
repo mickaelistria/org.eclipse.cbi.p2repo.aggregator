@@ -17,6 +17,7 @@ import org.eclipse.b3.backend.core.B3InternalError;
 import org.eclipse.b3.backend.core.B3NoSuchFunctionSignatureException;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BSystemContext;
+import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.emf.ecore.EClass;
 
@@ -70,22 +71,18 @@ public class BSystemContextImpl extends BExecutionContextImpl implements BSystem
 	 * @throws B3AmbiguousFunctionSignatureException 
 	 * @generated NOT
 	 */
-	public boolean loadMethod(String functionName, Type[] types) throws B3EngineException {
+	public IFunction loadMethod(String functionName, Type[] types) throws B3EngineException {
 		Method method = null;
 		try {
 			method = findMethod(functionName, types);
 		} catch (B3NoSuchFunctionSignatureException e) {
-			return false;
-//			// thrown when types is empty
-//			throw new B3InternalError("Attempt to load a method got bad input", e);
+			return null;
 		} catch (SecurityException e) {
 			throw new B3InternalError("Security exception while loading method", e);
 		} catch (NoSuchMethodException e) {
-			return false;
+			return null;
 		}
-		loadFunction(method);
-		return true;
-
+		return loadFunction(method);
 	}
 
 //	/**

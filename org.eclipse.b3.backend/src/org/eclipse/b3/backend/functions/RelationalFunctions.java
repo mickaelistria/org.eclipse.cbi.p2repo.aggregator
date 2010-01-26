@@ -14,6 +14,8 @@ public class RelationalFunctions {
 	@SuppressWarnings("unchecked")
 	@B3Backend(funcNames={"=="})
 	public static Boolean equals(Object left, Object right) {
+		if(left == null || right == null)
+			return Boolean.valueOf(left == right);
 		if(left == right || left.equals(right))
 			return Boolean.TRUE;
 		try {

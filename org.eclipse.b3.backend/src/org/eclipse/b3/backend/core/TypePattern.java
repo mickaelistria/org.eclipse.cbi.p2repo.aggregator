@@ -117,7 +117,7 @@ public class TypePattern {
 	private static Node parse(List<BParameterPredicate> pattern, int pos) {
 		int top = pattern.size();
 		Node parsedNode = null;
-		while (pos < top) {
+		if (pos < top) {
 			BParameterPredicate p = pattern.get(pos);
 			String op = p.getTypePredicateOp();
 			if(op == null || op.length() < 1)
@@ -135,7 +135,6 @@ public class TypePattern {
 					throw new IllegalArgumentException("Invalid Parameter predicate, expected (none) or '?', '*', or '+' got: "+op);
 				}
 			}
-			pos++;
 		}
 		return parsedNode;
 	}

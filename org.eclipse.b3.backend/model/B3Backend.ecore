@@ -358,8 +358,7 @@
   <eClassifiers xsi:type="ecore:EDataType" name="Type" instanceClassName="java.lang.reflect.Type"/>
   <eClassifiers xsi:type="ecore:EDataType" name="ObjectArray" instanceClassName="java.lang.Object[]"/>
   <eClassifiers xsi:type="ecore:EClass" name="BSystemContext" eSuperTypes="#//BExecutionContext">
-    <eOperations name="loadMethod" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        eExceptions="#//B3EngineException">
+    <eOperations name="loadMethod" eType="#//IFunction" eExceptions="#//B3EngineException">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Evaluate the function referenced by name in the specified context. "/>
       </eAnnotations>
