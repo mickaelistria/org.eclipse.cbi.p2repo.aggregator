@@ -38,16 +38,16 @@ public class B3Engine {
 	 * Experimental code - to be removed
 	 */
 	private void loadInstanceMethods() {
-		Method m = null;
-		try {
-			m = String.class.getMethod("format", String.class, Array.newInstance(Object.class, 0).getClass());
-		} catch (Throwable e) {
-			e.printStackTrace();
-		} 
-		try {
-			systemContext.loadFunction(m);
-		} catch (B3EngineException e) {
-			e.printStackTrace();
-		}
+//		Method m = null;
+//		try {
+//			m = String.class.getMethod("format", String.class, Array.newInstance(Object.class, 0).getClass());
+//		} catch (Throwable e) {
+//			e.printStackTrace();
+//		} 
+//		try {
+//			systemContext.loadFunction(m);
+//		} catch (B3EngineException e) {
+//			e.printStackTrace();
+//		}
 	}
 }
