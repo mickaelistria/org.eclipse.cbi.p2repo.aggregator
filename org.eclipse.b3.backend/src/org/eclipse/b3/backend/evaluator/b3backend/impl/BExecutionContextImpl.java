@@ -516,20 +516,20 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		}
 		return null;
 	}
-	private static String toAlphabetString(long number) {
+	public static String toAlphabetString(long number) {
 		if(number < 0)
 			throw new IllegalArgumentException();
 
-		StringBuilder buffer = new StringBuilder();
+		StringBuilder buf = new StringBuilder();
 
 		while(number >= ('z' - 'a' + 1)) {
-			buffer.append((char) ('a' + (number % ('z' - 'a' + 1))));
+			buf.append((char) ('a' + (int) (number % ('z' - 'a' + 1))));
 			number = number / ('z' - 'a' + 1) - 1;
 		}
 
-		buffer.append((char) ('a' + number));
+		buf.append((char) ('a' + (int) number));
 
-		return buffer.reverse().toString();
+		return buf.reverse().toString();
 	}
 	private void setParameterDeclarations(IFunction f, Type[] types, String[] names) {
 		if(types.length != names.length) {
