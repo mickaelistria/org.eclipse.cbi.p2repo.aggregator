@@ -6,8 +6,6 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
-import java.lang.reflect.Array;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import java.util.Iterator;
@@ -18,10 +16,8 @@ import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.core.B3InternalError;
 import org.eclipse.b3.backend.core.B3NoSuchFunctionSignatureException;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BSystemContext;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
-
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -133,10 +129,72 @@ public class BSystemContextImpl extends BExecutionContextImpl implements BSystem
 //		}
 //	}
 
-	private Method findMethod(String functionName, Type[] types) throws B3NoSuchFunctionSignatureException, B3AmbiguousFunctionSignatureException, SecurityException, NoSuchMethodException  {
+	private static class MethodCandidate extends TypeUtils.Candidate {
+
+		private Method method;
+
+		public MethodCandidate(Method aMethod) {
+			method = aMethod;
+		}
+
+		@Override
+		protected boolean nameMatches(String name) {
+			return method.getName().equals(name);
+		}
+
+		@Override
+		protected Class<?>[] getParameterTypes() {
+			return method.getParameterTypes();
+		}
+
+		@Override
+		protected boolean isVarArgs() {
+			return method.isVarArgs();
+		}
+
+		public Method getMethod() {
+			return method;
+		}
+
+	}
+
+	private static class MethodCandidateSource implements Iterable<MethodCandidate> {
+
+		private class MethodCandidateIterator implements Iterator<MethodCandidate> {
+
+			private int currentIndex;
+
+			public boolean hasNext() {
+				return currentIndex < methods.length;
+			}
+
+			public MethodCandidate next() {
+				return new MethodCandidate(methods[currentIndex++]);
+			}
+
+			public void remove() {
+				throw new UnsupportedOperationException();
+			}
+
+		}
+
+		private Method[] methods;
+
+		public MethodCandidateSource(Class<?> aClass) {
+			methods = aClass.getMethods();
+		}
+
+		public Iterator<MethodCandidate> iterator() {
+			return new MethodCandidateIterator();
+		}
+
+	}
+
+	private Method findMethod(String methodName, Type[] types) throws B3NoSuchFunctionSignatureException,
+			B3AmbiguousFunctionSignatureException, SecurityException, NoSuchMethodException {
 		// in Java, all calls refer to an instance/class (which must be in the first parameter)
 		if(types.length == 0)
-			throw new B3NoSuchFunctionSignatureException(functionName, types);
+			throw new B3NoSuchFunctionSignatureException(methodName, types);
 
 		Class<?> objectType = TypeUtils.getRaw(types[0]);
 		Class<?>[] parameterTypes = new Class<?>[types.length - 1];
@@ -144,320 +202,21 @@ public class BSystemContextImpl extends BExecutionContextImpl implements BSystem
 		for(int i = 1; i < types.length; ++i)
 			parameterTypes[i - 1] = TypeUtils.getRaw(types[i]);
 
-		// candidate methods
-		LinkedList<Method> candidates = new LinkedList<Method>();
-		// state:
-		//
-		// NONE
-		// no candidate method found
-		// 
-		// VARIABLE_ARITY_BY_CONVERSION
-		// variable arity candidate method(s) (§15.12.2.4 in Java Language Specification) applicable
-		// by method invocation conversion found
-		// 
-		// VARIABLE_ARITY_BY_SUBTYPING
-		// variable arity candidate method(s) (§15.12.2.4 in Java Language Specification) applicable
-		// by subtyping found
-		// 
-		// FIXED_ARITY_BY_CONVERSION
-		// fixed arity candidate method(s) applicable by method invocation conversion (§15.12.2.3
-		// in Java Language Specification) found
-		// 
-		// FIXED_ARITY_BY_SUBTYPING
-		// fixed arity candidate method(s) applicable by subtyping (§15.12.2.2 in Java Language
-		// Specification) found
-		TypeUtils.CandidateState state = TypeUtils.CandidateState.NONE;
+		LinkedList<MethodCandidate> candidateMethods = TypeUtils.Candidate.findMostSpecificApplicableCandidates(
+				methodName, parameterTypes, new MethodCandidateSource(objectType));
 
-		METHOD: for(Method method : objectType.getMethods()) {
-			// continue if the method name doesn't match
-			if(!functionName.equals(method.getName()))
-				continue METHOD;
-
-			Class<?>[] methodParameterTypes = method.getParameterTypes();
-			boolean needsConversion = false;
-
-			if(method.isVarArgs() && state.ordinal() <= TypeUtils.CandidateState.VARIABLE_ARITY_BY_SUBTYPING.ordinal()) {
-				// perform variable arity method matching (state <= VARIABLE_ARITY_BY_SUBTYPING means we haven't found
-				// any fixed arity candidate yet so we need to perform the variable arity method matching if the current
-				// method indeed is a variable arity method)
-
-				int fixedParameterCount = methodParameterTypes.length - 1;
-
-				// don't bother if there are too few arguments
-				if(fixedParameterCount > parameterTypes.length)
-					continue METHOD;
-
-				for(int i = 0; i < fixedParameterCount; ++i) {
-					if(!(methodParameterTypes[i].isAssignableFrom(parameterTypes[i]) || TypeUtils.isCoercibleFrom(
-							methodParameterTypes[i], parameterTypes[i])
-							&& (needsConversion = true)))
-						continue METHOD;
-				}
-
-				VARIABLE_ARITY: {
-					if(methodParameterTypes.length <= parameterTypes.length) {
-						// check for fixed arity match if the counts of parameters and arguments match
-						if(methodParameterTypes.length == parameterTypes.length) {
-							if(methodParameterTypes[fixedParameterCount]
-							                        .isAssignableFrom(parameterTypes[fixedParameterCount]))
-								// the method is applicable as a fixed arity method
-								break VARIABLE_ARITY;
-						}
-
-						// we need to check the remaining arguments against the variable arity parameter component type
-						Class<?> varargComponentType = methodParameterTypes[fixedParameterCount].getComponentType();
-
-						for(int i = fixedParameterCount; i < parameterTypes.length; ++i) {
-							if(!(varargComponentType.isAssignableFrom(parameterTypes[i]) || TypeUtils.isCoercibleFrom(
-									varargComponentType, parameterTypes[i])
-									&& (needsConversion = true)))
-								continue METHOD;
-						}
-
-						// the method is applicable as a variable arity method with non empty array of arguments
-						// for the variable arity parameter
-					} else {
-						// the method is applicable as a variable arity method with an empty array of arguments
-						// for the variable arity parameter
-					}
-
-					TypeUtils.CandidateState nextState = needsConversion
-					? TypeUtils.CandidateState.VARIABLE_ARITY_BY_CONVERSION
-							: TypeUtils.CandidateState.VARIABLE_ARITY_BY_SUBTYPING;
-
-					if(state != nextState) {
-						if(state.ordinal() < nextState.ordinal()) {
-							candidates.clear();
-							candidates.add(method);
-							state = nextState;
-						}
-						continue METHOD;
-					}
-
-					// perform less specific variable arity candidates elimination
-					Iterator<Method> candidateIterator = candidates.iterator();
-					boolean isLessSpecific = true;
-
-					while(candidateIterator.hasNext()) {
-						Method candidate = candidateIterator.next();
-						Class<?>[] candidateParameterTypes = candidate.getParameterTypes();
-
-						if(candidateParameterTypes.length >= methodParameterTypes.length) {
-							// check if the method is more specific than the current candidate
-							IS_MORE_SPECIFIC: {
-							for(int i = 0; i < parameterTypes.length - 1; ++i) {
-								if(!(candidateParameterTypes[i].isAssignableFrom(methodParameterTypes[i]) || TypeUtils
-										.isCoercibleFrom(candidateParameterTypes[i], methodParameterTypes[i])))
-									break IS_MORE_SPECIFIC;
-							}
-
-							Class<?> varargComponentType = parameterTypes[parameterTypes.length - 1]
-							                                              .getComponentType();
-
-							for(int i = parameterTypes.length - 1; i < candidateParameterTypes.length - 1; ++i) {
-								if(!(candidateParameterTypes[i].isAssignableFrom(varargComponentType) || TypeUtils
-										.isCoercibleFrom(candidateParameterTypes[i], varargComponentType)))
-									break IS_MORE_SPECIFIC;
-							}
-
-							Class<?> candidateVarargComponentType = candidateParameterTypes[candidateParameterTypes.length - 1]
-							                                                                .getComponentType();
-
-							if(!(candidateVarargComponentType.isAssignableFrom(varargComponentType) || TypeUtils
-									.isCoercibleFrom(candidateVarargComponentType, varargComponentType)))
-								break IS_MORE_SPECIFIC;
-
-							// the method is more specific than the current candidate, so no need to keep the
-							// candidate around
-							candidateIterator.remove();
-							isLessSpecific = false;
-							continue;
-						}
-
-						// verify that the method is less specific than the current candidate
-						IS_LESS_SPECIFIC: {
-							for(int i = 0; i < parameterTypes.length - 1; ++i) {
-								if(!(methodParameterTypes[i].isAssignableFrom(candidateParameterTypes[i]) || TypeUtils
-										.isCoercibleFrom(methodParameterTypes[i], candidateParameterTypes[i])))
-									break IS_LESS_SPECIFIC;
-							}
-
-							Class<?> varargComponentType = parameterTypes[parameterTypes.length - 1]
-							                                              .getComponentType();
-
-							for(int i = parameterTypes.length - 1; i < candidateParameterTypes.length - 1; ++i) {
-								if(!(varargComponentType.isAssignableFrom(candidateParameterTypes[i]) || TypeUtils
-										.isCoercibleFrom(varargComponentType, candidateParameterTypes[i])))
-									break IS_LESS_SPECIFIC;
-							}
-
-							Class<?> candidateVarargComponentType = candidateParameterTypes[candidateParameterTypes.length - 1]
-							                                                                .getComponentType();
-
-							if(!(varargComponentType.isAssignableFrom(candidateVarargComponentType) || TypeUtils
-									.isCoercibleFrom(varargComponentType, candidateVarargComponentType)))
-								break IS_LESS_SPECIFIC;
-
-							// the method is less specific than the current candidate
-							continue;
-						}
-						} else {
-							// check if the method is more specific than the current candidate
-							IS_MORE_SPECIFIC: {
-							for(int i = 0; i < candidateParameterTypes.length - 1; ++i) {
-								if(!(candidateParameterTypes[i].isAssignableFrom(methodParameterTypes[i]) || TypeUtils
-										.isCoercibleFrom(candidateParameterTypes[i], methodParameterTypes[i])))
-									break IS_MORE_SPECIFIC;
-							}
-
-							Class<?> candidateVarargComponentType = candidateParameterTypes[candidateParameterTypes.length - 1]
-							                                                                .getComponentType();
-
-							for(int i = candidateParameterTypes.length - 1; i < parameterTypes.length - 1; ++i) {
-								if(!(candidateVarargComponentType.isAssignableFrom(methodParameterTypes[i]) || TypeUtils
-										.isCoercibleFrom(candidateVarargComponentType, methodParameterTypes[i])))
-									break IS_MORE_SPECIFIC;
-							}
-
-							Class<?> varargComponentType = parameterTypes[parameterTypes.length - 1]
-							                                              .getComponentType();
-
-							if(!(candidateVarargComponentType.isAssignableFrom(varargComponentType) || TypeUtils
-									.isCoercibleFrom(candidateVarargComponentType, varargComponentType)))
-								break IS_MORE_SPECIFIC;
-
-							// the method is more specific than the current candidate, so no need to keep the
-							// candidate around
-							candidateIterator.remove();
-							isLessSpecific = false;
-							continue;
-						}
-
-						// verify that the method is less specific than the current candidate
-						IS_LESS_SPECIFIC: {
-							for(int i = 0; i < candidateParameterTypes.length - 1; ++i) {
-								if(!(methodParameterTypes[i].isAssignableFrom(candidateParameterTypes[i]) || TypeUtils
-										.isCoercibleFrom(methodParameterTypes[i], candidateParameterTypes[i])))
-									break IS_LESS_SPECIFIC;
-							}
-
-							Class<?> candidateVarargComponentType = candidateParameterTypes[candidateParameterTypes.length - 1]
-							                                                                .getComponentType();
-
-							for(int i = candidateParameterTypes.length - 1; i < parameterTypes.length - 1; ++i) {
-								if(!(methodParameterTypes[i].isAssignableFrom(candidateVarargComponentType) || TypeUtils
-										.isCoercibleFrom(methodParameterTypes[i], candidateVarargComponentType)))
-									break IS_LESS_SPECIFIC;
-							}
-
-							Class<?> varargComponentType = parameterTypes[parameterTypes.length - 1]
-							                                              .getComponentType();
-
-							if(!(varargComponentType.isAssignableFrom(candidateVarargComponentType) || TypeUtils
-									.isCoercibleFrom(varargComponentType, candidateVarargComponentType)))
-								break IS_LESS_SPECIFIC;
-
-							// the method is less specific than the current candidate
-							continue;
-						}
-						}
-
-						// the method is ambiguous with respect to the current candidate, which means it is not less
-						// specific
-						isLessSpecific = false;
-					}
-
-					// if the method is not less specific than all the candidates, then add it to the candidate list
-					if(!isLessSpecific)
-						candidates.add(method);
-
-					continue METHOD;
-				}
-
-				// fall through to the fixed arity candidates handling
-			} else {
-				// perform fixed arity method matching (either because the current method is a fixed arity method or
-				// because state > VARIABLE_ARITY_BY_SUBTYPING which means we have found some fixed arity candidate
-				// before so we don't need to perform variable arity method matching any longer)
-
-				// don't bother if the parameter counts don't match
-				if(methodParameterTypes.length != parameterTypes.length)
-					continue METHOD;
-
-				for(int i = 0; i < methodParameterTypes.length; ++i) {
-					if(!(methodParameterTypes[i].isAssignableFrom(parameterTypes[i]) || TypeUtils.isCoercibleFrom(
-							methodParameterTypes[i], parameterTypes[i])
-							&& (needsConversion = true)))
-						continue METHOD;
-				}
-			}
-
-			TypeUtils.CandidateState nextState = needsConversion
-			? TypeUtils.CandidateState.FIXED_ARITY_BY_CONVERSION
-					: TypeUtils.CandidateState.FIXED_ARITY_BY_SUBTYPING;
-
-			if(state != nextState) {
-				if(state.ordinal() < nextState.ordinal()) {
-					candidates.clear();
-					candidates.add(method);
-					state = nextState;
-				}
-				continue METHOD;
-			}
-
-			// perform less specific fixed arity candidates elimination
-			Iterator<Method> candidateIterator = candidates.iterator();
-			boolean isLessSpecific = true;
-
-			while(candidateIterator.hasNext()) {
-				Method candidate = candidateIterator.next();
-				Class<?>[] candidateParameterTypes = candidate.getParameterTypes();
-
-				// check if the method is more specific than the current candidate
-				IS_MORE_SPECIFIC: {
-					for(int i = 0; i < parameterTypes.length; ++i) {
-						if(!(candidateParameterTypes[i].isAssignableFrom(methodParameterTypes[i]) || TypeUtils
-								.isCoercibleFrom(candidateParameterTypes[i], methodParameterTypes[i])))
-							break IS_MORE_SPECIFIC;
-					}
-					// the method is more specific than the current candidate, so no need to keep the candidate around
-					candidateIterator.remove();
-					isLessSpecific = false;
-					continue;
-				}
-
-				// verify that the method is less specific than the current candidate
-				IS_LESS_SPECIFIC: {
-					for(int i = 0; i < parameterTypes.length; ++i) {
-						if(!(methodParameterTypes[i].isAssignableFrom(candidateParameterTypes[i]) || TypeUtils
-								.isCoercibleFrom(methodParameterTypes[i], candidateParameterTypes[i])))
-							break IS_LESS_SPECIFIC;
-					}
-					// the method is less specific than the current candidate
-					continue;
-				}
-
-				// the method is ambiguous with respect to the current candidate, which means it is not less specific
-				isLessSpecific = false;
-			}
-
-			// if the method is not less specific than all the candidates, then add it to the candidate list
-			if(!isLessSpecific)
-				candidates.add(method);
-		}
-
-		switch(candidates.size()) {
+		switch(candidateMethods.size()) {
 		case 0: // no candidate method found
-			throw new B3NoSuchFunctionSignatureException(functionName, types);
+			throw new B3NoSuchFunctionSignatureException(methodName, types);
 		case 1: { // one candidate method found
-			Method candidate = candidates.getFirst();
+			Method candidateMethod = candidateMethods.getFirst().getMethod();
 
 			// return the result of a call to java.lang.Class.getMethod() to get the most specific implementation
 			// of the candidate method
-			return objectType.getMethod(candidate.getName(), candidate.getParameterTypes());
+			return objectType.getMethod(candidateMethod.getName(), candidateMethod.getParameterTypes());
 		}
 		default: // more than one candidate method found (the method call is ambiguous)
-			throw new B3AmbiguousFunctionSignatureException(functionName, types);
+			throw new B3AmbiguousFunctionSignatureException(methodName, types);
 		}
 	}
 
