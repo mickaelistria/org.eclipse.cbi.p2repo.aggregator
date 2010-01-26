@@ -506,7 +506,7 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 						}
 					}
 				}
-				pNames[i+1] = toAlphabetString('a'+i);
+				pNames[i+1] = toAlphabetString(i);
 			}
 			setParameterDeclarations(f, getGenericParameterTypes(m, isStatic), pNames);
 			f.setTypeParameters(m.getTypeParameters());
