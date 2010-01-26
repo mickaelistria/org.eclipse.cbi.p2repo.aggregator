@@ -413,9 +413,15 @@ public class TypeUtils {
 
 		return coerceTypes != null && coerceTypes.contains(baseType);
 	}
+
+	public static boolean isConvertibleFrom(Type baseType, Type fromType) {
+		return (isAssignableFrom(baseType, fromType) || isCoercibleFrom(baseType, fromType));
+	}
+
 	/**
-	 * Is equivalent to calling {@link #isAssignableFrom(Type, Type)} with baseType, value.getClass(), but 
-	 * handles the special case when value is null.
+	 * Is equivalent to calling {@link #isAssignableFrom(Type, Type)} with baseType, value.getClass(), but handles the
+	 * special case when value is null.
+	 * 
 	 * @param baseType
 	 * @param value
 	 * @return
