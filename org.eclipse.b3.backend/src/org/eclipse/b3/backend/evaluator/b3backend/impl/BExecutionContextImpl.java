@@ -516,7 +516,7 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		}
 		return null;
 	}
-	public static String toAlphabetString(long number) {
+	private static String toAlphabetString(long number) {
 		if(number < 0)
 			throw new IllegalArgumentException();
 
