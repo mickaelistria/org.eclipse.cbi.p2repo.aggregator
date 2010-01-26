@@ -18,6 +18,7 @@ import java.util.Set;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
+import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
 
 public class TypeUtils {
 
@@ -433,6 +434,8 @@ public class TypeUtils {
 	}
 
 	public static boolean isArray(Type baseType) {
+		if(baseType instanceof B3ParameterizedType)
+			baseType = getRaw(baseType);
 		return baseType instanceof GenericArrayType
 				|| (baseType instanceof Class<?> && ((Class<?>) baseType).isArray());
 		// return getRaw(baseType).isArray();
@@ -540,6 +543,8 @@ public class TypeUtils {
 	}
 
 	public static Class<?> getArrayComponentClass(Type type) {
+		if(type instanceof B3ParameterizedType)
+			type = getRaw(type);
 		if(type instanceof Class<?>)
 			return ((Class<?>) type).getComponentType();
 		if(type instanceof GenericArrayType)

@@ -493,10 +493,9 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 			// there may be parameter annotations, but very unlikely - at least there is
 			// an empty array of parameter annotations, so can just as well use this
 			Annotation[][] pa = m.getParameterAnnotations();
-			String pNames[] = new String[pa.length + (isStatic ? 0 : 1)];
+			String pNames[] = new String[pa.length + 1];
 //			f.setParameterNames(pNames);
-			if(!isStatic)
-				pNames[0] = "this";
+			pNames[0] = isStatic ? "aClass" : "this";
 			for(int i = 0; i < pa.length; i++) {
 				Annotation[] pan = pa[i];
 				if(pan == null || pan.length == 0)
@@ -504,7 +503,7 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 				else {
 					for(int j = 0; j < pan.length; j++) {
 						if(pan[j] instanceof B3Backend) {
-							pNames[i+ (isStatic ? 0 : 1)]=((B3Backend)pan[j]).name();
+							pNames[i+1]=((B3Backend)pan[j]).name();
 							break; // only use first named declared for the parameter
 						}
 					}
@@ -519,6 +518,9 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		return null;
 	}
 	private void setParameterDeclarations(IFunction f, Type[] types, String[] names) {
+		if(types.length != names.length) {
+			throw new IllegalArgumentException("All types must have a name");
+		}
 		EList<BParameterDeclaration> plist = f.getParameters();
 		for(int i = 0; i < types.length; i++) {
 			BParameterDeclaration decl = B3backendFactory.eINSTANCE.createBParameterDeclaration();
