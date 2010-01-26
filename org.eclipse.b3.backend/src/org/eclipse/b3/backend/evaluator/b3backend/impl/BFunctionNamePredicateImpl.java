@@ -15,7 +15,6 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 import java.util.Iterator;
 import java.util.regex.Pattern;
 
-import org.eclipse.b3.backend.core.B3FuncStore;
 import org.eclipse.b3.backend.core.B3InternalError;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
@@ -125,6 +124,28 @@ public class BFunctionNamePredicateImpl extends BExpressionImpl implements BFunc
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION_NAME_PREDICATE__NAME_PREDICATE, newNamePredicate, newNamePredicate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean matches(String name) {
+		String namePattern = namePredicate.getName(); // simple compare against a string
+		if(namePattern != null)
+			return namePattern.equals(name);
+		
+		// this is a name pattern of some sort
+		// currently supporting ANY, or Regexp - pattern matching not done as
+		// full expressions.
+		BExpression expr = namePredicate.getNamePattern();
+		if(expr instanceof BLiteralAny)
+			return true;
+		
+		if(expr instanceof BRegularExpression)
+			return ((BRegularExpression)expr).getPattern().matcher(name).matches();
+		throw new B3InternalError("Attempt to evaluate a BFunctionNamePredicate without a valid pattern type");
 	}
 
 	/**

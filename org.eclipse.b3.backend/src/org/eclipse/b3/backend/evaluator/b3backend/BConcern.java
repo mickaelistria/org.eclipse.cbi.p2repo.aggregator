@@ -115,4 +115,12 @@ public interface BConcern extends BAdvice, BFunctionContainer {
 	 */
 	EList<BConcernContext> getContexts();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
+	 * @generated
+	 */
+	boolean evaluateIfMatching(Object candidate, BExecutionContext ctx) throws Throwable;
+
 } // BConcern

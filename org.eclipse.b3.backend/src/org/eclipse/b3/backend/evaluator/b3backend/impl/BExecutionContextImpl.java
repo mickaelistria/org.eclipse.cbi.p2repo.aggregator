@@ -25,6 +25,7 @@ import org.eclipse.b3.backend.core.B3FunctionLoadException;
 import org.eclipse.b3.backend.core.B3InternalError;
 import org.eclipse.b3.backend.core.B3NoSuchFunctionException;
 import org.eclipse.b3.backend.core.B3NoSuchFunctionSignatureException;
+import org.eclipse.b3.backend.core.B3WeavingFailedException;
 import org.eclipse.b3.backend.core.LValue;
 import org.eclipse.b3.backend.core.B3FinalVariableRedefinitionException;
 import org.eclipse.b3.backend.core.B3NoContextException;
@@ -34,6 +35,7 @@ import org.eclipse.b3.backend.evaluator.BackendHelper;
 import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
+import org.eclipse.b3.backend.evaluator.b3backend.BConcern;
 import org.eclipse.b3.backend.evaluator.b3backend.BContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFileReference;
@@ -56,6 +58,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -70,6 +73,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getChildContexts <em>Child Contexts</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getValueMap <em>Value Map</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getFuncStore <em>Func Store</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getEffectiveConcerns <em>Effective Concerns</em>}</li>
  * </ul>
  * </p>
  *
@@ -133,6 +137,16 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 * @ordered
 	 */
 	protected B3FuncStore funcStore = FUNC_STORE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getEffectiveConcerns() <em>Effective Concerns</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEffectiveConcerns()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<BConcern> effectiveConcerns;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -236,6 +250,18 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BEXECUTION_CONTEXT__FUNC_STORE, oldFuncStore, funcStore));
 	}
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<BConcern> getEffectiveConcerns() {
+		if (effectiveConcerns == null) {
+			effectiveConcerns = new EObjectResolvingEList<BConcern>(BConcern.class, this, B3backendPackage.BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS);
+		}
+		return effectiveConcerns;
+	}
+
 	/**
 	 * Creates a func store if not already created and links it to the first found parent context
 	 * with a func store.
@@ -511,7 +537,7 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 * @generated NOT
 	 */
 	public Object callFunction(String functionName, Object[] parameters,Type[] types) throws Throwable {
-		if("max".equals(functionName)) {
+		if("addedLater".equals(functionName)) {
 			functionName = functionName + ""; // dummy for debugging
 		}
 		B3FuncStore fStore = getEffectiveFuncStore();
@@ -869,15 +895,33 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		}
 		return new ValueMapLVal(name);
 	}
-
+	private boolean isWeaving = false;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public IFunction defineFunction(IFunction function) throws B3EngineException {
+		if("addedLater".equals(function.getName())) {
+			function = function;
+		}
 		createFuncStore();
-		funcStore.defineFunction(function.getName(), function);
+		boolean woven = false;
+		if(!isWeaving)
+			for(BExecutionContext ctx = this; ctx.getParentContext() != null; ctx = ctx.getParentContext()) {
+				for(BConcern c : ctx.getEffectiveConcerns())
+					try {
+						isWeaving = true;
+						if(c.evaluateIfMatching(function, this))
+							woven = true;
+					} catch (Throwable e) {
+						throw new B3WeavingFailedException(e);
+					} finally {
+						isWeaving = false;
+					}
+			}
+		if(!woven)
+			funcStore.defineFunction(function.getName(), function);
 		return function;
 	}
 	protected class ValueMapLVal implements LValue {
@@ -972,6 +1016,8 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 				return getValueMap();
 			case B3backendPackage.BEXECUTION_CONTEXT__FUNC_STORE:
 				return getFuncStore();
+			case B3backendPackage.BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS:
+				return getEffectiveConcerns();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -995,6 +1041,10 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 			case B3backendPackage.BEXECUTION_CONTEXT__FUNC_STORE:
 				setFuncStore((B3FuncStore)newValue);
 				return;
+			case B3backendPackage.BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS:
+				getEffectiveConcerns().clear();
+				getEffectiveConcerns().addAll((Collection<? extends BConcern>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1016,6 +1066,9 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 			case B3backendPackage.BEXECUTION_CONTEXT__FUNC_STORE:
 				setFuncStore(FUNC_STORE_EDEFAULT);
 				return;
+			case B3backendPackage.BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS:
+				getEffectiveConcerns().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1036,6 +1089,8 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 				return VALUE_MAP_EDEFAULT == null ? valueMap != null : !VALUE_MAP_EDEFAULT.equals(valueMap);
 			case B3backendPackage.BEXECUTION_CONTEXT__FUNC_STORE:
 				return FUNC_STORE_EDEFAULT == null ? funcStore != null : !FUNC_STORE_EDEFAULT.equals(funcStore);
+			case B3backendPackage.BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS:
+				return effectiveConcerns != null && !effectiveConcerns.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

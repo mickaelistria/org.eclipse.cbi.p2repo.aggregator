@@ -19,7 +19,6 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BConcern;
 import org.eclipse.b3.backend.evaluator.b3backend.BConcernContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
-import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 
@@ -257,6 +256,22 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean evaluateIfMatching(Object candidate, BExecutionContext ctx) throws Throwable {
+		Boolean result = false;
+		for(BConcern c : getSuperConcerns())
+			if(c.evaluateIfMatching(candidate, ctx))
+				result = true;
+		for(BConcernContext cc : getContexts())
+			if(cc.evaluateIfMatching(candidate, ctx))
+				result = true;
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -461,6 +476,8 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 			ctx.defineFunction(f);
 		for(BConcernContext cc : getContexts())
 			cc.evaluate(ctx);
+		// record this concern into the context - for bequests
+		ctx.getEffectiveConcerns().add(this);
 		return this;
 	}
 } //BConcernImpl

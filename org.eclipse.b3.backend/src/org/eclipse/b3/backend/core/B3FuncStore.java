@@ -69,6 +69,10 @@ public class B3FuncStore {
 		return result;
 	}
 	public Object callFunction(String functionName, Object[] parameters, Type[] types, BExecutionContext ctx) throws Throwable {
+		// if the cache is dirty for name - update the cache
+		if(dirtyFunctions.contains(functionName))
+			updateCache(functionName);
+
 		// find the best matching function, call it, or throw B3NoSuchFunctionException
 		
 		// if there is no function here for the name, delegate the task (do not want to add things to this
@@ -80,9 +84,6 @@ public class B3FuncStore {
 			else
 				return parentStore.callFunction(functionName, parameters, types, ctx);
 		}
-		// if the cache is dirty for name - update the cache
-		if(dirtyFunctions.contains(functionName))
-			updateCache(functionName);
 	
 		IFunction toBeCalled = getBestFunction(functionName, parameters, types, ctx);
 		if(toBeCalled == null)

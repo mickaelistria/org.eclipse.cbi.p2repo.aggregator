@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getChildContexts <em>Child Contexts</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getValueMap <em>Value Map</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getFuncStore <em>Func Store</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getEffectiveConcerns <em>Effective Concerns</em>}</li>
  * </ul>
  * </p>
  *
@@ -132,6 +133,22 @@ public interface BExecutionContext extends EObject {
 	 * @generated
 	 */
 	void setFuncStore(B3FuncStore value);
+
+	/**
+	 * Returns the value of the '<em><b>Effective Concerns</b></em>' reference list.
+	 * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.BConcern}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Effective Concerns</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Effective Concerns</em>' reference list.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBExecutionContext_EffectiveConcerns()
+	 * @model
+	 * @generated
+	 */
+	EList<BConcern> getEffectiveConcerns();
 
 	/**
 	 * <!-- begin-user-doc -->

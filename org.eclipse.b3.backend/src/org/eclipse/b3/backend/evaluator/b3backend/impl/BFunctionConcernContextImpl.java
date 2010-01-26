@@ -389,12 +389,20 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 			weaveIfParametersMatch(pattern, itor.next(), ctx);
 		}
 		return this;
-		// TODO: Record bequest for all future function definitions
 	}
-	private void weaveIfParametersMatch(TypePattern pattern, IFunction f, BExecutionContext ctx) throws B3EngineException {
+	@Override
+	public boolean evaluateIfMatching(Object candidate, BExecutionContext ctx) throws Throwable {
+		if(!(candidate instanceof IFunction))
+			return false;
+		if(!getNamePredicate().matches(((IFunction)candidate).getName()))
+			return false;
+		TypePattern pattern = TypePattern.compile(getParameters());
+		return weaveIfParametersMatch(pattern, (IFunction)candidate, ctx);
+	}
+	private boolean weaveIfParametersMatch(TypePattern pattern, IFunction f, BExecutionContext ctx) throws B3EngineException {
 		Matcher matcher = pattern.match(f.getEffectiveParameters());
 		if(!matcher.isMatch())
-			return;
+			return false;
 		
 		// create a map of parameter name in advise and parameter name in matched function
 		Map<String, String> nameMap = new HashMap<String,String>();
@@ -418,7 +426,7 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 		if(isVarArgs() && ((pName = plist.get(plist.size()-1).getName()) != null))
 			wrapper.setVarargsName(pName);
 		ctx.defineFunction(wrapper);
-		
+		return true;
 	}
 	@SuppressWarnings("unchecked")
 	private static Iterator<IFunction> safeIFunctionIterator(Object obj) {

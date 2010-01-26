@@ -21,6 +21,12 @@ import org.eclipse.b3.backend.evaluator.b3backend.BConcern;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>BConcern</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BConcern#evaluateIfMatching(java.lang.Object, org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Evaluate If Matching</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class BConcernTest extends BAdviceTest {
@@ -82,6 +88,19 @@ public class BConcernTest extends BAdviceTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BConcern#evaluateIfMatching(java.lang.Object, org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Evaluate If Matching</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BConcern#evaluateIfMatching(java.lang.Object, org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
+	 * @generated
+	 */
+	public void testEvaluateIfMatching__Object_BExecutionContext() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //BConcernTest

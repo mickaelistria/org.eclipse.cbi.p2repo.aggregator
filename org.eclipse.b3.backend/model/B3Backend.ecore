@@ -131,6 +131,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueMap" lowerBound="1"
         eType="#//ValueMap" changeable="false" defaultValueLiteral=""/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="funcStore" eType="#//FuncStore"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="effectiveConcerns" upperBound="-1"
+        eType="#//BConcern"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BIfExpression" eSuperTypes="#//BExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="conditionExpr" eType="#//BExpression"
@@ -574,6 +576,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BConcern" eSuperTypes="#//BAdvice #//BFunctionContainer">
+    <eOperations name="evaluateIfMatching" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        eExceptions="#//Throwable">
+      <eParameters name="candidate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      <eParameters name="ctx" eType="#//BExecutionContext"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="superConcerns" upperBound="-1"
         eType="#//BConcern"/>
@@ -596,7 +603,13 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="B3DynamicClassLoader" instanceClassName="org.eclipse.b3.backend.core.B3DynamicClassLoader"/>
-  <eClassifiers xsi:type="ecore:EClass" name="BConcernContext" abstract="true" eSuperTypes="#//BExpression #//BFunctionContainer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BConcernContext" abstract="true" eSuperTypes="#//BExpression #//BFunctionContainer">
+    <eOperations name="evaluateIfMatching" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        eExceptions="#//Throwable">
+      <eParameters name="candidate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      <eParameters name="ctx" eType="#//BExecutionContext"/>
+    </eOperations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BFunction" eSuperTypes="#//BExpression #//IFunction"/>
   <eClassifiers xsi:type="ecore:EClass" name="BFunctionWrapper" eSuperTypes="#//BExpression #//IFunction">
     <eStructuralFeatures xsi:type="ecore:EReference" name="aroundExpr" lowerBound="1"
@@ -616,6 +629,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BFunctionNamePredicate" eSuperTypes="#//BExpression">
+    <eOperations name="matches" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="namePredicate" eType="#//BNamePredicate"
         containment="true"/>
   </eClassifiers>

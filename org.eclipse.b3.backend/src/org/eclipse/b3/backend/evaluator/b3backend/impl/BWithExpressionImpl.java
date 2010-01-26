@@ -355,9 +355,23 @@ public class BWithExpressionImpl extends BExpressionImpl implements BWithExpress
 	 */
 	@Override
 	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
+		// the evaluation of concerns is required as called functions may have been
+		// introduced in one such context.
+		//
+		BInnerContext ictx = createContext(ctx);
+		BExecutionContext octx = ictx.getOuterContext();
+		// populate all referenced advice
+		for(BAdvice a : getReferencedAdvice())
+			a.evaluate(octx);
+		for(BConcern c : getConcerns())
+			c.evaluate(octx);
+		// populate properties
+		for(BPropertySet ps : getPropertySets())
+			ps.evaluate(octx);
+
 		BExpression f = getFuncExpr();
 		if(f != null)
-			return f.getDeclaredType(ctx);
+			return f.getDeclaredType(ictx);
 		return Object.class;
 	}
 } //BWithExpressionImpl

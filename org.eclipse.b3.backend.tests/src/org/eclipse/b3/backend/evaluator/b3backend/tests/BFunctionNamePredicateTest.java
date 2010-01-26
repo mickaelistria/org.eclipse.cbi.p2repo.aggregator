@@ -21,6 +21,12 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunctionNamePredicate;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>BFunction Name Predicate</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionNamePredicate#matches(java.lang.String) <em>Matches</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class BFunctionNamePredicateTest extends BExpressionTest {
@@ -82,6 +88,19 @@ public class BFunctionNamePredicateTest extends BExpressionTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionNamePredicate#matches(java.lang.String) <em>Matches</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunctionNamePredicate#matches(java.lang.String)
+	 * @generated
+	 */
+	public void testMatches__String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //BFunctionNamePredicateTest

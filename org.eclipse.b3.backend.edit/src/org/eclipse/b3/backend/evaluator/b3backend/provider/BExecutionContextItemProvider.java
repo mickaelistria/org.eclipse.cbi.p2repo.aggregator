@@ -78,6 +78,7 @@ public class BExecutionContextItemProvider
 
 			addValueMapPropertyDescriptor(object);
 			addFuncStorePropertyDescriptor(object);
+			addEffectiveConcernsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -122,6 +123,28 @@ public class BExecutionContextItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Effective Concerns feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEffectiveConcernsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_BExecutionContext_effectiveConcerns_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BExecutionContext_effectiveConcerns_feature", "_UI_BExecutionContext_type"),
+				 B3backendPackage.Literals.BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

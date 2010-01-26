@@ -63,4 +63,12 @@ public interface BFunctionNamePredicate extends BExpression {
 	 */
 	void setNamePredicate(BNamePredicate value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean matches(String name);
+
 } // BFunctionNamePredicate
