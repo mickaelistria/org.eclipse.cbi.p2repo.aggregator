@@ -496,18 +496,17 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 			String pNames[] = new String[pa.length + 1];
 //			f.setParameterNames(pNames);
 			pNames[0] = isStatic ? "aClass" : "this";
-			for(int i = 0; i < pa.length; i++) {
+			PARAMETER: for(int i = 0; i < pa.length; i++) {
 				Annotation[] pan = pa[i];
-				if(pan == null || pan.length == 0)
-					pNames[i+ (isStatic ? 0 : 1)] = String.valueOf((char)('a'+i));
-				else {
+				if(pan != null) {
 					for(int j = 0; j < pan.length; j++) {
 						if(pan[j] instanceof B3Backend) {
 							pNames[i+1]=((B3Backend)pan[j]).name();
-							break; // only use first named declared for the parameter
+							continue PARAMETER; // only use first named declared for the parameter
 						}
 					}
 				}
+				pNames[i+1] = toAlphabetString('a'+i);
 			}
 			setParameterDeclarations(f, getGenericParameterTypes(m, isStatic), pNames);
 			f.setTypeParameters(m.getTypeParameters());
@@ -516,6 +515,21 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 			return f;
 		}
 		return null;
+	}
+	private static String toAlphabetString(long number) {
+		if(number < 0)
+			throw new IllegalArgumentException();
+
+		StringBuilder buffer = new StringBuilder();
+
+		while(number >= ('z' - 'a' + 1)) {
+			buffer.append((char) ('a' + (number % ('z' - 'a' + 1))));
+			number = number / ('z' - 'a' + 1) - 1;
+		}
+
+		buffer.append((char) ('a' + number));
+
+		return buffer.reverse().toString();
 	}
 	private void setParameterDeclarations(IFunction f, Type[] types, String[] names) {
 		if(types.length != names.length) {
