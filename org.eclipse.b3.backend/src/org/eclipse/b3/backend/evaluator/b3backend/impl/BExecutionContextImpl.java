@@ -526,7 +526,6 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 			buf.append((char) ('a' + (int) (number % ('z' - 'a' + 1))));
 			number = number / ('z' - 'a' + 1) - 1;
 		}
-
 		buf.append((char) ('a' + (int) number));
 
 		return buf.reverse().toString();
