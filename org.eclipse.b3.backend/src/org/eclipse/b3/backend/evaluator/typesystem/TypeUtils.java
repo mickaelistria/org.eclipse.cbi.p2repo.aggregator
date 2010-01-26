@@ -250,21 +250,21 @@ public class TypeUtils {
 			if(level.ordinal() <= CandidateLevel.VARIABLE_ARITY_BY_SUBTYPING.ordinal()) {
 				// perform variable arity specificity comparison
 
-				if(rightParameterTypes.length >= leftParameterTypes.length) {
-					// check if the left candidate is more specific than right
-					if(isMoreSpecificVararg(leftParameterTypes, leftParameterTypes.length - 1, rightParameterTypes))
-						return 1;
-
-					// check if the right candidate is more specific than the left
-					if(isMoreSpecificVararg(rightParameterTypes, leftParameterTypes, leftParameterTypes.length - 1))
-						return -1;
-				} else {
+				if(leftParameterTypes.length > rightParameterTypes.length) {
 					// check if the left candidate is more specific than right
 					if(isMoreSpecificVararg(leftParameterTypes, rightParameterTypes, rightParameterTypes.length - 1))
 						return 1;
 
 					// check if the right candidate is more specific than the left
 					if(isMoreSpecificVararg(rightParameterTypes, rightParameterTypes.length - 1, leftParameterTypes))
+						return -1;
+				} else {
+					// check if the left candidate is more specific than right
+					if(isMoreSpecificVararg(leftParameterTypes, leftParameterTypes.length - 1, rightParameterTypes))
+						return 1;
+
+					// check if the right candidate is more specific than the left
+					if(isMoreSpecificVararg(rightParameterTypes, leftParameterTypes, leftParameterTypes.length - 1))
 						return -1;
 				}
 			} else {
@@ -391,7 +391,7 @@ public class TypeUtils {
 			return getRaw(ft.getFunctionType()); // i.e. what type of function this is B3, or Java
 		}
 		if(t instanceof B3MetaClass) {
-			return ((B3MetaClass)t).getInstanceClass();
+			return ((B3MetaClass) t).getInstanceClass();
 		}
 		if(t instanceof TypeVariable<?>) {
 			TypeVariable<?> tv = TypeVariable.class.cast(t);
@@ -405,7 +405,7 @@ public class TypeUtils {
 		if(baseType instanceof B3FunctionType)
 			return ((B3FunctionType) baseType).isAssignableFrom(fromType);
 		if(baseType instanceof B3MetaClass)
-			return ((B3MetaClass)baseType).isAssignableFrom(fromType);
+			return ((B3MetaClass) baseType).isAssignableFrom(fromType);
 		return getRaw(baseType).isAssignableFrom(getRaw(fromType));
 	}
 
@@ -563,12 +563,14 @@ public class TypeUtils {
 	 */
 	public static Type objectify(Type primitiveType) {
 		Type objectType = primitiveToObjectMap.get(primitiveType);
-		return objectType != null ? objectType : primitiveType;
+		return objectType != null
+				? objectType : primitiveType;
 	}
 
 	public static Type primitivize(Type objectType) {
 		Type primitiveType = objectToPrimitiveMap.get(objectType);
-		return primitiveType != null ? primitiveType : objectType;
+		return primitiveType != null
+				? primitiveType : objectType;
 	}
 
 }
