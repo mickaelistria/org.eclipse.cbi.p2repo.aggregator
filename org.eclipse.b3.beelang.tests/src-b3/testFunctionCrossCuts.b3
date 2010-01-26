@@ -16,10 +16,17 @@ concern aMatterOfTaste {
 		assertEquals("modified parameters should work in varargs", 222, a);
 		result;
 	}
+	context function addedLater(Integer a) {
+		a = 10;
+		proceed;
+	}
 }
 function main(List args) {
 	testWeavingVarargs();
 	testWeaving();
+	testWithClauseWithFunction();
+	testWeavingBequest();
+	testWeavingBequest2();
 }
 function testWeavingVarargs() {
 	var a = with  (aMatterOfTaste) : bar(1,2,3);
@@ -32,4 +39,23 @@ function testWeaving() {
 	assertEquals("weaving should make this have value 3", 3, a);
 	a = foo(10);
 	assertEquals("unwoven should have value 11", 11, a);
+}
+function testWithClauseWithFunction() {
+	// test that it works without weaving
+	var a = with /*(aMatterOfTaste)*/ concern {
+			function Integer addedLater(Integer b) { b + 1; }
+		} : addedLater(5);
+	assertEquals("Function 'addedLater' unwoven", 6, a);
+}
+function testWeavingBequest() {	
+	var b = with (aMatterOfTaste) concern {
+			function Integer addedLater(Integer b) { b + 1; }
+		} : addedLater(100);
+	assertEquals("Weaving should have found the 'addedLater' function", 11, b);
+}
+function testWeavingBequest2() {	
+	var b = with (aMatterOfTaste) 
+		: with concern { function Integer addedLater(Integer b) { b + 1; } }
+			: addedLater(100);
+	assertEquals("Weaving should have found the 'addedLater' function", 11, b);
 }
