@@ -1,5 +1,7 @@
 import java.lang.Integer;
 import java.util.List;
+import java.util.Map;
+import java.lang.Object;
 
 function Integer foo (Integer a) { a+1; }
 function Integer bar (...Integer several) { several[1]=222; several[0]; }
@@ -21,12 +23,23 @@ concern aMatterOfTaste {
 		proceed;
 	}
 }
+concern MakeMapReturnDummy {
+	context function get(Map, Object key) {
+		var result = proceed;
+		if result == null then
+			"dummy"
+		else
+			result
+		endif;
+	}
+}
 function main(List args) {
 	testWeavingVarargs();
 	testWeaving();
 	testWithClauseWithFunction();
 	testWeavingBequest();
 	testWeavingBequest2();
+	testWeavingJavaMap();
 }
 function testWeavingVarargs() {
 	var a = with  (aMatterOfTaste) : bar(1,2,3);
@@ -58,4 +71,8 @@ function testWeavingBequest2() {
 		: with concern { function Integer addedLater(Integer b) { b + 1; } }
 			: addedLater(100);
 	assertEquals("Weaving should have found the 'addedLater' function", 11, b);
+}
+function testWeavingJavaMap() {
+	var a = with (MakeMapReturnDummy) : [key1: "value", key2: "value"].get("somethingNotDefined");
+	assertEquals("Java Map#get(Object key) should have been woven", "dummy", a);
 }
