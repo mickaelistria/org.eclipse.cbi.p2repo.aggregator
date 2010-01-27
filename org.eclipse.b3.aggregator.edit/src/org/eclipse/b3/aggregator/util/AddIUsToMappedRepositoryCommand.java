@@ -28,15 +28,15 @@ import org.eclipse.emf.edit.command.DragAndDropFeedback;
  * 
  */
 public class AddIUsToMappedRepositoryCommand extends AbstractCommand implements DragAndDropFeedback {
-	private MappedRepository m_mappedRepo;
+	private MappedRepository mappedRepo;
 
-	private List<InstallableUnit> m_selectedIUs;
+	private List<InstallableUnit> selectedIUs;
 
-	private int m_operation;
+	private int operation;
 
-	private List<MappedUnit> m_addedMappedUnits = new ArrayList<MappedUnit>();
+	private List<MappedUnit> addedMappedUnits = new ArrayList<MappedUnit>();
 
-	private List<MapRule> m_addedMapRules = new ArrayList<MapRule>();
+	private List<MapRule> addedMapRules = new ArrayList<MapRule>();
 
 	public AddIUsToMappedRepositoryCommand(MappedRepository mappedRepo, List<InstallableUnit> selectedIUs) {
 		this(mappedRepo, selectedIUs, AggregatorEditPlugin.ADD_IU);
@@ -46,29 +46,29 @@ public class AddIUsToMappedRepositoryCommand extends AbstractCommand implements 
 		super(AggregatorEditPlugin.INSTANCE.getString("_UI_Map_to_command_prefix") + " "
 				+ AggregatorEditPlugin.INSTANCE.getString("_UI_MappedRepository_type") + " " + mappedRepo.getLocation());
 
-		m_mappedRepo = mappedRepo;
-		m_selectedIUs = selectedIUs;
-		m_operation = operation;
+		this.mappedRepo = mappedRepo;
+		this.selectedIUs = selectedIUs;
+		this.operation = operation;
 	}
 
 	public void execute() {
-		m_addedMappedUnits.clear();
-		m_addedMapRules.clear();
+		addedMappedUnits.clear();
+		addedMapRules.clear();
 
-		if((m_operation & AggregatorEditPlugin.ADD_IU) > 0)
-			for(InstallableUnit iu : m_selectedIUs) {
-				MappedUnit newMU = ItemUtils.addIU(m_mappedRepo, iu);
+		if((operation & AggregatorEditPlugin.ADD_IU) > 0)
+			for(InstallableUnit iu : selectedIUs) {
+				MappedUnit newMU = ItemUtils.addIU(mappedRepo, iu);
 				if(newMU != null)
-					m_addedMappedUnits.add(newMU);
+					addedMappedUnits.add(newMU);
 			}
-		else if((m_operation & (AggregatorEditPlugin.ADD_EXCLUSION_RULE | AggregatorEditPlugin.ADD_VALID_CONFIGURATIONS_RULE)) > 0)
-			for(InstallableUnit iu : m_selectedIUs) {
-				MapRule newMR = ItemUtils.addMapRule(m_mappedRepo, iu,
-						(m_operation & AggregatorEditPlugin.ADD_EXCLUSION_RULE) > 0
+		else if((operation & (AggregatorEditPlugin.ADD_EXCLUSION_RULE | AggregatorEditPlugin.ADD_VALID_CONFIGURATIONS_RULE)) > 0)
+			for(InstallableUnit iu : selectedIUs) {
+				MapRule newMR = ItemUtils.addMapRule(mappedRepo, iu,
+						(operation & AggregatorEditPlugin.ADD_EXCLUSION_RULE) > 0
 								? ExclusionRule.class
 								: ValidConfigurationsRule.class);
 				if(newMR != null)
-					m_addedMapRules.add(newMR);
+					addedMapRules.add(newMR);
 			}
 	}
 
@@ -86,12 +86,12 @@ public class AddIUsToMappedRepositoryCommand extends AbstractCommand implements 
 
 	@Override
 	public void undo() {
-		for(MappedUnit unit : m_addedMappedUnits) {
+		for(MappedUnit unit : addedMappedUnits) {
 			MappedRepository repo = (MappedRepository) ((EObject) unit).eContainer();
 			repo.removeUnit(unit);
 		}
 
-		for(MapRule rule : m_addedMapRules) {
+		for(MapRule rule : addedMapRules) {
 			MappedRepository repo = (MappedRepository) ((EObject) rule).eContainer();
 			repo.getMapRules().remove(rule);
 		}
@@ -104,13 +104,12 @@ public class AddIUsToMappedRepositoryCommand extends AbstractCommand implements 
 
 	@Override
 	protected boolean prepare() {
-		boolean result = m_mappedRepo != null && m_mappedRepo.isBranchEnabled() && m_selectedIUs != null
-				&& m_selectedIUs.size() > 0 && ItemUtils.haveSameLocation(m_mappedRepo, m_selectedIUs);
+		boolean result = mappedRepo != null && mappedRepo.isBranchEnabled() && selectedIUs != null
+				&& selectedIUs.size() > 0 && ItemUtils.haveSameLocation(mappedRepo, selectedIUs);
 
 		if(result)
-			for(InstallableUnit iu : m_selectedIUs)
-				if(ItemUtils.findMappedUnit(m_mappedRepo, iu) != null
-						|| ItemUtils.findMapRule(m_mappedRepo, iu) != null)
+			for(InstallableUnit iu : selectedIUs)
+				if(ItemUtils.findMappedUnit(mappedRepo, iu) != null || ItemUtils.findMapRule(mappedRepo, iu) != null)
 					return false;
 
 		return result;

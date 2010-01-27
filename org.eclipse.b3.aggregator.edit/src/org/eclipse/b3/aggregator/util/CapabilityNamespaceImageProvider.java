@@ -12,7 +12,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.b3.aggregator.provider.AggregatorEditPlugin;
-import org.eclipse.b3.aggregator.util.CapabilityNamespace;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 /**
@@ -20,20 +19,20 @@ import org.eclipse.emf.common.util.ResourceLocator;
  * 
  */
 public class CapabilityNamespaceImageProvider {
-	private static Map<CapabilityNamespace, String> m_namespaceMap;
+	private static Map<CapabilityNamespace, String> namespaceMap;
 
 	static {
-		m_namespaceMap = new HashMap<CapabilityNamespace, String>();
-		m_namespaceMap.put(CapabilityNamespace.FEATURE, "full/obj16/Feature");
-		m_namespaceMap.put(CapabilityNamespace.BUNDLE, "full/obj16/Bundle");
-		m_namespaceMap.put(CapabilityNamespace.FRAGMENT, "full/obj16/Fragment");
-		m_namespaceMap.put(CapabilityNamespace.JAVA_PACKAGE, "full/obj16/JavaPackage");
-		m_namespaceMap.put(CapabilityNamespace.IU, "full/obj16/InstallableUnit");
+		namespaceMap = new HashMap<CapabilityNamespace, String>();
+		namespaceMap.put(CapabilityNamespace.FEATURE, "full/obj16/Feature");
+		namespaceMap.put(CapabilityNamespace.BUNDLE, "full/obj16/Bundle");
+		namespaceMap.put(CapabilityNamespace.FRAGMENT, "full/obj16/Fragment");
+		namespaceMap.put(CapabilityNamespace.JAVA_PACKAGE, "full/obj16/JavaPackage");
+		namespaceMap.put(CapabilityNamespace.IU, "full/obj16/InstallableUnit");
 	}
 
 	public static Object getImage(String namespace) {
 		CapabilityNamespace cn = CapabilityNamespace.byId(namespace);
-		String imageKey = m_namespaceMap.get(cn);
+		String imageKey = namespaceMap.get(cn);
 		return imageKey == null
 				? null
 				: getResourceLocator().getImage(imageKey);

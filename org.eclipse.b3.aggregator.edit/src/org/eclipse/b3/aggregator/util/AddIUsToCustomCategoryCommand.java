@@ -32,15 +32,15 @@ import org.eclipse.emf.edit.command.DragAndDropFeedback;
  * 
  */
 public class AddIUsToCustomCategoryCommand extends AbstractCommand implements DragAndDropFeedback {
-	private CustomCategory m_customCategory;
+	private CustomCategory customCategory;
 
-	private Map<InstallableUnit, MappedRepository> m_mapFeatureMappedRepo = new HashMap<InstallableUnit, MappedRepository>();
+	private Map<InstallableUnit, MappedRepository> mapFeatureMappedRepo = new HashMap<InstallableUnit, MappedRepository>();
 
-	private List<InstallableUnit> m_selectedFeatures;
+	private List<InstallableUnit> selectedFeatures;
 
-	private List<Feature> m_featuresAddedToCustomCategory = new ArrayList<Feature>();
+	private List<Feature> featuresAddedToCustomCategory = new ArrayList<Feature>();
 
-	private Map<MappedRepository, List<MappedUnit>> m_unitsAddedToMappedRepo = new HashMap<MappedRepository, List<MappedUnit>>();
+	private Map<MappedRepository, List<MappedUnit>> unitsAddedToMappedRepo = new HashMap<MappedRepository, List<MappedUnit>>();
 
 	public AddIUsToCustomCategoryCommand(CustomCategory category, List<InstallableUnit> selectedFeatures) {
 		super(AggregatorEditPlugin.INSTANCE.getString("_UI_Add_to_command_prefix") + " "
@@ -48,16 +48,16 @@ public class AddIUsToCustomCategoryCommand extends AbstractCommand implements Dr
 						? AggregatorEditPlugin.INSTANCE.getString("_UI_Category_type") + " ''"
 						: AggregatorEditPlugin.INSTANCE.getString("_UI_Category_type") + " " + category.getLabel()));
 
-		m_customCategory = category;
-		m_selectedFeatures = selectedFeatures;
+		this.selectedFeatures = selectedFeatures;
+		customCategory = category;
 	}
 
 	public void execute() {
-		m_featuresAddedToCustomCategory.clear();
-		m_unitsAddedToMappedRepo.clear();
+		featuresAddedToCustomCategory.clear();
+		unitsAddedToMappedRepo.clear();
 
-		for(InstallableUnit feature : m_selectedFeatures) {
-			MappedRepository repo = m_mapFeatureMappedRepo.get(feature);
+		for(InstallableUnit feature : selectedFeatures) {
+			MappedRepository repo = mapFeatureMappedRepo.get(feature);
 
 			if(!repo.isEnabled())
 				continue;
@@ -68,10 +68,10 @@ public class AddIUsToCustomCategoryCommand extends AbstractCommand implements Dr
 				unit = AggregatorFactory.eINSTANCE.createMappedUnit(feature);
 				repo.addUnit(unit);
 
-				List<MappedUnit> units = m_unitsAddedToMappedRepo.get(repo);
+				List<MappedUnit> units = unitsAddedToMappedRepo.get(repo);
 				if(units == null) {
 					units = new ArrayList<MappedUnit>();
-					m_unitsAddedToMappedRepo.put(repo, units);
+					unitsAddedToMappedRepo.put(repo, units);
 				}
 				units.add(unit);
 			}
@@ -79,8 +79,8 @@ public class AddIUsToCustomCategoryCommand extends AbstractCommand implements Dr
 				continue;
 
 			if(unit instanceof Feature) {
-				m_customCategory.getFeatures().add((Feature) unit);
-				m_featuresAddedToCustomCategory.add((Feature) unit);
+				customCategory.getFeatures().add((Feature) unit);
+				featuresAddedToCustomCategory.add((Feature) unit);
 			}
 		}
 	}
@@ -99,10 +99,10 @@ public class AddIUsToCustomCategoryCommand extends AbstractCommand implements Dr
 
 	@Override
 	public void undo() {
-		m_customCategory.getFeatures().removeAll(m_featuresAddedToCustomCategory);
+		customCategory.getFeatures().removeAll(featuresAddedToCustomCategory);
 
-		for(MappedRepository mappedRepo : m_unitsAddedToMappedRepo.keySet())
-			for(MappedUnit unit : m_unitsAddedToMappedRepo.get(mappedRepo))
+		for(MappedRepository mappedRepo : unitsAddedToMappedRepo.keySet())
+			for(MappedUnit unit : unitsAddedToMappedRepo.get(mappedRepo))
 				mappedRepo.removeUnit(unit);
 	}
 
@@ -113,9 +113,9 @@ public class AddIUsToCustomCategoryCommand extends AbstractCommand implements Dr
 
 	@Override
 	protected boolean prepare() {
-		Aggregator aggregator = (Aggregator) ((EObject) m_customCategory).eContainer();
+		Aggregator aggregator = (Aggregator) ((EObject) customCategory).eContainer();
 
-		for(InstallableUnit feature : m_selectedFeatures) {
+		for(InstallableUnit feature : selectedFeatures) {
 			if(!(((EObject) feature).eContainer() instanceof MetadataRepository))
 				return false;
 
@@ -124,19 +124,19 @@ public class AddIUsToCustomCategoryCommand extends AbstractCommand implements Dr
 			MappedRepository mappedRepo = ItemUtils.findMappedRepository(aggregator, mdr);
 
 			if(mappedRepo != null) {
-				m_mapFeatureMappedRepo.put(feature, mappedRepo);
+				mapFeatureMappedRepo.put(feature, mappedRepo);
 
 				if(ItemUtils.findMapRule(mappedRepo, feature) != null)
 					return false;
 			}
 		}
 
-		return m_customCategory != null && m_selectedFeatures != null && m_selectedFeatures.size() > 0 && isEnabled();
+		return customCategory != null && selectedFeatures != null && selectedFeatures.size() > 0 && isEnabled();
 	}
 
 	private boolean isEnabled() {
-		for(InstallableUnit feature : m_mapFeatureMappedRepo.keySet()) {
-			MappedRepository repo = m_mapFeatureMappedRepo.get(feature);
+		for(InstallableUnit feature : mapFeatureMappedRepo.keySet()) {
+			MappedRepository repo = mapFeatureMappedRepo.get(feature);
 
 			if(repo == null)
 				return false;

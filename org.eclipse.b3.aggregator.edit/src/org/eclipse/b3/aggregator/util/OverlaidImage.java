@@ -26,11 +26,11 @@ public class OverlaidImage extends ComposedImage {
 
 	public static final int OVERLAY_CENTER = 5;
 
-	private int[] m_positions;
+	private int[] positions;
 
 	public OverlaidImage(Object[] images, int[] positions) {
 		super(Arrays.asList(images));
-		m_positions = positions;
+		this.positions = positions;
 	}
 
 	public List<Point> getDrawPoints(Size size) {
@@ -40,8 +40,8 @@ public class OverlaidImage extends ComposedImage {
 		for(Size imageSize : imageSizes) {
 			Point point = new Point();
 
-			if(i < m_positions.length)
-				switch(m_positions[i]) {
+			if(i < positions.length)
+				switch(positions[i]) {
 				case OVERLAY_TOP_RIGHT:
 					point.x = size.width - imageSize.width;
 					point.y = 0;

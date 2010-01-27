@@ -20,7 +20,6 @@ import org.eclipse.b3.aggregator.p2.MetadataRepository;
 import org.eclipse.b3.aggregator.p2view.Feature;
 import org.eclipse.b3.aggregator.p2view.IUPresentation;
 import org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView;
-import org.eclipse.b3.aggregator.util.InstallableUnitUtils;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -33,9 +32,9 @@ public class ItemSorter {
 		MDR, IU, FEATURE, MDR_STRUCTURED, IU_STRUCTURED, FEATURE_STRUCTURED, OTHER
 	}
 
-	private final Map<ItemGroup, List<?>> m_groups = new HashMap<ItemGroup, List<?>>();
+	private final Map<ItemGroup, List<?>> groups = new HashMap<ItemGroup, List<?>>();
 
-	private int m_totalItemCount;
+	private int totalItemCount;
 
 	public ItemSorter(Collection<?> items) {
 		List<InstallableUnit> ius = new ArrayList<InstallableUnit>();
@@ -50,7 +49,7 @@ public class ItemSorter {
 
 		if(items != null)
 			for(Object item : items) {
-				m_totalItemCount++;
+				totalItemCount++;
 
 				if(item instanceof InstallableUnit) {
 					InstallableUnit iu = (InstallableUnit) item;
@@ -83,20 +82,20 @@ public class ItemSorter {
 					others.add(item);
 			}
 
-		m_groups.put(ItemGroup.MDR, mdrs);
-		m_groups.put(ItemGroup.IU, ius);
-		m_groups.put(ItemGroup.FEATURE, features);
-		m_groups.put(ItemGroup.MDR_STRUCTURED, mdrsvs);
-		m_groups.put(ItemGroup.IU_STRUCTURED, iups);
-		m_groups.put(ItemGroup.FEATURE_STRUCTURED, structuredFeatures);
-		m_groups.put(ItemGroup.OTHER, others);
+		groups.put(ItemGroup.MDR, mdrs);
+		groups.put(ItemGroup.IU, ius);
+		groups.put(ItemGroup.FEATURE, features);
+		groups.put(ItemGroup.MDR_STRUCTURED, mdrsvs);
+		groups.put(ItemGroup.IU_STRUCTURED, iups);
+		groups.put(ItemGroup.FEATURE_STRUCTURED, structuredFeatures);
+		groups.put(ItemGroup.OTHER, others);
 	}
 
 	public List<?> getGroupItems(ItemGroup group) {
-		return m_groups.get(group);
+		return groups.get(group);
 	}
 
 	public int getTotalItemCount() {
-		return m_totalItemCount;
+		return totalItemCount;
 	}
 }
