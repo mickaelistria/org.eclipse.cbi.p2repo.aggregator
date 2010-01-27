@@ -502,7 +502,7 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 					for(int j = 0; j < pan.length; j++) {
 						if(pan[j] instanceof B3Backend) {
 							pNames[i+1]=((B3Backend)pan[j]).name();
-							continue PARAMETER; // only use first named declared for the parameter
+							continue PARAMETER; // only use first name declared for the parameter
 						}
 					}
 				}
