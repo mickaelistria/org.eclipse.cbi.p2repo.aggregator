@@ -65,28 +65,28 @@ import org.eclipse.equinox.internal.provisional.p2.metadata.VersionRange;
 
 public class MetadataRepositoryResourceImpl extends ResourceImpl implements StatusProvider {
 	class AsynchronousLoader extends Job {
-		private Job m_replaceJob;
+		private Job replaceJob;
 
-		private boolean m_force;
+		private boolean force;
 
 		public AsynchronousLoader(String name, Job replaceJob, boolean force) {
 			super(name);
-			m_replaceJob = replaceJob;
-			m_force = force;
+			this.replaceJob = replaceJob;
+			this.force = force;
 		}
 
 		public boolean isForce() {
-			return m_force;
+			return force;
 		}
 
 		@Override
 		protected IStatus run(final IProgressMonitor monitor) {
 			class MonitorWatchDog extends Thread {
-				private boolean m_done;
+				private boolean done;
 
 				@Override
 				public void run() {
-					while(!m_done) {
+					while(!done) {
 						if(monitor.isCanceled()) {
 							cancelLoadingJob();
 							break;
@@ -102,21 +102,21 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 				}
 
 				public void setDone() {
-					m_done = true;
+					done = true;
 				}
 			}
 
 			MonitorWatchDog watchDog = new MonitorWatchDog();
 
 			try {
-				if(m_replaceJob != null) {
-					m_replaceJob.cancel();
-					m_replaceJob.join();
+				if(replaceJob != null) {
+					replaceJob.cancel();
+					replaceJob.join();
 				}
 
 				watchDog.start();
 
-				MetadataRepository mdr = loadRepository(m_force);
+				MetadataRepository mdr = loadRepository(force);
 
 				IStatus status = org.eclipse.core.runtime.Status.OK_STATUS;
 
@@ -150,8 +150,8 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 				watchDog.setDone();
 
 				synchronized(MetadataRepositoryResourceImpl.this) {
-					if(m_asynchronousLoader == this)
-						m_asynchronousLoader = null;
+					if(asynchronousLoader == this)
+						asynchronousLoader = null;
 				}
 			}
 		}
@@ -193,7 +193,7 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 			String msg = format("Loading repository %s", location);
 			SubMonitor subMon = SubMonitor.convert(monitor, msg, 100);
 			try {
-				m_loader.open(location, repository);
+				loader.open(location, repository);
 				LogUtils.debug(msg);
 				long start = TimeUtils.getNow();
 
@@ -202,9 +202,9 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 				SubMonitor loaderMonitor = subMon.newChild(100, SubMonitor.SUPPRESS_BEGINTASK);
 
 				if(!forceReload)
-					m_loader.load(loaderMonitor);
+					loader.load(loaderMonitor);
 				else
-					m_loader.reload(loaderMonitor);
+					loader.reload(loaderMonitor);
 
 				createStructuredView();
 
@@ -216,7 +216,7 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 			}
 			finally {
 				try {
-					m_loader.close();
+					loader.close();
 				}
 				catch(CoreException e) {
 					exception = e;
@@ -500,32 +500,32 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 		return rootCauseCandidate;
 	}
 
-	private AsynchronousLoader m_asynchronousLoader;
+	private AsynchronousLoader asynchronousLoader;
 
-	private IRepositoryLoader m_loader;
+	private IRepositoryLoader loader;
 
 	private MetadataRepositoryStructuredView repoView;
 
 	private final TwoColumnMatrix<IUPresentation, Object[]> allIUPresentationMatrix = new TwoColumnMatrix<IUPresentation, Object[]>();
 
-	private Exception m_lastException = null;
+	private Exception lastException = null;
 
-	private boolean m_forceReload = false;
+	private boolean forceReload = false;
 
-	private RepositoryLoaderJob m_loadingJob;
+	private RepositoryLoaderJob loadingJob;
 
-	private org.eclipse.emf.common.util.Diagnostic m_diagnostic;
+	private org.eclipse.emf.common.util.Diagnostic diagnostic;
 
-	private Status m_status = AggregatorFactory.eINSTANCE.createStatus(StatusCode.OK);
+	private Status status = AggregatorFactory.eINSTANCE.createStatus(StatusCode.OK);
 
 	public MetadataRepositoryResourceImpl(URI uri, IRepositoryLoader loader) {
 		super(uri);
-		m_loader = loader;
+		this.loader = loader;
 	}
 
 	public synchronized void cancelLoadingJob() {
-		if(m_loadingJob != null)
-			m_loadingJob.cancel();
+		if(loadingJob != null)
+			loadingJob.cancel();
 	}
 
 	public Object[] findIUPresentation(Pattern iuIdPattern, VersionRange iuVersionRange, Object[] startAfterPath,
@@ -590,19 +590,19 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 	}
 
 	public org.eclipse.emf.common.util.Diagnostic getDiagnostic() {
-		return m_diagnostic;
+		return diagnostic;
 	}
 
 	public Exception getLastException() {
-		return m_lastException;
+		return lastException;
 	}
 
 	public Status getStatus() {
-		return m_status;
+		return status;
 	}
 
 	public void load(Map<?, ?> options) throws IOException {
-		m_lastException = null;
+		lastException = null;
 
 		if(isLoaded)
 			return;
@@ -613,7 +613,7 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 			location = new java.net.URI(getURI().opaquePart());
 		}
 		catch(URISyntaxException e) {
-			m_lastException = new Resource.IOWrappedException(e);
+			lastException = new Resource.IOWrappedException(e);
 			return;
 		}
 
@@ -624,21 +624,21 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 		repoView = P2viewFactory.eINSTANCE.createMetadataRepositoryStructuredView(repository);
 		allIUPresentationMatrix.clear();
 
-		m_loadingJob = new RepositoryLoaderJob(repository, location, m_forceReload, repoView, allIUPresentationMatrix);
+		loadingJob = new RepositoryLoaderJob(repository, location, forceReload, repoView, allIUPresentationMatrix);
 
 		try {
 			boolean jobManagerReadyBeforeJobScheduled = !Job.getJobManager().isSuspended();
-			m_loadingJob.schedule();
-			m_loadingJob.join();
+			loadingJob.schedule();
+			loadingJob.join();
 
-			Exception e = m_loadingJob.getException();
+			Exception e = loadingJob.getException();
 			if(e != null) {
-				m_lastException = new Resource.IOWrappedException(e);
+				lastException = new Resource.IOWrappedException(e);
 				return;
 			}
 
 			if(!jobManagerReadyBeforeJobScheduled)
-				m_lastException = new UnknownStatusException(
+				lastException = new UnknownStatusException(
 						"Unknown repository status - loading job was scheduled while job manager was suspended");
 		}
 		catch(InterruptedException e) {
@@ -747,19 +747,19 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 		if(mdrFinal)
 			return;
 
-		AsynchronousLoader lastLoader = m_asynchronousLoader;
+		AsynchronousLoader lastLoader = asynchronousLoader;
 
 		if(lastLoader == null || forceReload && !lastLoader.isForce()) {
-			m_asynchronousLoader = new AsynchronousLoader("Loading " + myLocation, lastLoader, forceReload);
-			m_asynchronousLoader.setUser(false);
-			m_asynchronousLoader.schedule();
+			asynchronousLoader = new AsynchronousLoader("Loading " + myLocation, lastLoader, forceReload);
+			asynchronousLoader.setUser(false);
+			asynchronousLoader.schedule();
 		}
 	}
 
 	@Override
 	protected void doUnload() {
 		super.doUnload();
-		m_forceReload = true;
+		forceReload = true;
 	}
 
 	private List<Object> findIU(List<Object> nodePath, Pattern iuIdPattern, VersionRange iuVersionRange, boolean forward) {
@@ -899,6 +899,6 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 	}
 
 	private void setStatus(Status status) {
-		m_status = status;
+		this.status = status;
 	}
 }

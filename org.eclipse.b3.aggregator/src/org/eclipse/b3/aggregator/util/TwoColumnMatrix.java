@@ -37,68 +37,68 @@ public class TwoColumnMatrix<K, V> {
 	}
 
 	class MatrixIterator implements ExtendedListIterator<MatrixEntry> {
-		private TwoColumnMatrix<K, V> m_matrix;
+		private TwoColumnMatrix<K, V> matrix;
 
-		private int m_index = -1;
+		private int index = -1;
 
 		public MatrixIterator(TwoColumnMatrix<K, V> matrix) {
-			m_matrix = matrix;
+			this.matrix = matrix;
 		}
 
 		public void add(MatrixEntry entry) {
-			m_matrix.add(m_index++, entry);
+			matrix.add(index++, entry);
 		}
 
 		public MatrixEntry first() {
-			m_index = 0;
-			return m_matrix.getEntry(m_index);
+			index = 0;
+			return matrix.getEntry(index);
 		}
 
 		public boolean hasNext() {
-			return m_index < (m_matrix.size() - 1);
+			return index < (matrix.size() - 1);
 		}
 
 		public boolean hasPrevious() {
-			return m_index > 0;
+			return index > 0;
 		}
 
 		public MatrixEntry last() {
-			m_index = m_matrix.size() - 1;
-			return m_matrix.getEntry(m_index);
+			index = matrix.size() - 1;
+			return matrix.getEntry(index);
 		}
 
 		public MatrixEntry next() {
-			m_index++;
+			index++;
 
-			if(m_index >= m_matrix.size())
+			if(index >= matrix.size())
 				throw new NoSuchElementException();
 
-			return m_matrix.getEntry(m_index);
+			return matrix.getEntry(index);
 		}
 
 		public int nextIndex() {
-			return m_index + 1;
+			return index + 1;
 		}
 
 		public MatrixEntry previous() {
-			m_index--;
+			index--;
 
-			if(m_index < 0)
+			if(index < 0)
 				throw new NoSuchElementException();
 
-			return m_matrix.getEntry(m_index);
+			return matrix.getEntry(index);
 		}
 
 		public int previousIndex() {
-			return m_index - 1;
+			return index - 1;
 		}
 
 		public void remove() {
-			m_matrix.remove(m_index);
+			matrix.remove(index);
 		}
 
 		public void set(MatrixEntry entry) {
-			m_matrix.set(m_index, entry);
+			matrix.set(index, entry);
 		}
 	}
 

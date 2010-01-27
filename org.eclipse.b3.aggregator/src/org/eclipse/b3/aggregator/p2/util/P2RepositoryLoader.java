@@ -34,9 +34,9 @@ import org.eclipse.equinox.internal.provisional.p2.metadata.repository.IMetadata
 import org.eclipse.equinox.internal.provisional.p2.metadata.repository.IMetadataRepositoryManager;
 
 public class P2RepositoryLoader implements IRepositoryLoader {
-	private URI m_location;
+	private URI location;
 
-	private MetadataRepositoryImpl m_repository;
+	private MetadataRepositoryImpl repository;
 
 	private B3Util b3util = B3Util.getPlugin();
 
@@ -71,8 +71,8 @@ public class P2RepositoryLoader implements IRepositoryLoader {
 	}
 
 	public void open(URI location, MetadataRepositoryImpl mdr) throws CoreException {
-		m_location = location;
-		m_repository = mdr;
+		this.location = location;
+		repository = mdr;
 		mdrMgr = b3util.getService(IMetadataRepositoryManager.class);
 	}
 
@@ -95,24 +95,24 @@ public class P2RepositoryLoader implements IRepositoryLoader {
 				if(avoidCache) {
 					// This is a workaround - we need to clear the NotFound cahce to force
 					// the MDR manager to fetch the repo again.
-					if(mdrMgr.contains(m_location))
+					if(mdrMgr.contains(location))
 						// if the repo is known to MDR manager, it should be simply refreshed
-						repo = mdrMgr.refreshRepository(m_location, subMon.newChild(80));
+						repo = mdrMgr.refreshRepository(location, subMon.newChild(80));
 					else {
 						// if the repo is not known to MDR manager, we call the refresh in order
 						// to clear the NotFound cache only and we expect an exception to be thrown
 						// due to unknown repository
 						try {
-							mdrMgr.refreshRepository(m_location, new NullProgressMonitor());
+							mdrMgr.refreshRepository(location, new NullProgressMonitor());
 						}
 						catch(ProvisionException e) {
 							// this is expected - but the NotFound cache has been cleared
 						}
-						repo = mdrMgr.loadRepository(m_location, subMon.newChild(80));
+						repo = mdrMgr.loadRepository(location, subMon.newChild(80));
 					}
 				}
 				else
-					repo = mdrMgr.loadRepository(m_location, subMon.newChild(80));
+					repo = mdrMgr.loadRepository(location, subMon.newChild(80));
 
 				break;
 			}
@@ -135,13 +135,13 @@ public class P2RepositoryLoader implements IRepositoryLoader {
 			}
 		}
 
-		m_repository.setName(repo.getName());
-		m_repository.setLocation(repo.getLocation());
-		m_repository.setDescription(repo.getDescription());
-		m_repository.setProvider(repo.getProvider());
-		m_repository.setType(repo.getType());
-		m_repository.setVersion(repo.getVersion());
-		m_repository.getPropertyMap().putAll(repo.getProperties());
+		repository.setName(repo.getName());
+		repository.setLocation(repo.getLocation());
+		repository.setDescription(repo.getDescription());
+		repository.setProvider(repo.getProvider());
+		repository.setType(repo.getType());
+		repository.setVersion(repo.getVersion());
+		repository.getPropertyMap().putAll(repo.getProperties());
 
 		Collector collector = repo.query(QUERY_ALL_IUS, new Collector(), subMon.newChild(20));
 		Iterator<IInstallableUnit> itor = collector.iterator();
@@ -149,9 +149,9 @@ public class P2RepositoryLoader implements IRepositoryLoader {
 		while(itor.hasNext())
 			ius.add(InstallableUnitImpl.importToModel(itor.next()));
 		Collections.sort(ius);
-		m_repository.getInstallableUnits().addAll(ius);
+		repository.getInstallableUnits().addAll(ius);
 
-		m_repository.addRepositoryReferences(mdrMgr, repo);
+		repository.addRepositoryReferences(mdrMgr, repo);
 	}
 
 }

@@ -42,46 +42,46 @@ import org.xml.sax.SAXParseException;
  * 
  */
 public class UriUtils {
-	private static final DocumentBuilderFactory s_documentBuilderFactory = DocumentBuilderFactory.newInstance();
+	private static final DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
 
 	static {
-		s_documentBuilderFactory.setIgnoringComments(true);
-		s_documentBuilderFactory.setValidating(false);
-		s_documentBuilderFactory.setNamespaceAware(false);
+		documentBuilderFactory.setIgnoringComments(true);
+		documentBuilderFactory.setValidating(false);
+		documentBuilderFactory.setNamespaceAware(false);
 	}
 
 	/**
 	 * Pattern string that matches links that are relative, don't start with '?' or '#' and don't contain a slash (i.e.
 	 * folders leading too deep)
 	 */
-	private static final String s_linkPatternString = "([^?/#][^:\"/]+/?)";
+	private static final String linkPatternString = "([^?/#][^:\"/]+/?)";
 
 	/**
 	 * Pattern that scans for hrefs that are relative, don't start with '?' and don't contain a slash (i.e. folders
 	 * leading too deep)
 	 */
-	private static final Pattern s_htmlPattern = Pattern.compile(
-			"<A\\s+HREF=\"" + s_linkPatternString + "\"\\s*>[^<]+</A>", //$NON-NLS-1$
+	private static final Pattern htmlPattern = Pattern.compile(
+			"<A\\s+HREF=\"" + linkPatternString + "\"\\s*>[^<]+</A>", //$NON-NLS-1$
 			Pattern.CASE_INSENSITIVE);
 
 	/**
 	 * Pattern that scans for links that are relative, don't start with '?' and don't contain a slash (i.e. folders
 	 * leading too deep)
 	 */
-	private static final Pattern s_linkPattern = Pattern.compile(s_linkPatternString, Pattern.CASE_INSENSITIVE);
+	private static final Pattern linkPattern = Pattern.compile(linkPatternString, Pattern.CASE_INSENSITIVE);
 
 	/**
 	 * Scan a listing obtained using FTP. The file name comes after a timestamp that ends with <hh:mm> or <year> and
 	 * might contain a link, i.e. xxx -> yyy.
 	 */
-	private static final Pattern s_ftpPattern = Pattern.compile(
+	private static final Pattern ftpPattern = Pattern.compile(
 			"[a-z]+\\s+[0-9]+\\s+(?:(?:[0-9]+:[0-9]+)|(?:[0-9]{4}))\\s+(.+?)(?:([\\r|\\n])|(\\s+->\\s+))", //$NON-NLS-1$
 			Pattern.CASE_INSENSITIVE);
 
 	/**
 	 * Check if pattern matches an index.html or other index.xxx. We transform such URL's to denote folders instead.
 	 */
-	private static final Pattern s_indexPath = Pattern.compile("^(.*/)?index\\.[a-z][a-z0-9]+$"); //$NON-NLS-1$
+	private static final Pattern indexPath = Pattern.compile("^(.*/)?index\\.[a-z][a-z0-9]+$"); //$NON-NLS-1$
 
 	public static final URI[] EMPTY_URI_ARRAY = new URI[0];
 
@@ -118,7 +118,7 @@ public class UriUtils {
 			AccessibleByteArrayOutputStream buffer = new AccessibleByteArrayOutputStream(0x2000, 0x200000);
 			RepositoryTransport.getInstance().download(uriToHTML, buffer, monitor);
 			try {
-				final DocumentBuilder builder = s_documentBuilderFactory.newDocumentBuilder();
+				final DocumentBuilder builder = documentBuilderFactory.newDocumentBuilder();
 
 				// Use a very silent error handler
 				//
@@ -144,7 +144,7 @@ public class UriUtils {
 				//
 				Scanner scanner = new Scanner(buffer.getInputStream());
 				URI parent = appendTrailingSlash(uriToHTML);
-				while(scanner.findWithinHorizon(s_htmlPattern, 0) != null) {
+				while(scanner.findWithinHorizon(htmlPattern, 0) != null) {
 					MatchResult mr = scanner.match();
 					addLink(links, parent, mr.group(1));
 				}
@@ -233,7 +233,7 @@ public class UriUtils {
 			try {
 				scanner = new Scanner(RepositoryTransport.getInstance().stream(uri, monitor));
 				uri = appendTrailingSlash(uri);
-				while(scanner.findWithinHorizon(s_ftpPattern, 0) != null) {
+				while(scanner.findWithinHorizon(ftpPattern, 0) != null) {
 					MatchResult mr = scanner.match();
 					result.add(new URI(uri.getScheme(), uri.getAuthority(), uri.getPath() + '/' + mr.group(1),
 							uri.getQuery(), uri.getFragment()));
@@ -318,7 +318,7 @@ public class UriUtils {
 	}
 
 	private static void addLink(List<URI> links, URI parent, String link) throws URISyntaxException {
-		Matcher m = s_indexPath.matcher(link.toString());
+		Matcher m = indexPath.matcher(link.toString());
 		if(m.matches()) {
 			link = m.group(1);
 			if(link == null)
@@ -336,7 +336,7 @@ public class UriUtils {
 		if(element.getNodeName().equals("a")) //$NON-NLS-1$
 		{
 			String link = element.getAttribute("href"); //$NON-NLS-1$
-			if(s_linkPattern.matcher(link).matches())
+			if(linkPattern.matcher(link).matches())
 				addLink(links, parent, link);
 		}
 		else {

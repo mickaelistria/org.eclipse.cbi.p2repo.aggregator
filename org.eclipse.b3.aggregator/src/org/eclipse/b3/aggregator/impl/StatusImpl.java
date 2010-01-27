@@ -28,20 +28,20 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * @generated
  */
 public class StatusImpl extends MinimalEObjectImpl.Container implements Status {
-	private static final Status s_okStatus = new StatusImpl(StatusCode.OK);
+	private static final Status okStatus = new StatusImpl(StatusCode.OK);
 
-	private static final Status s_brokenStatus = new StatusImpl(StatusCode.BROKEN);
+	private static final Status brokenStatus = new StatusImpl(StatusCode.BROKEN);
 
-	private static final Status s_waitingStatus = new StatusImpl(StatusCode.WAITING);
+	private static final Status waitingStatus = new StatusImpl(StatusCode.WAITING);
 
 	public static Status createStatus(StatusCode statusCode) {
 		switch(statusCode) {
 		case BROKEN:
-			return s_brokenStatus;
+			return brokenStatus;
 		case WAITING:
-			return s_waitingStatus;
+			return waitingStatus;
 		default:
-			return s_okStatus;
+			return okStatus;
 		}
 	}
 

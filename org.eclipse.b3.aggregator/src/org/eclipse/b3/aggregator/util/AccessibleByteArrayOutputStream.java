@@ -18,21 +18,21 @@ import java.io.InputStream;
  * @author Thomas Hallgren
  */
 public class AccessibleByteArrayOutputStream extends ByteArrayOutputStream {
-	private final int m_maxSize;
+	private final int maxSize;
 
 	public AccessibleByteArrayOutputStream() {
 		super();
-		m_maxSize = -1;
+		maxSize = -1;
 	}
 
 	public AccessibleByteArrayOutputStream(int size) {
 		super(size);
-		m_maxSize = -1;
+		maxSize = -1;
 	}
 
 	public AccessibleByteArrayOutputStream(int size, int maxSize) {
 		super(size);
-		m_maxSize = maxSize;
+		this.maxSize = maxSize;
 	}
 
 	/**
@@ -58,14 +58,14 @@ public class AccessibleByteArrayOutputStream extends ByteArrayOutputStream {
 	@Override
 	public void write(byte b[], int off, int len) {
 		super.write(b, off, len);
-		if(m_maxSize > 0 && count >= m_maxSize)
-			throw new IllegalStateException("Maximum size " + Integer.valueOf(m_maxSize) + " exceeded");
+		if(maxSize > 0 && count >= maxSize)
+			throw new IllegalStateException("Maximum size " + Integer.valueOf(maxSize) + " exceeded");
 	}
 
 	@Override
 	public void write(int b) {
 		super.write(b);
-		if(m_maxSize > 0 && count >= m_maxSize)
-			throw new IllegalStateException("Maximum size " + Integer.valueOf(m_maxSize) + " exceeded");
+		if(maxSize > 0 && count >= maxSize)
+			throw new IllegalStateException("Maximum size " + Integer.valueOf(maxSize) + " exceeded");
 	}
 }

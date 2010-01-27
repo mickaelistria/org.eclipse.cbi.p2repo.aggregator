@@ -9,47 +9,47 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 
 public class UriIterator implements Iterator<URI> {
-	private final URI m_root;
+	private final URI root;
 
-	private final URI[] m_uris;
+	private final URI[] uris;
 
-	private final Pattern m_excludePattern;
+	private final Pattern excludePattern;
 
-	private int m_index;
+	private int index;
 
 	public UriIterator(URI root, Pattern excludePattern, IProgressMonitor monitor) throws CoreException {
-		m_uris = UriUtils.list(UriUtils.appendTrailingSlash(root), monitor);
-		m_index = -1;
-		m_excludePattern = excludePattern;
-		m_root = root;
+		this.uris = UriUtils.list(UriUtils.appendTrailingSlash(root), monitor);
+		this.excludePattern = excludePattern;
+		this.root = root;
+		index = -1;
 		positionNext();
 	}
 
 	public UriIterator(URI root, Pattern excludePattern, URI[] uris) {
-		m_uris = uris;
-		m_index = -1;
-		m_excludePattern = excludePattern;
-		m_root = root;
+		this.uris = uris;
+		this.excludePattern = excludePattern;
+		this.root = root;
+		index = -1;
 		positionNext();
 	}
 
 	public URI getRoot() {
-		return m_root;
+		return root;
 	}
 
 	public URI[] getURIs() {
-		return m_uris;
+		return uris;
 	}
 
 	public boolean hasNext() {
-		return m_index < m_uris.length;
+		return index < uris.length;
 	}
 
 	public URI next() {
 		if(!hasNext())
 			throw new NoSuchElementException();
 
-		URI nextURL = m_uris[m_index];
+		URI nextURL = uris[index];
 		positionNext();
 		return nextURL;
 	}
@@ -59,16 +59,16 @@ public class UriIterator implements Iterator<URI> {
 	}
 
 	public int size() {
-		return m_uris.length;
+		return uris.length;
 	}
 
 	private void positionNext() {
-		if(m_excludePattern == null)
-			++m_index;
+		if(excludePattern == null)
+			++index;
 		else {
-			int top = m_uris.length;
+			int top = uris.length;
 			for(;;) {
-				if(++m_index >= top || !m_excludePattern.matcher(m_uris[m_index].toString()).matches())
+				if(++index >= top || !excludePattern.matcher(uris[index].toString()).matches())
 					break;
 			}
 		}

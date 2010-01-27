@@ -15,13 +15,13 @@ import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
  * 
  */
 public class ResourceDiagnosticImpl implements Diagnostic {
-	private String m_location;
+	private String location;
 
-	private String m_message;
+	private String message;
 
 	public ResourceDiagnosticImpl(String message, String location) {
-		m_message = message;
-		m_location = location;
+		this.message = message;
+		this.location = location;
 	}
 
 	public int getColumn() {
@@ -33,10 +33,10 @@ public class ResourceDiagnosticImpl implements Diagnostic {
 	}
 
 	public String getLocation() {
-		return m_location;
+		return location;
 	}
 
 	public String getMessage() {
-		return m_message;
+		return message;
 	}
 }

@@ -25,36 +25,36 @@ public enum CapabilityNamespace{
 			"_UI_Capability_Fragment_type"), JAVA_PACKAGE("_UI_Capability_JavaPackage_type"), TOOLING(
 			"_UI_Capability_Tooling_type"), UNKNOWN("_UI_Capability_Unknown_type");
 
-	private static Map<String, CapabilityNamespace> m_namespaceMap;
+	private static Map<String, CapabilityNamespace> namespaceMap;
 
-	private static Map<Pattern, CapabilityNamespace> m_namespaceMatchMap;
+	private static Map<Pattern, CapabilityNamespace> namespaceMatchMap;
 
 	static {
-		m_namespaceMap = new HashMap<String, CapabilityNamespace>();
-		m_namespaceMap.put("org.eclipse.equinox.p2.iu", IU);
-		m_namespaceMap.put("org.eclipse.equinox.p2.eclipse.type", TYPE);
-		m_namespaceMap.put("org.eclipse.equinox.p2.localization", LOCALIZATION);
-		m_namespaceMap.put("org.eclipse.equinox.p2.flavor", FLAVOR);
-		m_namespaceMap.put("org.eclipse.update.feature", FEATURE);
-		m_namespaceMap.put("osgi.bundle", BUNDLE);
-		m_namespaceMap.put("osgi.fragment", FRAGMENT);
-		m_namespaceMap.put("java.package", JAVA_PACKAGE);
+		namespaceMap = new HashMap<String, CapabilityNamespace>();
+		namespaceMap.put("org.eclipse.equinox.p2.iu", IU);
+		namespaceMap.put("org.eclipse.equinox.p2.eclipse.type", TYPE);
+		namespaceMap.put("org.eclipse.equinox.p2.localization", LOCALIZATION);
+		namespaceMap.put("org.eclipse.equinox.p2.flavor", FLAVOR);
+		namespaceMap.put("org.eclipse.update.feature", FEATURE);
+		namespaceMap.put("osgi.bundle", BUNDLE);
+		namespaceMap.put("osgi.fragment", FRAGMENT);
+		namespaceMap.put("java.package", JAVA_PACKAGE);
 
-		m_namespaceMatchMap = new HashMap<Pattern, CapabilityNamespace>();
-		m_namespaceMatchMap.put(Pattern.compile("^tooling.*"), TOOLING);
+		namespaceMatchMap = new HashMap<Pattern, CapabilityNamespace>();
+		namespaceMatchMap.put(Pattern.compile("^tooling.*"), TOOLING);
 	}
 
 	public static CapabilityNamespace byId(String namespaceId) {
-		CapabilityNamespace namespace = m_namespaceMap.get(namespaceId);
+		CapabilityNamespace namespace = namespaceMap.get(namespaceId);
 
 		if(namespace == null)
-			for(Pattern pattern : m_namespaceMatchMap.keySet())
+			for(Pattern pattern : namespaceMatchMap.keySet())
 				if(pattern.matcher(namespaceId).matches())
-					return m_namespaceMatchMap.get(pattern);
+					return namespaceMatchMap.get(pattern);
 
 		if(namespace == null) {
 			namespace = UNKNOWN;
-			namespace.m_label = namespaceId + ":";
+			namespace.label = namespaceId + ":";
 		}
 
 		return namespace;
@@ -64,14 +64,14 @@ public enum CapabilityNamespace{
 		return AggregatorPlugin.INSTANCE;
 	}
 
-	private String m_label;
+	private String label;
 
 	private CapabilityNamespace(String label) {
-		m_label = getResourceLocator().getString(label);
+		label = getResourceLocator().getString(label);
 	}
 
 	public String getLabel() {
-		return m_label;
+		return label;
 	}
 
 }

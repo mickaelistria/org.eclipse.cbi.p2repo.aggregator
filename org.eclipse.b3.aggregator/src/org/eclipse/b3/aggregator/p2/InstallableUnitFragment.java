@@ -22,7 +22,7 @@ import org.eclipse.equinox.internal.provisional.p2.metadata.IInstallableUnitFrag
  * </p>
  * 
  * @see org.eclipse.b3.aggregator.p2.P2Package#getInstallableUnitFragment()
- * @model 
+ * @model
  *        superTypes="org.eclipse.b3.aggregator.p2.InstallableUnit org.eclipse.b3.aggregator.p2.IInstallableUnitFragment"
  * @generated
  */
