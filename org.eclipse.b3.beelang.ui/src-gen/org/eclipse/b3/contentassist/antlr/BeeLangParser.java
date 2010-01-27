@@ -422,7 +422,7 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getREALAccess().getGroup(), "rule__REAL__Group__0");
 					put(grammarAccess.getBeeModelAccess().getImportsAssignment_1_0(), "rule__BeeModel__ImportsAssignment_1_0");
 					put(grammarAccess.getBeeModelAccess().getFunctionsAssignment_1_1_0(), "rule__BeeModel__FunctionsAssignment_1_1_0");
-					put(grammarAccess.getBeeModelAccess().getConcernAssignment_1_1_1(), "rule__BeeModel__ConcernAssignment_1_1_1");
+					put(grammarAccess.getBeeModelAccess().getConcernsAssignment_1_1_1(), "rule__BeeModel__ConcernsAssignment_1_1_1");
 					put(grammarAccess.getBeeModelAccess().getPropertySetsAssignment_1_1_2_1(), "rule__BeeModel__PropertySetsAssignment_1_1_2_1");
 					put(grammarAccess.getBeeModelAccess().getBodyAssignment_1_2(), "rule__BeeModel__BodyAssignment_1_2");
 					put(grammarAccess.getImportAccess().getReexportAssignment_1(), "rule__Import__ReexportAssignment_1");

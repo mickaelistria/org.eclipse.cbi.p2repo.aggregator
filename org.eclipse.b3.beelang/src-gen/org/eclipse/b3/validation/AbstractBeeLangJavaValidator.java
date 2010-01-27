@@ -13,7 +13,7 @@ public class AbstractBeeLangJavaValidator extends AbstractDeclarativeValidator {
     @Override
     protected List<EPackage> getEPackages() {
         List<EPackage> result = new ArrayList<EPackage>();
-        result.add(org.eclipse.b3.beeLang.BeeLangPackage.eINSTANCE);
+//        result.add(org.eclipse.b3.beeLang.BeeLangPackage.eINSTANCE);
         return result;
     }
 

@@ -12,9 +12,10 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
-import org.eclipse.b3.beeLang.BeeModel;
 import org.eclipse.b3.beelang.ui.BeeLangConsoleUtils;
+import org.eclipse.b3.build.build.BeeModel;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
@@ -43,8 +44,8 @@ public class ExecuteHandler extends AbstractHandler {
 					B3Engine engine = new B3Engine();
 					// Define all functions, and
 					// find a function called main (use the first found) and call it with a List<Object> argv
-					BFunction main = null;
-					for(BFunction f : ((BeeModel) state).getFunctions()) {
+					IFunction main = null;
+					for(IFunction f : ((BeeModel) state).getFunctions()) {
 						engine.getContext().defineFunction(f);
 						if("main".equals(f.getName())) {
 							main = f;

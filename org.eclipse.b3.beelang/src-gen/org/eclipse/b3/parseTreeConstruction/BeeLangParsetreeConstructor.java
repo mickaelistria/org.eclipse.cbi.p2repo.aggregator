@@ -182,13 +182,13 @@ protected class ThisRootNode extends RootToken {
 
 /************ begin Rule BeeModel ****************
  *
- * BeeModel hidden ( WS , SL_COMMENT , ML_COMMENT ):
- *   {BeeModel} (imports+=Import* (functions+=Function|concern+=Concern_Named|
+ * BeeModel returns build::BeeModel hidden ( WS , SL_COMMENT , ML_COMMENT ):
+ *   {build::BeeModel} (imports+=Import* (functions+=Function|concerns+=Concern_Named|
  *   "properties" propertySets+=PropertySet_Named)* body=BuildUnit?);
  *
  **/
 
-// {BeeModel} (imports+=Import* (functions+=Function|concern+=Concern_Named|
+// {build::BeeModel} (imports+=Import* (functions+=Function|concerns+=Concern_Named|
 // "properties" propertySets+=PropertySet_Named)* body=BuildUnit?)
 protected class BeeModel_Group extends GroupToken {
 	
@@ -216,7 +216,7 @@ protected class BeeModel_Group extends GroupToken {
 	}
 }
 
-// {BeeModel}
+// {build::BeeModel}
 protected class BeeModel_BeeModelAction_0 extends ActionToken  {
 
 	public BeeModel_BeeModelAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -244,7 +244,7 @@ protected class BeeModel_BeeModelAction_0 extends ActionToken  {
 	}
 }
 
-// imports+=Import* (functions+=Function|concern+=Concern_Named|"properties"
+// imports+=Import* (functions+=Function|concerns+=Concern_Named|"properties"
 // propertySets+=PropertySet_Named)* body=BuildUnit?
 protected class BeeModel_Group_1 extends GroupToken {
 	
@@ -316,7 +316,7 @@ protected class BeeModel_ImportsAssignment_1_0 extends AssignmentToken  {
 	}	
 }
 
-// (functions+=Function|concern+=Concern_Named|"properties" propertySets+=
+// (functions+=Function|concerns+=Concern_Named|"properties" propertySets+=
 // PropertySet_Named)*
 protected class BeeModel_Alternatives_1_1 extends AlternativesToken {
 
@@ -333,7 +333,7 @@ protected class BeeModel_Alternatives_1_1 extends AlternativesToken {
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
 			case 0: return new BeeModel_FunctionsAssignment_1_1_0(parent, this, 0, inst);
-			case 1: return new BeeModel_ConcernAssignment_1_1_1(parent, this, 1, inst);
+			case 1: return new BeeModel_ConcernsAssignment_1_1_1(parent, this, 1, inst);
 			case 2: return new BeeModel_Group_1_1_2(parent, this, 2, inst);
 			default: return null;
 		}	
@@ -389,16 +389,16 @@ protected class BeeModel_FunctionsAssignment_1_1_0 extends AssignmentToken  {
 	}	
 }
 
-// concern+=Concern_Named
-protected class BeeModel_ConcernAssignment_1_1_1 extends AssignmentToken  {
+// concerns+=Concern_Named
+protected class BeeModel_ConcernsAssignment_1_1_1 extends AssignmentToken  {
 	
-	public BeeModel_ConcernAssignment_1_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BeeModel_ConcernsAssignment_1_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getBeeModelAccess().getConcernAssignment_1_1_1();
+		return grammarAccess.getBeeModelAccess().getConcernsAssignment_1_1_1();
 	}
 
     @Override
@@ -411,13 +411,13 @@ protected class BeeModel_ConcernAssignment_1_1_1 extends AssignmentToken  {
 		
     @Override	
 	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("concern",true)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("concern");
+		if((value = current.getConsumable("concerns",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("concerns");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getConcern_NamedRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getBeeModelAccess().getConcernConcern_NamedParserRuleCall_1_1_1_0(); 
+				element = grammarAccess.getBeeModelAccess().getConcernsConcern_NamedParserRuleCall_1_1_1_0(); 
 				consumed = obj;
 				return param;
 			}

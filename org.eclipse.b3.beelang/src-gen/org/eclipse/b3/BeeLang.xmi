@@ -13,13 +13,13 @@
     <ePackage href="http://www.eclipse.org/b3/BeeLang#/"/>
   </metamodelDeclarations>
   <rules xsi:type="xtext:ParserRule" name="BeeModel" definesHiddenTokens="true" hiddenTokens="//@rules.167 //@rules.166 //@rules.165">
-    <type metamodel="//@metamodelDeclarations.3">
-      <classifier xsi:type="ecore:EClass" href="http://www.eclipse.org/b3/BeeLang#//BeeModel"/>
+    <type metamodel="//@metamodelDeclarations.2">
+      <classifier xsi:type="ecore:EClass" href="http://b3build/1.0#//BeeModel"/>
     </type>
     <alternatives xsi:type="xtext:Group">
       <tokens xsi:type="xtext:Action">
-        <type metamodel="//@metamodelDeclarations.3">
-          <classifier xsi:type="ecore:EClass" href="http://www.eclipse.org/b3/BeeLang#//BeeModel"/>
+        <type metamodel="//@metamodelDeclarations.2">
+          <classifier xsi:type="ecore:EClass" href="http://b3build/1.0#//BeeModel"/>
         </type>
       </tokens>
       <tokens xsi:type="xtext:Group">
@@ -30,7 +30,7 @@
           <groups xsi:type="xtext:Assignment" feature="functions" operator="+=">
             <terminal xsi:type="xtext:RuleCall" rule="//@rules.46"/>
           </groups>
-          <groups xsi:type="xtext:Assignment" feature="concern" operator="+=">
+          <groups xsi:type="xtext:Assignment" feature="concerns" operator="+=">
             <terminal xsi:type="xtext:RuleCall" rule="//@rules.44"/>
           </groups>
           <groups xsi:type="xtext:Group">

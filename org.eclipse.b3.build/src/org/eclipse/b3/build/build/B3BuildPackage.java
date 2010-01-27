@@ -309,22 +309,13 @@ public interface B3BuildPackage extends EPackage {
 	int BUILD_UNIT__DEFAULT_PROPERTIES = VERSIONED_CAPABILITY_FEATURE_COUNT + 10;
 
 	/**
-	 * The feature id for the '<em><b>Property Sets</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILD_UNIT__PROPERTY_SETS = VERSIONED_CAPABILITY_FEATURE_COUNT + 11;
-
-	/**
 	 * The feature id for the '<em><b>Synchronizations</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT__SYNCHRONIZATIONS = VERSIONED_CAPABILITY_FEATURE_COUNT + 12;
+	int BUILD_UNIT__SYNCHRONIZATIONS = VERSIONED_CAPABILITY_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
@@ -333,7 +324,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT__REPOSITORIES = VERSIONED_CAPABILITY_FEATURE_COUNT + 13;
+	int BUILD_UNIT__REPOSITORIES = VERSIONED_CAPABILITY_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Containers</b></em>' containment reference list.
@@ -342,7 +333,16 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT__CONTAINERS = VERSIONED_CAPABILITY_FEATURE_COUNT + 14;
+	int BUILD_UNIT__CONTAINERS = VERSIONED_CAPABILITY_FEATURE_COUNT + 13;
+
+	/**
+	 * The feature id for the '<em><b>Property Sets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_UNIT__PROPERTY_SETS = VERSIONED_CAPABILITY_FEATURE_COUNT + 14;
 
 	/**
 	 * The number of structural features of the '<em>Build Unit</em>' class.
@@ -1486,6 +1486,15 @@ public interface B3BuildPackage extends EPackage {
 	 * @ordered
 	 */
 	int BUILD_CONTEXT__FUNC_STORE = B3backendPackage.BEXECUTION_CONTEXT__FUNC_STORE;
+
+	/**
+	 * The feature id for the '<em><b>Effective Concerns</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_CONTEXT__EFFECTIVE_CONCERNS = B3backendPackage.BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS;
 
 	/**
 	 * The number of structural features of the '<em>Build Context</em>' class.
@@ -2787,6 +2796,70 @@ public interface B3BuildPackage extends EPackage {
 	int BUILDER_WRAPPER_FEATURE_COUNT = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 7;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BeeModelImpl <em>Bee Model</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.BeeModelImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBeeModel()
+	 * @generated
+	 */
+	int BEE_MODEL = 41;
+
+	/**
+	 * The feature id for the '<em><b>Imports</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEE_MODEL__IMPORTS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEE_MODEL__FUNCTIONS = 1;
+
+	/**
+	 * The feature id for the '<em><b>Concerns</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEE_MODEL__CONCERNS = 2;
+
+	/**
+	 * The feature id for the '<em><b>Body</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEE_MODEL__BODY = 3;
+
+	/**
+	 * The feature id for the '<em><b>Property Sets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEE_MODEL__PROPERTY_SETS = 4;
+
+	/**
+	 * The number of structural features of the '<em>Bee Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEE_MODEL_FEATURE_COUNT = 5;
+
+	/**
 	 * The meta object id for the '<em>Version Range</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2794,7 +2867,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getVersionRange()
 	 * @generated
 	 */
-	int VERSION_RANGE = 41;
+	int VERSION_RANGE = 42;
 
 	/**
 	 * The meta object id for the '<em>Version</em>' data type.
@@ -2804,7 +2877,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getVersion()
 	 * @generated
 	 */
-	int VERSION = 42;
+	int VERSION = 43;
 
 	/**
 	 * The meta object id for the '<em>URI</em>' data type.
@@ -2814,7 +2887,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getURI()
 	 * @generated
 	 */
-	int URI = 43;
+	int URI = 44;
 
 
 	/**
@@ -2905,17 +2978,6 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBuildUnit_DefaultProperties();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BuildUnit#getPropertySets <em>Property Sets</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Property Sets</em>'.
-	 * @see org.eclipse.b3.build.build.BuildUnit#getPropertySets()
-	 * @see #getBuildUnit()
-	 * @generated
-	 */
-	EReference getBuildUnit_PropertySets();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BuildUnit#getSynchronizations <em>Synchronizations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2947,6 +3009,17 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBuildUnit_Containers();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BuildUnit#getPropertySets <em>Property Sets</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Property Sets</em>'.
+	 * @see org.eclipse.b3.build.build.BuildUnit#getPropertySets()
+	 * @see #getBuildUnit()
+	 * @generated
+	 */
+	EReference getBuildUnit_PropertySets();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.IBuilder <em>IBuilder</em>}'.
@@ -3053,6 +3126,71 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getBuilderWrapper();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BeeModel <em>Bee Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Bee Model</em>'.
+	 * @see org.eclipse.b3.build.build.BeeModel
+	 * @generated
+	 */
+	EClass getBeeModel();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BeeModel#getImports <em>Imports</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Imports</em>'.
+	 * @see org.eclipse.b3.build.build.BeeModel#getImports()
+	 * @see #getBeeModel()
+	 * @generated
+	 */
+	EReference getBeeModel_Imports();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BeeModel#getFunctions <em>Functions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Functions</em>'.
+	 * @see org.eclipse.b3.build.build.BeeModel#getFunctions()
+	 * @see #getBeeModel()
+	 * @generated
+	 */
+	EReference getBeeModel_Functions();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BeeModel#getConcerns <em>Concerns</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Concerns</em>'.
+	 * @see org.eclipse.b3.build.build.BeeModel#getConcerns()
+	 * @see #getBeeModel()
+	 * @generated
+	 */
+	EReference getBeeModel_Concerns();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.BeeModel#getBody <em>Body</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Body</em>'.
+	 * @see org.eclipse.b3.build.build.BeeModel#getBody()
+	 * @see #getBeeModel()
+	 * @generated
+	 */
+	EReference getBeeModel_Body();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BeeModel#getPropertySets <em>Property Sets</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Property Sets</em>'.
+	 * @see org.eclipse.b3.build.build.BeeModel#getPropertySets()
+	 * @see #getBeeModel()
+	 * @generated
+	 */
+	EReference getBeeModel_PropertySets();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.VersionedCapability <em>Versioned Capability</em>}'.
@@ -4196,14 +4334,6 @@ public interface B3BuildPackage extends EPackage {
 		EReference BUILD_UNIT__DEFAULT_PROPERTIES = eINSTANCE.getBuildUnit_DefaultProperties();
 
 		/**
-		 * The meta object literal for the '<em><b>Property Sets</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BUILD_UNIT__PROPERTY_SETS = eINSTANCE.getBuildUnit_PropertySets();
-
-		/**
 		 * The meta object literal for the '<em><b>Synchronizations</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4226,6 +4356,14 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BUILD_UNIT__CONTAINERS = eINSTANCE.getBuildUnit_Containers();
+
+		/**
+		 * The meta object literal for the '<em><b>Property Sets</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BUILD_UNIT__PROPERTY_SETS = eINSTANCE.getBuildUnit_PropertySets();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.IBuilder <em>IBuilder</em>}' class.
@@ -4314,6 +4452,56 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EClass BUILDER_WRAPPER = eINSTANCE.getBuilderWrapper();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BeeModelImpl <em>Bee Model</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.impl.BeeModelImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBeeModel()
+		 * @generated
+		 */
+		EClass BEE_MODEL = eINSTANCE.getBeeModel();
+
+		/**
+		 * The meta object literal for the '<em><b>Imports</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BEE_MODEL__IMPORTS = eINSTANCE.getBeeModel_Imports();
+
+		/**
+		 * The meta object literal for the '<em><b>Functions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BEE_MODEL__FUNCTIONS = eINSTANCE.getBeeModel_Functions();
+
+		/**
+		 * The meta object literal for the '<em><b>Concerns</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BEE_MODEL__CONCERNS = eINSTANCE.getBeeModel_Concerns();
+
+		/**
+		 * The meta object literal for the '<em><b>Body</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BEE_MODEL__BODY = eINSTANCE.getBeeModel_Body();
+
+		/**
+		 * The meta object literal for the '<em><b>Property Sets</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BEE_MODEL__PROPERTY_SETS = eINSTANCE.getBeeModel_PropertySets();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.VersionedCapabilityImpl <em>Versioned Capability</em>}' class.

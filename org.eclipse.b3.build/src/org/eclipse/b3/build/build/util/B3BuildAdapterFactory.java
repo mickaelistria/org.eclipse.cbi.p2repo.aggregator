@@ -249,6 +249,10 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 				return createBuilderWrapperAdapter();
 			}
 			@Override
+			public Adapter caseBeeModel(BeeModel object) {
+				return createBeeModelAdapter();
+			}
+			@Override
 			public Adapter caseBFunctionContainer(BFunctionContainer object) {
 				return createBFunctionContainerAdapter();
 			}
@@ -375,6 +379,20 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBuilderWrapperAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.BeeModel <em>Bee Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.BeeModel
+	 * @generated
+	 */
+	public Adapter createBeeModelAdapter() {
 		return null;
 	}
 

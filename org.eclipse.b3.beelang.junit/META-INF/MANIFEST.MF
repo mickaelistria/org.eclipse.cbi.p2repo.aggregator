@@ -8,5 +8,6 @@ Require-Bundle: org.eclipse.osgi,
  org.eclipse.xtext,
  org.eclipse.b3.beelang,
  org.eclipse.b3.backend,
- org.junit4;visibility:=reexport
+ org.junit4;visibility:=reexport,
+ org.eclipse.b3.build;bundle-version="1.0.0"
 Export-Package: org.eclipse.b3.beelang.junit

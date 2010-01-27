@@ -19,15 +19,15 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="defaultProperties" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BPropertySet"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="propertySets" upperBound="-1"
-        eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BPropertySet"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="synchronizations" upperBound="-1"
         eType="#//Synchronization" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="repositories" upperBound="-1"
         eType="#//RepositoryConfiguration" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="containers" upperBound="-1"
         eType="#//ContainerConfiguration" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="propertySets" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BPropertySet"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IBuilder" abstract="true" interface="true"
       eSuperTypes="#//IProvidedCapabilityContainer ../../org.eclipse.b3.backend/model/B3Backend.ecore#//IFunction">
@@ -246,4 +246,20 @@
   <eClassifiers xsi:type="ecore:EClass" name="Builder" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//B3Function #//IBuilder"/>
   <eClassifiers xsi:type="ecore:EClass" name="BuilderJava" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//BJavaFunction #//IBuilder"/>
   <eClassifiers xsi:type="ecore:EClass" name="BuilderWrapper" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//BFunctionWrapper #//IBuilder"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BeeModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//IType"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="functions" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//IFunction"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="concerns" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BConcern"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//BuildUnit"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="propertySets" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BPropertySet"
+        containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>

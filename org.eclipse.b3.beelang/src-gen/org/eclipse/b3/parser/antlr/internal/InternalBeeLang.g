@@ -164,9 +164,9 @@ ruleBeeModel returns [EObject current=null]
     |(
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getBeeModelAccess().getConcernConcern_NamedParserRuleCall_1_1_1_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getBeeModelAccess().getConcernsConcern_NamedParserRuleCall_1_1_1_0(), currentNode); 
 	    }
-		lv_concern_3_0=ruleConcern_Named		{
+		lv_concerns_3_0=ruleConcern_Named		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getBeeModelRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -174,8 +174,8 @@ ruleBeeModel returns [EObject current=null]
 	        try {
 	       		add(
 	       			$current, 
-	       			"concern",
-	        		lv_concern_3_0, 
+	       			"concerns",
+	        		lv_concerns_3_0, 
 	        		"Concern_Named", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {

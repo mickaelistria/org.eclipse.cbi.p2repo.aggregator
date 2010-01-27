@@ -26,8 +26,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives_1_1 = (Alternatives)cGroup_1.eContents().get(1);
 		private final Assignment cFunctionsAssignment_1_1_0 = (Assignment)cAlternatives_1_1.eContents().get(0);
 		private final RuleCall cFunctionsFunctionParserRuleCall_1_1_0_0 = (RuleCall)cFunctionsAssignment_1_1_0.eContents().get(0);
-		private final Assignment cConcernAssignment_1_1_1 = (Assignment)cAlternatives_1_1.eContents().get(1);
-		private final RuleCall cConcernConcern_NamedParserRuleCall_1_1_1_0 = (RuleCall)cConcernAssignment_1_1_1.eContents().get(0);
+		private final Assignment cConcernsAssignment_1_1_1 = (Assignment)cAlternatives_1_1.eContents().get(1);
+		private final RuleCall cConcernsConcern_NamedParserRuleCall_1_1_1_0 = (RuleCall)cConcernsAssignment_1_1_1.eContents().get(0);
 		private final Group cGroup_1_1_2 = (Group)cAlternatives_1_1.eContents().get(2);
 		private final Keyword cPropertiesKeyword_1_1_2_0 = (Keyword)cGroup_1_1_2.eContents().get(0);
 		private final Assignment cPropertySetsAssignment_1_1_2_1 = (Assignment)cGroup_1_1_2.eContents().get(1);
@@ -35,19 +35,19 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cBodyAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
 		private final RuleCall cBodyBuildUnitParserRuleCall_1_2_0 = (RuleCall)cBodyAssignment_1_2.eContents().get(0);
 		
-		//BeeModel hidden ( WS , SL_COMMENT , ML_COMMENT ):
-		//  {BeeModel} (imports+=Import* (functions+=Function|concern+=Concern_Named|
+		//BeeModel returns build::BeeModel hidden ( WS , SL_COMMENT , ML_COMMENT ):
+		//  {build::BeeModel} (imports+=Import* (functions+=Function|concerns+=Concern_Named|
 		//  "properties" propertySets+=PropertySet_Named)* body=BuildUnit?);
 		public ParserRule getRule() { return rule; }
 
-		//{BeeModel} (imports+=Import* (functions+=Function|concern+=Concern_Named|
+		//{build::BeeModel} (imports+=Import* (functions+=Function|concerns+=Concern_Named|
 		//"properties" propertySets+=PropertySet_Named)* body=BuildUnit?)
 		public Group getGroup() { return cGroup; }
 
-		//{BeeModel}
+		//{build::BeeModel}
 		public Action getBeeModelAction_0() { return cBeeModelAction_0; }
 
-		//imports+=Import* (functions+=Function|concern+=Concern_Named|"properties"
+		//imports+=Import* (functions+=Function|concerns+=Concern_Named|"properties"
 		//propertySets+=PropertySet_Named)* body=BuildUnit?
 		public Group getGroup_1() { return cGroup_1; }
 
@@ -57,7 +57,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//Import
 		public RuleCall getImportsImportParserRuleCall_1_0_0() { return cImportsImportParserRuleCall_1_0_0; }
 
-		//(functions+=Function|concern+=Concern_Named|"properties" propertySets+=
+		//(functions+=Function|concerns+=Concern_Named|"properties" propertySets+=
 		//PropertySet_Named)*
 		public Alternatives getAlternatives_1_1() { return cAlternatives_1_1; }
 
@@ -67,11 +67,11 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//Function
 		public RuleCall getFunctionsFunctionParserRuleCall_1_1_0_0() { return cFunctionsFunctionParserRuleCall_1_1_0_0; }
 
-		//concern+=Concern_Named
-		public Assignment getConcernAssignment_1_1_1() { return cConcernAssignment_1_1_1; }
+		//concerns+=Concern_Named
+		public Assignment getConcernsAssignment_1_1_1() { return cConcernsAssignment_1_1_1; }
 
 		//Concern_Named
-		public RuleCall getConcernConcern_NamedParserRuleCall_1_1_1_0() { return cConcernConcern_NamedParserRuleCall_1_1_1_0; }
+		public RuleCall getConcernsConcern_NamedParserRuleCall_1_1_1_0() { return cConcernsConcern_NamedParserRuleCall_1_1_1_0; }
 
 		//"properties" propertySets+=PropertySet_Named
 		public Group getGroup_1_1_2() { return cGroup_1_1_2; }
@@ -9599,8 +9599,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	
 
 	
-	//BeeModel hidden ( WS , SL_COMMENT , ML_COMMENT ):
-	//  {BeeModel} (imports+=Import* (functions+=Function|concern+=Concern_Named|
+	//BeeModel returns build::BeeModel hidden ( WS , SL_COMMENT , ML_COMMENT ):
+	//  {build::BeeModel} (imports+=Import* (functions+=Function|concerns+=Concern_Named|
 	//  "properties" propertySets+=PropertySet_Named)* body=BuildUnit?);
 	public BeeModelElements getBeeModelAccess() {
 		return (pBeeModel != null) ? pBeeModel : (pBeeModel = new BeeModelElements());

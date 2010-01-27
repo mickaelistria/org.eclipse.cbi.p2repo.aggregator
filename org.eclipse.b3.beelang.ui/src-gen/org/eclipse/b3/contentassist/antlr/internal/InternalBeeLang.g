@@ -4574,9 +4574,9 @@ rule__BeeModel__Alternatives_1_1
 )
 
     |(
-{ before(grammarAccess.getBeeModelAccess().getConcernAssignment_1_1_1()); }
-(rule__BeeModel__ConcernAssignment_1_1_1)
-{ after(grammarAccess.getBeeModelAccess().getConcernAssignment_1_1_1()); }
+{ before(grammarAccess.getBeeModelAccess().getConcernsAssignment_1_1_1()); }
+(rule__BeeModel__ConcernsAssignment_1_1_1)
+{ after(grammarAccess.getBeeModelAccess().getConcernsAssignment_1_1_1()); }
 )
 
     |(
@@ -26937,14 +26937,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__BeeModel__ConcernAssignment_1_1_1
+rule__BeeModel__ConcernsAssignment_1_1_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getBeeModelAccess().getConcernConcern_NamedParserRuleCall_1_1_1_0()); }
-	ruleConcern_Named{ after(grammarAccess.getBeeModelAccess().getConcernConcern_NamedParserRuleCall_1_1_1_0()); }
+{ before(grammarAccess.getBeeModelAccess().getConcernsConcern_NamedParserRuleCall_1_1_1_0()); }
+	ruleConcern_Named{ after(grammarAccess.getBeeModelAccess().getConcernsConcern_NamedParserRuleCall_1_1_1_0()); }
 )
 
 ;

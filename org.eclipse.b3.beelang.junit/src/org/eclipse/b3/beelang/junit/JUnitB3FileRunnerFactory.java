@@ -20,8 +20,9 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
-import org.eclipse.b3.beeLang.BeeModel;
+import org.eclipse.b3.build.build.BeeModel;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.ContentHandler;
@@ -141,7 +142,7 @@ class JUnitB3FileRunnerFactory {
 			testFunctionDescriptors = new ArrayList<TestFunctionDescriptor>();
 
 			// Define all functions and create descriptors of test functions
-			for(BFunction function : beeModel.getFunctions()) {
+			for(IFunction function : beeModel.getFunctions()) {
 				b3Context.defineFunction(function);
 
 				String functionName = function.getName();

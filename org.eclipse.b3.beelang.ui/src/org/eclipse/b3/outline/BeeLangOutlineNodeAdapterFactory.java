@@ -4,7 +4,7 @@
 package org.eclipse.b3.outline;
 
 import org.eclipse.xtext.ui.common.editor.outline.actions.DefaultContentOutlineNodeAdapterFactory;
-import org.eclipse.b3.beeLang.BeeModel;
+import org.eclipse.b3.build.build.BeeModel;
 public class BeeLangOutlineNodeAdapterFactory extends DefaultContentOutlineNodeAdapterFactory {
 
 	// provide list of classes to adapt to, e.g.:

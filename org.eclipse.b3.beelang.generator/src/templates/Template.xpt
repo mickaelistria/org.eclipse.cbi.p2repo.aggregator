@@ -1,11 +1,8 @@
-«IMPORT beeLang»;
+«IMPORT ecore»;
 
 «EXTENSION templates::Extensions»
 
-«DEFINE main FOR BeeModel-»
+«DEFINE main FOR ecore::EObject-»
 «FILE "output.txt"-»
-«FOREACH this.functions AS p-»
-«p.toString()»
-«ENDFOREACH-»
 «ENDFILE-»
 «ENDDEFINE»

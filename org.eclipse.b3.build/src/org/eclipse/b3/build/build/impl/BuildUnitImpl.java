@@ -56,10 +56,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getImplements <em>Implements</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getConcerns <em>Concerns</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getDefaultProperties <em>Default Properties</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getPropertySets <em>Property Sets</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getSynchronizations <em>Synchronizations</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getRepositories <em>Repositories</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getContainers <em>Containers</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getPropertySets <em>Property Sets</em>}</li>
  * </ul>
  * </p>
  *
@@ -184,15 +184,6 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 */
 	protected BPropertySet defaultProperties;
 	/**
-	 * The cached value of the '{@link #getPropertySets() <em>Property Sets</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPropertySets()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<BPropertySet> propertySets;
-	/**
 	 * The cached value of the '{@link #getSynchronizations() <em>Synchronizations</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -219,6 +210,16 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * @ordered
 	 */
 	protected EList<ContainerConfiguration> containers;
+
+	/**
+	 * The cached value of the '{@link #getPropertySets() <em>Property Sets</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPropertySets()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<BPropertySet> propertySets;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -409,18 +410,6 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<BPropertySet> getPropertySets() {
-		if (propertySets == null) {
-			propertySets = new EObjectContainmentEList<BPropertySet>(BPropertySet.class, this, B3BuildPackage.BUILD_UNIT__PROPERTY_SETS);
-		}
-		return propertySets;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Synchronization> getSynchronizations() {
 		if (synchronizations == null) {
 			synchronizations = new EObjectContainmentEList<Synchronization>(Synchronization.class, this, B3BuildPackage.BUILD_UNIT__SYNCHRONIZATIONS);
@@ -491,6 +480,18 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<BPropertySet> getPropertySets() {
+		if (propertySets == null) {
+			propertySets = new EObjectContainmentEList<BPropertySet>(BPropertySet.class, this, B3BuildPackage.BUILD_UNIT__PROPERTY_SETS);
+		}
+		return propertySets;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -523,14 +524,14 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				return ((InternalEList<?>)getConcerns()).basicRemove(otherEnd, msgs);
 			case B3BuildPackage.BUILD_UNIT__DEFAULT_PROPERTIES:
 				return basicSetDefaultProperties(null, msgs);
-			case B3BuildPackage.BUILD_UNIT__PROPERTY_SETS:
-				return ((InternalEList<?>)getPropertySets()).basicRemove(otherEnd, msgs);
 			case B3BuildPackage.BUILD_UNIT__SYNCHRONIZATIONS:
 				return ((InternalEList<?>)getSynchronizations()).basicRemove(otherEnd, msgs);
 			case B3BuildPackage.BUILD_UNIT__REPOSITORIES:
 				return ((InternalEList<?>)getRepositories()).basicRemove(otherEnd, msgs);
 			case B3BuildPackage.BUILD_UNIT__CONTAINERS:
 				return ((InternalEList<?>)getContainers()).basicRemove(otherEnd, msgs);
+			case B3BuildPackage.BUILD_UNIT__PROPERTY_SETS:
+				return ((InternalEList<?>)getPropertySets()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -565,14 +566,14 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				return getConcerns();
 			case B3BuildPackage.BUILD_UNIT__DEFAULT_PROPERTIES:
 				return getDefaultProperties();
-			case B3BuildPackage.BUILD_UNIT__PROPERTY_SETS:
-				return getPropertySets();
 			case B3BuildPackage.BUILD_UNIT__SYNCHRONIZATIONS:
 				return getSynchronizations();
 			case B3BuildPackage.BUILD_UNIT__REPOSITORIES:
 				return getRepositories();
 			case B3BuildPackage.BUILD_UNIT__CONTAINERS:
 				return getContainers();
+			case B3BuildPackage.BUILD_UNIT__PROPERTY_SETS:
+				return getPropertySets();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -622,10 +623,6 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 			case B3BuildPackage.BUILD_UNIT__DEFAULT_PROPERTIES:
 				setDefaultProperties((BPropertySet)newValue);
 				return;
-			case B3BuildPackage.BUILD_UNIT__PROPERTY_SETS:
-				getPropertySets().clear();
-				getPropertySets().addAll((Collection<? extends BPropertySet>)newValue);
-				return;
 			case B3BuildPackage.BUILD_UNIT__SYNCHRONIZATIONS:
 				getSynchronizations().clear();
 				getSynchronizations().addAll((Collection<? extends Synchronization>)newValue);
@@ -637,6 +634,10 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 			case B3BuildPackage.BUILD_UNIT__CONTAINERS:
 				getContainers().clear();
 				getContainers().addAll((Collection<? extends ContainerConfiguration>)newValue);
+				return;
+			case B3BuildPackage.BUILD_UNIT__PROPERTY_SETS:
+				getPropertySets().clear();
+				getPropertySets().addAll((Collection<? extends BPropertySet>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -680,9 +681,6 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 			case B3BuildPackage.BUILD_UNIT__DEFAULT_PROPERTIES:
 				setDefaultProperties((BPropertySet)null);
 				return;
-			case B3BuildPackage.BUILD_UNIT__PROPERTY_SETS:
-				getPropertySets().clear();
-				return;
 			case B3BuildPackage.BUILD_UNIT__SYNCHRONIZATIONS:
 				getSynchronizations().clear();
 				return;
@@ -691,6 +689,9 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				return;
 			case B3BuildPackage.BUILD_UNIT__CONTAINERS:
 				getContainers().clear();
+				return;
+			case B3BuildPackage.BUILD_UNIT__PROPERTY_SETS:
+				getPropertySets().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -726,14 +727,14 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				return concerns != null && !concerns.isEmpty();
 			case B3BuildPackage.BUILD_UNIT__DEFAULT_PROPERTIES:
 				return defaultProperties != null;
-			case B3BuildPackage.BUILD_UNIT__PROPERTY_SETS:
-				return propertySets != null && !propertySets.isEmpty();
 			case B3BuildPackage.BUILD_UNIT__SYNCHRONIZATIONS:
 				return synchronizations != null && !synchronizations.isEmpty();
 			case B3BuildPackage.BUILD_UNIT__REPOSITORIES:
 				return repositories != null && !repositories.isEmpty();
 			case B3BuildPackage.BUILD_UNIT__CONTAINERS:
 				return containers != null && !containers.isEmpty();
+			case B3BuildPackage.BUILD_UNIT__PROPERTY_SETS:
+				return propertySets != null && !propertySets.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -62,6 +62,15 @@ public interface B3BuildFactory extends EFactory {
 	BuilderWrapper createBuilderWrapper();
 
 	/**
+	 * Returns a new object of class '<em>Bee Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Bee Model</em>'.
+	 * @generated
+	 */
+	BeeModel createBeeModel();
+
+	/**
 	 * Returns a new object of class '<em>Versioned Capability</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

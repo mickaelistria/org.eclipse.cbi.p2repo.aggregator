@@ -8,8 +8,8 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
 import org.eclipse.b3.backend.evaluator.b3backend.BConcern;
 import org.eclipse.b3.backend.evaluator.b3backend.BWithExpression;
-import org.eclipse.b3.beeLang.BeeModel;
 import org.eclipse.b3.build.build.AliasedRequiredCapability;
+import org.eclipse.b3.build.build.BeeModel;
 import org.eclipse.b3.build.build.BuildUnit;
 import org.eclipse.b3.build.build.BuilderReference;
 import org.eclipse.b3.build.build.IRequiredCapabilityContainer;
@@ -92,7 +92,7 @@ public class BeeLangScopeProvider extends AbstractDeclarativeScopeProvider {
 		for(EObject y: x) {
 			if(y instanceof BeeModel) {
 				BeeModel model = ((BeeModel)y);
-				for(BConcern concern : model.getConcern())
+				for(BConcern concern : model.getConcerns())
 					result.add(new EObjectDescription(concern.getName(),concern, null));
 				BuildUnit bu = model.getBody();
 				if(bu != null)

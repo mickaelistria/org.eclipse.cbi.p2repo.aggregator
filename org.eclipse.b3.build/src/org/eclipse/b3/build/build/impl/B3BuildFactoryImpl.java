@@ -101,6 +101,7 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 			case B3BuildPackage.BUILDER: return createBuilder();
 			case B3BuildPackage.BUILDER_JAVA: return createBuilderJava();
 			case B3BuildPackage.BUILDER_WRAPPER: return createBuilderWrapper();
+			case B3BuildPackage.BEE_MODEL: return createBeeModel();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -182,6 +183,16 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	public BuilderWrapper createBuilderWrapper() {
 		BuilderWrapperImpl builderWrapper = new BuilderWrapperImpl();
 		return builderWrapper;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BeeModel createBeeModel() {
+		BeeModelImpl beeModel = new BeeModelImpl();
+		return beeModel;
 	}
 
 	/**

@@ -30,10 +30,10 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getImplements <em>Implements</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getConcerns <em>Concerns</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getDefaultProperties <em>Default Properties</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getPropertySets <em>Property Sets</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getSynchronizations <em>Synchronizations</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getRepositories <em>Repositories</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getContainers <em>Containers</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getPropertySets <em>Property Sets</em>}</li>
  * </ul>
  * </p>
  *
@@ -189,22 +189,6 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	void setDefaultProperties(BPropertySet value);
 
 	/**
-	 * Returns the value of the '<em><b>Property Sets</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySet}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Property Sets</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Property Sets</em>' containment reference list.
-	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuildUnit_PropertySets()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<BPropertySet> getPropertySets();
-
-	/**
 	 * Returns the value of the '<em><b>Synchronizations</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.b3.build.build.Synchronization}.
 	 * <!-- begin-user-doc -->
@@ -251,4 +235,20 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * @generated
 	 */
 	EList<ContainerConfiguration> getContainers();
+
+	/**
+	 * Returns the value of the '<em><b>Property Sets</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySet}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Property Sets</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Property Sets</em>' containment reference list.
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuildUnit_PropertySets()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<BPropertySet> getPropertySets();
 } // BuildUnit

@@ -1,22 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="beeLang"
-    nsURI="http://www.eclipse.org/b3/BeeLang" nsPrefix="beeLang">
-  <eClassifiers xsi:type="ecore:EClass" name="BeeModel">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
-        eType="ecore:EClass platform:/resource/org.eclipse.b3.backend/model/B3Backend.ecore#//IType"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="functions" upperBound="-1"
-        eType="ecore:EClass platform:/resource/org.eclipse.b3.backend/model/B3Backend.ecore#//B3Function"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="concern" upperBound="-1"
-        eType="ecore:EClass platform:/resource/org.eclipse.b3.backend/model/B3Backend.ecore#//BConcern"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="propertySets" upperBound="-1"
-        eType="ecore:EClass platform:/resource/org.eclipse.b3.backend/model/B3Backend.ecore#//BPropertySet"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="ecore:EClass platform:/resource/org.eclipse.b3.build/model/B3Build.ecore#//BuildUnit"
-        containment="true"/>
-  </eClassifiers>
-</ecore:EPackage>
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="beeLang"
+    nsURI="http://www.eclipse.org/b3/BeeLang" nsPrefix="beeLang"/>
