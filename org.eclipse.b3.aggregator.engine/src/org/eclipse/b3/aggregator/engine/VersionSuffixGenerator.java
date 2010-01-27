@@ -84,7 +84,7 @@ public class VersionSuffixGenerator {
 		return result.toString();
 	}
 
-	private Map<String, Integer> m_contextQualifierLengths;
+	private Map<String, Integer> contextQualifierLengths;
 
 	private static final int QUALIFIER_SUFFIX_VERSION = 1;
 
@@ -105,27 +105,27 @@ public class VersionSuffixGenerator {
 		return sum;
 	}
 
-	private final int m_maxVersionSuffixLength;
+	private final int maxVersionSuffixLength;
 
-	private final int m_significantDigits;
+	private final int significantDigits;
 
 	public VersionSuffixGenerator() {
 		this(-1, -1);
 	}
 
 	public VersionSuffixGenerator(int maxVersionSuffixLenght, int significantDigits) {
-		m_maxVersionSuffixLength = maxVersionSuffixLenght < 0
+		this.maxVersionSuffixLength = maxVersionSuffixLenght < 0
 				? 28
 				: maxVersionSuffixLenght;
-		m_significantDigits = significantDigits < 0
+		this.significantDigits = significantDigits < 0
 				? Integer.MAX_VALUE
 				: significantDigits;
 	}
 
 	public void addContextQualifierLength(String context, int length) {
-		if(m_contextQualifierLengths == null)
-			m_contextQualifierLengths = new HashMap<String, Integer>();
-		m_contextQualifierLengths.put(context, Integer.valueOf(length));
+		if(contextQualifierLengths == null)
+			contextQualifierLengths = new HashMap<String, Integer>();
+		contextQualifierLengths.put(context, Integer.valueOf(length));
 	}
 
 	/**
@@ -136,7 +136,7 @@ public class VersionSuffixGenerator {
 	 * @throws CoreException
 	 */
 	public String generateSuffix(List<VersionedId> features, List<VersionedId> bundles) {
-		if(m_maxVersionSuffixLength <= 0)
+		if(maxVersionSuffixLength <= 0)
 			return null; // do nothing
 
 		long majorSum = 0L;
@@ -170,9 +170,9 @@ public class VersionSuffixGenerator {
 			serviceSum += version.getMicro();
 
 			String qualifier = version.getQualifier();
-			Integer ctxLen = m_contextQualifierLengths == null
+			Integer ctxLen = contextQualifierLengths == null
 					? null
-					: m_contextQualifierLengths.get(refFeature.getId());
+					: contextQualifierLengths.get(refFeature.getId());
 			int contextLength = (ctxLen == null)
 					? -1
 					: ctxLen.intValue();
@@ -228,8 +228,8 @@ public class VersionSuffixGenerator {
 			if(qualifier == null)
 				continue;
 
-			if(qualifier.length() > m_significantDigits) {
-				qualifier = qualifier.substring(0, m_significantDigits);
+			if(qualifier.length() > significantDigits) {
+				qualifier = qualifier.substring(0, significantDigits);
 				qualifiers[idx] = qualifier;
 			}
 			if(qualifier.length() > longestQualifier)
@@ -275,8 +275,8 @@ public class VersionSuffixGenerator {
 
 		// If the resulting suffix is too long, shorten it to the designed length.
 		//
-		if(result.length() > m_maxVersionSuffixLength)
-			result.setLength(m_maxVersionSuffixLength);
+		if(result.length() > maxVersionSuffixLength)
+			result.setLength(maxVersionSuffixLength);
 
 		// It is safe to strip any '-' characters from the end of the suffix.
 		// (This won't happen very often, but it will save us a character or

@@ -17,12 +17,12 @@ import org.eclipse.equinox.internal.provisional.p2.artifact.repository.processin
 import org.eclipse.equinox.internal.provisional.p2.metadata.IArtifactKey;
 
 public class CopyRequest extends ArtifactRequest {
-	private final File m_destination;
+	private final File destination;
 
 	public CopyRequest(IArtifactRepository src, IArtifactKey key, File destination) {
 		super(key);
 		setSourceRepository(src);
-		m_destination = destination;
+		this.destination = destination;
 	}
 
 	@Override
@@ -95,19 +95,19 @@ public class CopyRequest extends ArtifactRequest {
 	}
 
 	private IStatus transferSingle(IArtifactDescriptor descriptor, IProgressMonitor monitor) {
-		OutputStream destination = null;
+		OutputStream destinationStream = null;
 		IStatus status = null;
 		try {
-			destination = new FileOutputStream(m_destination);
-			status = source.getArtifact(descriptor, destination, monitor);
+			destinationStream = new FileOutputStream(destination);
+			status = source.getArtifact(descriptor, destinationStream, monitor);
 		}
 		catch(IOException e) {
 			status = ExceptionUtils.createStatus(e);
 		}
 		finally {
-			if(destination != null)
+			if(destinationStream != null)
 				try {
-					destination.close();
+					destinationStream.close();
 				}
 				catch(IOException e) {
 					// ignore
