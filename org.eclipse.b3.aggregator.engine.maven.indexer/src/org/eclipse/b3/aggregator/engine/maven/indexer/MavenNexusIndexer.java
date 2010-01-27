@@ -48,30 +48,30 @@ import org.sonatype.nexus.index.updater.IndexUpdater;
  */
 public class MavenNexusIndexer implements IMaven2Indexer {
 	private class VersionEntryIterator implements Iterator<VersionEntry> {
-		private IndexReader m_indexReader;
+		private IndexReader indexReader;
 
-		private TermEnum m_termEnum;
+		private TermEnum termEnum;
 
-		private VersionEntry m_nextEntry;
+		private VersionEntry nextEntry;
 
 		public VersionEntryIterator(IndexReader indexReader) throws IOException {
-			m_indexReader = indexReader;
-			m_termEnum = m_indexReader.terms(new Term(ArtifactInfo.UINFO, ""));
-			m_nextEntry = getNextEntry(false);
+			this.indexReader = indexReader;
+			termEnum = indexReader.terms(new Term(ArtifactInfo.UINFO, ""));
+			nextEntry = getNextEntry(false);
 		}
 
 		public void close() throws IOException {
 			synchronized(MavenNexusIndexer.this) {
-				m_openIterators.remove(this);
-				if(m_termEnum != null)
-					m_termEnum.close();
-				if(m_indexReader != null)
-					m_indexReader.close();
+				openIterators.remove(this);
+				if(termEnum != null)
+					termEnum.close();
+				if(indexReader != null)
+					indexReader.close();
 			}
 		}
 
 		public boolean hasNext() {
-			boolean hasNext = m_nextEntry != null;
+			boolean hasNext = nextEntry != null;
 			if(!hasNext)
 				try {
 					close();
@@ -84,10 +84,10 @@ public class MavenNexusIndexer implements IMaven2Indexer {
 		}
 
 		public VersionEntry next() {
-			if(m_nextEntry != null) {
-				VersionEntry entry = m_nextEntry;
+			if(nextEntry != null) {
+				VersionEntry entry = nextEntry;
 				try {
-					m_nextEntry = getNextEntry(true);
+					nextEntry = getNextEntry(true);
 				}
 				catch(IOException e) {
 					throw new RuntimeException(e);
@@ -103,11 +103,11 @@ public class MavenNexusIndexer implements IMaven2Indexer {
 		}
 
 		private VersionEntry getNextEntry(boolean moveToNext) throws IOException {
-			if(moveToNext && !m_termEnum.next())
+			if(moveToNext && !termEnum.next())
 				return null;
 
-			while(m_termEnum.term() != null && ArtifactInfo.UINFO.equals(m_termEnum.term().field())) {
-				String record = m_termEnum.term().toString();
+			while(termEnum.term() != null && ArtifactInfo.UINFO.equals(termEnum.term().field())) {
+				String record = termEnum.term().toString();
 				String[] tokens = record.split("[:|]");
 
 				// we look for something like "u:groupId|artifactId|version|NA"
@@ -122,7 +122,7 @@ public class MavenNexusIndexer implements IMaven2Indexer {
 					}
 				}
 
-				if(!m_termEnum.next())
+				if(!termEnum.next())
 					break;
 			}
 
@@ -130,22 +130,22 @@ public class MavenNexusIndexer implements IMaven2Indexer {
 		}
 	}
 
-	private IndexingContext m_context;
+	private IndexingContext context;
 
-	private Set<VersionEntryIterator> m_openIterators;
+	private Set<VersionEntryIterator> openIterators;
 
 	public MavenNexusIndexer() {
-		m_openIterators = new HashSet<VersionEntryIterator>();
+		openIterators = new HashSet<VersionEntryIterator>();
 	}
 
 	synchronized public void closeRemoteIndex() throws CoreException {
 		try {
-			for(VersionEntryIterator itor : m_openIterators)
+			for(VersionEntryIterator itor : openIterators)
 				itor.close();
 
-			if(m_context != null) {
-				m_context.close(false);
-				m_context = null;
+			if(context != null) {
+				context.close(false);
+				context = null;
 			}
 		}
 		catch(IOException e) {
@@ -155,10 +155,10 @@ public class MavenNexusIndexer implements IMaven2Indexer {
 
 	synchronized public Iterator<VersionEntry> getArtifacts() throws CoreException {
 		try {
-			IndexReader indexReader = IndexReader.open(m_context.getIndexDirectory());
+			IndexReader indexReader = IndexReader.open(context.getIndexDirectory());
 
 			VersionEntryIterator itor = new VersionEntryIterator(indexReader);
-			m_openIterators.add(itor);
+			openIterators.add(itor);
 			return itor;
 		}
 		catch(IOException e) {
@@ -180,7 +180,7 @@ public class MavenNexusIndexer implements IMaven2Indexer {
 
 	public void openRemoteIndex(URI location, boolean clearLocalCache) throws IndexNotFoundException, CoreException {
 		closeRemoteIndex();
-		m_openIterators.clear();
+		openIterators.clear();
 
 		File cacheDirectory = MavenActivator.getPlugin().getCacheDirectory(location);
 		File indexDirectory = new File(cacheDirectory, "index");
@@ -193,7 +193,7 @@ public class MavenNexusIndexer implements IMaven2Indexer {
 
 			String repoId = "mavenRepo";
 			if(!clearLocalCache)
-				m_context = indexer.addIndexingContext(repoId, // index id (usually the same as repository
+				context = indexer.addIndexingContext(repoId, // index id (usually the same as repository
 						// id)
 						repoId, // repository id
 						(File) null, // null for remote repo
@@ -202,7 +202,7 @@ public class MavenNexusIndexer implements IMaven2Indexer {
 						null, // null if derived from repositoryUrl
 						Collections.singletonList(creator));
 			else
-				m_context = indexer.addIndexingContextForced(repoId, // index id (usually the same as repository
+				context = indexer.addIndexingContextForced(repoId, // index id (usually the same as repository
 						// id)
 						repoId, // repository id
 						(File) null, // null for remote repo
@@ -211,7 +211,7 @@ public class MavenNexusIndexer implements IMaven2Indexer {
 						null, // null if derived from repositoryUrl
 						Collections.singletonList(creator));
 
-			IndexUpdateRequest request = new IndexUpdateRequest(m_context);
+			IndexUpdateRequest request = new IndexUpdateRequest(context);
 			updater.fetchAndUpdateIndex(request);
 		}
 		catch(Exception e) {

@@ -908,12 +908,12 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 		});
 
 		selectionViewer.getTree().addMouseMoveListener(new MouseMoveListener() {
-			private TreeItem m_lastTreeItem;
+			private TreeItem lastTreeItem;
 
 			public void mouseMove(MouseEvent e) {
 				TreeItem item = selectionViewer.getTree().getItem(new Point(e.x, e.y));
 
-				if(item == m_lastTreeItem)
+				if(item == lastTreeItem)
 					return;
 
 				String toolTipText = null;
@@ -928,7 +928,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 				selectionViewer.getTree().setToolTipText(toolTipText);
 
-				m_lastTreeItem = item;
+				lastTreeItem = item;
 			}
 		});
 	}

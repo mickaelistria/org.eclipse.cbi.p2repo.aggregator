@@ -47,29 +47,29 @@ public class FindIUDialog extends TrayDialog {
 		return AggregatorEditorPlugin.INSTANCE.getString(key);
 	}
 
-	private AggregatorEditor m_aggregatorEditor;
+	private AggregatorEditor aggregatorEditor;
 
-	private Text m_idPatternText;
+	private Text idPatternText;
 
-	private Button m_regularExprButton;
+	private Button regularExprButton;
 
-	private ContentAssistCommandAdapter m_PatterFieldContentAssist;
+	private ContentAssistCommandAdapter patterFieldContentAssist;
 
-	private Text m_versionFromText;
+	private Text versionFromText;
 
-	private Text m_versionToText;
+	private Text versionToText;
 
-	private Button m_forwardButton;
+	private Button forwardButton;
 
-	private Label m_statusLabel;
+	private Label statusLabel;
 
-	private Button m_findButton;
+	private Button findButton;
 
 	protected FindIUDialog(IWorkbenchWindow window) {
 		super(window.getShell());
 		setShellStyle(SWT.SHELL_TRIM | SWT.RESIZE);
 
-		m_aggregatorEditor = (AggregatorEditor) window.getActivePage().getActivePart();
+		aggregatorEditor = (AggregatorEditor) window.getActivePage().getActivePart();
 	}
 
 	protected void buttonPressed(int buttonId) {
@@ -104,8 +104,8 @@ public class FindIUDialog extends TrayDialog {
 		filler.setLayoutData(new GridData(GridData.FILL_HORIZONTAL | GridData.GRAB_HORIZONTAL));
 		layout.numColumns++;
 
-		m_findButton = createButton(composite, FIND_ID, getString("_UI_FindIUDialog_findButton"), true);
-		m_findButton.setEnabled(isFindEnabled());
+		findButton = createButton(composite, FIND_ID, getString("_UI_FindIUDialog_findButton"), true);
+		findButton.setEnabled(isFindEnabled());
 		createButton(composite, IDialogConstants.CANCEL_ID, IDialogConstants.CANCEL_LABEL, false);
 
 		return composite;
@@ -127,44 +127,44 @@ public class FindIUDialog extends TrayDialog {
 		composite.setLayoutData(new GridData(GridData.FILL_BOTH));
 
 		new Label(composite, SWT.NONE).setText(getString("_UI_FindIUDialog_installableUnitIDField"));
-		m_idPatternText = new Text(composite, SWT.BORDER);
+		idPatternText = new Text(composite, SWT.BORDER);
 		GridData layoutData = new GridData(GridData.FILL_HORIZONTAL);
 		layoutData.horizontalSpan = 3;
-		m_idPatternText.setLayoutData(layoutData);
-		m_idPatternText.addModifyListener(new ModifyListener() {
+		idPatternText.setLayoutData(layoutData);
+		idPatternText.addModifyListener(new ModifyListener() {
 			public void modifyText(ModifyEvent e) {
-				m_findButton.setEnabled(m_idPatternText.getCharCount() > 0);
+				findButton.setEnabled(idPatternText.getCharCount() > 0);
 			}
 		});
 
 		new Label(composite, SWT.NONE);
-		m_regularExprButton = new Button(composite, SWT.CHECK);
-		m_regularExprButton.setText(getString("_UI_FindIUDialog_regularExpressionField"));
+		regularExprButton = new Button(composite, SWT.CHECK);
+		regularExprButton.setText(getString("_UI_FindIUDialog_regularExpressionField"));
 		layoutData = new GridData();
 		layoutData.horizontalSpan = 3;
-		m_regularExprButton.setLayoutData(layoutData);
-		m_regularExprButton.addSelectionListener(new SelectionAdapter() {
+		regularExprButton.setLayoutData(layoutData);
+		regularExprButton.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
-				m_PatterFieldContentAssist.setEnabled(isFindEnabled());
+				patterFieldContentAssist.setEnabled(isFindEnabled());
 			}
 		});
 
 		TextContentAdapter contentAdapter = new TextContentAdapter();
 		FindReplaceDocumentAdapterContentProposalProvider findProposer = new FindReplaceDocumentAdapterContentProposalProvider(
 				true);
-		m_PatterFieldContentAssist = new ContentAssistCommandAdapter(m_idPatternText, contentAdapter, findProposer,
+		patterFieldContentAssist = new ContentAssistCommandAdapter(idPatternText, contentAdapter, findProposer,
 				ITextEditorActionDefinitionIds.CONTENT_ASSIST_PROPOSALS, new char[] { '\\', '[', '(' }, true);
 
-		m_PatterFieldContentAssist.setEnabled(m_regularExprButton.getSelection());
+		patterFieldContentAssist.setEnabled(regularExprButton.getSelection());
 
 		labelSeparator(composite);
 
 		new Label(composite, SWT.NONE).setText(getString("_UI_FindIUDialog_versionFromField"));
-		m_versionFromText = new Text(composite, SWT.BORDER);
-		m_versionFromText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+		versionFromText = new Text(composite, SWT.BORDER);
+		versionFromText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 		new Label(composite, SWT.NONE).setText(getString("_UI_FindIUDialog_versionToField"));
-		m_versionToText = new Text(composite, SWT.BORDER);
-		m_versionToText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+		versionToText = new Text(composite, SWT.BORDER);
+		versionToText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 
 		labelSeparator(composite);
 
@@ -175,18 +175,18 @@ public class FindIUDialog extends TrayDialog {
 		directionGroup.setText(getString("_UI_FindIUDialog_directionGroupName"));
 		directionGroup.setLayout(new GridLayout(2, true));
 
-		m_forwardButton = new Button(directionGroup, SWT.RADIO);
-		m_forwardButton.setText(getString("_UI_FindIUDialog_forwardButton"));
+		forwardButton = new Button(directionGroup, SWT.RADIO);
+		forwardButton.setText(getString("_UI_FindIUDialog_forwardButton"));
 
 		Button backwardButton = new Button(directionGroup, SWT.RADIO);
 		backwardButton.setText(getString("_UI_FindIUDialog_backwardButton"));
 
-		m_forwardButton.setSelection(true);
+		forwardButton.setSelection(true);
 
-		m_statusLabel = new Label(composite, SWT.LEFT);
+		statusLabel = new Label(composite, SWT.LEFT);
 		layoutData = new GridData(GridData.FILL, GridData.CENTER, true, false);
 		layoutData.horizontalSpan = 4;
-		m_statusLabel.setLayoutData(layoutData);
+		statusLabel.setLayoutData(layoutData);
 
 		return composite;
 	}
@@ -203,7 +203,7 @@ public class FindIUDialog extends TrayDialog {
 	}
 
 	private boolean isFindEnabled() {
-		return m_regularExprButton.getSelection();
+		return regularExprButton.getSelection();
 	}
 
 	private void labelSeparator(Composite composite) {
@@ -217,10 +217,10 @@ public class FindIUDialog extends TrayDialog {
 	private boolean performFind() {
 		Pattern idPattern = null;
 		try {
-			if(m_regularExprButton.getSelection())
-				idPattern = Pattern.compile(UIUtils.trimmedValue(m_idPatternText));
+			if(regularExprButton.getSelection())
+				idPattern = Pattern.compile(UIUtils.trimmedValue(idPatternText));
 			else
-				idPattern = Pattern.compile(Pattern.quote(UIUtils.trimmedValue(m_idPatternText)));
+				idPattern = Pattern.compile(Pattern.quote(UIUtils.trimmedValue(idPatternText)));
 		}
 		catch(PatternSyntaxException e) {
 			statusMessage(true, e.getLocalizedMessage());
@@ -228,7 +228,7 @@ public class FindIUDialog extends TrayDialog {
 		}
 
 		Version minVersion = null;
-		String versionFromString = UIUtils.trimmedValue(m_versionFromText);
+		String versionFromString = UIUtils.trimmedValue(versionFromText);
 
 		if(versionFromString != null)
 			minVersion = Version.parseVersion(versionFromString);
@@ -236,7 +236,7 @@ public class FindIUDialog extends TrayDialog {
 			minVersion = Version.MIN_VERSION;
 
 		Version maxVersion = null;
-		String versionToString = UIUtils.trimmedValue(m_versionToText);
+		String versionToString = UIUtils.trimmedValue(versionToText);
 
 		if(versionToString != null)
 			maxVersion = Version.parseVersion(versionToString);
@@ -245,9 +245,9 @@ public class FindIUDialog extends TrayDialog {
 
 		VersionRange versionRange = new VersionRange(minVersion, true, maxVersion, true);
 
-		m_aggregatorEditor.registerFindIUArguments(idPattern, versionRange);
+		aggregatorEditor.registerFindIUArguments(idPattern, versionRange);
 
-		if(m_aggregatorEditor.findNextIU(m_forwardButton.getSelection()))
+		if(aggregatorEditor.findNextIU(forwardButton.getSelection()))
 			statusMessage(false, "");
 		else
 			statusMessage(false, "String Not Found");
@@ -256,12 +256,12 @@ public class FindIUDialog extends TrayDialog {
 	}
 
 	private void statusMessage(boolean error, String message) {
-		m_statusLabel.setText(message);
+		statusLabel.setText(message);
 
 		if(error)
-			m_statusLabel.setForeground(JFaceColors.getErrorText(m_statusLabel.getDisplay()));
+			statusLabel.setForeground(JFaceColors.getErrorText(statusLabel.getDisplay()));
 		else
-			m_statusLabel.setForeground(null);
+			statusLabel.setForeground(null);
 
 		if(UIUtils.trimmedValue(message) != null)
 			getShell().getDisplay().beep();

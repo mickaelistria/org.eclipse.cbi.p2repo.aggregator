@@ -127,9 +127,9 @@ import org.xml.sax.SAXException;
 public class AggregatorActionBarContributor extends EditingDomainActionBarContributor implements
 		ISelectionChangedListener {
 	class AddToCustomCategoryAction extends Action {
-		private EditingDomain m_domain;
+		private EditingDomain domain;
 
-		private AddIUsToCustomCategoryCommand m_command;
+		private AddIUsToCustomCategoryCommand command;
 
 		public AddToCustomCategoryAction(EditingDomain domain, CustomCategory customCategory,
 				List<InstallableUnit> selectedFeatures) {
@@ -138,29 +138,29 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 			if(imageURL != null && imageURL instanceof URL)
 				setImageDescriptor(ImageDescriptor.createFromURL((URL) imageURL));
 
-			m_domain = domain;
-			m_command = new AddIUsToCustomCategoryCommand(customCategory, selectedFeatures);
+			this.domain = domain;
+			command = new AddIUsToCustomCategoryCommand(customCategory, selectedFeatures);
 
 			setText((customCategory.getLabel() == null || customCategory.getLabel().length() == 0)
 					? "''"
 					: customCategory.getLabel());
-			setEnabled(m_command.canExecute());
+			setEnabled(command.canExecute());
 		}
 
 		@Override
 		public void run() {
-			m_domain.getCommandStack().execute(m_command);
+			domain.getCommandStack().execute(command);
 		}
 	}
 
 	class AddToParentRepositoryAction extends Action {
-		private EditingDomain m_domain;
+		private EditingDomain domain;
 
-		private AddIUsToParentRepositoryCommand m_command;
+		private AddIUsToParentRepositoryCommand command;
 
 		public AddToParentRepositoryAction(EditingDomain domain, List<InstallableUnit> selectedIUs, int operation) {
-			m_domain = domain;
-			m_command = new AddIUsToParentRepositoryCommand(ResourceUtils.getAggregator(domain.getResourceSet()),
+			this.domain = domain;
+			command = new AddIUsToParentRepositoryCommand(ResourceUtils.getAggregator(domain.getResourceSet()),
 					selectedIUs, operation);
 
 			Object imageURL = null;
@@ -182,20 +182,20 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 			if(imageURL != null && imageURL instanceof URL)
 				setImageDescriptor(ImageDescriptor.createFromURL((URL) imageURL));
 
-			setEnabled(m_command.canExecute());
+			setEnabled(command.canExecute());
 		}
 
 		@Override
 		public void run() {
-			m_domain.getCommandStack().execute(m_command);
+			domain.getCommandStack().execute(command);
 		}
 	}
 
 	class BuildRepoAction extends Action {
-		private final Builder.ActionType m_actionType;
+		private final Builder.ActionType actionType;
 
 		public BuildRepoAction(Builder.ActionType actionType) {
-			m_actionType = actionType;
+			this.actionType = actionType;
 			String txt;
 			String imageURLPath = null;
 			switch(actionType) {
@@ -252,7 +252,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 									+ URLEncoder.encode(fileURL.getPath(), "UTF-8").replaceAll("\\+", "%20"));
 							builder.setBuildModelLocation(new File(uri));
 							// builder.setLogLevel(LogUtils.DEBUG);
-							builder.setAction(m_actionType);
+							builder.setAction(actionType);
 
 							if(builder.run(true, monitor) != IApplication.EXIT_OK)
 								throw new Exception("Build failed (see log for more details)");
@@ -323,12 +323,12 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 		public static final int BOTH = 2;
 
-		private List<EnabledStatusProvider> m_refs;
+		private List<EnabledStatusProvider> refs;
 
-		private boolean m_enableState;
+		private boolean enableState;
 
 		public EnabledStatusAction(boolean enableState) {
-			m_enableState = enableState;
+			this.enableState = enableState;
 		}
 
 		public int determineStatus(List<EnabledStatusProvider> selectedItems) {
@@ -342,12 +342,12 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 		}
 
 		public List<EnabledStatusProvider> getRefs() {
-			return m_refs;
+			return refs;
 		}
 
 		@Override
 		public String getText() {
-			if(m_refs == null)
+			if(refs == null)
 				return null;
 			return isEnableState()
 					? AggregatorEditorPlugin.INSTANCE.getString("_UI_Enable_menu_item")
@@ -376,7 +376,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 		}
 
 		public boolean isEnableState() {
-			return m_enableState;
+			return enableState;
 		}
 
 		public boolean isSupportedFor(List<Object> items) {
@@ -393,7 +393,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 			CompoundCommand compoundCommand = new CompoundCommand();
 			EditingDomain domain = ((IEditingDomainProvider) activeEditorPart).getEditingDomain();
 
-			for(EnabledStatusProvider ref : m_refs) {
+			for(EnabledStatusProvider ref : refs) {
 				EStructuralFeature feature = ((EObject) ref).eClass().getEStructuralFeature("enabled");
 
 				SetCommand command = (SetCommand) SetCommand.create(domain, ref, feature,
@@ -406,18 +406,18 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 		}
 
 		public void setReference(List<EnabledStatusProvider> refs) {
-			m_refs = refs;
+			this.refs = refs;
 		}
 
 		public void setRefs(List<EnabledStatusProvider> refs) {
-			m_refs = refs;
+			this.refs = refs;
 		}
 	}
 
 	class MapToContributionAction extends Action {
-		private EditingDomain m_domain;
+		private EditingDomain domain;
 
-		private AddIUsToContributionCommand m_command;
+		private AddIUsToContributionCommand command;
 
 		public MapToContributionAction(EditingDomain domain, Contribution contribution,
 				List<MetadataRepository> selectedMDRs, List<InstallableUnit> selectedIUs) {
@@ -426,80 +426,80 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 			if(imageURL != null && imageURL instanceof URL)
 				setImageDescriptor(ImageDescriptor.createFromURL((URL) imageURL));
 
-			m_domain = domain;
-			m_command = new AddIUsToContributionCommand(contribution, selectedMDRs, selectedIUs);
+			this.domain = domain;
+			command = new AddIUsToContributionCommand(contribution, selectedMDRs, selectedIUs);
 
-			setText(m_command.getLabel());
-			setEnabled(m_command.canExecute());
+			setText(command.getLabel());
+			setEnabled(command.canExecute());
 		}
 
 		@Override
 		public void run() {
-			m_domain.getCommandStack().execute(m_command);
+			domain.getCommandStack().execute(command);
 		}
 	}
 
 	class ReloadOrCancelRepoAction extends Action {
-		private Set<MetadataRepositoryResourceImpl> m_metadataRepositoryResources;
+		private Set<MetadataRepositoryResourceImpl> metadataRepositoryResources;
 
-		private ImageDescriptor m_reloadImageDescriptor;
+		private ImageDescriptor reloadImageDescriptor;
 
-		private ImageDescriptor m_cancelImageDescriptor;
+		private ImageDescriptor cancelImageDescriptor;
 
-		private String m_loadText;
+		private String loadText;
 
-		private boolean m_nextActionIsLoad;
+		private boolean nextActionIsLoad;
 
 		public ReloadOrCancelRepoAction() {
 			Object imageURL = AggregatorEditorPlugin.INSTANCE.getImage("full/obj16/refresh.gif");
 
 			if(imageURL != null && imageURL instanceof URL)
-				m_reloadImageDescriptor = ImageDescriptor.createFromURL((URL) imageURL);
+				reloadImageDescriptor = ImageDescriptor.createFromURL((URL) imageURL);
 
 			imageURL = AggregatorEditorPlugin.INSTANCE.getImage("full/obj16/progress_stop.gif");
 
 			if(imageURL != null && imageURL instanceof URL)
-				m_cancelImageDescriptor = ImageDescriptor.createFromURL((URL) imageURL);
+				cancelImageDescriptor = ImageDescriptor.createFromURL((URL) imageURL);
 		}
 
 		synchronized public void addMetadataRepositoryResource(MetadataRepositoryResourceImpl res) {
-			m_metadataRepositoryResources.add(res);
+			metadataRepositoryResources.add(res);
 		}
 
 		synchronized public ImageDescriptor getImageDescriptor() {
-			return m_nextActionIsLoad
-					? m_reloadImageDescriptor
-					: m_cancelImageDescriptor;
+			return nextActionIsLoad
+					? reloadImageDescriptor
+					: cancelImageDescriptor;
 		}
 
 		synchronized public String getText() {
 			// the getText() is the first thing to be called when opening the menu - let's set the next action here
-			m_nextActionIsLoad = !isLoading();
-			return m_nextActionIsLoad
-					? m_loadText
+			nextActionIsLoad = !isLoading();
+			return nextActionIsLoad
+					? loadText
 					: "Cancel Repository Loading";
 		}
 
 		synchronized public void initMetadataRepositoryReferences() {
-			m_metadataRepositoryResources = new HashSet<MetadataRepositoryResourceImpl>();
+			metadataRepositoryResources = new HashSet<MetadataRepositoryResourceImpl>();
 		}
 
 		@Override
 		synchronized public void run() {
-			for(MetadataRepositoryResourceImpl mdr : m_metadataRepositoryResources)
+			for(MetadataRepositoryResourceImpl mdr : metadataRepositoryResources)
 				if(mdr != null)
-					if(m_nextActionIsLoad)
+					if(nextActionIsLoad)
 						mdr.startAsynchronousLoad(true);
 					else
 						mdr.cancelLoadingJob();
 		}
 
 		public void setLoadText(String loadText) {
-			m_loadText = loadText;
+			this.loadText = loadText;
 		}
 
 		synchronized private boolean isLoading() {
-			for(MetadataRepositoryResourceImpl mdr : m_metadataRepositoryResources)
+			for(MetadataRepositoryResourceImpl mdr : metadataRepositoryResources)
 				if(mdr.getStatus().getCode() == StatusCode.WAITING)
 					return true;
 
@@ -508,10 +508,10 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	}
 
 	class SelectMatchingIUAction extends Action {
-		private RequiredCapabilityWrapper m_requiredCapabilityWrapper;
+		private RequiredCapabilityWrapper requiredCapabilityWrapper;
 
 		public SelectMatchingIUAction(RequiredCapabilityWrapper requiredCapabilityWrapper) {
-			m_requiredCapabilityWrapper = requiredCapabilityWrapper;
+			this.requiredCapabilityWrapper = requiredCapabilityWrapper;
 
 			setText(getString("_UI_Select_matching_IU_menu_item"));
 		}
@@ -531,7 +531,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 							continue;
 
 						TwoColumnMatrix<IUPresentation, Object[]> result = ((MetadataRepositoryResourceImpl) resource).findIUPresentationsWhichSatisfies(
-								m_requiredCapabilityWrapper.getGenuine(), true);
+								requiredCapabilityWrapper.getGenuine(), true);
 
 						if(result != null && result.size() > 0)
 							foundIUs.put((MetadataRepositoryResourceImpl) resource, result);
@@ -554,40 +554,40 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 								false, false, false, false, getString("_UI_More_matching_IUs_were_found"),
 								getString("_UI_select_IU")) {
 							class MouseListener extends MouseTrackAdapter implements MouseMoveListener {
-								private Tree m_tree;
+								private Tree tree;
 
-								private TreeItem m_lastSelectedTreeItem;
+								private TreeItem lastSelectedTreeItem;
 
 								public MouseListener(Tree tree) {
-									m_tree = tree;
+									this.tree = tree;
 								}
 
 								@Override
 								public void mouseExit(MouseEvent e) {
-									if(m_lastSelectedTreeItem != null) {
-										m_lastSelectedTreeItem.setBackground(null);
-										m_lastSelectedTreeItem = null;
+									if(lastSelectedTreeItem != null) {
+										lastSelectedTreeItem.setBackground(null);
+										lastSelectedTreeItem = null;
 									}
 								}
 
 								public void mouseMove(MouseEvent e) {
-									TreeItem item = m_tree.getItem(new Point(e.x, e.y));
+									TreeItem item = tree.getItem(new Point(e.x, e.y));
 
 									// only IU can be selected - MDR selects its first child
 									if(item != null && item.getItemCount() > 0)
 										item = item.getItem(0);
 
-									if(item == m_lastSelectedTreeItem)
+									if(item == lastSelectedTreeItem)
 										return;
 
-									if(m_lastSelectedTreeItem != null)
-										m_lastSelectedTreeItem.setBackground(null);
+									if(lastSelectedTreeItem != null)
+										lastSelectedTreeItem.setBackground(null);
 
 									if(item != null)
-										item.setBackground(m_tree.getDisplay().getSystemColor(
+										item.setBackground(tree.getDisplay().getSystemColor(
 												SWT.COLOR_WIDGET_LIGHT_SHADOW));
 
-									m_lastSelectedTreeItem = item;
+									lastSelectedTreeItem = item;
 								}
 							}
 
@@ -823,11 +823,11 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 	protected IAction m_selectMatchingIUAction;
 
-	private Aggregator m_aggregator;
+	private Aggregator aggregator;
 
-	private IEditorPart m_lastActiveEditorPart;
+	private IEditorPart lastActiveEditorPart;
 
-	private ISelection m_lastSelection;
+	private ISelection lastSelection;
 
 	/**
 	 * This creates an instance of the contributor. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -910,8 +910,8 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 		// actions need to be created just before menu is displayed, otherwise it would be possible to add an IU as a
 		// Feature and then add the same IU as Exclusion Rule
-		m_addToParentRepositoryActions = generateAddToParentRepositoryAction(m_lastSelection);
-		m_addToCustomCategoriesActions = generateAddToCustomCategoryActions(m_lastSelection);
+		m_addToParentRepositoryActions = generateAddToParentRepositoryAction(lastSelection);
+		m_addToCustomCategoriesActions = generateAddToCustomCategoryActions(lastSelection);
 
 		if(m_addToParentRepositoryActions != null && m_addToParentRepositoryActions.size() > 0)
 			if(m_addToParentRepositoryActions.size() == 1) {
@@ -987,7 +987,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	 * @generated NOT
 	 */
 	public void selectionChanged(SelectionChangedEvent event) {
-		m_lastSelection = event.getSelection();
+		lastSelection = event.getSelection();
 		updateContextMenu(event.getSelection());
 	}
 
@@ -1382,10 +1382,10 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 		if(activeEditorPart == null || !(activeEditorPart instanceof IEditingDomainProvider))
 			return null;
 
-		if(m_lastActiveEditorPart == activeEditorPart)
-			return m_aggregator;
+		if(lastActiveEditorPart == activeEditorPart)
+			return aggregator;
 
-		m_lastActiveEditorPart = activeEditorPart;
+		lastActiveEditorPart = activeEditorPart;
 
 		IEditingDomainProvider edProvider = (IEditingDomainProvider) activeEditorPart;
 
@@ -1396,7 +1396,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 				aggregatorResource = resource;
 				break;
 			}
-		return m_aggregator = (aggregatorResource == null
+		return aggregator = (aggregatorResource == null
 				? null
 				: (Aggregator) aggregatorResource.getContents().get(0));
 	}

@@ -43,23 +43,23 @@ public class ScriptLineParser implements Iterator<String> {
 		}
 	}
 
-	private final StringBuffer m_innerBld = new StringBuffer();
+	private final StringBuffer innerBld = new StringBuffer();
 
-	private final StringBuffer m_outerBld = new StringBuffer();
+	private final StringBuffer outerBld = new StringBuffer();
 
-	private final String m_line;
+	private final String line;
 
-	private String m_nextToken;
+	private String nextToken;
 
-	private int m_pos;
+	private int pos;
 
 	public ScriptLineParser(String line) {
-		m_line = line;
-		int top = m_line.length();
-		while(m_pos < top) {
-			char c = m_line.charAt(m_pos);
+		this.line = line;
+		int top = line.length();
+		while(pos < top) {
+			char c = line.charAt(pos);
 			if(Character.isWhitespace(c)) {
-				++m_pos;
+				++pos;
 				continue;
 			}
 
@@ -67,22 +67,22 @@ public class ScriptLineParser implements Iterator<String> {
 			// to be comments
 			//
 			if(c == '#')
-				m_pos = top;
+				pos = top;
 			break;
 		}
 	}
 
 	public boolean hasNext() {
-		if(m_nextToken == null)
-			m_nextToken = this.nextToken();
-		return m_nextToken != null;
+		if(nextToken == null)
+			nextToken = this.nextToken();
+		return nextToken != null;
 	}
 
 	public String next() {
 		if(!this.hasNext())
 			throw new NoSuchElementException();
-		String nxt = m_nextToken;
-		m_nextToken = null;
+		String nxt = nextToken;
+		nextToken = null;
 		return nxt;
 	}
 
@@ -129,86 +129,86 @@ public class ScriptLineParser implements Iterator<String> {
 	}
 
 	private String getQuoted(char quote) {
-		m_innerBld.setLength(0);
-		int top = m_line.length();
-		while(m_pos < top) {
-			char c = m_line.charAt(m_pos++);
+		innerBld.setLength(0);
+		int top = line.length();
+		while(pos < top) {
+			char c = line.charAt(pos++);
 			if(c == quote)
 				break;
 
 			if(c == '\\') {
-				if(m_pos == top)
+				if(pos == top)
 					break;
-				c = getEscapedChar(m_line.charAt(m_pos++));
+				c = getEscapedChar(line.charAt(pos++));
 			}
-			m_innerBld.append(c);
+			innerBld.append(c);
 		}
-		return m_innerBld.toString();
+		return innerBld.toString();
 	}
 
 	private String getSpaceDelimited() {
-		m_innerBld.setLength(0);
-		int top = m_line.length();
-		while(m_pos < top) {
-			char c = m_line.charAt(m_pos);
+		innerBld.setLength(0);
+		int top = line.length();
+		while(pos < top) {
+			char c = line.charAt(pos);
 			if(Character.isWhitespace(c) || c == '\'' || c == '"')
 				break;
 
-			++m_pos;
+			++pos;
 			if(c == '\\') {
-				if(m_pos == top)
+				if(pos == top)
 					break;
 
 				// The sequence '\ ' should not cause a break since that
 				// is an escaped space. The sequence '\t' however, should
 				// since that is an unescaped tab
 				//
-				c = m_line.charAt(m_pos++);
+				c = line.charAt(pos++);
 				if(!Character.isWhitespace(c)) {
 					c = getEscapedChar(c);
 					if(Character.isWhitespace(c))
 						break;
 				}
 			}
-			m_innerBld.append(c);
+			innerBld.append(c);
 		}
-		return m_innerBld.toString();
+		return innerBld.toString();
 	}
 
 	private String nextToken() {
-		m_outerBld.setLength(0);
-		int top = m_line.length();
-		if(m_pos == top)
+		outerBld.setLength(0);
+		int top = line.length();
+		if(pos == top)
 			return null;
 
-		while(m_pos < top) {
-			char c = m_line.charAt(m_pos);
+		while(pos < top) {
+			char c = line.charAt(pos);
 			switch(c) {
 			case '\'':
 				// Find matching end quote. No expansion is performed
 				//
-				++m_pos;
-				m_outerBld.append(getQuoted('\''));
+				++pos;
+				outerBld.append(getQuoted('\''));
 				continue;
 			case '"':
 				// Find matching end quote and perform expansion
 				//
-				++m_pos;
-				getExpanded(m_outerBld, getQuoted('"'));
+				++pos;
+				getExpanded(outerBld, getQuoted('"'));
 				continue;
 
 			default:
 				if(Character.isWhitespace(c)) {
-					++m_pos;
-					while(m_pos < top && Character.isWhitespace(m_line.charAt(m_pos)))
-						++m_pos;
+					++pos;
+					while(pos < top && Character.isWhitespace(line.charAt(pos)))
+						++pos;
 					break;
 				}
-				getExpanded(m_outerBld, getSpaceDelimited());
+				getExpanded(outerBld, getSpaceDelimited());
 				continue;
 			}
 			break;
 		}
-		return m_outerBld.toString();
+		return outerBld.toString();
 	}
 }
