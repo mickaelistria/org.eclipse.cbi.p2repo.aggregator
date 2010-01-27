@@ -43,7 +43,7 @@ import org.eclipse.emf.ecore.util.Diagnostician;
 public class POM {
 	private static final int MAX_CACHE_SIZE = 10;
 
-	private static final HashMap<URI, POM> s_pomCacheLRU = new LinkedHashMap<URI, POM>(MAX_CACHE_SIZE, 0.75f, true) {
+	private static final HashMap<URI, POM> pomCacheLRU = new LinkedHashMap<URI, POM>(MAX_CACHE_SIZE, 0.75f, true) {
 		private static final long serialVersionUID = 1L;
 
 		protected boolean removeEldestEntry(Map.Entry<URI, POM> entry) {
@@ -88,11 +88,11 @@ public class POM {
 	synchronized public static POM getPOM(String repoLocation, String groupId, String artifactId, String version)
 			throws CoreException {
 		URI uri = URI.createURI(repoLocation + "/" + createRelativePath(groupId, artifactId, version));
-		POM pom = s_pomCacheLRU.get(uri);
+		POM pom = pomCacheLRU.get(uri);
 		if(pom != null)
 			return pom;
 
-		s_pomCacheLRU.put(uri, pom = new POM(uri, repoLocation));
+		pomCacheLRU.put(uri, pom = new POM(uri, repoLocation));
 
 		return pom;
 	}
@@ -106,13 +106,13 @@ public class POM {
 				: groupId) + "/" + artifactId + "/" + version + "/" + artifactId + "-" + version + ".pom";
 	}
 
-	private String m_repoRoot;
+	private String repoRoot;
 
-	private ResolvedModel m_resolvedModel;
+	private ResolvedModel resolvedModel;
 
-	private DocumentRoot m_documentRoot;
+	private DocumentRoot documentRoot;
 
-	private POM m_parentPOM;
+	private POM parentPOM;
 
 	private String md5;
 
@@ -121,9 +121,9 @@ public class POM {
 	private Long timestamp;
 
 	public POM() {
-		m_documentRoot = PomFactory.eINSTANCE.createDocumentRoot();
-		m_documentRoot.getXSISchemaLocation().put(PomPackage.eNS_URI, XML_SCHEMA_LOCATION);
-		m_documentRoot.setProject(PomFactory.eINSTANCE.createModel());
+		documentRoot = PomFactory.eINSTANCE.createDocumentRoot();
+		documentRoot.getXSISchemaLocation().put(PomPackage.eNS_URI, XML_SCHEMA_LOCATION);
+		documentRoot.setProject(PomFactory.eINSTANCE.createModel());
 	}
 
 	private POM(URI uri, String repoRoot) throws CoreException {
@@ -140,8 +140,8 @@ public class POM {
 			timestamp = pomResource.getTimestamp();
 		}
 
-		m_documentRoot = (DocumentRoot) content.get(0);
-		Diagnostic diag = Diagnostician.INSTANCE.validate(m_documentRoot);
+		documentRoot = (DocumentRoot) content.get(0);
+		Diagnostic diag = Diagnostician.INSTANCE.validate(documentRoot);
 
 		int modifiedSeverity = Diagnostic.OK;
 		if(diag.getSeverity() >= Diagnostic.ERROR) {
@@ -159,7 +159,7 @@ public class POM {
 		if(modifiedSeverity >= Diagnostic.ERROR)
 			throw ExceptionUtils.fromMessage("Maven POM model validation failed: %s", diag.getMessage());
 
-		m_repoRoot = repoRoot;
+		this.repoRoot = repoRoot;
 		Model resolvedModel = getResolvedProject();
 		String relativePath = "/"
 				+ createRelativePath(resolvedModel.getGroupId(), resolvedModel.getArtifactId(),
@@ -182,22 +182,22 @@ public class POM {
 	}
 
 	public POM getParentPOM() throws CoreException {
-		if(m_parentPOM != null)
-			return m_parentPOM;
+		if(parentPOM != null)
+			return parentPOM;
 
 		Model model = getProject();
 		Parent parent = model.getParent();
 		if(parent != null)
-			return getPOM(m_repoRoot, parent.getGroupId(), parent.getArtifactId(), parent.getVersion());
+			return(parentPOM = getPOM(repoRoot, parent.getGroupId(), parent.getArtifactId(), parent.getVersion()));
 
 		return null;
 	}
 
 	public Model getProject() throws CoreException {
-		if(m_documentRoot == null || m_documentRoot.getProject() == null)
+		if(documentRoot == null || documentRoot.getProject() == null)
 			throw ExceptionUtils.fromMessage("No project available");
 
-		return m_documentRoot.getProject();
+		return documentRoot.getProject();
 	}
 
 	public Map<String, String> getProperties() throws CoreException {
@@ -205,10 +205,10 @@ public class POM {
 	}
 
 	public ResolvedModel getResolvedProject() throws CoreException {
-		if(m_resolvedModel == null)
-			m_resolvedModel = new ResolvedModel(m_repoRoot, (ModelImpl) getProject());
+		if(resolvedModel == null)
+			resolvedModel = new ResolvedModel(repoRoot, (ModelImpl) getProject());
 
-		return m_resolvedModel;
+		return resolvedModel;
 	}
 
 	public String getSha1() {
@@ -231,13 +231,13 @@ public class POM {
 		Resource targetResource = resource;
 
 		if(targetResource == null)
-			targetResource = m_documentRoot.eResource();
+			targetResource = documentRoot.eResource();
 
 		if(targetResource == null)
 			throw ExceptionUtils.fromMessage("No resource to store Maven POM");
 
-		if(resource != null && !targetResource.equals(m_documentRoot.eResource()))
-			targetResource.getContents().add(m_documentRoot);
+		if(resource != null && !targetResource.equals(documentRoot.eResource()))
+			targetResource.getContents().add(documentRoot);
 
 		try {
 			targetResource.save(Collections.emptyMap());

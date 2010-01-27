@@ -40,42 +40,42 @@ import org.eclipse.equinox.internal.provisional.p2.metadata.Version;
  */
 public class MavenManager {
 	static class MavenMetadataHelper {
-		private String m_groupId;
+		private String groupId;
 
-		private String m_artifactId;
+		private String artifactId;
 
-		private List<Version> m_versions;
+		private List<Version> versionList;
 
-		private boolean m_finalized;
+		private boolean finalized;
 
 		MavenMetadataHelper(String groupId, String artifactId) {
-			m_groupId = groupId;
-			m_artifactId = artifactId;
-			m_versions = new ArrayList<Version>();
+			this.groupId = groupId;
+			this.artifactId = artifactId;
+			versionList = new ArrayList<Version>();
 		}
 
 		public void addVersion(Version version) {
-			if(m_finalized)
+			if(finalized)
 				throw new Error("Version added after finalization");
 
-			m_versions.add(version);
+			versionList.add(version);
 		}
 
 		public String getArtifactId() {
-			return m_artifactId;
+			return artifactId;
 		}
 
 		public String getGroupId() {
-			return m_groupId;
+			return groupId;
 		}
 
 		public String getRelativePath() {
-			return m_groupId.replace('.', '/') + "/" + m_artifactId;
+			return groupId.replace('.', '/') + "/" + artifactId;
 		}
 
 		public Version getRelease() {
 			finalizeMetadata();
-			Version[] versions = m_versions.toArray(new Version[m_versions.size()]);
+			Version[] versions = versionList.toArray(new Version[versionList.size()]);
 			for(int idx = versions.length - 1; idx >= 0; idx--) {
 				String qualifier = null;
 				try {
@@ -96,13 +96,13 @@ public class MavenManager {
 
 		public List<Version> getVersions() {
 			finalizeMetadata();
-			return m_versions;
+			return versionList;
 		}
 
 		@SuppressWarnings("unchecked")
 		private void finalizeMetadata() {
-			Collections.sort(m_versions);
-			m_finalized = true;
+			Collections.sort(versionList);
+			finalized = true;
 		}
 	}
 

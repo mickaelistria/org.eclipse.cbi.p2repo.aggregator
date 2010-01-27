@@ -56,336 +56,336 @@ import org.eclipse.emf.ecore.xml.type.impl.AnyTypeImpl;
  * 
  */
 public class ResolvedModel extends ResolvedModelBase {
-	private String m_repoRoot;
+	private String repoRoot;
 
-	private ModelImpl m_original;
+	private ModelImpl original;
 
-	private Map<String, String> m_propertyMap;
+	private Map<String, String> propertyMap;
 
-	private String m_artifactId;
+	private String artifactId;
 
-	private boolean m_artifactIdResolved;
+	private boolean artifactIdResolved;
 
-	private Build m_build;
+	private Build build;
 
-	private boolean m_buildResolved;
+	private boolean buildResolved;
 
-	private CiManagement m_ciManagement;
+	private CiManagement ciManagement;
 
-	private boolean m_ciManagementResolved;
+	private boolean ciManagementResolved;
 
-	private ContributorsType m_contributors;
+	private ContributorsType contributors;
 
-	private boolean m_contributorsResolved;
+	private boolean contributorsResolved;
 
-	private DependenciesType m_dependencies;
+	private DependenciesType dependencies;
 
-	private boolean m_dependenciesResolved;
+	private boolean dependenciesResolved;
 
-	private DependencyManagement m_dependencyManagement;
+	private DependencyManagement dependencyManagement;
 
-	private boolean m_dependencyManagementResolved;
+	private boolean dependencyManagementResolved;
 
-	private String m_description;
+	private String description;
 
-	private boolean m_descriptionResolved;
+	private boolean descriptionResolved;
 
-	private DevelopersType m_developers;
+	private DevelopersType developers;
 
-	private boolean m_developersResolved;
+	private boolean developersResolved;
 
-	private DistributionManagement m_distributionManagement;
+	private DistributionManagement distributionManagement;
 
-	private boolean m_distributionManagementResolved;
+	private boolean distributionManagementResolved;
 
-	private String m_groupId;
+	private String groupId;
 
-	private boolean m_groupIdResolved;
+	private boolean groupIdResolved;
 
-	private String m_inceptionYear;
+	private String inceptionYear;
 
-	private boolean m_inceptionYearResolved;
+	private boolean inceptionYearResolved;
 
-	private IssueManagement m_issueManagement;
+	private IssueManagement issueManagement;
 
-	private boolean m_issueManagementResolved;
+	private boolean issueManagementResolved;
 
-	private LicensesType m_licenses;
+	private LicensesType licenses;
 
-	private boolean m_licensesResolved;
+	private boolean licensesResolved;
 
-	private MailingListsType m_mailingLists;
+	private MailingListsType mailingLists;
 
-	private boolean m_mailingListsResolved;
+	private boolean mailingListsResolved;
 
-	private String m_modelVersion;
+	private String modelVersion;
 
-	private boolean m_modelVersionResolved;
+	private boolean modelVersionResolved;
 
-	private ModulesType m_modules;
+	private ModulesType modules;
 
-	private boolean m_modulesResolved;
+	private boolean modulesResolved;
 
-	private String m_name;
+	private String name;
 
-	private boolean m_nameResolved;
+	private boolean nameResolved;
 
-	private Organization m_organization;
+	private Organization organization;
 
-	private boolean m_organizationResolved;
+	private boolean organizationResolved;
 
-	private String m_packaging;
+	private String packaging;
 
-	private boolean m_packagingResolved;
+	private boolean packagingResolved;
 
-	private PluginRepositoriesType m_pluginRepositories;
+	private PluginRepositoriesType pluginRepositories;
 
-	private boolean m_pluginRepositoriesResolved;
+	private boolean pluginRepositoriesResolved;
 
-	private Prerequisites m_prerequisites;
+	private Prerequisites prerequisites;
 
-	private boolean m_prerequisitesResolved;
+	private boolean prerequisitesResolved;
 
-	private ProfilesType m_profiles;
+	private ProfilesType profiles;
 
-	private boolean m_profilesResolved;
+	private boolean profilesResolved;
 
-	private Reporting m_reporting;
+	private Reporting reporting;
 
-	private boolean m_reportingResolved;
+	private boolean reportingResolved;
 
-	private RepositoriesType m_repositories;
+	private RepositoriesType repositories;
 
-	private boolean m_repositoriesResolved;
+	private boolean repositoriesResolved;
 
-	private Scm m_scm;
+	private Scm scm;
 
-	private boolean m_scmResolved;
+	private boolean scmResolved;
 
-	private String m_url;
+	private String url;
 
-	private boolean m_urlResolved;
+	private boolean urlResolved;
 
-	private String m_version;
+	private String version;
 
-	private boolean m_versionResolved;
+	private boolean versionResolved;
 
 	public ResolvedModel(String repoRoot, ModelImpl original) {
-		m_repoRoot = repoRoot;
-		m_original = original;
+		this.repoRoot = repoRoot;
+		this.original = original;
 
-		m_propertyMap = null;
+		propertyMap = null;
 	}
 
 	public String getArtifactId() {
-		if(!m_artifactIdResolved) {
-			m_artifactIdResolved = true;
-			m_artifactId = resolveFeature(PomPackage.MODEL__ARTIFACT_ID);
+		if(!artifactIdResolved) {
+			artifactIdResolved = true;
+			artifactId = resolveFeature(PomPackage.MODEL__ARTIFACT_ID);
 		}
 
-		return m_artifactId;
+		return artifactId;
 	}
 
 	public Build getBuild() {
-		if(!m_buildResolved) {
-			m_buildResolved = true;
-			m_build = resolveFeature(PomPackage.MODEL__BUILD);
+		if(!buildResolved) {
+			buildResolved = true;
+			build = resolveFeature(PomPackage.MODEL__BUILD);
 		}
 
-		return m_build;
+		return build;
 	}
 
 	public CiManagement getCiManagement() {
-		if(!m_ciManagementResolved) {
-			m_ciManagementResolved = true;
-			m_ciManagement = resolveFeature(PomPackage.MODEL__CI_MANAGEMENT);
+		if(!ciManagementResolved) {
+			ciManagementResolved = true;
+			ciManagement = resolveFeature(PomPackage.MODEL__CI_MANAGEMENT);
 		}
 
-		return m_ciManagement;
+		return ciManagement;
 	}
 
 	public ContributorsType getContributors() {
-		if(!m_contributorsResolved) {
-			m_contributorsResolved = true;
-			m_contributors = resolveWrappedListFeature(PomPackage.MODEL__CONTRIBUTORS,
+		if(!contributorsResolved) {
+			contributorsResolved = true;
+			contributors = resolveWrappedListFeature(PomPackage.MODEL__CONTRIBUTORS,
 					PomPackage.CONTRIBUTORS_TYPE__CONTRIBUTOR, ContributorsType.class, Contributor.class);
 		}
 
-		return m_contributors;
+		return contributors;
 	}
 
 	public DependenciesType getDependencies() {
-		if(!m_dependenciesResolved) {
-			m_dependenciesResolved = true;
-			m_dependencies = resolveWrappedListFeature(PomPackage.MODEL__DEPENDENCIES,
+		if(!dependenciesResolved) {
+			dependenciesResolved = true;
+			dependencies = resolveWrappedListFeature(PomPackage.MODEL__DEPENDENCIES,
 					PomPackage.DEPENDENCIES_TYPE__DEPENDENCY, DependenciesType.class, Dependency.class);
 		}
 
-		return m_dependencies;
+		return dependencies;
 	}
 
 	public DependencyManagement getDependencyManagement() {
-		if(!m_dependencyManagementResolved) {
-			m_dependencyManagementResolved = true;
-			m_dependencyManagement = resolveFeature(PomPackage.MODEL__DEPENDENCY_MANAGEMENT);
+		if(!dependencyManagementResolved) {
+			dependencyManagementResolved = true;
+			dependencyManagement = resolveFeature(PomPackage.MODEL__DEPENDENCY_MANAGEMENT);
 		}
 
-		return m_dependencyManagement;
+		return dependencyManagement;
 	}
 
 	public String getDescription() {
-		if(!m_descriptionResolved) {
-			m_descriptionResolved = true;
-			m_description = resolveFeature(PomPackage.MODEL__DESCRIPTION);
+		if(!descriptionResolved) {
+			descriptionResolved = true;
+			description = resolveFeature(PomPackage.MODEL__DESCRIPTION);
 		}
 
-		return m_description;
+		return description;
 	}
 
 	public DevelopersType getDevelopers() {
-		if(!m_developersResolved) {
-			m_developersResolved = true;
-			m_developers = resolveWrappedListFeature(PomPackage.MODEL__DEVELOPERS,
-					PomPackage.DEVELOPERS_TYPE__DEVELOPER, DevelopersType.class, Developer.class);
+		if(!developersResolved) {
+			developersResolved = true;
+			developers = resolveWrappedListFeature(PomPackage.MODEL__DEVELOPERS, PomPackage.DEVELOPERS_TYPE__DEVELOPER,
+					DevelopersType.class, Developer.class);
 		}
 
-		return m_developers;
+		return developers;
 	}
 
 	public DistributionManagement getDistributionManagement() {
-		if(!m_distributionManagementResolved) {
-			m_distributionManagementResolved = true;
-			m_distributionManagement = resolveFeature(PomPackage.MODEL__DISTRIBUTION_MANAGEMENT);
+		if(!distributionManagementResolved) {
+			distributionManagementResolved = true;
+			distributionManagement = resolveFeature(PomPackage.MODEL__DISTRIBUTION_MANAGEMENT);
 		}
 
-		return m_distributionManagement;
+		return distributionManagement;
 	}
 
 	public String getGroupId() {
-		if(!m_groupIdResolved) {
-			m_groupIdResolved = true;
-			m_groupId = resolveFeature(PomPackage.MODEL__GROUP_ID);
+		if(!groupIdResolved) {
+			groupIdResolved = true;
+			groupId = resolveFeature(PomPackage.MODEL__GROUP_ID);
 		}
 
-		return m_groupId;
+		return groupId;
 	}
 
 	public String getInceptionYear() {
-		if(!m_inceptionYearResolved) {
-			m_inceptionYearResolved = true;
-			m_inceptionYear = resolveFeature(PomPackage.MODEL__INCEPTION_YEAR);
+		if(!inceptionYearResolved) {
+			inceptionYearResolved = true;
+			inceptionYear = resolveFeature(PomPackage.MODEL__INCEPTION_YEAR);
 		}
 
-		return m_inceptionYear;
+		return inceptionYear;
 	}
 
 	public IssueManagement getIssueManagement() {
-		if(!m_issueManagementResolved) {
-			m_issueManagementResolved = true;
-			m_issueManagement = resolveFeature(PomPackage.MODEL__ISSUE_MANAGEMENT);
+		if(!issueManagementResolved) {
+			issueManagementResolved = true;
+			issueManagement = resolveFeature(PomPackage.MODEL__ISSUE_MANAGEMENT);
 		}
 
-		return m_issueManagement;
+		return issueManagement;
 	}
 
 	public LicensesType getLicenses() {
-		if(!m_licensesResolved) {
-			m_licensesResolved = true;
-			m_licenses = resolveWrappedListFeature(PomPackage.MODEL__LICENSES, PomPackage.LICENSES_TYPE__LICENSE,
+		if(!licensesResolved) {
+			licensesResolved = true;
+			licenses = resolveWrappedListFeature(PomPackage.MODEL__LICENSES, PomPackage.LICENSES_TYPE__LICENSE,
 					LicensesType.class, License.class);
 		}
 
-		return m_licenses;
+		return licenses;
 	}
 
 	public MailingListsType getMailingLists() {
-		if(!m_mailingListsResolved) {
-			m_mailingListsResolved = true;
-			m_mailingLists = resolveWrappedListFeature(PomPackage.MODEL__MAILING_LISTS,
+		if(!mailingListsResolved) {
+			mailingListsResolved = true;
+			mailingLists = resolveWrappedListFeature(PomPackage.MODEL__MAILING_LISTS,
 					PomPackage.MAILING_LISTS_TYPE__MAILING_LIST, MailingListsType.class, MailingList.class);
 		}
 
-		return m_mailingLists;
+		return mailingLists;
 	}
 
 	public String getModelVersion() {
-		if(!m_modelVersionResolved) {
-			m_modelVersionResolved = true;
-			m_modelVersion = resolveFeature(PomPackage.MODEL__MODEL_VERSION);
+		if(!modelVersionResolved) {
+			modelVersionResolved = true;
+			modelVersion = resolveFeature(PomPackage.MODEL__MODEL_VERSION);
 		}
 
-		return m_modelVersion;
+		return modelVersion;
 	}
 
 	public ModulesType getModules() {
-		if(!m_modulesResolved) {
-			m_modulesResolved = true;
-			m_modules = resolveWrappedListFeature(PomPackage.MODEL__MODULES, PomPackage.MODULES_TYPE__MODULE,
+		if(!modulesResolved) {
+			modulesResolved = true;
+			modules = resolveWrappedListFeature(PomPackage.MODEL__MODULES, PomPackage.MODULES_TYPE__MODULE,
 					ModulesType.class, String.class);
 		}
 
-		return m_modules;
+		return modules;
 	}
 
 	public String getName() {
-		if(!m_nameResolved) {
-			m_nameResolved = true;
-			m_name = resolveFeature(PomPackage.MODEL__NAME);
+		if(!nameResolved) {
+			nameResolved = true;
+			name = resolveFeature(PomPackage.MODEL__NAME);
 		}
 
-		return m_name;
+		return name;
 	}
 
 	public Organization getOrganization() {
-		if(!m_organizationResolved) {
-			m_organizationResolved = true;
-			m_organization = resolveFeature(PomPackage.MODEL__ORGANIZATION);
+		if(!organizationResolved) {
+			organizationResolved = true;
+			organization = resolveFeature(PomPackage.MODEL__ORGANIZATION);
 		}
 
-		return m_organization;
+		return organization;
 	}
 
 	public String getPackaging() {
-		if(!m_packagingResolved) {
-			m_packagingResolved = true;
-			m_packaging = resolveFeature(PomPackage.MODEL__PACKAGING);
+		if(!packagingResolved) {
+			packagingResolved = true;
+			packaging = resolveFeature(PomPackage.MODEL__PACKAGING);
 		}
 
-		return m_packaging;
+		return packaging;
 	}
 
 	public Parent getParent() {
-		return m_original.getParent();
+		return original.getParent();
 	}
 
 	public PluginRepositoriesType getPluginRepositories() {
-		if(!m_pluginRepositoriesResolved) {
-			m_pluginRepositoriesResolved = true;
-			m_pluginRepositories = resolveWrappedListFeature(PomPackage.MODEL__PLUGIN_REPOSITORIES,
+		if(!pluginRepositoriesResolved) {
+			pluginRepositoriesResolved = true;
+			pluginRepositories = resolveWrappedListFeature(PomPackage.MODEL__PLUGIN_REPOSITORIES,
 					PomPackage.PLUGIN_REPOSITORIES_TYPE__PLUGIN_REPOSITORY, PluginRepositoriesType.class,
 					Repository.class);
 		}
 
-		return m_pluginRepositories;
+		return pluginRepositories;
 	}
 
 	public Prerequisites getPrerequisites() {
-		if(!m_prerequisitesResolved) {
-			m_prerequisitesResolved = true;
-			m_prerequisites = resolveFeature(PomPackage.MODEL__PREREQUISITES);
+		if(!prerequisitesResolved) {
+			prerequisitesResolved = true;
+			prerequisites = resolveFeature(PomPackage.MODEL__PREREQUISITES);
 		}
 
-		return m_prerequisites;
+		return prerequisites;
 	}
 
 	public ProfilesType getProfiles() {
-		if(!m_profilesResolved) {
-			m_profilesResolved = true;
-			m_profiles = resolveWrappedListFeature(PomPackage.MODEL__PROFILES, PomPackage.PROFILES_TYPE__PROFILE,
+		if(!profilesResolved) {
+			profilesResolved = true;
+			profiles = resolveWrappedListFeature(PomPackage.MODEL__PROFILES, PomPackage.PROFILES_TYPE__PROFILE,
 					ProfilesType.class, Profile.class);
 		}
 
-		return m_profiles;
+		return profiles;
 	}
 
 	public PropertiesType getProperties() {
@@ -393,43 +393,43 @@ public class ResolvedModel extends ResolvedModelBase {
 	}
 
 	public Map<String, String> getPropertyMap() throws CoreException {
-		if(m_propertyMap == null) {
-			m_propertyMap = new HashMap<String, String>();
+		if(propertyMap == null) {
+			propertyMap = new HashMap<String, String>();
 
 			String version = getVersion();
-			m_propertyMap.put("version", version);
-			m_propertyMap.put("pom.version", version);
-			m_propertyMap.put("project.version", version);
+			propertyMap.put("version", version);
+			propertyMap.put("pom.version", version);
+			propertyMap.put("project.version", version);
 
 			String name = getName();
-			m_propertyMap.put("pom.name", name);
-			m_propertyMap.put("project.name", name);
+			propertyMap.put("pom.name", name);
+			propertyMap.put("project.name", name);
 
-			m_propertyMap.putAll(getPropertiesAsMap());
+			propertyMap.putAll(getPropertiesAsMap());
 
 			Parent parent = getParent();
 			if(parent != null) {
-				m_propertyMap.put("parent.version", parent.getVersion());
+				propertyMap.put("parent.version", parent.getVersion());
 
-				ResolvedModel parentModel = POM.getPOM(m_repoRoot, parent.getGroupId(), parent.getArtifactId(),
+				ResolvedModel parentModel = POM.getPOM(repoRoot, parent.getGroupId(), parent.getArtifactId(),
 						parent.getVersion()).getResolvedProject();
 
 				for(Map.Entry<String, String> entry : parentModel.getPropertyMap().entrySet())
-					if(!m_propertyMap.containsKey(entry.getKey()))
-						m_propertyMap.put(entry.getKey(), entry.getValue());
+					if(!propertyMap.containsKey(entry.getKey()))
+						propertyMap.put(entry.getKey(), entry.getValue());
 			}
 		}
 
-		return m_propertyMap;
+		return propertyMap;
 	}
 
 	public Reporting getReporting() {
-		if(!m_reportingResolved) {
-			m_reportingResolved = true;
-			m_reporting = resolveFeature(PomPackage.MODEL__REPORTING);
+		if(!reportingResolved) {
+			reportingResolved = true;
+			reporting = resolveFeature(PomPackage.MODEL__REPORTING);
 		}
 
-		return m_reporting;
+		return reporting;
 	}
 
 	public ReportsType getReports() {
@@ -437,40 +437,40 @@ public class ResolvedModel extends ResolvedModelBase {
 	}
 
 	public RepositoriesType getRepositories() {
-		if(!m_repositoriesResolved) {
-			m_repositoriesResolved = true;
-			m_repositories = resolveWrappedListFeature(PomPackage.MODEL__REPOSITORIES,
+		if(!repositoriesResolved) {
+			repositoriesResolved = true;
+			repositories = resolveWrappedListFeature(PomPackage.MODEL__REPOSITORIES,
 					PomPackage.REPOSITORIES_TYPE__REPOSITORY, RepositoriesType.class, Repository.class);
 		}
 
-		return m_repositories;
+		return repositories;
 	}
 
 	public Scm getScm() {
-		if(!m_scmResolved) {
-			m_scmResolved = true;
-			m_scm = resolveFeature(PomPackage.MODEL__SCM);
+		if(!scmResolved) {
+			scmResolved = true;
+			scm = resolveFeature(PomPackage.MODEL__SCM);
 		}
 
-		return m_scm;
+		return scm;
 	}
 
 	public String getUrl() {
-		if(!m_urlResolved) {
-			m_urlResolved = true;
-			m_url = resolveFeature(PomPackage.MODEL__URL);
+		if(!urlResolved) {
+			urlResolved = true;
+			url = resolveFeature(PomPackage.MODEL__URL);
 		}
 
-		return m_url;
+		return url;
 	}
 
 	public String getVersion() {
-		if(!m_versionResolved) {
-			m_versionResolved = true;
-			m_version = resolveFeature(PomPackage.MODEL__VERSION);
+		if(!versionResolved) {
+			versionResolved = true;
+			version = resolveFeature(PomPackage.MODEL__VERSION);
 		}
 
-		return m_version;
+		return version;
 	}
 
 	public boolean isSetPackaging() {
@@ -479,9 +479,9 @@ public class ResolvedModel extends ResolvedModelBase {
 
 	private Map<String, String> getPropertiesAsMap() throws CoreException {
 		Map<String, String> propertyMap = new HashMap<String, String>();
-		PropertiesType propertiesType = m_original.getProperties();
+		PropertiesType propertiesType = original.getProperties();
 		if(propertiesType != null) {
-			FeatureMap properties = m_original.getProperties().getAny();
+			FeatureMap properties = original.getProperties().getAny();
 			for(int i = properties.size() - 1; i >= 0; i--) {
 				Entry entry = properties.get(i);
 				FeatureMap valueMap = ((AnyTypeImpl) entry.getValue()).getMixed();
@@ -507,15 +507,15 @@ public class ResolvedModel extends ResolvedModelBase {
 	@SuppressWarnings("unchecked")
 	private <T> T resolveFeature(int featureID) {
 		try {
-			T result = (T) m_original.eGet(featureID, false, false);
+			T result = (T) original.eGet(featureID, false, false);
 			if(result instanceof String)
 				result = (T) StringUtils.trimmedOrNull((String) result);
 
 			if(result == null) {
 				Parent parent = getParent();
 				if(parent != null)
-					result = (T) POM.getPOM(m_repoRoot, parent.getGroupId(), parent.getArtifactId(),
-							parent.getVersion()).getResolvedProject().resolveFeature(featureID);
+					result = (T) POM.getPOM(repoRoot, parent.getGroupId(), parent.getArtifactId(), parent.getVersion()).getResolvedProject().resolveFeature(
+							featureID);
 			}
 
 			if(result instanceof String)
@@ -531,7 +531,7 @@ public class ResolvedModel extends ResolvedModelBase {
 	private <T, L> T resolveWrappedListFeature(int wrapperID, int featureID, Class<T> wrapperClass,
 			Class<L> featureClass) {
 		try {
-			ModelImpl model = m_original;
+			ModelImpl model = original;
 			T result = wrapperClass.newInstance();
 			List<L> list = new EObjectContainmentEList<L>(featureClass, (InternalEObject) result, featureID);
 			((EObjectImpl) result).eSet(wrapperID, list);
@@ -544,7 +544,7 @@ public class ResolvedModel extends ResolvedModelBase {
 				}
 				Parent parent = model.getParent();
 				if(parent != null)
-					model = (ModelImpl) POM.getPOM(m_repoRoot, parent.getGroupId(), parent.getArtifactId(),
+					model = (ModelImpl) POM.getPOM(repoRoot, parent.getGroupId(), parent.getArtifactId(),
 							parent.getVersion()).getProject();
 				else
 					model = null;

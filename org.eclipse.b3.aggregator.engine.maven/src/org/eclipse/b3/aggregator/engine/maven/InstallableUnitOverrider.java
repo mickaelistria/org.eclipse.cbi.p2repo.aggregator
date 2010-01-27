@@ -27,123 +27,123 @@ import org.eclipse.equinox.internal.provisional.p2.metadata.Version;
  * 
  */
 public class InstallableUnitOverrider implements IInstallableUnit {
-	private IInstallableUnit m_installableUnit;
+	private IInstallableUnit installableUnit;
 
-	private String m_id;
+	private String id;
 
-	private IRequiredCapability[] m_requiredCapabilities;
+	private IRequiredCapability[] requiredCapabilities;
 
-	private IArtifactKey[] m_artifacts;
+	private IArtifactKey[] artifacts;
 
 	public InstallableUnitOverrider(IInstallableUnit iu) {
-		m_installableUnit = iu;
+		installableUnit = iu;
 	}
 
 	@SuppressWarnings("unchecked")
 	public int compareTo(Object o) {
-		return m_installableUnit.compareTo(o);
+		return installableUnit.compareTo(o);
 	}
 
 	public IArtifactKey[] getArtifacts() {
-		if(m_artifacts != null)
-			return m_artifacts;
+		if(artifacts != null)
+			return artifacts;
 
-		return m_installableUnit.getArtifacts();
+		return installableUnit.getArtifacts();
 	}
 
 	public ICopyright getCopyright() {
-		return m_installableUnit.getCopyright();
+		return installableUnit.getCopyright();
 	}
 
 	public String getFilter() {
-		return m_installableUnit.getFilter();
+		return installableUnit.getFilter();
 	}
 
 	public IInstallableUnitFragment[] getFragments() {
-		return m_installableUnit.getFragments();
+		return installableUnit.getFragments();
 	}
 
 	public String getId() {
-		if(m_id != null)
-			return m_id;
+		if(id != null)
+			return id;
 
-		return m_installableUnit.getId();
+		return installableUnit.getId();
 	}
 
 	public ILicense getLicense() {
-		return m_installableUnit.getLicense();
+		return installableUnit.getLicense();
 	}
 
 	public IRequiredCapability[] getMetaRequiredCapabilities() {
-		return m_installableUnit.getMetaRequiredCapabilities();
+		return installableUnit.getMetaRequiredCapabilities();
 	}
 
 	@SuppressWarnings("rawtypes")
 	public Map getProperties() {
-		return m_installableUnit.getProperties();
+		return installableUnit.getProperties();
 	}
 
 	public String getProperty(String key) {
-		return m_installableUnit.getProperty(key);
+		return installableUnit.getProperty(key);
 	}
 
 	public IProvidedCapability[] getProvidedCapabilities() {
-		return m_installableUnit.getProvidedCapabilities();
+		return installableUnit.getProvidedCapabilities();
 	}
 
 	public IRequiredCapability[] getRequiredCapabilities() {
-		if(m_requiredCapabilities != null)
-			return m_requiredCapabilities;
+		if(requiredCapabilities != null)
+			return requiredCapabilities;
 
-		return m_installableUnit.getRequiredCapabilities();
+		return installableUnit.getRequiredCapabilities();
 	}
 
 	public ITouchpointData[] getTouchpointData() {
-		return m_installableUnit.getTouchpointData();
+		return installableUnit.getTouchpointData();
 	}
 
 	public ITouchpointType getTouchpointType() {
-		return m_installableUnit.getTouchpointType();
+		return installableUnit.getTouchpointType();
 	}
 
 	public IUpdateDescriptor getUpdateDescriptor() {
-		return m_installableUnit.getUpdateDescriptor();
+		return installableUnit.getUpdateDescriptor();
 	}
 
 	public Version getVersion() {
-		return m_installableUnit.getVersion();
+		return installableUnit.getVersion();
 	}
 
 	public boolean isFragment() {
-		return m_installableUnit.isFragment();
+		return installableUnit.isFragment();
 	}
 
 	public boolean isResolved() {
-		return m_installableUnit.isResolved();
+		return installableUnit.isResolved();
 	}
 
 	public boolean isSingleton() {
-		return m_installableUnit.isSingleton();
+		return installableUnit.isSingleton();
 	}
 
 	public void overrideArtifacts(IArtifactKey[] artifacts) {
-		m_artifacts = artifacts;
+		this.artifacts = artifacts;
 	}
 
 	public void overrideId(String id) {
-		m_id = id;
+		this.id = id;
 	}
 
 	public void overrideRequiredCapabilities(IRequiredCapability[] requiredCapabilities) {
-		m_requiredCapabilities = requiredCapabilities;
+		this.requiredCapabilities = requiredCapabilities;
 	}
 
 	public boolean satisfies(IRequiredCapability candidate) {
-		return m_installableUnit.satisfies(candidate);
+		return installableUnit.satisfies(candidate);
 	}
 
 	public IInstallableUnit unresolved() {
-		return m_installableUnit.unresolved();
+		return installableUnit.unresolved();
 	}
 
 }

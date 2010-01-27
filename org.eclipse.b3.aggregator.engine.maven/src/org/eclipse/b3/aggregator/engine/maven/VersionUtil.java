@@ -21,9 +21,9 @@ import org.eclipse.equinox.internal.provisional.p2.metadata.VersionRange;
  * 
  */
 public class VersionUtil {
-	private static Pattern s_versionRangePattern = Pattern.compile("^(\\([)([^,]+),([^,]+)(\\)])$");
+	private static Pattern versionRangePattern = Pattern.compile("^(\\([)([^,]+),([^,]+)(\\)])$");
 
-	private static final Pattern s_timestampPattern = Pattern.compile(//
+	private static final Pattern timestampPattern = Pattern.compile(//
 	"^((?:19|20)\\d{2}(?:0[1-9]|1[012])(?:0[1-9]|[12][0-9]|3[01]))" + // //$NON-NLS-1$
 			"(?:\\.((?:[01][0-9]|2[0-3])[0-5][0-9][0-5][0-9]))?$"); //$NON-NLS-1$
 
@@ -32,7 +32,7 @@ public class VersionUtil {
 		if(versionStr == null)
 			return null;
 
-		Matcher m = s_timestampPattern.matcher(versionStr);
+		Matcher m = timestampPattern.matcher(versionStr);
 		if(m.matches())
 			// Timestamp
 			return createVersionFromFormatAndOriginal("S=[0-9];={8};[.S=[0-9];={6};='000000';]", versionStr);
@@ -56,7 +56,7 @@ public class VersionUtil {
 		if(vr == null)
 			return VersionRange.emptyRange;
 
-		Matcher m = s_versionRangePattern.matcher(vr);
+		Matcher m = versionRangePattern.matcher(vr);
 		if(m.matches()) {
 			return new VersionRange(createVersion(m.group(2)), "[".equals(m.group(1)), createVersion(m.group(3)),
 					"[".equals(m.group(4)));

@@ -142,7 +142,7 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 	// We are not interested in folder names that starts with a digit and a dot since
 	// that's the version folders.
 	//
-	private static final Pattern s_folderExcludePattern = Pattern.compile("^.*/[0-9]+\\.[^/]*/?$");
+	private static final Pattern folderExcludePattern = Pattern.compile("^.*/[0-9]+\\.[^/]*/?$");
 
 	private static final String MAVEN_METADATA = "maven-metadata.xml";
 
@@ -158,17 +158,17 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 	public static final String SIMPLE_METADATA_TYPE = org.eclipse.equinox.internal.p2.metadata.repository.Activator.ID
 			+ ".simpleRepository"; //$NON-NLS-1$
 
-	private Stack<UriIterator> m_iteratorStack;
+	private Stack<UriIterator> iteratorStack;
 
-	private Iterator<VersionEntry> m_versionEntryItor;
+	private Iterator<VersionEntry> versionEntryItor;
 
-	private IMaven2Indexer m_indexer;
+	private IMaven2Indexer indexer;
 
-	private URI m_location;
+	private URI location;
 
-	private MetadataRepositoryImpl m_repository;
+	private MetadataRepositoryImpl repository;
 
-	private Map<String, IInstallableUnit> m_cachedIUs;
+	private Map<String, IInstallableUnit> cachedIUs;
 
 	private static final String MAVEN_EMPTY_RANGE_STRING = "0.0.0";
 
@@ -187,7 +187,7 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 	private static final String PROP_INDEX_TIMESTAMP = "maven.index.timestamp";
 
 	public void close() {
-		m_cachedIUs = null;
+		cachedIUs = null;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -240,14 +240,14 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 	}
 
 	public void open(URI location, MetadataRepositoryImpl mdr) throws CoreException {
-		m_location = location;
-		m_indexer = IndexerUtils.getIndexer("nexus");
+		this.location = location;
+		indexer = IndexerUtils.getIndexer("nexus");
 
 		// get nexus index timestamp without using nexus tools for now
 		long remoteIndexTimestamp = getRemoteIndexTimestamp();
 
 		// if no indexer is available or no index is available, check if the repository is allowed to be crawled
-		if(m_indexer == null || remoteIndexTimestamp == 0L)
+		if(indexer == null || remoteIndexTimestamp == 0L)
 			if(!robotSafe(location.toString(), "/")) {
 				StringBuilder message = new StringBuilder("Crawling of %1$s is discouraged (see %1$s/robots.txt)");
 				if(remoteIndexTimestamp != 0L)
@@ -256,10 +256,10 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 				throw ExceptionUtils.fromMessage(message.toString(), location.toString());
 			}
 
-		m_repository = mdr;
+		repository = mdr;
 
-		m_iteratorStack = new Stack<UriIterator>();
-		m_versionEntryItor = Collections.<VersionEntry> emptyList().iterator();
+		iteratorStack = new Stack<UriIterator>();
+		versionEntryItor = Collections.<VersionEntry> emptyList().iterator();
 	}
 
 	public void reload(IProgressMonitor monitor) throws CoreException {
@@ -340,7 +340,7 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 		POM pom;
 		Model model;
 		try {
-			pom = POM.getPOM(m_location.toString(), versionEntry.groupId, versionEntry.artifactId,
+			pom = POM.getPOM(location.toString(), versionEntry.groupId, versionEntry.artifactId,
 					versionEntry.version.getOriginal());
 
 			String md5 = pom.getMd5();
@@ -510,20 +510,20 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 	}
 
 	private MavenMetadata findNextComponent(IProgressMonitor monitor) throws CoreException {
-		if(m_iteratorStack.isEmpty())
+		if(iteratorStack.isEmpty())
 			//
 			// All iterators exhausted
 			//
 			return null;
 
-		UriIterator itor = m_iteratorStack.peek();
+		UriIterator itor = iteratorStack.peek();
 		outer: while(itor.hasNext()) {
 			URI uri = itor.next();
 			if(isFolder(uri)) {
 				// This was a folder. Push it on the stack and
 				// scan it.
 				//
-				for(UriIterator prev : m_iteratorStack) {
+				for(UriIterator prev : iteratorStack) {
 					if(uri.equals(prev.getRoot()))
 						//
 						// Circular reference detected. This iteration
@@ -534,7 +534,7 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 
 				UriIterator subItor;
 				try {
-					subItor = new UriIterator(uri, s_folderExcludePattern, monitor);
+					subItor = new UriIterator(uri, folderExcludePattern, monitor);
 				}
 				catch(CoreException e) {
 					LogUtils.warning(e.getMessage());
@@ -579,10 +579,10 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 							uriList.add(subUri);
 					}
 					if(uriList.size() < top)
-						subItor = new UriIterator(uri, s_folderExcludePattern, uriList.toArray(new URI[uriList.size()]));
+						subItor = new UriIterator(uri, folderExcludePattern, uriList.toArray(new URI[uriList.size()]));
 				}
 
-				m_iteratorStack.push(subItor);
+				iteratorStack.push(subItor);
 				return findNextComponent(monitor);
 			}
 
@@ -599,37 +599,37 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 
 		// This iterator is exhausted. Pop it from the stack
 		//
-		m_iteratorStack.pop();
+		iteratorStack.pop();
 		return findNextComponent(monitor);
 	}
 
 	private InstallableUnit findNextIU(IProgressMonitor monitor) throws CoreException {
 		while(true) {
-			if(m_indexer != null) {
+			if(indexer != null) {
 				// if an indexer is used, finish loading when the iterator is exhausted
-				if(!m_versionEntryItor.hasNext())
+				if(!versionEntryItor.hasNext())
 					return null;
 			}
 			else {
 				// if no indexer is used, try to obtain versions by crawling the folders
-				while(!m_versionEntryItor.hasNext()) {
+				while(!versionEntryItor.hasNext()) {
 					if(monitor.isCanceled())
 						throw new OperationCanceledException(REPOSITORY_CANCELLED_MESSAGE);
 
 					MavenMetadata md = findNextComponent(monitor);
 					if(md == null)
 						return null;
-					m_versionEntryItor = getVersions(md).iterator();
+					versionEntryItor = getVersions(md).iterator();
 				}
 			}
 
 			if(monitor.isCanceled())
 				throw new OperationCanceledException(REPOSITORY_CANCELLED_MESSAGE);
 
-			VersionEntry ve = m_versionEntryItor.next();
+			VersionEntry ve = versionEntryItor.next();
 
-			if(m_cachedIUs != null) {
-				InstallableUnit iu = (InstallableUnit) m_cachedIUs.get(createKey(ve));
+			if(cachedIUs != null) {
+				InstallableUnit iu = (InstallableUnit) cachedIUs.get(createKey(ve));
 				if(iu != null)
 					return iu;
 			}
@@ -648,7 +648,7 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 	}
 
 	private File getCacheLocation() {
-		return MavenActivator.getPlugin().getCacheDirectory(m_location);
+		return MavenActivator.getPlugin().getCacheDirectory(location);
 	}
 
 	private long getRemoteIndexTimestamp() throws CoreException {
@@ -656,16 +656,16 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 			BufferedReader reader = null;
 			String indexPropertiesFile = "/.index/nexus-maven-repository-index.properties";
 
-			if("http".equals(m_location.getScheme()) || "https".equals(m_location.getScheme())) {
+			if("http".equals(location.getScheme()) || "https".equals(location.getScheme())) {
 				HttpClient httpClient = new HttpClient();
-				GetMethod method = new GetMethod(m_location.toString() + indexPropertiesFile);
+				GetMethod method = new GetMethod(location.toString() + indexPropertiesFile);
 				method.setRequestHeader("user-agent", "");
 				int status = httpClient.executeMethod(method);
 				if(status == HttpStatus.SC_OK)
 					reader = new BufferedReader(new InputStreamReader(method.getResponseBodyAsStream()));
 			}
 			else {
-				URL url = new URL(m_location.toString() + indexPropertiesFile);
+				URL url = new URL(location.toString() + indexPropertiesFile);
 				try {
 					URLConnection conn = url.openConnection();
 					reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
@@ -697,7 +697,7 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 			}
 		}
 		catch(Exception e) {
-			throw ExceptionUtils.fromMessage(e, "Unable to contact repository %s", m_location.toString());
+			throw ExceptionUtils.fromMessage(e, "Unable to contact repository %s", location.toString());
 		}
 
 		return 0L;
@@ -754,12 +754,12 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 
 	private void load(IProgressMonitor monitor, boolean avoidCache) throws CoreException {
 		IRepositoryLoader cacheLoader = null;
-		m_cachedIUs = null;
+		cachedIUs = null;
 		long remoteTime = getRemoteIndexTimestamp();
 
 		// if remote index is not available, get rid of the indexer
 		if(remoteTime == 0L)
-			m_indexer = null;
+			indexer = null;
 
 		if(avoidCache)
 			removeCache();
@@ -767,22 +767,22 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 			cacheLoader = checkCache();
 
 		if(cacheLoader != null) {
-			LogUtils.debug("Opening cache for %s", m_repository.toString());
+			LogUtils.debug("Opening cache for %s", repository.toString());
 
-			cacheLoader.open(getCacheLocation().toURI(), m_repository);
+			cacheLoader.open(getCacheLocation().toURI(), repository);
 			cacheLoader.load(new NullProgressMonitor());
 			cacheLoader.close();
 
 			// reset location to the real location rather than the local cache file
-			m_repository.setLocation(m_location);
+			repository.setLocation(location);
 
 			// remove compression property (cache is compressed but the maven original was not)
-			m_repository.getPropertyMap().remove(IRepository.PROP_COMPRESSED);
+			repository.getPropertyMap().remove(IRepository.PROP_COMPRESSED);
 
 			// remove timestamp property (cache has the timestamp of storing in the cache which is irrelevant)
-			m_repository.getPropertyMap().remove(IRepository.PROP_TIMESTAMP);
+			repository.getPropertyMap().remove(IRepository.PROP_TIMESTAMP);
 
-			String cacheTimeString = m_repository.getPropertyMap().get(PROP_INDEX_TIMESTAMP);
+			String cacheTimeString = repository.getPropertyMap().get(PROP_INDEX_TIMESTAMP);
 			long cacheTime = cacheTimeString != null
 					? Long.parseLong(cacheTimeString)
 					: 0L;
@@ -790,25 +790,25 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 			if(remoteTime == 0L || remoteTime > cacheTime) {
 				if(remoteTime == 0L)
 					LogUtils.debug("Unable to check if cache for %s is obsolete, repository will be scanned again",
-							m_location.toString());
+							location.toString());
 				else
-					LogUtils.debug("Cache for %s is obsolete, repository will be scanned again", m_location.toString());
+					LogUtils.debug("Cache for %s is obsolete, repository will be scanned again", location.toString());
 
 				// the cache is obsolete, remove it
 				removeCache();
 
 				// save a map of IUs in the cached repository - existing IUs will be reused from cache
-				m_cachedIUs = new HashMap<String, IInstallableUnit>(m_repository.getInstallableUnits().size());
-				for(IInstallableUnit iu : m_repository.getInstallableUnits())
-					m_cachedIUs.put(createKey(iu), iu);
+				cachedIUs = new HashMap<String, IInstallableUnit>(repository.getInstallableUnits().size());
+				for(IInstallableUnit iu : repository.getInstallableUnits())
+					cachedIUs.put(createKey(iu), iu);
 
 				// finally, re-initialize the target repository to empty
-				m_repository.removeAll();
-				m_repository.getPropertyMap().clear();
-				m_repository.setDescription(null);
+				repository.removeAll();
+				repository.getPropertyMap().clear();
+				repository.setDescription(null);
 			}
 			else {
-				LogUtils.debug("Cache for %s is up-to-date", m_repository.toString());
+				LogUtils.debug("Cache for %s is up-to-date", repository.toString());
 
 				monitor.done();
 				return;
@@ -818,37 +818,37 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 		SubMonitor subMon = SubMonitor.convert(monitor, 100);
 
 		try {
-			if(m_indexer != null) {
+			if(indexer != null) {
 				try {
-					m_indexer.openRemoteIndex(m_location, avoidCache);
-					m_versionEntryItor = m_indexer.getArtifacts();
+					indexer.openRemoteIndex(location, avoidCache);
+					versionEntryItor = indexer.getArtifacts();
 				}
 				catch(IndexNotFoundException e) {
-					LogUtils.debug("Indexer: Remote index not found at %s", m_location.toString());
+					LogUtils.debug("Indexer: Remote index not found at %s", location.toString());
 
-					m_indexer.closeRemoteIndex();
+					indexer.closeRemoteIndex();
 					// set indexer to null to force standard crawling
-					m_indexer = null;
+					indexer = null;
 				}
 			}
 
-			m_repository.setName("Maven2@" + m_location.toString());
-			m_repository.setLocation(m_location);
-			m_repository.setDescription(null);
-			m_repository.setProvider(null);
-			m_repository.setType("maven2");
-			m_repository.setVersion(null);
-			m_repository.getPropertyMap().put(PROP_INDEX_TIMESTAMP, Long.valueOf(getRemoteIndexTimestamp()).toString());
+			repository.setName("Maven2@" + location.toString());
+			repository.setLocation(location);
+			repository.setDescription(null);
+			repository.setProvider(null);
+			repository.setType("maven2");
+			repository.setVersion(null);
+			repository.getPropertyMap().put(PROP_INDEX_TIMESTAMP, Long.valueOf(getRemoteIndexTimestamp()).toString());
 
 			SubMonitor crawlMon;
-			if(m_indexer != null) {
+			if(indexer != null) {
 				crawlMon = subMon;
-				crawlMon.beginTask("Scanning repository", m_indexer.getNumberOfEntries());
+				crawlMon.beginTask("Scanning repository", indexer.getNumberOfEntries());
 			}
 			else {
 				UriIterator itor;
 				final SubMonitor[] crawlMonRef = new SubMonitor[1];
-				itor = new UriIterator(m_location, s_folderExcludePattern, subMon.newChild(1)) {
+				itor = new UriIterator(location, folderExcludePattern, subMon.newChild(1)) {
 					@Override
 					public URI next() {
 						URI nextURI = super.next();
@@ -862,10 +862,10 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 				crawlMon.beginTask("Scanning repository", itor.size());
 				crawlMonRef[0] = crawlMon;
 
-				m_iteratorStack.add(itor);
+				iteratorStack.add(itor);
 			}
 
-			List<InstallableUnit> ius = m_repository.getInstallableUnits();
+			List<InstallableUnit> ius = repository.getInstallableUnits();
 			Map<String, InstallableUnit> categoryMap = new HashMap<String, InstallableUnit>();
 
 			InstallableUnit iu;
@@ -904,7 +904,7 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 				if(crawlMon.isCanceled())
 					throw new OperationCanceledException(REPOSITORY_CANCELLED_MESSAGE);
 
-				if(m_indexer != null)
+				if(indexer != null)
 					crawlMon.worked(1);
 
 				String groupId = iu.getProperty(PROP_MAVEN_GROUP);
@@ -932,8 +932,8 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 			storeCache();
 		}
 		finally {
-			if(m_indexer != null)
-				m_indexer.closeRemoteIndex();
+			if(indexer != null)
+				indexer.closeRemoteIndex();
 			subMon.done();
 		}
 	}
@@ -1013,12 +1013,12 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 			mdrMgr = b3util.getService(IMetadataRepositoryManager.class);
 			Map<String, String> properties = new HashMap<String, String>(2);
 			properties.put(IRepository.PROP_COMPRESSED, "true");
-			properties.put(PROP_INDEX_TIMESTAMP, m_repository.getPropertyMap().get(PROP_INDEX_TIMESTAMP));
-			IMetadataRepository mdr = mdrMgr.createRepository(getCacheLocation().toURI(), m_repository.getName(),
+			properties.put(PROP_INDEX_TIMESTAMP, repository.getPropertyMap().get(PROP_INDEX_TIMESTAMP));
+			IMetadataRepository mdr = mdrMgr.createRepository(getCacheLocation().toURI(), repository.getName(),
 					SIMPLE_METADATA_TYPE, properties);
-			mdr.setDescription(m_repository.getDescription());
-			mdr.addInstallableUnits(m_repository.getInstallableUnits().toArray(
-					new IInstallableUnit[m_repository.getInstallableUnits().size()]));
+			mdr.setDescription(repository.getDescription());
+			mdr.addInstallableUnits(repository.getInstallableUnits().toArray(
+					new IInstallableUnit[repository.getInstallableUnits().size()]));
 		}
 		finally {
 			b3util.ungetService(mdrMgr);

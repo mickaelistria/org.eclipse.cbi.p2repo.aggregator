@@ -77,14 +77,14 @@ public class XMLResourceImplWithCheck extends XMLResourceImpl {
 			new URIHandlerWithCheck(owner);
 		}
 
-		private URIConverter m_owner;
+		private URIConverter owner;
 
-		private HttpClient m_httpClient;
+		private HttpClient httpClient;
 
 		private URIHandlerWithCheck(URIConverter owner) {
-			m_owner = owner;
-			m_owner.getURIHandlers().add(0, this);
-			m_httpClient = new HttpClient();
+			this.owner = owner;
+			owner.getURIHandlers().add(0, this);
+			httpClient = new HttpClient();
 		}
 
 		@Override
@@ -138,7 +138,7 @@ public class XMLResourceImplWithCheck extends XMLResourceImpl {
 
 		@Override
 		public OutputStream createOutputStream(URI uri, Map<?, ?> options) throws IOException {
-			for(org.eclipse.emf.ecore.resource.URIHandler handler : m_owner.getURIHandlers()) {
+			for(org.eclipse.emf.ecore.resource.URIHandler handler : owner.getURIHandlers()) {
 				if(handler == this)
 					continue;
 				if(handler.canHandle(uri))
@@ -161,7 +161,7 @@ public class XMLResourceImplWithCheck extends XMLResourceImpl {
 			String scheme = uri.getScheme();
 			if("http".equals(scheme) || "https".equals(scheme)) {
 				HttpMethod method = new GetMethod(uriStr);
-				if(m_httpClient.executeMethod(method) == HttpStatus.SC_NOT_FOUND)
+				if(httpClient.executeMethod(method) == HttpStatus.SC_NOT_FOUND)
 					throw new FileNotFoundException();
 				Header header = method.getResponseHeader("last-modified");
 				if(header != null)
@@ -209,10 +209,10 @@ public class XMLResourceImplWithCheck extends XMLResourceImpl {
 		}
 	}
 
-	private static URIConverter s_uriConverter = new ExtensibleURIConverterImpl();
+	private static URIConverter uriConverter = new ExtensibleURIConverterImpl();
 
 	static {
-		URIHandlerWithCheck.register(s_uriConverter);
+		URIHandlerWithCheck.register(uriConverter);
 	}
 
 	public XMLResourceImplWithCheck(URI uri) {
@@ -222,6 +222,6 @@ public class XMLResourceImplWithCheck extends XMLResourceImpl {
 
 	@Override
 	public URIConverter getURIConverter() {
-		return s_uriConverter;
+		return uriConverter;
 	}
 }

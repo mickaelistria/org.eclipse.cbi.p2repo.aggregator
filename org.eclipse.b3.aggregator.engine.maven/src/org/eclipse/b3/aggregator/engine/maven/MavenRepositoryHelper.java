@@ -12,20 +12,20 @@ package org.eclipse.b3.aggregator.engine.maven;
  * 
  */
 public class MavenRepositoryHelper {
-	private String[][] m_mappingRules;
+	private String[][] mappingRules;
 
-	private InstallableUnitMapping m_top;
+	private InstallableUnitMapping top;
 
 	public MavenRepositoryHelper(InstallableUnitMapping top, String[][] mappingRules) {
-		m_top = top;
-		m_mappingRules = mappingRules;
+		this.top = top;
+		this.mappingRules = mappingRules;
 	}
 
 	public String[][] getMappingRules() {
-		return m_mappingRules;
+		return mappingRules;
 	}
 
 	public InstallableUnitMapping getTop() {
-		return m_top;
+		return top;
 	}
 }

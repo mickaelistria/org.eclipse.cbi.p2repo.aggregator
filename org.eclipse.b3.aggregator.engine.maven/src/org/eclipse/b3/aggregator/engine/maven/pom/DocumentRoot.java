@@ -78,6 +78,7 @@ public interface DocumentRoot extends EObject {
 	 * @return the value of the '<em>XMLNS Prefix Map</em>' map.
 	 * @see org.eclipse.b3.aggregator.engine.maven.pom.PomPackage#getDocumentRoot_XMLNSPrefixMap()
 	 * @model mapType=
+	 * 
 	 *        
 	 *        "org.eclipse.emf.ecore.EStringToStringMapEntry<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString>"
 	 *        transient="true" extendedMetaData="kind='attribute' name='xmlns:prefix'"
@@ -97,6 +98,7 @@ public interface DocumentRoot extends EObject {
 	 * @return the value of the '<em>XSI Schema Location</em>' map.
 	 * @see org.eclipse.b3.aggregator.engine.maven.pom.PomPackage#getDocumentRoot_XSISchemaLocation()
 	 * @model mapType=
+	 * 
 	 *        
 	 *        "org.eclipse.emf.ecore.EStringToStringMapEntry<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString>"
 	 *        transient="true" extendedMetaData="kind='attribute' name='xsi:schemaLocation'"

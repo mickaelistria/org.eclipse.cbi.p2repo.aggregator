@@ -78,23 +78,23 @@ public class InstallableUnitMapping implements IInstallableUnit {
 				mappingDescriptor.toString());
 	}
 
-	private Type m_type;
+	private Type type;
 
-	private IInstallableUnit m_installableUnit;
+	private IInstallableUnit installableUnit;
 
-	private List<MavenMapping> m_mappings;
+	private List<MavenMapping> mappings;
 
-	private MavenItem m_mapped;
+	private MavenItem mapped;
 
-	private InstallableUnitMapping m_parent;
+	private InstallableUnitMapping parent;
 
-	private List<InstallableUnitMapping> m_children = new ArrayList<InstallableUnitMapping>();
+	private List<InstallableUnitMapping> children = new ArrayList<InstallableUnitMapping>();
 
-	private List<InstallableUnitMapping> m_siblings = new ArrayList<InstallableUnitMapping>();
+	private List<InstallableUnitMapping> siblings = new ArrayList<InstallableUnitMapping>();
 
-	private boolean m_transient;
+	private boolean transientFlag;
 
-	private IArtifactKey m_mainArtifact;
+	private IArtifactKey mainArtifact;
 
 	public InstallableUnitMapping() {
 		this((String) null);
@@ -105,21 +105,21 @@ public class InstallableUnitMapping implements IInstallableUnit {
 	}
 
 	public InstallableUnitMapping(IInstallableUnit iu, List<MavenMapping> mappings) {
-		m_mappings = new ArrayList<MavenMapping>(mappings.size() + 1);
-		m_mappings.addAll(mappings);
-		m_mappings.add(MavenMapping.DEFAULT_MAPPING);
+		mappings = new ArrayList<MavenMapping>(mappings.size() + 1);
+		mappings.addAll(mappings);
+		mappings.add(MavenMapping.DEFAULT_MAPPING);
 
-		for(MavenMapping mapping : m_mappings)
+		for(MavenMapping mapping : mappings)
 			if(mapping.getStatus().getCode() != StatusCode.OK)
 				throw new RuntimeException("Invalid maven mapping: " + mapping.toString());
 
 		switch(iu.getArtifacts().length) {
 		case 1:
-			m_mainArtifact = iu.getArtifacts()[0];
+			mainArtifact = iu.getArtifacts()[0];
 			// no break here, we really want to continue initialization
 		case 0:
-			m_type = Type.IU;
-			m_installableUnit = iu;
+			type = Type.IU;
+			installableUnit = iu;
 			break;
 		default:
 			// We have more than one artifact - we need to make a proxy depending on the artifacts
@@ -134,12 +134,12 @@ public class InstallableUnitMapping implements IInstallableUnit {
 				sibling.overrideId(genId);
 				sibling.overrideArtifacts(new IArtifactKey[] { artifact });
 
-				m_siblings.add(new InstallableUnitMapping(sibling));
+				siblings.add(new InstallableUnitMapping(sibling));
 			}
 
 			proxy.overrideRequiredCapabilities(dependencies);
 			proxy.overrideArtifacts(new IArtifactKey[0]);
-			m_installableUnit = proxy;
+			installableUnit = proxy;
 		}
 	}
 
@@ -151,7 +151,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 				? "_common"
 				: "_group-common";
 
-		m_type = name == null
+		type = name == null
 				? Type.TOP
 				: Type.GROUP;
 
@@ -159,22 +159,22 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		installableUnit.setId(artifactId);
 		installableUnit.setVersion(DUMMY_VERSION);
 
-		m_installableUnit = installableUnit;
-		m_mapped = AggregatorFactory.eINSTANCE.createMavenItem();
-		m_mapped.setGroupId(groupId);
-		m_mapped.setArtifactId(artifactId);
+		this.installableUnit = installableUnit;
+		mapped = AggregatorFactory.eINSTANCE.createMavenItem();
+		mapped.setGroupId(groupId);
+		mapped.setArtifactId(artifactId);
 	}
 
 	@SuppressWarnings("unchecked")
 	public POM asPOM() throws CoreException {
 		POM pom = new POM();
 		Model model = pom.getProject();
-		if(m_parent != null && !m_parent.isTransient()) {
-			Parent parent = PomFactory.eINSTANCE.createParent();
-			parent.setGroupId(m_parent.map().getGroupId());
-			parent.setArtifactId(m_parent.map().getArtifactId());
-			parent.setVersion(m_parent.getVersion().toString());
-			model.setParent(parent);
+		if(parent != null && !parent.isTransient()) {
+			Parent newParent = PomFactory.eINSTANCE.createParent();
+			newParent.setGroupId(parent.map().getGroupId());
+			newParent.setArtifactId(parent.map().getArtifactId());
+			newParent.setVersion(parent.getVersion().toString());
+			model.setParent(newParent);
 		}
 		model.setGroupId(map().getGroupId());
 		model.setArtifactId(map().getArtifactId());
@@ -194,7 +194,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 					Dependency dependency = PomFactory.eINSTANCE.createDependency();
 					dependencies.getDependency().add(dependency);
 
-					MavenItem dependencyMapping = map(requiredCapability.getName(), m_mappings);
+					MavenItem dependencyMapping = map(requiredCapability.getName(), mappings);
 					dependency.setGroupId(dependencyMapping.getGroupId());
 					dependency.setArtifactId(dependencyMapping.getArtifactId());
 
@@ -233,7 +233,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 				model.setDependencies(dependencies);
 		}
 
-		Map<String, String> iuProperties = new HashMap<String, String>(m_installableUnit.getProperties());
+		Map<String, String> iuProperties = new HashMap<String, String>(installableUnit.getProperties());
 		String name = extractProperty(iuProperties, IInstallableUnit.PROP_NAME);
 		String description = extractProperty(iuProperties, IInstallableUnit.PROP_DESCRIPTION);
 
@@ -254,7 +254,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 
 		LicensesType licenses = PomFactory.eINSTANCE.createLicensesType();
 
-		ILicense iuLicense = m_installableUnit.getLicense();
+		ILicense iuLicense = installableUnit.getLicense();
 		if(iuLicense != null) {
 			License license = PomFactory.eINSTANCE.createLicense();
 			boolean licenseSet = false;
@@ -270,7 +270,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 				licenses.getLicense().add(license);
 		}
 
-		ICopyright iuCopyright = m_installableUnit.getCopyright();
+		ICopyright iuCopyright = installableUnit.getCopyright();
 		if(iuCopyright != null) {
 			License copyright = PomFactory.eINSTANCE.createLicense();
 			boolean copyrightSet = false;
@@ -294,47 +294,47 @@ public class InstallableUnitMapping implements IInstallableUnit {
 
 	@SuppressWarnings("unchecked")
 	public int compareTo(Object o) {
-		return m_installableUnit.compareTo(o);
+		return installableUnit.compareTo(o);
 	}
 
 	public IArtifactKey[] getArtifacts() {
-		return m_installableUnit.getArtifacts();
+		return installableUnit.getArtifacts();
 	}
 
 	public List<InstallableUnitMapping> getChildren() {
-		return m_children;
+		return children;
 	}
 
 	public ICopyright getCopyright() {
-		return m_installableUnit.getCopyright();
+		return installableUnit.getCopyright();
 	}
 
 	public String getFilter() {
-		return m_installableUnit.getFilter();
+		return installableUnit.getFilter();
 	}
 
 	public IInstallableUnitFragment[] getFragments() {
-		return m_installableUnit.getFragments();
+		return installableUnit.getFragments();
 	}
 
 	public String getId() {
-		return m_installableUnit.getId();
+		return installableUnit.getId();
 	}
 
 	public ILicense getLicense() {
-		return m_installableUnit.getLicense();
+		return installableUnit.getLicense();
 	}
 
 	public IArtifactKey getMainArtifact() {
-		return m_mainArtifact;
+		return mainArtifact;
 	}
 
 	public IRequiredCapability[] getMetaRequiredCapabilities() {
-		return m_installableUnit.getMetaRequiredCapabilities();
+		return installableUnit.getMetaRequiredCapabilities();
 	}
 
 	public InstallableUnitMapping getParent() {
-		return m_parent;
+		return parent;
 	}
 
 	public String getPomName() throws CoreException {
@@ -343,15 +343,15 @@ public class InstallableUnitMapping implements IInstallableUnit {
 
 	@SuppressWarnings("rawtypes")
 	public Map getProperties() {
-		return m_installableUnit.getProperties();
+		return installableUnit.getProperties();
 	}
 
 	public String getProperty(String key) {
-		return m_installableUnit.getProperty(key);
+		return installableUnit.getProperty(key);
 	}
 
 	public IProvidedCapability[] getProvidedCapabilities() {
-		return m_installableUnit.getProvidedCapabilities();
+		return installableUnit.getProvidedCapabilities();
 	}
 
 	public String getRelativeFullPath() throws CoreException {
@@ -363,41 +363,41 @@ public class InstallableUnitMapping implements IInstallableUnit {
 	}
 
 	public IRequiredCapability[] getRequiredCapabilities() {
-		if(m_parent != null) {
+		if(parent != null) {
 			List<IRequiredCapability> myList = new ArrayList<IRequiredCapability>();
-			List<IRequiredCapability> parentList = Arrays.asList(m_parent.m_installableUnit.getRequiredCapabilities());
-			for(IRequiredCapability my : m_installableUnit.getRequiredCapabilities())
+			List<IRequiredCapability> parentList = Arrays.asList(parent.installableUnit.getRequiredCapabilities());
+			for(IRequiredCapability my : installableUnit.getRequiredCapabilities())
 				if(!parentList.contains(my))
 					myList.add(my);
 
 			return myList.toArray(new IRequiredCapability[myList.size()]);
 		}
 
-		return m_installableUnit.getRequiredCapabilities();
+		return installableUnit.getRequiredCapabilities();
 	}
 
 	public List<InstallableUnitMapping> getSiblings() {
-		return m_siblings;
+		return siblings;
 	}
 
 	public ITouchpointData[] getTouchpointData() {
-		return m_installableUnit.getTouchpointData();
+		return installableUnit.getTouchpointData();
 	}
 
 	public ITouchpointType getTouchpointType() {
-		return m_installableUnit.getTouchpointType();
+		return installableUnit.getTouchpointType();
 	}
 
 	public Type getType() {
-		return m_type;
+		return type;
 	}
 
 	public IUpdateDescriptor getUpdateDescriptor() {
-		return m_installableUnit.getUpdateDescriptor();
+		return installableUnit.getUpdateDescriptor();
 	}
 
 	public Version getVersion() {
-		return m_installableUnit.getVersion();
+		return installableUnit.getVersion();
 	}
 
 	public String getVersionString() {
@@ -405,44 +405,44 @@ public class InstallableUnitMapping implements IInstallableUnit {
 	}
 
 	public boolean isFragment() {
-		return m_installableUnit.isFragment();
+		return installableUnit.isFragment();
 	}
 
 	public boolean isResolved() {
-		return m_installableUnit.isResolved();
+		return installableUnit.isResolved();
 	}
 
 	public boolean isSingleton() {
-		return m_installableUnit.isSingleton();
+		return installableUnit.isSingleton();
 	}
 
 	public boolean isTransient() {
-		return m_transient;
+		return transientFlag;
 	}
 
 	public MavenItem map() throws CoreException {
-		if(m_mapped != null)
-			return m_mapped;
+		if(mapped != null)
+			return mapped;
 
-		return m_mapped = map(getId(), m_mappings);
+		return mapped = map(getId(), mappings);
 	}
 
 	public boolean satisfies(IRequiredCapability candidate) {
-		return m_installableUnit.satisfies(candidate);
+		return installableUnit.satisfies(candidate);
 	}
 
 	public void setParent(InstallableUnitMapping parent) {
-		if(m_parent != null)
-			m_parent.m_children.remove(this);
-		(m_parent = parent).m_children.add(this);
+		if(this.parent != null)
+			this.parent.children.remove(this);
+		(this.parent = parent).children.add(this);
 	}
 
 	public void setTransient(boolean isTransient) {
-		m_transient = isTransient;
+		transientFlag = isTransient;
 	}
 
 	public IInstallableUnit unresolved() {
-		return m_installableUnit.unresolved();
+		return installableUnit.unresolved();
 	}
 
 	private String extractProperty(Map<String, String> iuProperties, String key) {
