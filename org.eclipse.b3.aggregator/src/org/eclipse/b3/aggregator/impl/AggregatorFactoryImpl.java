@@ -24,7 +24,9 @@ import org.eclipse.b3.aggregator.ExclusionRule;
 import org.eclipse.b3.aggregator.Feature;
 import org.eclipse.b3.aggregator.InfosProvider;
 import org.eclipse.b3.aggregator.InstallableUnitType;
+import org.eclipse.b3.aggregator.MapRule;
 import org.eclipse.b3.aggregator.MappedRepository;
+import org.eclipse.b3.aggregator.MappedUnit;
 import org.eclipse.b3.aggregator.MavenItem;
 import org.eclipse.b3.aggregator.MavenMapping;
 import org.eclipse.b3.aggregator.MetadataRepositoryReference;
@@ -36,7 +38,6 @@ import org.eclipse.b3.aggregator.Status;
 import org.eclipse.b3.aggregator.StatusCode;
 import org.eclipse.b3.aggregator.ValidConfigurationsRule;
 import org.eclipse.b3.aggregator.WindowSystem;
-import org.eclipse.b3.aggregator.*;
 import org.eclipse.b3.aggregator.p2.InstallableUnit;
 import org.eclipse.b3.aggregator.p2.MetadataRepository;
 import org.eclipse.b3.aggregator.util.InstallableUnitUtils;
@@ -46,6 +47,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.equinox.internal.provisional.p2.metadata.Version;
+import org.eclipse.equinox.internal.provisional.p2.metadata.VersionRange;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
@@ -486,7 +489,8 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 			throw new IllegalArgumentException("Unknown IU type");
 		}
 
-		mu.setInstallableUnit(iu);
+		mu.setName(iu.getId());
+		mu.setVersionRange(new VersionRange(iu.getVersion(), true, Version.MAX_VERSION, false));
 
 		return mu;
 	}
@@ -506,7 +510,8 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 		else
 			throw new IllegalArgumentException("Unknown rule class " + ruleClass);
 
-		mr.setInstallableUnit(iu);
+		mr.setName(iu.getId());
+		mr.setVersionRange(new VersionRange(iu.getVersion(), true, Version.MAX_VERSION, false));
 
 		return mr;
 	}

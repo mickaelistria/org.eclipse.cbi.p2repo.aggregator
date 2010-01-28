@@ -8,7 +8,7 @@
 
 package org.eclipse.b3.aggregator.util;
 
-import org.eclipse.b3.aggregator.p2.InstallableUnit;
+import org.eclipse.equinox.internal.provisional.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.internal.provisional.p2.metadata.Version;
 
 /**
@@ -51,7 +51,7 @@ public class GeneralUtils {
 				: value;
 	}
 
-	public static String getLocalizedProperty(InstallableUnit iu, String key) {
+	public static String getLocalizedProperty(IInstallableUnit iu, String key) {
 		String value = iu.getProperty(key);
 
 		if(value != null && value.startsWith("%")) {

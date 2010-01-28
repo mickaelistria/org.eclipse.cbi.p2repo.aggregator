@@ -8,7 +8,21 @@ package org.eclipse.b3.aggregator.p2.impl;
 
 import java.util.Map;
 
-import org.eclipse.b3.aggregator.p2.*;
+import org.eclipse.b3.aggregator.p2.ArtifactKey;
+import org.eclipse.b3.aggregator.p2.Copyright;
+import org.eclipse.b3.aggregator.p2.InstallableUnit;
+import org.eclipse.b3.aggregator.p2.InstallableUnitFragment;
+import org.eclipse.b3.aggregator.p2.License;
+import org.eclipse.b3.aggregator.p2.MetadataRepository;
+import org.eclipse.b3.aggregator.p2.P2Factory;
+import org.eclipse.b3.aggregator.p2.P2Package;
+import org.eclipse.b3.aggregator.p2.ProvidedCapability;
+import org.eclipse.b3.aggregator.p2.RepositoryReference;
+import org.eclipse.b3.aggregator.p2.RequiredCapability;
+import org.eclipse.b3.aggregator.p2.TouchpointData;
+import org.eclipse.b3.aggregator.p2.TouchpointInstruction;
+import org.eclipse.b3.aggregator.p2.TouchpointType;
+import org.eclipse.b3.aggregator.p2.UpdateDescriptor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -24,7 +38,6 @@ import org.eclipse.equinox.internal.provisional.p2.metadata.IRequiredCapability;
 import org.eclipse.equinox.internal.provisional.p2.metadata.ITouchpointData;
 import org.eclipse.equinox.internal.provisional.p2.metadata.Version;
 import org.eclipse.equinox.internal.provisional.p2.metadata.VersionRange;
-import org.eclipse.equinox.internal.provisional.p2.metadata.VersionedId;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
@@ -32,7 +45,7 @@ import org.eclipse.equinox.internal.provisional.p2.metadata.VersionedId;
  * @generated
  */
 public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
-	private static final String PROXY_URI_FORMATTER = "%s:%s#//@metadataRepository/@installableUnits[id='%s',version='%s']";
+	private static final String MDR_PROXY_URI_FORMATTER = "%s:%s#//@metadataRepository";
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -344,20 +357,6 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated NOT
-	 */
-	public InstallableUnit createInstallableUnitProxy(String repoNature, String repoLocation, VersionedId iuVN) {
-		InstallableUnitImpl installableUnit = new InstallableUnitImpl();
-		URI proxyURI = URI.createURI(String.format(PROXY_URI_FORMATTER, repoNature, repoLocation, iuVN.getId(),
-				iuVN.getVersion()));
-		installableUnit.eSetProxyURI(proxyURI);
-
-		return installableUnit;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Map.Entry<String, TouchpointInstruction> createInstructionMap() {
@@ -410,6 +409,19 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	public MetadataRepository createMetadataRepository() {
 		MetadataRepositoryImpl metadataRepository = new MetadataRepositoryImpl();
 		return metadataRepository;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public MetadataRepository createMetadataRepositoryProxy(String repoNature, String repoLocation) {
+		MetadataRepositoryImpl mdr = (MetadataRepositoryImpl) createMetadataRepository();
+		URI proxyURI = URI.createURI(String.format(MDR_PROXY_URI_FORMATTER, repoNature, repoLocation));
+		mdr.eSetProxyURI(proxyURI);
+
+		return mdr;
 	}
 
 	/**

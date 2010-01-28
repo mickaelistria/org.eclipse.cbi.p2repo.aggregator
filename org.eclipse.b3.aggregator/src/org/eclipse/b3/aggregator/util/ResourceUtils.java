@@ -15,11 +15,8 @@ import java.util.Set;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.MappedRepository;
-import org.eclipse.b3.aggregator.MappedUnit;
 import org.eclipse.b3.aggregator.MetadataRepositoryReference;
-import org.eclipse.b3.aggregator.p2.InstallableUnit;
 import org.eclipse.b3.aggregator.p2.MetadataRepository;
-import org.eclipse.b3.aggregator.p2.P2Factory;
 import org.eclipse.b3.aggregator.p2.util.MetadataRepositoryResourceImpl;
 import org.eclipse.b3.util.ExceptionUtils;
 import org.eclipse.core.runtime.CoreException;
@@ -66,17 +63,8 @@ public class ResourceUtils {
 						}
 					}
 					else {
-						for(MappedUnit unit : mappedRepository.getUnits(false)) {
-							InstallableUnit originalIU = unit.getInstallableUnit(false);
-
-							if(originalIU != null && !((EObject) originalIU).eIsProxy())
-								unit.setInstallableUnit(P2Factory.eINSTANCE.createInstallableUnitProxy(
-										mappedRepository.getNature(), mappedRepository.getLocation(),
-										InstallableUnitUtils.getVersionedName(originalIU)));
-						}
-
-						// avoid notification recursion - set to null only if it not null yet
-						if(mappedRepository.getMetadataRepository(false) != null)
+						// avoid notification recursion - set to null only if it is not null yet
+						if(mappedRepository.getMetadataRepository() != null)
 							mappedRepository.setMetadataRepository(null);
 					}
 				}
@@ -91,7 +79,7 @@ public class ResourceUtils {
 				}
 				else
 				// avoid notification recursion - set to null only if it is not null yet
-				if(repoRef.getMetadataRepository(false) != null)
+				if(repoRef.getMetadataRepository() != null)
 					repoRef.setMetadataRepository(null);
 			}
 			Iterator<Resource> allResources = topSet.getResources().iterator();

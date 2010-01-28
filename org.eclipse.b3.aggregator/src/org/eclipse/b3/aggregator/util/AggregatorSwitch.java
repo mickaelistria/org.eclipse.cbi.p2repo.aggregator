@@ -22,7 +22,7 @@ import org.eclipse.b3.aggregator.EnabledStatusProvider;
 import org.eclipse.b3.aggregator.ExclusionRule;
 import org.eclipse.b3.aggregator.Feature;
 import org.eclipse.b3.aggregator.InfosProvider;
-import org.eclipse.b3.aggregator.InstallableUnitReference;
+import org.eclipse.b3.aggregator.InstallableUnitRequest;
 import org.eclipse.b3.aggregator.LabelProvider;
 import org.eclipse.b3.aggregator.MapRule;
 import org.eclipse.b3.aggregator.MappedRepository;
@@ -279,17 +279,19 @@ public class AggregatorSwitch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Installable Unit Reference</em>'. <!--
-	 * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
-	 * end-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>Installable Unit Request</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Installable Unit Reference</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Installable Unit Request</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseInstallableUnitReference(InstallableUnitReference object) {
+	public T1 caseInstallableUnitRequest(InstallableUnitRequest object) {
 		return null;
 	}
 
@@ -598,13 +600,15 @@ public class AggregatorSwitch<T1> {
 			if(result == null)
 				result = caseMappedUnit(feature);
 			if(result == null)
-				result = caseInstallableUnitReference(feature);
+				result = caseInstallableUnitRequest(feature);
 			if(result == null)
 				result = caseEnabledStatusProvider(feature);
 			if(result == null)
 				result = caseStatusProvider(feature);
 			if(result == null)
 				result = caseInfosProvider(feature);
+			if(result == null)
+				result = caseDescriptionProvider(feature);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -615,13 +619,15 @@ public class AggregatorSwitch<T1> {
 			if(result == null)
 				result = caseMappedUnit(bundle);
 			if(result == null)
-				result = caseInstallableUnitReference(bundle);
+				result = caseInstallableUnitRequest(bundle);
 			if(result == null)
 				result = caseEnabledStatusProvider(bundle);
 			if(result == null)
 				result = caseStatusProvider(bundle);
 			if(result == null)
 				result = caseInfosProvider(bundle);
+			if(result == null)
+				result = caseDescriptionProvider(bundle);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -630,13 +636,15 @@ public class AggregatorSwitch<T1> {
 			MappedUnit mappedUnit = (MappedUnit) theEObject;
 			T1 result = caseMappedUnit(mappedUnit);
 			if(result == null)
-				result = caseInstallableUnitReference(mappedUnit);
+				result = caseInstallableUnitRequest(mappedUnit);
 			if(result == null)
 				result = caseEnabledStatusProvider(mappedUnit);
 			if(result == null)
 				result = caseStatusProvider(mappedUnit);
 			if(result == null)
 				result = caseInfosProvider(mappedUnit);
+			if(result == null)
+				result = caseDescriptionProvider(mappedUnit);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -647,13 +655,15 @@ public class AggregatorSwitch<T1> {
 			if(result == null)
 				result = caseMappedUnit(product);
 			if(result == null)
-				result = caseInstallableUnitReference(product);
+				result = caseInstallableUnitRequest(product);
 			if(result == null)
 				result = caseEnabledStatusProvider(product);
 			if(result == null)
 				result = caseStatusProvider(product);
 			if(result == null)
 				result = caseInfosProvider(product);
+			if(result == null)
+				result = caseDescriptionProvider(product);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -673,13 +683,15 @@ public class AggregatorSwitch<T1> {
 			if(result == null)
 				result = caseMappedUnit(category);
 			if(result == null)
-				result = caseInstallableUnitReference(category);
+				result = caseInstallableUnitRequest(category);
 			if(result == null)
 				result = caseEnabledStatusProvider(category);
 			if(result == null)
 				result = caseStatusProvider(category);
 			if(result == null)
 				result = caseInfosProvider(category);
+			if(result == null)
+				result = caseDescriptionProvider(category);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -706,24 +718,26 @@ public class AggregatorSwitch<T1> {
 			MapRule mapRule = (MapRule) theEObject;
 			T1 result = caseMapRule(mapRule);
 			if(result == null)
-				result = caseInstallableUnitReference(mapRule);
-			if(result == null)
-				result = caseDescriptionProvider(mapRule);
+				result = caseInstallableUnitRequest(mapRule);
 			if(result == null)
 				result = caseStatusProvider(mapRule);
 			if(result == null)
 				result = caseInfosProvider(mapRule);
 			if(result == null)
+				result = caseDescriptionProvider(mapRule);
+			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case AggregatorPackage.INSTALLABLE_UNIT_REFERENCE: {
-			InstallableUnitReference installableUnitReference = (InstallableUnitReference) theEObject;
-			T1 result = caseInstallableUnitReference(installableUnitReference);
+		case AggregatorPackage.INSTALLABLE_UNIT_REQUEST: {
+			InstallableUnitRequest installableUnitRequest = (InstallableUnitRequest) theEObject;
+			T1 result = caseInstallableUnitRequest(installableUnitRequest);
 			if(result == null)
-				result = caseStatusProvider(installableUnitReference);
+				result = caseStatusProvider(installableUnitRequest);
 			if(result == null)
-				result = caseInfosProvider(installableUnitReference);
+				result = caseInfosProvider(installableUnitRequest);
+			if(result == null)
+				result = caseDescriptionProvider(installableUnitRequest);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -734,13 +748,13 @@ public class AggregatorSwitch<T1> {
 			if(result == null)
 				result = caseMapRule(exclusionRule);
 			if(result == null)
-				result = caseInstallableUnitReference(exclusionRule);
-			if(result == null)
-				result = caseDescriptionProvider(exclusionRule);
+				result = caseInstallableUnitRequest(exclusionRule);
 			if(result == null)
 				result = caseStatusProvider(exclusionRule);
 			if(result == null)
 				result = caseInfosProvider(exclusionRule);
+			if(result == null)
+				result = caseDescriptionProvider(exclusionRule);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -751,13 +765,13 @@ public class AggregatorSwitch<T1> {
 			if(result == null)
 				result = caseMapRule(validConfigurationsRule);
 			if(result == null)
-				result = caseInstallableUnitReference(validConfigurationsRule);
-			if(result == null)
-				result = caseDescriptionProvider(validConfigurationsRule);
+				result = caseInstallableUnitRequest(validConfigurationsRule);
 			if(result == null)
 				result = caseStatusProvider(validConfigurationsRule);
 			if(result == null)
 				result = caseInfosProvider(validConfigurationsRule);
+			if(result == null)
+				result = caseDescriptionProvider(validConfigurationsRule);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;

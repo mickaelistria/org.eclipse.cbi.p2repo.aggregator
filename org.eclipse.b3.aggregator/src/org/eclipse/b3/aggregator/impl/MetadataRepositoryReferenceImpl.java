@@ -21,6 +21,7 @@ import org.eclipse.b3.aggregator.Status;
 import org.eclipse.b3.aggregator.StatusCode;
 import org.eclipse.b3.aggregator.StatusProvider;
 import org.eclipse.b3.aggregator.p2.MetadataRepository;
+import org.eclipse.b3.aggregator.p2.P2Factory;
 import org.eclipse.b3.aggregator.p2.util.MetadataRepositoryResourceImpl;
 import org.eclipse.b3.aggregator.util.AggregatorResource;
 import org.eclipse.b3.util.StringUtils;
@@ -468,19 +469,10 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 		if(!isBranchEnabled())
 			return null;
 
+		if(metadataRepository == null)
+			metadataRepository = P2Factory.eINSTANCE.createMetadataRepositoryProxy(getNature(), getLocation());
+
 		return getMetadataRepositoryGen();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public MetadataRepository getMetadataRepository(boolean forceResolve) {
-		if(forceResolve)
-			return getMetadataRepositoryGen();
-
-		return basicGetMetadataRepository();
 	}
 
 	/**

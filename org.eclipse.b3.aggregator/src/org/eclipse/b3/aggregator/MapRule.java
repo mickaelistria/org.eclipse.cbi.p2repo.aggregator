@@ -17,6 +17,6 @@ package org.eclipse.b3.aggregator;
  * @model abstract="true"
  * @generated
  */
-public interface MapRule extends InstallableUnitReference, DescriptionProvider {
+public interface MapRule extends InstallableUnitRequest, DescriptionProvider {
 
 } // MapRule

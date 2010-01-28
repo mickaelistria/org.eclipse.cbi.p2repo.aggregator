@@ -20,7 +20,7 @@ import org.eclipse.b3.aggregator.EnabledStatusProvider;
 import org.eclipse.b3.aggregator.ExclusionRule;
 import org.eclipse.b3.aggregator.Feature;
 import org.eclipse.b3.aggregator.InfosProvider;
-import org.eclipse.b3.aggregator.InstallableUnitReference;
+import org.eclipse.b3.aggregator.InstallableUnitRequest;
 import org.eclipse.b3.aggregator.LabelProvider;
 import org.eclipse.b3.aggregator.MapRule;
 import org.eclipse.b3.aggregator.MappedRepository;
@@ -132,8 +132,8 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseInstallableUnitReference(InstallableUnitReference object) {
-			return createInstallableUnitReferenceAdapter();
+		public Adapter caseInstallableUnitRequest(InstallableUnitRequest object) {
+			return createInstallableUnitRequestAdapter();
 		}
 
 		@Override
@@ -437,17 +437,18 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.InstallableUnitReference
-	 * <em>Installable Unit Reference</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that
-	 * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
-	 * end-user-doc -->
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.InstallableUnitRequest
+	 * <em>Installable Unit Request</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
 	 * 
 	 * @return the new adapter.
-	 * @see org.eclipse.b3.aggregator.InstallableUnitReference
+	 * @see org.eclipse.b3.aggregator.InstallableUnitRequest
 	 * @generated
 	 */
-	public Adapter createInstallableUnitReferenceAdapter() {
+	public Adapter createInstallableUnitRequestAdapter() {
 		return null;
 	}
 

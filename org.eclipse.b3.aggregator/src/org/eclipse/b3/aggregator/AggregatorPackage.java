@@ -536,24 +536,34 @@ public interface AggregatorPackage extends EPackage {
 		EClass MAP_RULE = eINSTANCE.getMapRule();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.impl.InstallableUnitReferenceImpl
-		 * <em>Installable Unit Reference</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.impl.InstallableUnitRequestImpl
+		 * <em>Installable Unit Request</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * 
-		 * @see org.eclipse.b3.aggregator.impl.InstallableUnitReferenceImpl
-		 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getInstallableUnitReference()
+		 * @see org.eclipse.b3.aggregator.impl.InstallableUnitRequestImpl
+		 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getInstallableUnitRequest()
 		 * @generated
 		 */
-		EClass INSTALLABLE_UNIT_REFERENCE = eINSTANCE.getInstallableUnitReference();
+		EClass INSTALLABLE_UNIT_REQUEST = eINSTANCE.getInstallableUnitRequest();
 
 		/**
-		 * The meta object literal for the '<em><b>Installable Unit</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
-		EReference INSTALLABLE_UNIT_REFERENCE__INSTALLABLE_UNIT = eINSTANCE.getInstallableUnitReference_InstallableUnit();
+		EAttribute INSTALLABLE_UNIT_REQUEST__NAME = eINSTANCE.getInstallableUnitRequest_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Version Range</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute INSTALLABLE_UNIT_REQUEST__VERSION_RANGE = eINSTANCE.getInstallableUnitRequest_VersionRange();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.impl.ExclusionRuleImpl
@@ -1728,6 +1738,98 @@ public interface AggregatorPackage extends EPackage {
 	int STATUS_PROVIDER_FEATURE_COUNT = 1;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.InstallableUnitRequestImpl
+	 * <em>Installable Unit Request</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.aggregator.impl.InstallableUnitRequestImpl
+	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getInstallableUnitRequest()
+	 * @generated
+	 */
+	int INSTALLABLE_UNIT_REQUEST = 14;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNIT_REQUEST__STATUS = STATUS_PROVIDER__STATUS;
+
+	/**
+	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNIT_REQUEST__ERRORS = STATUS_PROVIDER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNIT_REQUEST__WARNINGS = STATUS_PROVIDER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNIT_REQUEST__INFOS = STATUS_PROVIDER_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNIT_REQUEST__DESCRIPTION = STATUS_PROVIDER_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNIT_REQUEST__NAME = STATUS_PROVIDER_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Version Range</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNIT_REQUEST__VERSION_RANGE = STATUS_PROVIDER_FEATURE_COUNT + 5;
+
+	/**
+	 * The number of structural features of the '<em>Installable Unit Request</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNIT_REQUEST_FEATURE_COUNT = STATUS_PROVIDER_FEATURE_COUNT + 6;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.FeatureImpl <em>Feature</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -1789,24 +1891,13 @@ public interface AggregatorPackage extends EPackage {
 	int CUSTOM_CATEGORY = 11;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.InstallableUnitReferenceImpl
-	 * <em>Installable Unit Reference</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.aggregator.impl.InstallableUnitReferenceImpl
-	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getInstallableUnitReference()
-	 * @generated
-	 */
-	int INSTALLABLE_UNIT_REFERENCE = 14;
-
-	/**
 	 * The feature id for the '<em><b>Status</b></em>' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int INSTALLABLE_UNIT_REFERENCE__STATUS = STATUS_PROVIDER__STATUS;
+	int MAPPED_UNIT__STATUS = INSTALLABLE_UNIT_REQUEST__STATUS;
 
 	/**
 	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
@@ -1815,7 +1906,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INSTALLABLE_UNIT_REFERENCE__ERRORS = STATUS_PROVIDER_FEATURE_COUNT + 0;
+	int MAPPED_UNIT__ERRORS = INSTALLABLE_UNIT_REQUEST__ERRORS;
 
 	/**
 	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
@@ -1824,7 +1915,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INSTALLABLE_UNIT_REFERENCE__WARNINGS = STATUS_PROVIDER_FEATURE_COUNT + 1;
+	int MAPPED_UNIT__WARNINGS = INSTALLABLE_UNIT_REQUEST__WARNINGS;
 
 	/**
 	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
@@ -1833,71 +1924,37 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INSTALLABLE_UNIT_REFERENCE__INFOS = STATUS_PROVIDER_FEATURE_COUNT + 2;
+	int MAPPED_UNIT__INFOS = INSTALLABLE_UNIT_REQUEST__INFOS;
 
 	/**
-	 * The feature id for the '<em><b>Installable Unit</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int INSTALLABLE_UNIT_REFERENCE__INSTALLABLE_UNIT = STATUS_PROVIDER_FEATURE_COUNT + 3;
-
-	/**
-	 * The number of structural features of the '<em>Installable Unit Reference</em>' class.
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int INSTALLABLE_UNIT_REFERENCE_FEATURE_COUNT = STATUS_PROVIDER_FEATURE_COUNT + 4;
+	int MAPPED_UNIT__DESCRIPTION = INSTALLABLE_UNIT_REQUEST__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Status</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPED_UNIT__STATUS = INSTALLABLE_UNIT_REFERENCE__STATUS;
+	int MAPPED_UNIT__NAME = INSTALLABLE_UNIT_REQUEST__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Version Range</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPED_UNIT__ERRORS = INSTALLABLE_UNIT_REFERENCE__ERRORS;
-
-	/**
-	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPED_UNIT__WARNINGS = INSTALLABLE_UNIT_REFERENCE__WARNINGS;
-
-	/**
-	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPED_UNIT__INFOS = INSTALLABLE_UNIT_REFERENCE__INFOS;
-
-	/**
-	 * The feature id for the '<em><b>Installable Unit</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPED_UNIT__INSTALLABLE_UNIT = INSTALLABLE_UNIT_REFERENCE__INSTALLABLE_UNIT;
+	int MAPPED_UNIT__VERSION_RANGE = INSTALLABLE_UNIT_REQUEST__VERSION_RANGE;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -1906,7 +1963,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPED_UNIT__ENABLED = INSTALLABLE_UNIT_REFERENCE_FEATURE_COUNT + 0;
+	int MAPPED_UNIT__ENABLED = INSTALLABLE_UNIT_REQUEST_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Valid Configurations</b></em>' reference list.
@@ -1916,7 +1973,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPED_UNIT__VALID_CONFIGURATIONS = INSTALLABLE_UNIT_REFERENCE_FEATURE_COUNT + 1;
+	int MAPPED_UNIT__VALID_CONFIGURATIONS = INSTALLABLE_UNIT_REQUEST_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Mapped Unit</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
@@ -1925,7 +1982,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPED_UNIT_FEATURE_COUNT = INSTALLABLE_UNIT_REFERENCE_FEATURE_COUNT + 2;
+	int MAPPED_UNIT_FEATURE_COUNT = INSTALLABLE_UNIT_REQUEST_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' reference.
@@ -1964,13 +2021,34 @@ public interface AggregatorPackage extends EPackage {
 	int FEATURE__INFOS = MAPPED_UNIT__INFOS;
 
 	/**
-	 * The feature id for the '<em><b>Installable Unit</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE__INSTALLABLE_UNIT = MAPPED_UNIT__INSTALLABLE_UNIT;
+	int FEATURE__DESCRIPTION = MAPPED_UNIT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE__NAME = MAPPED_UNIT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Version Range</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE__VERSION_RANGE = MAPPED_UNIT__VERSION_RANGE;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -2046,13 +2124,34 @@ public interface AggregatorPackage extends EPackage {
 	int BUNDLE__INFOS = MAPPED_UNIT__INFOS;
 
 	/**
-	 * The feature id for the '<em><b>Installable Unit</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int BUNDLE__INSTALLABLE_UNIT = MAPPED_UNIT__INSTALLABLE_UNIT;
+	int BUNDLE__DESCRIPTION = MAPPED_UNIT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE__NAME = MAPPED_UNIT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Version Range</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE__VERSION_RANGE = MAPPED_UNIT__VERSION_RANGE;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -2119,13 +2218,34 @@ public interface AggregatorPackage extends EPackage {
 	int PRODUCT__INFOS = MAPPED_UNIT__INFOS;
 
 	/**
-	 * The feature id for the '<em><b>Installable Unit</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int PRODUCT__INSTALLABLE_UNIT = MAPPED_UNIT__INSTALLABLE_UNIT;
+	int PRODUCT__DESCRIPTION = MAPPED_UNIT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PRODUCT__NAME = MAPPED_UNIT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Version Range</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PRODUCT__VERSION_RANGE = MAPPED_UNIT__VERSION_RANGE;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -2239,13 +2359,34 @@ public interface AggregatorPackage extends EPackage {
 	int CATEGORY__INFOS = MAPPED_UNIT__INFOS;
 
 	/**
-	 * The feature id for the '<em><b>Installable Unit</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY__INSTALLABLE_UNIT = MAPPED_UNIT__INSTALLABLE_UNIT;
+	int CATEGORY__DESCRIPTION = MAPPED_UNIT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__NAME = MAPPED_UNIT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Version Range</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__VERSION_RANGE = MAPPED_UNIT__VERSION_RANGE;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -2383,7 +2524,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAP_RULE__STATUS = INSTALLABLE_UNIT_REFERENCE__STATUS;
+	int MAP_RULE__STATUS = INSTALLABLE_UNIT_REQUEST__STATUS;
 
 	/**
 	 * The feature id for the '<em><b>Errors</b></em>' attribute list.
@@ -2392,7 +2533,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAP_RULE__ERRORS = INSTALLABLE_UNIT_REFERENCE__ERRORS;
+	int MAP_RULE__ERRORS = INSTALLABLE_UNIT_REQUEST__ERRORS;
 
 	/**
 	 * The feature id for the '<em><b>Warnings</b></em>' attribute list.
@@ -2401,7 +2542,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAP_RULE__WARNINGS = INSTALLABLE_UNIT_REFERENCE__WARNINGS;
+	int MAP_RULE__WARNINGS = INSTALLABLE_UNIT_REQUEST__WARNINGS;
 
 	/**
 	 * The feature id for the '<em><b>Infos</b></em>' attribute list.
@@ -2410,16 +2551,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAP_RULE__INFOS = INSTALLABLE_UNIT_REFERENCE__INFOS;
-
-	/**
-	 * The feature id for the '<em><b>Installable Unit</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int MAP_RULE__INSTALLABLE_UNIT = INSTALLABLE_UNIT_REFERENCE__INSTALLABLE_UNIT;
+	int MAP_RULE__INFOS = INSTALLABLE_UNIT_REQUEST__INFOS;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2428,7 +2560,27 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAP_RULE__DESCRIPTION = INSTALLABLE_UNIT_REFERENCE_FEATURE_COUNT + 0;
+	int MAP_RULE__DESCRIPTION = INSTALLABLE_UNIT_REQUEST__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MAP_RULE__NAME = INSTALLABLE_UNIT_REQUEST__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Version Range</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MAP_RULE__VERSION_RANGE = INSTALLABLE_UNIT_REQUEST__VERSION_RANGE;
 
 	/**
 	 * The number of structural features of the '<em>Map Rule</em>' class.
@@ -2437,7 +2589,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAP_RULE_FEATURE_COUNT = INSTALLABLE_UNIT_REFERENCE_FEATURE_COUNT + 1;
+	int MAP_RULE_FEATURE_COUNT = INSTALLABLE_UNIT_REQUEST_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.ExclusionRuleImpl <em>Exclusion Rule</em>}'
@@ -2487,15 +2639,6 @@ public interface AggregatorPackage extends EPackage {
 	int EXCLUSION_RULE__INFOS = MAP_RULE__INFOS;
 
 	/**
-	 * The feature id for the '<em><b>Installable Unit</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int EXCLUSION_RULE__INSTALLABLE_UNIT = MAP_RULE__INSTALLABLE_UNIT;
-
-	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -2503,6 +2646,26 @@ public interface AggregatorPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXCLUSION_RULE__DESCRIPTION = MAP_RULE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EXCLUSION_RULE__NAME = MAP_RULE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Version Range</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EXCLUSION_RULE__VERSION_RANGE = MAP_RULE__VERSION_RANGE;
 
 	/**
 	 * The number of structural features of the '<em>Exclusion Rule</em>' class.
@@ -2562,15 +2725,6 @@ public interface AggregatorPackage extends EPackage {
 	int VALID_CONFIGURATIONS_RULE__INFOS = MAP_RULE__INFOS;
 
 	/**
-	 * The feature id for the '<em><b>Installable Unit</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int VALID_CONFIGURATIONS_RULE__INSTALLABLE_UNIT = MAP_RULE__INSTALLABLE_UNIT;
-
-	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -2578,6 +2732,26 @@ public interface AggregatorPackage extends EPackage {
 	 * @ordered
 	 */
 	int VALID_CONFIGURATIONS_RULE__DESCRIPTION = MAP_RULE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int VALID_CONFIGURATIONS_RULE__NAME = MAP_RULE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Version Range</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int VALID_CONFIGURATIONS_RULE__VERSION_RANGE = MAP_RULE__VERSION_RANGE;
 
 	/**
 	 * The feature id for the '<em><b>Valid Configurations</b></em>' reference list.
@@ -3544,27 +3718,42 @@ public interface AggregatorPackage extends EPackage {
 	EAttribute getInfosProvider_Warnings();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.InstallableUnitReference
-	 * <em>Installable Unit Reference</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.InstallableUnitRequest
+	 * <em>Installable Unit Request</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for class '<em>Installable Unit Reference</em>'.
-	 * @see org.eclipse.b3.aggregator.InstallableUnitReference
+	 * @return the meta object for class '<em>Installable Unit Request</em>'.
+	 * @see org.eclipse.b3.aggregator.InstallableUnitRequest
 	 * @generated
 	 */
-	EClass getInstallableUnitReference();
+	EClass getInstallableUnitRequest();
 
 	/**
-	 * Returns the meta object for the reference '
-	 * {@link org.eclipse.b3.aggregator.InstallableUnitReference#getInstallableUnit <em>Installable Unit</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.aggregator.InstallableUnitRequest#getName
+	 * <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for the reference '<em>Installable Unit</em>'.
-	 * @see org.eclipse.b3.aggregator.InstallableUnitReference#getInstallableUnit()
-	 * @see #getInstallableUnitReference()
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.eclipse.b3.aggregator.InstallableUnitRequest#getName()
+	 * @see #getInstallableUnitRequest()
 	 * @generated
 	 */
-	EReference getInstallableUnitReference_InstallableUnit();
+	EAttribute getInstallableUnitRequest_Name();
+
+	/**
+	 * Returns the meta object for the attribute '
+	 * {@link org.eclipse.b3.aggregator.InstallableUnitRequest#getVersionRange <em>Version Range</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Version Range</em>'.
+	 * @see org.eclipse.b3.aggregator.InstallableUnitRequest#getVersionRange()
+	 * @see #getInstallableUnitRequest()
+	 * @generated
+	 */
+	EAttribute getInstallableUnitRequest_VersionRange();
 
 	/**
 	 * Returns the meta object for enum '{@link org.eclipse.b3.aggregator.InstallableUnitType

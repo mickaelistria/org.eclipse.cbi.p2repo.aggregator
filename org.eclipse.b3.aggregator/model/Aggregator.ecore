@@ -95,7 +95,8 @@
         eType="#//CustomCategory" eOpposite="#//CustomCategory/features"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Bundle" eSuperTypes="#//MappedUnit"/>
-  <eClassifiers xsi:type="ecore:EClass" name="MappedUnit" abstract="true" eSuperTypes="#//InstallableUnitReference #//EnabledStatusProvider">
+  <eClassifiers xsi:type="ecore:EClass" name="MappedUnit" abstract="true" eSuperTypes="#//InstallableUnitRequest #//EnabledStatusProvider">
+    <eOperations name="getRequiredCapability" eType="#//p2/IRequiredCapability"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="validConfigurations" upperBound="-1"
         eType="#//Configuration" eKeys="#//Configuration/operatingSystem #//Configuration/windowSystem #//Configuration/architecture"/>
   </eClassifiers>
@@ -155,16 +156,15 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="enabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MapRule" abstract="true" eSuperTypes="#//InstallableUnitReference #//DescriptionProvider"/>
-  <eClassifiers xsi:type="ecore:EClass" name="InstallableUnitReference" abstract="true"
-      eSuperTypes="#//StatusProvider #//InfosProvider">
-    <eOperations name="getInstallableUnit" eType="#//p2/InstallableUnit">
-      <eParameters name="forceResolve" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    </eOperations>
+  <eClassifiers xsi:type="ecore:EClass" name="MapRule" abstract="true" eSuperTypes="#//InstallableUnitRequest #//DescriptionProvider"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InstallableUnitRequest" abstract="true"
+      eSuperTypes="#//StatusProvider #//InfosProvider #//DescriptionProvider">
     <eOperations name="isMappedRepositoryBroken" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eOperations name="isBranchEnabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="installableUnit" eType="#//p2/InstallableUnit"
-        eKeys="#//p2/IInstallableUnit/id #//p2/IInstallableUnit/version"/>
+    <eOperations name="resolveAsSingleton" eType="#//p2/IInstallableUnit"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="versionRange" eType="#//p2/VersionRange"
+        defaultValueLiteral="0.0.0"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExclusionRule" eSuperTypes="#//MapRule"/>
   <eClassifiers xsi:type="ecore:EClass" name="ValidConfigurationsRule" eSuperTypes="#//MapRule">
@@ -173,9 +173,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MetadataRepositoryReference" eSuperTypes="#//EnabledStatusProvider #//StatusProvider #//InfosProvider">
     <eOperations name="getAggregator" eType="#//Aggregator"/>
-    <eOperations name="getMetadataRepository" eType="#//p2/MetadataRepository">
-      <eParameters name="forceResolve" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    </eOperations>
     <eOperations name="isBranchEnabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eOperations name="getResolvedLocation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eOperations name="startRepositoryLoad">
@@ -183,7 +180,8 @@
     </eOperations>
     <eOperations name="cancelRepositoryLoad"/>
     <eOperations name="onRepositoryLoad"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="metadataRepository" eType="#//p2/MetadataRepository"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="metadataRepository" eType="#//p2/MetadataRepository"
+        transient="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nature" lowerBound="1"

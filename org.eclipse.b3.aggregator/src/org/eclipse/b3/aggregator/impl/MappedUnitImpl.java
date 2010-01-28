@@ -6,18 +6,25 @@
  */
 package org.eclipse.b3.aggregator.impl;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.Configuration;
 import org.eclipse.b3.aggregator.EnabledStatusProvider;
 import org.eclipse.b3.aggregator.MappedUnit;
-import org.eclipse.b3.aggregator.p2.InstallableUnit;
+import org.eclipse.buckminster.osgi.filter.Filter;
+import org.eclipse.buckminster.osgi.filter.FilterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.equinox.internal.provisional.p2.metadata.IInstallableUnit;
+import org.eclipse.equinox.internal.provisional.p2.metadata.IRequiredCapability;
+import org.eclipse.equinox.internal.provisional.p2.metadata.MetadataFactory;
+import org.osgi.framework.InvalidSyntaxException;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Mapped Unit</b></em>'. <!-- end-user-doc -->
@@ -31,7 +38,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * 
  * @generated
  */
-public abstract class MappedUnitImpl extends InstallableUnitReferenceImpl implements MappedUnit {
+public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implements MappedUnit {
 	/**
 	 * The default value of the '{@link #isEnabled() <em>Enabled</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
@@ -53,6 +60,45 @@ public abstract class MappedUnitImpl extends InstallableUnitReferenceImpl implem
 	 * @ordered
 	 */
 	protected static final int ENABLED_EFLAG = 1 << 0;
+
+	private static Filter createFilter(List<Configuration> configs) {
+		List<Configuration> enabledConfigs = getEnabledConfigs(configs);
+
+		if(!(enabledConfigs == null || enabledConfigs.isEmpty())) {
+			StringBuilder filterBld = new StringBuilder();
+			if(enabledConfigs.size() > 1)
+				filterBld.append("(|");
+
+			for(Configuration config : enabledConfigs) {
+				filterBld.append("(&(osgi.os=");
+				filterBld.append(config.getOperatingSystem().getLiteral());
+				filterBld.append(")(osgi.ws=");
+				filterBld.append(config.getWindowSystem().getLiteral());
+				filterBld.append(")(osgi.arch=");
+				filterBld.append(config.getArchitecture().getLiteral());
+				filterBld.append("))");
+			}
+			if(enabledConfigs.size() > 1)
+				filterBld.append(')');
+			try {
+				return FilterFactory.newInstance(filterBld.toString());
+			}
+			catch(InvalidSyntaxException e) {
+				throw new RuntimeException(e);
+			}
+		}
+		return null;
+	}
+
+	private static List<Configuration> getEnabledConfigs(List<Configuration> configs) {
+		List<Configuration> enabledConfigs = new ArrayList<Configuration>();
+
+		for(Configuration config : configs)
+			if(config.isEnabled())
+				enabledConfigs.add(config);
+
+		return enabledConfigs;
+	}
 
 	/**
 	 * The cached value of the '{@link #getValidConfigurations() <em>Valid Configurations</em>}' reference list. <!--
@@ -180,11 +226,19 @@ public abstract class MappedUnitImpl extends InstallableUnitReferenceImpl implem
 		super.eUnset(featureID);
 	}
 
-	@Override
-	public InstallableUnit getInstallableUnit() {
-		return isBranchEnabled()
-				? super.getInstallableUnit()
-				: null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public IRequiredCapability getRequiredCapability() {
+		// TODO Cache calculated value
+		Filter filter = createFilter(getValidConfigurations());
+		return MetadataFactory.createRequiredCapability(IInstallableUnit.NAMESPACE_IU_ID, getName(), getVersionRange(),
+				filter != null
+						? filter.toString()
+						: null, false, false);
 	}
 
 	/**

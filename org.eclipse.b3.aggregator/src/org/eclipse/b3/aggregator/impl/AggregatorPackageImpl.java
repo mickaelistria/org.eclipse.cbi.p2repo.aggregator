@@ -25,7 +25,7 @@ import org.eclipse.b3.aggregator.EnabledStatusProvider;
 import org.eclipse.b3.aggregator.ExclusionRule;
 import org.eclipse.b3.aggregator.Feature;
 import org.eclipse.b3.aggregator.InfosProvider;
-import org.eclipse.b3.aggregator.InstallableUnitReference;
+import org.eclipse.b3.aggregator.InstallableUnitRequest;
 import org.eclipse.b3.aggregator.InstallableUnitType;
 import org.eclipse.b3.aggregator.LabelProvider;
 import org.eclipse.b3.aggregator.MapRule;
@@ -217,11 +217,12 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	private EClass mapRuleEClass = null;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	private EClass installableUnitReferenceEClass = null;
+	private EClass installableUnitRequestEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -482,8 +483,9 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 		mapRuleEClass = createEClass(MAP_RULE);
 
-		installableUnitReferenceEClass = createEClass(INSTALLABLE_UNIT_REFERENCE);
-		createEReference(installableUnitReferenceEClass, INSTALLABLE_UNIT_REFERENCE__INSTALLABLE_UNIT);
+		installableUnitRequestEClass = createEClass(INSTALLABLE_UNIT_REQUEST);
+		createEAttribute(installableUnitRequestEClass, INSTALLABLE_UNIT_REQUEST__NAME);
+		createEAttribute(installableUnitRequestEClass, INSTALLABLE_UNIT_REQUEST__VERSION_RANGE);
 
 		exclusionRuleEClass = createEClass(EXCLUSION_RULE);
 
@@ -1009,21 +1011,33 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	public EClass getInstallableUnitReference() {
-		return installableUnitReferenceEClass;
+	public EClass getInstallableUnitRequest() {
+		return installableUnitRequestEClass;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	public EReference getInstallableUnitReference_InstallableUnit() {
-		return (EReference) installableUnitReferenceEClass.getEStructuralFeatures().get(0);
+	public EAttribute getInstallableUnitRequest_Name() {
+		return (EAttribute) installableUnitRequestEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getInstallableUnitRequest_VersionRange() {
+		return (EAttribute) installableUnitRequestEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1440,7 +1454,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		contributionEClass.getESuperTypes().add(this.getInfosProvider());
 		featureEClass.getESuperTypes().add(this.getMappedUnit());
 		bundleEClass.getESuperTypes().add(this.getMappedUnit());
-		mappedUnitEClass.getESuperTypes().add(this.getInstallableUnitReference());
+		mappedUnitEClass.getESuperTypes().add(this.getInstallableUnitRequest());
 		mappedUnitEClass.getESuperTypes().add(this.getEnabledStatusProvider());
 		productEClass.getESuperTypes().add(this.getMappedUnit());
 		EGenericType g1 = createEGenericType(this.getComparable());
@@ -1450,10 +1464,11 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		categoryEClass.getESuperTypes().add(this.getMappedUnit());
 		customCategoryEClass.getESuperTypes().add(this.getStatusProvider());
 		customCategoryEClass.getESuperTypes().add(this.getInfosProvider());
-		mapRuleEClass.getESuperTypes().add(this.getInstallableUnitReference());
+		mapRuleEClass.getESuperTypes().add(this.getInstallableUnitRequest());
 		mapRuleEClass.getESuperTypes().add(this.getDescriptionProvider());
-		installableUnitReferenceEClass.getESuperTypes().add(this.getStatusProvider());
-		installableUnitReferenceEClass.getESuperTypes().add(this.getInfosProvider());
+		installableUnitRequestEClass.getESuperTypes().add(this.getStatusProvider());
+		installableUnitRequestEClass.getESuperTypes().add(this.getInfosProvider());
+		installableUnitRequestEClass.getESuperTypes().add(this.getDescriptionProvider());
 		exclusionRuleEClass.getESuperTypes().add(this.getMapRule());
 		validConfigurationsRuleEClass.getESuperTypes().add(this.getMapRule());
 		metadataRepositoryReferenceEClass.getESuperTypes().add(this.getEnabledStatusProvider());
@@ -1610,6 +1625,9 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		getMappedUnit_ValidConfigurations().getEKeys().add(this.getConfiguration_WindowSystem());
 		getMappedUnit_ValidConfigurations().getEKeys().add(this.getConfiguration_Architecture());
 
+		addEOperation(mappedUnitEClass, theP2Package.getIRequiredCapability(), "getRequiredCapability", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+
 		initEClass(productEClass, Product.class, "Product", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1645,23 +1663,23 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 		initEClass(mapRuleEClass, MapRule.class, "MapRule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(installableUnitReferenceEClass, InstallableUnitReference.class, "InstallableUnitReference",
-				IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getInstallableUnitReference_InstallableUnit(), theP2Package.getInstallableUnit(), null,
-				"installableUnit", null, 0, 1, InstallableUnitReference.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getInstallableUnitReference_InstallableUnit().getEKeys().add(theP2Package.getIInstallableUnit_Id());
-		getInstallableUnitReference_InstallableUnit().getEKeys().add(theP2Package.getIInstallableUnit_Version());
+		initEClass(installableUnitRequestEClass, InstallableUnitRequest.class, "InstallableUnitRequest", IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getInstallableUnitRequest_Name(), ecorePackage.getEString(), "name", null, 0, 1,
+				InstallableUnitRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInstallableUnitRequest_VersionRange(), theP2Package.getVersionRange(), "versionRange",
+				"0.0.0", 0, 1, InstallableUnitRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = addEOperation(installableUnitReferenceEClass, theP2Package.getInstallableUnit(), "getInstallableUnit", 0,
-				1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEBoolean(), "forceResolve", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		addEOperation(installableUnitReferenceEClass, ecorePackage.getEBoolean(), "isMappedRepositoryBroken", 0, 1,
+		addEOperation(installableUnitRequestEClass, ecorePackage.getEBoolean(), "isMappedRepositoryBroken", 0, 1,
 				IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(installableUnitReferenceEClass, ecorePackage.getEBoolean(), "isBranchEnabled", 0, 1, IS_UNIQUE,
+		addEOperation(installableUnitRequestEClass, ecorePackage.getEBoolean(), "isBranchEnabled", 0, 1, IS_UNIQUE,
 				IS_ORDERED);
+
+		addEOperation(installableUnitRequestEClass, theP2Package.getIInstallableUnit(), "resolveAsSingleton", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
 
 		initEClass(exclusionRuleEClass, ExclusionRule.class, "ExclusionRule", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -1675,7 +1693,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		initEClass(metadataRepositoryReferenceEClass, MetadataRepositoryReference.class, "MetadataRepositoryReference",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMetadataRepositoryReference_MetadataRepository(), theP2Package.getMetadataRepository(), null,
-				"metadataRepository", null, 0, 1, MetadataRepositoryReference.class, !IS_TRANSIENT, !IS_VOLATILE,
+				"metadataRepository", null, 0, 1, MetadataRepositoryReference.class, IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMetadataRepositoryReference_Location(), ecorePackage.getEString(), "location", null, 1, 1,
 				MetadataRepositoryReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
@@ -1686,10 +1704,6 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 		addEOperation(metadataRepositoryReferenceEClass, this.getAggregator(), "getAggregator", 0, 1, IS_UNIQUE,
 				IS_ORDERED);
-
-		op = addEOperation(metadataRepositoryReferenceEClass, theP2Package.getMetadataRepository(),
-				"getMetadataRepository", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEBoolean(), "forceResolve", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(metadataRepositoryReferenceEClass, ecorePackage.getEBoolean(), "isBranchEnabled", 0, 1,
 				IS_UNIQUE, IS_ORDERED);

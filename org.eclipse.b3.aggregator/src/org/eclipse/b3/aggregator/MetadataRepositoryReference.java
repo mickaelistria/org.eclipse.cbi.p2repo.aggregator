@@ -74,18 +74,10 @@ public interface MetadataRepositoryReference extends EnabledStatusProvider, Stat
 	 * @return the value of the '<em>Metadata Repository</em>' reference.
 	 * @see #setMetadataRepository(MetadataRepository)
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getMetadataRepositoryReference_MetadataRepository()
-	 * @model
+	 * @model transient="true"
 	 * @generated
 	 */
 	MetadataRepository getMetadataRepository();
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @model
-	 * @generated
-	 */
-	MetadataRepository getMetadataRepository(boolean forceResolve);
 
 	/**
 	 * Returns the value of the '<em><b>Nature</b></em>' attribute. The default value is <code>"p2"</code>. <!--

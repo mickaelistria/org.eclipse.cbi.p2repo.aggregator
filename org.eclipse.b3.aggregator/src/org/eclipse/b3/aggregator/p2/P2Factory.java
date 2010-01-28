@@ -7,7 +7,6 @@
 package org.eclipse.b3.aggregator.p2;
 
 import org.eclipse.emf.ecore.EFactory;
-import org.eclipse.equinox.internal.provisional.p2.metadata.VersionedId;
 
 /**
  * <!-- begin-user-doc --> The <b>Factory</b> for the model. It provides a create method for each non-abstract class of
@@ -62,14 +61,6 @@ public interface P2Factory extends EFactory {
 	InstallableUnitFragment createInstallableUnitFragment();
 
 	/**
-	 * Returns a new proxy of class '<em>Installable Unit</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return a new proxy of class '<em>Installable Unit</em>'.
-	 * @generated NOT
-	 */
-	InstallableUnit createInstallableUnitProxy(String repoNature, String repoLocation, VersionedId iuVN);
-
-	/**
 	 * Returns a new object of class '<em>License</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -86,6 +77,16 @@ public interface P2Factory extends EFactory {
 	 * @generated
 	 */
 	MetadataRepository createMetadataRepository();
+
+	/**
+	 * Creates a proxy to the specified mdr
+	 * 
+	 * @param repoNature
+	 * @param repoLocation
+	 * @return
+	 * @generated NOT
+	 */
+	MetadataRepository createMetadataRepositoryProxy(String repoNature, String repoLocation);
 
 	/**
 	 * Returns a new object of class '<em>Provided Capability</em>'.

@@ -7,8 +7,6 @@
 package org.eclipse.b3.aggregator.impl;
 
 import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
 
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorFactory;
@@ -18,17 +16,12 @@ import org.eclipse.b3.aggregator.Category;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.DescriptionProvider;
 import org.eclipse.b3.aggregator.Feature;
-import org.eclipse.b3.aggregator.InstallableUnitReference;
 import org.eclipse.b3.aggregator.MapRule;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.MappedUnit;
 import org.eclipse.b3.aggregator.Product;
 import org.eclipse.b3.aggregator.Status;
 import org.eclipse.b3.aggregator.StatusCode;
-import org.eclipse.b3.aggregator.p2.InstallableUnit;
-import org.eclipse.b3.aggregator.p2.MetadataRepository;
-import org.eclipse.b3.aggregator.p2.P2Factory;
-import org.eclipse.b3.aggregator.util.InstallableUnitUtils;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -595,29 +588,6 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	 */
 	public boolean isMirrorArtifacts() {
 		return (eFlags & MIRROR_ARTIFACTS_EFLAG) != 0;
-	}
-
-	@Override
-	synchronized public void onRepositoryLoad() {
-		Set<InstallableUnitReference> iuRefs = new HashSet<InstallableUnitReference>();
-		iuRefs.addAll(getUnits(false));
-		iuRefs.addAll(getMapRules());
-
-		MetadataRepository repo = getMetadataRepository();
-
-		for(InstallableUnitReference iuRef : iuRefs) {
-			InstallableUnit oldIU = iuRef.getInstallableUnit(false);
-			InstallableUnit newIU = null;
-
-			if(oldIU != null)
-				newIU = P2Factory.eINSTANCE.createInstallableUnitProxy(getNature(), repo != null
-						? repo.getLocation().toString()
-						: getLocation(), InstallableUnitUtils.getVersionedName(oldIU));
-
-			iuRef.setInstallableUnit(newIU);
-		}
-
-		super.onRepositoryLoad();
 	}
 
 	public void removeUnit(MappedUnit unit) {

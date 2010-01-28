@@ -7,6 +7,7 @@
 package org.eclipse.b3.aggregator;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.equinox.internal.provisional.p2.metadata.IRequiredCapability;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Mapped Unit</b></em>'.
@@ -24,7 +25,16 @@ import org.eclipse.emf.common.util.EList;
  * @model abstract="true"
  * @generated
  */
-public interface MappedUnit extends InstallableUnitReference, EnabledStatusProvider {
+public interface MappedUnit extends InstallableUnitRequest, EnabledStatusProvider {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @model kind="operation" type="org.eclipse.b3.aggregator.p2.IRequiredCapability"
+	 * @generated
+	 */
+	IRequiredCapability getRequiredCapability();
+
 	/**
 	 * Returns the value of the '<em><b>Valid Configurations</b></em>' reference list.
 	 * The list contents are of type {@link org.eclipse.b3.aggregator.Configuration}.
