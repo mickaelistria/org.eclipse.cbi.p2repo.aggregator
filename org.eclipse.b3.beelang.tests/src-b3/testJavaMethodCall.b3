@@ -4,6 +4,7 @@ import java.lang.Integer;
 import java.lang.Math;
 import java.lang.StringBuilder;
 import java.lang.String;
+import java.lang.ProcessBuilder;
 
 function Object main(List argv) {
 	testSubstring1();
@@ -32,6 +33,9 @@ function testMathMax() {
 }
 function testMathSin() {
 	assertEquals("0 == Math.sin(0)", 0, Math.sin(0));
+}
+function testNonObjectVararg() {
+	assertEquals("[\"java\", \"Test\"] == new ProcessBuilder().command(\"java\", \"Test\").command()", ["java", "Test"], new ProcessBuilder().command("java", "Test").command());
 }
 function testStaticStringFormat() {
 	assertEquals("static varargs call to java", "ab", String.format("%s%s", "a", "b"));
