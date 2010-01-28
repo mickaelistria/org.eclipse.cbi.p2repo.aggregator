@@ -58,13 +58,16 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.ui.MarkerHelper;
+import org.eclipse.emf.common.ui.celleditor.ExtendedDialogCellEditor;
 import org.eclipse.emf.common.ui.editor.ProblemEditorPart;
 import org.eclipse.emf.common.ui.viewer.IViewerProvider;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -78,6 +81,8 @@ import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemFontProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
+import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProvider;
@@ -89,6 +94,8 @@ import org.eclipse.emf.edit.ui.dnd.LocalTransfer;
 import org.eclipse.emf.edit.ui.dnd.ViewerDragAdapter;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.emf.edit.ui.provider.PropertyDescriptor;
+import org.eclipse.emf.edit.ui.provider.PropertySource;
 import org.eclipse.emf.edit.ui.provider.UnwrappingSelectionProvider;
 import org.eclipse.emf.edit.ui.util.EditUIMarkerHelper;
 import org.eclipse.emf.edit.ui.util.EditUIUtil;
@@ -102,8 +109,10 @@ import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
+import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
+import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
@@ -125,6 +134,7 @@ import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.MouseMoveListener;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeItem;
@@ -145,7 +155,9 @@ import org.eclipse.ui.part.MultiPageEditorPart;
 import org.eclipse.ui.views.contentoutline.ContentOutline;
 import org.eclipse.ui.views.contentoutline.ContentOutlinePage;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
+import org.eclipse.ui.views.properties.IPropertyDescriptor;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
+import org.eclipse.ui.views.properties.IPropertySource;
 import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 
@@ -1310,7 +1322,42 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 					AggregatorEditor.this.setFocus();
 				}
 			};
-			propertySheetPage.setPropertySourceProvider(new AdapterFactoryContentProvider(adapterFactory));
+			propertySheetPage.setPropertySourceProvider(new AdapterFactoryContentProvider(adapterFactory) {
+				protected IPropertySource createPropertySource(Object object, IItemPropertySource itemPropertySource) {
+					return new PropertySource(object, itemPropertySource) {
+						protected IPropertyDescriptor createPropertyDescriptor(
+								IItemPropertyDescriptor itemPropertyDescriptor) {
+							return new PropertyDescriptor(object, itemPropertyDescriptor) {
+								public CellEditor createPropertyEditor(Composite composite) {
+									if(!itemPropertyDescriptor.canSetProperty(object)) {
+										return null;
+									}
+
+									final EStructuralFeature feature = (EStructuralFeature) itemPropertyDescriptor.getFeature(object);
+									final EClassifier eType = feature.getEType();
+
+									if(VersionRange.class.isAssignableFrom(eType.getInstanceClass())) {
+										final ILabelProvider editLabelProvider = getEditLabelProvider();
+
+										return new ExtendedDialogCellEditor(composite, editLabelProvider) {
+											@Override
+											protected Object openDialogBox(Control cellEditorWindow) {
+												VersionRangeEditorDialog dialog = new VersionRangeEditorDialog(
+														cellEditorWindow.getShell(), editLabelProvider, doGetValue());
+												dialog.open();
+												return dialog.getResult();
+											}
+										};
+									}
+
+									return super.createPropertyEditor(composite);
+								}
+							};
+						}
+
+					};
+				}
+			});
 		}
 
 		return propertySheetPage;
