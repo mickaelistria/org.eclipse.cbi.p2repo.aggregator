@@ -71,6 +71,24 @@ public interface B3BuildFactory extends EFactory {
 	BeeModel createBeeModel();
 
 	/**
+	 * Returns a new object of class '<em>Bee Hive</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Bee Hive</em>'.
+	 * @generated
+	 */
+	BeeHive createBeeHive();
+
+	/**
+	 * Returns a new object of class '<em>Resolution Info</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Resolution Info</em>'.
+	 * @generated
+	 */
+	ResolutionInfo createResolutionInfo();
+
+	/**
 	 * Returns a new object of class '<em>Versioned Capability</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

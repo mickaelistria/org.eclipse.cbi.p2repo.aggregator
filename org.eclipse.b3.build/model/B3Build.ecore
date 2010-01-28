@@ -262,4 +262,22 @@
         eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BPropertySet"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BeeHive">
+    <eOperations name="getResolvedCapabilityContainer" eType="#//IProvidedCapabilityContainer">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Returns the {@link IProvidedCapabilityContainer} that was the result of resolving the {@link RequiredCapability} referenced by the&#xD;requiredCapability parameter. The returned capability container is one of {@link BuildUnit} or {@link Builder}. Naturally, to get the actual capability from a builder, the result must first be built.&#xD;"/>
+      </eAnnotations>
+      <eParameters name="requiredCapability" eType="#//RequiredCapability"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="beeModels" upperBound="-1"
+        eType="#//BeeModel"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//BeeHive"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="resolutions">
+      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+        <eTypeArguments eClassifier="#//RequiredCapability"/>
+        <eTypeArguments eClassifier="#//Capability"/>
+      </eGenericType>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ResolutionInfo"/>
 </ecore:EPackage>

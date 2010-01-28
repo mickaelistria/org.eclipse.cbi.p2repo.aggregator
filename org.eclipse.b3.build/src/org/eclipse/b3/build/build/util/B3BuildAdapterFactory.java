@@ -253,6 +253,14 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 				return createBeeModelAdapter();
 			}
 			@Override
+			public Adapter caseBeeHive(BeeHive object) {
+				return createBeeHiveAdapter();
+			}
+			@Override
+			public Adapter caseResolutionInfo(ResolutionInfo object) {
+				return createResolutionInfoAdapter();
+			}
+			@Override
 			public Adapter caseBFunctionContainer(BFunctionContainer object) {
 				return createBFunctionContainerAdapter();
 			}
@@ -393,6 +401,34 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBeeModelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.BeeHive <em>Bee Hive</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.BeeHive
+	 * @generated
+	 */
+	public Adapter createBeeHiveAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.ResolutionInfo <em>Resolution Info</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.ResolutionInfo
+	 * @generated
+	 */
+	public Adapter createResolutionInfoAdapter() {
 		return null;
 	}
 

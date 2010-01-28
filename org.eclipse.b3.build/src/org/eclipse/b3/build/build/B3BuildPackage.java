@@ -2860,6 +2860,71 @@ public interface B3BuildPackage extends EPackage {
 	int BEE_MODEL_FEATURE_COUNT = 5;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BeeHiveImpl <em>Bee Hive</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.BeeHiveImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBeeHive()
+	 * @generated
+	 */
+	int BEE_HIVE = 42;
+
+	/**
+	 * The feature id for the '<em><b>Bee Models</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEE_HIVE__BEE_MODELS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEE_HIVE__PARENT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Resolutions</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEE_HIVE__RESOLUTIONS = 2;
+
+	/**
+	 * The number of structural features of the '<em>Bee Hive</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEE_HIVE_FEATURE_COUNT = 3;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ResolutionInfoImpl <em>Resolution Info</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.ResolutionInfoImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getResolutionInfo()
+	 * @generated
+	 */
+	int RESOLUTION_INFO = 43;
+
+	/**
+	 * The number of structural features of the '<em>Resolution Info</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOLUTION_INFO_FEATURE_COUNT = 0;
+
+	/**
 	 * The meta object id for the '<em>Version Range</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2867,7 +2932,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getVersionRange()
 	 * @generated
 	 */
-	int VERSION_RANGE = 42;
+	int VERSION_RANGE = 44;
 
 	/**
 	 * The meta object id for the '<em>Version</em>' data type.
@@ -2877,7 +2942,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getVersion()
 	 * @generated
 	 */
-	int VERSION = 43;
+	int VERSION = 45;
 
 	/**
 	 * The meta object id for the '<em>URI</em>' data type.
@@ -2887,7 +2952,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getURI()
 	 * @generated
 	 */
-	int URI = 44;
+	int URI = 46;
 
 
 	/**
@@ -3191,6 +3256,59 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBeeModel_PropertySets();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BeeHive <em>Bee Hive</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Bee Hive</em>'.
+	 * @see org.eclipse.b3.build.build.BeeHive
+	 * @generated
+	 */
+	EClass getBeeHive();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.eclipse.b3.build.build.BeeHive#getBeeModels <em>Bee Models</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Bee Models</em>'.
+	 * @see org.eclipse.b3.build.build.BeeHive#getBeeModels()
+	 * @see #getBeeHive()
+	 * @generated
+	 */
+	EReference getBeeHive_BeeModels();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.build.build.BeeHive#getParent <em>Parent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Parent</em>'.
+	 * @see org.eclipse.b3.build.build.BeeHive#getParent()
+	 * @see #getBeeHive()
+	 * @generated
+	 */
+	EReference getBeeHive_Parent();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BeeHive#getResolutions <em>Resolutions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Resolutions</em>'.
+	 * @see org.eclipse.b3.build.build.BeeHive#getResolutions()
+	 * @see #getBeeHive()
+	 * @generated
+	 */
+	EAttribute getBeeHive_Resolutions();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.ResolutionInfo <em>Resolution Info</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Resolution Info</em>'.
+	 * @see org.eclipse.b3.build.build.ResolutionInfo
+	 * @generated
+	 */
+	EClass getResolutionInfo();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.VersionedCapability <em>Versioned Capability</em>}'.
@@ -4502,6 +4620,50 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BEE_MODEL__PROPERTY_SETS = eINSTANCE.getBeeModel_PropertySets();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BeeHiveImpl <em>Bee Hive</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.impl.BeeHiveImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBeeHive()
+		 * @generated
+		 */
+		EClass BEE_HIVE = eINSTANCE.getBeeHive();
+
+		/**
+		 * The meta object literal for the '<em><b>Bee Models</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BEE_HIVE__BEE_MODELS = eINSTANCE.getBeeHive_BeeModels();
+
+		/**
+		 * The meta object literal for the '<em><b>Parent</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BEE_HIVE__PARENT = eINSTANCE.getBeeHive_Parent();
+
+		/**
+		 * The meta object literal for the '<em><b>Resolutions</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BEE_HIVE__RESOLUTIONS = eINSTANCE.getBeeHive_Resolutions();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.ResolutionInfoImpl <em>Resolution Info</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.impl.ResolutionInfoImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getResolutionInfo()
+		 * @generated
+		 */
+		EClass RESOLUTION_INFO = eINSTANCE.getResolutionInfo();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.VersionedCapabilityImpl <em>Versioned Capability</em>}' class.
