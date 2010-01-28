@@ -12,7 +12,7 @@ import java.util.List;
 
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.Feature;
-import org.eclipse.b3.aggregator.InstallableUnitReference;
+import org.eclipse.b3.aggregator.InstallableUnitRequest;
 import org.eclipse.b3.aggregator.InstallableUnitType;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.p2.InstallableUnit;
@@ -133,8 +133,8 @@ public class FeatureItemProvider extends MappedUnitItemProvider implements IEdit
 	}
 
 	@Override
-	protected List<? extends InstallableUnitReference> getContainerChildren(MappedRepository container) {
-		List<InstallableUnitReference> featureRefs = new ArrayList<InstallableUnitReference>();
+	protected List<? extends InstallableUnitRequest> getContainerChildren(MappedRepository container) {
+		List<InstallableUnitRequest> featureRefs = new ArrayList<InstallableUnitRequest>();
 		featureRefs.addAll(container.getFeatures());
 		featureRefs.addAll(container.getMapRules());
 

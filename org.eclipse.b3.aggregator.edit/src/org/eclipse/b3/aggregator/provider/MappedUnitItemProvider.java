@@ -14,9 +14,7 @@ import java.util.Set;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.CustomCategory;
 import org.eclipse.b3.aggregator.Feature;
-import org.eclipse.b3.aggregator.InstallableUnitReference;
 import org.eclipse.b3.aggregator.MappedUnit;
-import org.eclipse.b3.aggregator.p2.InstallableUnit;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -40,16 +38,11 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * 
  * @generated
  */
-public class MappedUnitItemProvider extends InstallableUnitReferenceItemProvider implements IEditingDomainItemProvider,
+public class MappedUnitItemProvider extends InstallableUnitRequestItemProvider implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
 		IItemColorProvider, IItemFontProvider
 
 {
-	protected static InstallableUnit getInstallableUnit(InstallableUnitReference iuRef) {
-		MappedUnit mu = (MappedUnit) iuRef;
-		return mu.getInstallableUnit(mu.isBranchEnabled() && !mu.isMappedRepositoryBroken());
-	}
-
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -85,8 +78,10 @@ public class MappedUnitItemProvider extends InstallableUnitReferenceItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		MappedUnit mappedUnit = (MappedUnit) object;
-		return getString("_UI_MappedUnit_type") + " " + mappedUnit.isEnabled();
+		String label = ((MappedUnit) object).getName();
+		return label == null || label.length() == 0
+				? getString("_UI_MappedUnit_type")
+				: getString("_UI_MappedUnit_type") + " " + label;
 	}
 
 	/**
@@ -104,7 +99,8 @@ public class MappedUnitItemProvider extends InstallableUnitReferenceItemProvider
 			updateContent = true;
 			updateLabel = false;
 			// no break here, it is intentional
-		case AggregatorPackage.MAPPED_UNIT__INSTALLABLE_UNIT:
+		case AggregatorPackage.MAPPED_UNIT__NAME:
+		case AggregatorPackage.MAPPED_UNIT__VERSION_RANGE:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), updateContent,
 					updateLabel));
 

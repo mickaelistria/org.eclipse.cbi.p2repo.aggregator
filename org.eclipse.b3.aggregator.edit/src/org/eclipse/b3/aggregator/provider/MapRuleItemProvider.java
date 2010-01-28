@@ -17,7 +17,7 @@ import java.util.Set;
 
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.ExclusionRule;
-import org.eclipse.b3.aggregator.InstallableUnitReference;
+import org.eclipse.b3.aggregator.InstallableUnitRequest;
 import org.eclipse.b3.aggregator.MapRule;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.p2.InstallableUnit;
@@ -25,7 +25,6 @@ import org.eclipse.b3.aggregator.util.InstallableUnitUtils;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemColorProvider;
 import org.eclipse.emf.edit.provider.IItemFontProvider;
@@ -34,7 +33,6 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.equinox.internal.provisional.p2.metadata.query.MatchQuery;
 import org.eclipse.equinox.internal.provisional.p2.metadata.query.Query;
@@ -45,7 +43,7 @@ import org.eclipse.equinox.internal.provisional.p2.metadata.query.Query;
  * 
  * @generated
  */
-public class MapRuleItemProvider extends InstallableUnitReferenceItemProvider implements IEditingDomainItemProvider,
+public class MapRuleItemProvider extends InstallableUnitRequestItemProvider implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
 		IItemColorProvider, IItemFontProvider {
 	/**
@@ -69,7 +67,6 @@ public class MapRuleItemProvider extends InstallableUnitReferenceItemProvider im
 		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addDescriptionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -82,7 +79,7 @@ public class MapRuleItemProvider extends InstallableUnitReferenceItemProvider im
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = crop(((MapRule) object).getDescription());
+		String label = ((MapRule) object).getName();
 		return label == null || label.length() == 0
 				? getString("_UI_MapRule_type")
 				: getString("_UI_MapRule_type") + " " + label;
@@ -100,7 +97,8 @@ public class MapRuleItemProvider extends InstallableUnitReferenceItemProvider im
 			return;
 		MapRule notifier = ((MapRule) notification.getNotifier());
 		switch(notification.getFeatureID(ExclusionRule.class)) {
-		case AggregatorPackage.EXCLUSION_RULE__INSTALLABLE_UNIT:
+		case AggregatorPackage.EXCLUSION_RULE__NAME:
+		case AggregatorPackage.EXCLUSION_RULE__VERSION_RANGE:
 			fireNotifyChanged(new ViewerNotification(notification, notifier, true, false));
 
 			Set<Object> affectedNodes = new HashSet<Object>();
@@ -128,28 +126,7 @@ public class MapRuleItemProvider extends InstallableUnitReferenceItemProvider im
 	 */
 	public void notifyChangedGen(Notification notification) {
 		updateChildren(notification);
-
-		switch(notification.getFeatureID(MapRule.class)) {
-		case AggregatorPackage.MAP_RULE__DESCRIPTION:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
-		}
 		super.notifyChanged(notification);
-	}
-
-	/**
-	 * This adds a property descriptor for the Description feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addDescriptionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_DescriptionProvider_description_feature"), getString(
-						"_UI_PropertyDescriptor_description", "_UI_DescriptionProvider_description_feature",
-						"_UI_DescriptionProvider_type"), AggregatorPackage.Literals.DESCRIPTION_PROVIDER__DESCRIPTION,
-				true, true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -165,8 +142,8 @@ public class MapRuleItemProvider extends InstallableUnitReferenceItemProvider im
 	}
 
 	@Override
-	protected List<? extends InstallableUnitReference> getContainerChildren(MappedRepository container) {
-		List<InstallableUnitReference> featureRefs = new ArrayList<InstallableUnitReference>();
+	protected List<? extends InstallableUnitRequest> getContainerChildren(MappedRepository container) {
+		List<InstallableUnitRequest> featureRefs = new ArrayList<InstallableUnitRequest>();
 		featureRefs.addAll(container.getMapRules());
 		featureRefs.addAll(container.getFeatures());
 

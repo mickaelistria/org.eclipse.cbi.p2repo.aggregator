@@ -9,7 +9,7 @@ package org.eclipse.b3.aggregator.provider;
 import java.util.Collection;
 import java.util.List;
 
-import org.eclipse.b3.aggregator.InstallableUnitReference;
+import org.eclipse.b3.aggregator.InstallableUnitRequest;
 import org.eclipse.b3.aggregator.InstallableUnitType;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.Product;
@@ -115,7 +115,7 @@ public class ProductItemProvider extends MappedUnitItemProvider implements IEdit
 	}
 
 	@Override
-	protected List<? extends InstallableUnitReference> getContainerChildren(MappedRepository container) {
+	protected List<? extends InstallableUnitRequest> getContainerChildren(MappedRepository container) {
 		return container.getProducts();
 	}
 

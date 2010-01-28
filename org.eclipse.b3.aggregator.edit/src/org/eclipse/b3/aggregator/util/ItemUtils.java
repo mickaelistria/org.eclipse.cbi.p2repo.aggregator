@@ -49,10 +49,7 @@ public class ItemUtils {
 		MappedUnit foundUnit = null;
 
 		for(MappedUnit unit : mappedRepo.getUnits(false))
-			if(unit.getInstallableUnit() != null
-					&& (iu == unit.getInstallableUnit() || iu.getId() != null
-							&& unit.getInstallableUnit().getId() != null
-							&& iu.getId().equals(unit.getInstallableUnit().getId()))) {
+			if(iu.getId().equals(unit.getName())) {
 				foundUnit = unit;
 			}
 
@@ -84,10 +81,7 @@ public class ItemUtils {
 		MapRule foundRule = null;
 
 		for(MapRule rule : mappedRepo.getMapRules())
-			if(rule.getInstallableUnit() != null
-					&& (iu == rule.getInstallableUnit() || iu.getId() != null
-							&& rule.getInstallableUnit().getId() != null
-							&& iu.getId().equals(rule.getInstallableUnit().getId()))) {
+			if(iu.getId().equals(rule.getName())) {
 				foundRule = rule;
 			}
 
@@ -151,25 +145,9 @@ public class ItemUtils {
 		return null;
 	}
 
-	public static MappedUnit findMappedUnit(Aggregator aggregator, InstallableUnit iu) {
-		MetadataRepository mdr = (MetadataRepository) ((EObject) iu).eContainer();
-
-		for(Contribution contribution : aggregator.getContributions())
-			for(MappedRepository repo : contribution.getRepositories()) {
-				if(!mdr.equals(repo.getMetadataRepository()))
-					continue;
-
-				for(MappedUnit unit : repo.getUnits(false))
-					if(iu.equals(unit.getInstallableUnit()))
-						return unit;
-			}
-
-		return null;
-	}
-
 	public static MappedUnit findMappedUnit(MappedRepository mappedRepo, InstallableUnit iu) {
 		for(MappedUnit unit : mappedRepo.getUnits(false))
-			if(iu.equals(unit.getInstallableUnit()))
+			if(iu.getId().equals(unit.getName()))
 				return unit;
 
 		return null;
@@ -177,7 +155,7 @@ public class ItemUtils {
 
 	public static MapRule findMapRule(MappedRepository mappedRepo, InstallableUnit iu) {
 		for(MapRule rule : mappedRepo.getMapRules())
-			if(iu.equals(rule.getInstallableUnit()))
+			if(iu.getId().equals(rule.getName()))
 				return rule;
 
 		return null;

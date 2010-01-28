@@ -11,7 +11,7 @@ import java.util.List;
 
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.Category;
-import org.eclipse.b3.aggregator.InstallableUnitReference;
+import org.eclipse.b3.aggregator.InstallableUnitRequest;
 import org.eclipse.b3.aggregator.InstallableUnitType;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.p2.InstallableUnit;
@@ -89,7 +89,7 @@ public class CategoryItemProvider extends MappedUnitItemProvider implements IEdi
 	@Override
 	public String getText(Object object) {
 		Category category = (Category) object;
-		InstallableUnit iu = category.getInstallableUnit();
+		IInstallableUnit iu = category.resolveAsSingleton();
 		StringBuilder bld = new StringBuilder();
 		bld.append(getString("_UI_Category_type"));
 		bld.append(' ');
@@ -153,7 +153,7 @@ public class CategoryItemProvider extends MappedUnitItemProvider implements IEdi
 	}
 
 	@Override
-	protected List<? extends InstallableUnitReference> getContainerChildren(MappedRepository container) {
+	protected List<? extends InstallableUnitRequest> getContainerChildren(MappedRepository container) {
 		return container.getCategories();
 	}
 
