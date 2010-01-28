@@ -488,7 +488,7 @@ public class RepositoryVerifier extends BuilderPhase {
 		for(Contribution contrib : getBuilder().getAggregator().getContributions())
 			for(MappedRepository repository : contrib.getRepositories())
 				for(MappedUnit mu : repository.getUnits(true))
-					if(componentId.equals(mu.getInstallableUnit().getId()))
+					if(componentId.equals(mu.getName()))
 						return contrib;
 		return null;
 	}

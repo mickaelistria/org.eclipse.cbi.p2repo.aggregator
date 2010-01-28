@@ -20,7 +20,6 @@ import org.eclipse.b3.aggregator.p2.ProvidedCapability;
 import org.eclipse.b3.aggregator.p2.RequiredCapability;
 import org.eclipse.b3.aggregator.p2.impl.InstallableUnitImpl;
 import org.eclipse.b3.aggregator.p2.impl.ProvidedCapabilityImpl;
-import org.eclipse.b3.aggregator.p2.impl.RequiredCapabilityImpl;
 import org.eclipse.b3.aggregator.util.LogUtils;
 import org.eclipse.b3.aggregator.util.MonitorUtils;
 import org.eclipse.b3.aggregator.util.TimeUtils;
@@ -29,6 +28,8 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.equinox.internal.provisional.p2.metadata.IInstallableUnit;
+import org.eclipse.equinox.internal.provisional.p2.metadata.IRequiredCapability;
+import org.eclipse.equinox.internal.provisional.p2.metadata.MetadataFactory;
 import org.eclipse.equinox.internal.provisional.p2.metadata.Version;
 import org.eclipse.equinox.internal.provisional.p2.metadata.VersionRange;
 import org.eclipse.equinox.internal.provisional.p2.metadata.VersionedId;
@@ -114,16 +115,10 @@ public class CategoriesGenerator extends BuilderPhase {
 			if(!feature.isBranchEnabled())
 				continue;
 
-			InstallableUnit iu = feature.getInstallableUnit();
-			RequiredCapabilityImpl rc = (RequiredCapabilityImpl) factory.createRequiredCapability();
-			rc.setFilter(iu.getFilter());
-			rc.setName(iu.getId());
-			rc.setNamespace(IInstallableUnit.NAMESPACE_IU_ID);
-			rc.setRange(new VersionRange(iu.getVersion(), true, iu.getVersion(), true));
-			rcs.add(rc);
+			rcs.add((RequiredCapability) feature.getRequiredCapability());
 
-			VersionedId vn = new VersionedId(iu.getId(), iu.getVersion());
-			if(iu.getId().endsWith(Builder.FEATURE_GROUP_SUFFIX))
+			VersionedId vn = new VersionedId(feature.getName(), feature.getVersionRange().getMinimum());
+			if(vn.getId().endsWith(Builder.FEATURE_GROUP_SUFFIX))
 				includedFeatures.add(vn);
 			else
 				includedBundles.add(vn);
@@ -148,9 +143,9 @@ public class CategoriesGenerator extends BuilderPhase {
 		if(repo.isMapExclusive()) {
 			for(Category category : repo.getCategories()) {
 				if(category.isEnabled()) {
-					InstallableUnit iu = category.getInstallableUnit();
+					IInstallableUnit iu = category.resolveAsSingleton();
 					if(builder.isTopLevelCategory(iu))
-						categoryIUs.add(iu);
+						categoryIUs.add((InstallableUnit) iu);
 				}
 			}
 		}
@@ -159,7 +154,8 @@ public class CategoriesGenerator extends BuilderPhase {
 			allIUs: for(InstallableUnit iu : repo.getMetadataRepository().getInstallableUnits()) {
 				if(builder.isTopLevelCategory(iu)) {
 					for(MapRule mapRule : mapRules)
-						if(mapRule instanceof ExclusionRule && mapRule.getInstallableUnit() == iu)
+						if(mapRule instanceof ExclusionRule && iu.getId().equals(mapRule.getName())
+								&& mapRule.getVersionRange().isIncluded(iu.getVersion()))
 							continue allIUs;
 					categoryIUs.add(iu);
 				}
@@ -208,7 +204,7 @@ public class CategoriesGenerator extends BuilderPhase {
 	}
 
 	private List<InstallableUnit> normalizeCategories(List<InstallableUnit> categoryIUs) {
-		Map<VersionedId, Version> replacementMap = getBuilder().getReplacementMap();
+		Map<IRequiredCapability, IRequiredCapability> replacementMap = getBuilder().getReplacementMap();
 		Map<String, List<RequiredCapability>> map = new HashMap<String, List<RequiredCapability>>();
 		Map<String, InstallableUnit> catMap = new HashMap<String, InstallableUnit>();
 		for(InstallableUnit category : categoryIUs) {
@@ -226,16 +222,11 @@ public class CategoriesGenerator extends BuilderPhase {
 				//
 				VersionRange range = cap.getRange();
 				if(range != null && range.getMinimum().equals(range.getMaximum())) {
-					VersionedId vn = new VersionedId(cap.getName(), range.getMinimum());
-					if(replacementMap.containsKey(vn)) {
-						Version replacement = replacementMap.get(vn);
-						if(replacement == null)
+					if(replacementMap.containsKey(cap)) {
+						IRequiredCapability newRq = replacementMap.get(cap);
+						if(newRq == null)
 							continue;
-
-						// Clone this requirement
-						RequiredCapabilityImpl newRq = (RequiredCapabilityImpl) InstallableUnitImpl.importToModel(cap);
-						newRq.setRange(new VersionRange(replacement, true, replacement, true));
-						cap = newRq;
+						cap = (RequiredCapability) newRq;
 					}
 				}
 				caps.add(cap);
@@ -303,8 +294,9 @@ public class CategoriesGenerator extends BuilderPhase {
 				if(mappedRepo.getMetadataRepository() == parent && builder.isMapVerbatim(mappedRepo)) {
 					LogUtils.debug("Excluding %s from verbatim mapping since category %s has been normalized",
 							mappedRepo.getLocation(), category.getProperty(IInstallableUnit.PROP_NAME));
-					builder.addMappingExclusion(mappedRepo, new VersionedId(category.getId(), category.getVersion()),
-							null);
+					builder.addMappingExclusion(mappedRepo, MetadataFactory.createRequiredCapability(
+							IInstallableUnit.NAMESPACE_IU_ID, category.getId(), new VersionRange(category.getVersion(),
+									true, category.getVersion(), true), null, false, false), null);
 				}
 			}
 		}

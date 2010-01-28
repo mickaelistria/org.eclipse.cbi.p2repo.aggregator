@@ -44,7 +44,6 @@ import org.eclipse.equinox.internal.provisional.p2.metadata.IRequiredCapability;
 import org.eclipse.equinox.internal.provisional.p2.metadata.MetadataFactory;
 import org.eclipse.equinox.internal.provisional.p2.metadata.Version;
 import org.eclipse.equinox.internal.provisional.p2.metadata.VersionRange;
-import org.eclipse.equinox.internal.provisional.p2.metadata.VersionedId;
 import org.eclipse.equinox.internal.provisional.p2.metadata.MetadataFactory.InstallableUnitDescription;
 import org.eclipse.equinox.internal.provisional.p2.metadata.repository.IMetadataRepository;
 import org.eclipse.equinox.p2.publisher.AbstractPublisherAction;
@@ -143,13 +142,11 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 					if(repository.isMapExclusive()) {
 						for(MappedUnit mu : repository.getUnits(true)) {
 							if(mu instanceof Category) {
-								addCategoryContent(mu.getInstallableUnit(), repository, allIUs, required, errors,
-										explicit);
+								addCategoryContent((InstallableUnit) mu.resolveAsSingleton(), repository, allIUs,
+										required, errors, explicit);
 								continue;
 							}
-							Filter filter = createFilter(mu.getValidConfigurations());
-							addRequirementFor(repository, mu.getInstallableUnit(), filter, required, errors, explicit,
-									true);
+							addRequirementFor(repository, mu.getRequiredCapability(), required, errors, explicit, true);
 						}
 					}
 					else {
@@ -164,10 +161,14 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 							if(riuType == InstallableUnitType.PRODUCT || riuType == InstallableUnitType.FEATURE) {
 								Filter filter = null;
 								for(MapRule rule : mapRules) {
-									if(rule.getInstallableUnit() == riu) {
+									if(riu.getId().equals(rule.getName())
+											&& rule.getVersionRange().isIncluded(riu.getVersion())) {
 										if(rule instanceof ExclusionRule) {
-											builder.addMappingExclusion(repository, new VersionedId(riu.getId(),
-													riu.getVersion()), null);
+											builder.addMappingExclusion(repository,
+													MetadataFactory.createRequiredCapability(
+															IInstallableUnit.NAMESPACE_IU_ID, riu.getId(),
+															new VersionRange(riu.getVersion(), true, riu.getVersion(),
+																	true), null, false, false), null);
 											continue allIUs;
 										}
 										if(rule instanceof ValidConfigurationsRule) {
@@ -281,7 +282,7 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 		if(explicit.contains(id)) {
 			if(!isExplicit) {
 				LogUtils.debug("%s/%s excluded since version %s is explicitly mapped", id, v, oldVersion);
-				builder.addMappingExclusion(mr, new VersionedId(id, v), oldVersion);
+				builder.addMappingExclusion(mr, rc, old.capability);
 				// Reinstate the old one
 				requirements.put(id, old);
 			}
@@ -299,7 +300,7 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 
 		if(isExplicit) {
 			LogUtils.debug("%s/%s excluded since version %s is explicitly mapped", id, oldVersion, v);
-			builder.addMappingExclusion(old.repository, new VersionedId(id, oldVersion), v);
+			builder.addMappingExclusion(old.repository, old.capability, rc);
 			explicit.add(id);
 			return;
 		}
@@ -308,15 +309,80 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 		if(cmp < 0) {
 			// The previous version was higher
 			//
-			builder.addMappingExclusion(mr, new VersionedId(id, v), oldVersion);
+			builder.addMappingExclusion(mr, rc, old.capability);
 			LogUtils.debug("%s/%s excluded since a higher version (%s) was found", id, v, oldVersion);
 
 			// Reinstate the old one
 			requirements.put(id, old);
 		}
 		else {
-			builder.addMappingExclusion(old.repository, new VersionedId(id, oldVersion), v);
+			builder.addMappingExclusion(old.repository, old.capability, rc);
 			LogUtils.debug("%s/%s excluded since a higher version (%s) was found", id, oldVersion, v);
+		}
+	}
+
+	private void addRequirementFor(MappedRepository mr, IRequiredCapability rc, Map<String, Requirement> requirements,
+			List<String> errors, Set<String> explicit, boolean isExplicit) {
+
+		String id = rc.getName();
+		Requirement rq = new Requirement();
+		rq.repository = mr;
+		rq.capability = rc;
+		Requirement old = requirements.put(id, rq);
+		if(old == null || old.capability.equals(rc)) {
+			if(isExplicit)
+				explicit.add(id);
+			return;
+		}
+
+		VersionRange oldVersionRange = old.capability.getRange();
+		VersionRange newVersionRange = rc.getRange();
+		if(explicit.contains(id)) {
+			if(!isExplicit) {
+				LogUtils.debug("%s/%s excluded since version %s is explicitly mapped", id, newVersionRange,
+						oldVersionRange);
+				builder.addMappingExclusion(mr, rc, old.capability);
+				// Reinstate the old one
+				requirements.put(id, old);
+			}
+			else {
+				String error;
+				if(newVersionRange.intersect(oldVersionRange) != null)
+					error = format("%s is explicitly mapped more than once but with differnet configurations", id);
+				else
+					error = format(
+							"%s is explicitly mapped more than once using non-overlapping version ranges %s and %s",
+							id, newVersionRange, oldVersionRange);
+				errors.add(error);
+				LogUtils.error(error);
+			}
+			return;
+		}
+
+		if(isExplicit) {
+			LogUtils.debug("%s/%s excluded since version %s is explicitly mapped", id, oldVersionRange, newVersionRange);
+			builder.addMappingExclusion(old.repository, old.capability, rc);
+			explicit.add(id);
+			return;
+		}
+
+		// we assume that non-explicitly mapped IUs have trivial version range (min=max)
+		Version newVersionMax = newVersionRange.getMaximum();
+		Version oldVersionMax = oldVersionRange.getMaximum();
+
+		int cmp = newVersionMax.compareTo(oldVersionMax);
+		if(cmp < 0) {
+			// The previous version was higher
+			//
+			builder.addMappingExclusion(mr, rc, old.capability);
+			LogUtils.debug("%s/%s excluded since a higher version (%s) was found", id, newVersionMax, oldVersionMax);
+
+			// Reinstate the old one
+			requirements.put(id, old);
+		}
+		else {
+			builder.addMappingExclusion(old.repository, old.capability, rc);
+			LogUtils.debug("%s/%s excluded since a higher version (%s) was found", id, oldVersionMax, newVersionMax);
 		}
 	}
 }

@@ -63,7 +63,6 @@ import org.eclipse.equinox.internal.provisional.p2.metadata.IArtifactKey;
 import org.eclipse.equinox.internal.provisional.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.internal.provisional.p2.metadata.IRequiredCapability;
 import org.eclipse.equinox.internal.provisional.p2.metadata.Version;
-import org.eclipse.equinox.internal.provisional.p2.metadata.VersionedId;
 import org.eclipse.equinox.internal.provisional.p2.metadata.query.Collector;
 import org.eclipse.equinox.internal.provisional.p2.metadata.query.InstallableUnitQuery;
 import org.eclipse.equinox.internal.provisional.p2.metadata.repository.IMetadataRepository;
@@ -378,7 +377,7 @@ public class Builder extends AbstractCommand {
 
 	private Set<IInstallableUnit> unverifiedUnits;
 
-	private HashMap<MappedRepository, List<VersionedId>> exclusions;
+	private Set<MappedRepository> exclusions;
 
 	private CompositeMetadataRepository sourceComposite;
 
@@ -386,7 +385,7 @@ public class Builder extends AbstractCommand {
 
 	private String preservedProfile;
 
-	private Map<VersionedId, Version> replacements;
+	private Map<IRequiredCapability, IRequiredCapability> replacements;
 
 	/**
 	 * Prevent that the {@link IInstallableUnit} identified by <code>versionedName</code> is mapped from
@@ -394,24 +393,18 @@ public class Builder extends AbstractCommand {
 	 * 
 	 * @param repository
 	 *            The repository for which to exclude a mapping
-	 * @param versionedName
-	 *            Identifies the IInstallableUnit to exclude.
+	 * @param rc
+	 *            The required capability to be excluded/replaceed
+	 * @param replacement
+	 *            The replacement for excluded capability (or null if no replacement is available)
 	 */
-	public void addMappingExclusion(MappedRepository repository, VersionedId versionedName, Version replacement) {
-		List<VersionedId> exclInRepo = null;
+	public void addMappingExclusion(MappedRepository repository, IRequiredCapability rc, IRequiredCapability replacement) {
 		if(exclusions == null) {
-			exclusions = new HashMap<MappedRepository, List<VersionedId>>();
-			replacements = new HashMap<VersionedId, Version>();
+			exclusions = new HashSet<MappedRepository>();
+			replacements = new HashMap<IRequiredCapability, IRequiredCapability>();
 		}
-		else
-			exclInRepo = exclusions.get(repository);
-
-		if(exclInRepo == null) {
-			exclInRepo = new ArrayList<VersionedId>();
-			exclusions.put(repository, exclInRepo);
-		}
-		exclInRepo.add(versionedName);
-		replacements.put(versionedName, replacement);
+		exclusions.add(repository);
+		replacements.put(rc, replacement);
 	}
 
 	/**
@@ -456,9 +449,9 @@ public class Builder extends AbstractCommand {
 		return categoryIUs;
 	}
 
-	public Map<VersionedId, Version> getReplacementMap() {
+	public Map<IRequiredCapability, IRequiredCapability> getReplacementMap() {
 		return replacements == null
-				? Collections.<VersionedId, Version> emptyMap()
+				? Collections.<IRequiredCapability, IRequiredCapability> emptyMap()
 				: replacements;
 	}
 
@@ -504,7 +497,7 @@ public class Builder extends AbstractCommand {
 	public boolean isMapVerbatim(MappedRepository repo) {
 		return !(repo.isMapExclusive() || repo.isMirrorArtifacts())
 				&& StringUtils.trimmedOrNull(repo.getCategoryPrefix()) == null
-				&& !(exclusions != null && exclusions.containsKey(repo) && "p2".equals(repo.getNature()));
+				&& !(exclusions != null && exclusions.contains(repo) && "p2".equals(repo.getNature()));
 	}
 
 	public boolean isMatchedReference(String reference) {
