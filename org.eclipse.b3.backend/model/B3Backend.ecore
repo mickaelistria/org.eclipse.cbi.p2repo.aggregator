@@ -124,10 +124,18 @@
       </eGenericType>
       <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parentContext" eType="#//BExecutionContext"
-        eOpposite="#//BExecutionContext/childContexts"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="childContexts" upperBound="-1"
-        eType="#//BExecutionContext" containment="true" eOpposite="#//BExecutionContext/parentContext"/>
+    <eOperations name="getFunctionIterator">
+      <eGenericType eClassifier="#//IFunctionIterator">
+        <eTypeArguments eClassifier="#//IFunction"/>
+      </eGenericType>
+      <eParameters name="type" eType="#//Type"/>
+      <eParameters name="functionType">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+          <eTypeArguments/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parentContext" eType="#//BExecutionContext"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueMap" lowerBound="1"
         eType="#//ValueMap" changeable="false" defaultValueLiteral=""/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="funcStore" eType="#//FuncStore"/>
@@ -587,6 +595,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BWithExpression" eSuperTypes="#//BExpression">
     <eOperations name="createContext" eType="#//BInnerContext">
+      <eParameters name="ctx" eType="#//BExecutionContext"/>
+    </eOperations>
+    <eOperations name="getEvaluationContext" eType="#//BExecutionContext" eExceptions="#//Throwable">
       <eParameters name="ctx" eType="#//BExecutionContext"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="referencedAdvice" upperBound="-1"
