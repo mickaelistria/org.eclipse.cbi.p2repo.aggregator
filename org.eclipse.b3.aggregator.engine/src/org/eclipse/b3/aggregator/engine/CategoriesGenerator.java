@@ -226,7 +226,7 @@ public class CategoriesGenerator extends BuilderPhase {
 						IRequiredCapability newRq = replacementMap.get(cap);
 						if(newRq == null)
 							continue;
-						cap = (RequiredCapability) newRq;
+						cap = InstallableUnitImpl.importToModel(newRq);
 					}
 				}
 				caps.add(cap);
