@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.b3.aggregator.util.ITransformer;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -29,7 +30,7 @@ import org.eclipse.emf.ecore.resource.Resource;
  * 
  * @author Karel Brezina
  */
-public class ResourceTransformer {
+public class ResourceTransformer implements ITransformer {
 	protected static Object getFeatureValue(EObject eobject, String featureName) {
 		EStructuralFeature feature = eobject.eClass().getEStructuralFeature(featureName);
 
@@ -50,7 +51,7 @@ public class ResourceTransformer {
 
 	protected Map<EObject, EObject> transformationMapping = new HashMap<EObject, EObject>();
 
-	public ResourceTransformer(Resource srcResource, Resource trgtResource, EPackage trgtPackage) {
+	public void initTransformer(Resource srcResource, Resource trgtResource, EPackage trgtPackage) {
 		this.srcResource = srcResource;
 		this.trgtResource = trgtResource;
 		this.trgtPackage = trgtPackage;

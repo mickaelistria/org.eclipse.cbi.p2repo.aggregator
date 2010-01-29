@@ -18,9 +18,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnumLiteral;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.equinox.internal.provisional.p2.metadata.Version;
 import org.eclipse.equinox.internal.provisional.p2.metadata.VersionRange;
 
@@ -139,10 +137,6 @@ public class AggregatorTransformer_080_2_100 extends ResourceTransformer {
 	private List<EObject> srcIUsWithoutRepo = new ArrayList<EObject>();
 
 	private EReference srcIURepoRef;
-
-	public AggregatorTransformer_080_2_100(Resource srcResource, Resource trgtResource, EPackage trgtPackage) {
-		super(srcResource, trgtResource, trgtPackage);
-	}
 
 	@Override
 	protected void transform(EObject srcEObject, TreePath trgtParentTreePath) {

@@ -10,6 +10,7 @@
 
 <plugin>
    <extension-point id="loader" name="Repository Loader" schema="schema/loader.exsd"/>
+   <extension-point id="legacy_transformation" name="Legacy Transformation" schema="schema/legacy_transformation.exsd"/>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
@@ -29,5 +30,4 @@
       		nature="p2"
             class="org.eclipse.b3.aggregator.p2.util.P2RepositoryLoader"/>
    </extension>
-
 </plugin>

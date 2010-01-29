@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.b3.aggregator.legacy_transformation">
+      <transformer
+            class="org.eclipse.b3.aggregator.legacy.AggregatorTransformer_080_2_100"
+            name="From  0.8.0 to 1.0.0"
+            sourceNS="http://www.eclipse.org/amalgam/2008/build"
+            sourceNSAttribute="xmlns:build"
+            sourceTopElement="build:Build"
+            targetNS="http://www.eclipse.org/b3/2010/aggregator/1.0.0">
+      </transformer>
+   </extension>
+
+</plugin>

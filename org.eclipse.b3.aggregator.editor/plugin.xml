@@ -30,7 +30,7 @@
             id="org.eclipse.b3.aggregator.presentation.AggregatorEditorID"
             name="%_UI_AggregatorEditor_label"
             icon="icons/full/obj16/AggregatorModelFile.gif"
-            extensions="b3aggr"
+            extensions="b3aggr, build"
             class="org.eclipse.b3.aggregator.presentation.AggregatorEditor"
             contributorClass="org.eclipse.b3.aggregator.presentation.AggregatorActionBarContributor">
       </editor>
