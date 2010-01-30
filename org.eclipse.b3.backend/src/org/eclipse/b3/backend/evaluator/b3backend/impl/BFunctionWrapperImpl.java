@@ -45,7 +45,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -451,7 +450,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * @generated NOT
 	 */
 	public void setVisibility(Visibility newVisibility) {
-		throw new UnsupportedOperationException("BFunctionWrapper is immutable");
+		throwImmutableException();
 	}
 
 	/**
@@ -469,7 +468,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * @generated NOT
 	 */
 	public void setFinal(boolean newFinal) {
-		throw new UnsupportedOperationException("BFunctionWrapper is immutable");
+		throwImmutableException();
 	}
 
 	/**
@@ -487,8 +486,8 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * @generated NOT
 	 */
 	public void setExecutionMode(ExecutionMode newExecutionMode) {
-		throw new UnsupportedOperationException("BFunctionWrapper is immutable");
-	}
+		throwImmutableException();
+		}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -505,7 +504,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * @generated NOT
 	 */
 	public void setName(String newName) {
-		throw new UnsupportedOperationException("BFunctionWrapper is immutable");
+		throwImmutableException();
 	}
 
 	/**
@@ -567,7 +566,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * @generated NOT
 	 */
 	public void setParameterTypes(Type[] newParameterTypes) {
-		throw new UnsupportedOperationException("BFunctionWrapper is immutable");
+		throwImmutableException();
 	}
 
 	/**
@@ -585,7 +584,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * @generated NOT
 	 */
 	public void setExceptionTypes(Type[] newExceptionTypes) {
-		throw new UnsupportedOperationException("BFunctionWrapper is immutable");
+		throwImmutableException();
 	}
 
 	/**
@@ -605,7 +604,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 */
 	@SuppressWarnings("unchecked")
 	public void setTypeParameters(TypeVariable[] newTypeParameters) {
-		throw new UnsupportedOperationException("BFunctionWrapper is immutable");
+		throwImmutableException();
 	}
 
 	/**
@@ -623,7 +622,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * @generated NOT
 	 */
 	public void setParameterNames(String[] newParameterNames) {
-		throw new UnsupportedOperationException("BFunctionWrapper is immutable");
+		throwImmutableException();
 	}
 
 	/**
@@ -650,7 +649,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * @generated NOT
 	 */
 	public void setVarArgs(boolean newVarArgs) {
-		throw new UnsupportedOperationException("BFunctionWrapper is immutable");
+		throwImmutableException();
 	}
 
 	/**
@@ -690,7 +689,8 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetReturnType(Type newReturnType, NotificationChain msgs) {
-		throw new UnsupportedOperationException("BFunctionWrapper is immutable");
+		throwImmutableException();
+		return null;  // never reached
 	}
 
 	/**
@@ -699,7 +699,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * @generated NOT
 	 */
 	public void setReturnType(Type newReturnType) {
-		throw new UnsupportedOperationException("BFunctionWrapper is immutable");
+		throwImmutableException();
 	}
 
 	/**
@@ -717,7 +717,8 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * @generated NOT
 	 */
 	public BExecutionContext basicGetClosure() {
-		throw new UnsupportedOperationException("BFunctionWrapper is immutable");
+		throwImmutableException();
+		return null;
 	}
 
 	/**
@@ -726,7 +727,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * @generated NOT
 	 */
 	public void setClosure(BExecutionContext newClosure) {
-		throw new UnsupportedOperationException("BFunctionWrapper is immutable");
+		throwImmutableException();
 	}
 
 	/**
@@ -745,7 +746,8 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetTypeCalculator(BTypeCalculator newTypeCalculator, NotificationChain msgs) {
-		throw new UnsupportedOperationException("BFunctionWrapper is immutable");
+		throwImmutableException();
+		return null;
 	}
 
 	/**
@@ -754,7 +756,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * @generated NOT
 	 */
 	public void setTypeCalculator(BTypeCalculator newTypeCalculator) {
-		throw new UnsupportedOperationException("BFunctionWrapper is immutable");
+		throwImmutableException();
 	}
 
 	/**
@@ -1468,5 +1470,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 		result.append(')');
 		return result.toString();
 	}
-
+	private void throwImmutableException() {
+		throw new UnsupportedOperationException("BFunctionWrapper is immutable!");
+	}
 } //BFunctionWrapperImpl
