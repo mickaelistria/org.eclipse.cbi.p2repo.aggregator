@@ -204,7 +204,7 @@ public class AggregatorTransformer_080_2_100 extends ResourceTransformer {
 				continue;
 
 			if("type".equals(srcEAttr.getName())) {
-				EEnumLiteral trgtEAttrValue = createTrgtEEnumLiteral(AGGREGATETYPE_ENUM,
+				Object trgtEAttrValue = createTrgtEEnumLiteral(AGGREGATETYPE_ENUM,
 						((EEnumLiteral) srcEAttrValue).getLiteral());
 				trgtEObject.eSet(trgtEAttr, trgtEAttrValue);
 			}
@@ -244,19 +244,19 @@ public class AggregatorTransformer_080_2_100 extends ResourceTransformer {
 
 			if(OS_ATTR.equals(srcEAttr.getName())) {
 				EAttribute trgtEAttr = (EAttribute) trgtEObject.eClass().getEStructuralFeature(OPERATINGSYSTEM_ATTR);
-				EEnumLiteral trgtEAttrValue = createTrgtEEnumLiteral(OPERATINGSYSTEM_ENUM,
+				Object trgtEAttrValue = createTrgtEEnumLiteral(OPERATINGSYSTEM_ENUM,
 						((EEnumLiteral) srcEAttrValue).getLiteral());
 				trgtEObject.eSet(trgtEAttr, trgtEAttrValue);
 			}
 			else if(WS_ATTR.equals(srcEAttr.getName())) {
 				EAttribute trgtEAttr = (EAttribute) trgtEObject.eClass().getEStructuralFeature(WINDOWSYSTEM_ATTR);
-				EEnumLiteral trgtEAttrValue = createTrgtEEnumLiteral(WINDOWSYSTEM_ENUM,
+				Object trgtEAttrValue = createTrgtEEnumLiteral(WINDOWSYSTEM_ENUM,
 						((EEnumLiteral) srcEAttrValue).getLiteral());
 				trgtEObject.eSet(trgtEAttr, trgtEAttrValue);
 			}
 			else if(ARCH_ATTR.equals(srcEAttr.getName())) {
 				EAttribute trgtEAttr = (EAttribute) trgtEObject.eClass().getEStructuralFeature(ARCHITECTURE_ATTR);
-				EEnumLiteral trgtEAttrValue = createTrgtEEnumLiteral(ARCHITECTURE_ENUM,
+				Object trgtEAttrValue = createTrgtEEnumLiteral(ARCHITECTURE_ENUM,
 						((EEnumLiteral) srcEAttrValue).getLiteral());
 				trgtEObject.eSet(trgtEAttr, trgtEAttrValue);
 			}
@@ -440,12 +440,12 @@ public class AggregatorTransformer_080_2_100 extends ResourceTransformer {
 
 	@SuppressWarnings("unchecked")
 	private void transformContributionNode(EObject srcEObject, TreePath trgtParentTreePath) {
-		EObject contributionEobject = createTrgtEObject(CONTRIBUTION_NODE, srcEObject);
-		trgtParentTreePath.addToLastSegmentContainer(contributionEobject);
-		copyAttributes(srcEObject, contributionEobject);
+		EObject contributionEObject = createTrgtEObject(CONTRIBUTION_NODE, srcEObject);
+		trgtParentTreePath.addToLastSegmentContainer(contributionEObject);
+		copyAttributes(srcEObject, contributionEObject);
 
-		EAttribute enabledEAttr = (EAttribute) contributionEobject.eClass().getEStructuralFeature(ENABLED_ATTR);
-		contributionEobject.eSet(enabledEAttr, Boolean.TRUE);
+		EAttribute enabledEAttr = (EAttribute) contributionEObject.eClass().getEStructuralFeature(ENABLED_ATTR);
+		contributionEObject.eSet(enabledEAttr, Boolean.TRUE);
 
 		List<EObject> srcRepositories = new ArrayList<EObject>();
 		Map<EObject, List<EObject>> srcRepositoryToFeturesMap = new HashMap<EObject, List<EObject>>();
@@ -486,8 +486,8 @@ public class AggregatorTransformer_080_2_100 extends ResourceTransformer {
 					transform(srcChild, trgtTreePath);
 
 				// setup contacts references
-				EReference contactsERef = (EReference) contributionEobject.eClass().getEStructuralFeature(CONTACTS_REF);
-				List<EObject> contactsERefValues = (List<EObject>) contributionEobject.eGet(contactsERef);
+				EReference contactsERef = (EReference) contributionEObject.eClass().getEStructuralFeature(CONTACTS_REF);
+				List<EObject> contactsERefValues = (List<EObject>) contributionEObject.eGet(contactsERef);
 
 				for(EObject srcChild : (List<EObject>) srcERefValue)
 					contactsERefValues.add(transformationMapping.get(srcChild));
@@ -496,8 +496,8 @@ public class AggregatorTransformer_080_2_100 extends ResourceTransformer {
 				continue;
 		}
 		// handle repos
-		EReference trgtERef = (EReference) contributionEobject.eClass().getEStructuralFeature(REPOSITORIES_REF);
-		TreePath trgtRepositoryTreePath = trgtParentTreePath.createChildTreePath(contributionEobject, trgtERef);
+		EReference trgtERef = (EReference) contributionEObject.eClass().getEStructuralFeature(REPOSITORIES_REF);
+		TreePath trgtRepositoryTreePath = trgtParentTreePath.createChildTreePath(contributionEObject, trgtERef);
 
 		for(EObject srcRepo : srcRepositories)
 			transform(srcRepo, trgtRepositoryTreePath);

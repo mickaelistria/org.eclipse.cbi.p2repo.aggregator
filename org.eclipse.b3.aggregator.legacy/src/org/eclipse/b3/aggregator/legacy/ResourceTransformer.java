@@ -15,8 +15,7 @@ import java.util.Map;
 import org.eclipse.b3.aggregator.util.ITransformer;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EEnumLiteral;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EFactory;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -88,19 +87,19 @@ public class ResourceTransformer implements ITransformer {
 		}
 	}
 
-	protected EEnumLiteral createTrgtEEnumLiteral(String enumName, String literal) {
-		EEnum trgtEEnum = (EEnum) trgtPackage.getEClassifier(enumName);
+	protected Object createTrgtEEnumLiteral(String enumName, String literal) {
+		EDataType trgtEDataType = (EDataType) trgtPackage.getEClassifier(enumName);
 
 		if(enumName == null)
 			throw new IllegalArgumentException(enumName + " is not a valid EEnum in the target model");
 
-		EEnumLiteral trgtEEnumLiteral = trgtEEnum.getEEnumLiteralByLiteral(literal);
+		Object enumerator = trgtPackageFactory.createFromString(trgtEDataType, literal);
 
-		if(trgtEEnumLiteral == null)
+		if(enumerator == null)
 			throw new IllegalArgumentException(literal + " is not a valid literal for EEnum " + enumName
 					+ " in the target model");
 
-		return trgtEEnumLiteral;
+		return enumerator;
 	}
 
 	protected EObject createTrgtEObject(String className, EObject mappedFromSrcEObject) {

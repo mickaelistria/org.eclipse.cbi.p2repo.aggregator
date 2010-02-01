@@ -80,10 +80,24 @@
                </documentation>
             </annotation>
          </attribute>
+         <attribute name="sourceEcoreUri" type="string" use="required">
+            <annotation>
+               <documentation>
+                  URI to source ECORE
+               </documentation>
+            </annotation>
+         </attribute>
          <attribute name="targetNS" type="string" use="required">
             <annotation>
                <documentation>
                   Target namespace
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="targetEcoreUri" type="string" use="required">
+            <annotation>
+               <documentation>
+                  URI to target ECORE
                </documentation>
             </annotation>
          </attribute>
@@ -93,7 +107,7 @@
                   Resource transformer class
                </documentation>
                <appInfo>
-                  <meta.attribute kind="java"/>
+                  <meta.attribute kind="java" basedOn=":org.eclipse.b3.aggregator.util.ITransformer"/>
                </appInfo>
             </annotation>
          </attribute>

@@ -23,6 +23,10 @@
       <parser
             type="b3aggr"
             class="org.eclipse.b3.aggregator.util.AggregatorResourceFactoryImpl"/>
+      <parser
+            class="org.eclipse.b3.aggregator.util.AggregatorResourceFactoryImpl"
+            type="build">
+      </parser>
    </extension>
    <extension
          point="org.eclipse.b3.aggregator.loader">
