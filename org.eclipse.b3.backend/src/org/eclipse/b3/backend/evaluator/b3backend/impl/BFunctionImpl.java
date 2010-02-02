@@ -718,7 +718,7 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 	public Type[] getParameterTypes() {
 		if(parameterTypes != null)
 			return parameterTypes;
-		EList<BParameterDeclaration> pList = getEffectiveParameters();
+		EList<BParameterDeclaration> pList = getParameters();
 		Type[] pTypes = new Type[pList.size()];
 		int i = 0;
 		for(BParameterDeclaration p : pList) {
@@ -947,7 +947,7 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 		t.setVarArgs(isVarArgs());
 		t.setTypeCalculator(getTypeCalculator());
 		EList<Type> pt = t.getParameterTypes();
-		for(BParameterDeclaration p : getEffectiveParameters())
+		for(BParameterDeclaration p : getParameters())
 			pt.add(p.getType());
 		return t;
 	}
@@ -967,15 +967,15 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 		return getReturnType();
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns the same as {@link #getParameters()}.
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public EList<BParameterDeclaration> getEffectiveParameters() {
-		return getParameters();
-	}
+//	/**
+//	 * <!-- begin-user-doc -->
+//	 * This default implementation returns the same as {@link #getParameters()}.
+//	 * <!-- end-user-doc -->
+//	 * @generated NOT
+//	 */
+//	public EList<BParameterDeclaration> getEffectiveParameters() {
+//		return getParameters();
+//	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1361,7 +1361,7 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 	}
 	protected void computeParameters() {
 		if(parameterNames == null || parameterTypes == null) {
-			EList<BParameterDeclaration> pList = getEffectiveParameters();
+			EList<BParameterDeclaration> pList = getParameters();
 			parameterNames = new String[pList.size()];
 			parameterTypes = new Type[pList.size()];
 			int i = 0;

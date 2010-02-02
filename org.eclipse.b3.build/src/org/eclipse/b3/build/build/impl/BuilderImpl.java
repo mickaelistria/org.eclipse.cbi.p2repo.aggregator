@@ -698,24 +698,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 		result.append(')');
 		return result.toString();
 	}
-	private EList<BParameterDeclaration> cachedEffectiveParameters;
-	@Override
-	public EList<BParameterDeclaration> getEffectiveParameters() {
-		synchronized(this) {
-		if(cachedEffectiveParameters == null)
-			cachedEffectiveParameters = copyParameters();
-			BParameterDeclaration unitParameter = B3backendFactory.eINSTANCE.createBParameterDeclaration();
-			unitParameter.setName("unit");
-			BFunctionContainer c = getContainer();
-			unitParameter.setType(getUnitType());
-			cachedEffectiveParameters.add(0, unitParameter);
-		}
-		return cachedEffectiveParameters;
-	}
-	@SuppressWarnings("unchecked")
-	private EList<BParameterDeclaration> copyParameters() {
-		return (EList<BParameterDeclaration>)EcoreUtil.copy((EObject)getParameters());
-	}
+
 	@Override
 	public EList<BParameterDeclaration> getParameters() {
 		EList<BParameterDeclaration> originalParameters = super.getParameters();

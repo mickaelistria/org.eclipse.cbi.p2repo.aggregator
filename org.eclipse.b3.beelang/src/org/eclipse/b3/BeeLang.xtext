@@ -328,6 +328,7 @@ Concern_Anonymous returns be::BConcern : {be::BConcern}
 	'{' (
 			("properties" propertySets += PropertySet) 
 		| 	(functions+=Function)
+		| 	(functions+=Builder)
 		|	(contexts += BuildConcernContext)		
 		)* '}' 
 	;

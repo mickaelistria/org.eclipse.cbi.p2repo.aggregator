@@ -439,6 +439,10 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 	
+	/**
+	 * Iterates over all BuildUnits defined in the current context, evaluates the predicates, and if matching,
+	 * the unit is woven.
+	 */
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 		BExecutionContext ictx = ctx.createInnerContext();
@@ -458,7 +462,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 		BuildUnit clone = BuildUnit.class.cast(EcoreUtil.copy(u));
 		// modify the build unit, and store it
 		BuildContext bctx = BuildContext.class.cast(ctx.getParentContext());
-		// but only of the unit itself was advised
+		// but only of the unit itself was advised (modifying builders does not affect the build unit)
 		if(adviseUnit(clone, bctx))
 			bctx.defineBuildUnit(clone, true);
 		return true;

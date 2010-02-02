@@ -519,7 +519,7 @@
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_ZLl_wfSQEd6fhZ-cYf2Uvg" routing="Rectilinear" lineColor="4210752"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_ZLl_wvSQEd6fhZ-cYf2Uvg" fontColor="4210752" fontName="Lucida Grande" fontHeight="10"/>
       <element xmi:type="ecore:EReference" href="platform:/resource/org.eclipse.b3.backend/model/B3Backend.ecore#//BWithExpression/propertySets"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ZLl_w_SQEd6fhZ-cYf2Uvg" points="[14, -19, -130, 170]$[14, -188, -130, 1]$[94, -188, -50, 1]"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ZLl_w_SQEd6fhZ-cYf2Uvg" points="[5, -19, -121, 206]$[5, -226, -121, -1]$[76, -226, -50, -1]"/>
     </edges>
     <edges xmi:type="notation:Edge" xmi:id="_fJwnUPSQEd6fhZ-cYf2Uvg" type="3002" source="_2zdEcPPrEd6fhZ-cYf2Uvg" target="_ZLf5IPSQEd6fhZ-cYf2Uvg">
       <children xmi:type="notation:Node" xmi:id="_fJxOYPSQEd6fhZ-cYf2Uvg" type="4011">
