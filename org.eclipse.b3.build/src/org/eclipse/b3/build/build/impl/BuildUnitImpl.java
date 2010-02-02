@@ -7,9 +7,18 @@
 package org.eclipse.b3.build.build.impl;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+
+import org.eclipse.b3.backend.core.MatchingConcernIterator;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BConcern;
+import org.eclipse.b3.backend.evaluator.b3backend.BConcernContext;
+import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
+import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
@@ -25,7 +34,13 @@ import org.eclipse.b3.build.build.IProvidedCapabilityContainer;
 import org.eclipse.b3.build.build.IRequiredCapabilityContainer;
 import org.eclipse.b3.build.build.RepositoryConfiguration;
 import org.eclipse.b3.build.build.RequiredCapability;
+import org.eclipse.b3.build.build.RequiresPredicate;
 import org.eclipse.b3.build.build.Synchronization;
+import org.eclipse.b3.build.build.UnitConcernContext;
+import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;
+import org.eclipse.b3.build.core.BuildUnitProxyAdapter;
+import org.eclipse.b3.build.core.ContextAdapter;
+import org.eclipse.b3.build.core.ContextAdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -36,6 +51,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectEList;
+import org.eclipse.emf.ecore.util.EcoreEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -46,7 +62,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getFunctions <em>Functions</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getContainerType <em>Container Type</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getRequiredCapabilities <em>Required Capabilities</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getProvidedCapabilities <em>Provided Capabilities</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getBuilders <em>Builders</em>}</li>
@@ -75,24 +90,6 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * @ordered
 	 */
 	protected EList<IFunction> functions;
-	/**
-	 * The default value of the '{@link #getContainerType() <em>Container Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getContainerType()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Type CONTAINER_TYPE_EDEFAULT = null;
-	/**
-	 * The cached value of the '{@link #getContainerType() <em>Container Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getContainerType()
-	 * @generated
-	 * @ordered
-	 */
-	protected Type containerType = CONTAINER_TYPE_EDEFAULT;
 	/**
 	 * The cached value of the '{@link #getRequiredCapabilities() <em>Required Capabilities</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -434,27 +431,6 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Type getContainerType() {
-		return containerType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setContainerType(Type newContainerType) {
-		Type oldContainerType = containerType;
-		containerType = newContainerType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILD_UNIT__CONTAINER_TYPE, oldContainerType, containerType));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<RepositoryConfiguration> getRepositories() {
 		if (repositories == null) {
 			repositories = new EObjectContainmentEList<RepositoryConfiguration>(RepositoryConfiguration.class, this, B3BuildPackage.BUILD_UNIT__REPOSITORIES);
@@ -485,6 +461,111 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 			propertySets = new EObjectContainmentEList<BPropertySet>(BPropertySet.class, this, B3BuildPackage.BUILD_UNIT__PROPERTY_SETS);
 		}
 		return propertySets;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Gets the effective meta requirements by evaluating meta requirement filters in the context
+	 * passed as a parameter.
+	 * <!-- end-user-doc -->
+	 * @throws Throwable 
+	 * @generated NOT
+	 */
+	public EList<RequiredCapability> getEffectiveMetaRequirements(BExecutionContext ctx) throws Throwable {
+		List<RequiredCapability> result = new ArrayList<RequiredCapability>();
+		
+		for(RequiredCapability r : getMetaRequiredCapabilities()) {
+			BExpression c = r.getCondExpr();
+			if(c != null) {
+				Object include = c.evaluate(ctx);
+				if(include != null && include instanceof Boolean && ((Boolean)include) == Boolean.FALSE)
+					continue; // skip this requirement
+			}
+		}
+		// TODO: ISSUE - IS IT OK TO REUSE THE UNFILTERED FEATURE WHEN THERE IS NO DERIVED FEATURE ?
+		return new EcoreEList.UnmodifiableEList<RequiredCapability>(this, B3BuildPackage.Literals.BUILD_UNIT__META_REQUIRED_CAPABILITIES, result.size(), result.toArray());
+
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Gets the effective requirements by evaluating requirement filters in the context
+	 * passed as a parameter. Collects requirements from the unit, and from all applicable builders.
+	 * (For builders, references to the same unit are not included).
+	 * Requirements specified at the unit level (later referenced via aliases) are associated with the
+	 * context in effect at this point (not the advised context in some builder using the reference to the aliased
+	 * requirement).
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public EList<RequiredCapability> getEffectiveRequirements(BExecutionContext ctx) throws Throwable {
+		List<RequiredCapability> result = new ArrayList<RequiredCapability>();
+		
+		for(RequiredCapability r : getRequiredCapabilities()) {
+			BExpression c = r.getCondExpr();
+			if(c != null) {
+				Object include = c.evaluate(ctx);
+				if(include != null && include instanceof Boolean && ((Boolean)include) == Boolean.FALSE)
+					continue; // skip this requirement
+			}
+			ContextAdapter ca = ContextAdapterFactory.eINSTANCE.adapt(r);
+			ca.addUnique(ctx);
+			result.add(r);
+		}
+		// Iterate over all contexts matching the unit
+		// TODO: ISSUE, ALL MATCHES ARE MADE ON ORIGINAL UNIT, TO MAKE IT POSSIBLE TO MATCH ON ADVICED STATE
+		// THE ALGORITM MUST USE AN EFFECTIVE UNIT THAT CHANGES DURING THE EVALUATION - BUT FIX THIS ONCE
+		// THE REST OF THE ALGORITHM HAS BEEN WORKED OUT.
+		MatchingConcernIterator itor = new MatchingConcernIterator(ctx, this);
+		while(itor.hasNext()) {
+			BConcernContext cc = itor.next();
+			if(! (cc instanceof UnitConcernContext))
+				continue; // just to be sure
+			UnitConcernContext ucc = UnitConcernContext.class.cast(cc);
+			// remove all requirements on removal list
+			ListIterator<RequiredCapability> litor = result.listIterator();
+			while(litor.hasNext()) {
+				RequiredCapability rc = litor.next();
+				for(RequiresPredicate p : ucc.getRequiresRemovals()) {
+					if(p.isMeta()) 
+						continue;
+					if(p.matches(rc))
+						litor.remove();
+				}
+			}
+
+			// add all requirements on requires list
+			for(RequiredCapability r : ucc.getRequiredCapabilities()) {
+				BExpression c = r.getCondExpr();
+				if(c != null) {
+					Object include = c.evaluate(ctx);
+					if(include != null && include instanceof Boolean && ((Boolean)include) == Boolean.FALSE)
+						continue; // skip this requirement
+				}
+				ContextAdapter ca = ContextAdapterFactory.eINSTANCE.adapt(r);
+				ca.addUnique(ctx);
+				result.add(r);
+				
+			}
+			
+		}
+		// Find all builders applicable to this Build Unit, and add their effective requirements
+		BuildUnit proxy = BuildUnitProxyAdapterFactory.eINSTANCE.adapt(this).getProxy();
+		Iterator<IFunction> builders = ctx.getFunctionIterator(proxy.getClass(), Builder.class);
+		while(builders.hasNext()) {
+			Builder b = (Builder)builders.next();
+			// TODO: THIS WILL NOT WORK - THE BUILDERS CAN NOT SIMPLY ASSOCIATE CONTEXT WITH REQUIREMENT
+			// AS THE SAME BUILDER MAY BE USED FOR ANY NUMBER OF BUILD UNITS!
+			// THE ASSOCIATION MUST BE WITH A TUPLE UNIT-REQUIREMENT
+			// OR WITH THE ENTIRE LIST OF REQUIREMENTS
+			// 
+			result.addAll(b.getEffectiveRequirements(ctx));
+		}
+		
+		// TODO: ASSOCIATE THE CONTEXT WITH THE RETURNED LIST !!
+		// TODO: ISSUE - IS IT OK TO REUSE THE UNFILTERED FEATURE WHEN THERE IS NO DERIVED FEATURE ?
+		return new EcoreEList.UnmodifiableEList<RequiredCapability>(this, B3BuildPackage.Literals.IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_CAPABILITIES, result.size(), result.toArray());
+
 	}
 
 	/**
@@ -546,8 +627,6 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 		switch (featureID) {
 			case B3BuildPackage.BUILD_UNIT__FUNCTIONS:
 				return getFunctions();
-			case B3BuildPackage.BUILD_UNIT__CONTAINER_TYPE:
-				return getContainerType();
 			case B3BuildPackage.BUILD_UNIT__REQUIRED_CAPABILITIES:
 				return getRequiredCapabilities();
 			case B3BuildPackage.BUILD_UNIT__PROVIDED_CAPABILITIES:
@@ -590,9 +669,6 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 			case B3BuildPackage.BUILD_UNIT__FUNCTIONS:
 				getFunctions().clear();
 				getFunctions().addAll((Collection<? extends IFunction>)newValue);
-				return;
-			case B3BuildPackage.BUILD_UNIT__CONTAINER_TYPE:
-				setContainerType((Type)newValue);
 				return;
 			case B3BuildPackage.BUILD_UNIT__REQUIRED_CAPABILITIES:
 				getRequiredCapabilities().clear();
@@ -654,9 +730,6 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 			case B3BuildPackage.BUILD_UNIT__FUNCTIONS:
 				getFunctions().clear();
 				return;
-			case B3BuildPackage.BUILD_UNIT__CONTAINER_TYPE:
-				setContainerType(CONTAINER_TYPE_EDEFAULT);
-				return;
 			case B3BuildPackage.BUILD_UNIT__REQUIRED_CAPABILITIES:
 				getRequiredCapabilities().clear();
 				return;
@@ -707,8 +780,6 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 		switch (featureID) {
 			case B3BuildPackage.BUILD_UNIT__FUNCTIONS:
 				return functions != null && !functions.isEmpty();
-			case B3BuildPackage.BUILD_UNIT__CONTAINER_TYPE:
-				return CONTAINER_TYPE_EDEFAULT == null ? containerType != null : !CONTAINER_TYPE_EDEFAULT.equals(containerType);
 			case B3BuildPackage.BUILD_UNIT__REQUIRED_CAPABILITIES:
 				return requiredCapabilities != null && !requiredCapabilities.isEmpty();
 			case B3BuildPackage.BUILD_UNIT__PROVIDED_CAPABILITIES:
@@ -749,7 +820,6 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 		if (baseClass == BFunctionContainer.class) {
 			switch (derivedFeatureID) {
 				case B3BuildPackage.BUILD_UNIT__FUNCTIONS: return B3backendPackage.BFUNCTION_CONTAINER__FUNCTIONS;
-				case B3BuildPackage.BUILD_UNIT__CONTAINER_TYPE: return B3backendPackage.BFUNCTION_CONTAINER__CONTAINER_TYPE;
 				default: return -1;
 			}
 		}
@@ -778,7 +848,6 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 		if (baseClass == BFunctionContainer.class) {
 			switch (baseFeatureID) {
 				case B3backendPackage.BFUNCTION_CONTAINER__FUNCTIONS: return B3BuildPackage.BUILD_UNIT__FUNCTIONS;
-				case B3backendPackage.BFUNCTION_CONTAINER__CONTAINER_TYPE: return B3BuildPackage.BUILD_UNIT__CONTAINER_TYPE;
 				default: return -1;
 			}
 		}
@@ -807,9 +876,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (containerType: ");
-		result.append(containerType);
-		result.append(", documentation: ");
+		result.append(" (documentation: ");
 		result.append(documentation);
 		result.append(", executionMode: ");
 		result.append(executionMode);

@@ -12,9 +12,6 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.provider;
 
-
-import java.lang.reflect.Type;
-
 import java.util.Collection;
 import java.util.List;
 
@@ -80,6 +77,7 @@ public class BFunctionConcernContextItemProvider
 			super.getPropertyDescriptors(object);
 
 			addVarArgsPropertyDescriptor(object);
+			addMatchParametersPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -98,6 +96,28 @@ public class BFunctionConcernContextItemProvider
 				 getString("_UI_BFunctionConcernContext_varArgs_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_BFunctionConcernContext_varArgs_feature", "_UI_BFunctionConcernContext_type"),
 				 B3backendPackage.Literals.BFUNCTION_CONCERN_CONTEXT__VAR_ARGS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Match Parameters feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMatchParametersPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_BFunctionConcernContext_matchParameters_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BFunctionConcernContext_matchParameters_feature", "_UI_BFunctionConcernContext_type"),
+				 B3backendPackage.Literals.BFUNCTION_CONCERN_CONTEXT__MATCH_PARAMETERS,
 				 true,
 				 false,
 				 false,
@@ -157,11 +177,8 @@ public class BFunctionConcernContextItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Type labelValue = ((BFunctionConcernContext)object).getContainerType();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_BFunctionConcernContext_type") :
-			getString("_UI_BFunctionConcernContext_type") + " " + label;
+		BFunctionConcernContext bFunctionConcernContext = (BFunctionConcernContext)object;
+		return getString("_UI_BFunctionConcernContext_type") + " " + bFunctionConcernContext.isVarArgs();
 	}
 
 	/**
@@ -177,6 +194,7 @@ public class BFunctionConcernContextItemProvider
 
 		switch (notification.getFeatureID(BFunctionConcernContext.class)) {
 			case B3backendPackage.BFUNCTION_CONCERN_CONTEXT__VAR_ARGS:
+			case B3backendPackage.BFUNCTION_CONCERN_CONTEXT__MATCH_PARAMETERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case B3backendPackage.BFUNCTION_CONCERN_CONTEXT__NAME_PREDICATE:

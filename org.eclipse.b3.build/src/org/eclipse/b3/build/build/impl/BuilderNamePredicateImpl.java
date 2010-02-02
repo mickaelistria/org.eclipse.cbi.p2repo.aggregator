@@ -6,12 +6,16 @@
  */
 package org.eclipse.b3.build.build.impl;
 
+import java.lang.reflect.Type;
+
+import org.eclipse.b3.backend.core.B3InternalError;
+import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate;
-import org.eclipse.b3.backend.evaluator.b3backend.NamePredicate;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.BExpressionImpl;
 
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.BuilderNamePredicate;
+import org.eclipse.b3.build.build.IBuilder;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -177,6 +181,22 @@ public class BuilderNamePredicateImpl extends BExpressionImpl implements Builder
 				return namePredicate != null;
 		}
 		return super.eIsSet(featureID);
+	}
+	@Override
+	public Object evaluate(BExecutionContext ctx) throws Throwable {
+		// pick up "@test" parameter from context
+		Object test = ctx.getValue("@test");
+		if(!(test instanceof IBuilder))
+			throw new B3InternalError("Attempt to evaluate BuilderNamePredicate against non IBuilder");
+		IBuilder b = (IBuilder)test;
+		return Boolean.valueOf(namePredicate.matches(b.getName()));
+	}
+	/**
+	 * Always returns Boolean.
+	 */
+	@Override
+	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
+		return Boolean.class;
 	}
 
 } //BuilderNamePredicateImpl

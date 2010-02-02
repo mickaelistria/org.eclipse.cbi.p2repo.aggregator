@@ -6,15 +6,22 @@
  */
 package org.eclipse.b3.build.build.impl;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
+import org.eclipse.b3.backend.core.B3InternalError;
+import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.B3FunctionImpl;
+import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 
 import org.eclipse.b3.build.build.B3BuildPackage;
+import org.eclipse.b3.build.build.BuildUnit;
 import org.eclipse.b3.build.build.Builder;
 
 import org.eclipse.b3.build.build.BuilderInput;
@@ -22,6 +29,9 @@ import org.eclipse.b3.build.build.Capability;
 import org.eclipse.b3.build.build.IBuilder;
 import org.eclipse.b3.build.build.IProvidedCapabilityContainer;
 import org.eclipse.b3.build.build.PathGroup;
+import org.eclipse.b3.build.build.Prerequisite;
+import org.eclipse.b3.build.build.RequiredCapability;
+import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -30,12 +40,14 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EcoreEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Builder</b></em>'.
+ * @SuppressWarnings("unchecked")
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
@@ -47,6 +59,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getOutput <em>Output</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getDefaultProperties <em>Default Properties</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getPostinputcondition <em>Postinputcondition</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getUnitType <em>Unit Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -116,6 +129,15 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	 * @ordered
 	 */
 	protected BExpression postinputcondition;
+	/**
+	 * The cached value of the '{@link #getUnitType() <em>Unit Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUnitType()
+	 * @generated
+	 * @ordered
+	 */
+	protected Class<? extends BuildUnit> unitType;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -407,6 +429,52 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * If the Builder is contained in a BuildUnit, the type of the build unit is set. Otherwise, the set unitType
+	 * is returned. If not contained by a build unit, and unitType is not set, an exception is thrown.
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Class<? extends BuildUnit> getUnitType() {
+		BFunctionContainer c = getContainer();
+		if(c == null || ! (c instanceof BuildUnit)) {
+			if(unitType == null)
+				throw new B3InternalError("A builder was found that was neither contained in a BuildUnit nor has 'Class<? extends BuildUnit> unit' as its first parameter."+ this.toString());
+			return unitType;
+		}
+		return BuildUnitProxyAdapterFactory.eINSTANCE.adapt((BuildUnit)c).getIface();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUnitType(Class<? extends BuildUnit> newUnitType) {
+		Class<? extends BuildUnit> oldUnitType = unitType;
+		unitType = newUnitType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER__UNIT_TYPE, oldUnitType, unitType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public EList<RequiredCapability> getEffectiveRequirements(BExecutionContext ctx) throws Throwable {
+		List<RequiredCapability> result = new ArrayList<RequiredCapability>();
+		if(input != null) {
+			for(Prerequisite p : input.getPrerequisites()) {
+				result.addAll(p.getEffectiveRequirements(ctx));
+			}
+		}
+				
+		// TODO: ISSUE - IS IT OK TO REUSE THE UNFILTERED FEATURE WHEN THERE IS NO DERIVED FEATURE ?
+		return new EcoreEList.UnmodifiableEList<RequiredCapability>(this, B3BuildPackage.Literals.IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_CAPABILITIES, result.size(), result.toArray());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -453,6 +521,8 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 				return getDefaultProperties();
 			case B3BuildPackage.BUILDER__POSTINPUTCONDITION:
 				return getPostinputcondition();
+			case B3BuildPackage.BUILDER__UNIT_TYPE:
+				return getUnitType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -488,6 +558,9 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 			case B3BuildPackage.BUILDER__POSTINPUTCONDITION:
 				setPostinputcondition((BExpression)newValue);
 				return;
+			case B3BuildPackage.BUILDER__UNIT_TYPE:
+				setUnitType((Class<? extends BuildUnit>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -521,6 +594,9 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 			case B3BuildPackage.BUILDER__POSTINPUTCONDITION:
 				setPostinputcondition((BExpression)null);
 				return;
+			case B3BuildPackage.BUILDER__UNIT_TYPE:
+				setUnitType((Class<? extends BuildUnit>)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -547,6 +623,8 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 				return defaultProperties != null;
 			case B3BuildPackage.BUILDER__POSTINPUTCONDITION:
 				return postinputcondition != null;
+			case B3BuildPackage.BUILDER__UNIT_TYPE:
+				return unitType != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -571,6 +649,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 				case B3BuildPackage.BUILDER__OUTPUT: return B3BuildPackage.IBUILDER__OUTPUT;
 				case B3BuildPackage.BUILDER__DEFAULT_PROPERTIES: return B3BuildPackage.IBUILDER__DEFAULT_PROPERTIES;
 				case B3BuildPackage.BUILDER__POSTINPUTCONDITION: return B3BuildPackage.IBUILDER__POSTINPUTCONDITION;
+				case B3BuildPackage.BUILDER__UNIT_TYPE: return B3BuildPackage.IBUILDER__UNIT_TYPE;
 				default: return -1;
 			}
 		}
@@ -598,10 +677,26 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 				case B3BuildPackage.IBUILDER__OUTPUT: return B3BuildPackage.BUILDER__OUTPUT;
 				case B3BuildPackage.IBUILDER__DEFAULT_PROPERTIES: return B3BuildPackage.BUILDER__DEFAULT_PROPERTIES;
 				case B3BuildPackage.IBUILDER__POSTINPUTCONDITION: return B3BuildPackage.BUILDER__POSTINPUTCONDITION;
+				case B3BuildPackage.IBUILDER__UNIT_TYPE: return B3BuildPackage.BUILDER__UNIT_TYPE;
 				default: return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (unitType: ");
+		result.append(unitType);
+		result.append(')');
+		return result.toString();
 	}
 	private EList<BParameterDeclaration> cachedEffectiveParameters;
 	@Override
@@ -611,7 +706,8 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 			cachedEffectiveParameters = copyParameters();
 			BParameterDeclaration unitParameter = B3backendFactory.eINSTANCE.createBParameterDeclaration();
 			unitParameter.setName("unit");
-			unitParameter.setType(getContainer().getContainerType());
+			BFunctionContainer c = getContainer();
+			unitParameter.setType(getUnitType());
 			cachedEffectiveParameters.add(0, unitParameter);
 		}
 		return cachedEffectiveParameters;
@@ -619,5 +715,19 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	@SuppressWarnings("unchecked")
 	private EList<BParameterDeclaration> copyParameters() {
 		return (EList<BParameterDeclaration>)EcoreUtil.copy((EObject)getParameters());
+	}
+	@Override
+	public EList<BParameterDeclaration> getParameters() {
+		EList<BParameterDeclaration> originalParameters = super.getParameters();
+		if(originalParameters.size() >= 1) {
+			BParameterDeclaration p = originalParameters.get(0);
+			if("unit".equals(p.getName()) && TypeUtils.isAssignableFrom(p.getType(), BuildUnit.class))
+				return originalParameters;
+		}
+		BParameterDeclaration unitParameter = B3backendFactory.eINSTANCE.createBParameterDeclaration();
+		unitParameter.setName("unit");
+		unitParameter.setType(getUnitType());
+		originalParameters.add(0, unitParameter);
+		return originalParameters;
 	}
 } //BuilderImpl

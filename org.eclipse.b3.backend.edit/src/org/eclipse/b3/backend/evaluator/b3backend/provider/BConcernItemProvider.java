@@ -77,33 +77,10 @@ public class BConcernItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addContainerTypePropertyDescriptor(object);
 			addDocumentationPropertyDescriptor(object);
 			addSuperConcernsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Container Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addContainerTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_BFunctionContainer_containerType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BFunctionContainer_containerType_feature", "_UI_BFunctionContainer_type"),
-				 B3backendPackage.Literals.BFUNCTION_CONTAINER__CONTAINER_TYPE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -219,7 +196,6 @@ public class BConcernItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(BConcern.class)) {
-			case B3backendPackage.BCONCERN__CONTAINER_TYPE:
 			case B3backendPackage.BCONCERN__DOCUMENTATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

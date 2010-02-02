@@ -51,4 +51,20 @@ public interface ProvidesPredicate extends BExpression {
 	 */
 	void setCapabilityPredicate(CapabilityPredicate value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean matches(Capability candidate);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean matches(VersionedCapability candidate);
+
 } // ProvidesPredicate

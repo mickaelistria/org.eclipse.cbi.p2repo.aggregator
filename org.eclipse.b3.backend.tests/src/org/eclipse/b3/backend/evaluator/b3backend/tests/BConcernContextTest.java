@@ -24,6 +24,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BConcernContext;
  * The following operations are tested:
  * <ul>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BConcernContext#evaluateIfMatching(java.lang.Object, org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Evaluate If Matching</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BConcernContext#matches(java.lang.Object, org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Matches</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -66,6 +67,19 @@ public abstract class BConcernContextTest extends BExpressionTest {
 	 * @generated
 	 */
 	public void testEvaluateIfMatching__Object_BExecutionContext() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BConcernContext#matches(java.lang.Object, org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Matches</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BConcernContext#matches(java.lang.Object, org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
+	 * @generated
+	 */
+	public void testMatches__Object_BExecutionContext() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

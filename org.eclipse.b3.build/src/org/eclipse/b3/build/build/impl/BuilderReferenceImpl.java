@@ -6,20 +6,29 @@
  */
 package org.eclipse.b3.build.build.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterList;
 
 import org.eclipse.b3.build.build.AliasedRequiredCapability;
 import org.eclipse.b3.build.build.B3BuildPackage;
+import org.eclipse.b3.build.build.BuildContext;
 import org.eclipse.b3.build.build.BuilderReference;
 import org.eclipse.b3.build.build.RequiredCapability;
+import org.eclipse.b3.build.core.ContextAdapter;
+import org.eclipse.b3.build.core.ContextAdapterFactory;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EcoreEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -372,5 +381,64 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 		result.append(')');
 		return result.toString();
 	}
+	
+	/**
+	 * Adds a contained required capability to the set of effective capabilities. If however the requirement
+	 * is a reference via an alias, the requirement is used as stated at the unit level and is then not included
+	 * here. This means that aliased requirements are NOT subject to advice interpretation.
+	 * 
+	 * <h4>NOTE</h4>
+	 * <ul><li>References to the "self" unit are not included as requirements.</li>
+	 * <li>Parameters passed to builders have no effect on resolution, they can not be used in conditional expression
+	 * to filter the set of requirements (so they are ignored in this selection).</li>
+	 * </ul>
+	 * 
+	 * TODO: optimize for the empty list case
+	 */
+	@Override
+	public EList<RequiredCapability> getEffectiveRequirements(BExecutionContext ctx) throws Throwable {
+		List<RequiredCapability> result = new ArrayList<RequiredCapability>();
+		RequiredCapability r = getRequiredCapability();
+		if(r != null) {
+			// Associate the current context with the requirement
+			ContextAdapter ca = ContextAdapterFactory.eINSTANCE.adapt(r);
+			ca.addUnique(ctx);
+			result.add(r);
+		}
+		
+		// TODO: ISSUE - IS IT OK TO REUSE THE UNFILTERED FEATURE WHEN THERE IS NO DERIVED FEATURE ?
+		return new EcoreEList.UnmodifiableEList<RequiredCapability>(this, B3BuildPackage.Literals.IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_CAPABILITIES, result.size(), result.toArray());
 
+	}
+	@Override
+	public EList<RequiredCapability> getRequirements() throws Throwable {
+		List<RequiredCapability> result = new ArrayList<RequiredCapability>();
+		RequiredCapability r = getRequiredCapability();
+		if(r != null)
+			result.add(r);
+		
+		// TODO: ISSUE - IS IT OK TO REUSE THE UNFILTERED FEATURE WHEN THERE IS NO DERIVED FEATURE ?
+		return new EcoreEList.UnmodifiableEList<RequiredCapability>(this, B3BuildPackage.Literals.IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_CAPABILITIES, result.size(), result.toArray());
+	}
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public EList<BuilderReference> getBuilderReferences() throws Throwable {
+		List<BuilderReference> result = new ArrayList<BuilderReference>();
+		result.add(this);
+		// TODO: ISSUE - IS IT OK TO REUSE THE UNFILTERED FEATURE WHEN THERE IS NO DERIVED FEATURE ?
+		return new EcoreEList.UnmodifiableEList<BuilderReference>(this, B3BuildPackage.Literals.PREREQUISITE__BUILD_RESULT, result.size(), result.toArray());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * The same as {@link #getBuilderReferences()} (as there are no filters at this level).
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public EList<BuilderReference> getEffectiveBuilderReferences(BuildContext ctx) throws Throwable {
+		return getBuilderReferences();
+	}
 } //BuilderReferenceImpl

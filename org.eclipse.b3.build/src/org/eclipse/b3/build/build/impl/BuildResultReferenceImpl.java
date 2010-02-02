@@ -6,9 +6,14 @@
  */
 package org.eclipse.b3.build.build.impl;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.build.build.B3BuildPackage;
+import org.eclipse.b3.build.build.BuildContext;
 import org.eclipse.b3.build.build.BuildResultReference;
 
+import org.eclipse.b3.build.build.BuilderReference;
+import org.eclipse.b3.build.build.RequiredCapability;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.EObjectImpl;
@@ -22,7 +27,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class BuildResultReferenceImpl extends EObjectImpl implements BuildResultReference {
+public abstract class BuildResultReferenceImpl extends EObjectImpl implements BuildResultReference {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -40,6 +45,50 @@ public class BuildResultReferenceImpl extends EObjectImpl implements BuildResult
 	@Override
 	protected EClass eStaticClass() {
 		return B3BuildPackage.Literals.BUILD_RESULT_REFERENCE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<RequiredCapability> getEffectiveRequirements(BExecutionContext ctx) throws Throwable {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<RequiredCapability> getRequirements() throws Throwable {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<BuilderReference> getBuilderReferences() throws Throwable {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<BuilderReference> getEffectiveBuilderReferences(BExecutionContext ctx) throws Throwable {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 } //BuildResultReferenceImpl

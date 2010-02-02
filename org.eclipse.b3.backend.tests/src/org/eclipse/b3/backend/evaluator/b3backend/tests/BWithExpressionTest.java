@@ -25,6 +25,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BWithExpression;
  * The following operations are tested:
  * <ul>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BWithExpression#createContext(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Create Context</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BWithExpression#getEvaluationContext(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Get Evaluation Context</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -98,6 +99,19 @@ public class BWithExpressionTest extends BExpressionTest {
 	 * @generated
 	 */
 	public void testCreateContext__BExecutionContext() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BWithExpression#getEvaluationContext(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Get Evaluation Context</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BWithExpression#getEvaluationContext(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
+	 * @generated
+	 */
+	public void testGetEvaluationContext__BExecutionContext() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

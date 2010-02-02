@@ -7,10 +7,18 @@
 package org.eclipse.b3.build.build.impl;
 
 import java.util.Collection;
+import java.util.Iterator;
+import java.util.ListIterator;
 
+import org.eclipse.b3.backend.core.LValue;
+import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 
 import org.eclipse.b3.build.build.B3BuildPackage;
+import org.eclipse.b3.build.build.BuildContext;
+import org.eclipse.b3.build.build.BuildUnit;
+import org.eclipse.b3.build.build.Builder;
 import org.eclipse.b3.build.build.BuilderConcernContext;
 import org.eclipse.b3.build.build.Capability;
 import org.eclipse.b3.build.build.IProvidedCapabilityContainer;
@@ -19,6 +27,9 @@ import org.eclipse.b3.build.build.ProvidesPredicate;
 import org.eclipse.b3.build.build.RequiredCapability;
 import org.eclipse.b3.build.build.RequiresPredicate;
 import org.eclipse.b3.build.build.UnitConcernContext;
+import org.eclipse.b3.build.build.VersionedCapability;
+import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;
+import org.eclipse.b3.build.core.EffectiveUnitIterator;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -31,6 +42,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -236,6 +248,17 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Throws {@link UnsupportedOperationException} - call this method on advised units instead.
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public EList<RequiredCapability> getEffectiveRequirements(BExecutionContext ctx) throws Throwable {
+		// should throw unsupported - not meaningful to call.
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -415,5 +438,95 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
-
+	
+	@Override
+	public Object evaluate(BExecutionContext ctx) throws Throwable {
+		BExecutionContext ictx = ctx.createInnerContext();
+		ictx.defineVariableValue("@test", null, BuildUnit.class);
+		LValue lval = ictx.getLValue("@test");
+		for(BuildUnit u : new EffectiveUnitIterator(ctx)) {
+			lval.set(u);
+			weaveIfMatching(u, ictx);
+		}
+		return this;
+	}
+	private boolean weaveIfMatching(BuildUnit u, BExecutionContext ctx) throws Throwable {
+		Object result = getQuery().evaluate(ctx);
+		if(result != Boolean.TRUE)
+			return false;
+		// weave by creating a copy an then advice it
+		BuildUnit clone = BuildUnit.class.cast(EcoreUtil.copy(u));
+		// modify the build unit, and store it
+		BuildContext bctx = BuildContext.class.cast(ctx.getParentContext());
+		// but only of the unit itself was advised
+		if(adviseUnit(clone, bctx))
+			bctx.defineBuildUnit(clone, true);
+		return true;
+		
+	}
+	private boolean adviseUnit(BuildUnit u, BuildContext ctx) throws Throwable {
+//		builderContexts
+		boolean modified = false;
+		
+		// removal of provided capabilities
+		ListIterator<Capability> pcItor = getProvidedCapabilities().listIterator();
+		while(pcItor.hasNext()) {
+			Capability pc = pcItor.next();
+			for(ProvidesPredicate prem : getProvidesRemovals())
+				if(pc instanceof VersionedCapability ? prem.matches((VersionedCapability.class.cast(pc))) : prem.matches(pc)) {
+					pcItor.remove();
+					modified = true;
+				}
+		}
+		// addition of provided capabilities
+		for(Capability pc : getProvidedCapabilities()) {
+			pcItor.add(Capability.class.cast(EcoreUtil.copy(pc)));
+			modified = true;
+		}
+		// removal of required capabilities
+		ListIterator<RequiredCapability> rcItor = getRequiredCapabilities().listIterator();
+		while(rcItor.hasNext()) {
+			RequiredCapability rc = rcItor.next();
+			for(RequiresPredicate rrem : getRequiresRemovals()) {
+				if(rrem.matches(rc)) {
+					rcItor.remove();
+					modified = true;
+				}
+			}
+		}
+		// addition of required capabilities
+		for(RequiredCapability rc : getRequiredCapabilities()) {
+			rcItor.add(RequiredCapability.class.cast(EcoreUtil.copy(rc)));
+			modified = true;
+		}
+		modified = adviseUnitBuilders(u, ctx) || modified ;
+		
+		// define additional builders
+		// these builders are contained in a UnitConcernContext (no surprise) - they do not have a first parameter
+		// set (they can't since it is not known which units they will be defined for in advance). Copies must
+		// be made, and each copy installed for the unit that was matched.
+		EList<IFunction> fList = getFunctions();
+		Class<? extends BuildUnit> iFace = BuildUnitProxyAdapterFactory.eINSTANCE.adapt(u).getIface();
+		for(IFunction f : fList) {
+			Builder clone = Builder.class.cast(EcoreUtil.copy(f));
+			clone.setUnitType(iFace);
+			ctx.defineFunction(clone);
+			modified = true;
+		}
+		return modified;
+	}
+	
+	private boolean adviseUnitBuilders(BuildUnit u, BExecutionContext ctx) throws Throwable {
+		boolean modified = false;
+		BuildUnit proxy = BuildUnitProxyAdapterFactory.eINSTANCE.adapt(u).getProxy();
+		Iterator<IFunction> fItor = ctx.getFunctionIterator(proxy.getClass(), Builder.class);
+		while(fItor.hasNext()) {
+			IFunction candidate = fItor.next();
+			for(BuilderConcernContext bx : getBuilderContexts()) {
+				if(bx.evaluateIfMatching(candidate, ctx))
+					modified = true;
+				}
+			}
+		return modified;
+	}
 } //UnitConcernContextImpl

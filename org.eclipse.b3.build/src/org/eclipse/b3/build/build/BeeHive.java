@@ -84,7 +84,7 @@ public interface BeeHive extends EObject {
 	 * @return the value of the '<em>Resolutions</em>' attribute.
 	 * @see #setResolutions(Map)
 	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBeeHive_Resolutions()
-	 * @model
+	 * @model transient="true"
 	 * @generated
 	 */
 	Map<RequiredCapability, Capability> getResolutions();

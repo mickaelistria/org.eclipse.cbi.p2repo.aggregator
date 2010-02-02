@@ -58,6 +58,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getContext(java.lang.Class) <em>Get Context</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getFunctionIterator() <em>Get Function Iterator</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getFunctionIterator(java.lang.String) <em>Get Function Iterator</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getFunctionIterator(java.lang.reflect.Type, java.lang.Class) <em>Get Function Iterator</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getConcernIterator(java.lang.Object) <em>Get Concern Iterator</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -692,6 +694,32 @@ public abstract class BExecutionContextTest extends TestCase {
 	 * @generated
 	 */
 	public void testGetFunctionIterator__String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getFunctionIterator(java.lang.reflect.Type, java.lang.Class) <em>Get Function Iterator</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getFunctionIterator(java.lang.reflect.Type, java.lang.Class)
+	 * @generated
+	 */
+	public void testGetFunctionIterator__Type_Class() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getConcernIterator(java.lang.Object) <em>Get Concern Iterator</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getConcernIterator(java.lang.Object)
+	 * @generated
+	 */
+	public void testGetConcernIterator__Object() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

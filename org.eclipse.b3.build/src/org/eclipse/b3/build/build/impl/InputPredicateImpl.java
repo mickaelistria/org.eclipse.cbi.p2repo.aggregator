@@ -6,13 +6,20 @@
  */
 package org.eclipse.b3.build.build.impl;
 
+import java.lang.reflect.Type;
+
+import org.eclipse.b3.backend.core.B3InternalError;
+import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate;
-import org.eclipse.b3.backend.evaluator.b3backend.NamePredicate;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.BExpressionImpl;
 
 import org.eclipse.b3.build.build.B3BuildPackage;
+import org.eclipse.b3.build.build.BuilderInput;
+import org.eclipse.b3.build.build.BuilderReference;
 import org.eclipse.b3.build.build.CapabilityPredicate;
+import org.eclipse.b3.build.build.IBuilder;
 import org.eclipse.b3.build.build.InputPredicate;
+import org.eclipse.b3.build.build.RequiredCapability;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -244,6 +251,41 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 				return builderPredicate != null;
 		}
 		return super.eIsSet(featureID);
+	}
+	/**
+	 * Evaluates the input of the IBuilder bound to the context variable "@test" against the input 
+	 * predicate(s) (builder name, and required capability). The evaulation uses unfiltered builder references.
+	 */
+	@Override
+	public Object evaluate(BExecutionContext ctx) throws Throwable {
+		// pick up "@test" parameter from context
+		Object test = ctx.getValue("@test");
+		if(!(test instanceof IBuilder))
+			throw new B3InternalError("Attempt to evaluate InputPredicate against non IBuilder");
+		IBuilder b = (IBuilder)test;
+		BuilderInput input = b.getInput();
+		for(BuilderReference br : input.getBuilderReferences()) {
+			if(builderPredicate != null && !builderPredicate.matches(br.getBuilderName()))
+				continue;
+			RequiredCapability rc = br.getRequiredCapability();
+			if(rc == null) {
+				rc = br.getRequiredCapabilityReference();
+				if(rc == null)
+					throw new B3InternalError("A BulderReference had neither a RequiredCapability nor a reference to one");
+			}
+
+			if(capabilityPredicate != null && !capabilityPredicate.matches(rc))
+				continue;
+			return Boolean.TRUE;
+		}
+		return Boolean.FALSE;
+	}
+	/**
+	 * Always returns Boolean.
+	 */
+	@Override
+	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
+		return Boolean.class;
 	}
 
 } //InputPredicateImpl

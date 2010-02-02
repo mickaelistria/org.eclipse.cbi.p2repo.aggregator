@@ -4,8 +4,6 @@ import org.eclipse.b3.backend.core.B3InternalError;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.b3.build.build.BuildUnit;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.equinox.internal.provisional.p2.core.Version;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.Opcodes;
@@ -27,15 +25,25 @@ public class BuildUnitUtils {
 	 * @return
 	 */
 	public static String getBuildUnitInterfaceName(BuildUnit unit) {
+		return getBuildUnitInterfaceName(unit.getName(), unit.getVersion());
+	}
+	
+	/**
+	 * Constructs an interface name for a unit based on its name and version.
+	 * @param unitName
+	 * @param version (may be null if the unit does not have a version).
+	 * @return
+	 */
+	public static String getBuildUnitInterfaceName(String unitName, Version version) {
 		StringBuffer buf = new StringBuffer();
 		buf.append(BUILDUNIT_INTERFACE_PREFIX);
-		buf.append(unit.getName());
-		Version v = unit.getVersion();
-		if(v != null) {
+		buf.append(unitName);
+		if(version != null) {
 			buf.append("_");
-			v.toString(buf);
+			version.toString(buf);
 		}
 		return buf.toString();
+		
 	}
 	/**
 	 * Dynamically get/load/create a marker interface for a BuildUnit that is named after the build unit.

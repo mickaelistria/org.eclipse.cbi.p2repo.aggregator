@@ -6,14 +6,23 @@
  */
 package org.eclipse.b3.build.build.impl;
 
+import java.lang.reflect.Type;
+
+import org.eclipse.b3.backend.core.B3InternalError;
+import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.BExpressionImpl;
 
 import org.eclipse.b3.build.build.B3BuildPackage;
+import org.eclipse.b3.build.build.BuildUnit;
+import org.eclipse.b3.build.build.Capability;
 import org.eclipse.b3.build.build.CapabilityPredicate;
+import org.eclipse.b3.build.build.IBuilder;
 import org.eclipse.b3.build.build.ProvidesPredicate;
 
+import org.eclipse.b3.build.build.VersionedCapability;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -109,6 +118,24 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean matches(Capability candidate) {
+		return capabilityPredicate.matches(candidate);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */ 
+	public boolean matches(VersionedCapability candidate) {
+		return capabilityPredicate.matches(candidate);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -176,6 +203,30 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 				return capabilityPredicate != null;
 		}
 		return super.eIsSet(featureID);
+	}
+	@Override
+	public Object evaluate(BExecutionContext ctx) throws Throwable {
+		// pick up "@test" parameter from context
+		Object test = ctx.getValue("@test");
+		EList<Capability> pcList = null;
+		if(test instanceof IBuilder)
+			pcList = ((IBuilder)test).getProvidedCapabilities();
+		else if( test instanceof BuildUnit)
+			pcList = ((BuildUnit)test).getProvidedCapabilities();
+		else
+			throw new B3InternalError("Attempt to evaluate ProvidedPredicate against non IBuilder or BuildUnit");
+		for(Capability c : pcList) {
+			if(capabilityPredicate.matches(c))
+				return Boolean.TRUE;
+		}
+		return Boolean.FALSE;
+	}
+	/**
+	 * Always returns Boolean.
+	 */
+	@Override
+	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
+		return Boolean.class;
 	}
 
 } //ProvidesPredicateImpl

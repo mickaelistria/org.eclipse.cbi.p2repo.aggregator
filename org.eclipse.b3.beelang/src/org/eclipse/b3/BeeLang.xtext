@@ -277,8 +277,6 @@ ParameterDeclaration returns be::BParameterDeclaration : {be::BParameterDeclarat
 
 BuilderInput returns build::BuilderInput : {build::BuilderInput}
 	"input"
-//		("precondition"  ((':' precondExpr  = Expression ';' )|( precondExpr  = BlockExpression)))?
-//		("postcondition" ((':' postcondExpr = Expression ';' )|( postcondExpr = BlockExpression)))?
 		'{' (prerequisites += Prerequisite)+ '}'
 	;
 
@@ -637,7 +635,7 @@ FunctionConcernContext returns be::BFunctionConcernContext: {be::BFunctionConcer
    		(parameters += ParameterPredicate (',' parameters += ParameterPredicate)* 
    		   (',' varArgs ?= "..." parameters += ParameterVarargsPredicate)?)
    		|  (    varArgs ?= "..." parameters += ParameterVarargsPredicate)
-   		)? ')' )?
+   		)? matchParameters ?= ')' )?
    	funcExpr = BlockExpression
 	;
 FunctionNamePredicate returns be::BFunctionNamePredicate : {be::BFunctionNamePredicate }
@@ -674,7 +672,14 @@ UnitConcernContext returns build::UnitConcernContext : {build::UnitConcernContex
 	
 // Advice for Builders	
 BuilderConcernContext returns build::BuilderConcernContext : {build::BuilderConcernContext}
-	"context" "builder" query = BuilderOrExpression 
+	"context" "builder"
+	 	('(' (
+   		(parameters += ParameterPredicate (',' parameters += ParameterPredicate)* 
+   		   (',' varArgs ?= "..." parameters += ParameterVarargsPredicate)?)
+   		|  (    varArgs ?= "..." parameters += ParameterVarargsPredicate)
+   		)? matchParameters ?= ')' )?
+  
+	query = BuilderOrExpression 
 	'{' ( ('+' "input" inputAdditions += Prerequisite) 
 		| ('-' inputRemovals += InputPredicate ';')
 		)*

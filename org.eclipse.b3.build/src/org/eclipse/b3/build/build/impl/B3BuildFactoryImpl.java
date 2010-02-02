@@ -70,7 +70,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 			case B3BuildPackage.BUILDER_INPUT: return createBuilderInput();
 			case B3BuildPackage.PATH_GROUP: return createPathGroup();
 			case B3BuildPackage.PREREQUISITE: return createPrerequisite();
-			case B3BuildPackage.BUILD_RESULT_REFERENCE: return createBuildResultReference();
 			case B3BuildPackage.COMPOUND_BUILD_RESULT_REFERENCE: return createCompoundBuildResultReference();
 			case B3BuildPackage.BUILDER_REFERENCE: return createBuilderReference();
 			case B3BuildPackage.CAPABILITY: return createCapability();
@@ -104,6 +103,7 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 			case B3BuildPackage.BEE_MODEL: return createBeeModel();
 			case B3BuildPackage.BEE_HIVE: return createBeeHive();
 			case B3BuildPackage.RESOLUTION_INFO: return createResolutionInfo();
+			case B3BuildPackage.BUILD_UNIT_WRAPPER: return createBuildUnitWrapper();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -215,6 +215,16 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	public ResolutionInfo createResolutionInfo() {
 		ResolutionInfoImpl resolutionInfo = new ResolutionInfoImpl();
 		return resolutionInfo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BuildUnitWrapper createBuildUnitWrapper() {
+		BuildUnitWrapperImpl buildUnitWrapper = new BuildUnitWrapperImpl();
+		return buildUnitWrapper;
 	}
 
 	/**
@@ -505,16 +515,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	public Prerequisite createPrerequisite() {
 		PrerequisiteImpl prerequisite = new PrerequisiteImpl();
 		return prerequisite;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BuildResultReference createBuildResultReference() {
-		BuildResultReferenceImpl buildResultReference = new BuildResultReferenceImpl();
-		return buildResultReference;
 	}
 
 	/**

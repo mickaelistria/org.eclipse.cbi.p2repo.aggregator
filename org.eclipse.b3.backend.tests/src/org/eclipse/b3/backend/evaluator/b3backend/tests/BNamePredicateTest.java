@@ -23,6 +23,12 @@ import org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>BName Predicate</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate#matches(java.lang.String) <em>Matches</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class BNamePredicateTest extends TestCase {
@@ -101,6 +107,19 @@ public class BNamePredicateTest extends TestCase {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate#matches(java.lang.String) <em>Matches</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate#matches(java.lang.String)
+	 * @generated
+	 */
+	public void testMatches__String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //BNamePredicateTest

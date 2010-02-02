@@ -6,9 +6,11 @@
  */
 package org.eclipse.b3.build.build;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +26,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
  *   <li>{@link org.eclipse.b3.build.build.IBuilder#getOutput <em>Output</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.IBuilder#getDefaultProperties <em>Default Properties</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.IBuilder#getPostinputcondition <em>Postinputcondition</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.IBuilder#getUnitType <em>Unit Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -187,5 +190,39 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	 * @generated
 	 */
 	void setPostinputcondition(BExpression value);
+
+	/**
+	 * Returns the value of the '<em><b>Unit Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Unit Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Unit Type</em>' attribute.
+	 * @see #setUnitType(Class)
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getIBuilder_UnitType()
+	 * @model
+	 * @generated
+	 */
+	Class<? extends BuildUnit> getUnitType();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.IBuilder#getUnitType <em>Unit Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Unit Type</em>' attribute.
+	 * @see #getUnitType()
+	 * @generated
+	 */
+	void setUnitType(Class<? extends BuildUnit> value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
+	 * @generated
+	 */
+	EList<RequiredCapability> getEffectiveRequirements(BExecutionContext ctx) throws Throwable;
 
 } // IBuilder

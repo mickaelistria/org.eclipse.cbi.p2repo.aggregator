@@ -6,17 +6,27 @@
  */
 package org.eclipse.b3.build.build.impl;
 
+import java.lang.reflect.Type;
+import java.util.List;
+import java.util.regex.Pattern;
+
+import org.eclipse.b3.backend.core.B3InternalError;
+import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BLiteralAny;
+import org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression;
 
 import org.eclipse.b3.backend.evaluator.b3backend.impl.BExpressionImpl;
 
 import org.eclipse.b3.build.build.B3BuildPackage;
+import org.eclipse.b3.build.build.IBuilder;
 import org.eclipse.b3.build.build.OutputPredicate;
+import org.eclipse.b3.build.build.PathGroup;
 import org.eclipse.b3.build.build.PathVectorElement;
-
+import org.eclipse.b3.build.core.PathIterator;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -244,6 +254,57 @@ public class OutputPredicateImpl extends BExpressionImpl implements OutputPredic
 				return pathPattern != null;
 		}
 		return super.eIsSet(featureID);
+	}
+	/**
+	 * Evaluates the output of the IBuilder assigned to the context variable "@test" and matches that against
+	 * either the path vector or pathPattern (a literal any or literal regexp). In the case of a path vector,
+	 * the output specification must contain all paths in the predicate path vector (i.e. containsAll semantics).
+	 * 
+	 * Note: Matching is performed on unfiltered output.
+	 */
+	@Override
+	public Object evaluate(BExecutionContext ctx) throws Throwable {
+		// pick up "@test" parameter from context
+		Object test = ctx.getValue("@test");
+		if(!(test instanceof IBuilder))
+			throw new B3InternalError("Attempt to evaluate OutputPredicate against non IBuilder");
+		
+		IBuilder b = (IBuilder)test;
+		PathGroup pg = b.getOutput();
+		if(pg == null)
+			return Boolean.FALSE; 
+		
+		// strategy choice - either apply a pattern on all paths, or have a set of paths which must all be available
+		
+		// choice 1 - compare against a path vector
+		if(pathPattern == null) {
+			if(pathVector == null)
+				throw new B3InternalError("OutputPredicate has neither pattern nor path vector");
+				
+			List<IPath> predicates = new PathIterator(getPathVector()).toList();
+			List<IPath> candidate = new PathIterator(pg).toList();
+			return Boolean.valueOf(candidate.containsAll(predicates));
+		}
+		// choice 2 - compare against a regexp or wildcard == ANY
+		BExpression p = getPathPattern();
+		if(p instanceof BLiteralAny)
+			return Boolean.TRUE;
+		if(p instanceof BRegularExpression) {
+			Pattern pattern = ((BRegularExpression)p).getPattern();
+			PathIterator paths = new PathIterator(pg);
+			while(paths.hasNext()) {
+				if(pattern.matcher(paths.next().toString()).matches())
+					return Boolean.TRUE;
+			}
+		}
+		return Boolean.FALSE;
+	}
+	/**
+	 * Always returns Boolean.
+	 */
+	@Override
+	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
+		return Boolean.class;
 	}
 
 } //OutputPredicateImpl

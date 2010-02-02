@@ -6,21 +6,30 @@
  */
 package org.eclipse.b3.build.build.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BWithExpression;
 import org.eclipse.b3.build.build.B3BuildPackage;
+import org.eclipse.b3.build.build.BuildContext;
 import org.eclipse.b3.build.build.BuildResultReference;
+import org.eclipse.b3.build.build.BuilderReference;
 import org.eclipse.b3.build.build.Prerequisite;
 
+import org.eclipse.b3.build.build.RequiredCapability;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -257,6 +266,78 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.PREREQUISITE__BUILD_RESULT, newBuildResult, newBuildResult));
 	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Gets the effective requirements by evaluating the optional conditional expression - if it returns false, the
+	 * requirements are not included. If the prerequisite has a withExpression, the advice is evaluated and the
+	 * advised context is used to obtain the effective requirements of the contained requirements.
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public EList<RequiredCapability> getEffectiveRequirements(BExecutionContext ctx) throws Throwable {
+		List<RequiredCapability> result = new ArrayList<RequiredCapability>();
+		BuildResultReference br = getBuildResult();
+		if(br != null) {
+			BExpression cond = getCondExpr();
+			Object r = (cond == null) ? null : cond.evaluate(ctx);
+			if(r == null || ! (r instanceof Boolean) || r != Boolean.FALSE)
+				result.addAll(br.getEffectiveRequirements(withExpr == null ? ctx : withExpr.getEvaluationContext(ctx)));
+		}
+		
+		// TODO: ISSUE - IS IT OK TO REUSE THE UNFILTERED FEATURE WHEN THERE IS NO DERIVED FEATURE ?
+		return new EcoreEList.UnmodifiableEList<RequiredCapability>(this, B3BuildPackage.Literals.IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_CAPABILITIES, result.size(), result.toArray());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public EList<RequiredCapability> getRequirements() throws Throwable {
+		List<RequiredCapability> result = new ArrayList<RequiredCapability>();
+		BuildResultReference br = getBuildResult();
+		if(br != null)
+			return br.getRequirements();
+
+		// if there were no buildResults, return an empty list.
+		// TODO: ISSUE - IS IT OK TO REUSE THE UNFILTERED FEATURE WHEN THERE IS NO DERIVED FEATURE ?
+		return new EcoreEList.UnmodifiableEList<RequiredCapability>(this, B3BuildPackage.Literals.IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_CAPABILITIES, result.size(), result.toArray());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public EList<BuilderReference> getBuilderReferences() throws Throwable {
+		List<BuilderReference> result = new ArrayList<BuilderReference>();
+		BuildResultReference br = getBuildResult();
+		if(br != null) {	
+				result.addAll(br.getBuilderReferences());
+		}
+		// TODO: ISSUE - IS IT OK TO REUSE THE UNFILTERED FEATURE WHEN THERE IS NO DERIVED FEATURE ?
+		return new EcoreEList.UnmodifiableEList<BuilderReference>(this, B3BuildPackage.Literals.PREREQUISITE__BUILD_RESULT, result.size(), result.toArray());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public EList<BuilderReference> getEffectiveBuilderReferences(BuildContext ctx) throws Throwable {
+		List<BuilderReference> result = new ArrayList<BuilderReference>();
+		BuildResultReference br = getBuildResult();
+		if(br != null) {	
+			BExpression cond = getCondExpr();
+			Object r = (cond == null) ? null : cond.evaluate(ctx);
+			if(r == null || ! (r instanceof Boolean) || r != Boolean.FALSE)
+				result.addAll(br.getEffectiveBuilderReferences(withExpr == null ? ctx : withExpr.getEvaluationContext(ctx)));
+		}
+		// TODO: ISSUE - IS IT OK TO REUSE THE UNFILTERED FEATURE WHEN THERE IS NO DERIVED FEATURE ?
+		return new EcoreEList.UnmodifiableEList<BuilderReference>(this, B3BuildPackage.Literals.PREREQUISITE__BUILD_RESULT, result.size(), result.toArray());
+	}
+
 
 	/**
 	 * <!-- begin-user-doc -->

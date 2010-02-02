@@ -6,14 +6,21 @@
  */
 package org.eclipse.b3.build.build.impl;
 
+import java.lang.reflect.Type;
+
+import org.eclipse.b3.backend.core.B3InternalError;
+import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.BExpressionImpl;
 
 import org.eclipse.b3.build.build.B3BuildPackage;
+import org.eclipse.b3.build.build.BuildUnit;
 import org.eclipse.b3.build.build.CapabilityPredicate;
+import org.eclipse.b3.build.build.RequiredCapability;
 import org.eclipse.b3.build.build.RequiresPredicate;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -149,6 +156,17 @@ public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPr
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Matches the required capability - note that it is the caller's responsibility to check if the predicate
+	 * is for a meta requirement or not.
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean matches(RequiredCapability candidate) {
+		return capabilityPredicate.matches(candidate);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -244,5 +262,29 @@ public class RequiresPredicateImpl extends BExpressionImpl implements RequiresPr
 		result.append(')');
 		return result.toString();
 	}
-
+	/**
+	 * Iterates over the BuildUnit referenced as the context value "@test" and returns true if one of the requirements
+	 * matches the predicate. Handles the distinction between meta/env requirements and regular requirements.
+	 */
+	@Override
+	public Object evaluate(BExecutionContext ctx) throws Throwable {
+		// pick up "@test" parameter from context
+		Object test = ctx.getValue("@test");
+		if(!(test instanceof BuildUnit))
+			throw new B3InternalError("Attempt to evaluate RequiresPredicate against non BuildUnit or Builder");
+		BuildUnit u = (BuildUnit)test;
+		EList<RequiredCapability> rcList = isMeta() ? u.getMetaRequiredCapabilities() : u.getRequiredCapabilities();
+		for(RequiredCapability r : rcList) {
+			if(capabilityPredicate.matches(r))
+				return Boolean.TRUE;
+		}
+		return Boolean.FALSE;
+	}
+	/**
+	 * Always returns Boolean.
+	 */
+	@Override
+	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
+		return Boolean.class;
+	}
 } //RequiresPredicateImpl

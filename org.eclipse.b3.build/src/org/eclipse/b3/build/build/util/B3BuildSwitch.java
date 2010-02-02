@@ -430,6 +430,18 @@ public class B3BuildSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case B3BuildPackage.BUILD_UNIT_WRAPPER: {
+				BuildUnitWrapper buildUnitWrapper = (BuildUnitWrapper)theEObject;
+				T result = caseBuildUnitWrapper(buildUnitWrapper);
+				if (result == null) result = caseBuildUnit(buildUnitWrapper);
+				if (result == null) result = caseVersionedCapability(buildUnitWrapper);
+				if (result == null) result = caseBFunctionContainer(buildUnitWrapper);
+				if (result == null) result = caseIRequiredCapabilityContainer(buildUnitWrapper);
+				if (result == null) result = caseIProvidedCapabilityContainer(buildUnitWrapper);
+				if (result == null) result = caseCapability(buildUnitWrapper);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -551,6 +563,21 @@ public class B3BuildSwitch<T> {
 	 * @generated
 	 */
 	public T caseResolutionInfo(ResolutionInfo object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Build Unit Wrapper</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Build Unit Wrapper</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBuildUnitWrapper(BuildUnitWrapper object) {
 		return null;
 	}
 

@@ -8,12 +8,14 @@ package org.eclipse.b3.build.build.impl;
 
 import java.util.Collection;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 
 import org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl;
 
 import org.eclipse.b3.build.build.B3BuildPackage;
+import org.eclipse.b3.build.build.BuildUnit;
 import org.eclipse.b3.build.build.BuilderInput;
 import org.eclipse.b3.build.build.BuilderWrapper;
 import org.eclipse.b3.build.build.Capability;
@@ -21,6 +23,7 @@ import org.eclipse.b3.build.build.IBuilder;
 import org.eclipse.b3.build.build.IProvidedCapabilityContainer;
 import org.eclipse.b3.build.build.PathGroup;
 
+import org.eclipse.b3.build.build.RequiredCapability;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -48,6 +51,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderWrapperImpl#getOutput <em>Output</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderWrapperImpl#getDefaultProperties <em>Default Properties</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderWrapperImpl#getPostinputcondition <em>Postinputcondition</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuilderWrapperImpl#getUnitType <em>Unit Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -123,6 +127,16 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * @ordered
 	 */
 	protected BExpression postinputcondition;
+
+	/**
+	 * The cached value of the '{@link #getUnitType() <em>Unit Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUnitType()
+	 * @generated
+	 * @ordered
+	 */
+	protected Class<? extends BuildUnit> unitType;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -418,6 +432,38 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Class<? extends BuildUnit> getUnitType() {
+		return unitType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUnitType(Class<? extends BuildUnit> newUnitType) {
+		Class<? extends BuildUnit> oldUnitType = unitType;
+		unitType = newUnitType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_WRAPPER__UNIT_TYPE, oldUnitType, unitType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<RequiredCapability> getEffectiveRequirements(BExecutionContext ctx) throws Throwable {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -461,6 +507,8 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 				return getDefaultProperties();
 			case B3BuildPackage.BUILDER_WRAPPER__POSTINPUTCONDITION:
 				return getPostinputcondition();
+			case B3BuildPackage.BUILDER_WRAPPER__UNIT_TYPE:
+				return getUnitType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -496,6 +544,9 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 			case B3BuildPackage.BUILDER_WRAPPER__POSTINPUTCONDITION:
 				setPostinputcondition((BExpression)newValue);
 				return;
+			case B3BuildPackage.BUILDER_WRAPPER__UNIT_TYPE:
+				setUnitType((Class<? extends BuildUnit>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -529,6 +580,9 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 			case B3BuildPackage.BUILDER_WRAPPER__POSTINPUTCONDITION:
 				setPostinputcondition((BExpression)null);
 				return;
+			case B3BuildPackage.BUILDER_WRAPPER__UNIT_TYPE:
+				setUnitType((Class<? extends BuildUnit>)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -555,6 +609,8 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 				return defaultProperties != null;
 			case B3BuildPackage.BUILDER_WRAPPER__POSTINPUTCONDITION:
 				return postinputcondition != null;
+			case B3BuildPackage.BUILDER_WRAPPER__UNIT_TYPE:
+				return unitType != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -580,6 +636,7 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 				case B3BuildPackage.BUILDER_WRAPPER__OUTPUT: return B3BuildPackage.IBUILDER__OUTPUT;
 				case B3BuildPackage.BUILDER_WRAPPER__DEFAULT_PROPERTIES: return B3BuildPackage.IBUILDER__DEFAULT_PROPERTIES;
 				case B3BuildPackage.BUILDER_WRAPPER__POSTINPUTCONDITION: return B3BuildPackage.IBUILDER__POSTINPUTCONDITION;
+				case B3BuildPackage.BUILDER_WRAPPER__UNIT_TYPE: return B3BuildPackage.IBUILDER__UNIT_TYPE;
 				default: return -1;
 			}
 		}
@@ -607,10 +664,27 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 				case B3BuildPackage.IBUILDER__OUTPUT: return B3BuildPackage.BUILDER_WRAPPER__OUTPUT;
 				case B3BuildPackage.IBUILDER__DEFAULT_PROPERTIES: return B3BuildPackage.BUILDER_WRAPPER__DEFAULT_PROPERTIES;
 				case B3BuildPackage.IBUILDER__POSTINPUTCONDITION: return B3BuildPackage.BUILDER_WRAPPER__POSTINPUTCONDITION;
+				case B3BuildPackage.IBUILDER__UNIT_TYPE: return B3BuildPackage.BUILDER_WRAPPER__UNIT_TYPE;
 				default: return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (unitType: ");
+		result.append(unitType);
+		result.append(')');
+		return result.toString();
 	}
 
 } //BuilderWrapperImpl

@@ -8,6 +8,7 @@ package org.eclipse.b3.build.build;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -24,6 +25,9 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#getOutputAdditions <em>Output Additions</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#getOutputRemovals <em>Output Removals</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#getFuncExpr <em>Func Expr</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#isVarArgs <em>Var Args</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#isMatchParameters <em>Match Parameters</em>}</li>
  * </ul>
  * </p>
  *
@@ -147,5 +151,73 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * @generated
 	 */
 	void setFuncExpr(BExpression value);
+
+	/**
+	 * Returns the value of the '<em><b>Var Args</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Var Args</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Var Args</em>' attribute.
+	 * @see #setVarArgs(boolean)
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuilderConcernContext_VarArgs()
+	 * @model
+	 * @generated
+	 */
+	boolean isVarArgs();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderConcernContext#isVarArgs <em>Var Args</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Var Args</em>' attribute.
+	 * @see #isVarArgs()
+	 * @generated
+	 */
+	void setVarArgs(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Parameters</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Parameters</em>' containment reference list.
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuilderConcernContext_Parameters()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<BParameterPredicate> getParameters();
+
+	/**
+	 * Returns the value of the '<em><b>Match Parameters</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Match Parameters</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Match Parameters</em>' attribute.
+	 * @see #setMatchParameters(boolean)
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuilderConcernContext_MatchParameters()
+	 * @model
+	 * @generated
+	 */
+	boolean isMatchParameters();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderConcernContext#isMatchParameters <em>Match Parameters</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Match Parameters</em>' attribute.
+	 * @see #isMatchParameters()
+	 * @generated
+	 */
+	void setMatchParameters(boolean value);
 
 } // BuilderConcernContext

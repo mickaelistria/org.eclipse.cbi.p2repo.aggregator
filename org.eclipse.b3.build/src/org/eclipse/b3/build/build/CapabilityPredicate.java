@@ -20,7 +20,6 @@ import org.eclipse.equinox.internal.provisional.p2.core.VersionRange;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.build.CapabilityPredicate#getNameSpacePattern <em>Name Space Pattern</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.CapabilityPredicate#getVersionRange <em>Version Range</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.CapabilityPredicate#getNamePredicate <em>Name Predicate</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.CapabilityPredicate#getNameSpacePredicate <em>Name Space Predicate</em>}</li>
@@ -32,32 +31,6 @@ import org.eclipse.equinox.internal.provisional.p2.core.VersionRange;
  * @generated
  */
 public interface CapabilityPredicate extends BExpression {
-	/**
-	 * Returns the value of the '<em><b>Name Space Pattern</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name Space Pattern</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name Space Pattern</em>' containment reference.
-	 * @see #setNameSpacePattern(BExpression)
-	 * @see org.eclipse.b3.build.build.B3BuildPackage#getCapabilityPredicate_NameSpacePattern()
-	 * @model containment="true"
-	 * @generated
-	 */
-	BExpression getNameSpacePattern();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.CapabilityPredicate#getNameSpacePattern <em>Name Space Pattern</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name Space Pattern</em>' containment reference.
-	 * @see #getNameSpacePattern()
-	 * @generated
-	 */
-	void setNameSpacePattern(BExpression value);
-
 	/**
 	 * Returns the value of the '<em><b>Version Range</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -135,5 +108,29 @@ public interface CapabilityPredicate extends BExpression {
 	 * @generated
 	 */
 	void setNameSpacePredicate(BNamePredicate value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean matches(Capability candidate);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean matches(VersionedCapability candidate);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean matches(RequiredCapability candidate);
 
 } // CapabilityPredicate

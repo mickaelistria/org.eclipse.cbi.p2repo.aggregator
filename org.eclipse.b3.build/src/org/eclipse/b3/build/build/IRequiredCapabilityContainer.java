@@ -6,6 +6,7 @@
  */
 package org.eclipse.b3.build.build;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -42,5 +43,13 @@ public interface IRequiredCapabilityContainer extends EObject {
 	 * @generated
 	 */
 	EList<RequiredCapability> getRequiredCapabilities();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
+	 * @generated
+	 */
+	EList<RequiredCapability> getEffectiveRequirements(BExecutionContext ctx) throws Throwable;
 
 } // IRequiredCapabilityContainer

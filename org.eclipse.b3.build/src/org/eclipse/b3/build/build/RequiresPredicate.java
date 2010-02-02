@@ -78,4 +78,12 @@ public interface RequiresPredicate extends BExpression {
 	 */
 	void setMeta(boolean value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean matches(RequiredCapability candidate);
+
 } // RequiresPredicate

@@ -25,6 +25,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BConcern;
  * The following operations are tested:
  * <ul>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BConcern#evaluateIfMatching(java.lang.Object, org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Evaluate If Matching</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BConcern#getConcernContextIterator() <em>Get Concern Context Iterator</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -98,6 +99,19 @@ public class BConcernTest extends BAdviceTest {
 	 * @generated
 	 */
 	public void testEvaluateIfMatching__Object_BExecutionContext() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BConcern#getConcernContextIterator() <em>Get Concern Context Iterator</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BConcern#getConcernContextIterator()
+	 * @generated
+	 */
+	public void testGetConcernContextIterator() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

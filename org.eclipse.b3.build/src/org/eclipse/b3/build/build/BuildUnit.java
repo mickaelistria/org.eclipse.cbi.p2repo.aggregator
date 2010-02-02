@@ -8,6 +8,7 @@ package org.eclipse.b3.build.build;
 
 import java.lang.reflect.Type;
 import org.eclipse.b3.backend.evaluator.b3backend.BConcern;
+import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
@@ -251,4 +252,12 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * @generated
 	 */
 	EList<BPropertySet> getPropertySets();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
+	 * @generated
+	 */
+	EList<RequiredCapability> getEffectiveMetaRequirements(BExecutionContext ctx) throws Throwable;
 } // BuildUnit

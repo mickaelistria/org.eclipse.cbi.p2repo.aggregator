@@ -261,6 +261,10 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 				return createResolutionInfoAdapter();
 			}
 			@Override
+			public Adapter caseBuildUnitWrapper(BuildUnitWrapper object) {
+				return createBuildUnitWrapperAdapter();
+			}
+			@Override
 			public Adapter caseBFunctionContainer(BFunctionContainer object) {
 				return createBFunctionContainerAdapter();
 			}
@@ -429,6 +433,20 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createResolutionInfoAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.BuildUnitWrapper <em>Build Unit Wrapper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.BuildUnitWrapper
+	 * @generated
+	 */
+	public Adapter createBuildUnitWrapperAdapter() {
 		return null;
 	}
 

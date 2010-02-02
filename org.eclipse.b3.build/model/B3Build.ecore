@@ -4,6 +4,10 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="build"
     nsURI="http://b3build/1.0" nsPrefix="build">
   <eClassifiers xsi:type="ecore:EClass" name="BuildUnit" eSuperTypes="#//VersionedCapability ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BFunctionContainer #//IRequiredCapabilityContainer #//IProvidedCapabilityContainer">
+    <eOperations name="getEffectiveMetaRequirements" upperBound="-1" eType="#//RequiredCapability"
+        eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
+      <eParameters name="ctx" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExecutionContext"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="builders" unique="false"
         upperBound="-1" eType="#//IBuilder" changeable="false" volatile="true" transient="true"
         derived="true"/>
@@ -31,6 +35,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IBuilder" abstract="true" interface="true"
       eSuperTypes="#//IProvidedCapabilityContainer ../../org.eclipse.b3.backend/model/B3Backend.ecore#//IFunction">
+    <eOperations name="getEffectiveRequirements" upperBound="-1" eType="#//RequiredCapability"
+        eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
+      <eParameters name="ctx" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExecutionContext"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="postcondExpr" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="precondExpr" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"
@@ -43,6 +51,13 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="postinputcondition" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unitType">
+      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+        <eTypeArguments>
+          <eUpperBound eClassifier="#//BuildUnit"/>
+        </eTypeArguments>
+      </eGenericType>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="VersionRange" instanceClassName="org.eclipse.equinox.internal.provisional.p2.core.VersionRange"/>
   <eClassifiers xsi:type="ecore:EDataType" name="Version" instanceClassName="org.eclipse.equinox.internal.provisional.p2.core.Version"/>
@@ -51,6 +66,29 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="#//Version"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BuilderInput">
+    <eOperations name="getEffectiveRequirements" upperBound="-1" eType="#//RequiredCapability"
+        eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
+      <eParameters name="ctx" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExecutionContext"/>
+    </eOperations>
+    <eOperations name="getRequirements" upperBound="-1" eType="#//RequiredCapability"
+        eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Returns the unfiltered requirements as a flattened list."/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="getBuilderReferences" upperBound="-1" eType="#//BuilderReference"
+        eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Returns the unfiltered requirements as a flattened list."/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="getEffectiveBuilderReferences" upperBound="-1" eType="#//BuilderReference"
+        eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Returns the unfiltered requirements as a flattened list."/>
+      </eAnnotations>
+      <eParameters name="ctx" eType="#//BuildContext"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="prerequisites" upperBound="-1"
         eType="#//Prerequisite" containment="true"/>
   </eClassifiers>
@@ -61,6 +99,29 @@
         eType="#//PathVector" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Prerequisite">
+    <eOperations name="getEffectiveRequirements" upperBound="-1" eType="#//RequiredCapability"
+        eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
+      <eParameters name="ctx" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExecutionContext"/>
+    </eOperations>
+    <eOperations name="getRequirements" upperBound="-1" eType="#//RequiredCapability"
+        eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Returns the unfiltered requirements as a flattened list."/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="getBuilderReferences" upperBound="-1" eType="#//BuilderReference"
+        eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Returns the unfiltered requirements as a flattened list."/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="getEffectiveBuilderReferences" upperBound="-1" eType="#//BuilderReference"
+        eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Returns the unfiltered requirements as a flattened list."/>
+      </eAnnotations>
+      <eParameters name="ctx" eType="#//BuildContext"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="condExpr" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="alias" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -69,7 +130,31 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="buildResult" eType="#//BuildResultReference"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BuildResultReference"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BuildResultReference" abstract="true">
+    <eOperations name="getEffectiveRequirements" upperBound="-1" eType="#//RequiredCapability"
+        eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
+      <eParameters name="ctx" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExecutionContext"/>
+    </eOperations>
+    <eOperations name="getRequirements" upperBound="-1" eType="#//RequiredCapability"
+        eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Returns the unfiltered requirements as a flattened list."/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="getBuilderReferences" upperBound="-1" eType="#//BuilderReference"
+        eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Returns the unfiltered requirements as a flattened list."/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="getEffectiveBuilderReferences" upperBound="-1" eType="#//BuilderReference"
+        eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Returns the unfiltered requirements as a flattened list."/>
+      </eAnnotations>
+      <eParameters name="ctx" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExecutionContext"/>
+    </eOperations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompoundBuildResultReference" eSuperTypes="#//BuildResultReference">
     <eStructuralFeatures xsi:type="ecore:EReference" name="prerequisites" upperBound="-1"
         eType="#//Prerequisite" containment="true"/>
@@ -136,34 +221,31 @@
   <eClassifiers xsi:type="ecore:EClass" name="BuildContext" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExecutionContext">
     <eOperations name="defineBuildUnit" eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//B3EngineException">
       <eParameters name="unit" eType="#//BuildUnit"/>
+      <eParameters name="isWeaving" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
-    <eOperations name="getBuildUnitProxy" eType="#//BuildUnit" eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//B3EngineException">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Returns a dynamic proxy for the build unit that implements BuildUnit, a special interface generated for the build unit instance, and all interfaces declared as being implemented by the build unit. If the build unit is not already defined, getting its proxy will define it."/>
-      </eAnnotations>
-      <eParameters name="unit" eType="#//BuildUnit"/>
-    </eOperations>
-    <eOperations name="getBuildUnitInterface" eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//B3EngineException">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Returns an interface unique for the build unit. If the build unit is not already defined, this will also define the build unit."/>
-      </eAnnotations>
-      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
-        <eTypeArguments>
-          <eUpperBound eClassifier="#//BuildUnit"/>
-        </eTypeArguments>
-      </eGenericType>
-      <eParameters name="unit" eType="#//BuildUnit"/>
+    <eOperations name="defineBeeModel" eType="#//BuildContext" eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//B3EngineException">
+      <eParameters name="beeModel" eType="#//BeeModel"/>
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BuildConcernContext" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//BConcernContext"/>
   <eClassifiers xsi:type="ecore:EClass" name="RequiresPredicate" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression">
+    <eOperations name="matches" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="candidate" eType="#//RequiredCapability"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="capabilityPredicate" lowerBound="1"
         eType="#//CapabilityPredicate" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="meta" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CapabilityPredicate" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="nameSpacePattern" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"
-        containment="true"/>
+    <eOperations name="matches" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="candidate" eType="#//Capability"/>
+    </eOperations>
+    <eOperations name="matches" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="candidate" eType="#//VersionedCapability"/>
+    </eOperations>
+    <eOperations name="matches" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="candidate" eType="#//RequiredCapability"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="versionRange" eType="#//VersionRange"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="namePredicate" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BNamePredicate"
         containment="true"/>
@@ -175,6 +257,12 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProvidesPredicate" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression">
+    <eOperations name="matches" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="candidate" eType="#//Capability"/>
+    </eOperations>
+    <eOperations name="matches" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="candidate" eType="#//VersionedCapability"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="capabilityPredicate" eType="#//CapabilityPredicate"
         containment="true"/>
   </eClassifiers>
@@ -216,6 +304,11 @@
         eType="#//OutputPredicate" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="funcExpr" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="varArgs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BParameterPredicate"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="matchParameters" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OutputPredicate" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="pathVector" eType="#//PathVectorElement"
@@ -228,6 +321,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IRequiredCapabilityContainer" abstract="true"
       interface="true">
+    <eOperations name="getEffectiveRequirements" upperBound="-1" eType="#//RequiredCapability"
+        eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
+      <eParameters name="ctx" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExecutionContext"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requiredCapabilities" upperBound="-1"
         eType="#//RequiredCapability" containment="true"/>
   </eClassifiers>
@@ -272,7 +369,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="beeModels" upperBound="-1"
         eType="#//BeeModel"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//BeeHive"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="resolutions">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="resolutions" transient="true">
       <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
         <eTypeArguments eClassifier="#//RequiredCapability"/>
         <eTypeArguments eClassifier="#//Capability"/>
@@ -280,4 +377,7 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ResolutionInfo"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BuildUnitWrapper" eSuperTypes="#//BuildUnit">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="original" eType="#//BuildUnit"/>
+  </eClassifiers>
 </ecore:EPackage>

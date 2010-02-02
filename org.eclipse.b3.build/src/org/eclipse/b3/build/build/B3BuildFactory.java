@@ -89,6 +89,15 @@ public interface B3BuildFactory extends EFactory {
 	ResolutionInfo createResolutionInfo();
 
 	/**
+	 * Returns a new object of class '<em>Build Unit Wrapper</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Build Unit Wrapper</em>'.
+	 * @generated
+	 */
+	BuildUnitWrapper createBuildUnitWrapper();
+
+	/**
 	 * Returns a new object of class '<em>Versioned Capability</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -348,15 +357,6 @@ public interface B3BuildFactory extends EFactory {
 	 * @generated
 	 */
 	Prerequisite createPrerequisite();
-
-	/**
-	 * Returns a new object of class '<em>Build Result Reference</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Build Result Reference</em>'.
-	 * @generated
-	 */
-	BuildResultReference createBuildResultReference();
 
 	/**
 	 * Returns a new object of class '<em>Compound Build Result Reference</em>'.

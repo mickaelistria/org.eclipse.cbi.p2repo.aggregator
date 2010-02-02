@@ -6,15 +6,16 @@
  */
 package org.eclipse.b3.build.build.impl;
 
-import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate;
-import org.eclipse.b3.backend.evaluator.b3backend.NamePredicate;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.BExpressionImpl;
 
 import org.eclipse.b3.build.build.B3BuildPackage;
+import org.eclipse.b3.build.build.Capability;
 import org.eclipse.b3.build.build.CapabilityPredicate;
 
+import org.eclipse.b3.build.build.RequiredCapability;
+import org.eclipse.b3.build.build.VersionedCapability;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -23,6 +24,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.equinox.internal.provisional.p2.core.Version;
 import org.eclipse.equinox.internal.provisional.p2.core.VersionRange;
 
 /**
@@ -32,7 +34,6 @@ import org.eclipse.equinox.internal.provisional.p2.core.VersionRange;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.build.impl.CapabilityPredicateImpl#getNameSpacePattern <em>Name Space Pattern</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.CapabilityPredicateImpl#getVersionRange <em>Version Range</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.CapabilityPredicateImpl#getNamePredicate <em>Name Predicate</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.CapabilityPredicateImpl#getNameSpacePredicate <em>Name Space Predicate</em>}</li>
@@ -43,16 +44,6 @@ import org.eclipse.equinox.internal.provisional.p2.core.VersionRange;
  */
 @SuppressWarnings("restriction")
 public class CapabilityPredicateImpl extends BExpressionImpl implements CapabilityPredicate {
-	/**
-	 * The cached value of the '{@link #getNameSpacePattern() <em>Name Space Pattern</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNameSpacePattern()
-	 * @generated
-	 * @ordered
-	 */
-	protected BExpression nameSpacePattern;
-
 	/**
 	 * The default value of the '{@link #getVersionRange() <em>Version Range</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -110,49 +101,6 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 	@Override
 	protected EClass eStaticClass() {
 		return B3BuildPackage.Literals.CAPABILITY_PREDICATE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BExpression getNameSpacePattern() {
-		return nameSpacePattern;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetNameSpacePattern(BExpression newNameSpacePattern, NotificationChain msgs) {
-		BExpression oldNameSpacePattern = nameSpacePattern;
-		nameSpacePattern = newNameSpacePattern;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.CAPABILITY_PREDICATE__NAME_SPACE_PATTERN, oldNameSpacePattern, newNameSpacePattern);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setNameSpacePattern(BExpression newNameSpacePattern) {
-		if (newNameSpacePattern != nameSpacePattern) {
-			NotificationChain msgs = null;
-			if (nameSpacePattern != null)
-				msgs = ((InternalEObject)nameSpacePattern).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.CAPABILITY_PREDICATE__NAME_SPACE_PATTERN, null, msgs);
-			if (newNameSpacePattern != null)
-				msgs = ((InternalEObject)newNameSpacePattern).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.CAPABILITY_PREDICATE__NAME_SPACE_PATTERN, null, msgs);
-			msgs = basicSetNameSpacePattern(newNameSpacePattern, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.CAPABILITY_PREDICATE__NAME_SPACE_PATTERN, newNameSpacePattern, newNameSpacePattern));
 	}
 
 	/**
@@ -264,14 +212,73 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Matches name and namespace against the (optional) predicates for name and namespace.
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean matches(Capability candidate) {
+		if(candidate instanceof VersionedCapability)
+			return matches((VersionedCapability)candidate);
+		if(candidate instanceof RequiredCapability)
+			return matches((RequiredCapability)candidate);
+		return basicMatches(candidate);
+		
+	}
+	private boolean basicMatches(Capability candidate) {
+		if(nameSpacePredicate != null && !nameSpacePredicate.matches(candidate.getNameSpace()))
+			return false;
+		
+		if(namePredicate != null && !namePredicate.matches(candidate.getName()))
+			return false;
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Returns true, if the candidate matches as an unversioned capability {@link #matches(Capability)}, and
+	 * if this predicate has a version range, the candidate must have a version in this range.
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean matches(VersionedCapability candidate) {
+		if(basicMatches((Capability)candidate)) {
+			if(versionRange == null)
+				return true;
+			Version v = candidate.getVersion();
+			if(v == null)
+				return false;
+			return versionRange.isIncluded(v);
+		}
+		return false;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Returns true, if the candidate matches as an unversioned capability {@link #matches(Capability)}, and
+	 * if this predicate has a version range, the candidate must have a version range that intersects.
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean matches(RequiredCapability candidate) {
+		if(basicMatches((Capability)candidate)) {
+			if(versionRange == null)
+				return true;
+			VersionRange vr = candidate.getVersionRange();
+			if(vr == null)
+				return false;
+			return versionRange.intersect(vr) != null;
+		}
+		return false;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case B3BuildPackage.CAPABILITY_PREDICATE__NAME_SPACE_PATTERN:
-				return basicSetNameSpacePattern(null, msgs);
 			case B3BuildPackage.CAPABILITY_PREDICATE__NAME_PREDICATE:
 				return basicSetNamePredicate(null, msgs);
 			case B3BuildPackage.CAPABILITY_PREDICATE__NAME_SPACE_PREDICATE:
@@ -288,8 +295,6 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case B3BuildPackage.CAPABILITY_PREDICATE__NAME_SPACE_PATTERN:
-				return getNameSpacePattern();
 			case B3BuildPackage.CAPABILITY_PREDICATE__VERSION_RANGE:
 				return getVersionRange();
 			case B3BuildPackage.CAPABILITY_PREDICATE__NAME_PREDICATE:
@@ -308,9 +313,6 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case B3BuildPackage.CAPABILITY_PREDICATE__NAME_SPACE_PATTERN:
-				setNameSpacePattern((BExpression)newValue);
-				return;
 			case B3BuildPackage.CAPABILITY_PREDICATE__VERSION_RANGE:
 				setVersionRange((VersionRange)newValue);
 				return;
@@ -332,9 +334,6 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case B3BuildPackage.CAPABILITY_PREDICATE__NAME_SPACE_PATTERN:
-				setNameSpacePattern((BExpression)null);
-				return;
 			case B3BuildPackage.CAPABILITY_PREDICATE__VERSION_RANGE:
 				setVersionRange(VERSION_RANGE_EDEFAULT);
 				return;
@@ -356,8 +355,6 @@ public class CapabilityPredicateImpl extends BExpressionImpl implements Capabili
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case B3BuildPackage.CAPABILITY_PREDICATE__NAME_SPACE_PATTERN:
-				return nameSpacePattern != null;
 			case B3BuildPackage.CAPABILITY_PREDICATE__VERSION_RANGE:
 				return VERSION_RANGE_EDEFAULT == null ? versionRange != null : !VERSION_RANGE_EDEFAULT.equals(versionRange);
 			case B3BuildPackage.CAPABILITY_PREDICATE__NAME_PREDICATE:

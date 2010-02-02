@@ -13,8 +13,6 @@
 package org.eclipse.b3.backend.evaluator.b3backend.provider;
 
 
-import java.lang.reflect.Type;
-
 import java.util.Collection;
 import java.util.List;
 
@@ -25,19 +23,15 @@ import org.eclipse.b3.backend.evaluator.b3backend.BConcernContext;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -82,31 +76,8 @@ public class BConcernContextItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addContainerTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Container Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addContainerTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_BFunctionContainer_containerType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BFunctionContainer_containerType_feature", "_UI_BFunctionContainer_type"),
-				 B3backendPackage.Literals.BFUNCTION_CONTAINER__CONTAINER_TYPE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -147,11 +118,7 @@ public class BConcernContextItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Type labelValue = ((BConcernContext)object).getContainerType();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_BConcernContext_type") :
-			getString("_UI_BConcernContext_type") + " " + label;
+		return getString("_UI_BConcernContext_type");
 	}
 
 	/**
@@ -166,9 +133,6 @@ public class BConcernContextItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(BConcernContext.class)) {
-			case B3backendPackage.BCONCERN_CONTEXT__CONTAINER_TYPE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
 			case B3backendPackage.BCONCERN_CONTEXT__FUNCTIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
