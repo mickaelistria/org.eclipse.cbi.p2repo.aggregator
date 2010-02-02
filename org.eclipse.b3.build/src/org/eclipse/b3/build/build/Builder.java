@@ -7,9 +7,6 @@
 package org.eclipse.b3.build.build;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
-import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->

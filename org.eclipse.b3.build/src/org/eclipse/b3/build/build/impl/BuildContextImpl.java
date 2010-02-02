@@ -6,29 +6,20 @@
  */
 package org.eclipse.b3.build.build.impl;
 
-import java.lang.reflect.Type;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.b3.backend.core.B3EngineException;
 
-import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
-import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
-import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl;
-import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
-
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.BeeModel;
 import org.eclipse.b3.build.build.BuildContext;
 import org.eclipse.b3.build.build.BuildUnit;
 import org.eclipse.b3.build.core.BuildUnitProxyAdapter;
 import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;
-import org.eclipse.b3.build.internal.BuildUnitUtils;
-
 import org.eclipse.emf.ecore.EClass;
 
 /**

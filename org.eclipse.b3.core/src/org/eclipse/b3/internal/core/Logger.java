@@ -28,6 +28,7 @@ import org.osgi.framework.Bundle;
  * 
  * @author Thomas Hallgren
  */
+@SuppressWarnings("synthetic-access")
 public class Logger
 {
 	private static class EclipseLogListener implements ILogListener

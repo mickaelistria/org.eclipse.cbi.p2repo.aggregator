@@ -12,7 +12,6 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
 import java.lang.reflect.WildcardType;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.regex.Pattern;
 import org.eclipse.b3.backend.core.B3DynamicClassLoader;

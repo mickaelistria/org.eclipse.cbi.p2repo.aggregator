@@ -6,9 +6,6 @@ import org.eclipse.xtext.ui.common.editor.contentassist.antlr.internal.Lexer;
 
 
 import org.antlr.runtime.*;
-import java.util.Stack;
-import java.util.List;
-import java.util.ArrayList;
 
 public class InternalBeeLangLexer extends Lexer {
     public static final int T29=29;

@@ -9,7 +9,6 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.regex.Pattern;
 import org.eclipse.b3.backend.core.B3DynamicClassLoader;

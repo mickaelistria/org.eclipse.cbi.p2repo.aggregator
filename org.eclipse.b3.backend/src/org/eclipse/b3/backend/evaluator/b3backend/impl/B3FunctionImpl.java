@@ -7,20 +7,11 @@
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
 import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.List;
-
-import org.eclipse.b3.backend.core.B3IncompatibleTypeException;
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
-import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
-import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
-import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
-import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 

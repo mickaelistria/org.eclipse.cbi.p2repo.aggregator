@@ -217,7 +217,6 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 	 * @generated NOT
 	 * @ordered
 	 */
-	@SuppressWarnings("unchecked")
 	protected static final TypeVariable<?>[] TYPE_PARAMETERS_EDEFAULT = null;
 
 	/**
@@ -766,7 +765,6 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	@SuppressWarnings("unchecked")
 	public TypeVariable<?>[] getTypeParameters() {
 		return typeParameters;
 	}
@@ -776,9 +774,8 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	public void setTypeParameters(TypeVariable<?>[] newTypeParameters) {
-		TypeVariable[] oldTypeParameters = typeParameters;
+		TypeVariable<?>[] oldTypeParameters = typeParameters;
 		typeParameters = newTypeParameters;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION__TYPE_PARAMETERS, oldTypeParameters, typeParameters));
