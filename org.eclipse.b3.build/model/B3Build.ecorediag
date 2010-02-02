@@ -2060,7 +2060,7 @@
       </children>
       <styles xmi:type="notation:ShapeStyle" xmi:id="_oYisof64Ed6J54ZOjN0g9g" fontColor="4210752" fontName="Lucida Grande" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
       <element xmi:type="ecore:EClass" href="B3Build.ecore#//BuilderConcernContext"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_oYisov64Ed6J54ZOjN0g9g" x="117" y="117"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_oYisov64Ed6J54ZOjN0g9g" x="117" y="117" width="183"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_4-nKMP68Ed6J54ZOjN0g9g" type="1001">
       <children xmi:type="notation:Node" xmi:id="_4-sCsP68Ed6J54ZOjN0g9g" type="4001"/>
@@ -2366,7 +2366,7 @@
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_cgU2kf66Ed6J54ZOjN0g9g" routing="Rectilinear" lineColor="4210752"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_cgU2kv66Ed6J54ZOjN0g9g" fontColor="4210752" fontName="Lucida Grande" fontHeight="10"/>
       <element xmi:type="ecore:EReference" href="B3Build.ecore#//BuilderConcernContext/query"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_cgU2k_66Ed6J54ZOjN0g9g" points="[0, 9, 1, -34]$[0, 41, 1, -2]"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_cgU2k_66Ed6J54ZOjN0g9g" points="[-56, 35, 1, -121]$[-56, 154, 1, -2]"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_cgWEsf66Ed6J54ZOjN0g9g" id="(0.18160919540229886,0.075)"/>
     </edges>
     <edges xmi:type="notation:Edge" xmi:id="_4-1MoP68Ed6J54ZOjN0g9g" visible="false" type="3002" source="_4-nKMP68Ed6J54ZOjN0g9g" target="_gzfXUP4qEd6J54ZOjN0g9g">
@@ -2500,7 +2500,7 @@
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_NHv2If7SEd6J54ZOjN0g9g" routing="Rectilinear" lineColor="4210752"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_NHv2Iv7SEd6J54ZOjN0g9g" fontColor="4210752" fontName="Lucida Grande" fontHeight="10"/>
       <element xmi:type="ecore:EReference" href="B3Build.ecore#//BuilderConcernContext/funcExpr"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_NHv2I_7SEd6J54ZOjN0g9g" points="[33, 20, -16, -154]$[33, 169, -16, -5]"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_NHv2I_7SEd6J54ZOjN0g9g" points="[-11, 35, 0, -124]$[-11, 154, 0, -5]"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_NHxrUP7SEd6J54ZOjN0g9g" id="(0.28735632183908044,0.15)"/>
     </edges>
     <edges xmi:type="notation:Edge" xmi:id="_GOqugP_PEd6J54ZOjN0g9g" type="3003" source="_VfuzkP64Ed6J54ZOjN0g9g" target="_FeDJ4P_PEd6J54ZOjN0g9g">

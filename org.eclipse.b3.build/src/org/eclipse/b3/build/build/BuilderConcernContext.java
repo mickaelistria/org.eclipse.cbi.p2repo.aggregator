@@ -6,6 +6,7 @@
  */
 package org.eclipse.b3.build.build;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate;
@@ -219,5 +220,13 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * @generated
 	 */
 	void setMatchParameters(boolean value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
+	 * @generated
+	 */
+	boolean evaluateIfMatching(Object candidate, BExecutionContext ctx, BuildUnit promoteToUnit) throws Throwable;
 
 } // BuilderConcernContext

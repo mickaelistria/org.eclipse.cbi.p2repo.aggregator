@@ -454,6 +454,18 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 		}
 		return this;
 	}
+	/**
+	 * Weaves the build united passed as candidate if it matches the predicates.
+	 */
+	@Override
+	public boolean evaluateIfMatching(Object candidate, BExecutionContext ctx) throws Throwable {
+		if(!(candidate instanceof BuildUnit))
+			return false;
+		BExecutionContext ictx = ctx.createInnerContext();
+		ictx.defineVariableValue("@test", null, BuildUnit.class);
+		return weaveIfMatching((BuildUnit)candidate, ictx);
+	}
+	
 	private boolean weaveIfMatching(BuildUnit u, BExecutionContext ctx) throws Throwable {
 		Object result = getQuery().evaluate(ctx);
 		if(result != Boolean.TRUE)
@@ -469,7 +481,6 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 		
 	}
 	private boolean adviseUnit(BuildUnit u, BuildContext ctx) throws Throwable {
-//		builderContexts
 		boolean modified = false;
 		
 		// removal of provided capabilities
@@ -503,12 +514,17 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 			rcItor.add(RequiredCapability.class.cast(EcoreUtil.copy(rc)));
 			modified = true;
 		}
+		
+		// advised builders
 		modified = adviseUnitBuilders(u, ctx) || modified ;
 		
 		// define additional builders
 		// these builders are contained in a UnitConcernContext (no surprise) - they do not have a first parameter
 		// set (they can't since it is not known which units they will be defined for in advance). Copies must
 		// be made, and each copy installed for the unit that was matched.
+		// TODO: OPTIMIZE Could probably be optimized by adding wrappers instead, but they use the original's parameters
+		// by default.
+		//
 		EList<IFunction> fList = getFunctions();
 		Class<? extends BuildUnit> iFace = BuildUnitProxyAdapterFactory.eINSTANCE.adapt(u).getIface();
 		for(IFunction f : fList) {
@@ -519,7 +535,15 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 		}
 		return modified;
 	}
-	
+	/**
+	 * The builders applicable to the unit are matched using 
+	 * {@link BuilderConcernContext#evaluateIfMatching(Object, BExecutionContext, BuildUnit)} which weaves these
+	 * builders as copies specific to the matching build units.
+	 * @param u
+	 * @param ctx
+	 * @return
+	 * @throws Throwable
+	 */
 	private boolean adviseUnitBuilders(BuildUnit u, BExecutionContext ctx) throws Throwable {
 		boolean modified = false;
 		BuildUnit proxy = BuildUnitProxyAdapterFactory.eINSTANCE.adapt(u).getProxy();
@@ -527,7 +551,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 		while(fItor.hasNext()) {
 			IFunction candidate = fItor.next();
 			for(BuilderConcernContext bx : getBuilderContexts()) {
-				if(bx.evaluateIfMatching(candidate, ctx))
+				if(bx.evaluateIfMatching(candidate, ctx, u))
 					modified = true;
 				}
 			}
