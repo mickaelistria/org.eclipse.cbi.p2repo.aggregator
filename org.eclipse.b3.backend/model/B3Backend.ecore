@@ -114,18 +114,18 @@
       </eParameters>
     </eOperations>
     <eOperations name="getFunctionIterator">
-      <eGenericType eClassifier="#//IFunctionIterator">
+      <eGenericType eClassifier="#//JavaIterator">
         <eTypeArguments eClassifier="#//IFunction"/>
       </eGenericType>
     </eOperations>
     <eOperations name="getFunctionIterator">
-      <eGenericType eClassifier="#//IFunctionIterator">
+      <eGenericType eClassifier="#//JavaIterator">
         <eTypeArguments eClassifier="#//IFunction"/>
       </eGenericType>
       <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
     <eOperations name="getFunctionIterator">
-      <eGenericType eClassifier="#//IFunctionIterator">
+      <eGenericType eClassifier="#//JavaIterator">
         <eTypeArguments eClassifier="#//IFunction"/>
       </eGenericType>
       <eParameters name="type" eType="#//Type"/>
@@ -134,6 +134,12 @@
           <eTypeArguments/>
         </eGenericType>
       </eParameters>
+    </eOperations>
+    <eOperations name="getConcernIterator">
+      <eGenericType eClassifier="#//JavaIterator">
+        <eTypeArguments eClassifier="#//BConcernContext"/>
+      </eGenericType>
+      <eParameters name="candidate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parentContext" eType="#//BExecutionContext"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueMap" lowerBound="1"
@@ -310,14 +316,6 @@
       <eParameters name="types" eType="#//TypeArray"/>
       <eParameters name="ctx" eType="#//BExecutionContext"/>
     </eOperations>
-    <eOperations name="getEffectiveParameters">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Returns the effective list of parameter declarations. This list may be different than the declared parameters obtained via getParameters. The intended use is for methods/functions that have implicit (undeclared) parameters. "/>
-      </eAnnotations>
-      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
-        <eTypeArguments eClassifier="#//BParameterDeclaration"/>
-      </eGenericType>
-    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="visibility" eType="#//Visibility"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="final" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="executionMode" eType="#//ExecutionMode"/>
@@ -417,7 +415,6 @@
       interface="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="functions" upperBound="-1"
         eType="#//IFunction" containment="true" eOpposite="#//IFunction/container"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="containerType" eType="#//Type"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BDefValue" eSuperTypes="#//BExpression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -585,6 +582,11 @@
       <eParameters name="candidate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
       <eParameters name="ctx" eType="#//BExecutionContext"/>
     </eOperations>
+    <eOperations name="getConcernContextIterator">
+      <eGenericType eClassifier="#//JavaIterator">
+        <eTypeArguments eClassifier="#//BConcernContext"/>
+      </eGenericType>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="superConcerns" upperBound="-1"
         eType="#//BConcern"/>
@@ -616,6 +618,10 @@
       <eParameters name="candidate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
       <eParameters name="ctx" eType="#//BExecutionContext"/>
     </eOperations>
+    <eOperations name="matches" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="candidate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      <eParameters name="ctx" eType="#//BExecutionContext"/>
+    </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BFunction" eSuperTypes="#//BExpression #//IFunction"/>
   <eClassifiers xsi:type="ecore:EClass" name="BFunctionWrapper" eSuperTypes="#//BExpression #//IFunction">
@@ -631,6 +637,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="varargsName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BNamePredicate">
+    <eOperations name="matches" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="namePattern" eType="#//BExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -650,6 +659,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="funcExpr" eType="#//BExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="varArgs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="matchParameters" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BParameterPredicate">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
@@ -667,7 +677,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BProceedExpression" eSuperTypes="#//BExpression"/>
   <eClassifiers xsi:type="ecore:EClass" name="BDelegatingContext" eSuperTypes="#//BInnerContext"/>
-  <eClassifiers xsi:type="ecore:EDataType" name="IFunctionIterator" instanceClassName="java.util.Iterator">
+  <eClassifiers xsi:type="ecore:EDataType" name="JavaIterator" instanceClassName="java.util.Iterator">
     <eTypeParameters name="E"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BWrappingContext" eSuperTypes="#//BDelegatingContext">

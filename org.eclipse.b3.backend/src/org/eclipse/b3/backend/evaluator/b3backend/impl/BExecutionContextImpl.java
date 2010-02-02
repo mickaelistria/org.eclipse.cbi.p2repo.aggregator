@@ -37,9 +37,9 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BConcern;
+import org.eclipse.b3.backend.evaluator.b3backend.BConcernContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
-import org.eclipse.b3.backend.evaluator.b3backend.BFileReference;
 import org.eclipse.b3.backend.evaluator.b3backend.BGuardFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BInnerContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BJavaCallType;
@@ -52,7 +52,6 @@ import org.eclipse.b3.backend.evaluator.b3backend.BInvocationContext;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -60,10 +59,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -73,7 +69,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getParentContext <em>Parent Context</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getChildContexts <em>Child Contexts</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getValueMap <em>Value Map</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getFuncStore <em>Func Store</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getEffectiveConcerns <em>Effective Concerns</em>}</li>
@@ -91,14 +86,14 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	public static final String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
 
 	/**
-	 * The cached value of the '{@link #getChildContexts() <em>Child Contexts</em>}' containment reference list.
+	 * The cached value of the '{@link #getParentContext() <em>Parent Context</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getChildContexts()
+	 * @see #getParentContext()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<BExecutionContext> childContexts;
+	protected BExecutionContext parentContext;
 
 	/**
 	 * The default value of the '{@link #getValueMap() <em>Value Map</em>}' attribute.
@@ -177,8 +172,15 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 * @generated
 	 */
 	public BExecutionContext getParentContext() {
-		if (eContainerFeatureID() != B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT) return null;
-		return (BExecutionContext)eContainer();
+		if (parentContext != null && parentContext.eIsProxy()) {
+			InternalEObject oldParentContext = (InternalEObject)parentContext;
+			parentContext = (BExecutionContext)eResolveProxy(oldParentContext);
+			if (parentContext != oldParentContext) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT, oldParentContext, parentContext));
+			}
+		}
+		return parentContext;
 	}
 
 	/**
@@ -186,9 +188,8 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetParentContext(BExecutionContext newParentContext, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newParentContext, B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT, msgs);
-		return msgs;
+	public BExecutionContext basicGetParentContext() {
+		return parentContext;
 	}
 
 	/**
@@ -197,31 +198,10 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 * @generated
 	 */
 	public void setParentContext(BExecutionContext newParentContext) {
-		if (newParentContext != eInternalContainer() || (eContainerFeatureID() != B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT && newParentContext != null)) {
-			if (EcoreUtil.isAncestor(this, newParentContext))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newParentContext != null)
-				msgs = ((InternalEObject)newParentContext).eInverseAdd(this, B3backendPackage.BEXECUTION_CONTEXT__CHILD_CONTEXTS, BExecutionContext.class, msgs);
-			msgs = basicSetParentContext(newParentContext, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT, newParentContext, newParentContext));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<BExecutionContext> getChildContexts() {
-		if (childContexts == null) {
-			childContexts = new EObjectContainmentWithInverseEList<BExecutionContext>(BExecutionContext.class, this, B3backendPackage.BEXECUTION_CONTEXT__CHILD_CONTEXTS, B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT);
-		}
-		return childContexts;
+		BExecutionContext oldParentContext = parentContext;
+		parentContext = newParentContext;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT, oldParentContext, parentContext));
 	}
 
 	/**
@@ -906,6 +886,26 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	public Iterator<IFunction> getFunctionIterator(Type type, Class<?> functionType) {
+		return getEffectiveFuncStore().getFunctionIterator(type, functionType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Iterator<BConcernContext> getConcernIterator(Object candidate) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
 	public LValue getLValue(String name) throws B3EngineException {
 		if(!getValueMap().containsKey(name)) {
 			BExecutionContext parentContext = null;
@@ -976,62 +976,12 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetParentContext((BExecutionContext)otherEnd, msgs);
-			case B3backendPackage.BEXECUTION_CONTEXT__CHILD_CONTEXTS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getChildContexts()).basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT:
-				return basicSetParentContext(null, msgs);
-			case B3backendPackage.BEXECUTION_CONTEXT__CHILD_CONTEXTS:
-				return ((InternalEList<?>)getChildContexts()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
-			case B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT:
-				return eInternalContainer().eInverseRemove(this, B3backendPackage.BEXECUTION_CONTEXT__CHILD_CONTEXTS, BExecutionContext.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT:
-				return getParentContext();
-			case B3backendPackage.BEXECUTION_CONTEXT__CHILD_CONTEXTS:
-				return getChildContexts();
+				if (resolve) return getParentContext();
+				return basicGetParentContext();
 			case B3backendPackage.BEXECUTION_CONTEXT__VALUE_MAP:
 				return getValueMap();
 			case B3backendPackage.BEXECUTION_CONTEXT__FUNC_STORE:
@@ -1053,10 +1003,6 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		switch (featureID) {
 			case B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT:
 				setParentContext((BExecutionContext)newValue);
-				return;
-			case B3backendPackage.BEXECUTION_CONTEXT__CHILD_CONTEXTS:
-				getChildContexts().clear();
-				getChildContexts().addAll((Collection<? extends BExecutionContext>)newValue);
 				return;
 			case B3backendPackage.BEXECUTION_CONTEXT__FUNC_STORE:
 				setFuncStore((B3FuncStore)newValue);
@@ -1080,9 +1026,6 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 			case B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT:
 				setParentContext((BExecutionContext)null);
 				return;
-			case B3backendPackage.BEXECUTION_CONTEXT__CHILD_CONTEXTS:
-				getChildContexts().clear();
-				return;
 			case B3backendPackage.BEXECUTION_CONTEXT__FUNC_STORE:
 				setFuncStore(FUNC_STORE_EDEFAULT);
 				return;
@@ -1102,9 +1045,7 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT:
-				return getParentContext() != null;
-			case B3backendPackage.BEXECUTION_CONTEXT__CHILD_CONTEXTS:
-				return childContexts != null && !childContexts.isEmpty();
+				return parentContext != null;
 			case B3backendPackage.BEXECUTION_CONTEXT__VALUE_MAP:
 				return VALUE_MAP_EDEFAULT == null ? valueMap != null : !VALUE_MAP_EDEFAULT.equals(valueMap);
 			case B3backendPackage.BEXECUTION_CONTEXT__FUNC_STORE:
@@ -1132,4 +1073,5 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		result.append(')');
 		return result.toString();
 	}
+	
 } //BExecutionContextImpl

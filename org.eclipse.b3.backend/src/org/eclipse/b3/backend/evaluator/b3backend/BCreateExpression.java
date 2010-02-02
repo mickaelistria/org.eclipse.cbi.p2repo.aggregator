@@ -6,7 +6,6 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend;
 
-import java.lang.reflect.Type;
 
 
 /**

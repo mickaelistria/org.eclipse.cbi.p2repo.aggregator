@@ -6,11 +6,9 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
-import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Collection;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.eclipse.b3.backend.evaluator.BackendHelper;

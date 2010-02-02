@@ -117,7 +117,7 @@ public interface B3backendPackage extends EPackage {
 	int BEXECUTION_CONTEXT = 2;
 
 	/**
-	 * The feature id for the '<em><b>Parent Context</b></em>' container reference.
+	 * The feature id for the '<em><b>Parent Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -126,22 +126,13 @@ public interface B3backendPackage extends EPackage {
 	int BEXECUTION_CONTEXT__PARENT_CONTEXT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Child Contexts</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BEXECUTION_CONTEXT__CHILD_CONTEXTS = 1;
-
-	/**
 	 * The feature id for the '<em><b>Value Map</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BEXECUTION_CONTEXT__VALUE_MAP = 2;
+	int BEXECUTION_CONTEXT__VALUE_MAP = 1;
 
 	/**
 	 * The feature id for the '<em><b>Func Store</b></em>' attribute.
@@ -150,7 +141,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BEXECUTION_CONTEXT__FUNC_STORE = 3;
+	int BEXECUTION_CONTEXT__FUNC_STORE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Effective Concerns</b></em>' reference list.
@@ -159,7 +150,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS = 4;
+	int BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS = 3;
 
 	/**
 	 * The number of structural features of the '<em>BExecution Context</em>' class.
@@ -168,7 +159,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BEXECUTION_CONTEXT_FEATURE_COUNT = 5;
+	int BEXECUTION_CONTEXT_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BIfExpressionImpl <em>BIf Expression</em>}' class.
@@ -1542,22 +1533,13 @@ public interface B3backendPackage extends EPackage {
 	int BGUARD_EXPRESSION_FEATURE_COUNT = BGUARD_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Parent Context</b></em>' container reference.
+	 * The feature id for the '<em><b>Parent Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int BSYSTEM_CONTEXT__PARENT_CONTEXT = BEXECUTION_CONTEXT__PARENT_CONTEXT;
-
-	/**
-	 * The feature id for the '<em><b>Child Contexts</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BSYSTEM_CONTEXT__CHILD_CONTEXTS = BEXECUTION_CONTEXT__CHILD_CONTEXTS;
 
 	/**
 	 * The feature id for the '<em><b>Value Map</b></em>' attribute.
@@ -1596,22 +1578,13 @@ public interface B3backendPackage extends EPackage {
 	int BSYSTEM_CONTEXT_FEATURE_COUNT = BEXECUTION_CONTEXT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Parent Context</b></em>' container reference.
+	 * The feature id for the '<em><b>Parent Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int BCONTEXT__PARENT_CONTEXT = BEXECUTION_CONTEXT__PARENT_CONTEXT;
-
-	/**
-	 * The feature id for the '<em><b>Child Contexts</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BCONTEXT__CHILD_CONTEXTS = BEXECUTION_CONTEXT__CHILD_CONTEXTS;
 
 	/**
 	 * The feature id for the '<em><b>Value Map</b></em>' attribute.
@@ -1650,22 +1623,13 @@ public interface B3backendPackage extends EPackage {
 	int BCONTEXT_FEATURE_COUNT = BEXECUTION_CONTEXT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Parent Context</b></em>' container reference.
+	 * The feature id for the '<em><b>Parent Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int BINNER_CONTEXT__PARENT_CONTEXT = BEXECUTION_CONTEXT__PARENT_CONTEXT;
-
-	/**
-	 * The feature id for the '<em><b>Child Contexts</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BINNER_CONTEXT__CHILD_CONTEXTS = BEXECUTION_CONTEXT__CHILD_CONTEXTS;
 
 	/**
 	 * The feature id for the '<em><b>Value Map</b></em>' attribute.
@@ -1713,22 +1677,13 @@ public interface B3backendPackage extends EPackage {
 	int BINNER_CONTEXT_FEATURE_COUNT = BEXECUTION_CONTEXT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Parent Context</b></em>' container reference.
+	 * The feature id for the '<em><b>Parent Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int BINVOCATION_CONTEXT__PARENT_CONTEXT = BEXECUTION_CONTEXT__PARENT_CONTEXT;
-
-	/**
-	 * The feature id for the '<em><b>Child Contexts</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BINVOCATION_CONTEXT__CHILD_CONTEXTS = BEXECUTION_CONTEXT__CHILD_CONTEXTS;
 
 	/**
 	 * The feature id for the '<em><b>Value Map</b></em>' attribute.
@@ -2361,22 +2316,13 @@ public interface B3backendPackage extends EPackage {
 	int BFUNCTION_CONTAINER__FUNCTIONS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Container Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BFUNCTION_CONTAINER__CONTAINER_TYPE = 1;
-
-	/**
 	 * The number of structural features of the '<em>BFunction Container</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BFUNCTION_CONTAINER_FEATURE_COUNT = 2;
+	int BFUNCTION_CONTAINER_FEATURE_COUNT = 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2948,22 +2894,13 @@ public interface B3backendPackage extends EPackage {
 	int BINSTANCE_CONTEXT = 60;
 
 	/**
-	 * The feature id for the '<em><b>Parent Context</b></em>' container reference.
+	 * The feature id for the '<em><b>Parent Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int BINSTANCE_CONTEXT__PARENT_CONTEXT = BINNER_CONTEXT__PARENT_CONTEXT;
-
-	/**
-	 * The feature id for the '<em><b>Child Contexts</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BINSTANCE_CONTEXT__CHILD_CONTEXTS = BINNER_CONTEXT__CHILD_CONTEXTS;
 
 	/**
 	 * The feature id for the '<em><b>Value Map</b></em>' attribute.
@@ -3353,22 +3290,13 @@ public interface B3backendPackage extends EPackage {
 	int BCONCERN__FUNCTIONS = BADVICE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Container Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BCONCERN__CONTAINER_TYPE = BADVICE_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BCONCERN__DOCUMENTATION = BADVICE_FEATURE_COUNT + 2;
+	int BCONCERN__DOCUMENTATION = BADVICE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Super Concerns</b></em>' reference list.
@@ -3377,7 +3305,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BCONCERN__SUPER_CONCERNS = BADVICE_FEATURE_COUNT + 3;
+	int BCONCERN__SUPER_CONCERNS = BADVICE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Property Sets</b></em>' containment reference list.
@@ -3386,7 +3314,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BCONCERN__PROPERTY_SETS = BADVICE_FEATURE_COUNT + 4;
+	int BCONCERN__PROPERTY_SETS = BADVICE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Contexts</b></em>' containment reference list.
@@ -3395,7 +3323,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BCONCERN__CONTEXTS = BADVICE_FEATURE_COUNT + 5;
+	int BCONCERN__CONTEXTS = BADVICE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>BConcern</em>' class.
@@ -3404,7 +3332,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BCONCERN_FEATURE_COUNT = BADVICE_FEATURE_COUNT + 6;
+	int BCONCERN_FEATURE_COUNT = BADVICE_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BWithExpressionImpl <em>BWith Expression</em>}' class.
@@ -3481,22 +3409,13 @@ public interface B3backendPackage extends EPackage {
 	int BCONCERN_CONTEXT__FUNCTIONS = BEXPRESSION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Container Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BCONCERN_CONTEXT__CONTAINER_TYPE = BEXPRESSION_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>BConcern Context</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BCONCERN_CONTEXT_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 2;
+	int BCONCERN_CONTEXT_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl <em>BFunction Wrapper</em>}' class.
@@ -3791,15 +3710,6 @@ public interface B3backendPackage extends EPackage {
 	int BFUNCTION_CONCERN_CONTEXT__FUNCTIONS = BCONCERN_CONTEXT__FUNCTIONS;
 
 	/**
-	 * The feature id for the '<em><b>Container Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BFUNCTION_CONCERN_CONTEXT__CONTAINER_TYPE = BCONCERN_CONTEXT__CONTAINER_TYPE;
-
-	/**
 	 * The feature id for the '<em><b>Name Predicate</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3836,13 +3746,22 @@ public interface B3backendPackage extends EPackage {
 	int BFUNCTION_CONCERN_CONTEXT__VAR_ARGS = BCONCERN_CONTEXT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Match Parameters</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BFUNCTION_CONCERN_CONTEXT__MATCH_PARAMETERS = BCONCERN_CONTEXT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>BFunction Concern Context</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BFUNCTION_CONCERN_CONTEXT_FEATURE_COUNT = BCONCERN_CONTEXT_FEATURE_COUNT + 4;
+	int BFUNCTION_CONCERN_CONTEXT_FEATURE_COUNT = BCONCERN_CONTEXT_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BParameterPredicateImpl <em>BParameter Predicate</em>}' class.
@@ -3920,22 +3839,13 @@ public interface B3backendPackage extends EPackage {
 	int BDELEGATING_CONTEXT = 79;
 
 	/**
-	 * The feature id for the '<em><b>Parent Context</b></em>' container reference.
+	 * The feature id for the '<em><b>Parent Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int BDELEGATING_CONTEXT__PARENT_CONTEXT = BINNER_CONTEXT__PARENT_CONTEXT;
-
-	/**
-	 * The feature id for the '<em><b>Child Contexts</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BDELEGATING_CONTEXT__CHILD_CONTEXTS = BINNER_CONTEXT__CHILD_CONTEXTS;
 
 	/**
 	 * The feature id for the '<em><b>Value Map</b></em>' attribute.
@@ -3993,22 +3903,13 @@ public interface B3backendPackage extends EPackage {
 	int BWRAPPING_CONTEXT = 80;
 
 	/**
-	 * The feature id for the '<em><b>Parent Context</b></em>' container reference.
+	 * The feature id for the '<em><b>Parent Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int BWRAPPING_CONTEXT__PARENT_CONTEXT = BDELEGATING_CONTEXT__PARENT_CONTEXT;
-
-	/**
-	 * The feature id for the '<em><b>Child Contexts</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BWRAPPING_CONTEXT__CHILD_CONTEXTS = BDELEGATING_CONTEXT__CHILD_CONTEXTS;
 
 	/**
 	 * The feature id for the '<em><b>Value Map</b></em>' attribute.
@@ -4310,14 +4211,14 @@ public interface B3backendPackage extends EPackage {
 	int B3_DYNAMIC_CLASS_LOADER = 99;
 
 	/**
-	 * The meta object id for the '<em>IFunction Iterator</em>' data type.
+	 * The meta object id for the '<em>Java Iterator</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see java.util.Iterator
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getIFunctionIterator()
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getJavaIterator()
 	 * @generated
 	 */
-	int IFUNCTION_ITERATOR = 100;
+	int JAVA_ITERATOR = 100;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BExpression <em>BExpression</em>}'.
@@ -4350,26 +4251,15 @@ public interface B3backendPackage extends EPackage {
 	EClass getBExecutionContext();
 
 	/**
-	 * Returns the meta object for the container reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getParentContext <em>Parent Context</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getParentContext <em>Parent Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Parent Context</em>'.
+	 * @return the meta object for the reference '<em>Parent Context</em>'.
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getParentContext()
 	 * @see #getBExecutionContext()
 	 * @generated
 	 */
 	EReference getBExecutionContext_ParentContext();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getChildContexts <em>Child Contexts</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Child Contexts</em>'.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getChildContexts()
-	 * @see #getBExecutionContext()
-	 * @generated
-	 */
-	EReference getBExecutionContext_ChildContexts();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getValueMap <em>Value Map</em>}'.
@@ -5451,6 +5341,17 @@ public interface B3backendPackage extends EPackage {
 	EAttribute getBFunctionConcernContext_VarArgs();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext#isMatchParameters <em>Match Parameters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Match Parameters</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext#isMatchParameters()
+	 * @see #getBFunctionConcernContext()
+	 * @generated
+	 */
+	EAttribute getBFunctionConcernContext_MatchParameters();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate <em>BParameter Predicate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5785,17 +5686,6 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBFunctionContainer_Functions();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer#getContainerType <em>Container Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Container Type</em>'.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer#getContainerType()
-	 * @see #getBFunctionContainer()
-	 * @generated
-	 */
-	EAttribute getBFunctionContainer_ContainerType();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefValue <em>BDef Value</em>}'.
@@ -6854,15 +6744,15 @@ public interface B3backendPackage extends EPackage {
 	EDataType getB3DynamicClassLoader();
 
 	/**
-	 * Returns the meta object for data type '{@link java.util.Iterator <em>IFunction Iterator</em>}'.
+	 * Returns the meta object for data type '{@link java.util.Iterator <em>Java Iterator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>IFunction Iterator</em>'.
+	 * @return the meta object for data type '<em>Java Iterator</em>'.
 	 * @see java.util.Iterator
 	 * @model instanceClass="java.util.Iterator" typeParameters="E"
 	 * @generated
 	 */
-	EDataType getIFunctionIterator();
+	EDataType getJavaIterator();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -6917,20 +6807,12 @@ public interface B3backendPackage extends EPackage {
 		EClass BEXECUTION_CONTEXT = eINSTANCE.getBExecutionContext();
 
 		/**
-		 * The meta object literal for the '<em><b>Parent Context</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Parent Context</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference BEXECUTION_CONTEXT__PARENT_CONTEXT = eINSTANCE.getBExecutionContext_ParentContext();
-
-		/**
-		 * The meta object literal for the '<em><b>Child Contexts</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BEXECUTION_CONTEXT__CHILD_CONTEXTS = eINSTANCE.getBExecutionContext_ChildContexts();
 
 		/**
 		 * The meta object literal for the '<em><b>Value Map</b></em>' attribute feature.
@@ -7805,6 +7687,14 @@ public interface B3backendPackage extends EPackage {
 		EAttribute BFUNCTION_CONCERN_CONTEXT__VAR_ARGS = eINSTANCE.getBFunctionConcernContext_VarArgs();
 
 		/**
+		 * The meta object literal for the '<em><b>Match Parameters</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BFUNCTION_CONCERN_CONTEXT__MATCH_PARAMETERS = eINSTANCE.getBFunctionConcernContext_MatchParameters();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BParameterPredicateImpl <em>BParameter Predicate</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8091,14 +7981,6 @@ public interface B3backendPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BFUNCTION_CONTAINER__FUNCTIONS = eINSTANCE.getBFunctionContainer_Functions();
-
-		/**
-		 * The meta object literal for the '<em><b>Container Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute BFUNCTION_CONTAINER__CONTAINER_TYPE = eINSTANCE.getBFunctionContainer_ContainerType();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BDefValueImpl <em>BDef Value</em>}' class.
@@ -8987,14 +8869,14 @@ public interface B3backendPackage extends EPackage {
 		EDataType B3_DYNAMIC_CLASS_LOADER = eINSTANCE.getB3DynamicClassLoader();
 
 		/**
-		 * The meta object literal for the '<em>IFunction Iterator</em>' data type.
+		 * The meta object literal for the '<em>Java Iterator</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see java.util.Iterator
-		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getIFunctionIterator()
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getJavaIterator()
 		 * @generated
 		 */
-		EDataType IFUNCTION_ITERATOR = eINSTANCE.getIFunctionIterator();
+		EDataType JAVA_ITERATOR = eINSTANCE.getJavaIterator();
 
 	}
 

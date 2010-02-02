@@ -1,7 +1,5 @@
 package org.eclipse.b3.backend.core;
 
-import java.lang.reflect.Array;
-import java.lang.reflect.Method;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;

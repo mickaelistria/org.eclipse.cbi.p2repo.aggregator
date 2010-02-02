@@ -12,9 +12,12 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
+import org.eclipse.b3.backend.core.B3InternalError;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BLiteralAny;
 import org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate;
+import org.eclipse.b3.backend.evaluator.b3backend.BRegularExpression;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -158,6 +161,32 @@ public class BNamePredicateImpl extends EObjectImpl implements BNamePredicate {
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BNAME_PREDICATE__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Mathces name parameter against a literal, ANY, or Regexp. If literal is specified, this match is used,
+	 * if pattern expression is ANY, or Regexp, the name is matches against this expression. Throws B3InteralError
+	 * if expression is something else, or if all are null.
+	 * TODO: Add model validation
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean matches(String name) {
+		String namePattern = getName(); // simple compare against a string
+		if(namePattern != null)
+			return namePattern.equals(name);
+		
+		// this is a name pattern of some sort
+		// currently supporting ANY, or Regexp - pattern matching not done as
+		// full expressions.
+		BExpression expr = getNamePattern();
+		if(expr instanceof BLiteralAny)
+			return true;
+		
+		if(expr instanceof BRegularExpression)
+			return ((BRegularExpression)expr).getPattern().matcher(name).matches();
+		throw new B3InternalError("Attempt to match a BNamePredicate without a valid pattern type (literal, any, or regexp");
 	}
 
 	/**

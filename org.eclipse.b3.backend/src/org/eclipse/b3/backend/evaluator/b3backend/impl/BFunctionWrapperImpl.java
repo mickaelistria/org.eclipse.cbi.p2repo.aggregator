@@ -45,6 +45,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -592,8 +593,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	@SuppressWarnings("unchecked")
-	public TypeVariable[] getTypeParameters() {
+	public TypeVariable<?>[] getTypeParameters() {
 		return getOriginal().getTypeParameters();
 	}
 
@@ -602,8 +602,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	@SuppressWarnings("unchecked")
-	public void setTypeParameters(TypeVariable[] newTypeParameters) {
+	public void setTypeParameters(TypeVariable<?>[] newTypeParameters) {
 		throwImmutableException();
 	}
 
@@ -1031,15 +1030,6 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 */
 	public Type getReturnTypeForParameterTypes(Type[] types, BExecutionContext ctx) {
 		return getOriginal().getReturnTypeForParameterTypes(types, ctx);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public EList<BParameterDeclaration> getEffectiveParameters() {
-		return getOriginal().getEffectiveParameters();
 	}
 
 	/**

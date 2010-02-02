@@ -12,6 +12,7 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend;
 
+import java.util.Iterator;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -122,5 +123,13 @@ public interface BConcern extends BAdvice, BFunctionContainer {
 	 * @generated
 	 */
 	boolean evaluateIfMatching(Object candidate, BExecutionContext ctx) throws Throwable;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" dataType="org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.backend.evaluator.b3backend.BConcernContext>"
+	 * @generated
+	 */
+	Iterator<BConcernContext> getConcernContextIterator();
 
 } // BConcern

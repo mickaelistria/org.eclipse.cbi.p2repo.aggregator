@@ -61,7 +61,7 @@ public interface B3MetaClass extends EObject, Type {
 	 * @model
 	 * @generated
 	 */
-	Class getInstanceClass();
+	Class<?> getInstanceClass();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass#getInstanceClass <em>Instance Class</em>}' attribute.
@@ -71,7 +71,7 @@ public interface B3MetaClass extends EObject, Type {
 	 * @see #getInstanceClass()
 	 * @generated
 	 */
-	void setInstanceClass(Class value);
+	void setInstanceClass(Class<?> value);
 
 	/**
 	 * <!-- begin-user-doc -->

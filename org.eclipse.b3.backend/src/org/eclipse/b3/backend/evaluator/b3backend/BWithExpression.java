@@ -123,4 +123,12 @@ public interface BWithExpression extends BExpression {
 	 */
 	BInnerContext createContext(BExecutionContext ctx);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
+	 * @generated
+	 */
+	BExecutionContext getEvaluationContext(BExecutionContext ctx) throws Throwable;
+
 } // BWithExpression

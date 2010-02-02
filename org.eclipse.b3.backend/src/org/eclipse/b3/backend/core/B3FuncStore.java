@@ -14,8 +14,10 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BGuard;
 import org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
+import org.eclipse.emf.common.util.EList;
 
 public class B3FuncStore {
 	private Set<String> dirtyFunctions = new HashSet<String>();
@@ -364,6 +366,25 @@ public class B3FuncStore {
 		return f.iterator();
 	}
 	/**
+	 * Returns an iterator over all visible functions having a first parameter assignable to type. The
+	 * optional functionType parameter makes the selection limited to a particular subclasses of IFunction.
+	 * @param name
+	 * @return
+	 */
+	public Iterator<IFunction> getFunctionIterator(Type type, Class<?> functionType) {
+		// (note: cache gets updated per name by the UberIterator)
+		
+		// construct set of all keys
+		Set<String> allKeys = new HashSet<String>();
+		for(B3FuncStore fs = this; fs != null ; fs = fs.parentStore)
+			if(fs.defined != null)
+				allKeys.addAll(fs.defined.keySet());
+		// use uber iterator to iterate over all names and resulting lists
+		UberIterator itor = new UberIterator(allKeys.iterator());
+		
+		return new TypeIterator(itor, type, functionType);
+	}
+	/**
 	 * Returns an iterator over all visible functions. This is an expensive operation.
 	 * @return
 	 */
@@ -420,6 +441,47 @@ public class B3FuncStore {
 			String key = keyIterator.next();
 			currentIterator = getFunctionIterator(key);
 			return currentIterator.next();
+		}
+		/**
+		 * Throws {@link UnsupportedOperationException}.
+		 */
+		public void remove() {
+			throw new UnsupportedOperationException("remove from function iterator not allowed");			
+		}
+		
+	}
+	private class TypeIterator implements Iterator<IFunction> {
+		UberIterator allFunctionsIterator;
+		IFunction theNext = null;
+		Class<?> functionType = null;
+		Type firstType = null;
+
+		private TypeIterator(UberIterator allFunctionsIterator, Type firstType, Class<?> functionType) {
+			this.allFunctionsIterator = allFunctionsIterator;
+			this.functionType = functionType;
+			this.firstType = firstType;
+			computeNext();
+		}
+		public boolean hasNext() {
+			return theNext != null;
+		}
+		private void computeNext() {
+			theNext = null;
+			if(!allFunctionsIterator.hasNext())
+				return;
+			while(theNext == null && allFunctionsIterator.hasNext()) {
+				IFunction f = allFunctionsIterator.next();
+				if(functionType == null || functionType.isAssignableFrom(f.getClass())) {
+					EList<BParameterDeclaration> ps = f.getParameters();
+					if(!TypeUtils.isAssignableFrom(ps.get(0).getType(), firstType))
+						continue;
+				}
+			}
+		}
+		public IFunction next() {
+			IFunction result = theNext;
+			computeNext();
+			return result;
 		}
 		/**
 		 * Throws {@link UnsupportedOperationException}.

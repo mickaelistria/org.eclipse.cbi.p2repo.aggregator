@@ -52,7 +52,7 @@ public class B3MetaClassImpl extends EObjectImpl implements B3MetaClass {
 	 * @generated
 	 * @ordered
 	 */
-	protected Class instanceClass;
+	protected Class<?> instanceClass;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -78,7 +78,7 @@ public class B3MetaClassImpl extends EObjectImpl implements B3MetaClass {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Class getInstanceClass() {
+	public Class<?> getInstanceClass() {
 		return instanceClass;
 	}
 
@@ -87,8 +87,8 @@ public class B3MetaClassImpl extends EObjectImpl implements B3MetaClass {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setInstanceClass(Class newInstanceClass) {
-		Class oldInstanceClass = instanceClass;
+	public void setInstanceClass(Class<?> newInstanceClass) {
+		Class<?> oldInstanceClass = instanceClass;
 		instanceClass = newInstanceClass;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.B3_META_CLASS__INSTANCE_CLASS, oldInstanceClass, instanceClass));
@@ -100,7 +100,6 @@ public class B3MetaClassImpl extends EObjectImpl implements B3MetaClass {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	@SuppressWarnings("unchecked")
 	public boolean isAssignableFrom(Type type) {
 		if(!(type instanceof B3MetaClassImpl))
 			return false;
@@ -130,7 +129,7 @@ public class B3MetaClassImpl extends EObjectImpl implements B3MetaClass {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case B3backendPackage.B3_META_CLASS__INSTANCE_CLASS:
-				setInstanceClass((Class)newValue);
+				setInstanceClass((Class<?>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -145,7 +144,7 @@ public class B3MetaClassImpl extends EObjectImpl implements B3MetaClass {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case B3backendPackage.B3_META_CLASS__INSTANCE_CLASS:
-				setInstanceClass((Class)null);
+				setInstanceClass((Class<?>)null);
 				return;
 		}
 		super.eUnset(featureID);

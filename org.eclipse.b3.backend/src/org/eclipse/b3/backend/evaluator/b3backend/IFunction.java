@@ -260,9 +260,9 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * @see #setTypeParameters(TypeVariable[])
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getIFunction_TypeParameters()
 	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.TypeVariableArray"
-	 * @generated
+	 * @generated NOT
 	 */
-	TypeVariable[] getTypeParameters();
+	TypeVariable<?>[] getTypeParameters();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getTypeParameters <em>Type Parameters</em>}' attribute.
@@ -270,9 +270,9 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Type Parameters</em>' attribute.
 	 * @see #getTypeParameters()
-	 * @generated
+	 * @generated NOT
 	 */
-	void setTypeParameters(TypeVariable[] value);
+	void setTypeParameters(TypeVariable<?>[] value);
 
 	/**
 	 * Returns the value of the '<em><b>Parameter Names</b></em>' attribute.
@@ -546,16 +546,5 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * @generated
 	 */
 	Type getReturnTypeForParameterTypes(Type[] types, BExecutionContext ctx);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Returns the effective list of parameter declarations. This list may be different than the declared parameters obtained via getParameters. The intended use is for methods/functions that have implicit (undeclared) parameters. 
-	 * <!-- end-model-doc -->
-	 * @model kind="operation" many="false"
-	 * @generated
-	 */
-	EList<BParameterDeclaration> getEffectiveParameters();
 
 } // IFunction

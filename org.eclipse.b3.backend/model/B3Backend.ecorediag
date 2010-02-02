@@ -772,7 +772,7 @@
       <children xmi:type="notation:Node" xmi:id="_lkuUsAVcEd-l85Z9o64a_Q" type="4008"/>
       <children xmi:type="notation:Node" xmi:id="_lku7wAVcEd-l85Z9o64a_Q" type="4009"/>
       <styles xmi:type="notation:ShapeStyle" xmi:id="_lkUFAQVcEd-l85Z9o64a_Q" fontColor="4210752" fontName="Lucida Grande" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
-      <element xmi:type="ecore:EDataType" href="B3Backend.ecore#//IFunctionIterator"/>
+      <element xmi:type="ecore:EDataType" href="B3Backend.ecore#//JavaIterator"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lkUFAgVcEd-l85Z9o64a_Q" x="63" y="729"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_P9ilEAYFEd-MYM1npUhBdQ" type="1001">
@@ -942,6 +942,98 @@
         <styles xmi:type="notation:FilteringStyle" xmi:id="_bBrzVA0pEd-FNbuD04-m8g"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_bBrzVQ0pEd-FNbuD04-m8g" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_bBu2oA0pEd-FNbuD04-m8g" type="2002">
+          <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//BExecutionContext/loadFunctions"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_bBu2oQ0pEd-FNbuD04-m8g"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_bBvdsA0pEd-FNbuD04-m8g" type="2002">
+          <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//BExecutionContext/loadFunction"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_bBvdsQ0pEd-FNbuD04-m8g"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_bBvdsg0pEd-FNbuD04-m8g" type="2002">
+          <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//BExecutionContext/defineFunction"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_bBvdsw0pEd-FNbuD04-m8g"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_bBvdtA0pEd-FNbuD04-m8g" type="2002">
+          <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//BExecutionContext/callFunction"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_bBvdtQ0pEd-FNbuD04-m8g"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_bBvdtg0pEd-FNbuD04-m8g" type="2002">
+          <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//BExecutionContext/getValue"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_bBvdtw0pEd-FNbuD04-m8g"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_bBwEwA0pEd-FNbuD04-m8g" type="2002">
+          <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//BExecutionContext/getLValue"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_bBwEwQ0pEd-FNbuD04-m8g"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_bBwEwg0pEd-FNbuD04-m8g" type="2002">
+          <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//BExecutionContext/defineValue"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_bBwEww0pEd-FNbuD04-m8g"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_bBwExA0pEd-FNbuD04-m8g" type="2002">
+          <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//BExecutionContext/defineFinalValue"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_bBwExQ0pEd-FNbuD04-m8g"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_bBwr0A0pEd-FNbuD04-m8g" type="2002">
+          <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//BExecutionContext/defineVariableValue"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_bBwr0Q0pEd-FNbuD04-m8g"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_bBwr0g0pEd-FNbuD04-m8g" type="2002">
+          <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//BExecutionContext/defineFinalVariableValue"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_bBwr0w0pEd-FNbuD04-m8g"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_bBxS4A0pEd-FNbuD04-m8g" type="2002">
+          <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//BExecutionContext/isFinal"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_bBxS4Q0pEd-FNbuD04-m8g"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_bBxS4g0pEd-FNbuD04-m8g" type="2002">
+          <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//BExecutionContext/isImmutable"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_bBxS4w0pEd-FNbuD04-m8g"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_bBxS5A0pEd-FNbuD04-m8g" type="2002">
+          <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//BExecutionContext/getInvocationContext"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_bBxS5Q0pEd-FNbuD04-m8g"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_bBx58A0pEd-FNbuD04-m8g" type="2002">
+          <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//BExecutionContext/createInnerContext"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_bBx58Q0pEd-FNbuD04-m8g"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_bBx58g0pEd-FNbuD04-m8g" type="2002">
+          <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//BExecutionContext/createOuterContext"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_bBx58w0pEd-FNbuD04-m8g"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_bBx59A0pEd-FNbuD04-m8g" type="2002">
+          <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//BExecutionContext/getDeclaredValueType"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_bBx59Q0pEd-FNbuD04-m8g"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_bByhAA0pEd-FNbuD04-m8g" type="2002">
+          <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//BExecutionContext/getDeclaredFunctionType"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_bByhAQ0pEd-FNbuD04-m8g"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_bByhAg0pEd-FNbuD04-m8g" type="2002">
+          <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//BExecutionContext/isPropertyScope"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_bByhAw0pEd-FNbuD04-m8g"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_bByhBA0pEd-FNbuD04-m8g" type="2002">
+          <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//BExecutionContext/getContext"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_bByhBQ0pEd-FNbuD04-m8g"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_bBzIEA0pEd-FNbuD04-m8g" type="2002">
+          <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//BExecutionContext/getFunctionIterator"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_bBzIEQ0pEd-FNbuD04-m8g"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_bBzIEg0pEd-FNbuD04-m8g" type="2002">
+          <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//BExecutionContext/getFunctionIterator.1"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_bBzIEw0pEd-FNbuD04-m8g"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_bBzvIA0pEd-FNbuD04-m8g" type="2002">
+          <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//BExecutionContext/getFunctionIterator.2"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_bBzvIQ0pEd-FNbuD04-m8g"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_s6hF8A4BEd-FNbuD04-m8g" type="2002">
+          <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//BExecutionContext/getConcernIterator"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_s6hF8Q4BEd-FNbuD04-m8g"/>
+        </children>
         <styles xmi:type="notation:DrawerStyle" xmi:id="_bBrzVg0pEd-FNbuD04-m8g"/>
         <styles xmi:type="notation:SortingStyle" xmi:id="_bBrzVw0pEd-FNbuD04-m8g"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_bBrzWA0pEd-FNbuD04-m8g"/>
@@ -1461,10 +1553,6 @@
           <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//IFunction/getReturnTypeForParameterTypes"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_0ILfQepOEd6A_b_6qoG9Kw"/>
         </children>
-        <children xmi:type="notation:Node" xmi:id="_o-5kwPpUEd6OJZZeQs4Q0g" type="2002">
-          <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//IFunction/getEffectiveParameters"/>
-          <layoutConstraint xmi:type="notation:Location" xmi:id="_o-5kwfpUEd6OJZZeQs4Q0g"/>
-        </children>
         <styles xmi:type="notation:DrawerStyle" xmi:id="_EItUcc_0Ed6QUfNJL03zQw"/>
         <styles xmi:type="notation:SortingStyle" xmi:id="_EItUcs_0Ed6QUfNJL03zQw"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_EItUc8_0Ed6QUfNJL03zQw"/>
@@ -1571,10 +1659,6 @@
     <children xmi:type="notation:Node" xmi:id="_azZ34NtyEd6P8eu38IUfig" type="1001">
       <children xmi:type="notation:Node" xmi:id="_azZ349tyEd6P8eu38IUfig" type="4001"/>
       <children xmi:type="notation:Node" xmi:id="_azae8NtyEd6P8eu38IUfig" type="5001">
-        <children xmi:type="notation:Node" xmi:id="_i1xHsPpyEd6OJZZeQs4Q0g" type="2001">
-          <element xmi:type="ecore:EAttribute" href="B3Backend.ecore#//BFunctionContainer/containerType"/>
-          <layoutConstraint xmi:type="notation:Location" xmi:id="_i1xHsfpyEd6OJZZeQs4Q0g"/>
-        </children>
         <styles xmi:type="notation:DrawerStyle" xmi:id="_azae8dtyEd6P8eu38IUfig"/>
         <styles xmi:type="notation:SortingStyle" xmi:id="_azae8ttyEd6P8eu38IUfig"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_azae89tyEd6P8eu38IUfig"/>
@@ -1796,6 +1880,10 @@
         <children xmi:type="notation:Node" xmi:id="_Dt0QEAbaEd-MYM1npUhBdQ" type="2001">
           <element xmi:type="ecore:EAttribute" href="B3Backend.ecore#//BFunctionWrapper/parameterMap"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_Dt0QEQbaEd-MYM1npUhBdQ"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_Ra6W8A6VEd-FNbuD04-m8g" type="2001">
+          <element xmi:type="ecore:EAttribute" href="B3Backend.ecore#//BFunctionWrapper/varargsName"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_Ra6W8Q6VEd-FNbuD04-m8g"/>
         </children>
         <styles xmi:type="notation:DrawerStyle" xmi:id="_-eaApQFiEd-J54ZOjN0g9g"/>
         <styles xmi:type="notation:SortingStyle" xmi:id="_-eaApgFiEd-J54ZOjN0g9g"/>
@@ -3602,6 +3690,14 @@
         <styles xmi:type="notation:FilteringStyle" xmi:id="_jG_8QALLEd-J54ZOjN0g9g"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_jG_8QQLLEd-J54ZOjN0g9g" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_n7gOQA4BEd-FNbuD04-m8g" type="2002">
+          <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//BConcernContext/evaluateIfMatching"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_n7gOQQ4BEd-FNbuD04-m8g"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_I8qocA4KEd-FNbuD04-m8g" type="2002">
+          <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//BConcernContext/matches"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_I8qocQ4KEd-FNbuD04-m8g"/>
+        </children>
         <styles xmi:type="notation:DrawerStyle" xmi:id="_jG_8QgLLEd-J54ZOjN0g9g"/>
         <styles xmi:type="notation:SortingStyle" xmi:id="_jG_8QwLLEd-J54ZOjN0g9g"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_jG_8RALLEd-J54ZOjN0g9g"/>
@@ -3656,6 +3752,10 @@
         <children xmi:type="notation:Node" xmi:id="_jShrwALvEd-J54ZOjN0g9g" type="2001">
           <element xmi:type="ecore:EAttribute" href="B3Backend.ecore#//BFunctionConcernContext/varArgs"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_jShrwQLvEd-J54ZOjN0g9g"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_Y6yo4A6VEd-FNbuD04-m8g" type="2001">
+          <element xmi:type="ecore:EAttribute" href="B3Backend.ecore#//BFunctionConcernContext/matchParameters"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_Y6yo4Q6VEd-FNbuD04-m8g"/>
         </children>
         <styles xmi:type="notation:DrawerStyle" xmi:id="_Bdx0UgLuEd-J54ZOjN0g9g"/>
         <styles xmi:type="notation:SortingStyle" xmi:id="_Bdx0UwLuEd-J54ZOjN0g9g"/>

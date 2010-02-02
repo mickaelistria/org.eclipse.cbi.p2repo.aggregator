@@ -195,8 +195,8 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 				return createStringArrayFromString(eDataType, initialValue);
 			case B3backendPackage.B3_DYNAMIC_CLASS_LOADER:
 				return createB3DynamicClassLoaderFromString(eDataType, initialValue);
-			case B3backendPackage.IFUNCTION_ITERATOR:
-				return createIFunctionIteratorFromString(eDataType, initialValue);
+			case B3backendPackage.JAVA_ITERATOR:
+				return createJavaIteratorFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -244,8 +244,8 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 				return convertStringArrayToString(eDataType, instanceValue);
 			case B3backendPackage.B3_DYNAMIC_CLASS_LOADER:
 				return convertB3DynamicClassLoaderToString(eDataType, instanceValue);
-			case B3backendPackage.IFUNCTION_ITERATOR:
-				return convertIFunctionIteratorToString(eDataType, instanceValue);
+			case B3backendPackage.JAVA_ITERATOR:
+				return convertJavaIteratorToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -1239,7 +1239,7 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Iterator<?> createIFunctionIteratorFromString(EDataType eDataType, String initialValue) {
+	public Iterator<?> createJavaIteratorFromString(EDataType eDataType, String initialValue) {
 		return (Iterator<?>)super.createFromString(initialValue);
 	}
 
@@ -1248,7 +1248,7 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertIFunctionIteratorToString(EDataType eDataType, Object instanceValue) {
+	public String convertJavaIteratorToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(instanceValue);
 	}
 

@@ -225,6 +225,26 @@ public class BWithExpressionImpl extends BExpressionImpl implements BWithExpress
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Evaluates everything in the with clause and returns the context to use for downstream evaluation.
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public BExecutionContext getEvaluationContext(BExecutionContext ctx) throws Throwable {
+		BInnerContext ictx = createContext(ctx);
+		BExecutionContext octx = ictx.getOuterContext();
+		// populate all referenced advice
+		for(BAdvice a : getReferencedAdvice())
+			a.evaluate(octx);
+		for(BConcern c : getConcerns())
+			c.evaluate(octx);
+		// populate properties
+		for(BPropertySet ps : getPropertySets())
+			ps.evaluate(octx);
+		return ictx;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -332,22 +352,17 @@ public class BWithExpressionImpl extends BExpressionImpl implements BWithExpress
 		}
 		return super.eIsSet(featureID);
 	}
+	/**
+	 * Evaluates all advice and the funcExpr. If there is no funcExpression, null is returned, and no advice is
+	 * evaluated (the resulting context is of no value). If evaluation should take place regardless of funcExpr being
+	 * null use {@link #getEvaluationContext(BExecutionContext)} to get the context with advice, and the evaluate
+	 * the funcExpr (like this method does).
+	 */
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		BInnerContext ictx = createContext(ctx);
-		BExecutionContext octx = ictx.getOuterContext();
-		// populate all referenced advice
-		for(BAdvice a : getReferencedAdvice())
-			a.evaluate(octx);
-		for(BConcern c : getConcerns())
-			c.evaluate(octx);
-		// populate properties
-		for(BPropertySet ps : getPropertySets())
-			ps.evaluate(octx);
-
 		if(funcExpr == null)
 			return null;
-		return funcExpr.evaluate(ictx);
+		return funcExpr.evaluate(getEvaluationContext(ctx));
 	}
 	/**
 	 * Returns the type declared for the funcExpr if funcExpr is non null. 

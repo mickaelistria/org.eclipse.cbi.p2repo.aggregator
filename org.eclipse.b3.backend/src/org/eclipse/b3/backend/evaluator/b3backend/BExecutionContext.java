@@ -9,7 +9,6 @@ package org.eclipse.b3.backend.evaluator.b3backend;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import java.util.Iterator;
-import org.eclipse.b3.backend.core.B3DynamicClassLoader;
 import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.core.B3FuncStore;
 import org.eclipse.b3.backend.core.LValue;
@@ -26,7 +25,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getParentContext <em>Parent Context</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getChildContexts <em>Child Contexts</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getValueMap <em>Value Map</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getFuncStore <em>Func Store</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getEffectiveConcerns <em>Effective Concerns</em>}</li>
@@ -47,50 +45,30 @@ public interface BExecutionContext extends EObject {
 	String copyright = "Copyright (c) 2009, Cloudsmith Inc and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\rContributors:\n- Cloudsmith Inc - initial API and implementation.\r";
 
 	/**
-	 * Returns the value of the '<em><b>Parent Context</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getChildContexts <em>Child Contexts</em>}'.
+	 * Returns the value of the '<em><b>Parent Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Parent Context</em>' container reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parent Context</em>' container reference.
+	 * @return the value of the '<em>Parent Context</em>' reference.
 	 * @see #setParentContext(BExecutionContext)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBExecutionContext_ParentContext()
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getChildContexts
-	 * @model opposite="childContexts" transient="false"
+	 * @model
 	 * @generated
 	 */
 	BExecutionContext getParentContext();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getParentContext <em>Parent Context</em>}' container reference.
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getParentContext <em>Parent Context</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Parent Context</em>' container reference.
+	 * @param value the new value of the '<em>Parent Context</em>' reference.
 	 * @see #getParentContext()
 	 * @generated
 	 */
 	void setParentContext(BExecutionContext value);
-
-	/**
-	 * Returns the value of the '<em><b>Child Contexts</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext}.
-	 * It is bidirectional and its opposite is '{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getParentContext <em>Parent Context</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Child Contexts</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Child Contexts</em>' containment reference list.
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBExecutionContext_ChildContexts()
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getParentContext
-	 * @model opposite="parentContext" containment="true"
-	 * @generated
-	 */
-	EList<BExecutionContext> getChildContexts();
 
 	/**
 	 * Returns the value of the '<em><b>Value Map</b></em>' attribute.
@@ -260,7 +238,7 @@ public interface BExecutionContext extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" dataType="org.eclipse.b3.backend.evaluator.b3backend.IFunctionIterator<org.eclipse.b3.backend.evaluator.b3backend.IFunction>"
+	 * @model kind="operation" dataType="org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.backend.evaluator.b3backend.IFunction>"
 	 * @generated
 	 */
 	Iterator<IFunction> getFunctionIterator();
@@ -268,10 +246,26 @@ public interface BExecutionContext extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.IFunctionIterator<org.eclipse.b3.backend.evaluator.b3backend.IFunction>"
+	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.backend.evaluator.b3backend.IFunction>"
 	 * @generated
 	 */
 	Iterator<IFunction> getFunctionIterator(String name);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.backend.evaluator.b3backend.IFunction>" typeDataType="org.eclipse.b3.backend.evaluator.b3backend.Type"
+	 * @generated
+	 */
+	Iterator<IFunction> getFunctionIterator(Type type, Class<?> functionType);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.backend.evaluator.b3backend.BConcernContext>"
+	 * @generated
+	 */
+	Iterator<BConcernContext> getConcernIterator(Object candidate);
 
 	/**
 	 * <!-- begin-user-doc -->

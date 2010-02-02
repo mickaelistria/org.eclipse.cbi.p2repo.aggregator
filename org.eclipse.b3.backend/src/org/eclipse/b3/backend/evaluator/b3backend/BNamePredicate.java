@@ -91,4 +91,12 @@ public interface BNamePredicate extends EObject {
 	 */
 	void setName(String value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean matches(String name);
+
 } // BNamePredicate

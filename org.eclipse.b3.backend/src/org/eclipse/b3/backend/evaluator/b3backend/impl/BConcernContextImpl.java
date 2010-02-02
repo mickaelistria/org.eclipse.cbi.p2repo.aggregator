@@ -12,7 +12,6 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
-import java.lang.reflect.Type;
 
 import java.util.Collection;
 
@@ -22,7 +21,6 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -30,7 +28,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -43,7 +40,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BConcernContextImpl#getFunctions <em>Functions</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BConcernContextImpl#getContainerType <em>Container Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -66,26 +62,6 @@ public abstract class BConcernContextImpl extends BExpressionImpl implements BCo
 	 * @ordered
 	 */
 	protected EList<IFunction> functions;
-
-	/**
-	 * The default value of the '{@link #getContainerType() <em>Container Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getContainerType()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Type CONTAINER_TYPE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getContainerType() <em>Container Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getContainerType()
-	 * @generated
-	 * @ordered
-	 */
-	protected Type containerType = CONTAINER_TYPE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -123,28 +99,18 @@ public abstract class BConcernContextImpl extends BExpressionImpl implements BCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Type getContainerType() {
-		return containerType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setContainerType(Type newContainerType) {
-		Type oldContainerType = containerType;
-		containerType = newContainerType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BCONCERN_CONTEXT__CONTAINER_TYPE, oldContainerType, containerType));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean evaluateIfMatching(Object candidate, BExecutionContext ctx) throws Throwable {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean matches(Object candidate, BExecutionContext ctx) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -189,8 +155,6 @@ public abstract class BConcernContextImpl extends BExpressionImpl implements BCo
 		switch (featureID) {
 			case B3backendPackage.BCONCERN_CONTEXT__FUNCTIONS:
 				return getFunctions();
-			case B3backendPackage.BCONCERN_CONTEXT__CONTAINER_TYPE:
-				return getContainerType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -208,9 +172,6 @@ public abstract class BConcernContextImpl extends BExpressionImpl implements BCo
 				getFunctions().clear();
 				getFunctions().addAll((Collection<? extends IFunction>)newValue);
 				return;
-			case B3backendPackage.BCONCERN_CONTEXT__CONTAINER_TYPE:
-				setContainerType((Type)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -226,9 +187,6 @@ public abstract class BConcernContextImpl extends BExpressionImpl implements BCo
 			case B3backendPackage.BCONCERN_CONTEXT__FUNCTIONS:
 				getFunctions().clear();
 				return;
-			case B3backendPackage.BCONCERN_CONTEXT__CONTAINER_TYPE:
-				setContainerType(CONTAINER_TYPE_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -243,8 +201,6 @@ public abstract class BConcernContextImpl extends BExpressionImpl implements BCo
 		switch (featureID) {
 			case B3backendPackage.BCONCERN_CONTEXT__FUNCTIONS:
 				return functions != null && !functions.isEmpty();
-			case B3backendPackage.BCONCERN_CONTEXT__CONTAINER_TYPE:
-				return CONTAINER_TYPE_EDEFAULT == null ? containerType != null : !CONTAINER_TYPE_EDEFAULT.equals(containerType);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -259,7 +215,6 @@ public abstract class BConcernContextImpl extends BExpressionImpl implements BCo
 		if (baseClass == BFunctionContainer.class) {
 			switch (derivedFeatureID) {
 				case B3backendPackage.BCONCERN_CONTEXT__FUNCTIONS: return B3backendPackage.BFUNCTION_CONTAINER__FUNCTIONS;
-				case B3backendPackage.BCONCERN_CONTEXT__CONTAINER_TYPE: return B3backendPackage.BFUNCTION_CONTAINER__CONTAINER_TYPE;
 				default: return -1;
 			}
 		}
@@ -276,27 +231,10 @@ public abstract class BConcernContextImpl extends BExpressionImpl implements BCo
 		if (baseClass == BFunctionContainer.class) {
 			switch (baseFeatureID) {
 				case B3backendPackage.BFUNCTION_CONTAINER__FUNCTIONS: return B3backendPackage.BCONCERN_CONTEXT__FUNCTIONS;
-				case B3backendPackage.BFUNCTION_CONTAINER__CONTAINER_TYPE: return B3backendPackage.BCONCERN_CONTEXT__CONTAINER_TYPE;
 				default: return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (containerType: ");
-		result.append(containerType);
-		result.append(')');
-		return result.toString();
 	}
 
 } //BConcernContextImpl

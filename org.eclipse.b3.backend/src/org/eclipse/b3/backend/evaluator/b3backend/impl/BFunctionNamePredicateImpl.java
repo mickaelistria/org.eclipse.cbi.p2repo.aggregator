@@ -128,24 +128,12 @@ public class BFunctionNamePredicateImpl extends BExpressionImpl implements BFunc
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * See {@link BNamePredicate#matches(String)}.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public boolean matches(String name) {
-		String namePattern = namePredicate.getName(); // simple compare against a string
-		if(namePattern != null)
-			return namePattern.equals(name);
-		
-		// this is a name pattern of some sort
-		// currently supporting ANY, or Regexp - pattern matching not done as
-		// full expressions.
-		BExpression expr = namePredicate.getNamePattern();
-		if(expr instanceof BLiteralAny)
-			return true;
-		
-		if(expr instanceof BRegularExpression)
-			return ((BRegularExpression)expr).getPattern().matcher(name).matches();
-		throw new B3InternalError("Attempt to evaluate a BFunctionNamePredicate without a valid pattern type");
+		return namePredicate.matches(name);
 	}
 
 	/**
@@ -224,6 +212,9 @@ public class BFunctionNamePredicateImpl extends BExpressionImpl implements BFunc
 	 */
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
+		// NOTE: does not use BNamePredicate#matches, since different iterators are needed based on
+		// the type of pattern used in BNamePredicate.
+		//
 		String name = namePredicate.getName();
 		if(name != null)
 			return ctx.getFunctionIterator(name);

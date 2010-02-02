@@ -843,7 +843,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType iFunctionIteratorEDataType = null;
+	private EDataType javaIteratorEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -947,17 +947,8 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBExecutionContext_ChildContexts() {
-		return (EReference)bExecutionContextEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getBExecutionContext_ValueMap() {
-		return (EAttribute)bExecutionContextEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)bExecutionContextEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -966,7 +957,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * @generated
 	 */
 	public EAttribute getBExecutionContext_FuncStore() {
-		return (EAttribute)bExecutionContextEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)bExecutionContextEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -975,7 +966,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * @generated
 	 */
 	public EReference getBExecutionContext_EffectiveConcerns() {
-		return (EReference)bExecutionContextEClass.getEStructuralFeatures().get(4);
+		return (EReference)bExecutionContextEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1865,6 +1856,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getBFunctionConcernContext_MatchParameters() {
+		return (EAttribute)bFunctionConcernContextEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBParameterPredicate() {
 		return bParameterPredicateEClass;
 	}
@@ -2146,15 +2146,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 */
 	public EReference getBFunctionContainer_Functions() {
 		return (EReference)bFunctionContainerEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBFunctionContainer_ContainerType() {
-		return (EAttribute)bFunctionContainerEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -3053,8 +3044,8 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getIFunctionIterator() {
-		return iFunctionIteratorEDataType;
+	public EDataType getJavaIterator() {
+		return javaIteratorEDataType;
 	}
 
 	/**
@@ -3091,7 +3082,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 
 		bExecutionContextEClass = createEClass(BEXECUTION_CONTEXT);
 		createEReference(bExecutionContextEClass, BEXECUTION_CONTEXT__PARENT_CONTEXT);
-		createEReference(bExecutionContextEClass, BEXECUTION_CONTEXT__CHILD_CONTEXTS);
 		createEAttribute(bExecutionContextEClass, BEXECUTION_CONTEXT__VALUE_MAP);
 		createEAttribute(bExecutionContextEClass, BEXECUTION_CONTEXT__FUNC_STORE);
 		createEReference(bExecutionContextEClass, BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS);
@@ -3233,7 +3223,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 
 		bFunctionContainerEClass = createEClass(BFUNCTION_CONTAINER);
 		createEReference(bFunctionContainerEClass, BFUNCTION_CONTAINER__FUNCTIONS);
-		createEAttribute(bFunctionContainerEClass, BFUNCTION_CONTAINER__CONTAINER_TYPE);
 
 		bDefValueEClass = createEClass(BDEF_VALUE);
 		createEAttribute(bDefValueEClass, BDEF_VALUE__NAME);
@@ -3367,6 +3356,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		createEReference(bFunctionConcernContextEClass, BFUNCTION_CONCERN_CONTEXT__PARAMETERS);
 		createEReference(bFunctionConcernContextEClass, BFUNCTION_CONCERN_CONTEXT__FUNC_EXPR);
 		createEAttribute(bFunctionConcernContextEClass, BFUNCTION_CONCERN_CONTEXT__VAR_ARGS);
+		createEAttribute(bFunctionConcernContextEClass, BFUNCTION_CONCERN_CONTEXT__MATCH_PARAMETERS);
 
 		bParameterPredicateEClass = createEClass(BPARAMETER_PREDICATE);
 		createEAttribute(bParameterPredicateEClass, BPARAMETER_PREDICATE__NAME);
@@ -3408,7 +3398,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		regexpPatternEDataType = createEDataType(REGEXP_PATTERN);
 		stringArrayEDataType = createEDataType(STRING_ARRAY);
 		b3DynamicClassLoaderEDataType = createEDataType(B3_DYNAMIC_CLASS_LOADER);
-		iFunctionIteratorEDataType = createEDataType(IFUNCTION_ITERATOR);
+		javaIteratorEDataType = createEDataType(JAVA_ITERATOR);
 	}
 
 	/**
@@ -3436,7 +3426,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 
 		// Create type parameters
 		ETypeParameter iTypeVariableEClass_D = addETypeParameter(iTypeVariableEClass, "D");
-		addETypeParameter(iFunctionIteratorEDataType, "E");
+		addETypeParameter(javaIteratorEDataType, "E");
 
 		// Set bounds for type parameters
 		EGenericType g1 = createEGenericType(this.getIGenericDeclaration());
@@ -3535,8 +3525,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEClass(bLineReferenceEClass, BLineReference.class, "BLineReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(bExecutionContextEClass, BExecutionContext.class, "BExecutionContext", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBExecutionContext_ParentContext(), this.getBExecutionContext(), this.getBExecutionContext_ChildContexts(), "parentContext", null, 0, 1, BExecutionContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBExecutionContext_ChildContexts(), this.getBExecutionContext(), this.getBExecutionContext_ParentContext(), "childContexts", null, 0, -1, BExecutionContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBExecutionContext_ParentContext(), this.getBExecutionContext(), null, "parentContext", null, 0, 1, BExecutionContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBExecutionContext_ValueMap(), this.getValueMap(), "valueMap", "", 1, 1, BExecutionContext.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBExecutionContext_FuncStore(), this.getFuncStore(), "funcStore", null, 0, 1, BExecutionContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBExecutionContext_EffectiveConcerns(), this.getBConcern(), null, "effectiveConcerns", null, 0, -1, BExecutionContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3631,15 +3620,33 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEOperation(op, g1);
 
 		op = addEOperation(bExecutionContextEClass, null, "getFunctionIterator", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(this.getIFunctionIterator());
+		g1 = createEGenericType(this.getJavaIterator());
 		g2 = createEGenericType(this.getIFunction());
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
 
 		op = addEOperation(bExecutionContextEClass, null, "getFunctionIterator", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(this.getIFunctionIterator());
+		g1 = createEGenericType(this.getJavaIterator());
 		g2 = createEGenericType(this.getIFunction());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
+		op = addEOperation(bExecutionContextEClass, null, "getFunctionIterator", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEJavaClass());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "functionType", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getJavaIterator());
+		g2 = createEGenericType(this.getIFunction());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
+		op = addEOperation(bExecutionContextEClass, null, "getConcernIterator", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "candidate", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getJavaIterator());
+		g2 = createEGenericType(this.getBConcernContext());
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
 
@@ -3793,12 +3800,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		addEParameter(op, this.getTypeArray(), "types", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(iFunctionEClass, null, "getEffectiveParameters", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEEList());
-		g2 = createEGenericType(this.getBParameterDeclaration());
-		g1.getETypeArguments().add(g2);
-		initEOperation(op, g1);
-
 		initEClass(bGuardEClass, BGuard.class, "BGuard", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		op = addEOperation(bGuardEClass, ecorePackage.getEBoolean(), "accepts", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -3850,7 +3851,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 
 		initEClass(bFunctionContainerEClass, BFunctionContainer.class, "BFunctionContainer", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBFunctionContainer_Functions(), this.getIFunction(), this.getIFunction_Container(), "functions", null, 0, -1, BFunctionContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getBFunctionContainer_ContainerType(), this.getType(), "containerType", null, 0, 1, BFunctionContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bDefValueEClass, BDefValue.class, "BDefValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBDefValue_Name(), ecorePackage.getEString(), "name", null, 0, 1, BDefValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3992,6 +3992,12 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getThrowable());
 
+		op = addEOperation(bConcernEClass, null, "getConcernContextIterator", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getJavaIterator());
+		g2 = createEGenericType(this.getBConcernContext());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
 		initEClass(bWithExpressionEClass, BWithExpression.class, "BWithExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBWithExpression_ReferencedAdvice(), this.getBAdvice(), null, "referencedAdvice", null, 0, -1, BWithExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBWithExpression_PropertySets(), this.getBPropertySet(), null, "propertySets", null, 0, -1, BWithExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4001,12 +4007,20 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		op = addEOperation(bWithExpressionEClass, this.getBInnerContext(), "createContext", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = addEOperation(bWithExpressionEClass, this.getBExecutionContext(), "getEvaluationContext", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getThrowable());
+
 		initEClass(bConcernContextEClass, BConcernContext.class, "BConcernContext", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		op = addEOperation(bConcernContextEClass, ecorePackage.getEBoolean(), "evaluateIfMatching", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEJavaObject(), "candidate", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getThrowable());
+
+		op = addEOperation(bConcernContextEClass, ecorePackage.getEBoolean(), "matches", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "candidate", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(bFunctionEClass, BFunction.class, "BFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -4025,6 +4039,9 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEReference(getBNamePredicate_NamePattern(), this.getBExpression(), null, "namePattern", null, 0, 1, BNamePredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBNamePredicate_Name(), ecorePackage.getEString(), "name", null, 0, 1, BNamePredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		op = addEOperation(bNamePredicateEClass, ecorePackage.getEBoolean(), "matches", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(bFunctionNamePredicateEClass, BFunctionNamePredicate.class, "BFunctionNamePredicate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBFunctionNamePredicate_NamePredicate(), this.getBNamePredicate(), null, "namePredicate", null, 0, 1, BFunctionNamePredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -4036,6 +4053,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEReference(getBFunctionConcernContext_Parameters(), this.getBParameterPredicate(), null, "parameters", null, 0, -1, BFunctionConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBFunctionConcernContext_FuncExpr(), this.getBExpression(), null, "funcExpr", null, 0, 1, BFunctionConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBFunctionConcernContext_VarArgs(), ecorePackage.getEBoolean(), "varArgs", null, 0, 1, BFunctionConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBFunctionConcernContext_MatchParameters(), ecorePackage.getEBoolean(), "matchParameters", null, 0, 1, BFunctionConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bParameterPredicateEClass, BParameterPredicate.class, "BParameterPredicate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBParameterPredicate_Name(), ecorePackage.getEString(), "name", null, 0, 1, BParameterPredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4064,7 +4082,10 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		addEParameter(op, this.getBFunctionWrapper(), "functionWrapper", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(b3MetaClassEClass, B3MetaClass.class, "B3MetaClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getB3MetaClass_InstanceClass(), ecorePackage.getEJavaClass(), "instanceClass", null, 0, 1, B3MetaClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEJavaClass());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEAttribute(getB3MetaClass_InstanceClass(), g1, "instanceClass", null, 0, 1, B3MetaClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(b3MetaClassEClass, ecorePackage.getEBoolean(), "isAssignableFrom", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getIType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -4099,7 +4120,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEDataType(regexpPatternEDataType, Pattern.class, "RegexpPattern", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(stringArrayEDataType, String[].class, "StringArray", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(b3DynamicClassLoaderEDataType, B3DynamicClassLoader.class, "B3DynamicClassLoader", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(iFunctionIteratorEDataType, Iterator.class, "IFunctionIterator", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(javaIteratorEDataType, Iterator.class, "JavaIterator", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

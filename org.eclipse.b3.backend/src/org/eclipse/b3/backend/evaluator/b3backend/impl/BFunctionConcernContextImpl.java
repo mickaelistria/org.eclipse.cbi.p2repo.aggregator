@@ -55,6 +55,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionConcernContextImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionConcernContextImpl#getFuncExpr <em>Func Expr</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionConcernContextImpl#isVarArgs <em>Var Args</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionConcernContextImpl#isMatchParameters <em>Match Parameters</em>}</li>
  * </ul>
  * </p>
  *
@@ -117,6 +118,26 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 	 * @ordered
 	 */
 	protected boolean varArgs = VAR_ARGS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isMatchParameters() <em>Match Parameters</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isMatchParameters()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean MATCH_PARAMETERS_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isMatchParameters() <em>Match Parameters</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isMatchParameters()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean matchParameters = MATCH_PARAMETERS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -261,6 +282,27 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isMatchParameters() {
+		return matchParameters;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMatchParameters(boolean newMatchParameters) {
+		boolean oldMatchParameters = matchParameters;
+		matchParameters = newMatchParameters;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION_CONCERN_CONTEXT__MATCH_PARAMETERS, oldMatchParameters, matchParameters));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -290,6 +332,8 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 				return getFuncExpr();
 			case B3backendPackage.BFUNCTION_CONCERN_CONTEXT__VAR_ARGS:
 				return isVarArgs();
+			case B3backendPackage.BFUNCTION_CONCERN_CONTEXT__MATCH_PARAMETERS:
+				return isMatchParameters();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -316,6 +360,9 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 			case B3backendPackage.BFUNCTION_CONCERN_CONTEXT__VAR_ARGS:
 				setVarArgs((Boolean)newValue);
 				return;
+			case B3backendPackage.BFUNCTION_CONCERN_CONTEXT__MATCH_PARAMETERS:
+				setMatchParameters((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -340,6 +387,9 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 			case B3backendPackage.BFUNCTION_CONCERN_CONTEXT__VAR_ARGS:
 				setVarArgs(VAR_ARGS_EDEFAULT);
 				return;
+			case B3backendPackage.BFUNCTION_CONCERN_CONTEXT__MATCH_PARAMETERS:
+				setMatchParameters(MATCH_PARAMETERS_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -360,6 +410,8 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 				return funcExpr != null;
 			case B3backendPackage.BFUNCTION_CONCERN_CONTEXT__VAR_ARGS:
 				return varArgs != VAR_ARGS_EDEFAULT;
+			case B3backendPackage.BFUNCTION_CONCERN_CONTEXT__MATCH_PARAMETERS:
+				return matchParameters != MATCH_PARAMETERS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -376,6 +428,8 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (varArgs: ");
 		result.append(varArgs);
+		result.append(", matchParameters: ");
+		result.append(matchParameters);
 		result.append(')');
 		return result.toString();
 	}
@@ -400,9 +454,10 @@ public class BFunctionConcernContextImpl extends BConcernContextImpl implements 
 		return weaveIfParametersMatch(pattern, (IFunction)candidate, ctx);
 	}
 	private boolean weaveIfParametersMatch(TypePattern pattern, IFunction f, BExecutionContext ctx) throws B3EngineException {
-		Matcher matcher = pattern.match(f.getEffectiveParameters());
-		if(!matcher.isMatch())
+		Matcher matcher = pattern.match(f.getParameters());
+		if(matchParameters && !matcher.isMatch())
 			return false;
+
 		// create a map of parameter name in advise and parameter name in matched function
 		Map<String, String> nameMap = new HashMap<String,String>();
 		EList<BParameterPredicate> plist = getParameters(); // i.e. predicates

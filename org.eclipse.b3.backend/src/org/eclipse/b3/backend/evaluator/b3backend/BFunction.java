@@ -6,12 +6,6 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend;
 
-import java.lang.reflect.GenericDeclaration;
-import java.lang.reflect.Type;
-import java.lang.reflect.TypeVariable;
-import org.eclipse.emf.common.util.EList;
-
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>BFunction</b></em>'.

@@ -27,7 +27,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer#getFunctions <em>Functions</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer#getContainerType <em>Container Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -60,31 +59,5 @@ public interface BFunctionContainer extends EObject {
 	 * @generated
 	 */
 	EList<IFunction> getFunctions();
-
-	/**
-	 * Returns the value of the '<em><b>Container Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Container Type</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Container Type</em>' attribute.
-	 * @see #setContainerType(Type)
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBFunctionContainer_ContainerType()
-	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.Type"
-	 * @generated
-	 */
-	Type getContainerType();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer#getContainerType <em>Container Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Container Type</em>' attribute.
-	 * @see #getContainerType()
-	 * @generated
-	 */
-	void setContainerType(Type value);
 
 } // BFunctionContainer

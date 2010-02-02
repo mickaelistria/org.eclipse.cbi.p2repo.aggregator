@@ -214,22 +214,21 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getTypeParameters()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
 	@SuppressWarnings("unchecked")
-	protected static final TypeVariable[] TYPE_PARAMETERS_EDEFAULT = null;
+	protected static final TypeVariable<?>[] TYPE_PARAMETERS_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getTypeParameters() <em>Type Parameters</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getTypeParameters()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-	@SuppressWarnings("unchecked")
-	protected TypeVariable[] typeParameters = TYPE_PARAMETERS_EDEFAULT;
+	protected TypeVariable<?>[] typeParameters = TYPE_PARAMETERS_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getParameterNames() <em>Parameter Names</em>}' attribute.
@@ -768,7 +767,7 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 	 * @generated NOT
 	 */
 	@SuppressWarnings("unchecked")
-	public TypeVariable[] getTypeParameters() {
+	public TypeVariable<?>[] getTypeParameters() {
 		return typeParameters;
 	}
 
@@ -778,7 +777,7 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public void setTypeParameters(TypeVariable[] newTypeParameters) {
+	public void setTypeParameters(TypeVariable<?>[] newTypeParameters) {
 		TypeVariable[] oldTypeParameters = typeParameters;
 		typeParameters = newTypeParameters;
 		if (eNotificationRequired())

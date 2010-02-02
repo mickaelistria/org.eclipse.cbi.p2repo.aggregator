@@ -12,9 +12,11 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
-import java.lang.reflect.Type;
 import java.util.Collection;
 
+import java.util.Iterator;
+
+import org.eclipse.b3.backend.core.SerialIterator;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BConcern;
 import org.eclipse.b3.backend.evaluator.b3backend.BConcernContext;
@@ -46,7 +48,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BConcernImpl#getFunctions <em>Functions</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BConcernImpl#getContainerType <em>Container Type</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BConcernImpl#getDocumentation <em>Documentation</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BConcernImpl#getSuperConcerns <em>Super Concerns</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BConcernImpl#getPropertySets <em>Property Sets</em>}</li>
@@ -73,26 +74,6 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 	 * @ordered
 	 */
 	protected EList<IFunction> functions;
-
-	/**
-	 * The default value of the '{@link #getContainerType() <em>Container Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getContainerType()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Type CONTAINER_TYPE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getContainerType() <em>Container Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getContainerType()
-	 * @generated
-	 * @ordered
-	 */
-	protected Type containerType = CONTAINER_TYPE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
@@ -213,27 +194,6 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Type getContainerType() {
-		return containerType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setContainerType(Type newContainerType) {
-		Type oldContainerType = containerType;
-		containerType = newContainerType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BCONCERN__CONTAINER_TYPE, oldContainerType, containerType));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<BPropertySet> getPropertySets() {
 		if (propertySets == null) {
 			propertySets = new EObjectContainmentEList<BPropertySet>(BPropertySet.class, this, B3backendPackage.BCONCERN__PROPERTY_SETS);
@@ -267,6 +227,21 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 			if(cc.evaluateIfMatching(candidate, ctx))
 				result = true;
 		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Returns an iterator over all concern contexts from first super-most context, over all super concerns, ending
+	 * with the last context in the 'this' concern.
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Iterator<BConcernContext> getConcernContextIterator() {
+		SerialIterator<BConcernContext> itor = new SerialIterator<BConcernContext>();
+		for(BConcern c : getSuperConcerns())
+			itor.addIterator(c.getConcernContextIterator());
+		itor.addIterator(getContexts().iterator());
+		return itor;
 	}
 
 	/**
@@ -312,8 +287,6 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 		switch (featureID) {
 			case B3backendPackage.BCONCERN__FUNCTIONS:
 				return getFunctions();
-			case B3backendPackage.BCONCERN__CONTAINER_TYPE:
-				return getContainerType();
 			case B3backendPackage.BCONCERN__DOCUMENTATION:
 				return getDocumentation();
 			case B3backendPackage.BCONCERN__SUPER_CONCERNS:
@@ -338,9 +311,6 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 			case B3backendPackage.BCONCERN__FUNCTIONS:
 				getFunctions().clear();
 				getFunctions().addAll((Collection<? extends IFunction>)newValue);
-				return;
-			case B3backendPackage.BCONCERN__CONTAINER_TYPE:
-				setContainerType((Type)newValue);
 				return;
 			case B3backendPackage.BCONCERN__DOCUMENTATION:
 				setDocumentation((String)newValue);
@@ -372,9 +342,6 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 			case B3backendPackage.BCONCERN__FUNCTIONS:
 				getFunctions().clear();
 				return;
-			case B3backendPackage.BCONCERN__CONTAINER_TYPE:
-				setContainerType(CONTAINER_TYPE_EDEFAULT);
-				return;
 			case B3backendPackage.BCONCERN__DOCUMENTATION:
 				setDocumentation(DOCUMENTATION_EDEFAULT);
 				return;
@@ -401,8 +368,6 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 		switch (featureID) {
 			case B3backendPackage.BCONCERN__FUNCTIONS:
 				return functions != null && !functions.isEmpty();
-			case B3backendPackage.BCONCERN__CONTAINER_TYPE:
-				return CONTAINER_TYPE_EDEFAULT == null ? containerType != null : !CONTAINER_TYPE_EDEFAULT.equals(containerType);
 			case B3backendPackage.BCONCERN__DOCUMENTATION:
 				return DOCUMENTATION_EDEFAULT == null ? documentation != null : !DOCUMENTATION_EDEFAULT.equals(documentation);
 			case B3backendPackage.BCONCERN__SUPER_CONCERNS:
@@ -425,7 +390,6 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 		if (baseClass == BFunctionContainer.class) {
 			switch (derivedFeatureID) {
 				case B3backendPackage.BCONCERN__FUNCTIONS: return B3backendPackage.BFUNCTION_CONTAINER__FUNCTIONS;
-				case B3backendPackage.BCONCERN__CONTAINER_TYPE: return B3backendPackage.BFUNCTION_CONTAINER__CONTAINER_TYPE;
 				default: return -1;
 			}
 		}
@@ -442,7 +406,6 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 		if (baseClass == BFunctionContainer.class) {
 			switch (baseFeatureID) {
 				case B3backendPackage.BFUNCTION_CONTAINER__FUNCTIONS: return B3backendPackage.BCONCERN__FUNCTIONS;
-				case B3backendPackage.BFUNCTION_CONTAINER__CONTAINER_TYPE: return B3backendPackage.BCONCERN__CONTAINER_TYPE;
 				default: return -1;
 			}
 		}
@@ -459,9 +422,7 @@ public class BConcernImpl extends BAdviceImpl implements BConcern {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (containerType: ");
-		result.append(containerType);
-		result.append(", documentation: ");
+		result.append(" (documentation: ");
 		result.append(documentation);
 		result.append(')');
 		return result.toString();

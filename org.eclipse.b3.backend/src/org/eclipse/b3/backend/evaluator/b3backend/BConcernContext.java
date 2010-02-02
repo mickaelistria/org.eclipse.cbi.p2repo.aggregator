@@ -39,4 +39,12 @@ public interface BConcernContext extends BExpression, BFunctionContainer {
 	 */
 	boolean evaluateIfMatching(Object candidate, BExecutionContext ctx) throws Throwable;
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean matches(Object candidate, BExecutionContext ctx);
+
 } // BConcernContext
