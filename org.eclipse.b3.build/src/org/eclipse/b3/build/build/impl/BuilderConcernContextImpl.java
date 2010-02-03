@@ -681,13 +681,16 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Performs the same operation as {@link #evaluate(BExecutionContext)} but for a single object (candidate), and
+	 * with resulting wrapped builders being promoted to promoteToUnit (if set).
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean evaluateIfMatching(Object candidate, BExecutionContext ctx, BuildUnit promoteToUnit) throws Throwable {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		TypePattern pattern = TypePattern.compile(getParameters());
+		if(candidate instanceof IBuilder && matchesQuery((IBuilder)candidate, ctx))
+			return weaveIfParametersMatch(pattern, (IBuilder)candidate, ctx, null); // do not promote
+		return false;
 	}
 
 	/**
@@ -1147,8 +1150,8 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 
 		while(fItor.hasNext()) {
 			IFunction f = fItor.next();
-			if(f instanceof Builder && matchesQuery((Builder)f, ctx))
-				weaveIfParametersMatch(pattern, (Builder)f, ctx, null); // do not promote
+			if(f instanceof IBuilder && matchesQuery((IBuilder)f, ctx))
+				weaveIfParametersMatch(pattern, (IBuilder)f, ctx, null); // do not promote
 		}
 		return this;
 	}
