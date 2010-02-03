@@ -85,12 +85,8 @@ public class TransformationWizard extends Wizard implements INewWizard {
 		public void createControl(Composite parent) {
 			Label label = new Label(parent, SWT.None);
 
-			if(!srcNamespaceFound) {
-				label.setText("Namespace of the selected resource was not found - transformation is not possible");
-				label.setForeground(Display.getCurrent().getSystemColor(SWT.COLOR_RED));
-			}
-			else if(!transformationSequenceExists) {
-				label.setText("Transformation sequence for the selected resource was not successfully resolved - transformation is not possible");
+			if(!srcNamespaceFound || !transformationSequenceExists) {
+				label.setText("Transformation from the selected resource model was not defined - transformation is not possible");
 				label.setForeground(Display.getCurrent().getSystemColor(SWT.COLOR_RED));
 			}
 			else
@@ -247,13 +243,15 @@ public class TransformationWizard extends Wizard implements INewWizard {
 		}
 
 		srcNamespaceFound = xmlns != null;
+		if(srcNamespaceFound) {
 
-		String requiredSourceNS = xmlns;
+			String requiredSourceNS = xmlns;
 
-		String requiredTargetNS = AggregatorPackage.eNS_URI;
+			String requiredTargetNS = AggregatorPackage.eNS_URI;
 
-		transformationSequence = resolveTransformationSequence(transformations, requiredSourceNS, requiredTargetNS,
-				new ArrayList<IConfigurationElement>());
+			transformationSequence = resolveTransformationSequence(transformations, requiredSourceNS, requiredTargetNS,
+					new ArrayList<IConfigurationElement>());
+		}
 	}
 
 	/**
