@@ -3423,7 +3423,7 @@
       </children>
       <styles xmi:type="notation:ShapeStyle" xmi:id="_a2jq7BBFEd-khvgpDMr24A" fontColor="4210752" fontName="Lucida Grande" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
       <element xmi:type="ecore:EClass" href="B3Build.ecore#//OutputPredicate"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_a2jq7RBFEd-khvgpDMr24A" x="-315" y="504"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_a2jq7RBFEd-khvgpDMr24A" x="-432" y="504"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_a2jq7hBFEd-khvgpDMr24A" type="1001">
       <children xmi:type="notation:Node" xmi:id="_a2jq7xBFEd-khvgpDMr24A" type="4001"/>
@@ -3678,7 +3678,7 @@
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_a2kSgBBFEd-khvgpDMr24A" routing="Rectilinear" lineColor="4210752"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_a2kSgRBFEd-khvgpDMr24A" fontName="Lucida Grande"/>
       <element xsi:nil="true"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_a2kSghBFEd-khvgpDMr24A" points="[0, -20, -7, 185]$[0, -180, -7, 25]"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_a2kSghBFEd-khvgpDMr24A" points="[-1, -23, -16, 185]$[-1, -183, -16, 25]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_a2kSgxBFEd-khvgpDMr24A" id="(0.9019607843137255,0.5)"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_a2kShBBFEd-khvgpDMr24A" id="(0.03218390804597701,0.35)"/>
     </edges>
@@ -3698,7 +3698,7 @@
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_a2kSjhBFEd-khvgpDMr24A" routing="Rectilinear" lineColor="4210752"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_a2kSjxBFEd-khvgpDMr24A" fontColor="4210752" fontName="Lucida Grande" fontHeight="10"/>
       <element xmi:type="ecore:EReference" href="B3Build.ecore#//OutputPredicate/pathVector"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_a2kSkBBFEd-khvgpDMr24A" points="[-80, -4, -42, 368]$[-80, -353, -42, 19]"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_a2kSkBBFEd-khvgpDMr24A" points="[-107, -5, -78, 368]$[-107, -354, -78, 19]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_a2kSkRBFEd-khvgpDMr24A" id="(0.8921568627450981,0.11904761904761904)"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_a2kSkhBFEd-khvgpDMr24A" id="(0.7807017543859649,0.525)"/>
     </edges>
@@ -3712,7 +3712,7 @@
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_a2kSmBBFEd-khvgpDMr24A" routing="Rectilinear" lineColor="4210752"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_a2kSmRBFEd-khvgpDMr24A" fontColor="4210752" fontName="Lucida Grande" fontHeight="10"/>
       <element xmi:type="ecore:EReference" href="B3Build.ecore#//OutputPredicate/pathPattern"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_a2kSmhBFEd-khvgpDMr24A" points="[20, -7, 1, 194]$[46, -7, 27, 194]$[46, -188, 27, 13]"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_a2kSmhBFEd-khvgpDMr24A" points="[44, -9, 5, 197]$[66, -9, 27, 197]$[66, -193, 27, 13]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_a2kSmxBFEd-khvgpDMr24A" id="(0.803921568627451,0.7142857142857143)"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_a2kSnBBFEd-khvgpDMr24A" id="(0.034482758620689655,0.675)"/>
     </edges>
@@ -3726,7 +3726,7 @@
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_a2kSohBFEd-khvgpDMr24A" routing="Rectilinear" lineColor="4210752"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_a2kSoxBFEd-khvgpDMr24A" fontColor="4210752" fontName="Lucida Grande" fontHeight="10"/>
       <element xmi:type="ecore:EReference" href="B3Build.ecore#//BuilderConcernContext/outputRemovals"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_a2kSpBBFEd-khvgpDMr24A" points="[-40, 13, 355, -249]$[-436, 13, -41, -249]$[-436, 247, -41, -15]"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_a2kSpBBFEd-khvgpDMr24A" points="[-94, 8, 360, -312]$[-490, 8, -36, -312]$[-490, 303, -36, -17]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_a2kSpRBFEd-khvgpDMr24A" id="(0.22388059701492538,0.7142857142857143)"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_a2kSphBFEd-khvgpDMr24A" id="(0.7745098039215687,0.38095238095238093)"/>
     </edges>

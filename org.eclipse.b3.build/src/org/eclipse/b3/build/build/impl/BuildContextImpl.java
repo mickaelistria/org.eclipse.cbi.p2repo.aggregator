@@ -86,6 +86,7 @@ public class BuildContextImpl extends BExecutionContextImpl implements BuildCont
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * TODO: UNFINISHED - DEFINE BEEMODEL
 	 * <!-- end-user-doc -->
 	 * @throws B3EngineException 
 	 * @generated NOT

@@ -33,13 +33,10 @@ public class PathIterator implements Iterator<IPath> {
 		return itor.next();
 	}
 	
-	/**
-	 * @throws UnsupportedOperationException
-	 */
 	public void remove() {
-		throw new UnsupportedOperationException();
-		
+		itor.remove();
 	}
+	
 	public List<IPath> toList() {
 		List<IPath> list = new ArrayList<IPath>();
 		while(hasNext())
@@ -50,8 +47,10 @@ public class PathIterator implements Iterator<IPath> {
 		private String basePathString;
 		int	index;
 		private EList<String> pathStrings;
+		private PathVector vector;
 		
 		public PathVectorIterator(PathVector pathVector) {
+			vector = pathVector;
 			index = 0;
 			basePathString = pathVector.getBasePath();
 			pathStrings = pathVector.getPaths();
@@ -80,7 +79,16 @@ public class PathIterator implements Iterator<IPath> {
 		 * Throws {@link UnsupportedOperationException}.
 		 */
 		public void remove() {
-			throw new UnsupportedOperationException();
+			if(index == 0)
+				throw new IllegalStateException("Remove without preceeding next");
+			if(index == 1 && basePathString != null && pathStrings.size() == 0)
+				vector.setBasePath(null);
+			else {
+				pathStrings.remove(index-1);
+				// don't leave the basepath if all subpaths have been removed
+				if(pathStrings.size() == 0)
+					vector.setBasePath(null);
+			}
 		}
 		
 	}

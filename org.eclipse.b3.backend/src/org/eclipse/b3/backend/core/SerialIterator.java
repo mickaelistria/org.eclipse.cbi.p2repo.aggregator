@@ -28,7 +28,7 @@ public class SerialIterator<E> implements Iterator<E> {
 	}
 
 	public void remove() {
-		throw new UnsupportedOperationException();
+		iterators.get(index).remove();
 	}
 
 }

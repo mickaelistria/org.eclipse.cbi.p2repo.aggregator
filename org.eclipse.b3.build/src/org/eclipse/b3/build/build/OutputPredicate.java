@@ -78,4 +78,15 @@ public interface OutputPredicate extends BExpression {
 	 */
 	void setPathPattern(BExpression value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Removes matching prerequisites and returns true if something was removed.
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean removeMatching(PathGroup input);
+
 } // OutputPredicate

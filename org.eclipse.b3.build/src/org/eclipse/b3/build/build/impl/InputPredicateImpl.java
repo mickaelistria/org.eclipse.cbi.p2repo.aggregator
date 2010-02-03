@@ -183,8 +183,7 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 	 * @generated NOT
 	 */
 	public boolean removeMatching(BuilderInput input) {
-		ListIterator<Prerequisite> reqItor = input.getPrerequisites().listIterator();
-		return removeMatches(reqItor);
+		return removeMatches(input.getPrerequisites().listIterator());
 	}
 	private boolean removeMatches(ListIterator<Prerequisite> reqItor) {
 		boolean modified = false;
@@ -208,7 +207,7 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 			}
 			else if(brr instanceof CompoundBuildResultReference) {
 				EList<Prerequisite> reqs = ((CompoundBuildResultReference)brr).getPrerequisites();
-				modified = modified || removeMatches(reqs.listIterator());
+				modified = removeMatches(reqs.listIterator()) || modified;
 				// compound may be empty after the operation - remove it
 				if(reqs.size() == 0) {
 					reqItor.remove();

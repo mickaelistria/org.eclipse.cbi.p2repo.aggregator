@@ -20,7 +20,6 @@ import org.eclipse.b3.backend.evaluator.b3backend.BChainedExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpressionWrapper;
-import org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 
@@ -34,6 +33,7 @@ import org.eclipse.b3.build.build.BuilderWrapper;
 import org.eclipse.b3.build.build.IBuilder;
 import org.eclipse.b3.build.build.InputPredicate;
 import org.eclipse.b3.build.build.OutputPredicate;
+import org.eclipse.b3.build.build.PathGroup;
 import org.eclipse.b3.build.build.PathVector;
 import org.eclipse.b3.build.build.Prerequisite;
 import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;
@@ -1082,18 +1082,52 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 		// WRAP INPUT by copying original input, setting a flag that input is advised, and then first do removals,
 		// and then additions. Everything needs to be copied as input is by containment, and the input rules may
 		// be needed multiple times.
-		if(getInputRemovals().size() > 0 || getInputAdditions().size() > 0) {
-			wrapper.setInputAdvised(true);
+		
+		// is input advised?
+		ADVICEINPUT: if(getInputRemovals().size() > 0 || getInputAdditions().size() > 0) {
+			boolean modified = false;
 			BuilderInput input = null;
 			wrapper.setInput(input = BuilderInput.class.cast(EcoreUtil.copy(b.getInput())));
+			// removal
 			for(InputPredicate ip : getInputRemovals())
-				ip.removeMatching(input);
+				modified = ip.removeMatching(input) || modified;
+			// optimize if unchanged
+			if(!modified && getInputAdditions().size() == 0) {
+				wrapper.setInput(null);
+				break ADVICEINPUT;
+			}
+			// addition
 			EList<Prerequisite> prereqs = input.getPrerequisites();
 			for(Prerequisite p : getInputAdditions())
 				prereqs.add(Prerequisite.class.cast(EcoreUtil.copy(p)));
+
+			wrapper.setInputAdvised(true);
 		}
 		// WRAP OUTPUT
+		// by copying original output, setting a flag that output is advised, and then first do removals,
+		// and then additions. Everything needs to be copied as output is by containment, and the output rules
+		// may be needed multiple times.,
 		
+		// is output advised ?
+		ADVICEOUTPUT: if(getOutputRemovals().size() > 0 || getOutputAdditions().size() > 0) {
+			boolean modified = false;
+			PathGroup pg = null;
+			wrapper.setOutput(pg = PathGroup.class.cast(EcoreUtil.copy(b.getOutput())));
+			// removal
+			for(OutputPredicate op : getOutputRemovals())
+				modified = op.removeMatching(pg) || modified;
+			// optimize if unchanged
+			if(!modified && getOutputAdditions().size() == 0) {
+				wrapper.setOutput(null);
+				break ADVICEOUTPUT;
+			}
+			// addition
+			EList<PathVector> vectors = pg.getPathVectors();
+			for(PathVector pv : getOutputAdditions())
+				vectors.add(PathVector.class.cast(EcoreUtil.copy(pv)));
+
+			wrapper.setOutputAdvised(true);
+		}
 		// define the wrapper, and we are done
 		ctx.defineFunction(wrapper);
 		return true;

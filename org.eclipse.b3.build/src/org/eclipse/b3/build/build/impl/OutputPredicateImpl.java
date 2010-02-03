@@ -175,6 +175,55 @@ public class OutputPredicateImpl extends BExpressionImpl implements OutputPredic
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean removeMatching(PathGroup output) {
+		if(pathPattern == null && pathVector == null)
+			throw new B3InternalError("OutputPredicate has neither pattern nor path vector");
+
+		// optimize for "remove all" (no need to iterate, just delete everything)
+		if(pathPattern != null && pathPattern instanceof BLiteralAny) {
+			if(output.getPathVectors().size() == 0)
+				return false; // already empty
+			output.getPathVectors().clear();
+			return true;
+		}
+		
+		// iterate over output paths, match and remove
+		PathIterator pitor = new PathIterator(output);
+		boolean modified = false;
+		
+		NEXTPATH: while(pitor.hasNext()) {
+			IPath p = pitor.next();
+			// strategy choice - either apply a pattern on each paths, or match each against paths from a path vector
+
+			// choice 1 - match against a path vector
+			if(pathPattern == null) {
+				PathIterator mItor = new PathIterator(getPathVector());
+				while(mItor.hasNext()) {
+					if(mItor.next().equals(p)) {
+						modified = true;
+						pitor.remove();
+						continue NEXTPATH;
+					}
+				}
+			}
+			else {
+				// choice 2 - compare against a regexp (wildcard already optimized)
+				BExpression expr = getPathPattern();
+				if(expr instanceof BRegularExpression) {
+					if(((BRegularExpression)expr).getPattern().matcher(p.toString()).matches()) {
+						pitor.remove();
+						modified = true;
+					}
+				}
+			}
+		}
+		return modified;
+	}
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
