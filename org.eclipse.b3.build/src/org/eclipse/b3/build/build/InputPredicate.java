@@ -80,4 +80,15 @@ public interface InputPredicate extends BExpression {
 	 */
 	void setBuilderPredicate(BNamePredicate value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Removes matching prerequisites and returns true if something was removed.
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean removeMatching(BuilderInput input);
+
 } // InputPredicate

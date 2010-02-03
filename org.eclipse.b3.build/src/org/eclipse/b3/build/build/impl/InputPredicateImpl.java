@@ -7,6 +7,7 @@
 package org.eclipse.b3.build.build.impl;
 
 import java.lang.reflect.Type;
+import java.util.ListIterator;
 
 import org.eclipse.b3.backend.core.B3InternalError;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
@@ -14,15 +15,19 @@ import org.eclipse.b3.backend.evaluator.b3backend.BNamePredicate;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.BExpressionImpl;
 
 import org.eclipse.b3.build.build.B3BuildPackage;
+import org.eclipse.b3.build.build.BuildResultReference;
 import org.eclipse.b3.build.build.BuilderInput;
 import org.eclipse.b3.build.build.BuilderReference;
 import org.eclipse.b3.build.build.CapabilityPredicate;
+import org.eclipse.b3.build.build.CompoundBuildResultReference;
 import org.eclipse.b3.build.build.IBuilder;
 import org.eclipse.b3.build.build.InputPredicate;
+import org.eclipse.b3.build.build.Prerequisite;
 import org.eclipse.b3.build.build.RequiredCapability;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -167,6 +172,53 @@ public class InputPredicateImpl extends BExpressionImpl implements InputPredicat
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.INPUT_PREDICATE__BUILDER_PREDICATE, newBuilderPredicate, newBuilderPredicate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Removes prerequisites in the input that matches the InputPredicate. Matching is performed without evaluating
+	 * filters. Empty compound input statements are removed 
+	 * (side effect: empty are removed even if there were no other matches).
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean removeMatching(BuilderInput input) {
+		ListIterator<Prerequisite> reqItor = input.getPrerequisites().listIterator();
+		return removeMatches(reqItor);
+	}
+	private boolean removeMatches(ListIterator<Prerequisite> reqItor) {
+		boolean modified = false;
+ 		while(reqItor.hasNext()) {
+			BuildResultReference brr = reqItor.next().getBuildResult();
+			if(brr instanceof BuilderReference) {
+				BuilderReference br = (BuilderReference)brr;
+				if(builderPredicate != null && !builderPredicate.matches(br.getBuilderName()))
+					continue;
+				RequiredCapability rc = br.getRequiredCapability();
+				if(rc == null) {
+					rc = br.getRequiredCapabilityReference();
+					if(rc == null)
+						throw new B3InternalError("A BulderReference had neither a RequiredCapability nor a reference to one");
+				}
+				if(capabilityPredicate != null && !capabilityPredicate.matches(rc))
+					continue;
+
+				reqItor.remove();
+				modified = true;
+			}
+			else if(brr instanceof CompoundBuildResultReference) {
+				EList<Prerequisite> reqs = ((CompoundBuildResultReference)brr).getPrerequisites();
+				modified = modified || removeMatches(reqs.listIterator());
+				// compound may be empty after the operation - remove it
+				if(reqs.size() == 0) {
+					reqItor.remove();
+					modified = true;
+				}
+			}
+			else 
+				throw new B3InternalError("InputPredicate can not handle unknown subclass of BuildResultReference :" + brr.getClass().toString());
+		}
+		return modified;
 	}
 
 	/**

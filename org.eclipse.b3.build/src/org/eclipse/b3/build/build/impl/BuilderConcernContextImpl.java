@@ -29,6 +29,7 @@ import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.BuildUnit;
 import org.eclipse.b3.build.build.Builder;
 import org.eclipse.b3.build.build.BuilderConcernContext;
+import org.eclipse.b3.build.build.BuilderInput;
 import org.eclipse.b3.build.build.BuilderWrapper;
 import org.eclipse.b3.build.build.IBuilder;
 import org.eclipse.b3.build.build.InputPredicate;
@@ -48,6 +49,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -1018,6 +1020,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 					throw new B3InternalError("Matched parameter reported to have an index of -1");
 				nameMap.put(pName, b.getParameters().get(matcher.getMatchStart(matchedIdx)).getName());
 			}
+		
 		// Create a wrapping function and define it in the context
 		BuilderWrapper wrapper = B3BuildFactory.eINSTANCE.createBuilderWrapper();
 		wrapper.setOriginal(b);
@@ -1075,6 +1078,21 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 				pcExpr.getExpressions().add(ew);
 			}			
 		}
+		
+		// WRAP INPUT by copying original input, setting a flag that input is advised, and then first do removals,
+		// and then additions. Everything needs to be copied as input is by containment, and the input rules may
+		// be needed multiple times.
+		if(getInputRemovals().size() > 0 || getInputAdditions().size() > 0) {
+			wrapper.setInputAdvised(true);
+			BuilderInput input = null;
+			wrapper.setInput(input = BuilderInput.class.cast(EcoreUtil.copy(b.getInput())));
+			for(InputPredicate ip : getInputRemovals())
+				ip.removeMatching(input);
+			EList<Prerequisite> prereqs = input.getPrerequisites();
+			for(Prerequisite p : getInputAdditions())
+				prereqs.add(Prerequisite.class.cast(EcoreUtil.copy(p)));
+		}
+		// WRAP OUTPUT
 		
 		// define the wrapper, and we are done
 		ctx.defineFunction(wrapper);
