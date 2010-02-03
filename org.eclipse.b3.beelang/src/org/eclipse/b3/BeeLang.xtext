@@ -245,6 +245,7 @@ Builder returns build::Builder : {build::Builder}
 	("when" guard = GuardExpression)?
 	('provides' providedCapabilities += ProvidedCapability (',' providedCapabilities += ProvidedCapability)*  )?
 	("precondition" ((':' precondExpr = Expression ';' )|( precondExpr = BlockExpression)))?
+	("postinputcondition" ((':' postinputcondExpr = Expression ';' )|( postinputcondExpr = BlockExpression)))?
 	("postcondition" ((':' postcondExpr = Expression ';' )|( postcondExpr = BlockExpression)))?
 	 '{'
 		('default' 'properties' defaultProperties = PropertySet)?
@@ -681,7 +682,14 @@ BuilderConcernContext returns build::BuilderConcernContext : {build::BuilderConc
    		)? matchParameters ?= ')' )?
   
 	query = BuilderOrExpression 
-	'{' ( ('+' "input" inputAdditions += Prerequisite) 
+	'{' ('-' removePreCondition ?="precondition" ';' )?
+		('+' "precondition" ((':' precondExpr = Expression ';' )|( precondExpr = BlockExpression)))?
+		('-' removePostInputCondition ?="postinputcondition" ';')?
+		('+' "postinputcondition" ((':' postinputcondExpr = Expression ';' )|( postinputcondExpr = BlockExpression)))?
+		('-' removePostCondition ?="postcondition" ';')?
+		('+' "postcondition" ((':' postcondExpr = Expression ';' )|( postcondExpr = BlockExpression)))?
+		
+		( ('+' "input" inputAdditions += Prerequisite) 
 		| ('-' inputRemovals += InputPredicate ';')
 		)*
 		( ('+' "output" outputAdditions += PathVector)

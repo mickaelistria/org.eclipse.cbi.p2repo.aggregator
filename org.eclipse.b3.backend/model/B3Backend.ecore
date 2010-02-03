@@ -715,4 +715,10 @@
       </eGenericType>
     </eStructuralFeatures>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BExpressionWrapper" eSuperTypes="#//BExpression">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The purpose of a BExpressionWrapper is to contain a reference to some other contained expression.&#xD;&#xD;Evaluates to null (Object) if original is not set.&#xD;"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="original" eType="#//BExpression"/>
+  </eClassifiers>
 </ecore:EPackage>

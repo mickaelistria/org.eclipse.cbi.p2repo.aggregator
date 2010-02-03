@@ -411,6 +411,10 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 				return createB3MetaClassAdapter();
 			}
 			@Override
+			public Adapter caseBExpressionWrapper(BExpressionWrapper object) {
+				return createBExpressionWrapperAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -987,6 +991,20 @@ public class B3backendAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createB3MetaClassAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.BExpressionWrapper <em>BExpression Wrapper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BExpressionWrapper
+	 * @generated
+	 */
+	public Adapter createBExpressionWrapperAdapter() {
 		return null;
 	}
 

@@ -667,6 +667,13 @@ public class B3backendSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case B3backendPackage.BEXPRESSION_WRAPPER: {
+				BExpressionWrapper bExpressionWrapper = (BExpressionWrapper)theEObject;
+				T result = caseBExpressionWrapper(bExpressionWrapper);
+				if (result == null) result = caseBExpression(bExpressionWrapper);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -1268,6 +1275,21 @@ public class B3backendSwitch<T> {
 	 * @generated
 	 */
 	public T caseB3MetaClass(B3MetaClass object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BExpression Wrapper</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BExpression Wrapper</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBExpressionWrapper(BExpressionWrapper object) {
 		return null;
 	}
 

@@ -637,6 +637,15 @@ public interface B3backendFactory extends EFactory {
 	B3MetaClass createB3MetaClass();
 
 	/**
+	 * Returns a new object of class '<em>BExpression Wrapper</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>BExpression Wrapper</em>'.
+	 * @generated
+	 */
+	BExpressionWrapper createBExpressionWrapper();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

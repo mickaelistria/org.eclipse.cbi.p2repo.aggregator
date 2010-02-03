@@ -56,7 +56,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getInput <em>Input</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getOutput <em>Output</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getDefaultProperties <em>Default Properties</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getPostinputcondition <em>Postinputcondition</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getPostinputcondExpr <em>Postinputcond Expr</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getUnitType <em>Unit Type</em>}</li>
  * </ul>
  * </p>
@@ -119,14 +119,14 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	 */
 	protected BPropertySet defaultProperties;
 	/**
-	 * The cached value of the '{@link #getPostinputcondition() <em>Postinputcondition</em>}' containment reference.
+	 * The cached value of the '{@link #getPostinputcondExpr() <em>Postinputcond Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPostinputcondition()
+	 * @see #getPostinputcondExpr()
 	 * @generated
 	 * @ordered
 	 */
-	protected BExpression postinputcondition;
+	protected BExpression postinputcondExpr;
 	/**
 	 * The cached value of the '{@link #getUnitType() <em>Unit Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -387,8 +387,8 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BExpression getPostinputcondition() {
-		return postinputcondition;
+	public BExpression getPostinputcondExpr() {
+		return postinputcondExpr;
 	}
 
 	/**
@@ -396,11 +396,11 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPostinputcondition(BExpression newPostinputcondition, NotificationChain msgs) {
-		BExpression oldPostinputcondition = postinputcondition;
-		postinputcondition = newPostinputcondition;
+	public NotificationChain basicSetPostinputcondExpr(BExpression newPostinputcondExpr, NotificationChain msgs) {
+		BExpression oldPostinputcondExpr = postinputcondExpr;
+		postinputcondExpr = newPostinputcondExpr;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER__POSTINPUTCONDITION, oldPostinputcondition, newPostinputcondition);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER__POSTINPUTCOND_EXPR, oldPostinputcondExpr, newPostinputcondExpr);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -411,18 +411,18 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPostinputcondition(BExpression newPostinputcondition) {
-		if (newPostinputcondition != postinputcondition) {
+	public void setPostinputcondExpr(BExpression newPostinputcondExpr) {
+		if (newPostinputcondExpr != postinputcondExpr) {
 			NotificationChain msgs = null;
-			if (postinputcondition != null)
-				msgs = ((InternalEObject)postinputcondition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER__POSTINPUTCONDITION, null, msgs);
-			if (newPostinputcondition != null)
-				msgs = ((InternalEObject)newPostinputcondition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER__POSTINPUTCONDITION, null, msgs);
-			msgs = basicSetPostinputcondition(newPostinputcondition, msgs);
+			if (postinputcondExpr != null)
+				msgs = ((InternalEObject)postinputcondExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER__POSTINPUTCOND_EXPR, null, msgs);
+			if (newPostinputcondExpr != null)
+				msgs = ((InternalEObject)newPostinputcondExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER__POSTINPUTCOND_EXPR, null, msgs);
+			msgs = basicSetPostinputcondExpr(newPostinputcondExpr, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER__POSTINPUTCONDITION, newPostinputcondition, newPostinputcondition));
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER__POSTINPUTCOND_EXPR, newPostinputcondExpr, newPostinputcondExpr));
 	}
 
 	/**
@@ -491,8 +491,8 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 				return basicSetOutput(null, msgs);
 			case B3BuildPackage.BUILDER__DEFAULT_PROPERTIES:
 				return basicSetDefaultProperties(null, msgs);
-			case B3BuildPackage.BUILDER__POSTINPUTCONDITION:
-				return basicSetPostinputcondition(null, msgs);
+			case B3BuildPackage.BUILDER__POSTINPUTCOND_EXPR:
+				return basicSetPostinputcondExpr(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -517,8 +517,8 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 				return getOutput();
 			case B3BuildPackage.BUILDER__DEFAULT_PROPERTIES:
 				return getDefaultProperties();
-			case B3BuildPackage.BUILDER__POSTINPUTCONDITION:
-				return getPostinputcondition();
+			case B3BuildPackage.BUILDER__POSTINPUTCOND_EXPR:
+				return getPostinputcondExpr();
 			case B3BuildPackage.BUILDER__UNIT_TYPE:
 				return getUnitType();
 		}
@@ -553,8 +553,8 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 			case B3BuildPackage.BUILDER__DEFAULT_PROPERTIES:
 				setDefaultProperties((BPropertySet)newValue);
 				return;
-			case B3BuildPackage.BUILDER__POSTINPUTCONDITION:
-				setPostinputcondition((BExpression)newValue);
+			case B3BuildPackage.BUILDER__POSTINPUTCOND_EXPR:
+				setPostinputcondExpr((BExpression)newValue);
 				return;
 			case B3BuildPackage.BUILDER__UNIT_TYPE:
 				setUnitType((Class<? extends BuildUnit>)newValue);
@@ -589,8 +589,8 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 			case B3BuildPackage.BUILDER__DEFAULT_PROPERTIES:
 				setDefaultProperties((BPropertySet)null);
 				return;
-			case B3BuildPackage.BUILDER__POSTINPUTCONDITION:
-				setPostinputcondition((BExpression)null);
+			case B3BuildPackage.BUILDER__POSTINPUTCOND_EXPR:
+				setPostinputcondExpr((BExpression)null);
 				return;
 			case B3BuildPackage.BUILDER__UNIT_TYPE:
 				setUnitType((Class<? extends BuildUnit>)null);
@@ -619,8 +619,8 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 				return output != null;
 			case B3BuildPackage.BUILDER__DEFAULT_PROPERTIES:
 				return defaultProperties != null;
-			case B3BuildPackage.BUILDER__POSTINPUTCONDITION:
-				return postinputcondition != null;
+			case B3BuildPackage.BUILDER__POSTINPUTCOND_EXPR:
+				return postinputcondExpr != null;
 			case B3BuildPackage.BUILDER__UNIT_TYPE:
 				return unitType != null;
 		}
@@ -646,7 +646,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 				case B3BuildPackage.BUILDER__INPUT: return B3BuildPackage.IBUILDER__INPUT;
 				case B3BuildPackage.BUILDER__OUTPUT: return B3BuildPackage.IBUILDER__OUTPUT;
 				case B3BuildPackage.BUILDER__DEFAULT_PROPERTIES: return B3BuildPackage.IBUILDER__DEFAULT_PROPERTIES;
-				case B3BuildPackage.BUILDER__POSTINPUTCONDITION: return B3BuildPackage.IBUILDER__POSTINPUTCONDITION;
+				case B3BuildPackage.BUILDER__POSTINPUTCOND_EXPR: return B3BuildPackage.IBUILDER__POSTINPUTCOND_EXPR;
 				case B3BuildPackage.BUILDER__UNIT_TYPE: return B3BuildPackage.IBUILDER__UNIT_TYPE;
 				default: return -1;
 			}
@@ -674,7 +674,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 				case B3BuildPackage.IBUILDER__INPUT: return B3BuildPackage.BUILDER__INPUT;
 				case B3BuildPackage.IBUILDER__OUTPUT: return B3BuildPackage.BUILDER__OUTPUT;
 				case B3BuildPackage.IBUILDER__DEFAULT_PROPERTIES: return B3BuildPackage.BUILDER__DEFAULT_PROPERTIES;
-				case B3BuildPackage.IBUILDER__POSTINPUTCONDITION: return B3BuildPackage.BUILDER__POSTINPUTCONDITION;
+				case B3BuildPackage.IBUILDER__POSTINPUTCOND_EXPR: return B3BuildPackage.BUILDER__POSTINPUTCOND_EXPR;
 				case B3BuildPackage.IBUILDER__UNIT_TYPE: return B3BuildPackage.BUILDER__UNIT_TYPE;
 				default: return -1;
 			}

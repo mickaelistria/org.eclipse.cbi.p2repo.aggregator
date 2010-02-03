@@ -51,6 +51,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BDefaultPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.BDelegatingContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BExpressionWrapper;
 import org.eclipse.b3.backend.evaluator.b3backend.BFeatureExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFileReference;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
@@ -416,6 +417,13 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * @generated
 	 */
 	private EClass b3MetaClassEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bExpressionWrapperEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1990,6 +1998,24 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getBExpressionWrapper() {
+		return bExpressionWrapperEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBExpressionWrapper_Original() {
+		return (EReference)bExpressionWrapperEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBGuard() {
 		return bGuardEClass;
 	}
@@ -3376,6 +3402,9 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		b3MetaClassEClass = createEClass(B3_META_CLASS);
 		createEAttribute(b3MetaClassEClass, B3_META_CLASS__INSTANCE_CLASS);
 
+		bExpressionWrapperEClass = createEClass(BEXPRESSION_WRAPPER);
+		createEReference(bExpressionWrapperEClass, BEXPRESSION_WRAPPER__ORIGINAL);
+
 		// Create enums
 		visibilityEEnum = createEEnum(VISIBILITY);
 		executionModeEEnum = createEEnum(EXECUTION_MODE);
@@ -3506,6 +3535,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		bDelegatingContextEClass.getESuperTypes().add(this.getBInnerContext());
 		bWrappingContextEClass.getESuperTypes().add(this.getBDelegatingContext());
 		b3MetaClassEClass.getESuperTypes().add(this.getIType());
+		bExpressionWrapperEClass.getESuperTypes().add(this.getBExpression());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(bExpressionEClass, BExpression.class, "BExpression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -4088,6 +4118,9 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 
 		op = addEOperation(b3MetaClassEClass, ecorePackage.getEBoolean(), "isAssignableFrom", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getIType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(bExpressionWrapperEClass, BExpressionWrapper.class, "BExpressionWrapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBExpressionWrapper_Original(), this.getBExpression(), null, "original", null, 0, 1, BExpressionWrapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(visibilityEEnum, Visibility.class, "Visibility");

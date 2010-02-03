@@ -643,7 +643,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getIBuilder_Postinputcondition() {
+	public EReference getIBuilder_PostinputcondExpr() {
 		return (EReference)iBuilderEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -681,6 +681,33 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 */
 	public EClass getBuilderWrapper() {
 		return builderWrapperEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBuilderWrapper_Promoted() {
+		return (EAttribute)builderWrapperEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBuilderWrapper_InputAdvised() {
+		return (EAttribute)builderWrapperEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBuilderWrapper_OutputAdvised() {
+		return (EAttribute)builderWrapperEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1417,6 +1444,60 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getBuilderConcernContext_RemovePreCondition() {
+		return (EAttribute)builderConcernContextEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBuilderConcernContext_RemovePostCondition() {
+		return (EAttribute)builderConcernContextEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBuilderConcernContext_RemovePostInputCondition() {
+		return (EAttribute)builderConcernContextEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBuilderConcernContext_PrecondExpr() {
+		return (EReference)builderConcernContextEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBuilderConcernContext_PostcondExpr() {
+		return (EReference)builderConcernContextEClass.getEStructuralFeatures().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBuilderConcernContext_PostinputcondExpr() {
+		return (EReference)builderConcernContextEClass.getEStructuralFeatures().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getOutputPredicate() {
 		return outputPredicateEClass;
 	}
@@ -1756,7 +1837,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		createEReference(iBuilderEClass, IBUILDER__INPUT);
 		createEReference(iBuilderEClass, IBUILDER__OUTPUT);
 		createEReference(iBuilderEClass, IBUILDER__DEFAULT_PROPERTIES);
-		createEReference(iBuilderEClass, IBUILDER__POSTINPUTCONDITION);
+		createEReference(iBuilderEClass, IBUILDER__POSTINPUTCOND_EXPR);
 		createEAttribute(iBuilderEClass, IBUILDER__UNIT_TYPE);
 
 		versionedCapabilityEClass = createEClass(VERSIONED_CAPABILITY);
@@ -1875,6 +1956,12 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		createEAttribute(builderConcernContextEClass, BUILDER_CONCERN_CONTEXT__VAR_ARGS);
 		createEReference(builderConcernContextEClass, BUILDER_CONCERN_CONTEXT__PARAMETERS);
 		createEAttribute(builderConcernContextEClass, BUILDER_CONCERN_CONTEXT__MATCH_PARAMETERS);
+		createEAttribute(builderConcernContextEClass, BUILDER_CONCERN_CONTEXT__REMOVE_PRE_CONDITION);
+		createEAttribute(builderConcernContextEClass, BUILDER_CONCERN_CONTEXT__REMOVE_POST_CONDITION);
+		createEAttribute(builderConcernContextEClass, BUILDER_CONCERN_CONTEXT__REMOVE_POST_INPUT_CONDITION);
+		createEReference(builderConcernContextEClass, BUILDER_CONCERN_CONTEXT__PRECOND_EXPR);
+		createEReference(builderConcernContextEClass, BUILDER_CONCERN_CONTEXT__POSTCOND_EXPR);
+		createEReference(builderConcernContextEClass, BUILDER_CONCERN_CONTEXT__POSTINPUTCOND_EXPR);
 
 		outputPredicateEClass = createEClass(OUTPUT_PREDICATE);
 		createEReference(outputPredicateEClass, OUTPUT_PREDICATE__PATH_VECTOR);
@@ -1898,6 +1985,9 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		builderJavaEClass = createEClass(BUILDER_JAVA);
 
 		builderWrapperEClass = createEClass(BUILDER_WRAPPER);
+		createEAttribute(builderWrapperEClass, BUILDER_WRAPPER__PROMOTED);
+		createEAttribute(builderWrapperEClass, BUILDER_WRAPPER__INPUT_ADVISED);
+		createEAttribute(builderWrapperEClass, BUILDER_WRAPPER__OUTPUT_ADVISED);
 
 		beeModelEClass = createEClass(BEE_MODEL);
 		createEReference(beeModelEClass, BEE_MODEL__IMPORTS);
@@ -2016,7 +2106,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		initEReference(getIBuilder_Input(), this.getBuilderInput(), null, "input", null, 0, 1, IBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIBuilder_Output(), this.getPathGroup(), null, "output", null, 0, 1, IBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIBuilder_DefaultProperties(), theB3backendPackage.getBPropertySet(), null, "defaultProperties", null, 0, 1, IBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIBuilder_Postinputcondition(), theB3backendPackage.getBExpression(), null, "postinputcondition", null, 0, 1, IBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIBuilder_PostinputcondExpr(), theB3backendPackage.getBExpression(), null, "postinputcondExpr", null, 0, 1, IBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		EGenericType g1 = createEGenericType(ecorePackage.getEJavaClass());
 		EGenericType g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
@@ -2213,6 +2303,12 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		initEAttribute(getBuilderConcernContext_VarArgs(), ecorePackage.getEBoolean(), "varArgs", null, 0, 1, BuilderConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBuilderConcernContext_Parameters(), theB3backendPackage.getBParameterPredicate(), null, "parameters", null, 0, -1, BuilderConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBuilderConcernContext_MatchParameters(), ecorePackage.getEBoolean(), "matchParameters", null, 0, 1, BuilderConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBuilderConcernContext_RemovePreCondition(), ecorePackage.getEBoolean(), "removePreCondition", null, 0, 1, BuilderConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBuilderConcernContext_RemovePostCondition(), ecorePackage.getEBoolean(), "removePostCondition", null, 0, 1, BuilderConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBuilderConcernContext_RemovePostInputCondition(), ecorePackage.getEBoolean(), "removePostInputCondition", null, 0, 1, BuilderConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBuilderConcernContext_PrecondExpr(), theB3backendPackage.getBExpression(), null, "precondExpr", null, 0, 1, BuilderConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBuilderConcernContext_PostcondExpr(), theB3backendPackage.getBExpression(), null, "postcondExpr", null, 0, 1, BuilderConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBuilderConcernContext_PostinputcondExpr(), theB3backendPackage.getBExpression(), null, "postinputcondExpr", null, 0, 1, BuilderConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(builderConcernContextEClass, ecorePackage.getEBoolean(), "evaluateIfMatching", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEJavaObject(), "candidate", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -2246,6 +2342,14 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		initEClass(builderJavaEClass, BuilderJava.class, "BuilderJava", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(builderWrapperEClass, BuilderWrapper.class, "BuilderWrapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		g1 = createEGenericType(ecorePackage.getEJavaClass());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		g3 = createEGenericType(this.getBuildUnit());
+		g2.setEUpperBound(g3);
+		initEAttribute(getBuilderWrapper_Promoted(), g1, "promoted", null, 0, 1, BuilderWrapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBuilderWrapper_InputAdvised(), ecorePackage.getEBoolean(), "inputAdvised", null, 0, 1, BuilderWrapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBuilderWrapper_OutputAdvised(), ecorePackage.getEBoolean(), "OutputAdvised", null, 0, 1, BuilderWrapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(beeModelEClass, BeeModel.class, "BeeModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBeeModel_Imports(), theB3backendPackage.getIType(), null, "imports", null, 0, -1, BeeModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

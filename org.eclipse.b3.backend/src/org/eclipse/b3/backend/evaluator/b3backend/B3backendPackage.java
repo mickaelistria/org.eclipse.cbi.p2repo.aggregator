@@ -4030,6 +4030,34 @@ public interface B3backendPackage extends EPackage {
 	int B3_META_CLASS_FEATURE_COUNT = ITYPE_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExpressionWrapperImpl <em>BExpression Wrapper</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BExpressionWrapperImpl
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBExpressionWrapper()
+	 * @generated
+	 */
+	int BEXPRESSION_WRAPPER = 82;
+
+	/**
+	 * The feature id for the '<em><b>Original</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEXPRESSION_WRAPPER__ORIGINAL = BEXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>BExpression Wrapper</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEXPRESSION_WRAPPER_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.Visibility <em>Visibility</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4037,7 +4065,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getVisibility()
 	 * @generated
 	 */
-	int VISIBILITY = 82;
+	int VISIBILITY = 83;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode <em>Execution Mode</em>}' enum.
@@ -4047,7 +4075,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getExecutionMode()
 	 * @generated
 	 */
-	int EXECUTION_MODE = 83;
+	int EXECUTION_MODE = 84;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.BJavaCallType <em>BJava Call Type</em>}' enum.
@@ -4057,7 +4085,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBJavaCallType()
 	 * @generated
 	 */
-	int BJAVA_CALL_TYPE = 84;
+	int BJAVA_CALL_TYPE = 85;
 
 	/**
 	 * The meta object id for the '<em>Core Exception</em>' data type.
@@ -4067,7 +4095,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getCoreException()
 	 * @generated
 	 */
-	int CORE_EXCEPTION = 85;
+	int CORE_EXCEPTION = 86;
 
 
 	/**
@@ -4078,7 +4106,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 86;
+	int TYPE = 87;
 
 	/**
 	 * The meta object id for the '<em>Object Array</em>' data type.
@@ -4087,7 +4115,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getObjectArray()
 	 * @generated
 	 */
-	int OBJECT_ARRAY = 87;
+	int OBJECT_ARRAY = 88;
 
 
 	/**
@@ -4098,7 +4126,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getValueMap()
 	 * @generated
 	 */
-	int VALUE_MAP = 88;
+	int VALUE_MAP = 89;
 
 
 	/**
@@ -4109,7 +4137,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3EngineException()
 	 * @generated
 	 */
-	int B3_ENGINE_EXCEPTION = 89;
+	int B3_ENGINE_EXCEPTION = 90;
 
 
 	/**
@@ -4120,7 +4148,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3ExpressionCache()
 	 * @generated
 	 */
-	int B3_EXPRESSION_CACHE = 90;
+	int B3_EXPRESSION_CACHE = 91;
 
 
 	/**
@@ -4131,7 +4159,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getThrowable()
 	 * @generated
 	 */
-	int THROWABLE = 91;
+	int THROWABLE = 92;
 
 	/**
 	 * The meta object id for the '<em>LValue</em>' data type.
@@ -4141,7 +4169,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getLValue()
 	 * @generated
 	 */
-	int LVALUE = 92;
+	int LVALUE = 93;
 
 	/**
 	 * The meta object id for the '<em>Type Array</em>' data type.
@@ -4150,7 +4178,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getTypeArray()
 	 * @generated
 	 */
-	int TYPE_ARRAY = 93;
+	int TYPE_ARRAY = 94;
 
 	/**
 	 * The meta object id for the '<em>Method</em>' data type.
@@ -4160,7 +4188,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getMethod()
 	 * @generated
 	 */
-	int METHOD = 94;
+	int METHOD = 95;
 
 	/**
 	 * The meta object id for the '<em>Type Variable Array</em>' data type.
@@ -4169,7 +4197,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getTypeVariableArray()
 	 * @generated
 	 */
-	int TYPE_VARIABLE_ARRAY = 95;
+	int TYPE_VARIABLE_ARRAY = 96;
 
 	/**
 	 * The meta object id for the '<em>Func Store</em>' data type.
@@ -4179,7 +4207,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getFuncStore()
 	 * @generated
 	 */
-	int FUNC_STORE = 96;
+	int FUNC_STORE = 97;
 
 	/**
 	 * The meta object id for the '<em>Regexp Pattern</em>' data type.
@@ -4189,7 +4217,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getRegexpPattern()
 	 * @generated
 	 */
-	int REGEXP_PATTERN = 97;
+	int REGEXP_PATTERN = 98;
 
 	/**
 	 * The meta object id for the '<em>String Array</em>' data type.
@@ -4198,7 +4226,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getStringArray()
 	 * @generated
 	 */
-	int STRING_ARRAY = 98;
+	int STRING_ARRAY = 99;
 
 	/**
 	 * The meta object id for the '<em>B3 Dynamic Class Loader</em>' data type.
@@ -4208,7 +4236,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3DynamicClassLoader()
 	 * @generated
 	 */
-	int B3_DYNAMIC_CLASS_LOADER = 99;
+	int B3_DYNAMIC_CLASS_LOADER = 100;
 
 	/**
 	 * The meta object id for the '<em>Java Iterator</em>' data type.
@@ -4218,7 +4246,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getJavaIterator()
 	 * @generated
 	 */
-	int JAVA_ITERATOR = 100;
+	int JAVA_ITERATOR = 101;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BExpression <em>BExpression</em>}'.
@@ -5499,6 +5527,27 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getB3MetaClass_InstanceClass();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BExpressionWrapper <em>BExpression Wrapper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>BExpression Wrapper</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BExpressionWrapper
+	 * @generated
+	 */
+	EClass getBExpressionWrapper();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.backend.evaluator.b3backend.BExpressionWrapper#getOriginal <em>Original</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Original</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BExpressionWrapper#getOriginal()
+	 * @see #getBExpressionWrapper()
+	 * @generated
+	 */
+	EReference getBExpressionWrapper_Original();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BGuard <em>BGuard</em>}'.
@@ -7815,6 +7864,24 @@ public interface B3backendPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute B3_META_CLASS__INSTANCE_CLASS = eINSTANCE.getB3MetaClass_InstanceClass();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExpressionWrapperImpl <em>BExpression Wrapper</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.BExpressionWrapperImpl
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBExpressionWrapper()
+		 * @generated
+		 */
+		EClass BEXPRESSION_WRAPPER = eINSTANCE.getBExpressionWrapper();
+
+		/**
+		 * The meta object literal for the '<em><b>Original</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BEXPRESSION_WRAPPER__ORIGINAL = eINSTANCE.getBExpressionWrapper_Original();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BGuardImpl <em>BGuard</em>}' class.

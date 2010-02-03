@@ -408,6 +408,11 @@ public class BWithExpressionItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BWITH_EXPRESSION__FUNC_EXPR,
 				 B3backendFactory.eINSTANCE.createBProceedExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BWITH_EXPRESSION__FUNC_EXPR,
+				 B3backendFactory.eINSTANCE.createBExpressionWrapper()));
 	}
 
 	/**

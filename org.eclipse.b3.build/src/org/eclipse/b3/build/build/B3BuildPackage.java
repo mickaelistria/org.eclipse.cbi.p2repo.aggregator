@@ -930,13 +930,13 @@ public interface B3BuildPackage extends EPackage {
 	int IBUILDER__DEFAULT_PROPERTIES = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 21;
 
 	/**
-	 * The feature id for the '<em><b>Postinputcondition</b></em>' containment reference.
+	 * The feature id for the '<em><b>Postinputcond Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IBUILDER__POSTINPUTCONDITION = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 22;
+	int IBUILDER__POSTINPUTCOND_EXPR = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 22;
 
 	/**
 	 * The feature id for the '<em><b>Unit Type</b></em>' attribute.
@@ -1875,13 +1875,67 @@ public interface B3BuildPackage extends EPackage {
 	int BUILDER_CONCERN_CONTEXT__MATCH_PARAMETERS = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 8;
 
 	/**
+	 * The feature id for the '<em><b>Remove Pre Condition</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_CONCERN_CONTEXT__REMOVE_PRE_CONDITION = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>Remove Post Condition</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_CONCERN_CONTEXT__REMOVE_POST_CONDITION = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 10;
+
+	/**
+	 * The feature id for the '<em><b>Remove Post Input Condition</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_CONCERN_CONTEXT__REMOVE_POST_INPUT_CONDITION = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 11;
+
+	/**
+	 * The feature id for the '<em><b>Precond Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_CONCERN_CONTEXT__PRECOND_EXPR = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 12;
+
+	/**
+	 * The feature id for the '<em><b>Postcond Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_CONCERN_CONTEXT__POSTCOND_EXPR = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 13;
+
+	/**
+	 * The feature id for the '<em><b>Postinputcond Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_CONCERN_CONTEXT__POSTINPUTCOND_EXPR = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 14;
+
+	/**
 	 * The number of structural features of the '<em>Builder Concern Context</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILDER_CONCERN_CONTEXT_FEATURE_COUNT = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 9;
+	int BUILDER_CONCERN_CONTEXT_FEATURE_COUNT = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 15;
 
 	/**
 	 * The feature id for the '<em><b>Path Vector</b></em>' containment reference.
@@ -2236,13 +2290,13 @@ public interface B3BuildPackage extends EPackage {
 	int BUILDER__DEFAULT_PROPERTIES = B3backendPackage.B3_FUNCTION_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Postinputcondition</b></em>' containment reference.
+	 * The feature id for the '<em><b>Postinputcond Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILDER__POSTINPUTCONDITION = B3backendPackage.B3_FUNCTION_FEATURE_COUNT + 6;
+	int BUILDER__POSTINPUTCOND_EXPR = B3backendPackage.B3_FUNCTION_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Unit Type</b></em>' attribute.
@@ -2489,13 +2543,13 @@ public interface B3BuildPackage extends EPackage {
 	int BUILDER_JAVA__DEFAULT_PROPERTIES = B3backendPackage.BJAVA_FUNCTION_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Postinputcondition</b></em>' containment reference.
+	 * The feature id for the '<em><b>Postinputcond Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILDER_JAVA__POSTINPUTCONDITION = B3backendPackage.BJAVA_FUNCTION_FEATURE_COUNT + 6;
+	int BUILDER_JAVA__POSTINPUTCOND_EXPR = B3backendPackage.BJAVA_FUNCTION_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Unit Type</b></em>' attribute.
@@ -2769,13 +2823,13 @@ public interface B3BuildPackage extends EPackage {
 	int BUILDER_WRAPPER__DEFAULT_PROPERTIES = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Postinputcondition</b></em>' containment reference.
+	 * The feature id for the '<em><b>Postinputcond Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILDER_WRAPPER__POSTINPUTCONDITION = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 6;
+	int BUILDER_WRAPPER__POSTINPUTCOND_EXPR = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Unit Type</b></em>' attribute.
@@ -2787,13 +2841,40 @@ public interface B3BuildPackage extends EPackage {
 	int BUILDER_WRAPPER__UNIT_TYPE = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 7;
 
 	/**
+	 * The feature id for the '<em><b>Promoted</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_WRAPPER__PROMOTED = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Input Advised</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_WRAPPER__INPUT_ADVISED = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>Output Advised</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_WRAPPER__OUTPUT_ADVISED = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 10;
+
+	/**
 	 * The number of structural features of the '<em>Builder Wrapper</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILDER_WRAPPER_FEATURE_COUNT = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 8;
+	int BUILDER_WRAPPER_FEATURE_COUNT = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 11;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BeeModelImpl <em>Bee Model</em>}' class.
@@ -3342,15 +3423,15 @@ public interface B3BuildPackage extends EPackage {
 	EReference getIBuilder_DefaultProperties();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.IBuilder#getPostinputcondition <em>Postinputcondition</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.IBuilder#getPostinputcondExpr <em>Postinputcond Expr</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Postinputcondition</em>'.
-	 * @see org.eclipse.b3.build.build.IBuilder#getPostinputcondition()
+	 * @return the meta object for the containment reference '<em>Postinputcond Expr</em>'.
+	 * @see org.eclipse.b3.build.build.IBuilder#getPostinputcondExpr()
 	 * @see #getIBuilder()
 	 * @generated
 	 */
-	EReference getIBuilder_Postinputcondition();
+	EReference getIBuilder_PostinputcondExpr();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.IBuilder#getUnitType <em>Unit Type</em>}'.
@@ -3392,6 +3473,39 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getBuilderWrapper();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuilderWrapper#getPromoted <em>Promoted</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Promoted</em>'.
+	 * @see org.eclipse.b3.build.build.BuilderWrapper#getPromoted()
+	 * @see #getBuilderWrapper()
+	 * @generated
+	 */
+	EAttribute getBuilderWrapper_Promoted();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuilderWrapper#isInputAdvised <em>Input Advised</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Input Advised</em>'.
+	 * @see org.eclipse.b3.build.build.BuilderWrapper#isInputAdvised()
+	 * @see #getBuilderWrapper()
+	 * @generated
+	 */
+	EAttribute getBuilderWrapper_InputAdvised();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuilderWrapper#isOutputAdvised <em>Output Advised</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Output Advised</em>'.
+	 * @see org.eclipse.b3.build.build.BuilderWrapper#isOutputAdvised()
+	 * @see #getBuilderWrapper()
+	 * @generated
+	 */
+	EAttribute getBuilderWrapper_OutputAdvised();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BeeModel <em>Bee Model</em>}'.
@@ -4256,6 +4370,72 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getBuilderConcernContext_MatchParameters();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuilderConcernContext#isRemovePreCondition <em>Remove Pre Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Remove Pre Condition</em>'.
+	 * @see org.eclipse.b3.build.build.BuilderConcernContext#isRemovePreCondition()
+	 * @see #getBuilderConcernContext()
+	 * @generated
+	 */
+	EAttribute getBuilderConcernContext_RemovePreCondition();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuilderConcernContext#isRemovePostCondition <em>Remove Post Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Remove Post Condition</em>'.
+	 * @see org.eclipse.b3.build.build.BuilderConcernContext#isRemovePostCondition()
+	 * @see #getBuilderConcernContext()
+	 * @generated
+	 */
+	EAttribute getBuilderConcernContext_RemovePostCondition();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuilderConcernContext#isRemovePostInputCondition <em>Remove Post Input Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Remove Post Input Condition</em>'.
+	 * @see org.eclipse.b3.build.build.BuilderConcernContext#isRemovePostInputCondition()
+	 * @see #getBuilderConcernContext()
+	 * @generated
+	 */
+	EAttribute getBuilderConcernContext_RemovePostInputCondition();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.BuilderConcernContext#getPrecondExpr <em>Precond Expr</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Precond Expr</em>'.
+	 * @see org.eclipse.b3.build.build.BuilderConcernContext#getPrecondExpr()
+	 * @see #getBuilderConcernContext()
+	 * @generated
+	 */
+	EReference getBuilderConcernContext_PrecondExpr();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.BuilderConcernContext#getPostcondExpr <em>Postcond Expr</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Postcond Expr</em>'.
+	 * @see org.eclipse.b3.build.build.BuilderConcernContext#getPostcondExpr()
+	 * @see #getBuilderConcernContext()
+	 * @generated
+	 */
+	EReference getBuilderConcernContext_PostcondExpr();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.BuilderConcernContext#getPostinputcondExpr <em>Postinputcond Expr</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Postinputcond Expr</em>'.
+	 * @see org.eclipse.b3.build.build.BuilderConcernContext#getPostinputcondExpr()
+	 * @see #getBuilderConcernContext()
+	 * @generated
+	 */
+	EReference getBuilderConcernContext_PostinputcondExpr();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.OutputPredicate <em>Output Predicate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4778,12 +4958,12 @@ public interface B3BuildPackage extends EPackage {
 		EReference IBUILDER__DEFAULT_PROPERTIES = eINSTANCE.getIBuilder_DefaultProperties();
 
 		/**
-		 * The meta object literal for the '<em><b>Postinputcondition</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Postinputcond Expr</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference IBUILDER__POSTINPUTCONDITION = eINSTANCE.getIBuilder_Postinputcondition();
+		EReference IBUILDER__POSTINPUTCOND_EXPR = eINSTANCE.getIBuilder_PostinputcondExpr();
 
 		/**
 		 * The meta object literal for the '<em><b>Unit Type</b></em>' attribute feature.
@@ -4822,6 +5002,30 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EClass BUILDER_WRAPPER = eINSTANCE.getBuilderWrapper();
+
+		/**
+		 * The meta object literal for the '<em><b>Promoted</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BUILDER_WRAPPER__PROMOTED = eINSTANCE.getBuilderWrapper_Promoted();
+
+		/**
+		 * The meta object literal for the '<em><b>Input Advised</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BUILDER_WRAPPER__INPUT_ADVISED = eINSTANCE.getBuilderWrapper_InputAdvised();
+
+		/**
+		 * The meta object literal for the '<em><b>Output Advised</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BUILDER_WRAPPER__OUTPUT_ADVISED = eINSTANCE.getBuilderWrapper_OutputAdvised();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BeeModelImpl <em>Bee Model</em>}' class.
@@ -5528,6 +5732,54 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute BUILDER_CONCERN_CONTEXT__MATCH_PARAMETERS = eINSTANCE.getBuilderConcernContext_MatchParameters();
+
+		/**
+		 * The meta object literal for the '<em><b>Remove Pre Condition</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BUILDER_CONCERN_CONTEXT__REMOVE_PRE_CONDITION = eINSTANCE.getBuilderConcernContext_RemovePreCondition();
+
+		/**
+		 * The meta object literal for the '<em><b>Remove Post Condition</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BUILDER_CONCERN_CONTEXT__REMOVE_POST_CONDITION = eINSTANCE.getBuilderConcernContext_RemovePostCondition();
+
+		/**
+		 * The meta object literal for the '<em><b>Remove Post Input Condition</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BUILDER_CONCERN_CONTEXT__REMOVE_POST_INPUT_CONDITION = eINSTANCE.getBuilderConcernContext_RemovePostInputCondition();
+
+		/**
+		 * The meta object literal for the '<em><b>Precond Expr</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BUILDER_CONCERN_CONTEXT__PRECOND_EXPR = eINSTANCE.getBuilderConcernContext_PrecondExpr();
+
+		/**
+		 * The meta object literal for the '<em><b>Postcond Expr</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BUILDER_CONCERN_CONTEXT__POSTCOND_EXPR = eINSTANCE.getBuilderConcernContext_PostcondExpr();
+
+		/**
+		 * The meta object literal for the '<em><b>Postinputcond Expr</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BUILDER_CONCERN_CONTEXT__POSTINPUTCOND_EXPR = eINSTANCE.getBuilderConcernContext_PostinputcondExpr();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.OutputPredicateImpl <em>Output Predicate</em>}' class.

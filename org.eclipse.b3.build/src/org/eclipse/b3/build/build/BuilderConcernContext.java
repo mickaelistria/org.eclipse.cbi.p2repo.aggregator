@@ -29,6 +29,12 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#isVarArgs <em>Var Args</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#getParameters <em>Parameters</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#isMatchParameters <em>Match Parameters</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#isRemovePreCondition <em>Remove Pre Condition</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#isRemovePostCondition <em>Remove Post Condition</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#isRemovePostInputCondition <em>Remove Post Input Condition</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#getPrecondExpr <em>Precond Expr</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#getPostcondExpr <em>Postcond Expr</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#getPostinputcondExpr <em>Postinputcond Expr</em>}</li>
  * </ul>
  * </p>
  *
@@ -220,6 +226,162 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * @generated
 	 */
 	void setMatchParameters(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Remove Pre Condition</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Remove Pre Condition</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Remove Pre Condition</em>' attribute.
+	 * @see #setRemovePreCondition(boolean)
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuilderConcernContext_RemovePreCondition()
+	 * @model
+	 * @generated
+	 */
+	boolean isRemovePreCondition();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderConcernContext#isRemovePreCondition <em>Remove Pre Condition</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Remove Pre Condition</em>' attribute.
+	 * @see #isRemovePreCondition()
+	 * @generated
+	 */
+	void setRemovePreCondition(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Remove Post Condition</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Remove Post Condition</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Remove Post Condition</em>' attribute.
+	 * @see #setRemovePostCondition(boolean)
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuilderConcernContext_RemovePostCondition()
+	 * @model
+	 * @generated
+	 */
+	boolean isRemovePostCondition();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderConcernContext#isRemovePostCondition <em>Remove Post Condition</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Remove Post Condition</em>' attribute.
+	 * @see #isRemovePostCondition()
+	 * @generated
+	 */
+	void setRemovePostCondition(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Remove Post Input Condition</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Remove Post Input Condition</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Remove Post Input Condition</em>' attribute.
+	 * @see #setRemovePostInputCondition(boolean)
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuilderConcernContext_RemovePostInputCondition()
+	 * @model
+	 * @generated
+	 */
+	boolean isRemovePostInputCondition();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderConcernContext#isRemovePostInputCondition <em>Remove Post Input Condition</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Remove Post Input Condition</em>' attribute.
+	 * @see #isRemovePostInputCondition()
+	 * @generated
+	 */
+	void setRemovePostInputCondition(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Precond Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Precond Expr</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Precond Expr</em>' containment reference.
+	 * @see #setPrecondExpr(BExpression)
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuilderConcernContext_PrecondExpr()
+	 * @model containment="true"
+	 * @generated
+	 */
+	BExpression getPrecondExpr();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderConcernContext#getPrecondExpr <em>Precond Expr</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Precond Expr</em>' containment reference.
+	 * @see #getPrecondExpr()
+	 * @generated
+	 */
+	void setPrecondExpr(BExpression value);
+
+	/**
+	 * Returns the value of the '<em><b>Postcond Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Postcond Expr</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Postcond Expr</em>' containment reference.
+	 * @see #setPostcondExpr(BExpression)
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuilderConcernContext_PostcondExpr()
+	 * @model containment="true"
+	 * @generated
+	 */
+	BExpression getPostcondExpr();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderConcernContext#getPostcondExpr <em>Postcond Expr</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Postcond Expr</em>' containment reference.
+	 * @see #getPostcondExpr()
+	 * @generated
+	 */
+	void setPostcondExpr(BExpression value);
+
+	/**
+	 * Returns the value of the '<em><b>Postinputcond Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Postinputcond Expr</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Postinputcond Expr</em>' containment reference.
+	 * @see #setPostinputcondExpr(BExpression)
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuilderConcernContext_PostinputcondExpr()
+	 * @model containment="true"
+	 * @generated
+	 */
+	BExpression getPostinputcondExpr();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderConcernContext#getPostinputcondExpr <em>Postinputcond Expr</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Postinputcond Expr</em>' containment reference.
+	 * @see #getPostinputcondExpr()
+	 * @generated
+	 */
+	void setPostinputcondExpr(BExpression value);
 
 	/**
 	 * <!-- begin-user-doc -->

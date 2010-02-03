@@ -774,8 +774,8 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTypeParameters(TypeVariable<?>[] newTypeParameters) {
-		TypeVariable<?>[] oldTypeParameters = typeParameters;
+	public void setTypeParameters(TypeVariable[] newTypeParameters) {
+		TypeVariable[] oldTypeParameters = typeParameters;
 		typeParameters = newTypeParameters;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION__TYPE_PARAMETERS, oldTypeParameters, typeParameters));

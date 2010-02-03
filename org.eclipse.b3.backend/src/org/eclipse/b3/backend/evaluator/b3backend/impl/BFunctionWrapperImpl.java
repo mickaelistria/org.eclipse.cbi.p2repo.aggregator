@@ -17,6 +17,7 @@ import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.b3.backend.core.LValue;
@@ -560,6 +561,14 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	public Type[] getParameterTypes() {
 		return getOriginal().getParameterTypes();
 	}
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Type[] getParameterTypesGen() {
+		return parameterTypes;
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -568,6 +577,17 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 */
 	public void setParameterTypes(Type[] newParameterTypes) {
 		throwImmutableException();
+	}
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setParameterTypesGen(Type[] newParameterTypes) {
+		Type[] oldParameterTypes = parameterTypes;
+		parameterTypes = newParameterTypes;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION_WRAPPER__PARAMETER_TYPES, oldParameterTypes, parameterTypes));
 	}
 
 	/**
@@ -614,7 +634,15 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	public String[] getParameterNames() {
 		return getOriginal().getParameterNames();
 	}
-
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String[] getParameterNamesGen() {
+		return parameterNames;
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -622,6 +650,17 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 */
 	public void setParameterNames(String[] newParameterNames) {
 		throwImmutableException();
+	}
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setParameterNamesGen(String[] newParameterNames) {
+		String[] oldParameterNames = parameterNames;
+		parameterNames = newParameterNames;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION_WRAPPER__PARAMETER_NAMES, oldParameterNames, parameterNames));
 	}
 
 	/**
@@ -631,6 +670,17 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 */
 	public EList<BParameterDeclaration> getParameters() {
 		return getOriginal().getParameters();
+	}
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<BParameterDeclaration> getParametersGen() {
+		if (parameters == null) {
+			parameters = new EObjectContainmentEList<BParameterDeclaration>(BParameterDeclaration.class, this, B3backendPackage.BFUNCTION_WRAPPER__PARAMETERS);
+		}
+		return parameters;
 	}
 
 	/**
@@ -900,9 +950,11 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public Map<String, String> getParameterMap() {
+		if(parameterMap == null)
+			parameterMap = new HashMap<String, String>();
 		return parameterMap;
 	}
 

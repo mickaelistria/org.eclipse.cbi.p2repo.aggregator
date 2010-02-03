@@ -15,8 +15,12 @@ import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.core.B3InternalError;
 import org.eclipse.b3.backend.core.TypePattern;
 import org.eclipse.b3.backend.core.TypePattern.Matcher;
+import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
+import org.eclipse.b3.backend.evaluator.b3backend.BChainedExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BExpressionWrapper;
+import org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 
@@ -31,6 +35,7 @@ import org.eclipse.b3.build.build.InputPredicate;
 import org.eclipse.b3.build.build.OutputPredicate;
 import org.eclipse.b3.build.build.PathVector;
 import org.eclipse.b3.build.build.Prerequisite;
+import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -61,6 +66,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#isVarArgs <em>Var Args</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#isMatchParameters <em>Match Parameters</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#isRemovePreCondition <em>Remove Pre Condition</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#isRemovePostCondition <em>Remove Post Condition</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#isRemovePostInputCondition <em>Remove Post Input Condition</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getPrecondExpr <em>Precond Expr</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getPostcondExpr <em>Postcond Expr</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getPostinputcondExpr <em>Postinputcond Expr</em>}</li>
  * </ul>
  * </p>
  *
@@ -176,6 +187,96 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * @ordered
 	 */
 	protected boolean matchParameters = MATCH_PARAMETERS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isRemovePreCondition() <em>Remove Pre Condition</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isRemovePreCondition()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean REMOVE_PRE_CONDITION_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isRemovePreCondition() <em>Remove Pre Condition</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isRemovePreCondition()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean removePreCondition = REMOVE_PRE_CONDITION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isRemovePostCondition() <em>Remove Post Condition</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isRemovePostCondition()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean REMOVE_POST_CONDITION_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isRemovePostCondition() <em>Remove Post Condition</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isRemovePostCondition()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean removePostCondition = REMOVE_POST_CONDITION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isRemovePostInputCondition() <em>Remove Post Input Condition</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isRemovePostInputCondition()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean REMOVE_POST_INPUT_CONDITION_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isRemovePostInputCondition() <em>Remove Post Input Condition</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isRemovePostInputCondition()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean removePostInputCondition = REMOVE_POST_INPUT_CONDITION_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getPrecondExpr() <em>Precond Expr</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPrecondExpr()
+	 * @generated
+	 * @ordered
+	 */
+	protected BExpression precondExpr;
+
+	/**
+	 * The cached value of the '{@link #getPostcondExpr() <em>Postcond Expr</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPostcondExpr()
+	 * @generated
+	 * @ordered
+	 */
+	protected BExpression postcondExpr;
+
+	/**
+	 * The cached value of the '{@link #getPostinputcondExpr() <em>Postinputcond Expr</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPostinputcondExpr()
+	 * @generated
+	 * @ordered
+	 */
+	protected BExpression postinputcondExpr;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -389,6 +490,198 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isRemovePreCondition() {
+		return removePreCondition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRemovePreCondition(boolean newRemovePreCondition) {
+		boolean oldRemovePreCondition = removePreCondition;
+		removePreCondition = newRemovePreCondition;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_PRE_CONDITION, oldRemovePreCondition, removePreCondition));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isRemovePostCondition() {
+		return removePostCondition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRemovePostCondition(boolean newRemovePostCondition) {
+		boolean oldRemovePostCondition = removePostCondition;
+		removePostCondition = newRemovePostCondition;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_POST_CONDITION, oldRemovePostCondition, removePostCondition));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isRemovePostInputCondition() {
+		return removePostInputCondition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRemovePostInputCondition(boolean newRemovePostInputCondition) {
+		boolean oldRemovePostInputCondition = removePostInputCondition;
+		removePostInputCondition = newRemovePostInputCondition;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_POST_INPUT_CONDITION, oldRemovePostInputCondition, removePostInputCondition));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BExpression getPrecondExpr() {
+		return precondExpr;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPrecondExpr(BExpression newPrecondExpr, NotificationChain msgs) {
+		BExpression oldPrecondExpr = precondExpr;
+		precondExpr = newPrecondExpr;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__PRECOND_EXPR, oldPrecondExpr, newPrecondExpr);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPrecondExpr(BExpression newPrecondExpr) {
+		if (newPrecondExpr != precondExpr) {
+			NotificationChain msgs = null;
+			if (precondExpr != null)
+				msgs = ((InternalEObject)precondExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_CONCERN_CONTEXT__PRECOND_EXPR, null, msgs);
+			if (newPrecondExpr != null)
+				msgs = ((InternalEObject)newPrecondExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_CONCERN_CONTEXT__PRECOND_EXPR, null, msgs);
+			msgs = basicSetPrecondExpr(newPrecondExpr, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__PRECOND_EXPR, newPrecondExpr, newPrecondExpr));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BExpression getPostcondExpr() {
+		return postcondExpr;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPostcondExpr(BExpression newPostcondExpr, NotificationChain msgs) {
+		BExpression oldPostcondExpr = postcondExpr;
+		postcondExpr = newPostcondExpr;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTCOND_EXPR, oldPostcondExpr, newPostcondExpr);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPostcondExpr(BExpression newPostcondExpr) {
+		if (newPostcondExpr != postcondExpr) {
+			NotificationChain msgs = null;
+			if (postcondExpr != null)
+				msgs = ((InternalEObject)postcondExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTCOND_EXPR, null, msgs);
+			if (newPostcondExpr != null)
+				msgs = ((InternalEObject)newPostcondExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTCOND_EXPR, null, msgs);
+			msgs = basicSetPostcondExpr(newPostcondExpr, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTCOND_EXPR, newPostcondExpr, newPostcondExpr));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BExpression getPostinputcondExpr() {
+		return postinputcondExpr;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPostinputcondExpr(BExpression newPostinputcondExpr, NotificationChain msgs) {
+		BExpression oldPostinputcondExpr = postinputcondExpr;
+		postinputcondExpr = newPostinputcondExpr;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTINPUTCOND_EXPR, oldPostinputcondExpr, newPostinputcondExpr);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPostinputcondExpr(BExpression newPostinputcondExpr) {
+		if (newPostinputcondExpr != postinputcondExpr) {
+			NotificationChain msgs = null;
+			if (postinputcondExpr != null)
+				msgs = ((InternalEObject)postinputcondExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTINPUTCOND_EXPR, null, msgs);
+			if (newPostinputcondExpr != null)
+				msgs = ((InternalEObject)newPostinputcondExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTINPUTCOND_EXPR, null, msgs);
+			msgs = basicSetPostinputcondExpr(newPostinputcondExpr, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTINPUTCOND_EXPR, newPostinputcondExpr, newPostinputcondExpr));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean evaluateIfMatching(Object candidate, BExecutionContext ctx, BuildUnit promoteToUnit) throws Throwable {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -417,6 +710,12 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 				return basicSetFuncExpr(null, msgs);
 			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PARAMETERS:
 				return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PRECOND_EXPR:
+				return basicSetPrecondExpr(null, msgs);
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTCOND_EXPR:
+				return basicSetPostcondExpr(null, msgs);
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTINPUTCOND_EXPR:
+				return basicSetPostinputcondExpr(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -447,6 +746,18 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 				return getParameters();
 			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__MATCH_PARAMETERS:
 				return isMatchParameters();
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_PRE_CONDITION:
+				return isRemovePreCondition();
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_POST_CONDITION:
+				return isRemovePostCondition();
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_POST_INPUT_CONDITION:
+				return isRemovePostInputCondition();
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PRECOND_EXPR:
+				return getPrecondExpr();
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTCOND_EXPR:
+				return getPostcondExpr();
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTINPUTCOND_EXPR:
+				return getPostinputcondExpr();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -492,6 +803,24 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__MATCH_PARAMETERS:
 				setMatchParameters((Boolean)newValue);
 				return;
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_PRE_CONDITION:
+				setRemovePreCondition((Boolean)newValue);
+				return;
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_POST_CONDITION:
+				setRemovePostCondition((Boolean)newValue);
+				return;
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_POST_INPUT_CONDITION:
+				setRemovePostInputCondition((Boolean)newValue);
+				return;
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PRECOND_EXPR:
+				setPrecondExpr((BExpression)newValue);
+				return;
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTCOND_EXPR:
+				setPostcondExpr((BExpression)newValue);
+				return;
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTINPUTCOND_EXPR:
+				setPostinputcondExpr((BExpression)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -531,6 +860,24 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__MATCH_PARAMETERS:
 				setMatchParameters(MATCH_PARAMETERS_EDEFAULT);
 				return;
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_PRE_CONDITION:
+				setRemovePreCondition(REMOVE_PRE_CONDITION_EDEFAULT);
+				return;
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_POST_CONDITION:
+				setRemovePostCondition(REMOVE_POST_CONDITION_EDEFAULT);
+				return;
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_POST_INPUT_CONDITION:
+				setRemovePostInputCondition(REMOVE_POST_INPUT_CONDITION_EDEFAULT);
+				return;
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PRECOND_EXPR:
+				setPrecondExpr((BExpression)null);
+				return;
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTCOND_EXPR:
+				setPostcondExpr((BExpression)null);
+				return;
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTINPUTCOND_EXPR:
+				setPostinputcondExpr((BExpression)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -561,6 +908,18 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 				return parameters != null && !parameters.isEmpty();
 			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__MATCH_PARAMETERS:
 				return matchParameters != MATCH_PARAMETERS_EDEFAULT;
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_PRE_CONDITION:
+				return removePreCondition != REMOVE_PRE_CONDITION_EDEFAULT;
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_POST_CONDITION:
+				return removePostCondition != REMOVE_POST_CONDITION_EDEFAULT;
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_POST_INPUT_CONDITION:
+				return removePostInputCondition != REMOVE_POST_INPUT_CONDITION_EDEFAULT;
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PRECOND_EXPR:
+				return precondExpr != null;
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTCOND_EXPR:
+				return postcondExpr != null;
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTINPUTCOND_EXPR:
+				return postinputcondExpr != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -579,6 +938,12 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 		result.append(varArgs);
 		result.append(", matchParameters: ");
 		result.append(matchParameters);
+		result.append(", removePreCondition: ");
+		result.append(removePreCondition);
+		result.append(", removePostCondition: ");
+		result.append(removePostCondition);
+		result.append(", removePostInputCondition: ");
+		result.append(removePostInputCondition);
 		result.append(')');
 		return result.toString();
 	}
@@ -624,15 +989,19 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * Performs parameter type matching and if parameters match, a wrapper is created and added to the context.
 	 * 
 	 * TODO: OPTIMIZE: This could probably be optimized and shared with BFunctionConcernContextImpl - it is almost the same
-	 * 
+	 * TODO: NEED TWO VERSIONS - ONE THAT PROMOTES THE WRAPPER/COPY TO A BUILD UNIT; AND ONE THAT JUST WRAPS
+	 *       ISSUE - the wrapper may have different parameter names than the original, and may only see a few of them
+	 *       So... the wraper needs a copy of the parameter declarations - and return this instead of the 
+	 *       originals - this will work since the wrapped first parameter is applicable to the unit even if it is
+	 *       narrowed in the wrapper.
 	 * @param pattern
-	 * @param f
+	 * @param b
 	 * @param ctx
 	 * @return
 	 * @throws B3EngineException
 	 */
-	private boolean weaveIfParametersMatch(TypePattern pattern, IFunction f, BExecutionContext ctx) throws B3EngineException {
-		Matcher matcher = pattern.match(f.getParameters());
+	private boolean weaveIfParametersMatch(TypePattern pattern, IBuilder b, BExecutionContext ctx, BuildUnit promoteToUnit) throws B3EngineException {
+		Matcher matcher = pattern.match(b.getParameters());
 		if(matchParameters && !matcher.isMatch())
 			return false;
 
@@ -647,23 +1016,74 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 				int matchedIdx = matcher.getMatchStart(i);
 				if(matchedIdx < 0)
 					throw new B3InternalError("Matched parameter reported to have an index of -1");
-				nameMap.put(pName, f.getParameters().get(matcher.getMatchStart(matchedIdx)).getName());
+				nameMap.put(pName, b.getParameters().get(matcher.getMatchStart(matchedIdx)).getName());
 			}
 		// Create a wrapping function and define it in the context
 		BuilderWrapper wrapper = B3BuildFactory.eINSTANCE.createBuilderWrapper();
-		wrapper.setOriginal(f);
+		wrapper.setOriginal(b);
 		wrapper.setAroundExpr(this.funcExpr);
 		wrapper.setParameterMap(nameMap);
+		if(promoteToUnit != null)
+			wrapper.setPromoted(BuildUnitProxyAdapterFactory.eINSTANCE.adapt(promoteToUnit).getIface());
 		// if function has varargs, and the varargs parameter was mapped, the wrapper needs to know this
 		if(isVarArgs() && ((pName = plist.get(plist.size()-1).getName()) != null))
 			wrapper.setVarargsName(pName);
+		
+		// WRAP ASSERTS by chaining any added condition with the original (unless original is removed).
+		// TODO: Optimize for the cases when the result is only one expression (does not need the chained expression
+		// around it.
+		B3backendFactory factory = B3backendFactory.eINSTANCE;
+		// --pre
+		if(b.getPrecondExpr() != null || isRemovePreCondition() || getPrecondExpr() != null) {
+			BChainedExpression pcExpr = factory.createBChainedExpression();
+			if(getPrecondExpr() != null) {
+				BExpressionWrapper ew = factory.createBExpressionWrapper();
+				ew.setOriginal(getPrecondExpr());
+				pcExpr.getExpressions().add(ew);
+			}
+			if(b.getPrecondExpr() != null && ! removePreCondition) {
+				BExpressionWrapper ew = factory.createBExpressionWrapper();
+				ew.setOriginal(b.getPrecondExpr());
+				pcExpr.getExpressions().add(ew);
+			}			
+		}
+		// --postinput
+		if(b.getPostinputcondExpr() != null || isRemovePostInputCondition() || getPostinputcondExpr() != null) {
+			BChainedExpression pcExpr = factory.createBChainedExpression();
+			if(getPostinputcondExpr() != null) {
+				BExpressionWrapper ew = factory.createBExpressionWrapper();
+				ew.setOriginal(getPostinputcondExpr());
+				pcExpr.getExpressions().add(ew);
+			}
+			if(b.getPostinputcondExpr() != null && ! removePostInputCondition) {
+				BExpressionWrapper ew = factory.createBExpressionWrapper();
+				ew.setOriginal(b.getPostinputcondExpr());
+				pcExpr.getExpressions().add(ew);
+			}			
+		}
+		// --post
+		if(b.getPostcondExpr() != null || isRemovePostCondition() || getPostcondExpr() != null) {
+			BChainedExpression pcExpr = factory.createBChainedExpression();
+			if(getPostcondExpr() != null) {
+				BExpressionWrapper ew = factory.createBExpressionWrapper();
+				ew.setOriginal(getPostcondExpr());
+				pcExpr.getExpressions().add(ew);
+			}
+			if(b.getPostcondExpr() != null && ! removePostCondition) {
+				BExpressionWrapper ew = factory.createBExpressionWrapper();
+				ew.setOriginal(b.getPostcondExpr());
+				pcExpr.getExpressions().add(ew);
+			}			
+		}
+		
+		// define the wrapper, and we are done
 		ctx.defineFunction(wrapper);
 		return true;
 	}
 	/**
 	 * Applies the advice to all already defined builders matching the query and type pattern specified
 	 * in this context. Each matching builder is wrapped with a BuildWrapper and added to the context passed
-	 * as a parameter.
+	 * as a parameter. 
 	 * @returns this
 	 */
 	@Override
@@ -676,7 +1096,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 		while(fItor.hasNext()) {
 			IFunction f = fItor.next();
 			if(f instanceof Builder && matchesQuery((Builder)f, ctx))
-				weaveIfParametersMatch(pattern, (Builder)f, ctx);
+				weaveIfParametersMatch(pattern, (Builder)f, ctx, null); // do not promote
 		}
 		return this;
 	}
@@ -686,11 +1106,6 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 */
 	@Override
 	public boolean evaluateIfMatching(Object candidate, BExecutionContext ctx) throws Throwable {
-		if(!(candidate instanceof Builder))
-			return false;
-		if(! matchesQuery((Builder)candidate, ctx))
-			return false;
-		TypePattern pattern = TypePattern.compile(getParameters());
-		return weaveIfParametersMatch(pattern, (Builder)candidate, ctx);
+		return evaluateIfMatching(candidate, ctx, null);
 	}
 } //BuilderConcernContextImpl

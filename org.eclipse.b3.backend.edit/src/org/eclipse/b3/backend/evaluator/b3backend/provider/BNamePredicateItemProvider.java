@@ -399,6 +399,11 @@ public class BNamePredicateItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN,
 				 B3backendFactory.eINSTANCE.createBProceedExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BNAME_PREDICATE__NAME_PATTERN,
+				 B3backendFactory.eINSTANCE.createBExpressionWrapper()));
 	}
 
 	/**

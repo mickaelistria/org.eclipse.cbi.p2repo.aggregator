@@ -6,11 +6,15 @@
  */
 package org.eclipse.b3.build.build.impl;
 
+import java.lang.reflect.Type;
 import java.util.Collection;
+import java.util.Map;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
+import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 
 import org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl;
 
@@ -35,6 +39,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -50,8 +55,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderWrapperImpl#getInput <em>Input</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderWrapperImpl#getOutput <em>Output</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderWrapperImpl#getDefaultProperties <em>Default Properties</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.BuilderWrapperImpl#getPostinputcondition <em>Postinputcondition</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuilderWrapperImpl#getPostinputcondExpr <em>Postinputcond Expr</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderWrapperImpl#getUnitType <em>Unit Type</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuilderWrapperImpl#getPromoted <em>Promoted</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuilderWrapperImpl#isInputAdvised <em>Input Advised</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuilderWrapperImpl#isOutputAdvised <em>Output Advised</em>}</li>
  * </ul>
  * </p>
  *
@@ -119,14 +127,14 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	protected BPropertySet defaultProperties;
 
 	/**
-	 * The cached value of the '{@link #getPostinputcondition() <em>Postinputcondition</em>}' containment reference.
+	 * The cached value of the '{@link #getPostinputcondExpr() <em>Postinputcond Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPostinputcondition()
+	 * @see #getPostinputcondExpr()
 	 * @generated
 	 * @ordered
 	 */
-	protected BExpression postinputcondition;
+	protected BExpression postinputcondExpr;
 
 	/**
 	 * The cached value of the '{@link #getUnitType() <em>Unit Type</em>}' attribute.
@@ -137,6 +145,56 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * @ordered
 	 */
 	protected Class<? extends BuildUnit> unitType;
+
+	/**
+	 * The cached value of the '{@link #getPromoted() <em>Promoted</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPromoted()
+	 * @generated
+	 * @ordered
+	 */
+	protected Class<? extends BuildUnit> promoted;
+
+	/**
+	 * The default value of the '{@link #isInputAdvised() <em>Input Advised</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInputAdvised()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean INPUT_ADVISED_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isInputAdvised() <em>Input Advised</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInputAdvised()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean inputAdvised = INPUT_ADVISED_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isOutputAdvised() <em>Output Advised</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isOutputAdvised()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean OUTPUT_ADVISED_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isOutputAdvised() <em>Output Advised</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isOutputAdvised()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean outputAdvised = OUTPUT_ADVISED_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -257,6 +315,8 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns the input from this wrapper if {@link #isInputAdvised()} returns true, otherwise from the wrapped
+	 * original.
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -300,6 +360,7 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns the output from this wrapper if {@link #isOutputAdvised()} returns true, else from the wrapped original.
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -389,8 +450,8 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BExpression getPostinputcondition() {
-		return postinputcondition;
+	public BExpression getPostinputcondExpr() {
+		return postinputcondExpr;
 	}
 
 	/**
@@ -398,11 +459,11 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPostinputcondition(BExpression newPostinputcondition, NotificationChain msgs) {
-		BExpression oldPostinputcondition = postinputcondition;
-		postinputcondition = newPostinputcondition;
+	public NotificationChain basicSetPostinputcondExpr(BExpression newPostinputcondExpr, NotificationChain msgs) {
+		BExpression oldPostinputcondExpr = postinputcondExpr;
+		postinputcondExpr = newPostinputcondExpr;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_WRAPPER__POSTINPUTCONDITION, oldPostinputcondition, newPostinputcondition);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_WRAPPER__POSTINPUTCOND_EXPR, oldPostinputcondExpr, newPostinputcondExpr);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -413,18 +474,18 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPostinputcondition(BExpression newPostinputcondition) {
-		if (newPostinputcondition != postinputcondition) {
+	public void setPostinputcondExpr(BExpression newPostinputcondExpr) {
+		if (newPostinputcondExpr != postinputcondExpr) {
 			NotificationChain msgs = null;
-			if (postinputcondition != null)
-				msgs = ((InternalEObject)postinputcondition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_WRAPPER__POSTINPUTCONDITION, null, msgs);
-			if (newPostinputcondition != null)
-				msgs = ((InternalEObject)newPostinputcondition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_WRAPPER__POSTINPUTCONDITION, null, msgs);
-			msgs = basicSetPostinputcondition(newPostinputcondition, msgs);
+			if (postinputcondExpr != null)
+				msgs = ((InternalEObject)postinputcondExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_WRAPPER__POSTINPUTCOND_EXPR, null, msgs);
+			if (newPostinputcondExpr != null)
+				msgs = ((InternalEObject)newPostinputcondExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_WRAPPER__POSTINPUTCOND_EXPR, null, msgs);
+			msgs = basicSetPostinputcondExpr(newPostinputcondExpr, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_WRAPPER__POSTINPUTCONDITION, newPostinputcondition, newPostinputcondition));
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_WRAPPER__POSTINPUTCOND_EXPR, newPostinputcondExpr, newPostinputcondExpr));
 	}
 
 	/**
@@ -448,6 +509,108 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_WRAPPER__UNIT_TYPE, oldUnitType, unitType));
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Class<? extends BuildUnit> getPromoted() {
+		return promoted;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void setPromoted(Class<? extends BuildUnit> newPromoted) {
+		if(original == null)
+			throw new IllegalStateException("The original must be set before calling setPromoted");
+		Class<? extends BuildUnit> oldPromoted = promoted;
+		promoted = newPromoted;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_WRAPPER__PROMOTED, oldPromoted, promoted));
+		
+		// Must copy and process original's parameters
+		// the full parameter declarations
+		// (Must make copies as the parameter declarations are contained).
+		EList<BParameterDeclaration> myParameters = getParametersGen();
+		for(BParameterDeclaration pd : original.getParameters()) {
+			myParameters.add(BParameterDeclaration.class.cast(EcoreUtil.copy(pd)));
+		myParameters.get(0).setType(promoted);
+		
+		// The cached types (since it is not possible to delegate to original
+		Type[] types = original.getParameterTypes();
+		types[0] = promoted;
+		setParameterTypesGen(types);
+
+		// parameter names are the same (first parameter is always called unit), but since it may not be in 
+		// the map (if unmatched by type rules, it must be remapped).
+		Map<String, String> pm = getParameterMap();
+		// unit is always mapped.
+		pm.put("unit", "unit");
+		}
+	}
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isInputAdvised() {
+		return inputAdvised;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInputAdvised(boolean newInputAdvised) {
+		boolean oldInputAdvised = inputAdvised;
+		inputAdvised = newInputAdvised;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_WRAPPER__INPUT_ADVISED, oldInputAdvised, inputAdvised));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isOutputAdvised() {
+		return outputAdvised;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOutputAdvised(boolean newOutputAdvised) {
+		boolean oldOutputAdvised = outputAdvised;
+		outputAdvised = newOutputAdvised;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_WRAPPER__OUTPUT_ADVISED, oldOutputAdvised, outputAdvised));
+	}
+
+	/**
+	 * If promoted, return the copied set of parameter declarations, else the original's
+	 */
+	@Override
+	public EList<BParameterDeclaration> getParameters() {
+		if(promoted != null)
+			return super.getParametersGen();
+		return original.getParameters();
+	}
+	/**
+	 * If promoted return the copied and modified parameter declarations, else the original's
+	 */
+	@Override
+	public Type[] getParameterTypes() {
+		if(promoted != null)
+			return super.getParameterTypesGen();
+		return original.getParameterTypes();
+	}
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -479,8 +642,8 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 				return basicSetOutput(null, msgs);
 			case B3BuildPackage.BUILDER_WRAPPER__DEFAULT_PROPERTIES:
 				return basicSetDefaultProperties(null, msgs);
-			case B3BuildPackage.BUILDER_WRAPPER__POSTINPUTCONDITION:
-				return basicSetPostinputcondition(null, msgs);
+			case B3BuildPackage.BUILDER_WRAPPER__POSTINPUTCOND_EXPR:
+				return basicSetPostinputcondExpr(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -505,10 +668,16 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 				return getOutput();
 			case B3BuildPackage.BUILDER_WRAPPER__DEFAULT_PROPERTIES:
 				return getDefaultProperties();
-			case B3BuildPackage.BUILDER_WRAPPER__POSTINPUTCONDITION:
-				return getPostinputcondition();
+			case B3BuildPackage.BUILDER_WRAPPER__POSTINPUTCOND_EXPR:
+				return getPostinputcondExpr();
 			case B3BuildPackage.BUILDER_WRAPPER__UNIT_TYPE:
 				return getUnitType();
+			case B3BuildPackage.BUILDER_WRAPPER__PROMOTED:
+				return getPromoted();
+			case B3BuildPackage.BUILDER_WRAPPER__INPUT_ADVISED:
+				return isInputAdvised();
+			case B3BuildPackage.BUILDER_WRAPPER__OUTPUT_ADVISED:
+				return isOutputAdvised();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -541,11 +710,20 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 			case B3BuildPackage.BUILDER_WRAPPER__DEFAULT_PROPERTIES:
 				setDefaultProperties((BPropertySet)newValue);
 				return;
-			case B3BuildPackage.BUILDER_WRAPPER__POSTINPUTCONDITION:
-				setPostinputcondition((BExpression)newValue);
+			case B3BuildPackage.BUILDER_WRAPPER__POSTINPUTCOND_EXPR:
+				setPostinputcondExpr((BExpression)newValue);
 				return;
 			case B3BuildPackage.BUILDER_WRAPPER__UNIT_TYPE:
 				setUnitType((Class<? extends BuildUnit>)newValue);
+				return;
+			case B3BuildPackage.BUILDER_WRAPPER__PROMOTED:
+				setPromoted((Class<? extends BuildUnit>)newValue);
+				return;
+			case B3BuildPackage.BUILDER_WRAPPER__INPUT_ADVISED:
+				setInputAdvised((Boolean)newValue);
+				return;
+			case B3BuildPackage.BUILDER_WRAPPER__OUTPUT_ADVISED:
+				setOutputAdvised((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -577,11 +755,20 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 			case B3BuildPackage.BUILDER_WRAPPER__DEFAULT_PROPERTIES:
 				setDefaultProperties((BPropertySet)null);
 				return;
-			case B3BuildPackage.BUILDER_WRAPPER__POSTINPUTCONDITION:
-				setPostinputcondition((BExpression)null);
+			case B3BuildPackage.BUILDER_WRAPPER__POSTINPUTCOND_EXPR:
+				setPostinputcondExpr((BExpression)null);
 				return;
 			case B3BuildPackage.BUILDER_WRAPPER__UNIT_TYPE:
 				setUnitType((Class<? extends BuildUnit>)null);
+				return;
+			case B3BuildPackage.BUILDER_WRAPPER__PROMOTED:
+				setPromoted((Class<? extends BuildUnit>)null);
+				return;
+			case B3BuildPackage.BUILDER_WRAPPER__INPUT_ADVISED:
+				setInputAdvised(INPUT_ADVISED_EDEFAULT);
+				return;
+			case B3BuildPackage.BUILDER_WRAPPER__OUTPUT_ADVISED:
+				setOutputAdvised(OUTPUT_ADVISED_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -607,10 +794,16 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 				return output != null;
 			case B3BuildPackage.BUILDER_WRAPPER__DEFAULT_PROPERTIES:
 				return defaultProperties != null;
-			case B3BuildPackage.BUILDER_WRAPPER__POSTINPUTCONDITION:
-				return postinputcondition != null;
+			case B3BuildPackage.BUILDER_WRAPPER__POSTINPUTCOND_EXPR:
+				return postinputcondExpr != null;
 			case B3BuildPackage.BUILDER_WRAPPER__UNIT_TYPE:
 				return unitType != null;
+			case B3BuildPackage.BUILDER_WRAPPER__PROMOTED:
+				return promoted != null;
+			case B3BuildPackage.BUILDER_WRAPPER__INPUT_ADVISED:
+				return inputAdvised != INPUT_ADVISED_EDEFAULT;
+			case B3BuildPackage.BUILDER_WRAPPER__OUTPUT_ADVISED:
+				return outputAdvised != OUTPUT_ADVISED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -635,7 +828,7 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 				case B3BuildPackage.BUILDER_WRAPPER__INPUT: return B3BuildPackage.IBUILDER__INPUT;
 				case B3BuildPackage.BUILDER_WRAPPER__OUTPUT: return B3BuildPackage.IBUILDER__OUTPUT;
 				case B3BuildPackage.BUILDER_WRAPPER__DEFAULT_PROPERTIES: return B3BuildPackage.IBUILDER__DEFAULT_PROPERTIES;
-				case B3BuildPackage.BUILDER_WRAPPER__POSTINPUTCONDITION: return B3BuildPackage.IBUILDER__POSTINPUTCONDITION;
+				case B3BuildPackage.BUILDER_WRAPPER__POSTINPUTCOND_EXPR: return B3BuildPackage.IBUILDER__POSTINPUTCOND_EXPR;
 				case B3BuildPackage.BUILDER_WRAPPER__UNIT_TYPE: return B3BuildPackage.IBUILDER__UNIT_TYPE;
 				default: return -1;
 			}
@@ -663,7 +856,7 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 				case B3BuildPackage.IBUILDER__INPUT: return B3BuildPackage.BUILDER_WRAPPER__INPUT;
 				case B3BuildPackage.IBUILDER__OUTPUT: return B3BuildPackage.BUILDER_WRAPPER__OUTPUT;
 				case B3BuildPackage.IBUILDER__DEFAULT_PROPERTIES: return B3BuildPackage.BUILDER_WRAPPER__DEFAULT_PROPERTIES;
-				case B3BuildPackage.IBUILDER__POSTINPUTCONDITION: return B3BuildPackage.BUILDER_WRAPPER__POSTINPUTCONDITION;
+				case B3BuildPackage.IBUILDER__POSTINPUTCOND_EXPR: return B3BuildPackage.BUILDER_WRAPPER__POSTINPUTCOND_EXPR;
 				case B3BuildPackage.IBUILDER__UNIT_TYPE: return B3BuildPackage.BUILDER_WRAPPER__UNIT_TYPE;
 				default: return -1;
 			}
@@ -683,8 +876,33 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (unitType: ");
 		result.append(unitType);
+		result.append(", promoted: ");
+		result.append(promoted);
+		result.append(", inputAdvised: ");
+		result.append(inputAdvised);
+		result.append(", OutputAdvised: ");
+		result.append(outputAdvised);
 		result.append(')');
 		return result.toString();
 	}
-
+	
+	/**
+	 * Checks that the original is an IBuilder
+	 */
+	@Override
+	public void setOriginal(IFunction newOriginal) {
+		if(!(newOriginal instanceof IBuilder))
+			throw new IllegalArgumentException("A BuilderWrapper can only wrap an IBuilder was: " + newOriginal.getClass().toString());
+		super.setOriginal(newOriginal);
+	}
+	/**
+	 * Enforces the mapping "unit" -> "unit"
+	 */
+	@Override
+	public void setParameterMap(Map<String, String> newParameterMap) {
+		// enforce that "unit" is mapped
+		newParameterMap.put("unit", "unit");
+		super.setParameterMap(newParameterMap);
+		
+	}
 } //BuilderWrapperImpl

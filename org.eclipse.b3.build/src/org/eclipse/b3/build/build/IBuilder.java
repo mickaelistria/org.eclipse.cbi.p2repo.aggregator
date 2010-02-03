@@ -25,7 +25,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.b3.build.build.IBuilder#getInput <em>Input</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.IBuilder#getOutput <em>Output</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.IBuilder#getDefaultProperties <em>Default Properties</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.IBuilder#getPostinputcondition <em>Postinputcondition</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.IBuilder#getPostinputcondExpr <em>Postinputcond Expr</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.IBuilder#getUnitType <em>Unit Type</em>}</li>
  * </ul>
  * </p>
@@ -166,30 +166,30 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	void setDefaultProperties(BPropertySet value);
 
 	/**
-	 * Returns the value of the '<em><b>Postinputcondition</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Postinputcond Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Postinputcondition</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Postinputcond Expr</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Postinputcondition</em>' containment reference.
-	 * @see #setPostinputcondition(BExpression)
-	 * @see org.eclipse.b3.build.build.B3BuildPackage#getIBuilder_Postinputcondition()
+	 * @return the value of the '<em>Postinputcond Expr</em>' containment reference.
+	 * @see #setPostinputcondExpr(BExpression)
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getIBuilder_PostinputcondExpr()
 	 * @model containment="true"
 	 * @generated
 	 */
-	BExpression getPostinputcondition();
+	BExpression getPostinputcondExpr();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.IBuilder#getPostinputcondition <em>Postinputcondition</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.IBuilder#getPostinputcondExpr <em>Postinputcond Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Postinputcondition</em>' containment reference.
-	 * @see #getPostinputcondition()
+	 * @param value the new value of the '<em>Postinputcond Expr</em>' containment reference.
+	 * @see #getPostinputcondExpr()
 	 * @generated
 	 */
-	void setPostinputcondition(BExpression value);
+	void setPostinputcondExpr(BExpression value);
 
 	/**
 	 * Returns the value of the '<em><b>Unit Type</b></em>' attribute.
