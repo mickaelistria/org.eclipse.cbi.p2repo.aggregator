@@ -8,11 +8,13 @@
 
 package org.eclipse.b3.aggregator.util;
 
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
 import org.eclipse.b3.aggregator.Aggregator;
+import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.MetadataRepositoryReference;
@@ -21,9 +23,18 @@ import org.eclipse.b3.aggregator.p2.util.MetadataRepositoryResourceImpl;
 import org.eclipse.b3.util.ExceptionUtils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ExtensibleURIConverterImpl;
+import org.eclipse.emf.ecore.xmi.XMLResource;
+import org.xml.sax.Attributes;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+import org.xml.sax.XMLReader;
+import org.xml.sax.helpers.DefaultHandler;
+import org.xml.sax.helpers.XMLReaderFactory;
 
 /**
  * Utilities for managing aggregator specific resources
@@ -140,6 +151,70 @@ public class ResourceUtils {
 		}
 
 		return mdr;
+	}
+
+	/**
+	 * Gets resource namespace
+	 * 
+	 * @param resourceURI
+	 * @param resourceTopNodeName
+	 * @param resourceNSAttributeName
+	 * @return
+	 */
+	public static String getResourceXMLNS(URI resourceURI, final String resourceTopNodeName,
+			final String resourceNSAttributeName) {
+
+		class XMLNSHandler extends DefaultHandler {
+			private String xmlns;
+
+			public String getXMLNS() {
+				return xmlns;
+			}
+
+			@Override
+			public void startElement(String nsURI, String strippedName, String tagName, Attributes attributes)
+					throws SAXException {
+				if(tagName.equalsIgnoreCase(resourceTopNodeName)) {
+					xmlns = attributes.getValue(resourceNSAttributeName);
+					throw new SAXException("XMLNS is read");
+				}
+			}
+		}
+
+		XMLReader parser;
+		XMLNSHandler xmlnsHandler = null;
+		try {
+			parser = XMLReaderFactory.createXMLReader();
+			xmlnsHandler = new XMLNSHandler();
+			parser.setContentHandler(xmlnsHandler);
+
+			// this is needed for parser to provide even "xmlns*" attributes
+			parser.setFeature("http://xml.org/sax/features/namespace-prefixes", true);
+			parser.parse(new InputSource(new ExtensibleURIConverterImpl().createInputStream(resourceURI)));
+		}
+		catch(SAXException e) {
+			if(xmlnsHandler != null)
+				return xmlnsHandler.getXMLNS();
+		}
+		catch(IOException e) {
+			// do not care
+		}
+		return null;
+	}
+
+	/**
+	 * Checks if resourceURI points to a resource with the up-to-date model
+	 * 
+	 * @param resourceURI
+	 * @return
+	 */
+	public static boolean isCurrentModel(URI resourceURI) {
+		String topElement = AggregatorPackage.eNS_PREFIX + ":" + AggregatorPackage.eINSTANCE.getAggregator().getName();
+		String nsAttribute = XMLResource.XML_NS + ":" + AggregatorPackage.eNAME;
+
+		String xmlns = getResourceXMLNS(resourceURI, topElement, nsAttribute);
+
+		return AggregatorPackage.eNS_URI.equals(xmlns);
 	}
 
 	/**

@@ -22,5 +22,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ui.workbench.texteditor;bundle-version="3.3.0",
  org.eclipse.jface.text;bundle-version="3.3.0",
  org.eclipse.core.expressions;bundle-version="3.4.100",
- org.eclipse.b3.cli;bundle-version="1.0.0"
+ org.eclipse.b3.cli;bundle-version="1.0.0",
+ org.eclipse.b3.util;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy

@@ -34,6 +34,7 @@ import org.eclipse.b3.aggregator.util.AggregatorResource;
 import org.eclipse.b3.aggregator.util.AggregatorResourceImpl;
 import org.eclipse.b3.aggregator.util.OverlaidImage;
 import org.eclipse.b3.aggregator.util.ResourceDiagnosticImpl;
+import org.eclipse.b3.aggregator.util.ResourceUtils;
 import org.eclipse.b3.aggregator.util.StatusProviderAdapterFactory;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
@@ -124,6 +125,7 @@ import org.eclipse.jface.viewers.TreePath;
 import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.dnd.DND;
@@ -775,8 +777,8 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 	}
 
 	public Diagnostic analyzeResourceProblems(Resource resource, Exception exception, boolean managedProblems) {
-		synchronized(resource) {
-			if(!resource.getErrors().isEmpty() || !resource.getWarnings().isEmpty()) {
+		if(resource != null && (!resource.getErrors().isEmpty() || !resource.getWarnings().isEmpty())) {
+			synchronized(resource) {
 				BasicDiagnostic basicDiagnostic = new BasicDiagnostic(Diagnostic.ERROR,
 						"org.eclipse.b3.aggregator.editor", 0, getString("_UI_CreateModelError_message",
 								resource.getURI()), new Object[] { exception == null
@@ -791,24 +793,66 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 				basicDiagnostic.merge(diagnostic);
 				return basicDiagnostic;
 			}
-			else if(exception != null) {
-				return new BasicDiagnostic(Diagnostic.ERROR, "org.eclipse.b3.aggregator.editor", 0, getString(
-						"_UI_CreateModelError_message", resource.getURI()), new Object[] { exception });
-			}
-			else {
-				return Diagnostic.OK_INSTANCE;
-			}
+		}
+		else if(exception != null) {
+			return new BasicDiagnostic(Diagnostic.ERROR, "org.eclipse.b3.aggregator.editor", 0, getString(
+					"_UI_CreateModelError_message", resource == null
+							? null
+							: resource.getURI()), new Object[] { exception });
+		}
+		else {
+			return Diagnostic.OK_INSTANCE;
 		}
 	}
 
 	/**
-	 * Call generated model generator and then initialize all repositories contained in the model using a progress bar.
+	 * Get model instance resource and then initialize all repositories contained in the model using a progress bar.
 	 */
 	public void createModel() {
-		createModelGen();
 
+		// get model instance resource
 		URI resourceURI = EditUIUtil.getURI(getEditorInput());
-		Resource resource = editingDomain.getResourceSet().getResource(resourceURI, false);
+		Exception exception = null;
+		Resource resource = null;
+		if(ResourceUtils.isCurrentModel(resourceURI))
+			try {
+				// Load the resource through the editing domain.
+				//
+				resource = editingDomain.getResourceSet().getResource(resourceURI, true);
+			}
+			catch(Exception e) {
+				exception = e;
+				resource = editingDomain.getResourceSet().getResource(resourceURI, false);
+			}
+		else {
+			TransformationWizard tz = new TransformationWizard(resourceURI);
+			tz.init(getEditorSite().getWorkbenchWindow().getWorkbench(), (IStructuredSelection) getSelection());
+
+			WizardDialog wd = new WizardDialog(getEditorSite().getShell(), tz);
+			wd.setHelpAvailable(false);
+
+			if(wd.open() == 0) {
+				resource = tz.getTargetResource();
+				editingDomain.getResourceSet().getResources().add(resource);
+
+				IFile modelFile = tz.getModelFile();
+				setPartName(modelFile.getName());
+				setInput(new FileEditorInput(modelFile));
+			}
+			else {
+				throw new RuntimeException("Depricated resource was not transformed");
+			}
+		}
+
+		Diagnostic diagnostic = analyzeResourceProblems(resource, exception);
+		if(diagnostic.getSeverity() != Diagnostic.OK) {
+			resourceToDiagnosticMap.put(resource, diagnostic);
+		}
+		editingDomain.getResourceSet().eAdapters().add(problemIndicationAdapter);
+
+		// initialize all repositories
+		resourceURI = EditUIUtil.getURI(getEditorInput());
+		resource = editingDomain.getResourceSet().getResource(resourceURI, false);
 
 		if(resource != null) {
 			EList<EObject> contents = resource.getContents();
@@ -869,33 +913,6 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 				wrapperJob.schedule();
 			}
 		}
-	}
-
-	/**
-	 * This is the method called to load a resource into the editing domain's resource set based on the editor's input.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public void createModelGen() {
-		URI resourceURI = EditUIUtil.getURI(getEditorInput());
-		Exception exception = null;
-		Resource resource = null;
-		try {
-			// Load the resource through the editing domain.
-			//
-			resource = editingDomain.getResourceSet().getResource(resourceURI, true);
-		}
-		catch(Exception e) {
-			exception = e;
-			resource = editingDomain.getResourceSet().getResource(resourceURI, false);
-		}
-
-		Diagnostic diagnostic = analyzeResourceProblems(resource, exception);
-		if(diagnostic.getSeverity() != Diagnostic.OK) {
-			resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
-		}
-		editingDomain.getResourceSet().eAdapters().add(problemIndicationAdapter);
 	}
 
 	/**

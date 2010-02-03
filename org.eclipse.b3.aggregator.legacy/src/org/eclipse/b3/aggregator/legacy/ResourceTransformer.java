@@ -116,6 +116,16 @@ public class ResourceTransformer implements ITransformer {
 		return trgtEObject;
 	}
 
+	protected Object getValue(EObject eobject, String featureName) {
+		EStructuralFeature feature = eobject.eClass().getEStructuralFeature(featureName);
+
+		if(feature == null)
+			throw new IllegalArgumentException(featureName + " is not a valid feature in " + eobject.eClass().getName()
+					+ " EClass");
+
+		return eobject.eGet(feature);
+	}
+
 	/**
 	 * Transforms srcEObject
 	 * 
@@ -209,5 +219,4 @@ public class ResourceTransformer implements ITransformer {
 					transformRef(srcChild);
 		}
 	}
-
 }

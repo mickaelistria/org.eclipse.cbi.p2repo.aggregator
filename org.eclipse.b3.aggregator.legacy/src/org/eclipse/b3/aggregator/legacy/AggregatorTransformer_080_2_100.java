@@ -134,6 +134,8 @@ public class AggregatorTransformer_080_2_100 extends ResourceTransformer {
 
 	private List<EObject> srcCategories = new ArrayList<EObject>();
 
+	private List<EObject> srcContributions = new ArrayList<EObject>();
+
 	private List<EObject> srcIUsWithoutRepo = new ArrayList<EObject>();
 
 	private EReference srcIURepoRef;
@@ -380,6 +382,7 @@ public class AggregatorTransformer_080_2_100 extends ResourceTransformer {
 		EReference trgtCategoriesERef = null;
 
 		for(EObject srcCategory : srcCategories) {
+
 			EObject trgtCategory = transformationMapping.get(srcCategory);
 
 			if(scrEClass == null) {
@@ -397,6 +400,18 @@ public class AggregatorTransformer_080_2_100 extends ResourceTransformer {
 			List<EObject> trgtCategoryFeatureList = (List<EObject>) trgtCategory.eGet(trgtERef);
 
 			for(EObject srcFeature : (List<EObject>) srcERefValue) {
+
+				EObject srcContribution = srcFeature.eContainer();
+
+				if(!srcContributions.contains(srcContribution)) {
+					String srcCategoryName = (String) getValue(srcCategory, NAME_ATTR);
+					String srcContributionLabel = (String) getValue(srcContribution, LABEL_ATTR);
+					String srcFeatureId = (String) getValue(srcFeature, ID_ATTR);
+
+					throw new RuntimeException("Category " + srcCategoryName + " references feature " + srcFeatureId
+							+ " which belongs to a missing contribution " + srcContributionLabel);
+				}
+
 				// e.g. branding feature - only for source build not for aggregation
 				if(srcIUsWithoutRepo.contains(srcFeature))
 					continue;
@@ -440,9 +455,26 @@ public class AggregatorTransformer_080_2_100 extends ResourceTransformer {
 
 	@SuppressWarnings("unchecked")
 	private void transformContributionNode(EObject srcEObject, TreePath trgtParentTreePath) {
+
+		if(srcContributions.contains(srcEObject))
+			return;
+
+		EAttribute srcLabelEAttr = (EAttribute) srcEObject.eClass().getEStructuralFeature(LABEL_ATTR);
+
+		// check duplicate contribution label - its used as a key
+		String srcLabel1 = (String) srcEObject.eGet(srcLabelEAttr);
+		for(EObject contribution : srcContributions) {
+			String srcLabel2 = (String) contribution.eGet(srcLabelEAttr);
+
+			if(srcLabel1 != null && srcLabel1.equals(srcLabel2))
+				throw new IllegalArgumentException("Label " + srcLabel1 + " is used for more than one contribution");
+		}
+
 		EObject contributionEObject = createTrgtEObject(CONTRIBUTION_NODE, srcEObject);
 		trgtParentTreePath.addToLastSegmentContainer(contributionEObject);
 		copyAttributes(srcEObject, contributionEObject);
+
+		srcContributions.add(srcEObject);
 
 		EAttribute enabledEAttr = (EAttribute) contributionEObject.eClass().getEStructuralFeature(ENABLED_ATTR);
 		contributionEObject.eSet(enabledEAttr, Boolean.TRUE);
