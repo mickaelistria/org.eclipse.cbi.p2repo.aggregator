@@ -1026,7 +1026,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 		// Create a wrapping function and define it in the context
 		BuilderWrapper wrapper = B3BuildFactory.eINSTANCE.createBuilderWrapper();
 		wrapper.setOriginal(b);
-		wrapper.setAroundExpr(this.funcExpr);
+		wrapper.setAroundExpr(this.funcExpr); // non containment, so ok to use this.funcExpr
 		wrapper.setParameterMap(nameMap);
 		if(promoteToUnit != null)
 			wrapper.setPromoted(BuildUnitProxyAdapterFactory.eINSTANCE.adapt(promoteToUnit).getIface());

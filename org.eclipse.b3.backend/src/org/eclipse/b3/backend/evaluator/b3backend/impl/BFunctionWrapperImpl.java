@@ -1031,10 +1031,13 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * If aroundExpr is null, the call behaves as the aroundExpr contained a single "proceed" expression.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public Object internalCall(BExecutionContext ctx, Object[] parameters, Type[] types) throws Throwable {
+		if(aroundExpr == null)
+			return getOriginal().internalCall(ctx, parameters, types);
 		return aroundExpr.evaluate(ctx);
 	}
 

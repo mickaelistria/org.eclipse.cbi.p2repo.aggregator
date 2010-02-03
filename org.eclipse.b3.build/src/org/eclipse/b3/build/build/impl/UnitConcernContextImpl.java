@@ -15,12 +15,14 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 
+import org.eclipse.b3.build.build.B3BuildFactory;
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.BuildContext;
 import org.eclipse.b3.build.build.BuildUnit;
-import org.eclipse.b3.build.build.Builder;
 import org.eclipse.b3.build.build.BuilderConcernContext;
+import org.eclipse.b3.build.build.BuilderWrapper;
 import org.eclipse.b3.build.build.Capability;
+import org.eclipse.b3.build.build.IBuilder;
 import org.eclipse.b3.build.build.IProvidedCapabilityContainer;
 import org.eclipse.b3.build.build.IRequiredCapabilityContainer;
 import org.eclipse.b3.build.build.ProvidesPredicate;
@@ -474,12 +476,19 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 		BuildUnit clone = BuildUnit.class.cast(EcoreUtil.copy(u));
 		// modify the build unit, and store it
 		BuildContext bctx = BuildContext.class.cast(ctx.getParentContext());
-		// but only of the unit itself was advised (modifying builders does not affect the build unit)
+		// but only of the unit itself was advised (NOTE: modifying builders does not affect the build unit)
 		if(adviseUnit(clone, bctx))
 			bctx.defineBuildUnit(clone, true);
 		return true;
 		
 	}
+	/**
+	 * Performs the modification of a unit (it should be passed a clone).
+	 * @param u
+	 * @param ctx
+	 * @return
+	 * @throws Throwable
+	 */
 	private boolean adviseUnit(BuildUnit u, BuildContext ctx) throws Throwable {
 		boolean modified = false;
 		
@@ -515,22 +524,23 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 			modified = true;
 		}
 		
-		// advised builders
-		modified = adviseUnitBuilders(u, ctx) || modified ;
+		// ADVICE BUILDERS
+		// (note: does not require marking the unit itself as modified as the modified units
+		// are associated with the build unit via its interface.
+		adviseUnitBuilders(u, ctx);
 		
-		// define additional builders
+		// DEFINE ADDITIONAL BUILDERS
 		// these builders are contained in a UnitConcernContext (no surprise) - they do not have a first parameter
-		// set (they can't since it is not known which units they will be defined for in advance). Copies must
-		// be made, and each copy installed for the unit that was matched.
-		// TODO: OPTIMIZE Could probably be optimized by adding wrappers instead, but they use the original's parameters
-		// by default.
+		// set (they can't since it is not known which units they will be defined for in advance). Wrappers must
+		// be used, and each wrapper installed for the matched unit.
 		//
 		EList<IFunction> fList = getFunctions();
 		Class<? extends BuildUnit> iFace = BuildUnitProxyAdapterFactory.eINSTANCE.adapt(u).getIface();
 		for(IFunction f : fList) {
-			Builder clone = Builder.class.cast(EcoreUtil.copy(f));
-			clone.setUnitType(iFace);
-			ctx.defineFunction(clone);
+			BuilderWrapper wrapper = B3BuildFactory.eINSTANCE.createBuilderWrapper();
+			wrapper.setOriginal(f);
+			wrapper.setUnitType(iFace);
+			ctx.defineFunction(wrapper);
 			modified = true;
 		}
 		return modified;
@@ -541,13 +551,13 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	 * builders as copies specific to the matching build units.
 	 * @param u
 	 * @param ctx
-	 * @return
+	 * @return true if any builders were advised
 	 * @throws Throwable
 	 */
 	private boolean adviseUnitBuilders(BuildUnit u, BExecutionContext ctx) throws Throwable {
 		boolean modified = false;
 		BuildUnit proxy = BuildUnitProxyAdapterFactory.eINSTANCE.adapt(u).getProxy();
-		Iterator<IFunction> fItor = ctx.getFunctionIterator(proxy.getClass(), Builder.class);
+		Iterator<IFunction> fItor = ctx.getFunctionIterator(proxy.getClass(), IBuilder.class);
 		while(fItor.hasNext()) {
 			IFunction candidate = fItor.next();
 			for(BuilderConcernContext bx : getBuilderContexts()) {
