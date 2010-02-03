@@ -994,11 +994,11 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * Performs parameter type matching and if parameters match, a wrapper is created and added to the context.
 	 * 
 	 * TODO: OPTIMIZE: This could probably be optimized and shared with BFunctionConcernContextImpl - it is almost the same
-	 * TODO: NEED TWO VERSIONS - ONE THAT PROMOTES THE WRAPPER/COPY TO A BUILD UNIT; AND ONE THAT JUST WRAPS
-	 *       ISSUE - the wrapper may have different parameter names than the original, and may only see a few of them
-	 *       So... the wraper needs a copy of the parameter declarations - and return this instead of the 
-	 *       originals - this will work since the wrapped first parameter is applicable to the unit even if it is
-	 *       narrowed in the wrapper.
+	 * NOTE: the wrapper may have different parameter names than the original, and may only see a few of them. It may
+	 *       however need to modify the first parameter (if the wrapper is promoting the builder to a specific unit).
+	 *       So... the wraper needs a copy of the parameter declarations - and return this (modified) copy instead of the 
+	 *       original's - this will work since the wrapped first parameter is applicable to the unit even if it is
+	 *       narrowed in the wrapper. This is all done in wrapper.promoteToUnit().
 	 * @param pattern
 	 * @param b
 	 * @param ctx
@@ -1082,7 +1082,8 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 			}			
 		}
 		
-		// WRAP INPUT by copying original input, setting a flag that input is advised, and then first do removals,
+		// WRAP INPUT 
+		// by copying original input, setting a flag that input is advised, and then first do removals,
 		// and then additions. Everything needs to be copied as input is by containment, and the input rules may
 		// be needed multiple times.
 		
