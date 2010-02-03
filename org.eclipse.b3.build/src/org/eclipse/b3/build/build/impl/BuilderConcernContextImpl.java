@@ -993,7 +993,6 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	/**
 	 * Performs parameter type matching and if parameters match, a wrapper is created and added to the context.
 	 * 
-	 * TODO: OPTIMIZE: This could probably be optimized and shared with BFunctionConcernContextImpl - it is almost the same
 	 * NOTE: the wrapper may have different parameter names than the original, and may only see a few of them. It may
 	 *       however need to modify the first parameter (if the wrapper is promoting the builder to a specific unit).
 	 *       So... the wraper needs a copy of the parameter declarations - and return this (modified) copy instead of the 
@@ -1036,8 +1035,6 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 			wrapper.setVarargsName(pName);
 		
 		// WRAP ASSERTS by chaining any added condition with the original (unless original is removed).
-		// TODO: Optimize for the cases when the result is only one expression (does not need the chained expression
-		// around it.
 		B3backendFactory factory = B3backendFactory.eINSTANCE;
 		// --pre
 		if(b.getPrecondExpr() != null || isRemovePreCondition() || getPrecondExpr() != null) {
@@ -1051,7 +1048,9 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 				BExpressionWrapper ew = factory.createBExpressionWrapper();
 				ew.setOriginal(b.getPrecondExpr());
 				pcExpr.getExpressions().add(ew);
-			}			
+			}
+			// set, and optimize if there is only one expression
+			wrapper.setPrecondExpr(pcExpr.getExpressions().size() == 1 ? pcExpr.getExpressions().get(0) : pcExpr);
 		}
 		// --postinput
 		if(b.getPostinputcondExpr() != null || isRemovePostInputCondition() || getPostinputcondExpr() != null) {
@@ -1065,7 +1064,10 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 				BExpressionWrapper ew = factory.createBExpressionWrapper();
 				ew.setOriginal(b.getPostinputcondExpr());
 				pcExpr.getExpressions().add(ew);
-			}			
+			}
+			// set, and optimize if there is only one expression
+			wrapper.setPostinputcondExpr(pcExpr.getExpressions().size() == 1 ? pcExpr.getExpressions().get(0) : pcExpr);
+
 		}
 		// --post
 		if(b.getPostcondExpr() != null || isRemovePostCondition() || getPostcondExpr() != null) {
@@ -1079,7 +1081,9 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 				BExpressionWrapper ew = factory.createBExpressionWrapper();
 				ew.setOriginal(b.getPostcondExpr());
 				pcExpr.getExpressions().add(ew);
-			}			
+			}
+			// set, and optimize if there is only one expression
+			wrapper.setPostcondExpr(pcExpr.getExpressions().size() == 1 ? pcExpr.getExpressions().get(0) : pcExpr);
 		}
 		
 		// WRAP INPUT 
