@@ -26,14 +26,13 @@ import org.eclipse.xtext.conversion.impl.AbstractDeclarativeValueConverterServic
 import org.eclipse.xtext.conversion.impl.AbstractNullSafeConverter;
 import org.eclipse.xtext.parsetree.AbstractNode;
 import org.eclipse.xtext.util.Strings;// 
-import org.eclipse.equinox.internal.provisional.p2.core.Version;
-import org.eclipse.equinox.internal.provisional.p2.core.VersionRange;
 import com.google.inject.Inject;
+import org.eclipse.equinox.p2.metadata.Version;
+import org.eclipse.equinox.p2.metadata.VersionRange;
 
 /**
  * Converters for BeeLang terminals.
  */
-@SuppressWarnings("restriction")
 public class BeeLangTerminalConverters extends  AbstractDeclarativeValueConverterService {
 
 	private Grammar grammar;

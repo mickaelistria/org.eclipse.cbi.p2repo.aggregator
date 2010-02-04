@@ -2,12 +2,12 @@ package org.eclipse.b3.coloring;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.RGB;
-import org.eclipse.xtext.ui.common.editor.syntaxcoloring.DefaultLexicalHighlightingConfiguration;
+import org.eclipse.xtext.ui.common.editor.syntaxcoloring.DefaultHighlightingConfiguration;
 import org.eclipse.xtext.ui.common.editor.syntaxcoloring.IHighlightingConfigurationAcceptor;
 import org.eclipse.xtext.ui.core.editor.utils.TextStyle;
 
 public class BeeLangLexicalHighlightConfiguration extends
-		DefaultLexicalHighlightingConfiguration {
+		DefaultHighlightingConfiguration {
 
 	public static final String DOCUMENTATION_ID = "documentation";
 	public static final String REGEXP_ID = "regexp";

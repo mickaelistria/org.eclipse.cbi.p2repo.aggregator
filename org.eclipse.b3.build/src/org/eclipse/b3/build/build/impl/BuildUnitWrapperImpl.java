@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.equinox.internal.provisional.p2.core.Version;
+import org.eclipse.equinox.p2.metadata.Version;
 
 /**
  * <!-- begin-user-doc -->
@@ -329,7 +329,6 @@ public class BuildUnitWrapperImpl extends BuildUnitImpl implements BuildUnitWrap
 	/**
 	 * wrapping method
 	 */
-	@SuppressWarnings("restriction")
 	@Override
 	public Version getVersion() {
 		return original.getVersion();

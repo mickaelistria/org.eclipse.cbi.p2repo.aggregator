@@ -3280,7 +3280,7 @@ public interface B3BuildPackage extends EPackage {
 	 * The meta object id for the '<em>Version Range</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.equinox.internal.provisional.p2.core.VersionRange
+	 * @see org.eclipse.equinox.p2.metadata.VersionRange
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getVersionRange()
 	 * @generated
 	 */
@@ -3290,7 +3290,7 @@ public interface B3BuildPackage extends EPackage {
 	 * The meta object id for the '<em>Version</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.equinox.internal.provisional.p2.core.Version
+	 * @see org.eclipse.equinox.p2.metadata.Version
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getVersion()
 	 * @generated
 	 */
@@ -4913,23 +4913,23 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBuilderReference_RequiredCapabilityReference();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.equinox.internal.provisional.p2.core.VersionRange <em>Version Range</em>}'.
+	 * Returns the meta object for data type '{@link org.eclipse.equinox.p2.metadata.VersionRange <em>Version Range</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for data type '<em>Version Range</em>'.
-	 * @see org.eclipse.equinox.internal.provisional.p2.core.VersionRange
-	 * @model instanceClass="org.eclipse.equinox.internal.provisional.p2.core.VersionRange"
+	 * @see org.eclipse.equinox.p2.metadata.VersionRange
+	 * @model instanceClass="org.eclipse.equinox.p2.metadata.VersionRange"
 	 * @generated
 	 */
 	EDataType getVersionRange();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.equinox.internal.provisional.p2.core.Version <em>Version</em>}'.
+	 * Returns the meta object for data type '{@link org.eclipse.equinox.p2.metadata.Version <em>Version</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for data type '<em>Version</em>'.
-	 * @see org.eclipse.equinox.internal.provisional.p2.core.Version
-	 * @model instanceClass="org.eclipse.equinox.internal.provisional.p2.core.Version"
+	 * @see org.eclipse.equinox.p2.metadata.Version
+	 * @model instanceClass="org.eclipse.equinox.p2.metadata.Version"
 	 * @generated
 	 */
 	EDataType getVersion();
@@ -6261,7 +6261,7 @@ public interface B3BuildPackage extends EPackage {
 		 * The meta object literal for the '<em>Version Range</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipse.equinox.internal.provisional.p2.core.VersionRange
+		 * @see org.eclipse.equinox.p2.metadata.VersionRange
 		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getVersionRange()
 		 * @generated
 		 */
@@ -6271,7 +6271,7 @@ public interface B3BuildPackage extends EPackage {
 		 * The meta object literal for the '<em>Version</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipse.equinox.internal.provisional.p2.core.Version
+		 * @see org.eclipse.equinox.p2.metadata.Version
 		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getVersion()
 		 * @generated
 		 */

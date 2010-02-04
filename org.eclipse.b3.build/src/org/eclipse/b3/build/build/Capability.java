@@ -9,7 +9,6 @@ package org.eclipse.b3.build.build;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.emf.ecore.EObject;
 
-import org.eclipse.equinox.internal.provisional.p2.core.Version;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +28,6 @@ import org.eclipse.equinox.internal.provisional.p2.core.Version;
  * @model
  * @generated
  */
-@SuppressWarnings("restriction")
 public interface Capability extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

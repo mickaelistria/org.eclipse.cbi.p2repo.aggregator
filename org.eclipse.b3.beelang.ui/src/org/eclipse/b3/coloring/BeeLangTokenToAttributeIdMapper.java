@@ -1,6 +1,6 @@
 package org.eclipse.b3.coloring;
 
-import org.eclipse.xtext.ui.common.editor.syntaxcoloring.DefaultLexicalHighlightingConfiguration;
+import org.eclipse.xtext.ui.common.editor.syntaxcoloring.DefaultHighlightingConfiguration;
 import org.eclipse.xtext.ui.common.editor.syntaxcoloring.antlr.DefaultAntlrTokenToAttributeIdMapper;
 
 public class BeeLangTokenToAttributeIdMapper extends
@@ -25,7 +25,7 @@ public class BeeLangTokenToAttributeIdMapper extends
 		}
 		
 		if("RULE_HEX".equals(tokenName)) {
-			return DefaultLexicalHighlightingConfiguration.NUMBER_ID;
+			return DefaultHighlightingConfiguration.NUMBER_ID;
 		}
 
 		return super.calculateId(tokenName, tokenType);

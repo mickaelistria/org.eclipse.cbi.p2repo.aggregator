@@ -6,9 +6,8 @@ import org.eclipse.b3.coloring.BeeLangSemanticHighligtConfiuration;
 import org.eclipse.b3.coloring.BeeLangTokenToAttributeIdMapper;
 import org.eclipse.b3.outline.BeeLangOutlineNodeAdapterFactory;
 import org.eclipse.xtext.ui.common.editor.outline.actions.IContentOutlineNodeAdapterFactory;
-import org.eclipse.xtext.ui.common.editor.syntaxcoloring.ILexicalHighlightingConfiguration;
+import org.eclipse.xtext.ui.common.editor.syntaxcoloring.IHighlightingConfiguration;
 import org.eclipse.xtext.ui.common.editor.syntaxcoloring.ISemanticHighlightingCalculator;
-import org.eclipse.xtext.ui.common.editor.syntaxcoloring.ISemanticHighlightingConfiguration;
 import org.eclipse.xtext.ui.common.editor.syntaxcoloring.antlr.AbstractAntlrTokenToAttributeIdMapper;
 
 /**
@@ -20,11 +19,11 @@ public class BeeLangUiModule extends org.eclipse.b3.AbstractBeeLangUiModule {
 		bindTokenToAttributeIdMapper() {
 		return BeeLangTokenToAttributeIdMapper.class;
 	}
-	public Class<? extends ILexicalHighlightingConfiguration> 
+	public Class<? extends IHighlightingConfiguration> 
 		bindILexicalHighlightingConfiguration() {
 		return BeeLangLexicalHighlightConfiguration.class;
 	}	
-	public Class<? extends ISemanticHighlightingConfiguration> 
+	public Class<? extends IHighlightingConfiguration> 
 		bindISemanticHighlightingConfiguration() {
 		return BeeLangSemanticHighligtConfiuration.class;
 	}

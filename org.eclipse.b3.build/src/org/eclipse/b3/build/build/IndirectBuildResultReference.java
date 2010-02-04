@@ -6,7 +6,8 @@
  */
 package org.eclipse.b3.build.build;
 
-import org.eclipse.equinox.internal.provisional.p2.core.VersionRange;
+import org.eclipse.equinox.p2.metadata.VersionRange;
+
 
 /**
  * <!-- begin-user-doc -->

@@ -59,8 +59,8 @@
       </eGenericType>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="VersionRange" instanceClassName="org.eclipse.equinox.internal.provisional.p2.core.VersionRange"/>
-  <eClassifiers xsi:type="ecore:EDataType" name="Version" instanceClassName="org.eclipse.equinox.internal.provisional.p2.core.Version"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="VersionRange" instanceClassName="org.eclipse.equinox.p2.metadata.VersionRange"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Version" instanceClassName="org.eclipse.equinox.p2.metadata.Version"/>
   <eClassifiers xsi:type="ecore:EDataType" name="URI" instanceClassName="java.net.URI"/>
   <eClassifiers xsi:type="ecore:EClass" name="VersionedCapability" eSuperTypes="#//Capability">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="#//Version"/>

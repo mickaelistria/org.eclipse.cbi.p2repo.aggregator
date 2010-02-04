@@ -17,8 +17,8 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.equinox.internal.provisional.p2.core.Version;
-import org.eclipse.equinox.internal.provisional.p2.core.VersionRange;
+import org.eclipse.equinox.p2.metadata.Version;
+import org.eclipse.equinox.p2.metadata.VersionRange;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,7 +26,6 @@ import org.eclipse.equinox.internal.provisional.p2.core.VersionRange;
  * <!-- end-user-doc -->
  * @generated
  */
-@SuppressWarnings("restriction")
 public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	/**
 	 * Creates the default factory implementation.

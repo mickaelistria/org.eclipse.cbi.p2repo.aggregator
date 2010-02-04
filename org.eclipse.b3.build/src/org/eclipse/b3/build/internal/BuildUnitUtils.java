@@ -4,7 +4,7 @@ import org.eclipse.b3.backend.core.B3InternalError;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.b3.build.build.BuildUnit;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.equinox.internal.provisional.p2.core.Version;
+import org.eclipse.equinox.p2.metadata.Version;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.Opcodes;
 
@@ -13,7 +13,6 @@ import java.lang.reflect.Proxy;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Type;
 
-@SuppressWarnings("restriction")
 public class BuildUnitUtils {
 	public static ClassLoader dynamicClassLoader = new BuildUtilsDynamicClassLoader(BuildUnitUtils.class.getClassLoader());
 	

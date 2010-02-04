@@ -24,8 +24,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.equinox.internal.provisional.p2.core.Version;
-import org.eclipse.equinox.internal.provisional.p2.core.VersionRange;
+import org.eclipse.equinox.p2.metadata.Version;
+import org.eclipse.equinox.p2.metadata.VersionRange;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,7 +42,6 @@ import org.eclipse.equinox.internal.provisional.p2.core.VersionRange;
  *
  * @generated
  */
-@SuppressWarnings("restriction")
 public class CapabilityPredicateImpl extends BExpressionImpl implements CapabilityPredicate {
 	/**
 	 * The default value of the '{@link #getVersionRange() <em>Version Range</em>}' attribute.

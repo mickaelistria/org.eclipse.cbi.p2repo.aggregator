@@ -1,12 +1,276 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.b3.build/src"
-    modelPluginID="org.eclipse.b3.build" modelName="B3Build" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="5.0" copyrightFields="false" usedGenPackages="../../org.eclipse.b3.backend/model/B3Backend.genmodel#//b3backend">
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2009, Cloudsmith Inc and others.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xD;Contributors:&#xA;- Cloudsmith Inc - initial API and implementation.&#xD;"
+    modelDirectory="/org.eclipse.b3.build/src" modelPluginID="org.eclipse.b3.build"
+    modelName="B3Build" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
+    copyrightFields="false" usedGenPackages="../../org.eclipse.b3.backend/model/B3Backend.genmodel#//b3backend">
   <foreignModel>B3Build.ecore</foreignModel>
   <genPackages prefix="B3Build" basePackage="org.eclipse.b3.build" disposableProviderFactory="true"
       ecorePackage="B3Build.ecore#/">
-    <genClasses ecoreClass="B3Build.ecore#//BuildUnit"/>
+    <genDataTypes ecoreDataType="B3Build.ecore#//VersionRange"/>
+    <genDataTypes ecoreDataType="B3Build.ecore#//Version"/>
+    <genDataTypes ecoreDataType="B3Build.ecore#//URI"/>
+    <genClasses ecoreClass="B3Build.ecore#//BuildUnit">
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference B3Build.ecore#//BuildUnit/builders"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Build.ecore#//BuildUnit/documentation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Build.ecore#//BuildUnit/executionMode"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//BuildUnit/metaRequiredCapabilities"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//BuildUnit/implements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//BuildUnit/concerns"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//BuildUnit/defaultProperties"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//BuildUnit/synchronizations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//BuildUnit/repositories"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//BuildUnit/containers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//BuildUnit/propertySets"/>
+      <genOperations ecoreOperation="B3Build.ecore#//BuildUnit/getEffectiveMetaRequirements">
+        <genParameters ecoreParameter="B3Build.ecore#//BuildUnit/getEffectiveMetaRequirements/ctx"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="B3Build.ecore#//IBuilder">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//IBuilder/postcondExpr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//IBuilder/precondExpr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//IBuilder/input"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//IBuilder/output"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//IBuilder/defaultProperties"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//IBuilder/postinputcondExpr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Build.ecore#//IBuilder/unitType"/>
+      <genOperations ecoreOperation="B3Build.ecore#//IBuilder/getEffectiveRequirements">
+        <genParameters ecoreParameter="B3Build.ecore#//IBuilder/getEffectiveRequirements/ctx"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="B3Build.ecore#//VersionedCapability">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Build.ecore#//VersionedCapability/version"/>
+    </genClasses>
+    <genClasses ecoreClass="B3Build.ecore#//BuilderInput">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//BuilderInput/prerequisites"/>
+      <genOperations ecoreOperation="B3Build.ecore#//BuilderInput/getEffectiveRequirements">
+        <genParameters ecoreParameter="B3Build.ecore#//BuilderInput/getEffectiveRequirements/ctx"/>
+      </genOperations>
+      <genOperations ecoreOperation="B3Build.ecore#//BuilderInput/getRequirements"/>
+      <genOperations ecoreOperation="B3Build.ecore#//BuilderInput/getBuilderReferences"/>
+      <genOperations ecoreOperation="B3Build.ecore#//BuilderInput/getEffectiveBuilderReferences">
+        <genParameters ecoreParameter="B3Build.ecore#//BuilderInput/getEffectiveBuilderReferences/ctx"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="B3Build.ecore#//PathGroup">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//PathGroup/annotations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//PathGroup/pathVectors"/>
+    </genClasses>
+    <genClasses ecoreClass="B3Build.ecore#//Prerequisite">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//Prerequisite/condExpr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Build.ecore#//Prerequisite/alias"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//Prerequisite/withExpr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//Prerequisite/buildResult"/>
+      <genOperations ecoreOperation="B3Build.ecore#//Prerequisite/getEffectiveRequirements">
+        <genParameters ecoreParameter="B3Build.ecore#//Prerequisite/getEffectiveRequirements/ctx"/>
+      </genOperations>
+      <genOperations ecoreOperation="B3Build.ecore#//Prerequisite/getRequirements"/>
+      <genOperations ecoreOperation="B3Build.ecore#//Prerequisite/getBuilderReferences"/>
+      <genOperations ecoreOperation="B3Build.ecore#//Prerequisite/getEffectiveBuilderReferences">
+        <genParameters ecoreParameter="B3Build.ecore#//Prerequisite/getEffectiveBuilderReferences/ctx"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="B3Build.ecore#//BuildResultReference">
+      <genOperations ecoreOperation="B3Build.ecore#//BuildResultReference/getEffectiveRequirements">
+        <genParameters ecoreParameter="B3Build.ecore#//BuildResultReference/getEffectiveRequirements/ctx"/>
+      </genOperations>
+      <genOperations ecoreOperation="B3Build.ecore#//BuildResultReference/getRequirements"/>
+      <genOperations ecoreOperation="B3Build.ecore#//BuildResultReference/getBuilderReferences"/>
+      <genOperations ecoreOperation="B3Build.ecore#//BuildResultReference/getEffectiveBuilderReferences">
+        <genParameters ecoreParameter="B3Build.ecore#//BuildResultReference/getEffectiveBuilderReferences/ctx"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="B3Build.ecore#//CompoundBuildResultReference">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//CompoundBuildResultReference/prerequisites"/>
+    </genClasses>
+    <genClasses ecoreClass="B3Build.ecore#//BuilderReference">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//BuilderReference/parameters"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Build.ecore#//BuilderReference/builderName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//BuilderReference/requiredCapability"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference B3Build.ecore#//BuilderReference/requiredCapabilityReference"/>
+    </genClasses>
+    <genClasses ecoreClass="B3Build.ecore#//Capability">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Build.ecore#//Capability/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Build.ecore#//Capability/nameSpace"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//Capability/condExpr"/>
+    </genClasses>
+    <genClasses ecoreClass="B3Build.ecore#//RequiredCapability">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Build.ecore#//RequiredCapability/versionRange"/>
+    </genClasses>
+    <genClasses ecoreClass="B3Build.ecore#//PathVector">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//PathVector/condExpr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Build.ecore#//PathVector/basePath"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Build.ecore#//PathVector/paths"/>
+    </genClasses>
+    <genClasses ecoreClass="B3Build.ecore#//CompoundPathVector">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//CompoundPathVector/pathVectors"/>
+    </genClasses>
+    <genClasses ecoreClass="B3Build.ecore#//PathVectorElement"/>
+    <genClasses ecoreClass="B3Build.ecore#//Synchronization">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//Synchronization/builderQueries"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="B3Build.ecore#//RepositoryConfiguration"/>
+    <genClasses ecoreClass="B3Build.ecore#//RepositoryDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Build.ecore#//RepositoryDeclaration/documentation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Build.ecore#//RepositoryDeclaration/location"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//RepositoryDeclaration/resolverType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//RepositoryDeclaration/contextBlock"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="B3Build.ecore#//ResolutionStrategy">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//ResolutionStrategy/repositories"/>
+    </genClasses>
+    <genClasses ecoreClass="B3Build.ecore#//ResolutionStrategyFirst"/>
+    <genClasses ecoreClass="B3Build.ecore#//ResolutionStrategyBest"/>
+    <genClasses ecoreClass="B3Build.ecore#//ContainerConfiguration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Build.ecore#//ContainerConfiguration/documentation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Build.ecore#//ContainerConfiguration/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//ContainerConfiguration/agentType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//ContainerConfiguration/contextBlock"/>
+    </genClasses>
+    <genClasses ecoreClass="B3Build.ecore#//BuildContext">
+      <genOperations ecoreOperation="B3Build.ecore#//BuildContext/defineBuildUnit">
+        <genParameters ecoreParameter="B3Build.ecore#//BuildContext/defineBuildUnit/unit"/>
+        <genParameters ecoreParameter="B3Build.ecore#//BuildContext/defineBuildUnit/isWeaving"/>
+      </genOperations>
+      <genOperations ecoreOperation="B3Build.ecore#//BuildContext/defineBeeModel">
+        <genParameters ecoreParameter="B3Build.ecore#//BuildContext/defineBeeModel/beeModel"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="B3Build.ecore#//BuildConcernContext"/>
+    <genClasses ecoreClass="B3Build.ecore#//RequiresPredicate">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//RequiresPredicate/capabilityPredicate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Build.ecore#//RequiresPredicate/meta"/>
+      <genOperations ecoreOperation="B3Build.ecore#//RequiresPredicate/matches">
+        <genParameters ecoreParameter="B3Build.ecore#//RequiresPredicate/matches/candidate"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="B3Build.ecore#//CapabilityPredicate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Build.ecore#//CapabilityPredicate/versionRange"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//CapabilityPredicate/namePredicate"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//CapabilityPredicate/nameSpacePredicate"/>
+      <genOperations ecoreOperation="B3Build.ecore#//CapabilityPredicate/matches">
+        <genParameters ecoreParameter="B3Build.ecore#//CapabilityPredicate/matches/candidate"/>
+      </genOperations>
+      <genOperations ecoreOperation="B3Build.ecore#//CapabilityPredicate/matches.1">
+        <genParameters ecoreParameter="B3Build.ecore#//CapabilityPredicate/matches.1/candidate"/>
+      </genOperations>
+      <genOperations ecoreOperation="B3Build.ecore#//CapabilityPredicate/matches.2">
+        <genParameters ecoreParameter="B3Build.ecore#//CapabilityPredicate/matches.2/candidate"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="B3Build.ecore#//ImplementsPredicate">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//ImplementsPredicate/type"/>
+    </genClasses>
+    <genClasses ecoreClass="B3Build.ecore#//ProvidesPredicate">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//ProvidesPredicate/capabilityPredicate"/>
+      <genOperations ecoreOperation="B3Build.ecore#//ProvidesPredicate/matches">
+        <genParameters ecoreParameter="B3Build.ecore#//ProvidesPredicate/matches/candidate"/>
+      </genOperations>
+      <genOperations ecoreOperation="B3Build.ecore#//ProvidesPredicate/matches.1">
+        <genParameters ecoreParameter="B3Build.ecore#//ProvidesPredicate/matches.1/candidate"/>
+      </genOperations>
+      <genOperations ecoreOperation="B3Build.ecore#//ProvidesPredicate/removeMatching">
+        <genParameters ecoreParameter="B3Build.ecore#//ProvidesPredicate/removeMatching/input"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="B3Build.ecore#//NameSpacePredicate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Build.ecore#//NameSpacePredicate/nameSpace"/>
+    </genClasses>
+    <genClasses ecoreClass="B3Build.ecore#//UnitNamePredicate"/>
+    <genClasses ecoreClass="B3Build.ecore#//BuilderNamePredicate">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//BuilderNamePredicate/namePredicate"/>
+    </genClasses>
+    <genClasses ecoreClass="B3Build.ecore#//InputPredicate">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//InputPredicate/capabilityPredicate"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//InputPredicate/builderPredicate"/>
+      <genOperations ecoreOperation="B3Build.ecore#//InputPredicate/removeMatching">
+        <genParameters ecoreParameter="B3Build.ecore#//InputPredicate/removeMatching/input"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="B3Build.ecore#//UnitConcernContext">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//UnitConcernContext/builderContexts"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//UnitConcernContext/query"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//UnitConcernContext/requiresRemovals"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//UnitConcernContext/providesRemovals"/>
+    </genClasses>
+    <genClasses ecoreClass="B3Build.ecore#//BuilderConcernContext">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//BuilderConcernContext/query"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//BuilderConcernContext/inputAdditions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//BuilderConcernContext/inputRemovals"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//BuilderConcernContext/outputAdditions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//BuilderConcernContext/outputRemovals"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//BuilderConcernContext/funcExpr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Build.ecore#//BuilderConcernContext/varArgs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//BuilderConcernContext/parameters"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Build.ecore#//BuilderConcernContext/matchParameters"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Build.ecore#//BuilderConcernContext/removePreCondition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Build.ecore#//BuilderConcernContext/removePostCondition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Build.ecore#//BuilderConcernContext/removePostInputCondition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//BuilderConcernContext/precondExpr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//BuilderConcernContext/postcondExpr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//BuilderConcernContext/postinputcondExpr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//BuilderConcernContext/providesRemovals"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Build.ecore#//BuilderConcernContext/defaultPropertiesRemovals"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//BuilderConcernContext/defaultPropertiesAdditions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Build.ecore#//BuilderConcernContext/annotationsRemovals"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//BuilderConcernContext/annotationsAdditions"/>
+      <genOperations ecoreOperation="B3Build.ecore#//BuilderConcernContext/evaluateIfMatching">
+        <genParameters ecoreParameter="B3Build.ecore#//BuilderConcernContext/evaluateIfMatching/candidate"/>
+        <genParameters ecoreParameter="B3Build.ecore#//BuilderConcernContext/evaluateIfMatching/ctx"/>
+        <genParameters ecoreParameter="B3Build.ecore#//BuilderConcernContext/evaluateIfMatching/promoteToUnit"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="B3Build.ecore#//OutputPredicate">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//OutputPredicate/pathVector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//OutputPredicate/pathPattern"/>
+      <genOperations ecoreOperation="B3Build.ecore#//OutputPredicate/removeMatching">
+        <genParameters ecoreParameter="B3Build.ecore#//OutputPredicate/removeMatching/input"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="B3Build.ecore#//AliasedRequiredCapability">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Build.ecore#//AliasedRequiredCapability/alias"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="B3Build.ecore#//IRequiredCapabilityContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//IRequiredCapabilityContainer/requiredCapabilities"/>
+      <genOperations ecoreOperation="B3Build.ecore#//IRequiredCapabilityContainer/getEffectiveRequirements">
+        <genParameters ecoreParameter="B3Build.ecore#//IRequiredCapabilityContainer/getEffectiveRequirements/ctx"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="B3Build.ecore#//IProvidedCapabilityContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//IProvidedCapabilityContainer/providedCapabilities"/>
+    </genClasses>
+    <genClasses ecoreClass="B3Build.ecore#//BuilderQuery">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//BuilderQuery/builderQueries"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//BuilderQuery/unitQuery"/>
+    </genClasses>
     <genClasses ecoreClass="B3Build.ecore#//Builder"/>
+    <genClasses ecoreClass="B3Build.ecore#//BuilderJava"/>
+    <genClasses ecoreClass="B3Build.ecore#//BuilderWrapper">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Build.ecore#//BuilderWrapper/inputAdvised"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Build.ecore#//BuilderWrapper/outputAdvised"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Build.ecore#//BuilderWrapper/unitTypeAdvised"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Build.ecore#//BuilderWrapper/providesAdvised"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Build.ecore#//BuilderWrapper/defaultPropertiesAdvised"/>
+    </genClasses>
+    <genClasses ecoreClass="B3Build.ecore#//BeeModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//BeeModel/imports"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//BeeModel/functions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//BeeModel/concerns"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//BeeModel/body"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference B3Build.ecore#//BeeModel/propertySets"/>
+    </genClasses>
+    <genClasses ecoreClass="B3Build.ecore#//BeeHive">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference B3Build.ecore#//BeeHive/beeModels"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference B3Build.ecore#//BeeHive/parent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute B3Build.ecore#//BeeHive/resolutions"/>
+      <genOperations ecoreOperation="B3Build.ecore#//BeeHive/getResolvedCapabilityContainer">
+        <genParameters ecoreParameter="B3Build.ecore#//BeeHive/getResolvedCapabilityContainer/requiredCapability"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="B3Build.ecore#//ResolutionInfo"/>
+    <genClasses ecoreClass="B3Build.ecore#//BuildUnitWrapper">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference B3Build.ecore#//BuildUnitWrapper/original"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
