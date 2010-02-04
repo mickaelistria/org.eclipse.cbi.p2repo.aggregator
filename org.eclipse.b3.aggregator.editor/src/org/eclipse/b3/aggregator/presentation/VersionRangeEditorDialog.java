@@ -32,6 +32,11 @@ import org.eclipse.swt.widgets.Text;
  * 
  */
 public class VersionRangeEditorDialog extends Dialog {
+
+	// VersionRange.OSGi_versionMax is not visible
+	private static final Version OSGi_versionMax = Version.createOSGi(Integer.MAX_VALUE, Integer.MAX_VALUE,
+			Integer.MAX_VALUE);
+
 	private static final int VERSION_TEXT_WIDTH_HINT = 160;
 
 	private static String getString(String key) {
@@ -138,7 +143,11 @@ public class VersionRangeEditorDialog extends Dialog {
 
 		new Label(composite, SWT.NONE).setText(getString("_UI_VersionRangeEditor_maximumVersionLabel"));
 		maxVersionText = new Text(composite, SWT.BORDER);
-		maxVersionText.setText(versionRange.getMaximum().toString());
+
+		Version maxVersion = versionRange.getMaximum();
+		maxVersionText.setText((Version.MAX_VERSION.equals(maxVersion) || OSGi_versionMax.equals(maxVersion))
+				? ""
+				: maxVersion.toString());
 		maxVersionText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 		maxVersionInclusiveCombo = new Combo(composite, SWT.READ_ONLY);
 		maxVersionInclusiveCombo.setItems(inclusiveExclusive);

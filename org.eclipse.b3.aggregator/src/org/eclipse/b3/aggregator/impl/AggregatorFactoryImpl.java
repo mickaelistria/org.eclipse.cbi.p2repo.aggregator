@@ -490,7 +490,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 		}
 
 		mu.setName(iu.getId());
-		mu.setVersionRange(new VersionRange(iu.getVersion(), true, Version.MAX_VERSION, false));
+		mu.setVersionRange(new VersionRange(iu.getVersion(), true, Version.MAX_VERSION, true));
 
 		return mu;
 	}
