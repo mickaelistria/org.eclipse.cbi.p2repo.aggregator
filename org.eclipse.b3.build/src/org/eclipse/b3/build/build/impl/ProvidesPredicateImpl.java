@@ -7,6 +7,7 @@
 package org.eclipse.b3.build.build.impl;
 
 import java.lang.reflect.Type;
+import java.util.ListIterator;
 
 import org.eclipse.b3.backend.core.B3InternalError;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
@@ -132,6 +133,35 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 	public boolean matches(VersionedCapability candidate) {
 		return capabilityPredicate.matches(candidate);
 	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean removeMatching(EList<Capability> input) {
+		ListIterator<Capability> cItor = input.listIterator();
+		boolean result = false;
+		while(cItor.hasNext()) {
+			Capability c = cItor.next();
+			if((c instanceof VersionedCapability) ? matches((VersionedCapability)c) : matches(c)) {
+				result = true;
+				cItor.remove();
+			}
+		}
+		return result;
+	}
+
+//	/**
+//	 * Removes the capability from its container if it matches
+//	 * (watch out for concurrent modification if iterating over the collection and calling this method.
+//	 */
+//	public boolean removeMatching(Capability input) {
+//		boolean result = false;
+//		if(result = (input instanceof VersionedCapability) ? matches((VersionedCapability)input) : matches(input))
+//			((EList<?>)input.eContainer().eGet(input.eContainingFeature())).remove(input);
+//		return result;
+//	}
 
 	/**
 	 * <!-- begin-user-doc -->

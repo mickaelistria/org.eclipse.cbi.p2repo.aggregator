@@ -18,5 +18,5 @@ import org.eclipse.b3.backend.evaluator.b3backend.BConcernContext;
  * @model
  * @generated
  */
-public interface BuildConcernContext extends BConcernContext {
+public interface BuildConcernContext extends BConcernContext, IProvidedCapabilityContainer {
 } // BuildConcernContext

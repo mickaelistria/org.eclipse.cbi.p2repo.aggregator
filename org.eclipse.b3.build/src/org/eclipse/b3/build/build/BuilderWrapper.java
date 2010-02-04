@@ -16,9 +16,11 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.build.BuilderWrapper#getPromoted <em>Promoted</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.BuilderWrapper#isInputAdvised <em>Input Advised</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.BuilderWrapper#isOutputAdvised <em>Output Advised</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.BuilderWrapper#isUnitTypeAdvised <em>Unit Type Advised</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.BuilderWrapper#isProvidesAdvised <em>Provides Advised</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.BuilderWrapper#isDefaultPropertiesAdvised <em>Default Properties Advised</em>}</li>
  * </ul>
  * </p>
  *
@@ -27,32 +29,6 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper;
  * @generated
  */
 public interface BuilderWrapper extends BFunctionWrapper, IBuilder {
-
-	/**
-	 * Returns the value of the '<em><b>Promoted</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Promoted</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Promoted</em>' attribute.
-	 * @see #setPromoted(Class)
-	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuilderWrapper_Promoted()
-	 * @model
-	 * @generated
-	 */
-	Class<? extends BuildUnit> getPromoted();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderWrapper#getPromoted <em>Promoted</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Promoted</em>' attribute.
-	 * @see #getPromoted()
-	 * @generated
-	 */
-	void setPromoted(Class<? extends BuildUnit> value);
 
 	/**
 	 * Returns the value of the '<em><b>Input Advised</b></em>' attribute.
@@ -105,4 +81,82 @@ public interface BuilderWrapper extends BFunctionWrapper, IBuilder {
 	 * @generated
 	 */
 	void setOutputAdvised(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Unit Type Advised</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Unit Type Advised</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Unit Type Advised</em>' attribute.
+	 * @see #setUnitTypeAdvised(boolean)
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuilderWrapper_UnitTypeAdvised()
+	 * @model
+	 * @generated
+	 */
+	boolean isUnitTypeAdvised();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderWrapper#isUnitTypeAdvised <em>Unit Type Advised</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Unit Type Advised</em>' attribute.
+	 * @see #isUnitTypeAdvised()
+	 * @generated
+	 */
+	void setUnitTypeAdvised(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Provides Advised</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Provides Advised</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Provides Advised</em>' attribute.
+	 * @see #setProvidesAdvised(boolean)
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuilderWrapper_ProvidesAdvised()
+	 * @model
+	 * @generated
+	 */
+	boolean isProvidesAdvised();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderWrapper#isProvidesAdvised <em>Provides Advised</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Provides Advised</em>' attribute.
+	 * @see #isProvidesAdvised()
+	 * @generated
+	 */
+	void setProvidesAdvised(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Default Properties Advised</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Default Properties Advised</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default Properties Advised</em>' attribute.
+	 * @see #setDefaultPropertiesAdvised(boolean)
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuilderWrapper_DefaultPropertiesAdvised()
+	 * @model
+	 * @generated
+	 */
+	boolean isDefaultPropertiesAdvised();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderWrapper#isDefaultPropertiesAdvised <em>Default Properties Advised</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default Properties Advised</em>' attribute.
+	 * @see #isDefaultPropertiesAdvised()
+	 * @generated
+	 */
+	void setDefaultPropertiesAdvised(boolean value);
 } // BuilderWrapper

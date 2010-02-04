@@ -682,19 +682,30 @@ BuilderConcernContext returns build::BuilderConcernContext : {build::BuilderConc
    		)? matchParameters ?= ')' )?
   
 	query = BuilderOrExpression 
-	'{' ('-' removePreCondition ?="precondition" ';' )?
+	'{' ( ('-' "provides" providesRemovals += ProvidesPredicate ';')
+		| ('+' "provides" providedCapabilities += ProvidedCapability ';')
+		)*
+		
+		('-' removePreCondition ?="precondition" ';' )?
 		('+' "precondition" ((':' precondExpr = Expression ';' )|( precondExpr = BlockExpression)))?
 		('-' removePostInputCondition ?="postinputcondition" ';')?
 		('+' "postinputcondition" ((':' postinputcondExpr = Expression ';' )|( postinputcondExpr = BlockExpression)))?
 		('-' removePostCondition ?="postcondition" ';')?
 		('+' "postcondition" ((':' postcondExpr = Expression ';' )|( postcondExpr = BlockExpression)))?
 		
+		('-' "default" "properties" defaultPropertiesRemovals += PID (',' defaultPropertiesRemovals += PID)* ';')?
+		('+' "default" "properties" defaultPropertiesAdditions = PropertySet )?
+		
 		( ('+' "input" inputAdditions += Prerequisite) 
 		| ('-' inputRemovals += InputPredicate ';')
 		)*
+		
 		( ('+' "output" outputAdditions += PathVector)
 		| ('-' "output" outputRemovals += OutputPredicate ';'))*
-		// TODO: annotations
+		
+		('-' "annotations" annotationsRemovals += PID (',' annotationsRemovals += PID)* ';')?
+		('+' "annotations" annotationsAdditions = PropertySet )?
+		
 		(funcExpr = BlockExpression)? // replaces the builder's funcExpression TODO: around? etc?
 	'}'
 	;

@@ -7,6 +7,7 @@
 package org.eclipse.b3.build.build;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -66,5 +67,16 @@ public interface ProvidesPredicate extends BExpression {
 	 * @generated
 	 */
 	boolean matches(VersionedCapability candidate);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Removes matching prerequisites and returns true if something was removed.
+	 * <!-- end-model-doc -->
+	 * @model inputMany="false"
+	 * @generated
+	 */
+	boolean removeMatching(EList<Capability> input);
 
 } // ProvidesPredicate

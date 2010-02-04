@@ -10,6 +10,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate;
+import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -35,6 +36,11 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#getPrecondExpr <em>Precond Expr</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#getPostcondExpr <em>Postcond Expr</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#getPostinputcondExpr <em>Postinputcond Expr</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#getProvidesRemovals <em>Provides Removals</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#getDefaultPropertiesRemovals <em>Default Properties Removals</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#getDefaultPropertiesAdditions <em>Default Properties Additions</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#getAnnotationsRemovals <em>Annotations Removals</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#getAnnotationsAdditions <em>Annotations Additions</em>}</li>
  * </ul>
  * </p>
  *
@@ -382,6 +388,106 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * @generated
 	 */
 	void setPostinputcondExpr(BExpression value);
+
+	/**
+	 * Returns the value of the '<em><b>Provides Removals</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.b3.build.build.ProvidesPredicate}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Provides Removals</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Provides Removals</em>' containment reference list.
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuilderConcernContext_ProvidesRemovals()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ProvidesPredicate> getProvidesRemovals();
+
+	/**
+	 * Returns the value of the '<em><b>Default Properties Removals</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Default Properties Removals</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default Properties Removals</em>' attribute list.
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuilderConcernContext_DefaultPropertiesRemovals()
+	 * @model
+	 * @generated
+	 */
+	EList<String> getDefaultPropertiesRemovals();
+
+	/**
+	 * Returns the value of the '<em><b>Default Properties Additions</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Default Properties Additions</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default Properties Additions</em>' containment reference.
+	 * @see #setDefaultPropertiesAdditions(BPropertySet)
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuilderConcernContext_DefaultPropertiesAdditions()
+	 * @model containment="true"
+	 * @generated
+	 */
+	BPropertySet getDefaultPropertiesAdditions();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderConcernContext#getDefaultPropertiesAdditions <em>Default Properties Additions</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default Properties Additions</em>' containment reference.
+	 * @see #getDefaultPropertiesAdditions()
+	 * @generated
+	 */
+	void setDefaultPropertiesAdditions(BPropertySet value);
+
+	/**
+	 * Returns the value of the '<em><b>Annotations Removals</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Annotations Removals</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Annotations Removals</em>' attribute list.
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuilderConcernContext_AnnotationsRemovals()
+	 * @model
+	 * @generated
+	 */
+	EList<String> getAnnotationsRemovals();
+
+	/**
+	 * Returns the value of the '<em><b>Annotations Additions</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Annotations Additions</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Annotations Additions</em>' containment reference.
+	 * @see #setAnnotationsAdditions(BPropertySet)
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuilderConcernContext_AnnotationsAdditions()
+	 * @model containment="true"
+	 * @generated
+	 */
+	BPropertySet getAnnotationsAdditions();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderConcernContext#getAnnotationsAdditions <em>Annotations Additions</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Annotations Additions</em>' containment reference.
+	 * @see #getAnnotationsAdditions()
+	 * @generated
+	 */
+	void setAnnotationsAdditions(BPropertySet value);
 
 	/**
 	 * <!-- begin-user-doc -->

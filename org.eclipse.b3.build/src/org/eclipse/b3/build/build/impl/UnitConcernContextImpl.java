@@ -55,7 +55,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl#getRequiredCapabilities <em>Required Capabilities</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl#getProvidedCapabilities <em>Provided Capabilities</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl#getBuilderContexts <em>Builder Contexts</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl#getQuery <em>Query</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl#getRequiresRemovals <em>Requires Removals</em>}</li>
@@ -75,16 +74,6 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	 * @ordered
 	 */
 	protected EList<RequiredCapability> requiredCapabilities;
-
-	/**
-	 * The cached value of the '{@link #getProvidedCapabilities() <em>Provided Capabilities</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProvidedCapabilities()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Capability> providedCapabilities;
 
 	/**
 	 * The cached value of the '{@link #getBuilderContexts() <em>Builder Contexts</em>}' containment reference list.
@@ -155,18 +144,6 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 			requiredCapabilities = new EObjectContainmentEList<RequiredCapability>(RequiredCapability.class, this, B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_CAPABILITIES);
 		}
 		return requiredCapabilities;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Capability> getProvidedCapabilities() {
-		if (providedCapabilities == null) {
-			providedCapabilities = new EObjectContainmentEList<Capability>(Capability.class, this, B3BuildPackage.UNIT_CONCERN_CONTEXT__PROVIDED_CAPABILITIES);
-		}
-		return providedCapabilities;
 	}
 
 	/**
@@ -269,8 +246,6 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 		switch (featureID) {
 			case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_CAPABILITIES:
 				return ((InternalEList<?>)getRequiredCapabilities()).basicRemove(otherEnd, msgs);
-			case B3BuildPackage.UNIT_CONCERN_CONTEXT__PROVIDED_CAPABILITIES:
-				return ((InternalEList<?>)getProvidedCapabilities()).basicRemove(otherEnd, msgs);
 			case B3BuildPackage.UNIT_CONCERN_CONTEXT__BUILDER_CONTEXTS:
 				return ((InternalEList<?>)getBuilderContexts()).basicRemove(otherEnd, msgs);
 			case B3BuildPackage.UNIT_CONCERN_CONTEXT__QUERY:
@@ -293,8 +268,6 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 		switch (featureID) {
 			case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_CAPABILITIES:
 				return getRequiredCapabilities();
-			case B3BuildPackage.UNIT_CONCERN_CONTEXT__PROVIDED_CAPABILITIES:
-				return getProvidedCapabilities();
 			case B3BuildPackage.UNIT_CONCERN_CONTEXT__BUILDER_CONTEXTS:
 				return getBuilderContexts();
 			case B3BuildPackage.UNIT_CONCERN_CONTEXT__QUERY:
@@ -319,10 +292,6 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 			case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_CAPABILITIES:
 				getRequiredCapabilities().clear();
 				getRequiredCapabilities().addAll((Collection<? extends RequiredCapability>)newValue);
-				return;
-			case B3BuildPackage.UNIT_CONCERN_CONTEXT__PROVIDED_CAPABILITIES:
-				getProvidedCapabilities().clear();
-				getProvidedCapabilities().addAll((Collection<? extends Capability>)newValue);
 				return;
 			case B3BuildPackage.UNIT_CONCERN_CONTEXT__BUILDER_CONTEXTS:
 				getBuilderContexts().clear();
@@ -354,9 +323,6 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 			case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_CAPABILITIES:
 				getRequiredCapabilities().clear();
 				return;
-			case B3BuildPackage.UNIT_CONCERN_CONTEXT__PROVIDED_CAPABILITIES:
-				getProvidedCapabilities().clear();
-				return;
 			case B3BuildPackage.UNIT_CONCERN_CONTEXT__BUILDER_CONTEXTS:
 				getBuilderContexts().clear();
 				return;
@@ -383,8 +349,6 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 		switch (featureID) {
 			case B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_CAPABILITIES:
 				return requiredCapabilities != null && !requiredCapabilities.isEmpty();
-			case B3BuildPackage.UNIT_CONCERN_CONTEXT__PROVIDED_CAPABILITIES:
-				return providedCapabilities != null && !providedCapabilities.isEmpty();
 			case B3BuildPackage.UNIT_CONCERN_CONTEXT__BUILDER_CONTEXTS:
 				return builderContexts != null && !builderContexts.isEmpty();
 			case B3BuildPackage.UNIT_CONCERN_CONTEXT__QUERY:
@@ -410,12 +374,6 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 				default: return -1;
 			}
 		}
-		if (baseClass == IProvidedCapabilityContainer.class) {
-			switch (derivedFeatureID) {
-				case B3BuildPackage.UNIT_CONCERN_CONTEXT__PROVIDED_CAPABILITIES: return B3BuildPackage.IPROVIDED_CAPABILITY_CONTAINER__PROVIDED_CAPABILITIES;
-				default: return -1;
-			}
-		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -429,12 +387,6 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 		if (baseClass == IRequiredCapabilityContainer.class) {
 			switch (baseFeatureID) {
 				case B3BuildPackage.IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_CAPABILITIES: return B3BuildPackage.UNIT_CONCERN_CONTEXT__REQUIRED_CAPABILITIES;
-				default: return -1;
-			}
-		}
-		if (baseClass == IProvidedCapabilityContainer.class) {
-			switch (baseFeatureID) {
-				case B3BuildPackage.IPROVIDED_CAPABILITY_CONTAINER__PROVIDED_CAPABILITIES: return B3BuildPackage.UNIT_CONCERN_CONTEXT__PROVIDED_CAPABILITIES;
 				default: return -1;
 			}
 		}

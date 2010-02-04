@@ -258,6 +258,7 @@ public class B3BuildSwitch<T> {
 				BuildConcernContext buildConcernContext = (BuildConcernContext)theEObject;
 				T result = caseBuildConcernContext(buildConcernContext);
 				if (result == null) result = caseBConcernContext(buildConcernContext);
+				if (result == null) result = caseIProvidedCapabilityContainer(buildConcernContext);
 				if (result == null) result = caseBExpression(buildConcernContext);
 				if (result == null) result = caseBFunctionContainer(buildConcernContext);
 				if (result == null) result = defaultCase(theEObject);
@@ -324,8 +325,8 @@ public class B3BuildSwitch<T> {
 				T result = caseUnitConcernContext(unitConcernContext);
 				if (result == null) result = caseBuildConcernContext(unitConcernContext);
 				if (result == null) result = caseIRequiredCapabilityContainer(unitConcernContext);
-				if (result == null) result = caseIProvidedCapabilityContainer(unitConcernContext);
 				if (result == null) result = caseBConcernContext(unitConcernContext);
+				if (result == null) result = caseIProvidedCapabilityContainer(unitConcernContext);
 				if (result == null) result = caseBExpression(unitConcernContext);
 				if (result == null) result = caseBFunctionContainer(unitConcernContext);
 				if (result == null) result = defaultCase(theEObject);
@@ -336,6 +337,7 @@ public class B3BuildSwitch<T> {
 				T result = caseBuilderConcernContext(builderConcernContext);
 				if (result == null) result = caseBuildConcernContext(builderConcernContext);
 				if (result == null) result = caseBConcernContext(builderConcernContext);
+				if (result == null) result = caseIProvidedCapabilityContainer(builderConcernContext);
 				if (result == null) result = caseBExpression(builderConcernContext);
 				if (result == null) result = caseBFunctionContainer(builderConcernContext);
 				if (result == null) result = defaultCase(theEObject);

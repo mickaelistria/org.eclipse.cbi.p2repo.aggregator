@@ -29,7 +29,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface UnitConcernContext extends BuildConcernContext, IRequiredCapabilityContainer, IProvidedCapabilityContainer {
+public interface UnitConcernContext extends BuildConcernContext, IRequiredCapabilityContainer {
 	/**
 	 * Returns the value of the '<em><b>Builder Contexts</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipse.b3.build.build.BuilderConcernContext}.

@@ -227,7 +227,7 @@
       <eParameters name="beeModel" eType="#//BeeModel"/>
     </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BuildConcernContext" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//BConcernContext"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BuildConcernContext" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//BConcernContext #//IProvidedCapabilityContainer"/>
   <eClassifiers xsi:type="ecore:EClass" name="RequiresPredicate" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression">
     <eOperations name="matches" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="candidate" eType="#//RequiredCapability"/>
@@ -263,6 +263,16 @@
     <eOperations name="matches" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="candidate" eType="#//VersionedCapability"/>
     </eOperations>
+    <eOperations name="removeMatching" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Removes matching prerequisites and returns true if something was removed."/>
+      </eAnnotations>
+      <eParameters name="input">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
+          <eTypeArguments eClassifier="#//Capability"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="capabilityPredicate" eType="#//CapabilityPredicate"
         containment="true"/>
   </eClassifiers>
@@ -287,7 +297,7 @@
         eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BNamePredicate"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UnitConcernContext" eSuperTypes="#//BuildConcernContext #//IRequiredCapabilityContainer #//IProvidedCapabilityContainer">
+  <eClassifiers xsi:type="ecore:EClass" name="UnitConcernContext" eSuperTypes="#//BuildConcernContext #//IRequiredCapabilityContainer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="builderContexts" upperBound="-1"
         eType="#//BuilderConcernContext" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="query" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"
@@ -331,6 +341,17 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="postinputcondExpr" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="providesRemovals" upperBound="-1"
+        eType="#//ProvidesPredicate" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultPropertiesRemovals"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultPropertiesAdditions"
+        eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BPropertySet"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="annotationsRemovals" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="annotationsAdditions" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BPropertySet"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OutputPredicate" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression">
     <eOperations name="removeMatching" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -371,15 +392,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="Builder" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//B3Function #//IBuilder"/>
   <eClassifiers xsi:type="ecore:EClass" name="BuilderJava" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//BJavaFunction #//IBuilder"/>
   <eClassifiers xsi:type="ecore:EClass" name="BuilderWrapper" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//BFunctionWrapper #//IBuilder">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="promoted">
-      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
-        <eTypeArguments>
-          <eUpperBound eClassifier="#//BuildUnit"/>
-        </eTypeArguments>
-      </eGenericType>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="inputAdvised" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="OutputAdvised" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputAdvised" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unitTypeAdvised" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="providesAdvised" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultPropertiesAdvised"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BeeModel">
     <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"

@@ -13,6 +13,8 @@ import java.util.Map;
 
 import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.core.B3InternalError;
+import org.eclipse.b3.backend.core.PropertyDefinitionIterator;
+import org.eclipse.b3.backend.core.PropertyOperationIterator;
 import org.eclipse.b3.backend.core.TypePattern;
 import org.eclipse.b3.backend.core.TypePattern.Matcher;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
@@ -21,6 +23,9 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpressionWrapper;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterPredicate;
+import org.eclipse.b3.backend.evaluator.b3backend.BPropertyDefinitionOperation;
+import org.eclipse.b3.backend.evaluator.b3backend.BPropertyOperation;
+import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 
 import org.eclipse.b3.build.build.B3BuildFactory;
@@ -30,12 +35,14 @@ import org.eclipse.b3.build.build.Builder;
 import org.eclipse.b3.build.build.BuilderConcernContext;
 import org.eclipse.b3.build.build.BuilderInput;
 import org.eclipse.b3.build.build.BuilderWrapper;
+import org.eclipse.b3.build.build.Capability;
 import org.eclipse.b3.build.build.IBuilder;
 import org.eclipse.b3.build.build.InputPredicate;
 import org.eclipse.b3.build.build.OutputPredicate;
 import org.eclipse.b3.build.build.PathGroup;
 import org.eclipse.b3.build.build.PathVector;
 import org.eclipse.b3.build.build.Prerequisite;
+import org.eclipse.b3.build.build.ProvidesPredicate;
 import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -48,6 +55,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -74,6 +82,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getPrecondExpr <em>Precond Expr</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getPostcondExpr <em>Postcond Expr</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getPostinputcondExpr <em>Postinputcond Expr</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getProvidesRemovals <em>Provides Removals</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getDefaultPropertiesRemovals <em>Default Properties Removals</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getDefaultPropertiesAdditions <em>Default Properties Additions</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getAnnotationsRemovals <em>Annotations Removals</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getAnnotationsAdditions <em>Annotations Additions</em>}</li>
  * </ul>
  * </p>
  *
@@ -279,6 +292,56 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * @ordered
 	 */
 	protected BExpression postinputcondExpr;
+
+	/**
+	 * The cached value of the '{@link #getProvidesRemovals() <em>Provides Removals</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProvidesRemovals()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ProvidesPredicate> providesRemovals;
+
+	/**
+	 * The cached value of the '{@link #getDefaultPropertiesRemovals() <em>Default Properties Removals</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDefaultPropertiesRemovals()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> defaultPropertiesRemovals;
+
+	/**
+	 * The cached value of the '{@link #getDefaultPropertiesAdditions() <em>Default Properties Additions</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDefaultPropertiesAdditions()
+	 * @generated
+	 * @ordered
+	 */
+	protected BPropertySet defaultPropertiesAdditions;
+
+	/**
+	 * The cached value of the '{@link #getAnnotationsRemovals() <em>Annotations Removals</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAnnotationsRemovals()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> annotationsRemovals;
+
+	/**
+	 * The cached value of the '{@link #getAnnotationsAdditions() <em>Annotations Additions</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAnnotationsAdditions()
+	 * @generated
+	 * @ordered
+	 */
+	protected BPropertySet annotationsAdditions;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -681,6 +744,128 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ProvidesPredicate> getProvidesRemovals() {
+		if (providesRemovals == null) {
+			providesRemovals = new EObjectContainmentEList<ProvidesPredicate>(ProvidesPredicate.class, this, B3BuildPackage.BUILDER_CONCERN_CONTEXT__PROVIDES_REMOVALS);
+		}
+		return providesRemovals;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<String> getDefaultPropertiesRemovals() {
+		if (defaultPropertiesRemovals == null) {
+			defaultPropertiesRemovals = new EDataTypeUniqueEList<String>(String.class, this, B3BuildPackage.BUILDER_CONCERN_CONTEXT__DEFAULT_PROPERTIES_REMOVALS);
+		}
+		return defaultPropertiesRemovals;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BPropertySet getDefaultPropertiesAdditions() {
+		return defaultPropertiesAdditions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDefaultPropertiesAdditions(BPropertySet newDefaultPropertiesAdditions, NotificationChain msgs) {
+		BPropertySet oldDefaultPropertiesAdditions = defaultPropertiesAdditions;
+		defaultPropertiesAdditions = newDefaultPropertiesAdditions;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS, oldDefaultPropertiesAdditions, newDefaultPropertiesAdditions);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDefaultPropertiesAdditions(BPropertySet newDefaultPropertiesAdditions) {
+		if (newDefaultPropertiesAdditions != defaultPropertiesAdditions) {
+			NotificationChain msgs = null;
+			if (defaultPropertiesAdditions != null)
+				msgs = ((InternalEObject)defaultPropertiesAdditions).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS, null, msgs);
+			if (newDefaultPropertiesAdditions != null)
+				msgs = ((InternalEObject)newDefaultPropertiesAdditions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS, null, msgs);
+			msgs = basicSetDefaultPropertiesAdditions(newDefaultPropertiesAdditions, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS, newDefaultPropertiesAdditions, newDefaultPropertiesAdditions));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<String> getAnnotationsRemovals() {
+		if (annotationsRemovals == null) {
+			annotationsRemovals = new EDataTypeUniqueEList<String>(String.class, this, B3BuildPackage.BUILDER_CONCERN_CONTEXT__ANNOTATIONS_REMOVALS);
+		}
+		return annotationsRemovals;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BPropertySet getAnnotationsAdditions() {
+		return annotationsAdditions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAnnotationsAdditions(BPropertySet newAnnotationsAdditions, NotificationChain msgs) {
+		BPropertySet oldAnnotationsAdditions = annotationsAdditions;
+		annotationsAdditions = newAnnotationsAdditions;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__ANNOTATIONS_ADDITIONS, oldAnnotationsAdditions, newAnnotationsAdditions);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAnnotationsAdditions(BPropertySet newAnnotationsAdditions) {
+		if (newAnnotationsAdditions != annotationsAdditions) {
+			NotificationChain msgs = null;
+			if (annotationsAdditions != null)
+				msgs = ((InternalEObject)annotationsAdditions).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_CONCERN_CONTEXT__ANNOTATIONS_ADDITIONS, null, msgs);
+			if (newAnnotationsAdditions != null)
+				msgs = ((InternalEObject)newAnnotationsAdditions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_CONCERN_CONTEXT__ANNOTATIONS_ADDITIONS, null, msgs);
+			msgs = basicSetAnnotationsAdditions(newAnnotationsAdditions, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__ANNOTATIONS_ADDITIONS, newAnnotationsAdditions, newAnnotationsAdditions));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * Performs the same operation as {@link #evaluate(BExecutionContext)} but for a single object (candidate), and
 	 * with resulting wrapped builders being promoted to promoteToUnit (if set).
 	 * <!-- end-user-doc -->
@@ -721,6 +906,12 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 				return basicSetPostcondExpr(null, msgs);
 			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTINPUTCOND_EXPR:
 				return basicSetPostinputcondExpr(null, msgs);
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PROVIDES_REMOVALS:
+				return ((InternalEList<?>)getProvidesRemovals()).basicRemove(otherEnd, msgs);
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS:
+				return basicSetDefaultPropertiesAdditions(null, msgs);
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__ANNOTATIONS_ADDITIONS:
+				return basicSetAnnotationsAdditions(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -763,6 +954,16 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 				return getPostcondExpr();
 			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTINPUTCOND_EXPR:
 				return getPostinputcondExpr();
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PROVIDES_REMOVALS:
+				return getProvidesRemovals();
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__DEFAULT_PROPERTIES_REMOVALS:
+				return getDefaultPropertiesRemovals();
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS:
+				return getDefaultPropertiesAdditions();
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__ANNOTATIONS_REMOVALS:
+				return getAnnotationsRemovals();
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__ANNOTATIONS_ADDITIONS:
+				return getAnnotationsAdditions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -826,6 +1027,24 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTINPUTCOND_EXPR:
 				setPostinputcondExpr((BExpression)newValue);
 				return;
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PROVIDES_REMOVALS:
+				getProvidesRemovals().clear();
+				getProvidesRemovals().addAll((Collection<? extends ProvidesPredicate>)newValue);
+				return;
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__DEFAULT_PROPERTIES_REMOVALS:
+				getDefaultPropertiesRemovals().clear();
+				getDefaultPropertiesRemovals().addAll((Collection<? extends String>)newValue);
+				return;
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS:
+				setDefaultPropertiesAdditions((BPropertySet)newValue);
+				return;
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__ANNOTATIONS_REMOVALS:
+				getAnnotationsRemovals().clear();
+				getAnnotationsRemovals().addAll((Collection<? extends String>)newValue);
+				return;
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__ANNOTATIONS_ADDITIONS:
+				setAnnotationsAdditions((BPropertySet)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -883,6 +1102,21 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTINPUTCOND_EXPR:
 				setPostinputcondExpr((BExpression)null);
 				return;
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PROVIDES_REMOVALS:
+				getProvidesRemovals().clear();
+				return;
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__DEFAULT_PROPERTIES_REMOVALS:
+				getDefaultPropertiesRemovals().clear();
+				return;
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS:
+				setDefaultPropertiesAdditions((BPropertySet)null);
+				return;
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__ANNOTATIONS_REMOVALS:
+				getAnnotationsRemovals().clear();
+				return;
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__ANNOTATIONS_ADDITIONS:
+				setAnnotationsAdditions((BPropertySet)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -925,6 +1159,16 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 				return postcondExpr != null;
 			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTINPUTCOND_EXPR:
 				return postinputcondExpr != null;
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PROVIDES_REMOVALS:
+				return providesRemovals != null && !providesRemovals.isEmpty();
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__DEFAULT_PROPERTIES_REMOVALS:
+				return defaultPropertiesRemovals != null && !defaultPropertiesRemovals.isEmpty();
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS:
+				return defaultPropertiesAdditions != null;
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__ANNOTATIONS_REMOVALS:
+				return annotationsRemovals != null && !annotationsRemovals.isEmpty();
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__ANNOTATIONS_ADDITIONS:
+				return annotationsAdditions != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -949,6 +1193,10 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 		result.append(removePostCondition);
 		result.append(", removePostInputCondition: ");
 		result.append(removePostInputCondition);
+		result.append(", defaultPropertiesRemovals: ");
+		result.append(defaultPropertiesRemovals);
+		result.append(", annotationsRemovals: ");
+		result.append(annotationsRemovals);
 		result.append(')');
 		return result.toString();
 	}
@@ -1028,8 +1276,10 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 		wrapper.setOriginal(b);
 		wrapper.setAroundExpr(this.funcExpr); // non containment, so ok to use this.funcExpr
 		wrapper.setParameterMap(nameMap);
-		if(promoteToUnit != null)
-			wrapper.setPromoted(BuildUnitProxyAdapterFactory.eINSTANCE.adapt(promoteToUnit).getIface());
+		if(promoteToUnit != null) {
+			wrapper.setUnitType(BuildUnitProxyAdapterFactory.eINSTANCE.adapt(promoteToUnit).getIface());
+			wrapper.setUnitTypeAdvised(true);
+		}
 		// if function has varargs, and the varargs parameter was mapped, the wrapper needs to know this
 		if(isVarArgs() && ((pName = plist.get(plist.size()-1).getName()) != null))
 			wrapper.setVarargsName(pName);
@@ -1117,28 +1367,105 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 		// may be needed multiple times.,
 		
 		// is output advised ?
-		ADVICEOUTPUT: if(getOutputRemovals().size() > 0 || getOutputAdditions().size() > 0) {
+		// TODO: Advice annotations
+		ADVICEOUTPUT: 
+			if(getOutputRemovals().size() > 0 || getOutputAdditions().size() > 0) {
+				boolean modified = false;
+				PathGroup pg = null;
+				wrapper.setOutput(pg = PathGroup.class.cast(EcoreUtil.copy(b.getOutput())));
+				// removal
+				for(OutputPredicate op : getOutputRemovals())
+					modified = op.removeMatching(pg) || modified;
+				// optimize if unchanged
+				if(!modified && getOutputAdditions().size() == 0) {
+					wrapper.setOutput(null);
+					break ADVICEOUTPUT;
+				}
+				// addition
+				EList<PathVector> vectors = pg.getPathVectors();
+				for(PathVector pv : getOutputAdditions())
+					vectors.add(PathVector.class.cast(EcoreUtil.copy(pv)));
+
+				wrapper.setOutputAdvised(true);
+			}
+		
+		// WRAP PROVIDED CAPABILITIES
+		ADVICEPROVIDES: if(getProvidesRemovals().size() > 0 || getProvidedCapabilities().size() > 0) {
 			boolean modified = false;
-			PathGroup pg = null;
-			wrapper.setOutput(pg = PathGroup.class.cast(EcoreUtil.copy(b.getOutput())));
+			EList<Capability> provided = wrapper.getProvidedCapabilities();
+			for(Capability c : b.getProvidedCapabilities())
+				provided.add(Capability.class.cast(EcoreUtil.copy(c)));
 			// removal
-			for(OutputPredicate op : getOutputRemovals())
-				modified = op.removeMatching(pg) || modified;
+			for(ProvidesPredicate pp : getProvidesRemovals())
+				modified = pp.removeMatching(provided) || modified;
 			// optimize if unchanged
-			if(!modified && getOutputAdditions().size() == 0) {
-				wrapper.setOutput(null);
-				break ADVICEOUTPUT;
+			if(!modified && getProvidedCapabilities().size() == 0) {
+				provided.clear();
+				break ADVICEPROVIDES;
 			}
 			// addition
-			EList<PathVector> vectors = pg.getPathVectors();
-			for(PathVector pv : getOutputAdditions())
-				vectors.add(PathVector.class.cast(EcoreUtil.copy(pv)));
+			for(Capability c : getProvidedCapabilities())
+				provided.add(Capability.class.cast(EcoreUtil.copy(c)));
 
-			wrapper.setOutputAdvised(true);
+			wrapper.setProvidesAdvised(true);
 		}
+		// WRAP DEFAULT PROPERTIES
+		// if there are removals or additions, copy the property set from the original and then remove
+		// specific property settings - nasty if other properties rely on previously set properties - but
+		// user has to worry about that, then add copied definitions from additions.
+		//
+		if(getDefaultPropertiesRemovals().size() > 0 || getDefaultPropertiesAdditions() != null) {
+			BPropertySet ps = B3backendFactory.eINSTANCE.createBDefaultPropertySet();
+			wrapper.setDefaultProperties(ps);
+			processProperties(ps, getDefaultPropertiesRemovals(), b.getDefaultProperties(), getDefaultPropertiesAdditions());			
+		}
+		
+		// WRAP ANNOTATIONS
+		// Same as Default properties, but for annotations.
+		// TODO: What to do if there is no output? It may still be useful to modify annotations in the produced result
+		// in input?? (Current impl will throw NPE if there is no input...)
+		if(getAnnotationsRemovals().size() > 0 || getAnnotationsAdditions() != null) {
+			BPropertySet as = B3backendFactory.eINSTANCE.createBPropertySet();
+			processProperties(as, getAnnotationsRemovals(), b.getOutput().getAnnotations(), getAnnotationsAdditions());
+			wrapper.getOutput().setAnnotations(as);
+		}
+		
 		// define the wrapper, and we are done
 		ctx.defineFunction(wrapper);
 		return true;
+	}
+	/**
+	 * Copies everything from originalSet to propertySet, and then removes all definitions in removals. Lastly
+	 * additions are added to the propertySet.
+	 * @param propertySet - the set that receives the result
+	 * @param removals - list of property names to remove from the definition
+	 * @param originalSet - the set to copy
+	 * @param additions - additions to set after removals have been made
+	 */
+	private void processProperties(BPropertySet propertySet, EList<String> removals, BPropertySet originalSet, BPropertySet additions) {
+		EList<BPropertyOperation> operations = propertySet.getOperations();
+		PropertyOperationIterator psItor = new PropertyOperationIterator(originalSet);
+
+		// copy everything
+		while(psItor.hasNext())
+			operations.add(BPropertyOperation.class.cast(EcoreUtil.copy(psItor.next())));
+
+		// remove matching definitions
+		if(getDefaultPropertiesRemovals().size() > 0) {
+			PropertyDefinitionIterator psdItor = new PropertyDefinitionIterator(propertySet);
+			while(psdItor.hasNext()) {
+				BPropertyDefinitionOperation pd = psdItor.next();
+				for(String pid : removals) {
+					if(pid.equals(pd.getDefinition().getName()))
+						psdItor.remove();
+				}
+			}	
+		}
+		
+		// add new definitions
+		psItor = new PropertyOperationIterator(additions);
+		while(psItor.hasNext())
+			operations.add(BPropertyOperation.class.cast(EcoreUtil.copy(psItor.next())));
 	}
 	/**
 	 * Applies the advice to all already defined builders matching the query and type pattern specified
