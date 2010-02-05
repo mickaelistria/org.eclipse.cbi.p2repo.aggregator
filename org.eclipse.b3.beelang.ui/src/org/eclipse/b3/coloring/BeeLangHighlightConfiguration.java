@@ -6,7 +6,7 @@ import org.eclipse.xtext.ui.common.editor.syntaxcoloring.DefaultHighlightingConf
 import org.eclipse.xtext.ui.common.editor.syntaxcoloring.IHighlightingConfigurationAcceptor;
 import org.eclipse.xtext.ui.core.editor.utils.TextStyle;
 
-public class BeeLangLexicalHighlightConfiguration extends DefaultHighlightingConfiguration {
+public class BeeLangHighlightConfiguration extends DefaultHighlightingConfiguration {
 
 	public static final String DOCUMENTATION_ID = "documentation";
 	public static final String REGEXP_ID = "regexp";

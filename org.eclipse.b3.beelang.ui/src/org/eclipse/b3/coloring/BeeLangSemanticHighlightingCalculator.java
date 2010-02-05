@@ -7,9 +7,6 @@ import org.eclipse.b3.build.build.CapabilityPredicate;
 import org.eclipse.b3.build.build.PathVector;
 import org.eclipse.b3.build.build.RequiredCapability;
 import org.eclipse.b3.build.build.VersionedCapability;
-
-//import org.eclipse.b3.beeLang.RealLiteral;
-
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
@@ -23,8 +20,7 @@ import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.common.editor.syntaxcoloring.IHighlightedPositionAcceptor;
 import org.eclipse.xtext.ui.common.editor.syntaxcoloring.ISemanticHighlightingCalculator;
 
-public class BeeLangSemanticHighlightingCalculator implements
-ISemanticHighlightingCalculator {
+public class BeeLangSemanticHighlightingCalculator implements ISemanticHighlightingCalculator {
 
 	public void provideHighlightingFor(XtextResource resource, IHighlightedPositionAcceptor acceptor) {
 		if(resource == null)
@@ -40,6 +36,7 @@ ISemanticHighlightingCalculator {
 		while(all.hasNext())
 		{
 			EObject o = all.next();
+			// TODO: OPTIMIZE the if-then-else below using an EMF switch
 			if(o instanceof BuildUnit)
 				highlightBuildUnit((BuildUnit)o, acceptor);
 			
@@ -48,7 +45,7 @@ ISemanticHighlightingCalculator {
 				Object val = ((BLiteralExpression)o).getValue();
 				// handle real numbers (INT and HEX are handled by terminal rules)
 				if(val instanceof Float || val instanceof Double)
-					highlightObject(o, BeeLangSemanticHighligtConfiuration.REAL_ID, acceptor);
+					highlightObject(o, BeeLangHighlightConfiguration.REAL_ID, acceptor);
 			}
 			else if(o instanceof PathVector)
 				highlightPaths((PathVector)o, acceptor);
@@ -64,20 +61,20 @@ ISemanticHighlightingCalculator {
 		
 	}
 	public void highlightBuildUnit(BuildUnit bu, IHighlightedPositionAcceptor acceptor) {
-		highlightFirstFeature(bu, "version", BeeLangSemanticHighligtConfiuration.VERSION_ID, acceptor);
+		highlightFirstFeature(bu, "version", BeeLangHighlightConfiguration.VERSION_ID, acceptor);
 	}
 
 	public void highlightPaths(PathVector v, IHighlightedPositionAcceptor acceptor){
-		highlightObject(v, BeeLangSemanticHighligtConfiuration.PATH_ID, acceptor);
+		highlightObject(v, BeeLangHighlightConfiguration.PATH_ID, acceptor);
 	}
 	public void highlightRequiredCapability(RequiredCapability rc, IHighlightedPositionAcceptor acceptor) {
-		highlightFirstFeature(rc, "versionRange", BeeLangSemanticHighligtConfiuration.VERSION_ID, acceptor);
+		highlightFirstFeature(rc, "versionRange", BeeLangHighlightConfiguration.VERSION_ID, acceptor);
 	}
 	public void highlightVersionedCapability(VersionedCapability vc, IHighlightedPositionAcceptor acceptor) {
-		highlightFirstFeature(vc, "version", BeeLangSemanticHighligtConfiuration.VERSION_ID, acceptor);
+		highlightFirstFeature(vc, "version", BeeLangHighlightConfiguration.VERSION_ID, acceptor);
 	}
 	public void highlightCapabilityPredicate(CapabilityPredicate cp, IHighlightedPositionAcceptor acceptor) {
-		highlightFirstFeature(cp, "versionRange", BeeLangSemanticHighligtConfiuration.VERSION_ID, acceptor);
+		highlightFirstFeature(cp, "versionRange", BeeLangHighlightConfiguration.VERSION_ID, acceptor);
 	}
 	
 	private void highlightObject(EObject semantic, String highlightID, IHighlightedPositionAcceptor acceptor) {
@@ -105,8 +102,7 @@ ISemanticHighlightingCalculator {
 			// TODO: WARNING - Could not find node
 			return;
 		}
-		acceptor.addPosition(nodetohighlight.getOffset(), nodetohighlight
-				.getLength(), highlightID);
+		acceptor.addPosition(nodetohighlight.getOffset(), nodetohighlight.getLength(), highlightID);
 	}
 
 	// navigate to the parse node corresponding to the semantic object and

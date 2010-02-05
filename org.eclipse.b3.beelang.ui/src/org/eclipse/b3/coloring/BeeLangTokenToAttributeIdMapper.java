@@ -12,16 +12,16 @@ public class BeeLangTokenToAttributeIdMapper extends
 		// treat, 'true', 'false', and 'null' differently
 		if(tokenName.startsWith("'")&&tokenName.endsWith("'")) {
 			if(tokenName.equals( "'true'") || tokenName.equals( "'false'"))
-				return BeeLangLexicalHighlightConfiguration.BOOLEAN_ID;
+				return BeeLangHighlightConfiguration.BOOLEAN_ID;
 			if(tokenName.equals("'null'")) 
-				return BeeLangLexicalHighlightConfiguration.NULL_ID;
+				return BeeLangHighlightConfiguration.NULL_ID;
 		}
 		if("RULE_DOCUMENTATION".equals(tokenName)) {
-			return BeeLangLexicalHighlightConfiguration.DOCUMENTATION_ID;
+			return BeeLangHighlightConfiguration.DOCUMENTATION_ID;
 		}
 
 		if("RULE_REGULAR_EXPR".equals(tokenName)) {
-			return BeeLangLexicalHighlightConfiguration.REGEXP_ID;
+			return BeeLangHighlightConfiguration.REGEXP_ID;
 		}
 		
 		if("RULE_HEX".equals(tokenName)) {

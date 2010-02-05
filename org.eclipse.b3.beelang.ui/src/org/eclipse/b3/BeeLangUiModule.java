@@ -1,6 +1,6 @@
 package org.eclipse.b3;
 
-import org.eclipse.b3.coloring.BeeLangLexicalHighlightConfiguration;
+import org.eclipse.b3.coloring.BeeLangHighlightConfiguration;
 import org.eclipse.b3.coloring.BeeLangSemanticHighlightingCalculator;
 import org.eclipse.b3.coloring.BeeLangTokenToAttributeIdMapper;
 import org.eclipse.b3.outline.BeeLangOutlineNodeAdapterFactory;
@@ -21,7 +21,7 @@ public class BeeLangUiModule extends org.eclipse.b3.AbstractBeeLangUiModule {
 	
 	public Class<? extends IHighlightingConfiguration> 
 		bindILexicalHighlightingConfiguration() {
-		return BeeLangLexicalHighlightConfiguration.class;
+		return BeeLangHighlightConfiguration.class;
 	}	
 
 	public Class<? extends ISemanticHighlightingCalculator> 
