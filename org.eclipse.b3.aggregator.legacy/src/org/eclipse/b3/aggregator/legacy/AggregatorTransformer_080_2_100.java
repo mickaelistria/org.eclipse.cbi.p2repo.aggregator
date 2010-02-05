@@ -281,7 +281,7 @@ public class AggregatorTransformer_080_2_100 extends ResourceTransformer {
 
 		if(srcVersionEAttrValue != null) {
 			// TODO error handling
-			VersionRange vr = new VersionRange(Version.create(srcVersionEAttrValue), true, null, false);
+			VersionRange vr = new VersionRange(Version.create(srcVersionEAttrValue), true, null, true);
 			trgtEObject.eSet(trgtVersionRangeEAttr, vr);
 		}
 	}
