@@ -36,6 +36,26 @@ public interface AggregatorFactory extends EFactory {
 	Aggregator createAggregator();
 
 	/**
+	 * Returns a new object of class '<em>Available Version</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Available Version</em>'.
+	 * @generated
+	 */
+	AvailableVersion createAvailableVersion();
+
+	/**
+	 * Returns a new object of class '<em>Available Versions Header</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Available Versions Header</em>'.
+	 * @generated
+	 */
+	AvailableVersionsHeader createAvailableVersionsHeader();
+
+	/**
 	 * Returns a new object of class '<em>Bundle</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 

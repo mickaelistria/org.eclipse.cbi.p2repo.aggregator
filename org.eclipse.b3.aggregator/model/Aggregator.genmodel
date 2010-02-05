@@ -13,9 +13,9 @@
     editPluginID="org.eclipse.b3.aggregator.edit" editorPluginID="org.eclipse.b3.aggregator.editor"
     colorProviders="true" fontProviders="true" language="" packedEnums="true" classNamePattern="">
   <foreignModel>Aggregator.ecore</foreignModel>
-  <genPackages prefix="Aggregator" basePackage="org.eclipse.b3" resource="XMI"
-      disposableProviderFactory="true" multipleEditorPages="false" contentTypeIdentifier=""
-      fileExtensions="b3aggr" ecorePackage="Aggregator.ecore#/">
+  <genPackages prefix="Aggregator" basePackage="org.eclipse.b3" resource="XMI" disposableProviderFactory="true"
+      multipleEditorPages="false" contentTypeIdentifier="" fileExtensions="b3aggr"
+      ecorePackage="Aggregator.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="Aggregator.ecore#//AggregateType">
       <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//AggregateType/Stable"/>
       <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//AggregateType/Integration"/>
@@ -59,6 +59,11 @@
       <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//StatusCode/OK"/>
       <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//StatusCode/BROKEN"/>
       <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//StatusCode/WAITING"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Aggregator.ecore#//VersionMatch">
+      <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//VersionMatch/BELOW"/>
+      <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//VersionMatch/MATCHES"/>
+      <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//VersionMatch/ABOVE"/>
     </genEnums>
     <genDataTypes ecoreDataType="Aggregator.ecore#//URI"/>
     <genClasses ecoreClass="Aggregator.ecore#//Aggregator" labelFeature="#//aggregator/Aggregator/label">
@@ -127,6 +132,7 @@
     <genClasses ecoreClass="Aggregator.ecore#//Bundle"/>
     <genClasses image="false" ecoreClass="Aggregator.ecore#//MappedUnit">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Aggregator.ecore#//MappedUnit/validConfigurations"/>
+      <genOperations ecoreOperation="Aggregator.ecore#//MappedUnit/getRequiredCapability"/>
     </genClasses>
     <genClasses ecoreClass="Aggregator.ecore#//Product"/>
     <genClasses ecoreClass="Aggregator.ecore#//Property">
@@ -147,13 +153,15 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//EnabledStatusProvider/enabled"/>
     </genClasses>
     <genClasses image="false" ecoreClass="Aggregator.ecore#//MapRule"/>
-    <genClasses image="false" ecoreClass="Aggregator.ecore#//InstallableUnitReference">
-      <genFeatures createChild="false" ecoreFeature="ecore:EReference Aggregator.ecore#//InstallableUnitReference/installableUnit"/>
-      <genOperations ecoreOperation="Aggregator.ecore#//InstallableUnitReference/getInstallableUnit">
-        <genParameters ecoreParameter="Aggregator.ecore#//InstallableUnitReference/getInstallableUnit/forceResolve"/>
-      </genOperations>
-      <genOperations ecoreOperation="Aggregator.ecore#//InstallableUnitReference/isMappedRepositoryBroken"/>
-      <genOperations ecoreOperation="Aggregator.ecore#//InstallableUnitReference/isBranchEnabled"/>
+    <genClasses image="false" ecoreClass="Aggregator.ecore#//InstallableUnitRequest">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//InstallableUnitRequest/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//InstallableUnitRequest/versionRange"/>
+      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference Aggregator.ecore#//InstallableUnitRequest/availableVersionsHeader"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference Aggregator.ecore#//InstallableUnitRequest/availableVersions"/>
+      <genOperations ecoreOperation="Aggregator.ecore#//InstallableUnitRequest/isMappedRepositoryBroken"/>
+      <genOperations ecoreOperation="Aggregator.ecore#//InstallableUnitRequest/isBranchEnabled"/>
+      <genOperations ecoreOperation="Aggregator.ecore#//InstallableUnitRequest/resolveAsSingleton"/>
+      <genOperations ecoreOperation="Aggregator.ecore#//InstallableUnitRequest/resolveAvailableVersions"/>
     </genClasses>
     <genClasses ecoreClass="Aggregator.ecore#//ExclusionRule"/>
     <genClasses ecoreClass="Aggregator.ecore#//ValidConfigurationsRule">
@@ -165,9 +173,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//MetadataRepositoryReference/location"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//MetadataRepositoryReference/nature"/>
       <genOperations ecoreOperation="Aggregator.ecore#//MetadataRepositoryReference/getAggregator"/>
-      <genOperations ecoreOperation="Aggregator.ecore#//MetadataRepositoryReference/getMetadataRepository">
-        <genParameters ecoreParameter="Aggregator.ecore#//MetadataRepositoryReference/getMetadataRepository/forceResolve"/>
-      </genOperations>
       <genOperations ecoreOperation="Aggregator.ecore#//MetadataRepositoryReference/isBranchEnabled"/>
       <genOperations ecoreOperation="Aggregator.ecore#//MetadataRepositoryReference/getResolvedLocation"/>
       <genOperations ecoreOperation="Aggregator.ecore#//MetadataRepositoryReference/startRepositoryLoad">
@@ -215,6 +220,13 @@
           ecoreFeature="ecore:EAttribute Aggregator.ecore#//InfosProvider/warnings"/>
       <genFeatures property="None" notify="false" createChild="false" propertyDescription=""
           ecoreFeature="ecore:EAttribute Aggregator.ecore#//InfosProvider/infos"/>
+    </genClasses>
+    <genClasses ecoreClass="Aggregator.ecore#//AvailableVersionsHeader">
+      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference Aggregator.ecore#//AvailableVersionsHeader/availableVersions"/>
+    </genClasses>
+    <genClasses ecoreClass="Aggregator.ecore#//AvailableVersion">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//AvailableVersion/versionMatch"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//AvailableVersion/version"/>
     </genClasses>
     <nestedGenPackages prefix="P2" disposableProviderFactory="true" multipleEditorPages="false"
         generateModelWizard="false" ecorePackage="Aggregator.ecore#//p2">

@@ -212,6 +212,25 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 	protected StatusItemProvider statusItemProvider;
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.AvailableVersion} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected AvailableVersionItemProvider availableVersionItemProvider;
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.AvailableVersionsHeader}
+	 * instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected AvailableVersionsHeaderItemProvider availableVersionsHeaderItemProvider;
+
+	/**
 	 * This constructs an instance. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
@@ -280,6 +299,38 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 		}
 
 		return aggregatorItemProvider;
+	}
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.AvailableVersion}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Adapter createAvailableVersionAdapter() {
+		if(availableVersionItemProvider == null) {
+			availableVersionItemProvider = new AvailableVersionItemProvider(this);
+		}
+
+		return availableVersionItemProvider;
+	}
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.AvailableVersionsHeader}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Adapter createAvailableVersionsHeaderAdapter() {
+		if(availableVersionsHeaderItemProvider == null) {
+			availableVersionsHeaderItemProvider = new AvailableVersionsHeaderItemProvider(this);
+		}
+
+		return availableVersionsHeaderItemProvider;
 	}
 
 	/**
@@ -595,6 +646,10 @@ public class AggregatorItemProviderAdapterFactory extends AggregatorAdapterFacto
 			mavenItemItemProvider.dispose();
 		if(statusItemProvider != null)
 			statusItemProvider.dispose();
+		if(availableVersionsHeaderItemProvider != null)
+			availableVersionsHeaderItemProvider.dispose();
+		if(availableVersionItemProvider != null)
+			availableVersionItemProvider.dispose();
 	}
 
 	/**

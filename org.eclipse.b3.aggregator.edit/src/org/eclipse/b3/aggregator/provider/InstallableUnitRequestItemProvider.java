@@ -27,6 +27,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemColorProvider;
@@ -60,6 +61,32 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 	 */
 	public InstallableUnitRequestItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
+	}
+
+	// hides children when disabled
+	@Override
+	public Collection<?> getChildren(Object object) {
+		if(((InstallableUnitRequest) object).isBranchEnabled())
+			return super.getChildren(object);
+		return null;
+	}
+
+	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if(childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(AggregatorPackage.Literals.INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS_HEADER);
+		}
+		return childrenFeatures;
 	}
 
 	/**
@@ -115,6 +142,12 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 				: getString("_UI_InstallableUnitRequest_type") + " " + label;
 	}
 
+	// It always have a child - "Available Versions"
+	@Override
+	public boolean hasChildren(Object object) {
+		return ((InstallableUnitRequest) object).isBranchEnabled();
+	}
+
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached children and by creating
 	 * a viewer notification, which it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!-- end-user-doc
@@ -129,7 +162,10 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 		switch(notification.getFeatureID(InstallableUnitRequest.class)) {
 		case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__NAME:
 		case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__VERSION_RANGE:
-			((AggregatorResource) ((EObject) notification.getNotifier()).eResource()).analyzeResource();
+			InstallableUnitRequest iuRequest = (InstallableUnitRequest) notification.getNotifier();
+			iuRequest.resolveAvailableVersions();
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+			((AggregatorResource) ((EObject) iuRequest).eResource()).analyzeResource();
 		case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__ERRORS:
 		case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__WARNINGS:
 		case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__INFOS:
@@ -170,7 +206,7 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 				AggregatorPackage.Literals.INSTALLABLE_UNIT_REQUEST__NAME, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null) {
 
-			@SuppressWarnings({ "rawtypes" })
+			@SuppressWarnings( { "rawtypes" })
 			public Collection<?> getChoiceOfValues(Object object) {
 				InstallableUnitRequest self = (InstallableUnitRequest) object;
 				MappedRepository container = (MappedRepository) ((EObject) self).eContainer();
@@ -278,6 +314,20 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
+	}
+
 	// Must be implemented by subclass.
 	protected List<? extends InstallableUnitRequest> getContainerChildren(MappedRepository container) {
 		throw new UnsupportedOperationException();
@@ -287,4 +337,5 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 	protected org.eclipse.equinox.internal.provisional.p2.metadata.query.Query getInstallableUnitQuery() {
 		throw new UnsupportedOperationException();
 	}
+
 }

@@ -13,6 +13,8 @@ import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.Architecture;
+import org.eclipse.b3.aggregator.AvailableVersion;
+import org.eclipse.b3.aggregator.AvailableVersionsHeader;
 import org.eclipse.b3.aggregator.Bundle;
 import org.eclipse.b3.aggregator.Category;
 import org.eclipse.b3.aggregator.Configuration;
@@ -37,6 +39,7 @@ import org.eclipse.b3.aggregator.Property;
 import org.eclipse.b3.aggregator.Status;
 import org.eclipse.b3.aggregator.StatusCode;
 import org.eclipse.b3.aggregator.ValidConfigurationsRule;
+import org.eclipse.b3.aggregator.VersionMatch;
 import org.eclipse.b3.aggregator.WindowSystem;
 import org.eclipse.b3.aggregator.p2.InstallableUnit;
 import org.eclipse.b3.aggregator.p2.MetadataRepository;
@@ -184,6 +187,8 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 			return convertInstallableUnitTypeToString(eDataType, instanceValue);
 		case AggregatorPackage.STATUS_CODE:
 			return convertStatusCodeToString(eDataType, instanceValue);
+		case AggregatorPackage.VERSION_MATCH:
+			return convertVersionMatchToString(eDataType, instanceValue);
 		case AggregatorPackage.URI:
 			return convertURIToString(eDataType, instanceValue);
 		default:
@@ -198,6 +203,18 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	 */
 	public String convertURIToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public String convertVersionMatchToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null
+				? null
+				: instanceValue.toString();
 	}
 
 	/**
@@ -257,6 +274,10 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 			return (EObject) createStatus();
 		case AggregatorPackage.INFOS_PROVIDER:
 			return (EObject) createInfosProvider();
+		case AggregatorPackage.AVAILABLE_VERSIONS_HEADER:
+			return (EObject) createAvailableVersionsHeader();
+		case AggregatorPackage.AVAILABLE_VERSION:
+			return (EObject) createAvailableVersion();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -296,6 +317,28 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '"
 					+ eDataType.getName() + "'");
 		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public AvailableVersion createAvailableVersion() {
+		AvailableVersionImpl availableVersion = new AvailableVersionImpl();
+		return availableVersion;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public AvailableVersionsHeader createAvailableVersionsHeader() {
+		AvailableVersionsHeaderImpl availableVersionsHeader = new AvailableVersionsHeaderImpl();
+		return availableVersionsHeader;
 	}
 
 	/**
@@ -410,6 +453,8 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 			return createInstallableUnitTypeFromString(eDataType, initialValue);
 		case AggregatorPackage.STATUS_CODE:
 			return createStatusCodeFromString(eDataType, initialValue);
+		case AggregatorPackage.VERSION_MATCH:
+			return createVersionMatchFromString(eDataType, initialValue);
 		case AggregatorPackage.URI:
 			return createURIFromString(eDataType, initialValue);
 		default:
@@ -650,6 +695,20 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	public ValidConfigurationsRule createValidConfigurationsRule() {
 		ValidConfigurationsRuleImpl validConfigurationsRule = new ValidConfigurationsRuleImpl();
 		return validConfigurationsRule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public VersionMatch createVersionMatchFromString(EDataType eDataType, String initialValue) {
+		VersionMatch result = VersionMatch.get(initialValue);
+		if(result == null)
+			throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '"
+					+ eDataType.getName() + "'");
+		return result;
 	}
 
 	/**

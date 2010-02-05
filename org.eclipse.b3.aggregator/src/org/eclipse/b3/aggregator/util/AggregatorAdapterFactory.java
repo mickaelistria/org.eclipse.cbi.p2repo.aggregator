@@ -8,6 +8,8 @@ package org.eclipse.b3.aggregator.util;
 
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorPackage;
+import org.eclipse.b3.aggregator.AvailableVersion;
+import org.eclipse.b3.aggregator.AvailableVersionsHeader;
 import org.eclipse.b3.aggregator.Bundle;
 import org.eclipse.b3.aggregator.Category;
 import org.eclipse.b3.aggregator.ChildrenProvider;
@@ -64,6 +66,16 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseAggregator(Aggregator object) {
 			return createAggregatorAdapter();
+		}
+
+		@Override
+		public Adapter caseAvailableVersion(AvailableVersion object) {
+			return createAvailableVersionAdapter();
+		}
+
+		@Override
+		public Adapter caseAvailableVersionsHeader(AvailableVersionsHeader object) {
+			return createAvailableVersionsHeaderAdapter();
 		}
 
 		@Override
@@ -239,6 +251,38 @@ public class AggregatorAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAggregatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.AvailableVersion
+	 * <em>Available Version</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.aggregator.AvailableVersion
+	 * @generated
+	 */
+	public Adapter createAvailableVersionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.AvailableVersionsHeader
+	 * <em>Available Versions Header</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.aggregator.AvailableVersionsHeader
+	 * @generated
+	 */
+	public Adapter createAvailableVersionsHeaderAdapter() {
 		return null;
 	}
 

@@ -10,6 +10,8 @@ import java.util.List;
 
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorPackage;
+import org.eclipse.b3.aggregator.AvailableVersion;
+import org.eclipse.b3.aggregator.AvailableVersionsHeader;
 import org.eclipse.b3.aggregator.Bundle;
 import org.eclipse.b3.aggregator.Category;
 import org.eclipse.b3.aggregator.ChildrenProvider;
@@ -80,6 +82,40 @@ public class AggregatorSwitch<T1> {
 	 * @generated
 	 */
 	public T1 caseAggregator(Aggregator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Available Version</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Available Version</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseAvailableVersion(AvailableVersion object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Available Versions Header</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Available Versions Header</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseAvailableVersionsHeader(AvailableVersionsHeader object) {
 		return null;
 	}
 
@@ -845,6 +881,20 @@ public class AggregatorSwitch<T1> {
 		case AggregatorPackage.INFOS_PROVIDER: {
 			InfosProvider infosProvider = (InfosProvider) theEObject;
 			T1 result = caseInfosProvider(infosProvider);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case AggregatorPackage.AVAILABLE_VERSIONS_HEADER: {
+			AvailableVersionsHeader availableVersionsHeader = (AvailableVersionsHeader) theEObject;
+			T1 result = caseAvailableVersionsHeader(availableVersionsHeader);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case AggregatorPackage.AVAILABLE_VERSION: {
+			AvailableVersion availableVersion = (AvailableVersion) theEObject;
+			T1 result = caseAvailableVersion(availableVersion);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;

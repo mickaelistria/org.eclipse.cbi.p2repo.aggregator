@@ -162,9 +162,15 @@
     <eOperations name="isMappedRepositoryBroken" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eOperations name="isBranchEnabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eOperations name="resolveAsSingleton" eType="#//p2/IInstallableUnit"/>
+    <eOperations name="resolveAvailableVersions"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="versionRange" eType="#//p2/VersionRange"
         defaultValueLiteral="0.0.0"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="availableVersionsHeader"
+        eType="#//AvailableVersionsHeader" transient="true" containment="true" resolveProxies="false"
+        eOpposite="#//AvailableVersionsHeader/installableUnitRequest"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="availableVersions" upperBound="-1"
+        eType="#//AvailableVersion" transient="true" containment="true" resolveProxies="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExclusionRule" eSuperTypes="#//MapRule"/>
   <eClassifiers xsi:type="ecore:EClass" name="ValidConfigurationsRule" eSuperTypes="#//MapRule">
@@ -247,6 +253,24 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String" transient="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="infos" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String" transient="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AvailableVersionsHeader">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="availableVersions" upperBound="-1"
+        eType="#//AvailableVersion" changeable="false" volatile="true" transient="true"
+        resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="installableUnitRequest"
+        lowerBound="1" eType="#//InstallableUnitRequest" changeable="false" transient="true"
+        resolveProxies="false" eOpposite="#//InstallableUnitRequest/availableVersionsHeader"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AvailableVersion">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="versionMatch" lowerBound="1"
+        eType="#//VersionMatch" defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="#//p2/Version"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="VersionMatch">
+    <eLiterals name="BELOW" literal="below"/>
+    <eLiterals name="MATCHES" value="1" literal="matches"/>
+    <eLiterals name="ABOVE" value="2" literal="above"/>
   </eClassifiers>
   <eSubpackages name="p2" nsURI="http://www.eclipse.org/b3/2010/p2/1.0.0" nsPrefix="p2">
     <eClassifiers xsi:type="ecore:EClass" name="IArtifactKey" instanceClassName="org.eclipse.equinox.internal.provisional.p2.metadata.IArtifactKey"

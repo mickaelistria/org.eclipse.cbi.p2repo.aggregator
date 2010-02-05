@@ -9,6 +9,7 @@
  */
 package org.eclipse.b3.aggregator;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.equinox.internal.provisional.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.internal.provisional.p2.metadata.VersionRange;
 
@@ -21,6 +22,9 @@ import org.eclipse.equinox.internal.provisional.p2.metadata.VersionRange;
  * <ul>
  * <li>{@link org.eclipse.b3.aggregator.InstallableUnitRequest#getName <em>Name</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.InstallableUnitRequest#getVersionRange <em>Version Range</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.InstallableUnitRequest#getAvailableVersionsHeader <em>Available Versions Header
+ * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.InstallableUnitRequest#getAvailableVersions <em>Available Versions</em>}</li>
  * </ul>
  * </p>
  * 
@@ -29,6 +33,44 @@ import org.eclipse.equinox.internal.provisional.p2.metadata.VersionRange;
  * @generated
  */
 public interface InstallableUnitRequest extends StatusProvider, InfosProvider, DescriptionProvider {
+	/**
+	 * Returns the value of the '<em><b>Available Versions</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.b3.aggregator.AvailableVersion}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Available Versions</em>' attribute list isn't clear, there really should be more of a
+	 * description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Available Versions</em>' containment reference list.
+	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getInstallableUnitRequest_AvailableVersions()
+	 * @model containment="true" transient="true"
+	 * @generated
+	 */
+	EList<AvailableVersion> getAvailableVersions();
+
+	/**
+	 * Returns the value of the '<em><b>Available Versions Header</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '
+	 * {@link org.eclipse.b3.aggregator.AvailableVersionsHeader#getInstallableUnitRequest
+	 * <em>Installable Unit Request</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Available Versions Header</em>' containment reference isn't clear, there really should
+	 * be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Available Versions Header</em>' containment reference.
+	 * @see #setAvailableVersionsHeader(AvailableVersionsHeader)
+	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getInstallableUnitRequest_AvailableVersionsHeader()
+	 * @see org.eclipse.b3.aggregator.AvailableVersionsHeader#getInstallableUnitRequest
+	 * @model opposite="installableUnitRequest" containment="true" transient="true"
+	 * @generated
+	 */
+	AvailableVersionsHeader getAvailableVersionsHeader();
+
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -95,6 +137,28 @@ public interface InstallableUnitRequest extends StatusProvider, InfosProvider, D
 	 * @generated
 	 */
 	IInstallableUnit resolveAsSingleton();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @model
+	 * @generated
+	 */
+	void resolveAvailableVersions();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.InstallableUnitRequest#getAvailableVersionsHeader
+	 * <em>Available Versions Header</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Available Versions Header</em>' containment reference.
+	 * @see #getAvailableVersionsHeader()
+	 * @generated
+	 */
+	void setAvailableVersionsHeader(AvailableVersionsHeader value);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.InstallableUnitRequest#getName <em>Name</em>}' attribute.

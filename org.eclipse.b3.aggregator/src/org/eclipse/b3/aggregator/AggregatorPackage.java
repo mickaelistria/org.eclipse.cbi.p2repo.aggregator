@@ -566,6 +566,24 @@ public interface AggregatorPackage extends EPackage {
 		EAttribute INSTALLABLE_UNIT_REQUEST__VERSION_RANGE = eINSTANCE.getInstallableUnitRequest_VersionRange();
 
 		/**
+		 * The meta object literal for the '<em><b>Available Versions Header</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS_HEADER = eINSTANCE.getInstallableUnitRequest_AvailableVersionsHeader();
+
+		/**
+		 * The meta object literal for the '<em><b>Available Versions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS = eINSTANCE.getInstallableUnitRequest_AvailableVersions();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.impl.ExclusionRuleImpl
 		 * <em>Exclusion Rule</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -690,6 +708,66 @@ public interface AggregatorPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute INFOS_PROVIDER__INFOS = eINSTANCE.getInfosProvider_Infos();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.impl.AvailableVersionsHeaderImpl
+		 * <em>Available Versions Header</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.aggregator.impl.AvailableVersionsHeaderImpl
+		 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getAvailableVersionsHeader()
+		 * @generated
+		 */
+		EClass AVAILABLE_VERSIONS_HEADER = eINSTANCE.getAvailableVersionsHeader();
+
+		/**
+		 * The meta object literal for the '<em><b>Available Versions</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference AVAILABLE_VERSIONS_HEADER__AVAILABLE_VERSIONS = eINSTANCE.getAvailableVersionsHeader_AvailableVersions();
+
+		/**
+		 * The meta object literal for the '<em><b>Installable Unit Request</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference AVAILABLE_VERSIONS_HEADER__INSTALLABLE_UNIT_REQUEST = eINSTANCE.getAvailableVersionsHeader_InstallableUnitRequest();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.impl.AvailableVersionImpl
+		 * <em>Available Version</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.aggregator.impl.AvailableVersionImpl
+		 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getAvailableVersion()
+		 * @generated
+		 */
+		EClass AVAILABLE_VERSION = eINSTANCE.getAvailableVersion();
+
+		/**
+		 * The meta object literal for the '<em><b>Version Match</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute AVAILABLE_VERSION__VERSION_MATCH = eINSTANCE.getAvailableVersion_VersionMatch();
+
+		/**
+		 * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute AVAILABLE_VERSION__VERSION = eINSTANCE.getAvailableVersion_Version();
 
 		/**
 		 * The meta object literal for the '{@link java.lang.Comparable <em>Comparable</em>}' class.
@@ -930,6 +1008,17 @@ public interface AggregatorPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum STATUS_CODE = eINSTANCE.getStatusCode();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.VersionMatch <em>Version Match</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.aggregator.VersionMatch
+		 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getVersionMatch()
+		 * @generated
+		 */
+		EEnum VERSION_MATCH = eINSTANCE.getVersionMatch();
 
 		/**
 		 * The meta object literal for the '<em>URI</em>' data type.
@@ -1820,6 +1909,26 @@ public interface AggregatorPackage extends EPackage {
 	int INSTALLABLE_UNIT_REQUEST__VERSION_RANGE = STATUS_PROVIDER_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Available Versions Header</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS_HEADER = STATUS_PROVIDER_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Available Versions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS = STATUS_PROVIDER_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>Installable Unit Request</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1827,7 +1936,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INSTALLABLE_UNIT_REQUEST_FEATURE_COUNT = STATUS_PROVIDER_FEATURE_COUNT + 6;
+	int INSTALLABLE_UNIT_REQUEST_FEATURE_COUNT = STATUS_PROVIDER_FEATURE_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.FeatureImpl <em>Feature</em>}' class.
@@ -1957,6 +2066,26 @@ public interface AggregatorPackage extends EPackage {
 	int MAPPED_UNIT__VERSION_RANGE = INSTALLABLE_UNIT_REQUEST__VERSION_RANGE;
 
 	/**
+	 * The feature id for the '<em><b>Available Versions Header</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPED_UNIT__AVAILABLE_VERSIONS_HEADER = INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS_HEADER;
+
+	/**
+	 * The feature id for the '<em><b>Available Versions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPED_UNIT__AVAILABLE_VERSIONS = INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS;
+
+	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -2049,6 +2178,26 @@ public interface AggregatorPackage extends EPackage {
 	 * @ordered
 	 */
 	int FEATURE__VERSION_RANGE = MAPPED_UNIT__VERSION_RANGE;
+
+	/**
+	 * The feature id for the '<em><b>Available Versions Header</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE__AVAILABLE_VERSIONS_HEADER = MAPPED_UNIT__AVAILABLE_VERSIONS_HEADER;
+
+	/**
+	 * The feature id for the '<em><b>Available Versions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE__AVAILABLE_VERSIONS = MAPPED_UNIT__AVAILABLE_VERSIONS;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -2154,6 +2303,26 @@ public interface AggregatorPackage extends EPackage {
 	int BUNDLE__VERSION_RANGE = MAPPED_UNIT__VERSION_RANGE;
 
 	/**
+	 * The feature id for the '<em><b>Available Versions Header</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE__AVAILABLE_VERSIONS_HEADER = MAPPED_UNIT__AVAILABLE_VERSIONS_HEADER;
+
+	/**
+	 * The feature id for the '<em><b>Available Versions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE__AVAILABLE_VERSIONS = MAPPED_UNIT__AVAILABLE_VERSIONS;
+
+	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -2246,6 +2415,26 @@ public interface AggregatorPackage extends EPackage {
 	 * @ordered
 	 */
 	int PRODUCT__VERSION_RANGE = MAPPED_UNIT__VERSION_RANGE;
+
+	/**
+	 * The feature id for the '<em><b>Available Versions Header</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PRODUCT__AVAILABLE_VERSIONS_HEADER = MAPPED_UNIT__AVAILABLE_VERSIONS_HEADER;
+
+	/**
+	 * The feature id for the '<em><b>Available Versions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PRODUCT__AVAILABLE_VERSIONS = MAPPED_UNIT__AVAILABLE_VERSIONS;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -2387,6 +2576,26 @@ public interface AggregatorPackage extends EPackage {
 	 * @ordered
 	 */
 	int CATEGORY__VERSION_RANGE = MAPPED_UNIT__VERSION_RANGE;
+
+	/**
+	 * The feature id for the '<em><b>Available Versions Header</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__AVAILABLE_VERSIONS_HEADER = MAPPED_UNIT__AVAILABLE_VERSIONS_HEADER;
+
+	/**
+	 * The feature id for the '<em><b>Available Versions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__AVAILABLE_VERSIONS = MAPPED_UNIT__AVAILABLE_VERSIONS;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -2583,6 +2792,26 @@ public interface AggregatorPackage extends EPackage {
 	int MAP_RULE__VERSION_RANGE = INSTALLABLE_UNIT_REQUEST__VERSION_RANGE;
 
 	/**
+	 * The feature id for the '<em><b>Available Versions Header</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MAP_RULE__AVAILABLE_VERSIONS_HEADER = INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS_HEADER;
+
+	/**
+	 * The feature id for the '<em><b>Available Versions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int MAP_RULE__AVAILABLE_VERSIONS = INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS;
+
+	/**
 	 * The number of structural features of the '<em>Map Rule</em>' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -2666,6 +2895,26 @@ public interface AggregatorPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXCLUSION_RULE__VERSION_RANGE = MAP_RULE__VERSION_RANGE;
+
+	/**
+	 * The feature id for the '<em><b>Available Versions Header</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EXCLUSION_RULE__AVAILABLE_VERSIONS_HEADER = MAP_RULE__AVAILABLE_VERSIONS_HEADER;
+
+	/**
+	 * The feature id for the '<em><b>Available Versions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EXCLUSION_RULE__AVAILABLE_VERSIONS = MAP_RULE__AVAILABLE_VERSIONS;
 
 	/**
 	 * The number of structural features of the '<em>Exclusion Rule</em>' class.
@@ -2752,6 +3001,26 @@ public interface AggregatorPackage extends EPackage {
 	 * @ordered
 	 */
 	int VALID_CONFIGURATIONS_RULE__VERSION_RANGE = MAP_RULE__VERSION_RANGE;
+
+	/**
+	 * The feature id for the '<em><b>Available Versions Header</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int VALID_CONFIGURATIONS_RULE__AVAILABLE_VERSIONS_HEADER = MAP_RULE__AVAILABLE_VERSIONS_HEADER;
+
+	/**
+	 * The feature id for the '<em><b>Available Versions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int VALID_CONFIGURATIONS_RULE__AVAILABLE_VERSIONS = MAP_RULE__AVAILABLE_VERSIONS;
 
 	/**
 	 * The feature id for the '<em><b>Valid Configurations</b></em>' reference list.
@@ -3038,6 +3307,90 @@ public interface AggregatorPackage extends EPackage {
 	int INFOS_PROVIDER_FEATURE_COUNT = 3;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.AvailableVersionsHeaderImpl
+	 * <em>Available Versions Header</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.aggregator.impl.AvailableVersionsHeaderImpl
+	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getAvailableVersionsHeader()
+	 * @generated
+	 */
+	int AVAILABLE_VERSIONS_HEADER = 27;
+
+	/**
+	 * The feature id for the '<em><b>Available Versions</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int AVAILABLE_VERSIONS_HEADER__AVAILABLE_VERSIONS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Installable Unit Request</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int AVAILABLE_VERSIONS_HEADER__INSTALLABLE_UNIT_REQUEST = 1;
+
+	/**
+	 * The number of structural features of the '<em>Available Versions Header</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int AVAILABLE_VERSIONS_HEADER_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.impl.AvailableVersionImpl
+	 * <em>Available Version</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.aggregator.impl.AvailableVersionImpl
+	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getAvailableVersion()
+	 * @generated
+	 */
+	int AVAILABLE_VERSION = 28;
+
+	/**
+	 * The feature id for the '<em><b>Version Match</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int AVAILABLE_VERSION__VERSION_MATCH = 0;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int AVAILABLE_VERSION__VERSION = 1;
+
+	/**
+	 * The number of structural features of the '<em>Available Version</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int AVAILABLE_VERSION_FEATURE_COUNT = 2;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.AggregateType <em>Aggregate Type</em>}' enum.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -3045,7 +3398,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getAggregateType()
 	 * @generated
 	 */
-	int AGGREGATE_TYPE = 27;
+	int AGGREGATE_TYPE = 29;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.OperatingSystem <em>Operating System</em>}' enum.
@@ -3055,7 +3408,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getOperatingSystem()
 	 * @generated
 	 */
-	int OPERATING_SYSTEM = 28;
+	int OPERATING_SYSTEM = 30;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.WindowSystem <em>Window System</em>}' enum.
@@ -3065,7 +3418,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getWindowSystem()
 	 * @generated
 	 */
-	int WINDOW_SYSTEM = 29;
+	int WINDOW_SYSTEM = 31;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.Architecture <em>Architecture</em>}' enum.
@@ -3075,7 +3428,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getArchitecture()
 	 * @generated
 	 */
-	int ARCHITECTURE = 30;
+	int ARCHITECTURE = 32;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.PackedStrategy <em>Packed Strategy</em>}' enum.
@@ -3085,7 +3438,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getPackedStrategy()
 	 * @generated
 	 */
-	int PACKED_STRATEGY = 31;
+	int PACKED_STRATEGY = 33;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.InstallableUnitType <em>Installable Unit Type</em>}'
@@ -3096,7 +3449,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getInstallableUnitType()
 	 * @generated
 	 */
-	int INSTALLABLE_UNIT_TYPE = 32;
+	int INSTALLABLE_UNIT_TYPE = 34;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.StatusCode <em>Status Code</em>}' enum.
@@ -3106,7 +3459,18 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getStatusCode()
 	 * @generated
 	 */
-	int STATUS_CODE = 33;
+	int STATUS_CODE = 35;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.VersionMatch <em>Version Match</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.aggregator.VersionMatch
+	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getVersionMatch()
+	 * @generated
+	 */
+	int VERSION_MATCH = 36;
 
 	/**
 	 * The meta object id for the '<em>URI</em>' data type.
@@ -3116,7 +3480,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.impl.AggregatorPackageImpl#getURI()
 	 * @generated
 	 */
-	int URI = 34;
+	int URI = 37;
 
 	/**
 	 * Returns the meta object for enum '{@link org.eclipse.b3.aggregator.AggregateType <em>Aggregate Type</em>}'.
@@ -3311,6 +3675,83 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getArchitecture();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.AvailableVersion <em>Available Version</em>}
+	 * '.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Available Version</em>'.
+	 * @see org.eclipse.b3.aggregator.AvailableVersion
+	 * @generated
+	 */
+	EClass getAvailableVersion();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.aggregator.AvailableVersion#getVersion
+	 * <em>Version</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Version</em>'.
+	 * @see org.eclipse.b3.aggregator.AvailableVersion#getVersion()
+	 * @see #getAvailableVersion()
+	 * @generated
+	 */
+	EAttribute getAvailableVersion_Version();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.aggregator.AvailableVersion#getVersionMatch
+	 * <em>Version Match</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Version Match</em>'.
+	 * @see org.eclipse.b3.aggregator.AvailableVersion#getVersionMatch()
+	 * @see #getAvailableVersion()
+	 * @generated
+	 */
+	EAttribute getAvailableVersion_VersionMatch();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.AvailableVersionsHeader
+	 * <em>Available Versions Header</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Available Versions Header</em>'.
+	 * @see org.eclipse.b3.aggregator.AvailableVersionsHeader
+	 * @generated
+	 */
+	EClass getAvailableVersionsHeader();
+
+	/**
+	 * Returns the meta object for the reference list '
+	 * {@link org.eclipse.b3.aggregator.AvailableVersionsHeader#getAvailableVersions <em>Available Versions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the reference list '<em>Available Versions</em>'.
+	 * @see org.eclipse.b3.aggregator.AvailableVersionsHeader#getAvailableVersions()
+	 * @see #getAvailableVersionsHeader()
+	 * @generated
+	 */
+	EReference getAvailableVersionsHeader_AvailableVersions();
+
+	/**
+	 * Returns the meta object for the container reference '
+	 * {@link org.eclipse.b3.aggregator.AvailableVersionsHeader#getInstallableUnitRequest
+	 * <em>Installable Unit Request</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the container reference '<em>Installable Unit Request</em>'.
+	 * @see org.eclipse.b3.aggregator.AvailableVersionsHeader#getInstallableUnitRequest()
+	 * @see #getAvailableVersionsHeader()
+	 * @generated
+	 */
+	EReference getAvailableVersionsHeader_InstallableUnitRequest();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.Bundle <em>Bundle</em>}'. <!--
@@ -3728,6 +4169,33 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getInstallableUnitRequest();
+
+	/**
+	 * Returns the meta object for the containment reference list '
+	 * {@link org.eclipse.b3.aggregator.InstallableUnitRequest#getAvailableVersions <em>Available Versions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference list '<em>Available Versions</em>'.
+	 * @see org.eclipse.b3.aggregator.InstallableUnitRequest#getAvailableVersions()
+	 * @see #getInstallableUnitRequest()
+	 * @generated
+	 */
+	EReference getInstallableUnitRequest_AvailableVersions();
+
+	/**
+	 * Returns the meta object for the containment reference '
+	 * {@link org.eclipse.b3.aggregator.InstallableUnitRequest#getAvailableVersionsHeader
+	 * <em>Available Versions Header</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the containment reference '<em>Available Versions Header</em>'.
+	 * @see org.eclipse.b3.aggregator.InstallableUnitRequest#getAvailableVersionsHeader()
+	 * @see #getInstallableUnitRequest()
+	 * @generated
+	 */
+	EReference getInstallableUnitRequest_AvailableVersionsHeader();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.b3.aggregator.InstallableUnitRequest#getName
@@ -4207,6 +4675,17 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getValidConfigurationsRule_ValidConfigurations();
+
+	/**
+	 * Returns the meta object for enum '{@link org.eclipse.b3.aggregator.VersionMatch <em>Version Match</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for enum '<em>Version Match</em>'.
+	 * @see org.eclipse.b3.aggregator.VersionMatch
+	 * @generated
+	 */
+	EEnum getVersionMatch();
 
 	/**
 	 * Returns the meta object for enum '{@link org.eclipse.b3.aggregator.WindowSystem <em>Window System</em>}'.

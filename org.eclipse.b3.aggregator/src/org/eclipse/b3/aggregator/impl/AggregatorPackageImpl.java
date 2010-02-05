@@ -13,6 +13,8 @@ import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.Architecture;
+import org.eclipse.b3.aggregator.AvailableVersion;
+import org.eclipse.b3.aggregator.AvailableVersionsHeader;
 import org.eclipse.b3.aggregator.Bundle;
 import org.eclipse.b3.aggregator.Category;
 import org.eclipse.b3.aggregator.ChildrenProvider;
@@ -42,6 +44,7 @@ import org.eclipse.b3.aggregator.Status;
 import org.eclipse.b3.aggregator.StatusCode;
 import org.eclipse.b3.aggregator.StatusProvider;
 import org.eclipse.b3.aggregator.ValidConfigurationsRule;
+import org.eclipse.b3.aggregator.VersionMatch;
 import org.eclipse.b3.aggregator.WindowSystem;
 import org.eclipse.b3.aggregator.p2.P2Package;
 import org.eclipse.b3.aggregator.p2.impl.P2PackageImpl;
@@ -260,6 +263,22 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	private EClass infosProviderEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass availableVersionsHeaderEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass availableVersionEClass = null;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -356,6 +375,14 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 * @generated
 	 */
 	private EEnum statusCodeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EEnum versionMatchEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -486,6 +513,8 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		installableUnitRequestEClass = createEClass(INSTALLABLE_UNIT_REQUEST);
 		createEAttribute(installableUnitRequestEClass, INSTALLABLE_UNIT_REQUEST__NAME);
 		createEAttribute(installableUnitRequestEClass, INSTALLABLE_UNIT_REQUEST__VERSION_RANGE);
+		createEReference(installableUnitRequestEClass, INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS_HEADER);
+		createEReference(installableUnitRequestEClass, INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS);
 
 		exclusionRuleEClass = createEClass(EXCLUSION_RULE);
 
@@ -529,6 +558,14 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		createEAttribute(infosProviderEClass, INFOS_PROVIDER__WARNINGS);
 		createEAttribute(infosProviderEClass, INFOS_PROVIDER__INFOS);
 
+		availableVersionsHeaderEClass = createEClass(AVAILABLE_VERSIONS_HEADER);
+		createEReference(availableVersionsHeaderEClass, AVAILABLE_VERSIONS_HEADER__AVAILABLE_VERSIONS);
+		createEReference(availableVersionsHeaderEClass, AVAILABLE_VERSIONS_HEADER__INSTALLABLE_UNIT_REQUEST);
+
+		availableVersionEClass = createEClass(AVAILABLE_VERSION);
+		createEAttribute(availableVersionEClass, AVAILABLE_VERSION__VERSION_MATCH);
+		createEAttribute(availableVersionEClass, AVAILABLE_VERSION__VERSION);
+
 		// Create enums
 		aggregateTypeEEnum = createEEnum(AGGREGATE_TYPE);
 		operatingSystemEEnum = createEEnum(OPERATING_SYSTEM);
@@ -537,6 +574,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		packedStrategyEEnum = createEEnum(PACKED_STRATEGY);
 		installableUnitTypeEEnum = createEEnum(INSTALLABLE_UNIT_TYPE);
 		statusCodeEEnum = createEEnum(STATUS_CODE);
+		versionMatchEEnum = createEEnum(VERSION_MATCH);
 
 		// Create data types
 		uriEDataType = createEDataType(URI);
@@ -693,6 +731,66 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 */
 	public EEnum getArchitecture() {
 		return architectureEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getAvailableVersion() {
+		return availableVersionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getAvailableVersion_Version() {
+		return (EAttribute) availableVersionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getAvailableVersion_VersionMatch() {
+		return (EAttribute) availableVersionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getAvailableVersionsHeader() {
+		return availableVersionsHeaderEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getAvailableVersionsHeader_AvailableVersions() {
+		return (EReference) availableVersionsHeaderEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getAvailableVersionsHeader_InstallableUnitRequest() {
+		return (EReference) availableVersionsHeaderEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1018,6 +1116,26 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 */
 	public EClass getInstallableUnitRequest() {
 		return installableUnitRequestEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getInstallableUnitRequest_AvailableVersions() {
+		return (EReference) installableUnitRequestEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getInstallableUnitRequest_AvailableVersionsHeader() {
+		return (EReference) installableUnitRequestEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1401,6 +1519,16 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EEnum getVersionMatch() {
+		return versionMatchEEnum;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -1671,6 +1799,13 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		initEAttribute(getInstallableUnitRequest_VersionRange(), theP2Package.getVersionRange(), "versionRange",
 				"0.0.0", 0, 1, InstallableUnitRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInstallableUnitRequest_AvailableVersionsHeader(), this.getAvailableVersionsHeader(),
+				this.getAvailableVersionsHeader_InstallableUnitRequest(), "availableVersionsHeader", null, 0, 1,
+				InstallableUnitRequest.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInstallableUnitRequest_AvailableVersions(), this.getAvailableVersion(), null,
+				"availableVersions", null, 0, -1, InstallableUnitRequest.class, IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(installableUnitRequestEClass, ecorePackage.getEBoolean(), "isMappedRepositoryBroken", 0, 1,
 				IS_UNIQUE, IS_ORDERED);
@@ -1680,6 +1815,8 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 
 		addEOperation(installableUnitRequestEClass, theP2Package.getIInstallableUnit(), "resolveAsSingleton", 0, 1,
 				IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(installableUnitRequestEClass, null, "resolveAvailableVersions", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(exclusionRuleEClass, ExclusionRule.class, "ExclusionRule", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -1785,6 +1922,25 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 				InfosProvider.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 
+		initEClass(availableVersionsHeaderEClass, AvailableVersionsHeader.class, "AvailableVersionsHeader",
+				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAvailableVersionsHeader_AvailableVersions(), this.getAvailableVersion(), null,
+				"availableVersions", null, 0, -1, AvailableVersionsHeader.class, IS_TRANSIENT, IS_VOLATILE,
+				!IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAvailableVersionsHeader_InstallableUnitRequest(), this.getInstallableUnitRequest(),
+				this.getInstallableUnitRequest_AvailableVersionsHeader(), "installableUnitRequest", null, 1, 1,
+				AvailableVersionsHeader.class, IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(availableVersionEClass, AvailableVersion.class, "AvailableVersion", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAvailableVersion_VersionMatch(), this.getVersionMatch(), "versionMatch", "", 1, 1,
+				AvailableVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAvailableVersion_Version(), theP2Package.getVersion(), "version", null, 0, 1,
+				AvailableVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(aggregateTypeEEnum, AggregateType.class, "AggregateType");
 		addEEnumLiteral(aggregateTypeEEnum, AggregateType.STABLE);
@@ -1829,6 +1985,11 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		addEEnumLiteral(statusCodeEEnum, StatusCode.OK);
 		addEEnumLiteral(statusCodeEEnum, StatusCode.BROKEN);
 		addEEnumLiteral(statusCodeEEnum, StatusCode.WAITING);
+
+		initEEnum(versionMatchEEnum, VersionMatch.class, "VersionMatch");
+		addEEnumLiteral(versionMatchEEnum, VersionMatch.BELOW);
+		addEEnumLiteral(versionMatchEEnum, VersionMatch.MATCHES);
+		addEEnumLiteral(versionMatchEEnum, VersionMatch.ABOVE);
 
 		// Initialize data types
 		initEDataType(uriEDataType, java.net.URI.class, "URI", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
