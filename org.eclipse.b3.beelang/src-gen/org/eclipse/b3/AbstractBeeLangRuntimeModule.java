@@ -24,7 +24,7 @@ public abstract class AbstractBeeLangRuntimeModule extends DefaultRuntimeModule 
 	}
 	
 	protected void bindProperties(Binder binder) {
-		bindProperties(binder, "/org/eclipse/b3/BeeLang.properties");
+		bindProperties(binder, "org/eclipse/b3/BeeLang.properties");
 	}
 	
 	

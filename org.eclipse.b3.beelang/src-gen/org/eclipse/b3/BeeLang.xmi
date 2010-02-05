@@ -2820,6 +2820,24 @@
         <terminal xsi:type="xtext:RuleCall" rule="//@rules.118"/>
       </tokens>
       <tokens xsi:type="xtext:Keyword" value="{"/>
+      <tokens xsi:type="xtext:Alternatives" cardinality="*">
+        <groups xsi:type="xtext:Group">
+          <tokens xsi:type="xtext:Keyword" value="-"/>
+          <tokens xsi:type="xtext:Keyword" value="provides"/>
+          <tokens xsi:type="xtext:Assignment" feature="providesRemovals" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.109"/>
+          </tokens>
+          <tokens xsi:type="xtext:Keyword" value=";"/>
+        </groups>
+        <groups xsi:type="xtext:Group">
+          <tokens xsi:type="xtext:Keyword" value="+"/>
+          <tokens xsi:type="xtext:Keyword" value="provides"/>
+          <tokens xsi:type="xtext:Assignment" feature="providedCapabilities" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.3"/>
+          </tokens>
+          <tokens xsi:type="xtext:Keyword" value=";"/>
+        </groups>
+      </tokens>
       <tokens xsi:type="xtext:Group" cardinality="?">
         <tokens xsi:type="xtext:Keyword" value="-"/>
         <tokens xsi:type="xtext:Assignment" feature="removePreCondition" operator="?=">
@@ -2889,6 +2907,29 @@
           </groups>
         </tokens>
       </tokens>
+      <tokens xsi:type="xtext:Group" cardinality="?">
+        <tokens xsi:type="xtext:Keyword" value="-"/>
+        <tokens xsi:type="xtext:Keyword" value="default"/>
+        <tokens xsi:type="xtext:Keyword" value="properties"/>
+        <tokens xsi:type="xtext:Assignment" feature="defaultPropertiesRemovals" operator="+=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.161"/>
+        </tokens>
+        <tokens xsi:type="xtext:Group" cardinality="*">
+          <tokens xsi:type="xtext:Keyword" value=","/>
+          <tokens xsi:type="xtext:Assignment" feature="defaultPropertiesRemovals" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.161"/>
+          </tokens>
+        </tokens>
+        <tokens xsi:type="xtext:Keyword" value=";"/>
+      </tokens>
+      <tokens xsi:type="xtext:Group" cardinality="?">
+        <tokens xsi:type="xtext:Keyword" value="+"/>
+        <tokens xsi:type="xtext:Keyword" value="default"/>
+        <tokens xsi:type="xtext:Keyword" value="properties"/>
+        <tokens xsi:type="xtext:Assignment" feature="defaultPropertiesAdditions" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.8"/>
+        </tokens>
+      </tokens>
       <tokens xsi:type="xtext:Alternatives" cardinality="*">
         <groups xsi:type="xtext:Group">
           <tokens xsi:type="xtext:Keyword" value="+"/>
@@ -2921,6 +2962,27 @@
           </tokens>
           <tokens xsi:type="xtext:Keyword" value=";"/>
         </groups>
+      </tokens>
+      <tokens xsi:type="xtext:Group" cardinality="?">
+        <tokens xsi:type="xtext:Keyword" value="-"/>
+        <tokens xsi:type="xtext:Keyword" value="annotations"/>
+        <tokens xsi:type="xtext:Assignment" feature="annotationsRemovals" operator="+=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.161"/>
+        </tokens>
+        <tokens xsi:type="xtext:Group" cardinality="*">
+          <tokens xsi:type="xtext:Keyword" value=","/>
+          <tokens xsi:type="xtext:Assignment" feature="annotationsRemovals" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.161"/>
+          </tokens>
+        </tokens>
+        <tokens xsi:type="xtext:Keyword" value=";"/>
+      </tokens>
+      <tokens xsi:type="xtext:Group" cardinality="?">
+        <tokens xsi:type="xtext:Keyword" value="+"/>
+        <tokens xsi:type="xtext:Keyword" value="annotations"/>
+        <tokens xsi:type="xtext:Assignment" feature="annotationsAdditions" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.8"/>
+        </tokens>
       </tokens>
       <tokens xsi:type="xtext:Assignment" cardinality="?" feature="funcExpr" operator="=">
         <terminal xsi:type="xtext:RuleCall" rule="//@rules.84"/>

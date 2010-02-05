@@ -5,7 +5,7 @@
     modelPluginID="org.eclipse.b3.beelang" forceOverwrite="true" modelName="BeeLang"
     updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="5.0" copyrightFields="false" editPluginID="org.eclipse.b3.beelang.edit"
-    editorPluginID="org.eclipse.b3.beelang.editor" usedGenPackages="platform:/resource/org.eclipse.b3.backend/model/B3Backend.genmodel#//b3backend platform:/resource/org.eclipse.b3.build/model/B3Build.genmodel#//build">
+    editorPluginID="org.eclipse.b3.beelang.editor" usedGenPackages="../../../../../org.eclipse.b3.backend/model/B3Backend.genmodel#//b3backend ../../../../../org.eclipse.b3.build/model/B3Build.genmodel#//build">
   <genPackages prefix="BeeLang" basePackage="org.eclipse.b3" disposableProviderFactory="true"
       ecorePackage="BeeLang.ecore#/"/>
 </genmodel:GenModel>

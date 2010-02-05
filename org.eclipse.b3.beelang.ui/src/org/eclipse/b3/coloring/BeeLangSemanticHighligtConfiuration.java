@@ -6,6 +6,11 @@ import org.eclipse.xtext.ui.common.editor.syntaxcoloring.IHighlightingConfigurat
 import org.eclipse.xtext.ui.common.editor.syntaxcoloring.ISemanticHighlightingConfiguration;
 import org.eclipse.xtext.ui.core.editor.utils.TextStyle;
 
+/**
+ * 
+ * @deprecated Functionality moved to LexicalHighligtingConfiguration (which will be renamed as there is not difference between the two)
+ */
+@Deprecated
 public class BeeLangSemanticHighligtConfiuration implements
 		ISemanticHighlightingConfiguration {
 
