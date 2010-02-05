@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.b3.aggregator.IAggregatorConstants;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnumLiteral;
@@ -267,9 +268,12 @@ public class AggregatorTransformer_080_2_100 extends ResourceTransformer {
 		}
 	}
 
-	private void copyIUNodeAttributes(EObject srcEObject, EObject trgtEObject) {
+	private void copyIUNodeAttributes(EObject srcEObject, EObject trgtEObject, String iuNodeName) {
 		EAttribute srcIdEAttr = (EAttribute) srcEObject.eClass().getEStructuralFeature(ID_ATTR);
 		String srcIdEAttrValue = (String) srcEObject.eGet(srcIdEAttr);
+
+		if(iuNodeName == FEATURE_NODE && srcIdEAttrValue != null)
+			srcIdEAttrValue = srcIdEAttrValue + IAggregatorConstants.FEATURE_SUFFIX;
 
 		EAttribute trgtNameEAttr = (EAttribute) trgtEObject.eClass().getEStructuralFeature(NAME_ATTR);
 		trgtEObject.eSet(trgtNameEAttr, srcIdEAttrValue);
@@ -545,7 +549,7 @@ public class AggregatorTransformer_080_2_100 extends ResourceTransformer {
 	private void transformIUNode(EObject srcEObject, TreePath trgtParentTreePath, String iuNodeName) {
 		EObject iuEObject = createTrgtEObject(iuNodeName, srcEObject);
 		trgtParentTreePath.addToLastSegmentContainer(iuEObject);
-		copyIUNodeAttributes(srcEObject, iuEObject);
+		copyIUNodeAttributes(srcEObject, iuEObject, iuNodeName);
 
 		EAttribute enabledEAttr = (EAttribute) iuEObject.eClass().getEStructuralFeature(ENABLED_ATTR);
 		iuEObject.eSet(enabledEAttr, Boolean.TRUE);
