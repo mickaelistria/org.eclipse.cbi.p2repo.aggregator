@@ -18,14 +18,12 @@ public class BeeLangUiModule extends org.eclipse.b3.AbstractBeeLangUiModule {
 		bindTokenToAttributeIdMapper() {
 		return BeeLangTokenToAttributeIdMapper.class;
 	}
+	
 	public Class<? extends IHighlightingConfiguration> 
 		bindILexicalHighlightingConfiguration() {
 		return BeeLangLexicalHighlightConfiguration.class;
 	}	
-//	public Class<? extends IHighlightingConfiguration> 
-//		bindISemanticHighlightingConfiguration() {
-//		return BeeLangSemanticHighligtConfiuration.class;
-//	}
+
 	public Class<? extends ISemanticHighlightingCalculator> 
 		bindISemanticHighlightingCalculator() {
 		return BeeLangSemanticHighlightingCalculator.class;

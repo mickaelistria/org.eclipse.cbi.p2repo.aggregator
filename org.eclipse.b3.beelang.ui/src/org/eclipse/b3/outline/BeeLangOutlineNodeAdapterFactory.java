@@ -7,15 +7,12 @@ import org.eclipse.xtext.ui.common.editor.outline.actions.DefaultContentOutlineN
 import org.eclipse.b3.build.build.BeeModel;
 public class BeeLangOutlineNodeAdapterFactory extends DefaultContentOutlineNodeAdapterFactory {
 
-	// provide list of classes to adapt to, e.g.:
-	// Entity.class
-	// Service.class
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings("rawtypes")
 	private static final Class[] types = { 
 		BeeModel.class
 	};
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Class[] getAdapterList() {
 		return types;

@@ -137,7 +137,7 @@
                 checkEnabled="false">
              <iterate>
                 <adapt
-                      type="org.eclipse.b3.beeLang.BeeModel">
+                      type="org.eclipse.b3.build.build.BeeModel">
                 </adapt>
              </iterate>
           </visibleWhen>
