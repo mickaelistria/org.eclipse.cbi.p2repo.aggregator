@@ -9,9 +9,6 @@
   <metamodelDeclarations xsi:type="xtext:ReferencedMetamodel" alias="build">
     <ePackage href="http://b3build/1.0#/"/>
   </metamodelDeclarations>
-  <metamodelDeclarations xsi:type="xtext:GeneratedMetamodel" name="beeLang">
-    <ePackage href="http://www.eclipse.org/b3/BeeLang#/"/>
-  </metamodelDeclarations>
   <rules xsi:type="xtext:ParserRule" name="BeeModel" definesHiddenTokens="true" hiddenTokens="//@rules.167 //@rules.166 //@rules.165">
     <type metamodel="//@metamodelDeclarations.2">
       <classifier xsi:type="ecore:EClass" href="http://b3build/1.0#//BeeModel"/>

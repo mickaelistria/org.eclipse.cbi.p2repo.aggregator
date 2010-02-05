@@ -184,7 +184,9 @@ protected class ThisRootNode extends RootToken {
  *
  * BeeModel returns build::BeeModel hidden ( WS , SL_COMMENT , ML_COMMENT ):
  *   {build::BeeModel} (imports+=Import* (functions+=Function|concerns+=Concern_Named|
- *   "properties" propertySets+=PropertySet_Named)* body=BuildUnit?);
+ *   "properties" propertySets+=PropertySet_Named)* body=BuildUnit?); 
+ * 
+ * //generate beeLang "http://www.eclipse.org/b3/BeeLang"
  *
  **/
 

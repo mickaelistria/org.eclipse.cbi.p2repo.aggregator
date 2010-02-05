@@ -3,14 +3,6 @@
 
 <plugin>
 
-  <extension point="org.eclipse.emf.ecore.generated_package">
-    <package 
-       uri = "http://www.eclipse.org/b3/BeeLang" 
-       class = "org.eclipse.b3.beeLang.BeeLangPackage"
-       genModel = "org/eclipse/b3/BeeLang.genmodel" /> 
-	
-  </extension>
-
 
 
 

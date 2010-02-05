@@ -37,7 +37,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//BeeModel returns build::BeeModel hidden ( WS , SL_COMMENT , ML_COMMENT ):
 		//  {build::BeeModel} (imports+=Import* (functions+=Function|concerns+=Concern_Named|
-		//  "properties" propertySets+=PropertySet_Named)* body=BuildUnit?);
+		//  "properties" propertySets+=PropertySet_Named)* body=BuildUnit?); 
+		//
+		////generate beeLang "http://www.eclipse.org/b3/BeeLang"
 		public ParserRule getRule() { return rule; }
 
 		//{build::BeeModel} (imports+=Import* (functions+=Function|concerns+=Concern_Named|
@@ -10194,7 +10196,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//BeeModel returns build::BeeModel hidden ( WS , SL_COMMENT , ML_COMMENT ):
 	//  {build::BeeModel} (imports+=Import* (functions+=Function|concerns+=Concern_Named|
-	//  "properties" propertySets+=PropertySet_Named)* body=BuildUnit?);
+	//  "properties" propertySets+=PropertySet_Named)* body=BuildUnit?); 
+	//
+	////generate beeLang "http://www.eclipse.org/b3/BeeLang"
 	public BeeModelElements getBeeModelAccess() {
 		return (pBeeModel != null) ? pBeeModel : (pBeeModel = new BeeModelElements());
 	}

@@ -37,9 +37,6 @@ public class BeeLangStandaloneSetup implements ISetup {
 	}
 	
 	public void register(Injector injector) {
-	if (!EPackage.Registry.INSTANCE.containsKey("http://www.eclipse.org/b3/BeeLang")) {
-//		EPackage.Registry.INSTANCE.put("http://www.eclipse.org/b3/BeeLang", org.eclipse.b3.beeLang.BeeLangPackage.eINSTANCE);
-	}
 
 		org.eclipse.xtext.resource.IResourceFactory resourceFactory = injector.getInstance(org.eclipse.xtext.resource.IResourceFactory.class);
 		org.eclipse.xtext.resource.IResourceServiceProvider serviceProvider = injector.getInstance(org.eclipse.xtext.resource.IResourceServiceProvider.class);

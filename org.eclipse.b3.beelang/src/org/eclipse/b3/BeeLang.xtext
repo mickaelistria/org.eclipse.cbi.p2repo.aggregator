@@ -20,7 +20,7 @@ import "platform:/resource/org.eclipse.b3.backend/model/B3Backend.ecore" as be
 // build model defines build specific expression
 import "platform:/resource/org.eclipse.b3.build/model/B3Build.ecore" as build
 
-generate beeLang "http://www.eclipse.org/b3/BeeLang"
+//generate beeLang "http://www.eclipse.org/b3/BeeLang"
 
 BeeModel returns build::BeeModel hidden(WS, SL_COMMENT, ML_COMMENT) : {build::BeeModel}
 	((imports += Import)* 
