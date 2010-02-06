@@ -1367,28 +1367,47 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 		// may be needed multiple times.,
 		
 		// is output advised ?
-		// TODO: Advice annotations
-		ADVICEOUTPUT: 
-			if(getOutputRemovals().size() > 0 || getOutputAdditions().size() > 0) {
+		/* ADVICEOUTPUT: */ 
+			if(getOutputRemovals().size() > 0 || getOutputAdditions().size() > 0 
+				|| getAnnotationsRemovals().size() > 0 || getAnnotationsAdditions() != null) {
 				boolean modified = false;
 				PathGroup pg = null;
-				wrapper.setOutput(pg = PathGroup.class.cast(EcoreUtil.copy(b.getOutput())));
+				PathGroup originalOutput = b.getOutput();
+				if(originalOutput != null)
+					wrapper.setOutput(pg = PathGroup.class.cast(EcoreUtil.copy(b.getOutput())));
+				else {
+					// TODO: Should probably log warning that empty output was created as a consequence of advice.
+					originalOutput = B3BuildFactory.eINSTANCE.createPathGroup();
+				}
 				// removal
 				for(OutputPredicate op : getOutputRemovals())
 					modified = op.removeMatching(pg) || modified;
-				// optimize if unchanged
-				if(!modified && getOutputAdditions().size() == 0) {
-					wrapper.setOutput(null);
-					break ADVICEOUTPUT;
-				}
+
 				// addition
 				EList<PathVector> vectors = pg.getPathVectors();
 				for(PathVector pv : getOutputAdditions())
 					vectors.add(PathVector.class.cast(EcoreUtil.copy(pv)));
 
+
+				// WRAP ANNOTATIONS
+				// Same as Default properties, but for annotations.
+				// TODO: What to do if there is no output? It may still be useful to modify annotations in the produced result
+				// in input?? (Current impl will throw NPE if there is no output...)
+				if(getAnnotationsRemovals().size() > 0 || getAnnotationsAdditions() != null) {
+					BPropertySet as = B3backendFactory.eINSTANCE.createBDefaultPropertySet();
+					processProperties(as, getAnnotationsRemovals(), b.getOutput().getAnnotations(), getAnnotationsAdditions());
+					wrapper.getOutput().setAnnotations(as);
+				}
+//				TODO: Make it possible to optimize - processProperties does not return if it made modifications				
+//				// optimize if unchanged
+//				if(!modified && getOutputAdditions().size() == 0) {
+//					wrapper.setOutput(null);
+//					break ADVICEOUTPUT;
+//				}
 				wrapper.setOutputAdvised(true);
+
 			}
-		
+
 		// WRAP PROVIDED CAPABILITIES
 		ADVICEPROVIDES: if(getProvidesRemovals().size() > 0 || getProvidedCapabilities().size() > 0) {
 			boolean modified = false;
@@ -1420,15 +1439,6 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 			processProperties(ps, getDefaultPropertiesRemovals(), b.getDefaultProperties(), getDefaultPropertiesAdditions());			
 		}
 		
-		// WRAP ANNOTATIONS
-		// Same as Default properties, but for annotations.
-		// TODO: What to do if there is no output? It may still be useful to modify annotations in the produced result
-		// in input?? (Current impl will throw NPE if there is no input...)
-		if(getAnnotationsRemovals().size() > 0 || getAnnotationsAdditions() != null) {
-			BPropertySet as = B3backendFactory.eINSTANCE.createBPropertySet();
-			processProperties(as, getAnnotationsRemovals(), b.getOutput().getAnnotations(), getAnnotationsAdditions());
-			wrapper.getOutput().setAnnotations(as);
-		}
 		
 		// define the wrapper, and we are done
 		ctx.defineFunction(wrapper);
