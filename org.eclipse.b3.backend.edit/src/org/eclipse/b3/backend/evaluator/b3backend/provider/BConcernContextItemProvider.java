@@ -26,12 +26,14 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -76,8 +78,31 @@ public class BConcernContextItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addDocumentationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Documentation feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDocumentationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_BConcernContext_documentation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BConcernContext_documentation_feature", "_UI_BConcernContext_type"),
+				 B3backendPackage.Literals.BCONCERN_CONTEXT__DOCUMENTATION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -118,7 +143,10 @@ public class BConcernContextItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_BConcernContext_type");
+		String label = ((BConcernContext)object).getDocumentation();
+		return label == null || label.length() == 0 ?
+			getString("_UI_BConcernContext_type") :
+			getString("_UI_BConcernContext_type") + " " + label;
 	}
 
 	/**
@@ -133,6 +161,9 @@ public class BConcernContextItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(BConcernContext.class)) {
+			case B3backendPackage.BCONCERN_CONTEXT__DOCUMENTATION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case B3backendPackage.BCONCERN_CONTEXT__FUNCTIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

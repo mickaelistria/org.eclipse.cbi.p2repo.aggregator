@@ -2923,6 +2923,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getBConcernContext_Documentation() {
+		return (EAttribute)bConcernContextEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getVisibility() {
 		return visibilityEEnum;
 	}
@@ -3386,6 +3395,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		createEReference(bWithExpressionEClass, BWITH_EXPRESSION__FUNC_EXPR);
 
 		bConcernContextEClass = createEClass(BCONCERN_CONTEXT);
+		createEAttribute(bConcernContextEClass, BCONCERN_CONTEXT__DOCUMENTATION);
 
 		bFunctionEClass = createEClass(BFUNCTION);
 
@@ -4069,6 +4079,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		addEException(op, this.getThrowable());
 
 		initEClass(bConcernContextEClass, BConcernContext.class, "BConcernContext", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBConcernContext_Documentation(), ecorePackage.getEString(), "documentation", null, 0, 1, BConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(bConcernContextEClass, ecorePackage.getEBoolean(), "evaluateIfMatching", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEJavaObject(), "candidate", 0, 1, IS_UNIQUE, IS_ORDERED);

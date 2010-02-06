@@ -3427,13 +3427,22 @@ public interface B3backendPackage extends EPackage {
 	int BCONCERN_CONTEXT__FUNCTIONS = BEXPRESSION_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BCONCERN_CONTEXT__DOCUMENTATION = BEXPRESSION_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>BConcern Context</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BCONCERN_CONTEXT_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 1;
+	int BCONCERN_CONTEXT_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl <em>BFunction Wrapper</em>}' class.
@@ -3726,6 +3735,15 @@ public interface B3backendPackage extends EPackage {
 	 * @ordered
 	 */
 	int BFUNCTION_CONCERN_CONTEXT__FUNCTIONS = BCONCERN_CONTEXT__FUNCTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BFUNCTION_CONCERN_CONTEXT__DOCUMENTATION = BCONCERN_CONTEXT__DOCUMENTATION;
 
 	/**
 	 * The feature id for the '<em><b>Name Predicate</b></em>' containment reference.
@@ -6641,6 +6659,17 @@ public interface B3backendPackage extends EPackage {
 	EClass getBConcernContext();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BConcernContext#getDocumentation <em>Documentation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Documentation</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BConcernContext#getDocumentation()
+	 * @see #getBConcernContext()
+	 * @generated
+	 */
+	EAttribute getBConcernContext_Documentation();
+
+	/**
 	 * Returns the meta object for enum '{@link org.eclipse.b3.backend.evaluator.b3backend.Visibility <em>Visibility</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8816,6 +8845,14 @@ public interface B3backendPackage extends EPackage {
 		 * @generated
 		 */
 		EClass BCONCERN_CONTEXT = eINSTANCE.getBConcernContext();
+
+		/**
+		 * The meta object literal for the '<em><b>Documentation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BCONCERN_CONTEXT__DOCUMENTATION = eINSTANCE.getBConcernContext_Documentation();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.Visibility <em>Visibility</em>}' enum.

@@ -651,6 +651,7 @@ BuildConcernContext returns be::BConcernContext :
 	;
 	
 FunctionConcernContext returns be::BFunctionConcernContext: {be::BFunctionConcernContext} 
+	(documentation = DOCUMENTATION) ?
 	"context" "function" namePredicate = FunctionNamePredicate 
    	('(' (
    		(parameters += ParameterPredicate (',' parameters += ParameterPredicate)* 
@@ -677,6 +678,7 @@ TypePredicateOp : '?' | '*' | '+' ;
 
 // Advice for units consists of Builders, and advice for Builders
 UnitConcernContext returns build::UnitConcernContext : {build::UnitConcernContext}
+	(documentation = DOCUMENTATION) ?
 	"context" "unit" query = UnitOrExpression
 	'{'
 	( (functions += Builder)
@@ -693,6 +695,7 @@ UnitConcernContext returns build::UnitConcernContext : {build::UnitConcernContex
 	
 // Advice for Builders	
 BuilderConcernContext returns build::BuilderConcernContext : {build::BuilderConcernContext}
+	(documentation = DOCUMENTATION) ?
 	"context" "builder"
 	 	('(' (
    		(parameters += ParameterPredicate (',' parameters += ParameterPredicate)* 

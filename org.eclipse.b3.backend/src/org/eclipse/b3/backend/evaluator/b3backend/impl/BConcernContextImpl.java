@@ -21,6 +21,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -29,6 +30,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -40,6 +42,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BConcernContextImpl#getFunctions <em>Functions</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BConcernContextImpl#getDocumentation <em>Documentation</em>}</li>
  * </ul>
  * </p>
  *
@@ -62,6 +65,26 @@ public abstract class BConcernContextImpl extends BExpressionImpl implements BCo
 	 * @ordered
 	 */
 	protected EList<IFunction> functions;
+
+	/**
+	 * The default value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDocumentation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DOCUMENTATION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDocumentation()
+	 * @generated
+	 * @ordered
+	 */
+	protected String documentation = DOCUMENTATION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -92,6 +115,27 @@ public abstract class BConcernContextImpl extends BExpressionImpl implements BCo
 			functions = new EObjectContainmentWithInverseEList<IFunction>(IFunction.class, this, B3backendPackage.BCONCERN_CONTEXT__FUNCTIONS, B3backendPackage.IFUNCTION__CONTAINER);
 		}
 		return functions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getDocumentation() {
+		return documentation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDocumentation(String newDocumentation) {
+		String oldDocumentation = documentation;
+		documentation = newDocumentation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BCONCERN_CONTEXT__DOCUMENTATION, oldDocumentation, documentation));
 	}
 
 	/**
@@ -155,6 +199,8 @@ public abstract class BConcernContextImpl extends BExpressionImpl implements BCo
 		switch (featureID) {
 			case B3backendPackage.BCONCERN_CONTEXT__FUNCTIONS:
 				return getFunctions();
+			case B3backendPackage.BCONCERN_CONTEXT__DOCUMENTATION:
+				return getDocumentation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -172,6 +218,9 @@ public abstract class BConcernContextImpl extends BExpressionImpl implements BCo
 				getFunctions().clear();
 				getFunctions().addAll((Collection<? extends IFunction>)newValue);
 				return;
+			case B3backendPackage.BCONCERN_CONTEXT__DOCUMENTATION:
+				setDocumentation((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -187,6 +236,9 @@ public abstract class BConcernContextImpl extends BExpressionImpl implements BCo
 			case B3backendPackage.BCONCERN_CONTEXT__FUNCTIONS:
 				getFunctions().clear();
 				return;
+			case B3backendPackage.BCONCERN_CONTEXT__DOCUMENTATION:
+				setDocumentation(DOCUMENTATION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -201,6 +253,8 @@ public abstract class BConcernContextImpl extends BExpressionImpl implements BCo
 		switch (featureID) {
 			case B3backendPackage.BCONCERN_CONTEXT__FUNCTIONS:
 				return functions != null && !functions.isEmpty();
+			case B3backendPackage.BCONCERN_CONTEXT__DOCUMENTATION:
+				return DOCUMENTATION_EDEFAULT == null ? documentation != null : !DOCUMENTATION_EDEFAULT.equals(documentation);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -235,6 +289,22 @@ public abstract class BConcernContextImpl extends BExpressionImpl implements BCo
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (documentation: ");
+		result.append(documentation);
+		result.append(')');
+		return result.toString();
 	}
 
 } //BConcernContextImpl

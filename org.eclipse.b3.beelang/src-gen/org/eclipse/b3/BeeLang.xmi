@@ -2658,6 +2658,9 @@
           <classifier xsi:type="ecore:EClass" href="http://b3backend/1.0#//BFunctionConcernContext"/>
         </type>
       </tokens>
+      <tokens xsi:type="xtext:Assignment" cardinality="?" feature="documentation" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.165"/>
+      </tokens>
       <tokens xsi:type="xtext:Keyword" value="context"/>
       <tokens xsi:type="xtext:Keyword" value="function"/>
       <tokens xsi:type="xtext:Assignment" feature="namePredicate" operator="=">
@@ -2795,6 +2798,9 @@
           <classifier xsi:type="ecore:EClass" href="http://b3build/1.0#//UnitConcernContext"/>
         </type>
       </tokens>
+      <tokens xsi:type="xtext:Assignment" cardinality="?" feature="documentation" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.165"/>
+      </tokens>
       <tokens xsi:type="xtext:Keyword" value="context"/>
       <tokens xsi:type="xtext:Keyword" value="unit"/>
       <tokens xsi:type="xtext:Assignment" feature="query" operator="=">
@@ -2875,6 +2881,9 @@
         <type metamodel="//@metamodelDeclarations.2">
           <classifier xsi:type="ecore:EClass" href="http://b3build/1.0#//BuilderConcernContext"/>
         </type>
+      </tokens>
+      <tokens xsi:type="xtext:Assignment" cardinality="?" feature="documentation" operator="=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.165"/>
       </tokens>
       <tokens xsi:type="xtext:Keyword" value="context"/>
       <tokens xsi:type="xtext:Keyword" value="builder"/>
