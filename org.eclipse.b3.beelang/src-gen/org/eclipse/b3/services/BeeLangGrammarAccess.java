@@ -39,6 +39,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//  {build::BeeModel} (imports+=Import* (functions+=Function|concerns+=Concern_Named|
 		//  "properties" propertySets+=PropertySet_Named)* body=BuildUnit?); 
 		//
+		//// uncomments if things are needed that should not be in backend or build
 		////generate beeLang "http://www.eclipse.org/b3/BeeLang"
 		public ParserRule getRule() { return rule; }
 
@@ -192,7 +193,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cDefaultKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
 		private final Keyword cPropertiesKeyword_8_1 = (Keyword)cGroup_8.eContents().get(1);
 		private final Assignment cDefaultPropertiesAssignment_8_2 = (Assignment)cGroup_8.eContents().get(2);
-		private final RuleCall cDefaultPropertiesPropertySetParserRuleCall_8_2_0 = (RuleCall)cDefaultPropertiesAssignment_8_2.eContents().get(0);
+		private final RuleCall cDefaultPropertiesPropertySetDefaultParserRuleCall_8_2_0 = (RuleCall)cDefaultPropertiesAssignment_8_2.eContents().get(0);
 		private final Alternatives cAlternatives_9 = (Alternatives)cGroup.eContents().get(9);
 		private final Group cGroup_9_0 = (Group)cAlternatives_9.eContents().get(0);
 		private final Keyword cProvidesKeyword_9_0_0 = (Keyword)cGroup_9_0.eContents().get(0);
@@ -273,7 +274,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//  {build::BuildUnit} documentation=DOCUMENTATION? executionMode=ExecutionMode? "unit"
 		//  name=UnitName? ("version" version=VersionLiteral)? ("implements" implements+=
 		//  SimpleTypeRef ("," implements+=SimpleTypeRef)*)? "{" ("default" "properties"
-		//  defaultProperties=PropertySet)? ("provides" "{" (providedCapabilities+=
+		//  defaultProperties=PropertySetDefault)? ("provides" "{" (providedCapabilities+=
 		//  ProvidedCapability ";")+ "}"|"provides" providedCapabilities+=ProvidedCapability ";"
 		//  |"requires" "{" (requiredCapabilities+=AliasedRequiredCapability ";")+ "}"|
 		//  "requires" requiredCapabilities+=AliasedRequiredCapability ";"|"env" "requires" "{" (
@@ -327,7 +328,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//{build::BuildUnit} documentation=DOCUMENTATION? executionMode=ExecutionMode? "unit"
 		//name=UnitName? ("version" version=VersionLiteral)? ("implements" implements+=
 		//SimpleTypeRef ("," implements+=SimpleTypeRef)*)? "{" ("default" "properties"
-		//defaultProperties=PropertySet)? ("provides" "{" (providedCapabilities+=
+		//defaultProperties=PropertySetDefault)? ("provides" "{" (providedCapabilities+=
 		//ProvidedCapability ";")+ "}"|"provides" providedCapabilities+=ProvidedCapability ";"
 		//|"requires" "{" (requiredCapabilities+=AliasedRequiredCapability ";")+ "}"|
 		//"requires" requiredCapabilities+=AliasedRequiredCapability ";"|"env" "requires" "{" (
@@ -431,7 +432,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_7() { return cLeftCurlyBracketKeyword_7; }
 
-		//("default" "properties" defaultProperties=PropertySet)?
+		//("default" "properties" defaultProperties=PropertySetDefault)?
 		public Group getGroup_8() { return cGroup_8; }
 
 		//"default"
@@ -440,11 +441,11 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//"properties"
 		public Keyword getPropertiesKeyword_8_1() { return cPropertiesKeyword_8_1; }
 
-		//defaultProperties=PropertySet
+		//defaultProperties=PropertySetDefault
 		public Assignment getDefaultPropertiesAssignment_8_2() { return cDefaultPropertiesAssignment_8_2; }
 
-		//PropertySet
-		public RuleCall getDefaultPropertiesPropertySetParserRuleCall_8_2_0() { return cDefaultPropertiesPropertySetParserRuleCall_8_2_0; }
+		//PropertySetDefault
+		public RuleCall getDefaultPropertiesPropertySetDefaultParserRuleCall_8_2_0() { return cDefaultPropertiesPropertySetDefaultParserRuleCall_8_2_0; }
 
 		//("provides" "{" (providedCapabilities+=ProvidedCapability ";")+ "}"|"provides"
 		//providedCapabilities+=ProvidedCapability ";"|"requires" "{" (requiredCapabilities+=
@@ -1141,63 +1142,242 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 	public class PropertySetElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PropertySet");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cBPropertySetAction_0 = (Action)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cExtendsKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cExtendsAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final CrossReference cExtendsBPropertySetCrossReference_1_1_0 = (CrossReference)cExtendsAssignment_1_1.eContents().get(0);
-		private final RuleCall cExtendsBPropertySetQIDREFParserRuleCall_1_1_0_1 = (RuleCall)cExtendsBPropertySetCrossReference_1_1_0.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cOperationsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cOperationsPropertyOperationParserRuleCall_3_0 = (RuleCall)cOperationsAssignment_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Action cBPropertySetAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final Group cGroup_0_1 = (Group)cGroup_0.eContents().get(1);
+		private final Group cGroup_0_1_0 = (Group)cGroup_0_1.eContents().get(0);
+		private final Keyword cExtendsKeyword_0_1_0_0 = (Keyword)cGroup_0_1_0.eContents().get(0);
+		private final Assignment cExtendsAssignment_0_1_0_1 = (Assignment)cGroup_0_1_0.eContents().get(1);
+		private final CrossReference cExtendsBPropertySetCrossReference_0_1_0_1_0 = (CrossReference)cExtendsAssignment_0_1_0_1.eContents().get(0);
+		private final RuleCall cExtendsBPropertySetQIDREFParserRuleCall_0_1_0_1_0_1 = (RuleCall)cExtendsBPropertySetCrossReference_0_1_0_1_0.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_0_1_1 = (Keyword)cGroup_0_1.eContents().get(1);
+		private final Assignment cOperationsAssignment_0_1_2 = (Assignment)cGroup_0_1.eContents().get(2);
+		private final RuleCall cOperationsPropertyOperationParserRuleCall_0_1_2_0 = (RuleCall)cOperationsAssignment_0_1_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_0_1_3 = (Keyword)cGroup_0_1.eContents().get(3);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Assignment cPropertiesFileAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final RuleCall cPropertiesFileURIParserRuleCall_1_0_0 = (RuleCall)cPropertiesFileAssignment_1_0.eContents().get(0);
+		private final Keyword cSemicolonKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Assignment cExtendsAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
+		private final CrossReference cExtendsBPropertySetCrossReference_2_0_0 = (CrossReference)cExtendsAssignment_2_0.eContents().get(0);
+		private final RuleCall cExtendsBPropertySetQIDREFParserRuleCall_2_0_0_1 = (RuleCall)cExtendsBPropertySetCrossReference_2_0_0.eContents().get(1);
+		private final Keyword cSemicolonKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
 		
 		//PropertySet returns be::BPropertySet:
-		//  {be::BPropertySet} ("extends" extends=[be::BPropertySet|QIDREF])? "{" operations+=
-		//  PropertyOperation* "}"; 
+		//  {be::BPropertySet} (("extends" extends=[be::BPropertySet|QIDREF])? "{" operations+=
+		//  PropertyOperation* "}")|propertiesFile=URI ";"|extends=[be::BPropertySet|QIDREF]
+		//  ";"; 
 		//
 		//// Sequence of possibly filtered property statements	
 		//         
-		//	                    
+		//	                      
+		//	        
+		//	            
+		//	
+		//	
+		//// Sequence of possibly filtered property statements (with default semantics)
+		public ParserRule getRule() { return rule; }
+
+		//{be::BPropertySet} (("extends" extends=[be::BPropertySet|QIDREF])? "{" operations+=
+		//PropertyOperation* "}")|propertiesFile=URI ";"|extends=[be::BPropertySet|QIDREF]
+		//";" 
+		//
+		//// Sequence of possibly filtered property statements	
+		//         
+		//	                      
+		//	        
+		//	            
+		//	
+		//	
+		//// Sequence of possibly filtered property statements (with default semantics)
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//{be::BPropertySet} (("extends" extends=[be::BPropertySet|QIDREF])? "{" operations+=
+		//PropertyOperation* "}")
+		public Group getGroup_0() { return cGroup_0; }
+
+		//{be::BPropertySet}
+		public Action getBPropertySetAction_0_0() { return cBPropertySetAction_0_0; }
+
+		//("extends" extends=[be::BPropertySet|QIDREF])? "{" operations+=PropertyOperation*
+		//"}"
+		public Group getGroup_0_1() { return cGroup_0_1; }
+
+		//("extends" extends=[be::BPropertySet|QIDREF])?
+		public Group getGroup_0_1_0() { return cGroup_0_1_0; }
+
+		//"extends"
+		public Keyword getExtendsKeyword_0_1_0_0() { return cExtendsKeyword_0_1_0_0; }
+
+		//extends=[be::BPropertySet|QIDREF]
+		public Assignment getExtendsAssignment_0_1_0_1() { return cExtendsAssignment_0_1_0_1; }
+
+		//[be::BPropertySet|QIDREF]
+		public CrossReference getExtendsBPropertySetCrossReference_0_1_0_1_0() { return cExtendsBPropertySetCrossReference_0_1_0_1_0; }
+
+		//QIDREF
+		public RuleCall getExtendsBPropertySetQIDREFParserRuleCall_0_1_0_1_0_1() { return cExtendsBPropertySetQIDREFParserRuleCall_0_1_0_1_0_1; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_0_1_1() { return cLeftCurlyBracketKeyword_0_1_1; }
+
+		//operations+=PropertyOperation*
+		public Assignment getOperationsAssignment_0_1_2() { return cOperationsAssignment_0_1_2; }
+
+		//PropertyOperation
+		public RuleCall getOperationsPropertyOperationParserRuleCall_0_1_2_0() { return cOperationsPropertyOperationParserRuleCall_0_1_2_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_0_1_3() { return cRightCurlyBracketKeyword_0_1_3; }
+
+		//propertiesFile=URI ";"
+		public Group getGroup_1() { return cGroup_1; }
+
+		//propertiesFile=URI
+		public Assignment getPropertiesFileAssignment_1_0() { return cPropertiesFileAssignment_1_0; }
+
+		//URI
+		public RuleCall getPropertiesFileURIParserRuleCall_1_0_0() { return cPropertiesFileURIParserRuleCall_1_0_0; }
+
+		//";"
+		public Keyword getSemicolonKeyword_1_1() { return cSemicolonKeyword_1_1; }
+
+		//extends=[be::BPropertySet|QIDREF] ";"
+		public Group getGroup_2() { return cGroup_2; }
+
+		//extends=[be::BPropertySet|QIDREF]
+		public Assignment getExtendsAssignment_2_0() { return cExtendsAssignment_2_0; }
+
+		//[be::BPropertySet|QIDREF]
+		public CrossReference getExtendsBPropertySetCrossReference_2_0_0() { return cExtendsBPropertySetCrossReference_2_0_0; }
+
+		//QIDREF
+		public RuleCall getExtendsBPropertySetQIDREFParserRuleCall_2_0_0_1() { return cExtendsBPropertySetQIDREFParserRuleCall_2_0_0_1; }
+
+		//";"
+		public Keyword getSemicolonKeyword_2_1() { return cSemicolonKeyword_2_1; }
+	}
+
+	public class PropertySetDefaultElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PropertySetDefault");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Action cBDefaultPropertySetAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final Group cGroup_0_1 = (Group)cGroup_0.eContents().get(1);
+		private final Group cGroup_0_1_0 = (Group)cGroup_0_1.eContents().get(0);
+		private final Keyword cExtendsKeyword_0_1_0_0 = (Keyword)cGroup_0_1_0.eContents().get(0);
+		private final Assignment cExtendsAssignment_0_1_0_1 = (Assignment)cGroup_0_1_0.eContents().get(1);
+		private final CrossReference cExtendsBPropertySetCrossReference_0_1_0_1_0 = (CrossReference)cExtendsAssignment_0_1_0_1.eContents().get(0);
+		private final RuleCall cExtendsBPropertySetQIDREFParserRuleCall_0_1_0_1_0_1 = (RuleCall)cExtendsBPropertySetCrossReference_0_1_0_1_0.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_0_1_1 = (Keyword)cGroup_0_1.eContents().get(1);
+		private final Assignment cOperationsAssignment_0_1_2 = (Assignment)cGroup_0_1.eContents().get(2);
+		private final RuleCall cOperationsPropertyOperationParserRuleCall_0_1_2_0 = (RuleCall)cOperationsAssignment_0_1_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_0_1_3 = (Keyword)cGroup_0_1.eContents().get(3);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Assignment cPropertiesFileAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final RuleCall cPropertiesFileURIParserRuleCall_1_0_0 = (RuleCall)cPropertiesFileAssignment_1_0.eContents().get(0);
+		private final Keyword cSemicolonKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Assignment cExtendsAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
+		private final CrossReference cExtendsBPropertySetCrossReference_2_0_0 = (CrossReference)cExtendsAssignment_2_0.eContents().get(0);
+		private final RuleCall cExtendsBPropertySetQIDREFParserRuleCall_2_0_0_1 = (RuleCall)cExtendsBPropertySetCrossReference_2_0_0.eContents().get(1);
+		private final Keyword cSemicolonKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
+		
+		//PropertySetDefault returns be::BPropertySet:
+		//  {be::BDefaultPropertySet} (("extends" extends=[be::BPropertySet|QIDREF])? "{"
+		//  operations+=PropertyOperation* "}")|propertiesFile=URI ";"|extends=[be::
+		//  BPropertySet|QIDREF] ";"; 
+		//	
+		//// Sequence of possibly filtered property statements (with default semantics)	
+		//         
+		//	                      
+		//	        
+		//	            
 		//	
 		//
 		//// For model generation, to get supertype correct
 		public ParserRule getRule() { return rule; }
 
-		//{be::BPropertySet} ("extends" extends=[be::BPropertySet|QIDREF])? "{" operations+=
-		//PropertyOperation* "}"
-		public Group getGroup() { return cGroup; }
+		//{be::BDefaultPropertySet} (("extends" extends=[be::BPropertySet|QIDREF])? "{"
+		//operations+=PropertyOperation* "}")|propertiesFile=URI ";"|extends=[be::
+		//BPropertySet|QIDREF] ";" 
+		//	
+		//// Sequence of possibly filtered property statements (with default semantics)	
+		//         
+		//	                      
+		//	        
+		//	            
+		//	
+		//
+		//// For model generation, to get supertype correct
+		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//{be::BPropertySet}
-		public Action getBPropertySetAction_0() { return cBPropertySetAction_0; }
+		//{be::BDefaultPropertySet} (("extends" extends=[be::BPropertySet|QIDREF])? "{"
+		//operations+=PropertyOperation* "}")
+		public Group getGroup_0() { return cGroup_0; }
+
+		//{be::BDefaultPropertySet}
+		public Action getBDefaultPropertySetAction_0_0() { return cBDefaultPropertySetAction_0_0; }
+
+		//("extends" extends=[be::BPropertySet|QIDREF])? "{" operations+=PropertyOperation*
+		//"}"
+		public Group getGroup_0_1() { return cGroup_0_1; }
 
 		//("extends" extends=[be::BPropertySet|QIDREF])?
-		public Group getGroup_1() { return cGroup_1; }
+		public Group getGroup_0_1_0() { return cGroup_0_1_0; }
 
 		//"extends"
-		public Keyword getExtendsKeyword_1_0() { return cExtendsKeyword_1_0; }
+		public Keyword getExtendsKeyword_0_1_0_0() { return cExtendsKeyword_0_1_0_0; }
 
 		//extends=[be::BPropertySet|QIDREF]
-		public Assignment getExtendsAssignment_1_1() { return cExtendsAssignment_1_1; }
+		public Assignment getExtendsAssignment_0_1_0_1() { return cExtendsAssignment_0_1_0_1; }
 
 		//[be::BPropertySet|QIDREF]
-		public CrossReference getExtendsBPropertySetCrossReference_1_1_0() { return cExtendsBPropertySetCrossReference_1_1_0; }
+		public CrossReference getExtendsBPropertySetCrossReference_0_1_0_1_0() { return cExtendsBPropertySetCrossReference_0_1_0_1_0; }
 
 		//QIDREF
-		public RuleCall getExtendsBPropertySetQIDREFParserRuleCall_1_1_0_1() { return cExtendsBPropertySetQIDREFParserRuleCall_1_1_0_1; }
+		public RuleCall getExtendsBPropertySetQIDREFParserRuleCall_0_1_0_1_0_1() { return cExtendsBPropertySetQIDREFParserRuleCall_0_1_0_1_0_1; }
 
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		public Keyword getLeftCurlyBracketKeyword_0_1_1() { return cLeftCurlyBracketKeyword_0_1_1; }
 
 		//operations+=PropertyOperation*
-		public Assignment getOperationsAssignment_3() { return cOperationsAssignment_3; }
+		public Assignment getOperationsAssignment_0_1_2() { return cOperationsAssignment_0_1_2; }
 
 		//PropertyOperation
-		public RuleCall getOperationsPropertyOperationParserRuleCall_3_0() { return cOperationsPropertyOperationParserRuleCall_3_0; }
+		public RuleCall getOperationsPropertyOperationParserRuleCall_0_1_2_0() { return cOperationsPropertyOperationParserRuleCall_0_1_2_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+		public Keyword getRightCurlyBracketKeyword_0_1_3() { return cRightCurlyBracketKeyword_0_1_3; }
+
+		//propertiesFile=URI ";"
+		public Group getGroup_1() { return cGroup_1; }
+
+		//propertiesFile=URI
+		public Assignment getPropertiesFileAssignment_1_0() { return cPropertiesFileAssignment_1_0; }
+
+		//URI
+		public RuleCall getPropertiesFileURIParserRuleCall_1_0_0() { return cPropertiesFileURIParserRuleCall_1_0_0; }
+
+		//";"
+		public Keyword getSemicolonKeyword_1_1() { return cSemicolonKeyword_1_1; }
+
+		//extends=[be::BPropertySet|QIDREF] ";"
+		public Group getGroup_2() { return cGroup_2; }
+
+		//extends=[be::BPropertySet|QIDREF]
+		public Assignment getExtendsAssignment_2_0() { return cExtendsAssignment_2_0; }
+
+		//[be::BPropertySet|QIDREF]
+		public CrossReference getExtendsBPropertySetCrossReference_2_0_0() { return cExtendsBPropertySetCrossReference_2_0_0; }
+
+		//QIDREF
+		public RuleCall getExtendsBPropertySetQIDREFParserRuleCall_2_0_0_1() { return cExtendsBPropertySetQIDREFParserRuleCall_2_0_0_1; }
+
+		//";"
+		public Keyword getSemicolonKeyword_2_1() { return cSemicolonKeyword_2_1; }
 	}
 
 	public class PropertyOperationElements extends AbstractParserRuleElementFinder {
@@ -2045,21 +2225,28 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cPropertySetsAssignment_3_0_1 = (Assignment)cGroup_3_0.eContents().get(1);
 		private final RuleCall cPropertySetsPropertySetParserRuleCall_3_0_1_0 = (RuleCall)cPropertySetsAssignment_3_0_1.eContents().get(0);
 		private final Group cGroup_3_1 = (Group)cAlternatives_3.eContents().get(1);
-		private final Keyword cConcernKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
-		private final Assignment cConcernsAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
-		private final RuleCall cConcernsConcern_AnonymousParserRuleCall_3_1_1_0 = (RuleCall)cConcernsAssignment_3_1_1.eContents().get(0);
+		private final Keyword cDefaultKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
+		private final Keyword cPropertiesKeyword_3_1_1 = (Keyword)cGroup_3_1.eContents().get(1);
+		private final Assignment cPropertySetsAssignment_3_1_2 = (Assignment)cGroup_3_1.eContents().get(2);
+		private final RuleCall cPropertySetsPropertySetDefaultParserRuleCall_3_1_2_0 = (RuleCall)cPropertySetsAssignment_3_1_2.eContents().get(0);
+		private final Group cGroup_3_2 = (Group)cAlternatives_3.eContents().get(2);
+		private final Keyword cConcernKeyword_3_2_0 = (Keyword)cGroup_3_2.eContents().get(0);
+		private final Assignment cConcernsAssignment_3_2_1 = (Assignment)cGroup_3_2.eContents().get(1);
+		private final RuleCall cConcernsConcern_AnonymousParserRuleCall_3_2_1_0 = (RuleCall)cConcernsAssignment_3_2_1.eContents().get(0);
 		
 		//WithClause returns be::BWithExpression:
 		//  {be::BWithExpression} "with" ("(" referencedAdvice+=[be::BAdvice] (","
 		//  referencedAdvice+=[be::BAdvice])* ")")? ("properties" propertySets+=PropertySet|
-		//  "concern" concerns+=Concern_Anonymous)*; 
+		//  "default" "properties" propertySets+=PropertySetDefault|"concern" concerns+=
+		//  Concern_Anonymous)*; 
 		//
 		//// Validation checks that there is at least one of references, properties or concern.
 		public ParserRule getRule() { return rule; }
 
 		//{be::BWithExpression} "with" ("(" referencedAdvice+=[be::BAdvice] (","
 		//referencedAdvice+=[be::BAdvice])* ")")? ("properties" propertySets+=PropertySet|
-		//"concern" concerns+=Concern_Anonymous)*
+		//"default" "properties" propertySets+=PropertySetDefault|"concern" concerns+=
+		//Concern_Anonymous)*
 		public Group getGroup() { return cGroup; }
 
 		//{be::BWithExpression}
@@ -2101,7 +2288,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//")"
 		public Keyword getRightParenthesisKeyword_2_3() { return cRightParenthesisKeyword_2_3; }
 
-		//("properties" propertySets+=PropertySet|"concern" concerns+=Concern_Anonymous)*
+		//("properties" propertySets+=PropertySet|"default" "properties" propertySets+=
+		//PropertySetDefault|"concern" concerns+=Concern_Anonymous)*
 		public Alternatives getAlternatives_3() { return cAlternatives_3; }
 
 		//"properties" propertySets+=PropertySet
@@ -2116,17 +2304,32 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//PropertySet
 		public RuleCall getPropertySetsPropertySetParserRuleCall_3_0_1_0() { return cPropertySetsPropertySetParserRuleCall_3_0_1_0; }
 
-		//"concern" concerns+=Concern_Anonymous
+		//"default" "properties" propertySets+=PropertySetDefault
 		public Group getGroup_3_1() { return cGroup_3_1; }
 
+		//"default"
+		public Keyword getDefaultKeyword_3_1_0() { return cDefaultKeyword_3_1_0; }
+
+		//"properties"
+		public Keyword getPropertiesKeyword_3_1_1() { return cPropertiesKeyword_3_1_1; }
+
+		//propertySets+=PropertySetDefault
+		public Assignment getPropertySetsAssignment_3_1_2() { return cPropertySetsAssignment_3_1_2; }
+
+		//PropertySetDefault
+		public RuleCall getPropertySetsPropertySetDefaultParserRuleCall_3_1_2_0() { return cPropertySetsPropertySetDefaultParserRuleCall_3_1_2_0; }
+
+		//"concern" concerns+=Concern_Anonymous
+		public Group getGroup_3_2() { return cGroup_3_2; }
+
 		//"concern"
-		public Keyword getConcernKeyword_3_1_0() { return cConcernKeyword_3_1_0; }
+		public Keyword getConcernKeyword_3_2_0() { return cConcernKeyword_3_2_0; }
 
 		//concerns+=Concern_Anonymous
-		public Assignment getConcernsAssignment_3_1_1() { return cConcernsAssignment_3_1_1; }
+		public Assignment getConcernsAssignment_3_2_1() { return cConcernsAssignment_3_2_1; }
 
 		//Concern_Anonymous
-		public RuleCall getConcernsConcern_AnonymousParserRuleCall_3_1_1_0() { return cConcernsConcern_AnonymousParserRuleCall_3_1_1_0; }
+		public RuleCall getConcernsConcern_AnonymousParserRuleCall_3_2_1_0() { return cConcernsConcern_AnonymousParserRuleCall_3_2_1_0; }
 	}
 
 	public class BuildResultReferenceElements extends AbstractParserRuleElementFinder {
@@ -2498,7 +2701,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cDefaultKeyword_14_0 = (Keyword)cGroup_14.eContents().get(0);
 		private final Keyword cPropertiesKeyword_14_1 = (Keyword)cGroup_14.eContents().get(1);
 		private final Assignment cDefaultPropertiesAssignment_14_2 = (Assignment)cGroup_14.eContents().get(2);
-		private final RuleCall cDefaultPropertiesPropertySetParserRuleCall_14_2_0 = (RuleCall)cDefaultPropertiesAssignment_14_2.eContents().get(0);
+		private final RuleCall cDefaultPropertiesPropertySetDefaultParserRuleCall_14_2_0 = (RuleCall)cDefaultPropertiesAssignment_14_2.eContents().get(0);
 		private final Assignment cInputAssignment_15 = (Assignment)cGroup.eContents().get(15);
 		private final RuleCall cInputBuilderInputParserRuleCall_15_0 = (RuleCall)cInputAssignment_15.eContents().get(0);
 		private final Group cGroup_16 = (Group)cGroup.eContents().get(16);
@@ -2522,8 +2725,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//  BlockExpression))? ("postinputcondition" (":" postinputcondExpr=Expression ";"|
 		//  postinputcondExpr=BlockExpression))? ("postcondition" (":" postcondExpr=Expression
 		//  ";"|postcondExpr=BlockExpression))? "{" ("default" "properties" defaultProperties=
-		//  PropertySet)? input=BuilderInput? ("output" "{" output=PathGroup "}")? funcExpr=
-		//  BlockExpressionWithoutBrackets? "}"; 
+		//  PropertySetDefault)? input=BuilderInput? ("output" "{" output=PathGroup "}")? funcExpr
+		//  =BlockExpressionWithoutBrackets? "}"; 
 		//	
 		//        
 		//	     
@@ -2543,8 +2746,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//BlockExpression))? ("postinputcondition" (":" postinputcondExpr=Expression ";"|
 		//postinputcondExpr=BlockExpression))? ("postcondition" (":" postcondExpr=Expression
 		//";"|postcondExpr=BlockExpression))? "{" ("default" "properties" defaultProperties=
-		//PropertySet)? input=BuilderInput? ("output" "{" output=PathGroup "}")? funcExpr=
-		//BlockExpressionWithoutBrackets? "}"   
+		//PropertySetDefault)? input=BuilderInput? ("output" "{" output=PathGroup "}")? funcExpr
+		//=BlockExpressionWithoutBrackets? "}"   
 		//	     
 		//	    
 		//        
@@ -2793,7 +2996,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_13() { return cLeftCurlyBracketKeyword_13; }
 
-		//("default" "properties" defaultProperties=PropertySet)?
+		//("default" "properties" defaultProperties=PropertySetDefault)?
 		public Group getGroup_14() { return cGroup_14; }
 
 		//"default"
@@ -2802,11 +3005,11 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//"properties"
 		public Keyword getPropertiesKeyword_14_1() { return cPropertiesKeyword_14_1; }
 
-		//defaultProperties=PropertySet
+		//defaultProperties=PropertySetDefault
 		public Assignment getDefaultPropertiesAssignment_14_2() { return cDefaultPropertiesAssignment_14_2; }
 
-		//PropertySet
-		public RuleCall getDefaultPropertiesPropertySetParserRuleCall_14_2_0() { return cDefaultPropertiesPropertySetParserRuleCall_14_2_0; }
+		//PropertySetDefault
+		public RuleCall getDefaultPropertiesPropertySetDefaultParserRuleCall_14_2_0() { return cDefaultPropertiesPropertySetDefaultParserRuleCall_14_2_0; }
 
 		//input=BuilderInput?
 		public Assignment getInputAssignment_15() { return cInputAssignment_15; }
@@ -3262,7 +3465,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "URI");
 		private final RuleCall cSTRINGTerminalRuleCall = (RuleCall)rule.eContents().get(1);
 		
-		//URI returns build::URI:
+		//URI returns be::URI:
 		//  STRING;
 		public ParserRule getRule() { return rule; }
 
@@ -3295,22 +3498,31 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cPropertiesKeyword_6_0_0 = (Keyword)cGroup_6_0.eContents().get(0);
 		private final Assignment cPropertySetsAssignment_6_0_1 = (Assignment)cGroup_6_0.eContents().get(1);
 		private final RuleCall cPropertySetsPropertySetParserRuleCall_6_0_1_0 = (RuleCall)cPropertySetsAssignment_6_0_1.eContents().get(0);
-		private final Assignment cFunctionsAssignment_6_1 = (Assignment)cAlternatives_6.eContents().get(1);
-		private final RuleCall cFunctionsFunctionParserRuleCall_6_1_0 = (RuleCall)cFunctionsAssignment_6_1.eContents().get(0);
-		private final Assignment cContextsAssignment_6_2 = (Assignment)cAlternatives_6.eContents().get(2);
-		private final RuleCall cContextsBuildConcernContextParserRuleCall_6_2_0 = (RuleCall)cContextsAssignment_6_2.eContents().get(0);
+		private final Group cGroup_6_1 = (Group)cAlternatives_6.eContents().get(1);
+		private final Keyword cDefaultKeyword_6_1_0 = (Keyword)cGroup_6_1.eContents().get(0);
+		private final Keyword cPropertiesKeyword_6_1_1 = (Keyword)cGroup_6_1.eContents().get(1);
+		private final Assignment cPropertySetsAssignment_6_1_2 = (Assignment)cGroup_6_1.eContents().get(2);
+		private final RuleCall cPropertySetsPropertySetDefaultParserRuleCall_6_1_2_0 = (RuleCall)cPropertySetsAssignment_6_1_2.eContents().get(0);
+		private final Assignment cFunctionsAssignment_6_2 = (Assignment)cAlternatives_6.eContents().get(2);
+		private final RuleCall cFunctionsFunctionParserRuleCall_6_2_0 = (RuleCall)cFunctionsAssignment_6_2.eContents().get(0);
+		private final Assignment cFunctionsAssignment_6_3 = (Assignment)cAlternatives_6.eContents().get(3);
+		private final RuleCall cFunctionsBuilderParserRuleCall_6_3_0 = (RuleCall)cFunctionsAssignment_6_3.eContents().get(0);
+		private final Assignment cContextsAssignment_6_4 = (Assignment)cAlternatives_6.eContents().get(4);
+		private final RuleCall cContextsBuildConcernContextParserRuleCall_6_4_0 = (RuleCall)cContextsAssignment_6_4.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//Concern_Named returns be::BConcern:
 		//  {be::BConcern} documentation=DOCUMENTATION? "concern" name=ID ("extends"
 		//  superConcerns+=[be::BConcern] ("," superConcerns+=[be::BConcern])*)? "{" (
-		//  "properties" propertySets+=PropertySet|functions+=Function|contexts+=
+		//  "properties" propertySets+=PropertySet|"default" "properties" propertySets+=
+		//  PropertySetDefault|functions+=Function|functions+=Builder|contexts+=
 		//  BuildConcernContext)* "}";
 		public ParserRule getRule() { return rule; }
 
 		//{be::BConcern} documentation=DOCUMENTATION? "concern" name=ID ("extends"
 		//superConcerns+=[be::BConcern] ("," superConcerns+=[be::BConcern])*)? "{" (
-		//"properties" propertySets+=PropertySet|functions+=Function|contexts+=
+		//"properties" propertySets+=PropertySet|"default" "properties" propertySets+=
+		//PropertySetDefault|functions+=Function|functions+=Builder|contexts+=
 		//BuildConcernContext)* "}"
 		public Group getGroup() { return cGroup; }
 
@@ -3365,7 +3577,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_5() { return cLeftCurlyBracketKeyword_5; }
 
-		//("properties" propertySets+=PropertySet|functions+=Function|contexts+=
+		//("properties" propertySets+=PropertySet|"default" "properties" propertySets+=
+		//PropertySetDefault|functions+=Function|functions+=Builder|contexts+=
 		//BuildConcernContext)*
 		public Alternatives getAlternatives_6() { return cAlternatives_6; }
 
@@ -3381,17 +3594,38 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//PropertySet
 		public RuleCall getPropertySetsPropertySetParserRuleCall_6_0_1_0() { return cPropertySetsPropertySetParserRuleCall_6_0_1_0; }
 
+		//"default" "properties" propertySets+=PropertySetDefault
+		public Group getGroup_6_1() { return cGroup_6_1; }
+
+		//"default"
+		public Keyword getDefaultKeyword_6_1_0() { return cDefaultKeyword_6_1_0; }
+
+		//"properties"
+		public Keyword getPropertiesKeyword_6_1_1() { return cPropertiesKeyword_6_1_1; }
+
+		//propertySets+=PropertySetDefault
+		public Assignment getPropertySetsAssignment_6_1_2() { return cPropertySetsAssignment_6_1_2; }
+
+		//PropertySetDefault
+		public RuleCall getPropertySetsPropertySetDefaultParserRuleCall_6_1_2_0() { return cPropertySetsPropertySetDefaultParserRuleCall_6_1_2_0; }
+
 		//functions+=Function
-		public Assignment getFunctionsAssignment_6_1() { return cFunctionsAssignment_6_1; }
+		public Assignment getFunctionsAssignment_6_2() { return cFunctionsAssignment_6_2; }
 
 		//Function
-		public RuleCall getFunctionsFunctionParserRuleCall_6_1_0() { return cFunctionsFunctionParserRuleCall_6_1_0; }
+		public RuleCall getFunctionsFunctionParserRuleCall_6_2_0() { return cFunctionsFunctionParserRuleCall_6_2_0; }
+
+		//functions+=Builder
+		public Assignment getFunctionsAssignment_6_3() { return cFunctionsAssignment_6_3; }
+
+		//Builder
+		public RuleCall getFunctionsBuilderParserRuleCall_6_3_0() { return cFunctionsBuilderParserRuleCall_6_3_0; }
 
 		//contexts+=BuildConcernContext
-		public Assignment getContextsAssignment_6_2() { return cContextsAssignment_6_2; }
+		public Assignment getContextsAssignment_6_4() { return cContextsAssignment_6_4; }
 
 		//BuildConcernContext
-		public RuleCall getContextsBuildConcernContextParserRuleCall_6_2_0() { return cContextsBuildConcernContextParserRuleCall_6_2_0; }
+		public RuleCall getContextsBuildConcernContextParserRuleCall_6_4_0() { return cContextsBuildConcernContextParserRuleCall_6_4_0; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
@@ -3417,23 +3651,30 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cPropertiesKeyword_3_0_0 = (Keyword)cGroup_3_0.eContents().get(0);
 		private final Assignment cPropertySetsAssignment_3_0_1 = (Assignment)cGroup_3_0.eContents().get(1);
 		private final RuleCall cPropertySetsPropertySetParserRuleCall_3_0_1_0 = (RuleCall)cPropertySetsAssignment_3_0_1.eContents().get(0);
-		private final Assignment cFunctionsAssignment_3_1 = (Assignment)cAlternatives_3.eContents().get(1);
-		private final RuleCall cFunctionsFunctionParserRuleCall_3_1_0 = (RuleCall)cFunctionsAssignment_3_1.eContents().get(0);
+		private final Group cGroup_3_1 = (Group)cAlternatives_3.eContents().get(1);
+		private final Keyword cDefaultKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
+		private final Keyword cPropertiesKeyword_3_1_1 = (Keyword)cGroup_3_1.eContents().get(1);
+		private final Assignment cPropertySetsAssignment_3_1_2 = (Assignment)cGroup_3_1.eContents().get(2);
+		private final RuleCall cPropertySetsPropertySetDefaultParserRuleCall_3_1_2_0 = (RuleCall)cPropertySetsAssignment_3_1_2.eContents().get(0);
 		private final Assignment cFunctionsAssignment_3_2 = (Assignment)cAlternatives_3.eContents().get(2);
-		private final RuleCall cFunctionsBuilderParserRuleCall_3_2_0 = (RuleCall)cFunctionsAssignment_3_2.eContents().get(0);
-		private final Assignment cContextsAssignment_3_3 = (Assignment)cAlternatives_3.eContents().get(3);
-		private final RuleCall cContextsBuildConcernContextParserRuleCall_3_3_0 = (RuleCall)cContextsAssignment_3_3.eContents().get(0);
+		private final RuleCall cFunctionsFunctionParserRuleCall_3_2_0 = (RuleCall)cFunctionsAssignment_3_2.eContents().get(0);
+		private final Assignment cFunctionsAssignment_3_3 = (Assignment)cAlternatives_3.eContents().get(3);
+		private final RuleCall cFunctionsBuilderParserRuleCall_3_3_0 = (RuleCall)cFunctionsAssignment_3_3.eContents().get(0);
+		private final Assignment cContextsAssignment_3_4 = (Assignment)cAlternatives_3.eContents().get(4);
+		private final RuleCall cContextsBuildConcernContextParserRuleCall_3_4_0 = (RuleCall)cContextsAssignment_3_4.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Concern_Anonymous returns be::BConcern:
 		//  {be::BConcern} ("extends" superConcerns+=[be::BConcern] ("," superConcerns+=[be::
-		//  BConcern])*)? "{" ("properties" propertySets+=PropertySet|functions+=Function|
-		//  functions+=Builder|contexts+=BuildConcernContext)* "}";
+		//  BConcern])*)? "{" ("properties" propertySets+=PropertySet|"default" "properties"
+		//  propertySets+=PropertySetDefault|functions+=Function|functions+=Builder|contexts
+		//  +=BuildConcernContext)* "}";
 		public ParserRule getRule() { return rule; }
 
 		//{be::BConcern} ("extends" superConcerns+=[be::BConcern] ("," superConcerns+=[be::
-		//BConcern])*)? "{" ("properties" propertySets+=PropertySet|functions+=Function|
-		//functions+=Builder|contexts+=BuildConcernContext)* "}"
+		//BConcern])*)? "{" ("properties" propertySets+=PropertySet|"default" "properties"
+		//propertySets+=PropertySetDefault|functions+=Function|functions+=Builder|contexts
+		//+=BuildConcernContext)* "}"
 		public Group getGroup() { return cGroup; }
 
 		//{be::BConcern}
@@ -3472,8 +3713,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
-		//("properties" propertySets+=PropertySet|functions+=Function|functions+=Builder|
-		//contexts+=BuildConcernContext)*
+		//("properties" propertySets+=PropertySet|"default" "properties" propertySets+=
+		//PropertySetDefault|functions+=Function|functions+=Builder|contexts+=
+		//BuildConcernContext)*
 		public Alternatives getAlternatives_3() { return cAlternatives_3; }
 
 		//"properties" propertySets+=PropertySet
@@ -3488,23 +3730,38 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//PropertySet
 		public RuleCall getPropertySetsPropertySetParserRuleCall_3_0_1_0() { return cPropertySetsPropertySetParserRuleCall_3_0_1_0; }
 
+		//"default" "properties" propertySets+=PropertySetDefault
+		public Group getGroup_3_1() { return cGroup_3_1; }
+
+		//"default"
+		public Keyword getDefaultKeyword_3_1_0() { return cDefaultKeyword_3_1_0; }
+
+		//"properties"
+		public Keyword getPropertiesKeyword_3_1_1() { return cPropertiesKeyword_3_1_1; }
+
+		//propertySets+=PropertySetDefault
+		public Assignment getPropertySetsAssignment_3_1_2() { return cPropertySetsAssignment_3_1_2; }
+
+		//PropertySetDefault
+		public RuleCall getPropertySetsPropertySetDefaultParserRuleCall_3_1_2_0() { return cPropertySetsPropertySetDefaultParserRuleCall_3_1_2_0; }
+
 		//functions+=Function
-		public Assignment getFunctionsAssignment_3_1() { return cFunctionsAssignment_3_1; }
-
-		//Function
-		public RuleCall getFunctionsFunctionParserRuleCall_3_1_0() { return cFunctionsFunctionParserRuleCall_3_1_0; }
-
-		//functions+=Builder
 		public Assignment getFunctionsAssignment_3_2() { return cFunctionsAssignment_3_2; }
 
+		//Function
+		public RuleCall getFunctionsFunctionParserRuleCall_3_2_0() { return cFunctionsFunctionParserRuleCall_3_2_0; }
+
+		//functions+=Builder
+		public Assignment getFunctionsAssignment_3_3() { return cFunctionsAssignment_3_3; }
+
 		//Builder
-		public RuleCall getFunctionsBuilderParserRuleCall_3_2_0() { return cFunctionsBuilderParserRuleCall_3_2_0; }
+		public RuleCall getFunctionsBuilderParserRuleCall_3_3_0() { return cFunctionsBuilderParserRuleCall_3_3_0; }
 
 		//contexts+=BuildConcernContext
-		public Assignment getContextsAssignment_3_3() { return cContextsAssignment_3_3; }
+		public Assignment getContextsAssignment_3_4() { return cContextsAssignment_3_4; }
 
 		//BuildConcernContext
-		public RuleCall getContextsBuildConcernContextParserRuleCall_3_3_0() { return cContextsBuildConcernContextParserRuleCall_3_3_0; }
+		public RuleCall getContextsBuildConcernContextParserRuleCall_3_4_0() { return cContextsBuildConcernContextParserRuleCall_3_4_0; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
@@ -5419,9 +5676,14 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cPropertySetsAssignment_3_0_1 = (Assignment)cGroup_3_0.eContents().get(1);
 		private final RuleCall cPropertySetsPropertySetParserRuleCall_3_0_1_0 = (RuleCall)cPropertySetsAssignment_3_0_1.eContents().get(0);
 		private final Group cGroup_3_1 = (Group)cAlternatives_3.eContents().get(1);
-		private final Keyword cConcernKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
-		private final Assignment cConcernsAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
-		private final RuleCall cConcernsConcern_AnonymousParserRuleCall_3_1_1_0 = (RuleCall)cConcernsAssignment_3_1_1.eContents().get(0);
+		private final Keyword cDefaultKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
+		private final Keyword cPropertiesKeyword_3_1_1 = (Keyword)cGroup_3_1.eContents().get(1);
+		private final Assignment cPropertySetsAssignment_3_1_2 = (Assignment)cGroup_3_1.eContents().get(2);
+		private final RuleCall cPropertySetsPropertySetDefaultParserRuleCall_3_1_2_0 = (RuleCall)cPropertySetsAssignment_3_1_2.eContents().get(0);
+		private final Group cGroup_3_2 = (Group)cAlternatives_3.eContents().get(2);
+		private final Keyword cConcernKeyword_3_2_0 = (Keyword)cGroup_3_2.eContents().get(0);
+		private final Assignment cConcernsAssignment_3_2_1 = (Assignment)cGroup_3_2.eContents().get(1);
+		private final RuleCall cConcernsConcern_AnonymousParserRuleCall_3_2_1_0 = (RuleCall)cConcernsAssignment_3_2_1.eContents().get(0);
 		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
 		private final Group cGroup_4_0 = (Group)cAlternatives_4.eContents().get(0);
 		private final Keyword cColonKeyword_4_0_0 = (Keyword)cGroup_4_0.eContents().get(0);
@@ -5436,14 +5698,18 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//WithExpression returns be::BWithExpression:
 		//  {be::BWithExpression} "with" ("(" referencedAdvice+=[be::BAdvice] (","
 		//  referencedAdvice+=[be::BAdvice])* ")")? ("properties" propertySets+=PropertySet|
-		//  "concern" concerns+=Concern_Anonymous)* (":" funcExpr=Expression|"{" funcExpr=
+		//  "default" "properties" propertySets+=PropertySetDefault|"concern" concerns+=
+		//  Concern_Anonymous)* (":" funcExpr=Expression|"{" funcExpr=
 		//  BlockExpressionWithoutBrackets "}"); 
 		//
 		//// Validation checks that there is at least one of references, properties or concern.
 		//        
 		//		
 		//		                             
-		//		                        
+		//		            
+		//		               
+		//		            
+		//		
 		//		                          
 		//		
 		//	
@@ -5458,7 +5724,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 		//{be::BWithExpression} "with" ("(" referencedAdvice+=[be::BAdvice] (","
 		//referencedAdvice+=[be::BAdvice])* ")")? ("properties" propertySets+=PropertySet|
-		//"concern" concerns+=Concern_Anonymous)* (":" funcExpr=Expression|"{" funcExpr=
+		//"default" "properties" propertySets+=PropertySetDefault|"concern" concerns+=
+		//Concern_Anonymous)* (":" funcExpr=Expression|"{" funcExpr=
 		//BlockExpressionWithoutBrackets "}")
 		public Group getGroup() { return cGroup; }
 
@@ -5501,7 +5768,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//")"
 		public Keyword getRightParenthesisKeyword_2_3() { return cRightParenthesisKeyword_2_3; }
 
-		//("properties" propertySets+=PropertySet|"concern" concerns+=Concern_Anonymous)*
+		//("properties" propertySets+=PropertySet|"default" "properties" propertySets+=
+		//PropertySetDefault|"concern" concerns+=Concern_Anonymous)*
 		public Alternatives getAlternatives_3() { return cAlternatives_3; }
 
 		//"properties" propertySets+=PropertySet
@@ -5516,17 +5784,32 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//PropertySet
 		public RuleCall getPropertySetsPropertySetParserRuleCall_3_0_1_0() { return cPropertySetsPropertySetParserRuleCall_3_0_1_0; }
 
-		//"concern" concerns+=Concern_Anonymous
+		//"default" "properties" propertySets+=PropertySetDefault
 		public Group getGroup_3_1() { return cGroup_3_1; }
 
+		//"default"
+		public Keyword getDefaultKeyword_3_1_0() { return cDefaultKeyword_3_1_0; }
+
+		//"properties"
+		public Keyword getPropertiesKeyword_3_1_1() { return cPropertiesKeyword_3_1_1; }
+
+		//propertySets+=PropertySetDefault
+		public Assignment getPropertySetsAssignment_3_1_2() { return cPropertySetsAssignment_3_1_2; }
+
+		//PropertySetDefault
+		public RuleCall getPropertySetsPropertySetDefaultParserRuleCall_3_1_2_0() { return cPropertySetsPropertySetDefaultParserRuleCall_3_1_2_0; }
+
+		//"concern" concerns+=Concern_Anonymous
+		public Group getGroup_3_2() { return cGroup_3_2; }
+
 		//"concern"
-		public Keyword getConcernKeyword_3_1_0() { return cConcernKeyword_3_1_0; }
+		public Keyword getConcernKeyword_3_2_0() { return cConcernKeyword_3_2_0; }
 
 		//concerns+=Concern_Anonymous
-		public Assignment getConcernsAssignment_3_1_1() { return cConcernsAssignment_3_1_1; }
+		public Assignment getConcernsAssignment_3_2_1() { return cConcernsAssignment_3_2_1; }
 
 		//Concern_Anonymous
-		public RuleCall getConcernsConcern_AnonymousParserRuleCall_3_1_1_0() { return cConcernsConcern_AnonymousParserRuleCall_3_1_1_0; }
+		public RuleCall getConcernsConcern_AnonymousParserRuleCall_3_2_1_0() { return cConcernsConcern_AnonymousParserRuleCall_3_2_1_0; }
 
 		//":" funcExpr=Expression|"{" funcExpr=BlockExpressionWithoutBrackets "}"
 		public Alternatives getAlternatives_4() { return cAlternatives_4; }
@@ -6961,7 +7244,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cDefaultKeyword_14_1 = (Keyword)cGroup_14.eContents().get(1);
 		private final Keyword cPropertiesKeyword_14_2 = (Keyword)cGroup_14.eContents().get(2);
 		private final Assignment cDefaultPropertiesAdditionsAssignment_14_3 = (Assignment)cGroup_14.eContents().get(3);
-		private final RuleCall cDefaultPropertiesAdditionsPropertySetParserRuleCall_14_3_0 = (RuleCall)cDefaultPropertiesAdditionsAssignment_14_3.eContents().get(0);
+		private final RuleCall cDefaultPropertiesAdditionsPropertySetDefaultParserRuleCall_14_3_0 = (RuleCall)cDefaultPropertiesAdditionsAssignment_14_3.eContents().get(0);
 		private final Alternatives cAlternatives_15 = (Alternatives)cGroup.eContents().get(15);
 		private final Group cGroup_15_0 = (Group)cAlternatives_15.eContents().get(0);
 		private final Keyword cPlusSignKeyword_15_0_0 = (Keyword)cGroup_15_0.eContents().get(0);
@@ -7018,11 +7301,11 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//  "postcondition" (":" postcondExpr=Expression ";"|postcondExpr=BlockExpression))? (
 		//  "-" "default" "properties" defaultPropertiesRemovals+=PID (","
 		//  defaultPropertiesRemovals+=PID)* ";")? ("+" "default" "properties"
-		//  defaultPropertiesAdditions=PropertySet)? ("+" "input" inputAdditions+=Prerequisite|
-		//  "-" inputRemovals+=InputPredicate ";")* ("+" "output" outputAdditions+=PathVector|"-"
-		//  "output" outputRemovals+=OutputPredicate ";")* ("-" "annotations" annotationsRemovals
-		//  +=PID ("," annotationsRemovals+=PID)* ";")? ("+" "annotations" annotationsAdditions=
-		//  PropertySet)? funcExpr=BlockExpression? "}"; 
+		//  defaultPropertiesAdditions=PropertySetDefault)? ("+" "input" inputAdditions+=
+		//  Prerequisite|"-" inputRemovals+=InputPredicate ";")* ("+" "output" outputAdditions+=
+		//  PathVector|"-" "output" outputRemovals+=OutputPredicate ";")* ("-" "annotations"
+		//  annotationsRemovals+=PID ("," annotationsRemovals+=PID)* ";")? ("+" "annotations"
+		//  annotationsAdditions=PropertySet)? funcExpr=BlockExpression? "}"; 
 		//	
 		//// Advice for Builders	
 		//        
@@ -7074,11 +7357,11 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//"postcondition" (":" postcondExpr=Expression ";"|postcondExpr=BlockExpression))? (
 		//"-" "default" "properties" defaultPropertiesRemovals+=PID (","
 		//defaultPropertiesRemovals+=PID)* ";")? ("+" "default" "properties"
-		//defaultPropertiesAdditions=PropertySet)? ("+" "input" inputAdditions+=Prerequisite|
-		//"-" inputRemovals+=InputPredicate ";")* ("+" "output" outputAdditions+=PathVector|"-"
-		//"output" outputRemovals+=OutputPredicate ";")* ("-" "annotations" annotationsRemovals
-		//+=PID ("," annotationsRemovals+=PID)* ";")? ("+" "annotations" annotationsAdditions=
-		//PropertySet)? funcExpr=BlockExpression? "}"   
+		//defaultPropertiesAdditions=PropertySetDefault)? ("+" "input" inputAdditions+=
+		//Prerequisite|"-" inputRemovals+=InputPredicate ";")* ("+" "output" outputAdditions+=
+		//PathVector|"-" "output" outputRemovals+=OutputPredicate ";")* ("-" "annotations"
+		//annotationsRemovals+=PID ("," annotationsRemovals+=PID)* ";")? ("+" "annotations"
+		//annotationsAdditions=PropertySet)? funcExpr=BlockExpression? "}"   
 		//	  
 		//	 	  
 		//   		             
@@ -7426,7 +7709,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//";"
 		public Keyword getSemicolonKeyword_13_5() { return cSemicolonKeyword_13_5; }
 
-		//("+" "default" "properties" defaultPropertiesAdditions=PropertySet)?
+		//("+" "default" "properties" defaultPropertiesAdditions=PropertySetDefault)?
 		public Group getGroup_14() { return cGroup_14; }
 
 		//"+"
@@ -7438,11 +7721,11 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//"properties"
 		public Keyword getPropertiesKeyword_14_2() { return cPropertiesKeyword_14_2; }
 
-		//defaultPropertiesAdditions=PropertySet
+		//defaultPropertiesAdditions=PropertySetDefault
 		public Assignment getDefaultPropertiesAdditionsAssignment_14_3() { return cDefaultPropertiesAdditionsAssignment_14_3; }
 
-		//PropertySet
-		public RuleCall getDefaultPropertiesAdditionsPropertySetParserRuleCall_14_3_0() { return cDefaultPropertiesAdditionsPropertySetParserRuleCall_14_3_0; }
+		//PropertySetDefault
+		public RuleCall getDefaultPropertiesAdditionsPropertySetDefaultParserRuleCall_14_3_0() { return cDefaultPropertiesAdditionsPropertySetDefaultParserRuleCall_14_3_0; }
 
 		//("+" "input" inputAdditions+=Prerequisite|"-" inputRemovals+=InputPredicate ";")*
 		public Alternatives getAlternatives_15() { return cAlternatives_15; }
@@ -10016,6 +10299,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	private RequiredCapability_UnfilteredElements pRequiredCapability_Unfiltered;
 	private PropertySet_NamedElements pPropertySet_Named;
 	private PropertySetElements pPropertySet;
+	private PropertySetDefaultElements pPropertySetDefault;
 	private PropertyOperationElements pPropertyOperation;
 	private ConditionalPropertyOperationElements pConditionalPropertyOperation;
 	private PropertyDefinitionOperationElements pPropertyDefinitionOperation;
@@ -10198,6 +10482,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//  {build::BeeModel} (imports+=Import* (functions+=Function|concerns+=Concern_Named|
 	//  "properties" propertySets+=PropertySet_Named)* body=BuildUnit?); 
 	//
+	//// uncomments if things are needed that should not be in backend or build
 	////generate beeLang "http://www.eclipse.org/b3/BeeLang"
 	public BeeModelElements getBeeModelAccess() {
 		return (pBeeModel != null) ? pBeeModel : (pBeeModel = new BeeModelElements());
@@ -10234,7 +10519,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//  {build::BuildUnit} documentation=DOCUMENTATION? executionMode=ExecutionMode? "unit"
 	//  name=UnitName? ("version" version=VersionLiteral)? ("implements" implements+=
 	//  SimpleTypeRef ("," implements+=SimpleTypeRef)*)? "{" ("default" "properties"
-	//  defaultProperties=PropertySet)? ("provides" "{" (providedCapabilities+=
+	//  defaultProperties=PropertySetDefault)? ("provides" "{" (providedCapabilities+=
 	//  ProvidedCapability ";")+ "}"|"provides" providedCapabilities+=ProvidedCapability ";"
 	//  |"requires" "{" (requiredCapabilities+=AliasedRequiredCapability ";")+ "}"|
 	//  "requires" requiredCapabilities+=AliasedRequiredCapability ";"|"env" "requires" "{" (
@@ -10396,21 +10681,45 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//PropertySet returns be::BPropertySet:
-	//  {be::BPropertySet} ("extends" extends=[be::BPropertySet|QIDREF])? "{" operations+=
-	//  PropertyOperation* "}"; 
+	//  {be::BPropertySet} (("extends" extends=[be::BPropertySet|QIDREF])? "{" operations+=
+	//  PropertyOperation* "}")|propertiesFile=URI ";"|extends=[be::BPropertySet|QIDREF]
+	//  ";"; 
 	//
 	//// Sequence of possibly filtered property statements	
 	//         
-	//	                    
+	//	                      
+	//	        
+	//	            
 	//	
-	//
-	//// For model generation, to get supertype correct
+	//	
+	//// Sequence of possibly filtered property statements (with default semantics)
 	public PropertySetElements getPropertySetAccess() {
 		return (pPropertySet != null) ? pPropertySet : (pPropertySet = new PropertySetElements());
 	}
 	
 	public ParserRule getPropertySetRule() {
 		return getPropertySetAccess().getRule();
+	}
+
+	//PropertySetDefault returns be::BPropertySet:
+	//  {be::BDefaultPropertySet} (("extends" extends=[be::BPropertySet|QIDREF])? "{"
+	//  operations+=PropertyOperation* "}")|propertiesFile=URI ";"|extends=[be::
+	//  BPropertySet|QIDREF] ";"; 
+	//	
+	//// Sequence of possibly filtered property statements (with default semantics)	
+	//         
+	//	                      
+	//	        
+	//	            
+	//	
+	//
+	//// For model generation, to get supertype correct
+	public PropertySetDefaultElements getPropertySetDefaultAccess() {
+		return (pPropertySetDefault != null) ? pPropertySetDefault : (pPropertySetDefault = new PropertySetDefaultElements());
+	}
+	
+	public ParserRule getPropertySetDefaultRule() {
+		return getPropertySetDefaultAccess().getRule();
 	}
 
 	//PropertyOperation returns be::BPropertyOperation:
@@ -10611,7 +10920,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//WithClause returns be::BWithExpression:
 	//  {be::BWithExpression} "with" ("(" referencedAdvice+=[be::BAdvice] (","
 	//  referencedAdvice+=[be::BAdvice])* ")")? ("properties" propertySets+=PropertySet|
-	//  "concern" concerns+=Concern_Anonymous)*; 
+	//  "default" "properties" propertySets+=PropertySetDefault|"concern" concerns+=
+	//  Concern_Anonymous)*; 
 	//
 	//// Validation checks that there is at least one of references, properties or concern.
 	public WithClauseElements getWithClauseAccess() {
@@ -10717,8 +11027,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//  BlockExpression))? ("postinputcondition" (":" postinputcondExpr=Expression ";"|
 	//  postinputcondExpr=BlockExpression))? ("postcondition" (":" postcondExpr=Expression
 	//  ";"|postcondExpr=BlockExpression))? "{" ("default" "properties" defaultProperties=
-	//  PropertySet)? input=BuilderInput? ("output" "{" output=PathGroup "}")? funcExpr=
-	//  BlockExpressionWithoutBrackets? "}"; 
+	//  PropertySetDefault)? input=BuilderInput? ("output" "{" output=PathGroup "}")? funcExpr
+	//  =BlockExpressionWithoutBrackets? "}"; 
 	//	
 	//        
 	//	     
@@ -10858,7 +11168,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getContainerConfigurationAccess().getRule();
 	}
 
-	//URI returns build::URI:
+	//URI returns be::URI:
 	//  STRING;
 	public URIElements getURIAccess() {
 		return (pURI != null) ? pURI : (pURI = new URIElements());
@@ -10871,7 +11181,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//Concern_Named returns be::BConcern:
 	//  {be::BConcern} documentation=DOCUMENTATION? "concern" name=ID ("extends"
 	//  superConcerns+=[be::BConcern] ("," superConcerns+=[be::BConcern])*)? "{" (
-	//  "properties" propertySets+=PropertySet|functions+=Function|contexts+=
+	//  "properties" propertySets+=PropertySet|"default" "properties" propertySets+=
+	//  PropertySetDefault|functions+=Function|functions+=Builder|contexts+=
 	//  BuildConcernContext)* "}";
 	public Concern_NamedElements getConcern_NamedAccess() {
 		return (pConcern_Named != null) ? pConcern_Named : (pConcern_Named = new Concern_NamedElements());
@@ -10883,8 +11194,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Concern_Anonymous returns be::BConcern:
 	//  {be::BConcern} ("extends" superConcerns+=[be::BConcern] ("," superConcerns+=[be::
-	//  BConcern])*)? "{" ("properties" propertySets+=PropertySet|functions+=Function|
-	//  functions+=Builder|contexts+=BuildConcernContext)* "}";
+	//  BConcern])*)? "{" ("properties" propertySets+=PropertySet|"default" "properties"
+	//  propertySets+=PropertySetDefault|functions+=Function|functions+=Builder|contexts
+	//  +=BuildConcernContext)* "}";
 	public Concern_AnonymousElements getConcern_AnonymousAccess() {
 		return (pConcern_Anonymous != null) ? pConcern_Anonymous : (pConcern_Anonymous = new Concern_AnonymousElements());
 	}
@@ -11386,14 +11698,18 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//WithExpression returns be::BWithExpression:
 	//  {be::BWithExpression} "with" ("(" referencedAdvice+=[be::BAdvice] (","
 	//  referencedAdvice+=[be::BAdvice])* ")")? ("properties" propertySets+=PropertySet|
-	//  "concern" concerns+=Concern_Anonymous)* (":" funcExpr=Expression|"{" funcExpr=
+	//  "default" "properties" propertySets+=PropertySetDefault|"concern" concerns+=
+	//  Concern_Anonymous)* (":" funcExpr=Expression|"{" funcExpr=
 	//  BlockExpressionWithoutBrackets "}"); 
 	//
 	//// Validation checks that there is at least one of references, properties or concern.
 	//        
 	//		
 	//		                             
-	//		                        
+	//		            
+	//		               
+	//		            
+	//		
 	//		                          
 	//		
 	//	
@@ -11721,11 +12037,11 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//  "postcondition" (":" postcondExpr=Expression ";"|postcondExpr=BlockExpression))? (
 	//  "-" "default" "properties" defaultPropertiesRemovals+=PID (","
 	//  defaultPropertiesRemovals+=PID)* ";")? ("+" "default" "properties"
-	//  defaultPropertiesAdditions=PropertySet)? ("+" "input" inputAdditions+=Prerequisite|
-	//  "-" inputRemovals+=InputPredicate ";")* ("+" "output" outputAdditions+=PathVector|"-"
-	//  "output" outputRemovals+=OutputPredicate ";")* ("-" "annotations" annotationsRemovals
-	//  +=PID ("," annotationsRemovals+=PID)* ";")? ("+" "annotations" annotationsAdditions=
-	//  PropertySet)? funcExpr=BlockExpression? "}"; 
+	//  defaultPropertiesAdditions=PropertySetDefault)? ("+" "input" inputAdditions+=
+	//  Prerequisite|"-" inputRemovals+=InputPredicate ";")* ("+" "output" outputAdditions+=
+	//  PathVector|"-" "output" outputRemovals+=OutputPredicate ";")* ("-" "annotations"
+	//  annotationsRemovals+=PID ("," annotationsRemovals+=PID)* ";")? ("+" "annotations"
+	//  annotationsAdditions=PropertySet)? funcExpr=BlockExpression? "}"; 
 	//	
 	//// Advice for Builders	
 	//        

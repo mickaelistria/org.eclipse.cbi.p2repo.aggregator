@@ -32,6 +32,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -77,6 +78,7 @@ public class BPropertySetItemProvider
 			super.getPropertyDescriptors(object);
 
 			addExtendsPropertyDescriptor(object);
+			addPropertiesFilePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -99,6 +101,28 @@ public class BPropertySetItemProvider
 				 false,
 				 true,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Properties File feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPropertiesFilePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_BPropertySet_propertiesFile_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BPropertySet_propertiesFile_feature", "_UI_BPropertySet_type"),
+				 B3backendPackage.Literals.BPROPERTY_SET__PROPERTIES_FILE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -170,6 +194,9 @@ public class BPropertySetItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(BPropertySet.class)) {
+			case B3backendPackage.BPROPERTY_SET__PROPERTIES_FILE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case B3backendPackage.BPROPERTY_SET__OPERATIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

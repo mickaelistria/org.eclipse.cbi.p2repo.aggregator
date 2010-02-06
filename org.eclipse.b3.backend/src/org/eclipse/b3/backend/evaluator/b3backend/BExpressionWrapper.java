@@ -20,6 +20,9 @@ package org.eclipse.b3.backend.evaluator.b3backend;
  *
  * <!-- begin-model-doc -->
  * The purpose of a BExpressionWrapper is to contain a reference to some other contained expression.
+ * 
+ * Evaluates to null (Object) if original is not set.
+ * 
  * <!-- end-model-doc -->
  *
  * <p>

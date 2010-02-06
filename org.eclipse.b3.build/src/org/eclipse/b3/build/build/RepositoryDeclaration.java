@@ -69,7 +69,7 @@ public interface RepositoryDeclaration extends RepositoryConfiguration {
 	 * @return the value of the '<em>Location</em>' attribute.
 	 * @see #setLocation(URI)
 	 * @see org.eclipse.b3.build.build.B3BuildPackage#getRepositoryDeclaration_Location()
-	 * @model dataType="org.eclipse.b3.build.build.URI"
+	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.URI"
 	 * @generated
 	 */
 	URI getLocation();

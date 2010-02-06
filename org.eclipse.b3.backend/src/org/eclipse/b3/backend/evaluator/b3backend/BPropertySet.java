@@ -12,6 +12,7 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend;
 
+import java.net.URI;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -24,6 +25,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySet#getExtends <em>Extends</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySet#getOperations <em>Operations</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySet#getPropertiesFile <em>Properties File</em>}</li>
  * </ul>
  * </p>
  *
@@ -80,6 +82,32 @@ public interface BPropertySet extends BAdvice {
 	 * @generated
 	 */
 	EList<BPropertyOperation> getOperations();
+
+	/**
+	 * Returns the value of the '<em><b>Properties File</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Properties File</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Properties File</em>' attribute.
+	 * @see #setPropertiesFile(URI)
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBPropertySet_PropertiesFile()
+	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.URI"
+	 * @generated
+	 */
+	URI getPropertiesFile();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySet#getPropertiesFile <em>Properties File</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Properties File</em>' attribute.
+	 * @see #getPropertiesFile()
+	 * @generated
+	 */
+	void setPropertiesFile(URI value);
 
 	/**
 	 * <!-- begin-user-doc -->

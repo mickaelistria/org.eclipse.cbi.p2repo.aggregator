@@ -20,6 +20,7 @@ import "platform:/resource/org.eclipse.b3.backend/model/B3Backend.ecore" as be
 // build model defines build specific expression
 import "platform:/resource/org.eclipse.b3.build/model/B3Build.ecore" as build
 
+// uncomments if things are needed that should not be in backend or build
 //generate beeLang "http://www.eclipse.org/b3/BeeLang"
 
 BeeModel returns build::BeeModel hidden(WS, SL_COMMENT, ML_COMMENT) : {build::BeeModel}
@@ -53,7 +54,7 @@ BuildUnit returns build::BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT) : {build::
 			// goes first, because they may be used in the other clauses. TODO: can probably be relaxed
 			// since linking will find them anyway.
 			//
-			  ('default' 'properties'  defaultProperties = PropertySet)
+			  ('default' 'properties'  defaultProperties = PropertySetDefault)
 		)?
 		( 	//-- PROVIDES
 			  ('provides' '{' (providedCapabilities += ProvidedCapability ';')+ '}')
@@ -114,7 +115,16 @@ PropertySet_Named returns be::BPropertySet : {be::BPropertySet}
 
 // Sequence of possibly filtered property statements	
 PropertySet returns be::BPropertySet :  {be::BPropertySet}
-	("extends" extends=[be::BPropertySet | QIDREF])?  '{' (operations += PropertyOperation )*  '}'
+	  (("extends" extends=[be::BPropertySet | QIDREF])?  '{' (operations += PropertyOperation )*  '}')
+	| (propertiesFile = URI ';')
+	| (extends = [be::BPropertySet | QIDREF] ';')
+	;
+	
+// Sequence of possibly filtered property statements (with default semantics)	
+PropertySetDefault returns be::BPropertySet :  {be::BDefaultPropertySet}
+	  (("extends" extends=[be::BPropertySet | QIDREF])?  '{' (operations += PropertyOperation )*  '}')
+	| (propertiesFile = URI ';')
+	| (extends = [be::BPropertySet | QIDREF] ';')
 	;
 
 // For model generation, to get supertype correct
@@ -195,9 +205,12 @@ Prerequisite returns build::Prerequisite : {build::Prerequisite}
 
 // Validation checks that there is at least one of references, properties or concern.
 WithClause returns be::BWithExpression : {be::BWithExpression}
-		'with'
+		"with"
 		( '(' referencedAdvice += [be::BAdvice | ID] (',' referencedAdvice += [be::BAdvice | ID])* ')' )? 
-		(( 'properties' propertySets += PropertySet ) | ( 'concern' concerns += Concern_Anonymous ))*
+		( ( "properties" propertySets += PropertySet )
+		| ( "default" "properties" propertySets += PropertySetDefault)
+		| ( "concern" concerns += Concern_Anonymous )
+		)*
 		;
 			
 BuildResultReference returns build::BuildResultReference
@@ -248,7 +261,7 @@ Builder returns build::Builder : {build::Builder}
 	("postinputcondition" ((':' postinputcondExpr = Expression ';' )|( postinputcondExpr = BlockExpression)))?
 	("postcondition" ((':' postcondExpr = Expression ';' )|( postcondExpr = BlockExpression)))?
 	 '{'
-		('default' 'properties' defaultProperties = PropertySet)?
+		('default' 'properties' defaultProperties = PropertySetDefault)?
 	     ( input = BuilderInput )? 
 	     ( "output" '{' output = PathGroup '}' )? 
 	     (funcExpr = BlockExpressionWithoutBrackets)?
@@ -309,7 +322,7 @@ ContainerConfiguration returns build::ContainerConfiguration: {build::ContainerC
 	"container" name=ID "agent" agentType=TypeRef (contextBlock = ContextBlock_Creation)? 
 	;
 	
-URI returns build::URI : 
+URI returns be::URI : 
 	STRING
 	;
 
@@ -318,7 +331,9 @@ Concern_Named returns be::BConcern : {be::BConcern}
 	("extends" superConcerns += [be::BConcern | ID] (',' superConcerns += [be::BConcern | ID])*)? 
 	'{' (
 			("properties" propertySets += PropertySet) 
+		|	("default" "properties" propertySets += PropertySetDefault) 
 		| 	(functions+=Function)
+		| 	(functions+=Builder)
 		|	(contexts += BuildConcernContext)
 		)* '}' 
 	;
@@ -328,6 +343,7 @@ Concern_Anonymous returns be::BConcern : {be::BConcern}
 	("extends" superConcerns+= [be::BConcern | ID] (',' superConcerns += [be::BConcern | ID])*)? 
 	'{' (
 			("properties" propertySets += PropertySet) 
+		|	("default" "properties" propertySets += PropertySetDefault) 			
 		| 	(functions+=Function)
 		| 	(functions+=Builder)
 		|	(contexts += BuildConcernContext)		
@@ -539,7 +555,10 @@ PrimaryExpression returns be::BExpression
 WithExpression returns be::BWithExpression : {be::BWithExpression}
 		'with'
 		( '(' referencedAdvice += [be::BAdvice | ID] (',' referencedAdvice += [be::BAdvice | ID])* ')' )? 
-		(( 'properties' propertySets += PropertySet ) | ( 'concern' concerns += Concern_Anonymous ))*
+		( ( 'properties' propertySets += PropertySet )
+		| ( "default" "properties" propertySets += PropertySetDefault ) 
+		| ( 'concern' concerns += Concern_Anonymous )
+		)*
 		( (':' funcExpr = Expression ) | ('{' funcExpr = BlockExpressionWithoutBrackets '}' ) )
 		;
 	
@@ -694,7 +713,7 @@ BuilderConcernContext returns build::BuilderConcernContext : {build::BuilderConc
 		('+' "postcondition" ((':' postcondExpr = Expression ';' )|( postcondExpr = BlockExpression)))?
 		
 		('-' "default" "properties" defaultPropertiesRemovals += PID (',' defaultPropertiesRemovals += PID)* ';')?
-		('+' "default" "properties" defaultPropertiesAdditions = PropertySet )?
+		('+' "default" "properties" defaultPropertiesAdditions = PropertySetDefault )?
 		
 		( ('+' "input" inputAdditions += Prerequisite) 
 		| ('-' inputRemovals += InputPredicate ';')

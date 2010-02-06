@@ -120,8 +120,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 				return createVersionRangeFromString(eDataType, initialValue);
 			case B3BuildPackage.VERSION:
 				return createVersionFromString(eDataType, initialValue);
-			case B3BuildPackage.URI:
-				return createURIFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -139,8 +137,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 				return convertVersionRangeToString(eDataType, instanceValue);
 			case B3BuildPackage.VERSION:
 				return convertVersionToString(eDataType, instanceValue);
-			case B3BuildPackage.URI:
-				return convertURIToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -569,24 +565,6 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	 * @generated
 	 */
 	public String convertVersionToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public URI createURIFromString(EDataType eDataType, String initialValue) {
-		return (URI)super.createFromString(eDataType, initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertURIToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 

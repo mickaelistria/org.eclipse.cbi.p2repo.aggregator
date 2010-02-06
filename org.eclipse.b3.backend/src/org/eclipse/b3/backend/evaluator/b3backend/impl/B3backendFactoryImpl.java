@@ -9,6 +9,7 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
+import java.net.URI;
 import java.util.Iterator;
 import java.util.regex.Pattern;
 import org.eclipse.b3.backend.core.B3DynamicClassLoader;
@@ -197,6 +198,8 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 				return createB3DynamicClassLoaderFromString(eDataType, initialValue);
 			case B3backendPackage.JAVA_ITERATOR:
 				return createJavaIteratorFromString(eDataType, initialValue);
+			case B3backendPackage.URI:
+				return createURIFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -246,6 +249,8 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 				return convertB3DynamicClassLoaderToString(eDataType, instanceValue);
 			case B3backendPackage.JAVA_ITERATOR:
 				return convertJavaIteratorToString(eDataType, instanceValue);
+			case B3backendPackage.URI:
+				return convertURIToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -1260,6 +1265,24 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	 */
 	public String convertJavaIteratorToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public URI createURIFromString(EDataType eDataType, String initialValue) {
+		return (URI)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertURIToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**

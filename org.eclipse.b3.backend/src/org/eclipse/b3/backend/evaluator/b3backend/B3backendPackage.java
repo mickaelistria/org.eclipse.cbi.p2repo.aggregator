@@ -3095,13 +3095,22 @@ public interface B3backendPackage extends EPackage {
 	int BPROPERTY_SET__OPERATIONS = BADVICE_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Properties File</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BPROPERTY_SET__PROPERTIES_FILE = BADVICE_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>BProperty Set</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BPROPERTY_SET_FEATURE_COUNT = BADVICE_FEATURE_COUNT + 2;
+	int BPROPERTY_SET_FEATURE_COUNT = BADVICE_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BDefaultPropertySetImpl <em>BDefault Property Set</em>}' class.
@@ -3139,6 +3148,15 @@ public interface B3backendPackage extends EPackage {
 	 * @ordered
 	 */
 	int BDEFAULT_PROPERTY_SET__OPERATIONS = BPROPERTY_SET__OPERATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Properties File</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BDEFAULT_PROPERTY_SET__PROPERTIES_FILE = BPROPERTY_SET__PROPERTIES_FILE;
 
 	/**
 	 * The number of structural features of the '<em>BDefault Property Set</em>' class.
@@ -4247,6 +4265,16 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 */
 	int JAVA_ITERATOR = 101;
+
+	/**
+	 * The meta object id for the '<em>URI</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.net.URI
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getURI()
+	 * @generated
+	 */
+	int URI = 102;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BExpression <em>BExpression</em>}'.
@@ -6369,6 +6397,17 @@ public interface B3backendPackage extends EPackage {
 	EReference getBPropertySet_Operations();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySet#getPropertiesFile <em>Properties File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Properties File</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BPropertySet#getPropertiesFile()
+	 * @see #getBPropertySet()
+	 * @generated
+	 */
+	EAttribute getBPropertySet_PropertiesFile();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BDefaultPropertySet <em>BDefault Property Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6802,6 +6841,17 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 */
 	EDataType getJavaIterator();
+
+	/**
+	 * Returns the meta object for data type '{@link java.net.URI <em>URI</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>URI</em>'.
+	 * @see java.net.URI
+	 * @model instanceClass="java.net.URI"
+	 * @generated
+	 */
+	EDataType getURI();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -8566,6 +8616,14 @@ public interface B3backendPackage extends EPackage {
 		EReference BPROPERTY_SET__OPERATIONS = eINSTANCE.getBPropertySet_Operations();
 
 		/**
+		 * The meta object literal for the '<em><b>Properties File</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BPROPERTY_SET__PROPERTIES_FILE = eINSTANCE.getBPropertySet_PropertiesFile();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BDefaultPropertySetImpl <em>BDefault Property Set</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8944,6 +9002,16 @@ public interface B3backendPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType JAVA_ITERATOR = eINSTANCE.getJavaIterator();
+
+		/**
+		 * The meta object literal for the '<em>URI</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.net.URI
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getURI()
+		 * @generated
+		 */
+		EDataType URI = eINSTANCE.getURI();
 
 	}
 

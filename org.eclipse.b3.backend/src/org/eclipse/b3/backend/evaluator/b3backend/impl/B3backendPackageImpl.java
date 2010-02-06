@@ -853,6 +853,13 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	private EDataType javaIteratorEDataType = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType uriEDataType = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -2709,6 +2716,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getBPropertySet_PropertiesFile() {
+		return (EAttribute)bPropertySetEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBDefaultPropertySet() {
 		return bDefaultPropertySetEClass;
 	}
@@ -3078,6 +3094,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EDataType getURI() {
+		return uriEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public B3backendFactory getB3backendFactory() {
 		return (B3backendFactory)getEFactoryInstance();
 	}
@@ -3329,6 +3354,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		bPropertySetEClass = createEClass(BPROPERTY_SET);
 		createEReference(bPropertySetEClass, BPROPERTY_SET__EXTENDS);
 		createEReference(bPropertySetEClass, BPROPERTY_SET__OPERATIONS);
+		createEAttribute(bPropertySetEClass, BPROPERTY_SET__PROPERTIES_FILE);
 
 		bDefaultPropertySetEClass = createEClass(BDEFAULT_PROPERTY_SET);
 
@@ -3427,6 +3453,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		stringArrayEDataType = createEDataType(STRING_ARRAY);
 		b3DynamicClassLoaderEDataType = createEDataType(B3_DYNAMIC_CLASS_LOADER);
 		javaIteratorEDataType = createEDataType(JAVA_ITERATOR);
+		uriEDataType = createEDataType(URI);
 	}
 
 	/**
@@ -3984,6 +4011,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEClass(bPropertySetEClass, BPropertySet.class, "BPropertySet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBPropertySet_Extends(), this.getBPropertySet(), null, "extends", null, 0, 1, BPropertySet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBPropertySet_Operations(), this.getBPropertyOperation(), null, "operations", null, 0, -1, BPropertySet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBPropertySet_PropertiesFile(), this.getURI(), "propertiesFile", null, 0, 1, BPropertySet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(bPropertySetEClass, ecorePackage.getEJavaObject(), "evaluateDefaults", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -4153,6 +4181,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEDataType(stringArrayEDataType, String[].class, "StringArray", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(b3DynamicClassLoaderEDataType, B3DynamicClassLoader.class, "B3DynamicClassLoader", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(javaIteratorEDataType, Iterator.class, "JavaIterator", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(uriEDataType, java.net.URI.class, "URI", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

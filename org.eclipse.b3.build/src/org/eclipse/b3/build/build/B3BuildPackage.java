@@ -3297,17 +3297,6 @@ public interface B3BuildPackage extends EPackage {
 	int VERSION = 46;
 
 	/**
-	 * The meta object id for the '<em>URI</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see java.net.URI
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getURI()
-	 * @generated
-	 */
-	int URI = 47;
-
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuildUnit <em>Build Unit</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4935,17 +4924,6 @@ public interface B3BuildPackage extends EPackage {
 	EDataType getVersion();
 
 	/**
-	 * Returns the meta object for data type '{@link java.net.URI <em>URI</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>URI</em>'.
-	 * @see java.net.URI
-	 * @model instanceClass="java.net.URI"
-	 * @generated
-	 */
-	EDataType getURI();
-
-	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6276,16 +6254,6 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType VERSION = eINSTANCE.getVersion();
-
-		/**
-		 * The meta object literal for the '<em>URI</em>' data type.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see java.net.URI
-		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getURI()
-		 * @generated
-		 */
-		EDataType URI = eINSTANCE.getURI();
 
 	}
 

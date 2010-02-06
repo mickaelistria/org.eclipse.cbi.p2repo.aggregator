@@ -550,6 +550,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="extends" eType="#//BPropertySet"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operations" upperBound="-1"
         eType="#//BPropertyOperation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="propertiesFile" eType="#//URI"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BDefaultPropertySet" eSuperTypes="#//BPropertySet"/>
   <eClassifiers xsi:type="ecore:EClass" name="BPropertyOperation" abstract="true"
@@ -721,4 +722,5 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="original" eType="#//BExpression"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="URI" instanceClassName="java.net.URI"/>
 </ecore:EPackage>
