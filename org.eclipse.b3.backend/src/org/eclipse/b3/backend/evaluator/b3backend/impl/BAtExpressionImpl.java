@@ -272,7 +272,7 @@ public class BAtExpressionImpl extends BExpressionImpl implements BAtExpression 
 		}
 		throw BackendHelper.createException(objExpr, "expression is neither a list or map - [] not applicable");
 	}
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings("rawtypes")
 	@Override
 	public LValue getLValue(BExecutionContext ctx) throws Throwable {
 		Object o = objExpr.evaluate(ctx);
@@ -287,7 +287,7 @@ public class BAtExpressionImpl extends BExpressionImpl implements BAtExpression 
 		throw BackendHelper.createException(objExpr, "expression is neither a list or map - [] not applicable");
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings("rawtypes")
 	private static class ListLValue implements LValue {
 		List list;
 		int index;
@@ -304,7 +304,7 @@ public class BAtExpressionImpl extends BExpressionImpl implements BAtExpression 
 		public boolean isSettable() throws B3EngineException {
 			return list != null && list.size() > index;
 		}
-
+		@SuppressWarnings("unchecked")
 		public Object set(Object value) throws B3EngineException {
 			list.set(index, value);
 			return value;
@@ -319,7 +319,7 @@ public class BAtExpressionImpl extends BExpressionImpl implements BAtExpression 
 			return true;
 		}
 	}
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({"rawtypes", "unchecked"})
 	private static class MapLValue implements LValue {
 		Map map;
 		Object key;
