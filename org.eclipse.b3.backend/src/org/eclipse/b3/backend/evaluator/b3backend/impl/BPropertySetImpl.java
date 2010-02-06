@@ -369,7 +369,7 @@ public class BPropertySetImpl extends BAdviceImpl implements BPropertySet {
 			p.load(propertiesFile.toURL().openStream());
 			EList<BPropertyOperation> ops = getOperations();
 			for( Entry<Object,Object> e : p.entrySet()) {
-				String key = String.class.cast(e.getKey());
+				String key = "$" + String.class.cast(e.getKey());
 				String value = String.class.cast(e.getValue());
 				BPropertyDefinitionOperation propDef = B3backendFactory.eINSTANCE.createBPropertyDefinitionOperation();
 				BDefProperty valueDef = B3backendFactory.eINSTANCE.createBDefProperty();
