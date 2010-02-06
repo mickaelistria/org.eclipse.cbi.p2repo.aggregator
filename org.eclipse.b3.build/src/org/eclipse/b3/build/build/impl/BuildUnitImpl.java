@@ -38,7 +38,6 @@ import org.eclipse.b3.build.build.RequiresPredicate;
 import org.eclipse.b3.build.build.Synchronization;
 import org.eclipse.b3.build.build.UnitConcernContext;
 import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;
-import org.eclipse.b3.build.core.BuildUnitProxyAdapter;
 import org.eclipse.b3.build.core.ContextAdapter;
 import org.eclipse.b3.build.core.ContextAdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
