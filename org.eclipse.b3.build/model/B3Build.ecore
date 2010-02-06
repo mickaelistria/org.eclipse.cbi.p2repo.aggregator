@@ -226,7 +226,13 @@
       <eParameters name="beeModel" eType="#//BeeModel"/>
     </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BuildConcernContext" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//BConcernContext #//IProvidedCapabilityContainer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BuildConcernContext" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//BConcernContext #//IProvidedCapabilityContainer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultPropertiesRemovals"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultPropertiesAdditions"
+        eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BPropertySet"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RequiresPredicate" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression">
     <eOperations name="matches" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="candidate" eType="#//RequiredCapability"/>
@@ -342,11 +348,6 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="providesRemovals" upperBound="-1"
         eType="#//ProvidesPredicate" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultPropertiesRemovals"
-        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultPropertiesAdditions"
-        eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BPropertySet"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="annotationsRemovals" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="annotationsAdditions" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BPropertySet"

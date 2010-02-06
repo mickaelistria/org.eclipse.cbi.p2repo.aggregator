@@ -1506,6 +1506,15 @@ public interface B3BuildPackage extends EPackage {
 	int BUILD_CONCERN_CONTEXT__FUNCTIONS = B3backendPackage.BCONCERN_CONTEXT__FUNCTIONS;
 
 	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_CONCERN_CONTEXT__DOCUMENTATION = B3backendPackage.BCONCERN_CONTEXT__DOCUMENTATION;
+
+	/**
 	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1515,13 +1524,31 @@ public interface B3BuildPackage extends EPackage {
 	int BUILD_CONCERN_CONTEXT__PROVIDED_CAPABILITIES = B3backendPackage.BCONCERN_CONTEXT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Default Properties Removals</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_REMOVALS = B3backendPackage.BCONCERN_CONTEXT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Default Properties Additions</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS = B3backendPackage.BCONCERN_CONTEXT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Build Concern Context</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_CONCERN_CONTEXT_FEATURE_COUNT = B3backendPackage.BCONCERN_CONTEXT_FEATURE_COUNT + 1;
+	int BUILD_CONCERN_CONTEXT_FEATURE_COUNT = B3backendPackage.BCONCERN_CONTEXT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Capability Predicate</b></em>' containment reference.
@@ -1731,6 +1758,15 @@ public interface B3BuildPackage extends EPackage {
 	int UNIT_CONCERN_CONTEXT__FUNCTIONS = BUILD_CONCERN_CONTEXT__FUNCTIONS;
 
 	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_CONCERN_CONTEXT__DOCUMENTATION = BUILD_CONCERN_CONTEXT__DOCUMENTATION;
+
+	/**
 	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1738,6 +1774,24 @@ public interface B3BuildPackage extends EPackage {
 	 * @ordered
 	 */
 	int UNIT_CONCERN_CONTEXT__PROVIDED_CAPABILITIES = BUILD_CONCERN_CONTEXT__PROVIDED_CAPABILITIES;
+
+	/**
+	 * The feature id for the '<em><b>Default Properties Removals</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_CONCERN_CONTEXT__DEFAULT_PROPERTIES_REMOVALS = BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_REMOVALS;
+
+	/**
+	 * The feature id for the '<em><b>Default Properties Additions</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS = BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS;
 
 	/**
 	 * The feature id for the '<em><b>Required Capabilities</b></em>' containment reference list.
@@ -1803,6 +1857,15 @@ public interface B3BuildPackage extends EPackage {
 	int BUILDER_CONCERN_CONTEXT__FUNCTIONS = BUILD_CONCERN_CONTEXT__FUNCTIONS;
 
 	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_CONCERN_CONTEXT__DOCUMENTATION = BUILD_CONCERN_CONTEXT__DOCUMENTATION;
+
+	/**
 	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1810,6 +1873,24 @@ public interface B3BuildPackage extends EPackage {
 	 * @ordered
 	 */
 	int BUILDER_CONCERN_CONTEXT__PROVIDED_CAPABILITIES = BUILD_CONCERN_CONTEXT__PROVIDED_CAPABILITIES;
+
+	/**
+	 * The feature id for the '<em><b>Default Properties Removals</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_CONCERN_CONTEXT__DEFAULT_PROPERTIES_REMOVALS = BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_REMOVALS;
+
+	/**
+	 * The feature id for the '<em><b>Default Properties Additions</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS = BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS;
 
 	/**
 	 * The feature id for the '<em><b>Query</b></em>' containment reference.
@@ -1956,31 +2037,13 @@ public interface B3BuildPackage extends EPackage {
 	int BUILDER_CONCERN_CONTEXT__PROVIDES_REMOVALS = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 15;
 
 	/**
-	 * The feature id for the '<em><b>Default Properties Removals</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILDER_CONCERN_CONTEXT__DEFAULT_PROPERTIES_REMOVALS = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 16;
-
-	/**
-	 * The feature id for the '<em><b>Default Properties Additions</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILDER_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 17;
-
-	/**
 	 * The feature id for the '<em><b>Annotations Removals</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILDER_CONCERN_CONTEXT__ANNOTATIONS_REMOVALS = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 18;
+	int BUILDER_CONCERN_CONTEXT__ANNOTATIONS_REMOVALS = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 16;
 
 	/**
 	 * The feature id for the '<em><b>Annotations Additions</b></em>' containment reference.
@@ -1989,7 +2052,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILDER_CONCERN_CONTEXT__ANNOTATIONS_ADDITIONS = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 19;
+	int BUILDER_CONCERN_CONTEXT__ANNOTATIONS_ADDITIONS = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 17;
 
 	/**
 	 * The number of structural features of the '<em>Builder Concern Context</em>' class.
@@ -1998,7 +2061,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILDER_CONCERN_CONTEXT_FEATURE_COUNT = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 20;
+	int BUILDER_CONCERN_CONTEXT_FEATURE_COUNT = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 18;
 
 	/**
 	 * The feature id for the '<em><b>Path Vector</b></em>' containment reference.
@@ -4098,6 +4161,28 @@ public interface B3BuildPackage extends EPackage {
 	EClass getBuildConcernContext();
 
 	/**
+	 * Returns the meta object for the attribute list '{@link org.eclipse.b3.build.build.BuildConcernContext#getDefaultPropertiesRemovals <em>Default Properties Removals</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Default Properties Removals</em>'.
+	 * @see org.eclipse.b3.build.build.BuildConcernContext#getDefaultPropertiesRemovals()
+	 * @see #getBuildConcernContext()
+	 * @generated
+	 */
+	EAttribute getBuildConcernContext_DefaultPropertiesRemovals();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.BuildConcernContext#getDefaultPropertiesAdditions <em>Default Properties Additions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Default Properties Additions</em>'.
+	 * @see org.eclipse.b3.build.build.BuildConcernContext#getDefaultPropertiesAdditions()
+	 * @see #getBuildConcernContext()
+	 * @generated
+	 */
+	EReference getBuildConcernContext_DefaultPropertiesAdditions();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.RequiresPredicate <em>Requires Predicate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4537,28 +4622,6 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBuilderConcernContext_ProvidesRemovals();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link org.eclipse.b3.build.build.BuilderConcernContext#getDefaultPropertiesRemovals <em>Default Properties Removals</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Default Properties Removals</em>'.
-	 * @see org.eclipse.b3.build.build.BuilderConcernContext#getDefaultPropertiesRemovals()
-	 * @see #getBuilderConcernContext()
-	 * @generated
-	 */
-	EAttribute getBuilderConcernContext_DefaultPropertiesRemovals();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.BuilderConcernContext#getDefaultPropertiesAdditions <em>Default Properties Additions</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Default Properties Additions</em>'.
-	 * @see org.eclipse.b3.build.build.BuilderConcernContext#getDefaultPropertiesAdditions()
-	 * @see #getBuilderConcernContext()
-	 * @generated
-	 */
-	EReference getBuilderConcernContext_DefaultPropertiesAdditions();
 
 	/**
 	 * Returns the meta object for the attribute list '{@link org.eclipse.b3.build.build.BuilderConcernContext#getAnnotationsRemovals <em>Annotations Removals</em>}'.
@@ -5594,6 +5657,22 @@ public interface B3BuildPackage extends EPackage {
 		EClass BUILD_CONCERN_CONTEXT = eINSTANCE.getBuildConcernContext();
 
 		/**
+		 * The meta object literal for the '<em><b>Default Properties Removals</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_REMOVALS = eINSTANCE.getBuildConcernContext_DefaultPropertiesRemovals();
+
+		/**
+		 * The meta object literal for the '<em><b>Default Properties Additions</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS = eINSTANCE.getBuildConcernContext_DefaultPropertiesAdditions();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.RequiresPredicateImpl <em>Requires Predicate</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5940,22 +6019,6 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BUILDER_CONCERN_CONTEXT__PROVIDES_REMOVALS = eINSTANCE.getBuilderConcernContext_ProvidesRemovals();
-
-		/**
-		 * The meta object literal for the '<em><b>Default Properties Removals</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute BUILDER_CONCERN_CONTEXT__DEFAULT_PROPERTIES_REMOVALS = eINSTANCE.getBuilderConcernContext_DefaultPropertiesRemovals();
-
-		/**
-		 * The meta object literal for the '<em><b>Default Properties Additions</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BUILDER_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS = eINSTANCE.getBuilderConcernContext_DefaultPropertiesAdditions();
 
 		/**
 		 * The meta object literal for the '<em><b>Annotations Removals</b></em>' attribute list feature.

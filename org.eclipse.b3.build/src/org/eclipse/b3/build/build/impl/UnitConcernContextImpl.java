@@ -11,8 +11,10 @@ import java.util.Iterator;
 import java.util.ListIterator;
 
 import org.eclipse.b3.backend.core.LValue;
+import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
+import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 
 import org.eclipse.b3.build.build.B3BuildFactory;
@@ -23,7 +25,6 @@ import org.eclipse.b3.build.build.BuilderConcernContext;
 import org.eclipse.b3.build.build.BuilderWrapper;
 import org.eclipse.b3.build.build.Capability;
 import org.eclipse.b3.build.build.IBuilder;
-import org.eclipse.b3.build.build.IProvidedCapabilityContainer;
 import org.eclipse.b3.build.build.IRequiredCapabilityContainer;
 import org.eclipse.b3.build.build.ProvidesPredicate;
 import org.eclipse.b3.build.build.RequiredCapability;
@@ -394,7 +395,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 	}
 	
 	/**
-	 * Iterates over all BuildUnits defined in the current context, evaluates the predicates, and if matching,
+	 * Iterates over all BuildUnits visible in the current context, evaluates the predicates, and if matching,
 	 * the unit is woven.
 	 */
 	@Override
@@ -408,6 +409,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 		}
 		return this;
 	}
+	
 	/**
 	 * Weaves the build united passed as candidate if it matches the predicates.
 	 */
@@ -435,7 +437,7 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 		
 	}
 	/**
-	 * Performs the modification of a unit (it should be passed a clone).
+	 * Surgically performs the modification of a unit (it should be passed a clone).
 	 * @param u
 	 * @param ctx
 	 * @return
@@ -495,6 +497,19 @@ public class UnitConcernContextImpl extends BuildConcernContextImpl implements U
 			ctx.defineFunction(wrapper);
 			modified = true;
 		}
+		
+		// WEAVE DEFAULT PROPERTIES
+		// if there are removals or additions, copy the property set from the original and then remove
+		// specific property settings - nasty if other properties rely on previously set properties - but
+		// user has to worry about that, then add copied definitions from additions.
+		//
+		if(getDefaultPropertiesRemovals().size() > 0 || getDefaultPropertiesAdditions() != null) {
+			BPropertySet ps = B3backendFactory.eINSTANCE.createBDefaultPropertySet();
+			u.setDefaultProperties(ps);
+			modified = processProperties(ps, getDefaultPropertiesRemovals(), u.getDefaultProperties(), getDefaultPropertiesAdditions())
+				|| modified;			
+		}
+
 		return modified;
 	}
 	/**

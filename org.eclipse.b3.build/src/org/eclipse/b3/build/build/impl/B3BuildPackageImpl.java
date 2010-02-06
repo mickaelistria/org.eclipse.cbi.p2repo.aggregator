@@ -1148,6 +1148,24 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getBuildConcernContext_DefaultPropertiesRemovals() {
+		return (EAttribute)buildConcernContextEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBuildConcernContext_DefaultPropertiesAdditions() {
+		return (EReference)buildConcernContextEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getRequiresPredicate() {
 		return requiresPredicateEClass;
 	}
@@ -1517,7 +1535,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBuilderConcernContext_DefaultPropertiesRemovals() {
+	public EAttribute getBuilderConcernContext_AnnotationsRemovals() {
 		return (EAttribute)builderConcernContextEClass.getEStructuralFeatures().get(16);
 	}
 
@@ -1526,26 +1544,8 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBuilderConcernContext_DefaultPropertiesAdditions() {
-		return (EReference)builderConcernContextEClass.getEStructuralFeatures().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBuilderConcernContext_AnnotationsRemovals() {
-		return (EAttribute)builderConcernContextEClass.getEStructuralFeatures().get(18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getBuilderConcernContext_AnnotationsAdditions() {
-		return (EReference)builderConcernContextEClass.getEStructuralFeatures().get(19);
+		return (EReference)builderConcernContextEClass.getEStructuralFeatures().get(17);
 	}
 
 	/**
@@ -1958,6 +1958,8 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		buildContextEClass = createEClass(BUILD_CONTEXT);
 
 		buildConcernContextEClass = createEClass(BUILD_CONCERN_CONTEXT);
+		createEAttribute(buildConcernContextEClass, BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_REMOVALS);
+		createEReference(buildConcernContextEClass, BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS);
 
 		requiresPredicateEClass = createEClass(REQUIRES_PREDICATE);
 		createEReference(requiresPredicateEClass, REQUIRES_PREDICATE__CAPABILITY_PREDICATE);
@@ -2009,8 +2011,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		createEReference(builderConcernContextEClass, BUILDER_CONCERN_CONTEXT__POSTCOND_EXPR);
 		createEReference(builderConcernContextEClass, BUILDER_CONCERN_CONTEXT__POSTINPUTCOND_EXPR);
 		createEReference(builderConcernContextEClass, BUILDER_CONCERN_CONTEXT__PROVIDES_REMOVALS);
-		createEAttribute(builderConcernContextEClass, BUILDER_CONCERN_CONTEXT__DEFAULT_PROPERTIES_REMOVALS);
-		createEReference(builderConcernContextEClass, BUILDER_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS);
 		createEAttribute(builderConcernContextEClass, BUILDER_CONCERN_CONTEXT__ANNOTATIONS_REMOVALS);
 		createEReference(builderConcernContextEClass, BUILDER_CONCERN_CONTEXT__ANNOTATIONS_ADDITIONS);
 
@@ -2293,6 +2293,8 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		addEException(op, theB3backendPackage.getB3EngineException());
 
 		initEClass(buildConcernContextEClass, BuildConcernContext.class, "BuildConcernContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBuildConcernContext_DefaultPropertiesRemovals(), ecorePackage.getEString(), "defaultPropertiesRemovals", null, 0, -1, BuildConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBuildConcernContext_DefaultPropertiesAdditions(), theB3backendPackage.getBPropertySet(), null, "defaultPropertiesAdditions", null, 0, 1, BuildConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(requiresPredicateEClass, RequiresPredicate.class, "RequiresPredicate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRequiresPredicate_CapabilityPredicate(), this.getCapabilityPredicate(), null, "capabilityPredicate", null, 1, 1, RequiresPredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2371,8 +2373,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		initEReference(getBuilderConcernContext_PostcondExpr(), theB3backendPackage.getBExpression(), null, "postcondExpr", null, 0, 1, BuilderConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBuilderConcernContext_PostinputcondExpr(), theB3backendPackage.getBExpression(), null, "postinputcondExpr", null, 0, 1, BuilderConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBuilderConcernContext_ProvidesRemovals(), this.getProvidesPredicate(), null, "providesRemovals", null, 0, -1, BuilderConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getBuilderConcernContext_DefaultPropertiesRemovals(), ecorePackage.getEString(), "defaultPropertiesRemovals", null, 0, -1, BuilderConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBuilderConcernContext_DefaultPropertiesAdditions(), theB3backendPackage.getBPropertySet(), null, "defaultPropertiesAdditions", null, 0, 1, BuilderConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBuilderConcernContext_AnnotationsRemovals(), ecorePackage.getEString(), "annotationsRemovals", null, 0, -1, BuilderConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBuilderConcernContext_AnnotationsAdditions(), theB3backendPackage.getBPropertySet(), null, "annotationsAdditions", null, 0, 1, BuilderConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
