@@ -1163,7 +1163,7 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings("rawtypes")
 	public TypeVariable[] createTypeVariableArrayFromString(EDataType eDataType, String initialValue) {
 		return (TypeVariable[])super.createFromString(initialValue);
 	}

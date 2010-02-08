@@ -12,7 +12,6 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->

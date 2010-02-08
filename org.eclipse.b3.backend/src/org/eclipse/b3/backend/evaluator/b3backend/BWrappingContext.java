@@ -14,7 +14,6 @@ package org.eclipse.b3.backend.evaluator.b3backend;
 
 import java.lang.reflect.Type;
 import java.util.Map;
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->

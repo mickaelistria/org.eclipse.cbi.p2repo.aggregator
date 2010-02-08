@@ -194,7 +194,7 @@ public class BCaseImpl extends EObjectImpl implements BCase {
 //				new Type[] { thenExpr.getDeclaredType(ctx), nextCase.getDeclaredType(ctx)}); 
 	}
 
-	@SuppressWarnings({ "unchecked" })
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public boolean matches(Object a, Object b) {
 		Type[] ai = a.getClass().getGenericInterfaces();
 		Type[] bi = b.getClass().getGenericInterfaces();
