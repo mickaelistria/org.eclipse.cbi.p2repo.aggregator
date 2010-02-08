@@ -5,7 +5,7 @@ import java.util.List; // cheat, need a type, don't have the actual types yet...
 import java.util.Map; // - " -
 
 function main(List argv) {
-	testBuilUnitSyntax();
+	testBuildUnitSyntax();
 }
 function testBuildUnitSyntax() {
 	true; // test is ok if this file can be parsed without errors
