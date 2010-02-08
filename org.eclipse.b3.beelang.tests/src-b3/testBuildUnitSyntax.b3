@@ -1,5 +1,5 @@
 /*
-* Test syntax of build unit and related concerns
+* Test syntax of build unit and related concerns.
 */
 import java.util.List; // cheat, need a type, don't have the actual types yet...
 import java.util.Map; // - " -
