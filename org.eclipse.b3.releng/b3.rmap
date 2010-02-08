@@ -16,6 +16,7 @@
   <rm:locator pattern="^org\.polarion(\..+)?" searchPathRef="polarion"/>
   <rm:locator pattern="^org\.maven(\..+)?" searchPathRef="m2eclipse"/>
   <rm:locator pattern="^org\.kohsuke(\..+)?" searchPathRef="orbit"/>
+  <rm:locator pattern="^org\.apache\.log4j(\..+)?" searchPathRef="orbit"/>
   <rm:locator pattern="^de\.itemis\.xtext(\..+)?" searchPathRef="itemis"/>
   <rm:locator pattern="^org\.antlr(\..+)?" searchPathRef="itemis"/>
   <rm:locator pattern="^org\.eclipse\.xtext" searchPathRef="emft"/>
