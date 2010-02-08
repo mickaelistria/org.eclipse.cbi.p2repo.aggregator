@@ -8,6 +8,7 @@ package org.eclipse.b3.build.build.impl;
 
 import java.util.Collection;
 
+import java.util.Iterator;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
@@ -19,6 +20,8 @@ import org.eclipse.b3.build.build.BuildUnit;
 import org.eclipse.b3.build.build.BuilderInput;
 import org.eclipse.b3.build.build.BuilderJava;
 import org.eclipse.b3.build.build.Capability;
+import org.eclipse.b3.build.build.EffectiveCapabilityFacade;
+import org.eclipse.b3.build.build.EffectiveRequirementFacade;
 import org.eclipse.b3.build.build.IBuilder;
 import org.eclipse.b3.build.build.IProvidedCapabilityContainer;
 import org.eclipse.b3.build.build.PathGroup;
@@ -453,7 +456,18 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<RequiredCapability> getEffectiveRequirements(BExecutionContext ctx) throws Throwable {
+	public Iterator<EffectiveRequirementFacade> getEffectiveRequirements(BExecutionContext ctx) throws Throwable {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Iterator<EffectiveCapabilityFacade> getEffectiveCapabilities(BExecutionContext ctx) throws Throwable {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

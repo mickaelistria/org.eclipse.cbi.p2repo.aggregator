@@ -3150,68 +3150,60 @@ public interface B3BuildPackage extends EPackage {
 	int RESOLUTION_INFO_FEATURE_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuildUnitWrapperImpl <em>Build Unit Wrapper</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.EffectiveFacadeImpl <em>Effective Facade</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.impl.BuildUnitWrapperImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuildUnitWrapper()
+	 * @see org.eclipse.b3.build.build.impl.EffectiveFacadeImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getEffectiveFacade()
 	 * @generated
 	 */
-	int BUILD_UNIT_WRAPPER = 44;
+	int EFFECTIVE_FACADE = 44;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT_WRAPPER__NAME = BUILD_UNIT__NAME;
+	int EFFECTIVE_FACADE__CONTEXT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Name Space</b></em>' attribute.
+	 * The number of structural features of the '<em>Effective Facade</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT_WRAPPER__NAME_SPACE = BUILD_UNIT__NAME_SPACE;
+	int EFFECTIVE_FACADE_FEATURE_COUNT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.EffectiveUnitFacadeImpl <em>Effective Unit Facade</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.EffectiveUnitFacadeImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getEffectiveUnitFacade()
+	 * @generated
+	 */
+	int EFFECTIVE_UNIT_FACADE = 45;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT_WRAPPER__COND_EXPR = BUILD_UNIT__COND_EXPR;
+	int EFFECTIVE_UNIT_FACADE__CONTEXT = EFFECTIVE_FACADE__CONTEXT;
 
 	/**
-	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * The feature id for the '<em><b>Unit</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT_WRAPPER__VERSION = BUILD_UNIT__VERSION;
-
-	/**
-	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILD_UNIT_WRAPPER__FUNCTIONS = BUILD_UNIT__FUNCTIONS;
-
-	/**
-	 * The feature id for the '<em><b>Required Capabilities</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILD_UNIT_WRAPPER__REQUIRED_CAPABILITIES = BUILD_UNIT__REQUIRED_CAPABILITIES;
+	int EFFECTIVE_UNIT_FACADE__UNIT = EFFECTIVE_FACADE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
@@ -3220,34 +3212,16 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT_WRAPPER__PROVIDED_CAPABILITIES = BUILD_UNIT__PROVIDED_CAPABILITIES;
+	int EFFECTIVE_UNIT_FACADE__PROVIDED_CAPABILITIES = EFFECTIVE_FACADE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Builders</b></em>' reference list.
+	 * The feature id for the '<em><b>Required Capabilities</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT_WRAPPER__BUILDERS = BUILD_UNIT__BUILDERS;
-
-	/**
-	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILD_UNIT_WRAPPER__DOCUMENTATION = BUILD_UNIT__DOCUMENTATION;
-
-	/**
-	 * The feature id for the '<em><b>Execution Mode</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILD_UNIT_WRAPPER__EXECUTION_MODE = BUILD_UNIT__EXECUTION_MODE;
+	int EFFECTIVE_UNIT_FACADE__REQUIRED_CAPABILITIES = EFFECTIVE_FACADE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Meta Required Capabilities</b></em>' containment reference list.
@@ -3256,88 +3230,90 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT_WRAPPER__META_REQUIRED_CAPABILITIES = BUILD_UNIT__META_REQUIRED_CAPABILITIES;
+	int EFFECTIVE_UNIT_FACADE__META_REQUIRED_CAPABILITIES = EFFECTIVE_FACADE_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Implements</b></em>' containment reference list.
+	 * The number of structural features of the '<em>Effective Unit Facade</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT_WRAPPER__IMPLEMENTS = BUILD_UNIT__IMPLEMENTS;
+	int EFFECTIVE_UNIT_FACADE_FEATURE_COUNT = EFFECTIVE_FACADE_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Concerns</b></em>' containment reference list.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.EffectiveRequirementFacadeImpl <em>Effective Requirement Facade</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.EffectiveRequirementFacadeImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getEffectiveRequirementFacade()
+	 * @generated
+	 */
+	int EFFECTIVE_REQUIREMENT_FACADE = 46;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT_WRAPPER__CONCERNS = BUILD_UNIT__CONCERNS;
+	int EFFECTIVE_REQUIREMENT_FACADE__CONTEXT = EFFECTIVE_FACADE__CONTEXT;
 
 	/**
-	 * The feature id for the '<em><b>Default Properties</b></em>' containment reference.
+	 * The feature id for the '<em><b>Requirement</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT_WRAPPER__DEFAULT_PROPERTIES = BUILD_UNIT__DEFAULT_PROPERTIES;
+	int EFFECTIVE_REQUIREMENT_FACADE__REQUIREMENT = EFFECTIVE_FACADE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Synchronizations</b></em>' containment reference list.
+	 * The number of structural features of the '<em>Effective Requirement Facade</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT_WRAPPER__SYNCHRONIZATIONS = BUILD_UNIT__SYNCHRONIZATIONS;
+	int EFFECTIVE_REQUIREMENT_FACADE_FEATURE_COUNT = EFFECTIVE_FACADE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.EffectiveCapabilityFacadeImpl <em>Effective Capability Facade</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.EffectiveCapabilityFacadeImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getEffectiveCapabilityFacade()
+	 * @generated
+	 */
+	int EFFECTIVE_CAPABILITY_FACADE = 47;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT_WRAPPER__REPOSITORIES = BUILD_UNIT__REPOSITORIES;
+	int EFFECTIVE_CAPABILITY_FACADE__CONTEXT = EFFECTIVE_FACADE__CONTEXT;
 
 	/**
-	 * The feature id for the '<em><b>Containers</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Provided Capability</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT_WRAPPER__CONTAINERS = BUILD_UNIT__CONTAINERS;
+	int EFFECTIVE_CAPABILITY_FACADE__PROVIDED_CAPABILITY = EFFECTIVE_FACADE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Property Sets</b></em>' containment reference list.
+	 * The number of structural features of the '<em>Effective Capability Facade</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT_WRAPPER__PROPERTY_SETS = BUILD_UNIT__PROPERTY_SETS;
-
-	/**
-	 * The feature id for the '<em><b>Original</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILD_UNIT_WRAPPER__ORIGINAL = BUILD_UNIT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Build Unit Wrapper</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUILD_UNIT_WRAPPER_FEATURE_COUNT = BUILD_UNIT_FEATURE_COUNT + 1;
+	int EFFECTIVE_CAPABILITY_FACADE_FEATURE_COUNT = EFFECTIVE_FACADE_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '<em>Version Range</em>' data type.
@@ -3347,7 +3323,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getVersionRange()
 	 * @generated
 	 */
-	int VERSION_RANGE = 45;
+	int VERSION_RANGE = 48;
 
 	/**
 	 * The meta object id for the '<em>Version</em>' data type.
@@ -3357,7 +3333,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getVersion()
 	 * @generated
 	 */
-	int VERSION = 46;
+	int VERSION = 49;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuildUnit <em>Build Unit</em>}'.
@@ -3781,25 +3757,121 @@ public interface B3BuildPackage extends EPackage {
 	EClass getResolutionInfo();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuildUnitWrapper <em>Build Unit Wrapper</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.EffectiveFacade <em>Effective Facade</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Build Unit Wrapper</em>'.
-	 * @see org.eclipse.b3.build.build.BuildUnitWrapper
+	 * @return the meta object for class '<em>Effective Facade</em>'.
+	 * @see org.eclipse.b3.build.build.EffectiveFacade
 	 * @generated
 	 */
-	EClass getBuildUnitWrapper();
+	EClass getEffectiveFacade();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.b3.build.build.BuildUnitWrapper#getOriginal <em>Original</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.build.build.EffectiveFacade#getContext <em>Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Original</em>'.
-	 * @see org.eclipse.b3.build.build.BuildUnitWrapper#getOriginal()
-	 * @see #getBuildUnitWrapper()
+	 * @return the meta object for the reference '<em>Context</em>'.
+	 * @see org.eclipse.b3.build.build.EffectiveFacade#getContext()
+	 * @see #getEffectiveFacade()
 	 * @generated
 	 */
-	EReference getBuildUnitWrapper_Original();
+	EReference getEffectiveFacade_Context();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.EffectiveUnitFacade <em>Effective Unit Facade</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Effective Unit Facade</em>'.
+	 * @see org.eclipse.b3.build.build.EffectiveUnitFacade
+	 * @generated
+	 */
+	EClass getEffectiveUnitFacade();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.build.build.EffectiveUnitFacade#getUnit <em>Unit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Unit</em>'.
+	 * @see org.eclipse.b3.build.build.EffectiveUnitFacade#getUnit()
+	 * @see #getEffectiveUnitFacade()
+	 * @generated
+	 */
+	EReference getEffectiveUnitFacade_Unit();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.EffectiveUnitFacade#getProvidedCapabilities <em>Provided Capabilities</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Provided Capabilities</em>'.
+	 * @see org.eclipse.b3.build.build.EffectiveUnitFacade#getProvidedCapabilities()
+	 * @see #getEffectiveUnitFacade()
+	 * @generated
+	 */
+	EReference getEffectiveUnitFacade_ProvidedCapabilities();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.EffectiveUnitFacade#getRequiredCapabilities <em>Required Capabilities</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Required Capabilities</em>'.
+	 * @see org.eclipse.b3.build.build.EffectiveUnitFacade#getRequiredCapabilities()
+	 * @see #getEffectiveUnitFacade()
+	 * @generated
+	 */
+	EReference getEffectiveUnitFacade_RequiredCapabilities();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.EffectiveUnitFacade#getMetaRequiredCapabilities <em>Meta Required Capabilities</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Meta Required Capabilities</em>'.
+	 * @see org.eclipse.b3.build.build.EffectiveUnitFacade#getMetaRequiredCapabilities()
+	 * @see #getEffectiveUnitFacade()
+	 * @generated
+	 */
+	EReference getEffectiveUnitFacade_MetaRequiredCapabilities();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.EffectiveRequirementFacade <em>Effective Requirement Facade</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Effective Requirement Facade</em>'.
+	 * @see org.eclipse.b3.build.build.EffectiveRequirementFacade
+	 * @generated
+	 */
+	EClass getEffectiveRequirementFacade();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.build.build.EffectiveRequirementFacade#getRequirement <em>Requirement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Requirement</em>'.
+	 * @see org.eclipse.b3.build.build.EffectiveRequirementFacade#getRequirement()
+	 * @see #getEffectiveRequirementFacade()
+	 * @generated
+	 */
+	EReference getEffectiveRequirementFacade_Requirement();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.EffectiveCapabilityFacade <em>Effective Capability Facade</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Effective Capability Facade</em>'.
+	 * @see org.eclipse.b3.build.build.EffectiveCapabilityFacade
+	 * @generated
+	 */
+	EClass getEffectiveCapabilityFacade();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.build.build.EffectiveCapabilityFacade#getProvidedCapability <em>Provided Capability</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Provided Capability</em>'.
+	 * @see org.eclipse.b3.build.build.EffectiveCapabilityFacade#getProvidedCapability()
+	 * @see #getEffectiveCapabilityFacade()
+	 * @generated
+	 */
+	EReference getEffectiveCapabilityFacade_ProvidedCapability();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.VersionedCapability <em>Versioned Capability</em>}'.
@@ -5337,22 +5409,100 @@ public interface B3BuildPackage extends EPackage {
 		EClass RESOLUTION_INFO = eINSTANCE.getResolutionInfo();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuildUnitWrapperImpl <em>Build Unit Wrapper</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.EffectiveFacadeImpl <em>Effective Facade</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipse.b3.build.build.impl.BuildUnitWrapperImpl
-		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuildUnitWrapper()
+		 * @see org.eclipse.b3.build.build.impl.EffectiveFacadeImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getEffectiveFacade()
 		 * @generated
 		 */
-		EClass BUILD_UNIT_WRAPPER = eINSTANCE.getBuildUnitWrapper();
+		EClass EFFECTIVE_FACADE = eINSTANCE.getEffectiveFacade();
 
 		/**
-		 * The meta object literal for the '<em><b>Original</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Context</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BUILD_UNIT_WRAPPER__ORIGINAL = eINSTANCE.getBuildUnitWrapper_Original();
+		EReference EFFECTIVE_FACADE__CONTEXT = eINSTANCE.getEffectiveFacade_Context();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.EffectiveUnitFacadeImpl <em>Effective Unit Facade</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.impl.EffectiveUnitFacadeImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getEffectiveUnitFacade()
+		 * @generated
+		 */
+		EClass EFFECTIVE_UNIT_FACADE = eINSTANCE.getEffectiveUnitFacade();
+
+		/**
+		 * The meta object literal for the '<em><b>Unit</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EFFECTIVE_UNIT_FACADE__UNIT = eINSTANCE.getEffectiveUnitFacade_Unit();
+
+		/**
+		 * The meta object literal for the '<em><b>Provided Capabilities</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EFFECTIVE_UNIT_FACADE__PROVIDED_CAPABILITIES = eINSTANCE.getEffectiveUnitFacade_ProvidedCapabilities();
+
+		/**
+		 * The meta object literal for the '<em><b>Required Capabilities</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EFFECTIVE_UNIT_FACADE__REQUIRED_CAPABILITIES = eINSTANCE.getEffectiveUnitFacade_RequiredCapabilities();
+
+		/**
+		 * The meta object literal for the '<em><b>Meta Required Capabilities</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EFFECTIVE_UNIT_FACADE__META_REQUIRED_CAPABILITIES = eINSTANCE.getEffectiveUnitFacade_MetaRequiredCapabilities();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.EffectiveRequirementFacadeImpl <em>Effective Requirement Facade</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.impl.EffectiveRequirementFacadeImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getEffectiveRequirementFacade()
+		 * @generated
+		 */
+		EClass EFFECTIVE_REQUIREMENT_FACADE = eINSTANCE.getEffectiveRequirementFacade();
+
+		/**
+		 * The meta object literal for the '<em><b>Requirement</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EFFECTIVE_REQUIREMENT_FACADE__REQUIREMENT = eINSTANCE.getEffectiveRequirementFacade_Requirement();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.EffectiveCapabilityFacadeImpl <em>Effective Capability Facade</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.impl.EffectiveCapabilityFacadeImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getEffectiveCapabilityFacade()
+		 * @generated
+		 */
+		EClass EFFECTIVE_CAPABILITY_FACADE = eINSTANCE.getEffectiveCapabilityFacade();
+
+		/**
+		 * The meta object literal for the '<em><b>Provided Capability</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EFFECTIVE_CAPABILITY_FACADE__PROVIDED_CAPABILITY = eINSTANCE.getEffectiveCapabilityFacade_ProvidedCapability();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.VersionedCapabilityImpl <em>Versioned Capability</em>}' class.

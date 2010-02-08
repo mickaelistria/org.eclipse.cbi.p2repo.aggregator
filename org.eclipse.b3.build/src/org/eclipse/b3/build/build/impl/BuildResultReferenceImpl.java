@@ -6,10 +6,12 @@
  */
 package org.eclipse.b3.build.build.impl;
 
+import java.util.Iterator;
+
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.build.build.B3BuildPackage;
-import org.eclipse.b3.build.build.BuildContext;
 import org.eclipse.b3.build.build.BuildResultReference;
+import org.eclipse.b3.build.build.EffectiveRequirementFacade;
 
 import org.eclipse.b3.build.build.BuilderReference;
 import org.eclipse.b3.build.build.RequiredCapability;
@@ -52,7 +54,7 @@ public abstract class BuildResultReferenceImpl extends EObjectImpl implements Bu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<RequiredCapability> getEffectiveRequirements(BExecutionContext ctx) throws Throwable {
+	public Iterator<EffectiveRequirementFacade> getEffectiveRequirements(BExecutionContext ctx) throws Throwable {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

@@ -37,4 +37,12 @@ public interface BuildContext extends BExecutionContext {
 	 */
 	BuildContext defineBeeModel(BeeModel beeModel) throws B3EngineException;
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	BuildUnit getEffectiveBuildUnit(BuildUnit unit);
+
 } // BuildContext

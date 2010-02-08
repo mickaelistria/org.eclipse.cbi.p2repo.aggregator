@@ -4,8 +4,7 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="build"
     nsURI="http://b3build/1.0" nsPrefix="build">
   <eClassifiers xsi:type="ecore:EClass" name="BuildUnit" eSuperTypes="#//VersionedCapability ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BFunctionContainer #//IRequiredCapabilityContainer #//IProvidedCapabilityContainer">
-    <eOperations name="getEffectiveMetaRequirements" upperBound="-1" eType="#//RequiredCapability"
-        eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
+    <eOperations name="getEffectiveFacade" eType="#//EffectiveUnitFacade" eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
       <eParameters name="ctx" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExecutionContext"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="builders" unique="false"
@@ -35,8 +34,16 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IBuilder" abstract="true" interface="true"
       eSuperTypes="#//IProvidedCapabilityContainer ../../org.eclipse.b3.backend/model/B3Backend.ecore#//IFunction">
-    <eOperations name="getEffectiveRequirements" upperBound="-1" eType="#//RequiredCapability"
-        eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
+    <eOperations name="getEffectiveRequirements" eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
+      <eGenericType eClassifier="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//JavaIterator">
+        <eTypeArguments eClassifier="#//EffectiveRequirementFacade"/>
+      </eGenericType>
+      <eParameters name="ctx" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExecutionContext"/>
+    </eOperations>
+    <eOperations name="getEffectiveCapabilities" eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
+      <eGenericType eClassifier="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//JavaIterator">
+        <eTypeArguments eClassifier="#//EffectiveCapabilityFacade"/>
+      </eGenericType>
       <eParameters name="ctx" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExecutionContext"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="postcondExpr" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"
@@ -65,15 +72,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="#//Version"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BuilderInput">
-    <eOperations name="getEffectiveRequirements" upperBound="-1" eType="#//RequiredCapability"
-        eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
+    <eOperations name="getEffectiveRequirements" eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
+      <eGenericType eClassifier="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//JavaIterator">
+        <eTypeArguments eClassifier="#//EffectiveRequirementFacade"/>
+      </eGenericType>
       <eParameters name="ctx" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExecutionContext"/>
-    </eOperations>
-    <eOperations name="getRequirements" upperBound="-1" eType="#//RequiredCapability"
-        eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Returns the unfiltered requirements as a flattened list."/>
-      </eAnnotations>
     </eOperations>
     <eOperations name="getBuilderReferences" upperBound="-1" eType="#//BuilderReference"
         eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
@@ -98,15 +101,11 @@
         eType="#//PathVector" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Prerequisite">
-    <eOperations name="getEffectiveRequirements" upperBound="-1" eType="#//RequiredCapability"
-        eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
+    <eOperations name="getEffectiveRequirements" eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
+      <eGenericType eClassifier="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//JavaIterator">
+        <eTypeArguments eClassifier="#//EffectiveRequirementFacade"/>
+      </eGenericType>
       <eParameters name="ctx" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExecutionContext"/>
-    </eOperations>
-    <eOperations name="getRequirements" upperBound="-1" eType="#//RequiredCapability"
-        eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Returns the unfiltered requirements as a flattened list."/>
-      </eAnnotations>
     </eOperations>
     <eOperations name="getBuilderReferences" upperBound="-1" eType="#//BuilderReference"
         eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
@@ -130,8 +129,10 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BuildResultReference" abstract="true">
-    <eOperations name="getEffectiveRequirements" upperBound="-1" eType="#//RequiredCapability"
-        eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
+    <eOperations name="getEffectiveRequirements" eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
+      <eGenericType eClassifier="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//JavaIterator">
+        <eTypeArguments eClassifier="#//EffectiveRequirementFacade"/>
+      </eGenericType>
       <eParameters name="ctx" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExecutionContext"/>
     </eOperations>
     <eOperations name="getRequirements" upperBound="-1" eType="#//RequiredCapability"
@@ -224,6 +225,9 @@
     </eOperations>
     <eOperations name="defineBeeModel" eType="#//BuildContext" eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//B3EngineException">
       <eParameters name="beeModel" eType="#//BeeModel"/>
+    </eOperations>
+    <eOperations name="getEffectiveBuildUnit" eType="#//BuildUnit">
+      <eParameters name="unit" eType="#//BuildUnit"/>
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BuildConcernContext" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//BConcernContext #//IProvidedCapabilityContainer">
@@ -370,10 +374,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IRequiredCapabilityContainer" abstract="true"
       interface="true">
-    <eOperations name="getEffectiveRequirements" upperBound="-1" eType="#//RequiredCapability"
-        eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
-      <eParameters name="ctx" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExecutionContext"/>
-    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requiredCapabilities" upperBound="-1"
         eType="#//RequiredCapability" containment="true"/>
   </eClassifiers>
@@ -433,7 +433,22 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ResolutionInfo"/>
-  <eClassifiers xsi:type="ecore:EClass" name="BuildUnitWrapper" eSuperTypes="#//BuildUnit">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="original" eType="#//BuildUnit"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EffectiveFacade">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="context" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExecutionContext"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EffectiveUnitFacade" eSuperTypes="#//EffectiveFacade">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unit" eType="#//BuildUnit"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="providedCapabilities" upperBound="-1"
+        eType="#//EffectiveCapabilityFacade" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requiredCapabilities" upperBound="-1"
+        eType="#//EffectiveRequirementFacade" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="metaRequiredCapabilities"
+        upperBound="-1" eType="#//EffectiveRequirementFacade" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EffectiveRequirementFacade" eSuperTypes="#//EffectiveFacade">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requirement" eType="#//RequiredCapability"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EffectiveCapabilityFacade" eSuperTypes="#//EffectiveFacade">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="providedCapability" eType="#//Capability"/>
   </eClassifiers>
 </ecore:EPackage>

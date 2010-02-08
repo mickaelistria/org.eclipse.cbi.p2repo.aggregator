@@ -89,13 +89,40 @@ public interface B3BuildFactory extends EFactory {
 	ResolutionInfo createResolutionInfo();
 
 	/**
-	 * Returns a new object of class '<em>Build Unit Wrapper</em>'.
+	 * Returns a new object of class '<em>Effective Facade</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Build Unit Wrapper</em>'.
+	 * @return a new object of class '<em>Effective Facade</em>'.
 	 * @generated
 	 */
-	BuildUnitWrapper createBuildUnitWrapper();
+	EffectiveFacade createEffectiveFacade();
+
+	/**
+	 * Returns a new object of class '<em>Effective Unit Facade</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Effective Unit Facade</em>'.
+	 * @generated
+	 */
+	EffectiveUnitFacade createEffectiveUnitFacade();
+
+	/**
+	 * Returns a new object of class '<em>Effective Requirement Facade</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Effective Requirement Facade</em>'.
+	 * @generated
+	 */
+	EffectiveRequirementFacade createEffectiveRequirementFacade();
+
+	/**
+	 * Returns a new object of class '<em>Effective Capability Facade</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Effective Capability Facade</em>'.
+	 * @generated
+	 */
+	EffectiveCapabilityFacade createEffectiveCapabilityFacade();
 
 	/**
 	 * Returns a new object of class '<em>Versioned Capability</em>'.

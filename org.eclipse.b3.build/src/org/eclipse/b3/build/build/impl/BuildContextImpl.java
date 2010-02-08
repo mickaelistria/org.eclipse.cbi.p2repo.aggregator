@@ -107,6 +107,17 @@ public class BuildContextImpl extends BExecutionContextImpl implements BuildCont
 //		}
 		return this;
 	}
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BuildUnit getEffectiveBuildUnit(BuildUnit unit) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
 	public Map<Class<? extends BuildUnit>, BuildUnit> getBuildUnitStore() {
 		return Collections.unmodifiableMap(unitStore);
 	}

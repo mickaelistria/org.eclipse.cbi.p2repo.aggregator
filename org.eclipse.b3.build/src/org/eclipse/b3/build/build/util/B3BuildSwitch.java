@@ -432,15 +432,30 @@ public class B3BuildSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case B3BuildPackage.BUILD_UNIT_WRAPPER: {
-				BuildUnitWrapper buildUnitWrapper = (BuildUnitWrapper)theEObject;
-				T result = caseBuildUnitWrapper(buildUnitWrapper);
-				if (result == null) result = caseBuildUnit(buildUnitWrapper);
-				if (result == null) result = caseVersionedCapability(buildUnitWrapper);
-				if (result == null) result = caseBFunctionContainer(buildUnitWrapper);
-				if (result == null) result = caseIRequiredCapabilityContainer(buildUnitWrapper);
-				if (result == null) result = caseIProvidedCapabilityContainer(buildUnitWrapper);
-				if (result == null) result = caseCapability(buildUnitWrapper);
+			case B3BuildPackage.EFFECTIVE_FACADE: {
+				EffectiveFacade effectiveFacade = (EffectiveFacade)theEObject;
+				T result = caseEffectiveFacade(effectiveFacade);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.EFFECTIVE_UNIT_FACADE: {
+				EffectiveUnitFacade effectiveUnitFacade = (EffectiveUnitFacade)theEObject;
+				T result = caseEffectiveUnitFacade(effectiveUnitFacade);
+				if (result == null) result = caseEffectiveFacade(effectiveUnitFacade);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.EFFECTIVE_REQUIREMENT_FACADE: {
+				EffectiveRequirementFacade effectiveRequirementFacade = (EffectiveRequirementFacade)theEObject;
+				T result = caseEffectiveRequirementFacade(effectiveRequirementFacade);
+				if (result == null) result = caseEffectiveFacade(effectiveRequirementFacade);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.EFFECTIVE_CAPABILITY_FACADE: {
+				EffectiveCapabilityFacade effectiveCapabilityFacade = (EffectiveCapabilityFacade)theEObject;
+				T result = caseEffectiveCapabilityFacade(effectiveCapabilityFacade);
+				if (result == null) result = caseEffectiveFacade(effectiveCapabilityFacade);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -569,17 +584,62 @@ public class B3BuildSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Build Unit Wrapper</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Effective Facade</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Build Unit Wrapper</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Effective Facade</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseBuildUnitWrapper(BuildUnitWrapper object) {
+	public T caseEffectiveFacade(EffectiveFacade object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Effective Unit Facade</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Effective Unit Facade</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEffectiveUnitFacade(EffectiveUnitFacade object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Effective Requirement Facade</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Effective Requirement Facade</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEffectiveRequirementFacade(EffectiveRequirementFacade object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Effective Capability Facade</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Effective Capability Facade</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEffectiveCapabilityFacade(EffectiveCapabilityFacade object) {
 		return null;
 	}
 

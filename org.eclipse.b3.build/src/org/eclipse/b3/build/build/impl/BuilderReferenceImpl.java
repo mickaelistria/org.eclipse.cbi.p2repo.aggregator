@@ -7,18 +7,20 @@
 package org.eclipse.b3.build.build.impl;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
+import org.eclipse.b3.backend.core.SingletonIterator;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterList;
 
 import org.eclipse.b3.build.build.AliasedRequiredCapability;
+import org.eclipse.b3.build.build.B3BuildFactory;
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.BuildContext;
 import org.eclipse.b3.build.build.BuilderReference;
+import org.eclipse.b3.build.build.EffectiveRequirementFacade;
 import org.eclipse.b3.build.build.RequiredCapability;
-import org.eclipse.b3.build.core.ContextAdapter;
-import org.eclipse.b3.build.core.ContextAdapterFactory;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -396,19 +398,12 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 	 * TODO: optimize for the empty list case
 	 */
 	@Override
-	public EList<RequiredCapability> getEffectiveRequirements(BExecutionContext ctx) throws Throwable {
-		List<RequiredCapability> result = new ArrayList<RequiredCapability>();
-		RequiredCapability r = getRequiredCapability();
-		if(r != null) {
-			// Associate the current context with the requirement
-			ContextAdapter ca = ContextAdapterFactory.eINSTANCE.adapt(r);
-			ca.addUnique(ctx);
-			result.add(r);
-		}
-		
-		// TODO: ISSUE - IS IT OK TO REUSE THE UNFILTERED FEATURE WHEN THERE IS NO DERIVED FEATURE ?
-		return new EcoreEList.UnmodifiableEList<RequiredCapability>(this, B3BuildPackage.Literals.IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_CAPABILITIES, result.size(), result.toArray());
-
+	public Iterator<EffectiveRequirementFacade> getEffectiveRequirements(BExecutionContext ctx) throws Throwable {
+		EffectiveRequirementFacade facade = B3BuildFactory.eINSTANCE.createEffectiveRequirementFacade();
+		Iterator<EffectiveRequirementFacade> result = new SingletonIterator<EffectiveRequirementFacade>(facade);
+		facade.setContext(ctx);
+		facade.setRequirement(getRequiredCapability());
+		return result;
 	}
 	@Override
 	public EList<RequiredCapability> getRequirements() throws Throwable {

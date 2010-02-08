@@ -8,9 +8,10 @@ package org.eclipse.b3.build.build.impl;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
+import java.util.Iterator;
 
 import org.eclipse.b3.backend.core.B3InternalError;
+import org.eclipse.b3.backend.core.SerialIterator;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
@@ -24,13 +25,15 @@ import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.BuildUnit;
 import org.eclipse.b3.build.build.Builder;
 
+import org.eclipse.b3.build.build.B3BuildFactory;
 import org.eclipse.b3.build.build.BuilderInput;
 import org.eclipse.b3.build.build.Capability;
+import org.eclipse.b3.build.build.EffectiveCapabilityFacade;
+import org.eclipse.b3.build.build.EffectiveRequirementFacade;
 import org.eclipse.b3.build.build.IBuilder;
 import org.eclipse.b3.build.build.IProvidedCapabilityContainer;
 import org.eclipse.b3.build.build.PathGroup;
 import org.eclipse.b3.build.build.Prerequisite;
-import org.eclipse.b3.build.build.RequiredCapability;
 import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -39,7 +42,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EcoreEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -456,19 +458,53 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns and iterator over effective requirements. Applies the builder's default properties in 
+	 * a context before filter evaluation.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public EList<RequiredCapability> getEffectiveRequirements(BExecutionContext ctx) throws Throwable {
-		List<RequiredCapability> result = new ArrayList<RequiredCapability>();
+	public Iterator<EffectiveRequirementFacade> getEffectiveRequirements(BExecutionContext ctx) throws Throwable {
+		SerialIterator<EffectiveRequirementFacade> result = new SerialIterator<EffectiveRequirementFacade>();
+		BExecutionContext ctxToUse = ctx;
+		BPropertySet defProp = getDefaultProperties();
+		if(defProp != null) {
+			ctxToUse = ctxToUse.createInnerContext();
+			defProp.evaluateDefaults(ctxToUse);
+		}
 		if(input != null) {
 			for(Prerequisite p : input.getPrerequisites()) {
-				result.addAll(p.getEffectiveRequirements(ctx));
+				result.addIterator(p.getEffectiveRequirements(ctxToUse));
 			}
 		}
-				
-		// TODO: ISSUE - IS IT OK TO REUSE THE UNFILTERED FEATURE WHEN THERE IS NO DERIVED FEATURE ?
-		return new EcoreEList.UnmodifiableEList<RequiredCapability>(this, B3BuildPackage.Literals.IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_CAPABILITIES, result.size(), result.toArray());
+		return result;	
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Iterator<EffectiveCapabilityFacade> getEffectiveCapabilities(BExecutionContext ctx) throws Throwable {
+		ArrayList<EffectiveCapabilityFacade> list = new ArrayList<EffectiveCapabilityFacade>();
+		BExecutionContext ctxToUse = ctx;
+		BPropertySet defProp = getDefaultProperties();
+		if(defProp != null) {
+			ctxToUse = ctxToUse.createOuterContext();
+			defProp.evaluateDefaults(ctxToUse);
+		}
+		for(Capability cap : getProvidedCapabilities()) {
+			BExpression c = cap.getCondExpr();
+			if(c != null) {
+				Object include = c.evaluate(ctxToUse);
+				if(include != null && include instanceof Boolean && ((Boolean)include) == Boolean.FALSE)
+					continue; // skip this requirement
+			}
+			EffectiveCapabilityFacade facade = B3BuildFactory.eINSTANCE.createEffectiveCapabilityFacade();
+			facade.setContext(ctxToUse);
+			facade.setProvidedCapability(cap);
+			list.add(facade);
+		}
+		return list.iterator();	
 	}
 
 	/**

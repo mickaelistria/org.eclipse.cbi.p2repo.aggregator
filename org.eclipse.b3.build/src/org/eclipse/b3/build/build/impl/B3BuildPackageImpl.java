@@ -17,7 +17,6 @@ import org.eclipse.b3.build.build.BuildConcernContext;
 import org.eclipse.b3.build.build.BuildContext;
 import org.eclipse.b3.build.build.BuildResultReference;
 import org.eclipse.b3.build.build.BuildUnit;
-import org.eclipse.b3.build.build.BuildUnitWrapper;
 import org.eclipse.b3.build.build.Builder;
 
 import org.eclipse.b3.build.build.BuilderConcernContext;
@@ -32,6 +31,10 @@ import org.eclipse.b3.build.build.CapabilityPredicate;
 import org.eclipse.b3.build.build.CompoundBuildResultReference;
 import org.eclipse.b3.build.build.CompoundPathVector;
 import org.eclipse.b3.build.build.ContainerConfiguration;
+import org.eclipse.b3.build.build.EffectiveCapabilityFacade;
+import org.eclipse.b3.build.build.EffectiveFacade;
+import org.eclipse.b3.build.build.EffectiveRequirementFacade;
+import org.eclipse.b3.build.build.EffectiveUnitFacade;
 import org.eclipse.b3.build.build.IBuilder;
 import org.eclipse.b3.build.build.IProvidedCapabilityContainer;
 import org.eclipse.b3.build.build.IRequiredCapabilityContainer;
@@ -136,7 +139,28 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass buildUnitWrapperEClass = null;
+	private EClass effectiveFacadeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass effectiveUnitFacadeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass effectiveRequirementFacadeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass effectiveCapabilityFacadeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -824,8 +848,8 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getBuildUnitWrapper() {
-		return buildUnitWrapperEClass;
+	public EClass getEffectiveFacade() {
+		return effectiveFacadeEClass;
 	}
 
 	/**
@@ -833,8 +857,89 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBuildUnitWrapper_Original() {
-		return (EReference)buildUnitWrapperEClass.getEStructuralFeatures().get(0);
+	public EReference getEffectiveFacade_Context() {
+		return (EReference)effectiveFacadeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEffectiveUnitFacade() {
+		return effectiveUnitFacadeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEffectiveUnitFacade_Unit() {
+		return (EReference)effectiveUnitFacadeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEffectiveUnitFacade_ProvidedCapabilities() {
+		return (EReference)effectiveUnitFacadeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEffectiveUnitFacade_RequiredCapabilities() {
+		return (EReference)effectiveUnitFacadeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEffectiveUnitFacade_MetaRequiredCapabilities() {
+		return (EReference)effectiveUnitFacadeEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEffectiveRequirementFacade() {
+		return effectiveRequirementFacadeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEffectiveRequirementFacade_Requirement() {
+		return (EReference)effectiveRequirementFacadeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEffectiveCapabilityFacade() {
+		return effectiveCapabilityFacadeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEffectiveCapabilityFacade_ProvidedCapability() {
+		return (EReference)effectiveCapabilityFacadeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2056,8 +2161,20 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 
 		resolutionInfoEClass = createEClass(RESOLUTION_INFO);
 
-		buildUnitWrapperEClass = createEClass(BUILD_UNIT_WRAPPER);
-		createEReference(buildUnitWrapperEClass, BUILD_UNIT_WRAPPER__ORIGINAL);
+		effectiveFacadeEClass = createEClass(EFFECTIVE_FACADE);
+		createEReference(effectiveFacadeEClass, EFFECTIVE_FACADE__CONTEXT);
+
+		effectiveUnitFacadeEClass = createEClass(EFFECTIVE_UNIT_FACADE);
+		createEReference(effectiveUnitFacadeEClass, EFFECTIVE_UNIT_FACADE__UNIT);
+		createEReference(effectiveUnitFacadeEClass, EFFECTIVE_UNIT_FACADE__PROVIDED_CAPABILITIES);
+		createEReference(effectiveUnitFacadeEClass, EFFECTIVE_UNIT_FACADE__REQUIRED_CAPABILITIES);
+		createEReference(effectiveUnitFacadeEClass, EFFECTIVE_UNIT_FACADE__META_REQUIRED_CAPABILITIES);
+
+		effectiveRequirementFacadeEClass = createEClass(EFFECTIVE_REQUIREMENT_FACADE);
+		createEReference(effectiveRequirementFacadeEClass, EFFECTIVE_REQUIREMENT_FACADE__REQUIREMENT);
+
+		effectiveCapabilityFacadeEClass = createEClass(EFFECTIVE_CAPABILITY_FACADE);
+		createEReference(effectiveCapabilityFacadeEClass, EFFECTIVE_CAPABILITY_FACADE__PROVIDED_CAPABILITY);
 
 		// Create data types
 		versionRangeEDataType = createEDataType(VERSION_RANGE);
@@ -2132,7 +2249,9 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		builderJavaEClass.getESuperTypes().add(this.getIBuilder());
 		builderWrapperEClass.getESuperTypes().add(theB3backendPackage.getBFunctionWrapper());
 		builderWrapperEClass.getESuperTypes().add(this.getIBuilder());
-		buildUnitWrapperEClass.getESuperTypes().add(this.getBuildUnit());
+		effectiveUnitFacadeEClass.getESuperTypes().add(this.getEffectiveFacade());
+		effectiveRequirementFacadeEClass.getESuperTypes().add(this.getEffectiveFacade());
+		effectiveCapabilityFacadeEClass.getESuperTypes().add(this.getEffectiveFacade());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(buildUnitEClass, BuildUnit.class, "BuildUnit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2148,7 +2267,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		initEReference(getBuildUnit_Containers(), this.getContainerConfiguration(), null, "containers", null, 0, -1, BuildUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBuildUnit_PropertySets(), theB3backendPackage.getBPropertySet(), null, "propertySets", null, 0, -1, BuildUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		EOperation op = addEOperation(buildUnitEClass, this.getRequiredCapability(), "getEffectiveMetaRequirements", 0, -1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = addEOperation(buildUnitEClass, this.getEffectiveUnitFacade(), "getEffectiveFacade", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theB3backendPackage.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, theB3backendPackage.getThrowable());
 
@@ -2166,9 +2285,21 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		g2.setEUpperBound(g3);
 		initEAttribute(getIBuilder_UnitType(), g1, "unitType", null, 0, 1, IBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = addEOperation(iBuilderEClass, this.getRequiredCapability(), "getEffectiveRequirements", 0, -1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(iBuilderEClass, null, "getEffectiveRequirements", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theB3backendPackage.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, theB3backendPackage.getThrowable());
+		g1 = createEGenericType(theB3backendPackage.getJavaIterator());
+		g2 = createEGenericType(this.getEffectiveRequirementFacade());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
+		op = addEOperation(iBuilderEClass, null, "getEffectiveCapabilities", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theB3backendPackage.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, theB3backendPackage.getThrowable());
+		g1 = createEGenericType(theB3backendPackage.getJavaIterator());
+		g2 = createEGenericType(this.getEffectiveCapabilityFacade());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
 
 		initEClass(versionedCapabilityEClass, VersionedCapability.class, "VersionedCapability", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getVersionedCapability_Version(), this.getVersion(), "version", null, 0, 1, VersionedCapability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2176,12 +2307,13 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		initEClass(builderInputEClass, BuilderInput.class, "BuilderInput", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBuilderInput_Prerequisites(), this.getPrerequisite(), null, "prerequisites", null, 0, -1, BuilderInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = addEOperation(builderInputEClass, this.getRequiredCapability(), "getEffectiveRequirements", 0, -1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(builderInputEClass, null, "getEffectiveRequirements", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theB3backendPackage.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, theB3backendPackage.getThrowable());
-
-		op = addEOperation(builderInputEClass, this.getRequiredCapability(), "getRequirements", 0, -1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, theB3backendPackage.getThrowable());
+		g1 = createEGenericType(theB3backendPackage.getJavaIterator());
+		g2 = createEGenericType(this.getEffectiveRequirementFacade());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
 
 		op = addEOperation(builderInputEClass, this.getBuilderReference(), "getBuilderReferences", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, theB3backendPackage.getThrowable());
@@ -2200,12 +2332,13 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		initEReference(getPrerequisite_WithExpr(), theB3backendPackage.getBWithExpression(), null, "withExpr", null, 0, 1, Prerequisite.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPrerequisite_BuildResult(), this.getBuildResultReference(), null, "buildResult", null, 0, 1, Prerequisite.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = addEOperation(prerequisiteEClass, this.getRequiredCapability(), "getEffectiveRequirements", 0, -1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(prerequisiteEClass, null, "getEffectiveRequirements", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theB3backendPackage.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, theB3backendPackage.getThrowable());
-
-		op = addEOperation(prerequisiteEClass, this.getRequiredCapability(), "getRequirements", 0, -1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, theB3backendPackage.getThrowable());
+		g1 = createEGenericType(theB3backendPackage.getJavaIterator());
+		g2 = createEGenericType(this.getEffectiveRequirementFacade());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
 
 		op = addEOperation(prerequisiteEClass, this.getBuilderReference(), "getBuilderReferences", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, theB3backendPackage.getThrowable());
@@ -2216,9 +2349,13 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 
 		initEClass(buildResultReferenceEClass, BuildResultReference.class, "BuildResultReference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = addEOperation(buildResultReferenceEClass, this.getRequiredCapability(), "getEffectiveRequirements", 0, -1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(buildResultReferenceEClass, null, "getEffectiveRequirements", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theB3backendPackage.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, theB3backendPackage.getThrowable());
+		g1 = createEGenericType(theB3backendPackage.getJavaIterator());
+		g2 = createEGenericType(this.getEffectiveRequirementFacade());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
 
 		op = addEOperation(buildResultReferenceEClass, this.getRequiredCapability(), "getRequirements", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, theB3backendPackage.getThrowable());
@@ -2291,6 +2428,9 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		op = addEOperation(buildContextEClass, this.getBuildContext(), "defineBeeModel", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getBeeModel(), "beeModel", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, theB3backendPackage.getB3EngineException());
+
+		op = addEOperation(buildContextEClass, this.getBuildUnit(), "getEffectiveBuildUnit", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getBuildUnit(), "unit", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(buildConcernContextEClass, BuildConcernContext.class, "BuildConcernContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBuildConcernContext_DefaultPropertiesRemovals(), ecorePackage.getEString(), "defaultPropertiesRemovals", null, 0, -1, BuildConcernContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2395,10 +2535,6 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		initEClass(iRequiredCapabilityContainerEClass, IRequiredCapabilityContainer.class, "IRequiredCapabilityContainer", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIRequiredCapabilityContainer_RequiredCapabilities(), this.getRequiredCapability(), null, "requiredCapabilities", null, 0, -1, IRequiredCapabilityContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = addEOperation(iRequiredCapabilityContainerEClass, this.getRequiredCapability(), "getEffectiveRequirements", 0, -1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theB3backendPackage.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, theB3backendPackage.getThrowable());
-
 		initEClass(iProvidedCapabilityContainerEClass, IProvidedCapabilityContainer.class, "IProvidedCapabilityContainer", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIProvidedCapabilityContainer_ProvidedCapabilities(), this.getCapability(), null, "providedCapabilities", null, 0, -1, IProvidedCapabilityContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -2439,8 +2575,20 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 
 		initEClass(resolutionInfoEClass, ResolutionInfo.class, "ResolutionInfo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(buildUnitWrapperEClass, BuildUnitWrapper.class, "BuildUnitWrapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBuildUnitWrapper_Original(), this.getBuildUnit(), null, "original", null, 0, 1, BuildUnitWrapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(effectiveFacadeEClass, EffectiveFacade.class, "EffectiveFacade", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEffectiveFacade_Context(), theB3backendPackage.getBExecutionContext(), null, "context", null, 0, 1, EffectiveFacade.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(effectiveUnitFacadeEClass, EffectiveUnitFacade.class, "EffectiveUnitFacade", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEffectiveUnitFacade_Unit(), this.getBuildUnit(), null, "unit", null, 0, 1, EffectiveUnitFacade.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEffectiveUnitFacade_ProvidedCapabilities(), this.getEffectiveCapabilityFacade(), null, "providedCapabilities", null, 0, -1, EffectiveUnitFacade.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEffectiveUnitFacade_RequiredCapabilities(), this.getEffectiveRequirementFacade(), null, "requiredCapabilities", null, 0, -1, EffectiveUnitFacade.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEffectiveUnitFacade_MetaRequiredCapabilities(), this.getEffectiveRequirementFacade(), null, "metaRequiredCapabilities", null, 0, -1, EffectiveUnitFacade.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(effectiveRequirementFacadeEClass, EffectiveRequirementFacade.class, "EffectiveRequirementFacade", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEffectiveRequirementFacade_Requirement(), this.getRequiredCapability(), null, "requirement", null, 0, 1, EffectiveRequirementFacade.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(effectiveCapabilityFacadeEClass, EffectiveCapabilityFacade.class, "EffectiveCapabilityFacade", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEffectiveCapabilityFacade_ProvidedCapability(), this.getCapability(), null, "providedCapability", null, 0, 1, EffectiveCapabilityFacade.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(versionRangeEDataType, VersionRange.class, "VersionRange", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

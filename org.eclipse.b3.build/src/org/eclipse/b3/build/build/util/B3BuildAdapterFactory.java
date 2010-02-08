@@ -261,8 +261,20 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 				return createResolutionInfoAdapter();
 			}
 			@Override
-			public Adapter caseBuildUnitWrapper(BuildUnitWrapper object) {
-				return createBuildUnitWrapperAdapter();
+			public Adapter caseEffectiveFacade(EffectiveFacade object) {
+				return createEffectiveFacadeAdapter();
+			}
+			@Override
+			public Adapter caseEffectiveUnitFacade(EffectiveUnitFacade object) {
+				return createEffectiveUnitFacadeAdapter();
+			}
+			@Override
+			public Adapter caseEffectiveRequirementFacade(EffectiveRequirementFacade object) {
+				return createEffectiveRequirementFacadeAdapter();
+			}
+			@Override
+			public Adapter caseEffectiveCapabilityFacade(EffectiveCapabilityFacade object) {
+				return createEffectiveCapabilityFacadeAdapter();
 			}
 			@Override
 			public Adapter caseBFunctionContainer(BFunctionContainer object) {
@@ -437,16 +449,58 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.BuildUnitWrapper <em>Build Unit Wrapper</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.EffectiveFacade <em>Effective Facade</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.b3.build.build.BuildUnitWrapper
+	 * @see org.eclipse.b3.build.build.EffectiveFacade
 	 * @generated
 	 */
-	public Adapter createBuildUnitWrapperAdapter() {
+	public Adapter createEffectiveFacadeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.EffectiveUnitFacade <em>Effective Unit Facade</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.EffectiveUnitFacade
+	 * @generated
+	 */
+	public Adapter createEffectiveUnitFacadeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.EffectiveRequirementFacade <em>Effective Requirement Facade</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.EffectiveRequirementFacade
+	 * @generated
+	 */
+	public Adapter createEffectiveRequirementFacadeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.EffectiveCapabilityFacade <em>Effective Capability Facade</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.EffectiveCapabilityFacade
+	 * @generated
+	 */
+	public Adapter createEffectiveCapabilityFacadeAdapter() {
 		return null;
 	}
 

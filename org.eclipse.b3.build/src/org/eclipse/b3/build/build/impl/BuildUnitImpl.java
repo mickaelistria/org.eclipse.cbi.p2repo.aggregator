@@ -7,16 +7,10 @@
 package org.eclipse.b3.build.build.impl;
 
 import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
-
-import org.eclipse.b3.backend.core.MatchingConcernIterator;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BConcern;
-import org.eclipse.b3.backend.evaluator.b3backend.BConcernContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
@@ -26,20 +20,21 @@ import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.BuildUnit;
 
+import org.eclipse.b3.build.build.B3BuildFactory;
+import org.eclipse.b3.build.build.BuildContext;
 import org.eclipse.b3.build.build.Builder;
 import org.eclipse.b3.build.build.Capability;
 import org.eclipse.b3.build.build.ContainerConfiguration;
+import org.eclipse.b3.build.build.EffectiveCapabilityFacade;
+import org.eclipse.b3.build.build.EffectiveRequirementFacade;
+import org.eclipse.b3.build.build.EffectiveUnitFacade;
 import org.eclipse.b3.build.build.IBuilder;
 import org.eclipse.b3.build.build.IProvidedCapabilityContainer;
 import org.eclipse.b3.build.build.IRequiredCapabilityContainer;
 import org.eclipse.b3.build.build.RepositoryConfiguration;
 import org.eclipse.b3.build.build.RequiredCapability;
-import org.eclipse.b3.build.build.RequiresPredicate;
 import org.eclipse.b3.build.build.Synchronization;
-import org.eclipse.b3.build.build.UnitConcernContext;
 import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;
-import org.eclipse.b3.build.core.ContextAdapter;
-import org.eclipse.b3.build.core.ContextAdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -50,7 +45,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectEList;
-import org.eclipse.emf.ecore.util.EcoreEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -464,107 +458,92 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Gets the effective meta requirements by evaluating meta requirement filters in the context
-	 * passed as a parameter.
+	 * Returns a Facade containing the effective and advised view of the BuildUnit (provided, required,
+	 * and meta required capabilities). Filters are evaluated and advice is applied. 
+	 * See {@link EffectiveUnitFacade} for more information.
 	 * <!-- end-user-doc -->
-	 * @throws Throwable 
+	 * @throws IllegalArgumentException if this unit has not been defined in the context passed as an argument.
 	 * @generated NOT
 	 */
-	public EList<RequiredCapability> getEffectiveMetaRequirements(BExecutionContext ctx) throws Throwable {
-		List<RequiredCapability> result = new ArrayList<RequiredCapability>();
+	public EffectiveUnitFacade getEffectiveFacade(BExecutionContext ctx) throws Throwable {
+		BuildContext buildContext = ctx.getContext(BuildContext.class);
+		BuildUnit u = buildContext.getEffectiveBuildUnit(this);
+		if(u == null) 
+			throw new IllegalArgumentException("The unit must have been defined in a context prior to calling getEffectiveFacade(...)");
+
+		EffectiveUnitFacade facade = B3BuildFactory.eINSTANCE.createEffectiveUnitFacade();
+		facade.setUnit(u);
+		// set the unit's default properties in a context visible downstream.
+		BExecutionContext outer = ctx.createOuterContext();
+		u.getDefaultProperties().evaluateDefaults(outer);
+		// remember the context use as parent for builder contexts
+		facade.setContext(outer);
 		
-		for(RequiredCapability r : getMetaRequiredCapabilities()) {
-			BExpression c = r.getCondExpr();
+		// Add unit's effective REQUIRED, META REQUIRED AND PROVIDED to facade
+		EList<EffectiveCapabilityFacade> provided = facade.getProvidedCapabilities();
+		EList<EffectiveRequirementFacade> required = facade.getRequiredCapabilities();
+		EList<EffectiveRequirementFacade> mRequired = facade.getMetaRequiredCapabilities();
+		
+		// REQUIRED
+		for(RequiredCapability req : getRequiredCapabilities()) {
+			BExpression c = req.getCondExpr();
 			if(c != null) {
 				Object include = c.evaluate(ctx);
 				if(include != null && include instanceof Boolean && ((Boolean)include) == Boolean.FALSE)
 					continue; // skip this requirement
 			}
+			EffectiveRequirementFacade rf = B3BuildFactory.eINSTANCE.createEffectiveRequirementFacade();
+			rf.setRequirement(req);
+			rf.setContext(outer);
+			required.add(rf);
 		}
-		// TODO: ISSUE - IS IT OK TO REUSE THE UNFILTERED FEATURE WHEN THERE IS NO DERIVED FEATURE ?
-		return new EcoreEList.UnmodifiableEList<RequiredCapability>(this, B3BuildPackage.Literals.BUILD_UNIT__META_REQUIRED_CAPABILITIES, result.size(), result.toArray());
-
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Gets the effective requirements by evaluating requirement filters in the context
-	 * passed as a parameter. Collects requirements from the unit, and from all applicable builders.
-	 * (For builders, references to the same unit are not included).
-	 * Requirements specified at the unit level (later referenced via aliases) are associated with the
-	 * context in effect at this point (not the advised context in some builder using the reference to the aliased
-	 * requirement).
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public EList<RequiredCapability> getEffectiveRequirements(BExecutionContext ctx) throws Throwable {
-		List<RequiredCapability> result = new ArrayList<RequiredCapability>();
-		
-		for(RequiredCapability r : getRequiredCapabilities()) {
-			BExpression c = r.getCondExpr();
+		// META REQUIRED
+		for(RequiredCapability req : getMetaRequiredCapabilities()) {
+			BExpression c = req.getCondExpr();
 			if(c != null) {
 				Object include = c.evaluate(ctx);
 				if(include != null && include instanceof Boolean && ((Boolean)include) == Boolean.FALSE)
 					continue; // skip this requirement
-			}
-			ContextAdapter ca = ContextAdapterFactory.eINSTANCE.adapt(r);
-			ca.addUnique(ctx);
-			result.add(r);
-		}
-		// Iterate over all contexts matching the unit
-		// TODO: ISSUE, ALL MATCHES ARE MADE ON ORIGINAL UNIT, TO MAKE IT POSSIBLE TO MATCH ON ADVICED STATE
-		// THE ALGORITM MUST USE AN EFFECTIVE UNIT THAT CHANGES DURING THE EVALUATION - BUT FIX THIS ONCE
-		// THE REST OF THE ALGORITHM HAS BEEN WORKED OUT.
-		MatchingConcernIterator itor = new MatchingConcernIterator(ctx, this);
-		while(itor.hasNext()) {
-			BConcernContext cc = itor.next();
-			if(! (cc instanceof UnitConcernContext))
-				continue; // just to be sure
-			UnitConcernContext ucc = UnitConcernContext.class.cast(cc);
-			// remove all requirements on removal list
-			ListIterator<RequiredCapability> litor = result.listIterator();
-			while(litor.hasNext()) {
-				RequiredCapability rc = litor.next();
-				for(RequiresPredicate p : ucc.getRequiresRemovals()) {
-					if(p.isMeta()) 
-						continue;
-					if(p.matches(rc))
-						litor.remove();
-				}
-			}
-
-			// add all requirements on requires list
-			for(RequiredCapability r : ucc.getRequiredCapabilities()) {
-				BExpression c = r.getCondExpr();
-				if(c != null) {
-					Object include = c.evaluate(ctx);
-					if(include != null && include instanceof Boolean && ((Boolean)include) == Boolean.FALSE)
-						continue; // skip this requirement
-				}
-				ContextAdapter ca = ContextAdapterFactory.eINSTANCE.adapt(r);
-				ca.addUnique(ctx);
-				result.add(r);
-				
 			}
 			
+			EffectiveRequirementFacade rf = B3BuildFactory.eINSTANCE.createEffectiveRequirementFacade();
+			rf.setRequirement(req);
+			rf.setContext(outer);
+			mRequired.add(rf);
 		}
-		// Find all builders applicable to this Build Unit, and add their effective requirements
-		BuildUnit proxy = BuildUnitProxyAdapterFactory.eINSTANCE.adapt(this).getProxy();
+		// PROVIDED
+		for(Capability cap : getProvidedCapabilities()) {
+			BExpression c = cap.getCondExpr();
+			if(c != null) {
+				Object include = c.evaluate(outer);
+				if(include != null && include instanceof Boolean && ((Boolean)include) == Boolean.FALSE)
+					continue; // skip this requirement
+			}
+			EffectiveCapabilityFacade cf = B3BuildFactory.eINSTANCE.createEffectiveCapabilityFacade();
+			cf.setContext(outer);
+			cf.setProvidedCapability(cap);
+			provided.add(cf);
+		}
+		
+		// Find all builders applicable to this (possibly advised) Build Unit, and add their effective requirements
+		// Note: The search for builders is based on the proxy (i.e. itself and all its interfaces).
+		//
+		BuildUnit proxy = BuildUnitProxyAdapterFactory.eINSTANCE.adapt(u).getProxy();
 		Iterator<IFunction> builders = ctx.getFunctionIterator(proxy.getClass(), Builder.class);
 		while(builders.hasNext()) {
 			Builder b = (Builder)builders.next();
-			// TODO: THIS WILL NOT WORK - THE BUILDERS CAN NOT SIMPLY ASSOCIATE CONTEXT WITH REQUIREMENT
-			// AS THE SAME BUILDER MAY BE USED FOR ANY NUMBER OF BUILD UNITS!
-			// THE ASSOCIATION MUST BE WITH A TUPLE UNIT-REQUIREMENT
-			// OR WITH THE ENTIRE LIST OF REQUIREMENTS
-			// 
-			result.addAll(b.getEffectiveRequirements(ctx));
+			Iterator<EffectiveRequirementFacade> rItor = b.getEffectiveRequirements(outer);
+			while(rItor.hasNext())
+				required.add(rItor.next());
+			Iterator<EffectiveCapabilityFacade> pItor = b.getEffectiveCapabilities(outer);
+			while(pItor.hasNext()) {
+				provided.add(pItor.next());
+			}				
 		}
-		
-		// TODO: ASSOCIATE THE CONTEXT WITH THE RETURNED LIST !!
-		// TODO: ISSUE - IS IT OK TO REUSE THE UNFILTERED FEATURE WHEN THERE IS NO DERIVED FEATURE ?
-		return new EcoreEList.UnmodifiableEList<RequiredCapability>(this, B3BuildPackage.Literals.IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_CAPABILITIES, result.size(), result.toArray());
 
+		// effective provided capabilities
+		
+		return facade;
 	}
 
 	/**

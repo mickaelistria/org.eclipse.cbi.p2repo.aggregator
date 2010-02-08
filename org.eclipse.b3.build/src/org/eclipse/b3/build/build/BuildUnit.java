@@ -259,5 +259,5 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
 	 * @generated
 	 */
-	EList<RequiredCapability> getEffectiveMetaRequirements(BExecutionContext ctx) throws Throwable;
+	EffectiveUnitFacade getEffectiveFacade(BExecutionContext ctx) throws Throwable;
 } // BuildUnit

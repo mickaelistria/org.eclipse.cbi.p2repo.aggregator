@@ -7,8 +7,10 @@
 package org.eclipse.b3.build.build.impl;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
+import org.eclipse.b3.backend.core.SingletonIterator;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 
@@ -17,6 +19,7 @@ import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.BuildContext;
 import org.eclipse.b3.build.build.BuildResultReference;
 import org.eclipse.b3.build.build.BuilderReference;
+import org.eclipse.b3.build.build.EffectiveRequirementFacade;
 import org.eclipse.b3.build.build.Prerequisite;
 
 import org.eclipse.b3.build.build.RequiredCapability;
@@ -275,18 +278,16 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public EList<RequiredCapability> getEffectiveRequirements(BExecutionContext ctx) throws Throwable {
-		List<RequiredCapability> result = new ArrayList<RequiredCapability>();
+	public Iterator<EffectiveRequirementFacade> getEffectiveRequirements(BExecutionContext ctx) throws Throwable {
 		BuildResultReference br = getBuildResult();
 		if(br != null) {
 			BExpression cond = getCondExpr();
 			Object r = (cond == null) ? null : cond.evaluate(ctx);
 			if(r == null || ! (r instanceof Boolean) || r != Boolean.FALSE)
-				result.addAll(br.getEffectiveRequirements(withExpr == null ? ctx : withExpr.getEvaluationContext(ctx)));
+				return br.getEffectiveRequirements(withExpr == null ? ctx : withExpr.getEvaluationContext(ctx));
 		}
 		
-		// TODO: ISSUE - IS IT OK TO REUSE THE UNFILTERED FEATURE WHEN THERE IS NO DERIVED FEATURE ?
-		return new EcoreEList.UnmodifiableEList<RequiredCapability>(this, B3BuildPackage.Literals.IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_CAPABILITIES, result.size(), result.toArray());
+		return new SingletonIterator<EffectiveRequirementFacade>(null);
 	}
 
 	/**

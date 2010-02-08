@@ -8,15 +8,17 @@ package org.eclipse.b3.build.build.impl;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
+import org.eclipse.b3.backend.core.SerialIterator;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.BuildContext;
 import org.eclipse.b3.build.build.BuilderReference;
 import org.eclipse.b3.build.build.CompoundBuildResultReference;
+import org.eclipse.b3.build.build.EffectiveRequirementFacade;
 import org.eclipse.b3.build.build.Prerequisite;
-import org.eclipse.b3.build.build.RequiredCapability;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -158,23 +160,23 @@ public class CompoundBuildResultReferenceImpl extends BuildResultReferenceImpl i
 		return super.eIsSet(featureID);
 	}
 	@Override
-	public EList<RequiredCapability> getEffectiveRequirements(BExecutionContext ctx) throws Throwable {
-		List<RequiredCapability> result = new ArrayList<RequiredCapability>();
+	public Iterator<EffectiveRequirementFacade> getEffectiveRequirements(BExecutionContext ctx) throws Throwable {
+		SerialIterator<EffectiveRequirementFacade> result = new SerialIterator<EffectiveRequirementFacade>();
 		for(Prerequisite p : getPrerequisites())
-			result.addAll(p.getEffectiveRequirements(ctx));
-		
-		// TODO: ISSUE - IS IT OK TO REUSE THE UNFILTERED FEATURE WHEN THERE IS NO DERIVED FEATURE ?
-		return new EcoreEList.UnmodifiableEList<RequiredCapability>(this, B3BuildPackage.Literals.IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_CAPABILITIES, result.size(), result.toArray());
+			result.addIterator(p.getEffectiveRequirements(ctx));
+
+		return result;
 	}
-	@Override
-	public EList<RequiredCapability> getRequirements() throws Throwable {
-		List<RequiredCapability> result = new ArrayList<RequiredCapability>();
-		for(Prerequisite p : getPrerequisites())
-			result.addAll(p.getRequirements());
-		
-		// TODO: ISSUE - IS IT OK TO REUSE THE UNFILTERED FEATURE WHEN THERE IS NO DERIVED FEATURE ?
-		return new EcoreEList.UnmodifiableEList<RequiredCapability>(this, B3BuildPackage.Literals.IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_CAPABILITIES, result.size(), result.toArray());
-	}
+// TODO: REMOVE AFTER CLEANUP
+//	@Override
+//	public EList<RequiredCapability> getRequirements() throws Throwable {
+//		List<RequiredCapability> result = new ArrayList<RequiredCapability>();
+//		for(Prerequisite p : getPrerequisites())
+//			result.addAll(p.getRequirements());
+//		
+//		// TODO: ISSUE - IS IT OK TO REUSE THE UNFILTERED FEATURE WHEN THERE IS NO DERIVED FEATURE ?
+//		return new EcoreEList.UnmodifiableEList<RequiredCapability>(this, B3BuildPackage.Literals.IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_CAPABILITIES, result.size(), result.toArray());
+//	}
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

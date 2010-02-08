@@ -102,7 +102,10 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 			case B3BuildPackage.BEE_MODEL: return createBeeModel();
 			case B3BuildPackage.BEE_HIVE: return createBeeHive();
 			case B3BuildPackage.RESOLUTION_INFO: return createResolutionInfo();
-			case B3BuildPackage.BUILD_UNIT_WRAPPER: return createBuildUnitWrapper();
+			case B3BuildPackage.EFFECTIVE_FACADE: return createEffectiveFacade();
+			case B3BuildPackage.EFFECTIVE_UNIT_FACADE: return createEffectiveUnitFacade();
+			case B3BuildPackage.EFFECTIVE_REQUIREMENT_FACADE: return createEffectiveRequirementFacade();
+			case B3BuildPackage.EFFECTIVE_CAPABILITY_FACADE: return createEffectiveCapabilityFacade();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -217,9 +220,39 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BuildUnitWrapper createBuildUnitWrapper() {
-		BuildUnitWrapperImpl buildUnitWrapper = new BuildUnitWrapperImpl();
-		return buildUnitWrapper;
+	public EffectiveFacade createEffectiveFacade() {
+		EffectiveFacadeImpl effectiveFacade = new EffectiveFacadeImpl();
+		return effectiveFacade;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EffectiveUnitFacade createEffectiveUnitFacade() {
+		EffectiveUnitFacadeImpl effectiveUnitFacade = new EffectiveUnitFacadeImpl();
+		return effectiveUnitFacade;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EffectiveRequirementFacade createEffectiveRequirementFacade() {
+		EffectiveRequirementFacadeImpl effectiveRequirementFacade = new EffectiveRequirementFacadeImpl();
+		return effectiveRequirementFacade;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EffectiveCapabilityFacade createEffectiveCapabilityFacade() {
+		EffectiveCapabilityFacadeImpl effectiveCapabilityFacade = new EffectiveCapabilityFacadeImpl();
+		return effectiveCapabilityFacade;
 	}
 
 	/**
