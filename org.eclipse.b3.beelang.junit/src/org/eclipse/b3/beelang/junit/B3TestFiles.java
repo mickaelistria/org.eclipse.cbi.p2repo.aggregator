@@ -20,8 +20,8 @@ import java.lang.annotation.Target;
  * 
  * @see JUnitB3FileRunnerFactory
  */
-@Retention (RetentionPolicy.RUNTIME)
-@Target (ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.TYPE)
 public @interface B3TestFiles {
 	/**
 	 * @return bundle relative paths of the B3 files to be scanned for the test functions

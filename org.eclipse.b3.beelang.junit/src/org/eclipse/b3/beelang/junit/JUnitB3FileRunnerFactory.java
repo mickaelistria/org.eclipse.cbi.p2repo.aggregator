@@ -19,7 +19,6 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
-import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.b3.build.build.BeeModel;
@@ -53,11 +52,47 @@ import com.google.inject.Injector;
  */
 class JUnitB3FileRunnerFactory {
 
-	public static final String TEST_FUNCTION_PREFIX = "test";
+	protected static class ErrorReportingRunner extends Runner {
 
-	protected static final Object[] EMPTY_PARAMETER_ARRAY = new Object[] {};
+		private final Description testDescription;
 
-	protected static final Type[] EMPTY_TYPE_ARRAY = new Type[] {};
+		private final Throwable error;
+
+		private String errorMessage;
+
+		public ErrorReportingRunner(Description description, Throwable t, String message) {
+			testDescription = description;
+			error = t;
+			errorMessage = message;
+		}
+
+		@Override
+		public Description getDescription() {
+			return testDescription;
+		}
+
+		@Override
+		public void run(RunNotifier notifier) {
+			Description description = getDescription();
+
+			notifier.fireTestStarted(description);
+			try {
+				throw new Exception(errorMessage, error);
+			}
+			catch(Throwable t) {
+				notifier.fireTestFailure(new Failure(description, t));
+				Throwable cause = t.getCause();
+				if(cause != null && cause instanceof MultiProblemException) {
+					for(Throwable problem : ((MultiProblemException) cause).getProblems())
+						notifier.fireTestFailure(new Failure(description, problem));
+				}
+			}
+			finally {
+				notifier.fireTestFinished(description);
+			}
+		}
+
+	}
 
 	protected class JUnitB3FileRunner extends ParentRunner<JUnitB3FileRunner.TestFunctionDescriptor> {
 
@@ -75,12 +110,12 @@ class JUnitB3FileRunnerFactory {
 				testDescription = Description.createSuiteDescription(functionName + '(' + b3FilePath + ')');
 			}
 
-			public String getFunctionName() {
-				return testFunctionName;
-			}
-
 			public Description getDescription() {
 				return testDescription;
+			}
+
+			public String getFunctionName() {
+				return testFunctionName;
 			}
 
 		}
@@ -101,6 +136,21 @@ class JUnitB3FileRunnerFactory {
 			initializeFunctionTests();
 		}
 
+		@Override
+		protected Description describeChild(TestFunctionDescriptor child) {
+			return child.getDescription();
+		}
+
+		@Override
+		protected List<TestFunctionDescriptor> getChildren() {
+			return testFunctionDescriptors;
+		}
+
+		@Override
+		protected String getName() {
+			return b3FilePath;
+		}
+
 		protected void initializeFunctionTests() throws Exception {
 			URI b3FileURI = URI.createPlatformPluginURI(containingBundleName + b3FilePath, true);
 			XtextResource resource = (XtextResource) beeLangResourceSet.createResource(b3FileURI,
@@ -117,7 +167,8 @@ class JUnitB3FileRunnerFactory {
 						if(error instanceof AbstractDiagnostic)
 							throw new Exception("Error at line: " + error.getLine() + ": " + error.getMessage());
 						throw new Exception("Error at unspecified location: " + error.getMessage());
-					} catch(Throwable t) {
+					}
+					catch(Throwable t) {
 						problems.add(t);
 					}
 				}
@@ -157,75 +208,28 @@ class JUnitB3FileRunnerFactory {
 		}
 
 		@Override
-		protected String getName() {
-			return b3FilePath;
-		}
-
-		@Override
-		protected Description describeChild(TestFunctionDescriptor child) {
-			return child.getDescription();
-		}
-
-		@Override
 		protected void runChild(TestFunctionDescriptor child, RunNotifier notifier) {
 			Description testDescription = child.getDescription();
 
 			notifier.fireTestStarted(testDescription);
 			try {
 				b3Engine.getContext().callFunction(child.getFunctionName(), EMPTY_PARAMETER_ARRAY, EMPTY_TYPE_ARRAY);
-			} catch(Throwable t) {
+			}
+			catch(Throwable t) {
 				notifier.fireTestFailure(new Failure(testDescription, t));
-			} finally {
+			}
+			finally {
 				notifier.fireTestFinished(testDescription);
 			}
 		}
 
-		@Override
-		protected List<TestFunctionDescriptor> getChildren() {
-			return testFunctionDescriptors;
-		}
-
 	}
 
-	protected static class ErrorReportingRunner extends Runner {
+	public static final String TEST_FUNCTION_PREFIX = "test";
 
-		private final Description testDescription;
+	protected static final Object[] EMPTY_PARAMETER_ARRAY = new Object[] {};
 
-		private final Throwable error;
-
-		private String errorMessage;
-
-		public ErrorReportingRunner(Description description, Throwable t, String message) {
-			testDescription = description;
-			error = t;
-			errorMessage = message;
-		}
-
-		@Override
-		public Description getDescription() {
-			return testDescription;
-		}
-
-		@Override
-		public void run(RunNotifier notifier) {
-			Description description = getDescription();
-
-			notifier.fireTestStarted(description);
-			try {
-				throw new Exception(errorMessage, error);
-			} catch(Throwable t) {
-				notifier.fireTestFailure(new Failure(description, t));
-				Throwable cause = t.getCause();
-				if(cause != null && cause instanceof MultiProblemException) {
-					for(Throwable problem : ((MultiProblemException) cause).getProblems())
-						notifier.fireTestFailure(new Failure(description, problem));
-				}
-			} finally {
-				notifier.fireTestFinished(description);
-			}
-		}
-
-	}
+	protected static final Type[] EMPTY_TYPE_ARRAY = new Type[] {};
 
 	protected XtextResourceSet beeLangResourceSet;
 
@@ -257,19 +261,12 @@ class JUnitB3FileRunnerFactory {
 				+ klass.getName());
 	}
 
-	protected void createResourceSet() {
-		Injector beeLangInjector = new BeeLangStandaloneSetup().createInjectorAndDoEMFRegistration();
-
-		beeLangResourceSet = beeLangInjector.getProvider(XtextResourceSet.class).get();
+	public List<Runner> getB3FileRunners() {
+		return b3FileRunners;
 	}
 
 	protected Runner createB3FileRunner(String b3File) throws Exception {
 		return new JUnitB3FileRunner(b3File);
-	}
-
-	protected Runner createErrorReportingRunner(String b3File, Throwable t) {
-		return new ErrorReportingRunner(Description.createSuiteDescription(b3File), t,
-				"Test initialization failed for: " + b3File);
 	}
 
 	protected void createB3FileRunners(String[] b3Files) {
@@ -280,7 +277,8 @@ class JUnitB3FileRunnerFactory {
 		for(String b3File : b3Files) {
 			try {
 				runners.add(createB3FileRunner(b3File));
-			} catch(Throwable t) {
+			}
+			catch(Throwable t) {
 				runners.add(createErrorReportingRunner(b3File, t));
 			}
 		}
@@ -288,8 +286,15 @@ class JUnitB3FileRunnerFactory {
 		b3FileRunners = runners;
 	}
 
-	public List<Runner> getB3FileRunners() {
-		return b3FileRunners;
+	protected Runner createErrorReportingRunner(String b3File, Throwable t) {
+		return new ErrorReportingRunner(Description.createSuiteDescription(b3File), t,
+				"Test initialization failed for: " + b3File);
+	}
+
+	protected void createResourceSet() {
+		Injector beeLangInjector = new BeeLangStandaloneSetup().createInjectorAndDoEMFRegistration();
+
+		beeLangResourceSet = beeLangInjector.getProvider(XtextResourceSet.class).get();
 	}
 
 }

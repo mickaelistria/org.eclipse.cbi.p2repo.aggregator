@@ -20,8 +20,8 @@ import org.junit.runners.model.InitializationError;
  * The runner is used as follows:
  * 
  * <pre>
- * &#064;RunWith (JUnitB3TestRunner.class)
- * &#064;B3TestFiles ( { &quot;/b3/basic.b3&quot;, &quot;/b3/advanced.b3&quot; })
+ * &#064;RunWith(JUnitB3TestRunner.class)
+ * &#064;B3TestFiles({ &quot;/b3/basic.b3&quot;, &quot;/b3/advanced.b3&quot; })
  * public class AllB3Tests {
  * }
  * </pre>
