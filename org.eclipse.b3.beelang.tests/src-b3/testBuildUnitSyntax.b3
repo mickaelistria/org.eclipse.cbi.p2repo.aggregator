@@ -1,5 +1,6 @@
 /*
 * Test syntax of build unit and related concerns.
+* 
 */
 import java.util.List; // cheat, need a type, don't have the actual types yet...
 import java.util.Map; // - " -
@@ -17,7 +18,7 @@ concern TestingBuildUnitConcernSyntaxSimple {
 	// define functions
 	function foo() : "foo";
 	
-	// implents with type reference
+	// implements with type reference
 	context unit implements List { }
 	
 	function bar() : "bar";
