@@ -16,8 +16,6 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper;
 import org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction;
-import org.eclipse.b3.backend.evaluator.b3backend.BSourceLink;
-
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.build.build.*;
 

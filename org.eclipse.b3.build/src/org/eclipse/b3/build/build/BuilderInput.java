@@ -8,7 +8,6 @@ package org.eclipse.b3.build.build;
 
 import java.util.Iterator;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
-import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;

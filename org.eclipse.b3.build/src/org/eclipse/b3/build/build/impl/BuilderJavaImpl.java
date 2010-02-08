@@ -26,7 +26,6 @@ import org.eclipse.b3.build.build.IBuilder;
 import org.eclipse.b3.build.build.IProvidedCapabilityContainer;
 import org.eclipse.b3.build.build.PathGroup;
 
-import org.eclipse.b3.build.build.RequiredCapability;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -43,6 +42,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Builder Java</b></em>'.
+ * TODO: This implementation is 100% generated at the moment, once the b3 Builder is working, copy
+ * methods (or refactor impl) for things like getting the effective provided and required capabilities.
+ * 
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:

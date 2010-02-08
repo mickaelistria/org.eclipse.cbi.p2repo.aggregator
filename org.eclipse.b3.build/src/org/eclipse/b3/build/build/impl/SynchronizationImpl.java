@@ -8,12 +8,9 @@ package org.eclipse.b3.build.build.impl;
 
 import java.util.Collection;
 
-import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.BuilderQuery;
 import org.eclipse.b3.build.build.Synchronization;
-import org.eclipse.b3.build.build.SynchronizedBuilder;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
