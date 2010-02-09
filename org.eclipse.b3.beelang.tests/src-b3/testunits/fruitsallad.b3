@@ -1,3 +1,9 @@
+import org.eclipse.b3.beelang.tests.buildunittypes.Fruit;
+import java.util.List;
+
+function main(List argv) {
+	true;
+}
 unit fruitsallad version 1.0.0 {
 	builder make {
 		input {
