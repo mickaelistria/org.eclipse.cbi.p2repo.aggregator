@@ -1,5 +1,9 @@
-unit apple version 1.0.0 {
-	builder peel {
+
+unit orange version 1.0.0 {
+	
+	provides food.nutrition.vitamin/C;
+	
+	builder peel provides gastronomy.taste/zest {
 		output { orangepeel.txt; }
 	}
 	builder seeds {

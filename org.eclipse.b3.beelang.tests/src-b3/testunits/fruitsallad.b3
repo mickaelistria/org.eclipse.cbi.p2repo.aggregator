@@ -7,9 +7,10 @@ function main(List argv) {
 unit fruitsallad version 1.0.0 {
 	builder make {
 		input {
-			fruit/apple/1.0.0#dice;
-			fruit/banana/1.0.0#dice;
-			fruit/orange/1.0.0#dice;
+			unit/apple/1.0.0#dice;
+			unit/banana/1.0.0#dice;
+			unit/orange/1.0.0#dice;
+			gastronomy.taste/zest#peel;
 		}
 	}
 }
