@@ -1,4 +1,6 @@
-unit banana version 1.0.0 {
+import org.eclipse.b3.beelang.tests.buildunittypes.Fruit;
+
+unit banana version 1.0.0 implements Fruit {
 	
 	provides food.nutrition.vitamin/B6;
 	provides food.nutrition.vitamin/C;

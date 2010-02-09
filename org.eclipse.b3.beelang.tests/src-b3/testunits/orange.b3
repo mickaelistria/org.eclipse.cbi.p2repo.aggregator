@@ -1,5 +1,6 @@
+import org.eclipse.b3.beelang.tests.buildunittypes.Fruit;
 
-unit orange version 1.0.0 {
+unit orange version 1.0.0 implements Fruit {
 	
 	provides food.nutrition.vitamin/C;
 	

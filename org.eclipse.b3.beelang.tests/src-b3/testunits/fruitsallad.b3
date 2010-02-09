@@ -1,4 +1,3 @@
-import org.eclipse.b3.beelang.tests.buildunittypes.Fruit;
 import java.util.List;
 
 function main(List argv) {
