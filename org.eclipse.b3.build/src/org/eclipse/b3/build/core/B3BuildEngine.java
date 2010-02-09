@@ -19,5 +19,7 @@ public class B3BuildEngine extends B3Engine {
 	public BExecutionContext getContext() {
 		return buildContext;
 	}
-
+	public BuildContext getBuildContext() {
+		return buildContext;
+	}
 }
