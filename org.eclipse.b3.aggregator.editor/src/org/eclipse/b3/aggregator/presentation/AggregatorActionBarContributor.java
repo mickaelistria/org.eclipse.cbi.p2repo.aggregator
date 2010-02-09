@@ -37,7 +37,7 @@ import org.eclipse.b3.aggregator.p2.InstallableUnit;
 import org.eclipse.b3.aggregator.p2.MetadataRepository;
 import org.eclipse.b3.aggregator.p2.util.MetadataRepositoryResourceImpl;
 import org.eclipse.b3.aggregator.p2view.IUPresentation;
-import org.eclipse.b3.aggregator.p2view.RequiredCapabilityWrapper;
+import org.eclipse.b3.aggregator.p2view.RequirementWrapper;
 import org.eclipse.b3.aggregator.provider.AggregatorEditPlugin;
 import org.eclipse.b3.aggregator.util.AddIUsToContributionCommand;
 import org.eclipse.b3.aggregator.util.AddIUsToCustomCategoryCommand;
@@ -77,6 +77,7 @@ import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
 import org.eclipse.emf.edit.ui.action.LoadResourceAction;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.equinox.app.IApplication;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.ActionContributionItem;
 import org.eclipse.jface.action.IAction;
@@ -132,7 +133,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 		private AddIUsToCustomCategoryCommand command;
 
 		public AddToCustomCategoryAction(EditingDomain domain, CustomCategory customCategory,
-				List<InstallableUnit> selectedFeatures) {
+				List<IInstallableUnit> selectedFeatures) {
 			Object imageURL = AggregatorEditPlugin.INSTANCE.getImage("full/obj16/Contribution.gif");
 
 			if(imageURL != null && imageURL instanceof URL)
@@ -158,7 +159,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 		private AddIUsToParentRepositoryCommand command;
 
-		public AddToParentRepositoryAction(EditingDomain domain, List<InstallableUnit> selectedIUs, int operation) {
+		public AddToParentRepositoryAction(EditingDomain domain, List<IInstallableUnit> selectedIUs, int operation) {
 			this.domain = domain;
 			command = new AddIUsToParentRepositoryCommand(ResourceUtils.getAggregator(domain.getResourceSet()),
 					selectedIUs, operation);
@@ -420,7 +421,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 		private AddIUsToContributionCommand command;
 
 		public MapToContributionAction(EditingDomain domain, Contribution contribution,
-				List<MetadataRepository> selectedMDRs, List<InstallableUnit> selectedIUs) {
+				List<MetadataRepository> selectedMDRs, List<IInstallableUnit> selectedIUs) {
 			Object imageURL = AggregatorEditPlugin.INSTANCE.getImage("full/obj16/Contribution.gif");
 
 			if(imageURL != null && imageURL instanceof URL)
@@ -508,10 +509,10 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	}
 
 	class SelectMatchingIUAction extends Action {
-		private RequiredCapabilityWrapper requiredCapabilityWrapper;
+		private RequirementWrapper requirementWrapper;
 
-		public SelectMatchingIUAction(RequiredCapabilityWrapper requiredCapabilityWrapper) {
-			this.requiredCapabilityWrapper = requiredCapabilityWrapper;
+		public SelectMatchingIUAction(RequirementWrapper requirementWrapper) {
+			this.requirementWrapper = requirementWrapper;
 
 			setText(getString("_UI_Select_matching_IU_menu_item"));
 		}
@@ -531,7 +532,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 							continue;
 
 						TwoColumnMatrix<IUPresentation, Object[]> result = ((MetadataRepositoryResourceImpl) resource).findIUPresentationsWhichSatisfies(
-								requiredCapabilityWrapper.getGenuine(), true);
+								requirementWrapper.getGenuine(), true);
 
 						if(result != null && result.size() > 0)
 							foundIUs.put((MetadataRepositoryResourceImpl) resource, result);
@@ -1168,8 +1169,8 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 				newChildDescriptors = domain.getNewChildDescriptors(object, null);
 				newSiblingDescriptors = domain.getNewChildDescriptors(null, object);
 
-				if(object instanceof RequiredCapabilityWrapper) {
-					m_selectMatchingIUAction = new SelectMatchingIUAction((RequiredCapabilityWrapper) object);
+				if(object instanceof RequirementWrapper) {
+					m_selectMatchingIUAction = new SelectMatchingIUAction((RequirementWrapper) object);
 				}
 			}
 		}
@@ -1324,7 +1325,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 			if(itemSorter.getTotalItemCount() > 0
 					&& (itemSorter.getTotalItemCount() == itemSorter.getGroupItems(ItemGroup.FEATURE).size() || (itemSorter.getTotalItemCount() == itemSorter.getGroupItems(
 							ItemGroup.FEATURE_STRUCTURED).size()))) {
-				List<InstallableUnit> features = new ArrayList<InstallableUnit>();
+				List<IInstallableUnit> features = new ArrayList<IInstallableUnit>();
 				features.addAll((List<InstallableUnit>) itemSorter.getGroupItems(ItemGroup.FEATURE));
 				features.addAll(ItemUtils.getIUs((List<org.eclipse.b3.aggregator.p2view.Feature>) itemSorter.getGroupItems(ItemGroup.FEATURE_STRUCTURED)));
 
@@ -1349,7 +1350,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 			if(itemSorter.getTotalItemCount() > 0
 					&& (itemSorter.getTotalItemCount() == itemSorter.getGroupItems(ItemGroup.IU).size() || (itemSorter.getTotalItemCount() == itemSorter.getGroupItems(
 							ItemGroup.IU_STRUCTURED).size()))) {
-				List<InstallableUnit> ius = new ArrayList<InstallableUnit>();
+				List<IInstallableUnit> ius = new ArrayList<IInstallableUnit>();
 
 				ius.addAll((List<InstallableUnit>) itemSorter.getGroupItems(ItemGroup.IU));
 				ius.addAll(ItemUtils.getIUs((List<IUPresentation>) itemSorter.getGroupItems(ItemGroup.IU_STRUCTURED)));

@@ -11,8 +11,8 @@ package org.eclipse.b3.aggregator.presentation;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
-import org.eclipse.equinox.internal.provisional.p2.metadata.Version;
-import org.eclipse.equinox.internal.provisional.p2.metadata.VersionRange;
+import org.eclipse.equinox.p2.metadata.Version;
+import org.eclipse.equinox.p2.metadata.VersionRange;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.TrayDialog;
 import org.eclipse.jface.fieldassist.TextContentAdapter;
@@ -233,7 +233,7 @@ public class FindIUDialog extends TrayDialog {
 		if(versionFromString != null)
 			minVersion = Version.parseVersion(versionFromString);
 		else
-			minVersion = Version.MIN_VERSION;
+			minVersion = Version.emptyVersion;
 
 		Version maxVersion = null;
 		String versionToString = UIUtils.trimmedValue(versionToText);
