@@ -6,7 +6,7 @@
  */
 package org.eclipse.b3.aggregator.p2;
 
-import org.eclipse.equinox.internal.provisional.p2.metadata.IProvidedCapability;
+import org.eclipse.equinox.p2.metadata.IProvidedCapability;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Provided Capability</b></em>'. <!-- end-user-doc

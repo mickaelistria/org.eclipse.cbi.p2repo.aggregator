@@ -10,7 +10,8 @@ import java.net.URI;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
-import org.eclipse.equinox.internal.provisional.p2.metadata.repository.IMetadataRepository;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
+import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Metadata Repository</b></em>'. <!-- end-user-doc
@@ -32,7 +33,7 @@ import org.eclipse.equinox.internal.provisional.p2.metadata.repository.IMetadata
 public interface MetadataRepository extends IMetadataRepository {
 	/**
 	 * Returns the value of the '<em><b>Installable Units</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.b3.aggregator.p2.InstallableUnit}.
+	 * The list contents are of type {@link org.eclipse.equinox.p2.metadata.IInstallableUnit}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Installable Units</em>' containment reference list isn't clear, there really should be
@@ -42,10 +43,10 @@ public interface MetadataRepository extends IMetadataRepository {
 	 * 
 	 * @return the value of the '<em>Installable Units</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.p2.P2Package#getMetadataRepository_InstallableUnits()
-	 * @model containment="true" keys="id version"
+	 * @model type="org.eclipse.b3.aggregator.p2.IInstallableUnit" containment="true" keys="id version"
 	 * @generated
 	 */
-	EList<InstallableUnit> getInstallableUnits();
+	EList<IInstallableUnit> getInstallableUnits();
 
 	/**
 	 * Obtains the URI information from the proxy URI fragment
@@ -70,7 +71,7 @@ public interface MetadataRepository extends IMetadataRepository {
 	 * 
 	 * @return the value of the '<em>Property Map</em>' map.
 	 * @see org.eclipse.b3.aggregator.p2.P2Package#getMetadataRepository_PropertyMap()
-	 * @model
+	 * @model 
 	 *        mapType="org.eclipse.b3.aggregator.p2.Property<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString>"
 	 * @generated
 	 */

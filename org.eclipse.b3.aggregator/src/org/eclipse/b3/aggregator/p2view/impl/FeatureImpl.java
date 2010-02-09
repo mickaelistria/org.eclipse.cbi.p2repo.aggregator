@@ -10,21 +10,18 @@
 package org.eclipse.b3.aggregator.p2view.impl;
 
 import org.eclipse.b3.aggregator.InstallableUnitType;
-import org.eclipse.b3.aggregator.p2.InstallableUnit;
 import org.eclipse.b3.aggregator.p2view.Bundles;
 import org.eclipse.b3.aggregator.p2view.Feature;
 import org.eclipse.b3.aggregator.p2view.Features;
 import org.eclipse.b3.aggregator.p2view.Fragments;
 import org.eclipse.b3.aggregator.p2view.P2viewFactory;
 import org.eclipse.b3.aggregator.p2view.P2viewPackage;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Feature</b></em>'. <!-- end-user-doc -->
@@ -85,7 +82,7 @@ public class FeatureImpl extends IUPresentationWithDetailsImpl implements Featur
 	 * 
 	 * @generated NOT
 	 */
-	protected FeatureImpl(InstallableUnit iu) {
+	protected FeatureImpl(IInstallableUnit iu) {
 		super(iu);
 	}
 

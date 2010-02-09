@@ -11,19 +11,15 @@ import java.util.List;
 
 import org.eclipse.b3.aggregator.p2.InstallableUnitFragment;
 import org.eclipse.b3.aggregator.p2.P2Package;
-import org.eclipse.b3.aggregator.p2.RequiredCapability;
-
+import org.eclipse.b3.aggregator.p2.Requirement;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
-import org.eclipse.equinox.internal.provisional.p2.metadata.IRequiredCapability;
+import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
+import org.eclipse.equinox.p2.metadata.IRequirement;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Installable Unit Fragment</b></em>'. <!--
@@ -46,7 +42,7 @@ public class InstallableUnitFragmentImpl extends InstallableUnitImpl implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<RequiredCapability> hostList;
+	protected EList<Requirement> hostList;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -110,7 +106,7 @@ public class InstallableUnitFragmentImpl extends InstallableUnitImpl implements 
 		switch(featureID) {
 		case P2Package.INSTALLABLE_UNIT_FRAGMENT__HOST_LIST:
 			getHostList().clear();
-			getHostList().addAll((Collection<? extends RequiredCapability>) newValue);
+			getHostList().addAll((Collection<? extends Requirement>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -136,8 +132,8 @@ public class InstallableUnitFragmentImpl extends InstallableUnitImpl implements 
 	 * 
 	 * @generated NOT
 	 */
-	public IRequiredCapability[] getHost() {
-		List<RequiredCapability> list = getHostList();
+	public IRequirement[] getHost() {
+		List<Requirement> list = getHostList();
 		return list.toArray(new IRequiredCapability[list.size()]);
 	}
 
@@ -146,9 +142,9 @@ public class InstallableUnitFragmentImpl extends InstallableUnitImpl implements 
 	 * 
 	 * @generated
 	 */
-	public EList<RequiredCapability> getHostList() {
+	public EList<Requirement> getHostList() {
 		if(hostList == null) {
-			hostList = new EObjectContainmentEList<RequiredCapability>(RequiredCapability.class, this,
+			hostList = new EObjectContainmentEList<Requirement>(Requirement.class, this,
 					P2Package.INSTALLABLE_UNIT_FRAGMENT__HOST_LIST);
 		}
 		return hostList;

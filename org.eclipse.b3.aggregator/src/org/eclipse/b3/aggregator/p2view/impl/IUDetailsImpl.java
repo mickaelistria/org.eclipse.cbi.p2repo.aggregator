@@ -9,27 +9,31 @@
  */
 package org.eclipse.b3.aggregator.p2view.impl;
 
+import java.util.Collection;
+
 import org.eclipse.b3.aggregator.p2view.IUDetails;
 import org.eclipse.b3.aggregator.p2view.P2viewPackage;
 import org.eclipse.b3.aggregator.p2view.Properties;
 import org.eclipse.b3.aggregator.p2view.ProvidedCapabilities;
-import org.eclipse.b3.aggregator.p2view.RequiredCapabilities;
+import org.eclipse.b3.aggregator.p2view.Requirements;
 import org.eclipse.b3.aggregator.p2view.Touchpoints;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.equinox.internal.provisional.p2.metadata.ICopyright;
-import org.eclipse.equinox.internal.provisional.p2.metadata.ILicense;
-import org.eclipse.equinox.internal.provisional.p2.metadata.IUpdateDescriptor;
+import org.eclipse.emf.ecore.util.EObjectEList;
+import org.eclipse.equinox.p2.metadata.ICopyright;
+import org.eclipse.equinox.p2.metadata.ILicense;
+import org.eclipse.equinox.p2.metadata.IUpdateDescriptor;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>IU Details</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUDetailsImpl#getRequiredCapabilitiesContainer <em>Required
- * Capabilities Container</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUDetailsImpl#getRequirementsContainer <em>Requirements Container
+ * </em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUDetailsImpl#getProvidedCapabilitiesContainer <em>Provided
  * Capabilities Container</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUDetailsImpl#getPropertiesContainer <em>Properties Container</em>}</li>
@@ -37,7 +41,7 @@ import org.eclipse.equinox.internal.provisional.p2.metadata.IUpdateDescriptor;
  * </em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUDetailsImpl#getUpdateDescriptor <em>Update Descriptor</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUDetailsImpl#getCopyright <em>Copyright</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUDetailsImpl#getLicense <em>License</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUDetailsImpl#getLicenses <em>Licenses</em>}</li>
  * </ul>
  * </p>
  * 
@@ -54,15 +58,15 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 	protected int eFlags = 0;
 
 	/**
-	 * The cached value of the '{@link #getRequiredCapabilitiesContainer() <em>Required Capabilities Container</em>}'
-	 * reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getRequirementsContainer() <em>Requirements Container</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
-	 * @see #getRequiredCapabilitiesContainer()
+	 * @see #getRequirementsContainer()
 	 * @generated
 	 * @ordered
 	 */
-	protected RequiredCapabilities requiredCapabilitiesContainer;
+	protected Requirements requirementsContainer;
 
 	/**
 	 * The cached value of the '{@link #getProvidedCapabilitiesContainer() <em>Provided Capabilities Container</em>}'
@@ -117,15 +121,15 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 	protected ICopyright copyright;
 
 	/**
-	 * The cached value of the '{@link #getLicense() <em>License</em>}' reference.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getLicenses() <em>Licenses</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
-	 * @see #getLicense()
+	 * @see #getLicenses()
 	 * @generated
 	 * @ordered
 	 */
-	protected ILicense license;
+	protected EList<ILicense> licenses;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -144,8 +148,8 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case P2viewPackage.IU_DETAILS__REQUIRED_CAPABILITIES_CONTAINER:
-			return getRequiredCapabilitiesContainer();
+		case P2viewPackage.IU_DETAILS__REQUIREMENTS_CONTAINER:
+			return getRequirementsContainer();
 		case P2viewPackage.IU_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
 			return getProvidedCapabilitiesContainer();
 		case P2viewPackage.IU_DETAILS__PROPERTIES_CONTAINER:
@@ -156,8 +160,8 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 			return getUpdateDescriptor();
 		case P2viewPackage.IU_DETAILS__COPYRIGHT:
 			return getCopyright();
-		case P2viewPackage.IU_DETAILS__LICENSE:
-			return getLicense();
+		case P2viewPackage.IU_DETAILS__LICENSES:
+			return getLicenses();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -170,8 +174,8 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case P2viewPackage.IU_DETAILS__REQUIRED_CAPABILITIES_CONTAINER:
-			return requiredCapabilitiesContainer != null;
+		case P2viewPackage.IU_DETAILS__REQUIREMENTS_CONTAINER:
+			return requirementsContainer != null;
 		case P2viewPackage.IU_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
 			return providedCapabilitiesContainer != null;
 		case P2viewPackage.IU_DETAILS__PROPERTIES_CONTAINER:
@@ -182,8 +186,8 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 			return updateDescriptor != null;
 		case P2viewPackage.IU_DETAILS__COPYRIGHT:
 			return copyright != null;
-		case P2viewPackage.IU_DETAILS__LICENSE:
-			return license != null;
+		case P2viewPackage.IU_DETAILS__LICENSES:
+			return licenses != null && !licenses.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -193,11 +197,12 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 	 * 
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case P2viewPackage.IU_DETAILS__REQUIRED_CAPABILITIES_CONTAINER:
-			setRequiredCapabilitiesContainer((RequiredCapabilities) newValue);
+		case P2viewPackage.IU_DETAILS__REQUIREMENTS_CONTAINER:
+			setRequirementsContainer((Requirements) newValue);
 			return;
 		case P2viewPackage.IU_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
 			setProvidedCapabilitiesContainer((ProvidedCapabilities) newValue);
@@ -214,8 +219,9 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 		case P2viewPackage.IU_DETAILS__COPYRIGHT:
 			setCopyright((ICopyright) newValue);
 			return;
-		case P2viewPackage.IU_DETAILS__LICENSE:
-			setLicense((ILicense) newValue);
+		case P2viewPackage.IU_DETAILS__LICENSES:
+			getLicenses().clear();
+			getLicenses().addAll((Collection<? extends ILicense>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -229,8 +235,8 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case P2viewPackage.IU_DETAILS__REQUIRED_CAPABILITIES_CONTAINER:
-			setRequiredCapabilitiesContainer((RequiredCapabilities) null);
+		case P2viewPackage.IU_DETAILS__REQUIREMENTS_CONTAINER:
+			setRequirementsContainer((Requirements) null);
 			return;
 		case P2viewPackage.IU_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
 			setProvidedCapabilitiesContainer((ProvidedCapabilities) null);
@@ -247,8 +253,8 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 		case P2viewPackage.IU_DETAILS__COPYRIGHT:
 			setCopyright((ICopyright) null);
 			return;
-		case P2viewPackage.IU_DETAILS__LICENSE:
-			setLicense((ILicense) null);
+		case P2viewPackage.IU_DETAILS__LICENSES:
+			getLicenses().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -264,12 +270,16 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	public ILicense getLicense() {
-		return license;
+	public EList<ILicense> getLicenses() {
+		if(licenses == null) {
+			licenses = new EObjectEList<ILicense>(ILicense.class, this, P2viewPackage.IU_DETAILS__LICENSES);
+		}
+		return licenses;
 	}
 
 	/**
@@ -291,12 +301,13 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	public RequiredCapabilities getRequiredCapabilitiesContainer() {
-		return requiredCapabilitiesContainer;
+	public Requirements getRequirementsContainer() {
+		return requirementsContainer;
 	}
 
 	/**
@@ -335,19 +346,6 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 	 * 
 	 * @generated
 	 */
-	public void setLicense(ILicense newLicense) {
-		ILicense oldLicense = license;
-		license = newLicense;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_DETAILS__LICENSE, oldLicense,
-					license));
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void setPropertiesContainer(Properties newPropertiesContainer) {
 		Properties oldPropertiesContainer = propertiesContainer;
 		propertiesContainer = newPropertiesContainer;
@@ -371,17 +369,17 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	public void setRequiredCapabilitiesContainer(RequiredCapabilities newRequiredCapabilitiesContainer) {
-		RequiredCapabilities oldRequiredCapabilitiesContainer = requiredCapabilitiesContainer;
-		requiredCapabilitiesContainer = newRequiredCapabilitiesContainer;
+	public void setRequirementsContainer(Requirements newRequirementsContainer) {
+		Requirements oldRequirementsContainer = requirementsContainer;
+		requirementsContainer = newRequirementsContainer;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					P2viewPackage.IU_DETAILS__REQUIRED_CAPABILITIES_CONTAINER, oldRequiredCapabilitiesContainer,
-					requiredCapabilitiesContainer));
+			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_DETAILS__REQUIREMENTS_CONTAINER,
+					oldRequirementsContainer, requirementsContainer));
 	}
 
 	/**

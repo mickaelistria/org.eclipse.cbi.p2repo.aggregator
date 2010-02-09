@@ -6,7 +6,7 @@
  */
 package org.eclipse.b3.aggregator.p2;
 
-import org.eclipse.equinox.internal.provisional.p2.metadata.ITouchpointInstruction;
+import org.eclipse.equinox.p2.metadata.ITouchpointInstruction;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Touchpoint Instruction</b></em>'. <!--

@@ -10,7 +10,6 @@ import java.util.Map;
 
 import org.eclipse.b3.aggregator.p2.P2Package;
 import org.eclipse.b3.aggregator.p2.TouchpointData;
-import org.eclipse.b3.aggregator.p2.TouchpointInstruction;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
@@ -19,7 +18,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.equinox.internal.provisional.p2.metadata.ITouchpointInstruction;
+import org.eclipse.equinox.p2.metadata.ITouchpointInstruction;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Touchpoint Data</b></em>'. <!-- end-user-doc
@@ -52,7 +51,7 @@ public class TouchpointDataImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected EMap<String, TouchpointInstruction> instructionMap;
+	protected EMap<String, ITouchpointInstruction> instructionMap;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -152,21 +151,21 @@ public class TouchpointDataImpl extends MinimalEObjectImpl.Container implements 
 	 * 
 	 * @generated
 	 */
-	public EMap<String, TouchpointInstruction> getInstructionMap() {
+	public EMap<String, ITouchpointInstruction> getInstructionMap() {
 		if(instructionMap == null) {
-			instructionMap = new EcoreEMap<String, TouchpointInstruction>(P2Package.Literals.INSTRUCTION_MAP,
+			instructionMap = new EcoreEMap<String, ITouchpointInstruction>(P2Package.Literals.INSTRUCTION_MAP,
 					InstructionMapImpl.class, this, P2Package.TOUCHPOINT_DATA__INSTRUCTION_MAP);
 		}
 		return instructionMap;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
 	 */
-	@SuppressWarnings("unchecked")
-	public Map getInstructions() {
+	public Map<String, ITouchpointInstruction> getInstructions() {
 		return getInstructionMap().map();
 	}
 

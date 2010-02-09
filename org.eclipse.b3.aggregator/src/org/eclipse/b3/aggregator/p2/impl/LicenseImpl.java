@@ -6,20 +6,15 @@
  */
 package org.eclipse.b3.aggregator.p2.impl;
 
-import java.math.BigInteger;
-
 import java.net.URI;
 
 import org.eclipse.b3.aggregator.p2.License;
 import org.eclipse.b3.aggregator.p2.P2Package;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.equinox.internal.provisional.p2.metadata.ILicense;
+import org.eclipse.equinox.p2.metadata.ILicense;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>License</b></em>'. <!-- end-user-doc -->
@@ -28,7 +23,7 @@ import org.eclipse.equinox.internal.provisional.p2.metadata.ILicense;
  * <ul>
  * <li>{@link org.eclipse.b3.aggregator.p2.impl.LicenseImpl#getLocation <em>Location</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2.impl.LicenseImpl#getBody <em>Body</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2.impl.LicenseImpl#getDigest <em>Digest</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2.impl.LicenseImpl#getUUID <em>UUID</em>}</li>
  * </ul>
  * </p>
  * 
@@ -87,26 +82,26 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	protected String body = BODY_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getDigest() <em>Digest</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The default value of the '{@link #getUUID() <em>UUID</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
-	 * @see #getDigest()
+	 * @see #getUUID()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final BigInteger DIGEST_EDEFAULT = null;
+	protected static final String UUID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getDigest() <em>Digest</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getUUID() <em>UUID</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
-	 * @see #getDigest()
+	 * @see #getUUID()
 	 * @generated
 	 * @ordered
 	 */
-	protected BigInteger digest = DIGEST_EDEFAULT;
+	protected String uuid = UUID_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -129,8 +124,8 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 			return getLocation();
 		case P2Package.LICENSE__BODY:
 			return getBody();
-		case P2Package.LICENSE__DIGEST:
-			return getDigest();
+		case P2Package.LICENSE__UUID:
+			return getUUID();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -151,10 +146,10 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 			return BODY_EDEFAULT == null
 					? body != null
 					: !BODY_EDEFAULT.equals(body);
-		case P2Package.LICENSE__DIGEST:
-			return DIGEST_EDEFAULT == null
-					? digest != null
-					: !DIGEST_EDEFAULT.equals(digest);
+		case P2Package.LICENSE__UUID:
+			return UUID_EDEFAULT == null
+					? uuid != null
+					: !UUID_EDEFAULT.equals(uuid);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -166,7 +161,7 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 			return false;
 		if(obj instanceof ILicense) {
 			ILicense other = (ILicense) obj;
-			if(other.getDigest().equals(getDigest()))
+			if(other.getUUID().equals(getUUID()))
 				return true;
 		}
 		return false;
@@ -186,8 +181,8 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 		case P2Package.LICENSE__BODY:
 			setBody((String) newValue);
 			return;
-		case P2Package.LICENSE__DIGEST:
-			setDigest((BigInteger) newValue);
+		case P2Package.LICENSE__UUID:
+			setUUID((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -207,8 +202,8 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 		case P2Package.LICENSE__BODY:
 			setBody(BODY_EDEFAULT);
 			return;
-		case P2Package.LICENSE__DIGEST:
-			setDigest(DIGEST_EDEFAULT);
+		case P2Package.LICENSE__UUID:
+			setUUID(UUID_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -228,21 +223,22 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	 * 
 	 * @generated
 	 */
-	public BigInteger getDigest() {
-		return digest;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public URI getLocation() {
 		return location;
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public String getUUID() {
+		return uuid;
+	}
+
 	public int hashCode() {
-		return getDigest().hashCode();
+		return getUUID().hashCode();
 	}
 
 	/**
@@ -262,23 +258,24 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 	 * 
 	 * @generated
 	 */
-	public void setDigest(BigInteger newDigest) {
-		BigInteger oldDigest = digest;
-		digest = newDigest;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.LICENSE__DIGEST, oldDigest, digest));
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void setLocation(URI newLocation) {
 		URI oldLocation = location;
 		location = newLocation;
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.LICENSE__LOCATION, oldLocation, location));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setUUID(String newUUID) {
+		String oldUUID = uuid;
+		uuid = newUUID;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.LICENSE__UUID, oldUUID, uuid));
 	}
 
 	/**
@@ -296,8 +293,8 @@ public class LicenseImpl extends MinimalEObjectImpl.Container implements License
 		result.append(location);
 		result.append(", body: ");
 		result.append(body);
-		result.append(", digest: ");
-		result.append(digest);
+		result.append(", UUID: ");
+		result.append(uuid);
 		result.append(')');
 		return result.toString();
 	}

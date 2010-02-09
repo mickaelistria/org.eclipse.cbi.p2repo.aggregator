@@ -22,7 +22,6 @@ import org.eclipse.b3.aggregator.Status;
 import org.eclipse.b3.aggregator.StatusCode;
 import org.eclipse.b3.aggregator.StatusProvider;
 import org.eclipse.b3.aggregator.loader.IRepositoryLoader;
-import org.eclipse.b3.aggregator.p2.InstallableUnit;
 import org.eclipse.b3.aggregator.p2.MetadataRepository;
 import org.eclipse.b3.aggregator.p2.P2Factory;
 import org.eclipse.b3.aggregator.p2.impl.MetadataRepositoryImpl;
@@ -58,10 +57,12 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
-import org.eclipse.equinox.internal.provisional.p2.metadata.IInstallableUnit;
-import org.eclipse.equinox.internal.provisional.p2.metadata.IRequiredCapability;
-import org.eclipse.equinox.internal.provisional.p2.metadata.Version;
-import org.eclipse.equinox.internal.provisional.p2.metadata.VersionRange;
+import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
+import org.eclipse.equinox.internal.p2.metadata.TranslationSupport;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
+import org.eclipse.equinox.p2.metadata.IRequirement;
+import org.eclipse.equinox.p2.metadata.Version;
+import org.eclipse.equinox.p2.metadata.VersionRange;
 
 public class MetadataRepositoryResourceImpl extends ResourceImpl implements StatusProvider {
 	class AsynchronousLoader extends Job {
@@ -251,7 +252,7 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 			List<Fragment> fragments = new ArrayList<Fragment>();
 			List<OtherIU> miscellaneous = new ArrayList<OtherIU>();
 
-			for(InstallableUnit iu : repository.getInstallableUnits()) {
+			for(IInstallableUnit iu : repository.getInstallableUnits()) {
 				IUPresentation iuPresentation;
 
 				switch(InstallableUnitUtils.getType(iu)) {
@@ -284,7 +285,7 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 				iuPresentation.setId(iu.getId());
 				iuPresentation.setVersion(iu.getVersion());
 
-				String name = GeneralUtils.getLocalizedProperty(iu, IInstallableUnit.PROP_NAME);
+				String name = TranslationSupport.getInstance().getIUProperty(iu, IInstallableUnit.PROP_NAME);
 				if(name == null || name.length() == 0)
 					iuPresentation.setName(iu.getId());
 				else
@@ -302,7 +303,8 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 							+ (name != null && name.length() > 0
 									? " (" + name + ")"
 									: ""));
-				iuPresentation.setDescription(GeneralUtils.getLocalizedProperty(iu, IInstallableUnit.PROP_DESCRIPTION));
+				iuPresentation.setDescription(TranslationSupport.getInstance().getIUProperty(iu,
+						IInstallableUnit.PROP_DESCRIPTION));
 
 				Map<Version, IUPresentation> versionMap = iuMap.get(iu.getId());
 				if(versionMap == null)
@@ -393,12 +395,17 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 			System.arraycopy(oldTreePath, 0, categoryTreePath, 0, len);
 			categoryTreePath[len] = category;
 
-			for(IRequiredCapability requiredCapability : category.getInstallableUnit().getRequiredCapabilityList()) {
-				VersionRange range = requiredCapability.getRange();
+			for(IRequirement requirement : category.getInstallableUnit().getRequiredCapabilities()) {
+				if(!(requirement instanceof IRequiredCapability))
+					continue;
+
+				IRequiredCapability rc = (IRequiredCapability) requirement;
+
+				VersionRange range = rc.getRange();
 				if(!range.getMinimum().equals(range.getMaximum()) || !range.getIncludeMinimum()
 						|| !range.getIncludeMaximum())
 					continue;
-				Map<Version, IUPresentation> iuCandidates = iuMap.get(requiredCapability.getName());
+				Map<Version, IUPresentation> iuCandidates = iuMap.get(rc.getName());
 				if(iuCandidates == null)
 					continue;
 
@@ -558,7 +565,7 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 			if(iup == null)
 				continue;
 
-			InstallableUnit iu = iup.getInstallableUnit();
+			IInstallableUnit iu = iup.getInstallableUnit();
 
 			if(iuIdPattern.matcher(iu.getId()).find() && iuVersionRange.isIncluded(iu.getVersion()))
 				if(!skipCategoriesSubTree || !(allIUPresentationMatrix.getValue(i)[2] instanceof Categories))
@@ -579,7 +586,7 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 			if(iup == null)
 				continue;
 
-			InstallableUnit iu = iup.getInstallableUnit();
+			IInstallableUnit iu = iup.getInstallableUnit();
 
 			if(iu.satisfies(rc))
 				if(!skipCategoriesSubTree || !(allIUPresentationMatrix.getValue(i)[2] instanceof Categories))
@@ -786,7 +793,7 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 
 		if(node instanceof IUPresentation) {
 			IUPresentation iup = (IUPresentation) node;
-			InstallableUnit iu = iup.getInstallableUnit();
+			IInstallableUnit iu = iup.getInstallableUnit();
 			if(iuIdPattern.matcher(iu.getId()).find() && iuVersionRange.isIncluded(iu.getVersion()))
 				return nodePath;
 		}

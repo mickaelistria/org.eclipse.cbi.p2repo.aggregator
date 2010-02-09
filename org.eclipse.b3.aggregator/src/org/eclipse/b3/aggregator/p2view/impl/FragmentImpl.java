@@ -10,11 +10,10 @@
 package org.eclipse.b3.aggregator.p2view.impl;
 
 import org.eclipse.b3.aggregator.InstallableUnitType;
-import org.eclipse.b3.aggregator.p2.InstallableUnit;
 import org.eclipse.b3.aggregator.p2view.Fragment;
 import org.eclipse.b3.aggregator.p2view.P2viewPackage;
-
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Fragment</b></em>'. <!-- end-user-doc -->
@@ -38,7 +37,7 @@ public class FragmentImpl extends BundleImpl implements Fragment {
 	 * 
 	 * @generated NOT
 	 */
-	protected FragmentImpl(InstallableUnit iu) {
+	protected FragmentImpl(IInstallableUnit iu) {
 		super(iu);
 	}
 

@@ -9,10 +9,9 @@
  */
 package org.eclipse.b3.aggregator.p2view;
 
-import org.eclipse.b3.aggregator.p2.TouchpointData;
 import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.equinox.internal.provisional.p2.metadata.ITouchpointType;
+import org.eclipse.equinox.p2.metadata.ITouchpointData;
+import org.eclipse.equinox.p2.metadata.ITouchpointType;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Touchpoints</b></em>'. <!-- end-user-doc -->
@@ -32,7 +31,7 @@ import org.eclipse.equinox.internal.provisional.p2.metadata.ITouchpointType;
 public interface Touchpoints {
 	/**
 	 * Returns the value of the '<em><b>Touchpoint Data List</b></em>' reference list.
-	 * The list contents are of type {@link org.eclipse.b3.aggregator.p2.TouchpointData}.
+	 * The list contents are of type {@link org.eclipse.equinox.p2.metadata.ITouchpointData}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Touchpoint Data List</em>' reference list isn't clear, there really should be more of
@@ -42,10 +41,10 @@ public interface Touchpoints {
 	 * 
 	 * @return the value of the '<em>Touchpoint Data List</em>' reference list.
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getTouchpoints_TouchpointDataList()
-	 * @model
+	 * @model type="org.eclipse.b3.aggregator.p2.ITouchpointData"
 	 * @generated
 	 */
-	EList<TouchpointData> getTouchpointDataList();
+	EList<ITouchpointData> getTouchpointDataList();
 
 	/**
 	 * Returns the value of the '<em><b>Touchpoint Type</b></em>' reference.

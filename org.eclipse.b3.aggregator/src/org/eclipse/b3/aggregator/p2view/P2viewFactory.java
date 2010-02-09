@@ -9,11 +9,11 @@
  */
 package org.eclipse.b3.aggregator.p2view;
 
-import org.eclipse.b3.aggregator.p2.InstallableUnit;
 import org.eclipse.b3.aggregator.p2.MetadataRepository;
-import org.eclipse.b3.aggregator.p2.ProvidedCapability;
-import org.eclipse.b3.aggregator.p2.RequiredCapability;
 import org.eclipse.emf.ecore.EFactory;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
+import org.eclipse.equinox.p2.metadata.IProvidedCapability;
+import org.eclipse.equinox.p2.metadata.IRequirement;
 
 /**
  * <!-- begin-user-doc --> The <b>Factory</b> for the model. It provides a create method for each non-abstract class of
@@ -46,7 +46,7 @@ public interface P2viewFactory extends EFactory {
 	 * @return a new object of class '<em>Bundle</em>'.
 	 * @generated NOT
 	 */
-	Bundle createBundle(InstallableUnit iu);
+	Bundle createBundle(IInstallableUnit iu);
 
 	/**
 	 * Returns a new object of class '<em>Bundles</em>'.
@@ -81,7 +81,7 @@ public interface P2viewFactory extends EFactory {
 	 * @return a new object of class '<em>Category</em>'.
 	 * @generated NOT
 	 */
-	Category createCategory(InstallableUnit iu);
+	Category createCategory(IInstallableUnit iu);
 
 	/**
 	 * Returns a new object of class '<em>Feature</em>'.
@@ -98,7 +98,7 @@ public interface P2viewFactory extends EFactory {
 	 * @return a new object of class '<em>Feature</em>'.
 	 * @generated NOT
 	 */
-	Feature createFeature(InstallableUnit iu);
+	Feature createFeature(IInstallableUnit iu);
 
 	/**
 	 * Returns a new object of class '<em>Features</em>'.
@@ -124,7 +124,7 @@ public interface P2viewFactory extends EFactory {
 	 * @return a new object of class '<em>Fragment</em>'.
 	 * @generated NOT
 	 */
-	Fragment createFragment(InstallableUnit iu);
+	Fragment createFragment(IInstallableUnit iu);
 
 	/**
 	 * Returns a new object of class '<em>Fragments</em>'.
@@ -159,7 +159,7 @@ public interface P2viewFactory extends EFactory {
 	 * @return a new object of class '<em>IU Details</em>'.
 	 * @generated NOT
 	 */
-	IUDetails createIUDetails(InstallableUnit iu);
+	IUDetails createIUDetails(IInstallableUnit iu);
 
 	/**
 	 * Returns a new object of class '<em>Metadata Repository Structured View</em>'.
@@ -204,7 +204,7 @@ public interface P2viewFactory extends EFactory {
 	 * @return a new object of class '<em>Other IU</em>'.
 	 * @generated NOT
 	 */
-	OtherIU createOtherIU(InstallableUnit iu);
+	OtherIU createOtherIU(IInstallableUnit iu);
 
 	/**
 	 * Returns a new object of class '<em>Product</em>'.
@@ -221,7 +221,7 @@ public interface P2viewFactory extends EFactory {
 	 * @return a new object of class '<em>Product</em>'.
 	 * @generated NOT
 	 */
-	Product createProduct(InstallableUnit iu);
+	Product createProduct(IInstallableUnit iu);
 
 	/**
 	 * Returns a new object of class '<em>Products</em>'.
@@ -259,27 +259,29 @@ public interface P2viewFactory extends EFactory {
 	 */
 	ProvidedCapabilityWrapper createProvidedCapabilityWrapper();
 
-	ProvidedCapabilityWrapper createProvidedCapabilityWrapper(ProvidedCapability pc);
+	ProvidedCapabilityWrapper createProvidedCapabilityWrapper(IProvidedCapability pc);
 
 	/**
-	 * Returns a new object of class '<em>Required Capabilities</em>'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns a new object of class '<em>Requirements</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
-	 * @return a new object of class '<em>Required Capabilities</em>'.
+	 * @return a new object of class '<em>Requirements</em>'.
 	 * @generated
 	 */
-	RequiredCapabilities createRequiredCapabilities();
+	Requirements createRequirements();
 
 	/**
-	 * Returns a new object of class '<em>Required Capability Wrapper</em>'. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
+	 * Returns a new object of class '<em>Requirement Wrapper</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
-	 * @return a new object of class '<em>Required Capability Wrapper</em>'.
+	 * @return a new object of class '<em>Requirement Wrapper</em>'.
 	 * @generated
 	 */
-	RequiredCapabilityWrapper createRequiredCapabilityWrapper();
+	RequirementWrapper createRequirementWrapper();
 
-	RequiredCapabilityWrapper createRequiredCapabilityWrapper(RequiredCapability rc);
+	RequirementWrapper createRequirementWrapper(IRequirement req);
 
 	/**
 	 * Returns a new object of class '<em>Touchpoints</em>'.

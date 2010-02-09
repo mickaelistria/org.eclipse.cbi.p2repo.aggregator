@@ -13,12 +13,34 @@ import java.util.List;
 
 import org.eclipse.b3.aggregator.ChildrenProvider;
 import org.eclipse.b3.aggregator.LabelProvider;
-import org.eclipse.b3.aggregator.p2view.*;
-
+import org.eclipse.b3.aggregator.p2view.Bundle;
+import org.eclipse.b3.aggregator.p2view.Bundles;
+import org.eclipse.b3.aggregator.p2view.Categories;
+import org.eclipse.b3.aggregator.p2view.Category;
+import org.eclipse.b3.aggregator.p2view.Feature;
+import org.eclipse.b3.aggregator.p2view.Features;
+import org.eclipse.b3.aggregator.p2view.Fragment;
+import org.eclipse.b3.aggregator.p2view.Fragments;
+import org.eclipse.b3.aggregator.p2view.IUDetails;
+import org.eclipse.b3.aggregator.p2view.IUPresentation;
+import org.eclipse.b3.aggregator.p2view.IUPresentationWithDetails;
+import org.eclipse.b3.aggregator.p2view.InstallableUnits;
+import org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView;
+import org.eclipse.b3.aggregator.p2view.Miscellaneous;
+import org.eclipse.b3.aggregator.p2view.OtherIU;
+import org.eclipse.b3.aggregator.p2view.P2viewPackage;
+import org.eclipse.b3.aggregator.p2view.Product;
+import org.eclipse.b3.aggregator.p2view.Products;
+import org.eclipse.b3.aggregator.p2view.Properties;
+import org.eclipse.b3.aggregator.p2view.ProvidedCapabilities;
+import org.eclipse.b3.aggregator.p2view.ProvidedCapabilityWrapper;
+import org.eclipse.b3.aggregator.p2view.RequirementWrapper;
+import org.eclipse.b3.aggregator.p2view.Requirements;
+import org.eclipse.b3.aggregator.p2view.Touchpoints;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.equinox.internal.provisional.p2.metadata.IProvidedCapability;
-import org.eclipse.equinox.internal.provisional.p2.metadata.IRequiredCapability;
+import org.eclipse.equinox.p2.metadata.IProvidedCapability;
+import org.eclipse.equinox.p2.metadata.IRequirement;
 
 /**
  * <!-- begin-user-doc --> The <b>Switch</b> for the model's inheritance hierarchy. It supports the call
@@ -216,17 +238,19 @@ public class P2viewSwitch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>IRequired Capability</em>'. <!--
-	 * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
-	 * end-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>IRequirement</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>IRequired Capability</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>IRequirement</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseIRequiredCapability(IRequiredCapability object) {
+	public T1 caseIRequirement(IRequirement object) {
 		return null;
 	}
 
@@ -411,32 +435,36 @@ public class P2viewSwitch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Required Capabilities</em>'. <!--
-	 * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
-	 * end-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>Requirements</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Required Capabilities</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Requirements</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseRequiredCapabilities(RequiredCapabilities object) {
+	public T1 caseRequirements(Requirements object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Required Capability Wrapper</em>'. <!--
-	 * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
-	 * end-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>Requirement Wrapper</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
 	 * 
 	 * @param object
 	 *            the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Required Capability Wrapper</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Requirement Wrapper</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseRequiredCapabilityWrapper(RequiredCapabilityWrapper object) {
+	public T1 caseRequirementWrapper(RequirementWrapper object) {
 		return null;
 	}
 
@@ -686,9 +714,9 @@ public class P2viewSwitch<T1> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case P2viewPackage.REQUIRED_CAPABILITIES: {
-			RequiredCapabilities requiredCapabilities = (RequiredCapabilities) theEObject;
-			T1 result = caseRequiredCapabilities(requiredCapabilities);
+		case P2viewPackage.REQUIREMENTS: {
+			Requirements requirements = (Requirements) theEObject;
+			T1 result = caseRequirements(requirements);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -714,13 +742,13 @@ public class P2viewSwitch<T1> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER: {
-			RequiredCapabilityWrapper requiredCapabilityWrapper = (RequiredCapabilityWrapper) theEObject;
-			T1 result = caseRequiredCapabilityWrapper(requiredCapabilityWrapper);
+		case P2viewPackage.REQUIREMENT_WRAPPER: {
+			RequirementWrapper requirementWrapper = (RequirementWrapper) theEObject;
+			T1 result = caseRequirementWrapper(requirementWrapper);
 			if(result == null)
-				result = caseIRequiredCapability(requiredCapabilityWrapper);
+				result = caseIRequirement(requirementWrapper);
 			if(result == null)
-				result = caseLabelProvider(requiredCapabilityWrapper);
+				result = caseLabelProvider(requirementWrapper);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;

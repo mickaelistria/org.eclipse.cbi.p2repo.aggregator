@@ -7,8 +7,6 @@
 package org.eclipse.b3.aggregator.p2.impl;
 
 import org.eclipse.b3.aggregator.p2.P2Package;
-import org.eclipse.b3.aggregator.p2.TouchpointInstruction;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -21,6 +19,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.equinox.p2.metadata.ITouchpointInstruction;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Instruction Map</b></em>'. <!-- end-user-doc
@@ -36,7 +35,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * @generated
  */
 public class InstructionMapImpl extends MinimalEObjectImpl.Container implements
-		BasicEMap.Entry<String, TouchpointInstruction> {
+		BasicEMap.Entry<String, ITouchpointInstruction> {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -77,7 +76,7 @@ public class InstructionMapImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 * @ordered
 	 */
-	protected TouchpointInstruction value;
+	protected ITouchpointInstruction value;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -96,12 +95,13 @@ public class InstructionMapImpl extends MinimalEObjectImpl.Container implements
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetTypedValue(TouchpointInstruction newValue, NotificationChain msgs) {
-		TouchpointInstruction oldValue = value;
+	public NotificationChain basicSetTypedValue(ITouchpointInstruction newValue, NotificationChain msgs) {
+		ITouchpointInstruction oldValue = value;
 		value = newValue;
 		if(eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
@@ -174,7 +174,7 @@ public class InstructionMapImpl extends MinimalEObjectImpl.Container implements
 			setTypedKey((String) newValue);
 			return;
 		case P2Package.INSTRUCTION_MAP__VALUE:
-			setTypedValue((TouchpointInstruction) newValue);
+			setTypedValue((ITouchpointInstruction) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -192,7 +192,7 @@ public class InstructionMapImpl extends MinimalEObjectImpl.Container implements
 			setTypedKey(KEY_EDEFAULT);
 			return;
 		case P2Package.INSTRUCTION_MAP__VALUE:
-			setTypedValue((TouchpointInstruction) null);
+			setTypedValue((ITouchpointInstruction) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -204,11 +204,11 @@ public class InstructionMapImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public EMap<String, TouchpointInstruction> getEMap() {
+	public EMap<String, ITouchpointInstruction> getEMap() {
 		EObject container = eContainer();
 		return container == null
 				? null
-				: (EMap<String, TouchpointInstruction>) container.eGet(eContainmentFeature());
+				: (EMap<String, ITouchpointInstruction>) container.eGet(eContainmentFeature());
 	}
 
 	/**
@@ -249,7 +249,7 @@ public class InstructionMapImpl extends MinimalEObjectImpl.Container implements
 	 * 
 	 * @generated
 	 */
-	public TouchpointInstruction getTypedValue() {
+	public ITouchpointInstruction getTypedValue() {
 		return value;
 	}
 
@@ -258,7 +258,7 @@ public class InstructionMapImpl extends MinimalEObjectImpl.Container implements
 	 * 
 	 * @generated
 	 */
-	public TouchpointInstruction getValue() {
+	public ITouchpointInstruction getValue() {
 		return getTypedValue();
 	}
 
@@ -293,11 +293,12 @@ public class InstructionMapImpl extends MinimalEObjectImpl.Container implements
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	public void setTypedValue(TouchpointInstruction newValue) {
+	public void setTypedValue(ITouchpointInstruction newValue) {
 		if(newValue != value) {
 			NotificationChain msgs = null;
 			if(value != null)
@@ -315,12 +316,13 @@ public class InstructionMapImpl extends MinimalEObjectImpl.Container implements
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	public TouchpointInstruction setValue(TouchpointInstruction value) {
-		TouchpointInstruction oldValue = getValue();
+	public ITouchpointInstruction setValue(ITouchpointInstruction value) {
+		ITouchpointInstruction oldValue = getValue();
 		setTypedValue(value);
 		return oldValue;
 	}

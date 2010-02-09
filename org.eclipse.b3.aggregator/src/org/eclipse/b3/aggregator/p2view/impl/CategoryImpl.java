@@ -10,7 +10,6 @@
 package org.eclipse.b3.aggregator.p2view.impl;
 
 import org.eclipse.b3.aggregator.InstallableUnitType;
-import org.eclipse.b3.aggregator.p2.InstallableUnit;
 import org.eclipse.b3.aggregator.p2view.Bundles;
 import org.eclipse.b3.aggregator.p2view.Categories;
 import org.eclipse.b3.aggregator.p2view.Category;
@@ -20,15 +19,13 @@ import org.eclipse.b3.aggregator.p2view.IUDetails;
 import org.eclipse.b3.aggregator.p2view.P2viewFactory;
 import org.eclipse.b3.aggregator.p2view.P2viewPackage;
 import org.eclipse.b3.aggregator.p2view.Products;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.equinox.internal.provisional.p2.metadata.IInstallableUnit;
+import org.eclipse.equinox.internal.provisional.p2.metadata.MetadataFactory.InstallableUnitDescription;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Category</b></em>'. <!-- end-user-doc -->
@@ -123,7 +120,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 	 * 
 	 * @generated NOT
 	 */
-	protected CategoryImpl(InstallableUnit iu) {
+	protected CategoryImpl(IInstallableUnit iu) {
 		super(iu);
 	}
 
@@ -456,7 +453,7 @@ public class CategoryImpl extends IUPresentationImpl implements Category {
 	 * @generated NOT
 	 */
 	public boolean isNested() {
-		return "true".equalsIgnoreCase(getInstallableUnit().getProperty(IInstallableUnit.PROP_TYPE_GROUP));
+		return "true".equalsIgnoreCase(getInstallableUnit().getProperty(InstallableUnitDescription.PROP_TYPE_GROUP));
 	}
 
 	/**

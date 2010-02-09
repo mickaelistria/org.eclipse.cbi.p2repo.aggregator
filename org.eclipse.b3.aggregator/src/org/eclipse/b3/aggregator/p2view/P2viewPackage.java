@@ -571,23 +571,25 @@ public interface P2viewPackage extends EPackage {
 		EReference PROPERTIES__PROPERTY_LIST = eINSTANCE.getProperties_PropertyList();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.p2view.impl.RequiredCapabilitiesImpl
-		 * <em>Required Capabilities</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.p2view.impl.RequirementsImpl
+		 * <em>Requirements</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * 
-		 * @see org.eclipse.b3.aggregator.p2view.impl.RequiredCapabilitiesImpl
-		 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getRequiredCapabilities()
+		 * @see org.eclipse.b3.aggregator.p2view.impl.RequirementsImpl
+		 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getRequirements()
 		 * @generated
 		 */
-		EClass REQUIRED_CAPABILITIES = eINSTANCE.getRequiredCapabilities();
+		EClass REQUIREMENTS = eINSTANCE.getRequirements();
 
 		/**
-		 * The meta object literal for the '<em><b>Required Capabilities</b></em>' reference list feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Requirements</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
-		EReference REQUIRED_CAPABILITIES__REQUIRED_CAPABILITIES = eINSTANCE.getRequiredCapabilities_RequiredCapabilities();
+		EReference REQUIREMENTS__REQUIREMENTS = eINSTANCE.getRequirements_Requirements();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.p2view.impl.ProvidedCapabilitiesImpl
@@ -648,12 +650,13 @@ public interface P2viewPackage extends EPackage {
 		EClass IU_DETAILS = eINSTANCE.getIUDetails();
 
 		/**
-		 * The meta object literal for the '<em><b>Required Capabilities Container</b></em>' reference feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Requirements Container</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
-		EReference IU_DETAILS__REQUIRED_CAPABILITIES_CONTAINER = eINSTANCE.getIUDetails_RequiredCapabilitiesContainer();
+		EReference IU_DETAILS__REQUIREMENTS_CONTAINER = eINSTANCE.getIUDetails_RequirementsContainer();
 
 		/**
 		 * The meta object literal for the '<em><b>Provided Capabilities Container</b></em>' reference feature. <!--
@@ -699,33 +702,34 @@ public interface P2viewPackage extends EPackage {
 		EReference IU_DETAILS__COPYRIGHT = eINSTANCE.getIUDetails_Copyright();
 
 		/**
-		 * The meta object literal for the '<em><b>License</b></em>' reference feature.
-		 * <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Licenses</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
-		EReference IU_DETAILS__LICENSE = eINSTANCE.getIUDetails_License();
+		EReference IU_DETAILS__LICENSES = eINSTANCE.getIUDetails_Licenses();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.p2view.impl.RequiredCapabilityWrapperImpl
-		 * <em>Required Capability Wrapper</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.p2view.impl.RequirementWrapperImpl
+		 * <em>Requirement Wrapper</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * 
-		 * @see org.eclipse.b3.aggregator.p2view.impl.RequiredCapabilityWrapperImpl
-		 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getRequiredCapabilityWrapper()
+		 * @see org.eclipse.b3.aggregator.p2view.impl.RequirementWrapperImpl
+		 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getRequirementWrapper()
 		 * @generated
 		 */
-		EClass REQUIRED_CAPABILITY_WRAPPER = eINSTANCE.getRequiredCapabilityWrapper();
+		EClass REQUIREMENT_WRAPPER = eINSTANCE.getRequirementWrapper();
 
 		/**
 		 * The meta object literal for the '<em><b>Genuine</b></em>' reference feature.
-		 * <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
-		EReference REQUIRED_CAPABILITY_WRAPPER__GENUINE = eINSTANCE.getRequiredCapabilityWrapper_Genuine();
+		EReference REQUIREMENT_WRAPPER__GENUINE = eINSTANCE.getRequirementWrapper_Genuine();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.p2view.impl.ProvidedCapabilityWrapperImpl
@@ -1252,17 +1256,6 @@ public interface P2viewPackage extends EPackage {
 	int PROPERTIES = 16;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.RequiredCapabilitiesImpl
-	 * <em>Required Capabilities</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see org.eclipse.b3.aggregator.p2view.impl.RequiredCapabilitiesImpl
-	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getRequiredCapabilities()
-	 * @generated
-	 */
-	int REQUIRED_CAPABILITIES = 17;
-
-	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.ProvidedCapabilitiesImpl
 	 * <em>Provided Capabilities</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1444,14 +1437,14 @@ public interface P2viewPackage extends EPackage {
 	int IU_PRESENTATION_WITH_DETAILS__INSTALLABLE_UNIT = IU_PRESENTATION__INSTALLABLE_UNIT;
 
 	/**
-	 * The feature id for the '<em><b>Required Capabilities Container</b></em>' reference.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Requirements Container</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int IU_PRESENTATION_WITH_DETAILS__REQUIRED_CAPABILITIES_CONTAINER = IU_PRESENTATION_FEATURE_COUNT + 0;
+	int IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER = IU_PRESENTATION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Provided Capabilities Container</b></em>' reference.
@@ -1502,13 +1495,14 @@ public interface P2viewPackage extends EPackage {
 	int IU_PRESENTATION_WITH_DETAILS__COPYRIGHT = IU_PRESENTATION_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>License</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Licenses</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int IU_PRESENTATION_WITH_DETAILS__LICENSE = IU_PRESENTATION_FEATURE_COUNT + 6;
+	int IU_PRESENTATION_WITH_DETAILS__LICENSES = IU_PRESENTATION_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Details Resolved</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
@@ -1719,14 +1713,14 @@ public interface P2viewPackage extends EPackage {
 	int FEATURE__INSTALLABLE_UNIT = IU_PRESENTATION_WITH_DETAILS__INSTALLABLE_UNIT;
 
 	/**
-	 * The feature id for the '<em><b>Required Capabilities Container</b></em>' reference.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Requirements Container</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE__REQUIRED_CAPABILITIES_CONTAINER = IU_PRESENTATION_WITH_DETAILS__REQUIRED_CAPABILITIES_CONTAINER;
+	int FEATURE__REQUIREMENTS_CONTAINER = IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER;
 
 	/**
 	 * The feature id for the '<em><b>Provided Capabilities Container</b></em>' reference.
@@ -1777,13 +1771,14 @@ public interface P2viewPackage extends EPackage {
 	int FEATURE__COPYRIGHT = IU_PRESENTATION_WITH_DETAILS__COPYRIGHT;
 
 	/**
-	 * The feature id for the '<em><b>License</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Licenses</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE__LICENSE = IU_PRESENTATION_WITH_DETAILS__LICENSE;
+	int FEATURE__LICENSES = IU_PRESENTATION_WITH_DETAILS__LICENSES;
 
 	/**
 	 * The feature id for the '<em><b>Details Resolved</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
@@ -1894,14 +1889,14 @@ public interface P2viewPackage extends EPackage {
 	int PRODUCT__INSTALLABLE_UNIT = IU_PRESENTATION_WITH_DETAILS__INSTALLABLE_UNIT;
 
 	/**
-	 * The feature id for the '<em><b>Required Capabilities Container</b></em>' reference.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Requirements Container</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int PRODUCT__REQUIRED_CAPABILITIES_CONTAINER = IU_PRESENTATION_WITH_DETAILS__REQUIRED_CAPABILITIES_CONTAINER;
+	int PRODUCT__REQUIREMENTS_CONTAINER = IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER;
 
 	/**
 	 * The feature id for the '<em><b>Provided Capabilities Container</b></em>' reference.
@@ -1952,13 +1947,14 @@ public interface P2viewPackage extends EPackage {
 	int PRODUCT__COPYRIGHT = IU_PRESENTATION_WITH_DETAILS__COPYRIGHT;
 
 	/**
-	 * The feature id for the '<em><b>License</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Licenses</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int PRODUCT__LICENSE = IU_PRESENTATION_WITH_DETAILS__LICENSE;
+	int PRODUCT__LICENSES = IU_PRESENTATION_WITH_DETAILS__LICENSES;
 
 	/**
 	 * The feature id for the '<em><b>Details Resolved</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
@@ -2069,14 +2065,14 @@ public interface P2viewPackage extends EPackage {
 	int BUNDLE__INSTALLABLE_UNIT = IU_PRESENTATION_WITH_DETAILS__INSTALLABLE_UNIT;
 
 	/**
-	 * The feature id for the '<em><b>Required Capabilities Container</b></em>' reference.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Requirements Container</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int BUNDLE__REQUIRED_CAPABILITIES_CONTAINER = IU_PRESENTATION_WITH_DETAILS__REQUIRED_CAPABILITIES_CONTAINER;
+	int BUNDLE__REQUIREMENTS_CONTAINER = IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER;
 
 	/**
 	 * The feature id for the '<em><b>Provided Capabilities Container</b></em>' reference.
@@ -2127,13 +2123,14 @@ public interface P2viewPackage extends EPackage {
 	int BUNDLE__COPYRIGHT = IU_PRESENTATION_WITH_DETAILS__COPYRIGHT;
 
 	/**
-	 * The feature id for the '<em><b>License</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Licenses</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int BUNDLE__LICENSE = IU_PRESENTATION_WITH_DETAILS__LICENSE;
+	int BUNDLE__LICENSES = IU_PRESENTATION_WITH_DETAILS__LICENSES;
 
 	/**
 	 * The feature id for the '<em><b>Details Resolved</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
@@ -2217,14 +2214,14 @@ public interface P2viewPackage extends EPackage {
 	int FRAGMENT__INSTALLABLE_UNIT = BUNDLE__INSTALLABLE_UNIT;
 
 	/**
-	 * The feature id for the '<em><b>Required Capabilities Container</b></em>' reference.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Requirements Container</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int FRAGMENT__REQUIRED_CAPABILITIES_CONTAINER = BUNDLE__REQUIRED_CAPABILITIES_CONTAINER;
+	int FRAGMENT__REQUIREMENTS_CONTAINER = BUNDLE__REQUIREMENTS_CONTAINER;
 
 	/**
 	 * The feature id for the '<em><b>Provided Capabilities Container</b></em>' reference.
@@ -2275,13 +2272,14 @@ public interface P2viewPackage extends EPackage {
 	int FRAGMENT__COPYRIGHT = BUNDLE__COPYRIGHT;
 
 	/**
-	 * The feature id for the '<em><b>License</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Licenses</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int FRAGMENT__LICENSE = BUNDLE__LICENSE;
+	int FRAGMENT__LICENSES = BUNDLE__LICENSES;
 
 	/**
 	 * The feature id for the '<em><b>Details Resolved</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
@@ -2365,14 +2363,14 @@ public interface P2viewPackage extends EPackage {
 	int OTHER_IU__INSTALLABLE_UNIT = IU_PRESENTATION_WITH_DETAILS__INSTALLABLE_UNIT;
 
 	/**
-	 * The feature id for the '<em><b>Required Capabilities Container</b></em>' reference.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Requirements Container</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int OTHER_IU__REQUIRED_CAPABILITIES_CONTAINER = IU_PRESENTATION_WITH_DETAILS__REQUIRED_CAPABILITIES_CONTAINER;
+	int OTHER_IU__REQUIREMENTS_CONTAINER = IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER;
 
 	/**
 	 * The feature id for the '<em><b>Provided Capabilities Container</b></em>' reference.
@@ -2423,13 +2421,14 @@ public interface P2viewPackage extends EPackage {
 	int OTHER_IU__COPYRIGHT = IU_PRESENTATION_WITH_DETAILS__COPYRIGHT;
 
 	/**
-	 * The feature id for the '<em><b>License</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Licenses</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int OTHER_IU__LICENSE = IU_PRESENTATION_WITH_DETAILS__LICENSE;
+	int OTHER_IU__LICENSES = IU_PRESENTATION_WITH_DETAILS__LICENSES;
 
 	/**
 	 * The feature id for the '<em><b>Details Resolved</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
@@ -2468,24 +2467,36 @@ public interface P2viewPackage extends EPackage {
 	int PROPERTIES_FEATURE_COUNT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Required Capabilities</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.RequirementsImpl <em>Requirements</em>}'
+	 * class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
+	 * @see org.eclipse.b3.aggregator.p2view.impl.RequirementsImpl
+	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getRequirements()
 	 * @generated
-	 * @ordered
 	 */
-	int REQUIRED_CAPABILITIES__REQUIRED_CAPABILITIES = 0;
+	int REQUIREMENTS = 17;
 
 	/**
-	 * The number of structural features of the '<em>Required Capabilities</em>' class.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Requirements</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int REQUIRED_CAPABILITIES_FEATURE_COUNT = 1;
+	int REQUIREMENTS__REQUIREMENTS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Requirements</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIREMENTS_FEATURE_COUNT = 1;
 
 	/**
 	 * The feature id for the '<em><b>Provided Capabilities</b></em>' reference list.
@@ -2536,14 +2547,14 @@ public interface P2viewPackage extends EPackage {
 	int TOUCHPOINTS_FEATURE_COUNT = 2;
 
 	/**
-	 * The feature id for the '<em><b>Required Capabilities Container</b></em>' reference.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The feature id for the '<em><b>Requirements Container</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int IU_DETAILS__REQUIRED_CAPABILITIES_CONTAINER = 0;
+	int IU_DETAILS__REQUIREMENTS_CONTAINER = 0;
 
 	/**
 	 * The feature id for the '<em><b>Provided Capabilities Container</b></em>' reference.
@@ -2594,13 +2605,14 @@ public interface P2viewPackage extends EPackage {
 	int IU_DETAILS__COPYRIGHT = 5;
 
 	/**
-	 * The feature id for the '<em><b>License</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Licenses</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int IU_DETAILS__LICENSE = 6;
+	int IU_DETAILS__LICENSES = 6;
 
 	/**
 	 * The number of structural features of the '<em>IU Details</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
@@ -2612,124 +2624,86 @@ public interface P2viewPackage extends EPackage {
 	int IU_DETAILS_FEATURE_COUNT = 7;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.RequiredCapabilityWrapperImpl
-	 * <em>Required Capability Wrapper</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.RequirementWrapperImpl
+	 * <em>Requirement Wrapper</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
-	 * @see org.eclipse.b3.aggregator.p2view.impl.RequiredCapabilityWrapperImpl
-	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getRequiredCapabilityWrapper()
+	 * @see org.eclipse.b3.aggregator.p2view.impl.RequirementWrapperImpl
+	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getRequirementWrapper()
 	 * @generated
 	 */
-	int REQUIRED_CAPABILITY_WRAPPER = 21;
+	int REQUIREMENT_WRAPPER = 21;
 
 	/**
 	 * The feature id for the '<em><b>Filter</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIRED_CAPABILITY_WRAPPER__FILTER = P2Package.IREQUIRED_CAPABILITY__FILTER;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIRED_CAPABILITY_WRAPPER__NAME = P2Package.IREQUIRED_CAPABILITY__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Namespace</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIRED_CAPABILITY_WRAPPER__NAMESPACE = P2Package.IREQUIRED_CAPABILITY__NAMESPACE;
-
-	/**
-	 * The feature id for the '<em><b>Range</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIRED_CAPABILITY_WRAPPER__RANGE = P2Package.IREQUIRED_CAPABILITY__RANGE;
-
-	/**
-	 * The feature id for the '<em><b>Negation</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIRED_CAPABILITY_WRAPPER__NEGATION = P2Package.IREQUIRED_CAPABILITY__NEGATION;
-
-	/**
-	 * The feature id for the '<em><b>Selector List</b></em>' attribute list. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIRED_CAPABILITY_WRAPPER__SELECTOR_LIST = P2Package.IREQUIRED_CAPABILITY__SELECTOR_LIST;
-
-	/**
-	 * The feature id for the '<em><b>Multiple</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIRED_CAPABILITY_WRAPPER__MULTIPLE = P2Package.IREQUIRED_CAPABILITY__MULTIPLE;
-
-	/**
-	 * The feature id for the '<em><b>Optional</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIRED_CAPABILITY_WRAPPER__OPTIONAL = P2Package.IREQUIRED_CAPABILITY__OPTIONAL;
-
-	/**
-	 * The feature id for the '<em><b>Greedy</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIRED_CAPABILITY_WRAPPER__GREEDY = P2Package.IREQUIRED_CAPABILITY__GREEDY;
-
-	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIRED_CAPABILITY_WRAPPER__LABEL = P2Package.IREQUIRED_CAPABILITY_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Genuine</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIRED_CAPABILITY_WRAPPER__GENUINE = P2Package.IREQUIRED_CAPABILITY_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Required Capability Wrapper</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int REQUIRED_CAPABILITY_WRAPPER_FEATURE_COUNT = P2Package.IREQUIRED_CAPABILITY_FEATURE_COUNT + 2;
+	int REQUIREMENT_WRAPPER__FILTER = P2Package.IREQUIREMENT__FILTER;
+
+	/**
+	 * The feature id for the '<em><b>Max</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIREMENT_WRAPPER__MAX = P2Package.IREQUIREMENT__MAX;
+
+	/**
+	 * The feature id for the '<em><b>Min</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIREMENT_WRAPPER__MIN = P2Package.IREQUIREMENT__MIN;
+
+	/**
+	 * The feature id for the '<em><b>Greedy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIREMENT_WRAPPER__GREEDY = P2Package.IREQUIREMENT__GREEDY;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIREMENT_WRAPPER__LABEL = P2Package.IREQUIREMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Genuine</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIREMENT_WRAPPER__GENUINE = P2Package.IREQUIREMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Requirement Wrapper</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIREMENT_WRAPPER_FEATURE_COUNT = P2Package.IREQUIREMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.ProvidedCapabilityWrapperImpl
@@ -3145,16 +3119,17 @@ public interface P2viewPackage extends EPackage {
 	EReference getIUDetails_Copyright();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.b3.aggregator.p2view.IUDetails#getLicense
-	 * <em>License</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the reference list '{@link org.eclipse.b3.aggregator.p2view.IUDetails#getLicenses
+	 * <em>Licenses</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for the reference '<em>License</em>'.
-	 * @see org.eclipse.b3.aggregator.p2view.IUDetails#getLicense()
+	 * @return the meta object for the reference list '<em>Licenses</em>'.
+	 * @see org.eclipse.b3.aggregator.p2view.IUDetails#getLicenses()
 	 * @see #getIUDetails()
 	 * @generated
 	 */
-	EReference getIUDetails_License();
+	EReference getIUDetails_Licenses();
 
 	/**
 	 * Returns the meta object for the reference '
@@ -3183,16 +3158,16 @@ public interface P2viewPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the reference '
-	 * {@link org.eclipse.b3.aggregator.p2view.IUDetails#getRequiredCapabilitiesContainer
-	 * <em>Required Capabilities Container</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * {@link org.eclipse.b3.aggregator.p2view.IUDetails#getRequirementsContainer <em>Requirements Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for the reference '<em>Required Capabilities Container</em>'.
-	 * @see org.eclipse.b3.aggregator.p2view.IUDetails#getRequiredCapabilitiesContainer()
+	 * @return the meta object for the reference '<em>Requirements Container</em>'.
+	 * @see org.eclipse.b3.aggregator.p2view.IUDetails#getRequirementsContainer()
 	 * @see #getIUDetails()
 	 * @generated
 	 */
-	EReference getIUDetails_RequiredCapabilitiesContainer();
+	EReference getIUDetails_RequirementsContainer();
 
 	/**
 	 * Returns the meta object for the reference '
@@ -3596,51 +3571,53 @@ public interface P2viewPackage extends EPackage {
 	EReference getProvidedCapabilityWrapper_Genuine();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.p2view.RequiredCapabilities
-	 * <em>Required Capabilities</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.p2view.Requirements <em>Requirements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for class '<em>Required Capabilities</em>'.
-	 * @see org.eclipse.b3.aggregator.p2view.RequiredCapabilities
+	 * @return the meta object for class '<em>Requirements</em>'.
+	 * @see org.eclipse.b3.aggregator.p2view.Requirements
 	 * @generated
 	 */
-	EClass getRequiredCapabilities();
+	EClass getRequirements();
 
 	/**
 	 * Returns the meta object for the reference list '
-	 * {@link org.eclipse.b3.aggregator.p2view.RequiredCapabilities#getRequiredCapabilities
-	 * <em>Required Capabilities</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * {@link org.eclipse.b3.aggregator.p2view.Requirements#getRequirements <em>Requirements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for the reference list '<em>Required Capabilities</em>'.
-	 * @see org.eclipse.b3.aggregator.p2view.RequiredCapabilities#getRequiredCapabilities()
-	 * @see #getRequiredCapabilities()
+	 * @return the meta object for the reference list '<em>Requirements</em>'.
+	 * @see org.eclipse.b3.aggregator.p2view.Requirements#getRequirements()
+	 * @see #getRequirements()
 	 * @generated
 	 */
-	EReference getRequiredCapabilities_RequiredCapabilities();
+	EReference getRequirements_Requirements();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.p2view.RequiredCapabilityWrapper
-	 * <em>Required Capability Wrapper</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.p2view.RequirementWrapper
+	 * <em>Requirement Wrapper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for class '<em>Required Capability Wrapper</em>'.
-	 * @see org.eclipse.b3.aggregator.p2view.RequiredCapabilityWrapper
+	 * @return the meta object for class '<em>Requirement Wrapper</em>'.
+	 * @see org.eclipse.b3.aggregator.p2view.RequirementWrapper
 	 * @generated
 	 */
-	EClass getRequiredCapabilityWrapper();
+	EClass getRequirementWrapper();
 
 	/**
-	 * Returns the meta object for the reference '
-	 * {@link org.eclipse.b3.aggregator.p2view.RequiredCapabilityWrapper#getGenuine <em>Genuine</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.aggregator.p2view.RequirementWrapper#getGenuine
+	 * <em>Genuine</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @return the meta object for the reference '<em>Genuine</em>'.
-	 * @see org.eclipse.b3.aggregator.p2view.RequiredCapabilityWrapper#getGenuine()
-	 * @see #getRequiredCapabilityWrapper()
+	 * @see org.eclipse.b3.aggregator.p2view.RequirementWrapper#getGenuine()
+	 * @see #getRequirementWrapper()
 	 * @generated
 	 */
-	EReference getRequiredCapabilityWrapper_Genuine();
+	EReference getRequirementWrapper_Genuine();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.p2view.Touchpoints <em>Touchpoints</em>}'.

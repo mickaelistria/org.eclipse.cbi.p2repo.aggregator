@@ -8,8 +8,7 @@
 
 package org.eclipse.b3.aggregator.util;
 
-import org.eclipse.equinox.internal.provisional.p2.metadata.IInstallableUnit;
-import org.eclipse.equinox.internal.provisional.p2.metadata.Version;
+import org.eclipse.equinox.p2.metadata.Version;
 
 /**
  * @author Karel Brezina
@@ -49,20 +48,6 @@ public class GeneralUtils {
 		return encoded
 				? new String(output, 0, cursor)
 				: value;
-	}
-
-	public static String getLocalizedProperty(IInstallableUnit iu, String key) {
-		String value = iu.getProperty(key);
-
-		if(value != null && value.startsWith("%")) {
-			String localizedKey = "df_LT." + value.substring(1);
-			String localizedValue = iu.getProperty(localizedKey);
-
-			if(localizedValue != null)
-				value = localizedValue;
-		}
-
-		return value;
 	}
 
 	public static String stringifyVersion(Version version) {

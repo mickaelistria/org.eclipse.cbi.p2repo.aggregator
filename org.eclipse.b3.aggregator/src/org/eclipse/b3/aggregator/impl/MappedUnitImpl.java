@@ -21,9 +21,9 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-import org.eclipse.equinox.internal.provisional.p2.metadata.IInstallableUnit;
-import org.eclipse.equinox.internal.provisional.p2.metadata.IRequiredCapability;
+import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
 import org.eclipse.equinox.internal.provisional.p2.metadata.MetadataFactory;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.osgi.framework.InvalidSyntaxException;
 
 /**
@@ -236,9 +236,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 		// TODO Cache calculated value
 		Filter filter = createFilter(getValidConfigurations());
 		return MetadataFactory.createRequiredCapability(IInstallableUnit.NAMESPACE_IU_ID, getName(), getVersionRange(),
-				filter != null
-						? filter.toString()
-						: null, false, false);
+				filter, false, false);
 	}
 
 	/**

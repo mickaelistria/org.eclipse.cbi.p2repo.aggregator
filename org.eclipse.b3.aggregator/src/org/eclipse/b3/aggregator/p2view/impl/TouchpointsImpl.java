@@ -11,23 +11,18 @@ package org.eclipse.b3.aggregator.p2view.impl;
 
 import java.util.Collection;
 
-import org.eclipse.b3.aggregator.p2.TouchpointData;
 import org.eclipse.b3.aggregator.p2view.P2viewPackage;
 import org.eclipse.b3.aggregator.p2view.Touchpoints;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-import org.eclipse.equinox.internal.provisional.p2.metadata.ITouchpointType;
+import org.eclipse.equinox.p2.metadata.ITouchpointData;
+import org.eclipse.equinox.p2.metadata.ITouchpointType;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Touchpoints</b></em>'. <!-- end-user-doc -->
@@ -71,7 +66,7 @@ public class TouchpointsImpl extends MinimalEObjectImpl.Container implements Tou
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<TouchpointData> touchpointDataList;
+	protected EList<ITouchpointData> touchpointDataList;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -139,7 +134,7 @@ public class TouchpointsImpl extends MinimalEObjectImpl.Container implements Tou
 			return;
 		case P2viewPackage.TOUCHPOINTS__TOUCHPOINT_DATA_LIST:
 			getTouchpointDataList().clear();
-			getTouchpointDataList().addAll((Collection<? extends TouchpointData>) newValue);
+			getTouchpointDataList().addAll((Collection<? extends ITouchpointData>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -168,9 +163,9 @@ public class TouchpointsImpl extends MinimalEObjectImpl.Container implements Tou
 	 * 
 	 * @generated
 	 */
-	public EList<TouchpointData> getTouchpointDataList() {
+	public EList<ITouchpointData> getTouchpointDataList() {
 		if(touchpointDataList == null) {
-			touchpointDataList = new EObjectResolvingEList<TouchpointData>(TouchpointData.class, this,
+			touchpointDataList = new EObjectResolvingEList<ITouchpointData>(ITouchpointData.class, this,
 					P2viewPackage.TOUCHPOINTS__TOUCHPOINT_DATA_LIST);
 		}
 		return touchpointDataList;

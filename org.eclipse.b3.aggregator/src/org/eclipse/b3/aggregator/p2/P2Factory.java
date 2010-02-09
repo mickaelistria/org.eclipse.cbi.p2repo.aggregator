@@ -116,6 +116,16 @@ public interface P2Factory extends EFactory {
 	RequiredCapability createRequiredCapability();
 
 	/**
+	 * Returns a new object of class '<em>Requirement</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Requirement</em>'.
+	 * @generated
+	 */
+	Requirement createRequirement();
+
+	/**
 	 * Returns a new object of class '<em>Touchpoint Data</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 

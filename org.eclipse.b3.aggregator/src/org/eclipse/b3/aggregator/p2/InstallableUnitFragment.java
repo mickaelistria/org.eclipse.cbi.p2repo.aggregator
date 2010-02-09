@@ -7,8 +7,7 @@
 package org.eclipse.b3.aggregator.p2;
 
 import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.equinox.internal.provisional.p2.metadata.IInstallableUnitFragment;
+import org.eclipse.equinox.p2.metadata.IInstallableUnitFragment;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Installable Unit Fragment</b></em>'. <!--
@@ -22,14 +21,14 @@ import org.eclipse.equinox.internal.provisional.p2.metadata.IInstallableUnitFrag
  * </p>
  * 
  * @see org.eclipse.b3.aggregator.p2.P2Package#getInstallableUnitFragment()
- * @model
+ * @model 
  *        superTypes="org.eclipse.b3.aggregator.p2.InstallableUnit org.eclipse.b3.aggregator.p2.IInstallableUnitFragment"
  * @generated
  */
 public interface InstallableUnitFragment extends InstallableUnit, IInstallableUnitFragment {
 	/**
 	 * Returns the value of the '<em><b>Host List</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.b3.aggregator.p2.RequiredCapability}.
+	 * The list contents are of type {@link org.eclipse.b3.aggregator.p2.Requirement}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Host List</em>' containment reference list isn't clear, there really should be more of
@@ -42,6 +41,6 @@ public interface InstallableUnitFragment extends InstallableUnit, IInstallableUn
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<RequiredCapability> getHostList();
+	EList<Requirement> getHostList();
 
 } // InstallableUnitFragment

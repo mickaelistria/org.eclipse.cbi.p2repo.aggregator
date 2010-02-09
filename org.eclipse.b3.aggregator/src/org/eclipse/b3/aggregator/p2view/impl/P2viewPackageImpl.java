@@ -35,16 +35,14 @@ import org.eclipse.b3.aggregator.p2view.Products;
 import org.eclipse.b3.aggregator.p2view.Properties;
 import org.eclipse.b3.aggregator.p2view.ProvidedCapabilities;
 import org.eclipse.b3.aggregator.p2view.ProvidedCapabilityWrapper;
-import org.eclipse.b3.aggregator.p2view.RequiredCapabilities;
-import org.eclipse.b3.aggregator.p2view.RequiredCapabilityWrapper;
+import org.eclipse.b3.aggregator.p2view.RequirementWrapper;
+import org.eclipse.b3.aggregator.p2view.Requirements;
 import org.eclipse.b3.aggregator.p2view.Touchpoints;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 
@@ -227,11 +225,12 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	private EClass propertiesEClass = null;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	private EClass requiredCapabilitiesEClass = null;
+	private EClass requirementsEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -255,11 +254,12 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	private EClass iuDetailsEClass = null;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	private EClass requiredCapabilityWrapperEClass = null;
+	private EClass requirementWrapperEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -393,8 +393,8 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 		propertiesEClass = createEClass(PROPERTIES);
 		createEReference(propertiesEClass, PROPERTIES__PROPERTY_LIST);
 
-		requiredCapabilitiesEClass = createEClass(REQUIRED_CAPABILITIES);
-		createEReference(requiredCapabilitiesEClass, REQUIRED_CAPABILITIES__REQUIRED_CAPABILITIES);
+		requirementsEClass = createEClass(REQUIREMENTS);
+		createEReference(requirementsEClass, REQUIREMENTS__REQUIREMENTS);
 
 		providedCapabilitiesEClass = createEClass(PROVIDED_CAPABILITIES);
 		createEReference(providedCapabilitiesEClass, PROVIDED_CAPABILITIES__PROVIDED_CAPABILITIES);
@@ -404,16 +404,16 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 		createEReference(touchpointsEClass, TOUCHPOINTS__TOUCHPOINT_DATA_LIST);
 
 		iuDetailsEClass = createEClass(IU_DETAILS);
-		createEReference(iuDetailsEClass, IU_DETAILS__REQUIRED_CAPABILITIES_CONTAINER);
+		createEReference(iuDetailsEClass, IU_DETAILS__REQUIREMENTS_CONTAINER);
 		createEReference(iuDetailsEClass, IU_DETAILS__PROVIDED_CAPABILITIES_CONTAINER);
 		createEReference(iuDetailsEClass, IU_DETAILS__PROPERTIES_CONTAINER);
 		createEReference(iuDetailsEClass, IU_DETAILS__TOUCHPOINTS_CONTAINER);
 		createEReference(iuDetailsEClass, IU_DETAILS__UPDATE_DESCRIPTOR);
 		createEReference(iuDetailsEClass, IU_DETAILS__COPYRIGHT);
-		createEReference(iuDetailsEClass, IU_DETAILS__LICENSE);
+		createEReference(iuDetailsEClass, IU_DETAILS__LICENSES);
 
-		requiredCapabilityWrapperEClass = createEClass(REQUIRED_CAPABILITY_WRAPPER);
-		createEReference(requiredCapabilityWrapperEClass, REQUIRED_CAPABILITY_WRAPPER__GENUINE);
+		requirementWrapperEClass = createEClass(REQUIREMENT_WRAPPER);
+		createEReference(requirementWrapperEClass, REQUIREMENT_WRAPPER__GENUINE);
 
 		providedCapabilityWrapperEClass = createEClass(PROVIDED_CAPABILITY_WRAPPER);
 		createEReference(providedCapabilityWrapperEClass, PROVIDED_CAPABILITY_WRAPPER__GENUINE);
@@ -690,11 +690,12 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	public EReference getIUDetails_License() {
+	public EReference getIUDetails_Licenses() {
 		return (EReference) iuDetailsEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -717,11 +718,12 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	public EReference getIUDetails_RequiredCapabilitiesContainer() {
+	public EReference getIUDetails_RequirementsContainer() {
 		return (EReference) iuDetailsEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1032,39 +1034,43 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	public EClass getRequiredCapabilities() {
-		return requiredCapabilitiesEClass;
+	public EClass getRequirements() {
+		return requirementsEClass;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	public EReference getRequiredCapabilities_RequiredCapabilities() {
-		return (EReference) requiredCapabilitiesEClass.getEStructuralFeatures().get(0);
+	public EReference getRequirements_Requirements() {
+		return (EReference) requirementsEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	public EClass getRequiredCapabilityWrapper() {
-		return requiredCapabilityWrapperEClass;
+	public EClass getRequirementWrapper() {
+		return requirementWrapperEClass;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	public EReference getRequiredCapabilityWrapper_Genuine() {
-		return (EReference) requiredCapabilityWrapperEClass.getEStructuralFeatures().get(0);
+	public EReference getRequirementWrapper_Genuine() {
+		return (EReference) requirementWrapperEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1161,8 +1167,8 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 		bundleEClass.getESuperTypes().add(this.getIUPresentationWithDetails());
 		fragmentEClass.getESuperTypes().add(this.getBundle());
 		otherIUEClass.getESuperTypes().add(this.getIUPresentationWithDetails());
-		requiredCapabilityWrapperEClass.getESuperTypes().add(theP2Package.getIRequiredCapability());
-		requiredCapabilityWrapperEClass.getESuperTypes().add(theAggregatorPackage.getLabelProvider());
+		requirementWrapperEClass.getESuperTypes().add(theP2Package.getIRequirement());
+		requirementWrapperEClass.getESuperTypes().add(theAggregatorPackage.getLabelProvider());
 		providedCapabilityWrapperEClass.getESuperTypes().add(theP2Package.getIProvidedCapability());
 		providedCapabilityWrapperEClass.getESuperTypes().add(theAggregatorPackage.getLabelProvider());
 
@@ -1275,9 +1281,9 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 		initEAttribute(getIUPresentation_Type(), theAggregatorPackage.getInstallableUnitType(), "type", "", 1, 1,
 				IUPresentation.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
-		initEReference(getIUPresentation_InstallableUnit(), theP2Package.getInstallableUnit(), null, "installableUnit",
-				null, 0, 1, IUPresentation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIUPresentation_InstallableUnit(), theP2Package.getIInstallableUnit(), null,
+				"installableUnit", null, 0, 1, IUPresentation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(iuPresentationWithDetailsEClass, IUPresentationWithDetails.class, "IUPresentationWithDetails",
 				IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1363,11 +1369,11 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 				-1, Properties.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(requiredCapabilitiesEClass, RequiredCapabilities.class, "RequiredCapabilities", !IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRequiredCapabilities_RequiredCapabilities(), this.getRequiredCapabilityWrapper(), null,
-				"requiredCapabilities", null, 0, -1, RequiredCapabilities.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(requirementsEClass, Requirements.class, "Requirements", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRequirements_Requirements(), this.getRequirementWrapper(), null, "requirements", null, 0, -1,
+				Requirements.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(providedCapabilitiesEClass, ProvidedCapabilities.class, "ProvidedCapabilities", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1380,15 +1386,15 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 		initEReference(getTouchpoints_TouchpointType(), theP2Package.getITouchpointType(), null, "touchpointType",
 				null, 0, 1, Touchpoints.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
 				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTouchpoints_TouchpointDataList(), theP2Package.getTouchpointData(), null,
+		initEReference(getTouchpoints_TouchpointDataList(), theP2Package.getITouchpointData(), null,
 				"touchpointDataList", null, 0, -1, Touchpoints.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(iuDetailsEClass, IUDetails.class, "IUDetails", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getIUDetails_RequiredCapabilitiesContainer(), this.getRequiredCapabilities(), null,
-				"requiredCapabilitiesContainer", null, 0, 1, IUDetails.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIUDetails_RequirementsContainer(), this.getRequirements(), null, "requirementsContainer",
+				null, 0, 1, IUDetails.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIUDetails_ProvidedCapabilitiesContainer(), this.getProvidedCapabilities(), null,
 				"providedCapabilitiesContainer", null, 0, 1, IUDetails.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1404,19 +1410,19 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 		initEReference(getIUDetails_Copyright(), theP2Package.getICopyright(), null, "copyright", null, 0, 1,
 				IUDetails.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIUDetails_License(), theP2Package.getILicense(), null, "license", null, 0, 1,
+		initEReference(getIUDetails_Licenses(), theP2Package.getILicense(), null, "licenses", null, 0, -1,
 				IUDetails.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(requiredCapabilityWrapperEClass, RequiredCapabilityWrapper.class, "RequiredCapabilityWrapper",
-				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRequiredCapabilityWrapper_Genuine(), theP2Package.getRequiredCapability(), null, "genuine",
-				null, 1, 1, RequiredCapabilityWrapper.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE,
-				!IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(requirementWrapperEClass, RequirementWrapper.class, "RequirementWrapper", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRequirementWrapper_Genuine(), theP2Package.getIRequirement(), null, "genuine", null, 1, 1,
+				RequirementWrapper.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(providedCapabilityWrapperEClass, ProvidedCapabilityWrapper.class, "ProvidedCapabilityWrapper",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProvidedCapabilityWrapper_Genuine(), theP2Package.getProvidedCapability(), null, "genuine",
+		initEReference(getProvidedCapabilityWrapper_Genuine(), theP2Package.getIProvidedCapability(), null, "genuine",
 				null, 1, 1, ProvidedCapabilityWrapper.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE,
 				!IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 	}

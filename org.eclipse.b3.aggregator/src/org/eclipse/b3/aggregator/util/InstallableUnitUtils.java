@@ -21,9 +21,10 @@ import org.eclipse.b3.util.StringUtils;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.equinox.internal.provisional.p2.metadata.IInstallableUnit;
-import org.eclipse.equinox.internal.provisional.p2.metadata.IProvidedCapability;
-import org.eclipse.equinox.internal.provisional.p2.metadata.VersionedId;
+import org.eclipse.equinox.internal.p2.metadata.VersionedId;
+import org.eclipse.equinox.internal.provisional.p2.metadata.MetadataFactory.InstallableUnitDescription;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
+import org.eclipse.equinox.p2.metadata.IProvidedCapability;
 
 /**
  * @author Karel Brezina
@@ -40,12 +41,12 @@ public class InstallableUnitUtils {
 		}
 	}
 
-	public static InstallableUnitType getType(InstallableUnit iu) {
-		if("true".equalsIgnoreCase(iu.getProperty(IInstallableUnit.PROP_TYPE_CATEGORY)))
+	public static InstallableUnitType getType(IInstallableUnit iu) {
+		if("true".equalsIgnoreCase(iu.getProperty(InstallableUnitDescription.PROP_TYPE_CATEGORY)))
 			return InstallableUnitType.CATEGORY;
 		if(iu.getId().endsWith(IAggregatorConstants.FEATURE_SUFFIX))
 			return InstallableUnitType.FEATURE;
-		if("true".equalsIgnoreCase(iu.getProperty(IInstallableUnit.PROP_TYPE_GROUP)))
+		if("true".equalsIgnoreCase(iu.getProperty(InstallableUnitDescription.PROP_TYPE_GROUP)))
 			return InstallableUnitType.PRODUCT;
 		if(isOSGiFragment(iu))
 			return InstallableUnitType.FRAGMENT;
@@ -83,16 +84,16 @@ public class InstallableUnitUtils {
 				: null;
 	}
 
-	private static boolean isOSGiBundle(InstallableUnit iu) {
-		for(IProvidedCapability rc : iu.getProvidedCapabilityList())
+	private static boolean isOSGiBundle(IInstallableUnit iu) {
+		for(IProvidedCapability rc : iu.getProvidedCapabilities())
 			if(IAggregatorConstants.NAMESPACE_TYPE.equals(rc.getNamespace())
 					&& (IAggregatorConstants.CAPABILITY_TYPE_BUNDLE.equals(rc.getName()) || IAggregatorConstants.CAPABILITY_TYPE_SOURCE.equals(rc.getName())))
 				return true;
 		return false;
 	}
 
-	private static boolean isOSGiFragment(InstallableUnit iu) {
-		for(IProvidedCapability rc : iu.getProvidedCapabilityList())
+	private static boolean isOSGiFragment(IInstallableUnit iu) {
+		for(IProvidedCapability rc : iu.getProvidedCapabilities())
 			if(IAggregatorConstants.NAMESPACE_OSGI_FRAGMENT.equals(rc.getNamespace()))
 				return true;
 		return false;

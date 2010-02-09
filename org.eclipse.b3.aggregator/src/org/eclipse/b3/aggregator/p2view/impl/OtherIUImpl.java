@@ -10,10 +10,10 @@
 package org.eclipse.b3.aggregator.p2view.impl;
 
 import org.eclipse.b3.aggregator.InstallableUnitType;
-import org.eclipse.b3.aggregator.p2.InstallableUnit;
 import org.eclipse.b3.aggregator.p2view.OtherIU;
 import org.eclipse.b3.aggregator.p2view.P2viewPackage;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Other IU</b></em>'. <!-- end-user-doc -->
@@ -37,7 +37,7 @@ public class OtherIUImpl extends IUPresentationWithDetailsImpl implements OtherI
 	 * 
 	 * @generated NOT
 	 */
-	protected OtherIUImpl(InstallableUnit iu) {
+	protected OtherIUImpl(IInstallableUnit iu) {
 		super(iu);
 	}
 

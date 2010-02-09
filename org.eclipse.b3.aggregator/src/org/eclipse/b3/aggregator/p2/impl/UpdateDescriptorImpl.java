@@ -8,16 +8,12 @@ package org.eclipse.b3.aggregator.p2.impl;
 
 import org.eclipse.b3.aggregator.p2.P2Package;
 import org.eclipse.b3.aggregator.p2.UpdateDescriptor;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.equinox.internal.provisional.p2.metadata.IInstallableUnit;
-import org.eclipse.equinox.internal.provisional.p2.metadata.VersionRange;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
+import org.eclipse.equinox.p2.metadata.VersionRange;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Update Descriptor</b></em>'. <!-- end-user-doc
@@ -43,6 +39,28 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	 * @ordered
 	 */
 	protected int eFlags = 0;
+
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
@@ -86,28 +104,6 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	protected VersionRange range = RANGE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @see #getDescription()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String DESCRIPTION_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @see #getDescription()
-	 * @generated
-	 * @ordered
-	 */
-	protected String description = DESCRIPTION_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getSeverity() <em>Severity</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -146,12 +142,12 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
+		case P2Package.UPDATE_DESCRIPTOR__DESCRIPTION:
+			return getDescription();
 		case P2Package.UPDATE_DESCRIPTOR__ID:
 			return getId();
 		case P2Package.UPDATE_DESCRIPTOR__RANGE:
 			return getRange();
-		case P2Package.UPDATE_DESCRIPTOR__DESCRIPTION:
-			return getDescription();
 		case P2Package.UPDATE_DESCRIPTOR__SEVERITY:
 			return getSeverity();
 		}
@@ -166,6 +162,10 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
+		case P2Package.UPDATE_DESCRIPTOR__DESCRIPTION:
+			return DESCRIPTION_EDEFAULT == null
+					? description != null
+					: !DESCRIPTION_EDEFAULT.equals(description);
 		case P2Package.UPDATE_DESCRIPTOR__ID:
 			return ID_EDEFAULT == null
 					? id != null
@@ -174,10 +174,6 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 			return RANGE_EDEFAULT == null
 					? range != null
 					: !RANGE_EDEFAULT.equals(range);
-		case P2Package.UPDATE_DESCRIPTOR__DESCRIPTION:
-			return DESCRIPTION_EDEFAULT == null
-					? description != null
-					: !DESCRIPTION_EDEFAULT.equals(description);
 		case P2Package.UPDATE_DESCRIPTOR__SEVERITY:
 			return severity != SEVERITY_EDEFAULT;
 		}
@@ -192,14 +188,14 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
+		case P2Package.UPDATE_DESCRIPTOR__DESCRIPTION:
+			setDescription((String) newValue);
+			return;
 		case P2Package.UPDATE_DESCRIPTOR__ID:
 			setId((String) newValue);
 			return;
 		case P2Package.UPDATE_DESCRIPTOR__RANGE:
 			setRange((VersionRange) newValue);
-			return;
-		case P2Package.UPDATE_DESCRIPTOR__DESCRIPTION:
-			setDescription((String) newValue);
 			return;
 		case P2Package.UPDATE_DESCRIPTOR__SEVERITY:
 			setSeverity((Integer) newValue);
@@ -216,14 +212,14 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
+		case P2Package.UPDATE_DESCRIPTOR__DESCRIPTION:
+			setDescription(DESCRIPTION_EDEFAULT);
+			return;
 		case P2Package.UPDATE_DESCRIPTOR__ID:
 			setId(ID_EDEFAULT);
 			return;
 		case P2Package.UPDATE_DESCRIPTOR__RANGE:
 			setRange(RANGE_EDEFAULT);
-			return;
-		case P2Package.UPDATE_DESCRIPTOR__DESCRIPTION:
-			setDescription(DESCRIPTION_EDEFAULT);
 			return;
 		case P2Package.UPDATE_DESCRIPTOR__SEVERITY:
 			setSeverity(SEVERITY_EDEFAULT);
@@ -269,11 +265,12 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	public boolean isUpdateOf(IInstallableUnit iu) {
+	public boolean isUpdateOf(IInstallableUnit installableUnit) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -340,12 +337,12 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (id: ");
+		result.append(" (description: ");
+		result.append(description);
+		result.append(", id: ");
 		result.append(id);
 		result.append(", range: ");
 		result.append(range);
-		result.append(", description: ");
-		result.append(description);
 		result.append(", severity: ");
 		result.append(severity);
 		result.append(')');

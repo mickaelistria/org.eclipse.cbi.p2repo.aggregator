@@ -9,14 +9,12 @@
  */
 package org.eclipse.b3.aggregator.p2view;
 
-import org.eclipse.b3.aggregator.InstallableUnitType;
-import org.eclipse.b3.aggregator.p2.InstallableUnit;
-import org.eclipse.b3.aggregator.p2.impl.InstallableUnitImpl;
-
 import java.util.Comparator;
 
-import org.eclipse.equinox.internal.provisional.p2.metadata.Version;
-import org.eclipse.equinox.internal.provisional.p2.metadata.IInstallableUnit;
+import org.eclipse.b3.aggregator.InstallableUnitType;
+import org.eclipse.b3.aggregator.p2.impl.InstallableUnitImpl;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
+import org.eclipse.equinox.p2.metadata.Version;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>IU Presentation</b></em>'. <!-- end-user-doc -->
@@ -98,12 +96,12 @@ public interface IUPresentation {
 	 * <!-- end-user-doc -->
 	 * 
 	 * @return the value of the '<em>Installable Unit</em>' reference.
-	 * @see #setInstallableUnit(InstallableUnit)
+	 * @see #setInstallableUnit(IInstallableUnit)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getIUPresentation_InstallableUnit()
-	 * @model resolveProxies="false"
+	 * @model type="org.eclipse.b3.aggregator.p2.IInstallableUnit" resolveProxies="false"
 	 * @generated
 	 */
-	InstallableUnit getInstallableUnit();
+	IInstallableUnit getInstallableUnit();
 
 	/**
 	 * Returns the value of the '<em><b>Label</b></em>' attribute.
@@ -201,14 +199,15 @@ public interface IUPresentation {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getInstallableUnit
 	 * <em>Installable Unit</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @param value
 	 *            the new value of the '<em>Installable Unit</em>' reference.
 	 * @see #getInstallableUnit()
 	 * @generated
 	 */
-	void setInstallableUnit(InstallableUnit value);
+	void setInstallableUnit(IInstallableUnit value);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getLabel <em>Label</em>}'

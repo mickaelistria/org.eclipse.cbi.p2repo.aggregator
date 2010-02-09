@@ -9,21 +9,25 @@
  */
 package org.eclipse.b3.aggregator.p2view.impl;
 
-import org.eclipse.b3.aggregator.p2.InstallableUnit;
+import java.util.Collection;
+
 import org.eclipse.b3.aggregator.p2view.IUDetails;
 import org.eclipse.b3.aggregator.p2view.IUPresentationWithDetails;
 import org.eclipse.b3.aggregator.p2view.P2viewFactory;
 import org.eclipse.b3.aggregator.p2view.P2viewPackage;
 import org.eclipse.b3.aggregator.p2view.Properties;
 import org.eclipse.b3.aggregator.p2view.ProvidedCapabilities;
-import org.eclipse.b3.aggregator.p2view.RequiredCapabilities;
+import org.eclipse.b3.aggregator.p2view.Requirements;
 import org.eclipse.b3.aggregator.p2view.Touchpoints;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.equinox.internal.provisional.p2.metadata.ICopyright;
-import org.eclipse.equinox.internal.provisional.p2.metadata.ILicense;
-import org.eclipse.equinox.internal.provisional.p2.metadata.IUpdateDescriptor;
+import org.eclipse.emf.ecore.util.EObjectEList;
+import org.eclipse.equinox.p2.metadata.ICopyright;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
+import org.eclipse.equinox.p2.metadata.ILicense;
+import org.eclipse.equinox.p2.metadata.IUpdateDescriptor;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>IU Presentation With Details</b></em>'. <!--
@@ -31,8 +35,8 @@ import org.eclipse.equinox.internal.provisional.p2.metadata.IUpdateDescriptor;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#getRequiredCapabilitiesContainer <em>
- * Required Capabilities Container</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#getRequirementsContainer <em>
+ * Requirements Container</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#getProvidedCapabilitiesContainer <em>
  * Provided Capabilities Container</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#getPropertiesContainer <em>Properties
@@ -42,7 +46,7 @@ import org.eclipse.equinox.internal.provisional.p2.metadata.IUpdateDescriptor;
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#getUpdateDescriptor <em>Update
  * Descriptor</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#getCopyright <em>Copyright</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#getLicense <em>License</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#getLicenses <em>Licenses</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#isDetailsResolved <em>Details Resolved
  * </em>}</li>
  * </ul>
@@ -52,15 +56,15 @@ import org.eclipse.equinox.internal.provisional.p2.metadata.IUpdateDescriptor;
  */
 public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl implements IUPresentationWithDetails {
 	/**
-	 * The cached value of the '{@link #getRequiredCapabilitiesContainer() <em>Required Capabilities Container</em>}'
-	 * reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getRequirementsContainer() <em>Requirements Container</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
-	 * @see #getRequiredCapabilitiesContainer()
+	 * @see #getRequirementsContainer()
 	 * @generated
 	 * @ordered
 	 */
-	protected RequiredCapabilities requiredCapabilitiesContainer;
+	protected Requirements requirementsContainer;
 
 	/**
 	 * The cached value of the '{@link #getProvidedCapabilitiesContainer() <em>Provided Capabilities Container</em>}'
@@ -115,15 +119,15 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	protected ICopyright copyright;
 
 	/**
-	 * The cached value of the '{@link #getLicense() <em>License</em>}' reference.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * The cached value of the '{@link #getLicenses() <em>Licenses</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
-	 * @see #getLicense()
+	 * @see #getLicenses()
 	 * @generated
 	 * @ordered
 	 */
-	protected ILicense license;
+	protected EList<ILicense> licenses;
 
 	/**
 	 * The default value of the '{@link #isDetailsResolved() <em>Details Resolved</em>}' attribute.
@@ -160,7 +164,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	 * 
 	 * @generated NOT
 	 */
-	protected IUPresentationWithDetailsImpl(InstallableUnit iu) {
+	protected IUPresentationWithDetailsImpl(IInstallableUnit iu) {
 		super(iu);
 	}
 
@@ -173,8 +177,8 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if(baseClass == IUDetails.class) {
 			switch(derivedFeatureID) {
-			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIRED_CAPABILITIES_CONTAINER:
-				return P2viewPackage.IU_DETAILS__REQUIRED_CAPABILITIES_CONTAINER;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER:
+				return P2viewPackage.IU_DETAILS__REQUIREMENTS_CONTAINER;
 			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
 				return P2viewPackage.IU_DETAILS__PROVIDED_CAPABILITIES_CONTAINER;
 			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER:
@@ -185,8 +189,8 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 				return P2viewPackage.IU_DETAILS__UPDATE_DESCRIPTOR;
 			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT:
 				return P2viewPackage.IU_DETAILS__COPYRIGHT;
-			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSE:
-				return P2viewPackage.IU_DETAILS__LICENSE;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES:
+				return P2viewPackage.IU_DETAILS__LICENSES;
 			default:
 				return -1;
 			}
@@ -203,8 +207,8 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if(baseClass == IUDetails.class) {
 			switch(baseFeatureID) {
-			case P2viewPackage.IU_DETAILS__REQUIRED_CAPABILITIES_CONTAINER:
-				return P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIRED_CAPABILITIES_CONTAINER;
+			case P2viewPackage.IU_DETAILS__REQUIREMENTS_CONTAINER:
+				return P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER;
 			case P2viewPackage.IU_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
 				return P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER;
 			case P2viewPackage.IU_DETAILS__PROPERTIES_CONTAINER:
@@ -215,8 +219,8 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 				return P2viewPackage.IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR;
 			case P2viewPackage.IU_DETAILS__COPYRIGHT:
 				return P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT;
-			case P2viewPackage.IU_DETAILS__LICENSE:
-				return P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSE;
+			case P2viewPackage.IU_DETAILS__LICENSES:
+				return P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES;
 			default:
 				return -1;
 			}
@@ -232,8 +236,8 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIRED_CAPABILITIES_CONTAINER:
-			return getRequiredCapabilitiesContainer();
+		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER:
+			return getRequirementsContainer();
 		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
 			return getProvidedCapabilitiesContainer();
 		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER:
@@ -244,8 +248,8 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 			return getUpdateDescriptor();
 		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT:
 			return getCopyright();
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSE:
-			return getLicense();
+		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES:
+			return getLicenses();
 		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__DETAILS_RESOLVED:
 			return isDetailsResolved();
 		}
@@ -260,8 +264,8 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIRED_CAPABILITIES_CONTAINER:
-			return requiredCapabilitiesContainer != null;
+		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER:
+			return requirementsContainer != null;
 		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
 			return providedCapabilitiesContainer != null;
 		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROPERTIES_CONTAINER:
@@ -272,8 +276,8 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 			return updateDescriptor != null;
 		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT:
 			return copyright != null;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSE:
-			return license != null;
+		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES:
+			return licenses != null && !licenses.isEmpty();
 		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__DETAILS_RESOLVED:
 			return ((eFlags & DETAILS_RESOLVED_EFLAG) != 0) != DETAILS_RESOLVED_EDEFAULT;
 		}
@@ -285,11 +289,12 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	 * 
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIRED_CAPABILITIES_CONTAINER:
-			setRequiredCapabilitiesContainer((RequiredCapabilities) newValue);
+		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER:
+			setRequirementsContainer((Requirements) newValue);
 			return;
 		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
 			setProvidedCapabilitiesContainer((ProvidedCapabilities) newValue);
@@ -306,8 +311,9 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT:
 			setCopyright((ICopyright) newValue);
 			return;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSE:
-			setLicense((ILicense) newValue);
+		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES:
+			getLicenses().clear();
+			getLicenses().addAll((Collection<? extends ILicense>) newValue);
 			return;
 		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__DETAILS_RESOLVED:
 			setDetailsResolved((Boolean) newValue);
@@ -324,8 +330,8 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIRED_CAPABILITIES_CONTAINER:
-			setRequiredCapabilitiesContainer((RequiredCapabilities) null);
+		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER:
+			setRequirementsContainer((Requirements) null);
 			return;
 		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__PROVIDED_CAPABILITIES_CONTAINER:
 			setProvidedCapabilitiesContainer((ProvidedCapabilities) null);
@@ -342,8 +348,8 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT:
 			setCopyright((ICopyright) null);
 			return;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSE:
-			setLicense((ILicense) null);
+		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES:
+			getLicenses().clear();
 			return;
 		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__DETAILS_RESOLVED:
 			setDetailsResolved(DETAILS_RESOLVED_EDEFAULT);
@@ -369,11 +375,25 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	 * 
 	 * @generated NOT
 	 */
-	public ILicense getLicense() {
+	public EList<ILicense> getLicenses() {
 		if(!isDetailsResolved())
 			resolveDetails();
 
-		return license;
+		return getLicensesGen();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EList<ILicense> getLicensesGen() {
+		if(licenses == null) {
+			licenses = new EObjectEList<ILicense>(ILicense.class, this,
+					P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES);
+		}
+		return licenses;
 	}
 
 	/**
@@ -405,11 +425,21 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	 * 
 	 * @generated NOT
 	 */
-	public RequiredCapabilities getRequiredCapabilitiesContainer() {
+	public Requirements getRequiredCapabilitiesContainer() {
 		if(!isDetailsResolved())
 			resolveDetails();
 
-		return requiredCapabilitiesContainer;
+		return requirementsContainer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public Requirements getRequirementsContainer() {
+		return requirementsContainer;
 	}
 
 	/**
@@ -480,19 +510,6 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	 * 
 	 * @generated
 	 */
-	public void setLicense(ILicense newLicense) {
-		ILicense oldLicense = license;
-		license = newLicense;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSE,
-					oldLicense, license));
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
 	public void setPropertiesContainer(Properties newPropertiesContainer) {
 		Properties oldPropertiesContainer = propertiesContainer;
 		propertiesContainer = newPropertiesContainer;
@@ -517,17 +534,18 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	public void setRequiredCapabilitiesContainer(RequiredCapabilities newRequiredCapabilitiesContainer) {
-		RequiredCapabilities oldRequiredCapabilitiesContainer = requiredCapabilitiesContainer;
-		requiredCapabilitiesContainer = newRequiredCapabilitiesContainer;
+	public void setRequirementsContainer(Requirements newRequirementsContainer) {
+		Requirements oldRequirementsContainer = requirementsContainer;
+		requirementsContainer = newRequirementsContainer;
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
-					P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIRED_CAPABILITIES_CONTAINER,
-					oldRequiredCapabilitiesContainer, requiredCapabilitiesContainer));
+					P2viewPackage.IU_PRESENTATION_WITH_DETAILS__REQUIREMENTS_CONTAINER, oldRequirementsContainer,
+					requirementsContainer));
 	}
 
 	/**
@@ -588,13 +606,13 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	private void resolveDetails() {
 		IUDetails iuDetails = P2viewFactory.eINSTANCE.createIUDetails(getInstallableUnit());
 
-		setRequiredCapabilitiesContainer(iuDetails.getRequiredCapabilitiesContainer());
+		setRequirementsContainer(iuDetails.getRequirementsContainer());
 		setProvidedCapabilitiesContainer(iuDetails.getProvidedCapabilitiesContainer());
 		setPropertiesContainer(iuDetails.getPropertiesContainer());
 		setTouchpointsContainer(iuDetails.getTouchpointsContainer());
 		setUpdateDescriptor(iuDetails.getUpdateDescriptor());
 		setCopyright(iuDetails.getCopyright());
-		setLicense(iuDetails.getLicense());
+		getLicenses().addAll(iuDetails.getLicenses());
 
 		setDetailsResolved(true);
 	}

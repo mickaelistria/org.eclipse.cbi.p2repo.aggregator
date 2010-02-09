@@ -6,7 +6,7 @@
  */
 package org.eclipse.b3.aggregator.p2;
 
-import org.eclipse.equinox.internal.provisional.p2.metadata.IRequiredCapability;
+import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Required Capability</b></em>'. <!-- end-user-doc

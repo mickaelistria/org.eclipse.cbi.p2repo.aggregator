@@ -9,9 +9,10 @@
  */
 package org.eclipse.b3.aggregator.p2view;
 
-import org.eclipse.equinox.internal.provisional.p2.metadata.ICopyright;
-import org.eclipse.equinox.internal.provisional.p2.metadata.ILicense;
-import org.eclipse.equinox.internal.provisional.p2.metadata.IUpdateDescriptor;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.equinox.p2.metadata.ICopyright;
+import org.eclipse.equinox.p2.metadata.ILicense;
+import org.eclipse.equinox.p2.metadata.IUpdateDescriptor;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>IU Details</b></em>'. <!-- end-user-doc -->
@@ -19,15 +20,14 @@ import org.eclipse.equinox.internal.provisional.p2.metadata.IUpdateDescriptor;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.p2view.IUDetails#getRequiredCapabilitiesContainer <em>Required Capabilities
- * Container</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.IUDetails#getRequirementsContainer <em>Requirements Container</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.IUDetails#getProvidedCapabilitiesContainer <em>Provided Capabilities
  * Container</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.IUDetails#getPropertiesContainer <em>Properties Container</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.IUDetails#getTouchpointsContainer <em>Touchpoints Container</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.IUDetails#getUpdateDescriptor <em>Update Descriptor</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.IUDetails#getCopyright <em>Copyright</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.IUDetails#getLicense <em>License</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.IUDetails#getLicenses <em>Licenses</em>}</li>
  * </ul>
  * </p>
  * 
@@ -54,21 +54,21 @@ public interface IUDetails {
 	ICopyright getCopyright();
 
 	/**
-	 * Returns the value of the '<em><b>License</b></em>' reference.
+	 * Returns the value of the '<em><b>Licenses</b></em>' reference list.
+	 * The list contents are of type {@link org.eclipse.equinox.p2.metadata.ILicense}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>License</em>' reference isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Licenses</em>' reference list isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>License</em>' reference.
-	 * @see #setLicense(ILicense)
-	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getIUDetails_License()
+	 * @return the value of the '<em>Licenses</em>' reference list.
+	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getIUDetails_Licenses()
 	 * @model type="org.eclipse.b3.aggregator.p2.ILicense" resolveProxies="false"
 	 * @generated
 	 */
-	ILicense getLicense();
+	EList<ILicense> getLicenses();
 
 	/**
 	 * Returns the value of the '<em><b>Properties Container</b></em>' reference.
@@ -105,21 +105,21 @@ public interface IUDetails {
 	ProvidedCapabilities getProvidedCapabilitiesContainer();
 
 	/**
-	 * Returns the value of the '<em><b>Required Capabilities Container</b></em>' reference.
+	 * Returns the value of the '<em><b>Requirements Container</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Required Capabilities Container</em>' reference isn't clear, there really should be
-	 * more of a description here...
+	 * If the meaning of the '<em>Requirements Container</em>' reference isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Required Capabilities Container</em>' reference.
-	 * @see #setRequiredCapabilitiesContainer(RequiredCapabilities)
-	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getIUDetails_RequiredCapabilitiesContainer()
+	 * @return the value of the '<em>Requirements Container</em>' reference.
+	 * @see #setRequirementsContainer(Requirements)
+	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getIUDetails_RequirementsContainer()
 	 * @model resolveProxies="false"
 	 * @generated
 	 */
-	RequiredCapabilities getRequiredCapabilitiesContainer();
+	Requirements getRequirementsContainer();
 
 	/**
 	 * Returns the value of the '<em><b>Touchpoints Container</b></em>' reference.
@@ -168,17 +168,6 @@ public interface IUDetails {
 	void setCopyright(ICopyright value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUDetails#getLicense <em>License</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value
-	 *            the new value of the '<em>License</em>' reference.
-	 * @see #getLicense()
-	 * @generated
-	 */
-	void setLicense(ILicense value);
-
-	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUDetails#getPropertiesContainer
 	 * <em>Properties Container</em>}' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -203,16 +192,17 @@ public interface IUDetails {
 	void setProvidedCapabilitiesContainer(ProvidedCapabilities value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUDetails#getRequiredCapabilitiesContainer
-	 * <em>Required Capabilities Container</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUDetails#getRequirementsContainer
+	 * <em>Requirements Container</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @param value
-	 *            the new value of the '<em>Required Capabilities Container</em>' reference.
-	 * @see #getRequiredCapabilitiesContainer()
+	 *            the new value of the '<em>Requirements Container</em>' reference.
+	 * @see #getRequirementsContainer()
 	 * @generated
 	 */
-	void setRequiredCapabilitiesContainer(RequiredCapabilities value);
+	void setRequirementsContainer(Requirements value);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUDetails#getTouchpointsContainer

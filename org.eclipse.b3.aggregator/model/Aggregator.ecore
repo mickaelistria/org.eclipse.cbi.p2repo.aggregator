@@ -273,7 +273,7 @@
     <eLiterals name="ABOVE" value="2" literal="above"/>
   </eClassifiers>
   <eSubpackages name="p2" nsURI="http://www.eclipse.org/b3/2010/p2/1.0.0" nsPrefix="p2">
-    <eClassifiers xsi:type="ecore:EClass" name="IArtifactKey" instanceClassName="org.eclipse.equinox.internal.provisional.p2.metadata.IArtifactKey"
+    <eClassifiers xsi:type="ecore:EClass" name="IArtifactKey" instanceClassName="org.eclipse.equinox.p2.metadata.IArtifactKey"
         abstract="true" interface="true">
       <eOperations name="toExternalForm" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="classifier" lowerBound="1"
@@ -281,144 +281,158 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="#//p2/Version"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ICopyright" instanceClassName="org.eclipse.equinox.internal.provisional.p2.metadata.ICopyright"
+    <eClassifiers xsi:type="ecore:EClass" name="ICopyright" instanceClassName="org.eclipse.equinox.p2.metadata.ICopyright"
         abstract="true" interface="true">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="#//URI"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="body" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="IInstallableUnit" instanceClassName="org.eclipse.equinox.internal.provisional.p2.metadata.IInstallableUnit"
-        abstract="true" interface="true">
-      <eOperations name="getArtifacts" eType="#//p2/IArtifactKeyArray"/>
-      <eOperations name="getFragments" eType="#//p2/IInstallableUnitFragmentArray"/>
+    <eClassifiers xsi:type="ecore:EClass" name="IInstallableUnit" instanceClassName="org.eclipse.equinox.p2.metadata.IInstallableUnit"
+        abstract="true" interface="true" eSuperTypes="#//p2/IVersionedId">
+      <eOperations name="unresolved" eType="#//p2/IInstallableUnit"/>
+      <eOperations name="getCopyright" eType="#//p2/ICopyright">
+        <eParameters name="locale" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="getLicenses" eType="#//p2/ILicenseArray">
+        <eParameters name="locale" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="getProperties">
+        <eGenericType eClassifier="#//p2/Map">
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+        </eGenericType>
+      </eOperations>
       <eOperations name="getProperty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
         <eParameters name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
-      <eOperations name="getProperties" eType="#//p2/UntypedMap"/>
-      <eOperations name="getMetaRequiredCapabilities" eType="#//p2/IRequiredCapabilityArray"/>
-      <eOperations name="getRequiredCapabilities" eType="#//p2/IRequiredCapabilityArray"/>
-      <eOperations name="getProvidedCapabilities" eType="#//p2/IProvidedCapabilityArray"/>
-      <eOperations name="getTouchpointData" eType="#//p2/ITouchpointDataArray"/>
-      <eOperations name="isFragment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eOperations name="satisfies" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-        <eParameters name="candidate" eType="#//p2/IRequiredCapability"/>
+      <eOperations name="getProperty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eParameters name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="locale" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
-      <eOperations name="unresolved" eType="#//p2/IInstallableUnit"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="filter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          defaultValueLiteral=""/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          defaultValueLiteral=""/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="touchpointType" eType="#//p2/ITouchpointType"
-          containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="#//p2/Version"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="resolved" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="singleton" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="updateDescriptor" eType="#//p2/IUpdateDescriptor"
-          containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="license" eType="#//p2/ILicense"
-          containment="true"/>
+      <eOperations name="satisfies" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eParameters name="candidate" eType="#//p2/IRequirement"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="artifacts" upperBound="-1"
+          eType="#//p2/IArtifactKey" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="copyright" eType="#//p2/ICopyright"
           containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="filter" eType="#//p2/Filter"
+          defaultValueLiteral=""/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="fragments" upperBound="-1"
+          eType="#//p2/IInstallableUnitFragment"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="licenses" upperBound="-1"
+          eType="#//p2/ILicense" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="metaRequiredCapabilities"
+          upperBound="-1" eType="#//p2/IRequirement" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="providedCapabilities"
+          upperBound="-1" eType="#//p2/IProvidedCapability" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredCapabilities"
+          upperBound="-1" eType="#//p2/IRequirement" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="touchpointData" upperBound="-1"
+          eType="#//p2/ITouchpointData" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="touchpointType" eType="#//p2/ITouchpointType"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="updateDescriptor" eType="#//p2/IUpdateDescriptor"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="resolved" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="singleton" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="IInstallableUnitFragment" instanceClassName="org.eclipse.equinox.internal.provisional.p2.metadata.IInstallableUnitFragment"
+    <eClassifiers xsi:type="ecore:EClass" name="IInstallableUnitFragment" instanceClassName="org.eclipse.equinox.p2.metadata.IInstallableUnitFragment"
         abstract="true" interface="true" eSuperTypes="#//p2/IInstallableUnit">
-      <eOperations name="getHost" eType="#//p2/IRequiredCapabilityArray"/>
+      <eOperations name="getHost" eType="#//p2/IRequirementArray"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ILicense" instanceClassName="org.eclipse.equinox.internal.provisional.p2.metadata.ILicense"
+    <eClassifiers xsi:type="ecore:EClass" name="ILicense" instanceClassName="org.eclipse.equinox.p2.metadata.ILicense"
         abstract="true" interface="true">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="#//URI"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="body" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="digest" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="UUID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="IProvidedCapability" instanceClassName="org.eclipse.equinox.internal.provisional.p2.metadata.IProvidedCapability"
+    <eClassifiers xsi:type="ecore:EClass" name="IProvidedCapability" instanceClassName="org.eclipse.equinox.p2.metadata.IProvidedCapability"
         abstract="true" interface="true">
-      <eOperations name="satisfies" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-        <eParameters name="requirement" lowerBound="1" eType="#//p2/IRequiredCapability"/>
-      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="namespace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="#//p2/Version"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="IRequiredCapability" instanceClassName="org.eclipse.equinox.internal.provisional.p2.metadata.IRequiredCapability"
+    <eClassifiers xsi:type="ecore:EClass" name="IRequirement" instanceClassName="org.eclipse.equinox.p2.metadata.IRequirement"
         abstract="true" interface="true">
-      <eOperations name="getSelectors" eType="#//p2/StringArray"/>
-      <eOperations name="setSelectors">
-        <eParameters name="selectors" eType="#//p2/StringArray"/>
+      <eOperations name="isMatch" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eParameters name="installableUnit" eType="#//p2/IInstallableUnit"/>
       </eOperations>
-      <eOperations name="satisfiedBy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-        <eParameters name="capability" eType="#//p2/IProvidedCapability"/>
+      <eOperations name="getMatches">
+        <eGenericType eClassifier="#//p2/IMatchExpression">
+          <eTypeArguments eClassifier="#//p2/IInstallableUnit"/>
+        </eGenericType>
       </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="filter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="filter" eType="#//p2/Filter"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="max" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="min" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="greedy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IRequiredCapability" instanceClassName="org.eclipse.equinox.internal.p2.metadata.IRequiredCapability"
+        abstract="true" interface="true" eSuperTypes="#//p2/IRequirement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="namespace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="range" eType="#//p2/VersionRange"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="negation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="selectorList" upperBound="-1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="multiple" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="optional" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="greedy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ITouchpointData" instanceClassName="org.eclipse.equinox.internal.provisional.p2.metadata.ITouchpointData"
+    <eClassifiers xsi:type="ecore:EClass" name="ITouchpointData" instanceClassName="org.eclipse.equinox.p2.metadata.ITouchpointData"
         abstract="true" interface="true">
-      <eOperations name="getInstruction" eType="#//p2/ITouchpointInstruction">
-        <eParameters name="instructionKey" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      <eOperations name="getInstructions">
+        <eGenericType eClassifier="#//p2/Map">
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+          <eTypeArguments eClassifier="#//p2/ITouchpointInstruction"/>
+        </eGenericType>
       </eOperations>
-      <eOperations name="getInstructions" eType="#//p2/UntypedMap"/>
+      <eOperations name="getInstruction" eType="#//p2/ITouchpointInstruction">
+        <eParameters name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ITouchpointInstruction" instanceClassName="org.eclipse.equinox.internal.provisional.p2.metadata.ITouchpointInstruction"
+    <eClassifiers xsi:type="ecore:EClass" name="ITouchpointInstruction" instanceClassName="org.eclipse.equinox.p2.metadata.ITouchpointInstruction"
         abstract="true" interface="true">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="body" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="importAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ITouchpointType" instanceClassName="org.eclipse.equinox.internal.provisional.p2.metadata.ITouchpointType"
+    <eClassifiers xsi:type="ecore:EClass" name="ITouchpointType" instanceClassName="org.eclipse.equinox.p2.metadata.ITouchpointType"
         abstract="true" interface="true">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="#//p2/Version"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="IUpdateDescriptor" instanceClassName="org.eclipse.equinox.internal.provisional.p2.metadata.IUpdateDescriptor"
+    <eClassifiers xsi:type="ecore:EClass" name="IVersionedId" instanceClassName="org.eclipse.equinox.p2.metadata.IVersionedId"
+        abstract="true" interface="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          defaultValueLiteral=""/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="#//p2/Version"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IUpdateDescriptor" instanceClassName="org.eclipse.equinox.p2.metadata.IUpdateDescriptor"
         abstract="true" interface="true">
       <eOperations name="isUpdateOf" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-        <eParameters name="iu" eType="#//p2/IInstallableUnit"/>
+        <eParameters name="installableUnit" eType="#//p2/IInstallableUnit"/>
       </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="range" eType="#//p2/VersionRange"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="severity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ArtifactKey" eSuperTypes="#//p2/IArtifactKey"/>
     <eClassifiers xsi:type="ecore:EClass" name="Copyright" eSuperTypes="#//p2/ICopyright"/>
     <eClassifiers xsi:type="ecore:EClass" name="MetadataRepository" eSuperTypes="#//p2/IMetadataRepository">
       <eStructuralFeatures xsi:type="ecore:EReference" name="installableUnits" upperBound="-1"
-          eType="#//p2/InstallableUnit" containment="true" eKeys="#//p2/IInstallableUnit/id #//p2/IInstallableUnit/version"/>
+          eType="#//p2/IInstallableUnit" containment="true" eKeys="#//p2/IVersionedId/id #//p2/IVersionedId/version"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="repositoryReferences"
           upperBound="-1" eType="#//p2/RepositoryReference" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="propertyMap" upperBound="-1"
           eType="#//p2/Property" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="InstallableUnit" eSuperTypes="#//p2/IInstallableUnit">
-      <eOperations name="compareTo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
-        <eParameters name="other" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//AnySimpleType"/>
-      </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="artifactList" upperBound="-1"
-          eType="#//p2/ArtifactKey" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="providedCapabilityList"
-          upperBound="-1" eType="#//p2/ProvidedCapability" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredCapabilityList"
-          upperBound="-1" eType="#//p2/RequiredCapability" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="metaRequiredCapabilityList"
-          upperBound="-1" eType="#//p2/RequiredCapability" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="propertyMap" upperBound="-1"
           eType="#//p2/Property" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="touchpointDataList" upperBound="-1"
-          eType="#//p2/TouchpointData" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="InstallableUnitFragment" eSuperTypes="#//p2/InstallableUnit #//p2/IInstallableUnitFragment">
       <eStructuralFeatures xsi:type="ecore:EReference" name="hostList" upperBound="-1"
-          eType="#//p2/RequiredCapability" containment="true"/>
+          eType="#//p2/Requirement" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="License" eSuperTypes="#//p2/ILicense"/>
     <eClassifiers xsi:type="ecore:EClass" name="ProvidedCapability" eSuperTypes="#//p2/IProvidedCapability"/>
     <eClassifiers xsi:type="ecore:EClass" name="RequiredCapability" eSuperTypes="#//p2/IRequiredCapability"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Requirement" eSuperTypes="#//p2/IRequirement"/>
     <eClassifiers xsi:type="ecore:EClass" name="TouchpointData" eSuperTypes="#//p2/ITouchpointData">
       <eStructuralFeatures xsi:type="ecore:EReference" name="instructionMap" upperBound="-1"
           eType="#//p2/InstructionMap" containment="true"/>
@@ -430,38 +444,55 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EDataType" name="Version" instanceClassName="org.eclipse.equinox.internal.provisional.p2.metadata.Version"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="Version" instanceClassName="org.eclipse.equinox.p2.metadata.Version"/>
     <eClassifiers xsi:type="ecore:EClass" name="InstructionMap" instanceClassName="java.util.Map$Entry">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//p2/TouchpointInstruction"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//p2/ITouchpointInstruction"
           containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EDataType" name="VersionRange" instanceClassName="org.eclipse.equinox.internal.provisional.p2.metadata.VersionRange"/>
-    <eClassifiers xsi:type="ecore:EDataType" name="IInstallableUnitArray" instanceClassName="org.eclipse.equinox.internal.provisional.p2.metadata.IInstallableUnit[]"/>
-    <eClassifiers xsi:type="ecore:EDataType" name="IRequiredCapabilityArray" instanceClassName="org.eclipse.equinox.internal.provisional.p2.metadata.IRequiredCapability[]"/>
-    <eClassifiers xsi:type="ecore:EDataType" name="IProvidedCapabilityArray" instanceClassName="org.eclipse.equinox.internal.provisional.p2.metadata.IProvidedCapability[]"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="VersionRange" instanceClassName="org.eclipse.equinox.p2.metadata.VersionRange"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="IInstallableUnitArray" instanceClassName="org.eclipse.equinox.p2.metadata.IInstallableUnit[]"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="IRequirementArray" instanceClassName="org.eclipse.equinox.p2.metadata.IRequirement[]"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="IProvidedCapabilityArray" instanceClassName="org.eclipse.equinox.p2.metadata.IProvidedCapability[]"/>
     <eClassifiers xsi:type="ecore:EDataType" name="IInstallableUnitFragmentArray"
-        instanceClassName="org.eclipse.equinox.internal.provisional.p2.metadata.IInstallableUnitFragment[]"/>
-    <eClassifiers xsi:type="ecore:EDataType" name="IArtifactKeyArray" instanceClassName="org.eclipse.equinox.internal.provisional.p2.metadata.IArtifactKey[]"/>
-    <eClassifiers xsi:type="ecore:EDataType" name="ITouchpointDataArray" instanceClassName="org.eclipse.equinox.internal.provisional.p2.metadata.ITouchpointData[]"/>
+        instanceClassName="org.eclipse.equinox.p2.metadata.IInstallableUnitFragment[]"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="IArtifactKeyArray" instanceClassName="org.eclipse.equinox.p2.metadata.IArtifactKey[]"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="ITouchpointDataArray" instanceClassName="org.eclipse.equinox.p2.metadata.ITouchpointData[]"/>
     <eClassifiers xsi:type="ecore:EDataType" name="StringArray" instanceClassName="java.lang.String[]"/>
     <eClassifiers xsi:type="ecore:EDataType" name="UntypedMap" instanceClassName="java.util.Map"/>
-    <eClassifiers xsi:type="ecore:EClass" name="IQueryable" instanceClassName="org.eclipse.equinox.internal.provisional.p2.metadata.query.IQueryable"
+    <eClassifiers xsi:type="ecore:EDataType" name="Map" instanceClassName="java.util.Map">
+      <eTypeParameters name="K"/>
+      <eTypeParameters name="V"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EDataType" name="ILicenseArray" instanceClassName="org.eclipse.equinox.p2.metadata.ILicense[]"/>
+    <eClassifiers xsi:type="ecore:EClass" name="IQueryable" instanceClassName="org.eclipse.equinox.p2.query.IQueryable"
         abstract="true" interface="true">
-      <eOperations name="query" eType="#//p2/Collector">
-        <eParameters name="query" eType="#//p2/Query"/>
-        <eParameters name="collector" eType="#//p2/Collector"/>
+      <eTypeParameters name="T"/>
+      <eOperations name="query">
+        <eGenericType eClassifier="#//p2/IQueryResult">
+          <eTypeArguments/>
+        </eGenericType>
+        <eParameters name="query" eType="#//p2/IQuery"/>
         <eParameters name="progress" eType="#//p2/IProgressMonitor"/>
       </eOperations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EDataType" name="Query" instanceClassName="org.eclipse.equinox.internal.provisional.p2.metadata.query.Query"
-        serializable="false"/>
-    <eClassifiers xsi:type="ecore:EDataType" name="Collector" instanceClassName="org.eclipse.equinox.internal.provisional.p2.metadata.query.Collector"
+    <eClassifiers xsi:type="ecore:EDataType" name="IQueryResult" instanceClassName="org.eclipse.equinox.p2.query.IQueryResult">
+      <eTypeParameters name="T"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EDataType" name="IQuery" instanceClassName="org.eclipse.equinox.p2.query.IQuery"
+        serializable="false">
+      <eTypeParameters name="T"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EDataType" name="Collector" instanceClassName="org.eclipse.equinox.p2.query.Collector"
         serializable="false"/>
     <eClassifiers xsi:type="ecore:EDataType" name="IProgressMonitor" instanceClassName="org.eclipse.core.runtime.IProgressMonitor"
         serializable="false"/>
-    <eClassifiers xsi:type="ecore:EClass" name="IMetadataRepository" instanceClassName="org.eclipse.equinox.internal.provisional.p2.metadata.repository.IMetadataRepository"
-        abstract="true" interface="true" eSuperTypes="#//p2/IQueryable #//p2/IRepository">
+    <eClassifiers xsi:type="ecore:EDataType" name="Filter" instanceClassName="org.osgi.framework.Filter"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="IMatchExpression" instanceClassName="org.eclipse.equinox.p2.metadata.expression.IMatchExpression">
+      <eTypeParameters name="T"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IMetadataRepository" instanceClassName="org.eclipse.equinox.p2.repository.metadata.IMetadataRepository"
+        abstract="true" interface="true">
       <eOperations name="addInstallableUnits">
         <eParameters name="installableUnits" eType="#//p2/IInstallableUnitArray"/>
       </eOperations>
@@ -471,15 +502,24 @@
         <eParameters name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
         <eParameters name="options" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       </eOperations>
+      <eOperations name="removeAll"/>
       <eOperations name="removeInstallableUnits" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-        <eParameters name="query" eType="#//p2/Query"/>
+        <eParameters name="installableUnits" eType="#//p2/IInstallableUnitArray"/>
         <eParameters name="monitor" eType="#//p2/IProgressMonitor"/>
       </eOperations>
-      <eOperations name="removeAll"/>
+      <eGenericSuperTypes eClassifier="#//p2/IRepository">
+        <eTypeArguments eClassifier="#//p2/IInstallableUnit"/>
+      </eGenericSuperTypes>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="IRepository" instanceClassName="org.eclipse.equinox.internal.provisional.p2.repository.IRepository"
-        abstract="true" interface="true" eSuperTypes="#//p2/IAdaptable">
-      <eOperations name="getProperties" eType="#//p2/UntypedMap"/>
+    <eClassifiers xsi:type="ecore:EClass" name="IRepository" instanceClassName="org.eclipse.equinox.p2.repository.IRepository"
+        abstract="true" interface="true">
+      <eTypeParameters name="T"/>
+      <eOperations name="getProperties">
+        <eGenericType eClassifier="#//p2/Map">
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+        </eGenericType>
+      </eOperations>
       <eOperations name="setProperty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
         <eParameters name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -492,6 +532,10 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="provider" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="modifiable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eGenericSuperTypes eClassifier="#//p2/IAdaptable"/>
+      <eGenericSuperTypes eClassifier="#//p2/IQueryable">
+        <eTypeArguments eTypeParameter="#//p2/IRepository/T"/>
+      </eGenericSuperTypes>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RepositoryReference">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="#//URI">
@@ -595,7 +639,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
           eType="#//InstallableUnitType" changeable="false" volatile="true" defaultValueLiteral=""/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="installableUnit" eType="#//p2/InstallableUnit"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="installableUnit" eType="#//p2/IInstallableUnit"
           resolveProxies="false"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="IUPresentationWithDetails" abstract="true"
@@ -640,9 +684,9 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="propertyList" upperBound="-1"
           eType="#//Property"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="RequiredCapabilities">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredCapabilities"
-          upperBound="-1" eType="#//p2view/RequiredCapabilityWrapper"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Requirements">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requirements" upperBound="-1"
+          eType="#//p2view/RequirementWrapper"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ProvidedCapabilities">
       <eStructuralFeatures xsi:type="ecore:EReference" name="providedCapabilities"
@@ -651,11 +695,11 @@
     <eClassifiers xsi:type="ecore:EClass" name="Touchpoints">
       <eStructuralFeatures xsi:type="ecore:EReference" name="touchpointType" eType="#//p2/ITouchpointType"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="touchpointDataList" upperBound="-1"
-          eType="#//p2/TouchpointData"/>
+          eType="#//p2/ITouchpointData"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="IUDetails">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredCapabilitiesContainer"
-          eType="#//p2view/RequiredCapabilities" resolveProxies="false"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requirementsContainer"
+          eType="#//p2view/Requirements" resolveProxies="false"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="providedCapabilitiesContainer"
           eType="#//p2view/ProvidedCapabilities" resolveProxies="false"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="propertiesContainer"
@@ -666,16 +710,16 @@
           resolveProxies="false"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="copyright" eType="#//p2/ICopyright"
           resolveProxies="false"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="license" eType="#//p2/ILicense"
-          resolveProxies="false"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="licenses" upperBound="-1"
+          eType="#//p2/ILicense" resolveProxies="false"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="RequiredCapabilityWrapper" eSuperTypes="#//p2/IRequiredCapability #//LabelProvider">
+    <eClassifiers xsi:type="ecore:EClass" name="RequirementWrapper" eSuperTypes="#//p2/IRequirement #//LabelProvider">
       <eStructuralFeatures xsi:type="ecore:EReference" name="genuine" lowerBound="1"
-          eType="#//p2/RequiredCapability" changeable="false" resolveProxies="false"/>
+          eType="#//p2/IRequirement" changeable="false" resolveProxies="false"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ProvidedCapabilityWrapper" eSuperTypes="#//p2/IProvidedCapability #//LabelProvider">
       <eStructuralFeatures xsi:type="ecore:EReference" name="genuine" lowerBound="1"
-          eType="#//p2/ProvidedCapability" changeable="false" resolveProxies="false"/>
+          eType="#//p2/IProvidedCapability" changeable="false" resolveProxies="false"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

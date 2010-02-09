@@ -11,20 +11,15 @@ package org.eclipse.b3.aggregator.p2view.impl;
 
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.LabelProvider;
-import org.eclipse.b3.aggregator.p2.ProvidedCapability;
 import org.eclipse.b3.aggregator.p2view.P2viewPackage;
 import org.eclipse.b3.aggregator.p2view.ProvidedCapabilityWrapper;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.equinox.internal.provisional.p2.metadata.IRequiredCapability;
-import org.eclipse.equinox.internal.provisional.p2.metadata.Version;
+import org.eclipse.equinox.p2.metadata.IProvidedCapability;
+import org.eclipse.equinox.p2.metadata.Version;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Provided Capability Wrapper</b></em>'. <!--
@@ -146,7 +141,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * @generated
 	 * @ordered
 	 */
-	protected ProvidedCapability genuine;
+	protected IProvidedCapability genuine;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -162,7 +157,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * 
 	 * @generated NOT
 	 */
-	protected ProvidedCapabilityWrapperImpl(ProvidedCapability pc) {
+	protected ProvidedCapabilityWrapperImpl(IProvidedCapability pc) {
 		super();
 		genuine = pc;
 	}
@@ -297,7 +292,7 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * 
 	 * @generated
 	 */
-	public ProvidedCapability getGenuine() {
+	public IProvidedCapability getGenuine() {
 		return genuine;
 	}
 
@@ -335,15 +330,6 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 */
 	public Version getVersion() {
 		return genuine.getVersion();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public boolean satisfies(IRequiredCapability requirement) {
-		return genuine.satisfies(requirement);
 	}
 
 	/**

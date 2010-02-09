@@ -11,16 +11,36 @@ package org.eclipse.b3.aggregator.p2view.util;
 
 import org.eclipse.b3.aggregator.ChildrenProvider;
 import org.eclipse.b3.aggregator.LabelProvider;
-import org.eclipse.b3.aggregator.p2view.*;
-
+import org.eclipse.b3.aggregator.p2view.Bundle;
+import org.eclipse.b3.aggregator.p2view.Bundles;
+import org.eclipse.b3.aggregator.p2view.Categories;
+import org.eclipse.b3.aggregator.p2view.Category;
+import org.eclipse.b3.aggregator.p2view.Feature;
+import org.eclipse.b3.aggregator.p2view.Features;
+import org.eclipse.b3.aggregator.p2view.Fragment;
+import org.eclipse.b3.aggregator.p2view.Fragments;
+import org.eclipse.b3.aggregator.p2view.IUDetails;
+import org.eclipse.b3.aggregator.p2view.IUPresentation;
+import org.eclipse.b3.aggregator.p2view.IUPresentationWithDetails;
+import org.eclipse.b3.aggregator.p2view.InstallableUnits;
+import org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView;
+import org.eclipse.b3.aggregator.p2view.Miscellaneous;
+import org.eclipse.b3.aggregator.p2view.OtherIU;
+import org.eclipse.b3.aggregator.p2view.P2viewPackage;
+import org.eclipse.b3.aggregator.p2view.Product;
+import org.eclipse.b3.aggregator.p2view.Products;
+import org.eclipse.b3.aggregator.p2view.Properties;
+import org.eclipse.b3.aggregator.p2view.ProvidedCapabilities;
+import org.eclipse.b3.aggregator.p2view.ProvidedCapabilityWrapper;
+import org.eclipse.b3.aggregator.p2view.RequirementWrapper;
+import org.eclipse.b3.aggregator.p2view.Requirements;
+import org.eclipse.b3.aggregator.p2view.Touchpoints;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.equinox.internal.provisional.p2.metadata.IProvidedCapability;
-import org.eclipse.equinox.internal.provisional.p2.metadata.IRequiredCapability;
+import org.eclipse.equinox.p2.metadata.IProvidedCapability;
+import org.eclipse.equinox.p2.metadata.IRequirement;
 
 /**
  * <!-- begin-user-doc --> The <b>Adapter Factory</b> for the model. It provides an adapter <code>createXXX</code>
@@ -101,8 +121,8 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseIRequiredCapability(IRequiredCapability object) {
-			return createIRequiredCapabilityAdapter();
+		public Adapter caseIRequirement(IRequirement object) {
+			return createIRequirementAdapter();
 		}
 
 		@Override
@@ -166,13 +186,13 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseRequiredCapabilities(RequiredCapabilities object) {
-			return createRequiredCapabilitiesAdapter();
+		public Adapter caseRequirements(Requirements object) {
+			return createRequirementsAdapter();
 		}
 
 		@Override
-		public Adapter caseRequiredCapabilityWrapper(RequiredCapabilityWrapper object) {
-			return createRequiredCapabilityWrapperAdapter();
+		public Adapter caseRequirementWrapper(RequirementWrapper object) {
+			return createRequirementWrapperAdapter();
 		}
 
 		@Override
@@ -364,13 +384,13 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '
-	 * {@link org.eclipse.equinox.internal.provisional.p2.metadata.IProvidedCapability <em>IProvided Capability</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.equinox.p2.metadata.IProvidedCapability
+	 * <em>IProvided Capability</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful
 	 * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
 	 * 
 	 * @return the new adapter.
-	 * @see org.eclipse.equinox.internal.provisional.p2.metadata.IProvidedCapability
+	 * @see org.eclipse.equinox.p2.metadata.IProvidedCapability
 	 * @generated
 	 */
 	public Adapter createIProvidedCapabilityAdapter() {
@@ -378,16 +398,18 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '
-	 * {@link org.eclipse.equinox.internal.provisional.p2.metadata.IRequiredCapability <em>IRequired Capability</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful
-	 * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * Creates a new adapter for an object of class '{@link org.eclipse.equinox.p2.metadata.IRequirement
+	 * <em>IRequirement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
 	 * 
 	 * @return the new adapter.
-	 * @see org.eclipse.equinox.internal.provisional.p2.metadata.IRequiredCapability
+	 * @see org.eclipse.equinox.p2.metadata.IRequirement
 	 * @generated
 	 */
-	public Adapter createIRequiredCapabilityAdapter() {
+	public Adapter createIRequirementAdapter() {
 		return null;
 	}
 
@@ -562,30 +584,34 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class ' {@link org.eclipse.b3.aggregator.p2view.RequiredCapabilities
-	 * <em>Required Capabilities</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2view.Requirements
+	 * <em>Requirements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
 	 * 
 	 * @return the new adapter.
-	 * @see org.eclipse.b3.aggregator.p2view.RequiredCapabilities
+	 * @see org.eclipse.b3.aggregator.p2view.Requirements
 	 * @generated
 	 */
-	public Adapter createRequiredCapabilitiesAdapter() {
+	public Adapter createRequirementsAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2view.RequiredCapabilityWrapper
-	 * <em>Required Capability Wrapper</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's
-	 * useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2view.RequirementWrapper
+	 * <em>Requirement Wrapper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
 	 * 
 	 * @return the new adapter.
-	 * @see org.eclipse.b3.aggregator.p2view.RequiredCapabilityWrapper
+	 * @see org.eclipse.b3.aggregator.p2view.RequirementWrapper
 	 * @generated
 	 */
-	public Adapter createRequiredCapabilityWrapperAdapter() {
+	public Adapter createRequirementWrapperAdapter() {
 		return null;
 	}
 

@@ -9,13 +9,13 @@ package org.eclipse.b3.aggregator.p2.impl;
 import java.lang.reflect.Method;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.eclipse.b3.aggregator.p2.InstallableUnit;
 import org.eclipse.b3.aggregator.p2.MetadataRepository;
 import org.eclipse.b3.aggregator.p2.P2Factory;
 import org.eclipse.b3.aggregator.p2.P2Package;
@@ -23,7 +23,6 @@ import org.eclipse.b3.aggregator.p2.RepositoryReference;
 import org.eclipse.b3.util.ExceptionUtils;
 import org.eclipse.core.internal.runtime.AdapterManager;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -40,13 +39,11 @@ import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository;
 import org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository;
-import org.eclipse.equinox.internal.provisional.p2.metadata.IInstallableUnit;
-import org.eclipse.equinox.internal.provisional.p2.metadata.query.Collector;
-import org.eclipse.equinox.internal.provisional.p2.metadata.query.Query;
-import org.eclipse.equinox.internal.provisional.p2.metadata.repository.IMetadataRepository;
-import org.eclipse.equinox.internal.provisional.p2.metadata.repository.IMetadataRepositoryManager;
-import org.eclipse.equinox.internal.provisional.p2.repository.ICompositeRepository;
-import org.eclipse.equinox.internal.provisional.p2.repository.IRepository;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
+import org.eclipse.equinox.p2.query.IQuery;
+import org.eclipse.equinox.p2.query.IQueryResult;
+import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
+import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Metadata Repository</b></em>'. <!--
@@ -249,7 +246,7 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<InstallableUnit> installableUnits;
+	protected EList<IInstallableUnit> installableUnits;
 
 	/**
 	 * The cached value of the '{@link #getRepositoryReferences() <em>Repository References</em>}' containment reference
@@ -292,7 +289,7 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 	 * @generated NOT
 	 */
 	public void addInstallableUnits(IInstallableUnit[] installableUnits) {
-		EList<InstallableUnit> iuList = getInstallableUnits();
+		EList<IInstallableUnit> iuList = getInstallableUnits();
 		for(IInstallableUnit iu : installableUnits)
 			iuList.add(InstallableUnitImpl.importToModel(iu));
 	}
@@ -316,8 +313,8 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 		if(mdr instanceof LocalMetadataRepository) {
 			try {
 				@SuppressWarnings("unchecked")
-				List<org.eclipse.equinox.internal.provisional.spi.p2.metadata.repository.RepositoryReference> refs = (List<org.eclipse.equinox.internal.provisional.spi.p2.metadata.repository.RepositoryReference>) LocalMetadataRepository_createRepositoriesSnapshot.invoke(mdr);
-				for(org.eclipse.equinox.internal.provisional.spi.p2.metadata.repository.RepositoryReference ref : refs)
+				List<org.eclipse.equinox.p2.repository.spi.RepositoryReference> refs = (List<org.eclipse.equinox.p2.repository.spi.RepositoryReference>) LocalMetadataRepository_createRepositoriesSnapshot.invoke(mdr);
+				for(org.eclipse.equinox.p2.repository.spi.RepositoryReference ref : refs)
 					addReference(ref.Location, ref.Nickname, ref.Type, ref.Options);
 			}
 			catch(Exception e) {
@@ -325,83 +322,10 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 			}
 		}
 		else if(mdr instanceof CompositeMetadataRepository) {
-			@SuppressWarnings("unchecked")
-			List<URI> children = ((ICompositeRepository) mdr).getChildren();
+			List<URI> children = ((CompositeMetadataRepository) mdr).getChildren();
 			for(URI child : children)
 				addRepositoryReferences(mdrMgr, mdrMgr.loadRepository(child, null));
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if(baseClass == IAdaptable.class) {
-			switch(derivedFeatureID) {
-			default:
-				return -1;
-			}
-		}
-		if(baseClass == IRepository.class) {
-			switch(derivedFeatureID) {
-			case P2Package.METADATA_REPOSITORY__LOCATION:
-				return P2Package.IREPOSITORY__LOCATION;
-			case P2Package.METADATA_REPOSITORY__NAME:
-				return P2Package.IREPOSITORY__NAME;
-			case P2Package.METADATA_REPOSITORY__TYPE:
-				return P2Package.IREPOSITORY__TYPE;
-			case P2Package.METADATA_REPOSITORY__VERSION:
-				return P2Package.IREPOSITORY__VERSION;
-			case P2Package.METADATA_REPOSITORY__DESCRIPTION:
-				return P2Package.IREPOSITORY__DESCRIPTION;
-			case P2Package.METADATA_REPOSITORY__PROVIDER:
-				return P2Package.IREPOSITORY__PROVIDER;
-			case P2Package.METADATA_REPOSITORY__MODIFIABLE:
-				return P2Package.IREPOSITORY__MODIFIABLE;
-			default:
-				return -1;
-			}
-		}
-		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if(baseClass == IAdaptable.class) {
-			switch(baseFeatureID) {
-			default:
-				return -1;
-			}
-		}
-		if(baseClass == IRepository.class) {
-			switch(baseFeatureID) {
-			case P2Package.IREPOSITORY__LOCATION:
-				return P2Package.METADATA_REPOSITORY__LOCATION;
-			case P2Package.IREPOSITORY__NAME:
-				return P2Package.METADATA_REPOSITORY__NAME;
-			case P2Package.IREPOSITORY__TYPE:
-				return P2Package.METADATA_REPOSITORY__TYPE;
-			case P2Package.IREPOSITORY__VERSION:
-				return P2Package.METADATA_REPOSITORY__VERSION;
-			case P2Package.IREPOSITORY__DESCRIPTION:
-				return P2Package.METADATA_REPOSITORY__DESCRIPTION;
-			case P2Package.IREPOSITORY__PROVIDER:
-				return P2Package.METADATA_REPOSITORY__PROVIDER;
-			case P2Package.IREPOSITORY__MODIFIABLE:
-				return P2Package.METADATA_REPOSITORY__MODIFIABLE;
-			default:
-				return -1;
-			}
-		}
-		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**
@@ -553,7 +477,7 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 			return;
 		case P2Package.METADATA_REPOSITORY__INSTALLABLE_UNITS:
 			getInstallableUnits().clear();
-			getInstallableUnits().addAll((Collection<? extends InstallableUnit>) newValue);
+			getInstallableUnits().addAll((Collection<? extends IInstallableUnit>) newValue);
 			return;
 		case P2Package.METADATA_REPOSITORY__REPOSITORY_REFERENCES:
 			getRepositoryReferences().clear();
@@ -632,9 +556,9 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 	 * 
 	 * @generated
 	 */
-	public EList<InstallableUnit> getInstallableUnits() {
+	public EList<IInstallableUnit> getInstallableUnits() {
 		if(installableUnits == null) {
-			installableUnits = new EObjectContainmentEList<InstallableUnit>(InstallableUnit.class, this,
+			installableUnits = new EObjectContainmentEList<IInstallableUnit>(IInstallableUnit.class, this,
 					P2Package.METADATA_REPOSITORY__INSTALLABLE_UNITS);
 		}
 		return installableUnits;
@@ -680,8 +604,7 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 	 * 
 	 * @generated NOT
 	 */
-	@SuppressWarnings("rawtypes")
-	public Map getProperties() {
+	public Map<String, String> getProperties() {
 		return getPropertyMap().map();
 	}
 
@@ -758,8 +681,8 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 	 * 
 	 * @generated NOT
 	 */
-	public Collector query(Query query, Collector collector, IProgressMonitor progress) {
-		return query.perform(getInstallableUnits().iterator(), collector);
+	public IQueryResult<IInstallableUnit> query(IQuery<IInstallableUnit> query, IProgressMonitor progress) {
+		return query.perform(getInstallableUnits().iterator());
 	}
 
 	/**
@@ -772,19 +695,18 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
 	 */
-	public boolean removeInstallableUnits(Query query, IProgressMonitor monitor) {
-		boolean changed = false;
-		List<InstallableUnit> units = getInstallableUnits();
-		Collector results = query.perform(units.iterator(), new Collector());
-		if(results.size() > 0) {
-			changed = true;
-			units.removeAll(results.toCollection());
-		}
-		return changed;
+	public boolean removeInstallableUnits(IInstallableUnit[] installableUnits, IProgressMonitor monitor) {
+		if(installableUnits == null)
+			return false;
+
+		List<IInstallableUnit> units = getInstallableUnits();
+
+		return units.removeAll(Arrays.asList(installableUnits));
 	}
 
 	/**

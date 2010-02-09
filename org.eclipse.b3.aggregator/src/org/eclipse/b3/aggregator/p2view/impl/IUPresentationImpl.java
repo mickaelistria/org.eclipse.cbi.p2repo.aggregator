@@ -10,14 +10,14 @@
 package org.eclipse.b3.aggregator.p2view.impl;
 
 import org.eclipse.b3.aggregator.InstallableUnitType;
-import org.eclipse.b3.aggregator.p2.InstallableUnit;
 import org.eclipse.b3.aggregator.p2view.IUPresentation;
 import org.eclipse.b3.aggregator.p2view.P2viewPackage;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.equinox.internal.provisional.p2.metadata.Version;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
+import org.eclipse.equinox.p2.metadata.Version;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>IU Presentation</b></em>'. <!-- end-user-doc
@@ -168,7 +168,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	 * @generated
 	 * @ordered
 	 */
-	protected InstallableUnit installableUnit;
+	protected IInstallableUnit installableUnit;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -184,7 +184,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	 * 
 	 * @generated NOT
 	 */
-	protected IUPresentationImpl(InstallableUnit iu) {
+	protected IUPresentationImpl(IInstallableUnit iu) {
 		super();
 		this.installableUnit = iu;
 	}
@@ -275,7 +275,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 			setDescription((String) newValue);
 			return;
 		case P2viewPackage.IU_PRESENTATION__INSTALLABLE_UNIT:
-			setInstallableUnit((InstallableUnit) newValue);
+			setInstallableUnit((IInstallableUnit) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -305,7 +305,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 			setDescription(DESCRIPTION_EDEFAULT);
 			return;
 		case P2viewPackage.IU_PRESENTATION__INSTALLABLE_UNIT:
-			setInstallableUnit((InstallableUnit) null);
+			setInstallableUnit((IInstallableUnit) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -334,7 +334,7 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	 * 
 	 * @generated
 	 */
-	public InstallableUnit getInstallableUnit() {
+	public IInstallableUnit getInstallableUnit() {
 		return installableUnit;
 	}
 
@@ -398,12 +398,13 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	public void setInstallableUnit(InstallableUnit newInstallableUnit) {
-		InstallableUnit oldInstallableUnit = installableUnit;
+	public void setInstallableUnit(IInstallableUnit newInstallableUnit) {
+		IInstallableUnit oldInstallableUnit = installableUnit;
 		installableUnit = newInstallableUnit;
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_PRESENTATION__INSTALLABLE_UNIT,

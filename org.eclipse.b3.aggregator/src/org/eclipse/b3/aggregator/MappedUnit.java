@@ -7,7 +7,7 @@
 package org.eclipse.b3.aggregator;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.equinox.internal.provisional.p2.metadata.IRequiredCapability;
+import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Mapped Unit</b></em>'.

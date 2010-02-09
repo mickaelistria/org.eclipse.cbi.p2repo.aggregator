@@ -48,14 +48,14 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.equinox.internal.provisional.p2.metadata.IInstallableUnit;
-import org.eclipse.equinox.internal.provisional.p2.metadata.Version;
-import org.eclipse.equinox.internal.provisional.p2.metadata.VersionRange;
-import org.eclipse.equinox.internal.provisional.p2.metadata.query.Collector;
-import org.eclipse.equinox.internal.provisional.p2.metadata.query.CompositeQuery;
-import org.eclipse.equinox.internal.provisional.p2.metadata.query.InstallableUnitQuery;
-import org.eclipse.equinox.internal.provisional.p2.metadata.query.LatestIUVersionQuery;
-import org.eclipse.equinox.internal.provisional.p2.metadata.query.Query;
+import org.eclipse.equinox.internal.p2.metadata.query.LatestIUVersionQuery;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
+import org.eclipse.equinox.p2.metadata.Version;
+import org.eclipse.equinox.p2.metadata.VersionRange;
+import org.eclipse.equinox.p2.metadata.query.InstallableUnitQuery;
+import org.eclipse.equinox.p2.query.CompoundQuery;
+import org.eclipse.equinox.p2.query.IQuery;
+import org.eclipse.equinox.p2.query.IQueryResult;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Installable Unit Reference</b></em>'. <!--
@@ -651,22 +651,21 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 		if(id == null)
 			return null;
 
-		Query query = new InstallableUnitQuery(id);
+		IQuery<IInstallableUnit> query = new InstallableUnitQuery(id);
 
 		MetadataRepository mdr = ((MappedRepository) eContainer()).getMetadataRepository();
 		if(mdr == null)
 			return null;
 
-		Collector ius = mdr.query(new CompositeQuery(new Query[] { query, new LatestIUVersionQuery() }),
-				new Collector(), new NullProgressMonitor());
+		IQueryResult<IInstallableUnit> ius = mdr.query(CompoundQuery.createCompoundQuery(query,
+				new LatestIUVersionQuery<IInstallableUnit>(), false), new NullProgressMonitor());
 
-		if(ius.size() <= 0) {
-			ius = ((MappedRepository) eContainer()).getMetadataRepository().query(query, new Collector(),
-					new NullProgressMonitor());
-		}
+		if(ius.isEmpty())
+			// TODO Why this? When does it happen that the latest IU query does not return a result?
+			ius = mdr.query(query, new NullProgressMonitor());
 
-		if(ius.size() > 0) {
-			InstallableUnit iu = (InstallableUnit) ius.toArray(InstallableUnit.class)[0];
+		if(!ius.isEmpty()) {
+			InstallableUnit iu = (InstallableUnit) ius.toArray(IInstallableUnit.class)[0];
 			return iu;
 		}
 		else
@@ -695,12 +694,10 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 					continue;
 
 				MetadataRepository mdr = ((MetadataRepositoryStructuredView) resource.getContents().get(0)).getMetadataRepository();
-				Collector collector = mdr.query(query, new Collector(), null);
+				IQueryResult<IInstallableUnit> ius = mdr.query(query, null);
 
-				for(Object object : collector.toCollection()) {
-					InstallableUnit iu = (InstallableUnit) object;
+				for(IInstallableUnit iu : ius.toSet())
 					versionSet.add(iu.getVersion());
-				}
 			}
 
 		if(versionSet.size() == 0) {

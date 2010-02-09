@@ -10,9 +10,7 @@
 package org.eclipse.b3.aggregator.p2view;
 
 import org.eclipse.b3.aggregator.LabelProvider;
-import org.eclipse.b3.aggregator.p2.ProvidedCapability;
-
-import org.eclipse.equinox.internal.provisional.p2.metadata.IProvidedCapability;
+import org.eclipse.equinox.p2.metadata.IProvidedCapability;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Provided Capability Wrapper</b></em>'. <!--
@@ -41,9 +39,10 @@ public interface ProvidedCapabilityWrapper extends IProvidedCapability, LabelPro
 	 * 
 	 * @return the value of the '<em>Genuine</em>' reference.
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getProvidedCapabilityWrapper_Genuine()
-	 * @model resolveProxies="false" required="true" changeable="false"
+	 * @model type="org.eclipse.b3.aggregator.p2.IProvidedCapability" resolveProxies="false" required="true"
+	 *        changeable="false"
 	 * @generated
 	 */
-	ProvidedCapability getGenuine();
+	IProvidedCapability getGenuine();
 
 } // ProvidedCapabilityWrapper

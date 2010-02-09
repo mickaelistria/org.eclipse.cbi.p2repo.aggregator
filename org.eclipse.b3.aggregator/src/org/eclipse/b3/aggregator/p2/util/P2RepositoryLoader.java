@@ -23,15 +23,15 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
-import org.eclipse.equinox.internal.provisional.p2.artifact.repository.IArtifactRepository;
-import org.eclipse.equinox.internal.provisional.p2.artifact.repository.IArtifactRepositoryManager;
-import org.eclipse.equinox.internal.provisional.p2.core.ProvisionException;
-import org.eclipse.equinox.internal.provisional.p2.metadata.IInstallableUnit;
-import org.eclipse.equinox.internal.provisional.p2.metadata.query.Collector;
-import org.eclipse.equinox.internal.provisional.p2.metadata.query.MatchQuery;
-import org.eclipse.equinox.internal.provisional.p2.metadata.query.Query;
-import org.eclipse.equinox.internal.provisional.p2.metadata.repository.IMetadataRepository;
-import org.eclipse.equinox.internal.provisional.p2.metadata.repository.IMetadataRepositoryManager;
+import org.eclipse.equinox.p2.core.ProvisionException;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
+import org.eclipse.equinox.p2.query.IQuery;
+import org.eclipse.equinox.p2.query.IQueryResult;
+import org.eclipse.equinox.p2.query.MatchQuery;
+import org.eclipse.equinox.p2.repository.artifact.IArtifactRepository;
+import org.eclipse.equinox.p2.repository.artifact.IArtifactRepositoryManager;
+import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
+import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
 
 public class P2RepositoryLoader implements IRepositoryLoader {
 	private URI location;
@@ -42,10 +42,10 @@ public class P2RepositoryLoader implements IRepositoryLoader {
 
 	private IMetadataRepositoryManager mdrMgr;
 
-	private static final Query QUERY_ALL_IUS = new MatchQuery() {
+	private static final IQuery<IInstallableUnit> QUERY_ALL_IUS = new MatchQuery<IInstallableUnit>() {
 		@Override
-		public boolean isMatch(Object candidate) {
-			return candidate instanceof IInstallableUnit;
+		public boolean isMatch(IInstallableUnit candidate) {
+			return true;
 		}
 	};
 
@@ -80,7 +80,6 @@ public class P2RepositoryLoader implements IRepositoryLoader {
 		load(monitor, true);
 	}
 
-	@SuppressWarnings("unchecked")
 	private void load(IProgressMonitor monitor, boolean avoidCache) throws CoreException {
 		SubMonitor subMon = SubMonitor.convert(monitor, 100);
 
@@ -143,8 +142,8 @@ public class P2RepositoryLoader implements IRepositoryLoader {
 		repository.setVersion(repo.getVersion());
 		repository.getPropertyMap().putAll(repo.getProperties());
 
-		Collector collector = repo.query(QUERY_ALL_IUS, new Collector(), subMon.newChild(20));
-		Iterator<IInstallableUnit> itor = collector.iterator();
+		IQueryResult<IInstallableUnit> result = repo.query(QUERY_ALL_IUS, subMon.newChild(20));
+		Iterator<IInstallableUnit> itor = result.iterator();
 		ArrayList<InstallableUnit> ius = new ArrayList<InstallableUnit>();
 		while(itor.hasNext())
 			ius.add(InstallableUnitImpl.importToModel(itor.next()));

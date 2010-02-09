@@ -17,21 +17,41 @@ import java.util.Map;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.LabelProvider;
 import org.eclipse.b3.aggregator.Property;
-import org.eclipse.b3.aggregator.p2.InstallableUnit;
 import org.eclipse.b3.aggregator.p2.MetadataRepository;
-import org.eclipse.b3.aggregator.p2.ProvidedCapability;
-import org.eclipse.b3.aggregator.p2.RequiredCapability;
-import org.eclipse.b3.aggregator.p2.TouchpointData;
-import org.eclipse.b3.aggregator.p2view.*;
+import org.eclipse.b3.aggregator.p2view.Bundle;
+import org.eclipse.b3.aggregator.p2view.Bundles;
+import org.eclipse.b3.aggregator.p2view.Categories;
+import org.eclipse.b3.aggregator.p2view.Category;
+import org.eclipse.b3.aggregator.p2view.Feature;
+import org.eclipse.b3.aggregator.p2view.Features;
+import org.eclipse.b3.aggregator.p2view.Fragment;
+import org.eclipse.b3.aggregator.p2view.Fragments;
+import org.eclipse.b3.aggregator.p2view.IUDetails;
+import org.eclipse.b3.aggregator.p2view.InstallableUnits;
+import org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView;
+import org.eclipse.b3.aggregator.p2view.Miscellaneous;
+import org.eclipse.b3.aggregator.p2view.OtherIU;
+import org.eclipse.b3.aggregator.p2view.P2viewFactory;
+import org.eclipse.b3.aggregator.p2view.P2viewPackage;
+import org.eclipse.b3.aggregator.p2view.Product;
+import org.eclipse.b3.aggregator.p2view.Products;
+import org.eclipse.b3.aggregator.p2view.Properties;
+import org.eclipse.b3.aggregator.p2view.ProvidedCapabilities;
+import org.eclipse.b3.aggregator.p2view.ProvidedCapabilityWrapper;
+import org.eclipse.b3.aggregator.p2view.RequirementWrapper;
+import org.eclipse.b3.aggregator.p2view.Requirements;
+import org.eclipse.b3.aggregator.p2view.Touchpoints;
 import org.eclipse.b3.aggregator.util.CapabilityNamespace;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
+import org.eclipse.equinox.p2.metadata.IProvidedCapability;
+import org.eclipse.equinox.p2.metadata.IRequirement;
+import org.eclipse.equinox.p2.metadata.ITouchpointData;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
@@ -117,16 +137,16 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 			return (EObject) createOtherIU();
 		case P2viewPackage.PROPERTIES:
 			return (EObject) createProperties();
-		case P2viewPackage.REQUIRED_CAPABILITIES:
-			return (EObject) createRequiredCapabilities();
+		case P2viewPackage.REQUIREMENTS:
+			return (EObject) createRequirements();
 		case P2viewPackage.PROVIDED_CAPABILITIES:
 			return (EObject) createProvidedCapabilities();
 		case P2viewPackage.TOUCHPOINTS:
 			return (EObject) createTouchpoints();
 		case P2viewPackage.IU_DETAILS:
 			return (EObject) createIUDetails();
-		case P2viewPackage.REQUIRED_CAPABILITY_WRAPPER:
-			return (EObject) createRequiredCapabilityWrapper();
+		case P2viewPackage.REQUIREMENT_WRAPPER:
+			return (EObject) createRequirementWrapper();
 		case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER:
 			return (EObject) createProvidedCapabilityWrapper();
 		default:
@@ -149,7 +169,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	 * 
 	 * @generated NOT
 	 */
-	public Bundle createBundle(InstallableUnit iu) {
+	public Bundle createBundle(IInstallableUnit iu) {
 		BundleImpl bundle = new BundleImpl(iu);
 		return bundle;
 	}
@@ -189,7 +209,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	 * 
 	 * @generated NOT
 	 */
-	public Category createCategory(InstallableUnit iu) {
+	public Category createCategory(IInstallableUnit iu) {
 		CategoryImpl category = new CategoryImpl(iu);
 		return category;
 	}
@@ -209,7 +229,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	 * 
 	 * @generated NOT
 	 */
-	public Feature createFeature(InstallableUnit iu) {
+	public Feature createFeature(IInstallableUnit iu) {
 		FeatureImpl feature = new FeatureImpl(iu);
 		return feature;
 	}
@@ -239,7 +259,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	 * 
 	 * @generated NOT
 	 */
-	public Fragment createFragment(InstallableUnit iu) {
+	public Fragment createFragment(IInstallableUnit iu) {
 		FragmentImpl fragment = new FragmentImpl(iu);
 		return fragment;
 	}
@@ -274,31 +294,42 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 		return iuDetails;
 	}
 
-	public IUDetails createIUDetails(InstallableUnit iu) {
+	public IUDetails createIUDetails(IInstallableUnit iu) {
 		IUDetails iuDetails = createIUDetails();
 
-		List<RequiredCapabilityWrapper> rcwList = new ArrayList<RequiredCapabilityWrapper>();
-		for(RequiredCapability rc : iu.getRequiredCapabilityList()) {
-			RequiredCapabilityWrapper rcw = createRequiredCapabilityWrapper(rc);
+		List<RequirementWrapper> reqwList = new ArrayList<RequirementWrapper>();
+		for(IRequirement req : iu.getRequiredCapabilities()) {
+			RequirementWrapper reqw = createRequirementWrapper(req);
 
-			CapabilityNamespace cn = CapabilityNamespace.byId(rc.getNamespace());
+			if(req instanceof IRequiredCapability) {
+				IRequiredCapability rc = (IRequiredCapability) req;
+				CapabilityNamespace cn = CapabilityNamespace.byId(rc.getNamespace());
+				if(cn == CapabilityNamespace.UNKNOWN)
+					reqw.setLabel(rc.getNamespace() + ":" + " " + rc.getName());
+				else
+					reqw.setLabel(cn.getLabel() + " " + rc.getName());
+			}
+			else {
+				// TODO Get more from the requirement to make the label user friendlier
+				CapabilityNamespace cn = CapabilityNamespace.byFilter(req.getFilter());
 
-			if(cn == CapabilityNamespace.UNKNOWN)
-				rcw.setLabel(rc.getNamespace() + ":" + " " + rc.getName());
-			else
-				rcw.setLabel(cn.getLabel() + " " + rc.getName());
+				if(cn == CapabilityNamespace.UNKNOWN)
+					reqw.setLabel(req.toString());
+				else
+					reqw.setLabel(cn.getLabel() + " " + req.toString());
+			}
 
-			rcwList.add(rcw);
+			reqwList.add(reqw);
 		}
 
-		if(rcwList.size() > 0) {
-			iuDetails.setRequiredCapabilitiesContainer(createRequiredCapabilities());
-			Collections.sort(rcwList, LabelProvider.COMPARATOR);
-			iuDetails.getRequiredCapabilitiesContainer().getRequiredCapabilities().addAll(rcwList);
+		if(reqwList.size() > 0) {
+			iuDetails.setRequirementsContainer(createRequirements());
+			Collections.sort(reqwList, LabelProvider.COMPARATOR);
+			iuDetails.getRequirementsContainer().getRequirements().addAll(reqwList);
 		}
 
 		List<ProvidedCapabilityWrapper> pcwList = new ArrayList<ProvidedCapabilityWrapper>();
-		for(ProvidedCapability pc : iu.getProvidedCapabilityList()) {
+		for(IProvidedCapability pc : iu.getProvidedCapabilities()) {
 			ProvidedCapabilityWrapper pcw = createProvidedCapabilityWrapper(pc);
 
 			CapabilityNamespace cn = CapabilityNamespace.byId(pc.getNamespace());
@@ -318,7 +349,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 		}
 
 		List<Property> propList = new ArrayList<Property>();
-		for(Map.Entry<String, String> property : iu.getPropertyMap().entrySet())
+		for(Map.Entry<String, String> property : iu.getProperties().entrySet())
 			propList.add(AggregatorFactory.eINSTANCE.createProperty(property.getKey(), property.getValue()));
 		if(propList.size() > 0) {
 			iuDetails.setPropertiesContainer(createProperties());
@@ -333,7 +364,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 			iuDetails.getTouchpointsContainer().setTouchpointType(iu.getTouchpointType());
 		}
 
-		for(TouchpointData tpData : iu.getTouchpointDataList()) {
+		for(ITouchpointData tpData : iu.getTouchpointData()) {
 			if(iuDetails.getTouchpointsContainer() == null)
 				iuDetails.setTouchpointsContainer(createTouchpoints());
 
@@ -342,7 +373,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 		iuDetails.setUpdateDescriptor(iu.getUpdateDescriptor());
 		iuDetails.setCopyright(iu.getCopyright());
-		iuDetails.setLicense(iu.getLicense());
+		iuDetails.getLicenses().addAll(iu.getLicenses());
 
 		return iuDetails;
 	}
@@ -393,7 +424,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	 * 
 	 * @generated NOT
 	 */
-	public OtherIU createOtherIU(InstallableUnit iu) {
+	public OtherIU createOtherIU(IInstallableUnit iu) {
 		OtherIUImpl otherIU = new OtherIUImpl(iu);
 		return otherIU;
 	}
@@ -413,7 +444,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 	 * 
 	 * @generated NOT
 	 */
-	public Product createProduct(InstallableUnit iu) {
+	public Product createProduct(IInstallableUnit iu) {
 		ProductImpl product = new ProductImpl(iu);
 		return product;
 	}
@@ -458,33 +489,35 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 		return providedCapabilityWrapper;
 	}
 
-	public ProvidedCapabilityWrapper createProvidedCapabilityWrapper(ProvidedCapability pc) {
+	public ProvidedCapabilityWrapper createProvidedCapabilityWrapper(IProvidedCapability pc) {
 		ProvidedCapabilityWrapperImpl providedCapabilityWrapper = new ProvidedCapabilityWrapperImpl(pc);
 		return providedCapabilityWrapper;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	public RequiredCapabilities createRequiredCapabilities() {
-		RequiredCapabilitiesImpl requiredCapabilities = new RequiredCapabilitiesImpl();
-		return requiredCapabilities;
+	public Requirements createRequirements() {
+		RequirementsImpl requirements = new RequirementsImpl();
+		return requirements;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	public RequiredCapabilityWrapper createRequiredCapabilityWrapper() {
-		RequiredCapabilityWrapperImpl requiredCapabilityWrapper = new RequiredCapabilityWrapperImpl();
-		return requiredCapabilityWrapper;
+	public RequirementWrapper createRequirementWrapper() {
+		RequirementWrapperImpl requirementWrapper = new RequirementWrapperImpl();
+		return requirementWrapper;
 	}
 
-	public RequiredCapabilityWrapper createRequiredCapabilityWrapper(RequiredCapability rc) {
-		RequiredCapabilityWrapperImpl requiredCapabilityWrapper = new RequiredCapabilityWrapperImpl(rc);
+	public RequirementWrapper createRequirementWrapper(IRequirement req) {
+		RequirementWrapperImpl requiredCapabilityWrapper = new RequirementWrapperImpl(req);
 		return requiredCapabilityWrapper;
 	}
 
