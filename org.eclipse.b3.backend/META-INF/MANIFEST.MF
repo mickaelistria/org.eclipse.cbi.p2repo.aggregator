@@ -19,3 +19,5 @@ Require-Bundle: org.eclipse.core.runtime,
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.b3.provisional.core
 Bundle-Activator: org.eclipse.b3.backend.core.B3BackendActivator
+Eclipse-BuddyPolicy: registered
+

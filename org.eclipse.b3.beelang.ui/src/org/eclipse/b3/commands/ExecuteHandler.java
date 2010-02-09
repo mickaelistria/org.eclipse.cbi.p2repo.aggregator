@@ -6,15 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.b3.backend.core.B3BackendException;
-import org.eclipse.b3.backend.core.B3Engine;
-import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
-import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
-import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
+import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
-import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.b3.beelang.ui.BeeLangConsoleUtils;
 import org.eclipse.b3.build.build.BeeModel;
+import org.eclipse.b3.build.core.B3BuildEngine;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
@@ -40,25 +37,41 @@ public class ExecuteHandler extends AbstractHandler {
 			ContentOutlineNode node = nodes.get(0);
 			Object result = node.getEObjectHandle().readOnly(new IUnitOfWork<Object, EObject>(){
 				public Object exec(EObject state) throws Exception {
-					B3Engine engine = new B3Engine();
-					// Define all functions, and
+					B3BuildEngine engine = new B3BuildEngine();
+					try {
+						engine.getBuildContext().defineBeeModel((BeeModel) state);
+					} catch (Throwable e) {
+						PrintStream b3ConsoleErrorStream = BeeLangConsoleUtils.getConsoleErrorStream(b3Console);
+						try {
+							e.printStackTrace();
+							b3ConsoleErrorStream.println("Loading failed with error: " + e.getClass().getName().toString() + " : " + e.getMessage());
+							if(e.getCause() != null) {
+								b3ConsoleErrorStream.println("Caused by: " + e.getCause().getMessage());
+							return null;
+							}
+							
+						} finally {
+							b3ConsoleErrorStream.close();
+						}
+
+					}
 					// find a function called main (use the first found) and call it with a List<Object> argv
 					IFunction main = null;
 					for(IFunction f : ((BeeModel) state).getFunctions()) {
-						engine.getContext().defineFunction(f);
 						if("main".equals(f.getName())) {
 							main = f;
 						}
 					}
-					// Define all imports as constants
-					for(Type t : ((BeeModel) state).getImports()) {
-						if(t instanceof B3JavaImport) {
-							Class<?> x = TypeUtils.getRaw(t);
-							B3MetaClass metaClass = B3backendFactory.eINSTANCE.createB3MetaClass();
-							metaClass.setInstanceClass(x);
-							engine.getContext().defineValue(((B3JavaImport) t).getName(), x, metaClass);
-						}
-					}
+					
+//					// Define all imports as constants
+//					for(Type t : ((BeeModel) state).getImports()) {
+//						if(t instanceof B3JavaImport) {
+//							Class<?> x = TypeUtils.getRaw(t);
+//							B3MetaClass metaClass = B3backendFactory.eINSTANCE.createB3MetaClass();
+//							metaClass.setInstanceClass(x);
+//							engine.getContext().defineValue(((B3JavaImport) t).getName(), x, metaClass);
+//						}
+//					}
 					if(main == null)
 						return null;
 					final List<Object> argv = new ArrayList<Object>();

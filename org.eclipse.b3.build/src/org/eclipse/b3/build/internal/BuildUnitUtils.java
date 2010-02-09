@@ -1,5 +1,6 @@
 package org.eclipse.b3.build.internal;
 
+import org.eclipse.b3.backend.core.B3BackendActivator;
 import org.eclipse.b3.backend.core.B3InternalError;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.b3.build.build.BuildUnit;
@@ -110,9 +111,9 @@ public class BuildUnitUtils {
 			// add the special interface for the BuildUnit instance
 			extended[interfaces.length] = getBuildUnitInterface(unit);
 			// add all interfaces declared to be implemented by the Build Unit
-			int limit = interfaces.length + 1 + implementsList.size();
-			for(int i = interfaces.length+1; i < limit; i++)
-				extended[i] = TypeUtils.getRaw(implementsList.get(i)); // TODO: TYPESYSTEM improvement, use Raw for now
+			int limit = implementsList.size();
+			for(int i = 0; i < limit; i++)
+				extended[i + interfaces.length + 1] = TypeUtils.getRaw(implementsList.get(i)); // TODO: TYPESYSTEM improvement, use Raw for now
 			return Proxy.newProxyInstance(dynamicClassLoader, 
 					extended, new BuildUnitProxy(unit));
 		}
@@ -153,8 +154,14 @@ public class BuildUnitUtils {
 				Class<? extends BuildUnit> clazz = (Class<? extends BuildUnit>)(defineClass(name, bytes, 0, bytes.length));
 				return clazz;
 			}
-			else
-				return super.loadClass(name);
+			else {
+				try {
+				return B3BackendActivator.instance.getBundle().loadClass(name);
+				} catch (ClassNotFoundException e) {
+					// do nothing, try the super class loader
+				}
+				return super.findClass(name);
+			}
 		}
 		private String dottedToInternal(String str) {
 			return str.replaceAll("\\.", "/");

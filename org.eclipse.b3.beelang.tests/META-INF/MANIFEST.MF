@@ -1,8 +1,12 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Tests
-Bundle-SymbolicName: org.eclipse.b3.beelang.tests
+Bundle-SymbolicName: org.eclipse.b3.beelang.tests;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Require-Bundle: org.eclipse.b3.beelang.junit
+Require-Bundle: org.eclipse.b3.beelang.junit,
+ org.eclipse.b3.build;bundle-version="1.0.0",
+ org.eclipse.b3.backend;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: org.eclipse.b3.beelang.tests.buildunittypes
+Eclipse-RegisterBuddy: org.eclipse.b3.backend
