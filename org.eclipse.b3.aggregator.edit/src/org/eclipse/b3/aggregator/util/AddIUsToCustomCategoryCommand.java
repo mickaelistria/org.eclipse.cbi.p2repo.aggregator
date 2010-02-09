@@ -20,12 +20,12 @@ import org.eclipse.b3.aggregator.CustomCategory;
 import org.eclipse.b3.aggregator.Feature;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.MappedUnit;
-import org.eclipse.b3.aggregator.p2.InstallableUnit;
 import org.eclipse.b3.aggregator.p2.MetadataRepository;
 import org.eclipse.b3.aggregator.provider.AggregatorEditPlugin;
 import org.eclipse.emf.common.command.AbstractCommand;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.DragAndDropFeedback;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 
 /**
  * @author Karel Brezina
@@ -34,15 +34,15 @@ import org.eclipse.emf.edit.command.DragAndDropFeedback;
 public class AddIUsToCustomCategoryCommand extends AbstractCommand implements DragAndDropFeedback {
 	private CustomCategory customCategory;
 
-	private Map<InstallableUnit, MappedRepository> mapFeatureMappedRepo = new HashMap<InstallableUnit, MappedRepository>();
+	private Map<IInstallableUnit, MappedRepository> mapFeatureMappedRepo = new HashMap<IInstallableUnit, MappedRepository>();
 
-	private List<InstallableUnit> selectedFeatures;
+	private List<IInstallableUnit> selectedFeatures;
 
 	private List<Feature> featuresAddedToCustomCategory = new ArrayList<Feature>();
 
 	private Map<MappedRepository, List<MappedUnit>> unitsAddedToMappedRepo = new HashMap<MappedRepository, List<MappedUnit>>();
 
-	public AddIUsToCustomCategoryCommand(CustomCategory category, List<InstallableUnit> selectedFeatures) {
+	public AddIUsToCustomCategoryCommand(CustomCategory category, List<IInstallableUnit> selectedFeatures) {
 		super(AggregatorEditPlugin.INSTANCE.getString("_UI_Add_to_command_prefix") + " "
 				+ ((category.getLabel() == null || category.getLabel().length() == 0)
 						? AggregatorEditPlugin.INSTANCE.getString("_UI_Category_type") + " ''"
@@ -56,7 +56,7 @@ public class AddIUsToCustomCategoryCommand extends AbstractCommand implements Dr
 		featuresAddedToCustomCategory.clear();
 		unitsAddedToMappedRepo.clear();
 
-		for(InstallableUnit feature : selectedFeatures) {
+		for(IInstallableUnit feature : selectedFeatures) {
 			MappedRepository repo = mapFeatureMappedRepo.get(feature);
 
 			if(!repo.isEnabled())
@@ -115,7 +115,7 @@ public class AddIUsToCustomCategoryCommand extends AbstractCommand implements Dr
 	protected boolean prepare() {
 		Aggregator aggregator = (Aggregator) ((EObject) customCategory).eContainer();
 
-		for(InstallableUnit feature : selectedFeatures) {
+		for(IInstallableUnit feature : selectedFeatures) {
 			if(!(((EObject) feature).eContainer() instanceof MetadataRepository))
 				return false;
 
@@ -135,7 +135,7 @@ public class AddIUsToCustomCategoryCommand extends AbstractCommand implements Dr
 	}
 
 	private boolean isEnabled() {
-		for(InstallableUnit feature : mapFeatureMappedRepo.keySet()) {
+		for(IInstallableUnit feature : mapFeatureMappedRepo.keySet()) {
 			MappedRepository repo = mapFeatureMappedRepo.get(feature);
 
 			if(repo == null)

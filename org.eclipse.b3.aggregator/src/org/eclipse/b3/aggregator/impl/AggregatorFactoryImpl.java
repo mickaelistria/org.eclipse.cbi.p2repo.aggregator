@@ -41,7 +41,6 @@ import org.eclipse.b3.aggregator.StatusCode;
 import org.eclipse.b3.aggregator.ValidConfigurationsRule;
 import org.eclipse.b3.aggregator.VersionMatch;
 import org.eclipse.b3.aggregator.WindowSystem;
-import org.eclipse.b3.aggregator.p2.InstallableUnit;
 import org.eclipse.b3.aggregator.p2.MetadataRepository;
 import org.eclipse.b3.aggregator.util.InstallableUnitUtils;
 import org.eclipse.emf.ecore.EClass;
@@ -50,6 +49,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
 
@@ -513,7 +513,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	 * 
 	 * @generated NOT
 	 */
-	public MappedUnit createMappedUnit(InstallableUnit iu) {
+	public MappedUnit createMappedUnit(IInstallableUnit iu) {
 		MappedUnit mu = null;
 
 		switch(InstallableUnitUtils.getType(iu)) {
@@ -545,7 +545,7 @@ public class AggregatorFactoryImpl extends EFactoryImpl implements AggregatorFac
 	 * 
 	 * @generated NOT
 	 */
-	public MapRule createMapRule(InstallableUnit iu, Class<? extends MapRule> ruleClass) {
+	public MapRule createMapRule(IInstallableUnit iu, Class<? extends MapRule> ruleClass) {
 		MapRule mr = null;
 
 		if(ruleClass.isAssignableFrom(ExclusionRule.class))

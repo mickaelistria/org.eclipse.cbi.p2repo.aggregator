@@ -20,11 +20,11 @@ import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.MapRule;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.MappedUnit;
-import org.eclipse.b3.aggregator.p2.InstallableUnit;
 import org.eclipse.b3.aggregator.p2.MetadataRepository;
 import org.eclipse.b3.aggregator.p2view.IUPresentation;
 import org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 
 /**
  * @author Karel Brezina
@@ -42,7 +42,7 @@ public class ItemUtils {
 	 * @return null if the MappedRepository already contains the InstallableUnit or MappedUnit (created from the IU) if
 	 *         the InstallableUnit was added
 	 */
-	public static MappedUnit addIU(MappedRepository mappedRepo, InstallableUnit iu) {
+	public static MappedUnit addIU(MappedRepository mappedRepo, IInstallableUnit iu) {
 		if(iu == null)
 			return null;
 
@@ -74,7 +74,8 @@ public class ItemUtils {
 	 * @return null if the MappedRepository already contains a MapRule created from the InstallableUnit or MapRule
 	 *         (created from the IU) if the InstallableUnit was added
 	 */
-	public static MapRule addMapRule(MappedRepository mappedRepo, InstallableUnit iu, Class<? extends MapRule> ruleClass) {
+	public static MapRule addMapRule(MappedRepository mappedRepo, IInstallableUnit iu,
+			Class<? extends MapRule> ruleClass) {
 		if(iu == null)
 			return null;
 
@@ -145,7 +146,7 @@ public class ItemUtils {
 		return null;
 	}
 
-	public static MappedUnit findMappedUnit(MappedRepository mappedRepo, InstallableUnit iu) {
+	public static MappedUnit findMappedUnit(MappedRepository mappedRepo, IInstallableUnit iu) {
 		for(MappedUnit unit : mappedRepo.getUnits(false))
 			if(iu.getId().equals(unit.getName()))
 				return unit;
@@ -153,7 +154,7 @@ public class ItemUtils {
 		return null;
 	}
 
-	public static MapRule findMapRule(MappedRepository mappedRepo, InstallableUnit iu) {
+	public static MapRule findMapRule(MappedRepository mappedRepo, IInstallableUnit iu) {
 		for(MapRule rule : mappedRepo.getMapRules())
 			if(iu.getId().equals(rule.getName()))
 				return rule;
@@ -161,8 +162,8 @@ public class ItemUtils {
 		return null;
 	}
 
-	public static Collection<? extends InstallableUnit> getIUs(Collection<? extends IUPresentation> iups) {
-		List<InstallableUnit> set = new ArrayList<InstallableUnit>();
+	public static Collection<? extends IInstallableUnit> getIUs(Collection<? extends IUPresentation> iups) {
+		List<IInstallableUnit> set = new ArrayList<IInstallableUnit>();
 
 		for(IUPresentation iup : iups)
 			if(iup.getInstallableUnit() != null)
@@ -189,13 +190,13 @@ public class ItemUtils {
 	 * @return
 	 */
 	public static boolean haveSameLocation(MappedRepository mappedRepo,
-			Collection<? extends InstallableUnit> selectedIUs) {
+			Collection<? extends IInstallableUnit> selectedIUs) {
 		String location = mappedRepo.getResolvedLocation();
 
 		if(location == null)
 			return false;
 
-		for(InstallableUnit iu : selectedIUs) {
+		for(IInstallableUnit iu : selectedIUs) {
 			if(!(((EObject) iu).eContainer() instanceof MetadataRepository))
 				return false;
 			MetadataRepository mdr = (MetadataRepository) ((EObject) iu).eContainer();

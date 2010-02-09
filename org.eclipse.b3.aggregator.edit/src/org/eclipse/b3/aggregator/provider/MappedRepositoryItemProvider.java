@@ -46,6 +46,7 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.MappedRepository} object. <!--
@@ -345,7 +346,7 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 						&& ItemUtils.haveSameLocation(
 								(MappedRepository) owner,
 								ItemUtils.getIUs((List<IUPresentation>) itemSorter.getGroupItems(ItemGroup.IU_STRUCTURED))))) {
-			List<InstallableUnit> ius = new ArrayList<InstallableUnit>();
+			List<IInstallableUnit> ius = new ArrayList<IInstallableUnit>();
 
 			ius.addAll((List<InstallableUnit>) itemSorter.getGroupItems(ItemGroup.IU));
 			ius.addAll(ItemUtils.getIUs((List<IUPresentation>) itemSorter.getGroupItems(ItemGroup.IU_STRUCTURED)));

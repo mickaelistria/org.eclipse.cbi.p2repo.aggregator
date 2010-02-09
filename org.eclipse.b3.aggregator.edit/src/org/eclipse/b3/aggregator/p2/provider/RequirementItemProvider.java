@@ -7,16 +7,22 @@
  *
  * $Id$
  */
-package org.eclipse.b3.aggregator.provider;
+package org.eclipse.b3.aggregator.p2.provider;
 
 import java.util.Collection;
 import java.util.List;
 
-import org.eclipse.b3.aggregator.AggregatorPackage;
-import org.eclipse.b3.aggregator.AvailableVersion;
+import org.eclipse.b3.aggregator.p2.P2Package;
+import org.eclipse.b3.aggregator.p2.Requirement;
+
+import org.eclipse.b3.aggregator.provider.AggregatorEditPlugin;
+import org.eclipse.b3.aggregator.provider.AggregatorItemProviderAdapter;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemColorProvider;
@@ -28,16 +34,17 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipse.equinox.p2.metadata.Version;
+
+import org.osgi.framework.Filter;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.AvailableVersion} object.
+ * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.p2.Requirement} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * 
  * @generated
  */
-public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
+public class RequirementItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
 		IItemColorProvider, IItemFontProvider {
 	/**
@@ -47,33 +54,20 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 	 * 
 	 * @generated
 	 */
-	public AvailableVersionItemProvider(AdapterFactory adapterFactory) {
+	public RequirementItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
 	/**
-	 * This returns AvailableVersion.gif.
+	 * This returns Requirement.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		Version version = ((AvailableVersion) object).getVersion();
-		if(version == null)
-			return overlayImage(object, getResourceLocator().getImage("full/obj16/NoVersionAvailable"));
-
-		switch(((AvailableVersion) object).getVersionMatch()) {
-		case BELOW:
-			return overlayImage(object, getResourceLocator().getImage("full/obj16/VersionBelowRange"));
-		case MATCHES:
-			return overlayImage(object, getResourceLocator().getImage("full/obj16/VersionOK"));
-		case ABOVE:
-			return overlayImage(object, getResourceLocator().getImage("full/obj16/VersionAboveRange"));
-		}
-
-		return null;
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Requirement"));
 	}
 
 	/**
@@ -88,8 +82,10 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addVersionMatchPropertyDescriptor(object);
-			addVersionPropertyDescriptor(object);
+			addFilterPropertyDescriptor(object);
+			addMaxPropertyDescriptor(object);
+			addMinPropertyDescriptor(object);
+			addGreedyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -111,41 +107,17 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-
-		Version version = ((AvailableVersion) object).getVersion();
-		if(version == null)
-			return "no version is available";
-
-		return version.toString();
-	}
-
-	/**
-	 * This returns AvailableVersion.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	@Override
-	public String getTooltipText(Object object) {
-		Version version = ((AvailableVersion) object).getVersion();
-		if(version == null)
-			return null;
-
-		switch(((AvailableVersion) object).getVersionMatch()) {
-		case BELOW:
-			return "This version is too low to match the version range";
-		case MATCHES:
-			return "This version matches the version range";
-		case ABOVE:
-			return "This version is too high to match the version range";
-		}
-
-		return null;
+		Filter labelValue = ((Requirement) object).getFilter();
+		String label = labelValue == null
+				? null
+				: labelValue.toString();
+		return label == null || label.length() == 0
+				? getString("_UI_Requirement_type")
+				: getString("_UI_Requirement_type") + " " + label;
 	}
 
 	/**
@@ -160,9 +132,11 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch(notification.getFeatureID(AvailableVersion.class)) {
-		case AggregatorPackage.AVAILABLE_VERSION__VERSION_MATCH:
-		case AggregatorPackage.AVAILABLE_VERSION__VERSION:
+		switch(notification.getFeatureID(Requirement.class)) {
+		case P2Package.REQUIREMENT__FILTER:
+		case P2Package.REQUIREMENT__MAX:
+		case P2Package.REQUIREMENT__MIN:
+		case P2Package.REQUIREMENT__GREEDY:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}
@@ -170,35 +144,65 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 	}
 
 	/**
-	 * This adds a property descriptor for the Version Match feature.
+	 * This adds a property descriptor for the Filter feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	protected void addVersionMatchPropertyDescriptor(Object object) {
+	protected void addFilterPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_AvailableVersion_versionMatch_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_AvailableVersion_versionMatch_feature", "_UI_AvailableVersion_type"),
-				AggregatorPackage.Literals.AVAILABLE_VERSION__VERSION_MATCH, false, false, false,
+				getString("_UI_IRequirement_filter_feature"), getString("_UI_PropertyDescriptor_description",
+						"_UI_IRequirement_filter_feature", "_UI_IRequirement_type"),
+				P2Package.Literals.IREQUIREMENT__FILTER, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Version feature.
+	 * This adds a property descriptor for the Greedy feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	protected void addVersionPropertyDescriptor(Object object) {
+	protected void addGreedyPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_AvailableVersion_version_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_AvailableVersion_version_feature", "_UI_AvailableVersion_type"),
-				AggregatorPackage.Literals.AVAILABLE_VERSION__VERSION, false, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+				getString("_UI_IRequirement_greedy_feature"), getString("_UI_PropertyDescriptor_description",
+						"_UI_IRequirement_greedy_feature", "_UI_IRequirement_type"),
+				P2Package.Literals.IREQUIREMENT__GREEDY, true, false, false,
+				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Max feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addMaxPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_IRequirement_max_feature"), getString("_UI_PropertyDescriptor_description",
+						"_UI_IRequirement_max_feature", "_UI_IRequirement_type"), P2Package.Literals.IREQUIREMENT__MAX,
+				true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Min feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addMinPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_IRequirement_min_feature"), getString("_UI_PropertyDescriptor_description",
+						"_UI_IRequirement_min_feature", "_UI_IRequirement_type"), P2Package.Literals.IREQUIREMENT__MIN,
+				true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
 	}
 
 	/**

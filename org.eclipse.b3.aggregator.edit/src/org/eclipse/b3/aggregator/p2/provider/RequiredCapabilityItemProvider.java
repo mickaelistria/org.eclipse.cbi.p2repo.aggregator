@@ -76,14 +76,12 @@ public class RequiredCapabilityItemProvider extends AggregatorItemProviderAdapte
 			super.getPropertyDescriptors(object);
 
 			addFilterPropertyDescriptor(object);
+			addMaxPropertyDescriptor(object);
+			addMinPropertyDescriptor(object);
+			addGreedyPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addNamespacePropertyDescriptor(object);
 			addRangePropertyDescriptor(object);
-			addNegationPropertyDescriptor(object);
-			addSelectorListPropertyDescriptor(object);
-			addMultiplePropertyDescriptor(object);
-			addOptionalPropertyDescriptor(object);
-			addGreedyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -126,14 +124,12 @@ public class RequiredCapabilityItemProvider extends AggregatorItemProviderAdapte
 
 		switch(notification.getFeatureID(RequiredCapability.class)) {
 		case P2Package.REQUIRED_CAPABILITY__FILTER:
+		case P2Package.REQUIRED_CAPABILITY__MAX:
+		case P2Package.REQUIRED_CAPABILITY__MIN:
+		case P2Package.REQUIRED_CAPABILITY__GREEDY:
 		case P2Package.REQUIRED_CAPABILITY__NAME:
 		case P2Package.REQUIRED_CAPABILITY__NAMESPACE:
 		case P2Package.REQUIRED_CAPABILITY__RANGE:
-		case P2Package.REQUIRED_CAPABILITY__NEGATION:
-		case P2Package.REQUIRED_CAPABILITY__SELECTOR_LIST:
-		case P2Package.REQUIRED_CAPABILITY__MULTIPLE:
-		case P2Package.REQUIRED_CAPABILITY__OPTIONAL:
-		case P2Package.REQUIRED_CAPABILITY__GREEDY:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}
@@ -149,9 +145,9 @@ public class RequiredCapabilityItemProvider extends AggregatorItemProviderAdapte
 	protected void addFilterPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_IRequiredCapability_filter_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_IRequiredCapability_filter_feature", "_UI_IRequiredCapability_type"),
-				P2Package.Literals.IREQUIRED_CAPABILITY__FILTER, false, false, false,
+				getString("_UI_IRequirement_filter_feature"), getString("_UI_PropertyDescriptor_description",
+						"_UI_IRequirement_filter_feature", "_UI_IRequirement_type"),
+				P2Package.Literals.IREQUIREMENT__FILTER, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -164,25 +160,40 @@ public class RequiredCapabilityItemProvider extends AggregatorItemProviderAdapte
 	protected void addGreedyPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_IRequiredCapability_greedy_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_IRequiredCapability_greedy_feature", "_UI_IRequiredCapability_type"),
-				P2Package.Literals.IREQUIRED_CAPABILITY__GREEDY, false, false, false,
+				getString("_UI_IRequirement_greedy_feature"), getString("_UI_PropertyDescriptor_description",
+						"_UI_IRequirement_greedy_feature", "_UI_IRequirement_type"),
+				P2Package.Literals.IREQUIREMENT__GREEDY, true, false, false,
 				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Multiple feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This adds a property descriptor for the Max feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	protected void addMultiplePropertyDescriptor(Object object) {
+	protected void addMaxPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_IRequiredCapability_multiple_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_IRequiredCapability_multiple_feature", "_UI_IRequiredCapability_type"),
-				P2Package.Literals.IREQUIRED_CAPABILITY__MULTIPLE, false, false, false,
-				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+				getString("_UI_IRequirement_max_feature"), getString("_UI_PropertyDescriptor_description",
+						"_UI_IRequirement_max_feature", "_UI_IRequirement_type"), P2Package.Literals.IREQUIREMENT__MAX,
+				true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Min feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addMinPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_IRequirement_min_feature"), getString("_UI_PropertyDescriptor_description",
+						"_UI_IRequirement_min_feature", "_UI_IRequirement_type"), P2Package.Literals.IREQUIREMENT__MIN,
+				true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -216,36 +227,6 @@ public class RequiredCapabilityItemProvider extends AggregatorItemProviderAdapte
 	}
 
 	/**
-	 * This adds a property descriptor for the Negation feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addNegationPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_IRequiredCapability_negation_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_IRequiredCapability_negation_feature", "_UI_IRequiredCapability_type"),
-				P2Package.Literals.IREQUIRED_CAPABILITY__NEGATION, true, false, false,
-				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Optional feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addOptionalPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_IRequiredCapability_optional_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_IRequiredCapability_optional_feature", "_UI_IRequiredCapability_type"),
-				P2Package.Literals.IREQUIRED_CAPABILITY__OPTIONAL, false, false, false,
-				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Range feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -258,21 +239,6 @@ public class RequiredCapabilityItemProvider extends AggregatorItemProviderAdapte
 						"_UI_IRequiredCapability_range_feature", "_UI_IRequiredCapability_type"),
 				P2Package.Literals.IREQUIRED_CAPABILITY__RANGE, false, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Selector List feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addSelectorListPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_IRequiredCapability_selectorList_feature"), getString(
-						"_UI_PropertyDescriptor_description", "_UI_IRequiredCapability_selectorList_feature",
-						"_UI_IRequiredCapability_type"), P2Package.Literals.IREQUIRED_CAPABILITY__SELECTOR_LIST, true,
-				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**

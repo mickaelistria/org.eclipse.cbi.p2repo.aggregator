@@ -15,12 +15,12 @@ import java.util.List;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.MappedUnit;
-import org.eclipse.b3.aggregator.p2.InstallableUnit;
 import org.eclipse.b3.aggregator.p2.MetadataRepository;
 import org.eclipse.b3.aggregator.provider.AggregatorEditPlugin;
 import org.eclipse.emf.common.command.AbstractCommand;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.DragAndDropFeedback;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 
 /**
  * @author Karel Brezina
@@ -31,14 +31,14 @@ public class AddIUsToContributionCommand extends AbstractCommand implements Drag
 
 	private List<MetadataRepository> selectedMDRs;
 
-	private List<InstallableUnit> selectedIUs;
+	private List<IInstallableUnit> selectedIUs;
 
 	private List<MappedRepository> addedMappedRepos = new ArrayList<MappedRepository>();
 
 	private List<MappedUnit> addedMappedUnits = new ArrayList<MappedUnit>();
 
 	public AddIUsToContributionCommand(Contribution contribution, List<MetadataRepository> selectedMDRs,
-			List<InstallableUnit> selectedIUs) {
+			List<IInstallableUnit> selectedIUs) {
 		super(AggregatorEditPlugin.INSTANCE.getString("_UI_Map_to_command_prefix")
 				+ " "
 				+ ((contribution.getLabel() == null || contribution.getLabel().length() == 0)
@@ -61,7 +61,7 @@ public class AddIUsToContributionCommand extends AbstractCommand implements Drag
 				addedMappedRepos.add(newMappedRepo);
 		}
 
-		for(InstallableUnit iu : selectedIUs) {
+		for(IInstallableUnit iu : selectedIUs) {
 			if(!(((EObject) iu).eContainer() instanceof MetadataRepository))
 				return;
 
@@ -115,7 +115,7 @@ public class AddIUsToContributionCommand extends AbstractCommand implements Drag
 				&& (selectedMDRs != null && selectedMDRs.size() > 0 || selectedIUs != null && selectedIUs.size() > 0);
 
 		if(result)
-			for(InstallableUnit iu : selectedIUs) {
+			for(IInstallableUnit iu : selectedIUs) {
 				if(!(((EObject) iu).eContainer() instanceof MetadataRepository))
 					return false;
 

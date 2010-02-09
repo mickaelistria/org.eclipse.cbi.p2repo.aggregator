@@ -15,7 +15,6 @@ import org.eclipse.b3.aggregator.Feature;
 import org.eclipse.b3.aggregator.InstallableUnitRequest;
 import org.eclipse.b3.aggregator.InstallableUnitType;
 import org.eclipse.b3.aggregator.MappedRepository;
-import org.eclipse.b3.aggregator.p2.InstallableUnit;
 import org.eclipse.b3.aggregator.util.InstallableUnitUtils;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -28,8 +27,9 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.equinox.internal.provisional.p2.metadata.query.MatchQuery;
-import org.eclipse.equinox.internal.provisional.p2.metadata.query.Query;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
+import org.eclipse.equinox.p2.query.IQuery;
+import org.eclipse.equinox.p2.query.MatchQuery;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.Feature} object. <!--
@@ -142,11 +142,11 @@ public class FeatureItemProvider extends MappedUnitItemProvider implements IEdit
 	}
 
 	@Override
-	protected Query getInstallableUnitQuery() {
-		return new MatchQuery() {
+	protected IQuery<IInstallableUnit> getInstallableUnitQuery() {
+		return new MatchQuery<IInstallableUnit>() {
 			@Override
-			public boolean isMatch(Object candidate) {
-				return InstallableUnitUtils.getType((InstallableUnit) candidate) == InstallableUnitType.FEATURE;
+			public boolean isMatch(IInstallableUnit candidate) {
+				return InstallableUnitUtils.getType(candidate) == InstallableUnitType.FEATURE;
 			}
 		};
 	}

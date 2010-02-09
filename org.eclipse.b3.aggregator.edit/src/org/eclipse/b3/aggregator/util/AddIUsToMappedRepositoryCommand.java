@@ -17,11 +17,11 @@ import org.eclipse.b3.aggregator.MapRule;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.MappedUnit;
 import org.eclipse.b3.aggregator.ValidConfigurationsRule;
-import org.eclipse.b3.aggregator.p2.InstallableUnit;
 import org.eclipse.b3.aggregator.provider.AggregatorEditPlugin;
 import org.eclipse.emf.common.command.AbstractCommand;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.DragAndDropFeedback;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 
 /**
  * @author Karel Brezina
@@ -30,7 +30,7 @@ import org.eclipse.emf.edit.command.DragAndDropFeedback;
 public class AddIUsToMappedRepositoryCommand extends AbstractCommand implements DragAndDropFeedback {
 	private MappedRepository mappedRepo;
 
-	private List<InstallableUnit> selectedIUs;
+	private List<IInstallableUnit> selectedIUs;
 
 	private int operation;
 
@@ -38,11 +38,12 @@ public class AddIUsToMappedRepositoryCommand extends AbstractCommand implements 
 
 	private List<MapRule> addedMapRules = new ArrayList<MapRule>();
 
-	public AddIUsToMappedRepositoryCommand(MappedRepository mappedRepo, List<InstallableUnit> selectedIUs) {
+	public AddIUsToMappedRepositoryCommand(MappedRepository mappedRepo, List<IInstallableUnit> selectedIUs) {
 		this(mappedRepo, selectedIUs, AggregatorEditPlugin.ADD_IU);
 	}
 
-	public AddIUsToMappedRepositoryCommand(MappedRepository mappedRepo, List<InstallableUnit> selectedIUs, int operation) {
+	public AddIUsToMappedRepositoryCommand(MappedRepository mappedRepo, List<IInstallableUnit> selectedIUs,
+			int operation) {
 		super(AggregatorEditPlugin.INSTANCE.getString("_UI_Map_to_command_prefix") + " "
 				+ AggregatorEditPlugin.INSTANCE.getString("_UI_MappedRepository_type") + " " + mappedRepo.getLocation());
 
@@ -56,13 +57,13 @@ public class AddIUsToMappedRepositoryCommand extends AbstractCommand implements 
 		addedMapRules.clear();
 
 		if((operation & AggregatorEditPlugin.ADD_IU) > 0)
-			for(InstallableUnit iu : selectedIUs) {
+			for(IInstallableUnit iu : selectedIUs) {
 				MappedUnit newMU = ItemUtils.addIU(mappedRepo, iu);
 				if(newMU != null)
 					addedMappedUnits.add(newMU);
 			}
 		else if((operation & (AggregatorEditPlugin.ADD_EXCLUSION_RULE | AggregatorEditPlugin.ADD_VALID_CONFIGURATIONS_RULE)) > 0)
-			for(InstallableUnit iu : selectedIUs) {
+			for(IInstallableUnit iu : selectedIUs) {
 				MapRule newMR = ItemUtils.addMapRule(mappedRepo, iu,
 						(operation & AggregatorEditPlugin.ADD_EXCLUSION_RULE) > 0
 								? ExclusionRule.class
@@ -108,7 +109,7 @@ public class AddIUsToMappedRepositoryCommand extends AbstractCommand implements 
 				&& selectedIUs.size() > 0 && ItemUtils.haveSameLocation(mappedRepo, selectedIUs);
 
 		if(result)
-			for(InstallableUnit iu : selectedIUs)
+			for(IInstallableUnit iu : selectedIUs)
 				if(ItemUtils.findMappedUnit(mappedRepo, iu) != null || ItemUtils.findMapRule(mappedRepo, iu) != null)
 					return false;
 

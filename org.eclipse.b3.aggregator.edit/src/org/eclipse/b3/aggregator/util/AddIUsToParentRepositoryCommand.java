@@ -20,11 +20,11 @@ import org.eclipse.b3.aggregator.MapRule;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.MappedUnit;
 import org.eclipse.b3.aggregator.ValidConfigurationsRule;
-import org.eclipse.b3.aggregator.p2.InstallableUnit;
 import org.eclipse.b3.aggregator.p2.MetadataRepository;
 import org.eclipse.b3.aggregator.provider.AggregatorEditPlugin;
 import org.eclipse.emf.common.command.AbstractCommand;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 
 /**
  * @author Karel Brezina
@@ -33,17 +33,17 @@ import org.eclipse.emf.ecore.EObject;
 public class AddIUsToParentRepositoryCommand extends AbstractCommand {
 	private Aggregator aggregator;
 
-	private List<InstallableUnit> selectedIUs;
+	private List<IInstallableUnit> selectedIUs;
 
 	private int operation;
 
-	private Map<InstallableUnit, MappedRepository> mapIUMappedRepo = new HashMap<InstallableUnit, MappedRepository>();
+	private Map<IInstallableUnit, MappedRepository> mapIUMappedRepo = new HashMap<IInstallableUnit, MappedRepository>();
 
 	private Map<MappedRepository, List<MappedUnit>> unitsAddedToMappedRepo = new HashMap<MappedRepository, List<MappedUnit>>();
 
 	private Map<MappedRepository, List<MapRule>> rulesAddedToMappedRepo = new HashMap<MappedRepository, List<MapRule>>();
 
-	public AddIUsToParentRepositoryCommand(Aggregator aggregator, List<InstallableUnit> selectedIUs, int operation) {
+	public AddIUsToParentRepositoryCommand(Aggregator aggregator, List<IInstallableUnit> selectedIUs, int operation) {
 		super(AggregatorEditPlugin.INSTANCE.getString("_UI_Add_to_parent_Mapped_Repository"));
 
 		this.aggregator = aggregator;
@@ -55,7 +55,7 @@ public class AddIUsToParentRepositoryCommand extends AbstractCommand {
 		unitsAddedToMappedRepo.clear();
 		rulesAddedToMappedRepo.clear();
 
-		for(InstallableUnit iu : selectedIUs) {
+		for(IInstallableUnit iu : selectedIUs) {
 			MappedRepository repo = mapIUMappedRepo.get(iu);
 
 			if(!repo.isEnabled())
@@ -112,7 +112,7 @@ public class AddIUsToParentRepositoryCommand extends AbstractCommand {
 	protected boolean prepare() {
 		boolean someEnabled = false;
 
-		for(InstallableUnit iu : selectedIUs) {
+		for(IInstallableUnit iu : selectedIUs) {
 			if(!(((EObject) iu).eContainer() instanceof MetadataRepository))
 				return false;
 

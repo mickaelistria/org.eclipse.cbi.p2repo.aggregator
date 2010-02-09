@@ -194,16 +194,6 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	protected FragmentsItemProvider fragmentsItemProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.RequiredCapabilities}
-	 * instances.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected RequiredCapabilitiesItemProvider requiredCapabilitiesItemProvider;
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.ProvidedCapabilities}
 	 * instances.
 	 * <!-- begin-user-doc --> <!--
@@ -231,16 +221,6 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 
 	/**
 	 * This keeps track of the one adapter used for all
-	 * {@link org.eclipse.b3.aggregator.p2view.RequiredCapabilityWrapper} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected RequiredCapabilityWrapperItemProvider requiredCapabilityWrapperItemProvider;
-
-	/**
-	 * This keeps track of the one adapter used for all
 	 * {@link org.eclipse.b3.aggregator.p2view.ProvidedCapabilityWrapper} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -248,6 +228,25 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	 * @generated
 	 */
 	protected ProvidedCapabilityWrapperItemProvider providedCapabilityWrapperItemProvider;
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.RequirementWrapper}
+	 * instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected RequirementWrapperItemProvider requirementWrapperItemProvider;
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.Requirements} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected RequirementsItemProvider requirementsItemProvider;
 
 	/**
 	 * This constructs an instance.
@@ -588,33 +587,35 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	}
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.RequiredCapabilities}. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.Requirements}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	@Override
-	public Adapter createRequiredCapabilitiesAdapter() {
-		if(requiredCapabilitiesItemProvider == null) {
-			requiredCapabilitiesItemProvider = new RequiredCapabilitiesItemProvider(this);
+	public Adapter createRequirementsAdapter() {
+		if(requirementsItemProvider == null) {
+			requirementsItemProvider = new RequirementsItemProvider(this);
 		}
 
-		return requiredCapabilitiesItemProvider;
+		return requirementsItemProvider;
 	}
 
 	/**
-	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.RequiredCapabilityWrapper}. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.RequirementWrapper}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
 	@Override
-	public Adapter createRequiredCapabilityWrapperAdapter() {
-		if(requiredCapabilityWrapperItemProvider == null) {
-			requiredCapabilityWrapperItemProvider = new RequiredCapabilityWrapperItemProvider(this);
+	public Adapter createRequirementWrapperAdapter() {
+		if(requirementWrapperItemProvider == null) {
+			requirementWrapperItemProvider = new RequirementWrapperItemProvider(this);
 		}
 
-		return requiredCapabilityWrapperItemProvider;
+		return requirementWrapperItemProvider;
 	}
 
 	/**
@@ -670,16 +671,16 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 			otherIUItemProvider.dispose();
 		if(propertiesItemProvider != null)
 			propertiesItemProvider.dispose();
-		if(requiredCapabilitiesItemProvider != null)
-			requiredCapabilitiesItemProvider.dispose();
+		if(requirementsItemProvider != null)
+			requirementsItemProvider.dispose();
 		if(providedCapabilitiesItemProvider != null)
 			providedCapabilitiesItemProvider.dispose();
 		if(touchpointsItemProvider != null)
 			touchpointsItemProvider.dispose();
 		if(iuDetailsItemProvider != null)
 			iuDetailsItemProvider.dispose();
-		if(requiredCapabilityWrapperItemProvider != null)
-			requiredCapabilityWrapperItemProvider.dispose();
+		if(requirementWrapperItemProvider != null)
+			requirementWrapperItemProvider.dispose();
 		if(providedCapabilityWrapperItemProvider != null)
 			providedCapabilityWrapperItemProvider.dispose();
 	}

@@ -22,7 +22,6 @@ import org.eclipse.b3.aggregator.InstallableUnitRequest;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.p2.MetadataRepository;
 import org.eclipse.b3.aggregator.util.AggregatorResource;
-import org.eclipse.b3.aggregator.util.GeneralUtils;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -39,9 +38,11 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipse.equinox.internal.provisional.p2.metadata.IInstallableUnit;
-import org.eclipse.equinox.internal.provisional.p2.metadata.VersionRange;
-import org.eclipse.equinox.internal.provisional.p2.metadata.query.Collector;
+import org.eclipse.equinox.internal.p2.metadata.TranslationSupport;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
+import org.eclipse.equinox.p2.metadata.VersionRange;
+import org.eclipse.equinox.p2.query.IQuery;
+import org.eclipse.equinox.p2.query.IQueryResult;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.InstallableUnitRequest} object.
@@ -206,7 +207,6 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 				AggregatorPackage.Literals.INSTALLABLE_UNIT_REQUEST__NAME, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null) {
 
-			@SuppressWarnings( { "rawtypes" })
 			public Collection<?> getChoiceOfValues(Object object) {
 				InstallableUnitRequest self = (InstallableUnitRequest) object;
 				MappedRepository container = (MappedRepository) ((EObject) self).eContainer();
@@ -216,13 +216,13 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 
 				// Build a list of IU's that correspond to the given type of MappedUnit
 				//
-				Collector collector = repo.query(getInstallableUnitQuery(), new Collector(), null);
-				if(collector.isEmpty())
+				IQueryResult<IInstallableUnit> queryResult = repo.query(getInstallableUnitQuery(), null);
+				if(queryResult.isEmpty())
 					return Collections.singleton(null);
 
 				List<String> result = new ArrayList<String>();
 
-				Collection availableUnits = collector.toCollection();
+				Collection<IInstallableUnit> availableUnits = queryResult.toSet();
 				Set<String> availableUnitNames = new HashSet<String>(availableUnits.size());
 				for(Object availableUnit : availableUnits)
 					availableUnitNames.add(((IInstallableUnit) availableUnit).getId());
@@ -292,7 +292,7 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 		bld.append(versionRange.toString());
 		IInstallableUnit iu = iuRef.resolveAsSingleton();
 		if(iu != null) {
-			String name = GeneralUtils.getLocalizedProperty(iu, IInstallableUnit.PROP_NAME);
+			String name = TranslationSupport.getInstance().getIUProperty(iu, IInstallableUnit.PROP_NAME);
 			if(name != null && !name.startsWith("%")) {
 				bld.append(" (");
 				bld.append(name);
@@ -334,7 +334,7 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 	}
 
 	// Must be implemented by subclass.
-	protected org.eclipse.equinox.internal.provisional.p2.metadata.query.Query getInstallableUnitQuery() {
+	protected IQuery<IInstallableUnit> getInstallableUnitQuery() {
 		throw new UnsupportedOperationException();
 	}
 

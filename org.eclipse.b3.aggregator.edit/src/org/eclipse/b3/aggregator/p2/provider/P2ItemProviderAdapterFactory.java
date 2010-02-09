@@ -197,6 +197,15 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory implements Co
 	protected RepositoryReferenceItemProvider repositoryReferenceItemProvider;
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2.Requirement} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected RequirementItemProvider requirementItemProvider;
+
+	/**
 	 * This constructs an instance.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -421,6 +430,22 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory implements Co
 	}
 
 	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2.Requirement}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Adapter createRequirementAdapter() {
+		if(requirementItemProvider == null) {
+			requirementItemProvider = new RequirementItemProvider(this);
+		}
+
+		return requirementItemProvider;
+	}
+
+	/**
 	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2.TouchpointData}.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
@@ -506,6 +531,8 @@ public class P2ItemProviderAdapterFactory extends P2AdapterFactory implements Co
 			providedCapabilityItemProvider.dispose();
 		if(requiredCapabilityItemProvider != null)
 			requiredCapabilityItemProvider.dispose();
+		if(requirementItemProvider != null)
+			requirementItemProvider.dispose();
 		if(touchpointDataItemProvider != null)
 			touchpointDataItemProvider.dispose();
 		if(touchpointInstructionItemProvider != null)

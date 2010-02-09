@@ -6,9 +6,9 @@
  */
 package org.eclipse.b3.aggregator;
 
-import org.eclipse.b3.aggregator.p2.InstallableUnit;
 import org.eclipse.b3.aggregator.p2.MetadataRepository;
 import org.eclipse.emf.ecore.EFactory;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 
 /**
  * <!-- begin-user-doc --> The <b>Factory</b> for the model. It provides a create method for each non-abstract class of
@@ -168,9 +168,9 @@ public interface AggregatorFactory extends EFactory {
 	 * @return a new object of class '<em>Mapped Unit</em>'.
 	 * @generated NOT
 	 */
-	MappedUnit createMappedUnit(InstallableUnit iu);
+	MappedUnit createMappedUnit(IInstallableUnit iu);
 
-	MapRule createMapRule(InstallableUnit iu, Class<? extends MapRule> ruleClass);
+	MapRule createMapRule(IInstallableUnit iu, Class<? extends MapRule> ruleClass);
 
 	/**
 	 * Returns a new object of class '<em>Maven Item</em>'.

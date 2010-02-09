@@ -72,9 +72,9 @@ public class UpdateDescriptorItemProvider extends AggregatorItemProviderAdapter 
 		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addDescriptionPropertyDescriptor(object);
 			addIdPropertyDescriptor(object);
 			addRangePropertyDescriptor(object);
-			addDescriptionPropertyDescriptor(object);
 			addSeverityPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -117,9 +117,9 @@ public class UpdateDescriptorItemProvider extends AggregatorItemProviderAdapter 
 		updateChildren(notification);
 
 		switch(notification.getFeatureID(UpdateDescriptor.class)) {
+		case P2Package.UPDATE_DESCRIPTOR__DESCRIPTION:
 		case P2Package.UPDATE_DESCRIPTOR__ID:
 		case P2Package.UPDATE_DESCRIPTOR__RANGE:
-		case P2Package.UPDATE_DESCRIPTOR__DESCRIPTION:
 		case P2Package.UPDATE_DESCRIPTOR__SEVERITY:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;

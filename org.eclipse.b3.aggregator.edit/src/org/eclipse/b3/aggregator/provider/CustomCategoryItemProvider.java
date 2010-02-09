@@ -36,6 +36,7 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.CustomCategory} object. <!--
@@ -286,7 +287,7 @@ public class CustomCategoryItemProvider extends AggregatorItemProviderAdapter im
 		if(itemSorter.getTotalItemCount() > 0
 				&& (itemSorter.getTotalItemCount() == itemSorter.getGroupItems(ItemGroup.FEATURE).size() || (itemSorter.getTotalItemCount() == itemSorter.getGroupItems(
 						ItemGroup.FEATURE_STRUCTURED).size()))) {
-			List<InstallableUnit> features = new ArrayList<InstallableUnit>();
+			List<IInstallableUnit> features = new ArrayList<IInstallableUnit>();
 			features.addAll((List<InstallableUnit>) itemSorter.getGroupItems(ItemGroup.FEATURE));
 			features.addAll(ItemUtils.getIUs((List<org.eclipse.b3.aggregator.p2view.Feature>) itemSorter.getGroupItems(ItemGroup.FEATURE_STRUCTURED)));
 

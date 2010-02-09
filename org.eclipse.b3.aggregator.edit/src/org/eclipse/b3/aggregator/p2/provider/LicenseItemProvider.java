@@ -76,7 +76,7 @@ public class LicenseItemProvider extends AggregatorItemProviderAdapter implement
 
 			addLocationPropertyDescriptor(object);
 			addBodyPropertyDescriptor(object);
-			addDigestPropertyDescriptor(object);
+			addUUIDPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -123,7 +123,7 @@ public class LicenseItemProvider extends AggregatorItemProviderAdapter implement
 		switch(notification.getFeatureID(License.class)) {
 		case P2Package.LICENSE__LOCATION:
 		case P2Package.LICENSE__BODY:
-		case P2Package.LICENSE__DIGEST:
+		case P2Package.LICENSE__UUID:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}
@@ -145,20 +145,6 @@ public class LicenseItemProvider extends AggregatorItemProviderAdapter implement
 	}
 
 	/**
-	 * This adds a property descriptor for the Digest feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addDigestPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_ILicense_digest_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_ILicense_digest_feature", "_UI_ILicense_type"), P2Package.Literals.ILICENSE__DIGEST,
-				false, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Location feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -170,6 +156,21 @@ public class LicenseItemProvider extends AggregatorItemProviderAdapter implement
 				getString("_UI_ILicense_location_feature"), getString("_UI_PropertyDescriptor_description",
 						"_UI_ILicense_location_feature", "_UI_ILicense_type"), P2Package.Literals.ILICENSE__LOCATION,
 				false, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the UUID feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addUUIDPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_ILicense_UUID_feature"), getString("_UI_PropertyDescriptor_description",
+						"_UI_ILicense_UUID_feature", "_UI_ILicense_type"), P2Package.Literals.ILICENSE__UUID, true,
+				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**

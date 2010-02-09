@@ -577,7 +577,7 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 
 	// each IU is located in the structured view twice 1) under Categories node, 2) under Features (Bundles, ..) node
 	// skipCategoriesSubTree filters out the Categories subtree
-	public TwoColumnMatrix<IUPresentation, Object[]> findIUPresentationsWhichSatisfies(IRequiredCapability rc,
+	public TwoColumnMatrix<IUPresentation, Object[]> findIUPresentationsWhichSatisfies(IRequirement rc,
 			boolean skipCategoriesSubTree) {
 		TwoColumnMatrix<IUPresentation, Object[]> found = new TwoColumnMatrix<IUPresentation, Object[]>();
 

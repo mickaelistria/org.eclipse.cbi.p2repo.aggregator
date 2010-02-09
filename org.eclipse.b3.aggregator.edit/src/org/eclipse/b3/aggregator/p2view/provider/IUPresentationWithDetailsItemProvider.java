@@ -62,13 +62,11 @@ public class IUPresentationWithDetailsItemProvider extends IUPresentationItemPro
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if(childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(P2viewPackage.Literals.IU_DETAILS__REQUIRED_CAPABILITIES_CONTAINER);
 			childrenFeatures.add(P2viewPackage.Literals.IU_DETAILS__PROVIDED_CAPABILITIES_CONTAINER);
 			childrenFeatures.add(P2viewPackage.Literals.IU_DETAILS__PROPERTIES_CONTAINER);
 			childrenFeatures.add(P2viewPackage.Literals.IU_DETAILS__TOUCHPOINTS_CONTAINER);
 			childrenFeatures.add(P2viewPackage.Literals.IU_DETAILS__UPDATE_DESCRIPTOR);
 			childrenFeatures.add(P2viewPackage.Literals.IU_DETAILS__COPYRIGHT);
-			childrenFeatures.add(P2viewPackage.Literals.IU_DETAILS__LICENSE);
 		}
 		return childrenFeatures;
 	}
@@ -95,9 +93,10 @@ public class IUPresentationWithDetailsItemProvider extends IUPresentationItemPro
 		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addRequirementsContainerPropertyDescriptor(object);
 			addUpdateDescriptorPropertyDescriptor(object);
 			addCopyrightPropertyDescriptor(object);
-			addLicensePropertyDescriptor(object);
+			addLicensesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -160,17 +159,34 @@ public class IUPresentationWithDetailsItemProvider extends IUPresentationItemPro
 	}
 
 	/**
-	 * This adds a property descriptor for the License feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This adds a property descriptor for the Licenses feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	protected void addLicensePropertyDescriptor(Object object) {
+	protected void addLicensesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_IUDetails_license_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_IUDetails_license_feature", "_UI_IUDetails_type"),
-				P2viewPackage.Literals.IU_DETAILS__LICENSE, false, false, true, null, null, null));
+				getString("_UI_IUDetails_licenses_feature"), getString("_UI_PropertyDescriptor_description",
+						"_UI_IUDetails_licenses_feature", "_UI_IUDetails_type"),
+				P2viewPackage.Literals.IU_DETAILS__LICENSES, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Requirements Container feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addRequirementsContainerPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_IUDetails_requirementsContainer_feature"), getString(
+						"_UI_PropertyDescriptor_description", "_UI_IUDetails_requirementsContainer_feature",
+						"_UI_IUDetails_type"), P2viewPackage.Literals.IU_DETAILS__REQUIREMENTS_CONTAINER, true, false,
+				true, null, null, null));
 	}
 
 	/**

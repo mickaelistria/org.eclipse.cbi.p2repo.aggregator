@@ -54,6 +54,7 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.Contribution} object. <!--
@@ -521,7 +522,7 @@ public class ContributionItemProvider extends AggregatorItemProviderAdapter impl
 						ItemGroup.IU).size()) || itemSorter.getTotalItemCount() == (itemSorter.getGroupItems(
 						ItemGroup.MDR_STRUCTURED).size() + itemSorter.getGroupItems(ItemGroup.IU_STRUCTURED).size()))) {
 			List<MetadataRepository> mdrs = new ArrayList<MetadataRepository>();
-			List<InstallableUnit> ius = new ArrayList<InstallableUnit>();
+			List<IInstallableUnit> ius = new ArrayList<IInstallableUnit>();
 
 			mdrs.addAll((List<MetadataRepository>) itemSorter.getGroupItems(ItemGroup.MDR));
 			mdrs.addAll(ItemUtils.getMDRs((List<MetadataRepositoryStructuredView>) itemSorter.getGroupItems(ItemGroup.MDR_STRUCTURED)));
