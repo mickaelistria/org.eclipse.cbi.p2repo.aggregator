@@ -1,0 +1,9 @@
+unit fruitsallad version 1.0.0 {
+	builder make {
+		input {
+			fruit/apple/1.0.0#dice;
+			fruit/banana/1.0.0#dice;
+			fruit/orange/1.0.0#dice;
+		}
+	}
+}

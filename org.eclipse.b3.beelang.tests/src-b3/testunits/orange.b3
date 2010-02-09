@@ -1,0 +1,11 @@
+unit apple version 1.0.0 {
+	builder peel {
+		output { orangepeel.txt; }
+	}
+	builder seeds {
+		output { orangeseeds.txt; }
+	}
+	builder pulp {
+		output { orangepulp.txt; }
+	}
+}
