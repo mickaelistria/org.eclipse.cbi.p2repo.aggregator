@@ -12,6 +12,7 @@ import org.eclipse.b3.backend.core.B3BackendException;
 import org.eclipse.b3.backend.core.B3NoSuchFunctionException;
 import org.eclipse.b3.backend.core.B3NoSuchFunctionSignatureException;
 import org.eclipse.b3.backend.evaluator.BackendHelper;
+import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BCallExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
@@ -290,6 +291,15 @@ public class BCallExpressionImpl extends BParameterizedExpressionImpl implements
 			parameters[counter] = e.evaluate(ctx);
 			tparameters[counter++] = e.getDeclaredType(ctx);
 		}
+		if(target instanceof Class<?>) {
+			if(parameters.length != 1)
+				throw B3BackendException.fromMessage(this, "Attempt to cast to {0} using more than one pbject to cast", new Object[]{target});
+			try {
+				return ((Class<?>) target).cast(parameters[0]);	
+			} catch(ClassCastException e) {
+				throw B3BackendException.fromMessage(this, e, "Can not perform cast", new Object[] {});
+			}
+		}
 		if(!(target instanceof BFunction))
 			throw B3BackendException.fromMessage(this, "Attempt to call non Function - was type : {0}", new Object[]{target.getClass()});
 
@@ -381,6 +391,9 @@ public class BCallExpressionImpl extends BParameterizedExpressionImpl implements
 	 */
 	private Type getDeclaredTypeExpressionCall(BExecutionContext ctx) throws Throwable{
 		Type t = funcExpr.getDeclaredType(ctx);
+		if(t instanceof B3MetaClass) {
+			return ((B3MetaClass)t).getInstanceClass(); // the class this meta class represents (i.e. what it casts to).
+		}
 		if(!(t instanceof B3FunctionType))
 			throw BackendHelper.createException(this, "call on non BFunction - has type : {0}", new Object[]{t});
 		return ((B3FunctionType)t).getReturnType();
