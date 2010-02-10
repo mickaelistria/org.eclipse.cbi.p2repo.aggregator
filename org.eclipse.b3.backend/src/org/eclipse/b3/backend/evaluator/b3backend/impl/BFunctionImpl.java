@@ -29,6 +29,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.Visibility;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
+import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -700,9 +701,12 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 	 * and then {@link #internalCall(BExecutionContext, Object[], Type[])}.
 	 * Derived classes can override this method, and the prepare and internal call as they see fit.
 	 * <!-- end-user-doc -->
+	 * @throws OperationCanceledException if the operation was canceled
 	 * @generated NOT
 	 */
 	public Object call(BExecutionContext ctx, Object[] parameters, Type[] types) throws Throwable {
+		if(ctx.getProgressMonitor().isCanceled())
+			throw new OperationCanceledException();
 		ctx = prepareCall(ctx, parameters, types);
 		return internalCall(ctx, parameters, types);
 	}

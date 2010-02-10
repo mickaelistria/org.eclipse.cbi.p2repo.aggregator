@@ -153,13 +153,22 @@ public interface B3backendPackage extends EPackage {
 	int BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS = 3;
 
 	/**
+	 * The feature id for the '<em><b>Progress Monitor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEXECUTION_CONTEXT__PROGRESS_MONITOR = 4;
+
+	/**
 	 * The number of structural features of the '<em>BExecution Context</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BEXECUTION_CONTEXT_FEATURE_COUNT = 4;
+	int BEXECUTION_CONTEXT_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BIfExpressionImpl <em>BIf Expression</em>}' class.
@@ -1569,6 +1578,15 @@ public interface B3backendPackage extends EPackage {
 	int BSYSTEM_CONTEXT__EFFECTIVE_CONCERNS = BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS;
 
 	/**
+	 * The feature id for the '<em><b>Progress Monitor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSYSTEM_CONTEXT__PROGRESS_MONITOR = BEXECUTION_CONTEXT__PROGRESS_MONITOR;
+
+	/**
 	 * The number of structural features of the '<em>BSystem Context</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1614,6 +1632,15 @@ public interface B3backendPackage extends EPackage {
 	int BCONTEXT__EFFECTIVE_CONCERNS = BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS;
 
 	/**
+	 * The feature id for the '<em><b>Progress Monitor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BCONTEXT__PROGRESS_MONITOR = BEXECUTION_CONTEXT__PROGRESS_MONITOR;
+
+	/**
 	 * The number of structural features of the '<em>BContext</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1657,6 +1684,15 @@ public interface B3backendPackage extends EPackage {
 	 * @ordered
 	 */
 	int BINNER_CONTEXT__EFFECTIVE_CONCERNS = BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS;
+
+	/**
+	 * The feature id for the '<em><b>Progress Monitor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINNER_CONTEXT__PROGRESS_MONITOR = BEXECUTION_CONTEXT__PROGRESS_MONITOR;
 
 	/**
 	 * The feature id for the '<em><b>Outer Context</b></em>' reference.
@@ -1711,6 +1747,15 @@ public interface B3backendPackage extends EPackage {
 	 * @ordered
 	 */
 	int BINVOCATION_CONTEXT__EFFECTIVE_CONCERNS = BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS;
+
+	/**
+	 * The feature id for the '<em><b>Progress Monitor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINVOCATION_CONTEXT__PROGRESS_MONITOR = BEXECUTION_CONTEXT__PROGRESS_MONITOR;
 
 	/**
 	 * The feature id for the '<em><b>Expression Cache</b></em>' attribute.
@@ -2930,6 +2975,15 @@ public interface B3backendPackage extends EPackage {
 	int BINSTANCE_CONTEXT__EFFECTIVE_CONCERNS = BINNER_CONTEXT__EFFECTIVE_CONCERNS;
 
 	/**
+	 * The feature id for the '<em><b>Progress Monitor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINSTANCE_CONTEXT__PROGRESS_MONITOR = BINNER_CONTEXT__PROGRESS_MONITOR;
+
+	/**
 	 * The feature id for the '<em><b>Outer Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3911,6 +3965,15 @@ public interface B3backendPackage extends EPackage {
 	int BDELEGATING_CONTEXT__EFFECTIVE_CONCERNS = BINNER_CONTEXT__EFFECTIVE_CONCERNS;
 
 	/**
+	 * The feature id for the '<em><b>Progress Monitor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BDELEGATING_CONTEXT__PROGRESS_MONITOR = BINNER_CONTEXT__PROGRESS_MONITOR;
+
+	/**
 	 * The feature id for the '<em><b>Outer Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3973,6 +4036,15 @@ public interface B3backendPackage extends EPackage {
 	 * @ordered
 	 */
 	int BWRAPPING_CONTEXT__EFFECTIVE_CONCERNS = BDELEGATING_CONTEXT__EFFECTIVE_CONCERNS;
+
+	/**
+	 * The feature id for the '<em><b>Progress Monitor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BWRAPPING_CONTEXT__PROGRESS_MONITOR = BDELEGATING_CONTEXT__PROGRESS_MONITOR;
 
 	/**
 	 * The feature id for the '<em><b>Outer Context</b></em>' reference.
@@ -4295,6 +4367,16 @@ public interface B3backendPackage extends EPackage {
 	int URI = 102;
 
 	/**
+	 * The meta object id for the '<em>IProgress Monitor</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.core.runtime.IProgressMonitor
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getIProgressMonitor()
+	 * @generated
+	 */
+	int IPROGRESS_MONITOR = 103;
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BExpression <em>BExpression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4367,6 +4449,17 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBExecutionContext_EffectiveConcerns();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getProgressMonitor <em>Progress Monitor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Progress Monitor</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getProgressMonitor()
+	 * @see #getBExecutionContext()
+	 * @generated
+	 */
+	EAttribute getBExecutionContext_ProgressMonitor();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BIfExpression <em>BIf Expression</em>}'.
@@ -6883,6 +6976,17 @@ public interface B3backendPackage extends EPackage {
 	EDataType getURI();
 
 	/**
+	 * Returns the meta object for data type '{@link org.eclipse.core.runtime.IProgressMonitor <em>IProgress Monitor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>IProgress Monitor</em>'.
+	 * @see org.eclipse.core.runtime.IProgressMonitor
+	 * @model instanceClass="org.eclipse.core.runtime.IProgressMonitor"
+	 * @generated
+	 */
+	EDataType getIProgressMonitor();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6965,6 +7069,14 @@ public interface B3backendPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS = eINSTANCE.getBExecutionContext_EffectiveConcerns();
+
+		/**
+		 * The meta object literal for the '<em><b>Progress Monitor</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BEXECUTION_CONTEXT__PROGRESS_MONITOR = eINSTANCE.getBExecutionContext_ProgressMonitor();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BIfExpressionImpl <em>BIf Expression</em>}' class.
@@ -9049,6 +9161,16 @@ public interface B3backendPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType URI = eINSTANCE.getURI();
+
+		/**
+		 * The meta object literal for the '<em>IProgress Monitor</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.core.runtime.IProgressMonitor
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getIProgressMonitor()
+		 * @generated
+		 */
+		EDataType IPROGRESS_MONITOR = eINSTANCE.getIProgressMonitor();
 
 	}
 

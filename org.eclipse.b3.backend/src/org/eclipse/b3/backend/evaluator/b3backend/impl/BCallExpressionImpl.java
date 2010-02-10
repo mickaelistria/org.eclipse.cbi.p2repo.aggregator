@@ -20,6 +20,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameter;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
+import org.eclipse.core.runtime.OperationCanceledException;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -261,8 +262,14 @@ public class BCallExpressionImpl extends BParameterizedExpressionImpl implements
 		return result.toString();
 	}
 
+	/**
+	 * Checks for progress monitor cancellation, and if not canceled calls the function.
+	 * @throws OperationCanceledException if operation was canceled.
+	 */
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
+		if(ctx.getProgressMonitor().isCanceled())
+			throw new OperationCanceledException();
 		Throwable lastError = null;
 		try {
 		// if call is on the form "x.f(...)" => "f(x,...)"

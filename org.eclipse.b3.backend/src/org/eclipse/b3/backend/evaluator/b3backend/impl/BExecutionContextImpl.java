@@ -50,6 +50,8 @@ import org.eclipse.b3.backend.evaluator.b3backend.BTypeCalculatorFunction;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BInvocationContext;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
@@ -72,6 +74,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getValueMap <em>Value Map</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getFuncStore <em>Func Store</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getEffectiveConcerns <em>Effective Concerns</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl#getProgressMonitor <em>Progress Monitor</em>}</li>
  * </ul>
  * </p>
  *
@@ -147,6 +150,26 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	protected EList<BConcern> effectiveConcerns;
 
 	/**
+	 * The default value of the '{@link #getProgressMonitor() <em>Progress Monitor</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProgressMonitor()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final IProgressMonitor PROGRESS_MONITOR_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getProgressMonitor() <em>Progress Monitor</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProgressMonitor()
+	 * @generated
+	 * @ordered
+	 */
+	protected IProgressMonitor progressMonitor = PROGRESS_MONITOR_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
@@ -202,6 +225,10 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		parentContext = newParentContext;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT, oldParentContext, parentContext));
+		// since progress monitor is obtained quite often, make sure there is one (to prevent searching for
+		// one later).
+		if(progressMonitor == null)
+			setProgressMonitor(parentContext.getProgressMonitor());
 	}
 
 	/**
@@ -243,6 +270,34 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 			effectiveConcerns = new EObjectResolvingEList<BConcern>(BConcern.class, this, B3backendPackage.BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS);
 		}
 		return effectiveConcerns;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Returns a progress monitor set in the context, or if null, the parent context's progress monitor.
+	 * If the top most context does not have a progress monitor, a NullProgressMonitor is created and set.
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public IProgressMonitor getProgressMonitor() {
+		if(progressMonitor != null)
+			return progressMonitor;
+		else if(getParentContext() != null)
+			return getParentContext().getProgressMonitor();
+		setProgressMonitor(new NullProgressMonitor());
+		return progressMonitor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setProgressMonitor(IProgressMonitor newProgressMonitor) {
+		IProgressMonitor oldProgressMonitor = progressMonitor;
+		progressMonitor = newProgressMonitor;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BEXECUTION_CONTEXT__PROGRESS_MONITOR, oldProgressMonitor, progressMonitor));
 	}
 
 	/**
@@ -988,6 +1043,8 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 				return getFuncStore();
 			case B3backendPackage.BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS:
 				return getEffectiveConcerns();
+			case B3backendPackage.BEXECUTION_CONTEXT__PROGRESS_MONITOR:
+				return getProgressMonitor();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1011,6 +1068,9 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 				getEffectiveConcerns().clear();
 				getEffectiveConcerns().addAll((Collection<? extends BConcern>)newValue);
 				return;
+			case B3backendPackage.BEXECUTION_CONTEXT__PROGRESS_MONITOR:
+				setProgressMonitor((IProgressMonitor)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1032,6 +1092,9 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 			case B3backendPackage.BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS:
 				getEffectiveConcerns().clear();
 				return;
+			case B3backendPackage.BEXECUTION_CONTEXT__PROGRESS_MONITOR:
+				setProgressMonitor(PROGRESS_MONITOR_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1052,6 +1115,8 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 				return FUNC_STORE_EDEFAULT == null ? funcStore != null : !FUNC_STORE_EDEFAULT.equals(funcStore);
 			case B3backendPackage.BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS:
 				return effectiveConcerns != null && !effectiveConcerns.isEmpty();
+			case B3backendPackage.BEXECUTION_CONTEXT__PROGRESS_MONITOR:
+				return PROGRESS_MONITOR_EDEFAULT == null ? progressMonitor != null : !PROGRESS_MONITOR_EDEFAULT.equals(progressMonitor);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1070,8 +1135,9 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		result.append(valueMap);
 		result.append(", funcStore: ");
 		result.append(funcStore);
+		result.append(", progressMonitor: ");
+		result.append(progressMonitor);
 		result.append(')');
 		return result.toString();
 	}
-	
 } //BExecutionContextImpl

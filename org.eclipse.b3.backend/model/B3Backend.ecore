@@ -147,6 +147,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="funcStore" eType="#//FuncStore"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="effectiveConcerns" upperBound="-1"
         eType="#//BConcern"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="progressMonitor" eType="#//IProgressMonitor"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BIfExpression" eSuperTypes="#//BExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="conditionExpr" eType="#//BExpression"
@@ -724,4 +725,5 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="original" eType="#//BExpression"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="URI" instanceClassName="java.net.URI"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="IProgressMonitor" instanceClassName="org.eclipse.core.runtime.IProgressMonitor"/>
 </ecore:EPackage>

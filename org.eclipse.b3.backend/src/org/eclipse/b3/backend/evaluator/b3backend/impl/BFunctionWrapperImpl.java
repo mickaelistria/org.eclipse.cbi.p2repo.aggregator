@@ -36,6 +36,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext;
 import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.Visibility;
+import org.eclipse.core.runtime.OperationCanceledException;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -994,9 +995,13 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws OperationCanceledException if the operation was canceled.
 	 * @generated NOT
 	 */
 	public Object call(BExecutionContext ctx, Object[] parameters, Type[] types) throws Throwable {
+		if(ctx.getProgressMonitor().isCanceled())
+			throw new OperationCanceledException();
+
 		BExecutionContext octx = prepareCall(ctx, parameters, types);
 		return internalCall(octx, parameters, types);
 	}

@@ -79,6 +79,7 @@ public class BExecutionContextItemProvider
 			addValueMapPropertyDescriptor(object);
 			addFuncStorePropertyDescriptor(object);
 			addEffectiveConcernsPropertyDescriptor(object);
+			addProgressMonitorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -150,6 +151,28 @@ public class BExecutionContextItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Progress Monitor feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addProgressMonitorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_BExecutionContext_progressMonitor_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BExecutionContext_progressMonitor_feature", "_UI_BExecutionContext_type"),
+				 B3backendPackage.Literals.BEXECUTION_CONTEXT__PROGRESS_MONITOR,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns BExecutionContext.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -189,6 +212,7 @@ public class BExecutionContextItemProvider
 		switch (notification.getFeatureID(BExecutionContext.class)) {
 			case B3backendPackage.BEXECUTION_CONTEXT__VALUE_MAP:
 			case B3backendPackage.BEXECUTION_CONTEXT__FUNC_STORE:
+			case B3backendPackage.BEXECUTION_CONTEXT__PROGRESS_MONITOR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

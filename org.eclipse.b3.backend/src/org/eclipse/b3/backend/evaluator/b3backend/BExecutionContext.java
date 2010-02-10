@@ -13,6 +13,7 @@ import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.core.B3FuncStore;
 import org.eclipse.b3.backend.core.LValue;
 import org.eclipse.b3.backend.core.ValueMap;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
@@ -28,6 +29,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getValueMap <em>Value Map</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getFuncStore <em>Func Store</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getEffectiveConcerns <em>Effective Concerns</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getProgressMonitor <em>Progress Monitor</em>}</li>
  * </ul>
  * </p>
  *
@@ -127,6 +129,32 @@ public interface BExecutionContext extends EObject {
 	 * @generated
 	 */
 	EList<BConcern> getEffectiveConcerns();
+
+	/**
+	 * Returns the value of the '<em><b>Progress Monitor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Progress Monitor</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Progress Monitor</em>' attribute.
+	 * @see #setProgressMonitor(IProgressMonitor)
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBExecutionContext_ProgressMonitor()
+	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.IProgressMonitor"
+	 * @generated
+	 */
+	IProgressMonitor getProgressMonitor();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getProgressMonitor <em>Progress Monitor</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Progress Monitor</em>' attribute.
+	 * @see #getProgressMonitor()
+	 * @generated
+	 */
+	void setProgressMonitor(IProgressMonitor value);
 
 	/**
 	 * <!-- begin-user-doc -->

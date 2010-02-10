@@ -16,6 +16,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BJavaCallType;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction;
+import org.eclipse.core.runtime.OperationCanceledException;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -262,9 +263,13 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 	 * Overrides inherited calling by skipping the {@link #prepareCall(BExecutionContext, Object[], Type[])} step.
 	 * (The prepare call is normally not needed for calling java functions as it can operate directly on
 	 * the object and type arrays).
+	 * @throws OperationCanceledException if the operation has been canceled.
 	 */
 	@Override
 	public Object call(BExecutionContext ctx, Object[] parameters, Type[] types) throws Throwable {
+		if(ctx.getProgressMonitor().isCanceled())
+			throw new OperationCanceledException();
+
 		return internalCall(ctx, parameters, types);
 	}
 	@Override

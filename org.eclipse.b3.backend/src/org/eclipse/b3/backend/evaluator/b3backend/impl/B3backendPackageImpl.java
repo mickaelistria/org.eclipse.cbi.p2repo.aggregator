@@ -106,6 +106,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.Visibility;
 import org.eclipse.core.runtime.CoreException;
 
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -854,6 +855,13 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	private EDataType uriEDataType = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType iProgressMonitorEDataType = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -975,6 +983,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 */
 	public EReference getBExecutionContext_EffectiveConcerns() {
 		return (EReference)bExecutionContextEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBExecutionContext_ProgressMonitor() {
+		return (EAttribute)bExecutionContextEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -3106,6 +3123,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EDataType getIProgressMonitor() {
+		return iProgressMonitorEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public B3backendFactory getB3backendFactory() {
 		return (B3backendFactory)getEFactoryInstance();
 	}
@@ -3138,6 +3164,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		createEAttribute(bExecutionContextEClass, BEXECUTION_CONTEXT__VALUE_MAP);
 		createEAttribute(bExecutionContextEClass, BEXECUTION_CONTEXT__FUNC_STORE);
 		createEReference(bExecutionContextEClass, BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS);
+		createEAttribute(bExecutionContextEClass, BEXECUTION_CONTEXT__PROGRESS_MONITOR);
 
 		bIfExpressionEClass = createEClass(BIF_EXPRESSION);
 		createEReference(bIfExpressionEClass, BIF_EXPRESSION__CONDITION_EXPR);
@@ -3458,6 +3485,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		b3DynamicClassLoaderEDataType = createEDataType(B3_DYNAMIC_CLASS_LOADER);
 		javaIteratorEDataType = createEDataType(JAVA_ITERATOR);
 		uriEDataType = createEDataType(URI);
+		iProgressMonitorEDataType = createEDataType(IPROGRESS_MONITOR);
 	}
 
 	/**
@@ -3589,6 +3617,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEAttribute(getBExecutionContext_ValueMap(), this.getValueMap(), "valueMap", "", 1, 1, BExecutionContext.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBExecutionContext_FuncStore(), this.getFuncStore(), "funcStore", null, 0, 1, BExecutionContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBExecutionContext_EffectiveConcerns(), this.getBConcern(), null, "effectiveConcerns", null, 0, -1, BExecutionContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBExecutionContext_ProgressMonitor(), this.getIProgressMonitor(), "progressMonitor", null, 0, 1, BExecutionContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(bExecutionContextEClass, null, "loadFunctions", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEJavaClass());
@@ -4187,6 +4216,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEDataType(b3DynamicClassLoaderEDataType, B3DynamicClassLoader.class, "B3DynamicClassLoader", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(javaIteratorEDataType, Iterator.class, "JavaIterator", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(uriEDataType, java.net.URI.class, "URI", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(iProgressMonitorEDataType, IProgressMonitor.class, "IProgressMonitor", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

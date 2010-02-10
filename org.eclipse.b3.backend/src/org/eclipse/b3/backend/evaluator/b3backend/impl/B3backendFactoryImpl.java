@@ -21,6 +21,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.*;
 
 import org.eclipse.core.runtime.CoreException;
 
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -200,6 +201,8 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 				return createJavaIteratorFromString(eDataType, initialValue);
 			case B3backendPackage.URI:
 				return createURIFromString(eDataType, initialValue);
+			case B3backendPackage.IPROGRESS_MONITOR:
+				return createIProgressMonitorFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -251,6 +254,8 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 				return convertJavaIteratorToString(eDataType, instanceValue);
 			case B3backendPackage.URI:
 				return convertURIToString(eDataType, instanceValue);
+			case B3backendPackage.IPROGRESS_MONITOR:
+				return convertIProgressMonitorToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -1282,6 +1287,24 @@ public class B3backendFactoryImpl extends EFactoryImpl implements B3backendFacto
 	 * @generated
 	 */
 	public String convertURIToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IProgressMonitor createIProgressMonitorFromString(EDataType eDataType, String initialValue) {
+		return (IProgressMonitor)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertIProgressMonitorToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 
