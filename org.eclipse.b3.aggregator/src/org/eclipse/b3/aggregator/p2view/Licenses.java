@@ -15,14 +15,14 @@ import org.eclipse.equinox.p2.metadata.ILicense;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Licenses</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.p2view.Licenses#getLicenses <em>Licenses</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.Licenses#getLicenses <em>Licenses</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getLicenses()
  * @model
  * @generated
@@ -37,7 +37,6 @@ public interface Licenses {
 	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Licenses</em>' reference list.
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getLicenses_Licenses()
 	 * @model type="org.eclipse.b3.aggregator.p2.ILicense"

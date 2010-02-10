@@ -36,7 +36,6 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 /**
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.p2view.InstallableUnits} object.
  * <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
  * @generated
  */
 public class InstallableUnitsItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
@@ -45,7 +44,6 @@ public class InstallableUnitsItemProvider extends AggregatorItemProviderAdapter 
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public InstallableUnitsItemProvider(AdapterFactory adapterFactory) {
@@ -58,12 +56,11 @@ public class InstallableUnitsItemProvider extends AggregatorItemProviderAdapter 
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if(childrenFeatures == null) {
+		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(P2viewPackage.Literals.INSTALLABLE_UNITS__CATEGORY_CONTAINER);
 			childrenFeatures.add(P2viewPackage.Literals.INSTALLABLE_UNITS__FEATURE_CONTAINER);
@@ -78,7 +75,6 @@ public class InstallableUnitsItemProvider extends AggregatorItemProviderAdapter 
 	/**
 	 * This returns InstallableUnits.gif.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -89,12 +85,11 @@ public class InstallableUnitsItemProvider extends AggregatorItemProviderAdapter 
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addChildrenPropertyDescriptor(object);
@@ -111,7 +106,6 @@ public class InstallableUnitsItemProvider extends AggregatorItemProviderAdapter 
 	/**
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -122,7 +116,6 @@ public class InstallableUnitsItemProvider extends AggregatorItemProviderAdapter 
 	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -146,113 +139,155 @@ public class InstallableUnitsItemProvider extends AggregatorItemProviderAdapter 
 	/**
 	 * This adds a property descriptor for the Bundle Container feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected void addBundleContainerPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_InstallableUnits_bundleContainer_feature"), getString(
-						"_UI_PropertyDescriptor_description", "_UI_InstallableUnits_bundleContainer_feature",
-						"_UI_InstallableUnits_type"), P2viewPackage.Literals.INSTALLABLE_UNITS__BUNDLE_CONTAINER,
-				false, false, true, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_InstallableUnits_bundleContainer_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_InstallableUnits_bundleContainer_feature", "_UI_InstallableUnits_type"),
+				 P2viewPackage.Literals.INSTALLABLE_UNITS__BUNDLE_CONTAINER,
+				 false,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Category Container feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected void addCategoryContainerPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_InstallableUnits_categoryContainer_feature"), getString(
-						"_UI_PropertyDescriptor_description", "_UI_InstallableUnits_categoryContainer_feature",
-						"_UI_InstallableUnits_type"), P2viewPackage.Literals.INSTALLABLE_UNITS__CATEGORY_CONTAINER,
-				false, false, true, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_InstallableUnits_categoryContainer_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_InstallableUnits_categoryContainer_feature", "_UI_InstallableUnits_type"),
+				 P2viewPackage.Literals.INSTALLABLE_UNITS__CATEGORY_CONTAINER,
+				 false,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Children feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected void addChildrenPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_ChildrenProvider_children_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_ChildrenProvider_children_feature", "_UI_ChildrenProvider_type"),
-				AggregatorPackage.Literals.CHILDREN_PROVIDER__CHILDREN, false, false, false, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ChildrenProvider_children_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ChildrenProvider_children_feature", "_UI_ChildrenProvider_type"),
+				 AggregatorPackage.Literals.CHILDREN_PROVIDER__CHILDREN,
+				 false,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Feature Container feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected void addFeatureContainerPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_InstallableUnits_featureContainer_feature"), getString(
-						"_UI_PropertyDescriptor_description", "_UI_InstallableUnits_featureContainer_feature",
-						"_UI_InstallableUnits_type"), P2viewPackage.Literals.INSTALLABLE_UNITS__FEATURE_CONTAINER,
-				false, false, true, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_InstallableUnits_featureContainer_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_InstallableUnits_featureContainer_feature", "_UI_InstallableUnits_type"),
+				 P2viewPackage.Literals.INSTALLABLE_UNITS__FEATURE_CONTAINER,
+				 false,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Fragment Container feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected void addFragmentContainerPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_InstallableUnits_fragmentContainer_feature"), getString(
-						"_UI_PropertyDescriptor_description", "_UI_InstallableUnits_fragmentContainer_feature",
-						"_UI_InstallableUnits_type"), P2viewPackage.Literals.INSTALLABLE_UNITS__FRAGMENT_CONTAINER,
-				false, false, true, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_InstallableUnits_fragmentContainer_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_InstallableUnits_fragmentContainer_feature", "_UI_InstallableUnits_type"),
+				 P2viewPackage.Literals.INSTALLABLE_UNITS__FRAGMENT_CONTAINER,
+				 false,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Miscellaneous Container feature.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected void addMiscellaneousContainerPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_InstallableUnits_miscellaneousContainer_feature"), getString(
-						"_UI_PropertyDescriptor_description", "_UI_InstallableUnits_miscellaneousContainer_feature",
-						"_UI_InstallableUnits_type"),
-				P2viewPackage.Literals.INSTALLABLE_UNITS__MISCELLANEOUS_CONTAINER, false, false, true, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_InstallableUnits_miscellaneousContainer_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_InstallableUnits_miscellaneousContainer_feature", "_UI_InstallableUnits_type"),
+				 P2viewPackage.Literals.INSTALLABLE_UNITS__MISCELLANEOUS_CONTAINER,
+				 false,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Product Container feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected void addProductContainerPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_InstallableUnits_productContainer_feature"), getString(
-						"_UI_PropertyDescriptor_description", "_UI_InstallableUnits_productContainer_feature",
-						"_UI_InstallableUnits_type"), P2viewPackage.Literals.INSTALLABLE_UNITS__PRODUCT_CONTAINER,
-				false, false, true, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_InstallableUnits_productContainer_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_InstallableUnits_productContainer_feature", "_UI_InstallableUnits_type"),
+				 P2viewPackage.Literals.INSTALLABLE_UNITS__PRODUCT_CONTAINER,
+				 false,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -262,7 +297,6 @@ public class InstallableUnitsItemProvider extends AggregatorItemProviderAdapter 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

@@ -15,14 +15,14 @@ import org.eclipse.equinox.p2.metadata.IRequirement;
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Required Capability Wrapper</b></em>'. <!--
  * end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.p2view.RequirementWrapper#getGenuine <em>Genuine</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.RequirementWrapper#getGenuine <em>Genuine</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getRequirementWrapper()
  * @model superTypes="org.eclipse.b3.aggregator.p2.IRequirement org.eclipse.b3.aggregator.LabelProvider"
  * @generated
@@ -36,7 +36,6 @@ public interface RequirementWrapper extends IRequirement, LabelProvider {
 	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Genuine</em>' reference.
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getRequirementWrapper_Genuine()
 	 * @model type="org.eclipse.b3.aggregator.p2.IRequirement" resolveProxies="false" required="true" changeable="false"

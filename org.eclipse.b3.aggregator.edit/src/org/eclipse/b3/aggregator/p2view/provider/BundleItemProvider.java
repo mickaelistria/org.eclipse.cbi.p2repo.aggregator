@@ -37,7 +37,6 @@ public class BundleItemProvider extends IUPresentationWithDetailsItemProvider im
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public BundleItemProvider(AdapterFactory adapterFactory) {
@@ -47,7 +46,6 @@ public class BundleItemProvider extends IUPresentationWithDetailsItemProvider im
 	/**
 	 * This returns Bundle.gif.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -58,12 +56,11 @@ public class BundleItemProvider extends IUPresentationWithDetailsItemProvider im
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 		}
@@ -100,7 +97,6 @@ public class BundleItemProvider extends IUPresentationWithDetailsItemProvider im
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

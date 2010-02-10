@@ -44,7 +44,6 @@ public class IUDetailsItemProvider extends AggregatorItemProviderAdapter impleme
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public IUDetailsItemProvider(AdapterFactory adapterFactory) {
@@ -57,12 +56,11 @@ public class IUDetailsItemProvider extends AggregatorItemProviderAdapter impleme
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if(childrenFeatures == null) {
+		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(P2viewPackage.Literals.IU_DETAILS__REQUIREMENTS_CONTAINER);
 			childrenFeatures.add(P2viewPackage.Literals.IU_DETAILS__PROVIDED_CAPABILITIES_CONTAINER);
@@ -78,7 +76,6 @@ public class IUDetailsItemProvider extends AggregatorItemProviderAdapter impleme
 	/**
 	 * This returns IUDetails.gif.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -89,12 +86,11 @@ public class IUDetailsItemProvider extends AggregatorItemProviderAdapter impleme
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addUpdateDescriptorPropertyDescriptor(object);
@@ -106,7 +102,6 @@ public class IUDetailsItemProvider extends AggregatorItemProviderAdapter impleme
 	/**
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -117,7 +112,6 @@ public class IUDetailsItemProvider extends AggregatorItemProviderAdapter impleme
 	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -141,36 +135,49 @@ public class IUDetailsItemProvider extends AggregatorItemProviderAdapter impleme
 	/**
 	 * This adds a property descriptor for the Copyright feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected void addCopyrightPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_IUDetails_copyright_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_IUDetails_copyright_feature", "_UI_IUDetails_type"),
-				P2viewPackage.Literals.IU_DETAILS__COPYRIGHT, false, false, true, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_IUDetails_copyright_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_IUDetails_copyright_feature", "_UI_IUDetails_type"),
+				 P2viewPackage.Literals.IU_DETAILS__COPYRIGHT,
+				 false,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Update Descriptor feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected void addUpdateDescriptorPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_IUDetails_updateDescriptor_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_IUDetails_updateDescriptor_feature", "_UI_IUDetails_type"),
-				P2viewPackage.Literals.IU_DETAILS__UPDATE_DESCRIPTOR, false, false, true, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_IUDetails_updateDescriptor_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_IUDetails_updateDescriptor_feature", "_UI_IUDetails_type"),
+				 P2viewPackage.Literals.IU_DETAILS__UPDATE_DESCRIPTOR,
+				 false,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -180,7 +187,6 @@ public class IUDetailsItemProvider extends AggregatorItemProviderAdapter impleme
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

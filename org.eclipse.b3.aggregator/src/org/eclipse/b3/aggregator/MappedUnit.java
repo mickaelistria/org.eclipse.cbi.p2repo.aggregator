@@ -13,14 +13,14 @@ import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Mapped Unit</b></em>'.
  * 
  * <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.MappedUnit#getValidConfigurations <em>Valid Configurations</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.MappedUnit#getValidConfigurations <em>Valid Configurations</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.aggregator.AggregatorPackage#getMappedUnit()
  * @model abstract="true"
  * @generated
@@ -29,7 +29,6 @@ public interface MappedUnit extends InstallableUnitRequest, EnabledStatusProvide
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @model kind="operation" type="org.eclipse.b3.aggregator.p2.IRequiredCapability"
 	 * @generated
 	 */
@@ -44,7 +43,6 @@ public interface MappedUnit extends InstallableUnitRequest, EnabledStatusProvide
 	 * a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Valid Configurations</em>' reference list.
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getMappedUnit_ValidConfigurations()
 	 * @model keys="operatingSystem windowSystem architecture"

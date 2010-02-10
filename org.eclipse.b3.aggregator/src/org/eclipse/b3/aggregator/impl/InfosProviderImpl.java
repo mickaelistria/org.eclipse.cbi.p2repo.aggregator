@@ -27,19 +27,18 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.impl.InfosProviderImpl#getErrors <em>Errors</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.InfosProviderImpl#getWarnings <em>Warnings</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.impl.InfosProviderImpl#getInfos <em>Infos</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.impl.InfosProviderImpl#getErrors <em>Errors</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.impl.InfosProviderImpl#getWarnings <em>Warnings</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.impl.InfosProviderImpl#getInfos <em>Infos</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class InfosProviderImpl extends MinimalEObjectImpl.Container implements InfosProvider {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -49,7 +48,6 @@ public class InfosProviderImpl extends MinimalEObjectImpl.Container implements I
 	 * The cached value of the '{@link #getErrors() <em>Errors</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @see #getErrors()
 	 * @generated
 	 * @ordered
@@ -60,7 +58,6 @@ public class InfosProviderImpl extends MinimalEObjectImpl.Container implements I
 	 * The cached value of the '{@link #getWarnings() <em>Warnings</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @see #getWarnings()
 	 * @generated
 	 * @ordered
@@ -71,7 +68,6 @@ public class InfosProviderImpl extends MinimalEObjectImpl.Container implements I
 	 * The cached value of the '{@link #getInfos() <em>Infos</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @see #getInfos()
 	 * @generated
 	 * @ordered
@@ -80,7 +76,6 @@ public class InfosProviderImpl extends MinimalEObjectImpl.Container implements I
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected InfosProviderImpl() {
@@ -89,93 +84,88 @@ public class InfosProviderImpl extends MinimalEObjectImpl.Container implements I
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
-		case AggregatorPackage.INFOS_PROVIDER__ERRORS:
-			return getErrors();
-		case AggregatorPackage.INFOS_PROVIDER__WARNINGS:
-			return getWarnings();
-		case AggregatorPackage.INFOS_PROVIDER__INFOS:
-			return getInfos();
+		switch (featureID) {
+			case AggregatorPackage.INFOS_PROVIDER__ERRORS:
+				return getErrors();
+			case AggregatorPackage.INFOS_PROVIDER__WARNINGS:
+				return getWarnings();
+			case AggregatorPackage.INFOS_PROVIDER__INFOS:
+				return getInfos();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
-		case AggregatorPackage.INFOS_PROVIDER__ERRORS:
-			return errors != null && !errors.isEmpty();
-		case AggregatorPackage.INFOS_PROVIDER__WARNINGS:
-			return warnings != null && !warnings.isEmpty();
-		case AggregatorPackage.INFOS_PROVIDER__INFOS:
-			return infos != null && !infos.isEmpty();
+		switch (featureID) {
+			case AggregatorPackage.INFOS_PROVIDER__ERRORS:
+				return errors != null && !errors.isEmpty();
+			case AggregatorPackage.INFOS_PROVIDER__WARNINGS:
+				return warnings != null && !warnings.isEmpty();
+			case AggregatorPackage.INFOS_PROVIDER__INFOS:
+				return infos != null && !infos.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
-		case AggregatorPackage.INFOS_PROVIDER__ERRORS:
-			getErrors().clear();
-			getErrors().addAll((Collection<? extends String>) newValue);
-			return;
-		case AggregatorPackage.INFOS_PROVIDER__WARNINGS:
-			getWarnings().clear();
-			getWarnings().addAll((Collection<? extends String>) newValue);
-			return;
-		case AggregatorPackage.INFOS_PROVIDER__INFOS:
-			getInfos().clear();
-			getInfos().addAll((Collection<? extends String>) newValue);
-			return;
+		switch (featureID) {
+			case AggregatorPackage.INFOS_PROVIDER__ERRORS:
+				getErrors().clear();
+				getErrors().addAll((Collection<? extends String>)newValue);
+				return;
+			case AggregatorPackage.INFOS_PROVIDER__WARNINGS:
+				getWarnings().clear();
+				getWarnings().addAll((Collection<? extends String>)newValue);
+				return;
+			case AggregatorPackage.INFOS_PROVIDER__INFOS:
+				getInfos().clear();
+				getInfos().addAll((Collection<? extends String>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
-		case AggregatorPackage.INFOS_PROVIDER__ERRORS:
-			getErrors().clear();
-			return;
-		case AggregatorPackage.INFOS_PROVIDER__WARNINGS:
-			getWarnings().clear();
-			return;
-		case AggregatorPackage.INFOS_PROVIDER__INFOS:
-			getInfos().clear();
-			return;
+		switch (featureID) {
+			case AggregatorPackage.INFOS_PROVIDER__ERRORS:
+				getErrors().clear();
+				return;
+			case AggregatorPackage.INFOS_PROVIDER__WARNINGS:
+				getWarnings().clear();
+				return;
+			case AggregatorPackage.INFOS_PROVIDER__INFOS:
+				getInfos().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<String> getErrors() {
-		if(errors == null) {
+		if (errors == null) {
 			errors = new EDataTypeUniqueEList<String>(String.class, this, AggregatorPackage.INFOS_PROVIDER__ERRORS);
 		}
 		return errors;
@@ -195,11 +185,10 @@ public class InfosProviderImpl extends MinimalEObjectImpl.Container implements I
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<String> getWarnings() {
-		if(warnings == null) {
+		if (warnings == null) {
 			warnings = new EDataTypeUniqueEList<String>(String.class, this, AggregatorPackage.INFOS_PROVIDER__WARNINGS);
 		}
 		return warnings;
@@ -207,13 +196,11 @@ public class InfosProviderImpl extends MinimalEObjectImpl.Container implements I
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if(eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (errors: ");
@@ -228,7 +215,6 @@ public class InfosProviderImpl extends MinimalEObjectImpl.Container implements I
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

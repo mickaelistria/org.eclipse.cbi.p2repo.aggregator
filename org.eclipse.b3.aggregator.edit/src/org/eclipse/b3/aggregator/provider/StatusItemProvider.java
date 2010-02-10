@@ -37,7 +37,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.Status} object.
  * <!-- begin-user-doc
  * --> <!-- end-user-doc -->
- * 
  * @generated
  */
 public class StatusItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
@@ -46,7 +45,6 @@ public class StatusItemProvider extends AggregatorItemProviderAdapter implements
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public StatusItemProvider(AdapterFactory adapterFactory) {
@@ -56,7 +54,6 @@ public class StatusItemProvider extends AggregatorItemProviderAdapter implements
 	/**
 	 * This returns Status.gif.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -67,12 +64,11 @@ public class StatusItemProvider extends AggregatorItemProviderAdapter implements
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addCodePropertyDescriptor(object);
@@ -84,7 +80,6 @@ public class StatusItemProvider extends AggregatorItemProviderAdapter implements
 	/**
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -95,18 +90,15 @@ public class StatusItemProvider extends AggregatorItemProviderAdapter implements
 	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		StatusCode labelValue = ((Status) object).getCode();
-		String label = labelValue == null
-				? null
-				: labelValue.toString();
-		return label == null || label.length() == 0
-				? getString("_UI_Status_type")
-				: getString("_UI_Status_type") + " " + label;
+		StatusCode labelValue = ((Status)object).getCode();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Status_type") :
+			getString("_UI_Status_type") + " " + label;
 	}
 
 	/**
@@ -120,11 +112,11 @@ public class StatusItemProvider extends AggregatorItemProviderAdapter implements
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch(notification.getFeatureID(Status.class)) {
-		case AggregatorPackage.STATUS__CODE:
-		case AggregatorPackage.STATUS__MESSAGE:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
+		switch (notification.getFeatureID(Status.class)) {
+			case AggregatorPackage.STATUS__CODE:
+			case AggregatorPackage.STATUS__MESSAGE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -132,36 +124,49 @@ public class StatusItemProvider extends AggregatorItemProviderAdapter implements
 	/**
 	 * This adds a property descriptor for the Code feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected void addCodePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Status_code_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_Status_code_feature", "_UI_Status_type"), AggregatorPackage.Literals.STATUS__CODE, false,
-				false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Status_code_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Status_code_feature", "_UI_Status_type"),
+				 AggregatorPackage.Literals.STATUS__CODE,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Message feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected void addMessagePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Status_message_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_Status_message_feature", "_UI_Status_type"), AggregatorPackage.Literals.STATUS__MESSAGE,
-				false, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Status_message_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Status_message_feature", "_UI_Status_type"),
+				 AggregatorPackage.Literals.STATUS__MESSAGE,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

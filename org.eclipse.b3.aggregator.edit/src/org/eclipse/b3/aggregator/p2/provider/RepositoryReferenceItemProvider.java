@@ -38,7 +38,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.p2.RepositoryReference} object.
  * <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
  * @generated
  */
 public class RepositoryReferenceItemProvider extends AggregatorItemProviderAdapter implements
@@ -47,7 +46,6 @@ public class RepositoryReferenceItemProvider extends AggregatorItemProviderAdapt
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public RepositoryReferenceItemProvider(AdapterFactory adapterFactory) {
@@ -57,7 +55,6 @@ public class RepositoryReferenceItemProvider extends AggregatorItemProviderAdapt
 	/**
 	 * This returns RepositoryReference.gif.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -68,12 +65,11 @@ public class RepositoryReferenceItemProvider extends AggregatorItemProviderAdapt
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addLocationPropertyDescriptor(object);
@@ -87,7 +83,6 @@ public class RepositoryReferenceItemProvider extends AggregatorItemProviderAdapt
 	/**
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -122,13 +117,13 @@ public class RepositoryReferenceItemProvider extends AggregatorItemProviderAdapt
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch(notification.getFeatureID(RepositoryReference.class)) {
-		case P2Package.REPOSITORY_REFERENCE__LOCATION:
-		case P2Package.REPOSITORY_REFERENCE__TYPE:
-		case P2Package.REPOSITORY_REFERENCE__OPTIONS:
-		case P2Package.REPOSITORY_REFERENCE__NICKNAME:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
+		switch (notification.getFeatureID(RepositoryReference.class)) {
+			case P2Package.REPOSITORY_REFERENCE__LOCATION:
+			case P2Package.REPOSITORY_REFERENCE__TYPE:
+			case P2Package.REPOSITORY_REFERENCE__OPTIONS:
+			case P2Package.REPOSITORY_REFERENCE__NICKNAME:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -136,68 +131,91 @@ public class RepositoryReferenceItemProvider extends AggregatorItemProviderAdapt
 	/**
 	 * This adds a property descriptor for the Location feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected void addLocationPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_RepositoryReference_location_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_RepositoryReference_location_feature", "_UI_RepositoryReference_type"),
-				P2Package.Literals.REPOSITORY_REFERENCE__LOCATION, false, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RepositoryReference_location_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RepositoryReference_location_feature", "_UI_RepositoryReference_type"),
+				 P2Package.Literals.REPOSITORY_REFERENCE__LOCATION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Nickname feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected void addNicknamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_RepositoryReference_nickname_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_RepositoryReference_nickname_feature", "_UI_RepositoryReference_type"),
-				P2Package.Literals.REPOSITORY_REFERENCE__NICKNAME, false, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RepositoryReference_nickname_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RepositoryReference_nickname_feature", "_UI_RepositoryReference_type"),
+				 P2Package.Literals.REPOSITORY_REFERENCE__NICKNAME,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Options feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected void addOptionsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_RepositoryReference_options_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_RepositoryReference_options_feature", "_UI_RepositoryReference_type"),
-				P2Package.Literals.REPOSITORY_REFERENCE__OPTIONS, false, false, false,
-				ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RepositoryReference_options_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RepositoryReference_options_feature", "_UI_RepositoryReference_type"),
+				 P2Package.Literals.REPOSITORY_REFERENCE__OPTIONS,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Type feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected void addTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_RepositoryReference_type_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_RepositoryReference_type_feature", "_UI_RepositoryReference_type"),
-				P2Package.Literals.REPOSITORY_REFERENCE__TYPE, false, false, false,
-				ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RepositoryReference_type_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RepositoryReference_type_feature", "_UI_RepositoryReference_type"),
+				 P2Package.Literals.REPOSITORY_REFERENCE__TYPE,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

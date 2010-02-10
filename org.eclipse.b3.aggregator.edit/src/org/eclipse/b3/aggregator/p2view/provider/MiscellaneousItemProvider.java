@@ -45,7 +45,6 @@ public class MiscellaneousItemProvider extends AggregatorItemProviderAdapter imp
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public MiscellaneousItemProvider(AdapterFactory adapterFactory) {
@@ -58,12 +57,11 @@ public class MiscellaneousItemProvider extends AggregatorItemProviderAdapter imp
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if(childrenFeatures == null) {
+		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(P2viewPackage.Literals.MISCELLANEOUS__OTHERS);
 		}
@@ -73,7 +71,6 @@ public class MiscellaneousItemProvider extends AggregatorItemProviderAdapter imp
 	/**
 	 * This returns Miscellaneous.gif.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -84,12 +81,11 @@ public class MiscellaneousItemProvider extends AggregatorItemProviderAdapter imp
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addChildrenPropertyDescriptor(object);
@@ -101,7 +97,6 @@ public class MiscellaneousItemProvider extends AggregatorItemProviderAdapter imp
 	/**
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -112,7 +107,6 @@ public class MiscellaneousItemProvider extends AggregatorItemProviderAdapter imp
 	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -136,36 +130,49 @@ public class MiscellaneousItemProvider extends AggregatorItemProviderAdapter imp
 	/**
 	 * This adds a property descriptor for the Children feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected void addChildrenPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_ChildrenProvider_children_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_ChildrenProvider_children_feature", "_UI_ChildrenProvider_type"),
-				AggregatorPackage.Literals.CHILDREN_PROVIDER__CHILDREN, false, false, false, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ChildrenProvider_children_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ChildrenProvider_children_feature", "_UI_ChildrenProvider_type"),
+				 AggregatorPackage.Literals.CHILDREN_PROVIDER__CHILDREN,
+				 false,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Others feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected void addOthersPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Miscellaneous_others_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_Miscellaneous_others_feature", "_UI_Miscellaneous_type"),
-				P2viewPackage.Literals.MISCELLANEOUS__OTHERS, false, false, true, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Miscellaneous_others_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Miscellaneous_others_feature", "_UI_Miscellaneous_type"),
+				 P2viewPackage.Literals.MISCELLANEOUS__OTHERS,
+				 false,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -175,7 +182,6 @@ public class MiscellaneousItemProvider extends AggregatorItemProviderAdapter imp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

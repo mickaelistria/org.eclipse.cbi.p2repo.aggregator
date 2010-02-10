@@ -28,10 +28,10 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequirementsImpl#getRequirements <em>Requirements</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequirementsImpl#getRequirements <em>Requirements</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class RequirementsImpl extends MinimalEObjectImpl.Container implements Requirements {
@@ -39,7 +39,6 @@ public class RequirementsImpl extends MinimalEObjectImpl.Container implements Re
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -49,7 +48,6 @@ public class RequirementsImpl extends MinimalEObjectImpl.Container implements Re
 	 * The cached value of the '{@link #getRequirements() <em>Requirements</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getRequirements()
 	 * @generated
 	 * @ordered
@@ -59,7 +57,6 @@ public class RequirementsImpl extends MinimalEObjectImpl.Container implements Re
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected RequirementsImpl() {
@@ -69,14 +66,13 @@ public class RequirementsImpl extends MinimalEObjectImpl.Container implements Re
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
-		case P2viewPackage.REQUIREMENTS__REQUIREMENTS:
-			return getRequirements();
+		switch (featureID) {
+			case P2viewPackage.REQUIREMENTS__REQUIREMENTS:
+				return getRequirements();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -84,14 +80,13 @@ public class RequirementsImpl extends MinimalEObjectImpl.Container implements Re
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
-		case P2viewPackage.REQUIREMENTS__REQUIREMENTS:
-			return requirements != null && !requirements.isEmpty();
+		switch (featureID) {
+			case P2viewPackage.REQUIREMENTS__REQUIREMENTS:
+				return requirements != null && !requirements.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -99,17 +94,16 @@ public class RequirementsImpl extends MinimalEObjectImpl.Container implements Re
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
-		case P2viewPackage.REQUIREMENTS__REQUIREMENTS:
-			getRequirements().clear();
-			getRequirements().addAll((Collection<? extends RequirementWrapper>) newValue);
-			return;
+		switch (featureID) {
+			case P2viewPackage.REQUIREMENTS__REQUIREMENTS:
+				getRequirements().clear();
+				getRequirements().addAll((Collection<? extends RequirementWrapper>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -117,15 +111,14 @@ public class RequirementsImpl extends MinimalEObjectImpl.Container implements Re
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
-		case P2viewPackage.REQUIREMENTS__REQUIREMENTS:
-			getRequirements().clear();
-			return;
+		switch (featureID) {
+			case P2viewPackage.REQUIREMENTS__REQUIREMENTS:
+				getRequirements().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -133,13 +126,11 @@ public class RequirementsImpl extends MinimalEObjectImpl.Container implements Re
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<RequirementWrapper> getRequirements() {
-		if(requirements == null) {
-			requirements = new EObjectResolvingEList<RequirementWrapper>(RequirementWrapper.class, this,
-					P2viewPackage.REQUIREMENTS__REQUIREMENTS);
+		if (requirements == null) {
+			requirements = new EObjectResolvingEList<RequirementWrapper>(RequirementWrapper.class, this, P2viewPackage.REQUIREMENTS__REQUIREMENTS);
 		}
 		return requirements;
 	}
@@ -147,7 +138,6 @@ public class RequirementsImpl extends MinimalEObjectImpl.Container implements Re
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

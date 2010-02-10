@@ -14,14 +14,14 @@ import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Properties</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.p2view.Properties#getPropertyList <em>Property List</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.Properties#getPropertyList <em>Property List</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getProperties()
  * @model
  * @generated
@@ -36,7 +36,6 @@ public interface Properties {
 	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Property List</em>' reference list.
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getProperties_PropertyList()
 	 * @model

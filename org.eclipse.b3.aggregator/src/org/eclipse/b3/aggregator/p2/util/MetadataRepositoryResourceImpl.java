@@ -15,7 +15,9 @@ import java.util.regex.Pattern;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.ChildrenProvider;
+import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.InstallableUnitType;
+import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.MetadataRepositoryReference;
 import org.eclipse.b3.aggregator.Property;
 import org.eclipse.b3.aggregator.Status;
@@ -207,6 +209,8 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 					loader.load(loaderMonitor);
 				else
 					loader.reload(loaderMonitor);
+
+				updateAvailableVersions();
 
 				createStructuredView();
 
@@ -452,6 +456,22 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 				Collections.sort(fragments, IUPresentation.COMPARATOR);
 				category.getNotNullFragmentContainer().getFragments().addAll(fragments);
 			}
+		}
+
+		/**
+		 * 
+		 */
+		private void updateAvailableVersions() {
+			Aggregator aggregator = ResourceUtils.getAggregator(getResourceSet());
+
+			for(Contribution contribution : aggregator.getContributions()) {
+				for(MappedRepository mappedRepo : contribution.getRepositories()) {
+
+					// TODO implement
+					// repository.getL
+				}
+			}
+
 		}
 	}
 

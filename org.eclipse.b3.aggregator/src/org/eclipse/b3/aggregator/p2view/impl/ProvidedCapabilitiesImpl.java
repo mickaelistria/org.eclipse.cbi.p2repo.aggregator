@@ -29,18 +29,16 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.ProvidedCapabilitiesImpl#getProvidedCapabilities <em>Provided
- * Capabilities</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.ProvidedCapabilitiesImpl#getProvidedCapabilities <em>Provided Capabilities</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ProvidedCapabilitiesImpl extends MinimalEObjectImpl.Container implements ProvidedCapabilities {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -58,7 +56,6 @@ public class ProvidedCapabilitiesImpl extends MinimalEObjectImpl.Container imple
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected ProvidedCapabilitiesImpl() {
@@ -67,80 +64,73 @@ public class ProvidedCapabilitiesImpl extends MinimalEObjectImpl.Container imple
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
-		case P2viewPackage.PROVIDED_CAPABILITIES__PROVIDED_CAPABILITIES:
-			return getProvidedCapabilities();
+		switch (featureID) {
+			case P2viewPackage.PROVIDED_CAPABILITIES__PROVIDED_CAPABILITIES:
+				return getProvidedCapabilities();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch(featureID) {
-		case P2viewPackage.PROVIDED_CAPABILITIES__PROVIDED_CAPABILITIES:
-			return providedCapabilities != null && !providedCapabilities.isEmpty();
+		switch (featureID) {
+			case P2viewPackage.PROVIDED_CAPABILITIES__PROVIDED_CAPABILITIES:
+				return providedCapabilities != null && !providedCapabilities.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
-		case P2viewPackage.PROVIDED_CAPABILITIES__PROVIDED_CAPABILITIES:
-			getProvidedCapabilities().clear();
-			getProvidedCapabilities().addAll((Collection<? extends ProvidedCapabilityWrapper>) newValue);
-			return;
+		switch (featureID) {
+			case P2viewPackage.PROVIDED_CAPABILITIES__PROVIDED_CAPABILITIES:
+				getProvidedCapabilities().clear();
+				getProvidedCapabilities().addAll((Collection<? extends ProvidedCapabilityWrapper>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
-		case P2viewPackage.PROVIDED_CAPABILITIES__PROVIDED_CAPABILITIES:
-			getProvidedCapabilities().clear();
-			return;
+		switch (featureID) {
+			case P2viewPackage.PROVIDED_CAPABILITIES__PROVIDED_CAPABILITIES:
+				getProvidedCapabilities().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<ProvidedCapabilityWrapper> getProvidedCapabilities() {
-		if(providedCapabilities == null) {
-			providedCapabilities = new EObjectResolvingEList<ProvidedCapabilityWrapper>(
-					ProvidedCapabilityWrapper.class, this, P2viewPackage.PROVIDED_CAPABILITIES__PROVIDED_CAPABILITIES);
+		if (providedCapabilities == null) {
+			providedCapabilities = new EObjectResolvingEList<ProvidedCapabilityWrapper>(ProvidedCapabilityWrapper.class, this, P2viewPackage.PROVIDED_CAPABILITIES__PROVIDED_CAPABILITIES);
 		}
 		return providedCapabilities;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

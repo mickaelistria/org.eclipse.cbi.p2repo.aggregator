@@ -595,7 +595,7 @@
             propertySortChoices="true" ecoreFeature="ecore:EReference Aggregator.ecore#//p2view/IUDetails/licensesContainer"/>
       </genClasses>
       <genClasses ecoreClass="Aggregator.ecore#//p2view/RequirementWrapper">
-        <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference Aggregator.ecore#//p2view/RequirementWrapper/genuine"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Aggregator.ecore#//p2view/RequirementWrapper/genuine"/>
       </genClasses>
       <genClasses ecoreClass="Aggregator.ecore#//p2view/ProvidedCapabilityWrapper">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Aggregator.ecore#//p2view/ProvidedCapabilityWrapper/genuine"/>

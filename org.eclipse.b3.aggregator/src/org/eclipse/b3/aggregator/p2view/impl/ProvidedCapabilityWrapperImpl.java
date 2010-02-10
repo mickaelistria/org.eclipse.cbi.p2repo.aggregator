@@ -27,21 +27,20 @@ import org.eclipse.equinox.p2.metadata.Version;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.ProvidedCapabilityWrapperImpl#getName <em>Name</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.ProvidedCapabilityWrapperImpl#getNamespace <em>Namespace</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.ProvidedCapabilityWrapperImpl#getVersion <em>Version</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.ProvidedCapabilityWrapperImpl#getLabel <em>Label</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.ProvidedCapabilityWrapperImpl#getGenuine <em>Genuine</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.ProvidedCapabilityWrapperImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.ProvidedCapabilityWrapperImpl#getNamespace <em>Namespace</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.ProvidedCapabilityWrapperImpl#getVersion <em>Version</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.ProvidedCapabilityWrapperImpl#getLabel <em>Label</em>}</li>
+ *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.ProvidedCapabilityWrapperImpl#getGenuine <em>Genuine</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container implements ProvidedCapabilityWrapper {
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -71,7 +70,6 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * The default value of the '{@link #getNamespace() <em>Namespace</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @see #getNamespace()
 	 * @generated
 	 * @ordered
@@ -82,7 +80,6 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * The cached value of the '{@link #getNamespace() <em>Namespace</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @see #getNamespace()
 	 * @generated
 	 * @ordered
@@ -93,7 +90,6 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -104,7 +100,6 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -115,7 +110,6 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @see #getLabel()
 	 * @generated
 	 * @ordered
@@ -136,7 +130,6 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 	 * The cached value of the '{@link #getGenuine() <em>Genuine</em>}' reference.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @see #getGenuine()
 	 * @generated
 	 * @ordered
@@ -145,7 +138,6 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected ProvidedCapabilityWrapperImpl() {
@@ -164,17 +156,14 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if(baseClass == LabelProvider.class) {
-			switch(derivedFeatureID) {
-			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL:
-				return AggregatorPackage.LABEL_PROVIDER__LABEL;
-			default:
-				return -1;
+		if (baseClass == LabelProvider.class) {
+			switch (derivedFeatureID) {
+				case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL: return AggregatorPackage.LABEL_PROVIDER__LABEL;
+				default: return -1;
 			}
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
@@ -182,17 +171,14 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if(baseClass == LabelProvider.class) {
-			switch(baseFeatureID) {
-			case AggregatorPackage.LABEL_PROVIDER__LABEL:
-				return P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL;
-			default:
-				return -1;
+		if (baseClass == LabelProvider.class) {
+			switch (baseFeatureID) {
+				case AggregatorPackage.LABEL_PROVIDER__LABEL: return P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL;
+				default: return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
@@ -200,22 +186,21 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch(featureID) {
-		case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAME:
-			return getName();
-		case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAMESPACE:
-			return getNamespace();
-		case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__VERSION:
-			return getVersion();
-		case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL:
-			return getLabel();
-		case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__GENUINE:
-			return getGenuine();
+		switch (featureID) {
+			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAME:
+				return getName();
+			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAMESPACE:
+				return getNamespace();
+			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__VERSION:
+				return getVersion();
+			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL:
+				return getLabel();
+			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__GENUINE:
+				return getGenuine();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -241,55 +226,52 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch(featureID) {
-		case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAME:
-			setName((String) newValue);
-			return;
-		case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAMESPACE:
-			setNamespace((String) newValue);
-			return;
-		case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__VERSION:
-			setVersion((Version) newValue);
-			return;
-		case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL:
-			setLabel((String) newValue);
-			return;
+		switch (featureID) {
+			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAME:
+				setName((String)newValue);
+				return;
+			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAMESPACE:
+				setNamespace((String)newValue);
+				return;
+			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__VERSION:
+				setVersion((Version)newValue);
+				return;
+			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL:
+				setLabel((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch(featureID) {
-		case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAME:
-			setName(NAME_EDEFAULT);
-			return;
-		case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAMESPACE:
-			setNamespace(NAMESPACE_EDEFAULT);
-			return;
-		case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__VERSION:
-			setVersion(VERSION_EDEFAULT);
-			return;
-		case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL:
-			setLabel(LABEL_EDEFAULT);
-			return;
+		switch (featureID) {
+			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__NAMESPACE:
+				setNamespace(NAMESPACE_EDEFAULT);
+				return;
+			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__VERSION:
+				setVersion(VERSION_EDEFAULT);
+				return;
+			case P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL:
+				setLabel(LABEL_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public IProvidedCapability getGenuine() {
@@ -298,7 +280,6 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getLabel() {
@@ -334,15 +315,13 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setLabel(String newLabel) {
 		String oldLabel = label;
 		label = newLabel;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL,
-					oldLabel, label));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.PROVIDED_CAPABILITY_WRAPPER__LABEL, oldLabel, label));
 	}
 
 	/**
@@ -397,7 +376,6 @@ public class ProvidedCapabilityWrapperImpl extends MinimalEObjectImpl.Container 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

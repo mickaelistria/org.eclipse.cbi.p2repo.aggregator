@@ -36,7 +36,6 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.p2view.Licenses} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class LicensesItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
@@ -46,7 +45,6 @@ public class LicensesItemProvider extends AggregatorItemProviderAdapter implemen
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public LicensesItemProvider(AdapterFactory adapterFactory) {
@@ -59,12 +57,11 @@ public class LicensesItemProvider extends AggregatorItemProviderAdapter implemen
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if(childrenFeatures == null) {
+		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(P2viewPackage.Literals.LICENSES__LICENSES);
 		}
@@ -75,7 +72,6 @@ public class LicensesItemProvider extends AggregatorItemProviderAdapter implemen
 	 * This returns Licenses.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -87,12 +83,11 @@ public class LicensesItemProvider extends AggregatorItemProviderAdapter implemen
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if(itemPropertyDescriptors == null) {
+		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addLicensesPropertyDescriptor(object);
@@ -104,7 +99,6 @@ public class LicensesItemProvider extends AggregatorItemProviderAdapter implemen
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -116,7 +110,6 @@ public class LicensesItemProvider extends AggregatorItemProviderAdapter implemen
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -129,7 +122,6 @@ public class LicensesItemProvider extends AggregatorItemProviderAdapter implemen
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -142,15 +134,22 @@ public class LicensesItemProvider extends AggregatorItemProviderAdapter implemen
 	 * This adds a property descriptor for the Licenses feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected void addLicensesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Licenses_licenses_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_Licenses_licenses_feature", "_UI_Licenses_type"),
-				P2viewPackage.Literals.LICENSES__LICENSES, false, false, true, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Licenses_licenses_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Licenses_licenses_feature", "_UI_Licenses_type"),
+				 P2viewPackage.Literals.LICENSES__LICENSES,
+				 false,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -158,7 +157,6 @@ public class LicensesItemProvider extends AggregatorItemProviderAdapter implemen
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -169,7 +167,6 @@ public class LicensesItemProvider extends AggregatorItemProviderAdapter implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
