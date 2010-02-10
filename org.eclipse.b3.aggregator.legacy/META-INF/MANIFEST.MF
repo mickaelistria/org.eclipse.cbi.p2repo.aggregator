@@ -7,5 +7,5 @@ Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
- org.eclipse.b3.aggregator;bundle-version="1.0.360"
-Import-Package: org.eclipse.equinox.internal.provisional.p2.metadata
+ org.eclipse.b3.aggregator;bundle-version="1.0.360",
+ org.eclipse.equinox.p2.metadata;bundle-version="2.0.0"
