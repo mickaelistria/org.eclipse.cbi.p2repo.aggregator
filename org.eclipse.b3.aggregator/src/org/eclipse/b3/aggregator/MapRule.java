@@ -11,8 +11,8 @@ package org.eclipse.b3.aggregator;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Map Rule</b></em>'. <!-- end-user-doc -->
- *
- *
+ * 
+ * 
  * @see org.eclipse.b3.aggregator.AggregatorPackage#getMapRule()
  * @model abstract="true"
  * @generated

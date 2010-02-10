@@ -34,6 +34,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -43,6 +44,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -53,6 +55,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -62,6 +65,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -71,6 +75,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -81,6 +86,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	 * The default value of the '{@link #getRange() <em>Range</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getRange()
 	 * @generated
 	 * @ordered
@@ -101,6 +107,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	 * The default value of the '{@link #getSeverity() <em>Severity</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getSeverity()
 	 * @generated
 	 * @ordered
@@ -111,6 +118,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	 * The cached value of the '{@link #getSeverity() <em>Severity</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getSeverity()
 	 * @generated
 	 * @ordered
@@ -119,6 +127,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected UpdateDescriptorImpl() {
@@ -127,90 +136,101 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case P2Package.UPDATE_DESCRIPTOR__DESCRIPTION:
-				return getDescription();
-			case P2Package.UPDATE_DESCRIPTOR__ID:
-				return getId();
-			case P2Package.UPDATE_DESCRIPTOR__RANGE:
-				return getRange();
-			case P2Package.UPDATE_DESCRIPTOR__SEVERITY:
-				return getSeverity();
+		switch(featureID) {
+		case P2Package.UPDATE_DESCRIPTOR__DESCRIPTION:
+			return getDescription();
+		case P2Package.UPDATE_DESCRIPTOR__ID:
+			return getId();
+		case P2Package.UPDATE_DESCRIPTOR__RANGE:
+			return getRange();
+		case P2Package.UPDATE_DESCRIPTOR__SEVERITY:
+			return getSeverity();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case P2Package.UPDATE_DESCRIPTOR__DESCRIPTION:
-				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case P2Package.UPDATE_DESCRIPTOR__ID:
-				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-			case P2Package.UPDATE_DESCRIPTOR__RANGE:
-				return RANGE_EDEFAULT == null ? range != null : !RANGE_EDEFAULT.equals(range);
-			case P2Package.UPDATE_DESCRIPTOR__SEVERITY:
-				return severity != SEVERITY_EDEFAULT;
+		switch(featureID) {
+		case P2Package.UPDATE_DESCRIPTOR__DESCRIPTION:
+			return DESCRIPTION_EDEFAULT == null
+					? description != null
+					: !DESCRIPTION_EDEFAULT.equals(description);
+		case P2Package.UPDATE_DESCRIPTOR__ID:
+			return ID_EDEFAULT == null
+					? id != null
+					: !ID_EDEFAULT.equals(id);
+		case P2Package.UPDATE_DESCRIPTOR__RANGE:
+			return RANGE_EDEFAULT == null
+					? range != null
+					: !RANGE_EDEFAULT.equals(range);
+		case P2Package.UPDATE_DESCRIPTOR__SEVERITY:
+			return severity != SEVERITY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case P2Package.UPDATE_DESCRIPTOR__DESCRIPTION:
-				setDescription((String)newValue);
-				return;
-			case P2Package.UPDATE_DESCRIPTOR__ID:
-				setId((String)newValue);
-				return;
-			case P2Package.UPDATE_DESCRIPTOR__RANGE:
-				setRange((VersionRange)newValue);
-				return;
-			case P2Package.UPDATE_DESCRIPTOR__SEVERITY:
-				setSeverity((Integer)newValue);
-				return;
+		switch(featureID) {
+		case P2Package.UPDATE_DESCRIPTOR__DESCRIPTION:
+			setDescription((String) newValue);
+			return;
+		case P2Package.UPDATE_DESCRIPTOR__ID:
+			setId((String) newValue);
+			return;
+		case P2Package.UPDATE_DESCRIPTOR__RANGE:
+			setRange((VersionRange) newValue);
+			return;
+		case P2Package.UPDATE_DESCRIPTOR__SEVERITY:
+			setSeverity((Integer) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case P2Package.UPDATE_DESCRIPTOR__DESCRIPTION:
-				setDescription(DESCRIPTION_EDEFAULT);
-				return;
-			case P2Package.UPDATE_DESCRIPTOR__ID:
-				setId(ID_EDEFAULT);
-				return;
-			case P2Package.UPDATE_DESCRIPTOR__RANGE:
-				setRange(RANGE_EDEFAULT);
-				return;
-			case P2Package.UPDATE_DESCRIPTOR__SEVERITY:
-				setSeverity(SEVERITY_EDEFAULT);
-				return;
+		switch(featureID) {
+		case P2Package.UPDATE_DESCRIPTOR__DESCRIPTION:
+			setDescription(DESCRIPTION_EDEFAULT);
+			return;
+		case P2Package.UPDATE_DESCRIPTOR__ID:
+			setId(ID_EDEFAULT);
+			return;
+		case P2Package.UPDATE_DESCRIPTOR__RANGE:
+			setRange(RANGE_EDEFAULT);
+			return;
+		case P2Package.UPDATE_DESCRIPTOR__SEVERITY:
+			setSeverity(SEVERITY_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getDescription() {
@@ -219,6 +239,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getId() {
@@ -227,6 +248,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public VersionRange getRange() {
@@ -235,6 +257,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public int getSeverity() {
@@ -244,6 +267,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isUpdateOf(IInstallableUnit installableUnit) {
@@ -254,55 +278,63 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setDescription(String newDescription) {
 		String oldDescription = description;
 		description = newDescription;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.UPDATE_DESCRIPTOR__DESCRIPTION, oldDescription, description));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.UPDATE_DESCRIPTOR__DESCRIPTION,
+					oldDescription, description));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setId(String newId) {
 		String oldId = id;
 		id = newId;
-		if (eNotificationRequired())
+		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.UPDATE_DESCRIPTOR__ID, oldId, id));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setRange(VersionRange newRange) {
 		VersionRange oldRange = range;
 		range = newRange;
-		if (eNotificationRequired())
+		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.UPDATE_DESCRIPTOR__RANGE, oldRange, range));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setSeverity(int newSeverity) {
 		int oldSeverity = severity;
 		severity = newSeverity;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.UPDATE_DESCRIPTOR__SEVERITY, oldSeverity, severity));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.UPDATE_DESCRIPTOR__SEVERITY, oldSeverity,
+					severity));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (description: ");
@@ -319,6 +351,7 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

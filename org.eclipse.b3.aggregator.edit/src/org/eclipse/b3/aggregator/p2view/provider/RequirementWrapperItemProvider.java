@@ -34,13 +34,13 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.osgi.framework.Filter;
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.p2view.RequirementWrapper} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapter implements
@@ -50,6 +50,7 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public RequirementWrapperItemProvider(AdapterFactory adapterFactory) {
@@ -81,11 +82,12 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addFilterPropertyDescriptor(object);
@@ -101,6 +103,7 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -125,21 +128,22 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(RequirementWrapper.class)) {
-			case P2viewPackage.REQUIREMENT_WRAPPER__FILTER:
-			case P2viewPackage.REQUIREMENT_WRAPPER__MAX:
-			case P2viewPackage.REQUIREMENT_WRAPPER__MIN:
-			case P2viewPackage.REQUIREMENT_WRAPPER__MATCHES:
-			case P2viewPackage.REQUIREMENT_WRAPPER__GREEDY:
-			case P2viewPackage.REQUIREMENT_WRAPPER__LABEL:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
+		switch(notification.getFeatureID(RequirementWrapper.class)) {
+		case P2viewPackage.REQUIREMENT_WRAPPER__FILTER:
+		case P2viewPackage.REQUIREMENT_WRAPPER__MAX:
+		case P2viewPackage.REQUIREMENT_WRAPPER__MIN:
+		case P2viewPackage.REQUIREMENT_WRAPPER__MATCHES:
+		case P2viewPackage.REQUIREMENT_WRAPPER__GREEDY:
+		case P2viewPackage.REQUIREMENT_WRAPPER__LABEL:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -148,110 +152,78 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 	 * This adds a property descriptor for the Filter feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addFilterPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_IRequirement_filter_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IRequirement_filter_feature", "_UI_IRequirement_type"),
-				 P2Package.Literals.IREQUIREMENT__FILTER,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_IRequirement_filter_feature"), getString("_UI_PropertyDescriptor_description",
+						"_UI_IRequirement_filter_feature", "_UI_IRequirement_type"),
+				P2Package.Literals.IREQUIREMENT__FILTER, false, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Greedy feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addGreedyPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_IRequirement_greedy_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IRequirement_greedy_feature", "_UI_IRequirement_type"),
-				 P2Package.Literals.IREQUIREMENT__GREEDY,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_IRequirement_greedy_feature"), getString("_UI_PropertyDescriptor_description",
+						"_UI_IRequirement_greedy_feature", "_UI_IRequirement_type"),
+				P2Package.Literals.IREQUIREMENT__GREEDY, false, false, false,
+				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Label feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addLabelPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_LabelProvider_label_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_LabelProvider_label_feature", "_UI_LabelProvider_type"),
-				 AggregatorPackage.Literals.LABEL_PROVIDER__LABEL,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_LabelProvider_label_feature"), getString("_UI_PropertyDescriptor_description",
+						"_UI_LabelProvider_label_feature", "_UI_LabelProvider_type"),
+				AggregatorPackage.Literals.LABEL_PROVIDER__LABEL, false, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Max feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addMaxPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_IRequirement_max_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IRequirement_max_feature", "_UI_IRequirement_type"),
-				 P2Package.Literals.IREQUIREMENT__MAX,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_IRequirement_max_feature"), getString("_UI_PropertyDescriptor_description",
+						"_UI_IRequirement_max_feature", "_UI_IRequirement_type"), P2Package.Literals.IREQUIREMENT__MAX,
+				false, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Min feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addMinPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_IRequirement_min_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IRequirement_min_feature", "_UI_IRequirement_type"),
-				 P2Package.Literals.IREQUIREMENT__MIN,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_IRequirement_min_feature"), getString("_UI_PropertyDescriptor_description",
+						"_UI_IRequirement_min_feature", "_UI_IRequirement_type"), P2Package.Literals.IREQUIREMENT__MIN,
+				false, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -259,6 +231,7 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

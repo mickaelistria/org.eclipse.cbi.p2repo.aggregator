@@ -49,6 +49,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.MetadataRepositoryReference} object.
  * <!-- begin-user-doc --> <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProviderAdapter implements
@@ -57,6 +58,7 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public MetadataRepositoryReferenceItemProvider(AdapterFactory adapterFactory) {
@@ -97,11 +99,12 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addEnabledPropertyDescriptor(object);
@@ -114,6 +117,7 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	/**
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -195,6 +199,9 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 
 		MetadataRepositoryReference repoRef = (MetadataRepositoryReference) notification.getNotifier();
 		switch(notification.getFeatureID(MetadataRepositoryReference.class)) {
+		case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS:
+			fireNotifyChanged(new ViewerNotification(notification, repoRef, true, false));
+			return;
 		case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__NATURE:
 		case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__LOCATION:
 			if(notification.getNewStringValue() != null
@@ -265,12 +272,12 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	public void notifyChangedGen(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(MetadataRepositoryReference.class)) {
-			case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__ENABLED:
-			case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__LOCATION:
-			case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__NATURE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
+		switch(notification.getFeatureID(MetadataRepositoryReference.class)) {
+		case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__ENABLED:
+		case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__LOCATION:
+		case AggregatorPackage.METADATA_REPOSITORY_REFERENCE__NATURE:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -278,43 +285,32 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	/**
 	 * This adds a property descriptor for the Enabled feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addEnabledPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_EnabledStatusProvider_enabled_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EnabledStatusProvider_enabled_feature", "_UI_EnabledStatusProvider_type"),
-				 AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__ENABLED,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_EnabledStatusProvider_enabled_feature"), getString("_UI_PropertyDescriptor_description",
+						"_UI_EnabledStatusProvider_enabled_feature", "_UI_EnabledStatusProvider_type"),
+				AggregatorPackage.Literals.ENABLED_STATUS_PROVIDER__ENABLED, true, false, false,
+				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Location feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addLocationPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_MetadataRepositoryReference_location_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MetadataRepositoryReference_location_feature", "_UI_MetadataRepositoryReference_type"),
-				 AggregatorPackage.Literals.METADATA_REPOSITORY_REFERENCE__LOCATION,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_MetadataRepositoryReference_location_feature"), getString(
+						"_UI_PropertyDescriptor_description", "_UI_MetadataRepositoryReference_location_feature",
+						"_UI_MetadataRepositoryReference_type"),
+				AggregatorPackage.Literals.METADATA_REPOSITORY_REFERENCE__LOCATION, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -395,6 +391,7 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

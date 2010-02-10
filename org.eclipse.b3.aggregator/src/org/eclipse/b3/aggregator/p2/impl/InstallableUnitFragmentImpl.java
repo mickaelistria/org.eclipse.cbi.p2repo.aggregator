@@ -27,10 +27,10 @@ import org.eclipse.equinox.p2.metadata.IRequirement;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.aggregator.p2.impl.InstallableUnitFragmentImpl#getHostList <em>Host List</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2.impl.InstallableUnitFragmentImpl#getHostList <em>Host List</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class InstallableUnitFragmentImpl extends InstallableUnitImpl implements InstallableUnitFragment {
@@ -46,6 +46,7 @@ public class InstallableUnitFragmentImpl extends InstallableUnitImpl implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected InstallableUnitFragmentImpl() {
@@ -54,69 +55,74 @@ public class InstallableUnitFragmentImpl extends InstallableUnitImpl implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case P2Package.INSTALLABLE_UNIT_FRAGMENT__HOST_LIST:
-				return getHostList();
+		switch(featureID) {
+		case P2Package.INSTALLABLE_UNIT_FRAGMENT__HOST_LIST:
+			return getHostList();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case P2Package.INSTALLABLE_UNIT_FRAGMENT__HOST_LIST:
-				return ((InternalEList<?>)getHostList()).basicRemove(otherEnd, msgs);
+		switch(featureID) {
+		case P2Package.INSTALLABLE_UNIT_FRAGMENT__HOST_LIST:
+			return ((InternalEList<?>) getHostList()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case P2Package.INSTALLABLE_UNIT_FRAGMENT__HOST_LIST:
-				return hostList != null && !hostList.isEmpty();
+		switch(featureID) {
+		case P2Package.INSTALLABLE_UNIT_FRAGMENT__HOST_LIST:
+			return hostList != null && !hostList.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case P2Package.INSTALLABLE_UNIT_FRAGMENT__HOST_LIST:
-				getHostList().clear();
-				getHostList().addAll((Collection<? extends Requirement>)newValue);
-				return;
+		switch(featureID) {
+		case P2Package.INSTALLABLE_UNIT_FRAGMENT__HOST_LIST:
+			getHostList().clear();
+			getHostList().addAll((Collection<? extends Requirement>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case P2Package.INSTALLABLE_UNIT_FRAGMENT__HOST_LIST:
-				getHostList().clear();
-				return;
+		switch(featureID) {
+		case P2Package.INSTALLABLE_UNIT_FRAGMENT__HOST_LIST:
+			getHostList().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -133,11 +139,13 @@ public class InstallableUnitFragmentImpl extends InstallableUnitImpl implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<Requirement> getHostList() {
-		if (hostList == null) {
-			hostList = new EObjectContainmentEList<Requirement>(Requirement.class, this, P2Package.INSTALLABLE_UNIT_FRAGMENT__HOST_LIST);
+		if(hostList == null) {
+			hostList = new EObjectContainmentEList<Requirement>(Requirement.class, this,
+					P2Package.INSTALLABLE_UNIT_FRAGMENT__HOST_LIST);
 		}
 		return hostList;
 	}
@@ -149,6 +157,7 @@ public class InstallableUnitFragmentImpl extends InstallableUnitImpl implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

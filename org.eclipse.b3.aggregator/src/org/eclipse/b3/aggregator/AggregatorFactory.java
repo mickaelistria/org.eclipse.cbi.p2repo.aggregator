@@ -13,6 +13,7 @@ import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 /**
  * <!-- begin-user-doc --> The <b>Factory</b> for the model. It provides a create method for each non-abstract class of
  * the model. <!-- end-user-doc -->
+ * 
  * @see org.eclipse.b3.aggregator.AggregatorPackage
  * @generated
  */
@@ -20,6 +21,7 @@ public interface AggregatorFactory extends EFactory {
 	/**
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	AggregatorFactory eINSTANCE = org.eclipse.b3.aggregator.impl.AggregatorFactoryImpl.init();
@@ -27,6 +29,7 @@ public interface AggregatorFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Aggregator</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Aggregator</em>'.
 	 * @generated
 	 */
@@ -36,6 +39,7 @@ public interface AggregatorFactory extends EFactory {
 	 * Returns a new object of class '<em>Available Version</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Available Version</em>'.
 	 * @generated
 	 */
@@ -45,6 +49,7 @@ public interface AggregatorFactory extends EFactory {
 	 * Returns a new object of class '<em>Available Versions Header</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Available Versions Header</em>'.
 	 * @generated
 	 */
@@ -53,6 +58,7 @@ public interface AggregatorFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Bundle</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Bundle</em>'.
 	 * @generated
 	 */
@@ -61,6 +67,7 @@ public interface AggregatorFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Category</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Category</em>'.
 	 * @generated
 	 */
@@ -69,6 +76,7 @@ public interface AggregatorFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Configuration</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Configuration</em>'.
 	 * @generated
 	 */
@@ -77,6 +85,7 @@ public interface AggregatorFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Contact</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Contact</em>'.
 	 * @generated
 	 */
@@ -85,6 +94,7 @@ public interface AggregatorFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Contribution</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Contribution</em>'.
 	 * @generated
 	 */
@@ -93,6 +103,7 @@ public interface AggregatorFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Custom Category</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Custom Category</em>'.
 	 * @generated
 	 */
@@ -101,6 +112,7 @@ public interface AggregatorFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Description Provider</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Description Provider</em>'.
 	 * @generated
 	 */
@@ -109,6 +121,7 @@ public interface AggregatorFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Exclusion Rule</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Exclusion Rule</em>'.
 	 * @generated
 	 */
@@ -117,6 +130,7 @@ public interface AggregatorFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Feature</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Feature</em>'.
 	 * @generated
 	 */
@@ -125,6 +139,7 @@ public interface AggregatorFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Infos Provider</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Infos Provider</em>'.
 	 * @generated
 	 */
@@ -133,6 +148,7 @@ public interface AggregatorFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Mapped Repository</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Mapped Repository</em>'.
 	 * @generated
 	 */
@@ -159,6 +175,7 @@ public interface AggregatorFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Maven Item</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Maven Item</em>'.
 	 * @generated
 	 */
@@ -167,6 +184,7 @@ public interface AggregatorFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Maven Mapping</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Maven Mapping</em>'.
 	 * @generated
 	 */
@@ -184,6 +202,7 @@ public interface AggregatorFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Product</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Product</em>'.
 	 * @generated
 	 */
@@ -192,6 +211,7 @@ public interface AggregatorFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Property</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Property</em>'.
 	 * @generated
 	 */
@@ -208,6 +228,7 @@ public interface AggregatorFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Status</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Status</em>'.
 	 * @generated
 	 */
@@ -232,6 +253,7 @@ public interface AggregatorFactory extends EFactory {
 	/**
 	 * Returns a new object of class '<em>Valid Configurations Rule</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return a new object of class '<em>Valid Configurations Rule</em>'.
 	 * @generated
 	 */
@@ -240,6 +262,7 @@ public interface AggregatorFactory extends EFactory {
 	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the package supported by this factory.
 	 * @generated
 	 */

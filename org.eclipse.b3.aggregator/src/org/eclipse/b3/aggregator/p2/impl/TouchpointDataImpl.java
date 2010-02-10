@@ -36,6 +36,7 @@ public class TouchpointDataImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -45,6 +46,7 @@ public class TouchpointDataImpl extends MinimalEObjectImpl.Container implements 
 	 * The cached value of the '{@link #getInstructionMap() <em>Instruction Map</em>}' map.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getInstructionMap()
 	 * @generated
 	 * @ordered
@@ -53,6 +55,7 @@ public class TouchpointDataImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected TouchpointDataImpl() {
@@ -61,68 +64,75 @@ public class TouchpointDataImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case P2Package.TOUCHPOINT_DATA__INSTRUCTION_MAP:
-				if (coreType) return getInstructionMap();
-				else return getInstructionMap().map();
+		switch(featureID) {
+		case P2Package.TOUCHPOINT_DATA__INSTRUCTION_MAP:
+			if(coreType)
+				return getInstructionMap();
+			else
+				return getInstructionMap().map();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case P2Package.TOUCHPOINT_DATA__INSTRUCTION_MAP:
-				return ((InternalEList<?>)getInstructionMap()).basicRemove(otherEnd, msgs);
+		switch(featureID) {
+		case P2Package.TOUCHPOINT_DATA__INSTRUCTION_MAP:
+			return ((InternalEList<?>) getInstructionMap()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case P2Package.TOUCHPOINT_DATA__INSTRUCTION_MAP:
-				return instructionMap != null && !instructionMap.isEmpty();
+		switch(featureID) {
+		case P2Package.TOUCHPOINT_DATA__INSTRUCTION_MAP:
+			return instructionMap != null && !instructionMap.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case P2Package.TOUCHPOINT_DATA__INSTRUCTION_MAP:
-				((EStructuralFeature.Setting)getInstructionMap()).set(newValue);
-				return;
+		switch(featureID) {
+		case P2Package.TOUCHPOINT_DATA__INSTRUCTION_MAP:
+			((EStructuralFeature.Setting) getInstructionMap()).set(newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case P2Package.TOUCHPOINT_DATA__INSTRUCTION_MAP:
-				getInstructionMap().clear();
-				return;
+		switch(featureID) {
+		case P2Package.TOUCHPOINT_DATA__INSTRUCTION_MAP:
+			getInstructionMap().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -138,11 +148,13 @@ public class TouchpointDataImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EMap<String, ITouchpointInstruction> getInstructionMap() {
-		if (instructionMap == null) {
-			instructionMap = new EcoreEMap<String,ITouchpointInstruction>(P2Package.Literals.INSTRUCTION_MAP, InstructionMapImpl.class, this, P2Package.TOUCHPOINT_DATA__INSTRUCTION_MAP);
+		if(instructionMap == null) {
+			instructionMap = new EcoreEMap<String, ITouchpointInstruction>(P2Package.Literals.INSTRUCTION_MAP,
+					InstructionMapImpl.class, this, P2Package.TOUCHPOINT_DATA__INSTRUCTION_MAP);
 		}
 		return instructionMap;
 	}
@@ -159,6 +171,7 @@ public class TouchpointDataImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

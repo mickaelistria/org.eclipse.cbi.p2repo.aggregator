@@ -14,17 +14,17 @@ import java.net.URI;
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Repository Reference</b></em>'. <!--
  * end-user-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.b3.aggregator.p2.RepositoryReference#getLocation <em>Location</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.p2.RepositoryReference#getType <em>Type</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.p2.RepositoryReference#getOptions <em>Options</em>}</li>
- *   <li>{@link org.eclipse.b3.aggregator.p2.RepositoryReference#getNickname <em>Nickname</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2.RepositoryReference#getLocation <em>Location</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2.RepositoryReference#getType <em>Type</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2.RepositoryReference#getOptions <em>Options</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2.RepositoryReference#getNickname <em>Nickname</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipse.b3.aggregator.p2.P2Package#getRepositoryReference()
  * @model
  * @generated
@@ -38,6 +38,7 @@ public interface RepositoryReference {
 	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Location</em>' attribute.
 	 * @see #setLocation(URI)
 	 * @see org.eclipse.b3.aggregator.p2.P2Package#getRepositoryReference_Location()
@@ -54,6 +55,7 @@ public interface RepositoryReference {
 	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Nickname</em>' attribute.
 	 * @see #setNickname(String)
 	 * @see org.eclipse.b3.aggregator.p2.P2Package#getRepositoryReference_Nickname()
@@ -70,6 +72,7 @@ public interface RepositoryReference {
 	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Options</em>' attribute.
 	 * @see #setOptions(int)
 	 * @see org.eclipse.b3.aggregator.p2.P2Package#getRepositoryReference_Options()
@@ -85,6 +88,7 @@ public interface RepositoryReference {
 	 * If the meaning of the '<em>Type</em>' attribute isn't clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Type</em>' attribute.
 	 * @see #setType(int)
 	 * @see org.eclipse.b3.aggregator.p2.P2Package#getRepositoryReference_Type()
@@ -94,27 +98,36 @@ public interface RepositoryReference {
 	int getType();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2.RepositoryReference#getLocation <em>Location</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2.RepositoryReference#getLocation <em>Location</em>}'
+	 * attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Location</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Location</em>' attribute.
 	 * @see #getLocation()
 	 * @generated
 	 */
 	void setLocation(URI value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2.RepositoryReference#getNickname <em>Nickname</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2.RepositoryReference#getNickname <em>Nickname</em>}'
+	 * attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Nickname</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Nickname</em>' attribute.
 	 * @see #getNickname()
 	 * @generated
 	 */
 	void setNickname(String value);
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2.RepositoryReference#getOptions <em>Options</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2.RepositoryReference#getOptions <em>Options</em>}'
+	 * attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Options</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Options</em>' attribute.
 	 * @see #getOptions()
 	 * @generated
 	 */
@@ -123,7 +136,9 @@ public interface RepositoryReference {
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2.RepositoryReference#getType <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Type</em>' attribute.
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Type</em>' attribute.
 	 * @see #getType()
 	 * @generated
 	 */

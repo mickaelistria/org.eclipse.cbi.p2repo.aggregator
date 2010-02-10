@@ -8,7 +8,6 @@ package org.eclipse.b3.aggregator.p2.util;
 
 import java.util.Map;
 
-import org.eclipse.b3.aggregator.p2.*;
 import org.eclipse.b3.aggregator.p2.ArtifactKey;
 import org.eclipse.b3.aggregator.p2.Copyright;
 import org.eclipse.b3.aggregator.p2.InstallableUnit;
@@ -49,6 +48,7 @@ import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
 /**
  * <!-- begin-user-doc --> The <b>Adapter Factory</b> for the model. It provides an adapter <code>createXXX</code>
  * method for each class of the model. <!-- end-user-doc -->
+ * 
  * @see org.eclipse.b3.aggregator.p2.P2Package
  * @generated
  */
@@ -56,6 +56,7 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected static P2Package modelPackage;
@@ -63,154 +64,189 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * The switch that delegates to the <code>createXXX</code> methods.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected P2Switch<Adapter> modelSwitch = new P2Switch<Adapter>() {
-			@Override
-			public Adapter caseIArtifactKey(IArtifactKey object) {
-				return createIArtifactKeyAdapter();
-			}
-			@Override
-			public Adapter caseICopyright(ICopyright object) {
-				return createICopyrightAdapter();
-			}
-			@Override
-			public Adapter caseIInstallableUnit(IInstallableUnit object) {
-				return createIInstallableUnitAdapter();
-			}
-			@Override
-			public Adapter caseIInstallableUnitFragment(IInstallableUnitFragment object) {
-				return createIInstallableUnitFragmentAdapter();
-			}
-			@Override
-			public Adapter caseILicense(ILicense object) {
-				return createILicenseAdapter();
-			}
-			@Override
-			public Adapter caseIProvidedCapability(IProvidedCapability object) {
-				return createIProvidedCapabilityAdapter();
-			}
-			@Override
-			public Adapter caseIRequirement(IRequirement object) {
-				return createIRequirementAdapter();
-			}
-			@Override
-			public Adapter caseIRequiredCapability(IRequiredCapability object) {
-				return createIRequiredCapabilityAdapter();
-			}
-			@Override
-			public Adapter caseITouchpointData(ITouchpointData object) {
-				return createITouchpointDataAdapter();
-			}
-			@Override
-			public Adapter caseITouchpointInstruction(ITouchpointInstruction object) {
-				return createITouchpointInstructionAdapter();
-			}
-			@Override
-			public Adapter caseITouchpointType(ITouchpointType object) {
-				return createITouchpointTypeAdapter();
-			}
-			@Override
-			public Adapter caseIVersionedId(IVersionedId object) {
-				return createIVersionedIdAdapter();
-			}
-			@Override
-			public Adapter caseIUpdateDescriptor(IUpdateDescriptor object) {
-				return createIUpdateDescriptorAdapter();
-			}
-			@Override
-			public Adapter caseArtifactKey(ArtifactKey object) {
-				return createArtifactKeyAdapter();
-			}
-			@Override
-			public Adapter caseCopyright(Copyright object) {
-				return createCopyrightAdapter();
-			}
-			@Override
-			public Adapter caseMetadataRepository(MetadataRepository object) {
-				return createMetadataRepositoryAdapter();
-			}
-			@Override
-			public Adapter caseInstallableUnit(InstallableUnit object) {
-				return createInstallableUnitAdapter();
-			}
-			@Override
-			public Adapter caseInstallableUnitFragment(InstallableUnitFragment object) {
-				return createInstallableUnitFragmentAdapter();
-			}
-			@Override
-			public Adapter caseLicense(License object) {
-				return createLicenseAdapter();
-			}
-			@Override
-			public Adapter caseProvidedCapability(ProvidedCapability object) {
-				return createProvidedCapabilityAdapter();
-			}
-			@Override
-			public Adapter caseRequiredCapability(RequiredCapability object) {
-				return createRequiredCapabilityAdapter();
-			}
-			@Override
-			public Adapter caseRequirement(Requirement object) {
-				return createRequirementAdapter();
-			}
-			@Override
-			public Adapter caseTouchpointData(TouchpointData object) {
-				return createTouchpointDataAdapter();
-			}
-			@Override
-			public Adapter caseTouchpointInstruction(TouchpointInstruction object) {
-				return createTouchpointInstructionAdapter();
-			}
-			@Override
-			public Adapter caseTouchpointType(TouchpointType object) {
-				return createTouchpointTypeAdapter();
-			}
-			@Override
-			public Adapter caseUpdateDescriptor(UpdateDescriptor object) {
-				return createUpdateDescriptorAdapter();
-			}
-			@Override
-			public Adapter caseProperty(Map.Entry<String, String> object) {
-				return createPropertyAdapter();
-			}
-			@Override
-			public Adapter caseInstructionMap(Map.Entry<String, ITouchpointInstruction> object) {
-				return createInstructionMapAdapter();
-			}
-			@Override
-			public <T> Adapter caseIQueryable(IQueryable<T> object) {
-				return createIQueryableAdapter();
-			}
-			@Override
-			public Adapter caseIMetadataRepository(IMetadataRepository object) {
-				return createIMetadataRepositoryAdapter();
-			}
-			@Override
-			public <T> Adapter caseIRepository(IRepository<T> object) {
-				return createIRepositoryAdapter();
-			}
-			@Override
-			public Adapter caseRepositoryReference(RepositoryReference object) {
-				return createRepositoryReferenceAdapter();
-			}
-			@Override
-			public Adapter caseIAdaptable(IAdaptable object) {
-				return createIAdaptableAdapter();
-			}
-			@Override
-			public Adapter defaultCase(EObject object) {
-				return createEObjectAdapter();
-			}
-		};
+		@Override
+		public Adapter caseArtifactKey(ArtifactKey object) {
+			return createArtifactKeyAdapter();
+		}
+
+		@Override
+		public Adapter caseCopyright(Copyright object) {
+			return createCopyrightAdapter();
+		}
+
+		@Override
+		public Adapter caseIAdaptable(IAdaptable object) {
+			return createIAdaptableAdapter();
+		}
+
+		@Override
+		public Adapter caseIArtifactKey(IArtifactKey object) {
+			return createIArtifactKeyAdapter();
+		}
+
+		@Override
+		public Adapter caseICopyright(ICopyright object) {
+			return createICopyrightAdapter();
+		}
+
+		@Override
+		public Adapter caseIInstallableUnit(IInstallableUnit object) {
+			return createIInstallableUnitAdapter();
+		}
+
+		@Override
+		public Adapter caseIInstallableUnitFragment(IInstallableUnitFragment object) {
+			return createIInstallableUnitFragmentAdapter();
+		}
+
+		@Override
+		public Adapter caseILicense(ILicense object) {
+			return createILicenseAdapter();
+		}
+
+		@Override
+		public Adapter caseIMetadataRepository(IMetadataRepository object) {
+			return createIMetadataRepositoryAdapter();
+		}
+
+		@Override
+		public Adapter caseInstallableUnit(InstallableUnit object) {
+			return createInstallableUnitAdapter();
+		}
+
+		@Override
+		public Adapter caseInstallableUnitFragment(InstallableUnitFragment object) {
+			return createInstallableUnitFragmentAdapter();
+		}
+
+		@Override
+		public Adapter caseInstructionMap(Map.Entry<String, ITouchpointInstruction> object) {
+			return createInstructionMapAdapter();
+		}
+
+		@Override
+		public Adapter caseIProvidedCapability(IProvidedCapability object) {
+			return createIProvidedCapabilityAdapter();
+		}
+
+		@Override
+		public <T> Adapter caseIQueryable(IQueryable<T> object) {
+			return createIQueryableAdapter();
+		}
+
+		@Override
+		public <T> Adapter caseIRepository(IRepository<T> object) {
+			return createIRepositoryAdapter();
+		}
+
+		@Override
+		public Adapter caseIRequiredCapability(IRequiredCapability object) {
+			return createIRequiredCapabilityAdapter();
+		}
+
+		@Override
+		public Adapter caseIRequirement(IRequirement object) {
+			return createIRequirementAdapter();
+		}
+
+		@Override
+		public Adapter caseITouchpointData(ITouchpointData object) {
+			return createITouchpointDataAdapter();
+		}
+
+		@Override
+		public Adapter caseITouchpointInstruction(ITouchpointInstruction object) {
+			return createITouchpointInstructionAdapter();
+		}
+
+		@Override
+		public Adapter caseITouchpointType(ITouchpointType object) {
+			return createITouchpointTypeAdapter();
+		}
+
+		@Override
+		public Adapter caseIUpdateDescriptor(IUpdateDescriptor object) {
+			return createIUpdateDescriptorAdapter();
+		}
+
+		@Override
+		public Adapter caseIVersionedId(IVersionedId object) {
+			return createIVersionedIdAdapter();
+		}
+
+		@Override
+		public Adapter caseLicense(License object) {
+			return createLicenseAdapter();
+		}
+
+		@Override
+		public Adapter caseMetadataRepository(MetadataRepository object) {
+			return createMetadataRepositoryAdapter();
+		}
+
+		@Override
+		public Adapter caseProperty(Map.Entry<String, String> object) {
+			return createPropertyAdapter();
+		}
+
+		@Override
+		public Adapter caseProvidedCapability(ProvidedCapability object) {
+			return createProvidedCapabilityAdapter();
+		}
+
+		@Override
+		public Adapter caseRepositoryReference(RepositoryReference object) {
+			return createRepositoryReferenceAdapter();
+		}
+
+		@Override
+		public Adapter caseRequiredCapability(RequiredCapability object) {
+			return createRequiredCapabilityAdapter();
+		}
+
+		@Override
+		public Adapter caseRequirement(Requirement object) {
+			return createRequirementAdapter();
+		}
+
+		@Override
+		public Adapter caseTouchpointData(TouchpointData object) {
+			return createTouchpointDataAdapter();
+		}
+
+		@Override
+		public Adapter caseTouchpointInstruction(TouchpointInstruction object) {
+			return createTouchpointInstructionAdapter();
+		}
+
+		@Override
+		public Adapter caseTouchpointType(TouchpointType object) {
+			return createTouchpointTypeAdapter();
+		}
+
+		@Override
+		public Adapter caseUpdateDescriptor(UpdateDescriptor object) {
+			return createUpdateDescriptorAdapter();
+		}
+
+		@Override
+		public Adapter defaultCase(EObject object) {
+			return createEObjectAdapter();
+		}
+	};
 
 	/**
 	 * Creates an instance of the adapter factory.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public P2AdapterFactory() {
-		if (modelPackage == null) {
+		if(modelPackage == null) {
 			modelPackage = P2Package.eINSTANCE;
 		}
 	}
@@ -218,13 +254,15 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * Creates an adapter for the <code>target</code>.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param target the object to adapt.
+	 * 
+	 * @param target
+	 *            the object to adapt.
 	 * @return the adapter for the <code>target</code>.
 	 * @generated
 	 */
 	@Override
 	public Adapter createAdapter(Notifier target) {
-		return modelSwitch.doSwitch((EObject)target);
+		return modelSwitch.doSwitch((EObject) target);
 	}
 
 	/**
@@ -259,6 +297,7 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	 * Creates a new adapter for the default case.
 	 * <!-- begin-user-doc --> This default implementation returns null.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @generated
 	 */
@@ -270,6 +309,7 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	 * Creates a new adapter for an object of class '{@link org.eclipse.core.runtime.IAdaptable <em>IAdaptable</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful
 	 * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.core.runtime.IAdaptable
 	 * @generated
@@ -293,10 +333,12 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.equinox.p2.metadata.ICopyright <em>ICopyright</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.equinox.p2.metadata.ICopyright
+	 * <em>ICopyright</em>}'.
 	 * <!-- begin-user-doc
 	 * --> This default implementation returns null so that we can easily ignore cases; it's useful to ignore a case
 	 * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.equinox.p2.metadata.ICopyright
 	 * @generated
@@ -320,10 +362,12 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.equinox.p2.metadata.IInstallableUnitFragment <em>IInstallable Unit Fragment</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.equinox.p2.metadata.IInstallableUnitFragment
+	 * <em>IInstallable Unit Fragment</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null so that
 	 * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
 	 * end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.equinox.p2.metadata.IInstallableUnitFragment
 	 * @generated
@@ -333,10 +377,12 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.equinox.p2.metadata.ILicense <em>ILicense</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.equinox.p2.metadata.ILicense <em>ILicense</em>}
+	 * '.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases; it's useful to ignore a case when
 	 * inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.equinox.p2.metadata.ILicense
 	 * @generated
@@ -346,10 +392,12 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.equinox.p2.repository.metadata.IMetadataRepository <em>IMetadata Repository</em>}'.
+	 * Creates a new adapter for an object of class '
+	 * {@link org.eclipse.equinox.p2.repository.metadata.IMetadataRepository <em>IMetadata Repository</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can
 	 * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
 	 * end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.equinox.p2.repository.metadata.IMetadataRepository
 	 * @generated
@@ -359,10 +407,12 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2.InstallableUnit <em>Installable Unit</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2.InstallableUnit
+	 * <em>Installable Unit</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can
 	 * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
 	 * end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.p2.InstallableUnit
 	 * @generated
@@ -399,9 +449,11 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.equinox.p2.metadata.IProvidedCapability <em>IProvided Capability</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.equinox.p2.metadata.IProvidedCapability
+	 * <em>IProvided Capability</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful
 	 * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.equinox.p2.metadata.IProvidedCapability
 	 * @generated
@@ -439,9 +491,11 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.equinox.internal.p2.metadata.IRequiredCapability <em>IRequired Capability</em>}'.
+	 * Creates a new adapter for an object of class '
+	 * {@link org.eclipse.equinox.internal.p2.metadata.IRequiredCapability <em>IRequired Capability</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful
 	 * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.equinox.internal.p2.metadata.IRequiredCapability
 	 * @generated
@@ -451,11 +505,13 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.equinox.p2.metadata.IRequirement <em>IRequirement</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.equinox.p2.metadata.IRequirement
+	 * <em>IRequirement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.equinox.p2.metadata.IRequirement
 	 * @generated
@@ -479,10 +535,12 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.equinox.p2.metadata.ITouchpointInstruction <em>ITouchpoint Instruction</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.equinox.p2.metadata.ITouchpointInstruction
+	 * <em>ITouchpoint Instruction</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null so that we
 	 * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
 	 * end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.equinox.p2.metadata.ITouchpointInstruction
 	 * @generated
@@ -520,11 +578,13 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.equinox.p2.metadata.IVersionedId <em>IVersioned Id</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.equinox.p2.metadata.IVersionedId
+	 * <em>IVersioned Id</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.equinox.p2.metadata.IVersionedId
 	 * @generated
@@ -537,6 +597,7 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2.License <em>License</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
 	 * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.p2.License
 	 * @generated
@@ -546,10 +607,12 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2.MetadataRepository <em>Metadata Repository</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2.MetadataRepository
+	 * <em>Metadata Repository</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can
 	 * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
 	 * end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.p2.MetadataRepository
 	 * @generated
@@ -563,6 +626,7 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	 * <!-- begin-user-doc
 	 * --> This default implementation returns null so that we can easily ignore cases; it's useful to ignore a case
 	 * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see java.util.Map.Entry
 	 * @generated
@@ -572,10 +636,12 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2.ProvidedCapability <em>Provided Capability</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2.ProvidedCapability
+	 * <em>Provided Capability</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can
 	 * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
 	 * end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.p2.ProvidedCapability
 	 * @generated
@@ -585,10 +651,12 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2.RepositoryReference <em>Repository Reference</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2.RepositoryReference
+	 * <em>Repository Reference</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can
 	 * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
 	 * end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.p2.RepositoryReference
 	 * @generated
@@ -598,10 +666,12 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2.RequiredCapability <em>Required Capability</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2.RequiredCapability
+	 * <em>Required Capability</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can
 	 * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
 	 * end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.p2.RequiredCapability
 	 * @generated
@@ -611,11 +681,13 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2.Requirement <em>Requirement</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2.Requirement
+	 * <em>Requirement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.p2.Requirement
 	 * @generated
@@ -625,10 +697,12 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2.TouchpointData <em>Touchpoint Data</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2.TouchpointData
+	 * <em>Touchpoint Data</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can
 	 * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
 	 * end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.p2.TouchpointData
 	 * @generated
@@ -638,10 +712,12 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2.TouchpointInstruction <em>Touchpoint Instruction</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2.TouchpointInstruction
+	 * <em>Touchpoint Instruction</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null so that we
 	 * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
 	 * end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.p2.TouchpointInstruction
 	 * @generated
@@ -651,10 +727,12 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2.TouchpointType <em>Touchpoint Type</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2.TouchpointType
+	 * <em>Touchpoint Type</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can
 	 * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
 	 * end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.p2.TouchpointType
 	 * @generated
@@ -664,10 +742,12 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2.UpdateDescriptor <em>Update Descriptor</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2.UpdateDescriptor
+	 * <em>Update Descriptor</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can
 	 * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
 	 * end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see org.eclipse.b3.aggregator.p2.UpdateDescriptor
 	 * @generated
@@ -681,16 +761,17 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	 * <!-- begin-user-doc --> This
 	 * implementation returns <code>true</code> if the object is either the model's package or is an instance object of
 	 * the model. <!-- end-user-doc -->
+	 * 
 	 * @return whether this factory is applicable for the type of the object.
 	 * @generated
 	 */
 	@Override
 	public boolean isFactoryForType(Object object) {
-		if (object == modelPackage) {
+		if(object == modelPackage) {
 			return true;
 		}
-		if (object instanceof EObject) {
-			return ((EObject)object).eClass().getEPackage() == modelPackage;
+		if(object instanceof EObject) {
+			return ((EObject) object).eClass().getEPackage() == modelPackage;
 		}
 		return false;
 	}

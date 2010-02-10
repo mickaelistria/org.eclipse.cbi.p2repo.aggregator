@@ -18,6 +18,7 @@ import org.eclipse.b3.aggregator.ChildrenProvider;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.InstallableUnitType;
 import org.eclipse.b3.aggregator.MappedRepository;
+import org.eclipse.b3.aggregator.MappedUnit;
 import org.eclipse.b3.aggregator.MetadataRepositoryReference;
 import org.eclipse.b3.aggregator.Property;
 import org.eclipse.b3.aggregator.Status;
@@ -464,14 +465,13 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 		private void updateAvailableVersions() {
 			Aggregator aggregator = ResourceUtils.getAggregator(getResourceSet());
 
-			for(Contribution contribution : aggregator.getContributions()) {
-				for(MappedRepository mappedRepo : contribution.getRepositories()) {
-
-					// TODO implement
-					// repository.getL
-				}
-			}
-
+			for(Contribution contribution : aggregator.getContributions())
+				for(MappedRepository mappedRepo : contribution.getRepositories())
+					if(repository.getLocation().toString().equals(mappedRepo.getLocation()))
+						for(MappedUnit unit : mappedRepo.getUnits(false)) {
+							// TODO implement
+							// unit.reResolveAvailableVersions(repository);
+						}
 		}
 	}
 

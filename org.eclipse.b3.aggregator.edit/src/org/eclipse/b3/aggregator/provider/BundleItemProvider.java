@@ -32,6 +32,7 @@ import org.eclipse.equinox.p2.query.MatchQuery;
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.Bundle} object.
  * <!-- begin-user-doc
  * --> <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class BundleItemProvider extends MappedUnitItemProvider implements IEditingDomainItemProvider,
@@ -40,6 +41,7 @@ public class BundleItemProvider extends MappedUnitItemProvider implements IEditi
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BundleItemProvider(AdapterFactory adapterFactory) {
@@ -62,11 +64,12 @@ public class BundleItemProvider extends MappedUnitItemProvider implements IEditi
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 		}
@@ -104,6 +107,7 @@ public class BundleItemProvider extends MappedUnitItemProvider implements IEditi
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

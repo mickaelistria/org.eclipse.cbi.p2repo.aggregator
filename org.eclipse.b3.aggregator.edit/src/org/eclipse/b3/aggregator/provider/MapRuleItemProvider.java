@@ -49,6 +49,7 @@ public class MapRuleItemProvider extends InstallableUnitRequestItemProvider impl
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public MapRuleItemProvider(AdapterFactory adapterFactory) {
@@ -58,11 +59,12 @@ public class MapRuleItemProvider extends InstallableUnitRequestItemProvider impl
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 		}
@@ -72,14 +74,15 @@ public class MapRuleItemProvider extends InstallableUnitRequestItemProvider impl
 	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((MapRule)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_MapRule_type") :
-			getString("_UI_MapRule_type") + " " + label;
+		String label = ((MapRule) object).getName();
+		return label == null || label.length() == 0
+				? getString("_UI_MapRule_type")
+				: getString("_UI_MapRule_type") + " " + label;
 	}
 
 	/**
@@ -130,6 +133,7 @@ public class MapRuleItemProvider extends InstallableUnitRequestItemProvider impl
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

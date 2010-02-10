@@ -19,12 +19,13 @@ import org.eclipse.equinox.p2.metadata.IInstallableUnit;
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Fragment</b></em>'. <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class FragmentImpl extends BundleImpl implements Fragment {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected FragmentImpl() {
@@ -47,6 +48,7 @@ public class FragmentImpl extends BundleImpl implements Fragment {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

@@ -221,6 +221,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -229,6 +230,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -312,6 +314,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -322,6 +325,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -342,6 +346,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getVersion()
 	 * @generated
 	 * @ordered
@@ -352,6 +357,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 * The cached value of the '{@link #getArtifacts() <em>Artifacts</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getArtifacts()
 	 * @generated
 	 * @ordered
@@ -362,6 +368,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 * The cached value of the '{@link #getCopyright() <em>Copyright</em>}' containment reference.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #getCopyright()
 	 * @generated
 	 * @ordered
@@ -372,16 +379,19 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 * The default value of the '{@link #getFilter() <em>Filter</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getFilter()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Filter FILTER_EDEFAULT = (Filter)P2Factory.eINSTANCE.createFromString(P2Package.eINSTANCE.getFilter(), "");
+	protected static final Filter FILTER_EDEFAULT = (Filter) P2Factory.eINSTANCE.createFromString(
+			P2Package.eINSTANCE.getFilter(), "");
 
 	/**
 	 * The cached value of the '{@link #getFilter() <em>Filter</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getFilter()
 	 * @generated
 	 * @ordered
@@ -392,6 +402,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 * The cached value of the '{@link #getFragments() <em>Fragments</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getFragments()
 	 * @generated
 	 * @ordered
@@ -402,6 +413,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 * The cached value of the '{@link #getLicenses() <em>Licenses</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getLicenses()
 	 * @generated
 	 * @ordered
@@ -409,9 +421,11 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	protected EList<ILicense> licenses;
 
 	/**
-	 * The cached value of the '{@link #getMetaRequiredCapabilities() <em>Meta Required Capabilities</em>}' containment reference list.
+	 * The cached value of the '{@link #getMetaRequiredCapabilities() <em>Meta Required Capabilities</em>}' containment
+	 * reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getMetaRequiredCapabilities()
 	 * @generated
 	 * @ordered
@@ -419,9 +433,11 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	protected EList<IRequirement> metaRequiredCapabilities;
 
 	/**
-	 * The cached value of the '{@link #getProvidedCapabilities() <em>Provided Capabilities</em>}' containment reference list.
+	 * The cached value of the '{@link #getProvidedCapabilities() <em>Provided Capabilities</em>}' containment reference
+	 * list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getProvidedCapabilities()
 	 * @generated
 	 * @ordered
@@ -429,9 +445,11 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	protected EList<IProvidedCapability> providedCapabilities;
 
 	/**
-	 * The cached value of the '{@link #getRequiredCapabilities() <em>Required Capabilities</em>}' containment reference list.
+	 * The cached value of the '{@link #getRequiredCapabilities() <em>Required Capabilities</em>}' containment reference
+	 * list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getRequiredCapabilities()
 	 * @generated
 	 * @ordered
@@ -442,6 +460,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 * The cached value of the '{@link #getTouchpointData() <em>Touchpoint Data</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getTouchpointData()
 	 * @generated
 	 * @ordered
@@ -472,6 +491,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 * The default value of the '{@link #isResolved() <em>Resolved</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #isResolved()
 	 * @generated
 	 * @ordered
@@ -482,6 +502,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 * The flag representing the value of the '{@link #isResolved() <em>Resolved</em>}' attribute.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #isResolved()
 	 * @generated
 	 * @ordered
@@ -492,6 +513,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 * The default value of the '{@link #isSingleton() <em>Singleton</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #isSingleton()
 	 * @generated
 	 * @ordered
@@ -502,6 +524,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 * The flag representing the value of the '{@link #isSingleton() <em>Singleton</em>}' attribute.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @see #isSingleton()
 	 * @generated
 	 * @ordered
@@ -512,6 +535,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 * The cached value of the '{@link #getPropertyMap() <em>Property Map</em>}' map.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getPropertyMap()
 	 * @generated
 	 * @ordered
@@ -520,6 +544,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected InstallableUnitImpl() {
@@ -528,42 +553,57 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetCopyright(ICopyright newCopyright, NotificationChain msgs) {
 		ICopyright oldCopyright = copyright;
 		copyright = newCopyright;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, P2Package.INSTALLABLE_UNIT__COPYRIGHT, oldCopyright, newCopyright);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					P2Package.INSTALLABLE_UNIT__COPYRIGHT, oldCopyright, newCopyright);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetTouchpointType(ITouchpointType newTouchpointType, NotificationChain msgs) {
 		ITouchpointType oldTouchpointType = touchpointType;
 		touchpointType = newTouchpointType;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, P2Package.INSTALLABLE_UNIT__TOUCHPOINT_TYPE, oldTouchpointType, newTouchpointType);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					P2Package.INSTALLABLE_UNIT__TOUCHPOINT_TYPE, oldTouchpointType, newTouchpointType);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetUpdateDescriptor(IUpdateDescriptor newUpdateDescriptor, NotificationChain msgs) {
 		IUpdateDescriptor oldUpdateDescriptor = updateDescriptor;
 		updateDescriptor = newUpdateDescriptor;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, P2Package.INSTALLABLE_UNIT__UPDATE_DESCRIPTOR, oldUpdateDescriptor, newUpdateDescriptor);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					P2Package.INSTALLABLE_UNIT__UPDATE_DESCRIPTOR, oldUpdateDescriptor, newUpdateDescriptor);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -582,118 +622,129 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case P2Package.INSTALLABLE_UNIT__ID:
-				return getId();
-			case P2Package.INSTALLABLE_UNIT__VERSION:
-				return getVersion();
-			case P2Package.INSTALLABLE_UNIT__ARTIFACTS:
-				return getArtifacts();
-			case P2Package.INSTALLABLE_UNIT__COPYRIGHT:
-				return getCopyright();
-			case P2Package.INSTALLABLE_UNIT__FILTER:
-				return getFilter();
-			case P2Package.INSTALLABLE_UNIT__FRAGMENTS:
-				return getFragments();
-			case P2Package.INSTALLABLE_UNIT__LICENSES:
-				return getLicenses();
-			case P2Package.INSTALLABLE_UNIT__META_REQUIRED_CAPABILITIES:
-				return getMetaRequiredCapabilities();
-			case P2Package.INSTALLABLE_UNIT__PROVIDED_CAPABILITIES:
-				return getProvidedCapabilities();
-			case P2Package.INSTALLABLE_UNIT__REQUIRED_CAPABILITIES:
-				return getRequiredCapabilities();
-			case P2Package.INSTALLABLE_UNIT__TOUCHPOINT_DATA:
-				return getTouchpointData();
-			case P2Package.INSTALLABLE_UNIT__TOUCHPOINT_TYPE:
-				return getTouchpointType();
-			case P2Package.INSTALLABLE_UNIT__UPDATE_DESCRIPTOR:
-				return getUpdateDescriptor();
-			case P2Package.INSTALLABLE_UNIT__RESOLVED:
-				return isResolved();
-			case P2Package.INSTALLABLE_UNIT__SINGLETON:
-				return isSingleton();
-			case P2Package.INSTALLABLE_UNIT__PROPERTY_MAP:
-				if (coreType) return getPropertyMap();
-				else return getPropertyMap().map();
+		switch(featureID) {
+		case P2Package.INSTALLABLE_UNIT__ID:
+			return getId();
+		case P2Package.INSTALLABLE_UNIT__VERSION:
+			return getVersion();
+		case P2Package.INSTALLABLE_UNIT__ARTIFACTS:
+			return getArtifacts();
+		case P2Package.INSTALLABLE_UNIT__COPYRIGHT:
+			return getCopyright();
+		case P2Package.INSTALLABLE_UNIT__FILTER:
+			return getFilter();
+		case P2Package.INSTALLABLE_UNIT__FRAGMENTS:
+			return getFragments();
+		case P2Package.INSTALLABLE_UNIT__LICENSES:
+			return getLicenses();
+		case P2Package.INSTALLABLE_UNIT__META_REQUIRED_CAPABILITIES:
+			return getMetaRequiredCapabilities();
+		case P2Package.INSTALLABLE_UNIT__PROVIDED_CAPABILITIES:
+			return getProvidedCapabilities();
+		case P2Package.INSTALLABLE_UNIT__REQUIRED_CAPABILITIES:
+			return getRequiredCapabilities();
+		case P2Package.INSTALLABLE_UNIT__TOUCHPOINT_DATA:
+			return getTouchpointData();
+		case P2Package.INSTALLABLE_UNIT__TOUCHPOINT_TYPE:
+			return getTouchpointType();
+		case P2Package.INSTALLABLE_UNIT__UPDATE_DESCRIPTOR:
+			return getUpdateDescriptor();
+		case P2Package.INSTALLABLE_UNIT__RESOLVED:
+			return isResolved();
+		case P2Package.INSTALLABLE_UNIT__SINGLETON:
+			return isSingleton();
+		case P2Package.INSTALLABLE_UNIT__PROPERTY_MAP:
+			if(coreType)
+				return getPropertyMap();
+			else
+				return getPropertyMap().map();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case P2Package.INSTALLABLE_UNIT__ARTIFACTS:
-				return ((InternalEList<?>)getArtifacts()).basicRemove(otherEnd, msgs);
-			case P2Package.INSTALLABLE_UNIT__COPYRIGHT:
-				return basicSetCopyright(null, msgs);
-			case P2Package.INSTALLABLE_UNIT__LICENSES:
-				return ((InternalEList<?>)getLicenses()).basicRemove(otherEnd, msgs);
-			case P2Package.INSTALLABLE_UNIT__META_REQUIRED_CAPABILITIES:
-				return ((InternalEList<?>)getMetaRequiredCapabilities()).basicRemove(otherEnd, msgs);
-			case P2Package.INSTALLABLE_UNIT__PROVIDED_CAPABILITIES:
-				return ((InternalEList<?>)getProvidedCapabilities()).basicRemove(otherEnd, msgs);
-			case P2Package.INSTALLABLE_UNIT__REQUIRED_CAPABILITIES:
-				return ((InternalEList<?>)getRequiredCapabilities()).basicRemove(otherEnd, msgs);
-			case P2Package.INSTALLABLE_UNIT__TOUCHPOINT_DATA:
-				return ((InternalEList<?>)getTouchpointData()).basicRemove(otherEnd, msgs);
-			case P2Package.INSTALLABLE_UNIT__TOUCHPOINT_TYPE:
-				return basicSetTouchpointType(null, msgs);
-			case P2Package.INSTALLABLE_UNIT__UPDATE_DESCRIPTOR:
-				return basicSetUpdateDescriptor(null, msgs);
-			case P2Package.INSTALLABLE_UNIT__PROPERTY_MAP:
-				return ((InternalEList<?>)getPropertyMap()).basicRemove(otherEnd, msgs);
+		switch(featureID) {
+		case P2Package.INSTALLABLE_UNIT__ARTIFACTS:
+			return ((InternalEList<?>) getArtifacts()).basicRemove(otherEnd, msgs);
+		case P2Package.INSTALLABLE_UNIT__COPYRIGHT:
+			return basicSetCopyright(null, msgs);
+		case P2Package.INSTALLABLE_UNIT__LICENSES:
+			return ((InternalEList<?>) getLicenses()).basicRemove(otherEnd, msgs);
+		case P2Package.INSTALLABLE_UNIT__META_REQUIRED_CAPABILITIES:
+			return ((InternalEList<?>) getMetaRequiredCapabilities()).basicRemove(otherEnd, msgs);
+		case P2Package.INSTALLABLE_UNIT__PROVIDED_CAPABILITIES:
+			return ((InternalEList<?>) getProvidedCapabilities()).basicRemove(otherEnd, msgs);
+		case P2Package.INSTALLABLE_UNIT__REQUIRED_CAPABILITIES:
+			return ((InternalEList<?>) getRequiredCapabilities()).basicRemove(otherEnd, msgs);
+		case P2Package.INSTALLABLE_UNIT__TOUCHPOINT_DATA:
+			return ((InternalEList<?>) getTouchpointData()).basicRemove(otherEnd, msgs);
+		case P2Package.INSTALLABLE_UNIT__TOUCHPOINT_TYPE:
+			return basicSetTouchpointType(null, msgs);
+		case P2Package.INSTALLABLE_UNIT__UPDATE_DESCRIPTOR:
+			return basicSetUpdateDescriptor(null, msgs);
+		case P2Package.INSTALLABLE_UNIT__PROPERTY_MAP:
+			return ((InternalEList<?>) getPropertyMap()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case P2Package.INSTALLABLE_UNIT__ID:
-				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-			case P2Package.INSTALLABLE_UNIT__VERSION:
-				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
-			case P2Package.INSTALLABLE_UNIT__ARTIFACTS:
-				return artifacts != null && !artifacts.isEmpty();
-			case P2Package.INSTALLABLE_UNIT__COPYRIGHT:
-				return copyright != null;
-			case P2Package.INSTALLABLE_UNIT__FILTER:
-				return FILTER_EDEFAULT == null ? filter != null : !FILTER_EDEFAULT.equals(filter);
-			case P2Package.INSTALLABLE_UNIT__FRAGMENTS:
-				return fragments != null && !fragments.isEmpty();
-			case P2Package.INSTALLABLE_UNIT__LICENSES:
-				return licenses != null && !licenses.isEmpty();
-			case P2Package.INSTALLABLE_UNIT__META_REQUIRED_CAPABILITIES:
-				return metaRequiredCapabilities != null && !metaRequiredCapabilities.isEmpty();
-			case P2Package.INSTALLABLE_UNIT__PROVIDED_CAPABILITIES:
-				return providedCapabilities != null && !providedCapabilities.isEmpty();
-			case P2Package.INSTALLABLE_UNIT__REQUIRED_CAPABILITIES:
-				return requiredCapabilities != null && !requiredCapabilities.isEmpty();
-			case P2Package.INSTALLABLE_UNIT__TOUCHPOINT_DATA:
-				return touchpointData != null && !touchpointData.isEmpty();
-			case P2Package.INSTALLABLE_UNIT__TOUCHPOINT_TYPE:
-				return touchpointType != null;
-			case P2Package.INSTALLABLE_UNIT__UPDATE_DESCRIPTOR:
-				return updateDescriptor != null;
-			case P2Package.INSTALLABLE_UNIT__RESOLVED:
-				return ((eFlags & RESOLVED_EFLAG) != 0) != RESOLVED_EDEFAULT;
-			case P2Package.INSTALLABLE_UNIT__SINGLETON:
-				return ((eFlags & SINGLETON_EFLAG) != 0) != SINGLETON_EDEFAULT;
-			case P2Package.INSTALLABLE_UNIT__PROPERTY_MAP:
-				return propertyMap != null && !propertyMap.isEmpty();
+		switch(featureID) {
+		case P2Package.INSTALLABLE_UNIT__ID:
+			return ID_EDEFAULT == null
+					? id != null
+					: !ID_EDEFAULT.equals(id);
+		case P2Package.INSTALLABLE_UNIT__VERSION:
+			return VERSION_EDEFAULT == null
+					? version != null
+					: !VERSION_EDEFAULT.equals(version);
+		case P2Package.INSTALLABLE_UNIT__ARTIFACTS:
+			return artifacts != null && !artifacts.isEmpty();
+		case P2Package.INSTALLABLE_UNIT__COPYRIGHT:
+			return copyright != null;
+		case P2Package.INSTALLABLE_UNIT__FILTER:
+			return FILTER_EDEFAULT == null
+					? filter != null
+					: !FILTER_EDEFAULT.equals(filter);
+		case P2Package.INSTALLABLE_UNIT__FRAGMENTS:
+			return fragments != null && !fragments.isEmpty();
+		case P2Package.INSTALLABLE_UNIT__LICENSES:
+			return licenses != null && !licenses.isEmpty();
+		case P2Package.INSTALLABLE_UNIT__META_REQUIRED_CAPABILITIES:
+			return metaRequiredCapabilities != null && !metaRequiredCapabilities.isEmpty();
+		case P2Package.INSTALLABLE_UNIT__PROVIDED_CAPABILITIES:
+			return providedCapabilities != null && !providedCapabilities.isEmpty();
+		case P2Package.INSTALLABLE_UNIT__REQUIRED_CAPABILITIES:
+			return requiredCapabilities != null && !requiredCapabilities.isEmpty();
+		case P2Package.INSTALLABLE_UNIT__TOUCHPOINT_DATA:
+			return touchpointData != null && !touchpointData.isEmpty();
+		case P2Package.INSTALLABLE_UNIT__TOUCHPOINT_TYPE:
+			return touchpointType != null;
+		case P2Package.INSTALLABLE_UNIT__UPDATE_DESCRIPTOR:
+			return updateDescriptor != null;
+		case P2Package.INSTALLABLE_UNIT__RESOLVED:
+			return ((eFlags & RESOLVED_EFLAG) != 0) != RESOLVED_EDEFAULT;
+		case P2Package.INSTALLABLE_UNIT__SINGLETON:
+			return ((eFlags & SINGLETON_EFLAG) != 0) != SINGLETON_EDEFAULT;
+		case P2Package.INSTALLABLE_UNIT__PROPERTY_MAP:
+			return propertyMap != null && !propertyMap.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -736,143 +787,148 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case P2Package.INSTALLABLE_UNIT__ID:
-				setId((String)newValue);
-				return;
-			case P2Package.INSTALLABLE_UNIT__VERSION:
-				setVersion((Version)newValue);
-				return;
-			case P2Package.INSTALLABLE_UNIT__ARTIFACTS:
-				getArtifacts().clear();
-				getArtifacts().addAll((Collection<? extends IArtifactKey>)newValue);
-				return;
-			case P2Package.INSTALLABLE_UNIT__COPYRIGHT:
-				setCopyright((ICopyright)newValue);
-				return;
-			case P2Package.INSTALLABLE_UNIT__FILTER:
-				setFilter((Filter)newValue);
-				return;
-			case P2Package.INSTALLABLE_UNIT__FRAGMENTS:
-				getFragments().clear();
-				getFragments().addAll((Collection<? extends IInstallableUnitFragment>)newValue);
-				return;
-			case P2Package.INSTALLABLE_UNIT__LICENSES:
-				getLicenses().clear();
-				getLicenses().addAll((Collection<? extends ILicense>)newValue);
-				return;
-			case P2Package.INSTALLABLE_UNIT__META_REQUIRED_CAPABILITIES:
-				getMetaRequiredCapabilities().clear();
-				getMetaRequiredCapabilities().addAll((Collection<? extends IRequirement>)newValue);
-				return;
-			case P2Package.INSTALLABLE_UNIT__PROVIDED_CAPABILITIES:
-				getProvidedCapabilities().clear();
-				getProvidedCapabilities().addAll((Collection<? extends IProvidedCapability>)newValue);
-				return;
-			case P2Package.INSTALLABLE_UNIT__REQUIRED_CAPABILITIES:
-				getRequiredCapabilities().clear();
-				getRequiredCapabilities().addAll((Collection<? extends IRequirement>)newValue);
-				return;
-			case P2Package.INSTALLABLE_UNIT__TOUCHPOINT_DATA:
-				getTouchpointData().clear();
-				getTouchpointData().addAll((Collection<? extends ITouchpointData>)newValue);
-				return;
-			case P2Package.INSTALLABLE_UNIT__TOUCHPOINT_TYPE:
-				setTouchpointType((ITouchpointType)newValue);
-				return;
-			case P2Package.INSTALLABLE_UNIT__UPDATE_DESCRIPTOR:
-				setUpdateDescriptor((IUpdateDescriptor)newValue);
-				return;
-			case P2Package.INSTALLABLE_UNIT__RESOLVED:
-				setResolved((Boolean)newValue);
-				return;
-			case P2Package.INSTALLABLE_UNIT__SINGLETON:
-				setSingleton((Boolean)newValue);
-				return;
-			case P2Package.INSTALLABLE_UNIT__PROPERTY_MAP:
-				((EStructuralFeature.Setting)getPropertyMap()).set(newValue);
-				return;
+		switch(featureID) {
+		case P2Package.INSTALLABLE_UNIT__ID:
+			setId((String) newValue);
+			return;
+		case P2Package.INSTALLABLE_UNIT__VERSION:
+			setVersion((Version) newValue);
+			return;
+		case P2Package.INSTALLABLE_UNIT__ARTIFACTS:
+			getArtifacts().clear();
+			getArtifacts().addAll((Collection<? extends IArtifactKey>) newValue);
+			return;
+		case P2Package.INSTALLABLE_UNIT__COPYRIGHT:
+			setCopyright((ICopyright) newValue);
+			return;
+		case P2Package.INSTALLABLE_UNIT__FILTER:
+			setFilter((Filter) newValue);
+			return;
+		case P2Package.INSTALLABLE_UNIT__FRAGMENTS:
+			getFragments().clear();
+			getFragments().addAll((Collection<? extends IInstallableUnitFragment>) newValue);
+			return;
+		case P2Package.INSTALLABLE_UNIT__LICENSES:
+			getLicenses().clear();
+			getLicenses().addAll((Collection<? extends ILicense>) newValue);
+			return;
+		case P2Package.INSTALLABLE_UNIT__META_REQUIRED_CAPABILITIES:
+			getMetaRequiredCapabilities().clear();
+			getMetaRequiredCapabilities().addAll((Collection<? extends IRequirement>) newValue);
+			return;
+		case P2Package.INSTALLABLE_UNIT__PROVIDED_CAPABILITIES:
+			getProvidedCapabilities().clear();
+			getProvidedCapabilities().addAll((Collection<? extends IProvidedCapability>) newValue);
+			return;
+		case P2Package.INSTALLABLE_UNIT__REQUIRED_CAPABILITIES:
+			getRequiredCapabilities().clear();
+			getRequiredCapabilities().addAll((Collection<? extends IRequirement>) newValue);
+			return;
+		case P2Package.INSTALLABLE_UNIT__TOUCHPOINT_DATA:
+			getTouchpointData().clear();
+			getTouchpointData().addAll((Collection<? extends ITouchpointData>) newValue);
+			return;
+		case P2Package.INSTALLABLE_UNIT__TOUCHPOINT_TYPE:
+			setTouchpointType((ITouchpointType) newValue);
+			return;
+		case P2Package.INSTALLABLE_UNIT__UPDATE_DESCRIPTOR:
+			setUpdateDescriptor((IUpdateDescriptor) newValue);
+			return;
+		case P2Package.INSTALLABLE_UNIT__RESOLVED:
+			setResolved((Boolean) newValue);
+			return;
+		case P2Package.INSTALLABLE_UNIT__SINGLETON:
+			setSingleton((Boolean) newValue);
+			return;
+		case P2Package.INSTALLABLE_UNIT__PROPERTY_MAP:
+			((EStructuralFeature.Setting) getPropertyMap()).set(newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case P2Package.INSTALLABLE_UNIT__ID:
-				setId(ID_EDEFAULT);
-				return;
-			case P2Package.INSTALLABLE_UNIT__VERSION:
-				setVersion(VERSION_EDEFAULT);
-				return;
-			case P2Package.INSTALLABLE_UNIT__ARTIFACTS:
-				getArtifacts().clear();
-				return;
-			case P2Package.INSTALLABLE_UNIT__COPYRIGHT:
-				setCopyright((ICopyright)null);
-				return;
-			case P2Package.INSTALLABLE_UNIT__FILTER:
-				setFilter(FILTER_EDEFAULT);
-				return;
-			case P2Package.INSTALLABLE_UNIT__FRAGMENTS:
-				getFragments().clear();
-				return;
-			case P2Package.INSTALLABLE_UNIT__LICENSES:
-				getLicenses().clear();
-				return;
-			case P2Package.INSTALLABLE_UNIT__META_REQUIRED_CAPABILITIES:
-				getMetaRequiredCapabilities().clear();
-				return;
-			case P2Package.INSTALLABLE_UNIT__PROVIDED_CAPABILITIES:
-				getProvidedCapabilities().clear();
-				return;
-			case P2Package.INSTALLABLE_UNIT__REQUIRED_CAPABILITIES:
-				getRequiredCapabilities().clear();
-				return;
-			case P2Package.INSTALLABLE_UNIT__TOUCHPOINT_DATA:
-				getTouchpointData().clear();
-				return;
-			case P2Package.INSTALLABLE_UNIT__TOUCHPOINT_TYPE:
-				setTouchpointType((ITouchpointType)null);
-				return;
-			case P2Package.INSTALLABLE_UNIT__UPDATE_DESCRIPTOR:
-				setUpdateDescriptor((IUpdateDescriptor)null);
-				return;
-			case P2Package.INSTALLABLE_UNIT__RESOLVED:
-				setResolved(RESOLVED_EDEFAULT);
-				return;
-			case P2Package.INSTALLABLE_UNIT__SINGLETON:
-				setSingleton(SINGLETON_EDEFAULT);
-				return;
-			case P2Package.INSTALLABLE_UNIT__PROPERTY_MAP:
-				getPropertyMap().clear();
-				return;
+		switch(featureID) {
+		case P2Package.INSTALLABLE_UNIT__ID:
+			setId(ID_EDEFAULT);
+			return;
+		case P2Package.INSTALLABLE_UNIT__VERSION:
+			setVersion(VERSION_EDEFAULT);
+			return;
+		case P2Package.INSTALLABLE_UNIT__ARTIFACTS:
+			getArtifacts().clear();
+			return;
+		case P2Package.INSTALLABLE_UNIT__COPYRIGHT:
+			setCopyright((ICopyright) null);
+			return;
+		case P2Package.INSTALLABLE_UNIT__FILTER:
+			setFilter(FILTER_EDEFAULT);
+			return;
+		case P2Package.INSTALLABLE_UNIT__FRAGMENTS:
+			getFragments().clear();
+			return;
+		case P2Package.INSTALLABLE_UNIT__LICENSES:
+			getLicenses().clear();
+			return;
+		case P2Package.INSTALLABLE_UNIT__META_REQUIRED_CAPABILITIES:
+			getMetaRequiredCapabilities().clear();
+			return;
+		case P2Package.INSTALLABLE_UNIT__PROVIDED_CAPABILITIES:
+			getProvidedCapabilities().clear();
+			return;
+		case P2Package.INSTALLABLE_UNIT__REQUIRED_CAPABILITIES:
+			getRequiredCapabilities().clear();
+			return;
+		case P2Package.INSTALLABLE_UNIT__TOUCHPOINT_DATA:
+			getTouchpointData().clear();
+			return;
+		case P2Package.INSTALLABLE_UNIT__TOUCHPOINT_TYPE:
+			setTouchpointType((ITouchpointType) null);
+			return;
+		case P2Package.INSTALLABLE_UNIT__UPDATE_DESCRIPTOR:
+			setUpdateDescriptor((IUpdateDescriptor) null);
+			return;
+		case P2Package.INSTALLABLE_UNIT__RESOLVED:
+			setResolved(RESOLVED_EDEFAULT);
+			return;
+		case P2Package.INSTALLABLE_UNIT__SINGLETON:
+			setSingleton(SINGLETON_EDEFAULT);
+			return;
+		case P2Package.INSTALLABLE_UNIT__PROPERTY_MAP:
+			getPropertyMap().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<IArtifactKey> getArtifacts() {
-		if (artifacts == null) {
-			artifacts = new EObjectContainmentEList<IArtifactKey>(IArtifactKey.class, this, P2Package.INSTALLABLE_UNIT__ARTIFACTS);
+		if(artifacts == null) {
+			artifacts = new EObjectContainmentEList<IArtifactKey>(IArtifactKey.class, this,
+					P2Package.INSTALLABLE_UNIT__ARTIFACTS);
 		}
 		return artifacts;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ICopyright getCopyright() {
@@ -891,6 +947,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Filter getFilter() {
@@ -899,17 +956,20 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<IInstallableUnitFragment> getFragments() {
-		if (fragments == null) {
-			fragments = new EObjectResolvingEList<IInstallableUnitFragment>(IInstallableUnitFragment.class, this, P2Package.INSTALLABLE_UNIT__FRAGMENTS);
+		if(fragments == null) {
+			fragments = new EObjectResolvingEList<IInstallableUnitFragment>(IInstallableUnitFragment.class, this,
+					P2Package.INSTALLABLE_UNIT__FRAGMENTS);
 		}
 		return fragments;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getId() {
@@ -919,10 +979,11 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<ILicense> getLicenses() {
-		if (licenses == null) {
+		if(licenses == null) {
 			licenses = new EObjectContainmentEList<ILicense>(ILicense.class, this, P2Package.INSTALLABLE_UNIT__LICENSES);
 		}
 		return licenses;
@@ -940,11 +1001,13 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<IRequirement> getMetaRequiredCapabilities() {
-		if (metaRequiredCapabilities == null) {
-			metaRequiredCapabilities = new EObjectContainmentEList<IRequirement>(IRequirement.class, this, P2Package.INSTALLABLE_UNIT__META_REQUIRED_CAPABILITIES);
+		if(metaRequiredCapabilities == null) {
+			metaRequiredCapabilities = new EObjectContainmentEList<IRequirement>(IRequirement.class, this,
+					P2Package.INSTALLABLE_UNIT__META_REQUIRED_CAPABILITIES);
 		}
 		return metaRequiredCapabilities;
 	}
@@ -996,44 +1059,52 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EMap<String, String> getPropertyMap() {
-		if (propertyMap == null) {
-			propertyMap = new EcoreEMap<String,String>(P2Package.Literals.PROPERTY, PropertyImpl.class, this, P2Package.INSTALLABLE_UNIT__PROPERTY_MAP);
+		if(propertyMap == null) {
+			propertyMap = new EcoreEMap<String, String>(P2Package.Literals.PROPERTY, PropertyImpl.class, this,
+					P2Package.INSTALLABLE_UNIT__PROPERTY_MAP);
 		}
 		return propertyMap;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<IProvidedCapability> getProvidedCapabilities() {
-		if (providedCapabilities == null) {
-			providedCapabilities = new EObjectContainmentEList<IProvidedCapability>(IProvidedCapability.class, this, P2Package.INSTALLABLE_UNIT__PROVIDED_CAPABILITIES);
+		if(providedCapabilities == null) {
+			providedCapabilities = new EObjectContainmentEList<IProvidedCapability>(IProvidedCapability.class, this,
+					P2Package.INSTALLABLE_UNIT__PROVIDED_CAPABILITIES);
 		}
 		return providedCapabilities;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<IRequirement> getRequiredCapabilities() {
-		if (requiredCapabilities == null) {
-			requiredCapabilities = new EObjectContainmentEList<IRequirement>(IRequirement.class, this, P2Package.INSTALLABLE_UNIT__REQUIRED_CAPABILITIES);
+		if(requiredCapabilities == null) {
+			requiredCapabilities = new EObjectContainmentEList<IRequirement>(IRequirement.class, this,
+					P2Package.INSTALLABLE_UNIT__REQUIRED_CAPABILITIES);
 		}
 		return requiredCapabilities;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<ITouchpointData> getTouchpointData() {
-		if (touchpointData == null) {
-			touchpointData = new EObjectContainmentEList<ITouchpointData>(ITouchpointData.class, this, P2Package.INSTALLABLE_UNIT__TOUCHPOINT_DATA);
+		if(touchpointData == null) {
+			touchpointData = new EObjectContainmentEList<ITouchpointData>(ITouchpointData.class, this,
+					P2Package.INSTALLABLE_UNIT__TOUCHPOINT_DATA);
 		}
 		return touchpointData;
 	}
@@ -1053,6 +1124,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public IUpdateDescriptor getUpdateDescriptor() {
@@ -1061,6 +1133,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Version getVersion() {
@@ -1090,6 +1163,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isResolved() {
@@ -1098,6 +1172,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isSingleton() {
@@ -1115,65 +1190,82 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setCopyright(ICopyright newCopyright) {
-		if (newCopyright != copyright) {
+		if(newCopyright != copyright) {
 			NotificationChain msgs = null;
-			if (copyright != null)
-				msgs = ((InternalEObject)copyright).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - P2Package.INSTALLABLE_UNIT__COPYRIGHT, null, msgs);
-			if (newCopyright != null)
-				msgs = ((InternalEObject)newCopyright).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - P2Package.INSTALLABLE_UNIT__COPYRIGHT, null, msgs);
+			if(copyright != null)
+				msgs = ((InternalEObject) copyright).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- P2Package.INSTALLABLE_UNIT__COPYRIGHT, null, msgs);
+			if(newCopyright != null)
+				msgs = ((InternalEObject) newCopyright).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- P2Package.INSTALLABLE_UNIT__COPYRIGHT, null, msgs);
 			msgs = basicSetCopyright(newCopyright, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.INSTALLABLE_UNIT__COPYRIGHT, newCopyright, newCopyright));
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.INSTALLABLE_UNIT__COPYRIGHT, newCopyright,
+					newCopyright));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setFilter(Filter newFilter) {
 		Filter oldFilter = filter;
 		filter = newFilter;
-		if (eNotificationRequired())
+		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.INSTALLABLE_UNIT__FILTER, oldFilter, filter));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setId(String newId) {
 		String oldId = id;
 		id = newId;
-		if (eNotificationRequired())
+		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.INSTALLABLE_UNIT__ID, oldId, id));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setResolved(boolean newResolved) {
 		boolean oldResolved = (eFlags & RESOLVED_EFLAG) != 0;
-		if (newResolved) eFlags |= RESOLVED_EFLAG; else eFlags &= ~RESOLVED_EFLAG;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.INSTALLABLE_UNIT__RESOLVED, oldResolved, newResolved));
+		if(newResolved)
+			eFlags |= RESOLVED_EFLAG;
+		else
+			eFlags &= ~RESOLVED_EFLAG;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.INSTALLABLE_UNIT__RESOLVED, oldResolved,
+					newResolved));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setSingleton(boolean newSingleton) {
 		boolean oldSingleton = (eFlags & SINGLETON_EFLAG) != 0;
-		if (newSingleton) eFlags |= SINGLETON_EFLAG; else eFlags &= ~SINGLETON_EFLAG;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.INSTALLABLE_UNIT__SINGLETON, oldSingleton, newSingleton));
+		if(newSingleton)
+			eFlags |= SINGLETON_EFLAG;
+		else
+			eFlags &= ~SINGLETON_EFLAG;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.INSTALLABLE_UNIT__SINGLETON, oldSingleton,
+					newSingleton));
 	}
 
 	/**
@@ -1189,58 +1281,72 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setTouchpointTypeGen(ITouchpointType newTouchpointType) {
-		if (newTouchpointType != touchpointType) {
+		if(newTouchpointType != touchpointType) {
 			NotificationChain msgs = null;
-			if (touchpointType != null)
-				msgs = ((InternalEObject)touchpointType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - P2Package.INSTALLABLE_UNIT__TOUCHPOINT_TYPE, null, msgs);
-			if (newTouchpointType != null)
-				msgs = ((InternalEObject)newTouchpointType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - P2Package.INSTALLABLE_UNIT__TOUCHPOINT_TYPE, null, msgs);
+			if(touchpointType != null)
+				msgs = ((InternalEObject) touchpointType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- P2Package.INSTALLABLE_UNIT__TOUCHPOINT_TYPE, null, msgs);
+			if(newTouchpointType != null)
+				msgs = ((InternalEObject) newTouchpointType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- P2Package.INSTALLABLE_UNIT__TOUCHPOINT_TYPE, null, msgs);
 			msgs = basicSetTouchpointType(newTouchpointType, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.INSTALLABLE_UNIT__TOUCHPOINT_TYPE, newTouchpointType, newTouchpointType));
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.INSTALLABLE_UNIT__TOUCHPOINT_TYPE,
+					newTouchpointType, newTouchpointType));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setUpdateDescriptor(IUpdateDescriptor newUpdateDescriptor) {
-		if (newUpdateDescriptor != updateDescriptor) {
+		if(newUpdateDescriptor != updateDescriptor) {
 			NotificationChain msgs = null;
-			if (updateDescriptor != null)
-				msgs = ((InternalEObject)updateDescriptor).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - P2Package.INSTALLABLE_UNIT__UPDATE_DESCRIPTOR, null, msgs);
-			if (newUpdateDescriptor != null)
-				msgs = ((InternalEObject)newUpdateDescriptor).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - P2Package.INSTALLABLE_UNIT__UPDATE_DESCRIPTOR, null, msgs);
+			if(updateDescriptor != null)
+				msgs = ((InternalEObject) updateDescriptor).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- P2Package.INSTALLABLE_UNIT__UPDATE_DESCRIPTOR, null, msgs);
+			if(newUpdateDescriptor != null)
+				msgs = ((InternalEObject) newUpdateDescriptor).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- P2Package.INSTALLABLE_UNIT__UPDATE_DESCRIPTOR, null, msgs);
 			msgs = basicSetUpdateDescriptor(newUpdateDescriptor, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.INSTALLABLE_UNIT__UPDATE_DESCRIPTOR, newUpdateDescriptor, newUpdateDescriptor));
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.INSTALLABLE_UNIT__UPDATE_DESCRIPTOR,
+					newUpdateDescriptor, newUpdateDescriptor));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setVersion(Version newVersion) {
 		Version oldVersion = version;
 		version = newVersion;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.INSTALLABLE_UNIT__VERSION, oldVersion, version));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.INSTALLABLE_UNIT__VERSION, oldVersion,
+					version));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (id: ");
@@ -1268,6 +1374,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

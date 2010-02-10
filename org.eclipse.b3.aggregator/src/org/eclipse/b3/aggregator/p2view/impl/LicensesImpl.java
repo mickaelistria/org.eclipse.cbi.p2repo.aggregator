@@ -29,10 +29,10 @@ import org.eclipse.equinox.p2.metadata.ILicense;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.aggregator.p2view.impl.LicensesImpl#getLicenses <em>Licenses</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.impl.LicensesImpl#getLicenses <em>Licenses</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class LicensesImpl extends MinimalEObjectImpl.Container implements Licenses {
@@ -40,6 +40,7 @@ public class LicensesImpl extends MinimalEObjectImpl.Container implements Licens
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -49,6 +50,7 @@ public class LicensesImpl extends MinimalEObjectImpl.Container implements Licens
 	 * The cached value of the '{@link #getLicenses() <em>Licenses</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getLicenses()
 	 * @generated
 	 * @ordered
@@ -58,6 +60,7 @@ public class LicensesImpl extends MinimalEObjectImpl.Container implements Licens
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected LicensesImpl() {
@@ -67,13 +70,14 @@ public class LicensesImpl extends MinimalEObjectImpl.Container implements Licens
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case P2viewPackage.LICENSES__LICENSES:
-				return getLicenses();
+		switch(featureID) {
+		case P2viewPackage.LICENSES__LICENSES:
+			return getLicenses();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -81,13 +85,14 @@ public class LicensesImpl extends MinimalEObjectImpl.Container implements Licens
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case P2viewPackage.LICENSES__LICENSES:
-				return licenses != null && !licenses.isEmpty();
+		switch(featureID) {
+		case P2viewPackage.LICENSES__LICENSES:
+			return licenses != null && !licenses.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -95,16 +100,17 @@ public class LicensesImpl extends MinimalEObjectImpl.Container implements Licens
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case P2viewPackage.LICENSES__LICENSES:
-				getLicenses().clear();
-				getLicenses().addAll((Collection<? extends ILicense>)newValue);
-				return;
+		switch(featureID) {
+		case P2viewPackage.LICENSES__LICENSES:
+			getLicenses().clear();
+			getLicenses().addAll((Collection<? extends ILicense>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -112,14 +118,15 @@ public class LicensesImpl extends MinimalEObjectImpl.Container implements Licens
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case P2viewPackage.LICENSES__LICENSES:
-				getLicenses().clear();
-				return;
+		switch(featureID) {
+		case P2viewPackage.LICENSES__LICENSES:
+			getLicenses().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -127,10 +134,11 @@ public class LicensesImpl extends MinimalEObjectImpl.Container implements Licens
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<ILicense> getLicenses() {
-		if (licenses == null) {
+		if(licenses == null) {
 			licenses = new EObjectResolvingEList<ILicense>(ILicense.class, this, P2viewPackage.LICENSES__LICENSES);
 		}
 		return licenses;
@@ -139,6 +147,7 @@ public class LicensesImpl extends MinimalEObjectImpl.Container implements Licens
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

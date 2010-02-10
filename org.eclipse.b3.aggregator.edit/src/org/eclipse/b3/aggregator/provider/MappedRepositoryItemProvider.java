@@ -60,6 +60,7 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public MappedRepositoryItemProvider(AdapterFactory adapterFactory) {
@@ -72,11 +73,12 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
+		if(childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(AggregatorPackage.Literals.MAPPED_REPOSITORY__PRODUCTS);
 			childrenFeatures.add(AggregatorPackage.Literals.MAPPED_REPOSITORY__BUNDLES);
@@ -112,11 +114,12 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
 			addDescriptionPropertyDescriptor(object);
@@ -168,105 +171,76 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	/**
 	 * This adds a property descriptor for the Category Prefix feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addCategoryPrefixPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_MappedRepository_categoryPrefix_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MappedRepository_categoryPrefix_feature", "_UI_MappedRepository_type"),
-				 AggregatorPackage.Literals.MAPPED_REPOSITORY__CATEGORY_PREFIX,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_MappedRepository_categoryPrefix_feature"), getString(
+						"_UI_PropertyDescriptor_description", "_UI_MappedRepository_categoryPrefix_feature",
+						"_UI_MappedRepository_type"), AggregatorPackage.Literals.MAPPED_REPOSITORY__CATEGORY_PREFIX,
+				true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Description feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addDescriptionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DescriptionProvider_description_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DescriptionProvider_description_feature", "_UI_DescriptionProvider_type"),
-				 AggregatorPackage.Literals.DESCRIPTION_PROVIDER__DESCRIPTION,
-				 true,
-				 true,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_DescriptionProvider_description_feature"), getString(
+						"_UI_PropertyDescriptor_description", "_UI_DescriptionProvider_description_feature",
+						"_UI_DescriptionProvider_type"), AggregatorPackage.Literals.DESCRIPTION_PROVIDER__DESCRIPTION,
+				true, true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Mirror Artifacts feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addMirrorArtifactsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_MappedRepository_mirrorArtifacts_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MappedRepository_mirrorArtifacts_feature", "_UI_MappedRepository_type"),
-				 AggregatorPackage.Literals.MAPPED_REPOSITORY__MIRROR_ARTIFACTS,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_MappedRepository_mirrorArtifacts_feature"), getString(
+						"_UI_PropertyDescriptor_description", "_UI_MappedRepository_mirrorArtifacts_feature",
+						"_UI_MappedRepository_type"), AggregatorPackage.Literals.MAPPED_REPOSITORY__MIRROR_ARTIFACTS,
+				true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add
-			(createChildParameter
-				(AggregatorPackage.Literals.MAPPED_REPOSITORY__PRODUCTS,
-				 AggregatorFactory.eINSTANCE.createProduct()));
+		newChildDescriptors.add(createChildParameter(AggregatorPackage.Literals.MAPPED_REPOSITORY__PRODUCTS,
+				AggregatorFactory.eINSTANCE.createProduct()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(AggregatorPackage.Literals.MAPPED_REPOSITORY__BUNDLES,
-				 AggregatorFactory.eINSTANCE.createBundle()));
+		newChildDescriptors.add(createChildParameter(AggregatorPackage.Literals.MAPPED_REPOSITORY__BUNDLES,
+				AggregatorFactory.eINSTANCE.createBundle()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(AggregatorPackage.Literals.MAPPED_REPOSITORY__FEATURES,
-				 AggregatorFactory.eINSTANCE.createFeature()));
+		newChildDescriptors.add(createChildParameter(AggregatorPackage.Literals.MAPPED_REPOSITORY__FEATURES,
+				AggregatorFactory.eINSTANCE.createFeature()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(AggregatorPackage.Literals.MAPPED_REPOSITORY__CATEGORIES,
-				 AggregatorFactory.eINSTANCE.createCategory()));
+		newChildDescriptors.add(createChildParameter(AggregatorPackage.Literals.MAPPED_REPOSITORY__CATEGORIES,
+				AggregatorFactory.eINSTANCE.createCategory()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(AggregatorPackage.Literals.MAPPED_REPOSITORY__MAP_RULES,
-				 AggregatorFactory.eINSTANCE.createExclusionRule()));
+		newChildDescriptors.add(createChildParameter(AggregatorPackage.Literals.MAPPED_REPOSITORY__MAP_RULES,
+				AggregatorFactory.eINSTANCE.createExclusionRule()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(AggregatorPackage.Literals.MAPPED_REPOSITORY__MAP_RULES,
-				 AggregatorFactory.eINSTANCE.createValidConfigurationsRule()));
+		newChildDescriptors.add(createChildParameter(AggregatorPackage.Literals.MAPPED_REPOSITORY__MAP_RULES,
+				AggregatorFactory.eINSTANCE.createValidConfigurationsRule()));
 	}
 
 	/**
@@ -343,6 +317,7 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
