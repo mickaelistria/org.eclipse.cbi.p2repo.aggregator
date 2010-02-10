@@ -34,6 +34,7 @@ import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.util.LogUtils;
 import org.eclipse.b3.aggregator.util.MonitorUtils;
+import org.eclipse.b3.aggregator.util.P2Utils;
 import org.eclipse.b3.cli.AbstractCommand;
 import org.eclipse.b3.util.B3Util;
 import org.eclipse.b3.util.ExceptionUtils;
@@ -849,15 +850,14 @@ public class Builder extends AbstractCommand {
 	private void cleanAll() throws CoreException {
 		cleanMetadata();
 
-		B3Util b3util = B3Util.getPlugin();
-		IArtifactRepositoryManager arMgr = b3util.getService(IArtifactRepositoryManager.class);
+		IArtifactRepositoryManager arMgr = P2Utils.getRepositoryManager(IArtifactRepositoryManager.class);
 		try {
 			File destination = new File(buildRoot, Builder.REPO_FOLDER_FINAL);
 			arMgr.removeRepository(Builder.createURI(destination));
 			arMgr.removeRepository(Builder.createURI(new File(destination, Builder.REPO_FOLDER_AGGREGATE)));
 		}
 		finally {
-			b3util.ungetService(arMgr);
+			P2Utils.ungetRepositoryManager(arMgr);
 		}
 
 		if(buildRoot.exists()) {
@@ -868,8 +868,7 @@ public class Builder extends AbstractCommand {
 	}
 
 	private void cleanMetadata() throws CoreException {
-		B3Util b3util = B3Util.getPlugin();
-		IMetadataRepositoryManager mdrMgr = b3util.getService(IMetadataRepositoryManager.class);
+		IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(IMetadataRepositoryManager.class);
 		try {
 			File finalRepo = new File(buildRoot, Builder.REPO_FOLDER_FINAL);
 			deleteMetadataRepository(mdrMgr, finalRepo);
@@ -879,7 +878,7 @@ public class Builder extends AbstractCommand {
 			deleteMetadataRepository(mdrMgr, new File(interimRepo, Builder.REPO_FOLDER_VERIFICATION));
 		}
 		finally {
-			b3util.ungetService(mdrMgr);
+			P2Utils.ungetRepositoryManager(mdrMgr);
 		}
 	}
 

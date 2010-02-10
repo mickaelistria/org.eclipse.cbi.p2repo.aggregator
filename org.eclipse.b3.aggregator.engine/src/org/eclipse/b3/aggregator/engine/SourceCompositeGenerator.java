@@ -16,9 +16,9 @@ import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.p2.MetadataRepository;
 import org.eclipse.b3.aggregator.util.LogUtils;
 import org.eclipse.b3.aggregator.util.MonitorUtils;
+import org.eclipse.b3.aggregator.util.P2Utils;
 import org.eclipse.b3.aggregator.util.ResourceUtils;
 import org.eclipse.b3.aggregator.util.TimeUtils;
-import org.eclipse.b3.util.B3Util;
 import org.eclipse.b3.util.ExceptionUtils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -52,8 +52,7 @@ public class SourceCompositeGenerator extends BuilderPhase {
 		properties.put(IRepository.PROP_COMPRESSED, Boolean.toString(true));
 		boolean errorsFound = false;
 
-		B3Util b3util = B3Util.getPlugin();
-		IMetadataRepositoryManager mdrMgr = b3util.getService(IMetadataRepositoryManager.class);
+		IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(IMetadataRepositoryManager.class);
 
 		Builder builder = getBuilder();
 		URI locationURI = builder.getSourceCompositeURI();
@@ -95,7 +94,7 @@ public class SourceCompositeGenerator extends BuilderPhase {
 			}
 			getBuilder().setSourceComposite(compositeMdr);
 		}
-		b3util.ungetService(mdrMgr);
+		P2Utils.ungetRepositoryManager(mdrMgr);
 		MonitorUtils.done(subMon);
 		LogUtils.info("Done. Took %s", TimeUtils.getFormattedDuration(start)); //$NON-NLS-1$
 		if(errorsFound)

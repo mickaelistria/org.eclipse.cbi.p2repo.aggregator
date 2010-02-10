@@ -26,6 +26,7 @@ import org.eclipse.b3.aggregator.p2.MetadataRepository;
 import org.eclipse.b3.aggregator.p2.impl.InstallableUnitImpl;
 import org.eclipse.b3.aggregator.util.LogUtils;
 import org.eclipse.b3.aggregator.util.MonitorUtils;
+import org.eclipse.b3.aggregator.util.P2Utils;
 import org.eclipse.b3.aggregator.util.TimeUtils;
 import org.eclipse.b3.util.B3Util;
 import org.eclipse.b3.util.ExceptionUtils;
@@ -310,8 +311,7 @@ public class RepositoryVerifier extends BuilderPhase {
 	}
 
 	InstallableUnit resolvePartialIU(IInstallableUnit iu, SubMonitor subMon) throws CoreException {
-		B3Util b3util = B3Util.getPlugin();
-		IArtifactRepositoryManager arMgr = b3util.getService(IArtifactRepositoryManager.class);
+		IArtifactRepositoryManager arMgr = P2Utils.getRepositoryManager(IArtifactRepositoryManager.class);
 		String info = "Converting partial IU for " + iu.getId() + "...";
 		subMon.beginTask(info, IProgressMonitor.UNKNOWN);
 		LogUtils.debug(info);
@@ -383,7 +383,7 @@ public class RepositoryVerifier extends BuilderPhase {
 			return newIU;
 		}
 		finally {
-			b3util.ungetService(arMgr);
+			P2Utils.ungetRepositoryManager(arMgr);
 		}
 	}
 
@@ -492,8 +492,7 @@ public class RepositoryVerifier extends BuilderPhase {
 
 	private Set<IInstallableUnit> getUnpatchedTransitiveScope(IInstallableUnitPatch patch, IProfile profile,
 			IPlanner planner, URI repoLocation, SubMonitor monitor) throws CoreException {
-		B3Util b3util = B3Util.getPlugin();
-		IMetadataRepositoryManager mdrMgr = b3util.getService(IMetadataRepositoryManager.class);
+		IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(IMetadataRepositoryManager.class);
 		try {
 			monitor.beginTask(null, 10);
 			IMetadataRepository sourceRepo = mdrMgr.loadRepository(repoLocation, monitor.newChild(1));
@@ -525,7 +524,7 @@ public class RepositoryVerifier extends BuilderPhase {
 			return units;
 		}
 		finally {
-			b3util.ungetService(mdrMgr);
+			P2Utils.ungetRepositoryManager(mdrMgr);
 		}
 	}
 

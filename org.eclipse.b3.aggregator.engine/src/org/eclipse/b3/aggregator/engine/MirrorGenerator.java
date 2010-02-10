@@ -30,6 +30,7 @@ import org.eclipse.b3.aggregator.p2.RepositoryReference;
 import org.eclipse.b3.aggregator.util.GeneralUtils;
 import org.eclipse.b3.aggregator.util.LogUtils;
 import org.eclipse.b3.aggregator.util.MonitorUtils;
+import org.eclipse.b3.aggregator.util.P2Utils;
 import org.eclipse.b3.aggregator.util.RepositoryLoaderUtils;
 import org.eclipse.b3.aggregator.util.ResourceUtils;
 import org.eclipse.b3.aggregator.util.TimeUtils;
@@ -439,10 +440,8 @@ public class MirrorGenerator extends BuilderPhase {
 		File aggregateDestination = new File(destination, Builder.REPO_FOLDER_AGGREGATE);
 		URI aggregateURI = Builder.createURI(aggregateDestination);
 
-		B3Util b3util = B3Util.getPlugin();
-
-		mdrMgr = b3util.getService(IMetadataRepositoryManager.class);
-		arMgr = b3util.getService(IArtifactRepositoryManager.class);
+		mdrMgr = P2Utils.getRepositoryManager(IMetadataRepositoryManager.class);
+		arMgr = P2Utils.getRepositoryManager(IArtifactRepositoryManager.class);
 		arCache = null;
 		SubMonitor subMon = SubMonitor.convert(monitor, 1000);
 		boolean artifactErrors = false;
@@ -860,9 +859,9 @@ public class MirrorGenerator extends BuilderPhase {
 			MonitorUtils.done(childMonitor);
 		}
 		finally {
-			b3util.ungetService(mdrMgr);
+			P2Utils.ungetRepositoryManager(mdrMgr);
 			mdrMgr = null;
-			b3util.ungetService(arMgr);
+			P2Utils.ungetRepositoryManager(arMgr);
 			arMgr = null;
 			MonitorUtils.done(subMon);
 		}
