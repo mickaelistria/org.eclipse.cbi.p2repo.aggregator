@@ -15,12 +15,9 @@ package org.eclipse.b3.backend.evaluator.b3backend.impl;
 import java.lang.reflect.Type;
 import java.util.Collection;
 
-import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BAdvice;
 import org.eclipse.b3.backend.evaluator.b3backend.BConcern;
-import org.eclipse.b3.backend.evaluator.b3backend.BContext;
-import org.eclipse.b3.backend.evaluator.b3backend.BDelegatingContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BInnerContext;
@@ -206,21 +203,12 @@ public class BWithExpressionImpl extends BExpressionImpl implements BWithExpress
 	 * <!-- begin-user-doc -->
 	 * Returns an inner context with an outer context being the advice context, this outer context is 
 	 * also visible via the inner context (but not it's parent chain).
+	 * TODO: This operation can be removed from the model
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public BInnerContext createContext(BExecutionContext ctx) {
-		// create a BContext (an outer context) that holds the advised information
-		// create a delegating inner context to use while evaluating the nested expression (it has
-		// access to the local inner context.
-		BContext o = B3backendFactory.eINSTANCE.createBContext();
-		BDelegatingContext d = B3backendFactory.eINSTANCE.createBDelegatingContext();
-		BExecutionContext p = ctx instanceof BInnerContext ? ((BInnerContext)ctx).getOuterContext() : ctx;
-		o.setParentContext(p); // parent is the current context's notion of "outer"
-		d.setOuterContext(o); // the advised context is the outer context to use "downstream"
-		d.setParentContext(ctx); // the (typically inner) current context is visible in the with's expression block
-		
-		return (BInnerContext)d.createInnerContext();
+		return ctx.createWrappedInnerContext();
 	}
 
 	/**

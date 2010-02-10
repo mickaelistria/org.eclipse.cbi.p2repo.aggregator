@@ -46,6 +46,15 @@
       </eGenericType>
       <eParameters name="ctx" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExecutionContext"/>
     </eOperations>
+    <eOperations name="getEffectiveBuilderReferences" eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Returns an iterator over the effective references to builders in this, and other units."/>
+      </eAnnotations>
+      <eGenericType eClassifier="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//JavaIterator">
+        <eTypeArguments eClassifier="#//EffectiveBuilderReferenceFacade"/>
+      </eGenericType>
+      <eParameters name="ctx" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExecutionContext"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="postcondExpr" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="precondExpr" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"
@@ -84,12 +93,14 @@
         <details key="documentation" value="Returns the unfiltered requirements as a flattened list."/>
       </eAnnotations>
     </eOperations>
-    <eOperations name="getEffectiveBuilderReferences" upperBound="-1" eType="#//BuilderReference"
-        eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
+    <eOperations name="getEffectiveBuilderReferences" eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Returns the unfiltered requirements as a flattened list."/>
+        <details key="documentation" value="Returns an iterator over the effective references to builders in this, and other units."/>
       </eAnnotations>
-      <eParameters name="ctx" eType="#//BuildContext"/>
+      <eGenericType eClassifier="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//JavaIterator">
+        <eTypeArguments eClassifier="#//EffectiveBuilderReferenceFacade"/>
+      </eGenericType>
+      <eParameters name="ctx" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExecutionContext"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="prerequisites" upperBound="-1"
         eType="#//Prerequisite" containment="true"/>
@@ -113,12 +124,14 @@
         <details key="documentation" value="Returns the unfiltered requirements as a flattened list."/>
       </eAnnotations>
     </eOperations>
-    <eOperations name="getEffectiveBuilderReferences" upperBound="-1" eType="#//BuilderReference"
-        eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
+    <eOperations name="getEffectiveBuilderReferences" eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Returns the unfiltered requirements as a flattened list."/>
+        <details key="documentation" value="Returns an iterator over the effective references to builders in this, and other units."/>
       </eAnnotations>
-      <eParameters name="ctx" eType="#//BuildContext"/>
+      <eGenericType eClassifier="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//JavaIterator">
+        <eTypeArguments eClassifier="#//EffectiveBuilderReferenceFacade"/>
+      </eGenericType>
+      <eParameters name="ctx" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExecutionContext"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="condExpr" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"
         containment="true"/>
@@ -147,11 +160,13 @@
         <details key="documentation" value="Returns the unfiltered requirements as a flattened list."/>
       </eAnnotations>
     </eOperations>
-    <eOperations name="getEffectiveBuilderReferences" upperBound="-1" eType="#//BuilderReference"
-        eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
+    <eOperations name="getEffectiveBuilderReferences" eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Returns the unfiltered requirements as a flattened list."/>
+        <details key="documentation" value="Returns an iterator over the effective references to builders in this, and other units."/>
       </eAnnotations>
+      <eGenericType eClassifier="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//JavaIterator">
+        <eTypeArguments eClassifier="#//EffectiveBuilderReferenceFacade"/>
+      </eGenericType>
       <eParameters name="ctx" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExecutionContext"/>
     </eOperations>
   </eClassifiers>
@@ -450,5 +465,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EffectiveCapabilityFacade" eSuperTypes="#//EffectiveFacade">
     <eStructuralFeatures xsi:type="ecore:EReference" name="providedCapability" eType="#//Capability"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EffectiveBuilderReferenceFacade" eSuperTypes="#//EffectiveFacade">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="builderReference" eType="#//BuilderReference"/>
   </eClassifiers>
 </ecore:EPackage>

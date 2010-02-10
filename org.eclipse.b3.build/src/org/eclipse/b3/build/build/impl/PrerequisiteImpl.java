@@ -10,15 +10,16 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.eclipse.b3.backend.core.SerialIterator;
 import org.eclipse.b3.backend.core.SingletonIterator;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 
 import org.eclipse.b3.backend.evaluator.b3backend.BWithExpression;
 import org.eclipse.b3.build.build.B3BuildPackage;
-import org.eclipse.b3.build.build.BuildContext;
 import org.eclipse.b3.build.build.BuildResultReference;
 import org.eclipse.b3.build.build.BuilderReference;
+import org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade;
 import org.eclipse.b3.build.build.EffectiveRequirementFacade;
 import org.eclipse.b3.build.build.Prerequisite;
 
@@ -326,17 +327,16 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public EList<BuilderReference> getEffectiveBuilderReferences(BuildContext ctx) throws Throwable {
-		List<BuilderReference> result = new ArrayList<BuilderReference>();
+	public Iterator<EffectiveBuilderReferenceFacade> getEffectiveBuilderReferences(BExecutionContext ctx) throws Throwable {
+		SerialIterator<EffectiveBuilderReferenceFacade> itor = new SerialIterator<EffectiveBuilderReferenceFacade>();
 		BuildResultReference br = getBuildResult();
 		if(br != null) {	
 			BExpression cond = getCondExpr();
 			Object r = (cond == null) ? null : cond.evaluate(ctx);
 			if(r == null || ! (r instanceof Boolean) || r != Boolean.FALSE)
-				result.addAll(br.getEffectiveBuilderReferences(withExpr == null ? ctx : withExpr.getEvaluationContext(ctx)));
+				itor.addIterator(br.getEffectiveBuilderReferences(withExpr == null ? ctx : withExpr.getEvaluationContext(ctx)));
 		}
-		// TODO: ISSUE - IS IT OK TO REUSE THE UNFILTERED FEATURE WHEN THERE IS NO DERIVED FEATURE ?
-		return new EcoreEList.UnmodifiableEList<BuilderReference>(this, B3BuildPackage.Literals.PREREQUISITE__BUILD_RESULT, result.size(), result.toArray());
+		return itor;
 	}
 
 

@@ -14,6 +14,7 @@ import org.eclipse.b3.build.build.BuildResultReference;
 import org.eclipse.b3.build.build.EffectiveRequirementFacade;
 
 import org.eclipse.b3.build.build.BuilderReference;
+import org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade;
 import org.eclipse.b3.build.build.RequiredCapability;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -87,7 +88,7 @@ public abstract class BuildResultReferenceImpl extends EObjectImpl implements Bu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<BuilderReference> getEffectiveBuilderReferences(BExecutionContext ctx) throws Throwable {
+	public Iterator<EffectiveBuilderReferenceFacade> getEffectiveBuilderReferences(BExecutionContext ctx) throws Throwable {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

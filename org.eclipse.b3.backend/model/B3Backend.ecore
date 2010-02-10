@@ -92,6 +92,11 @@
     </eOperations>
     <eOperations name="getInvocationContext" eType="#//BInvocationContext" eExceptions="#//B3EngineException"/>
     <eOperations name="createInnerContext" eType="#//BExecutionContext"/>
+    <eOperations name="createWrappedInnerContext" eType="#//BInnerContext">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Creates a new inner context parented by a delegating context refering to a newly created outer context.&#xA;The freshly created outer context is obtained by simply calling getOuterContext on the returned inner context.&#xA;&#xA;This method is useful when a context is needed that keeps the input context's content visible (in the returned inner context), while at the same time providing a new outer context where values visible downstream can be placed."/>
+      </eAnnotations>
+    </eOperations>
     <eOperations name="createOuterContext" eType="#//BExecutionContext"/>
     <eOperations name="getDeclaredValueType" eType="#//IType" eExceptions="#//B3EngineException">
       <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

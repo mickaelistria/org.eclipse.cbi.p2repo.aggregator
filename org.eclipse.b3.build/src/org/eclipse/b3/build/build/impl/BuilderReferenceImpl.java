@@ -17,8 +17,8 @@ import org.eclipse.b3.backend.evaluator.b3backend.BParameterList;
 import org.eclipse.b3.build.build.AliasedRequiredCapability;
 import org.eclipse.b3.build.build.B3BuildFactory;
 import org.eclipse.b3.build.build.B3BuildPackage;
-import org.eclipse.b3.build.build.BuildContext;
 import org.eclipse.b3.build.build.BuilderReference;
+import org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade;
 import org.eclipse.b3.build.build.EffectiveRequirementFacade;
 import org.eclipse.b3.build.build.RequiredCapability;
 
@@ -429,11 +429,13 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * The same as {@link #getBuilderReferences()} (as there are no filters at this level).
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public EList<BuilderReference> getEffectiveBuilderReferences(BuildContext ctx) throws Throwable {
-		return getBuilderReferences();
+	public Iterator<EffectiveBuilderReferenceFacade> getEffectiveBuilderReferences(BExecutionContext ctx) throws Throwable {
+		EffectiveBuilderReferenceFacade facade = B3BuildFactory.eINSTANCE.createEffectiveBuilderReferenceFacade();
+		facade.setContext(ctx);
+		facade.setBuilderReference(this);
+		return new SingletonIterator<EffectiveBuilderReferenceFacade>(facade);
 	}
 } //BuilderReferenceImpl

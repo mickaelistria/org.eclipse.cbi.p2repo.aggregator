@@ -39,6 +39,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BConcern;
 import org.eclipse.b3.backend.evaluator.b3backend.BConcernContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BContext;
+import org.eclipse.b3.backend.evaluator.b3backend.BDelegatingContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BGuardFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BInnerContext;
@@ -225,10 +226,6 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		parentContext = newParentContext;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT, oldParentContext, parentContext));
-		// since progress monitor is obtained quite often, make sure there is one (to prevent searching for
-		// one later).
-		if(progressMonitor == null)
-			setProgressMonitor(parentContext.getProgressMonitor());
 	}
 
 	/**
@@ -803,6 +800,26 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		inner.setParentContext(this);
 		inner.setOuterContext(this);
 		return inner;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Produces an Outer-Inner pair with a delegating context between the inner, and 'this' context.
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public BInnerContext createWrappedInnerContext() {
+		// create a BContext (an outer context) that holds the advised information
+		// create a delegating inner context to use while evaluating the nested expression (it has
+		// access to the local inner context.
+		BContext o = B3backendFactory.eINSTANCE.createBContext();
+		BDelegatingContext d = B3backendFactory.eINSTANCE.createBDelegatingContext();
+		BExecutionContext p = this instanceof BInnerContext ? ((BInnerContext)this).getOuterContext() : this;
+		o.setParentContext(p); // parent is the current context's notion of "outer"
+		d.setOuterContext(o); // the delegating context is the outer context to use "downstream"
+		d.setParentContext(this); // the (typically inner) current context is visible in the returned context
+		
+		return (BInnerContext)d.createInnerContext();
 	}
 
 	/**

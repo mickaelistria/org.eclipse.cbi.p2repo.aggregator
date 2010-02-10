@@ -57,10 +57,10 @@ public interface BuildResultReference extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Returns the unfiltered requirements as a flattened list.
+	 * Returns an iterator over the effective references to builders in this, and other units.
 	 * <!-- end-model-doc -->
-	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
+	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.JavaIterator<org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade>" exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
 	 * @generated
 	 */
-	EList<BuilderReference> getEffectiveBuilderReferences(BExecutionContext ctx) throws Throwable;
+	Iterator<EffectiveBuilderReferenceFacade> getEffectiveBuilderReferences(BExecutionContext ctx) throws Throwable;
 } // BuildResultReference

@@ -14,9 +14,9 @@ import java.util.List;
 import org.eclipse.b3.backend.core.SerialIterator;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.build.build.B3BuildPackage;
-import org.eclipse.b3.build.build.BuildContext;
 import org.eclipse.b3.build.build.BuilderReference;
 import org.eclipse.b3.build.build.CompoundBuildResultReference;
+import org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade;
 import org.eclipse.b3.build.build.EffectiveRequirementFacade;
 import org.eclipse.b3.build.build.Prerequisite;
 
@@ -167,21 +167,13 @@ public class CompoundBuildResultReferenceImpl extends BuildResultReferenceImpl i
 
 		return result;
 	}
-// TODO: REMOVE AFTER CLEANUP
-//	@Override
-//	public EList<RequiredCapability> getRequirements() throws Throwable {
-//		List<RequiredCapability> result = new ArrayList<RequiredCapability>();
-//		for(Prerequisite p : getPrerequisites())
-//			result.addAll(p.getRequirements());
-//		
-//		// TODO: ISSUE - IS IT OK TO REUSE THE UNFILTERED FEATURE WHEN THERE IS NO DERIVED FEATURE ?
-//		return new EcoreEList.UnmodifiableEList<RequiredCapability>(this, B3BuildPackage.Literals.IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_CAPABILITIES, result.size(), result.toArray());
-//	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public EList<BuilderReference> getBuilderReferences() throws Throwable {
 		List<BuilderReference> result = new ArrayList<BuilderReference>();
 		for(Prerequisite p : getPrerequisites())
@@ -196,13 +188,12 @@ public class CompoundBuildResultReferenceImpl extends BuildResultReferenceImpl i
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public EList<BuilderReference> getEffectiveBuilderReferences(BuildContext ctx) throws Throwable {
-		List<BuilderReference> result = new ArrayList<BuilderReference>();
+	@Override
+	public Iterator<EffectiveBuilderReferenceFacade> getEffectiveBuilderReferences(BExecutionContext ctx) throws Throwable {
+		SerialIterator<EffectiveBuilderReferenceFacade> result = new SerialIterator<EffectiveBuilderReferenceFacade>();
 		for(Prerequisite p : getPrerequisites())
-			result.addAll(p.getEffectiveBuilderReferences(ctx));
-
-		// TODO: ISSUE - IS IT OK TO REUSE THE UNFILTERED FEATURE WHEN THERE IS NO DERIVED FEATURE ?
-		return new EcoreEList.UnmodifiableEList<BuilderReference>(this, B3BuildPackage.Literals.PREREQUISITE__BUILD_RESULT, result.size(), result.toArray());
+			result.addIterator(p.getEffectiveBuilderReferences(ctx));
+		return result;
 	}
 	
 } //CompoundBuildResultReferenceImpl

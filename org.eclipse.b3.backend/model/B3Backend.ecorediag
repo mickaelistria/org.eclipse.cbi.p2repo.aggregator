@@ -1058,6 +1058,10 @@
           <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//BExecutionContext/createInnerContext"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_bBx58Q0pEd-FNbuD04-m8g"/>
         </children>
+        <children xmi:type="notation:Node" xmi:id="_AnN3YBaEEd-HM77FigAoGg" type="2002">
+          <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//BExecutionContext/createWrappedInnerContext"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_AnN3YRaEEd-HM77FigAoGg"/>
+        </children>
         <children xmi:type="notation:Node" xmi:id="_bBx58g0pEd-FNbuD04-m8g" type="2002">
           <element xmi:type="ecore:EOperation" href="B3Backend.ecore#//BExecutionContext/createOuterContext"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_bBx58w0pEd-FNbuD04-m8g"/>

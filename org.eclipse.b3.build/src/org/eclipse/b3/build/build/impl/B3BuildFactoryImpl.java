@@ -105,6 +105,7 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 			case B3BuildPackage.EFFECTIVE_UNIT_FACADE: return createEffectiveUnitFacade();
 			case B3BuildPackage.EFFECTIVE_REQUIREMENT_FACADE: return createEffectiveRequirementFacade();
 			case B3BuildPackage.EFFECTIVE_CAPABILITY_FACADE: return createEffectiveCapabilityFacade();
+			case B3BuildPackage.EFFECTIVE_BUILDER_REFERENCE_FACADE: return createEffectiveBuilderReferenceFacade();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -252,6 +253,16 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	public EffectiveCapabilityFacade createEffectiveCapabilityFacade() {
 		EffectiveCapabilityFacadeImpl effectiveCapabilityFacade = new EffectiveCapabilityFacadeImpl();
 		return effectiveCapabilityFacade;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EffectiveBuilderReferenceFacade createEffectiveBuilderReferenceFacade() {
+		EffectiveBuilderReferenceFacadeImpl effectiveBuilderReferenceFacade = new EffectiveBuilderReferenceFacadeImpl();
+		return effectiveBuilderReferenceFacade;
 	}
 
 	/**

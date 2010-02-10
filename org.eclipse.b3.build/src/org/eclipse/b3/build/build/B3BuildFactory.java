@@ -125,6 +125,15 @@ public interface B3BuildFactory extends EFactory {
 	EffectiveCapabilityFacade createEffectiveCapabilityFacade();
 
 	/**
+	 * Returns a new object of class '<em>Effective Builder Reference Facade</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Effective Builder Reference Facade</em>'.
+	 * @generated
+	 */
+	EffectiveBuilderReferenceFacade createEffectiveBuilderReferenceFacade();
+
+	/**
 	 * Returns a new object of class '<em>Versioned Capability</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

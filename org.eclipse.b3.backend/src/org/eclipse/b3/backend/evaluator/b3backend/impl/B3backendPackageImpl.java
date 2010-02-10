@@ -3685,6 +3685,8 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 
 		addEOperation(bExecutionContextEClass, this.getBExecutionContext(), "createInnerContext", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		addEOperation(bExecutionContextEClass, this.getBInnerContext(), "createWrappedInnerContext", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		addEOperation(bExecutionContextEClass, this.getBExecutionContext(), "createOuterContext", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(bExecutionContextEClass, this.getIType(), "getDeclaredValueType", 0, 1, IS_UNIQUE, IS_ORDERED);

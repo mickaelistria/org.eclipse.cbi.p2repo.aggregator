@@ -12,6 +12,7 @@ import java.util.Iterator;
 
 import org.eclipse.b3.backend.core.B3InternalError;
 import org.eclipse.b3.backend.core.SerialIterator;
+import org.eclipse.b3.backend.core.SingletonIterator;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
@@ -28,6 +29,7 @@ import org.eclipse.b3.build.build.Builder;
 import org.eclipse.b3.build.build.B3BuildFactory;
 import org.eclipse.b3.build.build.BuilderInput;
 import org.eclipse.b3.build.build.Capability;
+import org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade;
 import org.eclipse.b3.build.build.EffectiveCapabilityFacade;
 import org.eclipse.b3.build.build.EffectiveRequirementFacade;
 import org.eclipse.b3.build.build.IBuilder;
@@ -505,6 +507,17 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 			list.add(facade);
 		}
 		return list.iterator();	
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Iterator<EffectiveBuilderReferenceFacade> getEffectiveBuilderReferences(BExecutionContext ctx) throws Throwable {
+		if(input == null)
+			return SingletonIterator.nullIterator();
+		return input.getEffectiveBuilderReferences(ctx);
 	}
 
 	/**

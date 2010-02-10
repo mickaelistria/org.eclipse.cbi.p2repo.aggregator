@@ -1488,6 +1488,15 @@ public interface B3BuildPackage extends EPackage {
 	int BUILD_CONTEXT__EFFECTIVE_CONCERNS = B3backendPackage.BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS;
 
 	/**
+	 * The feature id for the '<em><b>Progress Monitor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_CONTEXT__PROGRESS_MONITOR = B3backendPackage.BEXECUTION_CONTEXT__PROGRESS_MONITOR;
+
+	/**
 	 * The number of structural features of the '<em>Build Context</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3316,6 +3325,43 @@ public interface B3BuildPackage extends EPackage {
 	int EFFECTIVE_CAPABILITY_FACADE_FEATURE_COUNT = EFFECTIVE_FACADE_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.EffectiveBuilderReferenceFacadeImpl <em>Effective Builder Reference Facade</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.EffectiveBuilderReferenceFacadeImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getEffectiveBuilderReferenceFacade()
+	 * @generated
+	 */
+	int EFFECTIVE_BUILDER_REFERENCE_FACADE = 48;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EFFECTIVE_BUILDER_REFERENCE_FACADE__CONTEXT = EFFECTIVE_FACADE__CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Builder Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EFFECTIVE_BUILDER_REFERENCE_FACADE__BUILDER_REFERENCE = EFFECTIVE_FACADE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Effective Builder Reference Facade</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EFFECTIVE_BUILDER_REFERENCE_FACADE_FEATURE_COUNT = EFFECTIVE_FACADE_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '<em>Version Range</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3323,7 +3369,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getVersionRange()
 	 * @generated
 	 */
-	int VERSION_RANGE = 48;
+	int VERSION_RANGE = 49;
 
 	/**
 	 * The meta object id for the '<em>Version</em>' data type.
@@ -3333,7 +3379,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getVersion()
 	 * @generated
 	 */
-	int VERSION = 49;
+	int VERSION = 50;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuildUnit <em>Build Unit</em>}'.
@@ -3872,6 +3918,27 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getEffectiveCapabilityFacade_ProvidedCapability();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade <em>Effective Builder Reference Facade</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Effective Builder Reference Facade</em>'.
+	 * @see org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade
+	 * @generated
+	 */
+	EClass getEffectiveBuilderReferenceFacade();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade#getBuilderReference <em>Builder Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Builder Reference</em>'.
+	 * @see org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade#getBuilderReference()
+	 * @see #getEffectiveBuilderReferenceFacade()
+	 * @generated
+	 */
+	EReference getEffectiveBuilderReferenceFacade_BuilderReference();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.VersionedCapability <em>Versioned Capability</em>}'.
@@ -5503,6 +5570,24 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EReference EFFECTIVE_CAPABILITY_FACADE__PROVIDED_CAPABILITY = eINSTANCE.getEffectiveCapabilityFacade_ProvidedCapability();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.EffectiveBuilderReferenceFacadeImpl <em>Effective Builder Reference Facade</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.impl.EffectiveBuilderReferenceFacadeImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getEffectiveBuilderReferenceFacade()
+		 * @generated
+		 */
+		EClass EFFECTIVE_BUILDER_REFERENCE_FACADE = eINSTANCE.getEffectiveBuilderReferenceFacade();
+
+		/**
+		 * The meta object literal for the '<em><b>Builder Reference</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EFFECTIVE_BUILDER_REFERENCE_FACADE__BUILDER_REFERENCE = eINSTANCE.getEffectiveBuilderReferenceFacade_BuilderReference();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.VersionedCapabilityImpl <em>Versioned Capability</em>}' class.

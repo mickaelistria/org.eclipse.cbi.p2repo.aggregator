@@ -226,6 +226,14 @@ public interface BExecutionContext extends EObject {
 	 * @model
 	 * @generated
 	 */
+	BInnerContext createWrappedInnerContext();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
 	BExecutionContext createOuterContext();
 
 	/**
