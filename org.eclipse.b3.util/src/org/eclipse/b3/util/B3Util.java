@@ -38,16 +38,7 @@ public class B3Util extends Plugin {
 	}
 
 	public <T> T getService(Class<T> serviceClass) throws CoreException {
-		BundleContext context = getPlugin().getBundle().getBundleContext();
-		String serviceName = serviceClass.getName();
-		ServiceReference serviceRef = context.getServiceReference(serviceName);
-		if(serviceRef == null)
-			throw ExceptionUtils.fromMessage("Missing OSGi Service %s", serviceName);
-		T service = serviceClass.cast(context.getService(serviceRef));
-		if(services == null)
-			services = new IdentityHashMap<Object, ServiceReference>();
-		services.put(service, serviceRef);
-		return service;
+		return getService(serviceClass, null);
 	}
 
 	public <T> T getService(Class<T> serviceClass, String filter) throws CoreException {
@@ -55,7 +46,7 @@ public class B3Util extends Plugin {
 		String serviceName = serviceClass.getName();
 		ServiceReference[] serviceRef;
 		try {
-			serviceRef = context.getServiceReferences(serviceName, filter);
+			serviceRef = context.getAllServiceReferences(serviceName, filter);
 		}
 		catch(InvalidSyntaxException e) {
 			throw ExceptionUtils.wrap(e);
