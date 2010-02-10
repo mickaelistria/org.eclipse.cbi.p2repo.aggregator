@@ -44,13 +44,12 @@ import org.eclipse.equinox.p2.metadata.IRequirement;
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
 import org.eclipse.equinox.p2.metadata.expression.ExpressionUtil;
+import org.eclipse.equinox.p2.metadata.expression.IExpression;
 import org.eclipse.equinox.p2.publisher.AbstractPublisherAction;
 import org.eclipse.equinox.p2.publisher.IPublisherInfo;
 import org.eclipse.equinox.p2.publisher.IPublisherResult;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
-import org.eclipse.osgi.framework.internal.core.FilterImpl;
 import org.osgi.framework.Filter;
-import org.osgi.framework.InvalidSyntaxException;
 
 /**
  * This action creates the feature that contains all features and bundles that are listed in the build contributions.
@@ -83,12 +82,7 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 			}
 			if(enabledConfigs.size() > 1)
 				filterBld.append(')');
-			try {
-				return FilterImpl.newInstance(filterBld.toString());
-			}
-			catch(InvalidSyntaxException e) {
-				throw new RuntimeException(e);
-			}
+			return ExpressionUtil.parseLDAP(filterBld.toString());
 		}
 		return null;
 	}
@@ -218,18 +212,7 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 						continue requirements;
 					}
 
-					// TODO Get rid of buckminster filters!
-					String filterStr = rc.getFilter().toString();
-					Filter filter = null;
-					if(filterStr != null) {
-						try {
-							filter = FilterImpl.newInstance(filterStr);
-						}
-						catch(InvalidSyntaxException e) {
-							throw new RuntimeException(e);
-						}
-					}
-					addRequirementFor(repository, riu, filter, required, errors, explicit, false);
+					addRequirementFor(repository, riu, rc.getFilter(), required, errors, explicit, false);
 					continue requirements;
 				}
 			}
@@ -262,7 +245,7 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 		if(origFilter != null) {
 			if(filter != null)
 				iuFilter = ExpressionFactory.INSTANCE.filterExpression(ExpressionFactory.INSTANCE.and(
-						ExpressionUtil.parseLDAP(origFilter.toString()), ExpressionUtil.parseLDAP(filter.toString())));
+						(IExpression) origFilter, (IExpression) filter));
 		}
 		IRequiredCapability rc = MetadataFactory.createRequiredCapability(IInstallableUnit.NAMESPACE_IU_ID, id, range,
 				iuFilter, false, false);
