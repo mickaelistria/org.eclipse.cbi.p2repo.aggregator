@@ -4,8 +4,6 @@
  * licensed under the Eclipse Public License - v 1.0 by the copyright holder
  * listed above, as the Initial Contributor under such license. The text of
  * such license is available at www.eclipse.org.
- *
- * $Id$
  */
 package org.eclipse.b3.aggregator.p2view.provider;
 
@@ -23,6 +21,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemColorProvider;
@@ -34,13 +33,13 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.p2view.Requirements} object.
+ * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.p2view.Licenses} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * 
  * @generated
  */
-public class RequirementsItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
+public class LicensesItemProvider extends AggregatorItemProviderAdapter implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
 		IItemColorProvider, IItemFontProvider {
 	/**
@@ -50,7 +49,7 @@ public class RequirementsItemProvider extends AggregatorItemProviderAdapter impl
 	 * 
 	 * @generated
 	 */
-	public RequirementsItemProvider(AdapterFactory adapterFactory) {
+	public LicensesItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -67,13 +66,13 @@ public class RequirementsItemProvider extends AggregatorItemProviderAdapter impl
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if(childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(P2viewPackage.Literals.REQUIREMENTS__REQUIREMENTS);
+			childrenFeatures.add(P2viewPackage.Literals.LICENSES__LICENSES);
 		}
 		return childrenFeatures;
 	}
 
 	/**
-	 * This returns Requirements.gif.
+	 * This returns Licenses.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -81,7 +80,7 @@ public class RequirementsItemProvider extends AggregatorItemProviderAdapter impl
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Requirements"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Licenses"));
 	}
 
 	/**
@@ -96,7 +95,7 @@ public class RequirementsItemProvider extends AggregatorItemProviderAdapter impl
 		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addRequirementsPropertyDescriptor(object);
+			addLicensesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -122,7 +121,7 @@ public class RequirementsItemProvider extends AggregatorItemProviderAdapter impl
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Requirements_type");
+		return getString("_UI_Licenses_type");
 	}
 
 	/**
@@ -140,18 +139,18 @@ public class RequirementsItemProvider extends AggregatorItemProviderAdapter impl
 	}
 
 	/**
-	 * This adds a property descriptor for the Requirements feature.
+	 * This adds a property descriptor for the Licenses feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	protected void addRequirementsPropertyDescriptor(Object object) {
+	protected void addLicensesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Requirements_requirements_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_Requirements_requirements_feature", "_UI_Requirements_type"),
-				P2viewPackage.Literals.REQUIREMENTS__REQUIREMENTS, false, false, true, null, null, null));
+				getString("_UI_Licenses_licenses_feature"), getString("_UI_PropertyDescriptor_description",
+						"_UI_Licenses_licenses_feature", "_UI_Licenses_type"),
+				P2viewPackage.Literals.LICENSES__LICENSES, false, false, true, null, null, null));
 	}
 
 	/**

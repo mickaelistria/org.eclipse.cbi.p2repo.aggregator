@@ -10,9 +10,7 @@ import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.b3.aggregator.p2.InstallableUnit;
-import org.eclipse.b3.aggregator.p2.P2Factory;
 import org.eclipse.b3.aggregator.p2.P2Package;
-import org.eclipse.b3.aggregator.p2view.P2viewFactory;
 import org.eclipse.b3.aggregator.provider.AggregatorEditPlugin;
 import org.eclipse.b3.aggregator.provider.AggregatorItemProviderAdapter;
 import org.eclipse.b3.aggregator.util.GeneralUtils;
@@ -77,6 +75,7 @@ public class InstallableUnitItemProvider extends AggregatorItemProviderAdapter i
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(P2Package.Literals.IINSTALLABLE_UNIT__ARTIFACTS);
 			childrenFeatures.add(P2Package.Literals.IINSTALLABLE_UNIT__COPYRIGHT);
+			childrenFeatures.add(P2Package.Literals.IINSTALLABLE_UNIT__FILTER);
 			childrenFeatures.add(P2Package.Literals.IINSTALLABLE_UNIT__LICENSES);
 			childrenFeatures.add(P2Package.Literals.IINSTALLABLE_UNIT__META_REQUIRED_CAPABILITIES);
 			childrenFeatures.add(P2Package.Literals.IINSTALLABLE_UNIT__PROVIDED_CAPABILITIES);
@@ -87,28 +86,6 @@ public class InstallableUnitItemProvider extends AggregatorItemProviderAdapter i
 			childrenFeatures.add(P2Package.Literals.INSTALLABLE_UNIT__PROPERTY_MAP);
 		}
 		return childrenFeatures;
-	}
-
-	/**
-	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		boolean qualify = childFeature == P2Package.Literals.IINSTALLABLE_UNIT__META_REQUIRED_CAPABILITIES
-				|| childFeature == P2Package.Literals.IINSTALLABLE_UNIT__REQUIRED_CAPABILITIES;
-
-		if(qualify) {
-			return getString("_UI_CreateChild_text2", new Object[] { getTypeText(childObject),
-					getFeatureText(childFeature), getTypeText(owner) });
-		}
-		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**
@@ -137,7 +114,6 @@ public class InstallableUnitItemProvider extends AggregatorItemProviderAdapter i
 			addVersionPropertyDescriptor(object);
 			addCopyrightPropertyDescriptor(object);
 			addFilterPropertyDescriptor(object);
-			addFragmentsPropertyDescriptor(object);
 			addTouchpointTypePropertyDescriptor(object);
 			addUpdateDescriptorPropertyDescriptor(object);
 			addResolvedPropertyDescriptor(object);
@@ -209,13 +185,13 @@ public class InstallableUnitItemProvider extends AggregatorItemProviderAdapter i
 		switch(notification.getFeatureID(InstallableUnit.class)) {
 		case P2Package.INSTALLABLE_UNIT__ID:
 		case P2Package.INSTALLABLE_UNIT__VERSION:
-		case P2Package.INSTALLABLE_UNIT__FILTER:
 		case P2Package.INSTALLABLE_UNIT__RESOLVED:
 		case P2Package.INSTALLABLE_UNIT__SINGLETON:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case P2Package.INSTALLABLE_UNIT__ARTIFACTS:
 		case P2Package.INSTALLABLE_UNIT__COPYRIGHT:
+		case P2Package.INSTALLABLE_UNIT__FILTER:
 		case P2Package.INSTALLABLE_UNIT__LICENSES:
 		case P2Package.INSTALLABLE_UNIT__META_REQUIRED_CAPABILITIES:
 		case P2Package.INSTALLABLE_UNIT__PROVIDED_CAPABILITIES:
@@ -257,21 +233,6 @@ public class InstallableUnitItemProvider extends AggregatorItemProviderAdapter i
 						"_UI_IInstallableUnit_filter_feature", "_UI_IInstallableUnit_type"),
 				P2Package.Literals.IINSTALLABLE_UNIT__FILTER, false, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Fragments feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addFragmentsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_IInstallableUnit_fragments_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_IInstallableUnit_fragments_feature", "_UI_IInstallableUnit_type"),
-				P2Package.Literals.IINSTALLABLE_UNIT__FRAGMENTS, true, false, true, null, null, null));
 	}
 
 	/**
@@ -387,39 +348,6 @@ public class InstallableUnitItemProvider extends AggregatorItemProviderAdapter i
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add(createChildParameter(P2Package.Literals.IINSTALLABLE_UNIT__ARTIFACTS,
-				P2Factory.eINSTANCE.createArtifactKey()));
-
-		newChildDescriptors.add(createChildParameter(P2Package.Literals.IINSTALLABLE_UNIT__LICENSES,
-				P2Factory.eINSTANCE.createLicense()));
-
-		newChildDescriptors.add(createChildParameter(P2Package.Literals.IINSTALLABLE_UNIT__META_REQUIRED_CAPABILITIES,
-				P2Factory.eINSTANCE.createRequiredCapability()));
-
-		newChildDescriptors.add(createChildParameter(P2Package.Literals.IINSTALLABLE_UNIT__META_REQUIRED_CAPABILITIES,
-				P2Factory.eINSTANCE.createRequirement()));
-
-		newChildDescriptors.add(createChildParameter(P2Package.Literals.IINSTALLABLE_UNIT__META_REQUIRED_CAPABILITIES,
-				P2viewFactory.eINSTANCE.createRequirementWrapper()));
-
-		newChildDescriptors.add(createChildParameter(P2Package.Literals.IINSTALLABLE_UNIT__PROVIDED_CAPABILITIES,
-				P2Factory.eINSTANCE.createProvidedCapability()));
-
-		newChildDescriptors.add(createChildParameter(P2Package.Literals.IINSTALLABLE_UNIT__PROVIDED_CAPABILITIES,
-				P2viewFactory.eINSTANCE.createProvidedCapabilityWrapper()));
-
-		newChildDescriptors.add(createChildParameter(P2Package.Literals.IINSTALLABLE_UNIT__REQUIRED_CAPABILITIES,
-				P2Factory.eINSTANCE.createRequiredCapability()));
-
-		newChildDescriptors.add(createChildParameter(P2Package.Literals.IINSTALLABLE_UNIT__REQUIRED_CAPABILITIES,
-				P2Factory.eINSTANCE.createRequirement()));
-
-		newChildDescriptors.add(createChildParameter(P2Package.Literals.IINSTALLABLE_UNIT__REQUIRED_CAPABILITIES,
-				P2viewFactory.eINSTANCE.createRequirementWrapper()));
-
-		newChildDescriptors.add(createChildParameter(P2Package.Literals.IINSTALLABLE_UNIT__TOUCHPOINT_DATA,
-				P2Factory.eINSTANCE.createTouchpointData()));
 	}
 
 	/**

@@ -249,6 +249,15 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 	protected RequirementsItemProvider requirementsItemProvider;
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.aggregator.p2view.Licenses} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected LicensesItemProvider licensesItemProvider;
+
+	/**
 	 * This constructs an instance.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -460,6 +469,22 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 		}
 
 		return iuDetailsItemProvider;
+	}
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.aggregator.p2view.Licenses}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public Adapter createLicensesAdapter() {
+		if(licensesItemProvider == null) {
+			licensesItemProvider = new LicensesItemProvider(this);
+		}
+
+		return licensesItemProvider;
 	}
 
 	/**
@@ -677,6 +702,8 @@ public class P2viewItemProviderAdapterFactory extends P2viewAdapterFactory imple
 			providedCapabilitiesItemProvider.dispose();
 		if(touchpointsItemProvider != null)
 			touchpointsItemProvider.dispose();
+		if(licensesItemProvider != null)
+			licensesItemProvider.dispose();
 		if(iuDetailsItemProvider != null)
 			iuDetailsItemProvider.dispose();
 		if(requirementWrapperItemProvider != null)
