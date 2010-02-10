@@ -321,7 +321,7 @@
         <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//p2/IRequirement/filter"/>
         <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//p2/IRequirement/max"/>
         <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//p2/IRequirement/min"/>
-        <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//p2/IRequirement/matches"/>
+        <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//p2/IRequirement/matches"/>
         <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//p2/IRequirement/greedy"/>
         <genOperations ecoreOperation="Aggregator.ecore#//p2/IRequirement/isMatch">
           <genParameters ecoreParameter="Aggregator.ecore#//p2/IRequirement/isMatch/installableUnit"/>
