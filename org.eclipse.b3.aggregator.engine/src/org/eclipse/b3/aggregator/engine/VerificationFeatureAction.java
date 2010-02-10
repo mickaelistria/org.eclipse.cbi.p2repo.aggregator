@@ -30,25 +30,26 @@ import org.eclipse.b3.aggregator.util.InstallableUnitUtils;
 import org.eclipse.b3.aggregator.util.LogUtils;
 import org.eclipse.b3.aggregator.util.MonitorUtils;
 import org.eclipse.b3.aggregator.util.ResourceUtils;
-import org.eclipse.b3.util.StringUtils;
-import org.eclipse.buckminster.osgi.filter.Filter;
-import org.eclipse.buckminster.osgi.filter.FilterFactory;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
+import org.eclipse.equinox.internal.p2.metadata.expression.ExpressionFactory;
 import org.eclipse.equinox.internal.provisional.p2.metadata.MetadataFactory;
 import org.eclipse.equinox.internal.provisional.p2.metadata.MetadataFactory.InstallableUnitDescription;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.IRequirement;
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
+import org.eclipse.equinox.p2.metadata.expression.ExpressionUtil;
 import org.eclipse.equinox.p2.publisher.AbstractPublisherAction;
 import org.eclipse.equinox.p2.publisher.IPublisherInfo;
 import org.eclipse.equinox.p2.publisher.IPublisherResult;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
+import org.eclipse.osgi.framework.internal.core.FilterImpl;
+import org.osgi.framework.Filter;
 import org.osgi.framework.InvalidSyntaxException;
 
 /**
@@ -83,7 +84,7 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 			if(enabledConfigs.size() > 1)
 				filterBld.append(')');
 			try {
-				return FilterFactory.newInstance(filterBld.toString());
+				return FilterImpl.newInstance(filterBld.toString());
 			}
 			catch(InvalidSyntaxException e) {
 				throw new RuntimeException(e);
@@ -222,7 +223,7 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 					Filter filter = null;
 					if(filterStr != null) {
 						try {
-							filter = FilterFactory.newInstance(filterStr);
+							filter = FilterImpl.newInstance(filterStr);
 						}
 						catch(InvalidSyntaxException e) {
 							throw new RuntimeException(e);
@@ -257,15 +258,11 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 			range = new VersionRange(v, true, v, true);
 
 		Filter iuFilter = filter;
-		// TODO Get rid of buckminster filters
-		String iuFilterStr = StringUtils.trimmedOrNull(iu.getFilter().toString());
-		if(iuFilterStr != null) {
+		Filter origFilter = iu.getFilter();
+		if(origFilter != null) {
 			if(filter != null)
-				try {
-					iuFilter = FilterFactory.newInstance(iuFilterStr).addFilterWithAnd(filter);
-				}
-				catch(InvalidSyntaxException e) {
-				}
+				iuFilter = ExpressionFactory.INSTANCE.filterExpression(ExpressionFactory.INSTANCE.and(
+						ExpressionUtil.parseLDAP(origFilter.toString()), ExpressionUtil.parseLDAP(filter.toString())));
 		}
 		IRequiredCapability rc = MetadataFactory.createRequiredCapability(IInstallableUnit.NAMESPACE_IU_ID, id, range,
 				iuFilter, false, false);
