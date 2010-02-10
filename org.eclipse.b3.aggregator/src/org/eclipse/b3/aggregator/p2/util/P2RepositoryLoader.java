@@ -18,7 +18,7 @@ import org.eclipse.b3.aggregator.p2.InstallableUnit;
 import org.eclipse.b3.aggregator.p2.impl.InstallableUnitImpl;
 import org.eclipse.b3.aggregator.p2.impl.MetadataRepositoryImpl;
 import org.eclipse.b3.aggregator.util.LogUtils;
-import org.eclipse.b3.util.B3Util;
+import org.eclipse.b3.aggregator.util.P2Utils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
@@ -38,8 +38,6 @@ public class P2RepositoryLoader implements IRepositoryLoader {
 
 	private MetadataRepositoryImpl repository;
 
-	private B3Util b3util = B3Util.getPlugin();
-
 	private IMetadataRepositoryManager mdrMgr;
 
 	private static final IQuery<IInstallableUnit> QUERY_ALL_IUS = new MatchQuery<IInstallableUnit>() {
@@ -50,7 +48,7 @@ public class P2RepositoryLoader implements IRepositoryLoader {
 	};
 
 	public void close() {
-		b3util.ungetService(mdrMgr);
+		P2Utils.ungetRepositoryManager(mdrMgr);
 	}
 
 	public IArtifactRepository getArtifactRepository(IMetadataRepository mdr, IProgressMonitor monitor)
@@ -58,11 +56,11 @@ public class P2RepositoryLoader implements IRepositoryLoader {
 		IArtifactRepositoryManager arMgr = null;
 
 		try {
-			arMgr = b3util.getService(IArtifactRepositoryManager.class);
+			arMgr = P2Utils.getRepositoryManager(IArtifactRepositoryManager.class);
 			return arMgr.loadRepository(mdr.getLocation(), monitor);
 		}
 		finally {
-			b3util.ungetService(arMgr);
+			P2Utils.ungetRepositoryManager(arMgr);
 		}
 	}
 
@@ -73,7 +71,7 @@ public class P2RepositoryLoader implements IRepositoryLoader {
 	public void open(URI location, MetadataRepositoryImpl mdr) throws CoreException {
 		this.location = location;
 		repository = mdr;
-		mdrMgr = b3util.getService(IMetadataRepositoryManager.class);
+		mdrMgr = P2Utils.getRepositoryManager(IMetadataRepositoryManager.class);
 	}
 
 	public void reload(IProgressMonitor monitor) throws CoreException {
