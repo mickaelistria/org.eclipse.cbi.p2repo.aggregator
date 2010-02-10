@@ -10,6 +10,7 @@ package org.eclipse.b3.aggregator.engine.maven.indexer;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -182,7 +183,13 @@ public class MavenNexusIndexer implements IMaven2Indexer {
 		closeRemoteIndex();
 		openIterators.clear();
 
-		File cacheDirectory = MavenActivator.getPlugin().getCacheDirectory(location);
+		File cacheDirectory = null;
+		try {
+			cacheDirectory = MavenActivator.getPlugin().getCacheDirectory(location);
+		}
+		catch(MalformedURLException e) {
+			throw ExceptionUtils.wrap(e);
+		}
 		File indexDirectory = new File(cacheDirectory, "index");
 		try {
 			MavenEmbedder embedder = getMavenEmbedder();
