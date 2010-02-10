@@ -90,7 +90,7 @@ public class TransformationWizard extends Wizard implements INewWizard {
 				label.setForeground(Display.getCurrent().getSystemColor(SWT.COLOR_RED));
 			}
 			else
-				label.setText("This wizard will take you throught Aggregation Model Transformation");
+				label.setText("This wizard will take you through Aggregation Model Transformation");
 
 			setControl(label);
 		}
@@ -268,8 +268,8 @@ public class TransformationWizard extends Wizard implements INewWizard {
 		newFileCreationPage = new NewFileCreationPage("FileCreationPage", selection);
 		newFileCreationPage.setTitle("Target Location");
 		newFileCreationPage.setDescription("Provide location for the transformed model");
-		newFileCreationPage.setFileName(AggregatorEditorPlugin.INSTANCE.getString("_UI_AggregatorEditorFilenameDefaultBase")
-				+ "." + FILE_EXTENSIONS.get(0));
+		newFileCreationPage.setFileName(srcResourceURI.lastSegment().replaceAll("\\.[^.]*$", "") + "."
+				+ FILE_EXTENSIONS.get(0));
 		addPage(newFileCreationPage);
 
 		// Try and get the resource selection to determine a current directory for the file dialog.
