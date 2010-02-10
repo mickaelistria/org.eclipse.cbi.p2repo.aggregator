@@ -62,9 +62,9 @@ import org.eclipse.b3.aggregator.p2.impl.ProvidedCapabilityImpl;
 import org.eclipse.b3.aggregator.p2.impl.RequiredCapabilityImpl;
 import org.eclipse.b3.aggregator.p2.impl.TouchpointTypeImpl;
 import org.eclipse.b3.aggregator.util.LogUtils;
+import org.eclipse.b3.aggregator.util.P2Utils;
 import org.eclipse.b3.aggregator.util.RepositoryLoaderUtils;
 import org.eclipse.b3.aggregator.util.UriIterator;
-import org.eclipse.b3.util.B3Util;
 import org.eclipse.b3.util.ExceptionUtils;
 import org.eclipse.b3.util.StringUtils;
 import org.eclipse.core.runtime.CoreException;
@@ -953,10 +953,9 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 	}
 
 	private void removeCache() throws CoreException {
-		B3Util b3util = B3Util.getPlugin();
 		IMetadataRepositoryManager mdrMgr = null;
 		try {
-			mdrMgr = b3util.getService(IMetadataRepositoryManager.class);
+			mdrMgr = P2Utils.getRepositoryManager(IMetadataRepositoryManager.class);
 			mdrMgr.removeRepository(getCacheLocation().toURI());
 			deleteTree(getCacheLocation());
 		}
@@ -964,7 +963,7 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 			throw ExceptionUtils.wrap(e);
 		}
 		finally {
-			b3util.ungetService(mdrMgr);
+			P2Utils.ungetRepositoryManager(mdrMgr);
 		}
 	}
 
@@ -1024,10 +1023,9 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 	}
 
 	private void storeCache() throws CoreException {
-		B3Util b3util = B3Util.getPlugin();
 		IMetadataRepositoryManager mdrMgr = null;
 		try {
-			mdrMgr = b3util.getService(IMetadataRepositoryManager.class);
+			mdrMgr = P2Utils.getRepositoryManager(IMetadataRepositoryManager.class);
 			Map<String, String> properties = new HashMap<String, String>(2);
 			properties.put(IRepository.PROP_COMPRESSED, "true");
 			properties.put(PROP_INDEX_TIMESTAMP, repository.getPropertyMap().get(PROP_INDEX_TIMESTAMP));
@@ -1044,7 +1042,7 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 					new IInstallableUnit[repository.getInstallableUnits().size()]));
 		}
 		finally {
-			b3util.ungetService(mdrMgr);
+			P2Utils.ungetRepositoryManager(mdrMgr);
 		}
 	}
 }
