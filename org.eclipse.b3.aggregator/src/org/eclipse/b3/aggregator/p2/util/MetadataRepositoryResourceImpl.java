@@ -60,7 +60,6 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
-import org.eclipse.equinox.internal.p2.metadata.TranslationSupport;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.IRequirement;
 import org.eclipse.equinox.p2.metadata.Version;
@@ -307,7 +306,8 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 							+ (name != null && name.length() > 0
 									? " (" + name + ")"
 									: ""));
-				iuPresentation.setDescription(TranslationSupport.getInstance().getIUProperty(iu,
+				iuPresentation.setDescription(RepositoryTranslationSupport.getInstance(
+						(MetadataRepository) ((InstallableUnitImpl) iu).eContainer()).getIUProperty(iu,
 						IInstallableUnit.PROP_DESCRIPTION));
 
 				Map<Version, IUPresentation> versionMap = iuMap.get(iu.getId());

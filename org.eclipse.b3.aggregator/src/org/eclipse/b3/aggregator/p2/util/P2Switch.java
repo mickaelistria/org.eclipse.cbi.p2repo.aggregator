@@ -714,9 +714,9 @@ public class P2Switch<T1> {
 			RequiredCapability requiredCapability = (RequiredCapability) theEObject;
 			T1 result = caseRequiredCapability(requiredCapability);
 			if(result == null)
-				result = caseIRequiredCapability(requiredCapability);
-			if(result == null)
 				result = caseRequirement(requiredCapability);
+			if(result == null)
+				result = caseIRequiredCapability(requiredCapability);
 			if(result == null)
 				result = caseIRequirement(requiredCapability);
 			if(result == null)

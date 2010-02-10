@@ -11,13 +11,10 @@ import org.eclipse.b3.aggregator.p2.RequiredCapability;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.IProvidedCapability;
 import org.eclipse.equinox.p2.metadata.VersionRange;
-import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
-import org.osgi.framework.Filter;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Required Capability</b></em>'. <!--
@@ -25,10 +22,6 @@ import org.osgi.framework.Filter;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.p2.impl.RequiredCapabilityImpl#getFilter <em>Filter</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2.impl.RequiredCapabilityImpl#getMax <em>Max</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2.impl.RequiredCapabilityImpl#getMin <em>Min</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2.impl.RequiredCapabilityImpl#isGreedy <em>Greedy</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2.impl.RequiredCapabilityImpl#getName <em>Name</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2.impl.RequiredCapabilityImpl#getNamespace <em>Namespace</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2.impl.RequiredCapabilityImpl#getRange <em>Range</em>}</li>
@@ -37,104 +30,7 @@ import org.osgi.framework.Filter;
  * 
  * @generated
  */
-public class RequiredCapabilityImpl extends MinimalEObjectImpl.Container implements RequiredCapability {
-	/**
-	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	protected int eFlags = 0;
-
-	/**
-	 * The default value of the '{@link #getFilter() <em>Filter</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @see #getFilter()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Filter FILTER_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getFilter() <em>Filter</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @see #getFilter()
-	 * @generated
-	 * @ordered
-	 */
-	protected Filter filter = FILTER_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getMax() <em>Max</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getMax()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int MAX_EDEFAULT = 0;
-
-	/**
-	 * The cached value of the '{@link #getMax() <em>Max</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getMax()
-	 * @generated
-	 * @ordered
-	 */
-	protected int max = MAX_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getMin() <em>Min</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getMin()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int MIN_EDEFAULT = 0;
-
-	/**
-	 * The cached value of the '{@link #getMin() <em>Min</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getMin()
-	 * @generated
-	 * @ordered
-	 */
-	protected int min = MIN_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #isGreedy() <em>Greedy</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @see #isGreedy()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean GREEDY_EDEFAULT = false;
-
-	/**
-	 * The flag representing the value of the '{@link #isGreedy() <em>Greedy</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #isGreedy()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int GREEDY_EFLAG = 1 << 0;
-
+public class RequiredCapabilityImpl extends RequirementImpl implements RequiredCapability {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
@@ -208,6 +104,52 @@ public class RequiredCapabilityImpl extends MinimalEObjectImpl.Container impleme
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if(baseClass == IRequiredCapability.class) {
+			switch(derivedFeatureID) {
+			case P2Package.REQUIRED_CAPABILITY__NAME:
+				return P2Package.IREQUIRED_CAPABILITY__NAME;
+			case P2Package.REQUIRED_CAPABILITY__NAMESPACE:
+				return P2Package.IREQUIRED_CAPABILITY__NAMESPACE;
+			case P2Package.REQUIRED_CAPABILITY__RANGE:
+				return P2Package.IREQUIRED_CAPABILITY__RANGE;
+			default:
+				return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if(baseClass == IRequiredCapability.class) {
+			switch(baseFeatureID) {
+			case P2Package.IREQUIRED_CAPABILITY__NAME:
+				return P2Package.REQUIRED_CAPABILITY__NAME;
+			case P2Package.IREQUIRED_CAPABILITY__NAMESPACE:
+				return P2Package.REQUIRED_CAPABILITY__NAMESPACE;
+			case P2Package.IREQUIRED_CAPABILITY__RANGE:
+				return P2Package.REQUIRED_CAPABILITY__RANGE;
+			default:
+				return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -215,14 +157,6 @@ public class RequiredCapabilityImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case P2Package.REQUIRED_CAPABILITY__FILTER:
-			return getFilter();
-		case P2Package.REQUIRED_CAPABILITY__MAX:
-			return getMax();
-		case P2Package.REQUIRED_CAPABILITY__MIN:
-			return getMin();
-		case P2Package.REQUIRED_CAPABILITY__GREEDY:
-			return isGreedy();
 		case P2Package.REQUIRED_CAPABILITY__NAME:
 			return getName();
 		case P2Package.REQUIRED_CAPABILITY__NAMESPACE:
@@ -241,16 +175,6 @@ public class RequiredCapabilityImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case P2Package.REQUIRED_CAPABILITY__FILTER:
-			return FILTER_EDEFAULT == null
-					? filter != null
-					: !FILTER_EDEFAULT.equals(filter);
-		case P2Package.REQUIRED_CAPABILITY__MAX:
-			return max != MAX_EDEFAULT;
-		case P2Package.REQUIRED_CAPABILITY__MIN:
-			return min != MIN_EDEFAULT;
-		case P2Package.REQUIRED_CAPABILITY__GREEDY:
-			return ((eFlags & GREEDY_EFLAG) != 0) != GREEDY_EDEFAULT;
 		case P2Package.REQUIRED_CAPABILITY__NAME:
 			return NAME_EDEFAULT == null
 					? name != null
@@ -303,18 +227,6 @@ public class RequiredCapabilityImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case P2Package.REQUIRED_CAPABILITY__FILTER:
-			setFilter((Filter) newValue);
-			return;
-		case P2Package.REQUIRED_CAPABILITY__MAX:
-			setMax((Integer) newValue);
-			return;
-		case P2Package.REQUIRED_CAPABILITY__MIN:
-			setMin((Integer) newValue);
-			return;
-		case P2Package.REQUIRED_CAPABILITY__GREEDY:
-			setGreedy((Boolean) newValue);
-			return;
 		case P2Package.REQUIRED_CAPABILITY__NAME:
 			setName((String) newValue);
 			return;
@@ -336,18 +248,6 @@ public class RequiredCapabilityImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case P2Package.REQUIRED_CAPABILITY__FILTER:
-			setFilter(FILTER_EDEFAULT);
-			return;
-		case P2Package.REQUIRED_CAPABILITY__MAX:
-			setMax(MAX_EDEFAULT);
-			return;
-		case P2Package.REQUIRED_CAPABILITY__MIN:
-			setMin(MIN_EDEFAULT);
-			return;
-		case P2Package.REQUIRED_CAPABILITY__GREEDY:
-			setGreedy(GREEDY_EDEFAULT);
-			return;
 		case P2Package.REQUIRED_CAPABILITY__NAME:
 			setName(NAME_EDEFAULT);
 			return;
@@ -359,47 +259,6 @@ public class RequiredCapabilityImpl extends MinimalEObjectImpl.Container impleme
 			return;
 		}
 		super.eUnset(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public Filter getFilter() {
-		return filter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public IMatchExpression<IInstallableUnit> getMatches() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public int getMax() {
-		return max;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public int getMin() {
-		return min;
 	}
 
 	/**
@@ -446,27 +305,6 @@ public class RequiredCapabilityImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
-	 */
-	public boolean isGreedy() {
-		return (eFlags & GREEDY_EFLAG) != 0;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public boolean isMatch(IInstallableUnit installableUnit) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated NOT
 	 */
 
@@ -478,62 +316,6 @@ public class RequiredCapabilityImpl extends MinimalEObjectImpl.Container impleme
 		if(nameSpace == null || !nameSpace.equals(cap.getNamespace()))
 			return false;
 		return getRange().isIncluded(cap.getVersion());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public void setFilter(Filter newFilter) {
-		Filter oldFilter = filter;
-		filter = newFilter;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.REQUIRED_CAPABILITY__FILTER, oldFilter,
-					filter));
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public void setGreedy(boolean newGreedy) {
-		boolean oldGreedy = (eFlags & GREEDY_EFLAG) != 0;
-		if(newGreedy)
-			eFlags |= GREEDY_EFLAG;
-		else
-			eFlags &= ~GREEDY_EFLAG;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.REQUIRED_CAPABILITY__GREEDY, oldGreedy,
-					newGreedy));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public void setMax(int newMax) {
-		int oldMax = max;
-		max = newMax;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.REQUIRED_CAPABILITY__MAX, oldMax, max));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public void setMin(int newMin) {
-		int oldMin = min;
-		min = newMin;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.REQUIRED_CAPABILITY__MIN, oldMin, min));
 	}
 
 	/**

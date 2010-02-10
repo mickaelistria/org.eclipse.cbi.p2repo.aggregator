@@ -359,6 +359,15 @@ public interface P2Package extends EPackage {
 		EAttribute IREQUIREMENT__MIN = eINSTANCE.getIRequirement_Min();
 
 		/**
+		 * The meta object literal for the '<em><b>Matches</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute IREQUIREMENT__MATCHES = eINSTANCE.getIRequirement_Matches();
+
+		/**
 		 * The meta object literal for the '<em><b>Greedy</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1769,6 +1778,16 @@ public interface P2Package extends EPackage {
 	int IREQUIREMENT__MIN = 2;
 
 	/**
+	 * The feature id for the '<em><b>Matches</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IREQUIREMENT__MATCHES = 3;
+
+	/**
 	 * The feature id for the '<em><b>Greedy</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1776,7 +1795,7 @@ public interface P2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IREQUIREMENT__GREEDY = 3;
+	int IREQUIREMENT__GREEDY = 4;
 
 	/**
 	 * The number of structural features of the '<em>IRequirement</em>' class.
@@ -1786,7 +1805,7 @@ public interface P2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IREQUIREMENT_FEATURE_COUNT = 4;
+	int IREQUIREMENT_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.equinox.internal.p2.metadata.IRequiredCapability
@@ -1827,6 +1846,16 @@ public interface P2Package extends EPackage {
 	 * @ordered
 	 */
 	int IREQUIRED_CAPABILITY__MIN = IREQUIREMENT__MIN;
+
+	/**
+	 * The feature id for the '<em><b>Matches</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IREQUIRED_CAPABILITY__MATCHES = IREQUIREMENT__MATCHES;
 
 	/**
 	 * The feature id for the '<em><b>Greedy</b></em>' attribute.
@@ -2968,81 +2997,6 @@ public interface P2Package extends EPackage {
 
 	/**
 	 * The feature id for the '<em><b>Filter</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIRED_CAPABILITY__FILTER = IREQUIRED_CAPABILITY__FILTER;
-
-	/**
-	 * The feature id for the '<em><b>Max</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIRED_CAPABILITY__MAX = IREQUIRED_CAPABILITY__MAX;
-
-	/**
-	 * The feature id for the '<em><b>Min</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIRED_CAPABILITY__MIN = IREQUIRED_CAPABILITY__MIN;
-
-	/**
-	 * The feature id for the '<em><b>Greedy</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIRED_CAPABILITY__GREEDY = IREQUIRED_CAPABILITY__GREEDY;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIRED_CAPABILITY__NAME = IREQUIRED_CAPABILITY__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Namespace</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIRED_CAPABILITY__NAMESPACE = IREQUIRED_CAPABILITY__NAMESPACE;
-
-	/**
-	 * The feature id for the '<em><b>Range</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIRED_CAPABILITY__RANGE = IREQUIRED_CAPABILITY__RANGE;
-
-	/**
-	 * The number of structural features of the '<em>Required Capability</em>' class.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIRED_CAPABILITY_FEATURE_COUNT = IREQUIRED_CAPABILITY_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Filter</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -3072,6 +3026,16 @@ public interface P2Package extends EPackage {
 	int REQUIREMENT__MIN = IREQUIREMENT__MIN;
 
 	/**
+	 * The feature id for the '<em><b>Matches</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIREMENT__MATCHES = IREQUIREMENT__MATCHES;
+
+	/**
 	 * The feature id for the '<em><b>Greedy</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3090,6 +3054,91 @@ public interface P2Package extends EPackage {
 	 * @ordered
 	 */
 	int REQUIREMENT_FEATURE_COUNT = IREQUIREMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Filter</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRED_CAPABILITY__FILTER = REQUIREMENT__FILTER;
+
+	/**
+	 * The feature id for the '<em><b>Max</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRED_CAPABILITY__MAX = REQUIREMENT__MAX;
+
+	/**
+	 * The feature id for the '<em><b>Min</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRED_CAPABILITY__MIN = REQUIREMENT__MIN;
+
+	/**
+	 * The feature id for the '<em><b>Matches</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRED_CAPABILITY__MATCHES = REQUIREMENT__MATCHES;
+
+	/**
+	 * The feature id for the '<em><b>Greedy</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRED_CAPABILITY__GREEDY = REQUIREMENT__GREEDY;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRED_CAPABILITY__NAME = REQUIREMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Namespace</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRED_CAPABILITY__NAMESPACE = REQUIREMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Range</b></em>' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRED_CAPABILITY__RANGE = REQUIREMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Required Capability</em>' class.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRED_CAPABILITY_FEATURE_COUNT = REQUIREMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Instruction Map</b></em>' map.
@@ -4332,6 +4381,19 @@ public interface P2Package extends EPackage {
 	 * @generated
 	 */
 	EAttribute getIRequirement_Greedy();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IRequirement#getMatches
+	 * <em>Matches</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Matches</em>'.
+	 * @see org.eclipse.equinox.p2.metadata.IRequirement#getMatches()
+	 * @see #getIRequirement()
+	 * @generated
+	 */
+	EAttribute getIRequirement_Matches();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IRequirement#getMax

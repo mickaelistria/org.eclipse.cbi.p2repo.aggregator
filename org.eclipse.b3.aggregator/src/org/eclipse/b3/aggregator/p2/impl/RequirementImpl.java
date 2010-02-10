@@ -27,6 +27,7 @@ import org.osgi.framework.Filter;
  * <li>{@link org.eclipse.b3.aggregator.p2.impl.RequirementImpl#getFilter <em>Filter</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2.impl.RequirementImpl#getMax <em>Max</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2.impl.RequirementImpl#getMin <em>Min</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2.impl.RequirementImpl#getMatches <em>Matches</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2.impl.RequirementImpl#isGreedy <em>Greedy</em>}</li>
  * </ul>
  * </p>
@@ -111,6 +112,17 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	protected int min = MIN_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getMatches() <em>Matches</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getMatches()
+	 * @generated
+	 * @ordered
+	 */
+	protected IMatchExpression<IInstallableUnit> matches;
+
+	/**
 	 * The default value of the '{@link #isGreedy() <em>Greedy</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -157,6 +169,8 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 			return getMax();
 		case P2Package.REQUIREMENT__MIN:
 			return getMin();
+		case P2Package.REQUIREMENT__MATCHES:
+			return getMatches();
 		case P2Package.REQUIREMENT__GREEDY:
 			return isGreedy();
 		}
@@ -180,6 +194,8 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 			return max != MAX_EDEFAULT;
 		case P2Package.REQUIREMENT__MIN:
 			return min != MIN_EDEFAULT;
+		case P2Package.REQUIREMENT__MATCHES:
+			return matches != null;
 		case P2Package.REQUIREMENT__GREEDY:
 			return ((eFlags & GREEDY_EFLAG) != 0) != GREEDY_EDEFAULT;
 		}
@@ -192,6 +208,7 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	 * 
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
@@ -203,6 +220,9 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 			return;
 		case P2Package.REQUIREMENT__MIN:
 			setMin((Integer) newValue);
+			return;
+		case P2Package.REQUIREMENT__MATCHES:
+			setMatches((IMatchExpression<IInstallableUnit>) newValue);
 			return;
 		case P2Package.REQUIREMENT__GREEDY:
 			setGreedy((Boolean) newValue);
@@ -229,6 +249,9 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 		case P2Package.REQUIREMENT__MIN:
 			setMin(MIN_EDEFAULT);
 			return;
+		case P2Package.REQUIREMENT__MATCHES:
+			setMatches((IMatchExpression<IInstallableUnit>) null);
+			return;
 		case P2Package.REQUIREMENT__GREEDY:
 			setGreedy(GREEDY_EDEFAULT);
 			return;
@@ -253,9 +276,7 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	 * @generated
 	 */
 	public IMatchExpression<IInstallableUnit> getMatches() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return matches;
 	}
 
 	/**
@@ -325,6 +346,19 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 			eFlags &= ~GREEDY_EFLAG;
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.REQUIREMENT__GREEDY, oldGreedy, newGreedy));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setMatches(IMatchExpression<IInstallableUnit> newMatches) {
+		IMatchExpression<IInstallableUnit> oldMatches = matches;
+		matches = newMatches;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.REQUIREMENT__MATCHES, oldMatches, matches));
 	}
 
 	/**

@@ -318,14 +318,14 @@
         <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//p2/IProvidedCapability/version"/>
       </genClasses>
       <genClasses image="false" ecoreClass="Aggregator.ecore#//p2/IRequirement">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//p2/IRequirement/filter"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//p2/IRequirement/max"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//p2/IRequirement/min"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//p2/IRequirement/greedy"/>
+        <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//p2/IRequirement/filter"/>
+        <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//p2/IRequirement/max"/>
+        <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//p2/IRequirement/min"/>
+        <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//p2/IRequirement/matches"/>
+        <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//p2/IRequirement/greedy"/>
         <genOperations ecoreOperation="Aggregator.ecore#//p2/IRequirement/isMatch">
           <genParameters ecoreParameter="Aggregator.ecore#//p2/IRequirement/isMatch/installableUnit"/>
         </genOperations>
-        <genOperations ecoreOperation="Aggregator.ecore#//p2/IRequirement/getMatches"/>
       </genClasses>
       <genClasses image="false" ecoreClass="Aggregator.ecore#//p2/IRequiredCapability">
         <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//p2/IRequiredCapability/name"/>

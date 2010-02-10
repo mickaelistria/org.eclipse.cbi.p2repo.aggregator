@@ -357,14 +357,14 @@
       <eOperations name="isMatch" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eParameters name="installableUnit" eType="#//p2/IInstallableUnit"/>
       </eOperations>
-      <eOperations name="getMatches">
-        <eGenericType eClassifier="#//p2/IMatchExpression">
-          <eTypeArguments eClassifier="#//p2/IInstallableUnit"/>
-        </eGenericType>
-      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="filter" eType="#//p2/Filter"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="max" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="min" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="matches">
+        <eGenericType eClassifier="#//p2/IMatchExpression">
+          <eTypeArguments eClassifier="#//p2/IInstallableUnit"/>
+        </eGenericType>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="greedy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="IRequiredCapability" instanceClassName="org.eclipse.equinox.internal.p2.metadata.IRequiredCapability"
@@ -431,7 +431,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="License" eSuperTypes="#//p2/ILicense"/>
     <eClassifiers xsi:type="ecore:EClass" name="ProvidedCapability" eSuperTypes="#//p2/IProvidedCapability"/>
-    <eClassifiers xsi:type="ecore:EClass" name="RequiredCapability" eSuperTypes="#//p2/IRequiredCapability #//p2/Requirement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="RequiredCapability" eSuperTypes="#//p2/Requirement #//p2/IRequiredCapability"/>
     <eClassifiers xsi:type="ecore:EClass" name="Requirement" eSuperTypes="#//p2/IRequirement"/>
     <eClassifiers xsi:type="ecore:EClass" name="TouchpointData" eSuperTypes="#//p2/ITouchpointData">
       <eStructuralFeatures xsi:type="ecore:EReference" name="instructionMap" upperBound="-1"

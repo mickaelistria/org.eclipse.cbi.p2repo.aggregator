@@ -33,6 +33,7 @@ import org.osgi.framework.Filter;
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequirementWrapperImpl#getFilter <em>Filter</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequirementWrapperImpl#getMax <em>Max</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequirementWrapperImpl#getMin <em>Min</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequirementWrapperImpl#getMatches <em>Matches</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequirementWrapperImpl#isGreedy <em>Greedy</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequirementWrapperImpl#getLabel <em>Label</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequirementWrapperImpl#getGenuine <em>Genuine</em>}</li>
@@ -117,6 +118,17 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	 * @ordered
 	 */
 	protected int min = MIN_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getMatches() <em>Matches</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getMatches()
+	 * @generated
+	 * @ordered
+	 */
+	protected IMatchExpression<IInstallableUnit> matches;
 
 	/**
 	 * The default value of the '{@link #isGreedy() <em>Greedy</em>}' attribute.
@@ -242,6 +254,8 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 			return getMax();
 		case P2viewPackage.REQUIREMENT_WRAPPER__MIN:
 			return getMin();
+		case P2viewPackage.REQUIREMENT_WRAPPER__MATCHES:
+			return getMatches();
 		case P2viewPackage.REQUIREMENT_WRAPPER__GREEDY:
 			return isGreedy();
 		case P2viewPackage.REQUIREMENT_WRAPPER__LABEL:
@@ -289,6 +303,9 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 		case P2viewPackage.REQUIREMENT_WRAPPER__MIN:
 			setMin((Integer) newValue);
 			return;
+		case P2viewPackage.REQUIREMENT_WRAPPER__MATCHES:
+			setMatches((IMatchExpression<IInstallableUnit>) newValue);
+			return;
 		case P2viewPackage.REQUIREMENT_WRAPPER__GREEDY:
 			setGreedy((Boolean) newValue);
 			return;
@@ -315,6 +332,9 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 			return;
 		case P2viewPackage.REQUIREMENT_WRAPPER__MIN:
 			setMin(MIN_EDEFAULT);
+			return;
+		case P2viewPackage.REQUIREMENT_WRAPPER__MATCHES:
+			setMatches((IMatchExpression<IInstallableUnit>) null);
 			return;
 		case P2viewPackage.REQUIREMENT_WRAPPER__GREEDY:
 			setGreedy(GREEDY_EDEFAULT);
@@ -431,6 +451,20 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.REQUIREMENT_WRAPPER__LABEL, oldLabel,
 					label));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setMatches(IMatchExpression<IInstallableUnit> newMatches) {
+		IMatchExpression<IInstallableUnit> oldMatches = matches;
+		matches = newMatches;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.REQUIREMENT_WRAPPER__MATCHES,
+					oldMatches, matches));
 	}
 
 	/**

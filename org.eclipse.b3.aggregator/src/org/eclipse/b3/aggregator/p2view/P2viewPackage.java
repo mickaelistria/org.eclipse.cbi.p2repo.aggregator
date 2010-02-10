@@ -2718,6 +2718,16 @@ public interface P2viewPackage extends EPackage {
 	int REQUIREMENT_WRAPPER__MIN = P2Package.IREQUIREMENT__MIN;
 
 	/**
+	 * The feature id for the '<em><b>Matches</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIREMENT_WRAPPER__MATCHES = P2Package.IREQUIREMENT__MATCHES;
+
+	/**
 	 * The feature id for the '<em><b>Greedy</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

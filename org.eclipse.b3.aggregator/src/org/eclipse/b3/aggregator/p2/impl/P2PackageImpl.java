@@ -581,6 +581,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		createEAttribute(iRequirementEClass, IREQUIREMENT__FILTER);
 		createEAttribute(iRequirementEClass, IREQUIREMENT__MAX);
 		createEAttribute(iRequirementEClass, IREQUIREMENT__MIN);
+		createEAttribute(iRequirementEClass, IREQUIREMENT__MATCHES);
 		createEAttribute(iRequirementEClass, IREQUIREMENT__GREEDY);
 
 		iRequiredCapabilityEClass = createEClass(IREQUIRED_CAPABILITY);
@@ -1315,6 +1316,16 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 * @generated
 	 */
 	public EAttribute getIRequirement_Greedy() {
+		return (EAttribute) iRequirementEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getIRequirement_Matches() {
 		return (EAttribute) iRequirementEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -1784,8 +1795,8 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		installableUnitFragmentEClass.getESuperTypes().add(this.getIInstallableUnitFragment());
 		licenseEClass.getESuperTypes().add(this.getILicense());
 		providedCapabilityEClass.getESuperTypes().add(this.getIProvidedCapability());
-		requiredCapabilityEClass.getESuperTypes().add(this.getIRequiredCapability());
 		requiredCapabilityEClass.getESuperTypes().add(this.getRequirement());
+		requiredCapabilityEClass.getESuperTypes().add(this.getIRequiredCapability());
 		requirementEClass.getESuperTypes().add(this.getIRequirement());
 		touchpointDataEClass.getESuperTypes().add(this.getITouchpointData());
 		touchpointInstructionEClass.getESuperTypes().add(this.getITouchpointInstruction());
@@ -1927,17 +1938,16 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIRequirement_Min(), theXMLTypePackage.getInt(), "min", null, 0, 1, IRequirement.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(this.getIMatchExpression());
+		g2 = createEGenericType(this.getIInstallableUnit());
+		g1.getETypeArguments().add(g2);
+		initEAttribute(getIRequirement_Matches(), g1, "matches", null, 0, 1, IRequirement.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIRequirement_Greedy(), ecorePackage.getEBoolean(), "greedy", null, 0, 1, IRequirement.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(iRequirementEClass, ecorePackage.getEBoolean(), "isMatch", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getIInstallableUnit(), "installableUnit", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(iRequirementEClass, null, "getMatches", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(this.getIMatchExpression());
-		g2 = createEGenericType(this.getIInstallableUnit());
-		g1.getETypeArguments().add(g2);
-		initEOperation(op, g1);
 
 		initEClass(iRequiredCapabilityEClass, IRequiredCapability.class, "IRequiredCapability", IS_ABSTRACT,
 				IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);

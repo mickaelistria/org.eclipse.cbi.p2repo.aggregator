@@ -174,28 +174,28 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	public static Requirement importToModel(IRequirement req) {
 		if(req == null)
 			return null;
+
+		RequirementImpl mreq;
+
 		if(req instanceof IRequiredCapability) {
 			IRequiredCapability rc = (IRequiredCapability) req;
 			RequiredCapabilityImpl mrc = (RequiredCapabilityImpl) P2Factory.eINSTANCE.createRequiredCapability();
-			mrc.setFilter(req.getFilter());
-			mrc.setGreedy(req.isGreedy());
-			mrc.setMin(req.getMin());
-			mrc.setMax(req.getMax());
 			mrc.setName(rc.getName());
 			mrc.setNamespace(rc.getNamespace());
 			mrc.setRange(rc.getRange());
 
-			return mrc;
+			mreq = mrc;
 		}
-		else {
-			RequirementImpl mreq = (RequirementImpl) P2Factory.eINSTANCE.createRequirement();
-			mreq.setFilter(req.getFilter());
-			mreq.setGreedy(req.isGreedy());
-			mreq.setMin(req.getMin());
-			mreq.setMax(req.getMax());
+		else
+			mreq = (RequirementImpl) P2Factory.eINSTANCE.createRequirement();
 
-			return mreq;
-		}
+		mreq.setFilter(req.getFilter());
+		mreq.setGreedy(req.isGreedy());
+		mreq.setMin(req.getMin());
+		mreq.setMax(req.getMax());
+		mreq.setMatches(req.getMatches());
+
+		return mreq;
 	}
 
 	public static TouchpointData importToModel(ITouchpointData ptd) {
