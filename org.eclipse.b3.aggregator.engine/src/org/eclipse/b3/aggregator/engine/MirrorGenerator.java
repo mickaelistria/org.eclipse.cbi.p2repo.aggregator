@@ -6,6 +6,7 @@ import java.io.File;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -24,8 +25,6 @@ import org.eclipse.b3.aggregator.engine.maven.MavenRepositoryHelper;
 import org.eclipse.b3.aggregator.engine.maven.indexer.IMaven2Indexer;
 import org.eclipse.b3.aggregator.engine.maven.indexer.IndexerUtils;
 import org.eclipse.b3.aggregator.loader.IRepositoryLoader;
-import org.eclipse.b3.aggregator.p2.ArtifactKey;
-import org.eclipse.b3.aggregator.p2.InstallableUnit;
 import org.eclipse.b3.aggregator.p2.MetadataRepository;
 import org.eclipse.b3.aggregator.p2.RepositoryReference;
 import org.eclipse.b3.aggregator.util.GeneralUtils;
@@ -47,26 +46,28 @@ import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository;
 import org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest;
 import org.eclipse.equinox.internal.p2.artifact.repository.RawMirrorRequest;
+import org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactDescriptor;
 import org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository;
 import org.eclipse.equinox.internal.p2.director.PermissiveSlicer;
 import org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository;
-import org.eclipse.equinox.internal.provisional.p2.artifact.repository.ArtifactDescriptor;
-import org.eclipse.equinox.internal.provisional.p2.artifact.repository.IArtifactDescriptor;
-import org.eclipse.equinox.internal.provisional.p2.artifact.repository.IArtifactRepository;
-import org.eclipse.equinox.internal.provisional.p2.artifact.repository.IArtifactRepositoryManager;
-import org.eclipse.equinox.internal.provisional.p2.artifact.repository.processing.ProcessingStepDescriptor;
 import org.eclipse.equinox.internal.provisional.p2.artifact.repository.processing.ProcessingStepHandler;
-import org.eclipse.equinox.internal.provisional.p2.core.ProvisionException;
-import org.eclipse.equinox.internal.provisional.p2.metadata.IArtifactKey;
-import org.eclipse.equinox.internal.provisional.p2.metadata.IInstallableUnit;
-import org.eclipse.equinox.internal.provisional.p2.metadata.query.Collector;
-import org.eclipse.equinox.internal.provisional.p2.metadata.query.IQueryable;
-import org.eclipse.equinox.internal.provisional.p2.metadata.query.MatchQuery;
-import org.eclipse.equinox.internal.provisional.p2.metadata.query.Query;
-import org.eclipse.equinox.internal.provisional.p2.metadata.repository.IMetadataRepository;
-import org.eclipse.equinox.internal.provisional.p2.metadata.repository.IMetadataRepositoryManager;
-import org.eclipse.equinox.internal.provisional.p2.repository.IRepository;
+import org.eclipse.equinox.p2.core.ProvisionException;
+import org.eclipse.equinox.p2.metadata.IArtifactKey;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.publisher.Publisher;
+import org.eclipse.equinox.p2.query.IQuery;
+import org.eclipse.equinox.p2.query.IQueryResult;
+import org.eclipse.equinox.p2.query.IQueryable;
+import org.eclipse.equinox.p2.query.MatchQuery;
+import org.eclipse.equinox.p2.repository.IRepository;
+import org.eclipse.equinox.p2.repository.artifact.ArtifactKeyQuery;
+import org.eclipse.equinox.p2.repository.artifact.IArtifactDescriptor;
+import org.eclipse.equinox.p2.repository.artifact.IArtifactRepository;
+import org.eclipse.equinox.p2.repository.artifact.IArtifactRepositoryManager;
+import org.eclipse.equinox.p2.repository.artifact.spi.ArtifactDescriptor;
+import org.eclipse.equinox.p2.repository.artifact.spi.ProcessingStepDescriptor;
+import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
+import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
 
 public class MirrorGenerator extends BuilderPhase {
 	/**
@@ -96,56 +97,18 @@ public class MirrorGenerator extends BuilderPhase {
 		}
 	}
 
-	static IArtifactDescriptor mirror(IArtifactRepository source, IArtifactRepository dest,
-			IArtifactDescriptor sourceDesc, IArtifactDescriptor targetDesc, IProgressMonitor monitor)
-			throws CoreException {
-		if(dest.contains(targetDesc))
-			return targetDesc;
-
-		RawMirrorRequest request = new RawMirrorRequest(sourceDesc, targetDesc, dest);
-		request.setSourceRepository(source);
-		request.perform(monitor);
-		IStatus result = request.getResult();
-		switch(result.getSeverity()) {
-		case IStatus.INFO:
-			LogUtils.info(result.getMessage());
-		case IStatus.OK:
-			// Unfortunately, this doesn't necessarily mean that everything is OK. Zero sized files are
-			// silently ignored. See bug 290986
-			// We can't have that here.
-			if(getArtifactDescriptor(dest, targetDesc.getArtifactKey(), isPacked(targetDesc)) != null)
-				// All is well.
-				return targetDesc;
-
-			result = new Status(IStatus.ERROR, Engine.PLUGIN_ID, "Zero bytes copied");
-			break;
-		case IStatus.CANCEL:
-			LogUtils.warning("Aggregation cancelled while mirroring artifact %s", sourceDesc.getArtifactKey());
-			throw new OperationCanceledException();
-		default:
-			if(result.getCode() == org.eclipse.equinox.internal.provisional.p2.core.ProvisionException.ARTIFACT_EXISTS) {
-				LogUtils.warning("  copy failed. Artifact %s is already present", sourceDesc.getArtifactKey());
-				return targetDesc;
-			}
-			result = extractRootCause(result);
-		}
-
-		throw ExceptionUtils.fromMessage(result.getException(), "Unable to mirror artifact %s from repository %s: %s",
-				sourceDesc.getArtifactKey(), source.getLocation(), result.getMessage());
-	}
-
-	static void mirror(List<ArtifactKey> keysToInstall, IArtifactRepository cache, IArtifactRepository source,
+	static void mirror(Collection<IArtifactKey> keysToInstall, IArtifactRepository cache, IArtifactRepository source,
 			IArtifactRepository dest, PackedStrategy strategy, List<String> errors, IProgressMonitor monitor) {
-		IArtifactKey[] keys = source.getArtifactKeys();
+		IQueryResult<IArtifactKey> result = source.query(ArtifactKeyQuery.ALL_KEYS, null);
+		IArtifactKey[] keys = result.toArray(IArtifactKey.class);
 		MonitorUtils.begin(monitor, keys.length * 100);
 
-		int numCandidates = keysToInstall.size();
 		for(IArtifactKey key : keys) {
 			// We must iterate here since EMF lists use identity comparison
 			// ant not equals.
 			boolean found = false;
-			for(int idx = 0; idx < numCandidates; ++idx) {
-				if(keysToInstall.get(idx).equals(key)) {
+			for(IArtifactKey keyToInstall : keysToInstall) {
+				if(keyToInstall.equals(key)) {
 					found = true;
 					break;
 				}
@@ -257,6 +220,44 @@ public class MirrorGenerator extends BuilderPhase {
 		MonitorUtils.done(monitor);
 	}
 
+	static IArtifactDescriptor mirror(IArtifactRepository source, IArtifactRepository dest,
+			IArtifactDescriptor sourceDesc, IArtifactDescriptor targetDesc, IProgressMonitor monitor)
+			throws CoreException {
+		if(dest.contains(targetDesc))
+			return targetDesc;
+
+		RawMirrorRequest request = new RawMirrorRequest(sourceDesc, targetDesc, dest);
+		request.setSourceRepository(source);
+		request.perform(monitor);
+		IStatus result = request.getResult();
+		switch(result.getSeverity()) {
+		case IStatus.INFO:
+			LogUtils.info(result.getMessage());
+		case IStatus.OK:
+			// Unfortunately, this doesn't necessarily mean that everything is OK. Zero sized files are
+			// silently ignored. See bug 290986
+			// We can't have that here.
+			if(getArtifactDescriptor(dest, targetDesc.getArtifactKey(), isPacked(targetDesc)) != null)
+				// All is well.
+				return targetDesc;
+
+			result = new Status(IStatus.ERROR, Engine.PLUGIN_ID, "Zero bytes copied");
+			break;
+		case IStatus.CANCEL:
+			LogUtils.warning("Aggregation cancelled while mirroring artifact %s", sourceDesc.getArtifactKey());
+			throw new OperationCanceledException();
+		default:
+			if(result.getCode() == org.eclipse.equinox.p2.core.ProvisionException.ARTIFACT_EXISTS) {
+				LogUtils.warning("  copy failed. Artifact %s is already present", sourceDesc.getArtifactKey());
+				return targetDesc;
+			}
+			result = extractRootCause(result);
+		}
+
+		throw ExceptionUtils.fromMessage(result.getException(), "Unable to mirror artifact %s from repository %s: %s",
+				sourceDesc.getArtifactKey(), source.getLocation(), result.getMessage());
+	}
+
 	private static boolean checkIfTargetPresent(IArtifactRepository destination, IArtifactKey key, boolean packed) {
 		IArtifactDescriptor found = getArtifactDescriptor(destination, key, packed);
 		if(found != null) {
@@ -342,7 +343,7 @@ public class MirrorGenerator extends BuilderPhase {
 		request.perform(monitor);
 		IStatus result = request.getResult();
 		if(result.getSeverity() != IStatus.ERROR
-				|| result.getCode() == org.eclipse.equinox.internal.provisional.p2.core.ProvisionException.ARTIFACT_EXISTS) {
+				|| result.getCode() == org.eclipse.equinox.p2.core.ProvisionException.ARTIFACT_EXISTS) {
 			return;
 		}
 
@@ -357,7 +358,7 @@ public class MirrorGenerator extends BuilderPhase {
 		request.perform(monitor);
 		IStatus result = request.getResult();
 		if(result.getSeverity() != IStatus.ERROR
-				|| result.getCode() == org.eclipse.equinox.internal.provisional.p2.core.ProvisionException.ARTIFACT_EXISTS) {
+				|| result.getCode() == org.eclipse.equinox.p2.core.ProvisionException.ARTIFACT_EXISTS) {
 			if(verifyOnly)
 				target.removeDescriptor(getArtifactDescriptor(target, canonical.getArtifactKey(), false));
 			return;
@@ -391,17 +392,17 @@ public class MirrorGenerator extends BuilderPhase {
 		try {
 			IMetadataRepository sourceMdr = builder.getSourceComposite();
 			PermissiveSlicer slicer = new PermissiveSlicer(sourceMdr, null, true, false, true, false, false);
-			IQueryable slice = slicer.slice(unverifiedRoots.toArray(new IInstallableUnit[unverifiedRoots.size()]),
-					monitor);
+			IQueryable<IInstallableUnit> slice = slicer.slice(
+					unverifiedRoots.toArray(new IInstallableUnit[unverifiedRoots.size()]), monitor);
 
-			Query adder = new MatchQuery() {
+			IQuery<IInstallableUnit> adder = new MatchQuery<IInstallableUnit>() {
 				@Override
-				public boolean isMatch(Object candidate) {
-					unitsToAggregate.add((IInstallableUnit) candidate);
+				public boolean isMatch(IInstallableUnit candidate) {
+					unitsToAggregate.add(candidate);
 					return false;
 				}
 			};
-			slice.query(adder, new Collector(), null);
+			slice.query(adder, null);
 		}
 		finally {
 			b3util.ungetService(mdrMgr);
@@ -419,8 +420,8 @@ public class MirrorGenerator extends BuilderPhase {
 				if(repo.isMirrorArtifacts())
 					continue;
 
-				for(InstallableUnit iu : ResourceUtils.getMetadataRepository(repo).getInstallableUnits())
-					keysToExclude.addAll(iu.getArtifactList());
+				for(IInstallableUnit iu : ResourceUtils.getMetadataRepository(repo).getInstallableUnits())
+					keysToExclude.addAll(iu.getArtifacts());
 			}
 		}
 		return keysToExclude;
@@ -530,13 +531,13 @@ public class MirrorGenerator extends BuilderPhase {
 						}
 
 						MetadataRepository childMdr = ResourceUtils.getMetadataRepository(repo);
-						ArrayList<InstallableUnit> iusToMirror = null;
-						for(InstallableUnit iu : childMdr.getInstallableUnits()) {
+						ArrayList<IInstallableUnit> iusToMirror = null;
+						for(IInstallableUnit iu : childMdr.getInstallableUnits()) {
 							if(!unitsToAggregate.contains(iu))
 								continue;
 
 							if(iusToMirror == null)
-								iusToMirror = new ArrayList<InstallableUnit>();
+								iusToMirror = new ArrayList<IInstallableUnit>();
 							iusToMirror.add(iu);
 						}
 
@@ -590,13 +591,13 @@ public class MirrorGenerator extends BuilderPhase {
 						}
 
 						MetadataRepository childMdr = ResourceUtils.getMetadataRepository(repo);
-						ArrayList<InstallableUnit> iusToRefer = null;
-						for(InstallableUnit iu : childMdr.getInstallableUnits()) {
+						ArrayList<IInstallableUnit> iusToRefer = null;
+						for(IInstallableUnit iu : childMdr.getInstallableUnits()) {
 							if(!unitsToAggregate.contains(iu))
 								continue;
 
 							if(iusToRefer == null)
-								iusToRefer = new ArrayList<InstallableUnit>();
+								iusToRefer = new ArrayList<IInstallableUnit>();
 							iusToRefer.add(iu);
 						}
 
@@ -631,9 +632,9 @@ public class MirrorGenerator extends BuilderPhase {
 									}
 									else {
 										for(IArtifactDescriptor desc : ar.getArtifactDescriptors(key)) {
-											String ref = ((ArtifactDescriptor) desc).getRepositoryProperty(ArtifactDescriptor.ARTIFACT_REFERENCE);
-											ArtifactDescriptor ad = new ArtifactDescriptor(desc);
-											ad.setRepositoryProperty(ArtifactDescriptor.ARTIFACT_REFERENCE, ref);
+											String ref = ((SimpleArtifactDescriptor) desc).getRepositoryProperty(SimpleArtifactDescriptor.ARTIFACT_REFERENCE);
+											SimpleArtifactDescriptor ad = new SimpleArtifactDescriptor(desc);
+											ad.setRepositoryProperty(SimpleArtifactDescriptor.ARTIFACT_REFERENCE, ref);
 											referencedArtifacts.add(ad);
 										}
 									}
@@ -678,24 +679,24 @@ public class MirrorGenerator extends BuilderPhase {
 					}
 
 					MetadataRepository childMdr = ResourceUtils.getMetadataRepository(repo);
-					ArrayList<InstallableUnit> iusToMirror = null;
-					ArrayList<ArtifactKey> keysToMirror = null;
-					for(InstallableUnit iu : childMdr.getInstallableUnits()) {
+					ArrayList<IInstallableUnit> iusToMirror = null;
+					ArrayList<IArtifactKey> keysToMirror = null;
+					for(IInstallableUnit iu : childMdr.getInstallableUnits()) {
 						if(!unitsToAggregate.remove(iu))
 							continue;
 
 						if(iusToMirror == null)
-							iusToMirror = new ArrayList<InstallableUnit>();
+							iusToMirror = new ArrayList<IInstallableUnit>();
 						iusToMirror.add(iu);
 						if(!repo.isMirrorArtifacts())
 							continue;
 
-						for(ArtifactKey ak : iu.getArtifactList()) {
+						for(IArtifactKey ak : iu.getArtifacts()) {
 							if(!keysToExclude.add(ak))
 								continue;
 
 							if(keysToMirror == null)
-								keysToMirror = new ArrayList<ArtifactKey>();
+								keysToMirror = new ArrayList<IArtifactKey>();
 							keysToMirror.add(ak);
 						}
 					}
@@ -732,7 +733,7 @@ public class MirrorGenerator extends BuilderPhase {
 				MonitorUtils.done(contribMonitor);
 			}
 
-			List<InstallableUnit> categories = builder.getCategoryIUs();
+			List<IInstallableUnit> categories = builder.getCategoryIUs();
 			if(!categories.isEmpty()) {
 				mirror(categories, null, aggregateMdr, childMonitor.newChild(20));
 				aggregatedMdrIsEmpty = false;
@@ -886,7 +887,7 @@ public class MirrorGenerator extends BuilderPhase {
 		return ar;
 	}
 
-	private void mirror(List<InstallableUnit> iusToMirror, MetadataRepository source, final IMetadataRepository dest,
+	private void mirror(List<IInstallableUnit> iusToMirror, MetadataRepository source, final IMetadataRepository dest,
 			IProgressMonitor monitor) throws CoreException {
 		dest.addInstallableUnits(iusToMirror.toArray(new IInstallableUnit[iusToMirror.size()]));
 

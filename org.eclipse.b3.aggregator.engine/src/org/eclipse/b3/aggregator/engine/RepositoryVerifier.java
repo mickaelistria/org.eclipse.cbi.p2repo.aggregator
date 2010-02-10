@@ -5,6 +5,7 @@ import static java.lang.String.format;
 import java.io.File;
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -20,7 +21,6 @@ import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.MappedUnit;
 import org.eclipse.b3.aggregator.MetadataRepositoryReference;
 import org.eclipse.b3.aggregator.PackedStrategy;
-import org.eclipse.b3.aggregator.p2.ArtifactKey;
 import org.eclipse.b3.aggregator.p2.InstallableUnit;
 import org.eclipse.b3.aggregator.p2.MetadataRepository;
 import org.eclipse.b3.aggregator.p2.impl.InstallableUnitImpl;
@@ -41,44 +41,45 @@ import org.eclipse.equinox.internal.p2.director.Explanation;
 import org.eclipse.equinox.internal.p2.director.Explanation.HardRequirement;
 import org.eclipse.equinox.internal.p2.director.Explanation.MissingIU;
 import org.eclipse.equinox.internal.p2.director.Explanation.Singleton;
+import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
+import org.eclipse.equinox.internal.p2.metadata.query.LatestIUVersionQuery;
 import org.eclipse.equinox.internal.p2.touchpoint.eclipse.PublisherUtil;
-import org.eclipse.equinox.internal.provisional.p2.artifact.repository.IArtifactRepository;
-import org.eclipse.equinox.internal.provisional.p2.artifact.repository.IArtifactRepositoryManager;
-import org.eclipse.equinox.internal.provisional.p2.artifact.repository.IFileArtifactRepository;
-import org.eclipse.equinox.internal.provisional.p2.core.ProvisionException;
 import org.eclipse.equinox.internal.provisional.p2.director.IPlanner;
 import org.eclipse.equinox.internal.provisional.p2.director.ProfileChangeRequest;
-import org.eclipse.equinox.internal.provisional.p2.director.ProvisioningPlan;
 import org.eclipse.equinox.internal.provisional.p2.director.RequestStatus;
-import org.eclipse.equinox.internal.provisional.p2.engine.IProfile;
-import org.eclipse.equinox.internal.provisional.p2.engine.IProfileRegistry;
-import org.eclipse.equinox.internal.provisional.p2.engine.InstallableUnitOperand;
-import org.eclipse.equinox.internal.provisional.p2.engine.Operand;
-import org.eclipse.equinox.internal.provisional.p2.engine.ProvisioningContext;
-import org.eclipse.equinox.internal.provisional.p2.metadata.IInstallableUnit;
-import org.eclipse.equinox.internal.provisional.p2.metadata.IInstallableUnitPatch;
-import org.eclipse.equinox.internal.provisional.p2.metadata.IProvidedCapability;
-import org.eclipse.equinox.internal.provisional.p2.metadata.IRequiredCapability;
-import org.eclipse.equinox.internal.provisional.p2.metadata.Version;
-import org.eclipse.equinox.internal.provisional.p2.metadata.VersionRange;
-import org.eclipse.equinox.internal.provisional.p2.metadata.query.Collector;
-import org.eclipse.equinox.internal.provisional.p2.metadata.query.CompositeQuery;
-import org.eclipse.equinox.internal.provisional.p2.metadata.query.InstallableUnitQuery;
-import org.eclipse.equinox.internal.provisional.p2.metadata.query.LatestIUVersionQuery;
-import org.eclipse.equinox.internal.provisional.p2.metadata.query.MatchQuery;
-import org.eclipse.equinox.internal.provisional.p2.metadata.query.Query;
-import org.eclipse.equinox.internal.provisional.p2.metadata.repository.IMetadataRepository;
-import org.eclipse.equinox.internal.provisional.p2.metadata.repository.IMetadataRepositoryManager;
+import org.eclipse.equinox.p2.core.ProvisionException;
+import org.eclipse.equinox.p2.engine.IProfile;
+import org.eclipse.equinox.p2.engine.IProfileRegistry;
+import org.eclipse.equinox.p2.engine.InstallableUnitOperand;
+import org.eclipse.equinox.p2.engine.Operand;
+import org.eclipse.equinox.p2.engine.ProvisioningContext;
+import org.eclipse.equinox.p2.engine.ProvisioningPlan;
+import org.eclipse.equinox.p2.metadata.IArtifactKey;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
+import org.eclipse.equinox.p2.metadata.IInstallableUnitPatch;
+import org.eclipse.equinox.p2.metadata.IRequirement;
+import org.eclipse.equinox.p2.metadata.Version;
+import org.eclipse.equinox.p2.metadata.VersionRange;
+import org.eclipse.equinox.p2.metadata.query.InstallableUnitQuery;
+import org.eclipse.equinox.p2.query.CompoundQuery;
+import org.eclipse.equinox.p2.query.IQuery;
+import org.eclipse.equinox.p2.query.IQueryResult;
+import org.eclipse.equinox.p2.query.MatchQuery;
+import org.eclipse.equinox.p2.repository.artifact.IArtifactRepository;
+import org.eclipse.equinox.p2.repository.artifact.IArtifactRepositoryManager;
+import org.eclipse.equinox.p2.repository.artifact.IFileArtifactRepository;
+import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
+import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
 
 public class RepositoryVerifier extends BuilderPhase {
-	static class AllPatchesQuery extends MatchQuery {
+	static class AllPatchesQuery extends MatchQuery<IInstallableUnit> {
 		@Override
-		public boolean isMatch(Object candidate) {
+		public boolean isMatch(IInstallableUnit candidate) {
 			return candidate instanceof IInstallableUnitPatch;
 		}
 	}
 
-	static class PatchApplicabilityQuery extends MatchQuery {
+	static class PatchApplicabilityQuery extends MatchQuery<IInstallableUnit> {
 		private final IInstallableUnitPatch patch;
 
 		PatchApplicabilityQuery(IInstallableUnitPatch patch) {
@@ -86,12 +87,9 @@ public class RepositoryVerifier extends BuilderPhase {
 		}
 
 		@Override
-		public boolean isMatch(Object candidate) {
-			if(!(candidate instanceof IInstallableUnit))
-				return false;
-
-			IInstallableUnit iu = (IInstallableUnit) candidate;
-			for(IRequiredCapability[] rqs : patch.getApplicabilityScope()) {
+		public boolean isMatch(IInstallableUnit candidate) {
+			IInstallableUnit iu = candidate;
+			for(IRequirement[] rqs : patch.getApplicabilityScope()) {
 				int idx = rqs.length;
 				while(--idx >= 0)
 					if(!iu.satisfies(rqs[idx]))
@@ -103,24 +101,24 @@ public class RepositoryVerifier extends BuilderPhase {
 		}
 	}
 
-	@SuppressWarnings("unchecked")
 	private static Set<Explanation> getExplanations(RequestStatus requestStatus) {
 		return requestStatus.getExplanations();
 	}
 
 	private static IInstallableUnit[] getRootIUs(URI site, IProfile profile, String iuName, Version version,
 			IProgressMonitor monitor) throws CoreException {
-		Query query = new InstallableUnitQuery(iuName, new VersionRange(version, true, version, true));
-		Collector roots = ProvisioningHelper.getInstallableUnits(site, new CompositeQuery(new Query[] { query,
-				new LatestIUVersionQuery() }), new Collector(), monitor);
+		IQuery<IInstallableUnit> query = new InstallableUnitQuery(iuName,
+				new VersionRange(version, true, version, true));
+		IQueryResult<IInstallableUnit> roots = ProvisioningHelper.getInstallableUnits(site,
+				CompoundQuery.createCompoundQuery(query, new LatestIUVersionQuery<IInstallableUnit>(), true), monitor);
 
-		if(roots.size() <= 0)
-			roots = profile.query(query, roots, new NullProgressMonitor());
+		if(roots.isEmpty())
+			roots = profile.query(query, new NullProgressMonitor());
 
-		if(roots.size() <= 0)
+		if(roots.isEmpty())
 			throw ExceptionUtils.fromMessage("Feature %s not found", iuName); //$NON-NLS-1$
 
-		return (IInstallableUnit[]) roots.toArray(IInstallableUnit.class);
+		return roots.toArray(IInstallableUnit.class);
 	}
 
 	public RepositoryVerifier(Builder builder) {
@@ -147,12 +145,12 @@ public class RepositoryVerifier extends BuilderPhase {
 		URI repoLocation = builder.getSourceCompositeURI();
 		IMetadataRepositoryManager mdrMgr = b3util.getService(IMetadataRepositoryManager.class);
 		try {
-			Set<InstallableUnit> validationOnlyIUs = null;
+			Set<IInstallableUnit> validationOnlyIUs = null;
 			List<MetadataRepositoryReference> validationRepos = aggregator.getValidationRepositories();
 			for(MetadataRepositoryReference validationRepo : validationRepos) {
 				if(validationRepo.isEnabled()) {
 					if(validationOnlyIUs == null)
-						validationOnlyIUs = new HashSet<InstallableUnit>();
+						validationOnlyIUs = new HashSet<IInstallableUnit>();
 					validationOnlyIUs.addAll(validationRepo.getMetadataRepository().getInstallableUnits());
 				}
 			}
@@ -172,7 +170,8 @@ public class RepositoryVerifier extends BuilderPhase {
 				subMon.setTaskName(info);
 
 				Map<String, String> props = new HashMap<String, String>();
-				props.put(IProfile.PROP_FLAVOR, "tooling"); //$NON-NLS-1$
+				// TODO Where is FLAVOR gone?
+				//props.put(IProfile.PROP_FLAVOR, "tooling"); //$NON-NLS-1$
 				props.put(IProfile.PROP_ENVIRONMENTS, config.getOSGiEnvironmentString());
 				props.put(IProfile.PROP_INSTALL_FEATURES, "true");
 
@@ -190,7 +189,7 @@ public class RepositoryVerifier extends BuilderPhase {
 				// Add as root IU's to a request
 				ProfileChangeRequest request = new ProfileChangeRequest(profile);
 				for(IInstallableUnit rootIU : rootArr)
-					request.setInstallableUnitProfileProperty(rootIU, IInstallableUnit.PROP_PROFILE_ROOT_IU,
+					request.setInstallableUnitProfileProperty(rootIU, IProfile.PROP_PROFILE_ROOT_IU,
 							Boolean.TRUE.toString());
 				request.addInstallableUnits(rootArr);
 
@@ -198,12 +197,12 @@ public class RepositoryVerifier extends BuilderPhase {
 				while(hadPartials) {
 					hadPartials = false;
 					ProvisioningContext context = createContext(repoLocation);
-					ProvisioningPlan plan = planner.getProvisioningPlan(request, context, subMon.newChild(80,
-							SubMonitor.SUPPRESS_BEGINTASK | SubMonitor.SUPPRESS_SETTASKNAME));
+					ProvisioningPlan plan = (ProvisioningPlan) planner.getProvisioningPlan(request, context,
+							subMon.newChild(80, SubMonitor.SUPPRESS_BEGINTASK | SubMonitor.SUPPRESS_SETTASKNAME));
 
 					IStatus status = plan.getStatus();
 					if(status.getSeverity() == IStatus.ERROR) {
-						sendEmails(plan.getRequestStatus());
+						sendEmails((RequestStatus) plan.getRequestStatus());
 						LogUtils.info("Done. Took %s", TimeUtils.getFormattedDuration(start)); //$NON-NLS-1$
 						throw new CoreException(status);
 					}
@@ -241,13 +240,11 @@ public class RepositoryVerifier extends BuilderPhase {
 						}
 					}
 
-					@SuppressWarnings("unchecked")
-					Iterator<IInstallableUnitPatch> itor = sourceRepo.query(new AllPatchesQuery(), new Collector(),
-							subMon.newChild(1)).iterator();
+					Iterator<IInstallableUnit> itor = sourceRepo.query(new AllPatchesQuery(), subMon.newChild(1)).iterator();
 
 					while(itor.hasNext()) {
-						Set<IInstallableUnit> units = getUnpatchedTransitiveScope(itor.next(), profile, planner,
-								repoLocation, subMon.newChild(1));
+						Set<IInstallableUnit> units = getUnpatchedTransitiveScope((IInstallableUnitPatch) itor.next(),
+								profile, planner, repoLocation, subMon.newChild(1));
 						for(IInstallableUnit iu : units) {
 							if(validationOnlyIUs.contains(iu)) {
 								// This IU should not be included unless it is also included in one of
@@ -274,27 +271,26 @@ public class RepositoryVerifier extends BuilderPhase {
 						//
 						final Set<IInstallableUnit> candidates = suspectedValidationOnlyIUs;
 						final boolean hadPartialsHolder[] = new boolean[] { false };
-						sourceRepo.query(new MatchQuery() {
+						sourceRepo.query(new MatchQuery<IInstallableUnit>() {
 							@Override
-							public boolean isMatch(Object obj) {
-								if(obj instanceof InstallableUnit) {
-									InstallableUnit iu = (InstallableUnit) obj;
-									if(candidates.contains(iu) && !unitsToAggregate.contains(iu)) {
-										try {
-											if(Boolean.valueOf(iu.getProperty(IInstallableUnit.PROP_PARTIAL_IU)).booleanValue()) {
-												iu = resolvePartialIU(iu, SubMonitor.convert(new NullProgressMonitor()));
-												hadPartialsHolder[0] = true;
-											}
+							public boolean isMatch(IInstallableUnit obj) {
+								InstallableUnit iu = (InstallableUnit) obj;
+								if(candidates.contains(iu) && !unitsToAggregate.contains(iu)) {
+									try {
+										if(Boolean.valueOf(iu.getProperty(IInstallableUnit.PROP_PARTIAL_IU)).booleanValue()) {
+											iu = resolvePartialIU(iu, SubMonitor.convert(new NullProgressMonitor()));
+											hadPartialsHolder[0] = true;
 										}
-										catch(CoreException e) {
-											throw new RuntimeException(e);
-										}
-										unitsToAggregate.add(iu);
 									}
+									catch(CoreException e) {
+										throw new RuntimeException(e);
+									}
+									unitsToAggregate.add(iu);
 								}
-								return false; // Since we don't use the Collector
+
+								return false; // Since we don't use the results
 							}
-						}, null, subMon.newChild(1));
+						}, subMon.newChild(1));
 					}
 
 					if(hadPartials)
@@ -323,13 +319,13 @@ public class RepositoryVerifier extends BuilderPhase {
 
 		// Scan all mapped repositories for this IU
 		//
-		InstallableUnit miu = null;
+		IInstallableUnit miu = null;
 		MetadataRepository mdr = null;
 		contribs: for(Contribution contrib : getBuilder().getAggregator().getContributions(true))
 
 			for(MappedRepository repo : contrib.getRepositories(true)) {
 				MetadataRepository candidate = repo.getMetadataRepository();
-				for(InstallableUnit candidateIU : candidate.getInstallableUnits())
+				for(IInstallableUnit candidateIU : candidate.getInstallableUnits())
 					if(iu.getId().equals(candidateIU.getId()) && iu.getVersion().equals(candidateIU.getVersion())) {
 						mdr = candidate;
 						miu = candidateIU;
@@ -353,10 +349,10 @@ public class RepositoryVerifier extends BuilderPhase {
 			}
 			catch(ProvisionException e) {
 				tempAr = (IFileArtifactRepository) arMgr.createRepository(tempRepositoryURI, "temporary artifacts"
-						+ " artifacts", Builder.SIMPLE_ARTIFACTS_TYPE, Collections.emptyMap()); //$NON-NLS-1$
+						+ " artifacts", Builder.SIMPLE_ARTIFACTS_TYPE, Collections.<String, String> emptyMap()); //$NON-NLS-1$
 			}
 
-			List<ArtifactKey> artifacts = miu.getArtifactList();
+			Collection<IArtifactKey> artifacts = miu.getArtifacts();
 			ArrayList<String> errors = new ArrayList<String>();
 			MirrorGenerator.mirror(artifacts, null, sourceAr, tempAr, PackedStrategy.UNPACK_AS_SIBLING, errors,
 					subMon.newChild(1));
@@ -370,8 +366,8 @@ public class RepositoryVerifier extends BuilderPhase {
 				throw new CoreException(status);
 			}
 
-			ArtifactKey key = artifacts.get(0);
-			File bundleFile = tempAr.getArtifactFile(artifacts.get(0));
+			IArtifactKey key = artifacts.iterator().next();
+			File bundleFile = tempAr.getArtifactFile(key);
 			if(bundleFile == null)
 				throw ExceptionUtils.fromMessage(
 						"Unable to resolve partial IU. Artifact file for %s could not be found", key);
@@ -382,7 +378,7 @@ public class RepositoryVerifier extends BuilderPhase {
 						"Unable to resolve partial IU. Artifact file for %s did not contain a bundle manifest", key);
 			InstallableUnit newIU = InstallableUnitImpl.importToModel(preparedIU);
 
-			List<InstallableUnit> allIUs = mdr.getInstallableUnits();
+			List<IInstallableUnit> allIUs = mdr.getInstallableUnits();
 			allIUs.remove(miu);
 			allIUs.add(newIU);
 			return newIU;
@@ -393,7 +389,7 @@ public class RepositoryVerifier extends BuilderPhase {
 	}
 
 	private boolean addLeafmostContributions(Set<Explanation> explanations, Map<String, Contribution> contributions,
-			IRequiredCapability prq) {
+			IRequirement prq) {
 		boolean contribsFound = false;
 		for(Explanation explanation : explanations) {
 			if(explanation instanceof Singleton) {
@@ -405,22 +401,21 @@ public class RepositoryVerifier extends BuilderPhase {
 					continue;
 
 				for(IInstallableUnit iu : ((Singleton) explanation).ius) {
-					for(IProvidedCapability pc : iu.getProvidedCapabilities())
-						if(pc.satisfies(prq)) {
-							// A singleton is always a leaf problem. Add
-							// contributions
-							// if we can find any
-							Contribution contrib = findContribution(iu.getId());
-							if(contrib == null)
-								continue;
-							contribsFound = true;
-						}
+					if(prq.isMatch(iu)) {
+						// A singleton is always a leaf problem. Add
+						// contributions
+						// if we can find any
+						Contribution contrib = findContribution(iu.getId());
+						if(contrib == null)
+							continue;
+						contribsFound = true;
+					}
 				}
 				continue;
 			}
 
 			IInstallableUnit iu;
-			IRequiredCapability crq;
+			IRequirement crq;
 			if(explanation instanceof HardRequirement) {
 				HardRequirement hrq = (HardRequirement) explanation;
 				iu = hrq.iu;
@@ -434,22 +429,21 @@ public class RepositoryVerifier extends BuilderPhase {
 			else
 				continue;
 
-			for(IProvidedCapability pc : iu.getProvidedCapabilities())
-				if(pc.satisfies(prq)) {
-					// This IU would have fulfilled the failing request but it
-					// has
-					// apparent problems of its own.
-					if(addLeafmostContributions(explanations, contributions, crq)) {
-						contribsFound = true;
-						continue;
-					}
-
-					Contribution contrib = findContribution(iu, crq);
-					if(contrib == null)
-						continue;
-					contributions.put(contrib.getLabel(), contrib);
+			if(prq.isMatch(iu)) {
+				// This IU would have fulfilled the failing request but it
+				// has
+				// apparent problems of its own.
+				if(addLeafmostContributions(explanations, contributions, crq)) {
+					contribsFound = true;
 					continue;
 				}
+
+				Contribution contrib = findContribution(iu, crq);
+				if(contrib == null)
+					continue;
+				contributions.put(contrib.getLabel(), contrib);
+				continue;
+			}
 		}
 		return contribsFound;
 	}
@@ -472,11 +466,15 @@ public class RepositoryVerifier extends BuilderPhase {
 		return context;
 	}
 
-	private Contribution findContribution(IInstallableUnit iu, IRequiredCapability rq) {
+	private Contribution findContribution(IInstallableUnit iu, IRequirement rq) {
+		if(!(rq instanceof IRequiredCapability))
+			return null;
+
+		IRequiredCapability cap = (IRequiredCapability) rq;
 		Contribution contrib = null;
-		if(Builder.NAMESPACE_OSGI_BUNDLE.equals(rq.getNamespace())
-				|| IInstallableUnit.NAMESPACE_IU_ID.equals(rq.getNamespace()))
-			contrib = findContribution(rq.getName());
+		if(Builder.NAMESPACE_OSGI_BUNDLE.equals(cap.getNamespace())
+				|| IInstallableUnit.NAMESPACE_IU_ID.equals(cap.getNamespace()))
+			contrib = findContribution(cap.getName());
 
 		if(contrib == null)
 			// Not found, try the owner of the requirement
@@ -501,16 +499,16 @@ public class RepositoryVerifier extends BuilderPhase {
 			monitor.beginTask(null, 10);
 			IMetadataRepository sourceRepo = mdrMgr.loadRepository(repoLocation, monitor.newChild(1));
 			PatchApplicabilityQuery query = new PatchApplicabilityQuery(patch);
-			Collector c = sourceRepo.query(query, new Collector(), monitor.newChild(1));
+			IQueryResult<IInstallableUnit> result = sourceRepo.query(query, monitor.newChild(1));
 
-			IInstallableUnit[] rootArr = (IInstallableUnit[]) c.toArray(IInstallableUnit.class);
+			IInstallableUnit[] rootArr = result.toArray(IInstallableUnit.class);
 			// Add as root IU's to a request
 			ProfileChangeRequest request = new ProfileChangeRequest(profile);
 			for(IInstallableUnit rootIU : rootArr)
-				request.setInstallableUnitProfileProperty(rootIU, IInstallableUnit.PROP_PROFILE_ROOT_IU,
+				request.setInstallableUnitProfileProperty(rootIU, IProfile.PROP_PROFILE_ROOT_IU,
 						Boolean.TRUE.toString());
 			request.addInstallableUnits(rootArr);
-			ProvisioningPlan plan = planner.getProvisioningPlan(request, new ProvisioningContext(
+			ProvisioningPlan plan = (ProvisioningPlan) planner.getProvisioningPlan(request, new ProvisioningContext(
 					new URI[] { repoLocation }), monitor.newChild(8));
 
 			HashSet<IInstallableUnit> units = new HashSet<IInstallableUnit>();
@@ -555,7 +553,7 @@ public class RepositoryVerifier extends BuilderPhase {
 			}
 
 			IInstallableUnit iu;
-			IRequiredCapability crq;
+			IRequirement crq;
 			if(explanation instanceof HardRequirement) {
 				HardRequirement hrq = (HardRequirement) explanation;
 				iu = hrq.iu;

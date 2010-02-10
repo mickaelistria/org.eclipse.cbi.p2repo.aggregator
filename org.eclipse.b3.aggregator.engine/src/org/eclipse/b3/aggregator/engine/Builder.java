@@ -32,7 +32,6 @@ import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.Contact;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.MappedRepository;
-import org.eclipse.b3.aggregator.p2.InstallableUnit;
 import org.eclipse.b3.aggregator.util.LogUtils;
 import org.eclipse.b3.aggregator.util.MonitorUtils;
 import org.eclipse.b3.cli.AbstractCommand;
@@ -55,18 +54,20 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.equinox.internal.p2.core.helpers.FileUtils;
+import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
 import org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository;
-import org.eclipse.equinox.internal.provisional.p2.artifact.repository.IArtifactRepositoryManager;
-import org.eclipse.equinox.internal.provisional.p2.engine.IProfile;
-import org.eclipse.equinox.internal.provisional.p2.engine.IProfileRegistry;
-import org.eclipse.equinox.internal.provisional.p2.metadata.IArtifactKey;
-import org.eclipse.equinox.internal.provisional.p2.metadata.IInstallableUnit;
-import org.eclipse.equinox.internal.provisional.p2.metadata.IRequiredCapability;
-import org.eclipse.equinox.internal.provisional.p2.metadata.Version;
-import org.eclipse.equinox.internal.provisional.p2.metadata.query.Collector;
-import org.eclipse.equinox.internal.provisional.p2.metadata.query.InstallableUnitQuery;
-import org.eclipse.equinox.internal.provisional.p2.metadata.repository.IMetadataRepository;
-import org.eclipse.equinox.internal.provisional.p2.metadata.repository.IMetadataRepositoryManager;
+import org.eclipse.equinox.internal.provisional.p2.metadata.MetadataFactory.InstallableUnitDescription;
+import org.eclipse.equinox.p2.engine.IProfile;
+import org.eclipse.equinox.p2.engine.IProfileRegistry;
+import org.eclipse.equinox.p2.metadata.IArtifactKey;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
+import org.eclipse.equinox.p2.metadata.IRequirement;
+import org.eclipse.equinox.p2.metadata.Version;
+import org.eclipse.equinox.p2.metadata.query.InstallableUnitQuery;
+import org.eclipse.equinox.p2.query.IQueryResult;
+import org.eclipse.equinox.p2.repository.artifact.IArtifactRepositoryManager;
+import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
+import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
 import org.kohsuke.args4j.Argument;
 import org.kohsuke.args4j.Option;
 import org.osgi.framework.Bundle;
@@ -208,10 +209,9 @@ public class Builder extends AbstractCommand {
 		InstallableUnitQuery query = version == null
 				? new InstallableUnitQuery(id)
 				: new InstallableUnitQuery(id, Version.create(version));
-		Collector c = mdr.query(query, new Collector(), null);
-		IInstallableUnit[] result = (IInstallableUnit[]) c.toArray(IInstallableUnit.class);
-		return result.length > 0
-				? result[0]
+		IQueryResult<IInstallableUnit> result = mdr.query(query, null);
+		return !result.isEmpty()
+				? result.iterator().next()
 				: null;
 	}
 
@@ -361,7 +361,7 @@ public class Builder extends AbstractCommand {
 
 	private String buildMasterName;
 
-	private List<InstallableUnit> categoryIUs;
+	private List<IInstallableUnit> categoryIUs;
 
 	private boolean mirrorReferences = false;;
 
@@ -385,7 +385,7 @@ public class Builder extends AbstractCommand {
 
 	private String preservedProfile;
 
-	private Map<IRequiredCapability, IRequiredCapability> replacements;
+	private Map<IRequirement, IRequirement> replacements;
 
 	/**
 	 * Prevent that the {@link IInstallableUnit} identified by <code>versionedName</code> is mapped from
@@ -398,10 +398,10 @@ public class Builder extends AbstractCommand {
 	 * @param replacement
 	 *            The replacement for excluded capability (or null if no replacement is available)
 	 */
-	public void addMappingExclusion(MappedRepository repository, IRequiredCapability rc, IRequiredCapability replacement) {
+	public void addMappingExclusion(MappedRepository repository, IRequirement rc, IRequirement replacement) {
 		if(exclusions == null) {
 			exclusions = new HashSet<MappedRepository>();
-			replacements = new HashMap<IRequiredCapability, IRequiredCapability>();
+			replacements = new HashMap<IRequirement, IRequirement>();
 		}
 		exclusions.add(repository);
 		replacements.put(rc, replacement);
@@ -418,12 +418,14 @@ public class Builder extends AbstractCommand {
 	 * @return <code>true</code> if a matching required capability was found.
 	 */
 	public boolean excludeFromVerification(IInstallableUnit iu) {
-		for(IRequiredCapability rq : iu.getRequiredCapabilities()) {
-			if(PDE_TARGET_PLATFORM_NAMESPACE.equals(rq.getNamespace())) {
-				if(unverifiedUnits == null)
-					unverifiedUnits = new HashSet<IInstallableUnit>();
-				unverifiedUnits.add(iu);
-				return true;
+		for(IRequirement rq : iu.getRequiredCapabilities()) {
+			if(rq instanceof IRequiredCapability) {
+				if(PDE_TARGET_PLATFORM_NAMESPACE.equals(((IRequiredCapability) rq).getNamespace())) {
+					if(unverifiedUnits == null)
+						unverifiedUnits = new HashSet<IInstallableUnit>();
+					unverifiedUnits.add(iu);
+					return true;
+				}
 			}
 		}
 		return false;
@@ -445,13 +447,13 @@ public class Builder extends AbstractCommand {
 		return buildRoot;
 	}
 
-	public List<InstallableUnit> getCategoryIUs() {
+	public List<IInstallableUnit> getCategoryIUs() {
 		return categoryIUs;
 	}
 
-	public Map<IRequiredCapability, IRequiredCapability> getReplacementMap() {
+	public Map<IRequirement, IRequirement> getReplacementMap() {
 		return replacements == null
-				? Collections.<IRequiredCapability, IRequiredCapability> emptyMap()
+				? Collections.<IRequirement, IRequirement> emptyMap()
 				: replacements;
 	}
 
@@ -528,8 +530,8 @@ public class Builder extends AbstractCommand {
 	}
 
 	public boolean isTopLevelCategory(IInstallableUnit iu) {
-		return iu != null && "true".equalsIgnoreCase(iu.getProperty(IInstallableUnit.PROP_TYPE_CATEGORY))
-				&& !"true".equalsIgnoreCase(iu.getProperty(IInstallableUnit.PROP_TYPE_GROUP));
+		return iu != null && "true".equalsIgnoreCase(iu.getProperty(InstallableUnitDescription.PROP_TYPE_CATEGORY))
+				&& !"true".equalsIgnoreCase(iu.getProperty(InstallableUnitDescription.PROP_TYPE_GROUP));
 	}
 
 	public boolean isVerifyOnly() {
@@ -612,7 +614,8 @@ public class Builder extends AbstractCommand {
 
 					String instArea = buildRoot.toString();
 					Map<String, String> props = new HashMap<String, String>();
-					props.put(IProfile.PROP_FLAVOR, "tooling"); //$NON-NLS-1$
+					// TODO Where is PROP_FLAVOR gone?
+					//props.put(IProfile.PROP_FLAVOR, "tooling"); //$NON-NLS-1$
 					props.put(IProfile.PROP_NAME, aggregator.getLabel());
 					props.put(IProfile.PROP_DESCRIPTION, format("Default profile during %s build",
 							aggregator.getLabel()));
@@ -770,7 +773,7 @@ public class Builder extends AbstractCommand {
 		this.buildRoot = buildRoot;
 	}
 
-	public void setCategoryIUs(List<InstallableUnit> categoryIUs) {
+	public void setCategoryIUs(List<IInstallableUnit> categoryIUs) {
 		this.categoryIUs = categoryIUs;
 	}
 

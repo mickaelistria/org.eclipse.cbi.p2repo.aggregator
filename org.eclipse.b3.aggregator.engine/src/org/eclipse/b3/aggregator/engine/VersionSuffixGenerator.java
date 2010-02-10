@@ -12,8 +12,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.equinox.internal.provisional.p2.metadata.Version;
-import org.eclipse.equinox.internal.provisional.p2.metadata.VersionedId;
+import org.eclipse.equinox.internal.p2.metadata.BasicVersion;
+import org.eclipse.equinox.internal.p2.metadata.VersionedId;
 
 /**
  * @author Thomas Hallgren
@@ -164,7 +164,7 @@ public class VersionSuffixGenerator {
 		//
 		int idx = 0;
 		for(VersionedId refFeature : features) {
-			Version version = refFeature.getVersion();
+			BasicVersion version = (BasicVersion) refFeature.getVersion();
 			majorSum += version.getMajor();
 			minorSum += version.getMinor();
 			serviceSum += version.getMicro();
@@ -196,7 +196,7 @@ public class VersionSuffixGenerator {
 		// number parts to the running totals and storing the qualifiers.
 		//
 		for(VersionedId refBundle : bundles) {
-			Version version = refBundle.getVersion();
+			BasicVersion version = (BasicVersion) refBundle.getVersion();
 			majorSum += version.getMajor();
 			minorSum += version.getMinor();
 			serviceSum += version.getMicro();

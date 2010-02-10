@@ -26,9 +26,9 @@ import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.equinox.internal.p2.core.helpers.FileUtils;
 import org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository;
 import org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository;
-import org.eclipse.equinox.internal.provisional.p2.metadata.IInstallableUnit;
-import org.eclipse.equinox.internal.provisional.p2.metadata.repository.IMetadataRepositoryManager;
-import org.eclipse.equinox.internal.provisional.p2.repository.IRepository;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
+import org.eclipse.equinox.p2.repository.IRepository;
+import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
 
 public class SourceCompositeGenerator extends BuilderPhase {
 	public SourceCompositeGenerator(Builder builder) {
@@ -102,8 +102,8 @@ public class SourceCompositeGenerator extends BuilderPhase {
 			throw ExceptionUtils.fromMessage("CompositeRepository generation was not successful");
 	}
 
-	private IRepository createLocalMdr(URI locationBase, MetadataRepository mdr) throws URISyntaxException,
-			NoSuchAlgorithmException {
+	private IRepository<IInstallableUnit> createLocalMdr(URI locationBase, MetadataRepository mdr)
+			throws URISyntaxException, NoSuchAlgorithmException {
 		URI location = new URI(locationBase.toString() + "/transformed/" + encode(mdr.getLocation().toString()));
 		LocalMetadataRepository localMdr = new LocalMetadataRepository(location, mdr.getName(), mdr.getProperties());
 		localMdr.setDescription(mdr.getDescription());

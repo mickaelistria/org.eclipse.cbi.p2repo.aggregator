@@ -1,6 +1,7 @@
 package org.eclipse.b3.aggregator.engine;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,8 +17,6 @@ import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.p2.InstallableUnit;
 import org.eclipse.b3.aggregator.p2.MetadataRepository;
 import org.eclipse.b3.aggregator.p2.P2Factory;
-import org.eclipse.b3.aggregator.p2.ProvidedCapability;
-import org.eclipse.b3.aggregator.p2.RequiredCapability;
 import org.eclipse.b3.aggregator.p2.impl.InstallableUnitImpl;
 import org.eclipse.b3.aggregator.p2.impl.ProvidedCapabilityImpl;
 import org.eclipse.b3.aggregator.util.LogUtils;
@@ -27,18 +26,25 @@ import org.eclipse.b3.util.StringUtils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.equinox.internal.provisional.p2.metadata.IInstallableUnit;
-import org.eclipse.equinox.internal.provisional.p2.metadata.IRequiredCapability;
+import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
+import org.eclipse.equinox.internal.p2.metadata.VersionedId;
 import org.eclipse.equinox.internal.provisional.p2.metadata.MetadataFactory;
-import org.eclipse.equinox.internal.provisional.p2.metadata.Version;
-import org.eclipse.equinox.internal.provisional.p2.metadata.VersionRange;
-import org.eclipse.equinox.internal.provisional.p2.metadata.VersionedId;
+import org.eclipse.equinox.internal.provisional.p2.metadata.MetadataFactory.InstallableUnitDescription;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
+import org.eclipse.equinox.p2.metadata.IProvidedCapability;
+import org.eclipse.equinox.p2.metadata.IRequirement;
+import org.eclipse.equinox.p2.metadata.Version;
+import org.eclipse.equinox.p2.metadata.VersionRange;
 
 public class CategoriesGenerator extends BuilderPhase {
 	private static void assignCategoryVersion(InstallableUnitImpl category) {
 		List<VersionedId> includedBundles = new ArrayList<VersionedId>();
 		List<VersionedId> includedFeatures = new ArrayList<VersionedId>();
-		for(RequiredCapability cap : category.getRequiredCapabilityList()) {
+		for(IRequirement req : category.getRequiredCapabilities()) {
+			if(!(req instanceof IRequiredCapability))
+				continue;
+
+			IRequiredCapability cap = (IRequiredCapability) req;
 			VersionRange range = cap.getRange();
 			Version version;
 			if(range == null)
@@ -55,7 +61,7 @@ public class CategoriesGenerator extends BuilderPhase {
 		VersionSuffixGenerator suffixGen = new VersionSuffixGenerator();
 		Version catVersion = Version.createOSGi(0, 0, 0, suffixGen.generateSuffix(includedFeatures, includedBundles));
 		category.setVersion(catVersion);
-		List<ProvidedCapability> providedCaps = category.getProvidedCapabilityList();
+		List<IProvidedCapability> providedCaps = category.getProvidedCapabilities();
 		providedCaps.clear();
 		ProvidedCapabilityImpl providedCap = (ProvidedCapabilityImpl) P2Factory.eINSTANCE.createProvidedCapability();
 		providedCap.setName(category.getId());
@@ -76,7 +82,7 @@ public class CategoriesGenerator extends BuilderPhase {
 		MonitorUtils.subTask(monitor, info);
 		LogUtils.info(info);
 		try {
-			List<InstallableUnit> results = new ArrayList<InstallableUnit>();
+			List<IInstallableUnit> results = new ArrayList<IInstallableUnit>();
 			Aggregator aggregator = getBuilder().getAggregator();
 			for(CustomCategory category : aggregator.getCustomCategories())
 				results.add(createCategoryIU(category));
@@ -105,17 +111,17 @@ public class CategoriesGenerator extends BuilderPhase {
 		Map<String, String> props = cat.getPropertyMap().map();
 		props.put(IInstallableUnit.PROP_NAME, category.getLabel());
 		props.put(IInstallableUnit.PROP_DESCRIPTION, category.getDescription());
-		props.put(IInstallableUnit.PROP_TYPE_CATEGORY, "true"); //$NON-NLS-1$
+		props.put(InstallableUnitDescription.PROP_TYPE_CATEGORY, "true"); //$NON-NLS-1$
 
 		List<Feature> features = category.getFeatures();
-		List<RequiredCapability> rcs = cat.getRequiredCapabilityList();
+		List<IRequirement> rcs = cat.getRequiredCapabilities();
 		List<VersionedId> includedBundles = new ArrayList<VersionedId>();
 		List<VersionedId> includedFeatures = new ArrayList<VersionedId>();
 		for(Feature feature : features) {
 			if(!feature.isBranchEnabled())
 				continue;
 
-			rcs.add((RequiredCapability) feature.getRequiredCapability());
+			rcs.add(feature.getRequiredCapability());
 
 			VersionedId vn = new VersionedId(feature.getName(), feature.getVersionRange().getMinimum());
 			if(vn.getId().endsWith(Builder.FEATURE_GROUP_SUFFIX))
@@ -133,25 +139,25 @@ public class CategoriesGenerator extends BuilderPhase {
 		Version catVersion = Version.createOSGi(0, 0, 0, suffixGen.generateSuffix(includedFeatures, includedBundles));
 		pc.setVersion(catVersion);
 		cat.setVersion(catVersion);
-		cat.getProvidedCapabilityList().add(pc);
+		cat.getProvidedCapabilities().add(pc);
 		return cat;
 	}
 
-	private List<InstallableUnit> getRepositoryCategories(MappedRepository repo) {
+	private List<IInstallableUnit> getRepositoryCategories(MappedRepository repo) {
 		Builder builder = getBuilder();
-		ArrayList<InstallableUnit> categoryIUs = new ArrayList<InstallableUnit>();
+		ArrayList<IInstallableUnit> categoryIUs = new ArrayList<IInstallableUnit>();
 		if(repo.isMapExclusive()) {
 			for(Category category : repo.getCategories()) {
 				if(category.isEnabled()) {
 					IInstallableUnit iu = category.resolveAsSingleton();
 					if(builder.isTopLevelCategory(iu))
-						categoryIUs.add((InstallableUnit) iu);
+						categoryIUs.add(iu);
 				}
 			}
 		}
 		else {
 			List<MapRule> mapRules = repo.getMapRules();
-			allIUs: for(InstallableUnit iu : repo.getMetadataRepository().getInstallableUnits()) {
+			allIUs: for(IInstallableUnit iu : repo.getMetadataRepository().getInstallableUnits()) {
 				if(builder.isTopLevelCategory(iu)) {
 					for(MapRule mapRule : mapRules)
 						if(mapRule instanceof ExclusionRule && iu.getId().equals(mapRule.getName())
@@ -175,7 +181,7 @@ public class CategoriesGenerator extends BuilderPhase {
 			int prefixLen = prefixConcat.length();
 			int idx = categoryIUs.size();
 			while(--idx >= 0) {
-				InstallableUnit iu = categoryIUs.get(idx);
+				IInstallableUnit iu = categoryIUs.get(idx);
 				InstallableUnitImpl renamedIU = (InstallableUnitImpl) InstallableUnitImpl.importToModel(iu);
 				prefixConcat.setLength(prefixLen);
 				prefixConcat.append(iu.getProperty(IInstallableUnit.PROP_NAME));
@@ -203,19 +209,24 @@ public class CategoriesGenerator extends BuilderPhase {
 		return bld.toString();
 	}
 
-	private List<InstallableUnit> normalizeCategories(List<InstallableUnit> categoryIUs) {
-		Map<IRequiredCapability, IRequiredCapability> replacementMap = getBuilder().getReplacementMap();
-		Map<String, List<RequiredCapability>> map = new HashMap<String, List<RequiredCapability>>();
-		Map<String, InstallableUnit> catMap = new HashMap<String, InstallableUnit>();
-		for(InstallableUnit category : categoryIUs) {
+	private List<IInstallableUnit> normalizeCategories(List<IInstallableUnit> categoryIUs) {
+		Map<IRequirement, IRequirement> replacementMap = getBuilder().getReplacementMap();
+		Map<String, List<IRequirement>> map = new HashMap<String, List<IRequirement>>();
+		Map<String, IInstallableUnit> catMap = new HashMap<String, IInstallableUnit>();
+		for(IInstallableUnit category : categoryIUs) {
 			String name = category.getProperty(IInstallableUnit.PROP_NAME);
-			List<RequiredCapability> caps = map.get(name);
+			List<IRequirement> caps = map.get(name);
 			if(caps == null) {
-				caps = new ArrayList<RequiredCapability>();
+				caps = new ArrayList<IRequirement>();
 				map.put(name, caps);
 			}
 
-			for(RequiredCapability cap : category.getRequiredCapabilityList()) {
+			for(IRequirement req : category.getRequiredCapabilities()) {
+				if(!(req instanceof IRequiredCapability))
+					continue;
+
+				IRequiredCapability cap = (IRequiredCapability) req;
+
 				// If this is an exact version range, then check if the appointed
 				// version has been excluded. If it has, replace it if its replacement
 				// can be found.
@@ -223,16 +234,16 @@ public class CategoriesGenerator extends BuilderPhase {
 				VersionRange range = cap.getRange();
 				if(range != null && range.getMinimum().equals(range.getMaximum())) {
 					if(replacementMap.containsKey(cap)) {
-						IRequiredCapability newRq = replacementMap.get(cap);
+						IRequirement newRq = replacementMap.get(cap);
 						if(newRq == null)
 							continue;
-						cap = InstallableUnitImpl.importToModel(newRq);
+						req = InstallableUnitImpl.importToModel(newRq);
 					}
 				}
 				caps.add(cap);
 			}
 
-			InstallableUnit oldCat = catMap.put(name, category);
+			IInstallableUnit oldCat = catMap.put(name, category);
 			if(oldCat == null)
 				continue;
 
@@ -258,11 +269,11 @@ public class CategoriesGenerator extends BuilderPhase {
 			}
 		}
 
-		List<InstallableUnit> normalized = new ArrayList<InstallableUnit>();
-		for(InstallableUnit category : catMap.values()) {
+		List<IInstallableUnit> normalized = new ArrayList<IInstallableUnit>();
+		for(IInstallableUnit category : catMap.values()) {
 			String name = category.getProperty(IInstallableUnit.PROP_NAME);
-			List<RequiredCapability> newCaps = map.get(name);
-			List<RequiredCapability> origCaps = category.getRequiredCapabilityList();
+			List<IRequirement> newCaps = map.get(name);
+			Collection<IRequirement> origCaps = category.getRequiredCapabilities();
 			if(origCaps.size() == newCaps.size() && origCaps.containsAll(newCaps)) {
 				// This category passed through normalization without change
 				normalized.add(category);
@@ -271,8 +282,8 @@ public class CategoriesGenerator extends BuilderPhase {
 
 			InstallableUnitImpl newCategory = (InstallableUnitImpl) P2Factory.eINSTANCE.createInstallableUnit();
 			newCategory.setId(category.getId());
-			newCategory.getPropertyMap().addAll(category.getPropertyMap());
-			newCategory.getRequiredCapabilityList().addAll(newCaps);
+			newCategory.getPropertyMap().addAll(category.getProperties().entrySet());
+			newCategory.getRequiredCapabilities().addAll(newCaps);
 			assignCategoryVersion(newCategory);
 			tossCategory(category);
 			normalized.add(newCategory);
@@ -286,7 +297,7 @@ public class CategoriesGenerator extends BuilderPhase {
 	 * @param category
 	 *            The category IU that will be excluded
 	 */
-	private void tossCategory(InstallableUnit category) {
+	private void tossCategory(IInstallableUnit category) {
 		MetadataRepository parent = (MetadataRepository) ((EObject) category).eContainer();
 		Builder builder = getBuilder();
 		for(Contribution contrib : builder.getAggregator().getContributions(true)) {
