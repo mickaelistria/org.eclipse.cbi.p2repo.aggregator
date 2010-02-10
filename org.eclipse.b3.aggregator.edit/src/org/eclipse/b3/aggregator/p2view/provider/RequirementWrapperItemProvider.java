@@ -89,7 +89,6 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 			addFilterPropertyDescriptor(object);
 			addMaxPropertyDescriptor(object);
 			addMinPropertyDescriptor(object);
-			addMatchesPropertyDescriptor(object);
 			addGreedyPropertyDescriptor(object);
 			addLabelPropertyDescriptor(object);
 			addGenuinePropertyDescriptor(object);
@@ -212,22 +211,6 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 				getString("_UI_LabelProvider_label_feature"), getString("_UI_PropertyDescriptor_description",
 						"_UI_LabelProvider_label_feature", "_UI_LabelProvider_type"),
 				AggregatorPackage.Literals.LABEL_PROVIDER__LABEL, false, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Matches feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addMatchesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_IRequirement_matches_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_IRequirement_matches_feature", "_UI_IRequirement_type"),
-				P2Package.Literals.IREQUIREMENT__MATCHES, false, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 

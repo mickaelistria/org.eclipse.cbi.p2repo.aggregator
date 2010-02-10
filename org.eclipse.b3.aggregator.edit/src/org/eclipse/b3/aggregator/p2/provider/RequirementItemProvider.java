@@ -85,7 +85,6 @@ public class RequirementItemProvider extends AggregatorItemProviderAdapter imple
 			addFilterPropertyDescriptor(object);
 			addMaxPropertyDescriptor(object);
 			addMinPropertyDescriptor(object);
-			addMatchesPropertyDescriptor(object);
 			addGreedyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -175,22 +174,6 @@ public class RequirementItemProvider extends AggregatorItemProviderAdapter imple
 						"_UI_IRequirement_greedy_feature", "_UI_IRequirement_type"),
 				P2Package.Literals.IREQUIREMENT__GREEDY, false, false, false,
 				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Matches feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addMatchesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_IRequirement_matches_feature"), getString("_UI_PropertyDescriptor_description",
-						"_UI_IRequirement_matches_feature", "_UI_IRequirement_type"),
-				P2Package.Literals.IREQUIREMENT__MATCHES, false, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
