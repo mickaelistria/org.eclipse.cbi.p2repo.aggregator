@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.b3.backend.core.B3BackendException;
-import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.beelang.ui.BeeLangConsoleUtils;
@@ -63,18 +62,10 @@ public class ExecuteHandler extends AbstractHandler {
 						}
 					}
 					
-//					// Define all imports as constants
-//					for(Type t : ((BeeModel) state).getImports()) {
-//						if(t instanceof B3JavaImport) {
-//							Class<?> x = TypeUtils.getRaw(t);
-//							B3MetaClass metaClass = B3backendFactory.eINSTANCE.createB3MetaClass();
-//							metaClass.setInstanceClass(x);
-//							engine.getContext().defineValue(((B3JavaImport) t).getName(), x, metaClass);
-//						}
-//					}
 					if(main == null)
 						return null;
 					final List<Object> argv = new ArrayList<Object>();
+					argv.add(engine);
 					try {
 						return engine.getContext().callFunction("main", new Object[] { argv },
 								new Type[] { List.class });
