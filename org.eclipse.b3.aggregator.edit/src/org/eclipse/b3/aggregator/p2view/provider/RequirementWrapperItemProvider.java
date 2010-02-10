@@ -89,6 +89,7 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 			addFilterPropertyDescriptor(object);
 			addMaxPropertyDescriptor(object);
 			addMinPropertyDescriptor(object);
+			addMatchesPropertyDescriptor(object);
 			addGreedyPropertyDescriptor(object);
 			addLabelPropertyDescriptor(object);
 			addGenuinePropertyDescriptor(object);
@@ -142,6 +143,7 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 		case P2viewPackage.REQUIREMENT_WRAPPER__FILTER:
 		case P2viewPackage.REQUIREMENT_WRAPPER__MAX:
 		case P2viewPackage.REQUIREMENT_WRAPPER__MIN:
+		case P2viewPackage.REQUIREMENT_WRAPPER__MATCHES:
 		case P2viewPackage.REQUIREMENT_WRAPPER__GREEDY:
 		case P2viewPackage.REQUIREMENT_WRAPPER__LABEL:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
@@ -162,7 +164,7 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
 				getString("_UI_IRequirement_filter_feature"), getString("_UI_PropertyDescriptor_description",
 						"_UI_IRequirement_filter_feature", "_UI_IRequirement_type"),
-				P2Package.Literals.IREQUIREMENT__FILTER, true, false, false,
+				P2Package.Literals.IREQUIREMENT__FILTER, false, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -193,7 +195,7 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
 				getString("_UI_IRequirement_greedy_feature"), getString("_UI_PropertyDescriptor_description",
 						"_UI_IRequirement_greedy_feature", "_UI_IRequirement_type"),
-				P2Package.Literals.IREQUIREMENT__GREEDY, true, false, false,
+				P2Package.Literals.IREQUIREMENT__GREEDY, false, false, false,
 				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
@@ -214,6 +216,22 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 	}
 
 	/**
+	 * This adds a property descriptor for the Matches feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addMatchesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_IRequirement_matches_feature"), getString("_UI_PropertyDescriptor_description",
+						"_UI_IRequirement_matches_feature", "_UI_IRequirement_type"),
+				P2Package.Literals.IREQUIREMENT__MATCHES, false, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Max feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -225,7 +243,7 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
 				getString("_UI_IRequirement_max_feature"), getString("_UI_PropertyDescriptor_description",
 						"_UI_IRequirement_max_feature", "_UI_IRequirement_type"), P2Package.Literals.IREQUIREMENT__MAX,
-				true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+				false, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -240,7 +258,7 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
 				getString("_UI_IRequirement_min_feature"), getString("_UI_PropertyDescriptor_description",
 						"_UI_IRequirement_min_feature", "_UI_IRequirement_type"), P2Package.Literals.IREQUIREMENT__MIN,
-				true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+				false, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
