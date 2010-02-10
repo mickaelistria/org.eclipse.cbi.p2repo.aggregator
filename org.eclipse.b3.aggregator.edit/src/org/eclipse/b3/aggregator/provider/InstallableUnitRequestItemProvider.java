@@ -21,7 +21,9 @@ import org.eclipse.b3.aggregator.IAggregatorConstants;
 import org.eclipse.b3.aggregator.InstallableUnitRequest;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.p2.MetadataRepository;
+import org.eclipse.b3.aggregator.p2.impl.InstallableUnitImpl;
 import org.eclipse.b3.aggregator.util.AggregatorResource;
+import org.eclipse.b3.aggregator.util.RepositoryTranslationSupport;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -38,7 +40,6 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipse.equinox.internal.p2.metadata.TranslationSupport;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.VersionRange;
 import org.eclipse.equinox.p2.query.IQuery;
@@ -292,7 +293,9 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 		bld.append(versionRange.toString());
 		IInstallableUnit iu = iuRef.resolveAsSingleton();
 		if(iu != null) {
-			String name = TranslationSupport.getInstance().getIUProperty(iu, IInstallableUnit.PROP_NAME);
+			String name = RepositoryTranslationSupport.getInstance(
+					(MetadataRepository) ((InstallableUnitImpl) iu).eContainer()).getIUProperty(iu,
+					IInstallableUnit.PROP_NAME);
 			if(name != null && !name.startsWith("%")) {
 				bld.append(" (");
 				bld.append(name);

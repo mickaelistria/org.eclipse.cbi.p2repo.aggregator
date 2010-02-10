@@ -10,11 +10,14 @@ import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.b3.aggregator.p2.InstallableUnit;
+import org.eclipse.b3.aggregator.p2.MetadataRepository;
 import org.eclipse.b3.aggregator.p2.P2Package;
+import org.eclipse.b3.aggregator.p2.impl.InstallableUnitImpl;
 import org.eclipse.b3.aggregator.provider.AggregatorEditPlugin;
 import org.eclipse.b3.aggregator.provider.AggregatorItemProviderAdapter;
 import org.eclipse.b3.aggregator.util.GeneralUtils;
 import org.eclipse.b3.aggregator.util.InstallableUnitUtils;
+import org.eclipse.b3.aggregator.util.RepositoryTranslationSupport;
 import org.eclipse.b3.util.StringUtils;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.UnexecutableCommand;
@@ -36,7 +39,6 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipse.equinox.internal.p2.metadata.TranslationSupport;
 import org.eclipse.equinox.internal.p2.metadata.VersionedId;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.query.CategoryQuery;
@@ -157,7 +159,9 @@ public class InstallableUnitItemProvider extends AggregatorItemProviderAdapter i
 				label = name;
 		}
 		else {
-			String name = TranslationSupport.getInstance().getIUProperty(iu, IInstallableUnit.PROP_NAME);
+			String name = RepositoryTranslationSupport.getInstance(
+					(MetadataRepository) ((InstallableUnitImpl) iu).eContainer()).getIUProperty(iu,
+					IInstallableUnit.PROP_NAME);
 			if(name != null && name.startsWith("%"))
 				name = null;
 
