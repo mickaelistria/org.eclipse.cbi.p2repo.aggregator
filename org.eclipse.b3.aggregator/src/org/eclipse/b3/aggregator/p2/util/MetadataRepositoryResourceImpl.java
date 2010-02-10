@@ -24,6 +24,7 @@ import org.eclipse.b3.aggregator.StatusProvider;
 import org.eclipse.b3.aggregator.loader.IRepositoryLoader;
 import org.eclipse.b3.aggregator.p2.MetadataRepository;
 import org.eclipse.b3.aggregator.p2.P2Factory;
+import org.eclipse.b3.aggregator.p2.impl.InstallableUnitImpl;
 import org.eclipse.b3.aggregator.p2.impl.MetadataRepositoryImpl;
 import org.eclipse.b3.aggregator.p2view.Bundle;
 import org.eclipse.b3.aggregator.p2view.Categories;
@@ -39,6 +40,7 @@ import org.eclipse.b3.aggregator.util.GeneralUtils;
 import org.eclipse.b3.aggregator.util.InstallableUnitUtils;
 import org.eclipse.b3.aggregator.util.LogUtils;
 import org.eclipse.b3.aggregator.util.MonitorUtils;
+import org.eclipse.b3.aggregator.util.RepositoryTranslationSupport;
 import org.eclipse.b3.aggregator.util.ResourceDiagnosticImpl;
 import org.eclipse.b3.aggregator.util.ResourceUtils;
 import org.eclipse.b3.aggregator.util.TimeUtils;
@@ -285,7 +287,9 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 				iuPresentation.setId(iu.getId());
 				iuPresentation.setVersion(iu.getVersion());
 
-				String name = TranslationSupport.getInstance().getIUProperty(iu, IInstallableUnit.PROP_NAME);
+				String name = RepositoryTranslationSupport.getInstance(
+						(MetadataRepository) ((InstallableUnitImpl) iu).eContainer()).getIUProperty(iu,
+						IInstallableUnit.PROP_NAME);
 				if(name == null || name.length() == 0)
 					iuPresentation.setName(iu.getId());
 				else

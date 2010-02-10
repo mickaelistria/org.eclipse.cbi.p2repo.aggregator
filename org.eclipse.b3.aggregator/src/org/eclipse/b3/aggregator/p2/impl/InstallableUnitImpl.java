@@ -16,6 +16,7 @@ import org.eclipse.b3.aggregator.p2.ArtifactKey;
 import org.eclipse.b3.aggregator.p2.Copyright;
 import org.eclipse.b3.aggregator.p2.InstallableUnit;
 import org.eclipse.b3.aggregator.p2.License;
+import org.eclipse.b3.aggregator.p2.MetadataRepository;
 import org.eclipse.b3.aggregator.p2.P2Factory;
 import org.eclipse.b3.aggregator.p2.P2Package;
 import org.eclipse.b3.aggregator.p2.ProvidedCapability;
@@ -25,6 +26,7 @@ import org.eclipse.b3.aggregator.p2.TouchpointInstruction;
 import org.eclipse.b3.aggregator.p2.TouchpointType;
 import org.eclipse.b3.aggregator.p2.UpdateDescriptor;
 import org.eclipse.b3.aggregator.util.InstallableUnitUtils;
+import org.eclipse.b3.aggregator.util.RepositoryTranslationSupport;
 import org.eclipse.b3.util.StringUtils;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -41,7 +43,6 @@ import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.equinox.internal.p2.core.helpers.OrderedProperties;
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
-import org.eclipse.equinox.internal.p2.metadata.TranslationSupport;
 import org.eclipse.equinox.internal.p2.metadata.VersionedId;
 import org.eclipse.equinox.p2.metadata.IArtifactKey;
 import org.eclipse.equinox.p2.metadata.ICopyright;
@@ -941,7 +942,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 * @generated NOT
 	 */
 	public ICopyright getCopyright(String locale) {
-		return TranslationSupport.getInstance().getCopyright(this, locale);
+		return RepositoryTranslationSupport.getInstance((MetadataRepository) eContainer()).getCopyright(this, locale);
 	}
 
 	/**
@@ -995,7 +996,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 * @generated NOT
 	 */
 	public ILicense[] getLicenses(String locale) {
-		return TranslationSupport.getInstance().getLicenses(this, locale);
+		return RepositoryTranslationSupport.getInstance((MetadataRepository) eContainer()).getLicenses(this, locale);
 	}
 
 	/**
@@ -1052,7 +1053,8 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 * @generated NOT
 	 */
 	public String getProperty(String key, String locale) {
-		return TranslationSupport.getInstance().getIUProperty(this, key, locale);
+		return RepositoryTranslationSupport.getInstance((MetadataRepository) eContainer()).getIUProperty(this, key,
+				locale);
 	}
 
 	/**
