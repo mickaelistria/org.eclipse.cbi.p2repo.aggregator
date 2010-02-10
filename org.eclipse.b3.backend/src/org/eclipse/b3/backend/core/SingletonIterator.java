@@ -4,7 +4,9 @@ import java.util.Iterator;
 
 public class SingletonIterator<E> implements Iterator<E> {
 	private E theNext;
-	
+	public static <T> SingletonIterator<T> nullIterator() {
+		return new SingletonIterator<T>(null);
+	}
 	public SingletonIterator(E object) {
 		theNext = object;
 	}
