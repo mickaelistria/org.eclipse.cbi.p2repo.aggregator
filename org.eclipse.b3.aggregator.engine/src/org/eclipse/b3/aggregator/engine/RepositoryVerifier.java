@@ -273,8 +273,7 @@ public class RepositoryVerifier extends BuilderPhase {
 						final boolean hadPartialsHolder[] = new boolean[] { false };
 						sourceRepo.query(new MatchQuery<IInstallableUnit>() {
 							@Override
-							public boolean isMatch(IInstallableUnit obj) {
-								InstallableUnit iu = (InstallableUnit) obj;
+							public boolean isMatch(IInstallableUnit iu) {
 								if(candidates.contains(iu) && !unitsToAggregate.contains(iu)) {
 									try {
 										if(Boolean.valueOf(iu.getProperty(IInstallableUnit.PROP_PARTIAL_IU)).booleanValue()) {
