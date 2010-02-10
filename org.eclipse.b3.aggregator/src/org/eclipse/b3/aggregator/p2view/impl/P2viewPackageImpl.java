@@ -25,6 +25,7 @@ import org.eclipse.b3.aggregator.p2view.IUDetails;
 import org.eclipse.b3.aggregator.p2view.IUPresentation;
 import org.eclipse.b3.aggregator.p2view.IUPresentationWithDetails;
 import org.eclipse.b3.aggregator.p2view.InstallableUnits;
+import org.eclipse.b3.aggregator.p2view.Licenses;
 import org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView;
 import org.eclipse.b3.aggregator.p2view.Miscellaneous;
 import org.eclipse.b3.aggregator.p2view.OtherIU;
@@ -247,6 +248,14 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	private EClass touchpointsEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass licensesEClass = null;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -403,6 +412,9 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 		createEReference(touchpointsEClass, TOUCHPOINTS__TOUCHPOINT_TYPE);
 		createEReference(touchpointsEClass, TOUCHPOINTS__TOUCHPOINT_DATA_LIST);
 
+		licensesEClass = createEClass(LICENSES);
+		createEReference(licensesEClass, LICENSES__LICENSES);
+
 		iuDetailsEClass = createEClass(IU_DETAILS);
 		createEReference(iuDetailsEClass, IU_DETAILS__REQUIREMENTS_CONTAINER);
 		createEReference(iuDetailsEClass, IU_DETAILS__PROVIDED_CAPABILITIES_CONTAINER);
@@ -410,7 +422,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 		createEReference(iuDetailsEClass, IU_DETAILS__TOUCHPOINTS_CONTAINER);
 		createEReference(iuDetailsEClass, IU_DETAILS__UPDATE_DESCRIPTOR);
 		createEReference(iuDetailsEClass, IU_DETAILS__COPYRIGHT);
-		createEReference(iuDetailsEClass, IU_DETAILS__LICENSES);
+		createEReference(iuDetailsEClass, IU_DETAILS__LICENSES_CONTAINER);
 
 		requirementWrapperEClass = createEClass(REQUIREMENT_WRAPPER);
 		createEReference(requirementWrapperEClass, REQUIREMENT_WRAPPER__GENUINE);
@@ -695,7 +707,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	 * 
 	 * @generated
 	 */
-	public EReference getIUDetails_Licenses() {
+	public EReference getIUDetails_LicensesContainer() {
 		return (EReference) iuDetailsEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -833,6 +845,26 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	 */
 	public EAttribute getIUPresentationWithDetails_DetailsResolved() {
 		return (EAttribute) iuPresentationWithDetailsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EClass getLicenses() {
+		return licensesEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getLicenses_Licenses() {
+		return (EReference) licensesEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1390,6 +1422,11 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 				"touchpointDataList", null, 0, -1, Touchpoints.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(licensesEClass, Licenses.class, "Licenses", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getLicenses_Licenses(), theP2Package.getILicense(), null, "licenses", null, 0, -1,
+				Licenses.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(iuDetailsEClass, IUDetails.class, "IUDetails", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIUDetails_RequirementsContainer(), this.getRequirements(), null, "requirementsContainer",
@@ -1410,7 +1447,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 		initEReference(getIUDetails_Copyright(), theP2Package.getICopyright(), null, "copyright", null, 0, 1,
 				IUDetails.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIUDetails_Licenses(), theP2Package.getILicense(), null, "licenses", null, 0, -1,
+		initEReference(getIUDetails_LicensesContainer(), this.getLicenses(), null, "licensesContainer", null, 0, 1,
 				IUDetails.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

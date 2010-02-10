@@ -639,6 +639,27 @@ public interface P2viewPackage extends EPackage {
 		EReference TOUCHPOINTS__TOUCHPOINT_DATA_LIST = eINSTANCE.getTouchpoints_TouchpointDataList();
 
 		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.p2view.impl.LicensesImpl <em>Licenses</em>}
+		 * ' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.b3.aggregator.p2view.impl.LicensesImpl
+		 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getLicenses()
+		 * @generated
+		 */
+		EClass LICENSES = eINSTANCE.getLicenses();
+
+		/**
+		 * The meta object literal for the '<em><b>Licenses</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EReference LICENSES__LICENSES = eINSTANCE.getLicenses_Licenses();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.p2view.impl.IUDetailsImpl
 		 * <em>IU Details</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -702,13 +723,13 @@ public interface P2viewPackage extends EPackage {
 		EReference IU_DETAILS__COPYRIGHT = eINSTANCE.getIUDetails_Copyright();
 
 		/**
-		 * The meta object literal for the '<em><b>Licenses</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Licenses Container</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */
-		EReference IU_DETAILS__LICENSES = eINSTANCE.getIUDetails_Licenses();
+		EReference IU_DETAILS__LICENSES_CONTAINER = eINSTANCE.getIUDetails_LicensesContainer();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.p2view.impl.RequirementWrapperImpl
@@ -1286,7 +1307,7 @@ public interface P2viewPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getIUDetails()
 	 * @generated
 	 */
-	int IU_DETAILS = 20;
+	int IU_DETAILS = 21;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl
@@ -1495,14 +1516,14 @@ public interface P2viewPackage extends EPackage {
 	int IU_PRESENTATION_WITH_DETAILS__COPYRIGHT = IU_PRESENTATION_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Licenses</b></em>' reference list.
+	 * The feature id for the '<em><b>Licenses Container</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int IU_PRESENTATION_WITH_DETAILS__LICENSES = IU_PRESENTATION_FEATURE_COUNT + 6;
+	int IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER = IU_PRESENTATION_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Details Resolved</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
@@ -1771,14 +1792,14 @@ public interface P2viewPackage extends EPackage {
 	int FEATURE__COPYRIGHT = IU_PRESENTATION_WITH_DETAILS__COPYRIGHT;
 
 	/**
-	 * The feature id for the '<em><b>Licenses</b></em>' reference list.
+	 * The feature id for the '<em><b>Licenses Container</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE__LICENSES = IU_PRESENTATION_WITH_DETAILS__LICENSES;
+	int FEATURE__LICENSES_CONTAINER = IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER;
 
 	/**
 	 * The feature id for the '<em><b>Details Resolved</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
@@ -1947,14 +1968,14 @@ public interface P2viewPackage extends EPackage {
 	int PRODUCT__COPYRIGHT = IU_PRESENTATION_WITH_DETAILS__COPYRIGHT;
 
 	/**
-	 * The feature id for the '<em><b>Licenses</b></em>' reference list.
+	 * The feature id for the '<em><b>Licenses Container</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int PRODUCT__LICENSES = IU_PRESENTATION_WITH_DETAILS__LICENSES;
+	int PRODUCT__LICENSES_CONTAINER = IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER;
 
 	/**
 	 * The feature id for the '<em><b>Details Resolved</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
@@ -2123,14 +2144,14 @@ public interface P2viewPackage extends EPackage {
 	int BUNDLE__COPYRIGHT = IU_PRESENTATION_WITH_DETAILS__COPYRIGHT;
 
 	/**
-	 * The feature id for the '<em><b>Licenses</b></em>' reference list.
+	 * The feature id for the '<em><b>Licenses Container</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int BUNDLE__LICENSES = IU_PRESENTATION_WITH_DETAILS__LICENSES;
+	int BUNDLE__LICENSES_CONTAINER = IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER;
 
 	/**
 	 * The feature id for the '<em><b>Details Resolved</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
@@ -2272,14 +2293,14 @@ public interface P2viewPackage extends EPackage {
 	int FRAGMENT__COPYRIGHT = BUNDLE__COPYRIGHT;
 
 	/**
-	 * The feature id for the '<em><b>Licenses</b></em>' reference list.
+	 * The feature id for the '<em><b>Licenses Container</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int FRAGMENT__LICENSES = BUNDLE__LICENSES;
+	int FRAGMENT__LICENSES_CONTAINER = BUNDLE__LICENSES_CONTAINER;
 
 	/**
 	 * The feature id for the '<em><b>Details Resolved</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
@@ -2421,14 +2442,14 @@ public interface P2viewPackage extends EPackage {
 	int OTHER_IU__COPYRIGHT = IU_PRESENTATION_WITH_DETAILS__COPYRIGHT;
 
 	/**
-	 * The feature id for the '<em><b>Licenses</b></em>' reference list.
+	 * The feature id for the '<em><b>Licenses Container</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int OTHER_IU__LICENSES = IU_PRESENTATION_WITH_DETAILS__LICENSES;
+	int OTHER_IU__LICENSES_CONTAINER = IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER;
 
 	/**
 	 * The feature id for the '<em><b>Details Resolved</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
@@ -2547,6 +2568,37 @@ public interface P2viewPackage extends EPackage {
 	int TOUCHPOINTS_FEATURE_COUNT = 2;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2view.impl.LicensesImpl <em>Licenses</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.b3.aggregator.p2view.impl.LicensesImpl
+	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getLicenses()
+	 * @generated
+	 */
+	int LICENSES = 20;
+
+	/**
+	 * The feature id for the '<em><b>Licenses</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int LICENSES__LICENSES = 0;
+
+	/**
+	 * The number of structural features of the '<em>Licenses</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int LICENSES_FEATURE_COUNT = 1;
+
+	/**
 	 * The feature id for the '<em><b>Requirements Container</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2605,14 +2657,14 @@ public interface P2viewPackage extends EPackage {
 	int IU_DETAILS__COPYRIGHT = 5;
 
 	/**
-	 * The feature id for the '<em><b>Licenses</b></em>' reference list.
+	 * The feature id for the '<em><b>Licenses Container</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int IU_DETAILS__LICENSES = 6;
+	int IU_DETAILS__LICENSES_CONTAINER = 6;
 
 	/**
 	 * The number of structural features of the '<em>IU Details</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
@@ -2633,7 +2685,7 @@ public interface P2viewPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getRequirementWrapper()
 	 * @generated
 	 */
-	int REQUIREMENT_WRAPPER = 21;
+	int REQUIREMENT_WRAPPER = 22;
 
 	/**
 	 * The feature id for the '<em><b>Filter</b></em>' attribute.
@@ -2714,7 +2766,7 @@ public interface P2viewPackage extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl#getProvidedCapabilityWrapper()
 	 * @generated
 	 */
-	int PROVIDED_CAPABILITY_WRAPPER = 22;
+	int PROVIDED_CAPABILITY_WRAPPER = 23;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3119,17 +3171,17 @@ public interface P2viewPackage extends EPackage {
 	EReference getIUDetails_Copyright();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.eclipse.b3.aggregator.p2view.IUDetails#getLicenses
-	 * <em>Licenses</em>}'.
+	 * Returns the meta object for the reference '
+	 * {@link org.eclipse.b3.aggregator.p2view.IUDetails#getLicensesContainer <em>Licenses Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for the reference list '<em>Licenses</em>'.
-	 * @see org.eclipse.b3.aggregator.p2view.IUDetails#getLicenses()
+	 * @return the meta object for the reference '<em>Licenses Container</em>'.
+	 * @see org.eclipse.b3.aggregator.p2view.IUDetails#getLicensesContainer()
 	 * @see #getIUDetails()
 	 * @generated
 	 */
-	EReference getIUDetails_Licenses();
+	EReference getIUDetails_LicensesContainer();
 
 	/**
 	 * Returns the meta object for the reference '
@@ -3315,6 +3367,30 @@ public interface P2viewPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getIUPresentationWithDetails_DetailsResolved();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.p2view.Licenses <em>Licenses</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '<em>Licenses</em>'.
+	 * @see org.eclipse.b3.aggregator.p2view.Licenses
+	 * @generated
+	 */
+	EClass getLicenses();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.eclipse.b3.aggregator.p2view.Licenses#getLicenses
+	 * <em>Licenses</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the reference list '<em>Licenses</em>'.
+	 * @see org.eclipse.b3.aggregator.p2view.Licenses#getLicenses()
+	 * @see #getLicenses()
+	 * @generated
+	 */
+	EReference getLicenses_Licenses();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView

@@ -13,6 +13,7 @@ import java.util.List;
 
 import org.eclipse.b3.aggregator.ChildrenProvider;
 import org.eclipse.b3.aggregator.LabelProvider;
+import org.eclipse.b3.aggregator.p2view.*;
 import org.eclipse.b3.aggregator.p2view.Bundle;
 import org.eclipse.b3.aggregator.p2view.Bundles;
 import org.eclipse.b3.aggregator.p2view.Categories;
@@ -311,6 +312,23 @@ public class P2viewSwitch<T1> {
 	 * @generated
 	 */
 	public T1 caseLabelProvider(LabelProvider object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Licenses</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Licenses</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseLicenses(Licenses object) {
 		return null;
 	}
 
@@ -731,6 +749,13 @@ public class P2viewSwitch<T1> {
 		case P2viewPackage.TOUCHPOINTS: {
 			Touchpoints touchpoints = (Touchpoints) theEObject;
 			T1 result = caseTouchpoints(touchpoints);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case P2viewPackage.LICENSES: {
+			Licenses licenses = (Licenses) theEObject;
+			T1 result = caseLicenses(licenses);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;

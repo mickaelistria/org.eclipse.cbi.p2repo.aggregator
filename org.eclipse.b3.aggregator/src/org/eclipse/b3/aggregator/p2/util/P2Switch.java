@@ -716,6 +716,8 @@ public class P2Switch<T1> {
 			if(result == null)
 				result = caseIRequiredCapability(requiredCapability);
 			if(result == null)
+				result = caseRequirement(requiredCapability);
+			if(result == null)
 				result = caseIRequirement(requiredCapability);
 			if(result == null)
 				result = defaultCase(theEObject);

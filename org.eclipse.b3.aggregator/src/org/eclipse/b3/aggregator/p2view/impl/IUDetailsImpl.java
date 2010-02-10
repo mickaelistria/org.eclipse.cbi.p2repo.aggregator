@@ -9,22 +9,18 @@
  */
 package org.eclipse.b3.aggregator.p2view.impl;
 
-import java.util.Collection;
-
 import org.eclipse.b3.aggregator.p2view.IUDetails;
+import org.eclipse.b3.aggregator.p2view.Licenses;
 import org.eclipse.b3.aggregator.p2view.P2viewPackage;
 import org.eclipse.b3.aggregator.p2view.Properties;
 import org.eclipse.b3.aggregator.p2view.ProvidedCapabilities;
 import org.eclipse.b3.aggregator.p2view.Requirements;
 import org.eclipse.b3.aggregator.p2view.Touchpoints;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectEList;
 import org.eclipse.equinox.p2.metadata.ICopyright;
-import org.eclipse.equinox.p2.metadata.ILicense;
 import org.eclipse.equinox.p2.metadata.IUpdateDescriptor;
 
 /**
@@ -41,7 +37,7 @@ import org.eclipse.equinox.p2.metadata.IUpdateDescriptor;
  * </em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUDetailsImpl#getUpdateDescriptor <em>Update Descriptor</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUDetailsImpl#getCopyright <em>Copyright</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUDetailsImpl#getLicenses <em>Licenses</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUDetailsImpl#getLicensesContainer <em>Licenses Container</em>}</li>
  * </ul>
  * </p>
  * 
@@ -121,15 +117,15 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 	protected ICopyright copyright;
 
 	/**
-	 * The cached value of the '{@link #getLicenses() <em>Licenses</em>}' reference list.
+	 * The cached value of the '{@link #getLicensesContainer() <em>Licenses Container</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see #getLicenses()
+	 * @see #getLicensesContainer()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ILicense> licenses;
+	protected Licenses licensesContainer;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -160,8 +156,8 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 			return getUpdateDescriptor();
 		case P2viewPackage.IU_DETAILS__COPYRIGHT:
 			return getCopyright();
-		case P2viewPackage.IU_DETAILS__LICENSES:
-			return getLicenses();
+		case P2viewPackage.IU_DETAILS__LICENSES_CONTAINER:
+			return getLicensesContainer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -186,8 +182,8 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 			return updateDescriptor != null;
 		case P2viewPackage.IU_DETAILS__COPYRIGHT:
 			return copyright != null;
-		case P2viewPackage.IU_DETAILS__LICENSES:
-			return licenses != null && !licenses.isEmpty();
+		case P2viewPackage.IU_DETAILS__LICENSES_CONTAINER:
+			return licensesContainer != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -219,9 +215,8 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 		case P2viewPackage.IU_DETAILS__COPYRIGHT:
 			setCopyright((ICopyright) newValue);
 			return;
-		case P2viewPackage.IU_DETAILS__LICENSES:
-			getLicenses().clear();
-			getLicenses().addAll((Collection<? extends ILicense>) newValue);
+		case P2viewPackage.IU_DETAILS__LICENSES_CONTAINER:
+			setLicensesContainer((Licenses) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -253,8 +248,8 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 		case P2viewPackage.IU_DETAILS__COPYRIGHT:
 			setCopyright((ICopyright) null);
 			return;
-		case P2viewPackage.IU_DETAILS__LICENSES:
-			getLicenses().clear();
+		case P2viewPackage.IU_DETAILS__LICENSES_CONTAINER:
+			setLicensesContainer((Licenses) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -275,11 +270,8 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 	 * 
 	 * @generated
 	 */
-	public EList<ILicense> getLicenses() {
-		if(licenses == null) {
-			licenses = new EObjectEList<ILicense>(ILicense.class, this, P2viewPackage.IU_DETAILS__LICENSES);
-		}
-		return licenses;
+	public Licenses getLicensesContainer() {
+		return licensesContainer;
 	}
 
 	/**
@@ -339,6 +331,20 @@ public class IUDetailsImpl extends MinimalEObjectImpl.Container implements IUDet
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_DETAILS__COPYRIGHT, oldCopyright,
 					copyright));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setLicensesContainer(Licenses newLicensesContainer) {
+		Licenses oldLicensesContainer = licensesContainer;
+		licensesContainer = newLicensesContainer;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_DETAILS__LICENSES_CONTAINER,
+					oldLicensesContainer, licensesContainer));
 	}
 
 	/**

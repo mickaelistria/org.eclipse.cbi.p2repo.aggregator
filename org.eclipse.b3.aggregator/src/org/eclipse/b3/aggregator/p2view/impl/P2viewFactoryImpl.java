@@ -28,6 +28,7 @@ import org.eclipse.b3.aggregator.p2view.Fragment;
 import org.eclipse.b3.aggregator.p2view.Fragments;
 import org.eclipse.b3.aggregator.p2view.IUDetails;
 import org.eclipse.b3.aggregator.p2view.InstallableUnits;
+import org.eclipse.b3.aggregator.p2view.Licenses;
 import org.eclipse.b3.aggregator.p2view.MetadataRepositoryStructuredView;
 import org.eclipse.b3.aggregator.p2view.Miscellaneous;
 import org.eclipse.b3.aggregator.p2view.OtherIU;
@@ -49,6 +50,7 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
+import org.eclipse.equinox.p2.metadata.ILicense;
 import org.eclipse.equinox.p2.metadata.IProvidedCapability;
 import org.eclipse.equinox.p2.metadata.IRequirement;
 import org.eclipse.equinox.p2.metadata.ITouchpointData;
@@ -143,6 +145,8 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 			return (EObject) createProvidedCapabilities();
 		case P2viewPackage.TOUCHPOINTS:
 			return (EObject) createTouchpoints();
+		case P2viewPackage.LICENSES:
+			return (EObject) createLicenses();
 		case P2viewPackage.IU_DETAILS:
 			return (EObject) createIUDetails();
 		case P2viewPackage.REQUIREMENT_WRAPPER:
@@ -313,7 +317,7 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 				// TODO Get more from the requirement to make the label user friendlier
 				CapabilityNamespace cn = CapabilityNamespace.byFilter(req.getFilter());
 
-				if(cn == CapabilityNamespace.UNKNOWN)
+				if(cn == null || cn == CapabilityNamespace.UNKNOWN)
 					reqw.setLabel(req.toString());
 				else
 					reqw.setLabel(cn.getLabel() + " " + req.toString());
@@ -373,9 +377,26 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 		iuDetails.setUpdateDescriptor(iu.getUpdateDescriptor());
 		iuDetails.setCopyright(iu.getCopyright());
-		iuDetails.getLicenses().addAll(iu.getLicenses());
+
+		for(ILicense license : iu.getLicenses()) {
+			if(iuDetails.getLicensesContainer() == null)
+				iuDetails.setLicensesContainer(createLicenses());
+
+			iuDetails.getLicensesContainer().getLicenses().add(license);
+		}
 
 		return iuDetails;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public Licenses createLicenses() {
+		LicensesImpl licenses = new LicensesImpl();
+		return licenses;
 	}
 
 	/**

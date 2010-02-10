@@ -9,10 +9,9 @@
  */
 package org.eclipse.b3.aggregator.p2view.impl;
 
-import java.util.Collection;
-
 import org.eclipse.b3.aggregator.p2view.IUDetails;
 import org.eclipse.b3.aggregator.p2view.IUPresentationWithDetails;
+import org.eclipse.b3.aggregator.p2view.Licenses;
 import org.eclipse.b3.aggregator.p2view.P2viewFactory;
 import org.eclipse.b3.aggregator.p2view.P2viewPackage;
 import org.eclipse.b3.aggregator.p2view.Properties;
@@ -20,13 +19,10 @@ import org.eclipse.b3.aggregator.p2view.ProvidedCapabilities;
 import org.eclipse.b3.aggregator.p2view.Requirements;
 import org.eclipse.b3.aggregator.p2view.Touchpoints;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectEList;
 import org.eclipse.equinox.p2.metadata.ICopyright;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
-import org.eclipse.equinox.p2.metadata.ILicense;
 import org.eclipse.equinox.p2.metadata.IUpdateDescriptor;
 
 /**
@@ -46,7 +42,8 @@ import org.eclipse.equinox.p2.metadata.IUpdateDescriptor;
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#getUpdateDescriptor <em>Update
  * Descriptor</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#getCopyright <em>Copyright</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#getLicenses <em>Licenses</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#getLicensesContainer <em>Licenses
+ * Container</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.IUPresentationWithDetailsImpl#isDetailsResolved <em>Details Resolved
  * </em>}</li>
  * </ul>
@@ -119,15 +116,15 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	protected ICopyright copyright;
 
 	/**
-	 * The cached value of the '{@link #getLicenses() <em>Licenses</em>}' reference list.
+	 * The cached value of the '{@link #getLicensesContainer() <em>Licenses Container</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see #getLicenses()
+	 * @see #getLicensesContainer()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ILicense> licenses;
+	protected Licenses licensesContainer;
 
 	/**
 	 * The default value of the '{@link #isDetailsResolved() <em>Details Resolved</em>}' attribute.
@@ -189,8 +186,8 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 				return P2viewPackage.IU_DETAILS__UPDATE_DESCRIPTOR;
 			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT:
 				return P2viewPackage.IU_DETAILS__COPYRIGHT;
-			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES:
-				return P2viewPackage.IU_DETAILS__LICENSES;
+			case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER:
+				return P2viewPackage.IU_DETAILS__LICENSES_CONTAINER;
 			default:
 				return -1;
 			}
@@ -219,8 +216,8 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 				return P2viewPackage.IU_PRESENTATION_WITH_DETAILS__UPDATE_DESCRIPTOR;
 			case P2viewPackage.IU_DETAILS__COPYRIGHT:
 				return P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT;
-			case P2viewPackage.IU_DETAILS__LICENSES:
-				return P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES;
+			case P2viewPackage.IU_DETAILS__LICENSES_CONTAINER:
+				return P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER;
 			default:
 				return -1;
 			}
@@ -248,8 +245,8 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 			return getUpdateDescriptor();
 		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT:
 			return getCopyright();
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES:
-			return getLicenses();
+		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER:
+			return getLicensesContainer();
 		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__DETAILS_RESOLVED:
 			return isDetailsResolved();
 		}
@@ -276,8 +273,8 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 			return updateDescriptor != null;
 		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT:
 			return copyright != null;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES:
-			return licenses != null && !licenses.isEmpty();
+		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER:
+			return licensesContainer != null;
 		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__DETAILS_RESOLVED:
 			return ((eFlags & DETAILS_RESOLVED_EFLAG) != 0) != DETAILS_RESOLVED_EDEFAULT;
 		}
@@ -311,9 +308,8 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT:
 			setCopyright((ICopyright) newValue);
 			return;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES:
-			getLicenses().clear();
-			getLicenses().addAll((Collection<? extends ILicense>) newValue);
+		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER:
+			setLicensesContainer((Licenses) newValue);
 			return;
 		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__DETAILS_RESOLVED:
 			setDetailsResolved((Boolean) newValue);
@@ -348,8 +344,8 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__COPYRIGHT:
 			setCopyright((ICopyright) null);
 			return;
-		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES:
-			getLicenses().clear();
+		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER:
+			setLicensesContainer((Licenses) null);
 			return;
 		case P2viewPackage.IU_PRESENTATION_WITH_DETAILS__DETAILS_RESOLVED:
 			setDetailsResolved(DETAILS_RESOLVED_EDEFAULT);
@@ -371,29 +367,13 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public EList<ILicense> getLicenses() {
-		if(!isDetailsResolved())
-			resolveDetails();
-
-		return getLicensesGen();
-	}
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	public EList<ILicense> getLicensesGen() {
-		if(licenses == null) {
-			licenses = new EObjectEList<ILicense>(ILicense.class, this,
-					P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES);
-		}
-		return licenses;
+	public Licenses getLicensesContainer() {
+		return licensesContainer;
 	}
 
 	/**
@@ -421,24 +401,15 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public Requirements getRequiredCapabilitiesContainer() {
-		if(!isDetailsResolved())
-			resolveDetails();
-
-		return requirementsContainer;
-	}
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	public Requirements getRequirementsContainer() {
+		if(!isDetailsResolved())
+			resolveDetails();
+
 		return requirementsContainer;
 	}
 
@@ -503,6 +474,21 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 			eNotify(new ENotificationImpl(this, Notification.SET,
 					P2viewPackage.IU_PRESENTATION_WITH_DETAILS__DETAILS_RESOLVED, oldDetailsResolved,
 					newDetailsResolved));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setLicensesContainer(Licenses newLicensesContainer) {
+		Licenses oldLicensesContainer = licensesContainer;
+		licensesContainer = newLicensesContainer;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					P2viewPackage.IU_PRESENTATION_WITH_DETAILS__LICENSES_CONTAINER, oldLicensesContainer,
+					licensesContainer));
 	}
 
 	/**
@@ -612,7 +598,7 @@ public abstract class IUPresentationWithDetailsImpl extends IUPresentationImpl i
 		setTouchpointsContainer(iuDetails.getTouchpointsContainer());
 		setUpdateDescriptor(iuDetails.getUpdateDescriptor());
 		setCopyright(iuDetails.getCopyright());
-		getLicenses().addAll(iuDetails.getLicenses());
+		setLicensesContainer(iuDetails.getLicensesContainer());
 
 		setDetailsResolved(true);
 	}

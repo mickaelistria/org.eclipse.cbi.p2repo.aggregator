@@ -73,7 +73,7 @@ public enum CapabilityNamespace{
 	private String label;
 
 	private CapabilityNamespace(String label) {
-		label = getResourceLocator().getString(label);
+		this.label = getResourceLocator().getString(label);
 	}
 
 	public String getLabel() {

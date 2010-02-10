@@ -431,7 +431,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="License" eSuperTypes="#//p2/ILicense"/>
     <eClassifiers xsi:type="ecore:EClass" name="ProvidedCapability" eSuperTypes="#//p2/IProvidedCapability"/>
-    <eClassifiers xsi:type="ecore:EClass" name="RequiredCapability" eSuperTypes="#//p2/IRequiredCapability"/>
+    <eClassifiers xsi:type="ecore:EClass" name="RequiredCapability" eSuperTypes="#//p2/IRequiredCapability #//p2/Requirement"/>
     <eClassifiers xsi:type="ecore:EClass" name="Requirement" eSuperTypes="#//p2/IRequirement"/>
     <eClassifiers xsi:type="ecore:EClass" name="TouchpointData" eSuperTypes="#//p2/ITouchpointData">
       <eStructuralFeatures xsi:type="ecore:EReference" name="instructionMap" upperBound="-1"
@@ -697,6 +697,10 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="touchpointDataList" upperBound="-1"
           eType="#//p2/ITouchpointData"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Licenses">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="licenses" upperBound="-1"
+          eType="#//p2/ILicense"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="IUDetails">
       <eStructuralFeatures xsi:type="ecore:EReference" name="requirementsContainer"
           eType="#//p2view/Requirements" resolveProxies="false"/>
@@ -710,8 +714,8 @@
           resolveProxies="false"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="copyright" eType="#//p2/ICopyright"
           resolveProxies="false"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="licenses" upperBound="-1"
-          eType="#//p2/ILicense" resolveProxies="false"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="licensesContainer" eType="#//p2view/Licenses"
+          resolveProxies="false"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RequirementWrapper" eSuperTypes="#//p2/IRequirement #//LabelProvider">
       <eStructuralFeatures xsi:type="ecore:EReference" name="genuine" lowerBound="1"

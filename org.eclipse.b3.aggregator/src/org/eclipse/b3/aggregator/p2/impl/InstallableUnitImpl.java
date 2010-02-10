@@ -40,6 +40,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.equinox.internal.p2.core.helpers.OrderedProperties;
+import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
 import org.eclipse.equinox.internal.p2.metadata.TranslationSupport;
 import org.eclipse.equinox.internal.p2.metadata.VersionedId;
 import org.eclipse.equinox.p2.metadata.IArtifactKey;
@@ -172,12 +173,28 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	public static Requirement importToModel(IRequirement req) {
 		if(req == null)
 			return null;
-		RequirementImpl mrc = (RequirementImpl) P2Factory.eINSTANCE.createRequirement();
-		mrc.setFilter(req.getFilter());
-		mrc.setGreedy(req.isGreedy());
-		mrc.setMin(req.getMin());
-		mrc.setMax(req.getMax());
-		return mrc;
+		if(req instanceof IRequiredCapability) {
+			IRequiredCapability rc = (IRequiredCapability) req;
+			RequiredCapabilityImpl mrc = (RequiredCapabilityImpl) P2Factory.eINSTANCE.createRequiredCapability();
+			mrc.setFilter(req.getFilter());
+			mrc.setGreedy(req.isGreedy());
+			mrc.setMin(req.getMin());
+			mrc.setMax(req.getMax());
+			mrc.setName(rc.getName());
+			mrc.setNamespace(rc.getNamespace());
+			mrc.setRange(rc.getRange());
+
+			return mrc;
+		}
+		else {
+			RequirementImpl mreq = (RequirementImpl) P2Factory.eINSTANCE.createRequirement();
+			mreq.setFilter(req.getFilter());
+			mreq.setGreedy(req.isGreedy());
+			mreq.setMin(req.getMin());
+			mreq.setMax(req.getMax());
+
+			return mreq;
+		}
 	}
 
 	public static TouchpointData importToModel(ITouchpointData ptd) {

@@ -162,6 +162,16 @@ public interface P2viewFactory extends EFactory {
 	IUDetails createIUDetails(IInstallableUnit iu);
 
 	/**
+	 * Returns a new object of class '<em>Licenses</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Licenses</em>'.
+	 * @generated
+	 */
+	Licenses createLicenses();
+
+	/**
 	 * Returns a new object of class '<em>Metadata Repository Structured View</em>'.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->

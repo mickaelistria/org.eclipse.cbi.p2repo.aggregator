@@ -17,5 +17,5 @@ import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
  * @model superTypes="org.eclipse.b3.aggregator.p2.IRequiredCapability"
  * @generated
  */
-public interface RequiredCapability extends IRequiredCapability {
+public interface RequiredCapability extends IRequiredCapability, Requirement {
 } // RequiredCapability

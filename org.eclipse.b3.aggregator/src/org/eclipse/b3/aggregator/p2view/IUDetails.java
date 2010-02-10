@@ -9,9 +9,7 @@
  */
 package org.eclipse.b3.aggregator.p2view;
 
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.equinox.p2.metadata.ICopyright;
-import org.eclipse.equinox.p2.metadata.ILicense;
 import org.eclipse.equinox.p2.metadata.IUpdateDescriptor;
 
 /**
@@ -27,7 +25,7 @@ import org.eclipse.equinox.p2.metadata.IUpdateDescriptor;
  * <li>{@link org.eclipse.b3.aggregator.p2view.IUDetails#getTouchpointsContainer <em>Touchpoints Container</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.IUDetails#getUpdateDescriptor <em>Update Descriptor</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.IUDetails#getCopyright <em>Copyright</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2view.IUDetails#getLicenses <em>Licenses</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.IUDetails#getLicensesContainer <em>Licenses Container</em>}</li>
  * </ul>
  * </p>
  * 
@@ -54,21 +52,21 @@ public interface IUDetails {
 	ICopyright getCopyright();
 
 	/**
-	 * Returns the value of the '<em><b>Licenses</b></em>' reference list.
-	 * The list contents are of type {@link org.eclipse.equinox.p2.metadata.ILicense}.
+	 * Returns the value of the '<em><b>Licenses Container</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Licenses</em>' reference list isn't clear, there really should be more of a
+	 * If the meaning of the '<em>Licenses Container</em>' reference isn't clear, there really should be more of a
 	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Licenses</em>' reference list.
-	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getIUDetails_Licenses()
-	 * @model type="org.eclipse.b3.aggregator.p2.ILicense" resolveProxies="false"
+	 * @return the value of the '<em>Licenses Container</em>' reference.
+	 * @see #setLicensesContainer(Licenses)
+	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getIUDetails_LicensesContainer()
+	 * @model resolveProxies="false"
 	 * @generated
 	 */
-	EList<ILicense> getLicenses();
+	Licenses getLicensesContainer();
 
 	/**
 	 * Returns the value of the '<em><b>Properties Container</b></em>' reference.
@@ -166,6 +164,19 @@ public interface IUDetails {
 	 * @generated
 	 */
 	void setCopyright(ICopyright value);
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUDetails#getLicensesContainer
+	 * <em>Licenses Container</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Licenses Container</em>' reference.
+	 * @see #getLicensesContainer()
+	 * @generated
+	 */
+	void setLicensesContainer(Licenses value);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUDetails#getPropertiesContainer

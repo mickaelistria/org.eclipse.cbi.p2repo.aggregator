@@ -11,6 +11,7 @@ package org.eclipse.b3.aggregator.p2view.util;
 
 import org.eclipse.b3.aggregator.ChildrenProvider;
 import org.eclipse.b3.aggregator.LabelProvider;
+import org.eclipse.b3.aggregator.p2view.*;
 import org.eclipse.b3.aggregator.p2view.Bundle;
 import org.eclipse.b3.aggregator.p2view.Bundles;
 import org.eclipse.b3.aggregator.p2view.Categories;
@@ -143,6 +144,11 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseLabelProvider(LabelProvider object) {
 			return createLabelProviderAdapter();
+		}
+
+		@Override
+		public Adapter caseLicenses(Licenses object) {
+			return createLicensesAdapter();
 		}
 
 		@Override
@@ -467,6 +473,22 @@ public class P2viewAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createLabelProviderAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.aggregator.p2view.Licenses <em>Licenses</em>}
+	 * '.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.aggregator.p2view.Licenses
+	 * @generated
+	 */
+	public Adapter createLicensesAdapter() {
 		return null;
 	}
 

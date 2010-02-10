@@ -24,6 +24,7 @@ import org.eclipse.b3.aggregator.p2.TouchpointData;
 import org.eclipse.b3.aggregator.p2.TouchpointInstruction;
 import org.eclipse.b3.aggregator.p2.TouchpointType;
 import org.eclipse.b3.aggregator.p2.UpdateDescriptor;
+import org.eclipse.b3.util.StringUtils;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -43,7 +44,9 @@ import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
 import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 import org.eclipse.equinox.p2.query.IQueryResult;
+import org.eclipse.osgi.framework.internal.core.FilterImpl;
 import org.osgi.framework.Filter;
+import org.osgi.framework.InvalidSyntaxException;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
@@ -346,10 +349,18 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	public Filter createFilterFromString(EDataType eDataType, String initialValue) {
-		return (Filter) super.createFromString(eDataType, initialValue);
+		if(StringUtils.trimmedOrNull(initialValue) == null)
+			return null;
+
+		try {
+			return FilterImpl.newInstance(initialValue);
+		}
+		catch(InvalidSyntaxException e) {
+			throw new Error(e);
+		}
 	}
 
 	/**
