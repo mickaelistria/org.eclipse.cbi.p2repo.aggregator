@@ -53,7 +53,6 @@ import org.eclipse.b3.aggregator.engine.maven.pom.Model;
 import org.eclipse.b3.aggregator.loader.IRepositoryLoader;
 import org.eclipse.b3.aggregator.p2.InstallableUnit;
 import org.eclipse.b3.aggregator.p2.P2Factory;
-import org.eclipse.b3.aggregator.p2.RequiredCapability;
 import org.eclipse.b3.aggregator.p2.impl.ArtifactKeyImpl;
 import org.eclipse.b3.aggregator.p2.impl.CopyrightImpl;
 import org.eclipse.b3.aggregator.p2.impl.InstallableUnitImpl;
@@ -77,20 +76,22 @@ import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.core.runtime.SubProgressMonitor;
+import org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactDescriptor;
 import org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository;
-import org.eclipse.equinox.internal.provisional.p2.artifact.repository.ArtifactDescriptor;
-import org.eclipse.equinox.internal.provisional.p2.artifact.repository.IArtifactRepository;
-import org.eclipse.equinox.internal.provisional.p2.metadata.IArtifactKey;
-import org.eclipse.equinox.internal.provisional.p2.metadata.IInstallableUnit;
-import org.eclipse.equinox.internal.provisional.p2.metadata.ITouchpointType;
-import org.eclipse.equinox.internal.provisional.p2.metadata.Version;
-import org.eclipse.equinox.internal.provisional.p2.metadata.VersionRange;
-import org.eclipse.equinox.internal.provisional.p2.metadata.query.Collector;
-import org.eclipse.equinox.internal.provisional.p2.metadata.query.MatchQuery;
-import org.eclipse.equinox.internal.provisional.p2.metadata.query.Query;
-import org.eclipse.equinox.internal.provisional.p2.metadata.repository.IMetadataRepository;
-import org.eclipse.equinox.internal.provisional.p2.metadata.repository.IMetadataRepositoryManager;
-import org.eclipse.equinox.internal.provisional.p2.repository.IRepository;
+import org.eclipse.equinox.internal.provisional.p2.metadata.MetadataFactory.InstallableUnitDescription;
+import org.eclipse.equinox.p2.metadata.IArtifactKey;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
+import org.eclipse.equinox.p2.metadata.IRequirement;
+import org.eclipse.equinox.p2.metadata.ITouchpointType;
+import org.eclipse.equinox.p2.metadata.Version;
+import org.eclipse.equinox.p2.metadata.VersionRange;
+import org.eclipse.equinox.p2.query.IQuery;
+import org.eclipse.equinox.p2.query.IQueryResult;
+import org.eclipse.equinox.p2.query.MatchQuery;
+import org.eclipse.equinox.p2.repository.IRepository;
+import org.eclipse.equinox.p2.repository.artifact.IArtifactRepository;
+import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
+import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
 
 public class Maven2RepositoryLoader implements IRepositoryLoader {
 	private class LicenseHelper {
@@ -148,10 +149,10 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 
 	private static final String MAVEN_METADATA_LOCAL = "maven-metadata-local.xml";
 
-	private static final Query QUERY_ALL_IUS = new MatchQuery() {
+	private static final IQuery<IInstallableUnit> QUERY_ALL_IUS = new MatchQuery<IInstallableUnit>() {
 		@Override
-		public boolean isMatch(Object candidate) {
-			return candidate instanceof IInstallableUnit;
+		public boolean isMatch(IInstallableUnit candidate) {
+			return true;
 		}
 	};
 
@@ -190,7 +191,6 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 		cachedIUs = null;
 	}
 
-	@SuppressWarnings("unchecked")
 	public IArtifactRepository getArtifactRepository(IMetadataRepository mdr, IProgressMonitor monitor)
 			throws CoreException {
 		monitor.beginTask("Generating artifact repository", 100);
@@ -201,16 +201,15 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 			}
 		};
 
-		Collector collector = mdr.query(QUERY_ALL_IUS, new Collector(), subMon.newChild(40));
+		IQueryResult<IInstallableUnit> result = mdr.query(QUERY_ALL_IUS, subMon.newChild(40));
 
 		IProgressMonitor fetchMon = new SubProgressMonitor(subMon, 20);
-		fetchMon.beginTask("Collecting all IUs", collector.size());
-		Iterator<IInstallableUnit> itor = collector.iterator();
+		fetchMon.beginTask("Collecting all IUs", 1);
+		Iterator<IInstallableUnit> itor = result.iterator();
 		ArrayList<InstallableUnit> ius = new ArrayList<InstallableUnit>();
-		while(itor.hasNext()) {
-			fetchMon.worked(1);
+		while(itor.hasNext())
 			ius.add(InstallableUnitImpl.importToModel(itor.next()));
-		}
+		fetchMon.worked(1);
 		Collections.sort(ius);
 		subMon.worked(20);
 
@@ -218,15 +217,16 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 		targetMon.beginTask("Collecting all IUs", ius.size());
 		for(IInstallableUnit iu : ius) {
 			for(IArtifactKey key : iu.getArtifacts()) {
-				ArtifactDescriptor ad = new ArtifactDescriptor(key);
+				SimpleArtifactDescriptor ad = new SimpleArtifactDescriptor(key);
 				String groupPath = iu.getProperty(PROP_MAVEN_GROUP);
 				if(groupPath != null)
 					groupPath = groupPath.replace('.', '/');
 				String id = iu.getProperty(PROP_MAVEN_ID);
 
 				String version = MavenManager.getVersionString(iu.getVersion());
-				ad.setRepositoryProperty(ArtifactDescriptor.ARTIFACT_REFERENCE, mdr.getLocation().toString() + '/'
-						+ groupPath + '/' + id + '/' + version + '/' + id + '-' + version + '.' + key.getClassifier());
+				ad.setRepositoryProperty(SimpleArtifactDescriptor.ARTIFACT_REFERENCE, mdr.getLocation().toString()
+						+ '/' + groupPath + '/' + id + '/' + version + '/' + id + '-' + version + '.'
+						+ key.getClassifier());
 				ar.addDescriptor(ad);
 			}
 			targetMon.worked(1);
@@ -316,7 +316,13 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 	}
 
 	private IRepositoryLoader checkCache() throws CoreException {
-		File p2content = getCacheFile();
+		File p2content = null;
+		try {
+			p2content = getCacheFile();
+		}
+		catch(MalformedURLException e) {
+			throw ExceptionUtils.wrap(e);
+		}
 
 		if(p2content.exists()) {
 			IConfigurationElement config = RepositoryLoaderUtils.getLoaderFor("p2");
@@ -391,9 +397,11 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 					rc.setGreedy(true);
 
 					if(dependency.isSetOptional())
-						rc.setOptional(dependency.isOptional());
+						rc.setMin(dependency.isOptional()
+								? 0
+								: 1);
 
-					iu.getRequiredCapabilityList().add(rc);
+					iu.getRequiredCapabilities().add(rc);
 				}
 			}
 
@@ -405,7 +413,7 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 			pc.setName(iu.getId());
 
 			pc.setVersion(VersionUtil.createVersion(version));
-			iu.getProvidedCapabilityList().add(pc);
+			iu.getProvidedCapabilities().add(pc);
 
 			pc = (ProvidedCapabilityImpl) P2Factory.eINSTANCE.createProvidedCapability();
 			// TODO Namespace? See discussion above (regarding dependencies)
@@ -413,7 +421,7 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 			pc.setName(iu.getId());
 
 			pc.setVersion(VersionUtil.createVersion(version));
-			iu.getProvidedCapabilityList().add(pc);
+			iu.getProvidedCapabilities().add(pc);
 
 			if(model.getLicenses() != null) {
 				List<License> toLicense = new ArrayList<License>();
@@ -439,13 +447,14 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 					iu.setCopyright(copyright);
 				}
 
+				// TODO Set list of licenses (new p2 allows it)
 				if(toLicense.size() > 0) {
 					LicenseHelper licenseHelper = buildLicense(toLicense);
 					LicenseImpl license = (LicenseImpl) P2Factory.eINSTANCE.createLicense();
 					license.setBody(licenseHelper.body);
 					license.setLocation(licenseHelper.location);
-					license.setDigest(licenseHelper.getDigest());
-					iu.setLicense(license);
+					license.setUUID(licenseHelper.getDigest().toString());
+					iu.getLicenses().addAll(Collections.singletonList(license));
 				}
 			}
 
@@ -454,7 +463,7 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 				artifact.setId(iu.getId());
 				artifact.setVersion(iu.getVersion());
 				artifact.setClassifier(model.getPackaging());
-				iu.getArtifactList().add(artifact);
+				iu.getArtifacts().add(artifact);
 			}
 		}
 		catch(CoreException e) {
@@ -643,11 +652,11 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 		}
 	}
 
-	private File getCacheFile() {
+	private File getCacheFile() throws MalformedURLException {
 		return new File(getCacheLocation(), "content.jar");
 	}
 
-	private File getCacheLocation() {
+	private File getCacheLocation() throws MalformedURLException {
 		return MavenActivator.getPlugin().getCacheDirectory(location);
 	}
 
@@ -769,7 +778,12 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 		if(cacheLoader != null) {
 			LogUtils.debug("Opening cache for %s", repository.toString());
 
-			cacheLoader.open(getCacheLocation().toURI(), repository);
+			try {
+				cacheLoader.open(getCacheLocation().toURI(), repository);
+			}
+			catch(MalformedURLException e) {
+				throw ExceptionUtils.wrap(e);
+			}
 			cacheLoader.load(new NullProgressMonitor());
 			cacheLoader.close();
 
@@ -865,8 +879,8 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 				iteratorStack.add(itor);
 			}
 
-			List<InstallableUnit> ius = repository.getInstallableUnits();
-			Map<String, InstallableUnit> categoryMap = new HashMap<String, InstallableUnit>();
+			List<IInstallableUnit> ius = repository.getInstallableUnits();
+			Map<String, IInstallableUnit> categoryMap = new HashMap<String, IInstallableUnit>();
 
 			InstallableUnit iu;
 			IProgressMonitor cancellationOnlyMonitor = new SubProgressMonitor(monitor, 0) {
@@ -913,7 +927,7 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 					category = (InstallableUnitImpl) P2Factory.eINSTANCE.createInstallableUnit();
 					category.setId(groupId);
 					category.setVersion(Version.emptyVersion);
-					category.getPropertyMap().put(IInstallableUnit.PROP_TYPE_CATEGORY, "true");
+					category.getPropertyMap().put(InstallableUnitDescription.PROP_TYPE_CATEGORY, "true");
 					category.getPropertyMap().put(IInstallableUnit.PROP_NAME, "Group " + groupId);
 					ius.add(category);
 					categoryMap.put(groupId, category);
@@ -923,7 +937,7 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 				rc.setName(iu.getId());
 				rc.setNamespace(IInstallableUnit.NAMESPACE_IU_ID);
 				rc.setRange(new VersionRange(iu.getVersion(), true, iu.getVersion(), true));
-				List<RequiredCapability> rcList = category.getRequiredCapabilityList();
+				List<IRequirement> rcList = category.getRequiredCapabilities();
 				rcList.add(rc);
 
 				ius.add(iu);
@@ -945,6 +959,9 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 			mdrMgr = b3util.getService(IMetadataRepositoryManager.class);
 			mdrMgr.removeRepository(getCacheLocation().toURI());
 			deleteTree(getCacheLocation());
+		}
+		catch(MalformedURLException e) {
+			throw ExceptionUtils.wrap(e);
 		}
 		finally {
 			b3util.ungetService(mdrMgr);
@@ -1014,8 +1031,14 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 			Map<String, String> properties = new HashMap<String, String>(2);
 			properties.put(IRepository.PROP_COMPRESSED, "true");
 			properties.put(PROP_INDEX_TIMESTAMP, repository.getPropertyMap().get(PROP_INDEX_TIMESTAMP));
-			IMetadataRepository mdr = mdrMgr.createRepository(getCacheLocation().toURI(), repository.getName(),
-					SIMPLE_METADATA_TYPE, properties);
+			IMetadataRepository mdr = null;
+			try {
+				mdr = mdrMgr.createRepository(getCacheLocation().toURI(), repository.getName(), SIMPLE_METADATA_TYPE,
+						properties);
+			}
+			catch(MalformedURLException e) {
+				throw ExceptionUtils.wrap(e);
+			}
 			mdr.setDescription(repository.getDescription());
 			mdr.addInstallableUnits(repository.getInstallableUnits().toArray(
 					new IInstallableUnit[repository.getInstallableUnits().size()]));

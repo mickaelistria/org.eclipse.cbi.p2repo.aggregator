@@ -8,7 +8,7 @@
 
 package org.eclipse.b3.aggregator.engine.maven.loader;
 
-import org.eclipse.equinox.internal.provisional.p2.metadata.Version;
+import org.eclipse.equinox.p2.metadata.Version;
 
 public class VersionEntry {
 	String groupId;

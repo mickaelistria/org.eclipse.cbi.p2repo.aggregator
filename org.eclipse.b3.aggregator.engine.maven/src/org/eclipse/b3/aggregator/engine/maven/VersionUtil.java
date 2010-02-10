@@ -13,8 +13,8 @@ import java.util.regex.Pattern;
 
 import org.eclipse.b3.util.StringUtils;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.equinox.internal.provisional.p2.metadata.Version;
-import org.eclipse.equinox.internal.provisional.p2.metadata.VersionRange;
+import org.eclipse.equinox.p2.metadata.Version;
+import org.eclipse.equinox.p2.metadata.VersionRange;
 
 /**
  * @author Filip Hrbek (filip.hrbek@cloudsmith.com)

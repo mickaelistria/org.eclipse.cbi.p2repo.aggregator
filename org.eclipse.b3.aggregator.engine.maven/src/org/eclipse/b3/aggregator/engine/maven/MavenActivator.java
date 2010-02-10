@@ -8,13 +8,13 @@
 package org.eclipse.b3.aggregator.engine.maven;
 
 import java.io.File;
+import java.net.MalformedURLException;
 import java.net.URI;
-import java.net.URL;
 
 import org.eclipse.core.runtime.Plugin;
+import org.eclipse.equinox.internal.p2.core.AgentLocation;
 import org.eclipse.equinox.internal.p2.core.helpers.ServiceHelper;
 import org.eclipse.equinox.internal.p2.core.helpers.URLUtil;
-import org.eclipse.equinox.internal.provisional.p2.core.location.AgentLocation;
 import org.osgi.framework.BundleContext;
 
 public class MavenActivator extends Plugin {
@@ -32,9 +32,9 @@ public class MavenActivator extends Plugin {
 		plugin = this;
 	}
 
-	public File getCacheDirectory(URI location) {
-		URL dataArea = agentLocation.getDataArea(ID + "/cache/" + encodeURI(location)); //$NON-NLS-1$
-		return URLUtil.toFile(dataArea);
+	public File getCacheDirectory(URI location) throws MalformedURLException {
+		URI dataArea = agentLocation.getDataArea(ID + "/cache/" + encodeURI(location)); //$NON-NLS-1$
+		return URLUtil.toFile(dataArea.toURL());
 	}
 
 	@Override

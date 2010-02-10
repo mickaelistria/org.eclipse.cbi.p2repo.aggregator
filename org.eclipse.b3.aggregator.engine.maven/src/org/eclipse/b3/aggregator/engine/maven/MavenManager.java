@@ -31,8 +31,9 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.URIConverter;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.equinox.internal.provisional.p2.metadata.IArtifactKey;
-import org.eclipse.equinox.internal.provisional.p2.metadata.Version;
+import org.eclipse.equinox.internal.p2.metadata.BasicVersion;
+import org.eclipse.equinox.p2.metadata.IArtifactKey;
+import org.eclipse.equinox.p2.metadata.Version;
 
 /**
  * @author Filip Hrbek (filip.hrbek@cloudsmith.com)
@@ -79,7 +80,7 @@ public class MavenManager {
 			for(int idx = versions.length - 1; idx >= 0; idx--) {
 				String qualifier = null;
 				try {
-					qualifier = versions[idx].getQualifier();
+					qualifier = ((BasicVersion) versions[idx]).getQualifier();
 				}
 				catch(UnsupportedOperationException e) {
 					// ignore
@@ -99,7 +100,6 @@ public class MavenManager {
 			return versionList;
 		}
 
-		@SuppressWarnings("unchecked")
 		private void finalizeMetadata() {
 			Collections.sort(versionList);
 			finalized = true;

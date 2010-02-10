@@ -8,19 +8,22 @@
 
 package org.eclipse.b3.aggregator.engine.maven;
 
+import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
-import org.eclipse.equinox.internal.provisional.p2.metadata.IArtifactKey;
-import org.eclipse.equinox.internal.provisional.p2.metadata.ICopyright;
-import org.eclipse.equinox.internal.provisional.p2.metadata.IInstallableUnit;
-import org.eclipse.equinox.internal.provisional.p2.metadata.IInstallableUnitFragment;
-import org.eclipse.equinox.internal.provisional.p2.metadata.ILicense;
-import org.eclipse.equinox.internal.provisional.p2.metadata.IProvidedCapability;
-import org.eclipse.equinox.internal.provisional.p2.metadata.IRequiredCapability;
-import org.eclipse.equinox.internal.provisional.p2.metadata.ITouchpointData;
-import org.eclipse.equinox.internal.provisional.p2.metadata.ITouchpointType;
-import org.eclipse.equinox.internal.provisional.p2.metadata.IUpdateDescriptor;
-import org.eclipse.equinox.internal.provisional.p2.metadata.Version;
+import org.eclipse.equinox.p2.metadata.IArtifactKey;
+import org.eclipse.equinox.p2.metadata.ICopyright;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
+import org.eclipse.equinox.p2.metadata.IInstallableUnitFragment;
+import org.eclipse.equinox.p2.metadata.ILicense;
+import org.eclipse.equinox.p2.metadata.IProvidedCapability;
+import org.eclipse.equinox.p2.metadata.IRequirement;
+import org.eclipse.equinox.p2.metadata.ITouchpointData;
+import org.eclipse.equinox.p2.metadata.ITouchpointType;
+import org.eclipse.equinox.p2.metadata.IUpdateDescriptor;
+import org.eclipse.equinox.p2.metadata.Version;
+import org.osgi.framework.Filter;
 
 /**
  * @author Filip Hrbek (filip.hrbek@cloudsmith.com)
@@ -31,20 +34,19 @@ public class InstallableUnitOverrider implements IInstallableUnit {
 
 	private String id;
 
-	private IRequiredCapability[] requiredCapabilities;
+	private Collection<IRequirement> requirements;
 
-	private IArtifactKey[] artifacts;
+	private Collection<IArtifactKey> artifacts;
 
 	public InstallableUnitOverrider(IInstallableUnit iu) {
 		installableUnit = iu;
 	}
 
-	@SuppressWarnings("unchecked")
-	public int compareTo(Object o) {
-		return installableUnit.compareTo(o);
+	public int compareTo(IInstallableUnit other) {
+		return installableUnit.compareTo(other);
 	}
 
-	public IArtifactKey[] getArtifacts() {
+	public Collection<IArtifactKey> getArtifacts() {
 		if(artifacts != null)
 			return artifacts;
 
@@ -55,11 +57,15 @@ public class InstallableUnitOverrider implements IInstallableUnit {
 		return installableUnit.getCopyright();
 	}
 
-	public String getFilter() {
+	public ICopyright getCopyright(String locale) {
+		return installableUnit.getCopyright(locale);
+	}
+
+	public Filter getFilter() {
 		return installableUnit.getFilter();
 	}
 
-	public IInstallableUnitFragment[] getFragments() {
+	public List<IInstallableUnitFragment> getFragments() {
 		return installableUnit.getFragments();
 	}
 
@@ -70,16 +76,19 @@ public class InstallableUnitOverrider implements IInstallableUnit {
 		return installableUnit.getId();
 	}
 
-	public ILicense getLicense() {
-		return installableUnit.getLicense();
+	public Collection<ILicense> getLicenses() {
+		return installableUnit.getLicenses();
 	}
 
-	public IRequiredCapability[] getMetaRequiredCapabilities() {
+	public ILicense[] getLicenses(String locale) {
+		return installableUnit.getLicenses(locale);
+	}
+
+	public Collection<IRequirement> getMetaRequiredCapabilities() {
 		return installableUnit.getMetaRequiredCapabilities();
 	}
 
-	@SuppressWarnings("rawtypes")
-	public Map getProperties() {
+	public Map<String, String> getProperties() {
 		return installableUnit.getProperties();
 	}
 
@@ -87,18 +96,22 @@ public class InstallableUnitOverrider implements IInstallableUnit {
 		return installableUnit.getProperty(key);
 	}
 
-	public IProvidedCapability[] getProvidedCapabilities() {
+	public String getProperty(String key, String locale) {
+		return installableUnit.getProperty(key, locale);
+	}
+
+	public Collection<IProvidedCapability> getProvidedCapabilities() {
 		return installableUnit.getProvidedCapabilities();
 	}
 
-	public IRequiredCapability[] getRequiredCapabilities() {
-		if(requiredCapabilities != null)
-			return requiredCapabilities;
+	public Collection<IRequirement> getRequiredCapabilities() {
+		if(requirements != null)
+			return requirements;
 
 		return installableUnit.getRequiredCapabilities();
 	}
 
-	public ITouchpointData[] getTouchpointData() {
+	public List<ITouchpointData> getTouchpointData() {
 		return installableUnit.getTouchpointData();
 	}
 
@@ -114,10 +127,6 @@ public class InstallableUnitOverrider implements IInstallableUnit {
 		return installableUnit.getVersion();
 	}
 
-	public boolean isFragment() {
-		return installableUnit.isFragment();
-	}
-
 	public boolean isResolved() {
 		return installableUnit.isResolved();
 	}
@@ -126,19 +135,21 @@ public class InstallableUnitOverrider implements IInstallableUnit {
 		return installableUnit.isSingleton();
 	}
 
-	public void overrideArtifacts(IArtifactKey[] artifacts) {
-		this.artifacts = artifacts;
+	public void overrideArtifacts(Collection<IArtifactKey> artifacts) {
+		this.artifacts.clear();
+		this.artifacts.addAll(artifacts);
 	}
 
 	public void overrideId(String id) {
 		this.id = id;
 	}
 
-	public void overrideRequiredCapabilities(IRequiredCapability[] requiredCapabilities) {
-		this.requiredCapabilities = requiredCapabilities;
+	public void overrideRequirements(Collection<IRequirement> requirements) {
+		this.requirements.clear();
+		this.requirements.addAll(requirements);
 	}
 
-	public boolean satisfies(IRequiredCapability candidate) {
+	public boolean satisfies(IRequirement candidate) {
 		return installableUnit.satisfies(candidate);
 	}
 
