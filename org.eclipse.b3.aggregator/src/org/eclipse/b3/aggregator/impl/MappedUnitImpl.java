@@ -14,8 +14,6 @@ import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.Configuration;
 import org.eclipse.b3.aggregator.EnabledStatusProvider;
 import org.eclipse.b3.aggregator.MappedUnit;
-import org.eclipse.buckminster.osgi.filter.Filter;
-import org.eclipse.buckminster.osgi.filter.FilterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -24,6 +22,8 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
 import org.eclipse.equinox.internal.provisional.p2.metadata.MetadataFactory;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
+import org.eclipse.osgi.framework.internal.core.FilterImpl;
+import org.osgi.framework.Filter;
 import org.osgi.framework.InvalidSyntaxException;
 
 /**
@@ -79,7 +79,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 			if(enabledConfigs.size() > 1)
 				filterBld.append(')');
 			try {
-				return FilterFactory.newInstance(filterBld.toString());
+				return FilterImpl.newInstance(filterBld.toString());
 			}
 			catch(InvalidSyntaxException e) {
 				throw new RuntimeException(e);
