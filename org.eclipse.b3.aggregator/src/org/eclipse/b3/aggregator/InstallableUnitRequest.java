@@ -142,6 +142,15 @@ public interface InstallableUnitRequest extends StatusProvider, InfosProvider, D
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
+	 * @model type="org.eclipse.b3.aggregator.p2.IInstallableUnit"
+	 * @generated
+	 */
+	IInstallableUnit resolveAsSingleton(boolean forceResolve);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @model updateOnlyDataType="org.eclipse.emf.ecore.xml.type.Boolean"
 	 * @generated
 	 */

@@ -645,6 +645,16 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 * @generated NOT
 	 */
 	public IInstallableUnit resolveAsSingleton() {
+		return resolveAsSingleton(false);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public IInstallableUnit resolveAsSingleton(boolean forceResolve) {
 		String id = getName();
 
 		if(id == null)
@@ -652,7 +662,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 
 		IQuery<IInstallableUnit> query = new InstallableUnitQuery(id, versionRange);
 
-		MetadataRepository mdr = ((MappedRepository) eContainer()).getMetadataRepository(false);
+		MetadataRepository mdr = ((MappedRepository) eContainer()).getMetadataRepository(forceResolve);
 		if(mdr == null || ((EObject) mdr).eIsProxy())
 			return null;
 
