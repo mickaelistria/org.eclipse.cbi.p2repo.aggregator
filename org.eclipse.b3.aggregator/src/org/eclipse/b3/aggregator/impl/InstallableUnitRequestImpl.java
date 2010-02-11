@@ -531,7 +531,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 
 		if(!isMappedRepositoryBroken()) {
 			if(resolveAsSingleton() == null)
-				errors.add(getString("_UI_ErrorMessage_InstallableUnitIsNotAvailable"));
+				errors.add(getString("_UI_ErrorMessage_NoInstallableUnitIsAvailable"));
 		}
 
 		return errors;
@@ -568,7 +568,8 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	synchronized public Status getStatus() {
 		if(!isBranchDisabledOrMappedRepositoryBroken()) {
 			if(resolveAsSingleton() == null)
-				return AggregatorFactory.eINSTANCE.createStatus(StatusCode.BROKEN);
+				return AggregatorFactory.eINSTANCE.createStatus(StatusCode.BROKEN,
+						getString("_UI_ErrorMessage_NoInstallableUnitIsAvailable"));
 		}
 
 		return AggregatorFactory.eINSTANCE.createStatus(StatusCode.OK);
@@ -633,7 +634,8 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 */
 	public boolean isMappedRepositoryBroken() {
 		MappedRepository repo = (MappedRepository) eContainer();
-		return repo == null || repo.getMetadataRepository() == null;
+		return repo == null || repo.getMetadataRepository() == null
+				|| ((EObject) repo.getMetadataRepository()).eIsProxy();
 	}
 
 	/**
@@ -648,14 +650,14 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 		if(id == null)
 			return null;
 
-		IQuery<IInstallableUnit> query = new InstallableUnitQuery(id);
+		IQuery<IInstallableUnit> query = new InstallableUnitQuery(id, versionRange);
 
 		MetadataRepository mdr = ((MappedRepository) eContainer()).getMetadataRepository();
 		if(mdr == null)
 			return null;
 
 		IQueryResult<IInstallableUnit> ius = mdr.query(CompoundQuery.createCompoundQuery(query,
-				new LatestIUVersionQuery<IInstallableUnit>(), false), new NullProgressMonitor());
+				new LatestIUVersionQuery<IInstallableUnit>(), true), new NullProgressMonitor());
 
 		if(ius.isEmpty())
 			// TODO Why this? When does it happen that the latest IU query does not return a result?

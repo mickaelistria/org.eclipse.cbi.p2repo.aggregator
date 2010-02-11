@@ -68,9 +68,9 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 	// hides children when disabled
 	@Override
 	public Collection<?> getChildren(Object object) {
-		if(((InstallableUnitRequest) object).isBranchEnabled())
+		if(!((InstallableUnitRequest) object).isBranchDisabledOrMappedRepositoryBroken())
 			return super.getChildren(object);
-		return null;
+		return Collections.emptyList();
 	}
 
 	/**
@@ -147,7 +147,7 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 	// It always have a child - "Available Versions"
 	@Override
 	public boolean hasChildren(Object object) {
-		return ((InstallableUnitRequest) object).isBranchEnabled();
+		return !((InstallableUnitRequest) object).isBranchDisabledOrMappedRepositoryBroken();
 	}
 
 	/**
