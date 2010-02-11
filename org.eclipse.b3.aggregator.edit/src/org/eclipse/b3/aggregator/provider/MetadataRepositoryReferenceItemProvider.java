@@ -135,11 +135,11 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 		MetadataRepositoryReference repoRef = (MetadataRepositoryReference) object;
 		MetadataRepository mdr = null;
 		if(repoRef.isBranchEnabled())
-			mdr = repoRef.getMetadataRepository();
+			mdr = repoRef.getMetadataRepository(false);
 		StringBuilder bld = new StringBuilder();
 		bld.append(getString(getTypeName()));
 		bld.append(' ');
-		if(mdr != null) {
+		if(mdr != null && !((EObject) mdr).eIsProxy()) {
 			String name;
 			String nature = repoRef.getNature();
 			URI location;
@@ -339,16 +339,16 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 					for(MappedRepository mappedRepo : contribution.getRepositories()) {
 						if(mappedRepo == self)
 							continue;
-						MetadataRepository repo = mappedRepo.getMetadataRepository();
-						if(repo != null)
+						MetadataRepository repo = mappedRepo.getMetadataRepository(false);
+						if(repo != null && !((EObject) repo).eIsProxy())
 							repos.remove(repo);
 					}
 				}
 				for(MetadataRepositoryReference mrRef : aggregator.getValidationRepositories()) {
 					if(mrRef == self)
 						continue;
-					MetadataRepository repo = mrRef.getMetadataRepository();
-					if(repo != null)
+					MetadataRepository repo = mrRef.getMetadataRepository(false);
+					if(repo != null && !((EObject) repo).eIsProxy())
 						repos.remove(repo);
 				}
 				return repos;

@@ -140,7 +140,7 @@ public class ItemUtils {
 			return null;
 
 		for(MappedRepository repo : contribution.getRepositories())
-			if(mdr.equals(repo.getMetadataRepository()) && repo.isBranchEnabled())
+			if(mdr.equals(repo.getMetadataRepository(false)) && repo.isBranchEnabled())
 				return repo;
 
 		return null;

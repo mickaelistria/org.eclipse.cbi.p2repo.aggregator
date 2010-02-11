@@ -211,8 +211,8 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 			public Collection<?> getChoiceOfValues(Object object) {
 				InstallableUnitRequest self = (InstallableUnitRequest) object;
 				MappedRepository container = (MappedRepository) ((EObject) self).eContainer();
-				MetadataRepository repo = container.getMetadataRepository();
-				if(repo == null)
+				MetadataRepository repo = container.getMetadataRepository(false);
+				if(repo == null || ((EObject) repo).eIsProxy())
 					return Collections.singleton(null);
 
 				// Build a list of IU's that correspond to the given type of MappedUnit

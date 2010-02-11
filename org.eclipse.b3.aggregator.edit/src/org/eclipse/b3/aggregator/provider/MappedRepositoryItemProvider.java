@@ -105,7 +105,8 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	@Override
 	public Collection<?> getNewChildDescriptors(Object object, EditingDomain editingDomain, Object sibling) {
 		if(!(((MappedRepository) object).isBranchEnabled())
-				|| ((MappedRepository) object).getMetadataRepository() == null)
+				|| ((MappedRepository) object).getMetadataRepository(false) == null
+				&& !((EObject) ((MappedRepository) object).getMetadataRepository(false)).eIsProxy())
 			return Collections.emptySet();
 
 		return super.getNewChildDescriptors(object, editingDomain, sibling);
@@ -279,7 +280,9 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	@Deprecated
 	protected Command createRemoveCommand(EditingDomain domain, EObject owner, EReference feature,
 			Collection<?> collection) {
-		if(((MappedRepository) owner).isBranchEnabled() && ((MappedRepository) owner).getMetadataRepository() != null)
+		if(((MappedRepository) owner).isBranchEnabled()
+				&& ((MappedRepository) owner).getMetadataRepository(false) != null
+				&& !((EObject) ((MappedRepository) owner).getMetadataRepository(false)).eIsProxy())
 			return createCompoundRemoveCommand(domain, (MappedRepository) owner, feature, collection);
 
 		return UnexecutableCommand.INSTANCE;
@@ -295,7 +298,9 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 			return createRemoveCommand(domain, owner, (EReference) feature, collection);
 		}
 
-		if(((MappedRepository) owner).isBranchEnabled() && ((MappedRepository) owner).getMetadataRepository() != null)
+		if(((MappedRepository) owner).isBranchEnabled()
+				&& ((MappedRepository) owner).getMetadataRepository(false) != null
+				&& !((EObject) ((MappedRepository) owner).getMetadataRepository(false)).eIsProxy())
 			return createCompoundRemoveCommand(domain, (MappedRepository) owner, feature, collection);
 
 		return UnexecutableCommand.INSTANCE;
