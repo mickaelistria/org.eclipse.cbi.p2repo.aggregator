@@ -177,6 +177,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 			newParent.setVersion(parent.getVersion().toString());
 			model.setParent(newParent);
 		}
+		model.setModelVersion(POM.MODEL_VERSION);
 		model.setGroupId(map().getGroupId());
 		model.setArtifactId(map().getArtifactId());
 		if(getMainArtifact() == null)

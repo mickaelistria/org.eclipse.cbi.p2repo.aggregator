@@ -53,6 +53,8 @@ public class POM {
 
 	public static final String XML_SCHEMA_LOCATION = "http://maven.apache.org/maven-v4_0_0.xsd";
 
+	public static final String MODEL_VERSION = "4.0.0";
+
 	public static String expandProperties(String str, Map<String, String> propertyMap) {
 		if(str == null)
 			return "";
