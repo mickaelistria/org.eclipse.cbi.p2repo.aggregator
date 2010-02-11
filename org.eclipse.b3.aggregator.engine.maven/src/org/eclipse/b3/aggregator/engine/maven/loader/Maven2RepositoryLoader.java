@@ -447,14 +447,15 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 					iu.setCopyright(copyright);
 				}
 
-				// TODO Set list of licenses (new p2 allows it)
 				if(toLicense.size() > 0) {
-					LicenseHelper licenseHelper = buildLicense(toLicense);
-					LicenseImpl license = (LicenseImpl) P2Factory.eINSTANCE.createLicense();
-					license.setBody(licenseHelper.body);
-					license.setLocation(licenseHelper.location);
-					license.setUUID(licenseHelper.getDigest().toString());
-					iu.getLicenses().addAll(Collections.singletonList(license));
+					for(License license : toLicense) {
+						LicenseHelper licenseHelper = buildLicense(Collections.singletonList(license));
+						LicenseImpl p2License = (LicenseImpl) P2Factory.eINSTANCE.createLicense();
+						p2License.setBody(licenseHelper.body);
+						p2License.setLocation(licenseHelper.location);
+						p2License.setUUID(licenseHelper.getDigest().toString());
+						iu.getLicenses().add(p2License);
+					}
 				}
 			}
 
