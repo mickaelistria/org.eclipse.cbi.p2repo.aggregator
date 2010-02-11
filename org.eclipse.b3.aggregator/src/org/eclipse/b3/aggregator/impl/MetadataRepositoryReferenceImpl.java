@@ -462,7 +462,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	}
 
 	/**
-	 * Prevent MDR from being loaded if the mapping is disabled
+	 * Load and resolve if needed
 	 * 
 	 * @generated NOT
 	 */
@@ -479,11 +479,12 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 		if(!isBranchEnabled())
 			return null;
 
-		if(metadataRepository == null)
-			metadataRepository = P2Factory.eINSTANCE.createMetadataRepositoryProxy(getNature(), getLocation());
+		if(forceResolve) {
+			if(metadataRepository == null)
+				metadataRepository = P2Factory.eINSTANCE.createMetadataRepositoryProxy(getNature(), getLocation());
 
-		if(forceResolve)
 			return getMetadataRepositoryGen();
+		}
 
 		return metadataRepository;
 	}
@@ -570,10 +571,10 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	 * 
 	 * @generated NOT
 	 */
-	public Status getStatus() {
+	synchronized public Status getStatus() {
 		if(isBranchEnabled()) {
 			// status is ok only if MDR is not null and is resolvable
-			if(getMetadataRepository() != null && !((EObject) getMetadataRepository()).eIsProxy())
+			if(getMetadataRepository(false) != null && !((EObject) getMetadataRepository(false)).eIsProxy())
 				return AggregatorFactory.eINSTANCE.createStatus(StatusCode.OK);
 			else {
 				String nature = getNature();

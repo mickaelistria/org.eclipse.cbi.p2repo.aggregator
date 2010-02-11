@@ -634,7 +634,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 	 */
 	public boolean isMappedRepositoryBroken() {
 		MappedRepository repo = (MappedRepository) eContainer();
-		return repo == null || repo.getMetadataRepository() == null
+		return repo == null || repo.getMetadataRepository(false) == null
 				|| ((EObject) repo.getMetadataRepository()).eIsProxy();
 	}
 
@@ -652,8 +652,8 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 
 		IQuery<IInstallableUnit> query = new InstallableUnitQuery(id, versionRange);
 
-		MetadataRepository mdr = ((MappedRepository) eContainer()).getMetadataRepository();
-		if(mdr == null)
+		MetadataRepository mdr = ((MappedRepository) eContainer()).getMetadataRepository(false);
+		if(mdr == null || ((EObject) mdr).eIsProxy())
 			return null;
 
 		IQueryResult<IInstallableUnit> ius = mdr.query(CompoundQuery.createCompoundQuery(query,

@@ -27,7 +27,6 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -510,8 +509,9 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	@Override
 	synchronized public Status getStatus() {
 		if(isBranchEnabled()) {
-			// status is ok only if MDR is not null and is resolvable
-			if(getMetadataRepository() != null && !((EObject) getMetadataRepository()).eIsProxy()) {
+			Status status = super.getStatus();
+
+			if(status.getCode() == StatusCode.OK) {
 				for(MappedUnit unit : getEnabledUnits())
 					if(unit.getStatus().getCode() != StatusCode.OK)
 						return AggregatorFactory.eINSTANCE.createStatus(StatusCode.BROKEN);
@@ -519,8 +519,8 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 					if(rule.getStatus().getCode() != StatusCode.OK)
 						return AggregatorFactory.eINSTANCE.createStatus(StatusCode.BROKEN);
 			}
-			else
-				return super.getStatus();
+
+			return status;
 		}
 
 		return AggregatorFactory.eINSTANCE.createStatus(StatusCode.OK);

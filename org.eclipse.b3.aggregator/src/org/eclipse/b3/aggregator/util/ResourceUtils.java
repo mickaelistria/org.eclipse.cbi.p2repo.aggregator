@@ -75,7 +75,7 @@ public class ResourceUtils {
 					}
 					else {
 						// avoid notification recursion - set to null only if it is not null yet
-						if(mappedRepository.getMetadataRepository() != null)
+						if(mappedRepository.getMetadataRepository(false) != null)
 							mappedRepository.setMetadataRepository(null);
 					}
 				}
@@ -90,7 +90,7 @@ public class ResourceUtils {
 				}
 				else
 				// avoid notification recursion - set to null only if it is not null yet
-				if(repoRef.getMetadataRepository() != null)
+				if(repoRef.getMetadataRepository(false) != null)
 					repoRef.setMetadataRepository(null);
 			}
 			Iterator<Resource> allResources = topSet.getResources().iterator();
