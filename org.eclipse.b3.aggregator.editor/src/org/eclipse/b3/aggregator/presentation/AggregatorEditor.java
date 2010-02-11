@@ -447,6 +447,8 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 
 	private boolean updateMarkersIsRunning;
 
+	private Job repositoryLoadingJob;
+
 	/**
 	 * This listens for when the outline becomes active <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -868,7 +870,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 				}
 
 				final List<MetadataRepositoryReference> repositoriesToLoad = aggregator.getAllMetadataRepositoryReferences(true);
-				Job wrapperJob = new Job("Loading repositories...") {
+				repositoryLoadingJob = new Job("Loading repositories...") {
 					@Override
 					protected IStatus run(IProgressMonitor monitor) {
 						try {
@@ -909,8 +911,7 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 					}
 				};
 
-				wrapperJob.setSystem(true);
-				wrapperJob.schedule();
+				repositoryLoadingJob.setSystem(true);
 			}
 		}
 	}
@@ -960,6 +961,11 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 				lastTreeItem = item;
 			}
 		});
+
+		if(repositoryLoadingJob != null) {
+			repositoryLoadingJob.schedule();
+			repositoryLoadingJob = null;
+		}
 	}
 
 	/**
