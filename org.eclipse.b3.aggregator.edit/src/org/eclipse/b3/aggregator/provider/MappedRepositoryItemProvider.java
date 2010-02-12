@@ -106,7 +106,7 @@ public class MappedRepositoryItemProvider extends MetadataRepositoryReferenceIte
 	public Collection<?> getNewChildDescriptors(Object object, EditingDomain editingDomain, Object sibling) {
 		if(!(((MappedRepository) object).isBranchEnabled())
 				|| ((MappedRepository) object).getMetadataRepository(false) == null
-				&& !((EObject) ((MappedRepository) object).getMetadataRepository(false)).eIsProxy())
+				|| ((EObject) ((MappedRepository) object).getMetadataRepository(false)).eIsProxy())
 			return Collections.emptySet();
 
 		return super.getNewChildDescriptors(object, editingDomain, sibling);
