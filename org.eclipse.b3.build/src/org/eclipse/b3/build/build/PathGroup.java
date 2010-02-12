@@ -57,7 +57,7 @@ public interface PathGroup extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Path Vectors</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.b3.build.build.PathVector}.
+	 * The list contents are of type {@link org.eclipse.b3.build.build.ConditionalPathVector}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Path Vectors</em>' containment reference list isn't clear,
@@ -69,5 +69,5 @@ public interface PathGroup extends EObject {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<PathVector> getPathVectors();
+	EList<ConditionalPathVector> getPathVectors();
 } // PathGroup

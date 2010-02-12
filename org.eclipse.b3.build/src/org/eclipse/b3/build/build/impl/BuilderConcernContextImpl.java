@@ -29,6 +29,7 @@ import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.BuildUnit;
 import org.eclipse.b3.build.build.Builder;
 import org.eclipse.b3.build.build.BuilderConcernContext;
+import org.eclipse.b3.build.build.ConditionalPathVector;
 import org.eclipse.b3.build.build.BuilderInput;
 import org.eclipse.b3.build.build.BuilderWrapper;
 import org.eclipse.b3.build.build.Capability;
@@ -36,7 +37,6 @@ import org.eclipse.b3.build.build.IBuilder;
 import org.eclipse.b3.build.build.InputPredicate;
 import org.eclipse.b3.build.build.OutputPredicate;
 import org.eclipse.b3.build.build.PathGroup;
-import org.eclipse.b3.build.build.PathVector;
 import org.eclipse.b3.build.build.Prerequisite;
 import org.eclipse.b3.build.build.ProvidesPredicate;
 import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;
@@ -125,7 +125,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<PathVector> outputAdditions;
+	protected EList<ConditionalPathVector> outputAdditions;
 
 	/**
 	 * The cached value of the '{@link #getOutputRemovals() <em>Output Removals</em>}' containment reference list.
@@ -408,9 +408,9 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<PathVector> getOutputAdditions() {
+	public EList<ConditionalPathVector> getOutputAdditions() {
 		if (outputAdditions == null) {
-			outputAdditions = new EObjectContainmentEList<PathVector>(PathVector.class, this, B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ADDITIONS);
+			outputAdditions = new EObjectContainmentEList<ConditionalPathVector>(ConditionalPathVector.class, this, B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ADDITIONS);
 		}
 		return outputAdditions;
 	}
@@ -903,7 +903,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 				return;
 			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ADDITIONS:
 				getOutputAdditions().clear();
-				getOutputAdditions().addAll((Collection<? extends PathVector>)newValue);
+				getOutputAdditions().addAll((Collection<? extends ConditionalPathVector>)newValue);
 				return;
 			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_REMOVALS:
 				getOutputRemovals().clear();
@@ -1278,9 +1278,9 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 					modified = op.removeMatching(pg) || modified;
 
 				// addition
-				EList<PathVector> vectors = pg.getPathVectors();
-				for(PathVector pv : getOutputAdditions())
-					vectors.add(PathVector.class.cast(EcoreUtil.copy(pv)));
+				EList<ConditionalPathVector> vectors = pg.getPathVectors();
+				for( ConditionalPathVector pv : getOutputAdditions())
+					vectors.add(ConditionalPathVector.class.cast(EcoreUtil.copy(pv)));
 
 
 				// WRAP ANNOTATIONS

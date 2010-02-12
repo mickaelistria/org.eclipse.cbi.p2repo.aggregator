@@ -54,127 +54,126 @@ protected class ThisRootNode extends RootToken {
 			case 16: return new Synchronization_Group(this, this, 16, inst);
 			case 17: return new BuilderQuery_Group(this, this, 17, inst);
 			case 18: return new PathGroup_Group(this, this, 18, inst);
-			case 19: return new PathVector_Alternatives(this, this, 19, inst);
-			case 20: return new BasePathVector_Group(this, this, 20, inst);
-			case 21: return new UnbasedPathVector_Group(this, this, 21, inst);
-			case 22: return new CompoundPathVector_Group(this, this, 22, inst);
-			case 23: return new Prerequisite_Group(this, this, 23, inst);
-			case 24: return new WithClause_Group(this, this, 24, inst);
-			case 25: return new BuildResultReference_Alternatives(this, this, 25, inst);
-			case 26: return new UnitBuildResultReference_Group(this, this, 26, inst);
-			case 27: return new CapabilityBuildResultReference_Group(this, this, 27, inst);
-			case 28: return new IndirectCapabilityBuildResultReference_Group(this, this, 28, inst);
-			case 29: return new CompoundBuildResultReference_Group(this, this, 29, inst);
-			case 30: return new Builder_Group(this, this, 30, inst);
-			case 31: return new ParameterList_Group(this, this, 31, inst);
-			case 32: return new FirstParameter_Alternatives(this, this, 32, inst);
-			case 33: return new Parameter_Group(this, this, 33, inst);
-			case 34: return new ClosureParameter_Group(this, this, 34, inst);
-			case 35: return new ParameterDeclaration_Group(this, this, 35, inst);
-			case 36: return new BuilderInput_Group(this, this, 36, inst);
-			case 37: return new RepositoryConfiguration_Alternatives(this, this, 37, inst);
-			case 38: return new RepositoryDeclaration_Group(this, this, 38, inst);
-			case 39: return new ResolutionStrategy_Alternatives(this, this, 39, inst);
-			case 40: return new ResolutionStrategyFirst_Group(this, this, 40, inst);
-			case 41: return new ResolutionStrategyBest_Group(this, this, 41, inst);
-			case 42: return new ContainerConfiguration_Group(this, this, 42, inst);
-			case 43: return new Concern_Named_Group(this, this, 43, inst);
-			case 44: return new Concern_Anonymous_Group(this, this, 44, inst);
-			case 45: return new Function_Group(this, this, 45, inst);
-			case 46: return new GuardExpression_Alternatives(this, this, 46, inst);
-			case 47: return new TopLevelExpression_Alternatives(this, this, 47, inst);
-			case 48: return new Expression_AssignmentExpressionParserRuleCall(this, this, 48, inst);
-			case 49: return new AssignmentExpression_Group(this, this, 49, inst);
-			case 50: return new VarDeclaration_Group(this, this, 50, inst);
-			case 51: return new ValDeclaration_Group(this, this, 51, inst);
-			case 52: return new TypeRef_Alternatives(this, this, 52, inst);
-			case 53: return new SimpleTypeRef_Group(this, this, 53, inst);
-			case 54: return new ClosureTypeRef_Group(this, this, 54, inst);
-			case 55: return new TypeParam_Alternatives(this, this, 55, inst);
-			case 56: return new TypeRefParam_TypeRefParserRuleCall(this, this, 56, inst);
-			case 57: return new WildcardRefParam_Group(this, this, 57, inst);
-			case 58: return new CachedExpression_Alternatives(this, this, 58, inst);
-			case 59: return new OrExpression_Group(this, this, 59, inst);
-			case 60: return new AndExpression_Group(this, this, 60, inst);
-			case 61: return new RelationalExpression_Group(this, this, 61, inst);
-			case 62: return new InstanceOfExpression_Group(this, this, 62, inst);
-			case 63: return new AdditiveExpression_Group(this, this, 63, inst);
-			case 64: return new MultiplicativeExpression_Group(this, this, 64, inst);
-			case 65: return new SetExpression_Group(this, this, 65, inst);
-			case 66: return new UnaryOrInfixExpression_Alternatives(this, this, 66, inst);
-			case 67: return new UnaryExpression_Group(this, this, 67, inst);
-			case 68: return new PreopExpression_Group(this, this, 68, inst);
-			case 69: return new PostopExpression_Group(this, this, 69, inst);
-			case 70: return new InfixExpression_Group(this, this, 70, inst);
-			case 71: return new CallExpression_Group(this, this, 71, inst);
-			case 72: return new PrimaryExpression_Alternatives(this, this, 72, inst);
-			case 73: return new WithExpression_Group(this, this, 73, inst);
-			case 74: return new ProceedExpression_Group(this, this, 74, inst);
-			case 75: return new WildcardExpression_Group(this, this, 75, inst);
-			case 76: return new ThrowExpression_Group(this, this, 76, inst);
-			case 77: return new TryCatchExpression_Group(this, this, 77, inst);
-			case 78: return new CatchBlock_Group(this, this, 78, inst);
-			case 79: return new SwitchExpression_Group(this, this, 79, inst);
-			case 80: return new Case_Group(this, this, 80, inst);
-			case 81: return new BlockExpression_Group(this, this, 81, inst);
-			case 82: return new IfExpression_Group(this, this, 82, inst);
-			case 83: return new ElseIfExpression_Group(this, this, 83, inst);
-			case 84: return new PropertyValue_Group(this, this, 84, inst);
-			case 85: return new VariableValue_Group(this, this, 85, inst);
-			case 86: return new KeywordVariables_Group(this, this, 86, inst);
-			case 87: return new FeatureCall_OperationCallParserRuleCall(this, this, 87, inst);
-			case 88: return new OperationCall_Group(this, this, 88, inst);
-			case 89: return new ConstructorCallExpression_Group(this, this, 89, inst);
-			case 90: return new BuildConcernContext_Alternatives(this, this, 90, inst);
-			case 91: return new FunctionConcernContext_Group(this, this, 91, inst);
-			case 92: return new FunctionNamePredicate_Group(this, this, 92, inst);
-			case 93: return new ParameterPredicate_Alternatives(this, this, 93, inst);
-			case 94: return new ParameterVarargsPredicate_Alternatives(this, this, 94, inst);
-			case 95: return new UnitConcernContext_Group(this, this, 95, inst);
-			case 96: return new BuilderConcernContext_Group(this, this, 96, inst);
-			case 97: return new UnitOrExpression_Group(this, this, 97, inst);
-			case 98: return new UnitAndExpression_Group(this, this, 98, inst);
-			case 99: return new UnitNotOrPrimaryExpression_Alternatives(this, this, 99, inst);
-			case 100: return new UnitNotExpression_Group(this, this, 100, inst);
-			case 101: return new UnitPrimaryExpression_Alternatives(this, this, 101, inst);
-			case 102: return new GroupedUnitPrimaryExpression_Group(this, this, 102, inst);
-			case 103: return new RequiresPredicate_Group(this, this, 103, inst);
-			case 104: return new ImplementsPredcicate_Group(this, this, 104, inst);
-			case 105: return new ProvidesPredicate_Group(this, this, 105, inst);
-			case 106: return new UnitNamePredicate_Group(this, this, 106, inst);
-			case 107: return new BuilderNamePredicate_Group(this, this, 107, inst);
-			case 108: return new InputPredicate_Group(this, this, 108, inst);
-			case 109: return new OutputPredicate_Alternatives(this, this, 109, inst);
-			case 110: return new BasePathPredicate_Group(this, this, 110, inst);
-			case 111: return new PathPredicate_Group(this, this, 111, inst);
-			case 112: return new CapabilityPredicate_Group(this, this, 112, inst);
-			case 113: return new NamePredicate_Group(this, this, 113, inst);
-			case 114: return new BuilderOrExpression_Group(this, this, 114, inst);
-			case 115: return new BuilderAndExpression_Group(this, this, 115, inst);
-			case 116: return new BuilderNotOrPrimaryExpression_Alternatives(this, this, 116, inst);
-			case 117: return new BuilderNotExpression_Group(this, this, 117, inst);
-			case 118: return new BuilderPrimaryExpression_Alternatives(this, this, 118, inst);
-			case 119: return new GroupedBuilderPrimaryExpression_Group(this, this, 119, inst);
-			case 120: return new ContextBlock_Creation_Group(this, this, 120, inst);
-			case 121: return new Literal_Alternatives(this, this, 121, inst);
-			case 122: return new LiteralList_Alternatives(this, this, 122, inst);
-			case 123: return new LiteralMap_Alternatives(this, this, 123, inst);
-			case 124: return new LiteralFunction_Group(this, this, 124, inst);
-			case 125: return new ClosureExpression_Group(this, this, 125, inst);
-			case 126: return new OneOrManyExpressions_Alternatives(this, this, 126, inst);
-			case 127: return new BlockExpressionWithoutBrackets_Group(this, this, 127, inst);
-			case 128: return new MapEntry_Group(this, this, 128, inst);
-			case 129: return new KeyLiteral_Group(this, this, 129, inst);
-			case 130: return new LiteralType_Group(this, this, 130, inst);
-			case 131: return new ValueLiteral_Alternatives(this, this, 131, inst);
-			case 132: return new BooleanLiteral_Group(this, this, 132, inst);
-			case 133: return new IntegerLiteral_Group(this, this, 133, inst);
-			case 134: return new UnitLiteral_Group(this, this, 134, inst);
-			case 135: return new StringLiteral_Group(this, this, 135, inst);
-			case 136: return new RealLiteral_Group(this, this, 136, inst);
-			case 137: return new RegexpLiteral_Group(this, this, 137, inst);
-			case 138: return new NullLiteral_Group(this, this, 138, inst);
-			case 139: return new ParanthesizedExpression_Group(this, this, 139, inst);
+			case 19: return new BasePathVector_Group(this, this, 19, inst);
+			case 20: return new UnbasedPathVector_Group(this, this, 20, inst);
+			case 21: return new ConditionalPathVector_Alternatives(this, this, 21, inst);
+			case 22: return new Prerequisite_Group(this, this, 22, inst);
+			case 23: return new WithClause_Group(this, this, 23, inst);
+			case 24: return new BuildResultReference_Alternatives(this, this, 24, inst);
+			case 25: return new UnitBuildResultReference_Group(this, this, 25, inst);
+			case 26: return new CapabilityBuildResultReference_Group(this, this, 26, inst);
+			case 27: return new IndirectCapabilityBuildResultReference_Group(this, this, 27, inst);
+			case 28: return new CompoundBuildResultReference_Group(this, this, 28, inst);
+			case 29: return new Builder_Group(this, this, 29, inst);
+			case 30: return new ParameterList_Group(this, this, 30, inst);
+			case 31: return new FirstParameter_Alternatives(this, this, 31, inst);
+			case 32: return new Parameter_Group(this, this, 32, inst);
+			case 33: return new ClosureParameter_Group(this, this, 33, inst);
+			case 34: return new ParameterDeclaration_Group(this, this, 34, inst);
+			case 35: return new BuilderInput_Group(this, this, 35, inst);
+			case 36: return new RepositoryConfiguration_Alternatives(this, this, 36, inst);
+			case 37: return new RepositoryDeclaration_Group(this, this, 37, inst);
+			case 38: return new ResolutionStrategy_Alternatives(this, this, 38, inst);
+			case 39: return new ResolutionStrategyFirst_Group(this, this, 39, inst);
+			case 40: return new ResolutionStrategyBest_Group(this, this, 40, inst);
+			case 41: return new ContainerConfiguration_Group(this, this, 41, inst);
+			case 42: return new Concern_Named_Group(this, this, 42, inst);
+			case 43: return new Concern_Anonymous_Group(this, this, 43, inst);
+			case 44: return new Function_Group(this, this, 44, inst);
+			case 45: return new GuardExpression_Alternatives(this, this, 45, inst);
+			case 46: return new TopLevelExpression_Alternatives(this, this, 46, inst);
+			case 47: return new Expression_AssignmentExpressionParserRuleCall(this, this, 47, inst);
+			case 48: return new AssignmentExpression_Group(this, this, 48, inst);
+			case 49: return new VarDeclaration_Group(this, this, 49, inst);
+			case 50: return new ValDeclaration_Group(this, this, 50, inst);
+			case 51: return new TypeRef_Alternatives(this, this, 51, inst);
+			case 52: return new SimpleTypeRef_Group(this, this, 52, inst);
+			case 53: return new ClosureTypeRef_Group(this, this, 53, inst);
+			case 54: return new TypeParam_Alternatives(this, this, 54, inst);
+			case 55: return new TypeRefParam_TypeRefParserRuleCall(this, this, 55, inst);
+			case 56: return new WildcardRefParam_Group(this, this, 56, inst);
+			case 57: return new CachedExpression_Alternatives(this, this, 57, inst);
+			case 58: return new OrExpression_Group(this, this, 58, inst);
+			case 59: return new AndExpression_Group(this, this, 59, inst);
+			case 60: return new RelationalExpression_Group(this, this, 60, inst);
+			case 61: return new InstanceOfExpression_Group(this, this, 61, inst);
+			case 62: return new AdditiveExpression_Group(this, this, 62, inst);
+			case 63: return new MultiplicativeExpression_Group(this, this, 63, inst);
+			case 64: return new SetExpression_Group(this, this, 64, inst);
+			case 65: return new UnaryOrInfixExpression_Alternatives(this, this, 65, inst);
+			case 66: return new UnaryExpression_Group(this, this, 66, inst);
+			case 67: return new PreopExpression_Group(this, this, 67, inst);
+			case 68: return new PostopExpression_Group(this, this, 68, inst);
+			case 69: return new InfixExpression_Group(this, this, 69, inst);
+			case 70: return new CallExpression_Group(this, this, 70, inst);
+			case 71: return new PrimaryExpression_Alternatives(this, this, 71, inst);
+			case 72: return new WithExpression_Group(this, this, 72, inst);
+			case 73: return new ProceedExpression_Group(this, this, 73, inst);
+			case 74: return new WildcardExpression_Group(this, this, 74, inst);
+			case 75: return new ThrowExpression_Group(this, this, 75, inst);
+			case 76: return new TryCatchExpression_Group(this, this, 76, inst);
+			case 77: return new CatchBlock_Group(this, this, 77, inst);
+			case 78: return new SwitchExpression_Group(this, this, 78, inst);
+			case 79: return new Case_Group(this, this, 79, inst);
+			case 80: return new BlockExpression_Group(this, this, 80, inst);
+			case 81: return new IfExpression_Group(this, this, 81, inst);
+			case 82: return new ElseIfExpression_Group(this, this, 82, inst);
+			case 83: return new PropertyValue_Group(this, this, 83, inst);
+			case 84: return new VariableValue_Group(this, this, 84, inst);
+			case 85: return new KeywordVariables_Group(this, this, 85, inst);
+			case 86: return new FeatureCall_OperationCallParserRuleCall(this, this, 86, inst);
+			case 87: return new OperationCall_Group(this, this, 87, inst);
+			case 88: return new ConstructorCallExpression_Group(this, this, 88, inst);
+			case 89: return new BuildConcernContext_Alternatives(this, this, 89, inst);
+			case 90: return new FunctionConcernContext_Group(this, this, 90, inst);
+			case 91: return new FunctionNamePredicate_Group(this, this, 91, inst);
+			case 92: return new ParameterPredicate_Alternatives(this, this, 92, inst);
+			case 93: return new ParameterVarargsPredicate_Alternatives(this, this, 93, inst);
+			case 94: return new UnitConcernContext_Group(this, this, 94, inst);
+			case 95: return new BuilderConcernContext_Group(this, this, 95, inst);
+			case 96: return new UnitOrExpression_Group(this, this, 96, inst);
+			case 97: return new UnitAndExpression_Group(this, this, 97, inst);
+			case 98: return new UnitNotOrPrimaryExpression_Alternatives(this, this, 98, inst);
+			case 99: return new UnitNotExpression_Group(this, this, 99, inst);
+			case 100: return new UnitPrimaryExpression_Alternatives(this, this, 100, inst);
+			case 101: return new GroupedUnitPrimaryExpression_Group(this, this, 101, inst);
+			case 102: return new RequiresPredicate_Group(this, this, 102, inst);
+			case 103: return new ImplementsPredcicate_Group(this, this, 103, inst);
+			case 104: return new ProvidesPredicate_Group(this, this, 104, inst);
+			case 105: return new UnitNamePredicate_Group(this, this, 105, inst);
+			case 106: return new BuilderNamePredicate_Group(this, this, 106, inst);
+			case 107: return new InputPredicate_Group(this, this, 107, inst);
+			case 108: return new OutputPredicate_Alternatives(this, this, 108, inst);
+			case 109: return new BasePathPredicate_Group(this, this, 109, inst);
+			case 110: return new PathPredicate_Group(this, this, 110, inst);
+			case 111: return new CapabilityPredicate_Group(this, this, 111, inst);
+			case 112: return new NamePredicate_Group(this, this, 112, inst);
+			case 113: return new BuilderOrExpression_Group(this, this, 113, inst);
+			case 114: return new BuilderAndExpression_Group(this, this, 114, inst);
+			case 115: return new BuilderNotOrPrimaryExpression_Alternatives(this, this, 115, inst);
+			case 116: return new BuilderNotExpression_Group(this, this, 116, inst);
+			case 117: return new BuilderPrimaryExpression_Alternatives(this, this, 117, inst);
+			case 118: return new GroupedBuilderPrimaryExpression_Group(this, this, 118, inst);
+			case 119: return new ContextBlock_Creation_Group(this, this, 119, inst);
+			case 120: return new Literal_Alternatives(this, this, 120, inst);
+			case 121: return new LiteralList_Alternatives(this, this, 121, inst);
+			case 122: return new LiteralMap_Alternatives(this, this, 122, inst);
+			case 123: return new LiteralFunction_Group(this, this, 123, inst);
+			case 124: return new ClosureExpression_Group(this, this, 124, inst);
+			case 125: return new OneOrManyExpressions_Alternatives(this, this, 125, inst);
+			case 126: return new BlockExpressionWithoutBrackets_Group(this, this, 126, inst);
+			case 127: return new MapEntry_Group(this, this, 127, inst);
+			case 128: return new KeyLiteral_Group(this, this, 128, inst);
+			case 129: return new LiteralType_Group(this, this, 129, inst);
+			case 130: return new ValueLiteral_Alternatives(this, this, 130, inst);
+			case 131: return new BooleanLiteral_Group(this, this, 131, inst);
+			case 132: return new IntegerLiteral_Group(this, this, 132, inst);
+			case 133: return new UnitLiteral_Group(this, this, 133, inst);
+			case 134: return new StringLiteral_Group(this, this, 134, inst);
+			case 135: return new RealLiteral_Group(this, this, 135, inst);
+			case 136: return new RegexpLiteral_Group(this, this, 136, inst);
+			case 137: return new NullLiteral_Group(this, this, 137, inst);
+			case 138: return new ParanthesizedExpression_Group(this, this, 138, inst);
 			default: return null;
 		}	
 	}	
@@ -8108,13 +8107,28 @@ protected class BuilderQuery_BuilderQueriesAssignment_3_1 extends AssignmentToke
 /************ begin Rule PathGroup ****************
  *
  * PathGroup returns build::PathGroup:
- *   {build::PathGroup} pathVectors+=PathVector+ ("annotations" annotations=PropertySet)
- *   ?;
+ *   {build::PathGroup} pathVectors+=ConditionalPathVector+ ("annotations" annotations=
+ *   PropertySet)?; 
+ * 	
+ *       
+ * 	            
+ * 	
+ * 
+ * //PathVector returns build::ConditionalPathVector
+ * //	: CBasePathVector
+ * //	| CUnbasedPathVector
+ * //	| CompoundPathVector
+ * //	;
+ * 	
+ * //CBasePathVector returns build::PathVector : {build::ConditionalPathVector}
+ * //	("when" '(' condExpr=Expression ')')?
+ * //	pathVectors += (BasePathVector | UnbasedPathVector)
+ * //	;
  *
  **/
 
-// {build::PathGroup} pathVectors+=PathVector+ ("annotations" annotations=PropertySet)
-// ?
+// {build::PathGroup} pathVectors+=ConditionalPathVector+ ("annotations" annotations=
+// PropertySet)?
 protected class PathGroup_Group extends GroupToken {
 	
 	public PathGroup_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -8170,7 +8184,7 @@ protected class PathGroup_PathGroupAction_0 extends ActionToken  {
 	}
 }
 
-// pathVectors+=PathVector+
+// pathVectors+=ConditionalPathVector+
 protected class PathGroup_PathVectorsAssignment_1 extends AssignmentToken  {
 	
 	public PathGroup_PathVectorsAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -8185,7 +8199,7 @@ protected class PathGroup_PathVectorsAssignment_1 extends AssignmentToken  {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new PathVector_Alternatives(this, this, 0, inst);
+			case 0: return new ConditionalPathVector_Alternatives(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -8196,9 +8210,9 @@ protected class PathGroup_PathVectorsAssignment_1 extends AssignmentToken  {
 		IInstanceDescription obj = current.cloneAndConsume("pathVectors");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getPathVectorRule().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getConditionalPathVectorRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getPathGroupAccess().getPathVectorsPathVectorParserRuleCall_1_0(); 
+				element = grammarAccess.getPathGroupAccess().getPathVectorsConditionalPathVectorParserRuleCall_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -8312,161 +8326,25 @@ protected class PathGroup_AnnotationsAssignment_2_1 extends AssignmentToken  {
 /************ end Rule PathGroup ****************/
 
 
-/************ begin Rule PathVector ****************
- *
- * PathVector returns build::PathVector:
- *   BasePathVector|UnbasedPathVector|CompoundPathVector;
- *
- **/
-
-// BasePathVector|UnbasedPathVector|CompoundPathVector
-protected class PathVector_Alternatives extends AlternativesToken {
-
-	public PathVector_Alternatives(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Alternatives getGrammarElement() {
-		return grammarAccess.getPathVectorAccess().getAlternatives();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new PathVector_BasePathVectorParserRuleCall_0(parent, this, 0, inst);
-			case 1: return new PathVector_UnbasedPathVectorParserRuleCall_1(parent, this, 1, inst);
-			case 2: return new PathVector_CompoundPathVectorParserRuleCall_2(parent, this, 2, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override
-	public IInstanceDescription tryConsume() {
-		if(!current.isInstanceOf(grammarAccess.getPathVectorRule().getType().getClassifier())) return null;
-		return tryConsumeVal();
-	}
-}
-
-// BasePathVector
-protected class PathVector_BasePathVectorParserRuleCall_0 extends RuleCallToken {
-	
-	public PathVector_BasePathVectorParserRuleCall_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public RuleCall getGrammarElement() {
-		return grammarAccess.getPathVectorAccess().getBasePathVectorParserRuleCall_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new BasePathVector_Group(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override
-	protected IInstanceDescription tryConsumeVal() {
-		if(checkForRecursion(BasePathVector_Group.class, current)) return null;
-		if(!current.isInstanceOf(grammarAccess.getBasePathVectorRule().getType().getClassifier())) return null;
-		return current;
-	}
-	
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		switch(index) {
-			default: return parent.createParentFollower(next, actIndex , index, inst);
-		}	
-	}	
-}
-
-// UnbasedPathVector
-protected class PathVector_UnbasedPathVectorParserRuleCall_1 extends RuleCallToken {
-	
-	public PathVector_UnbasedPathVectorParserRuleCall_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public RuleCall getGrammarElement() {
-		return grammarAccess.getPathVectorAccess().getUnbasedPathVectorParserRuleCall_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new UnbasedPathVector_Group(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override
-	protected IInstanceDescription tryConsumeVal() {
-		if(checkForRecursion(UnbasedPathVector_Group.class, current)) return null;
-		if(!current.isInstanceOf(grammarAccess.getUnbasedPathVectorRule().getType().getClassifier())) return null;
-		return current;
-	}
-	
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		switch(index) {
-			default: return parent.createParentFollower(next, actIndex , index, inst);
-		}	
-	}	
-}
-
-// CompoundPathVector
-protected class PathVector_CompoundPathVectorParserRuleCall_2 extends RuleCallToken {
-	
-	public PathVector_CompoundPathVectorParserRuleCall_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public RuleCall getGrammarElement() {
-		return grammarAccess.getPathVectorAccess().getCompoundPathVectorParserRuleCall_2();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new CompoundPathVector_Group(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override
-	protected IInstanceDescription tryConsumeVal() {
-		if(checkForRecursion(CompoundPathVector_Group.class, current)) return null;
-		if(!current.isInstanceOf(grammarAccess.getCompoundPathVectorRule().getType().getClassifier())) return null;
-		return current;
-	}
-	
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		switch(index) {
-			default: return parent.createParentFollower(next, actIndex , index, inst);
-		}	
-	}	
-}
-
-
-/************ end Rule PathVector ****************/
-
-
 /************ begin Rule BasePathVector ****************
  *
  * BasePathVector returns build::PathVector:
- *   {build::PathVectorElement} ("when" "(" condExpr=Expression ")")? basePath=Path "[" (
- *   paths+=Path ("," paths+=Path)*)? "]" ";";
+ *   {build::PathVector} basePath=Path "[" (paths+=Path ("," paths+=Path)*)? "]" ";"; 
+ * 
+ * //PathVector returns build::ConditionalPathVector
+ * //	: CBasePathVector
+ * //	| CUnbasedPathVector
+ * //	| CompoundPathVector
+ * //	;
+ * 	
+ * //CBasePathVector returns build::PathVector : {build::ConditionalPathVector}
+ * //	("when" '(' condExpr=Expression ')')?
+ * //	pathVectors += (BasePathVector | UnbasedPathVector)
+ * //	;
  *
  **/
 
-// {build::PathVectorElement} ("when" "(" condExpr=Expression ")")? basePath=Path "[" (
-// paths+=Path ("," paths+=Path)*)? "]" ";"
+// {build::PathVector} basePath=Path "[" (paths+=Path ("," paths+=Path)*)? "]" ";"
 protected class BasePathVector_Group extends GroupToken {
 	
 	public BasePathVector_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -8481,7 +8359,7 @@ protected class BasePathVector_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new BasePathVector_SemicolonKeyword_6(parent, this, 0, inst);
+			case 0: return new BasePathVector_SemicolonKeyword_5(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -8493,16 +8371,16 @@ protected class BasePathVector_Group extends GroupToken {
 	}
 }
 
-// {build::PathVectorElement}
-protected class BasePathVector_PathVectorElementAction_0 extends ActionToken  {
+// {build::PathVector}
+protected class BasePathVector_PathVectorAction_0 extends ActionToken  {
 
-	public BasePathVector_PathVectorElementAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BasePathVector_PathVectorAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Action getGrammarElement() {
-		return grammarAccess.getBasePathVectorAccess().getPathVectorElementAction_0();
+		return grammarAccess.getBasePathVectorAccess().getPathVectorAction_0();
 	}
 
     @Override
@@ -8515,164 +8393,28 @@ protected class BasePathVector_PathVectorElementAction_0 extends ActionToken  {
 	
     @Override
 	protected IInstanceDescription tryConsumeVal() {
-		if(!current.isInstanceOf(grammarAccess.getBasePathVectorAccess().getPathVectorElementAction_0().getType().getClassifier())) return null;
+		if(!current.isInstanceOf(grammarAccess.getBasePathVectorAccess().getPathVectorAction_0().getType().getClassifier())) return null;
 		if(!current.isConsumed()) return null;
 		return current;
 	}
 }
 
-// ("when" "(" condExpr=Expression ")")?
-protected class BasePathVector_Group_1 extends GroupToken {
-	
-	public BasePathVector_Group_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getBasePathVectorAccess().getGroup_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new BasePathVector_RightParenthesisKeyword_1_3(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// "when"
-protected class BasePathVector_WhenKeyword_1_0 extends KeywordToken  {
-	
-	public BasePathVector_WhenKeyword_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getBasePathVectorAccess().getWhenKeyword_1_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new BasePathVector_PathVectorElementAction_0(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// "("
-protected class BasePathVector_LeftParenthesisKeyword_1_1 extends KeywordToken  {
-	
-	public BasePathVector_LeftParenthesisKeyword_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getBasePathVectorAccess().getLeftParenthesisKeyword_1_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new BasePathVector_WhenKeyword_1_0(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// condExpr=Expression
-protected class BasePathVector_CondExprAssignment_1_2 extends AssignmentToken  {
-	
-	public BasePathVector_CondExprAssignment_1_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getBasePathVectorAccess().getCondExprAssignment_1_2();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new Expression_AssignmentExpressionParserRuleCall(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("condExpr",false)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("condExpr");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getExpressionRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getBasePathVectorAccess().getCondExprExpressionParserRuleCall_1_2_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
-	}
-
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new BasePathVector_LeftParenthesisKeyword_1_1(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
-}
-
-// ")"
-protected class BasePathVector_RightParenthesisKeyword_1_3 extends KeywordToken  {
-	
-	public BasePathVector_RightParenthesisKeyword_1_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getBasePathVectorAccess().getRightParenthesisKeyword_1_3();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new BasePathVector_CondExprAssignment_1_2(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-
 // basePath=Path
-protected class BasePathVector_BasePathAssignment_2 extends AssignmentToken  {
+protected class BasePathVector_BasePathAssignment_1 extends AssignmentToken  {
 	
-	public BasePathVector_BasePathAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BasePathVector_BasePathAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getBasePathVectorAccess().getBasePathAssignment_2();
+		return grammarAccess.getBasePathVectorAccess().getBasePathAssignment_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new BasePathVector_Group_1(parent, this, 0, inst);
-			case 1: return new BasePathVector_PathVectorElementAction_0(parent, this, 1, inst);
+			case 0: return new BasePathVector_PathVectorAction_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -8683,7 +8425,7 @@ protected class BasePathVector_BasePathAssignment_2 extends AssignmentToken  {
 		IInstanceDescription obj = current.cloneAndConsume("basePath");
 		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
 			type = AssignmentType.DRC;
-			element = grammarAccess.getBasePathVectorAccess().getBasePathPathParserRuleCall_2_0();
+			element = grammarAccess.getBasePathVectorAccess().getBasePathPathParserRuleCall_1_0();
 			return obj;
 		}
 		return null;
@@ -8692,21 +8434,21 @@ protected class BasePathVector_BasePathAssignment_2 extends AssignmentToken  {
 }
 
 // "["
-protected class BasePathVector_LeftSquareBracketKeyword_3 extends KeywordToken  {
+protected class BasePathVector_LeftSquareBracketKeyword_2 extends KeywordToken  {
 	
-	public BasePathVector_LeftSquareBracketKeyword_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BasePathVector_LeftSquareBracketKeyword_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getBasePathVectorAccess().getLeftSquareBracketKeyword_3();
+		return grammarAccess.getBasePathVectorAccess().getLeftSquareBracketKeyword_2();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new BasePathVector_BasePathAssignment_2(parent, this, 0, inst);
+			case 0: return new BasePathVector_BasePathAssignment_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -8714,22 +8456,22 @@ protected class BasePathVector_LeftSquareBracketKeyword_3 extends KeywordToken  
 }
 
 // (paths+=Path ("," paths+=Path)*)?
-protected class BasePathVector_Group_4 extends GroupToken {
+protected class BasePathVector_Group_3 extends GroupToken {
 	
-	public BasePathVector_Group_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BasePathVector_Group_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Group getGrammarElement() {
-		return grammarAccess.getBasePathVectorAccess().getGroup_4();
+		return grammarAccess.getBasePathVectorAccess().getGroup_3();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new BasePathVector_Group_4_1(parent, this, 0, inst);
-			case 1: return new BasePathVector_PathsAssignment_4_0(parent, this, 1, inst);
+			case 0: return new BasePathVector_Group_3_1(parent, this, 0, inst);
+			case 1: return new BasePathVector_PathsAssignment_3_0(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -8737,21 +8479,21 @@ protected class BasePathVector_Group_4 extends GroupToken {
 }
 
 // paths+=Path
-protected class BasePathVector_PathsAssignment_4_0 extends AssignmentToken  {
+protected class BasePathVector_PathsAssignment_3_0 extends AssignmentToken  {
 	
-	public BasePathVector_PathsAssignment_4_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BasePathVector_PathsAssignment_3_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getBasePathVectorAccess().getPathsAssignment_4_0();
+		return grammarAccess.getBasePathVectorAccess().getPathsAssignment_3_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new BasePathVector_LeftSquareBracketKeyword_3(parent, this, 0, inst);
+			case 0: return new BasePathVector_LeftSquareBracketKeyword_2(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -8762,7 +8504,7 @@ protected class BasePathVector_PathsAssignment_4_0 extends AssignmentToken  {
 		IInstanceDescription obj = current.cloneAndConsume("paths");
 		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
 			type = AssignmentType.DRC;
-			element = grammarAccess.getBasePathVectorAccess().getPathsPathParserRuleCall_4_0_0();
+			element = grammarAccess.getBasePathVectorAccess().getPathsPathParserRuleCall_3_0_0();
 			return obj;
 		}
 		return null;
@@ -8771,21 +8513,21 @@ protected class BasePathVector_PathsAssignment_4_0 extends AssignmentToken  {
 }
 
 // ("," paths+=Path)*
-protected class BasePathVector_Group_4_1 extends GroupToken {
+protected class BasePathVector_Group_3_1 extends GroupToken {
 	
-	public BasePathVector_Group_4_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BasePathVector_Group_3_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Group getGrammarElement() {
-		return grammarAccess.getBasePathVectorAccess().getGroup_4_1();
+		return grammarAccess.getBasePathVectorAccess().getGroup_3_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new BasePathVector_PathsAssignment_4_1_1(parent, this, 0, inst);
+			case 0: return new BasePathVector_PathsAssignment_3_1_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -8793,22 +8535,22 @@ protected class BasePathVector_Group_4_1 extends GroupToken {
 }
 
 // ","
-protected class BasePathVector_CommaKeyword_4_1_0 extends KeywordToken  {
+protected class BasePathVector_CommaKeyword_3_1_0 extends KeywordToken  {
 	
-	public BasePathVector_CommaKeyword_4_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BasePathVector_CommaKeyword_3_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getBasePathVectorAccess().getCommaKeyword_4_1_0();
+		return grammarAccess.getBasePathVectorAccess().getCommaKeyword_3_1_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new BasePathVector_Group_4_1(parent, this, 0, inst);
-			case 1: return new BasePathVector_PathsAssignment_4_0(parent, this, 1, inst);
+			case 0: return new BasePathVector_Group_3_1(parent, this, 0, inst);
+			case 1: return new BasePathVector_PathsAssignment_3_0(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -8816,21 +8558,21 @@ protected class BasePathVector_CommaKeyword_4_1_0 extends KeywordToken  {
 }
 
 // paths+=Path
-protected class BasePathVector_PathsAssignment_4_1_1 extends AssignmentToken  {
+protected class BasePathVector_PathsAssignment_3_1_1 extends AssignmentToken  {
 	
-	public BasePathVector_PathsAssignment_4_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BasePathVector_PathsAssignment_3_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getBasePathVectorAccess().getPathsAssignment_4_1_1();
+		return grammarAccess.getBasePathVectorAccess().getPathsAssignment_3_1_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new BasePathVector_CommaKeyword_4_1_0(parent, this, 0, inst);
+			case 0: return new BasePathVector_CommaKeyword_3_1_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -8841,7 +8583,7 @@ protected class BasePathVector_PathsAssignment_4_1_1 extends AssignmentToken  {
 		IInstanceDescription obj = current.cloneAndConsume("paths");
 		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
 			type = AssignmentType.DRC;
-			element = grammarAccess.getBasePathVectorAccess().getPathsPathParserRuleCall_4_1_1_0();
+			element = grammarAccess.getBasePathVectorAccess().getPathsPathParserRuleCall_3_1_1_0();
 			return obj;
 		}
 		return null;
@@ -8852,22 +8594,22 @@ protected class BasePathVector_PathsAssignment_4_1_1 extends AssignmentToken  {
 
 
 // "]"
-protected class BasePathVector_RightSquareBracketKeyword_5 extends KeywordToken  {
+protected class BasePathVector_RightSquareBracketKeyword_4 extends KeywordToken  {
 	
-	public BasePathVector_RightSquareBracketKeyword_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BasePathVector_RightSquareBracketKeyword_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getBasePathVectorAccess().getRightSquareBracketKeyword_5();
+		return grammarAccess.getBasePathVectorAccess().getRightSquareBracketKeyword_4();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new BasePathVector_Group_4(parent, this, 0, inst);
-			case 1: return new BasePathVector_LeftSquareBracketKeyword_3(parent, this, 1, inst);
+			case 0: return new BasePathVector_Group_3(parent, this, 0, inst);
+			case 1: return new BasePathVector_LeftSquareBracketKeyword_2(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -8875,21 +8617,21 @@ protected class BasePathVector_RightSquareBracketKeyword_5 extends KeywordToken 
 }
 
 // ";"
-protected class BasePathVector_SemicolonKeyword_6 extends KeywordToken  {
+protected class BasePathVector_SemicolonKeyword_5 extends KeywordToken  {
 	
-	public BasePathVector_SemicolonKeyword_6(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BasePathVector_SemicolonKeyword_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getBasePathVectorAccess().getSemicolonKeyword_6();
+		return grammarAccess.getBasePathVectorAccess().getSemicolonKeyword_5();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new BasePathVector_RightSquareBracketKeyword_5(parent, this, 0, inst);
+			case 0: return new BasePathVector_RightSquareBracketKeyword_4(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -8903,13 +8645,20 @@ protected class BasePathVector_SemicolonKeyword_6 extends KeywordToken  {
 /************ begin Rule UnbasedPathVector ****************
  *
  * UnbasedPathVector returns build::PathVector:
- *   {build::PathVectorElement} ("when" "(" condExpr=Expression ")")? paths+=Path ("," paths
- *   +=Path)* ";";
+ *   {build::PathVector} paths+=Path ("," paths+=Path)* ";"; 
+ * 
+ *         
+ * 	      
+ * 	
+ * 
+ * //CUnbasedPathVector returns build::PathVector : {build::ConditionalPathVector}
+ * //	("when" '(' condExpr=Expression ')')?
+ * //	paths+=Path (',' paths+=Path)* ';'
+ * //	;
  *
  **/
 
-// {build::PathVectorElement} ("when" "(" condExpr=Expression ")")? paths+=Path ("," paths
-// +=Path)* ";"
+// {build::PathVector} paths+=Path ("," paths+=Path)* ";"
 protected class UnbasedPathVector_Group extends GroupToken {
 	
 	public UnbasedPathVector_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -8924,7 +8673,7 @@ protected class UnbasedPathVector_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new UnbasedPathVector_SemicolonKeyword_4(parent, this, 0, inst);
+			case 0: return new UnbasedPathVector_SemicolonKeyword_3(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -8936,16 +8685,16 @@ protected class UnbasedPathVector_Group extends GroupToken {
 	}
 }
 
-// {build::PathVectorElement}
-protected class UnbasedPathVector_PathVectorElementAction_0 extends ActionToken  {
+// {build::PathVector}
+protected class UnbasedPathVector_PathVectorAction_0 extends ActionToken  {
 
-	public UnbasedPathVector_PathVectorElementAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public UnbasedPathVector_PathVectorAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Action getGrammarElement() {
-		return grammarAccess.getUnbasedPathVectorAccess().getPathVectorElementAction_0();
+		return grammarAccess.getUnbasedPathVectorAccess().getPathVectorAction_0();
 	}
 
     @Override
@@ -8958,164 +8707,28 @@ protected class UnbasedPathVector_PathVectorElementAction_0 extends ActionToken 
 	
     @Override
 	protected IInstanceDescription tryConsumeVal() {
-		if(!current.isInstanceOf(grammarAccess.getUnbasedPathVectorAccess().getPathVectorElementAction_0().getType().getClassifier())) return null;
+		if(!current.isInstanceOf(grammarAccess.getUnbasedPathVectorAccess().getPathVectorAction_0().getType().getClassifier())) return null;
 		if(!current.isConsumed()) return null;
 		return current;
 	}
 }
 
-// ("when" "(" condExpr=Expression ")")?
-protected class UnbasedPathVector_Group_1 extends GroupToken {
-	
-	public UnbasedPathVector_Group_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getUnbasedPathVectorAccess().getGroup_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new UnbasedPathVector_RightParenthesisKeyword_1_3(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// "when"
-protected class UnbasedPathVector_WhenKeyword_1_0 extends KeywordToken  {
-	
-	public UnbasedPathVector_WhenKeyword_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getUnbasedPathVectorAccess().getWhenKeyword_1_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new UnbasedPathVector_PathVectorElementAction_0(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// "("
-protected class UnbasedPathVector_LeftParenthesisKeyword_1_1 extends KeywordToken  {
-	
-	public UnbasedPathVector_LeftParenthesisKeyword_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getUnbasedPathVectorAccess().getLeftParenthesisKeyword_1_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new UnbasedPathVector_WhenKeyword_1_0(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-// condExpr=Expression
-protected class UnbasedPathVector_CondExprAssignment_1_2 extends AssignmentToken  {
-	
-	public UnbasedPathVector_CondExprAssignment_1_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getUnbasedPathVectorAccess().getCondExprAssignment_1_2();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new Expression_AssignmentExpressionParserRuleCall(this, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-    @Override	
-	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("condExpr",false)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("condExpr");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getExpressionRule().getType().getClassifier())) {
-				type = AssignmentType.PRC;
-				element = grammarAccess.getUnbasedPathVectorAccess().getCondExprExpressionParserRuleCall_1_2_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
-	}
-
-    @Override
-	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
-		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new UnbasedPathVector_LeftParenthesisKeyword_1_1(parent, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
-}
-
-// ")"
-protected class UnbasedPathVector_RightParenthesisKeyword_1_3 extends KeywordToken  {
-	
-	public UnbasedPathVector_RightParenthesisKeyword_1_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getUnbasedPathVectorAccess().getRightParenthesisKeyword_1_3();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new UnbasedPathVector_CondExprAssignment_1_2(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
-
 // paths+=Path
-protected class UnbasedPathVector_PathsAssignment_2 extends AssignmentToken  {
+protected class UnbasedPathVector_PathsAssignment_1 extends AssignmentToken  {
 	
-	public UnbasedPathVector_PathsAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public UnbasedPathVector_PathsAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getUnbasedPathVectorAccess().getPathsAssignment_2();
+		return grammarAccess.getUnbasedPathVectorAccess().getPathsAssignment_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new UnbasedPathVector_Group_1(parent, this, 0, inst);
-			case 1: return new UnbasedPathVector_PathVectorElementAction_0(parent, this, 1, inst);
+			case 0: return new UnbasedPathVector_PathVectorAction_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -9126,7 +8739,7 @@ protected class UnbasedPathVector_PathsAssignment_2 extends AssignmentToken  {
 		IInstanceDescription obj = current.cloneAndConsume("paths");
 		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
 			type = AssignmentType.DRC;
-			element = grammarAccess.getUnbasedPathVectorAccess().getPathsPathParserRuleCall_2_0();
+			element = grammarAccess.getUnbasedPathVectorAccess().getPathsPathParserRuleCall_1_0();
 			return obj;
 		}
 		return null;
@@ -9135,21 +8748,21 @@ protected class UnbasedPathVector_PathsAssignment_2 extends AssignmentToken  {
 }
 
 // ("," paths+=Path)*
-protected class UnbasedPathVector_Group_3 extends GroupToken {
+protected class UnbasedPathVector_Group_2 extends GroupToken {
 	
-	public UnbasedPathVector_Group_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public UnbasedPathVector_Group_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Group getGrammarElement() {
-		return grammarAccess.getUnbasedPathVectorAccess().getGroup_3();
+		return grammarAccess.getUnbasedPathVectorAccess().getGroup_2();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new UnbasedPathVector_PathsAssignment_3_1(parent, this, 0, inst);
+			case 0: return new UnbasedPathVector_PathsAssignment_2_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -9157,22 +8770,22 @@ protected class UnbasedPathVector_Group_3 extends GroupToken {
 }
 
 // ","
-protected class UnbasedPathVector_CommaKeyword_3_0 extends KeywordToken  {
+protected class UnbasedPathVector_CommaKeyword_2_0 extends KeywordToken  {
 	
-	public UnbasedPathVector_CommaKeyword_3_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public UnbasedPathVector_CommaKeyword_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getUnbasedPathVectorAccess().getCommaKeyword_3_0();
+		return grammarAccess.getUnbasedPathVectorAccess().getCommaKeyword_2_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new UnbasedPathVector_Group_3(parent, this, 0, inst);
-			case 1: return new UnbasedPathVector_PathsAssignment_2(parent, this, 1, inst);
+			case 0: return new UnbasedPathVector_Group_2(parent, this, 0, inst);
+			case 1: return new UnbasedPathVector_PathsAssignment_1(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -9180,21 +8793,21 @@ protected class UnbasedPathVector_CommaKeyword_3_0 extends KeywordToken  {
 }
 
 // paths+=Path
-protected class UnbasedPathVector_PathsAssignment_3_1 extends AssignmentToken  {
+protected class UnbasedPathVector_PathsAssignment_2_1 extends AssignmentToken  {
 	
-	public UnbasedPathVector_PathsAssignment_3_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public UnbasedPathVector_PathsAssignment_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getUnbasedPathVectorAccess().getPathsAssignment_3_1();
+		return grammarAccess.getUnbasedPathVectorAccess().getPathsAssignment_2_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new UnbasedPathVector_CommaKeyword_3_0(parent, this, 0, inst);
+			case 0: return new UnbasedPathVector_CommaKeyword_2_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -9205,7 +8818,7 @@ protected class UnbasedPathVector_PathsAssignment_3_1 extends AssignmentToken  {
 		IInstanceDescription obj = current.cloneAndConsume("paths");
 		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
 			type = AssignmentType.DRC;
-			element = grammarAccess.getUnbasedPathVectorAccess().getPathsPathParserRuleCall_3_1_0();
+			element = grammarAccess.getUnbasedPathVectorAccess().getPathsPathParserRuleCall_2_1_0();
 			return obj;
 		}
 		return null;
@@ -9215,22 +8828,22 @@ protected class UnbasedPathVector_PathsAssignment_3_1 extends AssignmentToken  {
 
 
 // ";"
-protected class UnbasedPathVector_SemicolonKeyword_4 extends KeywordToken  {
+protected class UnbasedPathVector_SemicolonKeyword_3 extends KeywordToken  {
 	
-	public UnbasedPathVector_SemicolonKeyword_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public UnbasedPathVector_SemicolonKeyword_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getUnbasedPathVectorAccess().getSemicolonKeyword_4();
+		return grammarAccess.getUnbasedPathVectorAccess().getSemicolonKeyword_3();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new UnbasedPathVector_Group_3(parent, this, 0, inst);
-			case 1: return new UnbasedPathVector_PathsAssignment_2(parent, this, 1, inst);
+			case 0: return new UnbasedPathVector_Group_2(parent, this, 0, inst);
+			case 1: return new UnbasedPathVector_PathsAssignment_1(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -9241,59 +8854,102 @@ protected class UnbasedPathVector_SemicolonKeyword_4 extends KeywordToken  {
 /************ end Rule UnbasedPathVector ****************/
 
 
-/************ begin Rule CompoundPathVector ****************
+/************ begin Rule ConditionalPathVector ****************
  *
- * CompoundPathVector returns build::PathVector:
- *   {build::CompoundPathVector} "when" "(" condExpr=Expression ")" "{" pathVectors+=
- *   PathVector* "}"; 
+ * ConditionalPathVector returns build::ConditionalPathVector:
+ *   {build::ConditionalPathVector} ("when" "(" condExpr=Expression ")" "{" pathVectors+=(
+ *   BasePathVector | UnbasedPathVector )* "}")|("when" "(" condExpr=Expression ")")?
+ *   pathVectors+=( BasePathVector | UnbasedPathVector ); 
+ * 
+ * //CUnbasedPathVector returns build::PathVector : {build::ConditionalPathVector}
+ * //	("when" '(' condExpr=Expression ')')?
+ * //	paths+=Path (',' paths+=Path)* ';'
+ * //	;
  * 	
  *         
- * 	      
- * 	         
+ * 		                      
+ * 	 	                   
  * 	
  * 
  * // A path can be written without quotes if it consists of safe chars
  *
  **/
 
-// {build::CompoundPathVector} "when" "(" condExpr=Expression ")" "{" pathVectors+=
-// PathVector* "}"
-protected class CompoundPathVector_Group extends GroupToken {
-	
-	public CompoundPathVector_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+// {build::ConditionalPathVector} ("when" "(" condExpr=Expression ")" "{" pathVectors+=(
+// BasePathVector | UnbasedPathVector )* "}")|("when" "(" condExpr=Expression ")")?
+// pathVectors+=( BasePathVector | UnbasedPathVector ) 
+// 
+// //CUnbasedPathVector returns build::PathVector : {build::ConditionalPathVector}
+// //	("when" '(' condExpr=Expression ')')?
+// //	paths+=Path (',' paths+=Path)* ';'
+// //	;
+// 	
+//         
+// 		                      
+// 	 	                   
+// 	
+// 
+// // A path can be written without quotes if it consists of safe chars
+protected class ConditionalPathVector_Alternatives extends AlternativesToken {
+
+	public ConditionalPathVector_Alternatives(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getCompoundPathVectorAccess().getGroup();
+	public Alternatives getGrammarElement() {
+		return grammarAccess.getConditionalPathVectorAccess().getAlternatives();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new CompoundPathVector_RightCurlyBracketKeyword_7(parent, this, 0, inst);
+			case 0: return new ConditionalPathVector_Group_0(parent, this, 0, inst);
+			case 1: return new ConditionalPathVector_Group_1(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
 		
     @Override
 	public IInstanceDescription tryConsume() {
-		if(!current.isInstanceOf(grammarAccess.getCompoundPathVectorRule().getType().getClassifier())) return null;
+		if(!current.isInstanceOf(grammarAccess.getConditionalPathVectorRule().getType().getClassifier())) return null;
 		return tryConsumeVal();
 	}
 }
 
-// {build::CompoundPathVector}
-protected class CompoundPathVector_CompoundPathVectorAction_0 extends ActionToken  {
+// {build::ConditionalPathVector} ("when" "(" condExpr=Expression ")" "{" pathVectors+=(
+// BasePathVector | UnbasedPathVector )* "}")
+protected class ConditionalPathVector_Group_0 extends GroupToken {
+	
+	public ConditionalPathVector_Group_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getConditionalPathVectorAccess().getGroup_0();
+	}
 
-	public CompoundPathVector_CompoundPathVectorAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ConditionalPathVector_Group_0_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// {build::ConditionalPathVector}
+protected class ConditionalPathVector_ConditionalPathVectorAction_0_0 extends ActionToken  {
+
+	public ConditionalPathVector_ConditionalPathVectorAction_0_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Action getGrammarElement() {
-		return grammarAccess.getCompoundPathVectorAccess().getCompoundPathVectorAction_0();
+		return grammarAccess.getConditionalPathVectorAccess().getConditionalPathVectorAction_0_0();
 	}
 
     @Override
@@ -9306,28 +8962,51 @@ protected class CompoundPathVector_CompoundPathVectorAction_0 extends ActionToke
 	
     @Override
 	protected IInstanceDescription tryConsumeVal() {
-		if(!current.isInstanceOf(grammarAccess.getCompoundPathVectorAccess().getCompoundPathVectorAction_0().getType().getClassifier())) return null;
+		if(!current.isInstanceOf(grammarAccess.getConditionalPathVectorAccess().getConditionalPathVectorAction_0_0().getType().getClassifier())) return null;
 		if(!current.isConsumed()) return null;
 		return current;
 	}
 }
 
-// "when"
-protected class CompoundPathVector_WhenKeyword_1 extends KeywordToken  {
+// "when" "(" condExpr=Expression ")" "{" pathVectors+=( BasePathVector | UnbasedPathVector
+// )* "}"
+protected class ConditionalPathVector_Group_0_1 extends GroupToken {
 	
-	public CompoundPathVector_WhenKeyword_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ConditionalPathVector_Group_0_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getCompoundPathVectorAccess().getWhenKeyword_1();
+	public Group getGrammarElement() {
+		return grammarAccess.getConditionalPathVectorAccess().getGroup_0_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new CompoundPathVector_CompoundPathVectorAction_0(parent, this, 0, inst);
+			case 0: return new ConditionalPathVector_RightCurlyBracketKeyword_0_1_6(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "when"
+protected class ConditionalPathVector_WhenKeyword_0_1_0 extends KeywordToken  {
+	
+	public ConditionalPathVector_WhenKeyword_0_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getConditionalPathVectorAccess().getWhenKeyword_0_1_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ConditionalPathVector_ConditionalPathVectorAction_0_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -9335,21 +9014,21 @@ protected class CompoundPathVector_WhenKeyword_1 extends KeywordToken  {
 }
 
 // "("
-protected class CompoundPathVector_LeftParenthesisKeyword_2 extends KeywordToken  {
+protected class ConditionalPathVector_LeftParenthesisKeyword_0_1_1 extends KeywordToken  {
 	
-	public CompoundPathVector_LeftParenthesisKeyword_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ConditionalPathVector_LeftParenthesisKeyword_0_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getCompoundPathVectorAccess().getLeftParenthesisKeyword_2();
+		return grammarAccess.getConditionalPathVectorAccess().getLeftParenthesisKeyword_0_1_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new CompoundPathVector_WhenKeyword_1(parent, this, 0, inst);
+			case 0: return new ConditionalPathVector_WhenKeyword_0_1_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -9357,15 +9036,15 @@ protected class CompoundPathVector_LeftParenthesisKeyword_2 extends KeywordToken
 }
 
 // condExpr=Expression
-protected class CompoundPathVector_CondExprAssignment_3 extends AssignmentToken  {
+protected class ConditionalPathVector_CondExprAssignment_0_1_2 extends AssignmentToken  {
 	
-	public CompoundPathVector_CondExprAssignment_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ConditionalPathVector_CondExprAssignment_0_1_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getCompoundPathVectorAccess().getCondExprAssignment_3();
+		return grammarAccess.getConditionalPathVectorAccess().getCondExprAssignment_0_1_2();
 	}
 
     @Override
@@ -9384,7 +9063,7 @@ protected class CompoundPathVector_CondExprAssignment_3 extends AssignmentToken 
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getExpressionRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getCompoundPathVectorAccess().getCondExprExpressionParserRuleCall_3_0(); 
+				element = grammarAccess.getConditionalPathVectorAccess().getCondExprExpressionParserRuleCall_0_1_2_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -9396,28 +9075,28 @@ protected class CompoundPathVector_CondExprAssignment_3 extends AssignmentToken 
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new CompoundPathVector_LeftParenthesisKeyword_2(parent, next, actIndex, consumed);
+			case 0: return new ConditionalPathVector_LeftParenthesisKeyword_0_1_1(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 // ")"
-protected class CompoundPathVector_RightParenthesisKeyword_4 extends KeywordToken  {
+protected class ConditionalPathVector_RightParenthesisKeyword_0_1_3 extends KeywordToken  {
 	
-	public CompoundPathVector_RightParenthesisKeyword_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ConditionalPathVector_RightParenthesisKeyword_0_1_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getCompoundPathVectorAccess().getRightParenthesisKeyword_4();
+		return grammarAccess.getConditionalPathVectorAccess().getRightParenthesisKeyword_0_1_3();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new CompoundPathVector_CondExprAssignment_3(parent, this, 0, inst);
+			case 0: return new ConditionalPathVector_CondExprAssignment_0_1_2(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -9425,43 +9104,44 @@ protected class CompoundPathVector_RightParenthesisKeyword_4 extends KeywordToke
 }
 
 // "{"
-protected class CompoundPathVector_LeftCurlyBracketKeyword_5 extends KeywordToken  {
+protected class ConditionalPathVector_LeftCurlyBracketKeyword_0_1_4 extends KeywordToken  {
 	
-	public CompoundPathVector_LeftCurlyBracketKeyword_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ConditionalPathVector_LeftCurlyBracketKeyword_0_1_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getCompoundPathVectorAccess().getLeftCurlyBracketKeyword_5();
+		return grammarAccess.getConditionalPathVectorAccess().getLeftCurlyBracketKeyword_0_1_4();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new CompoundPathVector_RightParenthesisKeyword_4(parent, this, 0, inst);
+			case 0: return new ConditionalPathVector_RightParenthesisKeyword_0_1_3(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
 		
 }
 
-// pathVectors+=PathVector*
-protected class CompoundPathVector_PathVectorsAssignment_6 extends AssignmentToken  {
+// pathVectors+=( BasePathVector | UnbasedPathVector )*
+protected class ConditionalPathVector_PathVectorsAssignment_0_1_5 extends AssignmentToken  {
 	
-	public CompoundPathVector_PathVectorsAssignment_6(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ConditionalPathVector_PathVectorsAssignment_0_1_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getCompoundPathVectorAccess().getPathVectorsAssignment_6();
+		return grammarAccess.getConditionalPathVectorAccess().getPathVectorsAssignment_0_1_5();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new PathVector_Alternatives(this, this, 0, inst);
+			case 0: return new BasePathVector_Group(this, this, 0, inst);
+			case 1: return new UnbasedPathVector_Group(this, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -9472,9 +9152,18 @@ protected class CompoundPathVector_PathVectorsAssignment_6 extends AssignmentTok
 		IInstanceDescription obj = current.cloneAndConsume("pathVectors");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getPathVectorRule().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getBasePathVectorRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getCompoundPathVectorAccess().getPathVectorsPathVectorParserRuleCall_6_0(); 
+				element = grammarAccess.getConditionalPathVectorAccess().getPathVectorsBasePathVectorParserRuleCall_0_1_5_0_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getUnbasedPathVectorRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getConditionalPathVectorAccess().getPathVectorsUnbasedPathVectorParserRuleCall_0_1_5_0_1(); 
 				consumed = obj;
 				return param;
 			}
@@ -9486,30 +9175,30 @@ protected class CompoundPathVector_PathVectorsAssignment_6 extends AssignmentTok
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new CompoundPathVector_PathVectorsAssignment_6(parent, next, actIndex, consumed);
-			case 1: return new CompoundPathVector_LeftCurlyBracketKeyword_5(parent, next, actIndex, consumed);
+			case 0: return new ConditionalPathVector_PathVectorsAssignment_0_1_5(parent, next, actIndex, consumed);
+			case 1: return new ConditionalPathVector_LeftCurlyBracketKeyword_0_1_4(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 // "}"
-protected class CompoundPathVector_RightCurlyBracketKeyword_7 extends KeywordToken  {
+protected class ConditionalPathVector_RightCurlyBracketKeyword_0_1_6 extends KeywordToken  {
 	
-	public CompoundPathVector_RightCurlyBracketKeyword_7(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ConditionalPathVector_RightCurlyBracketKeyword_0_1_6(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getCompoundPathVectorAccess().getRightCurlyBracketKeyword_7();
+		return grammarAccess.getConditionalPathVectorAccess().getRightCurlyBracketKeyword_0_1_6();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new CompoundPathVector_PathVectorsAssignment_6(parent, this, 0, inst);
-			case 1: return new CompoundPathVector_LeftCurlyBracketKeyword_5(parent, this, 1, inst);
+			case 0: return new ConditionalPathVector_PathVectorsAssignment_0_1_5(parent, this, 0, inst);
+			case 1: return new ConditionalPathVector_LeftCurlyBracketKeyword_0_1_4(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -9517,7 +9206,223 @@ protected class CompoundPathVector_RightCurlyBracketKeyword_7 extends KeywordTok
 }
 
 
-/************ end Rule CompoundPathVector ****************/
+
+// ("when" "(" condExpr=Expression ")")? pathVectors+=( BasePathVector | UnbasedPathVector
+// )
+protected class ConditionalPathVector_Group_1 extends GroupToken {
+	
+	public ConditionalPathVector_Group_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getConditionalPathVectorAccess().getGroup_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ConditionalPathVector_PathVectorsAssignment_1_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// ("when" "(" condExpr=Expression ")")?
+protected class ConditionalPathVector_Group_1_0 extends GroupToken {
+	
+	public ConditionalPathVector_Group_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getConditionalPathVectorAccess().getGroup_1_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ConditionalPathVector_RightParenthesisKeyword_1_0_3(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "when"
+protected class ConditionalPathVector_WhenKeyword_1_0_0 extends KeywordToken  {
+	
+	public ConditionalPathVector_WhenKeyword_1_0_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getConditionalPathVectorAccess().getWhenKeyword_1_0_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			default: return parent.createParentFollower(this, index, index, inst);
+		}	
+	}	
+		
+}
+
+// "("
+protected class ConditionalPathVector_LeftParenthesisKeyword_1_0_1 extends KeywordToken  {
+	
+	public ConditionalPathVector_LeftParenthesisKeyword_1_0_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getConditionalPathVectorAccess().getLeftParenthesisKeyword_1_0_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ConditionalPathVector_WhenKeyword_1_0_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// condExpr=Expression
+protected class ConditionalPathVector_CondExprAssignment_1_0_2 extends AssignmentToken  {
+	
+	public ConditionalPathVector_CondExprAssignment_1_0_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getConditionalPathVectorAccess().getCondExprAssignment_1_0_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Expression_AssignmentExpressionParserRuleCall(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("condExpr",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("condExpr");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getExpressionRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getConditionalPathVectorAccess().getCondExprExpressionParserRuleCall_1_0_2_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new ConditionalPathVector_LeftParenthesisKeyword_1_0_1(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+// ")"
+protected class ConditionalPathVector_RightParenthesisKeyword_1_0_3 extends KeywordToken  {
+	
+	public ConditionalPathVector_RightParenthesisKeyword_1_0_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getConditionalPathVectorAccess().getRightParenthesisKeyword_1_0_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ConditionalPathVector_CondExprAssignment_1_0_2(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+
+// pathVectors+=( BasePathVector | UnbasedPathVector )
+protected class ConditionalPathVector_PathVectorsAssignment_1_1 extends AssignmentToken  {
+	
+	public ConditionalPathVector_PathVectorsAssignment_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getConditionalPathVectorAccess().getPathVectorsAssignment_1_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new BasePathVector_Group(this, this, 0, inst);
+			case 1: return new UnbasedPathVector_Group(this, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("pathVectors",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("pathVectors");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getBasePathVectorRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getConditionalPathVectorAccess().getPathVectorsBasePathVectorParserRuleCall_1_1_0_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getUnbasedPathVectorRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getConditionalPathVectorAccess().getPathVectorsUnbasedPathVectorParserRuleCall_1_1_0_1(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new ConditionalPathVector_Group_1_0(parent, next, actIndex, consumed);
+			default: return parent.createParentFollower(next, actIndex , index - 1, consumed);
+		}	
+	}	
+}
+
+
+
+/************ end Rule ConditionalPathVector ****************/
 
 
 
@@ -32131,9 +32036,9 @@ protected class UnitConcernContext_RightCurlyBracketKeyword_7 extends KeywordTok
  *   defaultPropertiesRemovals+=PID)* ";")? ("+" "default" "properties"
  *   defaultPropertiesAdditions=PropertySetDefault)? ("+" "input" inputAdditions+=
  *   Prerequisite|"-" inputRemovals+=InputPredicate ";")* ("+" "output" outputAdditions+=
- *   PathVector|"-" "output" outputRemovals+=OutputPredicate ";")* ("-" "annotations"
- *   annotationsRemovals+=PID ("," annotationsRemovals+=PID)* ";")? ("+" "annotations"
- *   annotationsAdditions=PropertySet)? funcExpr=BlockExpression? "}"; 
+ *   ConditionalPathVector|"-" "output" outputRemovals+=OutputPredicate ";")* ("-"
+ *   "annotations" annotationsRemovals+=PID ("," annotationsRemovals+=PID)* ";")? ("+"
+ *   "annotations" annotationsAdditions=PropertySet)? funcExpr=BlockExpression? "}"; 
  * 	
  * // Advice for Builders	
  *         
@@ -32189,9 +32094,9 @@ protected class UnitConcernContext_RightCurlyBracketKeyword_7 extends KeywordTok
 // defaultPropertiesRemovals+=PID)* ";")? ("+" "default" "properties"
 // defaultPropertiesAdditions=PropertySetDefault)? ("+" "input" inputAdditions+=
 // Prerequisite|"-" inputRemovals+=InputPredicate ";")* ("+" "output" outputAdditions+=
-// PathVector|"-" "output" outputRemovals+=OutputPredicate ";")* ("-" "annotations"
-// annotationsRemovals+=PID ("," annotationsRemovals+=PID)* ";")? ("+" "annotations"
-// annotationsAdditions=PropertySet)? funcExpr=BlockExpression? "}"   
+// ConditionalPathVector|"-" "output" outputRemovals+=OutputPredicate ";")* ("-"
+// "annotations" annotationsRemovals+=PID ("," annotationsRemovals+=PID)* ";")? ("+"
+// "annotations" annotationsAdditions=PropertySet)? funcExpr=BlockExpression? "}"   
 // 	      
 // 	  
 // 	 	  
@@ -34949,7 +34854,7 @@ protected class BuilderConcernContext_SemicolonKeyword_16_1_2 extends KeywordTok
 
 
 
-// ("+" "output" outputAdditions+=PathVector|"-" "output" outputRemovals+=
+// ("+" "output" outputAdditions+=ConditionalPathVector|"-" "output" outputRemovals+=
 // OutputPredicate ";")*
 protected class BuilderConcernContext_Alternatives_17 extends AlternativesToken {
 
@@ -34973,7 +34878,7 @@ protected class BuilderConcernContext_Alternatives_17 extends AlternativesToken 
 		
 }
 
-// "+" "output" outputAdditions+=PathVector
+// "+" "output" outputAdditions+=ConditionalPathVector
 protected class BuilderConcernContext_Group_17_0 extends GroupToken {
 	
 	public BuilderConcernContext_Group_17_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -35050,7 +34955,7 @@ protected class BuilderConcernContext_OutputKeyword_17_0_1 extends KeywordToken 
 		
 }
 
-// outputAdditions+=PathVector
+// outputAdditions+=ConditionalPathVector
 protected class BuilderConcernContext_OutputAdditionsAssignment_17_0_2 extends AssignmentToken  {
 	
 	public BuilderConcernContext_OutputAdditionsAssignment_17_0_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -35065,7 +34970,7 @@ protected class BuilderConcernContext_OutputAdditionsAssignment_17_0_2 extends A
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new PathVector_Alternatives(this, this, 0, inst);
+			case 0: return new ConditionalPathVector_Alternatives(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -35076,9 +34981,9 @@ protected class BuilderConcernContext_OutputAdditionsAssignment_17_0_2 extends A
 		IInstanceDescription obj = current.cloneAndConsume("outputAdditions");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getPathVectorRule().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getConditionalPathVectorRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getBuilderConcernContextAccess().getOutputAdditionsPathVectorParserRuleCall_17_0_2_0(); 
+				element = grammarAccess.getBuilderConcernContextAccess().getOutputAdditionsConditionalPathVectorParserRuleCall_17_0_2_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -37946,12 +37851,12 @@ protected class OutputPredicate_PathPatternAssignment_2 extends AssignmentToken 
 
 /************ begin Rule BasePathPredicate ****************
  *
- * BasePathPredicate returns build::PathVectorElement:
- *   {build::PathVectorElement} basePath=Path "[" paths+=Path ("," paths+=Path)* "]";
+ * BasePathPredicate returns build::PathVector:
+ *   {build::PathVector} basePath=Path "[" paths+=Path ("," paths+=Path)* "]";
  *
  **/
 
-// {build::PathVectorElement} basePath=Path "[" paths+=Path ("," paths+=Path)* "]"
+// {build::PathVector} basePath=Path "[" paths+=Path ("," paths+=Path)* "]"
 protected class BasePathPredicate_Group extends GroupToken {
 	
 	public BasePathPredicate_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -37978,16 +37883,16 @@ protected class BasePathPredicate_Group extends GroupToken {
 	}
 }
 
-// {build::PathVectorElement}
-protected class BasePathPredicate_PathVectorElementAction_0 extends ActionToken  {
+// {build::PathVector}
+protected class BasePathPredicate_PathVectorAction_0 extends ActionToken  {
 
-	public BasePathPredicate_PathVectorElementAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BasePathPredicate_PathVectorAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Action getGrammarElement() {
-		return grammarAccess.getBasePathPredicateAccess().getPathVectorElementAction_0();
+		return grammarAccess.getBasePathPredicateAccess().getPathVectorAction_0();
 	}
 
     @Override
@@ -38000,7 +37905,7 @@ protected class BasePathPredicate_PathVectorElementAction_0 extends ActionToken 
 	
     @Override
 	protected IInstanceDescription tryConsumeVal() {
-		if(!current.isInstanceOf(grammarAccess.getBasePathPredicateAccess().getPathVectorElementAction_0().getType().getClassifier())) return null;
+		if(!current.isInstanceOf(grammarAccess.getBasePathPredicateAccess().getPathVectorAction_0().getType().getClassifier())) return null;
 		if(!current.isConsumed()) return null;
 		return current;
 	}
@@ -38021,7 +37926,7 @@ protected class BasePathPredicate_BasePathAssignment_1 extends AssignmentToken  
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new BasePathPredicate_PathVectorElementAction_0(parent, this, 0, inst);
+			case 0: return new BasePathPredicate_PathVectorAction_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -38205,12 +38110,12 @@ protected class BasePathPredicate_RightSquareBracketKeyword_5 extends KeywordTok
 
 /************ begin Rule PathPredicate ****************
  *
- * PathPredicate returns build::PathVectorElement:
- *   {build::PathVectorElement} paths+=Path ("," paths+=Path)*;
+ * PathPredicate returns build::PathVector:
+ *   {build::PathVector} paths+=Path ("," paths+=Path)*;
  *
  **/
 
-// {build::PathVectorElement} paths+=Path ("," paths+=Path)*
+// {build::PathVector} paths+=Path ("," paths+=Path)*
 protected class PathPredicate_Group extends GroupToken {
 	
 	public PathPredicate_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -38238,16 +38143,16 @@ protected class PathPredicate_Group extends GroupToken {
 	}
 }
 
-// {build::PathVectorElement}
-protected class PathPredicate_PathVectorElementAction_0 extends ActionToken  {
+// {build::PathVector}
+protected class PathPredicate_PathVectorAction_0 extends ActionToken  {
 
-	public PathPredicate_PathVectorElementAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public PathPredicate_PathVectorAction_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Action getGrammarElement() {
-		return grammarAccess.getPathPredicateAccess().getPathVectorElementAction_0();
+		return grammarAccess.getPathPredicateAccess().getPathVectorAction_0();
 	}
 
     @Override
@@ -38260,7 +38165,7 @@ protected class PathPredicate_PathVectorElementAction_0 extends ActionToken  {
 	
     @Override
 	protected IInstanceDescription tryConsumeVal() {
-		if(!current.isInstanceOf(grammarAccess.getPathPredicateAccess().getPathVectorElementAction_0().getType().getClassifier())) return null;
+		if(!current.isInstanceOf(grammarAccess.getPathPredicateAccess().getPathVectorAction_0().getType().getClassifier())) return null;
 		if(!current.isConsumed()) return null;
 		return current;
 	}
@@ -38281,7 +38186,7 @@ protected class PathPredicate_PathsAssignment_1 extends AssignmentToken  {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new PathPredicate_PathVectorElementAction_0(parent, this, 0, inst);
+			case 0: return new PathPredicate_PathVectorAction_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	

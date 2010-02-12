@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.b3.backend.core.SerialIterator;
+import org.eclipse.b3.build.build.ConditionalPathVector;
 import org.eclipse.b3.build.build.PathGroup;
 import org.eclipse.b3.build.build.PathVector;
 import org.eclipse.core.runtime.IPath;
@@ -17,9 +18,20 @@ public class PathIterator implements Iterator<IPath> {
 	
 	public PathIterator(PathGroup pathGroup) {
 		SerialIterator<IPath> sitor = new SerialIterator<IPath>();
-		for(PathVector pv : pathGroup.getPathVectors())
-			sitor.addIterator(new PathVectorIterator(pv));
+		for(ConditionalPathVector pv : pathGroup.getPathVectors())
+			sitor.addIterator(new PathIterator(pv));
 		itor = sitor;
+	}
+	public PathIterator(ConditionalPathVector cpv) {
+		EList<PathVector> pvs = cpv.getPathVectors();
+		if(pvs.size() == 1)
+			itor = new PathVectorIterator(pvs.get(0));
+		else {
+			SerialIterator<IPath> sitor = new SerialIterator<IPath>();
+			for(PathVector pv : pvs)
+				sitor.addIterator(new PathVectorIterator(pv));
+			itor = sitor;
+		}
 	}
 	public PathIterator(PathVector pathVector) {
 		itor = new PathVectorIterator(pathVector);
@@ -75,9 +87,6 @@ public class PathIterator implements Iterator<IPath> {
 			return result;
 		}
 
-		/**
-		 * Throws {@link UnsupportedOperationException}.
-		 */
 		public void remove() {
 			if(index == 0)
 				throw new IllegalStateException("Remove without preceeding next");

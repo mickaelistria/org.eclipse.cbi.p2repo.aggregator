@@ -35,12 +35,12 @@ public interface OutputPredicate extends BExpression {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Path Vector</em>' containment reference.
-	 * @see #setPathVector(PathVectorElement)
+	 * @see #setPathVector(PathVector)
 	 * @see org.eclipse.b3.build.build.B3BuildPackage#getOutputPredicate_PathVector()
 	 * @model containment="true"
 	 * @generated
 	 */
-	PathVectorElement getPathVector();
+	PathVector getPathVector();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.build.build.OutputPredicate#getPathVector <em>Path Vector</em>}' containment reference.
@@ -50,7 +50,7 @@ public interface OutputPredicate extends BExpression {
 	 * @see #getPathVector()
 	 * @generated
 	 */
-	void setPathVector(PathVectorElement value);
+	void setPathVector(PathVector value);
 
 	/**
 	 * Returns the value of the '<em><b>Path Pattern</b></em>' containment reference.

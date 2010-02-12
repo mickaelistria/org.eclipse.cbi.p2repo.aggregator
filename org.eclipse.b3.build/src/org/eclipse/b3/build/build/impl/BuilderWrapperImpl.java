@@ -829,10 +829,9 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * @generated
 	 */
 	public Iterator<EffectiveBuilderReferenceFacade> getEffectiveBuilderReferences(BExecutionContext ctx) throws Throwable {
-		BuilderInput theInput = getInput();
-		if(theInput != null)
-			return theInput.getEffectiveBuilderReferences(ctx);
-		return SingletonIterator.nullIterator();
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**

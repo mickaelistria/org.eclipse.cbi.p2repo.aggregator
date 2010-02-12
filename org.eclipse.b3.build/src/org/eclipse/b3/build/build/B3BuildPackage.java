@@ -352,7 +352,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuilder()
 	 * @generated
 	 */
-	int BUILDER = 38;
+	int BUILDER = 37;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderJavaImpl <em>Builder Java</em>}' class.
@@ -362,7 +362,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuilderJava()
 	 * @generated
 	 */
-	int BUILDER_JAVA = 39;
+	int BUILDER_JAVA = 38;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderInputImpl <em>Builder Input</em>}' class.
@@ -442,27 +442,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getPathVector()
 	 * @generated
 	 */
-	int PATH_VECTOR = 11;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.CompoundPathVectorImpl <em>Compound Path Vector</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.impl.CompoundPathVectorImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getCompoundPathVector()
-	 * @generated
-	 */
-	int COMPOUND_PATH_VECTOR = 12;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.PathVectorElementImpl <em>Path Vector Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.impl.PathVectorElementImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getPathVectorElement()
-	 * @generated
-	 */
-	int PATH_VECTOR_ELEMENT = 13;
+	int PATH_VECTOR = 12;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.SynchronizationImpl <em>Synchronization</em>}' class.
@@ -472,7 +452,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getSynchronization()
 	 * @generated
 	 */
-	int SYNCHRONIZATION = 14;
+	int SYNCHRONIZATION = 13;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.RepositoryConfigurationImpl <em>Repository Configuration</em>}' class.
@@ -482,7 +462,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getRepositoryConfiguration()
 	 * @generated
 	 */
-	int REPOSITORY_CONFIGURATION = 15;
+	int REPOSITORY_CONFIGURATION = 14;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.RepositoryDeclarationImpl <em>Repository Declaration</em>}' class.
@@ -492,7 +472,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getRepositoryDeclaration()
 	 * @generated
 	 */
-	int REPOSITORY_DECLARATION = 16;
+	int REPOSITORY_DECLARATION = 15;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ResolutionStrategyImpl <em>Resolution Strategy</em>}' class.
@@ -502,7 +482,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getResolutionStrategy()
 	 * @generated
 	 */
-	int RESOLUTION_STRATEGY = 17;
+	int RESOLUTION_STRATEGY = 16;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ResolutionStrategyFirstImpl <em>Resolution Strategy First</em>}' class.
@@ -512,7 +492,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getResolutionStrategyFirst()
 	 * @generated
 	 */
-	int RESOLUTION_STRATEGY_FIRST = 18;
+	int RESOLUTION_STRATEGY_FIRST = 17;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ResolutionStrategyBestImpl <em>Resolution Strategy Best</em>}' class.
@@ -522,7 +502,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getResolutionStrategyBest()
 	 * @generated
 	 */
-	int RESOLUTION_STRATEGY_BEST = 19;
+	int RESOLUTION_STRATEGY_BEST = 18;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ContainerConfigurationImpl <em>Container Configuration</em>}' class.
@@ -532,7 +512,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getContainerConfiguration()
 	 * @generated
 	 */
-	int CONTAINER_CONFIGURATION = 20;
+	int CONTAINER_CONFIGURATION = 19;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuildContextImpl <em>Build Context</em>}' class.
@@ -542,7 +522,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuildContext()
 	 * @generated
 	 */
-	int BUILD_CONTEXT = 21;
+	int BUILD_CONTEXT = 20;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuildConcernContextImpl <em>Build Concern Context</em>}' class.
@@ -552,7 +532,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuildConcernContext()
 	 * @generated
 	 */
-	int BUILD_CONCERN_CONTEXT = 22;
+	int BUILD_CONCERN_CONTEXT = 21;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.RequiresPredicateImpl <em>Requires Predicate</em>}' class.
@@ -562,7 +542,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getRequiresPredicate()
 	 * @generated
 	 */
-	int REQUIRES_PREDICATE = 23;
+	int REQUIRES_PREDICATE = 22;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.CapabilityPredicateImpl <em>Capability Predicate</em>}' class.
@@ -572,7 +552,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getCapabilityPredicate()
 	 * @generated
 	 */
-	int CAPABILITY_PREDICATE = 24;
+	int CAPABILITY_PREDICATE = 23;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ImplementsPredicateImpl <em>Implements Predicate</em>}' class.
@@ -582,7 +562,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getImplementsPredicate()
 	 * @generated
 	 */
-	int IMPLEMENTS_PREDICATE = 25;
+	int IMPLEMENTS_PREDICATE = 24;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ProvidesPredicateImpl <em>Provides Predicate</em>}' class.
@@ -592,7 +572,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getProvidesPredicate()
 	 * @generated
 	 */
-	int PROVIDES_PREDICATE = 26;
+	int PROVIDES_PREDICATE = 25;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.NameSpacePredicateImpl <em>Name Space Predicate</em>}' class.
@@ -602,7 +582,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getNameSpacePredicate()
 	 * @generated
 	 */
-	int NAME_SPACE_PREDICATE = 27;
+	int NAME_SPACE_PREDICATE = 26;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.UnitNamePredicateImpl <em>Unit Name Predicate</em>}' class.
@@ -612,7 +592,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getUnitNamePredicate()
 	 * @generated
 	 */
-	int UNIT_NAME_PREDICATE = 28;
+	int UNIT_NAME_PREDICATE = 27;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderNamePredicateImpl <em>Builder Name Predicate</em>}' class.
@@ -622,7 +602,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuilderNamePredicate()
 	 * @generated
 	 */
-	int BUILDER_NAME_PREDICATE = 29;
+	int BUILDER_NAME_PREDICATE = 28;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.InputPredicateImpl <em>Input Predicate</em>}' class.
@@ -632,7 +612,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getInputPredicate()
 	 * @generated
 	 */
-	int INPUT_PREDICATE = 30;
+	int INPUT_PREDICATE = 29;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.UnitConcernContextImpl <em>Unit Concern Context</em>}' class.
@@ -642,7 +622,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getUnitConcernContext()
 	 * @generated
 	 */
-	int UNIT_CONCERN_CONTEXT = 31;
+	int UNIT_CONCERN_CONTEXT = 30;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl <em>Builder Concern Context</em>}' class.
@@ -652,7 +632,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuilderConcernContext()
 	 * @generated
 	 */
-	int BUILDER_CONCERN_CONTEXT = 32;
+	int BUILDER_CONCERN_CONTEXT = 31;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.OutputPredicateImpl <em>Output Predicate</em>}' class.
@@ -662,7 +642,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getOutputPredicate()
 	 * @generated
 	 */
-	int OUTPUT_PREDICATE = 33;
+	int OUTPUT_PREDICATE = 32;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.AliasedRequiredCapabilityImpl <em>Aliased Required Capability</em>}' class.
@@ -672,7 +652,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getAliasedRequiredCapability()
 	 * @generated
 	 */
-	int ALIASED_REQUIRED_CAPABILITY = 34;
+	int ALIASED_REQUIRED_CAPABILITY = 33;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.IRequiredCapabilityContainer <em>IRequired Capability Container</em>}' class.
@@ -682,7 +662,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getIRequiredCapabilityContainer()
 	 * @generated
 	 */
-	int IREQUIRED_CAPABILITY_CONTAINER = 35;
+	int IREQUIRED_CAPABILITY_CONTAINER = 34;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.IProvidedCapabilityContainer <em>IProvided Capability Container</em>}' class.
@@ -692,7 +672,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getIProvidedCapabilityContainer()
 	 * @generated
 	 */
-	int IPROVIDED_CAPABILITY_CONTAINER = 36;
+	int IPROVIDED_CAPABILITY_CONTAINER = 35;
 
 	/**
 	 * The feature id for the '<em><b>Provided Capabilities</b></em>' containment reference list.
@@ -1164,13 +1144,50 @@ public interface B3BuildPackage extends EPackage {
 	int REQUIRED_CAPABILITY_FEATURE_COUNT = CAPABILITY_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ConditionalPathVectorImpl <em>Conditional Path Vector</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.ConditionalPathVectorImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getConditionalPathVector()
+	 * @generated
+	 */
+	int CONDITIONAL_PATH_VECTOR = 11;
+
+	/**
 	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_VECTOR__COND_EXPR = 0;
+	int CONDITIONAL_PATH_VECTOR__COND_EXPR = 0;
+
+	/**
+	 * The feature id for the '<em><b>Path Vectors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITIONAL_PATH_VECTOR__PATH_VECTORS = 1;
+
+	/**
+	 * The number of structural features of the '<em>Conditional Path Vector</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITIONAL_PATH_VECTOR_FEATURE_COUNT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Paths</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATH_VECTOR__PATHS = 0;
 
 	/**
 	 * The feature id for the '<em><b>Base Path</b></em>' attribute.
@@ -1182,103 +1199,13 @@ public interface B3BuildPackage extends EPackage {
 	int PATH_VECTOR__BASE_PATH = 1;
 
 	/**
-	 * The feature id for the '<em><b>Paths</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATH_VECTOR__PATHS = 2;
-
-	/**
 	 * The number of structural features of the '<em>Path Vector</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_VECTOR_FEATURE_COUNT = 3;
-
-	/**
-	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOUND_PATH_VECTOR__COND_EXPR = PATH_VECTOR__COND_EXPR;
-
-	/**
-	 * The feature id for the '<em><b>Base Path</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOUND_PATH_VECTOR__BASE_PATH = PATH_VECTOR__BASE_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Paths</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOUND_PATH_VECTOR__PATHS = PATH_VECTOR__PATHS;
-
-	/**
-	 * The feature id for the '<em><b>Path Vectors</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOUND_PATH_VECTOR__PATH_VECTORS = PATH_VECTOR_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Compound Path Vector</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOUND_PATH_VECTOR_FEATURE_COUNT = PATH_VECTOR_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATH_VECTOR_ELEMENT__COND_EXPR = PATH_VECTOR__COND_EXPR;
-
-	/**
-	 * The feature id for the '<em><b>Base Path</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATH_VECTOR_ELEMENT__BASE_PATH = PATH_VECTOR__BASE_PATH;
-
-	/**
-	 * The feature id for the '<em><b>Paths</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATH_VECTOR_ELEMENT__PATHS = PATH_VECTOR__PATHS;
-
-	/**
-	 * The number of structural features of the '<em>Path Vector Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATH_VECTOR_ELEMENT_FEATURE_COUNT = PATH_VECTOR_FEATURE_COUNT + 0;
+	int PATH_VECTOR_FEATURE_COUNT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Builder Queries</b></em>' containment reference list.
@@ -2179,7 +2106,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuilderQuery()
 	 * @generated
 	 */
-	int BUILDER_QUERY = 37;
+	int BUILDER_QUERY = 36;
 
 	/**
 	 * The feature id for the '<em><b>Builder Queries</b></em>' containment reference list.
@@ -2712,7 +2639,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuilderWrapper()
 	 * @generated
 	 */
-	int BUILDER_WRAPPER = 40;
+	int BUILDER_WRAPPER = 39;
 
 	/**
 	 * The feature id for the '<em><b>Visibility</b></em>' attribute.
@@ -3037,7 +2964,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBeeModel()
 	 * @generated
 	 */
-	int BEE_MODEL = 41;
+	int BEE_MODEL = 40;
 
 	/**
 	 * The feature id for the '<em><b>Imports</b></em>' containment reference list.
@@ -3101,7 +3028,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBeeHive()
 	 * @generated
 	 */
-	int BEE_HIVE = 42;
+	int BEE_HIVE = 41;
 
 	/**
 	 * The feature id for the '<em><b>Bee Models</b></em>' reference list.
@@ -3147,7 +3074,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getResolutionInfo()
 	 * @generated
 	 */
-	int RESOLUTION_INFO = 43;
+	int RESOLUTION_INFO = 42;
 
 	/**
 	 * The number of structural features of the '<em>Resolution Info</em>' class.
@@ -3166,7 +3093,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getEffectiveFacade()
 	 * @generated
 	 */
-	int EFFECTIVE_FACADE = 44;
+	int EFFECTIVE_FACADE = 43;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -3194,7 +3121,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getEffectiveUnitFacade()
 	 * @generated
 	 */
-	int EFFECTIVE_UNIT_FACADE = 45;
+	int EFFECTIVE_UNIT_FACADE = 44;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -3258,7 +3185,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getEffectiveRequirementFacade()
 	 * @generated
 	 */
-	int EFFECTIVE_REQUIREMENT_FACADE = 46;
+	int EFFECTIVE_REQUIREMENT_FACADE = 45;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -3295,7 +3222,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getEffectiveCapabilityFacade()
 	 * @generated
 	 */
-	int EFFECTIVE_CAPABILITY_FACADE = 47;
+	int EFFECTIVE_CAPABILITY_FACADE = 46;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -3332,7 +3259,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getEffectiveBuilderReferenceFacade()
 	 * @generated
 	 */
-	int EFFECTIVE_BUILDER_REFERENCE_FACADE = 48;
+	int EFFECTIVE_BUILDER_REFERENCE_FACADE = 47;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' reference.
@@ -3353,13 +3280,59 @@ public interface B3BuildPackage extends EPackage {
 	int EFFECTIVE_BUILDER_REFERENCE_FACADE__BUILDER_REFERENCE = EFFECTIVE_FACADE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Aliases</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EFFECTIVE_BUILDER_REFERENCE_FACADE__ALIASES = EFFECTIVE_FACADE_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Effective Builder Reference Facade</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EFFECTIVE_BUILDER_REFERENCE_FACADE_FEATURE_COUNT = EFFECTIVE_FACADE_FEATURE_COUNT + 1;
+	int EFFECTIVE_BUILDER_REFERENCE_FACADE_FEATURE_COUNT = EFFECTIVE_FACADE_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuildResultImpl <em>Build Result</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.BuildResultImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuildResult()
+	 * @generated
+	 */
+	int BUILD_RESULT = 48;
+
+	/**
+	 * The feature id for the '<em><b>Path Vectors</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_RESULT__PATH_VECTORS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_RESULT__VALUE_MAP = 1;
+
+	/**
+	 * The number of structural features of the '<em>Build Result</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_RESULT_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '<em>Version Range</em>' data type.
@@ -3941,6 +3914,49 @@ public interface B3BuildPackage extends EPackage {
 	EReference getEffectiveBuilderReferenceFacade_BuilderReference();
 
 	/**
+	 * Returns the meta object for the attribute list '{@link org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade#getAliases <em>Aliases</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Aliases</em>'.
+	 * @see org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade#getAliases()
+	 * @see #getEffectiveBuilderReferenceFacade()
+	 * @generated
+	 */
+	EAttribute getEffectiveBuilderReferenceFacade_Aliases();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuildResult <em>Build Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Build Result</em>'.
+	 * @see org.eclipse.b3.build.build.BuildResult
+	 * @generated
+	 */
+	EClass getBuildResult();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.build.build.BuildResult#getPathVectors <em>Path Vectors</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Path Vectors</em>'.
+	 * @see org.eclipse.b3.build.build.BuildResult#getPathVectors()
+	 * @see #getBuildResult()
+	 * @generated
+	 */
+	EReference getBuildResult_PathVectors();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuildResult#getValueMap <em>Value Map</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value Map</em>'.
+	 * @see org.eclipse.b3.build.build.BuildResult#getValueMap()
+	 * @see #getBuildResult()
+	 * @generated
+	 */
+	EAttribute getBuildResult_ValueMap();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.VersionedCapability <em>Versioned Capability</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4026,6 +4042,38 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getRequiredCapability_VersionRange();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.ConditionalPathVector <em>Conditional Path Vector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Conditional Path Vector</em>'.
+	 * @see org.eclipse.b3.build.build.ConditionalPathVector
+	 * @generated
+	 */
+	EClass getConditionalPathVector();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.ConditionalPathVector#getCondExpr <em>Cond Expr</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Cond Expr</em>'.
+	 * @see org.eclipse.b3.build.build.ConditionalPathVector#getCondExpr()
+	 * @see #getConditionalPathVector()
+	 * @generated
+	 */
+	EReference getConditionalPathVector_CondExpr();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.ConditionalPathVector#getPathVectors <em>Path Vectors</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Path Vectors</em>'.
+	 * @see org.eclipse.b3.build.build.ConditionalPathVector#getPathVectors()
+	 * @see #getConditionalPathVector()
+	 * @generated
+	 */
+	EReference getConditionalPathVector_PathVectors();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.PathVector <em>Path Vector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4034,17 +4082,6 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getPathVector();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.PathVector#getCondExpr <em>Cond Expr</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Cond Expr</em>'.
-	 * @see org.eclipse.b3.build.build.PathVector#getCondExpr()
-	 * @see #getPathVector()
-	 * @generated
-	 */
-	EReference getPathVector_CondExpr();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.PathVector#getBasePath <em>Base Path</em>}'.
@@ -4067,37 +4104,6 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getPathVector_Paths();
-
-	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.CompoundPathVector <em>Compound Path Vector</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Compound Path Vector</em>'.
-	 * @see org.eclipse.b3.build.build.CompoundPathVector
-	 * @generated
-	 */
-	EClass getCompoundPathVector();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.CompoundPathVector#getPathVectors <em>Path Vectors</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Path Vectors</em>'.
-	 * @see org.eclipse.b3.build.build.CompoundPathVector#getPathVectors()
-	 * @see #getCompoundPathVector()
-	 * @generated
-	 */
-	EReference getCompoundPathVector_PathVectors();
-
-	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.PathVectorElement <em>Path Vector Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Path Vector Element</em>'.
-	 * @see org.eclipse.b3.build.build.PathVectorElement
-	 * @generated
-	 */
-	EClass getPathVectorElement();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.Synchronization <em>Synchronization</em>}'.
@@ -5590,6 +5596,40 @@ public interface B3BuildPackage extends EPackage {
 		EReference EFFECTIVE_BUILDER_REFERENCE_FACADE__BUILDER_REFERENCE = eINSTANCE.getEffectiveBuilderReferenceFacade_BuilderReference();
 
 		/**
+		 * The meta object literal for the '<em><b>Aliases</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EFFECTIVE_BUILDER_REFERENCE_FACADE__ALIASES = eINSTANCE.getEffectiveBuilderReferenceFacade_Aliases();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuildResultImpl <em>Build Result</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.impl.BuildResultImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuildResult()
+		 * @generated
+		 */
+		EClass BUILD_RESULT = eINSTANCE.getBuildResult();
+
+		/**
+		 * The meta object literal for the '<em><b>Path Vectors</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BUILD_RESULT__PATH_VECTORS = eINSTANCE.getBuildResult_PathVectors();
+
+		/**
+		 * The meta object literal for the '<em><b>Value Map</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BUILD_RESULT__VALUE_MAP = eINSTANCE.getBuildResult_ValueMap();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.VersionedCapabilityImpl <em>Versioned Capability</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5660,6 +5700,32 @@ public interface B3BuildPackage extends EPackage {
 		EAttribute REQUIRED_CAPABILITY__VERSION_RANGE = eINSTANCE.getRequiredCapability_VersionRange();
 
 		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.ConditionalPathVectorImpl <em>Conditional Path Vector</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.impl.ConditionalPathVectorImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getConditionalPathVector()
+		 * @generated
+		 */
+		EClass CONDITIONAL_PATH_VECTOR = eINSTANCE.getConditionalPathVector();
+
+		/**
+		 * The meta object literal for the '<em><b>Cond Expr</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONDITIONAL_PATH_VECTOR__COND_EXPR = eINSTANCE.getConditionalPathVector_CondExpr();
+
+		/**
+		 * The meta object literal for the '<em><b>Path Vectors</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONDITIONAL_PATH_VECTOR__PATH_VECTORS = eINSTANCE.getConditionalPathVector_PathVectors();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.PathVectorImpl <em>Path Vector</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5668,14 +5734,6 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PATH_VECTOR = eINSTANCE.getPathVector();
-
-		/**
-		 * The meta object literal for the '<em><b>Cond Expr</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PATH_VECTOR__COND_EXPR = eINSTANCE.getPathVector_CondExpr();
 
 		/**
 		 * The meta object literal for the '<em><b>Base Path</b></em>' attribute feature.
@@ -5692,34 +5750,6 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PATH_VECTOR__PATHS = eINSTANCE.getPathVector_Paths();
-
-		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.CompoundPathVectorImpl <em>Compound Path Vector</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.b3.build.build.impl.CompoundPathVectorImpl
-		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getCompoundPathVector()
-		 * @generated
-		 */
-		EClass COMPOUND_PATH_VECTOR = eINSTANCE.getCompoundPathVector();
-
-		/**
-		 * The meta object literal for the '<em><b>Path Vectors</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COMPOUND_PATH_VECTOR__PATH_VECTORS = eINSTANCE.getCompoundPathVector_PathVectors();
-
-		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.PathVectorElementImpl <em>Path Vector Element</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.b3.build.build.impl.PathVectorElementImpl
-		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getPathVectorElement()
-		 * @generated
-		 */
-		EClass PATH_VECTOR_ELEMENT = eINSTANCE.getPathVectorElement();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.SynchronizationImpl <em>Synchronization</em>}' class.

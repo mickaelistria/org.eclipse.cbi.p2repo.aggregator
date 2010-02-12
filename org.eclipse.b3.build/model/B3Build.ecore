@@ -109,7 +109,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="annotations" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BPropertySet"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="pathVectors" upperBound="-1"
-        eType="#//PathVector" containment="true"/>
+        eType="#//ConditionalPathVector" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Prerequisite">
     <eOperations name="getEffectiveRequirements" eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
@@ -192,18 +192,17 @@
   <eClassifiers xsi:type="ecore:EClass" name="RequiredCapability" eSuperTypes="#//Capability">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="versionRange" eType="#//VersionRange"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PathVector">
+  <eClassifiers xsi:type="ecore:EClass" name="ConditionalPathVector">
     <eStructuralFeatures xsi:type="ecore:EReference" name="condExpr" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="basePath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="paths" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CompoundPathVector" eSuperTypes="#//PathVector">
     <eStructuralFeatures xsi:type="ecore:EReference" name="pathVectors" upperBound="-1"
         eType="#//PathVector" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PathVectorElement" eSuperTypes="#//PathVector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PathVector">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="paths" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="basePath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Synchronization">
     <eStructuralFeatures xsi:type="ecore:EReference" name="builderQueries" upperBound="-1"
         eType="#//BuilderQuery" containment="true"/>
@@ -345,7 +344,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputRemovals" upperBound="-1"
         eType="#//InputPredicate" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputAdditions" upperBound="-1"
-        eType="#//PathVector" containment="true"/>
+        eType="#//ConditionalPathVector" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputRemovals" upperBound="-1"
         eType="#//OutputPredicate" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="funcExpr" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"
@@ -379,7 +378,7 @@
       </eAnnotations>
       <eParameters name="input" eType="#//PathGroup"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="pathVector" eType="#//PathVectorElement"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pathVector" eType="#//PathVector"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="pathPattern" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"
         containment="true"/>
@@ -468,5 +467,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EffectiveBuilderReferenceFacade" eSuperTypes="#//EffectiveFacade">
     <eStructuralFeatures xsi:type="ecore:EReference" name="builderReference" eType="#//BuilderReference"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="aliases" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BuildResult">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pathVectors" eType="#//PathVector"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueMap" eType="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//ValueMap"/>
   </eClassifiers>
 </ecore:EPackage>

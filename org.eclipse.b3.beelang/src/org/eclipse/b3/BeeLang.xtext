@@ -166,28 +166,36 @@ BuilderQuery returns build::BuilderQuery : {build::BuilderQuery}
 	;
 	
 PathGroup returns build::PathGroup: {build::PathGroup}
-	pathVectors+=PathVector+ ('annotations' annotations = PropertySet)?
+	pathVectors += ConditionalPathVector+ ('annotations' annotations = PropertySet)?
 	;
 
-PathVector returns build::PathVector
-	: BasePathVector
-	| UnbasedPathVector
-	| CompoundPathVector
-	;
+//PathVector returns build::ConditionalPathVector
+//	: CBasePathVector
+//	| CUnbasedPathVector
+//	| CompoundPathVector
+//	;
 	
-BasePathVector returns build::PathVector : {build::PathVectorElement}
-	("when" '(' condExpr=Expression ')')?
+//CBasePathVector returns build::PathVector : {build::ConditionalPathVector}
+//	("when" '(' condExpr=Expression ')')?
+//	pathVectors += (BasePathVector | UnbasedPathVector)
+//	;
+
+BasePathVector returns build::PathVector : {build::PathVector}
 	basePath=Path '[' ( paths+=Path (',' paths+=Path)*)? ']' ';'
 	;
 
-UnbasedPathVector returns build::PathVector : {build::PathVectorElement}
-	("when" '(' condExpr=Expression ')')?
+UnbasedPathVector returns build::PathVector : {build::PathVector}
 	paths+=Path (',' paths+=Path)* ';'
 	;
+
+//CUnbasedPathVector returns build::PathVector : {build::ConditionalPathVector}
+//	("when" '(' condExpr=Expression ')')?
+//	paths+=Path (',' paths+=Path)* ';'
+//	;
 	
-CompoundPathVector returns build::PathVector : {build::CompoundPathVector}
-	"when" '(' condExpr=Expression ')'
-	'{' (pathVectors += PathVector)* '}' 
+ConditionalPathVector returns build::ConditionalPathVector : {build::ConditionalPathVector}
+		("when" '(' condExpr=Expression ')' '{' (pathVectors += (BasePathVector | UnbasedPathVector))* '}' )
+	| 	(("when" '(' condExpr=Expression ')')? pathVectors += (BasePathVector | UnbasedPathVector) )
 	;
 
 // A path can be written without quotes if it consists of safe chars 
@@ -722,7 +730,7 @@ BuilderConcernContext returns build::BuilderConcernContext : {build::BuilderConc
 		| ('-' inputRemovals += InputPredicate ';')
 		)*
 		
-		( ('+' "output" outputAdditions += PathVector)
+		( ('+' "output" outputAdditions += ConditionalPathVector)
 		| ('-' "output" outputRemovals += OutputPredicate ';'))*
 		
 		('-' "annotations" annotationsRemovals += PID (',' annotationsRemovals += PID)* ';')?
@@ -793,10 +801,10 @@ OutputPredicate returns build::OutputPredicate : {build::OutputPredicate}
 	| pathPattern = RegexpLiteral
 	;
 	
-BasePathPredicate returns build::PathVectorElement : {build::PathVectorElement}
+BasePathPredicate returns build::PathVector : {build::PathVector}
 	basePath = Path '[' paths += Path (',' paths += Path)* ']'
 	;
-PathPredicate returns build::PathVectorElement : {build::PathVectorElement}
+PathPredicate returns build::PathVector : {build::PathVector}
 	paths += Path (',' paths += Path)*
 	;
 

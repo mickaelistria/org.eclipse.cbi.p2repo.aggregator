@@ -127,16 +127,12 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 				return createRequiredCapabilityAdapter();
 			}
 			@Override
+			public Adapter caseConditionalPathVector(ConditionalPathVector object) {
+				return createConditionalPathVectorAdapter();
+			}
+			@Override
 			public Adapter casePathVector(PathVector object) {
 				return createPathVectorAdapter();
-			}
-			@Override
-			public Adapter caseCompoundPathVector(CompoundPathVector object) {
-				return createCompoundPathVectorAdapter();
-			}
-			@Override
-			public Adapter casePathVectorElement(PathVectorElement object) {
-				return createPathVectorElementAdapter();
 			}
 			@Override
 			public Adapter caseSynchronization(Synchronization object) {
@@ -277,6 +273,10 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseEffectiveBuilderReferenceFacade(EffectiveBuilderReferenceFacade object) {
 				return createEffectiveBuilderReferenceFacadeAdapter();
+			}
+			@Override
+			public Adapter caseBuildResult(BuildResult object) {
+				return createBuildResultAdapter();
 			}
 			@Override
 			public Adapter caseBFunctionContainer(BFunctionContainer object) {
@@ -521,6 +521,20 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.BuildResult <em>Build Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.BuildResult
+	 * @generated
+	 */
+	public Adapter createBuildResultAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.VersionedCapability <em>Versioned Capability</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -563,6 +577,20 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.ConditionalPathVector <em>Conditional Path Vector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.ConditionalPathVector
+	 * @generated
+	 */
+	public Adapter createConditionalPathVectorAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.PathVector <em>Path Vector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -573,34 +601,6 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPathVectorAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.CompoundPathVector <em>Compound Path Vector</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.b3.build.build.CompoundPathVector
-	 * @generated
-	 */
-	public Adapter createCompoundPathVectorAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.PathVectorElement <em>Path Vector Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.b3.build.build.PathVectorElement
-	 * @generated
-	 */
-	public Adapter createPathVectorElementAdapter() {
 		return null;
 	}
 

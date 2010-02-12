@@ -107,7 +107,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 
 	/**
 	 * Returns the value of the '<em><b>Output Additions</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.b3.build.build.PathVector}.
+	 * The list contents are of type {@link org.eclipse.b3.build.build.ConditionalPathVector}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Output Additions</em>' containment reference list isn't clear,
@@ -119,7 +119,7 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<PathVector> getOutputAdditions();
+	EList<ConditionalPathVector> getOutputAdditions();
 
 	/**
 	 * Returns the value of the '<em><b>Output Removals</b></em>' containment reference list.

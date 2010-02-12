@@ -10,6 +10,8 @@
  */
 package org.eclipse.b3.build.build;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -20,6 +22,7 @@ package org.eclipse.b3.build.build;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade#getBuilderReference <em>Builder Reference</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade#getAliases <em>Aliases</em>}</li>
  * </ul>
  * </p>
  *
@@ -53,5 +56,21 @@ public interface EffectiveBuilderReferenceFacade extends EffectiveFacade {
 	 * @generated
 	 */
 	void setBuilderReference(BuilderReference value);
+
+	/**
+	 * Returns the value of the '<em><b>Aliases</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Aliases</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Aliases</em>' attribute list.
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getEffectiveBuilderReferenceFacade_Aliases()
+	 * @model
+	 * @generated
+	 */
+	EList<String> getAliases();
 
 } // EffectiveBuilderReferenceFacade

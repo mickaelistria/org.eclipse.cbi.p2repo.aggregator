@@ -22,6 +22,7 @@ import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.IBuilder;
 import org.eclipse.b3.build.build.OutputPredicate;
 import org.eclipse.b3.build.build.PathGroup;
+import org.eclipse.b3.build.build.PathVector;
 import org.eclipse.b3.build.build.PathVectorElement;
 import org.eclipse.b3.build.core.PathIterator;
 import org.eclipse.core.runtime.IPath;
@@ -55,7 +56,7 @@ public class OutputPredicateImpl extends BExpressionImpl implements OutputPredic
 	 * @generated
 	 * @ordered
 	 */
-	protected PathVectorElement pathVector;
+	protected PathVector pathVector;
 
 	/**
 	 * The cached value of the '{@link #getPathPattern() <em>Path Pattern</em>}' containment reference.
@@ -91,7 +92,7 @@ public class OutputPredicateImpl extends BExpressionImpl implements OutputPredic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PathVectorElement getPathVector() {
+	public PathVector getPathVector() {
 		return pathVector;
 	}
 
@@ -100,8 +101,8 @@ public class OutputPredicateImpl extends BExpressionImpl implements OutputPredic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPathVector(PathVectorElement newPathVector, NotificationChain msgs) {
-		PathVectorElement oldPathVector = pathVector;
+	public NotificationChain basicSetPathVector(PathVector newPathVector, NotificationChain msgs) {
+		PathVector oldPathVector = pathVector;
 		pathVector = newPathVector;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.OUTPUT_PREDICATE__PATH_VECTOR, oldPathVector, newPathVector);
@@ -115,7 +116,7 @@ public class OutputPredicateImpl extends BExpressionImpl implements OutputPredic
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPathVector(PathVectorElement newPathVector) {
+	public void setPathVector(PathVector newPathVector) {
 		if (newPathVector != pathVector) {
 			NotificationChain msgs = null;
 			if (pathVector != null)
@@ -262,7 +263,7 @@ public class OutputPredicateImpl extends BExpressionImpl implements OutputPredic
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case B3BuildPackage.OUTPUT_PREDICATE__PATH_VECTOR:
-				setPathVector((PathVectorElement)newValue);
+				setPathVector((PathVector)newValue);
 				return;
 			case B3BuildPackage.OUTPUT_PREDICATE__PATH_PATTERN:
 				setPathPattern((BExpression)newValue);
@@ -280,7 +281,7 @@ public class OutputPredicateImpl extends BExpressionImpl implements OutputPredic
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case B3BuildPackage.OUTPUT_PREDICATE__PATH_VECTOR:
-				setPathVector((PathVectorElement)null);
+				setPathVector((PathVector)null);
 				return;
 			case B3BuildPackage.OUTPUT_PREDICATE__PATH_PATTERN:
 				setPathPattern((BExpression)null);

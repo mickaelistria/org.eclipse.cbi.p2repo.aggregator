@@ -1786,29 +1786,44 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cPathGroupAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cPathVectorsAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cPathVectorsPathVectorParserRuleCall_1_0 = (RuleCall)cPathVectorsAssignment_1.eContents().get(0);
+		private final RuleCall cPathVectorsConditionalPathVectorParserRuleCall_1_0 = (RuleCall)cPathVectorsAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Keyword cAnnotationsKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
 		private final Assignment cAnnotationsAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final RuleCall cAnnotationsPropertySetParserRuleCall_2_1_0 = (RuleCall)cAnnotationsAssignment_2_1.eContents().get(0);
 		
 		//PathGroup returns build::PathGroup:
-		//  {build::PathGroup} pathVectors+=PathVector+ ("annotations" annotations=PropertySet)
-		//  ?;
+		//  {build::PathGroup} pathVectors+=ConditionalPathVector+ ("annotations" annotations=
+		//  PropertySet)?; 
+		//	
+		//      
+		//	            
+		//	
+		//
+		////PathVector returns build::ConditionalPathVector
+		////	: CBasePathVector
+		////	| CUnbasedPathVector
+		////	| CompoundPathVector
+		////	;
+		//	
+		////CBasePathVector returns build::PathVector : {build::ConditionalPathVector}
+		////	("when" '(' condExpr=Expression ')')?
+		////	pathVectors += (BasePathVector | UnbasedPathVector)
+		////	;
 		public ParserRule getRule() { return rule; }
 
-		//{build::PathGroup} pathVectors+=PathVector+ ("annotations" annotations=PropertySet)
-		//?
+		//{build::PathGroup} pathVectors+=ConditionalPathVector+ ("annotations" annotations=
+		//PropertySet)?
 		public Group getGroup() { return cGroup; }
 
 		//{build::PathGroup}
 		public Action getPathGroupAction_0() { return cPathGroupAction_0; }
 
-		//pathVectors+=PathVector+
+		//pathVectors+=ConditionalPathVector+
 		public Assignment getPathVectorsAssignment_1() { return cPathVectorsAssignment_1; }
 
-		//PathVector
-		public RuleCall getPathVectorsPathVectorParserRuleCall_1_0() { return cPathVectorsPathVectorParserRuleCall_1_0; }
+		//ConditionalPathVector
+		public RuleCall getPathVectorsConditionalPathVectorParserRuleCall_1_0() { return cPathVectorsConditionalPathVectorParserRuleCall_1_0; }
 
 		//("annotations" annotations=PropertySet)?
 		public Group getGroup_2() { return cGroup_2; }
@@ -1823,249 +1838,275 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getAnnotationsPropertySetParserRuleCall_2_1_0() { return cAnnotationsPropertySetParserRuleCall_2_1_0; }
 	}
 
-	public class PathVectorElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PathVector");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cBasePathVectorParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cUnbasedPathVectorParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cCompoundPathVectorParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		
-		//PathVector returns build::PathVector:
-		//  BasePathVector|UnbasedPathVector|CompoundPathVector;
-		public ParserRule getRule() { return rule; }
-
-		//BasePathVector|UnbasedPathVector|CompoundPathVector
-		public Alternatives getAlternatives() { return cAlternatives; }
-
-		//BasePathVector
-		public RuleCall getBasePathVectorParserRuleCall_0() { return cBasePathVectorParserRuleCall_0; }
-
-		//UnbasedPathVector
-		public RuleCall getUnbasedPathVectorParserRuleCall_1() { return cUnbasedPathVectorParserRuleCall_1; }
-
-		//CompoundPathVector
-		public RuleCall getCompoundPathVectorParserRuleCall_2() { return cCompoundPathVectorParserRuleCall_2; }
-	}
-
 	public class BasePathVectorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "BasePathVector");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cPathVectorElementAction_0 = (Action)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cWhenKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final Assignment cCondExprAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cCondExprExpressionParserRuleCall_1_2_0 = (RuleCall)cCondExprAssignment_1_2.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
-		private final Assignment cBasePathAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cBasePathPathParserRuleCall_2_0 = (RuleCall)cBasePathAssignment_2.eContents().get(0);
-		private final Keyword cLeftSquareBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Assignment cPathsAssignment_4_0 = (Assignment)cGroup_4.eContents().get(0);
-		private final RuleCall cPathsPathParserRuleCall_4_0_0 = (RuleCall)cPathsAssignment_4_0.eContents().get(0);
-		private final Group cGroup_4_1 = (Group)cGroup_4.eContents().get(1);
-		private final Keyword cCommaKeyword_4_1_0 = (Keyword)cGroup_4_1.eContents().get(0);
-		private final Assignment cPathsAssignment_4_1_1 = (Assignment)cGroup_4_1.eContents().get(1);
-		private final RuleCall cPathsPathParserRuleCall_4_1_1_0 = (RuleCall)cPathsAssignment_4_1_1.eContents().get(0);
-		private final Keyword cRightSquareBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Keyword cSemicolonKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Action cPathVectorAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cBasePathAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cBasePathPathParserRuleCall_1_0 = (RuleCall)cBasePathAssignment_1.eContents().get(0);
+		private final Keyword cLeftSquareBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Assignment cPathsAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
+		private final RuleCall cPathsPathParserRuleCall_3_0_0 = (RuleCall)cPathsAssignment_3_0.eContents().get(0);
+		private final Group cGroup_3_1 = (Group)cGroup_3.eContents().get(1);
+		private final Keyword cCommaKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
+		private final Assignment cPathsAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
+		private final RuleCall cPathsPathParserRuleCall_3_1_1_0 = (RuleCall)cPathsAssignment_3_1_1.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//BasePathVector returns build::PathVector:
-		//  {build::PathVectorElement} ("when" "(" condExpr=Expression ")")? basePath=Path "[" (
-		//  paths+=Path ("," paths+=Path)*)? "]" ";";
+		//  {build::PathVector} basePath=Path "[" (paths+=Path ("," paths+=Path)*)? "]" ";"; 
+		//
+		////PathVector returns build::ConditionalPathVector
+		////	: CBasePathVector
+		////	| CUnbasedPathVector
+		////	| CompoundPathVector
+		////	;
+		//	
+		////CBasePathVector returns build::PathVector : {build::ConditionalPathVector}
+		////	("when" '(' condExpr=Expression ')')?
+		////	pathVectors += (BasePathVector | UnbasedPathVector)
+		////	;
 		public ParserRule getRule() { return rule; }
 
-		//{build::PathVectorElement} ("when" "(" condExpr=Expression ")")? basePath=Path "[" (
-		//paths+=Path ("," paths+=Path)*)? "]" ";"
+		//{build::PathVector} basePath=Path "[" (paths+=Path ("," paths+=Path)*)? "]" ";"
 		public Group getGroup() { return cGroup; }
 
-		//{build::PathVectorElement}
-		public Action getPathVectorElementAction_0() { return cPathVectorElementAction_0; }
-
-		//("when" "(" condExpr=Expression ")")?
-		public Group getGroup_1() { return cGroup_1; }
-
-		//"when"
-		public Keyword getWhenKeyword_1_0() { return cWhenKeyword_1_0; }
-
-		//"("
-		public Keyword getLeftParenthesisKeyword_1_1() { return cLeftParenthesisKeyword_1_1; }
-
-		//condExpr=Expression
-		public Assignment getCondExprAssignment_1_2() { return cCondExprAssignment_1_2; }
-
-		//Expression
-		public RuleCall getCondExprExpressionParserRuleCall_1_2_0() { return cCondExprExpressionParserRuleCall_1_2_0; }
-
-		//")"
-		public Keyword getRightParenthesisKeyword_1_3() { return cRightParenthesisKeyword_1_3; }
+		//{build::PathVector}
+		public Action getPathVectorAction_0() { return cPathVectorAction_0; }
 
 		//basePath=Path
-		public Assignment getBasePathAssignment_2() { return cBasePathAssignment_2; }
+		public Assignment getBasePathAssignment_1() { return cBasePathAssignment_1; }
 
 		//Path
-		public RuleCall getBasePathPathParserRuleCall_2_0() { return cBasePathPathParserRuleCall_2_0; }
+		public RuleCall getBasePathPathParserRuleCall_1_0() { return cBasePathPathParserRuleCall_1_0; }
 
 		//"["
-		public Keyword getLeftSquareBracketKeyword_3() { return cLeftSquareBracketKeyword_3; }
+		public Keyword getLeftSquareBracketKeyword_2() { return cLeftSquareBracketKeyword_2; }
 
 		//(paths+=Path ("," paths+=Path)*)?
-		public Group getGroup_4() { return cGroup_4; }
+		public Group getGroup_3() { return cGroup_3; }
 
 		//paths+=Path
-		public Assignment getPathsAssignment_4_0() { return cPathsAssignment_4_0; }
+		public Assignment getPathsAssignment_3_0() { return cPathsAssignment_3_0; }
 
 		//Path
-		public RuleCall getPathsPathParserRuleCall_4_0_0() { return cPathsPathParserRuleCall_4_0_0; }
+		public RuleCall getPathsPathParserRuleCall_3_0_0() { return cPathsPathParserRuleCall_3_0_0; }
 
 		//("," paths+=Path)*
-		public Group getGroup_4_1() { return cGroup_4_1; }
+		public Group getGroup_3_1() { return cGroup_3_1; }
 
 		//","
-		public Keyword getCommaKeyword_4_1_0() { return cCommaKeyword_4_1_0; }
+		public Keyword getCommaKeyword_3_1_0() { return cCommaKeyword_3_1_0; }
 
 		//paths+=Path
-		public Assignment getPathsAssignment_4_1_1() { return cPathsAssignment_4_1_1; }
+		public Assignment getPathsAssignment_3_1_1() { return cPathsAssignment_3_1_1; }
 
 		//Path
-		public RuleCall getPathsPathParserRuleCall_4_1_1_0() { return cPathsPathParserRuleCall_4_1_1_0; }
+		public RuleCall getPathsPathParserRuleCall_3_1_1_0() { return cPathsPathParserRuleCall_3_1_1_0; }
 
 		//"]"
-		public Keyword getRightSquareBracketKeyword_5() { return cRightSquareBracketKeyword_5; }
+		public Keyword getRightSquareBracketKeyword_4() { return cRightSquareBracketKeyword_4; }
 
 		//";"
-		public Keyword getSemicolonKeyword_6() { return cSemicolonKeyword_6; }
+		public Keyword getSemicolonKeyword_5() { return cSemicolonKeyword_5; }
 	}
 
 	public class UnbasedPathVectorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UnbasedPathVector");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cPathVectorElementAction_0 = (Action)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cWhenKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final Assignment cCondExprAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cCondExprExpressionParserRuleCall_1_2_0 = (RuleCall)cCondExprAssignment_1_2.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
-		private final Assignment cPathsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cPathsPathParserRuleCall_2_0 = (RuleCall)cPathsAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cCommaKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cPathsAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cPathsPathParserRuleCall_3_1_0 = (RuleCall)cPathsAssignment_3_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Action cPathVectorAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cPathsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cPathsPathParserRuleCall_1_0 = (RuleCall)cPathsAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cCommaKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cPathsAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cPathsPathParserRuleCall_2_1_0 = (RuleCall)cPathsAssignment_2_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//UnbasedPathVector returns build::PathVector:
-		//  {build::PathVectorElement} ("when" "(" condExpr=Expression ")")? paths+=Path ("," paths
-		//  +=Path)* ";";
-		public ParserRule getRule() { return rule; }
-
-		//{build::PathVectorElement} ("when" "(" condExpr=Expression ")")? paths+=Path ("," paths
-		//+=Path)* ";"
-		public Group getGroup() { return cGroup; }
-
-		//{build::PathVectorElement}
-		public Action getPathVectorElementAction_0() { return cPathVectorElementAction_0; }
-
-		//("when" "(" condExpr=Expression ")")?
-		public Group getGroup_1() { return cGroup_1; }
-
-		//"when"
-		public Keyword getWhenKeyword_1_0() { return cWhenKeyword_1_0; }
-
-		//"("
-		public Keyword getLeftParenthesisKeyword_1_1() { return cLeftParenthesisKeyword_1_1; }
-
-		//condExpr=Expression
-		public Assignment getCondExprAssignment_1_2() { return cCondExprAssignment_1_2; }
-
-		//Expression
-		public RuleCall getCondExprExpressionParserRuleCall_1_2_0() { return cCondExprExpressionParserRuleCall_1_2_0; }
-
-		//")"
-		public Keyword getRightParenthesisKeyword_1_3() { return cRightParenthesisKeyword_1_3; }
-
-		//paths+=Path
-		public Assignment getPathsAssignment_2() { return cPathsAssignment_2; }
-
-		//Path
-		public RuleCall getPathsPathParserRuleCall_2_0() { return cPathsPathParserRuleCall_2_0; }
-
-		//("," paths+=Path)*
-		public Group getGroup_3() { return cGroup_3; }
-
-		//","
-		public Keyword getCommaKeyword_3_0() { return cCommaKeyword_3_0; }
-
-		//paths+=Path
-		public Assignment getPathsAssignment_3_1() { return cPathsAssignment_3_1; }
-
-		//Path
-		public RuleCall getPathsPathParserRuleCall_3_1_0() { return cPathsPathParserRuleCall_3_1_0; }
-
-		//";"
-		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
-	}
-
-	public class CompoundPathVectorElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "CompoundPathVector");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cCompoundPathVectorAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cWhenKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cLeftParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cCondExprAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cCondExprExpressionParserRuleCall_3_0 = (RuleCall)cCondExprAssignment_3.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Keyword cLeftCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cPathVectorsAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cPathVectorsPathVectorParserRuleCall_6_0 = (RuleCall)cPathVectorsAssignment_6.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		
-		//CompoundPathVector returns build::PathVector:
-		//  {build::CompoundPathVector} "when" "(" condExpr=Expression ")" "{" pathVectors+=
-		//  PathVector* "}"; 
-		//	
+		//  {build::PathVector} paths+=Path ("," paths+=Path)* ";"; 
+		//
 		//        
 		//	      
-		//	         
+		//	
+		//
+		////CUnbasedPathVector returns build::PathVector : {build::ConditionalPathVector}
+		////	("when" '(' condExpr=Expression ')')?
+		////	paths+=Path (',' paths+=Path)* ';'
+		////	;
+		public ParserRule getRule() { return rule; }
+
+		//{build::PathVector} paths+=Path ("," paths+=Path)* ";"
+		public Group getGroup() { return cGroup; }
+
+		//{build::PathVector}
+		public Action getPathVectorAction_0() { return cPathVectorAction_0; }
+
+		//paths+=Path
+		public Assignment getPathsAssignment_1() { return cPathsAssignment_1; }
+
+		//Path
+		public RuleCall getPathsPathParserRuleCall_1_0() { return cPathsPathParserRuleCall_1_0; }
+
+		//("," paths+=Path)*
+		public Group getGroup_2() { return cGroup_2; }
+
+		//","
+		public Keyword getCommaKeyword_2_0() { return cCommaKeyword_2_0; }
+
+		//paths+=Path
+		public Assignment getPathsAssignment_2_1() { return cPathsAssignment_2_1; }
+
+		//Path
+		public RuleCall getPathsPathParserRuleCall_2_1_0() { return cPathsPathParserRuleCall_2_1_0; }
+
+		//";"
+		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+	}
+
+	public class ConditionalPathVectorElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ConditionalPathVector");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Action cConditionalPathVectorAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final Group cGroup_0_1 = (Group)cGroup_0.eContents().get(1);
+		private final Keyword cWhenKeyword_0_1_0 = (Keyword)cGroup_0_1.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_0_1_1 = (Keyword)cGroup_0_1.eContents().get(1);
+		private final Assignment cCondExprAssignment_0_1_2 = (Assignment)cGroup_0_1.eContents().get(2);
+		private final RuleCall cCondExprExpressionParserRuleCall_0_1_2_0 = (RuleCall)cCondExprAssignment_0_1_2.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_0_1_3 = (Keyword)cGroup_0_1.eContents().get(3);
+		private final Keyword cLeftCurlyBracketKeyword_0_1_4 = (Keyword)cGroup_0_1.eContents().get(4);
+		private final Assignment cPathVectorsAssignment_0_1_5 = (Assignment)cGroup_0_1.eContents().get(5);
+		private final Alternatives cPathVectorsAlternatives_0_1_5_0 = (Alternatives)cPathVectorsAssignment_0_1_5.eContents().get(0);
+		private final RuleCall cPathVectorsBasePathVectorParserRuleCall_0_1_5_0_0 = (RuleCall)cPathVectorsAlternatives_0_1_5_0.eContents().get(0);
+		private final RuleCall cPathVectorsUnbasedPathVectorParserRuleCall_0_1_5_0_1 = (RuleCall)cPathVectorsAlternatives_0_1_5_0.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_0_1_6 = (Keyword)cGroup_0_1.eContents().get(6);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cGroup_1.eContents().get(0);
+		private final Keyword cWhenKeyword_1_0_0 = (Keyword)cGroup_1_0.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_1_0_1 = (Keyword)cGroup_1_0.eContents().get(1);
+		private final Assignment cCondExprAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
+		private final RuleCall cCondExprExpressionParserRuleCall_1_0_2_0 = (RuleCall)cCondExprAssignment_1_0_2.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_1_0_3 = (Keyword)cGroup_1_0.eContents().get(3);
+		private final Assignment cPathVectorsAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final Alternatives cPathVectorsAlternatives_1_1_0 = (Alternatives)cPathVectorsAssignment_1_1.eContents().get(0);
+		private final RuleCall cPathVectorsBasePathVectorParserRuleCall_1_1_0_0 = (RuleCall)cPathVectorsAlternatives_1_1_0.eContents().get(0);
+		private final RuleCall cPathVectorsUnbasedPathVectorParserRuleCall_1_1_0_1 = (RuleCall)cPathVectorsAlternatives_1_1_0.eContents().get(1);
+		
+		//ConditionalPathVector returns build::ConditionalPathVector:
+		//  {build::ConditionalPathVector} ("when" "(" condExpr=Expression ")" "{" pathVectors+=(
+		//  BasePathVector | UnbasedPathVector )* "}")|("when" "(" condExpr=Expression ")")?
+		//  pathVectors+=( BasePathVector | UnbasedPathVector ); 
+		//
+		////CUnbasedPathVector returns build::PathVector : {build::ConditionalPathVector}
+		////	("when" '(' condExpr=Expression ')')?
+		////	paths+=Path (',' paths+=Path)* ';'
+		////	;
+		//	
+		//        
+		//		                      
+		//	 	                   
 		//	
 		//
 		//// A path can be written without quotes if it consists of safe chars
 		public ParserRule getRule() { return rule; }
 
-		//{build::CompoundPathVector} "when" "(" condExpr=Expression ")" "{" pathVectors+=
-		//PathVector* "}"
-		public Group getGroup() { return cGroup; }
+		//{build::ConditionalPathVector} ("when" "(" condExpr=Expression ")" "{" pathVectors+=(
+		//BasePathVector | UnbasedPathVector )* "}")|("when" "(" condExpr=Expression ")")?
+		//pathVectors+=( BasePathVector | UnbasedPathVector ) 
+		//
+		////CUnbasedPathVector returns build::PathVector : {build::ConditionalPathVector}
+		////	("when" '(' condExpr=Expression ')')?
+		////	paths+=Path (',' paths+=Path)* ';'
+		////	;
+		//	
+		//        
+		//		                      
+		//	 	                   
+		//	
+		//
+		//// A path can be written without quotes if it consists of safe chars
+		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//{build::CompoundPathVector}
-		public Action getCompoundPathVectorAction_0() { return cCompoundPathVectorAction_0; }
+		//{build::ConditionalPathVector} ("when" "(" condExpr=Expression ")" "{" pathVectors+=(
+		//BasePathVector | UnbasedPathVector )* "}")
+		public Group getGroup_0() { return cGroup_0; }
+
+		//{build::ConditionalPathVector}
+		public Action getConditionalPathVectorAction_0_0() { return cConditionalPathVectorAction_0_0; }
+
+		//"when" "(" condExpr=Expression ")" "{" pathVectors+=( BasePathVector | UnbasedPathVector
+		//)* "}"
+		public Group getGroup_0_1() { return cGroup_0_1; }
 
 		//"when"
-		public Keyword getWhenKeyword_1() { return cWhenKeyword_1; }
+		public Keyword getWhenKeyword_0_1_0() { return cWhenKeyword_0_1_0; }
 
 		//"("
-		public Keyword getLeftParenthesisKeyword_2() { return cLeftParenthesisKeyword_2; }
+		public Keyword getLeftParenthesisKeyword_0_1_1() { return cLeftParenthesisKeyword_0_1_1; }
 
 		//condExpr=Expression
-		public Assignment getCondExprAssignment_3() { return cCondExprAssignment_3; }
+		public Assignment getCondExprAssignment_0_1_2() { return cCondExprAssignment_0_1_2; }
 
 		//Expression
-		public RuleCall getCondExprExpressionParserRuleCall_3_0() { return cCondExprExpressionParserRuleCall_3_0; }
+		public RuleCall getCondExprExpressionParserRuleCall_0_1_2_0() { return cCondExprExpressionParserRuleCall_0_1_2_0; }
 
 		//")"
-		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
+		public Keyword getRightParenthesisKeyword_0_1_3() { return cRightParenthesisKeyword_0_1_3; }
 
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_5() { return cLeftCurlyBracketKeyword_5; }
+		public Keyword getLeftCurlyBracketKeyword_0_1_4() { return cLeftCurlyBracketKeyword_0_1_4; }
 
-		//pathVectors+=PathVector*
-		public Assignment getPathVectorsAssignment_6() { return cPathVectorsAssignment_6; }
+		//pathVectors+=( BasePathVector | UnbasedPathVector )*
+		public Assignment getPathVectorsAssignment_0_1_5() { return cPathVectorsAssignment_0_1_5; }
 
-		//PathVector
-		public RuleCall getPathVectorsPathVectorParserRuleCall_6_0() { return cPathVectorsPathVectorParserRuleCall_6_0; }
+		//BasePathVector|UnbasedPathVector
+		public Alternatives getPathVectorsAlternatives_0_1_5_0() { return cPathVectorsAlternatives_0_1_5_0; }
+
+		//BasePathVector
+		public RuleCall getPathVectorsBasePathVectorParserRuleCall_0_1_5_0_0() { return cPathVectorsBasePathVectorParserRuleCall_0_1_5_0_0; }
+
+		//UnbasedPathVector
+		public RuleCall getPathVectorsUnbasedPathVectorParserRuleCall_0_1_5_0_1() { return cPathVectorsUnbasedPathVectorParserRuleCall_0_1_5_0_1; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+		public Keyword getRightCurlyBracketKeyword_0_1_6() { return cRightCurlyBracketKeyword_0_1_6; }
+
+		//("when" "(" condExpr=Expression ")")? pathVectors+=( BasePathVector | UnbasedPathVector
+		//)
+		public Group getGroup_1() { return cGroup_1; }
+
+		//("when" "(" condExpr=Expression ")")?
+		public Group getGroup_1_0() { return cGroup_1_0; }
+
+		//"when"
+		public Keyword getWhenKeyword_1_0_0() { return cWhenKeyword_1_0_0; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_1_0_1() { return cLeftParenthesisKeyword_1_0_1; }
+
+		//condExpr=Expression
+		public Assignment getCondExprAssignment_1_0_2() { return cCondExprAssignment_1_0_2; }
+
+		//Expression
+		public RuleCall getCondExprExpressionParserRuleCall_1_0_2_0() { return cCondExprExpressionParserRuleCall_1_0_2_0; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_1_0_3() { return cRightParenthesisKeyword_1_0_3; }
+
+		//pathVectors+=( BasePathVector | UnbasedPathVector )
+		public Assignment getPathVectorsAssignment_1_1() { return cPathVectorsAssignment_1_1; }
+
+		//BasePathVector|UnbasedPathVector
+		public Alternatives getPathVectorsAlternatives_1_1_0() { return cPathVectorsAlternatives_1_1_0; }
+
+		//BasePathVector
+		public RuleCall getPathVectorsBasePathVectorParserRuleCall_1_1_0_0() { return cPathVectorsBasePathVectorParserRuleCall_1_1_0_0; }
+
+		//UnbasedPathVector
+		public RuleCall getPathVectorsUnbasedPathVectorParserRuleCall_1_1_0_1() { return cPathVectorsUnbasedPathVectorParserRuleCall_1_1_0_1; }
 	}
 
 	public class PathElements extends AbstractParserRuleElementFinder {
@@ -7280,7 +7321,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cPlusSignKeyword_17_0_0 = (Keyword)cGroup_17_0.eContents().get(0);
 		private final Keyword cOutputKeyword_17_0_1 = (Keyword)cGroup_17_0.eContents().get(1);
 		private final Assignment cOutputAdditionsAssignment_17_0_2 = (Assignment)cGroup_17_0.eContents().get(2);
-		private final RuleCall cOutputAdditionsPathVectorParserRuleCall_17_0_2_0 = (RuleCall)cOutputAdditionsAssignment_17_0_2.eContents().get(0);
+		private final RuleCall cOutputAdditionsConditionalPathVectorParserRuleCall_17_0_2_0 = (RuleCall)cOutputAdditionsAssignment_17_0_2.eContents().get(0);
 		private final Group cGroup_17_1 = (Group)cAlternatives_17.eContents().get(1);
 		private final Keyword cHyphenMinusKeyword_17_1_0 = (Keyword)cGroup_17_1.eContents().get(0);
 		private final Keyword cOutputKeyword_17_1_1 = (Keyword)cGroup_17_1.eContents().get(1);
@@ -7322,9 +7363,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//  defaultPropertiesRemovals+=PID)* ";")? ("+" "default" "properties"
 		//  defaultPropertiesAdditions=PropertySetDefault)? ("+" "input" inputAdditions+=
 		//  Prerequisite|"-" inputRemovals+=InputPredicate ";")* ("+" "output" outputAdditions+=
-		//  PathVector|"-" "output" outputRemovals+=OutputPredicate ";")* ("-" "annotations"
-		//  annotationsRemovals+=PID ("," annotationsRemovals+=PID)* ";")? ("+" "annotations"
-		//  annotationsAdditions=PropertySet)? funcExpr=BlockExpression? "}"; 
+		//  ConditionalPathVector|"-" "output" outputRemovals+=OutputPredicate ";")* ("-"
+		//  "annotations" annotationsRemovals+=PID ("," annotationsRemovals+=PID)* ";")? ("+"
+		//  "annotations" annotationsAdditions=PropertySet)? funcExpr=BlockExpression? "}"; 
 		//	
 		//// Advice for Builders	
 		//        
@@ -7379,9 +7420,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//defaultPropertiesRemovals+=PID)* ";")? ("+" "default" "properties"
 		//defaultPropertiesAdditions=PropertySetDefault)? ("+" "input" inputAdditions+=
 		//Prerequisite|"-" inputRemovals+=InputPredicate ";")* ("+" "output" outputAdditions+=
-		//PathVector|"-" "output" outputRemovals+=OutputPredicate ";")* ("-" "annotations"
-		//annotationsRemovals+=PID ("," annotationsRemovals+=PID)* ";")? ("+" "annotations"
-		//annotationsAdditions=PropertySet)? funcExpr=BlockExpression? "}"   
+		//ConditionalPathVector|"-" "output" outputRemovals+=OutputPredicate ";")* ("-"
+		//"annotations" annotationsRemovals+=PID ("," annotationsRemovals+=PID)* ";")? ("+"
+		//"annotations" annotationsAdditions=PropertySet)? funcExpr=BlockExpression? "}"   
 		//	      
 		//	  
 		//	 	  
@@ -7787,11 +7828,11 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//";"
 		public Keyword getSemicolonKeyword_16_1_2() { return cSemicolonKeyword_16_1_2; }
 
-		//("+" "output" outputAdditions+=PathVector|"-" "output" outputRemovals+=
+		//("+" "output" outputAdditions+=ConditionalPathVector|"-" "output" outputRemovals+=
 		//OutputPredicate ";")*
 		public Alternatives getAlternatives_17() { return cAlternatives_17; }
 
-		//"+" "output" outputAdditions+=PathVector
+		//"+" "output" outputAdditions+=ConditionalPathVector
 		public Group getGroup_17_0() { return cGroup_17_0; }
 
 		//"+"
@@ -7800,11 +7841,11 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//"output"
 		public Keyword getOutputKeyword_17_0_1() { return cOutputKeyword_17_0_1; }
 
-		//outputAdditions+=PathVector
+		//outputAdditions+=ConditionalPathVector
 		public Assignment getOutputAdditionsAssignment_17_0_2() { return cOutputAdditionsAssignment_17_0_2; }
 
-		//PathVector
-		public RuleCall getOutputAdditionsPathVectorParserRuleCall_17_0_2_0() { return cOutputAdditionsPathVectorParserRuleCall_17_0_2_0; }
+		//ConditionalPathVector
+		public RuleCall getOutputAdditionsConditionalPathVectorParserRuleCall_17_0_2_0() { return cOutputAdditionsConditionalPathVectorParserRuleCall_17_0_2_0; }
 
 		//"-" "output" outputRemovals+=OutputPredicate ";"
 		public Group getGroup_17_1() { return cGroup_17_1; }
@@ -8333,7 +8374,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	public class BasePathPredicateElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "BasePathPredicate");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cPathVectorElementAction_0 = (Action)cGroup.eContents().get(0);
+		private final Action cPathVectorAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cBasePathAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cBasePathPathParserRuleCall_1_0 = (RuleCall)cBasePathAssignment_1.eContents().get(0);
 		private final Keyword cLeftSquareBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
@@ -8345,15 +8386,15 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cPathsPathParserRuleCall_4_1_0 = (RuleCall)cPathsAssignment_4_1.eContents().get(0);
 		private final Keyword cRightSquareBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
-		//BasePathPredicate returns build::PathVectorElement:
-		//  {build::PathVectorElement} basePath=Path "[" paths+=Path ("," paths+=Path)* "]";
+		//BasePathPredicate returns build::PathVector:
+		//  {build::PathVector} basePath=Path "[" paths+=Path ("," paths+=Path)* "]";
 		public ParserRule getRule() { return rule; }
 
-		//{build::PathVectorElement} basePath=Path "[" paths+=Path ("," paths+=Path)* "]"
+		//{build::PathVector} basePath=Path "[" paths+=Path ("," paths+=Path)* "]"
 		public Group getGroup() { return cGroup; }
 
-		//{build::PathVectorElement}
-		public Action getPathVectorElementAction_0() { return cPathVectorElementAction_0; }
+		//{build::PathVector}
+		public Action getPathVectorAction_0() { return cPathVectorAction_0; }
 
 		//basePath=Path
 		public Assignment getBasePathAssignment_1() { return cBasePathAssignment_1; }
@@ -8389,7 +8430,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	public class PathPredicateElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PathPredicate");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cPathVectorElementAction_0 = (Action)cGroup.eContents().get(0);
+		private final Action cPathVectorAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cPathsAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cPathsPathParserRuleCall_1_0 = (RuleCall)cPathsAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
@@ -8397,15 +8438,15 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cPathsAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final RuleCall cPathsPathParserRuleCall_2_1_0 = (RuleCall)cPathsAssignment_2_1.eContents().get(0);
 		
-		//PathPredicate returns build::PathVectorElement:
-		//  {build::PathVectorElement} paths+=Path ("," paths+=Path)*;
+		//PathPredicate returns build::PathVector:
+		//  {build::PathVector} paths+=Path ("," paths+=Path)*;
 		public ParserRule getRule() { return rule; }
 
-		//{build::PathVectorElement} paths+=Path ("," paths+=Path)*
+		//{build::PathVector} paths+=Path ("," paths+=Path)*
 		public Group getGroup() { return cGroup; }
 
-		//{build::PathVectorElement}
-		public Action getPathVectorElementAction_0() { return cPathVectorElementAction_0; }
+		//{build::PathVector}
+		public Action getPathVectorAction_0() { return cPathVectorAction_0; }
 
 		//paths+=Path
 		public Assignment getPathsAssignment_1() { return cPathsAssignment_1; }
@@ -10336,10 +10377,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	private SynchronizationElements pSynchronization;
 	private BuilderQueryElements pBuilderQuery;
 	private PathGroupElements pPathGroup;
-	private PathVectorElements pPathVector;
 	private BasePathVectorElements pBasePathVector;
 	private UnbasedPathVectorElements pUnbasedPathVector;
-	private CompoundPathVectorElements pCompoundPathVector;
+	private ConditionalPathVectorElements pConditionalPathVector;
 	private PathElements pPath;
 	private PrerequisiteElements pPrerequisite;
 	private WithClauseElements pWithClause;
@@ -10852,8 +10892,23 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//PathGroup returns build::PathGroup:
-	//  {build::PathGroup} pathVectors+=PathVector+ ("annotations" annotations=PropertySet)
-	//  ?;
+	//  {build::PathGroup} pathVectors+=ConditionalPathVector+ ("annotations" annotations=
+	//  PropertySet)?; 
+	//	
+	//      
+	//	            
+	//	
+	//
+	////PathVector returns build::ConditionalPathVector
+	////	: CBasePathVector
+	////	| CUnbasedPathVector
+	////	| CompoundPathVector
+	////	;
+	//	
+	////CBasePathVector returns build::PathVector : {build::ConditionalPathVector}
+	////	("when" '(' condExpr=Expression ')')?
+	////	pathVectors += (BasePathVector | UnbasedPathVector)
+	////	;
 	public PathGroupElements getPathGroupAccess() {
 		return (pPathGroup != null) ? pPathGroup : (pPathGroup = new PathGroupElements());
 	}
@@ -10862,19 +10917,19 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getPathGroupAccess().getRule();
 	}
 
-	//PathVector returns build::PathVector:
-	//  BasePathVector|UnbasedPathVector|CompoundPathVector;
-	public PathVectorElements getPathVectorAccess() {
-		return (pPathVector != null) ? pPathVector : (pPathVector = new PathVectorElements());
-	}
-	
-	public ParserRule getPathVectorRule() {
-		return getPathVectorAccess().getRule();
-	}
-
 	//BasePathVector returns build::PathVector:
-	//  {build::PathVectorElement} ("when" "(" condExpr=Expression ")")? basePath=Path "[" (
-	//  paths+=Path ("," paths+=Path)*)? "]" ";";
+	//  {build::PathVector} basePath=Path "[" (paths+=Path ("," paths+=Path)*)? "]" ";"; 
+	//
+	////PathVector returns build::ConditionalPathVector
+	////	: CBasePathVector
+	////	| CUnbasedPathVector
+	////	| CompoundPathVector
+	////	;
+	//	
+	////CBasePathVector returns build::PathVector : {build::ConditionalPathVector}
+	////	("when" '(' condExpr=Expression ')')?
+	////	pathVectors += (BasePathVector | UnbasedPathVector)
+	////	;
 	public BasePathVectorElements getBasePathVectorAccess() {
 		return (pBasePathVector != null) ? pBasePathVector : (pBasePathVector = new BasePathVectorElements());
 	}
@@ -10884,8 +10939,16 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//UnbasedPathVector returns build::PathVector:
-	//  {build::PathVectorElement} ("when" "(" condExpr=Expression ")")? paths+=Path ("," paths
-	//  +=Path)* ";";
+	//  {build::PathVector} paths+=Path ("," paths+=Path)* ";"; 
+	//
+	//        
+	//	      
+	//	
+	//
+	////CUnbasedPathVector returns build::PathVector : {build::ConditionalPathVector}
+	////	("when" '(' condExpr=Expression ')')?
+	////	paths+=Path (',' paths+=Path)* ';'
+	////	;
 	public UnbasedPathVectorElements getUnbasedPathVectorAccess() {
 		return (pUnbasedPathVector != null) ? pUnbasedPathVector : (pUnbasedPathVector = new UnbasedPathVectorElements());
 	}
@@ -10894,22 +10957,28 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getUnbasedPathVectorAccess().getRule();
 	}
 
-	//CompoundPathVector returns build::PathVector:
-	//  {build::CompoundPathVector} "when" "(" condExpr=Expression ")" "{" pathVectors+=
-	//  PathVector* "}"; 
+	//ConditionalPathVector returns build::ConditionalPathVector:
+	//  {build::ConditionalPathVector} ("when" "(" condExpr=Expression ")" "{" pathVectors+=(
+	//  BasePathVector | UnbasedPathVector )* "}")|("when" "(" condExpr=Expression ")")?
+	//  pathVectors+=( BasePathVector | UnbasedPathVector ); 
+	//
+	////CUnbasedPathVector returns build::PathVector : {build::ConditionalPathVector}
+	////	("when" '(' condExpr=Expression ')')?
+	////	paths+=Path (',' paths+=Path)* ';'
+	////	;
 	//	
 	//        
-	//	      
-	//	         
+	//		                      
+	//	 	                   
 	//	
 	//
 	//// A path can be written without quotes if it consists of safe chars
-	public CompoundPathVectorElements getCompoundPathVectorAccess() {
-		return (pCompoundPathVector != null) ? pCompoundPathVector : (pCompoundPathVector = new CompoundPathVectorElements());
+	public ConditionalPathVectorElements getConditionalPathVectorAccess() {
+		return (pConditionalPathVector != null) ? pConditionalPathVector : (pConditionalPathVector = new ConditionalPathVectorElements());
 	}
 	
-	public ParserRule getCompoundPathVectorRule() {
-		return getCompoundPathVectorAccess().getRule();
+	public ParserRule getConditionalPathVectorRule() {
+		return getConditionalPathVectorAccess().getRule();
 	}
 
 	//Path returns ecore::EString hidden ( ):
@@ -12067,9 +12136,9 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//  defaultPropertiesRemovals+=PID)* ";")? ("+" "default" "properties"
 	//  defaultPropertiesAdditions=PropertySetDefault)? ("+" "input" inputAdditions+=
 	//  Prerequisite|"-" inputRemovals+=InputPredicate ";")* ("+" "output" outputAdditions+=
-	//  PathVector|"-" "output" outputRemovals+=OutputPredicate ";")* ("-" "annotations"
-	//  annotationsRemovals+=PID ("," annotationsRemovals+=PID)* ";")? ("+" "annotations"
-	//  annotationsAdditions=PropertySet)? funcExpr=BlockExpression? "}"; 
+	//  ConditionalPathVector|"-" "output" outputRemovals+=OutputPredicate ";")* ("-"
+	//  "annotations" annotationsRemovals+=PID ("," annotationsRemovals+=PID)* ";")? ("+"
+	//  "annotations" annotationsAdditions=PropertySet)? funcExpr=BlockExpression? "}"; 
 	//	
 	//// Advice for Builders	
 	//        
@@ -12252,8 +12321,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getOutputPredicateAccess().getRule();
 	}
 
-	//BasePathPredicate returns build::PathVectorElement:
-	//  {build::PathVectorElement} basePath=Path "[" paths+=Path ("," paths+=Path)* "]";
+	//BasePathPredicate returns build::PathVector:
+	//  {build::PathVector} basePath=Path "[" paths+=Path ("," paths+=Path)* "]";
 	public BasePathPredicateElements getBasePathPredicateAccess() {
 		return (pBasePathPredicate != null) ? pBasePathPredicate : (pBasePathPredicate = new BasePathPredicateElements());
 	}
@@ -12262,8 +12331,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getBasePathPredicateAccess().getRule();
 	}
 
-	//PathPredicate returns build::PathVectorElement:
-	//  {build::PathVectorElement} paths+=Path ("," paths+=Path)*;
+	//PathPredicate returns build::PathVector:
+	//  {build::PathVector} paths+=Path ("," paths+=Path)*;
 	public PathPredicateElements getPathPredicateAccess() {
 		return (pPathPredicate != null) ? pPathPredicate : (pPathPredicate = new PathPredicateElements());
 	}

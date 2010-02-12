@@ -33,9 +33,8 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.build.impl.PathVectorImpl#getCondExpr <em>Cond Expr</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.PathVectorImpl#getBasePath <em>Base Path</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.PathVectorImpl#getPaths <em>Paths</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.PathVectorImpl#getBasePath <em>Base Path</em>}</li>
  * </ul>
  * </p>
  *
@@ -43,14 +42,14 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  */
 public class PathVectorImpl extends EObjectImpl implements PathVector {
 	/**
-	 * The cached value of the '{@link #getCondExpr() <em>Cond Expr</em>}' containment reference.
+	 * The cached value of the '{@link #getPaths() <em>Paths</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCondExpr()
+	 * @see #getPaths()
 	 * @generated
 	 * @ordered
 	 */
-	protected BExpression condExpr;
+	protected EList<String> paths;
 
 	/**
 	 * The default value of the '{@link #getBasePath() <em>Base Path</em>}' attribute.
@@ -73,16 +72,6 @@ public class PathVectorImpl extends EObjectImpl implements PathVector {
 	protected String basePath = BASE_PATH_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getPaths() <em>Paths</em>}' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPaths()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<String> paths;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -99,49 +88,6 @@ public class PathVectorImpl extends EObjectImpl implements PathVector {
 	@Override
 	protected EClass eStaticClass() {
 		return B3BuildPackage.Literals.PATH_VECTOR;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BExpression getCondExpr() {
-		return condExpr;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCondExpr(BExpression newCondExpr, NotificationChain msgs) {
-		BExpression oldCondExpr = condExpr;
-		condExpr = newCondExpr;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.PATH_VECTOR__COND_EXPR, oldCondExpr, newCondExpr);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCondExpr(BExpression newCondExpr) {
-		if (newCondExpr != condExpr) {
-			NotificationChain msgs = null;
-			if (condExpr != null)
-				msgs = ((InternalEObject)condExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.PATH_VECTOR__COND_EXPR, null, msgs);
-			if (newCondExpr != null)
-				msgs = ((InternalEObject)newCondExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.PATH_VECTOR__COND_EXPR, null, msgs);
-			msgs = basicSetCondExpr(newCondExpr, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.PATH_VECTOR__COND_EXPR, newCondExpr, newCondExpr));
 	}
 
 	/**
@@ -183,28 +129,12 @@ public class PathVectorImpl extends EObjectImpl implements PathVector {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case B3BuildPackage.PATH_VECTOR__COND_EXPR:
-				return basicSetCondExpr(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case B3BuildPackage.PATH_VECTOR__COND_EXPR:
-				return getCondExpr();
-			case B3BuildPackage.PATH_VECTOR__BASE_PATH:
-				return getBasePath();
 			case B3BuildPackage.PATH_VECTOR__PATHS:
 				return getPaths();
+			case B3BuildPackage.PATH_VECTOR__BASE_PATH:
+				return getBasePath();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -218,15 +148,12 @@ public class PathVectorImpl extends EObjectImpl implements PathVector {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case B3BuildPackage.PATH_VECTOR__COND_EXPR:
-				setCondExpr((BExpression)newValue);
-				return;
-			case B3BuildPackage.PATH_VECTOR__BASE_PATH:
-				setBasePath((String)newValue);
-				return;
 			case B3BuildPackage.PATH_VECTOR__PATHS:
 				getPaths().clear();
 				getPaths().addAll((Collection<? extends String>)newValue);
+				return;
+			case B3BuildPackage.PATH_VECTOR__BASE_PATH:
+				setBasePath((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -240,14 +167,11 @@ public class PathVectorImpl extends EObjectImpl implements PathVector {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case B3BuildPackage.PATH_VECTOR__COND_EXPR:
-				setCondExpr((BExpression)null);
+			case B3BuildPackage.PATH_VECTOR__PATHS:
+				getPaths().clear();
 				return;
 			case B3BuildPackage.PATH_VECTOR__BASE_PATH:
 				setBasePath(BASE_PATH_EDEFAULT);
-				return;
-			case B3BuildPackage.PATH_VECTOR__PATHS:
-				getPaths().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -261,12 +185,10 @@ public class PathVectorImpl extends EObjectImpl implements PathVector {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case B3BuildPackage.PATH_VECTOR__COND_EXPR:
-				return condExpr != null;
-			case B3BuildPackage.PATH_VECTOR__BASE_PATH:
-				return BASE_PATH_EDEFAULT == null ? basePath != null : !BASE_PATH_EDEFAULT.equals(basePath);
 			case B3BuildPackage.PATH_VECTOR__PATHS:
 				return paths != null && !paths.isEmpty();
+			case B3BuildPackage.PATH_VECTOR__BASE_PATH:
+				return BASE_PATH_EDEFAULT == null ? basePath != null : !BASE_PATH_EDEFAULT.equals(basePath);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -281,10 +203,10 @@ public class PathVectorImpl extends EObjectImpl implements PathVector {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (basePath: ");
-		result.append(basePath);
-		result.append(", paths: ");
+		result.append(" (paths: ");
 		result.append(paths);
+		result.append(", basePath: ");
+		result.append(basePath);
 		result.append(')');
 		return result.toString();
 	}

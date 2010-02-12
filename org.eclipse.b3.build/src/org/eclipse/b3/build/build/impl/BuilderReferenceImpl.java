@@ -17,9 +17,11 @@ import org.eclipse.b3.backend.evaluator.b3backend.BParameterList;
 import org.eclipse.b3.build.build.AliasedRequiredCapability;
 import org.eclipse.b3.build.build.B3BuildFactory;
 import org.eclipse.b3.build.build.B3BuildPackage;
+import org.eclipse.b3.build.build.BuilderInput;
 import org.eclipse.b3.build.build.BuilderReference;
 import org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade;
 import org.eclipse.b3.build.build.EffectiveRequirementFacade;
+import org.eclipse.b3.build.build.Prerequisite;
 import org.eclipse.b3.build.build.RequiredCapability;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -27,6 +29,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -385,17 +388,8 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 	}
 	
 	/**
-	 * Adds a contained required capability to the set of effective capabilities. If however the requirement
-	 * is a reference via an alias, the requirement is used as stated at the unit level and is then not included
-	 * here. This means that aliased requirements are NOT subject to advice interpretation.
-	 * 
-	 * <h4>NOTE</h4>
-	 * <ul><li>References to the "self" unit are not included as requirements.</li>
-	 * <li>Parameters passed to builders have no effect on resolution, they can not be used in conditional expression
-	 * to filter the set of requirements (so they are ignored in this selection).</li>
-	 * </ul>
-	 * 
-	 * TODO: optimize for the empty list case
+	 * Returns a (singleton) iterator referencing the required capability. Only requirements stated
+	 * explicitly for the builder and does not reference the unit itself are included.
 	 */
 	@Override
 	public Iterator<EffectiveRequirementFacade> getEffectiveRequirements(BExecutionContext ctx) throws Throwable {
@@ -405,6 +399,12 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 		facade.setRequirement(getRequiredCapability());
 		return result;
 	}
+	/**
+	 * Adds a contained required capability to the set of effective capabilities. If however the requirement
+	 * is a reference via an alias, the requirement is used as stated at the unit level and is then not included
+	 * here. This means that aliased requirements are NOT subject to advice interpretation.
+	 * 
+	 */
 	@Override
 	public EList<RequiredCapability> getRequirements() throws Throwable {
 		List<RequiredCapability> result = new ArrayList<RequiredCapability>();
@@ -436,6 +436,19 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 		EffectiveBuilderReferenceFacade facade = B3BuildFactory.eINSTANCE.createEffectiveBuilderReferenceFacade();
 		facade.setContext(ctx);
 		facade.setBuilderReference(this);
+		
+		// set all aliases in the facade (i.e alias from all containing Prerequisites until container is BuilderInput)
+		EObject container = eContainer();
+		while(container != null && !(container instanceof BuilderInput)) {
+			if(container instanceof Prerequisite) {
+				// in case of bogus input where same aliases used multiple times, just add it once
+				String a = ((Prerequisite)container).getAlias();
+				if(!facade.getAliases().contains(a))
+					facade.getAliases().add(a);
+			}
+			container = container.eContainer();
+		}
+			
 		return new SingletonIterator<EffectiveBuilderReferenceFacade>(facade);
 	}
 } //BuilderReferenceImpl

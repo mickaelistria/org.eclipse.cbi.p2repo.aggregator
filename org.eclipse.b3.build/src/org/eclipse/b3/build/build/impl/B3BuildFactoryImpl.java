@@ -72,9 +72,8 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 			case B3BuildPackage.BUILDER_REFERENCE: return createBuilderReference();
 			case B3BuildPackage.CAPABILITY: return createCapability();
 			case B3BuildPackage.REQUIRED_CAPABILITY: return createRequiredCapability();
+			case B3BuildPackage.CONDITIONAL_PATH_VECTOR: return createConditionalPathVector();
 			case B3BuildPackage.PATH_VECTOR: return createPathVector();
-			case B3BuildPackage.COMPOUND_PATH_VECTOR: return createCompoundPathVector();
-			case B3BuildPackage.PATH_VECTOR_ELEMENT: return createPathVectorElement();
 			case B3BuildPackage.SYNCHRONIZATION: return createSynchronization();
 			case B3BuildPackage.REPOSITORY_DECLARATION: return createRepositoryDeclaration();
 			case B3BuildPackage.RESOLUTION_STRATEGY_FIRST: return createResolutionStrategyFirst();
@@ -106,6 +105,7 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 			case B3BuildPackage.EFFECTIVE_REQUIREMENT_FACADE: return createEffectiveRequirementFacade();
 			case B3BuildPackage.EFFECTIVE_CAPABILITY_FACADE: return createEffectiveCapabilityFacade();
 			case B3BuildPackage.EFFECTIVE_BUILDER_REFERENCE_FACADE: return createEffectiveBuilderReferenceFacade();
+			case B3BuildPackage.BUILD_RESULT: return createBuildResult();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -270,6 +270,16 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public BuildResult createBuildResult() {
+		BuildResultImpl buildResult = new BuildResultImpl();
+		return buildResult;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public VersionedCapability createVersionedCapability() {
 		VersionedCapabilityImpl versionedCapability = new VersionedCapabilityImpl();
 		return versionedCapability;
@@ -300,29 +310,19 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ConditionalPathVector createConditionalPathVector() {
+		ConditionalPathVectorImpl conditionalPathVector = new ConditionalPathVectorImpl();
+		return conditionalPathVector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public PathVector createPathVector() {
 		PathVectorImpl pathVector = new PathVectorImpl();
 		return pathVector;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CompoundPathVector createCompoundPathVector() {
-		CompoundPathVectorImpl compoundPathVector = new CompoundPathVectorImpl();
-		return compoundPathVector;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PathVectorElement createPathVectorElement() {
-		PathVectorElementImpl pathVectorElement = new PathVectorElementImpl();
-		return pathVectorElement;
 	}
 
 	/**

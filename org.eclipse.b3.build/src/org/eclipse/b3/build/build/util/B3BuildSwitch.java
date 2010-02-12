@@ -177,23 +177,15 @@ public class B3BuildSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case B3BuildPackage.CONDITIONAL_PATH_VECTOR: {
+				ConditionalPathVector conditionalPathVector = (ConditionalPathVector)theEObject;
+				T result = caseConditionalPathVector(conditionalPathVector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case B3BuildPackage.PATH_VECTOR: {
 				PathVector pathVector = (PathVector)theEObject;
 				T result = casePathVector(pathVector);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.COMPOUND_PATH_VECTOR: {
-				CompoundPathVector compoundPathVector = (CompoundPathVector)theEObject;
-				T result = caseCompoundPathVector(compoundPathVector);
-				if (result == null) result = casePathVector(compoundPathVector);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.PATH_VECTOR_ELEMENT: {
-				PathVectorElement pathVectorElement = (PathVectorElement)theEObject;
-				T result = casePathVectorElement(pathVectorElement);
-				if (result == null) result = casePathVector(pathVectorElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -464,6 +456,12 @@ public class B3BuildSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case B3BuildPackage.BUILD_RESULT: {
+				BuildResult buildResult = (BuildResult)theEObject;
+				T result = caseBuildResult(buildResult);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -664,6 +662,21 @@ public class B3BuildSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Build Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Build Result</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBuildResult(BuildResult object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Versioned Capability</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -709,6 +722,21 @@ public class B3BuildSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Conditional Path Vector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Conditional Path Vector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConditionalPathVector(ConditionalPathVector object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Path Vector</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -720,36 +748,6 @@ public class B3BuildSwitch<T> {
 	 * @generated
 	 */
 	public T casePathVector(PathVector object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Compound Path Vector</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Compound Path Vector</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseCompoundPathVector(CompoundPathVector object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Path Vector Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Path Vector Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T casePathVectorElement(PathVectorElement object) {
 		return null;
 	}
 

@@ -9,6 +9,7 @@ package org.eclipse.b3.build.build.impl;
 import java.util.Collection;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.build.build.B3BuildPackage;
+import org.eclipse.b3.build.build.ConditionalPathVector;
 import org.eclipse.b3.build.build.PathGroup;
 
 import org.eclipse.b3.build.build.PathVector;
@@ -55,7 +56,7 @@ public class PathGroupImpl extends EObjectImpl implements PathGroup {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<PathVector> pathVectors;
+	protected EList<ConditionalPathVector> pathVectors;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -124,9 +125,9 @@ public class PathGroupImpl extends EObjectImpl implements PathGroup {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<PathVector> getPathVectors() {
+	public EList<ConditionalPathVector> getPathVectors() {
 		if (pathVectors == null) {
-			pathVectors = new EObjectContainmentEList<PathVector>(PathVector.class, this, B3BuildPackage.PATH_GROUP__PATH_VECTORS);
+			pathVectors = new EObjectContainmentEList<ConditionalPathVector>(ConditionalPathVector.class, this, B3BuildPackage.PATH_GROUP__PATH_VECTORS);
 		}
 		return pathVectors;
 	}
@@ -177,7 +178,7 @@ public class PathGroupImpl extends EObjectImpl implements PathGroup {
 				return;
 			case B3BuildPackage.PATH_GROUP__PATH_VECTORS:
 				getPathVectors().clear();
-				getPathVectors().addAll((Collection<? extends PathVector>)newValue);
+				getPathVectors().addAll((Collection<? extends ConditionalPathVector>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

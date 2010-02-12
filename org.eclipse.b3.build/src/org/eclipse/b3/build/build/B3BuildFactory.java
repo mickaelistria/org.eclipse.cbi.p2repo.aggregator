@@ -134,6 +134,15 @@ public interface B3BuildFactory extends EFactory {
 	EffectiveBuilderReferenceFacade createEffectiveBuilderReferenceFacade();
 
 	/**
+	 * Returns a new object of class '<em>Build Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Build Result</em>'.
+	 * @generated
+	 */
+	BuildResult createBuildResult();
+
+	/**
 	 * Returns a new object of class '<em>Versioned Capability</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -161,6 +170,15 @@ public interface B3BuildFactory extends EFactory {
 	RequiredCapability createRequiredCapability();
 
 	/**
+	 * Returns a new object of class '<em>Conditional Path Vector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Conditional Path Vector</em>'.
+	 * @generated
+	 */
+	ConditionalPathVector createConditionalPathVector();
+
+	/**
 	 * Returns a new object of class '<em>Path Vector</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -168,24 +186,6 @@ public interface B3BuildFactory extends EFactory {
 	 * @generated
 	 */
 	PathVector createPathVector();
-
-	/**
-	 * Returns a new object of class '<em>Compound Path Vector</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Compound Path Vector</em>'.
-	 * @generated
-	 */
-	CompoundPathVector createCompoundPathVector();
-
-	/**
-	 * Returns a new object of class '<em>Path Vector Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Path Vector Element</em>'.
-	 * @generated
-	 */
-	PathVectorElement createPathVectorElement();
 
 	/**
 	 * Returns a new object of class '<em>Synchronization</em>'.
