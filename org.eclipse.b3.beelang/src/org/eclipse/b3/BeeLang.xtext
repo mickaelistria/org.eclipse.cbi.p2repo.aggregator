@@ -169,17 +169,6 @@ PathGroup returns build::PathGroup: {build::PathGroup}
 	pathVectors += ConditionalPathVector+ ('annotations' annotations = PropertySet)?
 	;
 
-//PathVector returns build::ConditionalPathVector
-//	: CBasePathVector
-//	| CUnbasedPathVector
-//	| CompoundPathVector
-//	;
-	
-//CBasePathVector returns build::PathVector : {build::ConditionalPathVector}
-//	("when" '(' condExpr=Expression ')')?
-//	pathVectors += (BasePathVector | UnbasedPathVector)
-//	;
-
 BasePathVector returns build::PathVector : {build::PathVector}
 	basePath=Path '[' ( paths+=Path (',' paths+=Path)*)? ']' ';'
 	;
@@ -187,11 +176,6 @@ BasePathVector returns build::PathVector : {build::PathVector}
 UnbasedPathVector returns build::PathVector : {build::PathVector}
 	paths+=Path (',' paths+=Path)* ';'
 	;
-
-//CUnbasedPathVector returns build::PathVector : {build::ConditionalPathVector}
-//	("when" '(' condExpr=Expression ')')?
-//	paths+=Path (',' paths+=Path)* ';'
-//	;
 	
 ConditionalPathVector returns build::ConditionalPathVector : {build::ConditionalPathVector}
 		("when" '(' condExpr=Expression ')' '{' (pathVectors += (BasePathVector | UnbasedPathVector))* '}' )
