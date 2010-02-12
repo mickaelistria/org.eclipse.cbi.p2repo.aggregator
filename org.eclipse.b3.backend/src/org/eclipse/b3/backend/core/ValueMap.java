@@ -157,14 +157,12 @@ public class ValueMap {
 		}
 		return result.toArray();
 	}
-//	public Object getVarargsParameter() {
-//		if(paramCount >= 0)
-//			return null;
-//	}
+	
 	private void checkMapExists() {
 		if(values == null)
 			values = new LinkedHashMap<String, ValueEntry>();
 	}
+	
 	private static class ValueEntry {
 		int markers;
 		Object value;
@@ -181,7 +179,7 @@ public class ValueMap {
 			return TypeUtils.isAssignableFrom(type, value);
 		}
 	}
-	public void merge(ValueMap add) {
+	public void merge(ValueMap add) throws B3EngineException {
 		checkMapExists();
 		for(String key : add.values.keySet()) {
 			if(values.containsKey(key))
