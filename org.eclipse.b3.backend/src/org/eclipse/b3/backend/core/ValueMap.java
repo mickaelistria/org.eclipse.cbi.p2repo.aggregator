@@ -106,7 +106,7 @@ public class ValueMap {
 	
 	/**
 	 * Sets the value for a particular key. The type must be compatible.
-	 * was not defined.
+	 * The value must have been defined.
 	 * @param key
 	 * @param value
 	 * @return value
@@ -179,6 +179,21 @@ public class ValueMap {
 			if(value instanceof B3Function)
 				return TypeUtils.isAssignableFrom(type, ((B3Function)value).getSignature());
 			return TypeUtils.isAssignableFrom(type, value);
+		}
+	}
+	public void merge(ValueMap add) {
+		checkMapExists();
+		for(String key : add.values.keySet()) {
+			if(values.containsKey(key))
+				try {
+					set(key, add.get(key));
+				} catch (B3NoSuchVariableException e) {
+					throw new B3InternalError("Can only happen on faulty throw of B3NoSuchVariableException");
+				} catch (B3EngineException e) {
+					throw new B3InternalError("Error while merging value maps", e);
+				}
+			else // just store the entry (value, type, and final/etc)
+				values.put(key, add.values.get(key));
 		}
 	}
 }
