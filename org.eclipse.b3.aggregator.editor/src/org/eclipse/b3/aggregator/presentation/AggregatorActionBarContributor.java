@@ -23,7 +23,10 @@ import java.util.Set;
 import java.util.Map.Entry;
 
 import org.eclipse.b3.aggregator.Aggregator;
+import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
+import org.eclipse.b3.aggregator.Configuration;
+import org.eclipse.b3.aggregator.Contact;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.CustomCategory;
 import org.eclipse.b3.aggregator.EnabledStatusProvider;
@@ -46,6 +49,7 @@ import org.eclipse.b3.aggregator.util.AggregatorResourceImpl;
 import org.eclipse.b3.aggregator.util.ItemSorter;
 import org.eclipse.b3.aggregator.util.ItemUtils;
 import org.eclipse.b3.aggregator.util.ResourceUtils;
+import org.eclipse.b3.aggregator.util.SortCommand;
 import org.eclipse.b3.aggregator.util.TwoColumnMatrix;
 import org.eclipse.b3.aggregator.util.ItemSorter.ItemGroup;
 import org.eclipse.core.runtime.CoreException;
@@ -127,6 +131,7 @@ import org.xml.sax.SAXException;
  */
 public class AggregatorActionBarContributor extends EditingDomainActionBarContributor implements
 		ISelectionChangedListener {
+
 	class AddToCustomCategoryAction extends Action {
 		private EditingDomain domain;
 
@@ -706,6 +711,29 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 		}
 	}
 
+	class SortAction<T> extends Action {
+
+		private EditingDomain editingDomain;
+
+		private SortCommand<T> command;
+
+		public SortAction(EditingDomain editingDomain, EList<T> containment, T itemTemplate, String label) {
+			this.editingDomain = editingDomain;
+
+			command = new SortCommand<T>(editingDomain, containment, itemTemplate, label);
+
+			setEnabled(command.canExecute());
+
+			setText(label);
+			setImageDescriptor(ImageDescriptor.createFromURL((URL) command.getImage()));
+		}
+
+		@Override
+		public void run() {
+			editingDomain.getCommandStack().execute(command);
+		}
+	}
+
 	private static String getString(String key) {
 		return AggregatorEditorPlugin.INSTANCE.getString(key);
 	}
@@ -806,29 +834,31 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 	protected Map<EnabledStatusAction, Boolean> enabledStatusActionVisibility;
 
-	protected boolean m_reloadOrCancelRepoActionVisible;
+	protected boolean reloadOrCancelRepoActionVisible;
 
-	protected ReloadOrCancelRepoAction m_reloadOrCancelRepoAction;
+	protected ReloadOrCancelRepoAction reloadOrCancelRepoAction;
 
-	protected BuildRepoAction m_cleanRepoAction;
+	protected BuildRepoAction cleanRepoAction;
 
-	protected BuildRepoAction m_verifyRepoAction;
+	protected BuildRepoAction verifyRepoAction;
 
-	protected BuildRepoAction m_buildRepoAction;
+	protected BuildRepoAction buildRepoAction;
 
-	protected BuildRepoAction m_cleanBuildRepoAction;
+	protected BuildRepoAction cleanBuildRepoAction;
 
-	protected List<IAction> m_addToParentRepositoryActions;
+	protected List<IAction> addToParentRepositoryActions;
 
-	protected List<IAction> m_addToCustomCategoriesActions;
+	protected List<IAction> addToCustomCategoriesActions;
 
-	protected IAction m_selectMatchingIUAction;
+	protected IAction selectMatchingIUAction;
 
 	private Aggregator aggregator;
 
 	private IEditorPart lastActiveEditorPart;
 
 	private ISelection lastSelection;
+
+	private boolean aggregatorSelected;
 
 	/**
 	 * This creates an instance of the contributor. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -843,12 +873,12 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 		enabledStatusActionVisibility = new LinkedHashMap<EnabledStatusAction, Boolean>();
 		enabledStatusActionVisibility.put(new EnabledStatusAction(true), Boolean.FALSE);
 		enabledStatusActionVisibility.put(new EnabledStatusAction(false), Boolean.FALSE);
-		m_reloadOrCancelRepoAction = new ReloadOrCancelRepoAction();
-		m_reloadOrCancelRepoActionVisible = false;
-		m_cleanRepoAction = new BuildRepoAction(ActionType.CLEAN);
-		m_verifyRepoAction = new BuildRepoAction(ActionType.VERIFY);
-		m_buildRepoAction = new BuildRepoAction(ActionType.BUILD);
-		m_cleanBuildRepoAction = new BuildRepoAction(ActionType.CLEAN_BUILD);
+		reloadOrCancelRepoAction = new ReloadOrCancelRepoAction();
+		reloadOrCancelRepoActionVisible = false;
+		cleanRepoAction = new BuildRepoAction(ActionType.CLEAN);
+		verifyRepoAction = new BuildRepoAction(ActionType.VERIFY);
+		buildRepoAction = new BuildRepoAction(ActionType.BUILD);
+		cleanBuildRepoAction = new BuildRepoAction(ActionType.CLEAN_BUILD);
 	}
 
 	/**
@@ -911,12 +941,12 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 		// actions need to be created just before menu is displayed, otherwise it would be possible to add an IU as a
 		// Feature and then add the same IU as Exclusion Rule
-		m_addToParentRepositoryActions = generateAddToParentRepositoryAction(lastSelection);
-		m_addToCustomCategoriesActions = generateAddToCustomCategoryActions(lastSelection);
+		addToParentRepositoryActions = generateAddToParentRepositoryAction(lastSelection);
+		addToCustomCategoriesActions = generateAddToCustomCategoryActions(lastSelection);
 
-		if(m_addToParentRepositoryActions != null && m_addToParentRepositoryActions.size() > 0)
-			if(m_addToParentRepositoryActions.size() == 1) {
-				IAction action = m_addToParentRepositoryActions.get(0);
+		if(addToParentRepositoryActions != null && addToParentRepositoryActions.size() > 0)
+			if(addToParentRepositoryActions.size() == 1) {
+				IAction action = addToParentRepositoryActions.get(0);
 
 				Object imageURL = AggregatorEditPlugin.INSTANCE.getImage("full/obj16/Contribution.gif");
 
@@ -930,19 +960,19 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 			else {
 				MenuManager submenuManager = new MenuManager(
 						AggregatorEditorPlugin.INSTANCE.getString("_UI_Add_to_parent_Mapped_Repository_As"));
-				populateManager(submenuManager, m_addToParentRepositoryActions, null);
+				populateManager(submenuManager, addToParentRepositoryActions, null);
 				menuManager.insertBefore("edit", submenuManager);
 			}
 
-		if(m_addToCustomCategoriesActions != null && m_addToCustomCategoriesActions.size() > 0) {
+		if(addToCustomCategoriesActions != null && addToCustomCategoriesActions.size() > 0) {
 			MenuManager submenuManager = new MenuManager(
 					AggregatorEditorPlugin.INSTANCE.getString("_UI_Add_to_Custom_Category_menu_item"));
-			populateManager(submenuManager, m_addToCustomCategoriesActions, null);
+			populateManager(submenuManager, addToCustomCategoriesActions, null);
 			menuManager.insertBefore("edit", submenuManager);
 		}
 
-		if(m_selectMatchingIUAction != null)
-			menuManager.insertBefore("edit", m_selectMatchingIUAction);
+		if(selectMatchingIUAction != null)
+			menuManager.insertBefore("edit", selectMatchingIUAction);
 
 		for(Map.Entry<EnabledStatusAction, Boolean> entry : enabledStatusActionVisibility.entrySet()) {
 			if(entry.getValue()) {
@@ -950,14 +980,35 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 				menuManager.insertBefore("edit", entry.getKey());
 			}
 		}
-		if(m_reloadOrCancelRepoActionVisible) {
-			depopulateManager(menuManager, Collections.singleton(m_reloadOrCancelRepoAction));
-			menuManager.insertBefore("edit", new ActionContributionItem(m_reloadOrCancelRepoAction) {
+		if(reloadOrCancelRepoActionVisible) {
+			depopulateManager(menuManager, Collections.singleton(reloadOrCancelRepoAction));
+			menuManager.insertBefore("edit", new ActionContributionItem(reloadOrCancelRepoAction) {
 				// force updating the text and image immediately
 				public boolean isDynamic() {
 					return true;
 				}
 			});
+		}
+
+		if(aggregatorSelected) {
+			EditingDomain editingDomain = ((IEditingDomainProvider) activeEditorPart).getEditingDomain();
+
+			IAction sortConfigurationsAction = new SortAction<Configuration>(editingDomain,
+					aggregator.getConfigurations(), AggregatorFactory.eINSTANCE.createConfiguration(), "Configurations");
+			IAction sortContactsAction = new SortAction<Contact>(editingDomain, aggregator.getContacts(),
+					AggregatorFactory.eINSTANCE.createContact(), "Contacts");
+			IAction sortContributionsAction = new SortAction<Contribution>(editingDomain,
+					aggregator.getContributions(), AggregatorFactory.eINSTANCE.createContribution(), "Contributions");
+			IAction sortCustomCategoriesAction = new SortAction<CustomCategory>(editingDomain,
+					aggregator.getCustomCategories(), AggregatorFactory.eINSTANCE.createCustomCategory(),
+					"Custom Categories");
+
+			MenuManager submenuManager = new MenuManager("Sort");
+			submenuManager.add(sortConfigurationsAction);
+			submenuManager.add(sortContactsAction);
+			submenuManager.add(sortContributionsAction);
+			submenuManager.add(sortCustomCategoriesAction);
+			menuManager.insertBefore("edit", submenuManager);
 		}
 	}
 
@@ -1086,9 +1137,9 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 		//
 		Collection<?> newChildDescriptors = null;
 		Collection<?> newSiblingDescriptors = null;
-		m_selectMatchingIUAction = null;
+		selectMatchingIUAction = null;
 
-		m_reloadOrCancelRepoActionVisible = false;
+		reloadOrCancelRepoActionVisible = false;
 
 		if(selection instanceof IStructuredSelection && ((IStructuredSelection) selection).size() >= 1) {
 			EditingDomain domain = ((IEditingDomainProvider) activeEditorPart).getEditingDomain();
@@ -1122,19 +1173,22 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 				}
 			}
 
-			m_reloadOrCancelRepoAction.setEnabled(true);
-			m_reloadOrCancelRepoAction.initMetadataRepositoryReferences();
+			reloadOrCancelRepoAction.setEnabled(true);
+			reloadOrCancelRepoAction.initMetadataRepositoryReferences();
 			Aggregator aggregator = getAggregator();
+
+			aggregatorSelected = false;
 			if(selectedItems.size() == 1 && selectedItems.get(0).equals(aggregator)) {
-				m_reloadOrCancelRepoAction.setLoadText("Reload All Repositories");
-				m_reloadOrCancelRepoActionVisible = true;
+				aggregatorSelected = true;
+				reloadOrCancelRepoAction.setLoadText("Reload All Repositories");
+				reloadOrCancelRepoActionVisible = true;
 				ResourceSet resourceSet = ((AggregatorImpl) aggregator).eResource().getResourceSet();
 				for(Resource resource : resourceSet.getResources())
 					if(resource instanceof MetadataRepositoryResourceImpl)
-						m_reloadOrCancelRepoAction.addMetadataRepositoryResource((MetadataRepositoryResourceImpl) resource);
+						reloadOrCancelRepoAction.addMetadataRepositoryResource((MetadataRepositoryResourceImpl) resource);
 			}
 			else {
-				m_reloadOrCancelRepoAction.setLoadText("Reload Repository");
+				reloadOrCancelRepoAction.setLoadText("Reload Repository");
 				for(Object object : selectedItems) {
 					if(object instanceof MetadataRepositoryReference) {
 						MetadataRepositoryReference metadataRepositoryReference = (MetadataRepositoryReference) object;
@@ -1142,22 +1196,22 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 							MetadataRepositoryResourceImpl res = (MetadataRepositoryResourceImpl) MetadataRepositoryResourceImpl.getResourceForNatureAndLocation(
 									metadataRepositoryReference.getNature(),
 									metadataRepositoryReference.getResolvedLocation(), aggregator);
-							m_reloadOrCancelRepoAction.addMetadataRepositoryResource(res);
+							reloadOrCancelRepoAction.addMetadataRepositoryResource(res);
 						}
 						else {
-							m_reloadOrCancelRepoAction.setEnabled(false);
+							reloadOrCancelRepoAction.setEnabled(false);
 						}
-						m_reloadOrCancelRepoActionVisible = true;
+						reloadOrCancelRepoActionVisible = true;
 					}
 					else if(object instanceof MetadataRepositoryResourceImpl) {
 						MetadataRepositoryResourceImpl res = (MetadataRepositoryResourceImpl) object;
-						m_reloadOrCancelRepoAction.addMetadataRepositoryResource(res);
-						m_reloadOrCancelRepoActionVisible = true;
+						reloadOrCancelRepoAction.addMetadataRepositoryResource(res);
+						reloadOrCancelRepoActionVisible = true;
 					}
 					else {
-						m_reloadOrCancelRepoAction.setEnabled(false);
-						m_reloadOrCancelRepoActionVisible = false;
-						m_reloadOrCancelRepoAction.initMetadataRepositoryReferences();
+						reloadOrCancelRepoAction.setEnabled(false);
+						reloadOrCancelRepoActionVisible = false;
+						reloadOrCancelRepoAction.initMetadataRepositoryReferences();
 						break;
 					}
 				}
@@ -1170,7 +1224,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 				newSiblingDescriptors = domain.getNewChildDescriptors(null, object);
 
 				if(object instanceof RequirementWrapper) {
-					m_selectMatchingIUAction = new SelectMatchingIUAction((RequirementWrapper) object);
+					selectMatchingIUAction = new SelectMatchingIUAction((RequirementWrapper) object);
 				}
 			}
 		}
@@ -1192,10 +1246,10 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 	@Override
 	protected void addGlobalActions(IMenuManager menuManager) {
-		menuManager.insertBefore("additions", new ActionContributionItem(m_cleanRepoAction));
-		menuManager.insertBefore("additions", new ActionContributionItem(m_verifyRepoAction));
-		menuManager.insertBefore("additions", new ActionContributionItem(m_buildRepoAction));
-		menuManager.insertBefore("additions", new ActionContributionItem(m_cleanBuildRepoAction));
+		menuManager.insertBefore("additions", new ActionContributionItem(cleanRepoAction));
+		menuManager.insertBefore("additions", new ActionContributionItem(verifyRepoAction));
+		menuManager.insertBefore("additions", new ActionContributionItem(buildRepoAction));
+		menuManager.insertBefore("additions", new ActionContributionItem(cleanBuildRepoAction));
 		menuManager.insertBefore("additions", new Separator());
 		addGlobalActionsGen(menuManager);
 	}
