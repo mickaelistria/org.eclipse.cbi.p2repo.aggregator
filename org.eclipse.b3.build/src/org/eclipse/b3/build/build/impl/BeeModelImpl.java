@@ -42,7 +42,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.b3.build.build.impl.BeeModelImpl#getImports <em>Imports</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BeeModelImpl#getFunctions <em>Functions</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BeeModelImpl#getConcerns <em>Concerns</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.BeeModelImpl#getBody <em>Body</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BeeModelImpl#getBuildUnits <em>Build Units</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BeeModelImpl#getPropertySets <em>Property Sets</em>}</li>
  * </ul>
  * </p>
@@ -81,14 +81,14 @@ public class BeeModelImpl extends EObjectImpl implements BeeModel {
 	protected EList<BConcern> concerns;
 
 	/**
-	 * The cached value of the '{@link #getBody() <em>Body</em>}' containment reference.
+	 * The cached value of the '{@link #getBuildUnits() <em>Build Units</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBody()
+	 * @see #getBuildUnits()
 	 * @generated
 	 * @ordered
 	 */
-	protected BuildUnit body;
+	protected EList<BuildUnit> buildUnits;
 
 	/**
 	 * The cached value of the '{@link #getPropertySets() <em>Property Sets</em>}' containment reference list.
@@ -160,42 +160,11 @@ public class BeeModelImpl extends EObjectImpl implements BeeModel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BuildUnit getBody() {
-		return body;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetBody(BuildUnit newBody, NotificationChain msgs) {
-		BuildUnit oldBody = body;
-		body = newBody;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.BEE_MODEL__BODY, oldBody, newBody);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<BuildUnit> getBuildUnits() {
+		if (buildUnits == null) {
+			buildUnits = new EObjectContainmentEList<BuildUnit>(BuildUnit.class, this, B3BuildPackage.BEE_MODEL__BUILD_UNITS);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setBody(BuildUnit newBody) {
-		if (newBody != body) {
-			NotificationChain msgs = null;
-			if (body != null)
-				msgs = ((InternalEObject)body).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BEE_MODEL__BODY, null, msgs);
-			if (newBody != null)
-				msgs = ((InternalEObject)newBody).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BEE_MODEL__BODY, null, msgs);
-			msgs = basicSetBody(newBody, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BEE_MODEL__BODY, newBody, newBody));
+		return buildUnits;
 	}
 
 	/**
@@ -224,8 +193,8 @@ public class BeeModelImpl extends EObjectImpl implements BeeModel {
 				return ((InternalEList<?>)getFunctions()).basicRemove(otherEnd, msgs);
 			case B3BuildPackage.BEE_MODEL__CONCERNS:
 				return ((InternalEList<?>)getConcerns()).basicRemove(otherEnd, msgs);
-			case B3BuildPackage.BEE_MODEL__BODY:
-				return basicSetBody(null, msgs);
+			case B3BuildPackage.BEE_MODEL__BUILD_UNITS:
+				return ((InternalEList<?>)getBuildUnits()).basicRemove(otherEnd, msgs);
 			case B3BuildPackage.BEE_MODEL__PROPERTY_SETS:
 				return ((InternalEList<?>)getPropertySets()).basicRemove(otherEnd, msgs);
 		}
@@ -246,8 +215,8 @@ public class BeeModelImpl extends EObjectImpl implements BeeModel {
 				return getFunctions();
 			case B3BuildPackage.BEE_MODEL__CONCERNS:
 				return getConcerns();
-			case B3BuildPackage.BEE_MODEL__BODY:
-				return getBody();
+			case B3BuildPackage.BEE_MODEL__BUILD_UNITS:
+				return getBuildUnits();
 			case B3BuildPackage.BEE_MODEL__PROPERTY_SETS:
 				return getPropertySets();
 		}
@@ -275,8 +244,9 @@ public class BeeModelImpl extends EObjectImpl implements BeeModel {
 				getConcerns().clear();
 				getConcerns().addAll((Collection<? extends BConcern>)newValue);
 				return;
-			case B3BuildPackage.BEE_MODEL__BODY:
-				setBody((BuildUnit)newValue);
+			case B3BuildPackage.BEE_MODEL__BUILD_UNITS:
+				getBuildUnits().clear();
+				getBuildUnits().addAll((Collection<? extends BuildUnit>)newValue);
 				return;
 			case B3BuildPackage.BEE_MODEL__PROPERTY_SETS:
 				getPropertySets().clear();
@@ -303,8 +273,8 @@ public class BeeModelImpl extends EObjectImpl implements BeeModel {
 			case B3BuildPackage.BEE_MODEL__CONCERNS:
 				getConcerns().clear();
 				return;
-			case B3BuildPackage.BEE_MODEL__BODY:
-				setBody((BuildUnit)null);
+			case B3BuildPackage.BEE_MODEL__BUILD_UNITS:
+				getBuildUnits().clear();
 				return;
 			case B3BuildPackage.BEE_MODEL__PROPERTY_SETS:
 				getPropertySets().clear();
@@ -327,8 +297,8 @@ public class BeeModelImpl extends EObjectImpl implements BeeModel {
 				return functions != null && !functions.isEmpty();
 			case B3BuildPackage.BEE_MODEL__CONCERNS:
 				return concerns != null && !concerns.isEmpty();
-			case B3BuildPackage.BEE_MODEL__BODY:
-				return body != null;
+			case B3BuildPackage.BEE_MODEL__BUILD_UNITS:
+				return buildUnits != null && !buildUnits.isEmpty();
 			case B3BuildPackage.BEE_MODEL__PROPERTY_SETS:
 				return propertySets != null && !propertySets.isEmpty();
 		}

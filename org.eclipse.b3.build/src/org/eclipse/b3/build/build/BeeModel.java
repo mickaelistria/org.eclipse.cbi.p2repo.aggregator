@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.b3.build.build.BeeModel#getImports <em>Imports</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.BeeModel#getFunctions <em>Functions</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.BeeModel#getConcerns <em>Concerns</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.BeeModel#getBody <em>Body</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.BeeModel#getBuildUnits <em>Build Units</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.BeeModel#getPropertySets <em>Property Sets</em>}</li>
  * </ul>
  * </p>
@@ -86,30 +86,20 @@ public interface BeeModel extends EObject {
 	EList<BConcern> getConcerns();
 
 	/**
-	 * Returns the value of the '<em><b>Body</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Build Units</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.b3.build.build.BuildUnit}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Body</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Build Units</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Body</em>' containment reference.
-	 * @see #setBody(BuildUnit)
-	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBeeModel_Body()
+	 * @return the value of the '<em>Build Units</em>' containment reference list.
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBeeModel_BuildUnits()
 	 * @model containment="true"
 	 * @generated
 	 */
-	BuildUnit getBody();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.BeeModel#getBody <em>Body</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Body</em>' containment reference.
-	 * @see #getBody()
-	 * @generated
-	 */
-	void setBody(BuildUnit value);
+	EList<BuildUnit> getBuildUnits();
 
 	/**
 	 * Returns the value of the '<em><b>Property Sets</b></em>' containment reference list.

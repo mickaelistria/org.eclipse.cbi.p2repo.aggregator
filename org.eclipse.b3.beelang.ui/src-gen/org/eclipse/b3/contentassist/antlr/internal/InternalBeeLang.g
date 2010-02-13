@@ -7568,9 +7568,9 @@ rule__BeeModel__Group_1__2
     }
 :
 (
-{ before(grammarAccess.getBeeModelAccess().getBodyAssignment_1_2()); }
-(rule__BeeModel__BodyAssignment_1_2)?
-{ after(grammarAccess.getBeeModelAccess().getBodyAssignment_1_2()); }
+{ before(grammarAccess.getBeeModelAccess().getBuildUnitsAssignment_1_2()); }
+(rule__BeeModel__BuildUnitsAssignment_1_2)*
+{ after(grammarAccess.getBeeModelAccess().getBuildUnitsAssignment_1_2()); }
 )
 
 ;
@@ -29644,14 +29644,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__BeeModel__BodyAssignment_1_2
+rule__BeeModel__BuildUnitsAssignment_1_2
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getBeeModelAccess().getBodyBuildUnitParserRuleCall_1_2_0()); }
-	ruleBuildUnit{ after(grammarAccess.getBeeModelAccess().getBodyBuildUnitParserRuleCall_1_2_0()); }
+{ before(grammarAccess.getBeeModelAccess().getBuildUnitsBuildUnitParserRuleCall_1_2_0()); }
+	ruleBuildUnit{ after(grammarAccess.getBeeModelAccess().getBuildUnitsBuildUnitParserRuleCall_1_2_0()); }
 )
 
 ;

@@ -217,18 +217,18 @@ ruleBeeModel returns [EObject current=null]
 )))*(
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getBeeModelAccess().getBodyBuildUnitParserRuleCall_1_2_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getBeeModelAccess().getBuildUnitsBuildUnitParserRuleCall_1_2_0(), currentNode); 
 	    }
-		lv_body_6_0=ruleBuildUnit		{
+		lv_buildUnits_6_0=ruleBuildUnit		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getBeeModelRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
 	        }
 	        try {
-	       		set(
+	       		add(
 	       			$current, 
-	       			"body",
-	        		lv_body_6_0, 
+	       			"buildUnits",
+	        		lv_buildUnits_6_0, 
 	        		"BuildUnit", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -238,7 +238,7 @@ ruleBeeModel returns [EObject current=null]
 	    }
 
 )
-)?))
+)*))
 ;
 finally {
 	myHiddenTokenState.restore();

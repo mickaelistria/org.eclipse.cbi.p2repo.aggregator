@@ -37,7 +37,7 @@
             </tokens>
           </groups>
         </tokens>
-        <tokens xsi:type="xtext:Assignment" cardinality="?" feature="body" operator="=">
+        <tokens xsi:type="xtext:Assignment" cardinality="*" feature="buildUnits" operator="+=">
           <terminal xsi:type="xtext:RuleCall" rule="//@rules.2"/>
         </tokens>
       </tokens>

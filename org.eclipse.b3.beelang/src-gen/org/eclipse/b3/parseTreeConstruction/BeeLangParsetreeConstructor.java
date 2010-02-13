@@ -184,7 +184,7 @@ protected class ThisRootNode extends RootToken {
  *
  * BeeModel returns build::BeeModel hidden ( WS , SL_COMMENT , ML_COMMENT ):
  *   {build::BeeModel} (imports+=Import* (functions+=Function|concerns+=Concern_Named|
- *   "properties" propertySets+=PropertySet_Named)* body=BuildUnit?); 
+ *   "properties" propertySets+=PropertySet_Named)* buildUnits+=BuildUnit*); 
  * 
  * // uncomments if things are needed that should not be in backend or build
  * //generate beeLang "http://www.eclipse.org/b3/BeeLang"
@@ -192,7 +192,7 @@ protected class ThisRootNode extends RootToken {
  **/
 
 // {build::BeeModel} (imports+=Import* (functions+=Function|concerns+=Concern_Named|
-// "properties" propertySets+=PropertySet_Named)* body=BuildUnit?)
+// "properties" propertySets+=PropertySet_Named)* buildUnits+=BuildUnit*)
 protected class BeeModel_Group extends GroupToken {
 	
 	public BeeModel_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -248,7 +248,7 @@ protected class BeeModel_BeeModelAction_0 extends ActionToken  {
 }
 
 // imports+=Import* (functions+=Function|concerns+=Concern_Named|"properties"
-// propertySets+=PropertySet_Named)* body=BuildUnit?
+// propertySets+=PropertySet_Named)* buildUnits+=BuildUnit*
 protected class BeeModel_Group_1 extends GroupToken {
 	
 	public BeeModel_Group_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -263,7 +263,7 @@ protected class BeeModel_Group_1 extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new BeeModel_BodyAssignment_1_2(parent, this, 0, inst);
+			case 0: return new BeeModel_BuildUnitsAssignment_1_2(parent, this, 0, inst);
 			case 1: return new BeeModel_Alternatives_1_1(parent, this, 1, inst);
 			case 2: return new BeeModel_ImportsAssignment_1_0(parent, this, 2, inst);
 			default: return null;
@@ -534,16 +534,16 @@ protected class BeeModel_PropertySetsAssignment_1_1_2_1 extends AssignmentToken 
 
 
 
-// body=BuildUnit?
-protected class BeeModel_BodyAssignment_1_2 extends AssignmentToken  {
+// buildUnits+=BuildUnit*
+protected class BeeModel_BuildUnitsAssignment_1_2 extends AssignmentToken  {
 	
-	public BeeModel_BodyAssignment_1_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BeeModel_BuildUnitsAssignment_1_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getBeeModelAccess().getBodyAssignment_1_2();
+		return grammarAccess.getBeeModelAccess().getBuildUnitsAssignment_1_2();
 	}
 
     @Override
@@ -556,13 +556,13 @@ protected class BeeModel_BodyAssignment_1_2 extends AssignmentToken  {
 		
     @Override	
 	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("body",false)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("body");
+		if((value = current.getConsumable("buildUnits",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("buildUnits");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getBuildUnitRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getBeeModelAccess().getBodyBuildUnitParserRuleCall_1_2_0(); 
+				element = grammarAccess.getBeeModelAccess().getBuildUnitsBuildUnitParserRuleCall_1_2_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -574,9 +574,10 @@ protected class BeeModel_BodyAssignment_1_2 extends AssignmentToken  {
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new BeeModel_Alternatives_1_1(parent, next, actIndex, consumed);
-			case 1: return new BeeModel_ImportsAssignment_1_0(parent, next, actIndex, consumed);
-			case 2: return new BeeModel_BeeModelAction_0(parent, next, actIndex, consumed);
+			case 0: return new BeeModel_BuildUnitsAssignment_1_2(parent, next, actIndex, consumed);
+			case 1: return new BeeModel_Alternatives_1_1(parent, next, actIndex, consumed);
+			case 2: return new BeeModel_ImportsAssignment_1_0(parent, next, actIndex, consumed);
+			case 3: return new BeeModel_BeeModelAction_0(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
@@ -8108,22 +8109,7 @@ protected class BuilderQuery_BuilderQueriesAssignment_3_1 extends AssignmentToke
  *
  * PathGroup returns build::PathGroup:
  *   {build::PathGroup} pathVectors+=ConditionalPathVector+ ("annotations" annotations=
- *   PropertySet)?; 
- * 	
- *       
- * 	            
- * 	
- * 
- * //PathVector returns build::ConditionalPathVector
- * //	: CBasePathVector
- * //	| CUnbasedPathVector
- * //	| CompoundPathVector
- * //	;
- * 	
- * //CBasePathVector returns build::PathVector : {build::ConditionalPathVector}
- * //	("when" '(' condExpr=Expression ')')?
- * //	pathVectors += (BasePathVector | UnbasedPathVector)
- * //	;
+ *   PropertySet)?;
  *
  **/
 
@@ -8329,18 +8315,7 @@ protected class PathGroup_AnnotationsAssignment_2_1 extends AssignmentToken  {
 /************ begin Rule BasePathVector ****************
  *
  * BasePathVector returns build::PathVector:
- *   {build::PathVector} basePath=Path "[" (paths+=Path ("," paths+=Path)*)? "]" ";"; 
- * 
- * //PathVector returns build::ConditionalPathVector
- * //	: CBasePathVector
- * //	| CUnbasedPathVector
- * //	| CompoundPathVector
- * //	;
- * 	
- * //CBasePathVector returns build::PathVector : {build::ConditionalPathVector}
- * //	("when" '(' condExpr=Expression ')')?
- * //	pathVectors += (BasePathVector | UnbasedPathVector)
- * //	;
+ *   {build::PathVector} basePath=Path "[" (paths+=Path ("," paths+=Path)*)? "]" ";";
  *
  **/
 
@@ -8645,16 +8620,7 @@ protected class BasePathVector_SemicolonKeyword_5 extends KeywordToken  {
 /************ begin Rule UnbasedPathVector ****************
  *
  * UnbasedPathVector returns build::PathVector:
- *   {build::PathVector} paths+=Path ("," paths+=Path)* ";"; 
- * 
- *         
- * 	      
- * 	
- * 
- * //CUnbasedPathVector returns build::PathVector : {build::ConditionalPathVector}
- * //	("when" '(' condExpr=Expression ')')?
- * //	paths+=Path (',' paths+=Path)* ';'
- * //	;
+ *   {build::PathVector} paths+=Path ("," paths+=Path)* ";";
  *
  **/
 
@@ -8860,11 +8826,6 @@ protected class UnbasedPathVector_SemicolonKeyword_3 extends KeywordToken  {
  *   {build::ConditionalPathVector} ("when" "(" condExpr=Expression ")" "{" pathVectors+=(
  *   BasePathVector | UnbasedPathVector )* "}")|("when" "(" condExpr=Expression ")")?
  *   pathVectors+=( BasePathVector | UnbasedPathVector ); 
- * 
- * //CUnbasedPathVector returns build::PathVector : {build::ConditionalPathVector}
- * //	("when" '(' condExpr=Expression ')')?
- * //	paths+=Path (',' paths+=Path)* ';'
- * //	;
  * 	
  *         
  * 		                      
@@ -8878,11 +8839,6 @@ protected class UnbasedPathVector_SemicolonKeyword_3 extends KeywordToken  {
 // {build::ConditionalPathVector} ("when" "(" condExpr=Expression ")" "{" pathVectors+=(
 // BasePathVector | UnbasedPathVector )* "}")|("when" "(" condExpr=Expression ")")?
 // pathVectors+=( BasePathVector | UnbasedPathVector ) 
-// 
-// //CUnbasedPathVector returns build::PathVector : {build::ConditionalPathVector}
-// //	("when" '(' condExpr=Expression ')')?
-// //	paths+=Path (',' paths+=Path)* ';'
-// //	;
 // 	
 //         
 // 		                      

@@ -29,7 +29,7 @@ BeeModel returns build::BeeModel hidden(WS, SL_COMMENT, ML_COMMENT) : {build::Be
 	| 	(concerns += Concern_Named)
 	|	('properties'  propertySets += PropertySet_Named)
 	)* 
-	(body = BuildUnit)? )
+	(buildUnits += BuildUnit)* )
 	;
 
 Import returns be::IType : {be::B3JavaImport}

@@ -2994,13 +2994,13 @@ public interface B3BuildPackage extends EPackage {
 	int BEE_MODEL__CONCERNS = 2;
 
 	/**
-	 * The feature id for the '<em><b>Body</b></em>' containment reference.
+	 * The feature id for the '<em><b>Build Units</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BEE_MODEL__BODY = 3;
+	int BEE_MODEL__BUILD_UNITS = 3;
 
 	/**
 	 * The feature id for the '<em><b>Property Sets</b></em>' containment reference list.
@@ -3774,15 +3774,15 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBeeModel_Concerns();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.BeeModel#getBody <em>Body</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BeeModel#getBuildUnits <em>Build Units</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Body</em>'.
-	 * @see org.eclipse.b3.build.build.BeeModel#getBody()
+	 * @return the meta object for the containment reference list '<em>Build Units</em>'.
+	 * @see org.eclipse.b3.build.build.BeeModel#getBuildUnits()
 	 * @see #getBeeModel()
 	 * @generated
 	 */
-	EReference getBeeModel_Body();
+	EReference getBeeModel_BuildUnits();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BeeModel#getPropertySets <em>Property Sets</em>}'.
@@ -5505,12 +5505,12 @@ public interface B3BuildPackage extends EPackage {
 		EReference BEE_MODEL__CONCERNS = eINSTANCE.getBeeModel_Concerns();
 
 		/**
-		 * The meta object literal for the '<em><b>Body</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Build Units</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BEE_MODEL__BODY = eINSTANCE.getBeeModel_Body();
+		EReference BEE_MODEL__BUILD_UNITS = eINSTANCE.getBeeModel_BuildUnits();
 
 		/**
 		 * The meta object literal for the '<em><b>Property Sets</b></em>' containment reference list feature.

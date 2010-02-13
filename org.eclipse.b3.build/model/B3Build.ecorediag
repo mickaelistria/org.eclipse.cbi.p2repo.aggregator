@@ -3184,7 +3184,7 @@
       </children>
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_NIk0wQuEEd-yg4_Jt8Ogrw" routing="Rectilinear" lineColor="4210752"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_NIk0wguEEd-yg4_Jt8Ogrw" fontColor="4210752" fontName="Lucida Grande" fontHeight="10"/>
-      <element xmi:type="ecore:EReference" href="B3Build.ecore#//BeeModel/body"/>
+      <element xmi:type="ecore:EReference" href="B3Build.ecore#//BeeModel/buildUnits"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_NIk0wwuEEd-yg4_Jt8Ogrw" points="[-35, 20, 95, -53]$[-128, 90, 2, 17]"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_NInRAAuEEd-yg4_Jt8Ogrw" id="(0.9117647058823529,0.575)"/>
     </edges>

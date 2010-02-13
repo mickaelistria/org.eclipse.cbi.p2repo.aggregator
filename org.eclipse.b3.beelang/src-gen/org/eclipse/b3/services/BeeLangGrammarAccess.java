@@ -32,26 +32,26 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cPropertiesKeyword_1_1_2_0 = (Keyword)cGroup_1_1_2.eContents().get(0);
 		private final Assignment cPropertySetsAssignment_1_1_2_1 = (Assignment)cGroup_1_1_2.eContents().get(1);
 		private final RuleCall cPropertySetsPropertySet_NamedParserRuleCall_1_1_2_1_0 = (RuleCall)cPropertySetsAssignment_1_1_2_1.eContents().get(0);
-		private final Assignment cBodyAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cBodyBuildUnitParserRuleCall_1_2_0 = (RuleCall)cBodyAssignment_1_2.eContents().get(0);
+		private final Assignment cBuildUnitsAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cBuildUnitsBuildUnitParserRuleCall_1_2_0 = (RuleCall)cBuildUnitsAssignment_1_2.eContents().get(0);
 		
 		//BeeModel returns build::BeeModel hidden ( WS , SL_COMMENT , ML_COMMENT ):
 		//  {build::BeeModel} (imports+=Import* (functions+=Function|concerns+=Concern_Named|
-		//  "properties" propertySets+=PropertySet_Named)* body=BuildUnit?); 
+		//  "properties" propertySets+=PropertySet_Named)* buildUnits+=BuildUnit*); 
 		//
 		//// uncomments if things are needed that should not be in backend or build
 		////generate beeLang "http://www.eclipse.org/b3/BeeLang"
 		public ParserRule getRule() { return rule; }
 
 		//{build::BeeModel} (imports+=Import* (functions+=Function|concerns+=Concern_Named|
-		//"properties" propertySets+=PropertySet_Named)* body=BuildUnit?)
+		//"properties" propertySets+=PropertySet_Named)* buildUnits+=BuildUnit*)
 		public Group getGroup() { return cGroup; }
 
 		//{build::BeeModel}
 		public Action getBeeModelAction_0() { return cBeeModelAction_0; }
 
 		//imports+=Import* (functions+=Function|concerns+=Concern_Named|"properties"
-		//propertySets+=PropertySet_Named)* body=BuildUnit?
+		//propertySets+=PropertySet_Named)* buildUnits+=BuildUnit*
 		public Group getGroup_1() { return cGroup_1; }
 
 		//imports+=Import*
@@ -88,11 +88,11 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//PropertySet_Named
 		public RuleCall getPropertySetsPropertySet_NamedParserRuleCall_1_1_2_1_0() { return cPropertySetsPropertySet_NamedParserRuleCall_1_1_2_1_0; }
 
-		//body=BuildUnit?
-		public Assignment getBodyAssignment_1_2() { return cBodyAssignment_1_2; }
+		//buildUnits+=BuildUnit*
+		public Assignment getBuildUnitsAssignment_1_2() { return cBuildUnitsAssignment_1_2; }
 
 		//BuildUnit
-		public RuleCall getBodyBuildUnitParserRuleCall_1_2_0() { return cBodyBuildUnitParserRuleCall_1_2_0; }
+		public RuleCall getBuildUnitsBuildUnitParserRuleCall_1_2_0() { return cBuildUnitsBuildUnitParserRuleCall_1_2_0; }
 	}
 
 	public class ImportElements extends AbstractParserRuleElementFinder {
@@ -1794,22 +1794,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//PathGroup returns build::PathGroup:
 		//  {build::PathGroup} pathVectors+=ConditionalPathVector+ ("annotations" annotations=
-		//  PropertySet)?; 
-		//	
-		//      
-		//	            
-		//	
-		//
-		////PathVector returns build::ConditionalPathVector
-		////	: CBasePathVector
-		////	| CUnbasedPathVector
-		////	| CompoundPathVector
-		////	;
-		//	
-		////CBasePathVector returns build::PathVector : {build::ConditionalPathVector}
-		////	("when" '(' condExpr=Expression ')')?
-		////	pathVectors += (BasePathVector | UnbasedPathVector)
-		////	;
+		//  PropertySet)?;
 		public ParserRule getRule() { return rule; }
 
 		//{build::PathGroup} pathVectors+=ConditionalPathVector+ ("annotations" annotations=
@@ -1856,18 +1841,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//BasePathVector returns build::PathVector:
-		//  {build::PathVector} basePath=Path "[" (paths+=Path ("," paths+=Path)*)? "]" ";"; 
-		//
-		////PathVector returns build::ConditionalPathVector
-		////	: CBasePathVector
-		////	| CUnbasedPathVector
-		////	| CompoundPathVector
-		////	;
-		//	
-		////CBasePathVector returns build::PathVector : {build::ConditionalPathVector}
-		////	("when" '(' condExpr=Expression ')')?
-		////	pathVectors += (BasePathVector | UnbasedPathVector)
-		////	;
+		//  {build::PathVector} basePath=Path "[" (paths+=Path ("," paths+=Path)*)? "]" ";";
 		public ParserRule getRule() { return rule; }
 
 		//{build::PathVector} basePath=Path "[" (paths+=Path ("," paths+=Path)*)? "]" ";"
@@ -1926,16 +1900,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//UnbasedPathVector returns build::PathVector:
-		//  {build::PathVector} paths+=Path ("," paths+=Path)* ";"; 
-		//
-		//        
-		//	      
-		//	
-		//
-		////CUnbasedPathVector returns build::PathVector : {build::ConditionalPathVector}
-		////	("when" '(' condExpr=Expression ')')?
-		////	paths+=Path (',' paths+=Path)* ';'
-		////	;
+		//  {build::PathVector} paths+=Path ("," paths+=Path)* ";";
 		public ParserRule getRule() { return rule; }
 
 		//{build::PathVector} paths+=Path ("," paths+=Path)* ";"
@@ -1999,11 +1964,6 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//  {build::ConditionalPathVector} ("when" "(" condExpr=Expression ")" "{" pathVectors+=(
 		//  BasePathVector | UnbasedPathVector )* "}")|("when" "(" condExpr=Expression ")")?
 		//  pathVectors+=( BasePathVector | UnbasedPathVector ); 
-		//
-		////CUnbasedPathVector returns build::PathVector : {build::ConditionalPathVector}
-		////	("when" '(' condExpr=Expression ')')?
-		////	paths+=Path (',' paths+=Path)* ';'
-		////	;
 		//	
 		//        
 		//		                      
@@ -2016,11 +1976,6 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//{build::ConditionalPathVector} ("when" "(" condExpr=Expression ")" "{" pathVectors+=(
 		//BasePathVector | UnbasedPathVector )* "}")|("when" "(" condExpr=Expression ")")?
 		//pathVectors+=( BasePathVector | UnbasedPathVector ) 
-		//
-		////CUnbasedPathVector returns build::PathVector : {build::ConditionalPathVector}
-		////	("when" '(' condExpr=Expression ')')?
-		////	paths+=Path (',' paths+=Path)* ';'
-		////	;
 		//	
 		//        
 		//		                      
@@ -10547,7 +10502,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//BeeModel returns build::BeeModel hidden ( WS , SL_COMMENT , ML_COMMENT ):
 	//  {build::BeeModel} (imports+=Import* (functions+=Function|concerns+=Concern_Named|
-	//  "properties" propertySets+=PropertySet_Named)* body=BuildUnit?); 
+	//  "properties" propertySets+=PropertySet_Named)* buildUnits+=BuildUnit*); 
 	//
 	//// uncomments if things are needed that should not be in backend or build
 	////generate beeLang "http://www.eclipse.org/b3/BeeLang"
@@ -10893,22 +10848,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 	//PathGroup returns build::PathGroup:
 	//  {build::PathGroup} pathVectors+=ConditionalPathVector+ ("annotations" annotations=
-	//  PropertySet)?; 
-	//	
-	//      
-	//	            
-	//	
-	//
-	////PathVector returns build::ConditionalPathVector
-	////	: CBasePathVector
-	////	| CUnbasedPathVector
-	////	| CompoundPathVector
-	////	;
-	//	
-	////CBasePathVector returns build::PathVector : {build::ConditionalPathVector}
-	////	("when" '(' condExpr=Expression ')')?
-	////	pathVectors += (BasePathVector | UnbasedPathVector)
-	////	;
+	//  PropertySet)?;
 	public PathGroupElements getPathGroupAccess() {
 		return (pPathGroup != null) ? pPathGroup : (pPathGroup = new PathGroupElements());
 	}
@@ -10918,18 +10858,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//BasePathVector returns build::PathVector:
-	//  {build::PathVector} basePath=Path "[" (paths+=Path ("," paths+=Path)*)? "]" ";"; 
-	//
-	////PathVector returns build::ConditionalPathVector
-	////	: CBasePathVector
-	////	| CUnbasedPathVector
-	////	| CompoundPathVector
-	////	;
-	//	
-	////CBasePathVector returns build::PathVector : {build::ConditionalPathVector}
-	////	("when" '(' condExpr=Expression ')')?
-	////	pathVectors += (BasePathVector | UnbasedPathVector)
-	////	;
+	//  {build::PathVector} basePath=Path "[" (paths+=Path ("," paths+=Path)*)? "]" ";";
 	public BasePathVectorElements getBasePathVectorAccess() {
 		return (pBasePathVector != null) ? pBasePathVector : (pBasePathVector = new BasePathVectorElements());
 	}
@@ -10939,16 +10868,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//UnbasedPathVector returns build::PathVector:
-	//  {build::PathVector} paths+=Path ("," paths+=Path)* ";"; 
-	//
-	//        
-	//	      
-	//	
-	//
-	////CUnbasedPathVector returns build::PathVector : {build::ConditionalPathVector}
-	////	("when" '(' condExpr=Expression ')')?
-	////	paths+=Path (',' paths+=Path)* ';'
-	////	;
+	//  {build::PathVector} paths+=Path ("," paths+=Path)* ";";
 	public UnbasedPathVectorElements getUnbasedPathVectorAccess() {
 		return (pUnbasedPathVector != null) ? pUnbasedPathVector : (pUnbasedPathVector = new UnbasedPathVectorElements());
 	}
@@ -10961,11 +10881,6 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//  {build::ConditionalPathVector} ("when" "(" condExpr=Expression ")" "{" pathVectors+=(
 	//  BasePathVector | UnbasedPathVector )* "}")|("when" "(" condExpr=Expression ")")?
 	//  pathVectors+=( BasePathVector | UnbasedPathVector ); 
-	//
-	////CUnbasedPathVector returns build::PathVector : {build::ConditionalPathVector}
-	////	("when" '(' condExpr=Expression ')')?
-	////	paths+=Path (',' paths+=Path)* ';'
-	////	;
 	//	
 	//        
 	//		                      

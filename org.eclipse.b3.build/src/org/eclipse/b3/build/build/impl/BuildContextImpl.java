@@ -122,9 +122,9 @@ public class BuildContextImpl extends BExecutionContextImpl implements BuildCont
 		}
 		
 		// Define all BUILD UNITS (currently only one - could easily have more than one)
-		BuildUnit u = beeModel.getBody();
-		if(u != null)
-			defineBuildUnit(u, false);
+		for(BuildUnit u : beeModel.getBuildUnits())
+			if(u != null)
+				defineBuildUnit(u, false);
 
 		// Concerns, and defined property sets are only used via direct model references,
 		// so these are not defined in the context.

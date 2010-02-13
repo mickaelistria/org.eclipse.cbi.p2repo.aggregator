@@ -86,6 +86,12 @@ public class BeeLangScopeProvider extends AbstractDeclarativeScopeProvider {
 		return new SimpleScope(result);
 	}
 	
+	/**
+	 * Find reference to advice in containing BuildUnit, or in the BeeModel.
+	 * @param ctx
+	 * @param ref
+	 * @return
+	 */
 	IScope scope_BAdvice(BWithExpression ctx, EReference ref) {
 		EList<EObject> x = ctx.eResource().getContents();
 		ArrayList<IEObjectDescription> result = new ArrayList<IEObjectDescription>();
@@ -94,12 +100,18 @@ public class BeeLangScopeProvider extends AbstractDeclarativeScopeProvider {
 				BeeModel model = ((BeeModel)y);
 				for(BConcern concern : model.getConcerns())
 					result.add(new EObjectDescription(concern.getName(),concern, null));
-				BuildUnit bu = model.getBody();
-				if(bu != null)
-					for(BConcern concern : bu.getConcerns())
-						result.add(new EObjectDescription(concern.getName(),concern, null));
+//				BuildUnit bu = model.getBody();
+//				if(bu != null)
+//					for(BConcern concern : bu.getConcerns())
+//						result.add(new EObjectDescription(concern.getName(),concern, null));
 			}
 		}
+		for(EObject c = ctx.eContainer(); c != null; c = c.eContainer())
+			if(c instanceof BuildUnit) {
+				for(BConcern concern : ((BuildUnit)c).getConcerns())
+					result.add(new EObjectDescription(concern.getName(),concern, null));				
+			}
+		
 		return new SimpleScope(result);
 	}
 }
