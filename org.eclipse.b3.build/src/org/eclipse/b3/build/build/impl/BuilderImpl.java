@@ -6,6 +6,7 @@
  */
 package org.eclipse.b3.build.build.impl;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -36,7 +37,9 @@ import org.eclipse.b3.build.build.IBuilder;
 import org.eclipse.b3.build.build.IProvidedCapabilityContainer;
 import org.eclipse.b3.build.build.PathGroup;
 import org.eclipse.b3.build.build.Prerequisite;
+import org.eclipse.b3.build.core.B3BuilderJob;
 import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;
+import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -471,7 +474,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 		BPropertySet defProp = getDefaultProperties();
 		if(defProp != null) {
 			ctxToUse = ctxToUse.createInnerContext();
-			defProp.evaluateDefaults(ctxToUse);
+			defProp.evaluateDefaults(ctxToUse, true);
 		}
 		if(input != null) {
 			for(Prerequisite p : input.getPrerequisites()) {
@@ -492,7 +495,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 		BPropertySet defProp = getDefaultProperties();
 		if(defProp != null) {
 			ctxToUse = ctxToUse.createOuterContext();
-			defProp.evaluateDefaults(ctxToUse);
+			defProp.evaluateDefaults(ctxToUse, true);
 		}
 		for(Capability cap : getProvidedCapabilities()) {
 			BExpression c = cap.getCondExpr();
@@ -759,5 +762,22 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 		unitParameter.setType(getUnitType());
 		originalParameters.add(0, unitParameter);
 		return originalParameters;
+	}
+	/**
+	 * This specialization returns a B3BuilderJob that performs the evaluation.
+	 */
+	@Override
+	public Object call(BExecutionContext ctx, Object[] parameters, Type[] types) throws Throwable {
+		if(ctx.getProgressMonitor().isCanceled())
+			throw new OperationCanceledException();
+		ctx = prepareCall(ctx, parameters, types);
+		return new B3BuilderJob(ctx, this);
+	}
+	/**
+	 * Overrides the default - a Builder always returns a B3BuilderJob.
+	 */
+	@Override
+	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
+		return B3BuilderJob.class;
 	}
 } //BuilderImpl

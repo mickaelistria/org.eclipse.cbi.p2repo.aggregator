@@ -60,7 +60,7 @@ public abstract class BPropertyOperationImpl extends BExpressionImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object evaluateDefaults(BExecutionContext ctx) throws Throwable {
+	public Object evaluateDefaults(BExecutionContext ctx, boolean allVisible) throws Throwable {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

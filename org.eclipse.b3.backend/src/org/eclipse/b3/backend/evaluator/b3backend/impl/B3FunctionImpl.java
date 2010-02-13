@@ -191,6 +191,8 @@ public class B3FunctionImpl extends BFunctionImpl implements B3Function {
 	@Override
 	public Object internalCall(BExecutionContext octx, Object[] parameters, Type[] types) throws Throwable {
 		// all set up - fire away
+		if(funcExpr == null)
+			return null;
 		return funcExpr.evaluate(octx);
 	}
 	@Override

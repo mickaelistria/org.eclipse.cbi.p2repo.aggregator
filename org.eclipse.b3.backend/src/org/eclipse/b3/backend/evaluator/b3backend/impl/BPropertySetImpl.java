@@ -215,14 +215,14 @@ public class BPropertySetImpl extends BAdviceImpl implements BPropertySet {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public Object evaluateDefaults(BExecutionContext ctx) throws Throwable {
+	public Object evaluateDefaults(BExecutionContext ctx, boolean allVisible) throws Throwable {
 		loadProperties();
 		// start by populating context with extended sets
 		BPropertySet ps = getExtends();
 		if(ps != null)
-			ps.evaluateDefaults(ctx);
+			ps.evaluateDefaults(ctx, allVisible);
 		for(BPropertyOperation po : getOperations()) {
-			po.evaluateDefaults(ctx);
+			po.evaluateDefaults(ctx, allVisible);
 		}
 		return this;
 	}

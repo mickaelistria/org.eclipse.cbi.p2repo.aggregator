@@ -781,7 +781,7 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 		BPropertySet defProp = getDefaultProperties();
 		if(defProp != null) {
 			ctxToUse = ctxToUse.createInnerContext();
-			defProp.evaluateDefaults(ctxToUse);
+			defProp.evaluateDefaults(ctxToUse, true);
 		}
 		if(input != null) {
 			for(Prerequisite p : input.getPrerequisites()) {
@@ -806,7 +806,7 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 		BPropertySet defProp = getDefaultProperties();
 		if(defProp != null) {
 			ctxToUse = ctxToUse.createOuterContext();
-			defProp.evaluateDefaults(ctxToUse);
+			defProp.evaluateDefaults(ctxToUse, true);
 		}
 		for(Capability cap : getProvidedCapabilities()) {
 			BExpression c = cap.getCondExpr();

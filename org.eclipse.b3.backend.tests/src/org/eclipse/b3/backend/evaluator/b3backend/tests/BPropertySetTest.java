@@ -24,7 +24,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySet#evaluateDefaults(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Evaluate Defaults</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySet#evaluateDefaults(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, boolean) <em>Evaluate Defaults</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -91,13 +91,13 @@ public class BPropertySetTest extends BAdviceTest {
 	}
 
 	/**
-	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySet#evaluateDefaults(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext) <em>Evaluate Defaults</em>}' operation.
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BPropertySet#evaluateDefaults(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, boolean) <em>Evaluate Defaults</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BPropertySet#evaluateDefaults(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext)
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.BPropertySet#evaluateDefaults(org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext, boolean)
 	 * @generated
 	 */
-	public void testEvaluateDefaults__BExecutionContext() {
+	public void testEvaluateDefaults__BExecutionContext_boolean() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

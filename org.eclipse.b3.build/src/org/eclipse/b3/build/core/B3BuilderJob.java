@@ -18,11 +18,13 @@ import org.eclipse.b3.backend.evaluator.b3backend.BParameterList;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
 import org.eclipse.b3.build.build.B3BuildFactory;
+import org.eclipse.b3.build.build.BuildResult;
+import org.eclipse.b3.build.build.BuildResultContext;
 import org.eclipse.b3.build.build.BuildUnit;
 import org.eclipse.b3.build.build.BuilderReference;
 import org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade;
 import org.eclipse.b3.build.build.IBuilder;
-import org.eclipse.b3.build.build.PathGroup;
+import org.eclipse.b3.build.build.PathVector;
 import org.eclipse.b3.build.internal.B3BuildActivator;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
@@ -30,7 +32,15 @@ import org.eclipse.core.runtime.MultiStatus;
 import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.emf.common.util.EList;
 
+/**
+ * A Job that executes a Builder.
+ * A call to an IBuilder should return an (unscheduled) instance of B3BuilderJob that is configured to
+ * run the builder (the prepared context normally passed on the the "internalCall" should be passed to
+ * the constructor of a B3BuilderJob, together with a reference to the builder).
+ * 
+ */
 public class B3BuilderJob extends Job {
 
 	private BExecutionContext ctx;
@@ -63,7 +73,7 @@ public class B3BuilderJob extends Job {
 			BPropertySet properties = unit.getDefaultProperties();
 			if(properties != null) {
 				BInnerContext ictx = ctx.createWrappedInnerContext();
-				properties.evaluateDefaults(ictx.getOuterContext());
+				properties.evaluateDefaults(ictx.getOuterContext(), true);
 				ctx = ictx;
 			}
 
@@ -75,7 +85,7 @@ public class B3BuilderJob extends Job {
 			BExpression tmp = builder.getPrecondExpr();
 			if(tmp != null)
 				tmp.evaluate(ctx);
-			
+
 			// Iterate over all builder references, and call each builder to produce a build job.
 			// Collect all build jobs to be executed.
 			//
@@ -110,47 +120,125 @@ public class B3BuilderJob extends Job {
 				runParallel(jobsToRun, monitor);
 			else
 				runSequential(jobsToRun, monitor);
-			
+
 			// COLLECT INPUT RESULT
-			// merge the input into one PathGroup
-			// set the result in the context as "input"
-			// do this even if there were no jobs etc (i.e. an empty PathGroup) for consistency
-			// if a job was canceled, or there were errors, collect result will throw an exception
+			// Merge the input into "input" BuildResult, and all other aliased groups
+			// 
+			IStatus status = collectResult(jobsToRun);
+			if(!status.isOK())
+				return status;
+
+			// OUTPUT (if stated) should be evaluated at this point to make it available in
+			// the post input condition. Even if there is no output, assign an empty build result to "output"
+			// (for consistency, and user code may modify this instance).
 			//
-			ctx.defineFinalValue("input", collectResult(jobsToRun), PathGroup.class);
-						
+			BuildResult output = B3BuildFactory.eINSTANCE.createBuildResult();
+			EffectivePathVectorIterator pvItor = new EffectivePathVectorIterator(ctx, builder.getOutput());
+			EList<PathVector> outputPaths = output.getPathVectors();
+			while(pvItor.hasNext())
+				outputPaths.add(pvItor.next());
+
+			ctx.defineFinalValue("output", output, BuildResult.class);
+
 			// POST INPUT CONDITION
 			// just evaluate, supposed to throw exception if not acceptable
-			// TODO: context should have output and input set...
+			// context has all input defined at this point and output refers to effective Build Result
+			// (but without default annotations).
+			//
 			tmp = builder.getPostinputcondExpr();
 			if(tmp != null)
 				tmp.evaluate(ctx);
-				
-				
-			// TODO: evaluate the function body (or perform the default action)
-				
+
+
+			// EVALUATE THE FUNCTION BODY, OR PERFORM THE DEFAULT
+			// TODO: using "internalCall" ONLY WORKS FOR B3 FUNCTIONS 
+			// (A B3 Function simply calls its funcExpr
+			// and relies on the context to hold the parameters. A Java function makes use of the
+			// parameters. The context prepared for the call (by BContext) knows about the parameters,
+			// so, when a Java Based Builder is supported, more work is required here (alternatively
+			// refactor the internalCall to always make used of the context for parameters).
+			// 
+			Object br = builder.internalCall(ctx, new Object[]{}, new Type[]{});
+
+			// A return of null means there was no funcExpression (or that the funcExpression returned
+			// null explicitly). In both cases - this means that the default "output" should be returned
+			// (if specified), and
+			// lastly "input" (if specified). If neither produces any result, an empty BuildResult is returned.
+			//
+			if(br == null)
+				br = ctx.getValue((builder.getOutput() == null) ? "input" : "output");
+
+			if(br == null)
+				throw new B3InternalError("Should not happen. Evaluation of builder ended with null result.");
+
+			if(!(br instanceof BuildResult))
+				throw new B3WrongBuilderReturnType(builder.getName(), br.getClass());
+
+			BuildResult buildResult = (BuildResult)br;
+
+			// PROCESS DEFAULT ANNOTATIONS
+			// If the returned value is the result of processing output (and there was output declared)
+			// then, evaluate the default annotation properties. In all other scenarios, it is the user's
+			// responsibility to set/process these.
+			//
+			if(buildResult == output && builder.getOutput() != null) {
+				BPropertySet propertySet = builder.getOutput().getAnnotations();
+				if(propertySet != null) {
+					// BuildResultContext is specially constructed for the purpose of collecting
+					// property values as used here.
+					BuildResultContext specialContext = B3BuildFactory.eINSTANCE.createBuildResultContext();
+					specialContext.setParentContext(ctx); // current scope is visible.
+					// if calls are made when evaluating properties the correct outer context is needed
+					specialContext.setOuterContext(ctx instanceof BInnerContext
+							? ((BInnerContext)ctx).getOuterContext()
+									: ctx);
+
+					// Make sure special context is initialized with the values from the produced 
+					// output (if any were set). (Can not simply use setValueMap, as the values would then
+					// be missing from the BuildResult (both include a ValueMap by containment), and
+					// user code may refer to values in the output...)
+					specialContext.getValueMap().merge(output.getValueMap());
+
+					// Evaluate in an inner context wrapper to ensure the special context's value map
+					// does not get polluted with local variables (since the special context is a
+					// property scope, it will only have properties set in its value map).
+					// Evaluate default properties with allVisible == false to ensure that
+					// only the special context is consulted for already set values (i.e. to determine
+					// if the default should be used or not, as opposed to evaluating properties and values
+					// visible in the context).
+					propertySet.evaluateDefaults(specialContext.createInnerContext(), false);
+
+					// Steal the value map from the special context and use it in the result
+					// (the context is forgotten at this point and does not need its values).
+					output.setValueMap(specialContext.getValueMap());
+				}
+			}
+
 			// POST CONDITION
 			// just evaluate, supposed to throw exception if not acceptable
 			tmp = builder.getPostcondExpr();
 			if(tmp != null)
 				tmp.evaluate(ctx);
-			
-		return null; // TODO: BOGUS RETURN NULL
-		
+
+			// All done, return an OK status with the result set. (Partial grouped/aliased results are not visible
+			// to caller).
+			return new B3BuilderStatus(buildResult);
+
 		} catch (OperationCanceledException e) {
 			return B3BuilderStatus.CANCEL_STATUS;
-			
+
 		} catch (Throwable t) {
 			return B3BuilderStatus.error("Builder Job Failed - see details", t);
 		}
 	}
 
 	/**
-	 * Collect result, and group according to alias
+	 * Collect result, merges results according to aliases/groups, and assigns these as 
+	 * unmodifiable values in the context.
 	 * @param jobsToRun
 	 * @return MultiStatus if result was not ok, otherwise B3BuilderStatus
 	 */
-	private IStatus collectResult(List<B3BuilderJob> jobsToRun) {
+	private IStatus collectResult(List<B3BuilderJob> jobsToRun) throws B3EngineException {
 		MultiStatus ms = new MultiStatus(B3BuildActivator.instance.getBundle().getSymbolicName(), 0, "", null);
 		for(B3BuilderJob job : jobsToRun) {
 			IStatus s = job.getResult();
@@ -161,20 +249,39 @@ public class B3BuilderJob extends Job {
 		if(! ms.isOK())
 			return ms;
 		
-		// collection all as "input", and collect per "alias"
+		// collection of all as "input", and collect per "alias"
 		//
-		Map<String, PathGroup> resultMap = new HashMap<String, PathGroup>();
+		// create the resulting map, and make sure there is at least an empty BuildResult
+		// (i.e. when no effective input was declared).
+		Map<String, BuildResult> resultMap = new HashMap<String, BuildResult>();
+		resultMap.put("input", B3BuildFactory.eINSTANCE.createBuildResult());
+
 		for(B3BuilderJob job : jobsToRun) {
-			
-			
+			BuildResult r = job.getBuildResult();
+			for(String alias : job.getAliases())
+				mergeResult(alias, r, resultMap);
+			mergeResult("input", r, resultMap); // all are added to "input"
 		}
-		return null;
+		// define all the BuildResults in the context per respective name
+		for(String key : resultMap.keySet())
+			ctx.defineFinalValue(key, resultMap.get(key), BuildResult.class);
+
+		return Status.OK_STATUS;
 	}
-	private void mergeResult(String key, PathGroup add, Map<String, PathGroup> result) {
-		PathGroup pg = result.get(key);
-		if(pg == null)
-			result.put(key, pg = B3BuildFactory.eINSTANCE.createPathGroup());
+	/**
+	 * Merges result per key
+	 * @param key
+	 * @param add
+	 * @param resultMap
+	 * @throws B3EngineException - if merging values causes type or immutable violation
+	 */
+	private void mergeResult(String key, BuildResult add, Map<String, BuildResult> resultMap) throws B3EngineException {
+		BuildResult buildResult = resultMap.get(key);
+		if(buildResult == null)
+			resultMap.put(key, buildResult = B3BuildFactory.eINSTANCE.createBuildResult());
 		
+		// merge the job result to add into the buildResult
+		buildResult.merge(add);
 	}
 	private void runSequential(List<B3BuilderJob> jobsToRun, IProgressMonitor monitor) {
 		for(B3BuilderJob job : jobsToRun) {
@@ -205,6 +312,7 @@ public class B3BuilderJob extends Job {
 		try {
 			// wait for all of the scheduled jobs.
 			getJobManager().join(this, monitor);
+			
 		} catch (InterruptedException e) {
 			// TODO What to do on interrupted? There should be no interruptions...
 			// Maybe have some watch dog that times out if a job takes too long (? hours?)
@@ -233,5 +341,17 @@ public class B3BuilderJob extends Job {
 		if(family instanceof B3BuilderJob && ((B3BuilderJob)family) == parent)
 			return true;
 		return super.belongsTo(family);
+	}
+	/**
+	 * Obtains the result of the job, and the BuildResult from the returned status.
+	 * If the job state is not OK, an IllegalStateException is thrown.
+	 * @return the BuildResult
+	 * @throws IllegalStateException (if this method is called when state is not OK).
+	 */
+	public BuildResult getBuildResult() {
+		IStatus r = getResult();
+		if(r != null && r.isOK())
+			return ((B3BuilderStatus)r).getBuildResult();
+		throw new IllegalStateException("Can not obtain result when job state is not OK");
 	}
 }

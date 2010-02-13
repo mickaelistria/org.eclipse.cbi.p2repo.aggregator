@@ -266,12 +266,12 @@ public class BConditionalPropertyOperationImpl extends BPropertyOperationImpl im
 		return this;
 	}
 	@Override
-	public Object evaluateDefaults(BExecutionContext ctx) throws Throwable {
+	public Object evaluateDefaults(BExecutionContext ctx, boolean allVisible) throws Throwable {
 		Object result = Boolean.TRUE;
 		if(condExpr != null)
 			result = condExpr.evaluate(ctx);
 		if(result != null && result instanceof Boolean && ((Boolean)result).booleanValue())
-			body.evaluateDefaults(ctx);
+			body.evaluateDefaults(ctx, allVisible);
 		return this;
 	}
 } //BConditionalPropertyOperationImpl

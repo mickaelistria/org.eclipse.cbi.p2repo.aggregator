@@ -194,7 +194,7 @@ public class BPropertyDefinitionOperationImpl extends BPropertyOperationImpl imp
 		return getDefinition().evaluate(ctx);
 	}
 	@Override
-	public Object evaluateDefaults(BExecutionContext ctx) throws Throwable {
-		return getDefinition().evaluateDefaults(ctx);
+	public Object evaluateDefaults(BExecutionContext ctx, boolean allVisible) throws Throwable {
+		return getDefinition().evaluateDefaults(ctx, allVisible);
 	}
 } //BPropertyDefinitionOperationImpl

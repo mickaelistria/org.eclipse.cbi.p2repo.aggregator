@@ -3308,7 +3308,7 @@ public interface B3BuildPackage extends EPackage {
 	int BUILD_RESULT = 48;
 
 	/**
-	 * The feature id for the '<em><b>Path Vectors</b></em>' reference.
+	 * The feature id for the '<em><b>Path Vectors</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3335,6 +3335,79 @@ public interface B3BuildPackage extends EPackage {
 	int BUILD_RESULT_FEATURE_COUNT = 2;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuildResultContextImpl <em>Build Result Context</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.BuildResultContextImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuildResultContext()
+	 * @generated
+	 */
+	int BUILD_RESULT_CONTEXT = 49;
+
+	/**
+	 * The feature id for the '<em><b>Parent Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_RESULT_CONTEXT__PARENT_CONTEXT = B3backendPackage.BINNER_CONTEXT__PARENT_CONTEXT;
+
+	/**
+	 * The feature id for the '<em><b>Value Map</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_RESULT_CONTEXT__VALUE_MAP = B3backendPackage.BINNER_CONTEXT__VALUE_MAP;
+
+	/**
+	 * The feature id for the '<em><b>Func Store</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_RESULT_CONTEXT__FUNC_STORE = B3backendPackage.BINNER_CONTEXT__FUNC_STORE;
+
+	/**
+	 * The feature id for the '<em><b>Effective Concerns</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_RESULT_CONTEXT__EFFECTIVE_CONCERNS = B3backendPackage.BINNER_CONTEXT__EFFECTIVE_CONCERNS;
+
+	/**
+	 * The feature id for the '<em><b>Progress Monitor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_RESULT_CONTEXT__PROGRESS_MONITOR = B3backendPackage.BINNER_CONTEXT__PROGRESS_MONITOR;
+
+	/**
+	 * The feature id for the '<em><b>Outer Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_RESULT_CONTEXT__OUTER_CONTEXT = B3backendPackage.BINNER_CONTEXT__OUTER_CONTEXT;
+
+	/**
+	 * The number of structural features of the '<em>Build Result Context</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_RESULT_CONTEXT_FEATURE_COUNT = B3backendPackage.BINNER_CONTEXT_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '<em>Version Range</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3342,7 +3415,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getVersionRange()
 	 * @generated
 	 */
-	int VERSION_RANGE = 49;
+	int VERSION_RANGE = 50;
 
 	/**
 	 * The meta object id for the '<em>Version</em>' data type.
@@ -3352,7 +3425,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getVersion()
 	 * @generated
 	 */
-	int VERSION = 50;
+	int VERSION = 51;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuildUnit <em>Build Unit</em>}'.
@@ -3935,10 +4008,10 @@ public interface B3BuildPackage extends EPackage {
 	EClass getBuildResult();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipse.b3.build.build.BuildResult#getPathVectors <em>Path Vectors</em>}'.
+	 * Returns the meta object for the reference list '{@link org.eclipse.b3.build.build.BuildResult#getPathVectors <em>Path Vectors</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Path Vectors</em>'.
+	 * @return the meta object for the reference list '<em>Path Vectors</em>'.
 	 * @see org.eclipse.b3.build.build.BuildResult#getPathVectors()
 	 * @see #getBuildResult()
 	 * @generated
@@ -3955,6 +4028,16 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getBuildResult_ValueMap();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuildResultContext <em>Build Result Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Build Result Context</em>'.
+	 * @see org.eclipse.b3.build.build.BuildResultContext
+	 * @generated
+	 */
+	EClass getBuildResultContext();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.VersionedCapability <em>Versioned Capability</em>}'.
@@ -5614,7 +5697,7 @@ public interface B3BuildPackage extends EPackage {
 		EClass BUILD_RESULT = eINSTANCE.getBuildResult();
 
 		/**
-		 * The meta object literal for the '<em><b>Path Vectors</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Path Vectors</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -5628,6 +5711,16 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute BUILD_RESULT__VALUE_MAP = eINSTANCE.getBuildResult_ValueMap();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuildResultContextImpl <em>Build Result Context</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.impl.BuildResultContextImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuildResultContext()
+		 * @generated
+		 */
+		EClass BUILD_RESULT_CONTEXT = eINSTANCE.getBuildResultContext();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.VersionedCapabilityImpl <em>Versioned Capability</em>}' class.

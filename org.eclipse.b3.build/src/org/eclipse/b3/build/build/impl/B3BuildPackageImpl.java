@@ -16,6 +16,7 @@ import org.eclipse.b3.build.build.BeeModel;
 import org.eclipse.b3.build.build.BuildConcernContext;
 import org.eclipse.b3.build.build.BuildContext;
 import org.eclipse.b3.build.build.BuildResult;
+import org.eclipse.b3.build.build.BuildResultContext;
 import org.eclipse.b3.build.build.BuildResultReference;
 import org.eclipse.b3.build.build.BuildUnit;
 import org.eclipse.b3.build.build.Builder;
@@ -47,7 +48,6 @@ import org.eclipse.b3.build.build.NameSpacePredicate;
 import org.eclipse.b3.build.build.OutputPredicate;
 import org.eclipse.b3.build.build.PathGroup;
 import org.eclipse.b3.build.build.PathVector;
-import org.eclipse.b3.build.build.PathVectorElement;
 import org.eclipse.b3.build.build.Prerequisite;
 import org.eclipse.b3.build.build.ProvidesPredicate;
 import org.eclipse.b3.build.build.RepositoryConfiguration;
@@ -178,6 +178,13 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * @generated
 	 */
 	private EClass buildResultEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass buildResultContextEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1004,6 +1011,15 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 */
 	public EAttribute getBuildResult_ValueMap() {
 		return (EAttribute)buildResultEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBuildResultContext() {
+		return buildResultContextEClass;
 	}
 
 	/**
@@ -2237,6 +2253,8 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		createEReference(buildResultEClass, BUILD_RESULT__PATH_VECTORS);
 		createEAttribute(buildResultEClass, BUILD_RESULT__VALUE_MAP);
 
+		buildResultContextEClass = createEClass(BUILD_RESULT_CONTEXT);
+
 		// Create data types
 		versionRangeEDataType = createEDataType(VERSION_RANGE);
 		versionEDataType = createEDataType(VERSION);
@@ -2312,6 +2330,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		effectiveRequirementFacadeEClass.getESuperTypes().add(this.getEffectiveFacade());
 		effectiveCapabilityFacadeEClass.getESuperTypes().add(this.getEffectiveFacade());
 		effectiveBuilderReferenceFacadeEClass.getESuperTypes().add(this.getEffectiveFacade());
+		buildResultContextEClass.getESuperTypes().add(theB3backendPackage.getBInnerContext());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(buildUnitEClass, BuildUnit.class, "BuildUnit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2673,8 +2692,14 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		initEAttribute(getEffectiveBuilderReferenceFacade_Aliases(), ecorePackage.getEString(), "aliases", null, 0, -1, EffectiveBuilderReferenceFacade.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(buildResultEClass, BuildResult.class, "BuildResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBuildResult_PathVectors(), this.getPathVector(), null, "pathVectors", null, 0, 1, BuildResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBuildResult_PathVectors(), this.getPathVector(), null, "pathVectors", null, 0, -1, BuildResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBuildResult_ValueMap(), theB3backendPackage.getValueMap(), "valueMap", null, 0, 1, BuildResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = addEOperation(buildResultEClass, null, "merge", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getBuildResult(), "buildResult", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, theB3backendPackage.getB3EngineException());
+
+		initEClass(buildResultContextEClass, BuildResultContext.class, "BuildResultContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize data types
 		initEDataType(versionRangeEDataType, VersionRange.class, "VersionRange", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

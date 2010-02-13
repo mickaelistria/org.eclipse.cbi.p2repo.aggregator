@@ -10,6 +10,9 @@
  */
 package org.eclipse.b3.build.build.impl;
 
+import java.util.Collection;
+
+import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.core.ValueMap;
 
 import org.eclipse.b3.build.build.B3BuildPackage;
@@ -18,11 +21,12 @@ import org.eclipse.b3.build.build.PathVector;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,14 +44,14 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  */
 public class BuildResultImpl extends EObjectImpl implements BuildResult {
 	/**
-	 * The cached value of the '{@link #getPathVectors() <em>Path Vectors</em>}' reference.
+	 * The cached value of the '{@link #getPathVectors() <em>Path Vectors</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getPathVectors()
 	 * @generated
 	 * @ordered
 	 */
-	protected PathVector pathVectors;
+	protected EList<PathVector> pathVectors;
 
 	/**
 	 * The default value of the '{@link #getValueMap() <em>Value Map</em>}' attribute.
@@ -93,14 +97,9 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PathVector getPathVectors() {
-		if (pathVectors != null && pathVectors.eIsProxy()) {
-			InternalEObject oldPathVectors = (InternalEObject)pathVectors;
-			pathVectors = (PathVector)eResolveProxy(oldPathVectors);
-			if (pathVectors != oldPathVectors) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3BuildPackage.BUILD_RESULT__PATH_VECTORS, oldPathVectors, pathVectors));
-			}
+	public EList<PathVector> getPathVectors() {
+		if (pathVectors == null) {
+			pathVectors = new EObjectResolvingEList<PathVector>(PathVector.class, this, B3BuildPackage.BUILD_RESULT__PATH_VECTORS);
 		}
 		return pathVectors;
 	}
@@ -108,30 +107,11 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PathVector basicGetPathVectors() {
-		return pathVectors;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPathVectors(PathVector newPathVectors) {
-		PathVector oldPathVectors = pathVectors;
-		pathVectors = newPathVectors;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILD_RESULT__PATH_VECTORS, oldPathVectors, pathVectors));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public ValueMap getValueMap() {
+		if(valueMap == null)
+			setValueMap(new ValueMap());
 		return valueMap;
 	}
 
@@ -149,6 +129,23 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * TODO: Merges by simply concatenating the vectors from the added build result, and adding values.
+	 * TODO: Optimize by removing duplicates etc.
+	 * TODO: The PathVectors instances should be immutable - they are references to the original declarations - it is allowed to
+	 * <!-- end-user-doc -->
+	 * @throws B3EngineException 
+	 * @generated NOT
+	 */
+	public void merge(BuildResult buildResult) throws B3EngineException {
+		ValueMap myMap = getValueMap();
+		EList<PathVector> p = getPathVectors();
+		for(PathVector v : buildResult.getPathVectors())
+			p.add(v);
+		myMap.merge(buildResult.getValueMap());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -156,8 +153,7 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case B3BuildPackage.BUILD_RESULT__PATH_VECTORS:
-				if (resolve) return getPathVectors();
-				return basicGetPathVectors();
+				return getPathVectors();
 			case B3BuildPackage.BUILD_RESULT__VALUE_MAP:
 				return getValueMap();
 		}
@@ -169,11 +165,13 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case B3BuildPackage.BUILD_RESULT__PATH_VECTORS:
-				setPathVectors((PathVector)newValue);
+				getPathVectors().clear();
+				getPathVectors().addAll((Collection<? extends PathVector>)newValue);
 				return;
 			case B3BuildPackage.BUILD_RESULT__VALUE_MAP:
 				setValueMap((ValueMap)newValue);
@@ -191,7 +189,7 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case B3BuildPackage.BUILD_RESULT__PATH_VECTORS:
-				setPathVectors((PathVector)null);
+				getPathVectors().clear();
 				return;
 			case B3BuildPackage.BUILD_RESULT__VALUE_MAP:
 				setValueMap(VALUE_MAP_EDEFAULT);
@@ -209,7 +207,7 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case B3BuildPackage.BUILD_RESULT__PATH_VECTORS:
-				return pathVectors != null;
+				return pathVectors != null && !pathVectors.isEmpty();
 			case B3BuildPackage.BUILD_RESULT__VALUE_MAP:
 				return VALUE_MAP_EDEFAULT == null ? valueMap != null : !VALUE_MAP_EDEFAULT.equals(valueMap);
 		}

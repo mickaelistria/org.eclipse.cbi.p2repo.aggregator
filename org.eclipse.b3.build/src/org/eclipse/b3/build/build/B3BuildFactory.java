@@ -143,6 +143,15 @@ public interface B3BuildFactory extends EFactory {
 	BuildResult createBuildResult();
 
 	/**
+	 * Returns a new object of class '<em>Build Result Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Build Result Context</em>'.
+	 * @generated
+	 */
+	BuildResultContext createBuildResultContext();
+
+	/**
 	 * Returns a new object of class '<em>Versioned Capability</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

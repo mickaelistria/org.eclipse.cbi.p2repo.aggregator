@@ -778,6 +778,7 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("rawtypes")
 	public void setTypeParameters(TypeVariable[] newTypeParameters) {
 		TypeVariable[] oldTypeParameters = typeParameters;
 		typeParameters = newTypeParameters;

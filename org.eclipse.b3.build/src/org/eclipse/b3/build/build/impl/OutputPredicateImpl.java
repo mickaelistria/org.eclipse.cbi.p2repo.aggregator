@@ -23,7 +23,6 @@ import org.eclipse.b3.build.build.IBuilder;
 import org.eclipse.b3.build.build.OutputPredicate;
 import org.eclipse.b3.build.build.PathGroup;
 import org.eclipse.b3.build.build.PathVector;
-import org.eclipse.b3.build.build.PathVectorElement;
 import org.eclipse.b3.build.core.PathIterator;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.common.notify.Notification;

@@ -58,6 +58,6 @@ public class BDefaultPropertySetImpl extends BPropertySetImpl implements BDefaul
 	 */
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		return evaluateDefaults(ctx);
+		return evaluateDefaults(ctx, true);
 	}
 } //BDefaultPropertySetImpl

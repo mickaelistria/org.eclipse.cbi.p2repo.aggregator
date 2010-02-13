@@ -194,7 +194,7 @@ public class BPropertySetOperationImpl extends BPropertyOperationImpl implements
 		return getPropertySet().evaluate(ctx);
 	}
 	@Override
-	public Object evaluateDefaults(BExecutionContext ctx) throws Throwable {
-		return getPropertySet().evaluateDefaults(ctx);
+	public Object evaluateDefaults(BExecutionContext ctx, boolean allVisible) throws Throwable {
+		return getPropertySet().evaluateDefaults(ctx, allVisible);
 	}
 } //BPropertySetOperationImpl

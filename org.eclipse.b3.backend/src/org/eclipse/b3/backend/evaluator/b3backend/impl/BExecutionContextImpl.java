@@ -242,6 +242,18 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void setValueMap(ValueMap newValueMap) {
+		ValueMap oldValueMap = valueMap;
+		valueMap = newValueMap;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BEXECUTION_CONTEXT__VALUE_MAP, oldValueMap, valueMap));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public B3FuncStore getFuncStore() {
 		return funcStore;
 	}
@@ -978,6 +990,20 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	public boolean containsValue(String name, boolean allVisible) {
+		boolean result = getValueMap().containsKey(name);
+		if(result || !allVisible) return result;
+		if(getParentContext() != null)
+			return getParentContext().containsValue(name, true);
+		return false;
+
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
 	public LValue getLValue(String name) throws B3EngineException {
 		if(!getValueMap().containsKey(name)) {
 			BExecutionContext parentContext = null;
@@ -987,16 +1013,14 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		}
 		return new ValueMapLVal(name);
 	}
-	private boolean isWeaving = false;
+	private boolean isWeaving = false; // TODO: add as parameter to defineFunction instead
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public IFunction defineFunction(IFunction function) throws B3EngineException {
-//		if("addedLater".equals(function.getName())) {
-//			function = function;
-//		}
 		createFuncStore();
 		boolean woven = false;
 		if(!isWeaving)
@@ -1078,6 +1102,9 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 			case B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT:
 				setParentContext((BExecutionContext)newValue);
 				return;
+			case B3backendPackage.BEXECUTION_CONTEXT__VALUE_MAP:
+				setValueMap((ValueMap)newValue);
+				return;
 			case B3backendPackage.BEXECUTION_CONTEXT__FUNC_STORE:
 				setFuncStore((B3FuncStore)newValue);
 				return;
@@ -1102,6 +1129,9 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		switch (featureID) {
 			case B3backendPackage.BEXECUTION_CONTEXT__PARENT_CONTEXT:
 				setParentContext((BExecutionContext)null);
+				return;
+			case B3backendPackage.BEXECUTION_CONTEXT__VALUE_MAP:
+				setValueMap(VALUE_MAP_EDEFAULT);
 				return;
 			case B3backendPackage.BEXECUTION_CONTEXT__FUNC_STORE:
 				setFuncStore(FUNC_STORE_EDEFAULT);

@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.b3.backend.core.SerialIterator;
+import org.eclipse.b3.build.build.BuildResult;
 import org.eclipse.b3.build.build.ConditionalPathVector;
 import org.eclipse.b3.build.build.PathGroup;
 import org.eclipse.b3.build.build.PathVector;
@@ -16,12 +17,20 @@ public class PathIterator implements Iterator<IPath> {
 	
 	private Iterator<IPath> itor;
 	
+	/**
+	 * Returns paths from a PathGroup (i.e. "builder output") - NO EVALUATION OF FILTERS !!
+	 * @param pathGroup
+	 */
 	public PathIterator(PathGroup pathGroup) {
 		SerialIterator<IPath> sitor = new SerialIterator<IPath>();
-		for(ConditionalPathVector pv : pathGroup.getPathVectors())
-			sitor.addIterator(new PathIterator(pv));
+		for(ConditionalPathVector cpv : pathGroup.getPathVectors())
+			sitor.addIterator(new PathIterator(cpv));
 		itor = sitor;
 	}
+	/**
+	 * Returns paths from ConditionalPathVector - NO EVALUATION OF FILTERS !!
+	 * @param cpv
+	 */
 	public PathIterator(ConditionalPathVector cpv) {
 		EList<PathVector> pvs = cpv.getPathVectors();
 		if(pvs.size() == 1)
@@ -32,6 +41,16 @@ public class PathIterator implements Iterator<IPath> {
 				sitor.addIterator(new PathVectorIterator(pv));
 			itor = sitor;
 		}
+	}
+	/**
+	 * Returns paths from build result.
+	 * @param buildResult
+	 */
+	public PathIterator(BuildResult buildResult) {
+		SerialIterator<IPath> sitor = new SerialIterator<IPath>();
+		for(PathVector pv : buildResult.getPathVectors())
+			sitor.addIterator(new PathIterator(pv));
+		itor = sitor;
 	}
 	public PathIterator(PathVector pathVector) {
 		itor = new PathVectorIterator(pathVector);

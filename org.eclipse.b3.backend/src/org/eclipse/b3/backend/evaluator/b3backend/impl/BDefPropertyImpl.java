@@ -94,8 +94,8 @@ public class BDefPropertyImpl extends BDefValueImpl implements BDefProperty {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public Object evaluateDefaults(BExecutionContext ctx) throws Throwable {
-		if(ctx.getValueMap().containsKey(name))
+	public Object evaluateDefaults(BExecutionContext ctx, boolean allVisible) throws Throwable {
+		if(ctx.containsValue(name, allVisible))
 			return this;
 		return evaluate(ctx);
 	}

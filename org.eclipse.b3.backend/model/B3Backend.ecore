@@ -146,9 +146,13 @@
       </eGenericType>
       <eParameters name="candidate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
     </eOperations>
+    <eOperations name="containsValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="allVisible" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parentContext" eType="#//BExecutionContext"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueMap" lowerBound="1"
-        eType="#//ValueMap" changeable="false" defaultValueLiteral=""/>
+        eType="#//ValueMap" defaultValueLiteral=""/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="funcStore" eType="#//FuncStore"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="effectiveConcerns" upperBound="-1"
         eType="#//BConcern"/>
@@ -544,6 +548,7 @@
     <eOperations name="evaluateDefaults" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
         eExceptions="#//Throwable">
       <eParameters name="ctx" eType="#//BExecutionContext"/>
+      <eParameters name="allVisible" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mutable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         volatile="true" transient="true" derived="true"/>
@@ -552,6 +557,7 @@
     <eOperations name="evaluateDefaults" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
         eExceptions="#//Throwable">
       <eParameters name="ctx" eType="#//BExecutionContext"/>
+      <eParameters name="allVisible" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="extends" eType="#//BPropertySet"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operations" upperBound="-1"
@@ -564,6 +570,7 @@
     <eOperations name="evaluateDefaults" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"
         eExceptions="#//Throwable">
       <eParameters name="ctx" eType="#//BExecutionContext"/>
+      <eParameters name="allVisible" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BPropertyDefinitionOperation" eSuperTypes="#//BPropertyOperation">

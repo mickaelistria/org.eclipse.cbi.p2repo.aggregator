@@ -106,6 +106,7 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 			case B3BuildPackage.EFFECTIVE_CAPABILITY_FACADE: return createEffectiveCapabilityFacade();
 			case B3BuildPackage.EFFECTIVE_BUILDER_REFERENCE_FACADE: return createEffectiveBuilderReferenceFacade();
 			case B3BuildPackage.BUILD_RESULT: return createBuildResult();
+			case B3BuildPackage.BUILD_RESULT_CONTEXT: return createBuildResultContext();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -273,6 +274,16 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	public BuildResult createBuildResult() {
 		BuildResultImpl buildResult = new BuildResultImpl();
 		return buildResult;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BuildResultContext createBuildResultContext() {
+		BuildResultContextImpl buildResultContext = new BuildResultContextImpl();
+		return buildResultContext;
 	}
 
 	/**

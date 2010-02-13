@@ -82,11 +82,22 @@ public interface BExecutionContext extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value Map</em>' attribute.
+	 * @see #setValueMap(ValueMap)
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getBExecutionContext_ValueMap()
-	 * @model default="" dataType="org.eclipse.b3.backend.evaluator.b3backend.ValueMap" required="true" changeable="false"
+	 * @model default="" dataType="org.eclipse.b3.backend.evaluator.b3backend.ValueMap" required="true"
 	 * @generated
 	 */
 	ValueMap getValueMap();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getValueMap <em>Value Map</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Map</em>' attribute.
+	 * @see #getValueMap()
+	 * @generated
+	 */
+	void setValueMap(ValueMap value);
 
 	/**
 	 * Returns the value of the '<em><b>Func Store</b></em>' attribute.
@@ -223,6 +234,12 @@ public interface BExecutionContext extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Creates a new inner context parented by a delegating context refering to a newly created outer context.
+	 * The freshly created outer context is obtained by simply calling getOuterContext on the returned inner context.
+	 * 
+	 * This method is useful when a context is needed that keeps the input context's content visible (in the returned inner context), while at the same time providing a new outer context where values visible downstream can be placed.
+	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated
 	 */
@@ -302,6 +319,14 @@ public interface BExecutionContext extends EObject {
 	 * @generated
 	 */
 	Iterator<BConcernContext> getConcernIterator(Object candidate);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean containsValue(String name, boolean allVisible);
 
 	/**
 	 * <!-- begin-user-doc -->

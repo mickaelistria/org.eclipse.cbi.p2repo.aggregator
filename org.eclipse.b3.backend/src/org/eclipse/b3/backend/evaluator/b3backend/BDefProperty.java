@@ -12,6 +12,8 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend;
 
+import org.eclipse.b3.backend.core.ValueMap;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -69,6 +71,6 @@ public interface BDefProperty extends BDefValue {
 	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
 	 * @generated
 	 */
-	Object evaluateDefaults(BExecutionContext ctx) throws Throwable;
+	Object evaluateDefaults(BExecutionContext ctx, boolean allVisible) throws Throwable;
 
 } // BDefProperty

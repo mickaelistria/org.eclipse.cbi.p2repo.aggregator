@@ -475,7 +475,7 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 		facade.setUnit(u);
 		// set the unit's default properties in a context visible downstream.
 		BExecutionContext outer = ctx.createOuterContext();
-		u.getDefaultProperties().evaluateDefaults(outer);
+		u.getDefaultProperties().evaluateDefaults(outer, true);
 		// remember the context use as parent for builder contexts
 		facade.setContext(outer);
 		

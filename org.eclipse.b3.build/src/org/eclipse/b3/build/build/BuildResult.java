@@ -10,8 +10,10 @@
  */
 package org.eclipse.b3.build.build;
 
+import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.core.ValueMap;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -33,30 +35,20 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface BuildResult extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Path Vectors</b></em>' reference.
+	 * Returns the value of the '<em><b>Path Vectors</b></em>' reference list.
+	 * The list contents are of type {@link org.eclipse.b3.build.build.PathVector}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Path Vectors</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Path Vectors</em>' reference.
-	 * @see #setPathVectors(PathVector)
+	 * @return the value of the '<em>Path Vectors</em>' reference list.
 	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuildResult_PathVectors()
 	 * @model
 	 * @generated
 	 */
-	PathVector getPathVectors();
-
-	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuildResult#getPathVectors <em>Path Vectors</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Path Vectors</em>' reference.
-	 * @see #getPathVectors()
-	 * @generated
-	 */
-	void setPathVectors(PathVector value);
+	EList<PathVector> getPathVectors();
 
 	/**
 	 * Returns the value of the '<em><b>Value Map</b></em>' attribute.
@@ -83,5 +75,13 @@ public interface BuildResult extends EObject {
 	 * @generated
 	 */
 	void setValueMap(ValueMap value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.B3EngineException"
+	 * @generated
+	 */
+	void merge(BuildResult buildResult) throws B3EngineException;
 
 } // BuildResult
