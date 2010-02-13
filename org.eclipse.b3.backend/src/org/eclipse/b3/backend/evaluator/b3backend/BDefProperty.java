@@ -12,9 +12,6 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend;
 
-import org.eclipse.b3.backend.core.ValueMap;
-
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>BDef Property</b></em>'.
