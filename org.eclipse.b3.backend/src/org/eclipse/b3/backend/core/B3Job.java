@@ -2,9 +2,11 @@ package org.eclipse.b3.backend.core;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.jobs.IJobManager;
 import org.eclipse.core.runtime.jobs.Job;
 
+/**
+ * Unfinished. Intended to be used to run any IFunction as a job. See B3BuilderJob.
+ */
 public class B3Job extends Job {
 
 	public B3Job(String name) {
