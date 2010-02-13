@@ -363,7 +363,7 @@ public class TypeUtils {
 	 * @param pc
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "rawtypes" })
 	public static int classDistance(Class ptc, Class pc) {
 		if(pc == null)
 			throw new IllegalArgumentException("Internal error: type is not a specialization of the class");
@@ -475,7 +475,7 @@ public class TypeUtils {
 	 * @param pc
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings("rawtypes")
 	public static int interfaceDistance(Class ptc, Class pc) {
 		if(ptc == pc)
 			return 0;

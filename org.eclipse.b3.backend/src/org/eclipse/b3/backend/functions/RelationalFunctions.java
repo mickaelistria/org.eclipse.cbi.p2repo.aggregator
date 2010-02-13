@@ -11,7 +11,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 
 public class RelationalFunctions {
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@B3Backend(funcNames={"=="})
 	public static Boolean equals(Object left, Object right) {
 		if(left == null || right == null)
@@ -126,7 +126,7 @@ public class RelationalFunctions {
 		return Boolean.TRUE;
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@B3Backend(funcNames={"=="})
 	public static Boolean equals(Number a, Number b) {
 		if(a == b || a.equals(b))
@@ -176,7 +176,7 @@ public class RelationalFunctions {
 		return Boolean.FALSE;
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@B3Backend(funcNames={"<"})
 	public static Boolean isLessThan(Comparable left, Comparable right){
 		if(left instanceof Number && right instanceof Number)
@@ -200,7 +200,7 @@ public class RelationalFunctions {
 		return Boolean.FALSE;
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@B3Backend(funcNames={"<="})
 	public static Boolean isLessThanOrEqualTo(Comparable left, Comparable right){
 		if(left instanceof Number && right instanceof Number)
@@ -223,7 +223,7 @@ public class RelationalFunctions {
 		return Boolean.FALSE;
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@B3Backend(funcNames={">"})
 	public static Boolean isGreaterThan(Comparable left, Comparable right) {
 		if(left instanceof Number && right instanceof Number)
@@ -246,7 +246,7 @@ public class RelationalFunctions {
 		return Boolean.FALSE;
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@B3Backend(funcNames={">="})
 	public static Boolean isGreaterThanOrEqualTo(Comparable left, Comparable right){
 		if(left instanceof Number && right instanceof Number)
