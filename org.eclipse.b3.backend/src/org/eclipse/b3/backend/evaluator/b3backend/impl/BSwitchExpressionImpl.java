@@ -244,7 +244,7 @@ public class BSwitchExpressionImpl extends BExpressionImpl implements BSwitchExp
 		// no case matched - return null
 		return null;
 	}
-	@SuppressWarnings({ "unchecked" })
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public boolean matches(Object a, Object b) {
 		Type[] ai = a.getClass().getGenericInterfaces();
 		Type[] bi = b.getClass().getGenericInterfaces();

@@ -234,7 +234,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * @generated NOT
 	 * @ordered
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings("rawtypes")
 	protected static final TypeVariable[] TYPE_PARAMETERS_EDEFAULT = null;
 
 	/**
@@ -245,7 +245,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * @generated NOT
 	 * @ordered
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings("rawtypes")
 	protected TypeVariable[] typeParameters = TYPE_PARAMETERS_EDEFAULT;
 
 	/**
