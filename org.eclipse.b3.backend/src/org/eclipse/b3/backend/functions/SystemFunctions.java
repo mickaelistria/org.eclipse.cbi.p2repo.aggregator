@@ -297,6 +297,29 @@ public class SystemFunctions {
 			}
 		return result;
 	}
+
+	@B3Backend(systemFunction="_collect", varargs=true)
+	public static List<Object> collect(
+			@B3Backend(name="iterable")Iterable<?> iterable,
+			@B3Backend(name="paramsAnyAndFunction") Object... variable
+			) { return null; }
+
+	@B3Backend(system=true)
+	public static List<Object> _collect(BExecutionContext ctx, Object[] params, Type[] types) throws Throwable{		
+		Curry cur = hurryCurry(params, types, "collect");
+
+		List<Object> result = new ArrayList<Object>();
+		while(cur.itor.hasNext()) {
+			Object curryVal = cur.itor.next();
+			if(cur.curry != -1)
+				cur.p[cur.curry] = curryVal;
+			BExecutionContext useCtx = cur.closure == null ? ctx.createOuterContext() : cur.closure.createInnerContext();
+			result.add(cur.lambda.call(useCtx, cur.p, cur.t));
+			}
+		return result;
+	}
+	
+	
 	@B3Backend(systemFunction="_reject", varargs=true)
 	public static List<Object> reject(
 			@B3Backend(name="iterable")Iterable<?> iterable,
