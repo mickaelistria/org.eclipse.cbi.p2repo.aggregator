@@ -11,6 +11,7 @@ function main(List argv) {
 	testDo();
 	testWhileTrue();
 	testWhileFalse();
+	testCollect();
 }
 function testInject() {
 	assertEquals("looping over a sequence 1-9 (auto-curry)", 45, (1..9).inject(0, <Integer> Integer x, Integer y | x + y));
@@ -65,4 +66,9 @@ function testWhileFalse() {
 	counter = 0;
 	whileFalse(<Boolean>|counter > 7, | ++counter);
 	assertEquals("whileTrue 2", 8, counter);
+}
+function testCollect() {
+	assertEquals("Should be list with 2x values", 
+		[<Integer> 2, 4, 6, 8], 
+		[<Integer> 1, 2, 3, 4].collect(Integer x | x * 2));
 }
