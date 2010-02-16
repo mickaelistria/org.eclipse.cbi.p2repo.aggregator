@@ -168,7 +168,7 @@ public class VersionRangeEditorDialog extends Dialog {
 
 		statusLabel = new Label(composite, SWT.LEFT);
 		GridData layoutData = new GridData(GridData.FILL, GridData.CENTER, true, false);
-		layoutData.horizontalSpan = 4;
+		layoutData.horizontalSpan = 3;
 		statusLabel.setLayoutData(layoutData);
 
 		return composite;
