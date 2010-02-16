@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -26,6 +27,7 @@ import org.eclipse.b3.aggregator.MapRule;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.MappedUnit;
 import org.eclipse.b3.aggregator.ValidConfigurationsRule;
+import org.eclipse.b3.aggregator.engine.internal.RequirementUtils;
 import org.eclipse.b3.aggregator.util.InstallableUnitUtils;
 import org.eclipse.b3.aggregator.util.LogUtils;
 import org.eclipse.b3.aggregator.util.MonitorUtils;
@@ -61,6 +63,17 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 		MappedRepository repository;
 
 		IRequirement requirement;
+
+		boolean explicit;
+
+		public boolean equals(Object o) {
+			if(!(o instanceof RepositoryRequirement))
+				return false;
+
+			RepositoryRequirement other = (RepositoryRequirement) o;
+			return other.repository.equals(repository) && other.requirement.equals(requirement)
+					&& other.explicit == explicit;
+		}
 	}
 
 	private static Filter createFilter(List<Configuration> configs) {
@@ -114,7 +127,7 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 		iu.setProperty(InstallableUnitDescription.PROP_TYPE_GROUP, Boolean.TRUE.toString());
 		iu.addProvidedCapabilities(Collections.singletonList(createSelfCapability(iu.getId(), iu.getVersion())));
 
-		Map<String, RepositoryRequirement> required = new HashMap<String, RepositoryRequirement>();
+		Map<String, Set<RepositoryRequirement>> required = new HashMap<String, Set<RepositoryRequirement>>();
 
 		boolean errorsFound = false;
 		List<Contribution> contribs = builder.getAggregator().getContributions();
@@ -148,6 +161,7 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 						// Verify that all products and features can be installed.
 						//
 						List<MapRule> mapRules = repository.getMapRules();
+						Map<Filter, List<IInstallableUnit>> preSelectedIUs = new HashMap<Filter, List<IInstallableUnit>>();
 						allIUs: for(IInstallableUnit riu : allIUs) {
 							// We assume that all groups that are not categories are either products or
 							// features.
@@ -159,21 +173,26 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 									if(riu.getId().equals(rule.getName())
 											&& rule.getVersionRange().isIncluded(riu.getVersion())) {
 										if(rule instanceof ExclusionRule) {
-											builder.addMappingExclusion(repository,
-													MetadataFactory.createRequiredCapability(
-															IInstallableUnit.NAMESPACE_IU_ID, riu.getId(),
-															new VersionRange(riu.getVersion(), true, riu.getVersion(),
-																	true), null, false, false), null);
+											builder.addMappingExclusion(repository);
 											continue allIUs;
 										}
 										if(rule instanceof ValidConfigurationsRule) {
 											filter = createFilter(((ValidConfigurationsRule) rule).getValidConfigurations());
+											// TODO Where to apply the filter???
 										}
 									}
 								}
-								addRequirementFor(repository, riu, filter, required, errors, explicit, false);
+								List<IInstallableUnit> units = preSelectedIUs.get(filter);
+								if(units == null)
+									preSelectedIUs.put(filter, units = new ArrayList<IInstallableUnit>());
+								units.add(riu);
 							}
 						}
+
+						for(Map.Entry<Filter, List<IInstallableUnit>> entry : preSelectedIUs.entrySet())
+							for(IRequirement req : RequirementUtils.createAllAvailableVersionsRequirements(
+									entry.getValue(), entry.getKey()))
+								addRequirementFor(repository, req, required, errors, explicit, false);
 					}
 				}
 				if(errors.size() > 0) {
@@ -185,11 +204,12 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 			if(errorsFound)
 				return new Status(IStatus.ERROR, Engine.PLUGIN_ID, "Features without repositories");
 
-			IRequirement[] rcArr = new IRequirement[required.size()];
-			int idx = 0;
-			for(RepositoryRequirement rc : required.values())
-				rcArr[idx++] = rc.requirement;
-			iu.setRequiredCapabilities(rcArr);
+			Set<IRequirement> rcList = new HashSet<IRequirement>();
+			for(Set<RepositoryRequirement> rcSet : required.values())
+				for(RepositoryRequirement req : rcSet)
+					rcList.add(req.requirement);
+
+			iu.setRequiredCapabilities(rcList.toArray(new IRequirement[rcList.size()]));
 			mdr.addInstallableUnits(new IInstallableUnit[] { MetadataFactory.createInstallableUnit(iu) });
 			return Status.OK_STATUS;
 		}
@@ -199,7 +219,7 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 	}
 
 	private void addCategoryContent(IInstallableUnit category, MappedRepository repository,
-			List<IInstallableUnit> allIUs, Map<String, RepositoryRequirement> required, List<String> errors,
+			List<IInstallableUnit> allIUs, Map<String, Set<RepositoryRequirement>> required, List<String> errors,
 			Set<String> explicit) {
 		// We don't map categories verbatim here. They are added elsewhere. We do
 		// map their contents though.
@@ -227,7 +247,7 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 	}
 
 	private void addRequirementFor(MappedRepository mr, IInstallableUnit iu, Filter filter,
-			Map<String, RepositoryRequirement> requirements, List<String> errors, Set<String> explicit,
+			Map<String, Set<RepositoryRequirement>> requirements, List<String> errors, Set<String> explicit,
 			boolean isExplicit) {
 		String id = iu.getId();
 		Version v = iu.getVersion();
@@ -249,125 +269,93 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 		}
 		IRequiredCapability rc = MetadataFactory.createRequiredCapability(IInstallableUnit.NAMESPACE_IU_ID, id, range,
 				iuFilter, false, false);
+		IRequirement req = RequirementUtils.createMultiRangeRequirement(mr.getMetadataRepository(), rc);
 
-		RepositoryRequirement rq = new RepositoryRequirement();
-		rq.repository = mr;
-		rq.requirement = rc;
-		RepositoryRequirement old = requirements.put(id, rq);
-		if(old == null || old.requirement.equals(rc)) {
-			if(isExplicit)
-				explicit.add(id);
-			return;
-		}
-
-		// TODO Dangerous cast
-		Version oldVersion = ((IRequiredCapability) old.requirement).getRange().getMinimum();
-		if(explicit.contains(id)) {
-			if(!isExplicit) {
-				LogUtils.debug("%s/%s excluded since version %s is explicitly mapped", id, v, oldVersion);
-				builder.addMappingExclusion(mr, rc, old.requirement);
-				// Reinstate the old one
-				requirements.put(id, old);
-			}
-			else {
-				String error;
-				if(v.equals(oldVersion))
-					error = format("%s/%s is explicitly mapped more than once but with different configurations", id, v);
-				else
-					error = format("%s is explicitly mapped using both version %s and %s", id, v, oldVersion);
-				errors.add(error);
-				LogUtils.error(error);
-			}
-			return;
-		}
-
-		if(isExplicit) {
-			LogUtils.debug("%s/%s excluded since version %s is explicitly mapped", id, oldVersion, v);
-			builder.addMappingExclusion(old.repository, old.requirement, rc);
-			explicit.add(id);
-			return;
-		}
-
-		int cmp = v.compareTo(oldVersion);
-		if(cmp < 0) {
-			// The previous version was higher
-			//
-			builder.addMappingExclusion(mr, rc, old.requirement);
-			LogUtils.debug("%s/%s excluded since a higher version (%s) was found", id, v, oldVersion);
-
-			// Reinstate the old one
-			requirements.put(id, old);
-		}
-		else {
-			builder.addMappingExclusion(old.repository, old.requirement, rc);
-			LogUtils.debug("%s/%s excluded since a higher version (%s) was found", id, oldVersion, v);
-		}
+		addRequirementFor(mr, req, requirements, errors, explicit, isExplicit);
 	}
 
-	private void addRequirementFor(MappedRepository mr, IRequiredCapability rc,
-			Map<String, RepositoryRequirement> requirements, List<String> errors, Set<String> explicit,
+	private void addRequirementFor(MappedRepository mr, IRequirement rc,
+			Map<String, Set<RepositoryRequirement>> requirements, List<String> errors, Set<String> explicit,
 			boolean isExplicit) {
 
-		String id = rc.getName();
+		String id = RequirementUtils.getName(rc);
 		RepositoryRequirement rq = new RepositoryRequirement();
 		rq.repository = mr;
 		rq.requirement = rc;
-		RepositoryRequirement old = requirements.put(id, rq);
-		if(old == null || old.requirement.equals(rc)) {
+		rq.explicit = isExplicit;
+
+		Set<RepositoryRequirement> repoReqs = requirements.get(id);
+		if(repoReqs == null)
+			requirements.put(id, repoReqs = new HashSet<RepositoryRequirement>());
+
+		repoReqs.add(rq);
+
+		// if just 1 requirement exists for this ID, there's nothing to do
+		if(repoReqs.size() == 1) {
 			if(isExplicit)
 				explicit.add(id);
 			return;
 		}
 
-		// TODO Dangerous cast
-		VersionRange oldVersionRange = ((IRequiredCapability) old.requirement).getRange();
-		VersionRange newVersionRange = rc.getRange();
+		// Mark all involved repositories as affected (they can't be mapped verbatim any more)
+		for(RepositoryRequirement req : repoReqs)
+			builder.addMappingExclusion(req.repository);
+
 		if(explicit.contains(id)) {
 			if(!isExplicit) {
-				LogUtils.debug("%s/%s excluded since version %s is explicitly mapped", id, newVersionRange,
-						oldVersionRange);
-				builder.addMappingExclusion(mr, rc, old.requirement);
-				// Reinstate the old one
-				requirements.put(id, old);
+				LogUtils.debug("%s excluded since it is already explicitly mapped", rc.getMatches());
+				// Remove the new one
+				repoReqs.remove(rq);
 			}
 			else {
 				String error;
-				if(newVersionRange.intersect(oldVersionRange) != null)
-					error = format("%s is explicitly mapped more than once but with differnet configurations", id);
-				else
-					error = format(
-							"%s is explicitly mapped more than once using non-overlapping version ranges %s and %s",
-							id, newVersionRange, oldVersionRange);
-				errors.add(error);
-				LogUtils.error(error);
+				boolean filtersAllTheSame = true;
+				for(RepositoryRequirement req : repoReqs) {
+					if(rc.getFilter() != null && !rc.getFilter().equals(req.requirement.getFilter())
+							|| rc.getFilter() == null && req.requirement.getFilter() != null) {
+						filtersAllTheSame = false;
+						break;
+					}
+				}
+
+				if(!filtersAllTheSame) {
+					error = format("%s is explicitly mapped more than once but with different configurations", id);
+					errors.add(error);
+
+					LogUtils.error(error);
+				}
 			}
 			return;
 		}
 
 		if(isExplicit) {
-			LogUtils.debug("%s/%s excluded since version %s is explicitly mapped", id, oldVersionRange, newVersionRange);
-			builder.addMappingExclusion(old.repository, old.requirement, rc);
+			Iterator<RepositoryRequirement> itor = repoReqs.iterator();
+			while(itor.hasNext()) {
+				RepositoryRequirement req = itor.next();
+				if(req.equals(rq))
+					continue;
+
+				LogUtils.debug("%s excluded since it is explicitly mapped", req.requirement);
+				itor.remove();
+			}
+
 			explicit.add(id);
 			return;
 		}
 
-		// we assume that non-explicitly mapped IUs have trivial version range (min=max)
-		Version newVersionMax = newVersionRange.getMaximum();
-		Version oldVersionMax = oldVersionRange.getMaximum();
-
-		int cmp = newVersionMax.compareTo(oldVersionMax);
-		if(cmp < 0) {
-			// The previous version was higher
-			//
-			builder.addMappingExclusion(mr, rc, old.requirement);
-			LogUtils.debug("%s/%s excluded since a higher version (%s) was found", id, newVersionMax, oldVersionMax);
-
-			// Reinstate the old one
-			requirements.put(id, old);
+		// all mappings are implicit so far, then we replace requirements by unions of implicit requirements
+		// let's find the original one first (there should be only one shared requirement instance at the moment)
+		IRequirement orig = null;
+		for(RepositoryRequirement req : repoReqs) {
+			if(req.equals(rq))
+				continue;
+			orig = req.requirement;
+			break;
 		}
-		else {
-			builder.addMappingExclusion(old.repository, old.requirement, rc);
-			LogUtils.debug("%s/%s excluded since a higher version (%s) was found", id, oldVersionMax, newVersionMax);
-		}
+
+		IRequirement union = RequirementUtils.versionUnion(orig, rq.requirement);
+
+		for(RepositoryRequirement req : repoReqs)
+			req.requirement = union;
 	}
 }

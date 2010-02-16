@@ -137,6 +137,8 @@ public class Builder extends AbstractCommand {
 	public static final String SIMPLE_METADATA_TYPE = org.eclipse.equinox.internal.p2.metadata.repository.Activator.ID
 			+ ".simpleRepository"; //$NON-NLS-1$
 
+	public static final String INTERNAL_METADATA_TYPE = "org.eclipse.b3.aggregator.engine.internalRepository"; //$NON-NLS-1$
+
 	public static final SimpleDateFormat TIMESTAMP_FORMAT = new SimpleDateFormat("yyyyMMdd-HHmm"); //$NON-NLS-1$
 
 	static final String FEATURE_GROUP_SUFFIX = ".feature.group"; //$NON-NLS-1$
@@ -386,8 +388,6 @@ public class Builder extends AbstractCommand {
 
 	private String preservedProfile;
 
-	private Map<IRequirement, IRequirement> replacements;
-
 	/**
 	 * Prevent that the {@link IInstallableUnit} identified by <code>versionedName</code> is mapped from
 	 * <code>repository</code>.
@@ -396,16 +396,12 @@ public class Builder extends AbstractCommand {
 	 *            The repository for which to exclude a mapping
 	 * @param rc
 	 *            The required capability to be excluded/replaceed
-	 * @param replacement
-	 *            The replacement for excluded capability (or null if no replacement is available)
 	 */
-	public void addMappingExclusion(MappedRepository repository, IRequirement rc, IRequirement replacement) {
+	public void addMappingExclusion(MappedRepository repository) {
 		if(exclusions == null) {
 			exclusions = new HashSet<MappedRepository>();
-			replacements = new HashMap<IRequirement, IRequirement>();
 		}
 		exclusions.add(repository);
-		replacements.put(rc, replacement);
 	}
 
 	/**
@@ -450,12 +446,6 @@ public class Builder extends AbstractCommand {
 
 	public List<IInstallableUnit> getCategoryIUs() {
 		return categoryIUs;
-	}
-
-	public Map<IRequirement, IRequirement> getReplacementMap() {
-		return replacements == null
-				? Collections.<IRequirement, IRequirement> emptyMap()
-				: replacements;
 	}
 
 	@Override

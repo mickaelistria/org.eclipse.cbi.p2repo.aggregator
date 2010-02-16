@@ -44,7 +44,7 @@ public class VerificationFeatureGenerator extends BuilderPhase {
 
 		try {
 			mdrMgr.removeRepository(locationURI);
-			IMetadataRepository mdr = mdrMgr.createRepository(locationURI, name, Builder.SIMPLE_METADATA_TYPE,
+			IMetadataRepository mdr = mdrMgr.createRepository(locationURI, name, Builder.INTERNAL_METADATA_TYPE,
 					properties);
 
 			PublisherInfo pubInfo = new PublisherInfo();

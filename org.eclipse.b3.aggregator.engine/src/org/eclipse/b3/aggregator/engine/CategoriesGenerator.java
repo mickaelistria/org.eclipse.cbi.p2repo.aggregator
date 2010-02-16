@@ -28,7 +28,6 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
 import org.eclipse.equinox.internal.p2.metadata.VersionedId;
-import org.eclipse.equinox.internal.provisional.p2.metadata.MetadataFactory;
 import org.eclipse.equinox.internal.provisional.p2.metadata.MetadataFactory.InstallableUnitDescription;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.IProvidedCapability;
@@ -210,7 +209,6 @@ public class CategoriesGenerator extends BuilderPhase {
 	}
 
 	private List<IInstallableUnit> normalizeCategories(List<IInstallableUnit> categoryIUs) {
-		Map<IRequirement, IRequirement> replacementMap = getBuilder().getReplacementMap();
 		Map<String, List<IRequirement>> map = new HashMap<String, List<IRequirement>>();
 		Map<String, IInstallableUnit> catMap = new HashMap<String, IInstallableUnit>();
 		for(IInstallableUnit category : categoryIUs) {
@@ -221,27 +219,9 @@ public class CategoriesGenerator extends BuilderPhase {
 				map.put(name, caps);
 			}
 
-			for(IRequirement req : category.getRequiredCapabilities()) {
-				if(!(req instanceof IRequiredCapability))
-					continue;
-
-				IRequiredCapability cap = (IRequiredCapability) req;
-
-				// If this is an exact version range, then check if the appointed
-				// version has been excluded. If it has, replace it if its replacement
-				// can be found.
-				//
-				VersionRange range = cap.getRange();
-				if(range != null && range.getMinimum().equals(range.getMaximum())) {
-					if(replacementMap.containsKey(cap)) {
-						IRequirement newRq = replacementMap.get(cap);
-						if(newRq == null)
-							continue;
-						req = InstallableUnitImpl.importToModel(newRq);
-					}
-				}
-				caps.add(cap);
-			}
+			// TODO Before we could map version ranges, here had been an algorithm fixing possible version replacements.
+			// This may be required in future again but it will need a different implementation
+			caps.addAll(category.getRequiredCapabilities());
 
 			IInstallableUnit oldCat = catMap.put(name, category);
 			if(oldCat == null)
@@ -282,7 +262,8 @@ public class CategoriesGenerator extends BuilderPhase {
 
 			InstallableUnitImpl newCategory = (InstallableUnitImpl) P2Factory.eINSTANCE.createInstallableUnit();
 			newCategory.setId(category.getId());
-			newCategory.getPropertyMap().addAll(category.getProperties().entrySet());
+			for(Map.Entry<String, String> entry : category.getProperties().entrySet())
+				newCategory.getPropertyMap().put(entry.getKey(), entry.getValue());
 			newCategory.getRequiredCapabilities().addAll(newCaps);
 			assignCategoryVersion(newCategory);
 			tossCategory(category);
@@ -305,9 +286,7 @@ public class CategoriesGenerator extends BuilderPhase {
 				if(mappedRepo.getMetadataRepository() == parent && builder.isMapVerbatim(mappedRepo)) {
 					LogUtils.debug("Excluding %s from verbatim mapping since category %s has been normalized",
 							mappedRepo.getLocation(), category.getProperty(IInstallableUnit.PROP_NAME));
-					builder.addMappingExclusion(mappedRepo, MetadataFactory.createRequiredCapability(
-							IInstallableUnit.NAMESPACE_IU_ID, category.getId(), new VersionRange(category.getVersion(),
-									true, category.getVersion(), true), null, false, false), null);
+					builder.addMappingExclusion(mappedRepo);
 				}
 			}
 		}

@@ -8,4 +8,23 @@
             name="aggregate">
       </command>
    </extension>
+   <extension
+         id="internalRepository"
+         point="org.eclipse.equinox.p2.metadata.repository.metadataRepositories">
+      <filter
+            suffix="internalContent.xml">
+      </filter>
+      <factory
+            class="org.eclipse.b3.aggregator.engine.internal.InternalMetadataRepositoryFactory">
+      </factory>
+   </extension>
+   <extension
+         point="org.eclipse.equinox.p2.metadata.repository.metadataRepositories">
+      <filter
+            suffix="internalContent.xml">
+      </filter>
+      <factory
+            class="org.eclipse.b3.aggregator.engine.internal.InternalMetadataRepositoryFactory">
+      </factory>
+   </extension>
 </plugin>
