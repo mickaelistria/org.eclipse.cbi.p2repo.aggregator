@@ -133,11 +133,15 @@ public class AggregatorTransformer_080_2_100 extends ResourceTransformer {
 
 	private static final String ENABLED_ATTR = "enabled";
 
+	private static final String EMAIL_ATTR = "email";
+
 	private List<EObject> srcCategories = new ArrayList<EObject>();
 
 	private List<EObject> srcContributions = new ArrayList<EObject>();
 
 	private List<EObject> srcIUsWithoutRepo = new ArrayList<EObject>();
+
+	private Map<String, EObject> trgtEmailToContactMap = new HashMap<String, EObject>();
 
 	private EReference srcIURepoRef;
 
@@ -320,9 +324,9 @@ public class AggregatorTransformer_080_2_100 extends ResourceTransformer {
 
 	@SuppressWarnings("unchecked")
 	private void transformBuildNode(EObject srcEObject, TreePath trgtParentTreePath) {
-		EObject aggregatorEobject = createTrgtEObject(AGGREGATOR_NODE, srcEObject);
-		trgtParentTreePath.addToLastSegmentContainer(aggregatorEobject);
-		copyBuildNodeAttributes(srcEObject, aggregatorEobject);
+		EObject aggregatorEObject = createTrgtEObject(AGGREGATOR_NODE, srcEObject);
+		trgtParentTreePath.addToLastSegmentContainer(aggregatorEObject);
+		copyBuildNodeAttributes(srcEObject, aggregatorEObject);
 
 		List<String> unsupportedRefs = Arrays.asList(new String[] { PLATFORMS_REF, MAP_REF, PRODUCT_REF, BASE_REF,
 				BUILDER_REF, COMPILER_REF, PROMOTION_REF });
@@ -339,21 +343,21 @@ public class AggregatorTransformer_080_2_100 extends ResourceTransformer {
 			EReference trgtERef = null;
 
 			if(CONFIGS_REF.equals(srcERef.getName())) {
-				trgtERef = (EReference) aggregatorEobject.eClass().getEStructuralFeature(CONFIGURATIONS_REF);
+				trgtERef = (EReference) aggregatorEObject.eClass().getEStructuralFeature(CONFIGURATIONS_REF);
 			}
 			else if(CONTRIBUTIONS_REF.equals(srcERef.getName())) {
-				trgtERef = (EReference) aggregatorEobject.eClass().getEStructuralFeature(CONTRIBUTIONS_REF);
+				trgtERef = (EReference) aggregatorEObject.eClass().getEStructuralFeature(CONTRIBUTIONS_REF);
 			}
 			else if(CATEGORIES_REF.equals(srcERef.getName())) {
-				trgtERef = (EReference) aggregatorEobject.eClass().getEStructuralFeature(CUSTOMCATEGORIES_REF);
+				trgtERef = (EReference) aggregatorEObject.eClass().getEStructuralFeature(CUSTOMCATEGORIES_REF);
 			}
 			else if(DEFAULTMAILLIST_REF.equals(srcERef.getName()) || BUILDMASTER_REF.equals(srcERef.getName())) {
-				trgtERef = (EReference) aggregatorEobject.eClass().getEStructuralFeature(CONTACTS_REF);
+				trgtERef = (EReference) aggregatorEObject.eClass().getEStructuralFeature(CONTACTS_REF);
 			}
 			else
 				continue;
 
-			TreePath trgtTreePath = trgtParentTreePath.createChildTreePath(aggregatorEobject, trgtERef);
+			TreePath trgtTreePath = trgtParentTreePath.createChildTreePath(aggregatorEObject, trgtERef);
 
 			if(!srcERef.isMany())
 				transform((EObject) srcERefValue, trgtTreePath);
@@ -362,9 +366,9 @@ public class AggregatorTransformer_080_2_100 extends ResourceTransformer {
 					transform(srcChild, trgtTreePath);
 
 			if(BUILDMASTER_REF.equals(srcERef.getName())) {
-				EReference buildmasterERef = (EReference) aggregatorEobject.eClass().getEStructuralFeature(
+				EReference buildmasterERef = (EReference) aggregatorEObject.eClass().getEStructuralFeature(
 						BUILDMASTER_REF);
-				aggregatorEobject.eSet(buildmasterERef, transformationMapping.get(srcERefValue));
+				aggregatorEObject.eSet(buildmasterERef, transformationMapping.get(srcERefValue));
 			}
 		}
 	}
@@ -450,11 +454,21 @@ public class AggregatorTransformer_080_2_100 extends ResourceTransformer {
 	}
 
 	private void transformContactNode(EObject srcEObject, TreePath trgtParentTreePath) {
-		EObject contactEobject = createTrgtEObject(CONTACT_NODE, srcEObject);
-		trgtParentTreePath.addToLastSegmentContainer(contactEobject);
-		copyAttributes(srcEObject, contactEobject);
-		EReference aggrERef = (EReference) contactEobject.eClass().getEStructuralFeature(AGGREGATOR_REF);
-		contactEobject.eSet(aggrERef, trgtParentTreePath.getSegment(AGGREGATOR_NODE));
+		EObject contactEObject = createTrgtEObject(CONTACT_NODE, srcEObject);
+		copyAttributes(srcEObject, contactEObject);
+
+		String email = (String) getValue(contactEObject, EMAIL_ATTR);
+		EObject trgtRetrievedContact = trgtEmailToContactMap.get(email);
+
+		if(trgtRetrievedContact != null)
+			transformationMapping.put(srcEObject, trgtRetrievedContact);
+		else {
+			trgtEmailToContactMap.put(email, contactEObject);
+			trgtParentTreePath.addToLastSegmentContainer(contactEObject);
+
+			EReference aggrERef = (EReference) contactEObject.eClass().getEStructuralFeature(AGGREGATOR_REF);
+			contactEObject.eSet(aggrERef, trgtParentTreePath.getSegment(AGGREGATOR_NODE));
+		}
 	}
 
 	@SuppressWarnings("unchecked")
