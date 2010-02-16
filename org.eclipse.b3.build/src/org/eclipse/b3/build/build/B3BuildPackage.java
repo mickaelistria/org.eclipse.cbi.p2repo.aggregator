@@ -928,13 +928,22 @@ public interface B3BuildPackage extends EPackage {
 	int IBUILDER__UNIT_TYPE = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 23;
 
 	/**
+	 * The feature id for the '<em><b>Explicit Unit Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IBUILDER__EXPLICIT_UNIT_TYPE = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 24;
+
+	/**
 	 * The number of structural features of the '<em>IBuilder</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IBUILDER_FEATURE_COUNT = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 24;
+	int IBUILDER_FEATURE_COUNT = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 25;
 
 	/**
 	 * The feature id for the '<em><b>Prerequisites</b></em>' containment reference list.
@@ -2370,13 +2379,22 @@ public interface B3BuildPackage extends EPackage {
 	int BUILDER__UNIT_TYPE = B3backendPackage.B3_FUNCTION_FEATURE_COUNT + 7;
 
 	/**
+	 * The feature id for the '<em><b>Explicit Unit Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER__EXPLICIT_UNIT_TYPE = B3backendPackage.B3_FUNCTION_FEATURE_COUNT + 8;
+
+	/**
 	 * The number of structural features of the '<em>Builder</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILDER_FEATURE_COUNT = B3backendPackage.B3_FUNCTION_FEATURE_COUNT + 8;
+	int BUILDER_FEATURE_COUNT = B3backendPackage.B3_FUNCTION_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Visibility</b></em>' attribute.
@@ -2623,13 +2641,22 @@ public interface B3BuildPackage extends EPackage {
 	int BUILDER_JAVA__UNIT_TYPE = B3backendPackage.BJAVA_FUNCTION_FEATURE_COUNT + 7;
 
 	/**
+	 * The feature id for the '<em><b>Explicit Unit Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_JAVA__EXPLICIT_UNIT_TYPE = B3backendPackage.BJAVA_FUNCTION_FEATURE_COUNT + 8;
+
+	/**
 	 * The number of structural features of the '<em>Builder Java</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILDER_JAVA_FEATURE_COUNT = B3backendPackage.BJAVA_FUNCTION_FEATURE_COUNT + 8;
+	int BUILDER_JAVA_FEATURE_COUNT = B3backendPackage.BJAVA_FUNCTION_FEATURE_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderWrapperImpl <em>Builder Wrapper</em>}' class.
@@ -2903,13 +2930,22 @@ public interface B3BuildPackage extends EPackage {
 	int BUILDER_WRAPPER__UNIT_TYPE = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 7;
 
 	/**
+	 * The feature id for the '<em><b>Explicit Unit Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_WRAPPER__EXPLICIT_UNIT_TYPE = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 8;
+
+	/**
 	 * The feature id for the '<em><b>Input Advised</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILDER_WRAPPER__INPUT_ADVISED = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 8;
+	int BUILDER_WRAPPER__INPUT_ADVISED = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Output Advised</b></em>' attribute.
@@ -2918,7 +2954,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILDER_WRAPPER__OUTPUT_ADVISED = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 9;
+	int BUILDER_WRAPPER__OUTPUT_ADVISED = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Unit Type Advised</b></em>' attribute.
@@ -2927,7 +2963,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILDER_WRAPPER__UNIT_TYPE_ADVISED = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 10;
+	int BUILDER_WRAPPER__UNIT_TYPE_ADVISED = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Provides Advised</b></em>' attribute.
@@ -2936,7 +2972,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILDER_WRAPPER__PROVIDES_ADVISED = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 11;
+	int BUILDER_WRAPPER__PROVIDES_ADVISED = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Default Properties Advised</b></em>' attribute.
@@ -2945,7 +2981,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILDER_WRAPPER__DEFAULT_PROPERTIES_ADVISED = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 12;
+	int BUILDER_WRAPPER__DEFAULT_PROPERTIES_ADVISED = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 13;
 
 	/**
 	 * The number of structural features of the '<em>Builder Wrapper</em>' class.
@@ -2954,7 +2990,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILDER_WRAPPER_FEATURE_COUNT = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 13;
+	int BUILDER_WRAPPER_FEATURE_COUNT = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 14;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BeeModelImpl <em>Bee Model</em>}' class.
@@ -3644,6 +3680,17 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getIBuilder_UnitType();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.IBuilder#getExplicitUnitType <em>Explicit Unit Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Explicit Unit Type</em>'.
+	 * @see org.eclipse.b3.build.build.IBuilder#getExplicitUnitType()
+	 * @see #getIBuilder()
+	 * @generated
+	 */
+	EReference getIBuilder_ExplicitUnitType();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.Builder <em>Builder</em>}'.
@@ -5399,6 +5446,14 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute IBUILDER__UNIT_TYPE = eINSTANCE.getIBuilder_UnitType();
+
+		/**
+		 * The meta object literal for the '<em><b>Explicit Unit Type</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IBUILDER__EXPLICIT_UNIT_TYPE = eINSTANCE.getIBuilder_ExplicitUnitType();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuilderImpl <em>Builder</em>}' class.

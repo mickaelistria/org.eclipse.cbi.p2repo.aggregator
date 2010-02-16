@@ -92,7 +92,9 @@ public class B3FuncStore {
 			throw new B3NoSuchFunctionSignatureException(functionName, types);
 		return toBeCalled.call(ctx.createOuterContext(), parameters, types); 
 	}
-	private void updateCache(String name) throws B3EngineException {
+	public void updateCache(String name) throws B3EngineException {
+//		if(!dirtyFunctions.contains(name))
+//			return;
 		effective.put(name, getEffectiveList(name, getFunctionsByName(name).size()));
 		dirtyFunctions.remove(name);
 	}

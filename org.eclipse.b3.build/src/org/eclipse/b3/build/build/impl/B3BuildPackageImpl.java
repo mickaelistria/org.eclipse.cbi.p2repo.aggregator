@@ -694,6 +694,15 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getIBuilder_ExplicitUnitType() {
+		return (EReference)iBuilderEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBuilder() {
 		return builderEClass;
 	}
@@ -2061,6 +2070,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		createEReference(iBuilderEClass, IBUILDER__DEFAULT_PROPERTIES);
 		createEReference(iBuilderEClass, IBUILDER__POSTINPUTCOND_EXPR);
 		createEAttribute(iBuilderEClass, IBUILDER__UNIT_TYPE);
+		createEReference(iBuilderEClass, IBUILDER__EXPLICIT_UNIT_TYPE);
 
 		versionedCapabilityEClass = createEClass(VERSIONED_CAPABILITY);
 		createEAttribute(versionedCapabilityEClass, VERSIONED_CAPABILITY__VERSION);
@@ -2363,6 +2373,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		EGenericType g3 = createEGenericType(this.getBuildUnit());
 		g2.setEUpperBound(g3);
 		initEAttribute(getIBuilder_UnitType(), g1, "unitType", null, 0, 1, IBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIBuilder_ExplicitUnitType(), theB3backendPackage.getIType(), null, "explicitUnitType", null, 0, 1, IBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(iBuilderEClass, null, "getEffectiveRequirements", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theB3backendPackage.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);

@@ -13,6 +13,7 @@ import java.util.Map;
 
 import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.core.B3WeavingFailedException;
+import org.eclipse.b3.backend.core.ParentContextIterator;
 
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
@@ -26,6 +27,8 @@ import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.BeeModel;
 import org.eclipse.b3.build.build.BuildContext;
 import org.eclipse.b3.build.build.BuildUnit;
+import org.eclipse.b3.build.build.Builder;
+import org.eclipse.b3.build.build.IBuilder;
 import org.eclipse.b3.build.core.BuildUnitProxyAdapter;
 import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;
 import org.eclipse.emf.ecore.EClass;
@@ -95,6 +98,10 @@ public class BuildContextImpl extends BExecutionContextImpl implements BuildCont
 		// do not store original if it was woven
 		if(!woven)
 			unitStore.put(iface, unitToStore);
+		
+		// define all of the unit's builders
+		for(IBuilder b : unit.getBuilders())
+			defineFunction(b);
 	}
 
 	/**
@@ -134,12 +141,17 @@ public class BuildContextImpl extends BExecutionContextImpl implements BuildCont
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public BuildUnit getEffectiveBuildUnit(BuildUnit unit) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		ParentContextIterator pitor = new ParentContextIterator(this, BuildContext.class);
+		while(pitor.hasNext()) {
+			BuildContextImpl ctx = (BuildContextImpl)pitor.next();
+			BuildUnit u = ctx.getBuildUnitStore().get(BuildUnitProxyAdapterFactory.eINSTANCE.adapt(unit).getIface());
+			if(u != null)
+				return u;
+		}
+		return null; // TODO: Should probably throw "NoSuchUnit" instead
 	}
 
 	public Map<Class<? extends BuildUnit>, BuildUnit> getBuildUnitStore() {

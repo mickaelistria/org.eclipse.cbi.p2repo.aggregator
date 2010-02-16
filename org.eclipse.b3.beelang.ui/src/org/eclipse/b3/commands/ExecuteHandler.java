@@ -11,6 +11,8 @@ import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.beelang.ui.BeeLangConsoleUtils;
 import org.eclipse.b3.build.build.BeeModel;
 import org.eclipse.b3.build.core.B3BuildEngine;
+import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;
+import org.eclipse.b3.build.core.EffectiveUnitIterator;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
@@ -66,6 +68,10 @@ public class ExecuteHandler extends AbstractHandler {
 						return null;
 					final List<Object> argv = new ArrayList<Object>();
 					argv.add(engine);
+					EffectiveUnitIterator uItor = new EffectiveUnitIterator(engine.getBuildContext());
+					while(uItor.hasNext()) {
+						argv.add(BuildUnitProxyAdapterFactory.eINSTANCE.adapt(uItor.next()).getProxy());
+					}
 					try {
 						return engine.getContext().callFunction("main", new Object[] { argv },
 								new Type[] { List.class });
@@ -92,7 +98,10 @@ public class ExecuteHandler extends AbstractHandler {
 									+ lineNumber
 									+").");
 							if(exprException.getCause() != null) {
-								b3ConsoleErrorStream.println("Caused by: " + exprException.getCause().getMessage());
+								b3ConsoleErrorStream.println("Caused by: " +
+										((exprException.getCause().getMessage() == null) ?
+												exprException.getCause().getClass().getName() :
+													exprException.getCause().getMessage()));
 							}
 							
 						} finally {

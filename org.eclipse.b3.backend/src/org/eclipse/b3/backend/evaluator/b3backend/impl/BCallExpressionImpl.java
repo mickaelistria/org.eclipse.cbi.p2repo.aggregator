@@ -20,6 +20,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameter;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
+import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.core.runtime.OperationCanceledException;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -272,13 +273,13 @@ public class BCallExpressionImpl extends BParameterizedExpressionImpl implements
 			throw new OperationCanceledException();
 		Throwable lastError = null;
 		try {
-		// if call is on the form "x.f(...)" => "f(x,...)"
-		if(funcExpr != null && name != null)
-			return targetCall(ctx);
-		if(funcExpr == null)
-			return namedFunctionCall(ctx);
+			// if call is on the form "x.f(...)" => "f(x,...)"
+			if(funcExpr != null && name != null)
+				return targetCall(ctx);
+			if(funcExpr == null)
+				return namedFunctionCall(ctx);
 
-		return expressionCall(ctx);
+			return expressionCall(ctx);
 		} catch(B3NoSuchFunctionSignatureException e) {
 			lastError = e;
 		} catch(B3NoSuchFunctionException e) {
@@ -296,7 +297,9 @@ public class BCallExpressionImpl extends BParameterizedExpressionImpl implements
 		for(BParameter p : pList) {
 			BExpression e = p.getExpr();
 			parameters[counter] = e.evaluate(ctx);
-			tparameters[counter++] = e.getDeclaredType(ctx);
+			// first parameter always have its actual type (unless it is null)
+			tparameters[counter] = counter == 0 && parameters[counter] != null ? safeTypeOf(parameters[counter],e.getDeclaredType(ctx)) : e.getDeclaredType(ctx);
+			counter++;
 		}
 		if(target instanceof Class<?>) {
 			if(parameters.length != 1)
@@ -327,7 +330,9 @@ public class BCallExpressionImpl extends BParameterizedExpressionImpl implements
 		for(BParameter p : pList) {
 			BExpression e = p.getExpr(); 
 			parameters[counter] = e.evaluate(ctx);
-			tparameters[counter++] = e.getDeclaredType(ctx);
+			// first parameter always have its actual type
+			tparameters[counter] = counter == 0 && parameters[counter] != null ? safeTypeOf(parameters[counter],e.getDeclaredType(ctx)) : e.getDeclaredType(ctx);
+			counter++;
 		}
 		return ctx.callFunction(name, parameters, tparameters);
 	}
@@ -349,7 +354,8 @@ public class BCallExpressionImpl extends BParameterizedExpressionImpl implements
 		Type[] tparameters = new Type[nbrParams];
 		int counter = 0;
 		parameters[counter] = target;
-		tparameters[counter++] = funcExpr.getDeclaredType(ctx);
+		// first parameter always have its actual type
+		tparameters[counter++] = safeTypeOf(target,funcExpr.getDeclaredType(ctx)); 
 		for(BParameter p : pList) {
 			BExpression e = p.getExpr();
 			parameters[counter] = e.evaluate(ctx);
@@ -357,15 +363,34 @@ public class BCallExpressionImpl extends BParameterizedExpressionImpl implements
 		}
 		return ctx.callFunction(name, parameters, tparameters);
 	}
+	private Type safeTypeOf(Object x, Type declaredType) {
+		if(x == null)
+			return declaredType;
+		if(x instanceof IFunction)
+			return ((IFunction)x).getSignature();
+		if(declaredType instanceof B3MetaClass)
+			return declaredType;
+		return x.getClass();
+	}
 	@Override
 	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
 		// if call is on the form "x.f(...)" => "f(x,...)"
+
+		Throwable lastError = null;
+		try {
 		if(funcExpr != null && name != null)
 			return getDeclaredTypeTargetCall(ctx);
 		if(funcExpr == null)
 			return getDeclaredTypeNamedCall(ctx);
 
-		return getDeclaredTypeExpressionCall(ctx);		
+		return getDeclaredTypeExpressionCall(ctx);	
+		} catch(B3NoSuchFunctionSignatureException e) {
+			lastError = e;
+		} catch(B3NoSuchFunctionException e) {
+			lastError = e;
+		}
+		throw B3BackendException.fromMessage(this, lastError, "Determening return type of Call failed - see details.");
+
 	}
 	private Type getDeclaredTypeTargetCall(BExecutionContext ctx) throws Throwable {
 		EList<BParameter> pList = getParameterList().getParameters();

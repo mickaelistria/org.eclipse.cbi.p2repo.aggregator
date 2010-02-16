@@ -621,6 +621,7 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		if(fStore == null)
 			throw new B3InternalError("Could not find an effective function store - engine/context setup is broken!");
 		Throwable lastError = null;
+		Throwable lastStaticError = null;
 		ATTEMPTS: for(int attempts = 0; attempts < 5; attempts++) {
 			switch(attempts) {
 			case 0:	// fall through
@@ -650,10 +651,10 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 					return fStore.callFunction(functionName, newParameters, newTypes, this);
 					}
 				} catch (B3NoSuchFunctionException e3) {
-					lastError = e3;
+					lastStaticError = e3;
 					continue;
 				} catch (B3NoSuchFunctionSignatureException e4) {
-					lastError = e4;
+					lastStaticError = e4;
 					continue;
 				}
 				break;
@@ -672,15 +673,22 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 			}
 		}
 		// Successful call should have returned result already - only error conditions remain
-		if(lastError == null)
+		if(lastError == null && lastStaticError == null)
 			throw new B3InternalError("BExecutionContextImpl#callFunction() did not return ok, and had no last error");
 		
-		throw lastError;
+		throw lastError != null ? lastError : lastStaticError;
 
 	}
 	private void weaveLoaded(IFunction f, BExecutionContext ctx) throws B3WeavingFailedException{
 		if(ctx == null)
 			return;
+		B3FuncStore fs = ctx.getFuncStore();
+		if(fs != null)
+			try {
+				fs.updateCache(f.getName());
+			} catch (B3EngineException e1) {
+				throw new B3WeavingFailedException(e1);
+			}
 		weaveLoaded(f, ctx.getParentContext());
 		for(BConcern c : ctx.getEffectiveConcerns()) {
 			boolean savedWeaving = isWeaving;
@@ -865,6 +873,7 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		if(fStore == null)
 			throw new B3InternalError("Could not find an effective function store - engine/context setup is broken!");
 		Throwable lastError = null;
+		Throwable lastStaticError = null;
 		ATTEMPTS: for(int attempts = 0; attempts < 5; attempts++) {
 			switch(attempts) {
 			case 0:	// fall through
@@ -891,10 +900,10 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 					return fStore.getDeclaredFunctionType(functionName, newTypes, this);
 					}
 				} catch (B3NoSuchFunctionException e3) {
-					lastError = e3;
+					lastStaticError = e3;
 					continue;
 				} catch (B3NoSuchFunctionSignatureException e4) {
-					lastError = e4;
+					lastStaticError = e4;
 					continue;
 				}
 				break;
@@ -913,10 +922,10 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 			}
 		}
 		// Successful call should have returned result already - only error conditions remain
-		if(lastError == null)
+		if(lastError == null && lastStaticError == null)
 			throw new B3InternalError("BExecutionContextImpl#getDeclaredFunctionType() did not return ok, and had no last error");
 		
-		throw lastError;
+		throw lastError != null ? lastError : lastStaticError;
 	}
 
 	/**

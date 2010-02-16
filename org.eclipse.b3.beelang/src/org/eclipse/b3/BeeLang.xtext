@@ -243,10 +243,12 @@ Builder returns build::Builder : {build::Builder}
     "builder"
 	name=BuilderName
 	('(' 
-		(parameters += ParameterDeclaration (',' parameters += ParameterDeclaration)* 
+		
+		( ((explicitUnitType = TypeRef "unit") | (parameters += ParameterDeclaration))
+			(',' parameters += ParameterDeclaration)* 
 			(',' varArgs?="..." parameters += ParameterDeclaration)?)
 		| 	(    varArgs?="..." parameters += ParameterDeclaration)
-	')')?
+	')' )?
 	("when" guard = GuardExpression)?
 	('provides' providedCapabilities += ProvidedCapability (',' providedCapabilities += ProvidedCapability)*  )?
 	("precondition" ((':' precondExpr = Expression ';' )|( precondExpr = BlockExpression)))?
@@ -278,8 +280,10 @@ ClosureParameter returns be::BParameter : {be::BParameter}
 	;
 
 ParameterDeclaration returns be::BParameterDeclaration : {be::BParameterDeclaration} 
-	((type=TypeRef)? name = ID) 
+	((type=TypeRef)? name = (ID | KeywordParameterName)) 
 	;
+
+KeywordParameterName : "unit";
 
 BuilderInput returns build::BuilderInput : {build::BuilderInput}
 	"input"

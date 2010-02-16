@@ -11636,11 +11636,11 @@ protected class CompoundBuildResultReference_RightCurlyBracketKeyword_3 extends 
  *
  * Builder returns build::Builder:
  *   {build::Builder} documentation=DOCUMENTATION? visibility=Visibility? executionMode=
- *   ExecutionMode? final?="final"? "builder" name=BuilderName ("(" (parameters+=
- *   ParameterDeclaration ("," parameters+=ParameterDeclaration)* ("," varArgs?="..."
- *   parameters+=ParameterDeclaration)?)|(varArgs?="..." parameters+=
- *   ParameterDeclaration) ")")? ("when" guard=GuardExpression)? ("provides"
- *   providedCapabilities+=ProvidedCapability ("," providedCapabilities+=
+ *   ExecutionMode? final?="final"? "builder" name=BuilderName ("(" ((explicitUnitType=
+ *   TypeRef "unit"|parameters+=ParameterDeclaration) ("," parameters+=
+ *   ParameterDeclaration)* ("," varArgs?="..." parameters+=ParameterDeclaration)?)|(
+ *   varArgs?="..." parameters+=ParameterDeclaration) ")")? ("when" guard=GuardExpression
+ *   )? ("provides" providedCapabilities+=ProvidedCapability ("," providedCapabilities+=
  *   ProvidedCapability)*)? ("precondition" (":" precondExpr=Expression ";"|precondExpr=
  *   BlockExpression))? ("postinputcondition" (":" postinputcondExpr=Expression ";"|
  *   postinputcondExpr=BlockExpression))? ("postcondition" (":" postcondExpr=Expression
@@ -11658,11 +11658,11 @@ protected class CompoundBuildResultReference_RightCurlyBracketKeyword_3 extends 
  **/
 
 // {build::Builder} documentation=DOCUMENTATION? visibility=Visibility? executionMode=
-// ExecutionMode? final?="final"? "builder" name=BuilderName ("(" (parameters+=
-// ParameterDeclaration ("," parameters+=ParameterDeclaration)* ("," varArgs?="..."
-// parameters+=ParameterDeclaration)?)|(varArgs?="..." parameters+=
-// ParameterDeclaration) ")")? ("when" guard=GuardExpression)? ("provides"
-// providedCapabilities+=ProvidedCapability ("," providedCapabilities+=
+// ExecutionMode? final?="final"? "builder" name=BuilderName ("(" ((explicitUnitType=
+// TypeRef "unit"|parameters+=ParameterDeclaration) ("," parameters+=
+// ParameterDeclaration)* ("," varArgs?="..." parameters+=ParameterDeclaration)?)|(
+// varArgs?="..." parameters+=ParameterDeclaration) ")")? ("when" guard=GuardExpression
+// )? ("provides" providedCapabilities+=ProvidedCapability ("," providedCapabilities+=
 // ProvidedCapability)*)? ("precondition" (":" precondExpr=Expression ";"|precondExpr=
 // BlockExpression))? ("postinputcondition" (":" postinputcondExpr=Expression ";"|
 // postinputcondExpr=BlockExpression))? ("postcondition" (":" postcondExpr=Expression
@@ -11931,9 +11931,9 @@ protected class Builder_NameAssignment_6 extends AssignmentToken  {
 
 }
 
-// ("(" (parameters+=ParameterDeclaration ("," parameters+=ParameterDeclaration)* (","
-// varArgs?="..." parameters+=ParameterDeclaration)?)|(varArgs?="..." parameters+=
-// ParameterDeclaration) ")")?
+// ("(" ((explicitUnitType=TypeRef "unit"|parameters+=ParameterDeclaration) (","
+// parameters+=ParameterDeclaration)* ("," varArgs?="..." parameters+=
+// ParameterDeclaration)?)|(varArgs?="..." parameters+=ParameterDeclaration) ")")?
 protected class Builder_Alternatives_7 extends AlternativesToken {
 
 	public Builder_Alternatives_7(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -11956,8 +11956,9 @@ protected class Builder_Alternatives_7 extends AlternativesToken {
 		
 }
 
-// "(" (parameters+=ParameterDeclaration ("," parameters+=ParameterDeclaration)* (","
-// varArgs?="..." parameters+=ParameterDeclaration)?)
+// "(" ((explicitUnitType=TypeRef "unit"|parameters+=ParameterDeclaration) (","
+// parameters+=ParameterDeclaration)* ("," varArgs?="..." parameters+=
+// ParameterDeclaration)?)
 protected class Builder_Group_7_0 extends GroupToken {
 	
 	public Builder_Group_7_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -12001,8 +12002,8 @@ protected class Builder_LeftParenthesisKeyword_7_0_0 extends KeywordToken  {
 		
 }
 
-// parameters+=ParameterDeclaration ("," parameters+=ParameterDeclaration)* (","
-// varArgs?="..." parameters+=ParameterDeclaration)?
+// (explicitUnitType=TypeRef "unit"|parameters+=ParameterDeclaration) ("," parameters
+// +=ParameterDeclaration)* ("," varArgs?="..." parameters+=ParameterDeclaration)?
 protected class Builder_Group_7_0_1 extends GroupToken {
 	
 	public Builder_Group_7_0_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -12019,23 +12020,137 @@ protected class Builder_Group_7_0_1 extends GroupToken {
 		switch(index) {
 			case 0: return new Builder_Group_7_0_1_2(parent, this, 0, inst);
 			case 1: return new Builder_Group_7_0_1_1(parent, this, 1, inst);
-			case 2: return new Builder_ParametersAssignment_7_0_1_0(parent, this, 2, inst);
+			case 2: return new Builder_Alternatives_7_0_1_0(parent, this, 2, inst);
 			default: return null;
 		}	
 	}	
 		
 }
 
-// parameters+=ParameterDeclaration
-protected class Builder_ParametersAssignment_7_0_1_0 extends AssignmentToken  {
+// explicitUnitType=TypeRef "unit"|parameters+=ParameterDeclaration
+protected class Builder_Alternatives_7_0_1_0 extends AlternativesToken {
+
+	public Builder_Alternatives_7_0_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
 	
-	public Builder_ParametersAssignment_7_0_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	@Override
+	public Alternatives getGrammarElement() {
+		return grammarAccess.getBuilderAccess().getAlternatives_7_0_1_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Builder_Group_7_0_1_0_0(parent, this, 0, inst);
+			case 1: return new Builder_ParametersAssignment_7_0_1_0_1(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// explicitUnitType=TypeRef "unit"
+protected class Builder_Group_7_0_1_0_0 extends GroupToken {
+	
+	public Builder_Group_7_0_1_0_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getBuilderAccess().getGroup_7_0_1_0_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Builder_UnitKeyword_7_0_1_0_0_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// explicitUnitType=TypeRef
+protected class Builder_ExplicitUnitTypeAssignment_7_0_1_0_0_0 extends AssignmentToken  {
+	
+	public Builder_ExplicitUnitTypeAssignment_7_0_1_0_0_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getBuilderAccess().getParametersAssignment_7_0_1_0();
+		return grammarAccess.getBuilderAccess().getExplicitUnitTypeAssignment_7_0_1_0_0_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new TypeRef_Alternatives(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("explicitUnitType",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("explicitUnitType");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getTypeRefRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getBuilderAccess().getExplicitUnitTypeTypeRefParserRuleCall_7_0_1_0_0_0_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new Builder_LeftParenthesisKeyword_7_0_0(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+// "unit"
+protected class Builder_UnitKeyword_7_0_1_0_0_1 extends KeywordToken  {
+	
+	public Builder_UnitKeyword_7_0_1_0_0_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getBuilderAccess().getUnitKeyword_7_0_1_0_0_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Builder_ExplicitUnitTypeAssignment_7_0_1_0_0_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+
+// parameters+=ParameterDeclaration
+protected class Builder_ParametersAssignment_7_0_1_0_1 extends AssignmentToken  {
+	
+	public Builder_ParametersAssignment_7_0_1_0_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getBuilderAccess().getParametersAssignment_7_0_1_0_1();
 	}
 
     @Override
@@ -12054,7 +12169,7 @@ protected class Builder_ParametersAssignment_7_0_1_0 extends AssignmentToken  {
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getParameterDeclarationRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getBuilderAccess().getParametersParameterDeclarationParserRuleCall_7_0_1_0_0(); 
+				element = grammarAccess.getBuilderAccess().getParametersParameterDeclarationParserRuleCall_7_0_1_0_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -12071,6 +12186,7 @@ protected class Builder_ParametersAssignment_7_0_1_0 extends AssignmentToken  {
 		}	
 	}	
 }
+
 
 // ("," parameters+=ParameterDeclaration)*
 protected class Builder_Group_7_0_1_1 extends GroupToken {
@@ -12110,7 +12226,7 @@ protected class Builder_CommaKeyword_7_0_1_1_0 extends KeywordToken  {
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
 			case 0: return new Builder_Group_7_0_1_1(parent, this, 0, inst);
-			case 1: return new Builder_ParametersAssignment_7_0_1_0(parent, this, 1, inst);
+			case 1: return new Builder_Alternatives_7_0_1_0(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -12202,7 +12318,7 @@ protected class Builder_CommaKeyword_7_0_1_2_0 extends KeywordToken  {
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
 			case 0: return new Builder_Group_7_0_1_1(parent, this, 0, inst);
-			case 1: return new Builder_ParametersAssignment_7_0_1_0(parent, this, 1, inst);
+			case 1: return new Builder_Alternatives_7_0_1_0(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -14362,11 +14478,11 @@ protected class ClosureParameter_ExprAssignment_1 extends AssignmentToken  {
 /************ begin Rule ParameterDeclaration ****************
  *
  * ParameterDeclaration returns be::BParameterDeclaration:
- *   {be::BParameterDeclaration} (type=TypeRef? name=ID);
+ *   {be::BParameterDeclaration} (type=TypeRef? name=( ID | KeywordParameterName ));
  *
  **/
 
-// {be::BParameterDeclaration} (type=TypeRef? name=ID)
+// {be::BParameterDeclaration} (type=TypeRef? name=( ID | KeywordParameterName ))
 protected class ParameterDeclaration_Group extends GroupToken {
 	
 	public ParameterDeclaration_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -14421,7 +14537,7 @@ protected class ParameterDeclaration_BParameterDeclarationAction_0 extends Actio
 	}
 }
 
-// type=TypeRef? name=ID
+// type=TypeRef? name=( ID | KeywordParameterName )
 protected class ParameterDeclaration_Group_1 extends GroupToken {
 	
 	public ParameterDeclaration_Group_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -14489,7 +14605,7 @@ protected class ParameterDeclaration_TypeAssignment_1_0 extends AssignmentToken 
 	}	
 }
 
-// name=ID
+// name=( ID | KeywordParameterName )
 protected class ParameterDeclaration_NameAssignment_1_1 extends AssignmentToken  {
 	
 	public ParameterDeclaration_NameAssignment_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -14516,7 +14632,12 @@ protected class ParameterDeclaration_NameAssignment_1_1 extends AssignmentToken 
 		IInstanceDescription obj = current.cloneAndConsume("name");
 		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
 			type = AssignmentType.LRC;
-			element = grammarAccess.getParameterDeclarationAccess().getNameIDTerminalRuleCall_1_1_0();
+			element = grammarAccess.getParameterDeclarationAccess().getNameIDTerminalRuleCall_1_1_0_0();
+			return obj;
+		}
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for datatype rule
+			type = AssignmentType.DRC;
+			element = grammarAccess.getParameterDeclarationAccess().getNameKeywordParameterNameParserRuleCall_1_1_0_1();
 			return obj;
 		}
 		return null;
@@ -14527,6 +14648,7 @@ protected class ParameterDeclaration_NameAssignment_1_1 extends AssignmentToken 
 
 
 /************ end Rule ParameterDeclaration ****************/
+
 
 
 /************ begin Rule BuilderInput ****************

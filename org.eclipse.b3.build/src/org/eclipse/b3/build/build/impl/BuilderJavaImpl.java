@@ -6,6 +6,7 @@
  */
 package org.eclipse.b3.build.build.impl;
 
+import java.lang.reflect.Type;
 import java.util.Collection;
 
 import java.util.Iterator;
@@ -59,6 +60,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderJavaImpl#getDefaultProperties <em>Default Properties</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderJavaImpl#getPostinputcondExpr <em>Postinputcond Expr</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderJavaImpl#getUnitType <em>Unit Type</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuilderJavaImpl#getExplicitUnitType <em>Explicit Unit Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -144,6 +146,16 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	 * @ordered
 	 */
 	protected Class<? extends BuildUnit> unitType;
+
+	/**
+	 * The cached value of the '{@link #getExplicitUnitType() <em>Explicit Unit Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExplicitUnitType()
+	 * @generated
+	 * @ordered
+	 */
+	protected Type explicitUnitType;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -460,6 +472,49 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Type getExplicitUnitType() {
+		return explicitUnitType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetExplicitUnitType(Type newExplicitUnitType, NotificationChain msgs) {
+		Type oldExplicitUnitType = explicitUnitType;
+		explicitUnitType = newExplicitUnitType;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_JAVA__EXPLICIT_UNIT_TYPE, oldExplicitUnitType, newExplicitUnitType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExplicitUnitType(Type newExplicitUnitType) {
+		if (newExplicitUnitType != explicitUnitType) {
+			NotificationChain msgs = null;
+			if (explicitUnitType != null)
+				msgs = ((InternalEObject)explicitUnitType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_JAVA__EXPLICIT_UNIT_TYPE, null, msgs);
+			if (newExplicitUnitType != null)
+				msgs = ((InternalEObject)newExplicitUnitType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_JAVA__EXPLICIT_UNIT_TYPE, null, msgs);
+			msgs = basicSetExplicitUnitType(newExplicitUnitType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_JAVA__EXPLICIT_UNIT_TYPE, newExplicitUnitType, newExplicitUnitType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Iterator<EffectiveRequirementFacade> getEffectiveRequirements(BExecutionContext ctx) throws Throwable {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -510,6 +565,8 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 				return basicSetDefaultProperties(null, msgs);
 			case B3BuildPackage.BUILDER_JAVA__POSTINPUTCOND_EXPR:
 				return basicSetPostinputcondExpr(null, msgs);
+			case B3BuildPackage.BUILDER_JAVA__EXPLICIT_UNIT_TYPE:
+				return basicSetExplicitUnitType(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -538,6 +595,8 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 				return getPostinputcondExpr();
 			case B3BuildPackage.BUILDER_JAVA__UNIT_TYPE:
 				return getUnitType();
+			case B3BuildPackage.BUILDER_JAVA__EXPLICIT_UNIT_TYPE:
+				return getExplicitUnitType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -576,6 +635,9 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 			case B3BuildPackage.BUILDER_JAVA__UNIT_TYPE:
 				setUnitType((Class<? extends BuildUnit>)newValue);
 				return;
+			case B3BuildPackage.BUILDER_JAVA__EXPLICIT_UNIT_TYPE:
+				setExplicitUnitType((Type)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -612,6 +674,9 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 			case B3BuildPackage.BUILDER_JAVA__UNIT_TYPE:
 				setUnitType((Class<? extends BuildUnit>)null);
 				return;
+			case B3BuildPackage.BUILDER_JAVA__EXPLICIT_UNIT_TYPE:
+				setExplicitUnitType((Type)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -640,6 +705,8 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 				return postinputcondExpr != null;
 			case B3BuildPackage.BUILDER_JAVA__UNIT_TYPE:
 				return unitType != null;
+			case B3BuildPackage.BUILDER_JAVA__EXPLICIT_UNIT_TYPE:
+				return explicitUnitType != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -666,6 +733,7 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 				case B3BuildPackage.BUILDER_JAVA__DEFAULT_PROPERTIES: return B3BuildPackage.IBUILDER__DEFAULT_PROPERTIES;
 				case B3BuildPackage.BUILDER_JAVA__POSTINPUTCOND_EXPR: return B3BuildPackage.IBUILDER__POSTINPUTCOND_EXPR;
 				case B3BuildPackage.BUILDER_JAVA__UNIT_TYPE: return B3BuildPackage.IBUILDER__UNIT_TYPE;
+				case B3BuildPackage.BUILDER_JAVA__EXPLICIT_UNIT_TYPE: return B3BuildPackage.IBUILDER__EXPLICIT_UNIT_TYPE;
 				default: return -1;
 			}
 		}
@@ -694,6 +762,7 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 				case B3BuildPackage.IBUILDER__DEFAULT_PROPERTIES: return B3BuildPackage.BUILDER_JAVA__DEFAULT_PROPERTIES;
 				case B3BuildPackage.IBUILDER__POSTINPUTCOND_EXPR: return B3BuildPackage.BUILDER_JAVA__POSTINPUTCOND_EXPR;
 				case B3BuildPackage.IBUILDER__UNIT_TYPE: return B3BuildPackage.BUILDER_JAVA__UNIT_TYPE;
+				case B3BuildPackage.IBUILDER__EXPLICIT_UNIT_TYPE: return B3BuildPackage.BUILDER_JAVA__EXPLICIT_UNIT_TYPE;
 				default: return -1;
 			}
 		}

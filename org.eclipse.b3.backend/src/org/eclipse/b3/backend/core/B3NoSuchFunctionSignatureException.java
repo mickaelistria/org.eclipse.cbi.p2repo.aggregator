@@ -9,7 +9,7 @@ public class B3NoSuchFunctionSignatureException extends B3EngineException {
 		this(" unknown", new Type[] {});
 	}
 	public B3NoSuchFunctionSignatureException(String functionName, Type[] types) {
-		super("Function with suitable signature not found: '"+functionName +"', for types :" + typestring(types));
+		super("Function with suitable signature not found: '"+functionName +"', for parameters of types :" + typestring(types));
 	}
 	public static String typestring(Type[] types) {
 		StringBuffer buffer = new StringBuffer();
@@ -17,6 +17,9 @@ public class B3NoSuchFunctionSignatureException extends B3EngineException {
 		for(int i = 0; i < types.length; i++) {
 			if(i > 0)
 				buffer.append(", ");
+			buffer.append("[");
+			buffer.append(i);
+			buffer.append("]=");
 			buffer.append(types[i].toString());
 		}
 		buffer.append(']');

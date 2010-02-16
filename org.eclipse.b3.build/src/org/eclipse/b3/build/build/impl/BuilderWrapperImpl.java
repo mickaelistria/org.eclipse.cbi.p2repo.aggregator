@@ -65,6 +65,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderWrapperImpl#getDefaultProperties <em>Default Properties</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderWrapperImpl#getPostinputcondExpr <em>Postinputcond Expr</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderWrapperImpl#getUnitType <em>Unit Type</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuilderWrapperImpl#getExplicitUnitType <em>Explicit Unit Type</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderWrapperImpl#isInputAdvised <em>Input Advised</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderWrapperImpl#isOutputAdvised <em>Output Advised</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderWrapperImpl#isUnitTypeAdvised <em>Unit Type Advised</em>}</li>
@@ -155,6 +156,16 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 	 * @ordered
 	 */
 	protected Class<? extends BuildUnit> unitType;
+
+	/**
+	 * The cached value of the '{@link #getExplicitUnitType() <em>Explicit Unit Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExplicitUnitType()
+	 * @generated
+	 * @ordered
+	 */
+	protected Type explicitUnitType;
 
 	/**
 	 * The default value of the '{@link #isInputAdvised() <em>Input Advised</em>}' attribute.
@@ -608,7 +619,50 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 		}
 	}
 
-//	/**
+/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Type getExplicitUnitType() {
+		return explicitUnitType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetExplicitUnitType(Type newExplicitUnitType, NotificationChain msgs) {
+		Type oldExplicitUnitType = explicitUnitType;
+		explicitUnitType = newExplicitUnitType;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_WRAPPER__EXPLICIT_UNIT_TYPE, oldExplicitUnitType, newExplicitUnitType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExplicitUnitType(Type newExplicitUnitType) {
+		if (newExplicitUnitType != explicitUnitType) {
+			NotificationChain msgs = null;
+			if (explicitUnitType != null)
+				msgs = ((InternalEObject)explicitUnitType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_WRAPPER__EXPLICIT_UNIT_TYPE, null, msgs);
+			if (newExplicitUnitType != null)
+				msgs = ((InternalEObject)newExplicitUnitType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_WRAPPER__EXPLICIT_UNIT_TYPE, null, msgs);
+			msgs = basicSetExplicitUnitType(newExplicitUnitType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_WRAPPER__EXPLICIT_UNIT_TYPE, newExplicitUnitType, newExplicitUnitType));
+	}
+
+	//	/**
 //	 * <!-- begin-user-doc -->
 //	 * TODO: Move this to setUnitType, and change parameter to boolean...
 //	 * <!-- end-user-doc -->
@@ -856,6 +910,8 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 				return basicSetDefaultProperties(null, msgs);
 			case B3BuildPackage.BUILDER_WRAPPER__POSTINPUTCOND_EXPR:
 				return basicSetPostinputcondExpr(null, msgs);
+			case B3BuildPackage.BUILDER_WRAPPER__EXPLICIT_UNIT_TYPE:
+				return basicSetExplicitUnitType(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -884,6 +940,8 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 				return getPostinputcondExpr();
 			case B3BuildPackage.BUILDER_WRAPPER__UNIT_TYPE:
 				return getUnitType();
+			case B3BuildPackage.BUILDER_WRAPPER__EXPLICIT_UNIT_TYPE:
+				return getExplicitUnitType();
 			case B3BuildPackage.BUILDER_WRAPPER__INPUT_ADVISED:
 				return isInputAdvised();
 			case B3BuildPackage.BUILDER_WRAPPER__OUTPUT_ADVISED:
@@ -931,6 +989,9 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 				return;
 			case B3BuildPackage.BUILDER_WRAPPER__UNIT_TYPE:
 				setUnitType((Class<? extends BuildUnit>)newValue);
+				return;
+			case B3BuildPackage.BUILDER_WRAPPER__EXPLICIT_UNIT_TYPE:
+				setExplicitUnitType((Type)newValue);
 				return;
 			case B3BuildPackage.BUILDER_WRAPPER__INPUT_ADVISED:
 				setInputAdvised((Boolean)newValue);
@@ -983,6 +1044,9 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 			case B3BuildPackage.BUILDER_WRAPPER__UNIT_TYPE:
 				setUnitType((Class<? extends BuildUnit>)null);
 				return;
+			case B3BuildPackage.BUILDER_WRAPPER__EXPLICIT_UNIT_TYPE:
+				setExplicitUnitType((Type)null);
+				return;
 			case B3BuildPackage.BUILDER_WRAPPER__INPUT_ADVISED:
 				setInputAdvised(INPUT_ADVISED_EDEFAULT);
 				return;
@@ -1026,6 +1090,8 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 				return postinputcondExpr != null;
 			case B3BuildPackage.BUILDER_WRAPPER__UNIT_TYPE:
 				return unitType != null;
+			case B3BuildPackage.BUILDER_WRAPPER__EXPLICIT_UNIT_TYPE:
+				return explicitUnitType != null;
 			case B3BuildPackage.BUILDER_WRAPPER__INPUT_ADVISED:
 				return inputAdvised != INPUT_ADVISED_EDEFAULT;
 			case B3BuildPackage.BUILDER_WRAPPER__OUTPUT_ADVISED:
@@ -1062,6 +1128,7 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 				case B3BuildPackage.BUILDER_WRAPPER__DEFAULT_PROPERTIES: return B3BuildPackage.IBUILDER__DEFAULT_PROPERTIES;
 				case B3BuildPackage.BUILDER_WRAPPER__POSTINPUTCOND_EXPR: return B3BuildPackage.IBUILDER__POSTINPUTCOND_EXPR;
 				case B3BuildPackage.BUILDER_WRAPPER__UNIT_TYPE: return B3BuildPackage.IBUILDER__UNIT_TYPE;
+				case B3BuildPackage.BUILDER_WRAPPER__EXPLICIT_UNIT_TYPE: return B3BuildPackage.IBUILDER__EXPLICIT_UNIT_TYPE;
 				default: return -1;
 			}
 		}
@@ -1090,6 +1157,7 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 				case B3BuildPackage.IBUILDER__DEFAULT_PROPERTIES: return B3BuildPackage.BUILDER_WRAPPER__DEFAULT_PROPERTIES;
 				case B3BuildPackage.IBUILDER__POSTINPUTCOND_EXPR: return B3BuildPackage.BUILDER_WRAPPER__POSTINPUTCOND_EXPR;
 				case B3BuildPackage.IBUILDER__UNIT_TYPE: return B3BuildPackage.BUILDER_WRAPPER__UNIT_TYPE;
+				case B3BuildPackage.IBUILDER__EXPLICIT_UNIT_TYPE: return B3BuildPackage.BUILDER_WRAPPER__EXPLICIT_UNIT_TYPE;
 				default: return -1;
 			}
 		}

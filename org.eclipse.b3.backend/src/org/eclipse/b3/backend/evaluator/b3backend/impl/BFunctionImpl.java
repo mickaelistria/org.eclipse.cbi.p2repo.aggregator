@@ -886,7 +886,9 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 		if(parameterTypes.length > 0) { // if function takes no parameters, there is no binding to be done
 			int limit = parameterTypes.length -1; // bind all but the last defined parameter
 			if(parameters.length < limit)
-				throw new IllegalArgumentException("B3 Function called with too few arguments");
+				throw new IllegalArgumentException(
+						"B3 Function '" + getName() +"' " +
+						"called with too few arguments. Expected: "+parameterTypes.length +" but got: "+parameters.length);
 			for(int i = 0; i < limit; i++) {
 				// check type compatibility
 				Object o = parameters[i];
@@ -900,7 +902,9 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 			}
 			if(!isVarArgs()) { // if not varargs, bind the last defined parameter
 				if(parameters.length < parameterTypes.length)
-					throw new IllegalArgumentException("B3 Function called with too few arguments. Expected: "+parameterTypes.length +" but got: "+parameters.length);
+					throw new IllegalArgumentException(
+							"B3 Function '" + getName() +"' " +
+							"called with too few arguments. Expected: "+parameterTypes.length +" but got: "+parameters.length);
 				// check type compatibility
 				Object o = parameters[limit];
 				if(o != null) {

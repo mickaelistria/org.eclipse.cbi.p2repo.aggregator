@@ -14,6 +14,7 @@ import java.util.Iterator;
 import org.eclipse.b3.backend.core.B3InternalError;
 import org.eclipse.b3.backend.core.SerialIterator;
 import org.eclipse.b3.backend.core.SingletonIterator;
+import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
@@ -65,6 +66,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getDefaultProperties <em>Default Properties</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getPostinputcondExpr <em>Postinputcond Expr</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getUnitType <em>Unit Type</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuilderImpl#getExplicitUnitType <em>Explicit Unit Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -143,6 +145,15 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	 * @ordered
 	 */
 	protected Class<? extends BuildUnit> unitType;
+	/**
+	 * The cached value of the '{@link #getExplicitUnitType() <em>Explicit Unit Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExplicitUnitType()
+	 * @generated
+	 * @ordered
+	 */
+	protected Type explicitUnitType;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -435,16 +446,22 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	/**
 	 * <!-- begin-user-doc -->
 	 * If the Builder is contained in a BuildUnit, the type of the build unit is set. Otherwise, the set unitType
-	 * is returned. If not contained by a build unit, and unitType is not set, an exception is thrown.
+	 * is returned. If not contained by a build unit, and neither unitType nor explicitUnitType is set, 
+	 * an exception is thrown.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@SuppressWarnings("unchecked")
 	public Class<? extends BuildUnit> getUnitType() {
 		BFunctionContainer c = getContainer();
 		if(c == null || ! (c instanceof BuildUnit)) {
-			if(unitType == null)
+			if(unitType != null)
+				return unitType;
+			if(explicitUnitType == null)
 				throw new B3InternalError("A builder was found that was neither contained in a BuildUnit nor has 'Class<? extends BuildUnit> unit' as its first parameter."+ this.toString());
-			return unitType;
+			if(!TypeUtils.isAssignableFrom(BuildUnit.class, explicitUnitType))
+				throw new B3InternalError("A builder with explicit unit type had a non BuildUnit as its type."+ this.toString());
+			return (Class<? extends BuildUnit>)TypeUtils.getRaw(explicitUnitType);
 		}
 		return BuildUnitProxyAdapterFactory.eINSTANCE.adapt((BuildUnit)c).getIface();
 	}
@@ -459,6 +476,49 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 		unitType = newUnitType;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER__UNIT_TYPE, oldUnitType, unitType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Type getExplicitUnitType() {
+		return explicitUnitType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetExplicitUnitType(Type newExplicitUnitType, NotificationChain msgs) {
+		Type oldExplicitUnitType = explicitUnitType;
+		explicitUnitType = newExplicitUnitType;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER__EXPLICIT_UNIT_TYPE, oldExplicitUnitType, newExplicitUnitType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExplicitUnitType(Type newExplicitUnitType) {
+		if (newExplicitUnitType != explicitUnitType) {
+			NotificationChain msgs = null;
+			if (explicitUnitType != null)
+				msgs = ((InternalEObject)explicitUnitType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER__EXPLICIT_UNIT_TYPE, null, msgs);
+			if (newExplicitUnitType != null)
+				msgs = ((InternalEObject)newExplicitUnitType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER__EXPLICIT_UNIT_TYPE, null, msgs);
+			msgs = basicSetExplicitUnitType(newExplicitUnitType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER__EXPLICIT_UNIT_TYPE, newExplicitUnitType, newExplicitUnitType));
 	}
 
 	/**
@@ -545,6 +605,8 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 				return basicSetDefaultProperties(null, msgs);
 			case B3BuildPackage.BUILDER__POSTINPUTCOND_EXPR:
 				return basicSetPostinputcondExpr(null, msgs);
+			case B3BuildPackage.BUILDER__EXPLICIT_UNIT_TYPE:
+				return basicSetExplicitUnitType(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -573,6 +635,8 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 				return getPostinputcondExpr();
 			case B3BuildPackage.BUILDER__UNIT_TYPE:
 				return getUnitType();
+			case B3BuildPackage.BUILDER__EXPLICIT_UNIT_TYPE:
+				return getExplicitUnitType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -611,6 +675,9 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 			case B3BuildPackage.BUILDER__UNIT_TYPE:
 				setUnitType((Class<? extends BuildUnit>)newValue);
 				return;
+			case B3BuildPackage.BUILDER__EXPLICIT_UNIT_TYPE:
+				setExplicitUnitType((Type)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -647,6 +714,9 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 			case B3BuildPackage.BUILDER__UNIT_TYPE:
 				setUnitType((Class<? extends BuildUnit>)null);
 				return;
+			case B3BuildPackage.BUILDER__EXPLICIT_UNIT_TYPE:
+				setExplicitUnitType((Type)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -675,6 +745,8 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 				return postinputcondExpr != null;
 			case B3BuildPackage.BUILDER__UNIT_TYPE:
 				return unitType != null;
+			case B3BuildPackage.BUILDER__EXPLICIT_UNIT_TYPE:
+				return explicitUnitType != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -700,6 +772,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 				case B3BuildPackage.BUILDER__DEFAULT_PROPERTIES: return B3BuildPackage.IBUILDER__DEFAULT_PROPERTIES;
 				case B3BuildPackage.BUILDER__POSTINPUTCOND_EXPR: return B3BuildPackage.IBUILDER__POSTINPUTCOND_EXPR;
 				case B3BuildPackage.BUILDER__UNIT_TYPE: return B3BuildPackage.IBUILDER__UNIT_TYPE;
+				case B3BuildPackage.BUILDER__EXPLICIT_UNIT_TYPE: return B3BuildPackage.IBUILDER__EXPLICIT_UNIT_TYPE;
 				default: return -1;
 			}
 		}
@@ -728,6 +801,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 				case B3BuildPackage.IBUILDER__DEFAULT_PROPERTIES: return B3BuildPackage.BUILDER__DEFAULT_PROPERTIES;
 				case B3BuildPackage.IBUILDER__POSTINPUTCOND_EXPR: return B3BuildPackage.BUILDER__POSTINPUTCOND_EXPR;
 				case B3BuildPackage.IBUILDER__UNIT_TYPE: return B3BuildPackage.BUILDER__UNIT_TYPE;
+				case B3BuildPackage.IBUILDER__EXPLICIT_UNIT_TYPE: return B3BuildPackage.BUILDER__EXPLICIT_UNIT_TYPE;
 				default: return -1;
 			}
 		}
@@ -752,15 +826,24 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	@Override
 	public EList<BParameterDeclaration> getParameters() {
 		EList<BParameterDeclaration> originalParameters = super.getParameters();
+
+		// if the first parameter is called "unit" and is a BuildUnit instance, processing is done
 		if(originalParameters.size() >= 1) {
 			BParameterDeclaration p = originalParameters.get(0);
-			if("unit".equals(p.getName()) && TypeUtils.isAssignableFrom(p.getType(), BuildUnit.class))
+			if("unit".equals(p.getName())) 
 				return originalParameters;
+//			&& TypeUtils.isAssignableFrom(p.getType(), BuildUnit.class))
 		}
-		BParameterDeclaration unitParameter = B3backendFactory.eINSTANCE.createBParameterDeclaration();
-		unitParameter.setName("unit");
-		unitParameter.setType(getUnitType());
-		originalParameters.add(0, unitParameter);
+		// if unitType is defined, create the "unit" parameter
+		Class<? extends BuildUnit> uType = getUnitType();
+		if(uType != null) {
+			BParameterDeclaration unitParameter = B3backendFactory.eINSTANCE.createBParameterDeclaration();
+			unitParameter.setName("unit");
+			B3ParameterizedType t = B3backendFactory.eINSTANCE.createB3ParameterizedType();
+			t.setRawType(uType);
+			unitParameter.setType(t);
+			originalParameters.add(0, unitParameter);
+		}
 		return originalParameters;
 	}
 	/**
