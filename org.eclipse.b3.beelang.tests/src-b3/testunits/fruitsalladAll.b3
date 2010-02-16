@@ -22,7 +22,10 @@ function main(List argv) {
 //	job.schedule();
 //	job.join();
 	Fruit f = fruits[0];
-	f.pulp();
+	var x = f.pulp();
+	x.schedule();
+	x.join();
+	x.getResult();
 //	var pulps = fruits.collect(Fruit x | x.pulp());
 	
 }
