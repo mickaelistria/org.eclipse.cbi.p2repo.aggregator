@@ -1,0 +1,87 @@
+import java.lang.Object;
+import java.util.List;
+import java.lang.Iterable;
+import org.eclipse.b3.beelang.tests.buildunittypes.Fruit;
+import org.eclipse.b3.build.core.B3BuilderJob;
+
+concern FruitProcessing {
+	builder dice(Fruit unit) {
+		input { unit#pulp; }
+		// dice the pulp - for now, just return the pulp of the fruit
+		}
+}
+
+function main(List argv) {
+//	assertEquals("Should have engine + 4 units", argv.size(), 5);
+//	assertTrue("Argv should be Iterable", argv instanceof Iterable);
+	List<Fruit> fruits = argv.select(x | x instanceof Fruit);
+	
+//	var results = diceTheFruit(fruits);
+//	var classes = results.collect(x | x.getClass());
+//	var job = results[0];
+//	job.schedule();
+//	job.join();
+	Fruit f = fruits[0];
+	f.pulp();
+//	var pulps = fruits.collect(Fruit x | x.pulp());
+	
+}
+function List<B3BuilderJob> diceTheFruit(List<Fruit> fruits) {
+	with(FruitProcessing) { 
+		var results = fruits.collect(Fruit x | x.dice());
+		};	
+}
+unit fruitsallad version 1.0.0 {
+	builder make {
+		input {
+			unit/apple/1.0.0#dice;
+			unit/banana/1.0.0#dice;
+			unit/orange/1.0.0#dice;
+			gastronomy.taste/zest#peel;
+		}
+	}
+}
+
+unit apple version 1.0.0  implements Fruit {
+	builder peel {
+		output { applepeel.txt; }
+	}
+	builder seeds {
+		output { appleseeds.txt; }
+	}
+	builder pulp {
+		output { applepulp.txt; }
+	}
+}
+
+unit banana version 1.0.0 implements Fruit {
+	
+	provides food.nutrition.vitamin/B6;
+	provides food.nutrition.vitamin/C;
+	provides food.nutrition.mineral/potassium;
+	
+	builder peel {
+		output { bananapeel.txt; }
+	}
+	builder seeds {
+		output { bananaseeds.txt; }
+	}
+	builder pulp {
+		output { bananapulp.txt; }
+	}
+}
+
+unit orange version 1.0.0 implements Fruit {
+	
+	provides food.nutrition.vitamin/C;
+	
+	builder peel provides gastronomy.taste/zest {
+		output { orangepeel.txt; }
+	}
+	builder seeds {
+		output { orangeseeds.txt; }
+	}
+	builder pulp {
+		output { orangepulp.txt; }
+	}
+}
