@@ -70,6 +70,7 @@ public class IUPresentationItemProvider extends AggregatorItemProviderAdapter im
 			addLabelPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addTypePropertyDescriptor(object);
+			addFilterPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -117,6 +118,7 @@ public class IUPresentationItemProvider extends AggregatorItemProviderAdapter im
 		case P2viewPackage.IU_PRESENTATION__LABEL:
 		case P2viewPackage.IU_PRESENTATION__DESCRIPTION:
 		case P2viewPackage.IU_PRESENTATION__TYPE:
+		case P2viewPackage.IU_PRESENTATION__FILTER:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}
@@ -135,6 +137,22 @@ public class IUPresentationItemProvider extends AggregatorItemProviderAdapter im
 				getString("_UI_IUPresentation_description_feature"), getString("_UI_PropertyDescriptor_description",
 						"_UI_IUPresentation_description_feature", "_UI_IUPresentation_type"),
 				P2viewPackage.Literals.IU_PRESENTATION__DESCRIPTION, false, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Filter feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addFilterPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_IUPresentation_filter_feature"), getString("_UI_PropertyDescriptor_description",
+						"_UI_IUPresentation_filter_feature", "_UI_IUPresentation_type"),
+				P2viewPackage.Literals.IU_PRESENTATION__FILTER, false, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
