@@ -165,11 +165,33 @@ public class VersionSuffixGenerator {
 		int idx = 0;
 		for(VersionedId refFeature : features) {
 			BasicVersion version = (BasicVersion) refFeature.getVersion();
-			majorSum += version.getMajor();
-			minorSum += version.getMinor();
-			serviceSum += version.getMicro();
+			try {
+				majorSum += version.getMajor();
+			}
+			catch(UnsupportedOperationException e) {
+				// ignore, i.e. "add zero"
+			}
+			try {
+				minorSum += version.getMinor();
+			}
+			catch(UnsupportedOperationException e) {
+				// ignore, i.e. "add zero"
+			}
+			try {
+				serviceSum += version.getMicro();
+			}
+			catch(UnsupportedOperationException e) {
+				// ignore, i.e. "add zero"
+			}
 
-			String qualifier = version.getQualifier();
+			String qualifier = null;
+			try {
+				version.getQualifier();
+			}
+			catch(UnsupportedOperationException e) {
+				// ignore, i.e. let the qualifier be null
+			}
+
 			Integer ctxLen = contextQualifierLengths == null
 					? null
 					: contextQualifierLengths.get(refFeature.getId());

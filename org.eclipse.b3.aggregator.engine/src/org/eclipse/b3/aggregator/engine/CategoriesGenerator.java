@@ -120,7 +120,7 @@ public class CategoriesGenerator extends BuilderPhase {
 			if(!feature.isBranchEnabled())
 				continue;
 
-			rcs.add(feature.getRequiredCapability());
+			rcs.add(InstallableUnitImpl.importToModel(feature.getRequiredCapability()));
 
 			VersionedId vn = new VersionedId(feature.getName(), feature.getVersionRange().getMinimum());
 			if(vn.getId().endsWith(Builder.FEATURE_GROUP_SUFFIX))
