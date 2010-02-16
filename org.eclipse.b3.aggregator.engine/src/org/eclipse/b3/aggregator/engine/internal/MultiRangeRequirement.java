@@ -296,4 +296,49 @@ public class MultiRangeRequirement implements IRequirement {
 	public boolean isMatch(IInstallableUnit iu) {
 		return getMatches().isMatch(iu);
 	}
+
+	public String toString() {
+		StringBuffer result = new StringBuffer();
+
+		if(IInstallableUnit.NAMESPACE_IU_ID.equals(getNamespace())) {
+			// print nothing for an IU id dependency because this is the default (most common) case
+			result.append(""); //$NON-NLS-1$
+		}
+		else if("osgi.bundle".equals(getNamespace())) { //$NON-NLS-1$
+			result.append("bundle"); //$NON-NLS-1$
+		}
+		else if("java.package".equals(getNamespace())) { //$NON-NLS-1$
+			result.append("package"); //$NON-NLS-1$
+		}
+		else {
+			result.append(getNamespace());
+		}
+		if(result.length() > 0)
+			result.append(' ');
+		result.append(getName());
+		result.append(' ');
+		boolean first = true;
+		for(Version version : getVersions()) {
+			if(first)
+				first = false;
+			else
+				result.append('|');
+			result.append(version);
+		}
+
+		for(VersionRange range : getVersionRanges()) {
+			if(first)
+				first = false;
+			else
+				result.append('|');
+
+			// for an exact version match, print a simpler expression
+			if(range.getMinimum().equals(range.getMaximum()))
+				result.append('[').append(range.getMinimum()).append(']');
+			else
+				result.append(range);
+		}
+
+		return result.toString();
+	}
 }
