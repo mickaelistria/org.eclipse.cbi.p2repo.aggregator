@@ -161,7 +161,12 @@
       <genOperations ecoreOperation="Aggregator.ecore#//InstallableUnitRequest/isMappedRepositoryBroken"/>
       <genOperations ecoreOperation="Aggregator.ecore#//InstallableUnitRequest/isBranchEnabled"/>
       <genOperations ecoreOperation="Aggregator.ecore#//InstallableUnitRequest/resolveAsSingleton"/>
-      <genOperations ecoreOperation="Aggregator.ecore#//InstallableUnitRequest/resolveAvailableVersions"/>
+      <genOperations ecoreOperation="Aggregator.ecore#//InstallableUnitRequest/resolveAsSingleton.1">
+        <genParameters ecoreParameter="Aggregator.ecore#//InstallableUnitRequest/resolveAsSingleton.1/forceResolve"/>
+      </genOperations>
+      <genOperations ecoreOperation="Aggregator.ecore#//InstallableUnitRequest/resolveAvailableVersions">
+        <genParameters ecoreParameter="Aggregator.ecore#//InstallableUnitRequest/resolveAvailableVersions/updateOnly"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="Aggregator.ecore#//ExclusionRule"/>
     <genClasses ecoreClass="Aggregator.ecore#//ValidConfigurationsRule">
@@ -505,6 +510,7 @@
         <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//p2view/IUPresentation/label"/>
         <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//p2view/IUPresentation/description"/>
         <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//p2view/IUPresentation/type"/>
+        <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//p2view/IUPresentation/filter"/>
         <genFeatures property="None" notify="false" createChild="false" propertyDescription=""
             ecoreFeature="ecore:EReference Aggregator.ecore#//p2view/IUPresentation/installableUnit"/>
       </genClasses>

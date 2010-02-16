@@ -49,7 +49,16 @@ public enum Architecture implements Enumerator{
 	 * @generated
 	 * @ordered
 	 */
-	X86_64(2, "X86_64", "x86_64");
+	X86_64(2, "X86_64", "x86_64"), /**
+	 * The '<em><b>IA64</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #IA64_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	IA64(3, "IA64", "ia64");
 
 	/**
 	 * The '<em><b>X86</b></em>' literal value.
@@ -100,12 +109,28 @@ public enum Architecture implements Enumerator{
 	public static final int X86_64_VALUE = 2;
 
 	/**
+	 * The '<em><b>IA64</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>IA64</b></em>' literal object isn't clear, there really should be more of a description
+	 * here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #IA64
+	 * @model literal="ia64"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int IA64_VALUE = 3;
+
+	/**
 	 * An array of all the '<em><b>Architecture</b></em>' enumerators.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	private static final Architecture[] VALUES_ARRAY = new Architecture[] { X86, PPC, X86_64, };
+	private static final Architecture[] VALUES_ARRAY = new Architecture[] { X86, PPC, X86_64, IA64, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Architecture</b></em>' enumerators.
@@ -131,6 +156,8 @@ public enum Architecture implements Enumerator{
 			return PPC;
 		case X86_64_VALUE:
 			return X86_64;
+		case IA64_VALUE:
+			return IA64;
 		}
 		return null;
 	}

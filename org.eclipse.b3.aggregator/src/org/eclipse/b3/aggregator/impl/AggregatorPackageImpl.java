@@ -1970,6 +1970,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		addEEnumLiteral(architectureEEnum, Architecture.X86);
 		addEEnumLiteral(architectureEEnum, Architecture.PPC);
 		addEEnumLiteral(architectureEEnum, Architecture.X86_64);
+		addEEnumLiteral(architectureEEnum, Architecture.IA64);
 
 		initEEnum(packedStrategyEEnum, PackedStrategy.class, "PackedStrategy");
 		addEEnumLiteral(packedStrategyEEnum, PackedStrategy.COPY);

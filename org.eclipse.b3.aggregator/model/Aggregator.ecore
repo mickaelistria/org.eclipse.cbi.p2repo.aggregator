@@ -131,6 +131,7 @@
     <eLiterals name="X86" literal="x86"/>
     <eLiterals name="PPC" value="1" literal="ppc"/>
     <eLiterals name="X86_64" value="2" literal="x86_64"/>
+    <eLiterals name="IA64" value="3" literal="ia64"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="PackedStrategy">
     <eLiterals name="Copy" literal="COPY"/>
@@ -644,6 +645,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
           eType="#//InstallableUnitType" changeable="false" volatile="true" defaultValueLiteral=""/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="filter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="installableUnit" eType="#//p2/IInstallableUnit"
           resolveProxies="false"/>
     </eClassifiers>

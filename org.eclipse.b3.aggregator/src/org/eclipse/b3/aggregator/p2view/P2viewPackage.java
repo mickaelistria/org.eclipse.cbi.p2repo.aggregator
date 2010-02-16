@@ -348,6 +348,15 @@ public interface P2viewPackage extends EPackage {
 		EAttribute IU_PRESENTATION__TYPE = eINSTANCE.getIUPresentation_Type();
 
 		/**
+		 * The meta object literal for the '<em><b>Filter</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute IU_PRESENTATION__FILTER = eINSTANCE.getIUPresentation_Filter();
+
+		/**
 		 * The meta object literal for the '<em><b>Installable Unit</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1375,13 +1384,23 @@ public interface P2viewPackage extends EPackage {
 	int IU_PRESENTATION__TYPE = 5;
 
 	/**
+	 * The feature id for the '<em><b>Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IU_PRESENTATION__FILTER = 6;
+
+	/**
 	 * The feature id for the '<em><b>Installable Unit</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int IU_PRESENTATION__INSTALLABLE_UNIT = 6;
+	int IU_PRESENTATION__INSTALLABLE_UNIT = 7;
 
 	/**
 	 * The number of structural features of the '<em>IU Presentation</em>' class.
@@ -1392,7 +1411,7 @@ public interface P2viewPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IU_PRESENTATION_FEATURE_COUNT = 7;
+	int IU_PRESENTATION_FEATURE_COUNT = 8;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1447,6 +1466,16 @@ public interface P2viewPackage extends EPackage {
 	 * @ordered
 	 */
 	int IU_PRESENTATION_WITH_DETAILS__TYPE = IU_PRESENTATION__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IU_PRESENTATION_WITH_DETAILS__FILTER = IU_PRESENTATION__FILTER;
 
 	/**
 	 * The feature id for the '<em><b>Installable Unit</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
@@ -1599,6 +1628,16 @@ public interface P2viewPackage extends EPackage {
 	int CATEGORY__TYPE = IU_PRESENTATION__TYPE;
 
 	/**
+	 * The feature id for the '<em><b>Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__FILTER = IU_PRESENTATION__FILTER;
+
+	/**
 	 * The feature id for the '<em><b>Installable Unit</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
 	 * 
@@ -1723,6 +1762,16 @@ public interface P2viewPackage extends EPackage {
 	 * @ordered
 	 */
 	int FEATURE__TYPE = IU_PRESENTATION_WITH_DETAILS__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE__FILTER = IU_PRESENTATION_WITH_DETAILS__FILTER;
 
 	/**
 	 * The feature id for the '<em><b>Installable Unit</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
@@ -1901,6 +1950,16 @@ public interface P2viewPackage extends EPackage {
 	int PRODUCT__TYPE = IU_PRESENTATION_WITH_DETAILS__TYPE;
 
 	/**
+	 * The feature id for the '<em><b>Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int PRODUCT__FILTER = IU_PRESENTATION_WITH_DETAILS__FILTER;
+
+	/**
 	 * The feature id for the '<em><b>Installable Unit</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
 	 * 
@@ -2077,6 +2136,16 @@ public interface P2viewPackage extends EPackage {
 	int BUNDLE__TYPE = IU_PRESENTATION_WITH_DETAILS__TYPE;
 
 	/**
+	 * The feature id for the '<em><b>Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int BUNDLE__FILTER = IU_PRESENTATION_WITH_DETAILS__FILTER;
+
+	/**
 	 * The feature id for the '<em><b>Installable Unit</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
 	 * 
@@ -2226,6 +2295,16 @@ public interface P2viewPackage extends EPackage {
 	int FRAGMENT__TYPE = BUNDLE__TYPE;
 
 	/**
+	 * The feature id for the '<em><b>Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int FRAGMENT__FILTER = BUNDLE__FILTER;
+
+	/**
 	 * The feature id for the '<em><b>Installable Unit</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
 	 * 
@@ -2373,6 +2452,16 @@ public interface P2viewPackage extends EPackage {
 	 * @ordered
 	 */
 	int OTHER_IU__TYPE = IU_PRESENTATION_WITH_DETAILS__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER_IU__FILTER = IU_PRESENTATION_WITH_DETAILS__FILTER;
 
 	/**
 	 * The feature id for the '<em><b>Installable Unit</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
@@ -3277,6 +3366,19 @@ public interface P2viewPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getIUPresentation_Description();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getFilter
+	 * <em>Filter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Filter</em>'.
+	 * @see org.eclipse.b3.aggregator.p2view.IUPresentation#getFilter()
+	 * @see #getIUPresentation()
+	 * @generated
+	 */
+	EAttribute getIUPresentation_Filter();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getId

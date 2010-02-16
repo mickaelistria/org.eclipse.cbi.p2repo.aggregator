@@ -160,6 +160,28 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	protected static final InstallableUnitType TYPE_EDEFAULT = InstallableUnitType.BUNDLE;
 
 	/**
+	 * The default value of the '{@link #getFilter() <em>Filter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getFilter()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String FILTER_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getFilter() <em>Filter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getFilter()
+	 * @generated
+	 * @ordered
+	 */
+	protected String filter = FILTER_EDEFAULT;
+
+	/**
 	 * The cached value of the '{@link #getInstallableUnit() <em>Installable Unit</em>}' reference.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
@@ -209,6 +231,8 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 			return getDescription();
 		case P2viewPackage.IU_PRESENTATION__TYPE:
 			return getType();
+		case P2viewPackage.IU_PRESENTATION__FILTER:
+			return getFilter();
 		case P2viewPackage.IU_PRESENTATION__INSTALLABLE_UNIT:
 			return getInstallableUnit();
 		}
@@ -245,6 +269,10 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 					: !DESCRIPTION_EDEFAULT.equals(description);
 		case P2viewPackage.IU_PRESENTATION__TYPE:
 			return getType() != TYPE_EDEFAULT;
+		case P2viewPackage.IU_PRESENTATION__FILTER:
+			return FILTER_EDEFAULT == null
+					? filter != null
+					: !FILTER_EDEFAULT.equals(filter);
 		case P2viewPackage.IU_PRESENTATION__INSTALLABLE_UNIT:
 			return installableUnit != null;
 		}
@@ -273,6 +301,9 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 			return;
 		case P2viewPackage.IU_PRESENTATION__DESCRIPTION:
 			setDescription((String) newValue);
+			return;
+		case P2viewPackage.IU_PRESENTATION__FILTER:
+			setFilter((String) newValue);
 			return;
 		case P2viewPackage.IU_PRESENTATION__INSTALLABLE_UNIT:
 			setInstallableUnit((IInstallableUnit) newValue);
@@ -304,6 +335,9 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 		case P2viewPackage.IU_PRESENTATION__DESCRIPTION:
 			setDescription(DESCRIPTION_EDEFAULT);
 			return;
+		case P2viewPackage.IU_PRESENTATION__FILTER:
+			setFilter(FILTER_EDEFAULT);
+			return;
 		case P2viewPackage.IU_PRESENTATION__INSTALLABLE_UNIT:
 			setInstallableUnit((IInstallableUnit) null);
 			return;
@@ -318,6 +352,16 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 	 */
 	public String getDescription() {
 		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public String getFilter() {
+		return filter;
 	}
 
 	/**
@@ -383,6 +427,20 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_PRESENTATION__DESCRIPTION,
 					oldDescription, description));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setFilter(String newFilter) {
+		String oldFilter = filter;
+		filter = newFilter;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.IU_PRESENTATION__FILTER, oldFilter,
+					filter));
 	}
 
 	/**
@@ -469,6 +527,8 @@ public abstract class IUPresentationImpl extends MinimalEObjectImpl.Container im
 		result.append(label);
 		result.append(", description: ");
 		result.append(description);
+		result.append(", filter: ");
+		result.append(filter);
 		result.append(')');
 		return result.toString();
 	}

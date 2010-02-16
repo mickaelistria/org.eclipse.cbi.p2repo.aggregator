@@ -28,6 +28,7 @@ import org.eclipse.equinox.p2.metadata.Version;
  * <li>{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getLabel <em>Label</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getDescription <em>Description</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getType <em>Type</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getFilter <em>Filter</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getInstallableUnit <em>Installable Unit</em>}</li>
  * </ul>
  * </p>
@@ -70,6 +71,23 @@ public interface IUPresentation {
 	 * @generated
 	 */
 	String getDescription();
+
+	/**
+	 * Returns the value of the '<em><b>Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Filter</em>' attribute isn't clear, there really should be more of a description
+	 * here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Filter</em>' attribute.
+	 * @see #setFilter(String)
+	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getIUPresentation_Filter()
+	 * @model
+	 * @generated
+	 */
+	String getFilter();
 
 	/**
 	 * Returns the value of the '<em><b>Id</b></em>' attribute.
@@ -184,6 +202,19 @@ public interface IUPresentation {
 	 * @generated
 	 */
 	void setDescription(String value);
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getFilter <em>Filter</em>}'
+	 * attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Filter</em>' attribute.
+	 * @see #getFilter()
+	 * @generated
+	 */
+	void setFilter(String value);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.p2view.IUPresentation#getId <em>Id</em>}' attribute.

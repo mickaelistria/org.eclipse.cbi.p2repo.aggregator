@@ -370,6 +370,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 		createEAttribute(iuPresentationEClass, IU_PRESENTATION__LABEL);
 		createEAttribute(iuPresentationEClass, IU_PRESENTATION__DESCRIPTION);
 		createEAttribute(iuPresentationEClass, IU_PRESENTATION__TYPE);
+		createEAttribute(iuPresentationEClass, IU_PRESENTATION__FILTER);
 		createEReference(iuPresentationEClass, IU_PRESENTATION__INSTALLABLE_UNIT);
 
 		iuPresentationWithDetailsEClass = createEClass(IU_PRESENTATION_WITH_DETAILS);
@@ -776,6 +777,16 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getIUPresentation_Filter() {
+		return (EAttribute) iuPresentationEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -790,7 +801,7 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 	 * @generated
 	 */
 	public EReference getIUPresentation_InstallableUnit() {
-		return (EReference) iuPresentationEClass.getEStructuralFeatures().get(6);
+		return (EReference) iuPresentationEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -1312,6 +1323,9 @@ public class P2viewPackageImpl extends EPackageImpl implements P2viewPackage {
 				!IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIUPresentation_Type(), theAggregatorPackage.getInstallableUnitType(), "type", "", 1, 1,
 				IUPresentation.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIUPresentation_Filter(), ecorePackage.getEString(), "filter", null, 0, 1,
+				IUPresentation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 		initEReference(getIUPresentation_InstallableUnit(), theP2Package.getIInstallableUnit(), null,
 				"installableUnit", null, 0, 1, IUPresentation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
