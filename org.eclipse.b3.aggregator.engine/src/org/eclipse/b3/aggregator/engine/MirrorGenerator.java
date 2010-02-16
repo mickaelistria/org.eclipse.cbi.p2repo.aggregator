@@ -34,7 +34,6 @@ import org.eclipse.b3.aggregator.util.P2Utils;
 import org.eclipse.b3.aggregator.util.RepositoryLoaderUtils;
 import org.eclipse.b3.aggregator.util.ResourceUtils;
 import org.eclipse.b3.aggregator.util.TimeUtils;
-import org.eclipse.b3.util.B3Util;
 import org.eclipse.b3.util.ExceptionUtils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
@@ -49,17 +48,13 @@ import org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest;
 import org.eclipse.equinox.internal.p2.artifact.repository.RawMirrorRequest;
 import org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactDescriptor;
 import org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository;
-import org.eclipse.equinox.internal.p2.director.PermissiveSlicer;
 import org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository;
 import org.eclipse.equinox.internal.provisional.p2.artifact.repository.processing.ProcessingStepHandler;
 import org.eclipse.equinox.p2.core.ProvisionException;
 import org.eclipse.equinox.p2.metadata.IArtifactKey;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.publisher.Publisher;
-import org.eclipse.equinox.p2.query.IQuery;
 import org.eclipse.equinox.p2.query.IQueryResult;
-import org.eclipse.equinox.p2.query.IQueryable;
-import org.eclipse.equinox.p2.query.MatchQuery;
 import org.eclipse.equinox.p2.repository.IRepository;
 import org.eclipse.equinox.p2.repository.artifact.ArtifactKeyQuery;
 import org.eclipse.equinox.p2.repository.artifact.IArtifactDescriptor;
@@ -380,36 +375,6 @@ public class MirrorGenerator extends BuilderPhase {
 		super(builder);
 	}
 
-	public void addUnverifiedRoots(IProgressMonitor monitor) throws CoreException {
-		// Add the transitive closure of all unverified roots
-		//
-		Builder builder = getBuilder();
-		B3Util b3util = B3Util.getPlugin();
-		Set<IInstallableUnit> unverifiedRoots = builder.getUnverifiedUnits();
-		if(unverifiedRoots.isEmpty())
-			return;
-
-		final Set<IInstallableUnit> unitsToAggregate = builder.getUnverifiedUnits();
-		try {
-			IMetadataRepository sourceMdr = builder.getSourceComposite();
-			PermissiveSlicer slicer = new PermissiveSlicer(sourceMdr, null, true, false, true, false, false);
-			IQueryable<IInstallableUnit> slice = slicer.slice(
-					unverifiedRoots.toArray(new IInstallableUnit[unverifiedRoots.size()]), monitor);
-
-			IQuery<IInstallableUnit> adder = new MatchQuery<IInstallableUnit>() {
-				@Override
-				public boolean isMatch(IInstallableUnit candidate) {
-					unitsToAggregate.add(candidate);
-					return false;
-				}
-			};
-			slice.query(adder, null);
-		}
-		finally {
-			b3util.ungetService(mdrMgr);
-		}
-	}
-
 	public Set<IArtifactKey> getArtifactKeysToExclude() throws CoreException {
 		Builder builder = getBuilder();
 		Aggregator aggregator = builder.getAggregator();
@@ -495,9 +460,8 @@ public class MirrorGenerator extends BuilderPhase {
 			String label = aggregator.getLabel();
 			IMetadataRepository aggregateMdr = mdrMgr.createRepository(aggregateURI, label,
 					Builder.SIMPLE_METADATA_TYPE, properties);
-			MonitorUtils.worked(subMon, 5);
+			MonitorUtils.worked(subMon, 10);
 
-			addUnverifiedRoots(subMon.newChild(5));
 			Set<IInstallableUnit> unitsToAggregate = builder.getUnitsToAggregate();
 			Set<IArtifactKey> keysToExclude = getArtifactKeysToExclude();
 

@@ -210,7 +210,15 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 					rcList.add(req.requirement);
 
 			iu.setRequiredCapabilities(rcList.toArray(new IRequirement[rcList.size()]));
-			mdr.addInstallableUnits(new IInstallableUnit[] { MetadataFactory.createInstallableUnit(iu) });
+
+			InstallableUnitDescription pdePlatform = new MetadataFactory.InstallableUnitDescription();
+			pdePlatform.setId(Builder.PDE_TARGET_PLATFORM_NAME);
+			pdePlatform.setVersion(Version.emptyVersion);
+			pdePlatform.addProvidedCapabilities(Collections.singletonList(MetadataFactory.createProvidedCapability(
+					Builder.PDE_TARGET_PLATFORM_NAMESPACE, pdePlatform.getId(), pdePlatform.getVersion())));
+
+			mdr.addInstallableUnits(new IInstallableUnit[] { MetadataFactory.createInstallableUnit(iu),
+					MetadataFactory.createInstallableUnit(pdePlatform) });
 			return Status.OK_STATUS;
 		}
 		finally {
@@ -251,11 +259,6 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 			boolean isExplicit) {
 		String id = iu.getId();
 		Version v = iu.getVersion();
-		if(builder.excludeFromVerification(iu)) {
-			LogUtils.debug("%s/%s excluded from verification", id, v);
-			return;
-		}
-
 		VersionRange range = null;
 		if(!Version.emptyVersion.equals(v))
 			range = new VersionRange(v, true, v, true);

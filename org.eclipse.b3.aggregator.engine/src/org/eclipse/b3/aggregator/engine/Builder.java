@@ -55,14 +55,12 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.equinox.internal.p2.core.helpers.FileUtils;
-import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
 import org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository;
 import org.eclipse.equinox.internal.provisional.p2.metadata.MetadataFactory.InstallableUnitDescription;
 import org.eclipse.equinox.p2.engine.IProfile;
 import org.eclipse.equinox.p2.engine.IProfileRegistry;
 import org.eclipse.equinox.p2.metadata.IArtifactKey;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
-import org.eclipse.equinox.p2.metadata.IRequirement;
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.query.InstallableUnitQuery;
 import org.eclipse.equinox.p2.query.IQueryResult;
@@ -106,6 +104,8 @@ public class Builder extends AbstractCommand {
 	public static final String ALL_CONTRIBUTED_CONTENT_FEATURE = "all.contributed.content.feature.group"; //$NON-NLS-1$
 
 	public static final String PDE_TARGET_PLATFORM_NAMESPACE = "A.PDE.Target.Platform";
+
+	public static final String PDE_TARGET_PLATFORM_NAME = "Cannot be installed into the IDE";
 
 	public static final Version ALL_CONTRIBUTED_CONTENT_VERSION = Version.createOSGi(1, 0, 0);
 
@@ -378,8 +378,6 @@ public class Builder extends AbstractCommand {
 
 	final private Set<IInstallableUnit> unitsToAggregate = new HashSet<IInstallableUnit>();
 
-	private Set<IInstallableUnit> unverifiedUnits;
-
 	private Set<MappedRepository> exclusions;
 
 	private CompositeMetadataRepository sourceComposite;
@@ -402,30 +400,6 @@ public class Builder extends AbstractCommand {
 			exclusions = new HashSet<MappedRepository>();
 		}
 		exclusions.add(repository);
-	}
-
-	/**
-	 * Checks if the <code>iu</code> has a required capability with a name space equal to
-	 * {@link #PDE_TARGET_PLATFORM_NAMESPACE}. If it has, the <code>iu</code> is only intended for target platforms and
-	 * should never be installed in a runtime environment. Consequently, it should not participate in the P2 planner
-	 * verification phase.
-	 * 
-	 * @param iu
-	 *            The installable unit to check
-	 * @return <code>true</code> if a matching required capability was found.
-	 */
-	public boolean excludeFromVerification(IInstallableUnit iu) {
-		for(IRequirement rq : iu.getRequiredCapabilities()) {
-			if(rq instanceof IRequiredCapability) {
-				if(PDE_TARGET_PLATFORM_NAMESPACE.equals(((IRequiredCapability) rq).getNamespace())) {
-					if(unverifiedUnits == null)
-						unverifiedUnits = new HashSet<IInstallableUnit>();
-					unverifiedUnits.add(iu);
-					return true;
-				}
-			}
-		}
-		return false;
 	}
 
 	public Aggregator getAggregator() {
@@ -467,12 +441,6 @@ public class Builder extends AbstractCommand {
 
 	public Set<IInstallableUnit> getUnitsToAggregate() {
 		return unitsToAggregate;
-	}
-
-	public Set<IInstallableUnit> getUnverifiedUnits() {
-		return unverifiedUnits == null
-				? Collections.<IInstallableUnit> emptySet()
-				: unverifiedUnits;
 	}
 
 	public boolean isCleanBuild() {
