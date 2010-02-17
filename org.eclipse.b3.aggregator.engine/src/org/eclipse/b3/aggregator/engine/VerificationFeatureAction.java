@@ -176,10 +176,8 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 											builder.addMappingExclusion(repository);
 											continue allIUs;
 										}
-										if(rule instanceof ValidConfigurationsRule) {
+										if(rule instanceof ValidConfigurationsRule)
 											filter = createFilter(((ValidConfigurationsRule) rule).getValidConfigurations());
-											// TODO Where to apply the filter???
-										}
 									}
 								}
 								List<IInstallableUnit> units = preSelectedIUs.get(filter);
