@@ -197,7 +197,7 @@ public class ResourceTransformer implements ITransformer {
 
 				if(!trgtERef.isMany())
 					trgtEObject.eSet(trgtERef, transformationMapping.get(srcERefValue));
-				else if(srcERefValue instanceof List) {
+				else if(srcERefValue instanceof List<?>) {
 					List<EObject> trgtRefList = (List<EObject>) trgtEObject.eGet(trgtERef);
 
 					for(EObject srcChild : (List<EObject>) srcERefValue)

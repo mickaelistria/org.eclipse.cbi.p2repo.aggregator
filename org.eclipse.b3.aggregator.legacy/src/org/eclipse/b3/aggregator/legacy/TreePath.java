@@ -56,7 +56,7 @@ public class TreePath {
 
 		if(!container.isMany())
 			getSegment(index).eSet(container, eobject);
-		else if(containerValue instanceof List)
+		else if(containerValue instanceof List<?>)
 			((List<EObject>) containerValue).add(eobject);
 		else
 			throw new IllegalArgumentException("Unsupported EReference value - " + containerValue.getClass());
