@@ -181,6 +181,8 @@ public class ValueMap {
 	}
 	public void merge(ValueMap add) throws B3EngineException {
 		checkMapExists();
+		if(add == null || add.values == null)
+			return;
 		for(String key : add.values.keySet()) {
 			if(values.containsKey(key))
 				try {
