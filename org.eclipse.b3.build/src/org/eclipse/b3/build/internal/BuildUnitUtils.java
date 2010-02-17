@@ -1,13 +1,10 @@
 package org.eclipse.b3.build.internal;
 
-import org.eclipse.b3.backend.core.B3BackendActivator;
 import org.eclipse.b3.backend.core.B3InternalError;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.b3.build.build.BuildUnit;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.equinox.p2.metadata.Version;
-import org.objectweb.asm.ClassWriter;
-import org.objectweb.asm.Opcodes;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
@@ -65,7 +62,7 @@ public class BuildUnitUtils {
 	 * @param iface
 	 * @return
 	 */
-	public static BuildUnit createBuildUnitProxy(BuildUnit unit) {
+	public static synchronized BuildUnit createBuildUnitProxy(BuildUnit unit) {
 		return (BuildUnit) BuildUnitProxy.newInstance(unit);
 		
 	}
@@ -102,6 +99,8 @@ public class BuildUnitUtils {
 	public static class BuildUnitProxy implements InvocationHandler {
 		private BuildUnit unit;
 		public  static Object newInstance(BuildUnit unit) {
+			if(unit instanceof Proxy)
+				throw new IllegalArgumentException("Can not create a BuildUnit Proxy for instance already being a Proxy instance!");
 			Class<?> interfaces[] = unit.getClass().getInterfaces();
 			EList<Type> implementsList = unit.getImplements();
 			Class<?> extended[] = new Class<?>[interfaces.length + 1 + implementsList.size()];
@@ -118,53 +117,21 @@ public class BuildUnitUtils {
 					extended, new BuildUnitProxy(unit));
 		}
 		private BuildUnitProxy(BuildUnit unit) {
+			if(unit == null)
+				throw new IllegalArgumentException("Can not create a BuildUnitProxy with a null BuildUnit.");
 			this.unit = unit;
 		}
 		public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 			// simple implementation - all interfaces except BuildUnit are marker interfaces
 			// so all calls can go straight through
-			return method.invoke(unit, args);
+			Object result = null;
+			try {
+				result = method.invoke(unit, args);
+				return result;
+			} catch(IllegalArgumentException e) {
+				throw e; // to be able to debug
+			}
 		}
 		
-	}
-
-	public static class BuildUtilsDynamicClassLoader extends ClassLoader implements Opcodes {
-		public BuildUtilsDynamicClassLoader(ClassLoader parent) {
-			super(parent);
-		}
-
-		public Class<?> defineClass(String name, byte[] b) {
-			return defineClass(name, b, 0, b.length);
-		}
-		@SuppressWarnings("unchecked")
-		@Override
-		public Class<?> findClass(String name) throws ClassNotFoundException {
-			if(name.startsWith(BUILDUNIT_INTERFACE_PREFIX)) {
-				ClassWriter cw = new ClassWriter(0);
-				cw.visit(V1_5, 
-						ACC_PUBLIC + ACC_ABSTRACT + ACC_INTERFACE, 	// access
-						dottedToInternal(name), 					// interface name in internal form
-						null, 										// generics
-						"java/lang/Object", 						// superclass
-						new String[] {								// extended interfaces
-							"org/eclipse/b3/build/build/BuildUnit"	
-					});
-				cw.visitEnd();
-				byte bytes[] = cw.toByteArray();
-				Class<? extends BuildUnit> clazz = (Class<? extends BuildUnit>)(defineClass(name, bytes, 0, bytes.length));
-				return clazz;
-			}
-			else {
-				try {
-				return B3BackendActivator.instance.getBundle().loadClass(name);
-				} catch (ClassNotFoundException e) {
-					// do nothing, try the super class loader
-				}
-				return super.findClass(name);
-			}
-		}
-		private String dottedToInternal(String str) {
-			return str.replaceAll("\\.", "/");
-		}
 	}
 }

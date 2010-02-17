@@ -463,7 +463,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 				throw new B3InternalError("A builder with explicit unit type had a non BuildUnit as its type."+ this.toString());
 			return (Class<? extends BuildUnit>)TypeUtils.getRaw(explicitUnitType);
 		}
-		return BuildUnitProxyAdapterFactory.eINSTANCE.adapt((BuildUnit)c).getIface();
+		return BuildUnitProxyAdapterFactory.eINSTANCE.adapt((BuildUnit)c).getProxy().getClass();
 	}
 
 	/**

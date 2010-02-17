@@ -23,7 +23,7 @@ public class EffectivePathVectorIterator implements Iterator<PathVector> {
 		itor = sitor;
 	}
 	public EffectivePathVectorIterator(BExecutionContext ctx, ConditionalPathVector cpv) throws  Throwable {
-		if(cpv.getCondExpr() != null || cpv.getCondExpr().evaluate(ctx) != Boolean.FALSE)
+		if(cpv != null && (cpv.getCondExpr() == null || cpv.getCondExpr().evaluate(ctx) != Boolean.FALSE))
 			itor = cpv.getPathVectors().iterator();
 		else
 			itor = SingletonIterator.nullIterator(); // skip if condition is false

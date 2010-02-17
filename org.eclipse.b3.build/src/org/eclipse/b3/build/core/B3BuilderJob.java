@@ -58,9 +58,16 @@ public class B3BuilderJob extends Job {
 	 */
 	public B3BuilderJob(BExecutionContext ctx, IBuilder builder) throws B3EngineException {
 		super("builder job"); // dummy name, replaced below
+		if (ctx == null)
+			throw new IllegalArgumentException("Context can not be null when creating a B3BuilderJob");
+		if (builder == null)
+			throw new IllegalArgumentException("Builder can not be null when creating a B3BuilderJob");
 		this.ctx = ctx;
 		this.builder = builder;
-		this.unit = (BuildUnit)ctx.getValue("unit");
+		unit = (BuildUnit) ctx.getValue("unit");
+		if (unit == null)
+			throw new IllegalArgumentException("Context must have an instance of BuildUnit bound to context value 'unit'");
+		unit = BuildUnitProxyAdapterFactory.eINSTANCE.adapt(unit).getProxy();
 		this.aliases = null;
 		setName("building: " + unit.getName() + "#" + builder.getName());
 	}
