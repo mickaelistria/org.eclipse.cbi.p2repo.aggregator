@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, Cloudsmith Inc.
+ * Copyright (c) 2010, Cloudsmith Inc.
  * The code, documentation and other materials contained herein have been
  * licensed under the Eclipse Public License - v 1.0 by the copyright holder
  * listed above, as the Initial Contributor under such license. The text of
@@ -14,14 +14,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.b3.BeeLangStandaloneSetup;
-import org.eclipse.b3.backend.core.B3Engine;
-import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
-import org.eclipse.b3.backend.evaluator.b3backend.B3MetaClass;
-import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
-import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
-import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.b3.build.build.BeeModel;
+import org.eclipse.b3.build.build.BuildContext;
+import org.eclipse.b3.build.build.BuildUnit;
+import org.eclipse.b3.build.build.IBuilder;
+import org.eclipse.b3.build.core.B3BuildEngine;
+import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;
+import org.eclipse.b3.build.core.EffectiveUnitIterator;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.ContentHandler;
@@ -44,8 +44,11 @@ import com.google.inject.Injector;
  * runner is built for each of the <code>{@link B3TestFiles}</code> defined for the class passed to the factory's
  * constructor. Each runner built by this factory executes all B3 functions from the B3 file it was built for which
  * names start with the prefix of "test" as separate JUnit tests.
- * 
- * @author michal.ruzicka@cloudsmith.com
+ * <p>
+ * When test are executed, the property <code>$test.argv</code> is bound to a {@link List} containing an instance of
+ * {@link B3BuildEngine} in the first position, and subsequent positions containing references to any {@link BuildUnit}
+ * instances defined in the executed b3 file.
+ * </p>
  * 
  * @see B3TestFiles
  * @see JUnitB3TestRunner
@@ -124,7 +127,7 @@ class JUnitB3FileRunnerFactory {
 
 		protected ArrayList<TestFunctionDescriptor> testFunctionDescriptors;
 
-		protected B3Engine b3Engine;
+		protected B3BuildEngine engine;
 
 		public JUnitB3FileRunner(String b3File) throws Exception {
 			super(definitionClass);
@@ -177,24 +180,22 @@ class JUnitB3FileRunnerFactory {
 			}
 
 			BeeModel beeModel = (BeeModel) resource.getParseResult().getRootASTElement();
-			BExecutionContext b3Context = (b3Engine = new B3Engine()).getContext();
-
-			// Define all imports as constants
-			for(Type type : beeModel.getImports()) {
-				if(type instanceof B3JavaImport) {
-					Class<?> klass = TypeUtils.getRaw(type);
-					B3MetaClass metaClass = B3backendFactory.eINSTANCE.createB3MetaClass();
-					metaClass.setInstanceClass(klass);
-
-					b3Context.defineValue(((B3JavaImport) type).getName(), klass, metaClass);
-				}
+			BuildContext ctx = (engine = new B3BuildEngine()).getBuildContext();
+			engine.getBuildContext().defineBeeModel(beeModel);
+			final List<Object> argv = new ArrayList<Object>();
+			argv.add(engine);
+			EffectiveUnitIterator uItor = new EffectiveUnitIterator(engine.getBuildContext());
+			while(uItor.hasNext()) {
+				argv.add(BuildUnitProxyAdapterFactory.eINSTANCE.adapt(uItor.next()).getProxy());
 			}
+			ctx.defineFinalValue("$test.argv", argv, List.class);
 
 			testFunctionDescriptors = new ArrayList<TestFunctionDescriptor>();
 
 			// Define all functions and create descriptors of test functions
 			for(IFunction function : beeModel.getFunctions()) {
-				b3Context.defineFunction(function);
+				if(function instanceof IBuilder)
+					continue; // skip builders that happen to be named starting with TEST_FUNCTION_PREFIX
 
 				String functionName = function.getName();
 
@@ -213,7 +214,7 @@ class JUnitB3FileRunnerFactory {
 
 			notifier.fireTestStarted(testDescription);
 			try {
-				b3Engine.getContext().callFunction(child.getFunctionName(), EMPTY_PARAMETER_ARRAY, EMPTY_TYPE_ARRAY);
+				engine.getContext().callFunction(child.getFunctionName(), EMPTY_PARAMETER_ARRAY, EMPTY_TYPE_ARRAY);
 			}
 			catch(Throwable t) {
 				notifier.fireTestFailure(new Failure(testDescription, t));
@@ -261,10 +262,6 @@ class JUnitB3FileRunnerFactory {
 				+ klass.getName());
 	}
 
-	public List<Runner> getB3FileRunners() {
-		return b3FileRunners;
-	}
-
 	protected Runner createB3FileRunner(String b3File) throws Exception {
 		return new JUnitB3FileRunner(b3File);
 	}
@@ -295,6 +292,10 @@ class JUnitB3FileRunnerFactory {
 		Injector beeLangInjector = new BeeLangStandaloneSetup().createInjectorAndDoEMFRegistration();
 
 		beeLangResourceSet = beeLangInjector.getProvider(XtextResourceSet.class).get();
+	}
+
+	public List<Runner> getB3FileRunners() {
+		return b3FileRunners;
 	}
 
 }
