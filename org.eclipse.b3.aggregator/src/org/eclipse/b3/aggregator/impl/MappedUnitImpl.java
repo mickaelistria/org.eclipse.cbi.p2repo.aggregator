@@ -6,7 +6,6 @@
  */
 package org.eclipse.b3.aggregator.impl;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -61,14 +60,12 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 	protected static final int ENABLED_EFLAG = 1 << 0;
 
 	private static Filter createFilter(List<Configuration> configs) {
-		List<Configuration> enabledConfigs = getEnabledConfigs(configs);
-
-		if(!(enabledConfigs == null || enabledConfigs.isEmpty())) {
+		if(!(configs == null || configs.isEmpty())) {
 			StringBuilder filterBld = new StringBuilder();
-			if(enabledConfigs.size() > 1)
+			if(configs.size() > 1)
 				filterBld.append("(|");
 
-			for(Configuration config : enabledConfigs) {
+			for(Configuration config : configs) {
 				filterBld.append("(&(osgi.os=");
 				filterBld.append(config.getOperatingSystem().getLiteral());
 				filterBld.append(")(osgi.ws=");
@@ -77,21 +74,11 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 				filterBld.append(config.getArchitecture().getLiteral());
 				filterBld.append("))");
 			}
-			if(enabledConfigs.size() > 1)
+			if(configs.size() > 1)
 				filterBld.append(')');
 			return ExpressionUtil.parseLDAP(filterBld.toString());
 		}
 		return null;
-	}
-
-	private static List<Configuration> getEnabledConfigs(List<Configuration> configs) {
-		List<Configuration> enabledConfigs = new ArrayList<Configuration>();
-
-		for(Configuration config : configs)
-			if(config.isEnabled())
-				enabledConfigs.add(config);
-
-		return enabledConfigs;
 	}
 
 	/**
