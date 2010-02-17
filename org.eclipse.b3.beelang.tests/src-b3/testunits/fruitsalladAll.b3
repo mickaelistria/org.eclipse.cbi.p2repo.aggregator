@@ -12,8 +12,12 @@ concern FruitProcessing {
 }
 
 function main(List argv) {
-//	assertEquals("Should have engine + 4 units", argv.size(), 5);
-//	assertTrue("Argv should be Iterable", argv instanceof Iterable);
+	with properties { $test.argv = argv ; } :  testStuff();
+}
+function testStuff() {
+	var argv = $test.argv;
+	assertEquals("Should have engine + 4 units", argv.size(), 5);
+	assertTrue("Argv should be Iterable", argv instanceof Iterable);
 	List<Fruit> fruits = argv.select(x | x instanceof Fruit);
 	
 //	var results = diceTheFruit(fruits);
@@ -25,7 +29,13 @@ function main(List argv) {
 	var x = f.pulp();
 	x.schedule();
 	x.join();
-	x.getResult();
+	var r = x.getBuildResult();
+	f = fruits[1];
+	with (FruitProcessing) : x = f.dice();
+	x.schedule();
+	x.join();
+	r.merge(x.getBuildResult());
+	r;
 //	var pulps = fruits.collect(Fruit x | x.pulp());
 	
 }
