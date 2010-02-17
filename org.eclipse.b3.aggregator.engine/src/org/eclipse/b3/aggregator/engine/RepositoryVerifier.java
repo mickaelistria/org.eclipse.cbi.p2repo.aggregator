@@ -220,7 +220,8 @@ public class RepositoryVerifier extends BuilderPhase {
 							continue;
 
 						String id = iu.getId();
-						if(Builder.ALL_CONTRIBUTED_CONTENT_FEATURE.equals(id))
+						if(Builder.ALL_CONTRIBUTED_CONTENT_FEATURE.equals(id)
+								|| Builder.PDE_TARGET_PLATFORM_NAME.equals(id))
 							continue;
 
 						if(validationOnlyIUs.contains(iu)) {
