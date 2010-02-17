@@ -33,12 +33,16 @@ public class P2Utils {
 				B3Util.getPlugin().ungetService(agentProvider);
 			}
 
-			String filter = "(&(p2.agent.servicename=" + clazz.getName() + "))";
-			IAgentServiceFactory serviceFactory = B3Util.getPlugin().getService(IAgentServiceFactory.class, filter);
-			T result = clazz.cast(serviceFactory.createService(agent));
+			Object service = agent.getService(clazz.getName());
+			if(service == null) {
+				String filter = "(&(p2.agent.servicename=" + clazz.getName() + "))";
+				IAgentServiceFactory serviceFactory = B3Util.getPlugin().getService(IAgentServiceFactory.class, filter);
+				service = serviceFactory.createService(agent);
+				B3Util.getPlugin().ungetService(serviceFactory);
+			}
+			T result = clazz.cast(service);
 
 			B3Util.getPlugin().ungetService(agent);
-			B3Util.getPlugin().ungetService(serviceFactory);
 
 			if(result != null)
 				return result;

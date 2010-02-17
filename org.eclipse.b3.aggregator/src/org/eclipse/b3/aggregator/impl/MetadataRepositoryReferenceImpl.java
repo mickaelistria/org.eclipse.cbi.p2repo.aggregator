@@ -429,7 +429,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 		}
 
 		MetadataRepositoryResourceImpl res = (MetadataRepositoryResourceImpl) MetadataRepositoryResourceImpl.getResourceForNatureAndLocation(
-				nature, location, getAggregator());
+				nature, location, getAggregator(), false);
 
 		if(res == null) {
 			errors.add(getString("_UI_ErrorMessage_RepositoryIsNotAvailable"));
@@ -585,7 +585,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 							getString("_UI_ErrorMessage_RepositoryIsNotSet"));
 
 				MetadataRepositoryResourceImpl res = (MetadataRepositoryResourceImpl) MetadataRepositoryResourceImpl.getResourceForNatureAndLocation(
-						nature, location, getAggregator());
+						nature, location, getAggregator(), false);
 
 				if(res != null)
 					return res.getStatus();

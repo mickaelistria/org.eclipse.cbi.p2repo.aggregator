@@ -497,6 +497,11 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 
 	public static Resource getResourceForNatureAndLocation(String nature, String repositoryLocation,
 			Aggregator aggregator) {
+		return getResourceForNatureAndLocation(nature, repositoryLocation, aggregator, true);
+	}
+
+	public static Resource getResourceForNatureAndLocation(String nature, String repositoryLocation,
+			Aggregator aggregator, boolean create) {
 		if(nature == null || repositoryLocation == null)
 			return null;
 
@@ -510,11 +515,11 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 
 		synchronized(topSet) {
 			mdr = topSet.getResource(repoURI, false);
-			if(mdr == null)
+			if(mdr == null && create)
 				mdr = topSet.createResource(repoURI);
 		}
 
-		if(!(mdr instanceof MetadataRepositoryResourceImpl)) {
+		if(mdr != null && !(mdr instanceof MetadataRepositoryResourceImpl)) {
 			topSet.getResources().remove(mdr);
 			mdr = null;
 		}
