@@ -32,6 +32,8 @@ import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.Contact;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.MappedRepository;
+import org.eclipse.b3.aggregator.MetadataRepositoryReference;
+import org.eclipse.b3.aggregator.p2.util.MetadataRepositoryResourceImpl;
 import org.eclipse.b3.aggregator.util.LogUtils;
 import org.eclipse.b3.aggregator.util.MonitorUtils;
 import org.eclipse.b3.aggregator.util.P2Utils;
@@ -586,6 +588,7 @@ public class Builder extends AbstractCommand {
 					b3util.ungetService(profileRegistry);
 				}
 
+				startAsynchronousLoadForAllMappedRepositories();
 				runCompositeGenerator(MonitorUtils.subMonitor(monitor, 70));
 				runVerificationFeatureGenerator(MonitorUtils.subMonitor(monitor, 15));
 				runCategoriesRepoGenerator(MonitorUtils.subMonitor(monitor, 15));
@@ -974,6 +977,14 @@ public class Builder extends AbstractCommand {
 	private void runVerificationFeatureGenerator(IProgressMonitor monitor) throws CoreException {
 		VerificationFeatureGenerator generator = new VerificationFeatureGenerator(this);
 		generator.run(monitor);
+	}
+
+	private void startAsynchronousLoadForAllMappedRepositories() {
+		for(MetadataRepositoryReference repo : getAggregator().getAllMetadataRepositoryReferences(true)) {
+			MetadataRepositoryResourceImpl res = (MetadataRepositoryResourceImpl) MetadataRepositoryResourceImpl.getResourceForNatureAndLocation(
+					repo.getNature(), repo.getResolvedLocation(), repo.getAggregator());
+			res.startAsynchronousLoad(false);
+		}
 	}
 
 	private void verifyContributions() throws CoreException {

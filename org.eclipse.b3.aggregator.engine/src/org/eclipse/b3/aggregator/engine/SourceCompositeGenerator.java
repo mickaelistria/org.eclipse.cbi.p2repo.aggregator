@@ -69,15 +69,14 @@ public class SourceCompositeGenerator extends BuilderPhase {
 			MonitorUtils.begin(contribMonitor, repos.size() * 200);
 			List<String> errors = new ArrayList<String>();
 			for(MappedRepository repo : repos) {
-				MetadataRepository mdr = ResourceUtils.getMetadataRepository(repo);
 				try {
-					URI childLocation = mdr.getLocation();
+					URI childLocation = new URI(repo.getLocation());
 					LogUtils.info("Adding child meta-data repository %s", childLocation);
 
 					// if the original repository is not p2 compatible, persist its virtual metadata as a local p2
 					// repository
 					if(!"p2".equals(repo.getNature()))
-						childLocation = createLocalMdr(locationURI, mdr).getLocation();
+						childLocation = createLocalMdr(locationURI, ResourceUtils.getMetadataRepository(repo)).getLocation();
 					compositeMdr.addChild(childLocation);
 				}
 				catch(Exception e) {
