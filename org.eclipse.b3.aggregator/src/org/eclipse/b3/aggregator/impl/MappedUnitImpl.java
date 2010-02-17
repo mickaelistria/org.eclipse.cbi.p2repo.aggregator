@@ -213,11 +213,20 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 	 * 
 	 * @generated NOT
 	 */
+	public Filter getFilter() {
+		return createFilter(getValidConfigurations());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
 	public IRequiredCapability getRequiredCapability() {
 		// TODO Cache calculated value
-		Filter filter = createFilter(getValidConfigurations());
 		return MetadataFactory.createRequiredCapability(IInstallableUnit.NAMESPACE_IU_ID, getName(), getVersionRange(),
-				filter, false, false);
+				getFilter(), false, false);
 	}
 
 	/**

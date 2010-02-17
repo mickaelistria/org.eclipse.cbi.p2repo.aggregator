@@ -1756,6 +1756,8 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		addEOperation(mappedUnitEClass, theP2Package.getIRequiredCapability(), "getRequiredCapability", 0, 1,
 				IS_UNIQUE, IS_ORDERED);
 
+		addEOperation(mappedUnitEClass, theP2Package.getFilter(), "getFilter", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(productEClass, Product.class, "Product", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

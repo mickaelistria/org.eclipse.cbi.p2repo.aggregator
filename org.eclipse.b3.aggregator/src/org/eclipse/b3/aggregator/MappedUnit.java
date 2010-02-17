@@ -8,6 +8,7 @@ package org.eclipse.b3.aggregator;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
+import org.osgi.framework.Filter;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Mapped Unit</b></em>'.
@@ -26,6 +27,15 @@ import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
  * @generated
  */
 public interface MappedUnit extends InstallableUnitRequest, EnabledStatusProvider {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @model kind="operation" dataType="org.eclipse.b3.aggregator.p2.Filter"
+	 * @generated
+	 */
+	Filter getFilter();
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
