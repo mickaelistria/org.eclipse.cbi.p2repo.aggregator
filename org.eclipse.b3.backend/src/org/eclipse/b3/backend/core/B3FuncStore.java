@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -13,8 +14,8 @@ import java.util.Set;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.BGuard;
-import org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.impl.FunctionCandidateAdapterFactory;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 
 public class B3FuncStore {
@@ -139,9 +140,8 @@ public class B3FuncStore {
 				return parentStore.callFunction(functionName, parameters, types, ctx);
 		}
 
-		IFunction toBeCalled = getBestFunction(functionName, parameters, types, ctx);
-		if(toBeCalled == null)
-			throw new B3NoSuchFunctionSignatureException(functionName, types);
+		IFunction toBeCalled = getMostSpecificFunction(functionName, parameters, types, ctx);
+
 		return toBeCalled.call(ctx.createOuterContext(), parameters, types);
 	}
 
@@ -181,8 +181,202 @@ public class B3FuncStore {
 		};
 	}
 
+//	/**
+//	 * Find the best function matching the parameters.
+//	 * 
+//	 * @param name
+//	 * @param parameters
+//	 * @param types
+//	 * @param ctx
+//	 * @return best function, or null, if none was found.
+//	 * @throws B3EngineException
+//	 *             if there are exceptions while evaluating guards, or underlying issues.
+//	 */
+//	private IFunction getBestFunction(String name, Object[] parameters, Type[] types, BExecutionContext ctx)
+//			throws B3EngineException {
+//		List<IFunction> list = effective.get(name);
+//		List<IFunction> candidates = null;
+//		IFunction found = null;
+//		if(list.size() < 1)
+//			throw new B3NoSuchFunctionException(name); // something is really wrong if that happens here
+//		perFunction: for(IFunction f : list) {
+//			Type[] pt = f.getParameterTypes();
+//			if(!f.isVarArgs()) {
+//				if(types.length != pt.length)
+//					continue perFunction; // not a match
+//				for(int i = 0; i < pt.length; i++) {
+//					if(!TypeUtils.isAssignableFrom(pt[i], types[i]))
+//						continue perFunction;
+//				}
+//				// found a candidate
+//				if(found != null) {
+//					// lazy creation of candidate list (typically there is only one candidate)
+//					if(candidates == null)
+//						candidates = new ArrayList<IFunction>();
+//					candidates.add(found);
+//				}
+//				found = f;
+//			}
+//			else {
+//				// for varargs
+//				// A java function must have an array as the last argument to be compatible
+//				if(f instanceof BJavaFunction && !TypeUtils.isArray(pt[pt.length - 1]))
+//					throw new IllegalArgumentException("A function with name: '" + name
+//							+ "', declared to have varargs does not have an array as its last parameter");
+//				// list can be one item shorter than the list
+//				if(types.length < pt.length - 1)
+//					continue perFunction; // not a match - list is too short
+//
+//				// compare all types except last (which is the varargs spec)
+//				int limit = pt.length - 1;
+//				for(int i = 0; i < limit; i++) {
+//					if(!TypeUtils.isAssignableFrom(pt[i], types[i]))
+//						continue perFunction;
+//				}
+//				Type varArgsType;
+//				// check compatibility of varargs
+//				if(types.length >= pt.length) {
+//					// java functions have an array type for varargs, B3 functions declare it as a regular type, and
+//					// the calling logic passes it as a List.
+//					if(f instanceof BJavaFunction)
+//						varArgsType = TypeUtils.getArrayComponentType(pt[pt.length-1]);
+//					else
+//						varArgsType = pt[pt.length - 1];
+//					if(varArgsType != Object.class) // no need to check if type is object - anything goes
+//						for(int i = limit; i < types.length; i++)
+//							if(!TypeUtils.isAssignableFrom(varArgsType, types[i])) // incompatible var arg
+//								continue perFunction;
+//
+//					// found a candidate
+//					if(found != null) {
+//						// lazy creation of candidate list (typically there is only one candidate)
+//						if(candidates != null)
+//							candidates = new ArrayList<IFunction>();
+//						candidates.add(found);
+//					}
+//					found = f;
+//				}
+//			}
+//		}
+//		// all candidates found - now return best match
+//		if(candidates == null) {// if there were < 2 candidates
+//			if(found == null)
+//				return null;
+//
+//			BGuard guard = found.getGuard();
+//			if(guard != null) {
+//				try {
+//					if(guard.accepts(found, ctx, parameters, types))
+//						return found;
+//				}
+//				catch(Throwable e) {
+//					throw new B3EngineException("evaluation of guard ended with exception", e);
+//				}
+//				throw new B3NotAcceptedByGuardException(name, types);
+//			}
+//			return found;
+//		}
+//		candidates.add(found); // to make it easier to process all
+//		int best = Integer.MAX_VALUE;
+//		IFunction bestFunc = null;
+//		List<Throwable> exceptions = null;
+//		eachCandidate: for(IFunction candidate : candidates) {
+//			BGuard guard = candidate.getGuard();
+//			if(guard != null) {
+//				try {
+//					if(!guard.accepts(candidate, ctx, parameters, types))
+//						continue eachCandidate;
+//				}
+//				catch(Throwable e) {
+//					if(exceptions == null)
+//						exceptions = new ArrayList<Throwable>();
+//					exceptions.add(e);
+//					e.printStackTrace();
+//					continue eachCandidate;
+//				}
+//			}
+//
+//			int distance = specificity(candidate, types);
+//			if(distance < best) {
+//				if(distance == 0)
+//					return candidate; // unbeatable
+//				best = distance;
+//				bestFunc = candidate;
+//			}
+//		}
+//
+//		// TODO: HANDLE GUARD FAILURES DIFFERENTLY ? GIVE UP AT ONCE ?
+//		if(bestFunc == null) {
+//			if(exceptions != null)
+//				throw new B3EngineException(
+//						"evaluation of guard ended with exception(s) see stacktraces - showing first out of "
+//								+ Integer.toString(exceptions.size()), exceptions.get(0));
+//
+//			throw new B3NotAcceptedByGuardException(name, types);
+//		}
+//		return bestFunc;
+//	}
+
+	private static class ContextualFunctionCandidateSource extends
+			TypeUtils.CandidateSource<FunctionCandidateAdapterFactory.IFunctionCandidateAdapter> {
+
+		private class FunctionCandidateIterator implements Iterator<FunctionCandidateAdapterFactory.IFunctionCandidateAdapter> {
+
+			private Iterator<IFunction> functionListIterator = functionList.iterator();
+
+			public boolean hasNext() {
+				return functionListIterator.hasNext();
+			}
+
+			public FunctionCandidateAdapterFactory.IFunctionCandidateAdapter next() {
+				return FunctionCandidateAdapterFactory.eINSTANCE.adapt(functionListIterator.next());
+			}
+
+			public void remove() {
+				throw new UnsupportedOperationException();
+			}
+
+		}
+
+		private List<IFunction> functionList;
+
+		private BExecutionContext callContext;
+
+		private Object[] callParameters;
+
+		public ContextualFunctionCandidateSource(List<IFunction> list, BExecutionContext context,
+				Object[] parameters) {
+			functionList = list;
+			// we need the following context parameters to be able to call guards
+			callContext = context;
+			callParameters = parameters;
+		}
+
+		public boolean isCandidateAccepted(FunctionCandidateAdapterFactory.IFunctionCandidateAdapter candidateAdapter,
+				Type[] parameterTypes) {
+			IFunction candidate = candidateAdapter.getTarget();
+			BGuard guard = candidate.getGuard();
+
+			if(guard == null)
+				return true;
+
+			try {
+				return guard.accepts(candidate, callContext, callParameters, parameterTypes);
+			}
+			catch(Throwable t) {
+				// TODO we may want to collect the errors and report them later
+				throw new Error(t);
+			}
+		}
+
+		public Iterator<FunctionCandidateAdapterFactory.IFunctionCandidateAdapter> iterator() {
+			return new FunctionCandidateIterator();
+		}
+
+	}
+	
 	/**
-	 * Find the best function matching the parameters.
+	 * Find the most specific function matching the parameters.
 	 * 
 	 * @param name
 	 * @param parameters
@@ -192,129 +386,24 @@ public class B3FuncStore {
 	 * @throws B3EngineException
 	 *             if there are exceptions while evaluating guards, or underlying issues.
 	 */
-	private IFunction getBestFunction(String name, Object[] parameters, Type[] types, BExecutionContext ctx)
+	private IFunction getMostSpecificFunction(String name, Object[] parameters, Type[] types, BExecutionContext ctx)
 			throws B3EngineException {
 		List<IFunction> list = effective.get(name);
-		List<IFunction> candidates = null;
-		IFunction found = null;
-		if(list.size() < 1)
+
+		if(list.isEmpty())
 			throw new B3NoSuchFunctionException(name); // something is really wrong if that happens here
-		perFunction: for(IFunction f : list) {
-			Type[] pt = f.getParameterTypes();
-			if(!f.isVarArgs()) {
-				if(types.length != pt.length)
-					continue perFunction; // not a match
-				for(int i = 0; i < pt.length; i++) {
-					if(!TypeUtils.isAssignableFrom(pt[i], types[i]))
-						continue perFunction;
-				}
-				// found a candidate
-				if(found != null) {
-					// lazy creation of candidate list (typically there is only one candidate)
-					if(candidates == null)
-						candidates = new ArrayList<IFunction>();
-					candidates.add(found);
-				}
-				found = f;
-			}
-			else {
-				// for varargs
-				// A java function must have an array as the last argument to be compatible
-				if(f instanceof BJavaFunction && !TypeUtils.isArray(pt[pt.length - 1]))
-					throw new IllegalArgumentException("A function with name: '" + name
-							+ "', declared to have varargs does not have an array as its last parameter");
-				// list can be one item shorter than the list
-				if(types.length < pt.length - 1)
-					continue perFunction; // not a match - list is too short
 
-				// compare all types except last (which is the varargs spec)
-				int limit = pt.length - 1;
-				for(int i = 0; i < limit; i++) {
-					if(!TypeUtils.isAssignableFrom(pt[i], types[i]))
-						continue perFunction;
-				}
-				Class<?> varArgsType;
-				// check compatibility of varargs
-				if(types.length >= pt.length) {
-					// java functions have an array type for varargs, B3 functions declare it as a regular type, and
-					// the calling logic passes it as a List.
-					if(f instanceof BJavaFunction)
-						varArgsType = TypeUtils.getArrayComponentClass(pt[pt.length - 1]);
-					else
-						varArgsType = TypeUtils.getRaw(pt[pt.length - 1]);
-					if(varArgsType != Object.class) // no need to check if type is object - anything goes
-						for(int i = limit; i < types.length; i++)
-							if(!TypeUtils.isAssignableFrom(varArgsType, types[i])) // incompatible var arg
-								continue perFunction;
+		LinkedList<FunctionCandidateAdapterFactory.IFunctionCandidateAdapter> candidateFunctions = TypeUtils.Candidate.findMostSpecificApplicableCandidates(
+				types, new ContextualFunctionCandidateSource(list, ctx, parameters));
 
-					// found a candidate
-					if(found != null) {
-						// lazy creation of candidate list (typically there is only one candidate)
-						if(candidates != null)
-							candidates = new ArrayList<IFunction>();
-						candidates.add(found);
-					}
-					found = f;
-				}
-			}
+		switch(candidateFunctions.size()) {
+		case 0: // no candidate function found
+			throw new B3NoSuchFunctionSignatureException(name, types);
+		case 1: // one candidate function found
+			return candidateFunctions.getFirst().getTarget();
+		default: // more than one candidate function found (the function call is ambiguous)
+			throw new B3AmbiguousFunctionSignatureException(name, types);
 		}
-		// all candidates found - now return best match
-		if(candidates == null) {// if there were < 2 candidates
-			if(found == null)
-				return null;
-
-			BGuard guard = found.getGuard();
-			if(guard != null) {
-				try {
-					if(guard.accepts(found, ctx, parameters, types))
-						return found;
-				}
-				catch(Throwable e) {
-					throw new B3EngineException("evaluation of guard ended with exception", e);
-				}
-				throw new B3NotAcceptedByGuardException(name, types);
-			}
-			return found;
-		}
-		candidates.add(found); // to make it easier to process all
-		int best = Integer.MAX_VALUE;
-		IFunction bestFunc = null;
-		List<Throwable> exceptions = null;
-		eachCandidate: for(IFunction candidate : candidates) {
-			BGuard guard = candidate.getGuard();
-			if(guard != null) {
-				try {
-					if(!guard.accepts(candidate, ctx, parameters, types))
-						continue eachCandidate;
-				}
-				catch(Throwable e) {
-					if(exceptions == null)
-						exceptions = new ArrayList<Throwable>();
-					exceptions.add(e);
-					e.printStackTrace();
-					continue eachCandidate;
-				}
-			}
-
-			int distance = specificity(candidate, types);
-			if(distance < best) {
-				if(distance == 0)
-					return candidate; // unbeatable
-				best = distance;
-				bestFunc = candidate;
-			}
-		}
-
-		// TODO: HANDLE GUARD FAILURES DIFFERENTLY ? GIVE UP AT ONCE ?
-		if(bestFunc == null) {
-			if(exceptions != null)
-				throw new B3EngineException(
-						"evaluation of guard ended with exception(s) see stacktraces - showing first out of "
-								+ Integer.toString(exceptions.size()), exceptions.get(0));
-
-			throw new B3NotAcceptedByGuardException(name, types);
-		}
-		return bestFunc;
 	}
 
 	public Type getDeclaredFunctionType(String functionName, Type[] types, BExecutionContext ctx)
@@ -343,9 +432,7 @@ public class B3FuncStore {
 		// TODO: TYPESYSTEM.
 		//
 		Object[] fakeParameters = new Object[types.length];
-		IFunction toBeCalled = getBestFunction(functionName, fakeParameters, types, ctx);
-		if(toBeCalled == null)
-			throw new B3NoSuchFunctionSignatureException(functionName, types);
+		IFunction toBeCalled = getMostSpecificFunction(functionName, fakeParameters, types, ctx);
 
 		return toBeCalled.getReturnTypeForParameterTypes(types, ctx);
 	}

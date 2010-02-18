@@ -1,6 +1,7 @@
 package org.eclipse.b3.backend.evaluator.typesystem;
 
 import java.lang.ref.WeakReference;
+import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.lang.reflect.GenericArrayType;
 import java.lang.reflect.ParameterizedType;
@@ -22,7 +23,40 @@ import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
 
 public class TypeUtils {
 
-	public abstract static class Candidate {
+	public static abstract class AdaptingJavaCandidate<A> extends JavaCandidate {
+
+		protected A adaptedObject;
+
+		private Type[] parameterTypes;
+
+		private Type varargArrayType;
+
+		protected AdaptingJavaCandidate(A object) {
+			adaptedObject = object;
+			processJavaParameterTypes();
+		}
+
+		public final Type[] getParameterTypes() {
+			return parameterTypes;
+		}
+
+		public final Type getVarargArrayType() {
+			return varargArrayType;
+		}
+
+		@Override
+		protected final void setParameterTypes(Type[] types) {
+			parameterTypes = types;
+		}
+
+		@Override
+		protected final void setVarargArrayType(Type type) {
+			varargArrayType = type;
+		}
+
+	}
+
+	public static abstract class Candidate implements ICandidate {
 
 		protected enum CandidateLevel{
 
@@ -30,8 +64,8 @@ public class TypeUtils {
 
 		}
 
-		public static <C extends Candidate> LinkedList<C> findMostSpecificApplicableCandidates(String name,
-				Class<?>[] parameterTypes, Iterable<C> allCandidates) {
+		public static <C extends ICandidate> LinkedList<C> findMostSpecificApplicableCandidates(String name,
+				Type[] parameterTypes, CandidateSource<C> candidateSource) {
 
 			// level:
 			//
@@ -56,9 +90,11 @@ public class TypeUtils {
 			// applicable candidates
 			LinkedList<C> candidates = new LinkedList<C>();
 
-			for(C current : allCandidates) {
-				CandidateLevel nextLevel = current.isApplicable(name, parameterTypes, level);
+			for(C current : candidateSource) {
+				CandidateLevel nextLevel = isCandidateApplicable(current, name, parameterTypes, level);
 				if(nextLevel == CandidateLevel.NONE)
+					continue;
+				if(!candidateSource.isCandidateAccepted(current, parameterTypes))
 					continue;
 
 				if(nextLevel != level) {
@@ -97,6 +133,11 @@ public class TypeUtils {
 			return candidates;
 		}
 
+		public static <C extends ICandidate> LinkedList<C> findMostSpecificApplicableCandidates(Type[] parameterTypes,
+				CandidateSource<C> candidateSource) {
+			return findMostSpecificApplicableCandidates(null, parameterTypes, candidateSource);
+		}
+
 		/**
 		 * Check whether a value of <code>questionedType</code> can be passed (is applicable) as an argument (possibly
 		 * after applying allowed conversions) to a method expecting a value of type <code>referenceType</code> in the
@@ -109,27 +150,103 @@ public class TypeUtils {
 		 * @return <code>null</code> if not applicable at all, {@link Boolean#TRUE} if applicable by subtyping only,
 		 *         {@link Boolean#FALSE} if method invocation conversion of some sort is needed
 		 */
-		protected static Boolean isApplicableBySubtyping(Class<?> referenceType, Class<?> questionedType) {
-			return referenceType.isAssignableFrom(questionedType)
+		protected static Boolean isApplicableBySubtyping(Type referenceType, Type questionedType) {
+			Boolean specialCase = isAssignableFromSpecialCase(referenceType, questionedType);
+			if(specialCase != null)
+				return specialCase.booleanValue()
+						? Boolean.TRUE
+						: null;
+
+			Class<?> rawReferenceType = getRaw(referenceType);
+			Class<?> rawQuestionedType = getRaw(questionedType);
+
+			return rawReferenceType.isAssignableFrom(rawQuestionedType)
 					? Boolean.TRUE
-					: isCoercibleFrom(referenceType, questionedType)
+					: isCoercibleFrom(rawReferenceType, rawQuestionedType)
 							? Boolean.FALSE
 							: null;
 		}
 
-		protected static boolean isConvertibleFrom(Class<?> baseType, Class<?> fromType) {
-			return(baseType.isAssignableFrom(fromType) || isCoercibleFrom(baseType, fromType));
-		}
+		protected static CandidateLevel isCandidateApplicable(ICandidate candidate, String name, Type[] parameterTypes,
+				CandidateLevel level) {
+			// return immediately if the candidate name doesn't match
+			if(name != null && !name.equals(candidate.getName()))
+				return CandidateLevel.NONE;
 
-		protected static boolean isConvertibleFrom(Class<?> baseType, Class<?> fromTypes[], int offset) {
-			for(int i = offset; i < fromTypes.length; ++i) {
-				if(!isConvertibleFrom(baseType, fromTypes[i]))
-					return false;
+			Type[] candidateParameterTypes = candidate.getParameterTypes();
+			boolean needsConversion = false;
+			Boolean applicable;
+
+			if(candidate.isVarArgs() && level.ordinal() <= CandidateLevel.VARIABLE_ARITY_BY_SUBTYPING.ordinal()) {
+				// perform variable arity matching (level <= VARIABLE_ARITY_BY_SUBTYPING means we haven't found any
+				// fixed arity candidate yet so we need to perform the variable arity matching if the current candidate
+				// indeed is of variable arity)
+
+				int lastCandidateParameterIndex = candidateParameterTypes.length - 1;
+
+				// don't bother if there are too few arguments
+				if(lastCandidateParameterIndex > parameterTypes.length)
+					return CandidateLevel.NONE;
+
+				for(int i = 0; i < lastCandidateParameterIndex; ++i) {
+					if(!((applicable = isApplicableBySubtyping(candidateParameterTypes[i], parameterTypes[i])) != null && (applicable.booleanValue() || (needsConversion = true))))
+						return CandidateLevel.NONE;
+				}
+
+				VARIABLE_ARITY: {
+					if(candidateParameterTypes.length <= parameterTypes.length) {
+						// check for fixed arity match if the counts of parameters and arguments match
+						if(candidateParameterTypes.length == parameterTypes.length) {
+							Type varargParameterArrayType = candidate.getVarargArrayType();
+							if(varargParameterArrayType != null
+									&& isAssignableFrom(varargParameterArrayType,
+											parameterTypes[lastCandidateParameterIndex]))
+								// the candidate is applicable as a fixed arity candidate
+								break VARIABLE_ARITY;
+						}
+
+						// we need to check the remaining arguments against the variable arity parameter component type
+						Type varargComponentType = candidateParameterTypes[lastCandidateParameterIndex];
+
+						for(int i = lastCandidateParameterIndex; i < parameterTypes.length; ++i) {
+							if(!((applicable = isApplicableBySubtyping(varargComponentType, parameterTypes[i])) != null && (applicable.booleanValue() || (needsConversion = true))))
+								return CandidateLevel.NONE;
+						}
+
+						// the candidate is applicable as a variable arity candidate with a non empty array of arguments
+						// for the variable arity parameter
+					}
+					else {
+						// the candidate is applicable as a variable arity candidate with an empty array of arguments
+						// for the variable arity parameter
+					}
+
+					return needsConversion
+							? CandidateLevel.VARIABLE_ARITY_BY_CONVERSION
+							: CandidateLevel.VARIABLE_ARITY_BY_SUBTYPING;
+				}
 			}
-			return true;
+			else {
+				// perform fixed arity matching (either because the current candidate is of fixed arity or
+				// because level > VARIABLE_ARITY_BY_SUBTYPING which means we have found some fixed arity candidate
+				// before so we don't need to perform variable arity matching any longer)
+
+				// don't bother if the parameter and argument counts don't match
+				if(candidateParameterTypes.length != parameterTypes.length)
+					return CandidateLevel.NONE;
+
+				for(int i = 0; i < candidateParameterTypes.length; ++i) {
+					if(!((applicable = isApplicableBySubtyping(candidateParameterTypes[i], parameterTypes[i])) != null && (applicable.booleanValue() || (needsConversion = true))))
+						return CandidateLevel.NONE;
+				}
+			}
+
+			return needsConversion
+					? CandidateLevel.FIXED_ARITY_BY_CONVERSION
+					: CandidateLevel.FIXED_ARITY_BY_SUBTYPING;
 		}
 
-		protected static boolean isConvertibleFrom(Class<?> baseTypes[], int offset, Class<?> fromType) {
+		protected static boolean isConvertibleFrom(Type baseTypes[], int offset, Type fromType) {
 			for(int i = offset; i < baseTypes.length; ++i) {
 				if(!isConvertibleFrom(baseTypes[i], fromType))
 					return false;
@@ -137,7 +254,26 @@ public class TypeUtils {
 			return true;
 		}
 
-		protected static boolean isConvertibleFrom(Class<?>[] baseTypes, Class<?>[] fromTypes, int length) {
+		protected static boolean isConvertibleFrom(Type baseType, Type fromType) {
+			Boolean specialCase = isAssignableFromSpecialCase(baseType, fromType);
+			if(specialCase != null)
+				return specialCase.booleanValue();
+
+			Class<?> rawBaseType = getRaw(baseType);
+			Class<?> rawFromType = getRaw(fromType);
+
+			return rawBaseType.isAssignableFrom(rawFromType) || isCoercibleFrom(rawBaseType, rawFromType);
+		}
+
+		protected static boolean isConvertibleFrom(Type baseType, Type fromTypes[], int offset) {
+			for(int i = offset; i < fromTypes.length; ++i) {
+				if(!isConvertibleFrom(baseType, fromTypes[i]))
+					return false;
+			}
+			return true;
+		}
+
+		protected static boolean isConvertibleFrom(Type[] baseTypes, Type[] fromTypes, int length) {
 			for(int i = 0; i < length; ++i) {
 				if(!isConvertibleFrom(baseTypes[i], fromTypes[i]))
 					return false;
@@ -145,39 +281,20 @@ public class TypeUtils {
 			return true;
 		}
 
-		protected static boolean isMoreSpecific(Class<?>[] referenceTypes, Class<?>[] questionedTypes) {
+		protected static boolean isMoreSpecific(Type[] referenceTypes, Type[] questionedTypes) {
 			return isConvertibleFrom(questionedTypes, referenceTypes, referenceTypes.length);
 		}
 
-		protected static boolean isMoreSpecificVararg(Class<?>[] referenceTypes, Class<?>[] questionedTypes,
-				int fixedParamCount) {
+		protected static boolean isMoreSpecificVararg(Type[] referenceTypes, int fixedParamCount, Type[] questionedTypes) {
 			if(!isConvertibleFrom(questionedTypes, referenceTypes, fixedParamCount))
 				return false;
 
-			Class<?> questionedVarargComponentType = questionedTypes[fixedParamCount].getComponentType();
-
-			if(!isConvertibleFrom(questionedVarargComponentType, referenceTypes, fixedParamCount))
-				return false;
-
-			Class<?> referenceVarargComponentType = referenceTypes[referenceTypes.length - 1].getComponentType();
-
-			if(!isConvertibleFrom(questionedVarargComponentType, referenceVarargComponentType))
-				return false;
-
-			return true;
-		}
-
-		protected static boolean isMoreSpecificVararg(Class<?>[] referenceTypes, int fixedParamCount,
-				Class<?>[] questionedTypes) {
-			if(!isConvertibleFrom(questionedTypes, referenceTypes, fixedParamCount))
-				return false;
-
-			Class<?> referenceVarargComponentType = referenceTypes[fixedParamCount].getComponentType();
+			Type referenceVarargComponentType = referenceTypes[fixedParamCount];
 
 			if(!isConvertibleFrom(questionedTypes, fixedParamCount, referenceVarargComponentType))
 				return false;
 
-			Class<?> questionedVarargComponentType = questionedTypes[questionedTypes.length - 1].getComponentType();
+			Type questionedVarargComponentType = questionedTypes[questionedTypes.length - 1];
 
 			if(!isConvertibleFrom(questionedVarargComponentType, referenceVarargComponentType))
 				return false;
@@ -185,9 +302,26 @@ public class TypeUtils {
 			return true;
 		}
 
-		protected static int specificityCompare(Candidate left, Candidate right, CandidateLevel level) {
-			Class<?>[] leftParameterTypes = left.getParameterTypes();
-			Class<?>[] rightParameterTypes = right.getParameterTypes();
+		protected static boolean isMoreSpecificVararg(Type[] referenceTypes, Type[] questionedTypes, int fixedParamCount) {
+			if(!isConvertibleFrom(questionedTypes, referenceTypes, fixedParamCount))
+				return false;
+
+			Type questionedVarargComponentType = questionedTypes[fixedParamCount];
+
+			if(!isConvertibleFrom(questionedVarargComponentType, referenceTypes, fixedParamCount))
+				return false;
+
+			Type referenceVarargComponentType = referenceTypes[referenceTypes.length - 1];
+
+			if(!isConvertibleFrom(questionedVarargComponentType, referenceVarargComponentType))
+				return false;
+
+			return true;
+		}
+
+		protected static int specificityCompare(ICandidate left, ICandidate right, CandidateLevel level) {
+			Type[] leftParameterTypes = left.getParameterTypes();
+			Type[] rightParameterTypes = right.getParameterTypes();
 
 			if(level.ordinal() <= CandidateLevel.VARIABLE_ARITY_BY_SUBTYPING.ordinal()) {
 				// perform variable arity specificity comparison
@@ -227,87 +361,160 @@ public class TypeUtils {
 			return 0;
 		}
 
-		protected abstract Class<?>[] getParameterTypes();
-
-		protected CandidateLevel isApplicable(String name, Class<?>[] parameterTypes, CandidateLevel level) {
-			// return immediately if the candidate name doesn't match
-			if(!nameMatches(name))
-				return CandidateLevel.NONE;
-
-			Class<?>[] candidateParameterTypes = getParameterTypes();
-			boolean needsConversion = false;
-			Boolean applicable;
-
-			if(isVarArgs() && level.ordinal() <= CandidateLevel.VARIABLE_ARITY_BY_SUBTYPING.ordinal()) {
-				// perform variable arity matching (level <= VARIABLE_ARITY_BY_SUBTYPING means we haven't found any
-				// fixed arity candidate yet so we need to perform the variable arity matching if the current candidate
-				// indeed is of variable arity)
-
-				int fixedParameterCount = candidateParameterTypes.length - 1;
-
-				// don't bother if there are too few arguments
-				if(fixedParameterCount > parameterTypes.length)
-					return CandidateLevel.NONE;
-
-				for(int i = 0; i < fixedParameterCount; ++i) {
-					if(!((applicable = isApplicableBySubtyping(candidateParameterTypes[i], parameterTypes[i])) != null && (applicable.booleanValue() || (needsConversion = true))))
-						return CandidateLevel.NONE;
-				}
-
-				VARIABLE_ARITY: {
-					if(candidateParameterTypes.length <= parameterTypes.length) {
-						// check for fixed arity match if the counts of parameters and arguments match
-						if(candidateParameterTypes.length == parameterTypes.length) {
-							if(candidateParameterTypes[fixedParameterCount].isAssignableFrom(parameterTypes[fixedParameterCount]))
-								// the candidate is applicable as a fixed arity candidate
-								break VARIABLE_ARITY;
-						}
-
-						// we need to check the remaining arguments against the variable arity parameter component type
-						Class<?> varargComponentType = candidateParameterTypes[fixedParameterCount].getComponentType();
-
-						for(int i = fixedParameterCount; i < parameterTypes.length; ++i) {
-							if(!((applicable = isApplicableBySubtyping(varargComponentType, parameterTypes[i])) != null && (applicable.booleanValue() || (needsConversion = true))))
-								return CandidateLevel.NONE;
-						}
-
-						// the candidate is applicable as a variable arity candidate with a non empty array of arguments
-						// for the variable arity parameter
-					}
-					else {
-						// the candidate is applicable as a variable arity candidate with an empty array of arguments
-						// for the variable arity parameter
-					}
-
-					return needsConversion
-							? CandidateLevel.VARIABLE_ARITY_BY_CONVERSION
-							: CandidateLevel.VARIABLE_ARITY_BY_SUBTYPING;
-				}
-			}
-			else {
-				// perform fixed arity matching (either because the current candidate is of fixed arity or
-				// because level > VARIABLE_ARITY_BY_SUBTYPING which means we have found some fixed arity candidate
-				// before so we don't need to perform variable arity matching any longer)
-
-				// don't bother if the parameter and argument counts don't match
-				if(candidateParameterTypes.length != parameterTypes.length)
-					return CandidateLevel.NONE;
-
-				for(int i = 0; i < candidateParameterTypes.length; ++i) {
-					if(!((applicable = isApplicableBySubtyping(candidateParameterTypes[i], parameterTypes[i])) != null && (applicable.booleanValue() || (needsConversion = true))))
-						return CandidateLevel.NONE;
-				}
-			}
-
-			return needsConversion
-					? CandidateLevel.FIXED_ARITY_BY_CONVERSION
-					: CandidateLevel.FIXED_ARITY_BY_SUBTYPING;
+		public String getName() {
+			return null;
 		}
 
-		protected abstract boolean isVarArgs();
+	}
 
-		protected boolean nameMatches(String name) {
+	public static abstract class CandidateSource<C extends ICandidate> implements Iterable<C> {
+
+		/**
+		 * Check if the specified parameter types are accepted for the specified <code>candidate</code> in the context
+		 * of the current <code>CandidateSource</code>.
+		 * 
+		 * @param candidate
+		 *            the candidate to check the specified parameters against
+		 * @param types
+		 *            the parameter types to check against the specified candidate
+		 * @return true if the specified parameter types are accepted for the specified <code>candidate</code> in the
+		 *         context of the current <code>CandidateSource</code>
+		 */
+		public boolean isCandidateAccepted(C candidate, Type[] parameterTypes) {
 			return true;
+		}
+
+	}
+
+	public interface ICandidate {
+
+		String getName();
+
+		Type[] getParameterTypes();
+
+		Type getVarargArrayType();
+
+		boolean isVarArgs();
+
+	}
+
+	public static abstract class JavaCandidate extends Candidate {
+
+		protected int instanceParametersCount;
+
+		public int getInstanceParametersCount() {
+			return instanceParametersCount;
+		}
+
+		public Object[] prepareJavaCallParameters(Type[] actualParameterTypes, Object[] actualParameters) {
+			Type[] declaredParameterTypes = getParameterTypes();
+			Type varargParameterArrayType = getVarargArrayType();
+			int lastDeclaredParameterIndex = declaredParameterTypes.length - 1;
+			int offset = instanceParametersCount;
+
+			if(varargParameterArrayType != null // this is a vararg candidate which possibly needs to have the variable
+												// arity arguments turned into an array
+					&& !(actualParameterTypes.length == declaredParameterTypes.length && isAssignableFrom(
+							varargParameterArrayType, actualParameterTypes[lastDeclaredParameterIndex]))) {
+				Object[] callParameters = new Object[declaredParameterTypes.length - offset];
+
+				System.arraycopy(actualParameters, offset, callParameters, 0, lastDeclaredParameterIndex - offset);
+
+				Class<?> varargComponentType = getRaw(declaredParameterTypes[lastDeclaredParameterIndex]);
+				Object varargArray = Array.newInstance(varargComponentType, actualParameterTypes.length
+						- lastDeclaredParameterIndex);
+
+				for(int i = 0; i < actualParameterTypes.length - lastDeclaredParameterIndex; ++i)
+					Array.set(varargArray, i, actualParameters[lastDeclaredParameterIndex + i]);
+
+				callParameters[lastDeclaredParameterIndex - offset] = varargArray;
+
+				return callParameters;
+			}
+
+			if(offset != 0) {
+				Object[] callParameters = new Object[declaredParameterTypes.length - offset];
+
+				System.arraycopy(actualParameters, offset, callParameters, 0, declaredParameterTypes.length - offset);
+
+				return callParameters;
+			}
+
+			return actualParameters;
+		}
+
+		public void processJavaParameterTypes(Type... instanceParameterTypes) {
+			Type[] parameterTypes = getJavaParameterTypes();
+			int instanceParameterTypesCount = instanceParameterTypes != null
+					? instanceParameterTypes.length
+					: 0;
+
+			if(instanceParameterTypesCount > 0) {
+				Type[] newParameterTypes = new Type[instanceParameterTypesCount + parameterTypes.length];
+
+				System.arraycopy(instanceParameterTypes, 0, newParameterTypes, 0, instanceParameterTypesCount);
+				System.arraycopy(parameterTypes, 0, newParameterTypes, instanceParameterTypesCount,
+						parameterTypes.length);
+
+				parameterTypes = newParameterTypes;
+			}
+			else if(parameterTypes.getClass().getComponentType() != Type.class) {
+				// ensure that the component type of the parameter types array is Type, as we may want to store values
+				// of the type Type in that array
+				Type[] newParameterTypes = new Type[parameterTypes.length];
+
+				System.arraycopy(parameterTypes, 0, newParameterTypes, 0, parameterTypes.length);
+
+				parameterTypes = newParameterTypes;
+			}
+
+			Type varargArrayType;
+
+			if(isVarArgs()) {
+				int varargParameterIndex = parameterTypes.length - 1;
+
+				varargArrayType = parameterTypes[varargParameterIndex];
+				parameterTypes[varargParameterIndex] = getArrayComponentType(varargArrayType);
+			}
+			else
+				varargArrayType = null;
+
+			setVarargArrayType(varargArrayType);
+			setParameterTypes(parameterTypes);
+
+			instanceParametersCount = instanceParameterTypesCount;
+		}
+
+		protected abstract Type[] getJavaParameterTypes();
+
+		protected abstract void setParameterTypes(Type[] types);
+
+		protected abstract void setVarargArrayType(Type type);
+
+	}
+
+	public interface JavaParameterContainer {
+
+		Type[] getJavaParameterTypes();
+
+		boolean isVarArgs();
+
+		void setParameterTypes(Type[] types);
+
+		void setVarargParameterArrayType(Type type);
+
+	}
+
+	protected static class GenericArrayTypeImpl implements GenericArrayType {
+
+		private final Type componentType;
+
+		public GenericArrayTypeImpl(Type aComponentType) {
+			componentType = aComponentType;
+		}
+
+		public Type getGenericComponentType() {
+			return componentType;
 		}
 
 	}
@@ -374,17 +581,45 @@ public class TypeUtils {
 		return classDistance(ptc, pc.getSuperclass()) + 1;
 	}
 
-	public static Class<?> getArrayComponentClass(Type type) {
-		if(type instanceof B3ParameterizedType)
-			type = getRaw(type);
-		if(type instanceof Class<?>)
-			return ((Class<?>) type).getComponentType();
-		if(type instanceof GenericArrayType)
-			type = ((GenericArrayType) type).getGenericComponentType();
-		else
-			throw new IllegalArgumentException("Not possible to get array component type from type:" + type);
+	public static Type getArrayComponentType(Type type) {
+		Type arrayType = type;
+		if(arrayType instanceof Class<?> || arrayType instanceof B3ParameterizedType
+				&& (arrayType = ((B3ParameterizedType) arrayType).getRawType()) instanceof Class<?>) {
+			Class<?> componentType = ((Class<?>) arrayType).getComponentType();
 
-		return getRaw(type);
+			if(componentType != null)
+				return componentType;
+		}
+		else if(arrayType instanceof GenericArrayType)
+			return ((GenericArrayType) arrayType).getGenericComponentType();
+
+		throw new IllegalArgumentException("Not possible to get array component type from type: " + type);
+	}
+
+	public static Type getArrayType(Type componentType) {
+		if(componentType instanceof Class<?>) {
+			Class<?> componentClass = (Class<?>) componentType;
+
+			if(componentClass.isPrimitive())
+				throw new UnsupportedOperationException("Primitive types not supported:" + componentType);
+
+			String componentClassName = componentClass.getName();
+			StringBuilder arrayClassName = new StringBuilder(componentClassName.length() + 3);
+
+			arrayClassName.append('[');
+			if(!componentClass.isArray())
+				arrayClassName.append('L').append(componentClassName).append(';');
+			else
+				arrayClassName.append(componentClassName);
+
+			try {
+				return Class.forName(arrayClassName.toString());
+			}
+			catch(ClassNotFoundException e) {
+				throw new Error("Failed to construct array type for component type: " + componentType, e);
+			}
+		}
+		return new GenericArrayTypeImpl(componentType);
 	}
 
 	public static Type getCommonSuperType(Type[] types) {
@@ -441,29 +676,20 @@ public class TypeUtils {
 	public static Class<?> getRaw(Type t) {
 		if(t instanceof Class<?>)
 			return (Class<?>) t;
-		if(t instanceof ParameterizedType) {
-			ParameterizedType pt = ParameterizedType.class.cast(t);
-			return getRaw(pt.getRawType());
-		}
-		if(t instanceof GenericArrayType) {
-			GenericArrayType ga = GenericArrayType.class.cast(t);
-			return ga.getClass();
-		}
-		if(t instanceof B3JavaImport) {
-			return getRaw(B3JavaImport.class.cast(t).getType());
-		}
-		if(t instanceof B3FunctionType) {
-			B3FunctionType ft = B3FunctionType.class.cast(t);
-			return getRaw(ft.getFunctionType()); // i.e. what type of function this is B3, or Java
-		}
-		if(t instanceof B3MetaClass) {
+		if(t instanceof ParameterizedType)
+			return getRaw(((ParameterizedType) t).getRawType());
+		if(t instanceof GenericArrayType)
+			// return (Class<?>) getArrayType(getRaw(((GenericArrayType) t).getGenericComponentType()));
+			return getRaw((GenericArrayType) t); // optimization
+		if(t instanceof B3JavaImport)
+			return getRaw(((B3JavaImport) t).getType());
+		if(t instanceof B3FunctionType)
+			return getRaw(((B3FunctionType) t).getFunctionType()); // i.e. what type of function this is B3, or Java
+		if(t instanceof B3MetaClass)
 			return ((B3MetaClass) t).getInstanceClass();
-		}
-		if(t instanceof TypeVariable<?>) {
-			TypeVariable<?> tv = TypeVariable.class.cast(t);
+		if(t instanceof TypeVariable<?>)
 			// TODO: OMG - this is cheating...
-			return getRaw(tv.getBounds()[0]);
-		}
+			return getRaw(((TypeVariable<?>) t).getBounds()[0]);
 		throw new UnsupportedOperationException("UNSUPPORTED TYPE CLASS - was: " + t);
 	}
 
@@ -495,10 +721,10 @@ public class TypeUtils {
 
 	public static boolean isArray(Type baseType) {
 		if(baseType instanceof B3ParameterizedType)
-			baseType = getRaw(baseType);
-		return baseType instanceof GenericArrayType
-				|| (baseType instanceof Class<?> && ((Class<?>) baseType).isArray());
-		// return getRaw(baseType).isArray();
+			baseType = ((B3ParameterizedType) baseType).getRawType();
+
+		return (baseType instanceof Class<?>) && ((Class<?>) baseType).isArray()
+				|| (baseType instanceof GenericArrayType);
 	}
 
 	/**
@@ -516,10 +742,9 @@ public class TypeUtils {
 	}
 
 	public static boolean isAssignableFrom(Type baseType, Type fromType) {
-		if(baseType instanceof B3FunctionType)
-			return ((B3FunctionType) baseType).isAssignableFrom(fromType);
-		if(baseType instanceof B3MetaClass)
-			return ((B3MetaClass) baseType).isAssignableFrom(fromType);
+		Boolean specialCase = isAssignableFromSpecialCase(baseType, fromType);
+		if(specialCase != null)
+			return specialCase.booleanValue();
 		return getRaw(baseType).isAssignableFrom(getRaw(fromType));
 	}
 
@@ -527,10 +752,6 @@ public class TypeUtils {
 		Set<Type> coerceTypes = coerceMap.get(fromType);
 
 		return coerceTypes != null && coerceTypes.contains(baseType);
-	}
-
-	public static boolean isConvertibleFrom(Type baseType, Type fromType) {
-		return(isAssignableFrom(baseType, fromType) || isCoercibleFrom(baseType, fromType));
 	}
 
 	/**
@@ -558,6 +779,39 @@ public class TypeUtils {
 		if(baseClass.isInterface())
 			return interfaceDistance(baseClass, getRaw(queriedType));
 		return classDistance(baseClass, getRaw(queriedType));
+	}
+
+	protected static Class<?> getRaw(GenericArrayType type) {
+		StringBuilder rawArrayClassName = new StringBuilder();
+		GenericArrayType arrayType = type;
+		Type componentType;
+
+		while(true) {
+			rawArrayClassName.append('[');
+
+			componentType = arrayType.getGenericComponentType();
+			if(!(componentType instanceof GenericArrayType))
+				break;
+
+			arrayType = (GenericArrayType) componentType;
+		}
+
+		rawArrayClassName.append('L').append(getRaw(componentType).getName()).append(';');
+
+		try {
+			return Class.forName(rawArrayClassName.toString());
+		}
+		catch(ClassNotFoundException e) {
+			throw new Error("Failed to construct raw array type for generic array type: " + type, e);
+		}
+	}
+
+	protected static Boolean isAssignableFromSpecialCase(Type baseType, Type fromType) {
+		if(baseType instanceof B3FunctionType)
+			return Boolean.valueOf(((B3FunctionType) baseType).isAssignableFrom(fromType));
+		if(baseType instanceof B3MetaClass)
+			return Boolean.valueOf(((B3MetaClass) baseType).isAssignableFrom(fromType));
+		return null;
 	}
 
 	private static Class<?> getPrimitiveTypeReflectively(Class<?> objectType) {

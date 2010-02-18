@@ -126,36 +126,33 @@ public class BSystemContextImpl extends BExecutionContextImpl implements BSystem
 //		}
 //	}
 
-	private static class MethodCandidate extends TypeUtils.Candidate {
-
-		private Method method;
+	private static class MethodCandidate extends TypeUtils.AdaptingJavaCandidate<Method> {
 
 		public MethodCandidate(Method aMethod) {
-			method = aMethod;
+			super(aMethod);
 		}
 
 		@Override
-		protected boolean nameMatches(String name) {
-			return method.getName().equals(name);
+		public String getName() {
+			return adaptedObject.getName();
 		}
 
-		@Override
-		protected Class<?>[] getParameterTypes() {
-			return method.getParameterTypes();
-		}
-
-		@Override
-		protected boolean isVarArgs() {
-			return method.isVarArgs();
+		public boolean isVarArgs() {
+			return adaptedObject.isVarArgs();
 		}
 
 		public Method getMethod() {
-			return method;
+			return adaptedObject;
+		}
+
+		@Override
+		protected Type[] getJavaParameterTypes() {
+			return adaptedObject.getGenericParameterTypes();
 		}
 
 	}
 
-	private static class MethodCandidateSource implements Iterable<MethodCandidate> {
+	private static class MethodCandidateSource extends TypeUtils.CandidateSource<MethodCandidate> {
 
 		private class MethodCandidateIterator implements Iterator<MethodCandidate> {
 
@@ -194,10 +191,9 @@ public class BSystemContextImpl extends BExecutionContextImpl implements BSystem
 			throw new B3NoSuchFunctionSignatureException(methodName, types);
 
 		Class<?> objectType = TypeUtils.getRaw(types[0]);
-		Class<?>[] parameterTypes = new Class<?>[types.length - 1];
+		Type[] parameterTypes = new Type[types.length - 1];
 
-		for(int i = 1; i < types.length; ++i)
-			parameterTypes[i - 1] = TypeUtils.getRaw(types[i]);
+		System.arraycopy(types, 1, parameterTypes, 0, parameterTypes.length);
 
 		LinkedList<MethodCandidate> candidateMethods = TypeUtils.Candidate.findMostSpecificApplicableCandidates(
 				methodName, parameterTypes, new MethodCandidateSource(objectType));

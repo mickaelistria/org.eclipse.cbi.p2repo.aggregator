@@ -1719,6 +1719,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getIFunction_VarargArrayType() {
+		return (EAttribute)iFunctionEClass.getEStructuralFeatures().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getBCreateExpression_Alias() {
 		return (EAttribute)bCreateExpressionEClass.getEStructuralFeatures().get(0);
 	}
@@ -3274,6 +3283,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		createEReference(iFunctionEClass, IFUNCTION__TYPE_CALCULATOR);
 		createEReference(iFunctionEClass, IFUNCTION__CONTAINER);
 		createEAttribute(iFunctionEClass, IFUNCTION__CLASS_FUNCTION);
+		createEAttribute(iFunctionEClass, IFUNCTION__VARARG_ARRAY_TYPE);
 
 		bGuardEClass = createEClass(BGUARD);
 
@@ -3870,6 +3880,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEReference(getIFunction_TypeCalculator(), this.getBTypeCalculator(), null, "typeCalculator", null, 0, 1, IFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIFunction_Container(), this.getBFunctionContainer(), this.getBFunctionContainer_Functions(), "container", null, 0, 1, IFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIFunction_ClassFunction(), ecorePackage.getEBoolean(), "classFunction", null, 0, 1, IFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIFunction_VarargArrayType(), this.getType(), "varargArrayType", null, 0, 1, IFunction.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(iFunctionEClass, ecorePackage.getEJavaObject(), "call", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);

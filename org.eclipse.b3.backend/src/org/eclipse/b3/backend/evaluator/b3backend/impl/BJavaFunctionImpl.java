@@ -13,15 +13,13 @@ import java.lang.reflect.Type;
 import org.eclipse.b3.backend.evaluator.b3backend.B3Function;
 import org.eclipse.b3.backend.evaluator.b3backend.B3FunctionType;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
-import org.eclipse.b3.backend.evaluator.b3backend.BJavaCallType;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
+import org.eclipse.b3.backend.evaluator.b3backend.BJavaCallType;
 import org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction;
+import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
 import org.eclipse.core.runtime.OperationCanceledException;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -39,6 +37,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -259,6 +258,7 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 		result.append(')');
 		return result.toString();
 	}
+
 	/**
 	 * Overrides inherited calling by skipping the {@link #prepareCall(BExecutionContext, Object[], Type[])} step.
 	 * (The prepare call is normally not needed for calling java functions as it can operate directly on
@@ -272,45 +272,25 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 
 		return internalCall(ctx, parameters, types);
 	}
+
 	@Override
 	public Object internalCall(BExecutionContext ctx, Object[] parameters, Type[] types) throws Throwable {
 		try {
-		if(isSystemCall())
-			return method.invoke(null, ctx, parameters, types);
-		Object instance = null;
-		int start = 0; 
-		int vStart = -1; // no varargs copy needed
-		int pSize = getParameterTypes().length;
-		if(isMethodCall()) {
-			instance = parameters[0];
-			start = 1;
-			pSize--;
-			}
-		
-		int limit = parameters.length;
-		if(isVarArgs()) {
-			vStart = getParameterTypes().length-1;
-			if(vStart < limit)
-				limit = vStart;
-			}
-		if(start >= 1 || vStart >= 0) {
-			Object[] newParameters = new Object[pSize];
-			for(int i = start; i < limit; i++)
-				newParameters[i-start] = parameters[i];
-			if(vStart >= 0) {
-				Object[] variable = new Object[parameters.length-limit];
-				for(int j = 0, i = vStart; i < parameters.length;i++,j++)
-					variable[j] = parameters[i];
-				newParameters[limit-start] = variable;
-			}
-			parameters = newParameters;
-		}
+			if(isSystemCall())
+				return method.invoke(null, ctx, parameters, types);
 
-		return method.invoke(instance, parameters);
-		} catch (InvocationTargetException e) {
+			TypeUtils.JavaCandidate javaFunctionCandidate = (TypeUtils.JavaCandidate) FunctionCandidateAdapterFactory.eINSTANCE.adapt(this);
+
+			Object instance = javaFunctionCandidate.getInstanceParametersCount() > 0 ? parameters[0] : null;
+			Object[] callParameters = javaFunctionCandidate.prepareJavaCallParameters(types, parameters);
+
+			return method.invoke(instance, callParameters);
+		}
+		catch(InvocationTargetException e) {
 			throw e.getCause();
 		}
 	}
+
 	@Override
 	public Type getSignature() {
 		B3FunctionType t = (B3FunctionType)super.getSignature();

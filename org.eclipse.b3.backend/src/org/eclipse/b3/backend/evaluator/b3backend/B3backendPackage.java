@@ -1506,13 +1506,22 @@ public interface B3backendPackage extends EPackage {
 	int IFUNCTION__CLASS_FUNCTION = IGENERIC_DECLARATION_FEATURE_COUNT + 16;
 
 	/**
+	 * The feature id for the '<em><b>Vararg Array Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IFUNCTION__VARARG_ARRAY_TYPE = IGENERIC_DECLARATION_FEATURE_COUNT + 17;
+
+	/**
 	 * The number of structural features of the '<em>IFunction</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IFUNCTION_FEATURE_COUNT = IGENERIC_DECLARATION_FEATURE_COUNT + 17;
+	int IFUNCTION_FEATURE_COUNT = IGENERIC_DECLARATION_FEATURE_COUNT + 18;
 
 	/**
 	 * The number of structural features of the '<em>BGuard</em>' class.
@@ -1992,13 +2001,22 @@ public interface B3backendPackage extends EPackage {
 	int BFUNCTION__CLASS_FUNCTION = BEXPRESSION_FEATURE_COUNT + 16;
 
 	/**
+	 * The feature id for the '<em><b>Vararg Array Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BFUNCTION__VARARG_ARRAY_TYPE = BEXPRESSION_FEATURE_COUNT + 17;
+
+	/**
 	 * The number of structural features of the '<em>BFunction</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BFUNCTION_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 17;
+	int BFUNCTION_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 18;
 
 	/**
 	 * The feature id for the '<em><b>Visibility</b></em>' attribute.
@@ -2152,6 +2170,15 @@ public interface B3backendPackage extends EPackage {
 	 * @ordered
 	 */
 	int B3_FUNCTION__CLASS_FUNCTION = BFUNCTION__CLASS_FUNCTION;
+
+	/**
+	 * The feature id for the '<em><b>Vararg Array Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int B3_FUNCTION__VARARG_ARRAY_TYPE = BFUNCTION__VARARG_ARRAY_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Func Expr</b></em>' containment reference.
@@ -2323,6 +2350,15 @@ public interface B3backendPackage extends EPackage {
 	 * @ordered
 	 */
 	int BJAVA_FUNCTION__CLASS_FUNCTION = BFUNCTION__CLASS_FUNCTION;
+
+	/**
+	 * The feature id for the '<em><b>Vararg Array Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BJAVA_FUNCTION__VARARG_ARRAY_TYPE = BFUNCTION__VARARG_ARRAY_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Method</b></em>' attribute.
@@ -3662,13 +3698,22 @@ public interface B3backendPackage extends EPackage {
 	int BFUNCTION_WRAPPER__CLASS_FUNCTION = BEXPRESSION_FEATURE_COUNT + 16;
 
 	/**
+	 * The feature id for the '<em><b>Vararg Array Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BFUNCTION_WRAPPER__VARARG_ARRAY_TYPE = BEXPRESSION_FEATURE_COUNT + 17;
+
+	/**
 	 * The feature id for the '<em><b>Around Expr</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BFUNCTION_WRAPPER__AROUND_EXPR = BEXPRESSION_FEATURE_COUNT + 17;
+	int BFUNCTION_WRAPPER__AROUND_EXPR = BEXPRESSION_FEATURE_COUNT + 18;
 
 	/**
 	 * The feature id for the '<em><b>Original</b></em>' reference.
@@ -3677,7 +3722,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BFUNCTION_WRAPPER__ORIGINAL = BEXPRESSION_FEATURE_COUNT + 18;
+	int BFUNCTION_WRAPPER__ORIGINAL = BEXPRESSION_FEATURE_COUNT + 19;
 
 	/**
 	 * The feature id for the '<em><b>Parameter Map</b></em>' attribute.
@@ -3686,7 +3731,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BFUNCTION_WRAPPER__PARAMETER_MAP = BEXPRESSION_FEATURE_COUNT + 19;
+	int BFUNCTION_WRAPPER__PARAMETER_MAP = BEXPRESSION_FEATURE_COUNT + 20;
 
 	/**
 	 * The feature id for the '<em><b>Varargs Name</b></em>' attribute.
@@ -3695,7 +3740,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BFUNCTION_WRAPPER__VARARGS_NAME = BEXPRESSION_FEATURE_COUNT + 20;
+	int BFUNCTION_WRAPPER__VARARGS_NAME = BEXPRESSION_FEATURE_COUNT + 21;
 
 	/**
 	 * The number of structural features of the '<em>BFunction Wrapper</em>' class.
@@ -3704,7 +3749,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BFUNCTION_WRAPPER_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 21;
+	int BFUNCTION_WRAPPER_FEATURE_COUNT = BEXPRESSION_FEATURE_COUNT + 22;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BNamePredicateImpl <em>BName Predicate</em>}' class.
@@ -5313,6 +5358,17 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getIFunction_ClassFunction();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getVarargArrayType <em>Vararg Array Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Vararg Array Type</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.IFunction#getVarargArrayType()
+	 * @see #getIFunction()
+	 * @generated
+	 */
+	EAttribute getIFunction_VarargArrayType();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.b3.backend.evaluator.b3backend.BCreateExpression#getAlias <em>Alias</em>}'.
@@ -7771,6 +7827,14 @@ public interface B3backendPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute IFUNCTION__CLASS_FUNCTION = eINSTANCE.getIFunction_ClassFunction();
+
+		/**
+		 * The meta object literal for the '<em><b>Vararg Array Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute IFUNCTION__VARARG_ARRAY_TYPE = eINSTANCE.getIFunction_VarargArrayType();
 
 		/**
 		 * The meta object literal for the '<em><b>Alias</b></em>' attribute feature.

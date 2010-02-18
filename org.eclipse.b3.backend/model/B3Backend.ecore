@@ -354,6 +354,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="container" eType="#//BFunctionContainer"
         eOpposite="#//BFunctionContainer/functions"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="classFunction" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="varargArrayType" eType="#//Type"
+        transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BGuard" abstract="true">
     <eOperations name="accepts" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"

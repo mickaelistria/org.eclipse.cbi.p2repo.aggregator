@@ -11,6 +11,7 @@ import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.b3.backend.core.B3IncompatibleTypeException;
@@ -64,12 +65,15 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getTypeCalculator <em>Type Calculator</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getContainer <em>Container</em>}</li>
  * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#isClassFunction <em>Class Function</em>}</li>
+ * <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionImpl#getVarargArrayType <em>Vararg Array Type
+ * </em>}</li>
  * </ul>
  * </p>
  * 
  * @generated
  */
 public class BFunctionImpl extends BExpressionImpl implements BFunction {
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -376,6 +380,28 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 	protected boolean classFunction = CLASS_FUNCTION_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getVarargArrayType() <em>Vararg Array Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getVarargArrayType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Type VARARG_ARRAY_TYPE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getVarargArrayType() <em>Vararg Array Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getVarargArrayType()
+	 * @generated
+	 * @ordered
+	 */
+	protected Type varargArrayType = VARARG_ARRAY_TYPE_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -484,19 +510,6 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 		return internalCall(ctx, parameters, types);
 	}
 
-	protected void computeParameters() {
-		if(parameterNames == null || parameterTypes == null) {
-			EList<BParameterDeclaration> pList = getParameters();
-			parameterNames = new String[pList.size()];
-			parameterTypes = new Type[pList.size()];
-			int i = 0;
-			for(BParameterDeclaration p : pList) {
-				parameterNames[i] = p.getName();
-				parameterTypes[i++] = p.getType();
-			}
-		}
-	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -547,6 +560,8 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 				return B3backendPackage.IFUNCTION__CONTAINER;
 			case B3backendPackage.BFUNCTION__CLASS_FUNCTION:
 				return B3backendPackage.IFUNCTION__CLASS_FUNCTION;
+			case B3backendPackage.BFUNCTION__VARARG_ARRAY_TYPE:
+				return B3backendPackage.IFUNCTION__VARARG_ARRAY_TYPE;
 			default:
 				return -1;
 			}
@@ -620,6 +635,8 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 				return B3backendPackage.BFUNCTION__CONTAINER;
 			case B3backendPackage.IFUNCTION__CLASS_FUNCTION:
 				return B3backendPackage.BFUNCTION__CLASS_FUNCTION;
+			case B3backendPackage.IFUNCTION__VARARG_ARRAY_TYPE:
+				return B3backendPackage.BFUNCTION__VARARG_ARRAY_TYPE;
 			default:
 				return -1;
 			}
@@ -672,6 +689,8 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 			return getContainer();
 		case B3backendPackage.BFUNCTION__CLASS_FUNCTION:
 			return isClassFunction();
+		case B3backendPackage.BFUNCTION__VARARG_ARRAY_TYPE:
+			return getVarargArrayType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -771,6 +790,10 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 			return getContainer() != null;
 		case B3backendPackage.BFUNCTION__CLASS_FUNCTION:
 			return classFunction != CLASS_FUNCTION_EDEFAULT;
+		case B3backendPackage.BFUNCTION__VARARG_ARRAY_TYPE:
+			return VARARG_ARRAY_TYPE_EDEFAULT == null
+					? varargArrayType != null
+					: !VARARG_ARRAY_TYPE_EDEFAULT.equals(varargArrayType);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -837,19 +860,11 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 		case B3backendPackage.BFUNCTION__CLASS_FUNCTION:
 			setClassFunction((Boolean) newValue);
 			return;
+		case B3backendPackage.BFUNCTION__VARARG_ARRAY_TYPE:
+			setVarargArrayType((Type) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return B3backendPackage.Literals.BFUNCTION;
 	}
 
 	/**
@@ -912,6 +927,9 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 		case B3backendPackage.BFUNCTION__CLASS_FUNCTION:
 			setClassFunction(CLASS_FUNCTION_EDEFAULT);
 			return;
+		case B3backendPackage.BFUNCTION__VARARG_ARRAY_TYPE:
+			setVarargArrayType(VARARG_ARRAY_TYPE_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -920,7 +938,7 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 	 * Functions are literal and evaluate to self. When a function is evaluated, it also binds
 	 * to the context where it is defined.
 	 */
-	// @Override
+	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 		// if(getClosure() == null)
 		setClosure(ctx);
@@ -958,7 +976,7 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 		return (BFunctionContainer) eContainer();
 	}
 
-	// @Override
+	@Override
 	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
 		return getSignature();
 	}
@@ -1140,6 +1158,16 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 	 * 
 	 * @generated
 	 */
+	public Type getVarargArrayType() {
+		return varargArrayType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public Visibility getVisibility() {
 		return visibility;
 	}
@@ -1194,13 +1222,14 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 	 * @generated NOT
 	 */
 	public BExecutionContext prepareCall(BExecutionContext octx, Object[] parameters, Type[] types) throws Throwable {
-		computeParameters();
-		if(parameterTypes.length > 0) { // if function takes no parameters, there is no binding to be done
-			int limit = parameterTypes.length - 1; // bind all but the last defined parameter
+		Type[] functionParameterTypes = getParameterTypes();
+		if(functionParameterTypes.length > 0) { // if function takes no parameters, there is no binding to be done
+			int limit = functionParameterTypes.length - 1; // bind all but the last defined parameter
 			if(parameters.length < limit)
 				throw new IllegalArgumentException("B3 Function '" + getName() + "' "
-						+ "called with too few arguments. Expected: " + parameterTypes.length + " but got: "
+						+ "called with too few arguments. Expected: " + functionParameterTypes.length + " but got: "
 						+ parameters.length);
+			String[] functionParameterNames = getParameterNames();
 			for(int i = 0; i < limit; i++) {
 				// check type compatibility
 				Object o = parameters[i];
@@ -1208,34 +1237,35 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 						? ((BFunction) o).getSignature()
 						: o.getClass();
 
-				if(!(TypeUtils.isAssignableFrom(parameterTypes[i], t)))
-					throw new B3IncompatibleTypeException(parameterNames[i], parameterTypes[i].getClass(),
-							parameters[i].getClass());
+				if(!(TypeUtils.isAssignableFrom(functionParameterTypes[i], t)))
+					throw new B3IncompatibleTypeException(functionParameterNames[i],
+							functionParameterTypes[i].getClass(), parameters[i].getClass());
 				// ok, define it
-				octx.defineVariableValue(parameterNames[i], parameters[i], parameterTypes[i]);
+				octx.defineVariableValue(functionParameterNames[i], parameters[i], functionParameterTypes[i]);
 			}
 			if(!isVarArgs()) { // if not varargs, bind the last defined parameter
-				if(parameters.length < parameterTypes.length)
+				if(parameters.length < functionParameterTypes.length)
 					throw new IllegalArgumentException("B3 Function '" + getName() + "' "
-							+ "called with too few arguments. Expected: " + parameterTypes.length + " but got: "
-							+ parameters.length);
+							+ "called with too few arguments. Expected: " + functionParameterTypes.length
+							+ " but got: " + parameters.length);
 				// check type compatibility
 				Object o = parameters[limit];
 				if(o != null) {
 					Type t = o instanceof BFunction
 							? ((BFunction) o).getSignature()
 							: o.getClass();
-					if(!TypeUtils.isAssignableFrom(parameterTypes[limit], t))
-						throw new B3IncompatibleTypeException(parameterNames[limit], parameterTypes[limit].getClass(),
-								parameters[limit].getClass());
+					if(!TypeUtils.isAssignableFrom(functionParameterTypes[limit], t))
+						throw new B3IncompatibleTypeException(functionParameterNames[limit],
+								functionParameterTypes[limit].getClass(), parameters[limit].getClass());
 				}
 				// ok
-				octx.defineVariableValue(parameterNames[limit], parameters[limit], parameterTypes[limit]);
+				octx.defineVariableValue(functionParameterNames[limit], parameters[limit],
+						functionParameterTypes[limit]);
 			}
 			else {
 				// varargs call, create a list and stuff any remaining parameters there
 				List<Object> varargs = new ArrayList<Object>();
-				Type varargsType = parameterTypes[limit];
+				Type varargsType = functionParameterTypes[limit];
 				for(int i = limit; i < parameters.length; i++) {
 					Object o = parameters[i];
 					Type t = o instanceof BFunction
@@ -1243,15 +1273,15 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 							: o.getClass();
 
 					if(!TypeUtils.isAssignableFrom(varargsType, t))
-						throw new B3IncompatibleTypeException(parameterNames[limit], varargsType,
+						throw new B3IncompatibleTypeException(functionParameterNames[limit], varargsType,
 								parameters[i].getClass());
 					varargs.add(parameters[i]);
 				}
 				B3ParameterizedType pt = B3backendFactory.eINSTANCE.createB3ParameterizedType();
 				pt.setRawType(List.class);
-				pt.getActualArgumentsList().add(parameterTypes[limit]);
+				pt.getActualArgumentsList().add(functionParameterTypes[limit]);
 				// bind the varargs to a List of the declared type (possibly an empty list).
-				octx.defineVariableValue(parameterNames[limit], varargs, pt);
+				octx.defineVariableValue(functionParameterNames[limit], varargs, pt);
 			}
 		}
 		// mark the processing of parameters as done - (a bit ugly for now, as it requires getting the valueMap
@@ -1328,16 +1358,6 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION__DOCUMENTATION,
 					oldDocumentation, documentation));
 	}
-
-	// /**
-	// * <!-- begin-user-doc -->
-	// * This default implementation returns the same as {@link #getParameters()}.
-	// * <!-- end-user-doc -->
-	// * @generated NOT
-	// */
-	// public EList<BParameterDeclaration> getEffectiveParameters() {
-	// return getParameters();
-	// }
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1516,6 +1536,20 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 	 * 
 	 * @generated
 	 */
+	public void setVarargArrayType(Type newVarargArrayType) {
+		Type oldVarargArrayType = varargArrayType;
+		varargArrayType = newVarargArrayType;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3backendPackage.BFUNCTION__VARARG_ARRAY_TYPE,
+					oldVarargArrayType, varargArrayType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public void setVarArgs(boolean newVarArgs) {
 		boolean oldVarArgs = varArgs;
 		varArgs = newVarArgs;
@@ -1574,7 +1608,39 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 		result.append(documentation);
 		result.append(", classFunction: ");
 		result.append(classFunction);
+		result.append(", varargArrayType: ");
+		result.append(varargArrayType);
 		result.append(')');
 		return result.toString();
 	}
+
+	protected void computeParameters() {
+		if(parameterNames == null || parameterTypes == null) {
+			EList<BParameterDeclaration> pList = getParameters();
+			int pCount = pList.size();
+
+			parameterNames = new String[pCount];
+			parameterTypes = new Type[pCount];
+
+			Iterator<BParameterDeclaration> pIterator = pList.iterator();
+
+			for(int i = 0; i < pCount; ++i) {
+				BParameterDeclaration p = pIterator.next();
+				parameterNames[i] = p.getName();
+				parameterTypes[i] = p.getType();
+			}
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return B3backendPackage.Literals.BFUNCTION;
+	}
+
 } // BFunctionImpl

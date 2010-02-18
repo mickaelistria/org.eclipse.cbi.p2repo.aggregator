@@ -21,12 +21,10 @@ import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.B3FunctionImpl;
 import org.eclipse.b3.backend.evaluator.typesystem.TypeUtils;
-
+import org.eclipse.b3.build.build.B3BuildFactory;
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.BuildUnit;
 import org.eclipse.b3.build.build.Builder;
-
-import org.eclipse.b3.build.build.B3BuildFactory;
 import org.eclipse.b3.build.build.BuilderInput;
 import org.eclipse.b3.build.build.Capability;
 import org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade;
@@ -71,6 +69,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class BuilderImpl extends B3FunctionImpl implements Builder {
+
 	/**
 	 * The cached value of the '{@link #getProvidedCapabilities() <em>Provided Capabilities</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -831,6 +830,7 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 		ctx = prepareCall(ctx, parameters, types);
 		return new B3BuilderJob(ctx, this);
 	}
+
 	/**
 	 * Overrides the default - a Builder always returns a B3BuilderJob.
 	 */
@@ -838,27 +838,35 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
 		return B3BuilderJob.class;
 	}
+
 	@Override
 	protected void computeParameters() {
-		// TODO: Should react to changes in Parameters instead of doing this stupid thing
-		// and on changes to BuildUnitType
-		
-		if(parameterNames == null || parameterTypes == null) {
-			
+		// TODO: Should react to changes in Parameters instead of doing this
+		// stupid thing and on changes to BuildUnitType
+
+		if (parameterNames == null || parameterTypes == null) {
 			EList<BParameterDeclaration> pList = getParameters();
-			boolean insertUnit = !(pList.size() >= 1 && "unit".equals(pList.get(0).getName()));
-			parameterNames = new String[pList.size() + (insertUnit ? 1 : 0)];
-			parameterTypes = new Type[pList.size() + (insertUnit ? 1 : 0)];
-			int i = 0;
-			if(insertUnit) {
-				parameterTypes[i] = getUnitType();
-				parameterNames[i++] = "unit";
+			int pCount = pList.size();
+			int insertUnit = (pCount > 0 && "unit".equals(pList.get(0).getName())) ? 0 : 1;
+
+			pCount += insertUnit;
+
+			parameterNames = new String[pCount];
+			parameterTypes = new Type[pCount];
+
+			if (insertUnit > 0) {
+				parameterTypes[0] = getUnitType();
+				parameterNames[0] = "unit";
 			}
-			for(BParameterDeclaration p : pList) {
+
+			Iterator<BParameterDeclaration> pIterator = pList.iterator();
+
+			for (int i = insertUnit; i < pCount; ++i) {
+				BParameterDeclaration p = pIterator.next();
 				parameterNames[i] = p.getName();
-				parameterTypes[i++] = p.getType();
+				parameterTypes[i] = p.getType();
 			}
 		}
 	}
-	
+
 } //BuilderImpl

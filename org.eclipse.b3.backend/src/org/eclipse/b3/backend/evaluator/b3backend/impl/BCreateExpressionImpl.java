@@ -6,7 +6,6 @@
  */
 package org.eclipse.b3.backend.evaluator.b3backend.impl;
 
-import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Type;
 import java.util.Iterator;
@@ -339,31 +338,28 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 		return result.toString();
 	}
 
-	private static class ConstructorCandidate extends TypeUtils.Candidate {
+	private static class ConstructorCandidate extends TypeUtils.AdaptingJavaCandidate<Constructor<?>> {
 
-		private Constructor<?> constructor;
-
-		public ConstructorCandidate(Constructor<?> aMethod) {
-			constructor = aMethod;
+		public ConstructorCandidate(Constructor<?> aConstructor) {
+			super(aConstructor);
 		}
 
-		@Override
-		protected Class<?>[] getParameterTypes() {
-			return constructor.getParameterTypes();
-		}
-
-		@Override
-		protected boolean isVarArgs() {
-			return constructor.isVarArgs();
+		public boolean isVarArgs() {
+			return adaptedObject.isVarArgs();
 		}
 
 		public Constructor<?> getConstructor() {
-			return constructor;
+			return adaptedObject;
+		}
+
+		@Override
+		protected Type[] getJavaParameterTypes() {
+			return adaptedObject.getGenericParameterTypes();
 		}
 
 	}
 
-	private static class ConstructorCandidateSource implements Iterable<ConstructorCandidate> {
+	private static class ConstructorCandidateSource extends TypeUtils.CandidateSource<ConstructorCandidate> {
 
 		private class MethodCandidateIterator implements Iterator<ConstructorCandidate> {
 
@@ -395,71 +391,58 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 
 	}
 
+	private static Type[] getAllParameterTypes(Type objectType, Type[] parameterTypes) {
+		Type[] allParameterTypes = new Type[parameterTypes.length + 1];
+
+		allParameterTypes[0] = objectType;
+		System.arraycopy(parameterTypes, 0, allParameterTypes, 1, parameterTypes.length);
+
+		return allParameterTypes;
+	}
+
 	/**
 	 * Returns an instance of the Class represented by the type TODO: Should handle a type referring to an Ecore model.
 	 */
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
-		EList<BParameter> paramaterList = getParameterList().getParameters();
-		Type[] types = new Type[paramaterList.size() + 1];
-		Iterator<BParameter> parameterIterator;
-
-		types[0] = (Type) typeExpr.evaluate(ctx);
-		parameterIterator = paramaterList.iterator();
-		for(int i = 1; i < types.length; ++i)
-			types[i] = parameterIterator.next().getExpr().getDeclaredType(ctx);
-
-		Constructor<?> constructor;
+		Type objectType = (Type) typeExpr.evaluate(ctx);
+		Type[] parameterTypes;
+		Object[] parameters;
 
 		{
-			Class<?>[] parameterTypes = new Class<?>[types.length - 1];
+			EList<BParameter> paramaterList = getParameterList().getParameters();
+			Iterator<BParameter> parameterIterator = paramaterList.iterator();
+			int parameterCount = paramaterList.size();
 
-			for(int i = 1; i < types.length; ++i)
-				parameterTypes[i - 1] = TypeUtils.getRaw(types[i]);
+			parameterTypes = new Type[parameterCount];
+			parameters = new Object[parameterCount];
 
-			LinkedList<ConstructorCandidate> candidateConstructors = TypeUtils.Candidate
-					.findMostSpecificApplicableCandidates("new", parameterTypes, new ConstructorCandidateSource(
-							TypeUtils.getRaw(types[0])));
+			for(int i = 0; i < parameterCount; ++i) {
+				BExpression expression = parameterIterator.next().getExpr();
 
-			switch(candidateConstructors.size()) {
-			case 0: // no candidate constructor found
-				throw new B3NoSuchFunctionSignatureException("new", types);
-			case 1: // one candidate constructor found
-				constructor = candidateConstructors.getFirst().getConstructor();
-				break;
-			default: // more than one candidate constructor found (the constructor call is ambiguous)
-				throw new B3AmbiguousFunctionSignatureException("new", types);
+				parameterTypes[i] = expression.getDeclaredType(ctx);
+				parameters[i] = expression.evaluate(ctx);
 			}
 		}
 
-		Class<?>[] constructorParameterTypes = constructor.getParameterTypes();
-		Object[] callParameters = new Object[constructorParameterTypes.length];
+		ConstructorCandidate constructorCandidate;
+		{
+			LinkedList<ConstructorCandidate> candidateConstructors = TypeUtils.Candidate.findMostSpecificApplicableCandidates(
+					parameterTypes, new ConstructorCandidateSource(TypeUtils.getRaw(objectType)));
 
-		if(constructor.isVarArgs()
-				&& (types.length - 1 != constructorParameterTypes.length || !constructorParameterTypes[constructorParameterTypes.length - 1]
-						.isAssignableFrom(TypeUtils.getRaw(types[constructorParameterTypes.length])))) {
-
-			parameterIterator = paramaterList.iterator();
-			for(int i = 0; i < constructorParameterTypes.length - 1; ++i)
-				callParameters[i] = parameterIterator.next().getExpr().evaluate(ctx);
-
-			Class<?> varargComponentType = constructorParameterTypes[constructorParameterTypes.length - 1]
-					.getComponentType();
-
-			Object varargArray = Array
-					.newInstance(varargComponentType, types.length - constructorParameterTypes.length);
-
-			for(int i = 0; i < types.length - constructorParameterTypes.length; ++i)
-				Array.set(varargArray, i, parameterIterator.next().getExpr().evaluate(ctx));
-
-			callParameters[constructorParameterTypes.length - 1] = varargArray;
-		} else {
-			parameterIterator = paramaterList.iterator();
-			for(int i = 0; i < constructorParameterTypes.length; ++i)
-				callParameters[i] = parameterIterator.next().getExpr().evaluate(ctx);
+			switch(candidateConstructors.size()) {
+			case 0: // no candidate constructor found
+				throw new B3NoSuchFunctionSignatureException("new", getAllParameterTypes(objectType, parameterTypes));
+			case 1: // one candidate constructor found
+				constructorCandidate = candidateConstructors.getFirst();
+				break;
+			default: // more than one candidate constructor found (the constructor call is ambiguous)
+				throw new B3AmbiguousFunctionSignatureException("new", getAllParameterTypes(objectType, parameterTypes));
+			}
 		}
 
-		Object result = constructor.newInstance(callParameters);
+		Object[] callParameters = constructorCandidate.prepareJavaCallParameters(parameterTypes, parameters);
+		Object result = constructorCandidate.getConstructor().newInstance(callParameters);
 
 		// if creator has a contextBlock and alias, these needs to be processed
 		BExpression cBlock = getContextBlock();
@@ -474,7 +457,7 @@ public class BCreateExpressionImpl extends BParameterizedExpressionImpl implemen
 			// as an immutable value.
 			BExecutionContext iiCtx = iCtx.createInnerContext();
 			if(getAlias() != null && getAlias().length() > 0)
-				iiCtx.defineValue(getAlias(), result, types[0]);
+				iiCtx.defineValue(getAlias(), result, objectType);
 			cBlock.evaluate(iiCtx);
 		}
 		return result;

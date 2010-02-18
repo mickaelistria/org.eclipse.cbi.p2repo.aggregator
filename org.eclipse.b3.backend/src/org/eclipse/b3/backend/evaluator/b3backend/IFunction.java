@@ -43,6 +43,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getTypeCalculator <em>Type Calculator</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getContainer <em>Container</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#isClassFunction <em>Class Function</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getVarargArrayType <em>Vararg Array Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -496,6 +497,32 @@ public interface IFunction extends GenericDeclaration, BExpression {
 	 * @generated
 	 */
 	void setClassFunction(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Vararg Array Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Vararg Array Type</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Vararg Array Type</em>' attribute.
+	 * @see #setVarargArrayType(Type)
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage#getIFunction_VarargArrayType()
+	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.Type" transient="true" derived="true"
+	 * @generated
+	 */
+	Type getVarargArrayType();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getVarargArrayType <em>Vararg Array Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Vararg Array Type</em>' attribute.
+	 * @see #getVarargArrayType()
+	 * @generated
+	 */
+	void setVarargArrayType(Type value);
 
 	/**
 	 * <!-- begin-user-doc -->

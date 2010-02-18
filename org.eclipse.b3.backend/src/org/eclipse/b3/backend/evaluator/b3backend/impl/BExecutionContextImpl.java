@@ -12,6 +12,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.HashMap;
 import java.util.List;
@@ -334,6 +335,7 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 			p = p.getParentContext();
 		return p == null ? null : p.getFuncStore();
 	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * Loads static functions from a java class. Using B3Backend annotations to
@@ -343,168 +345,153 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 */
 	public void loadFunctions(Class<? extends Object> clazz) throws B3EngineException {
 		createFuncStore();
-		// load all static methods as functions
-		// (under the guidance of B3Backend annotations)
-		//
-		Method[] methods = clazz.getDeclaredMethods();
+
 		Map<String, BJavaFunction> systemFunctions = new HashMap<String, BJavaFunction>();
 		Map<String, BJavaFunction> guards = new HashMap<String, BJavaFunction>();
 		Map<String, BJavaFunction> typeCalculators = new HashMap<String, BJavaFunction>();
-		
-		Map<String,List<BJavaFunction>> systemProxies = new HashMap<String, List<BJavaFunction>>();
-		Map<String,List<BJavaFunction>> guardedFunctions = new HashMap<String, List<BJavaFunction>>();
-		Map<String,List<BJavaFunction>> typeCalculatedFunctions = new HashMap<String, List<BJavaFunction>>();
-		int counter = 0;
+
+		Map<String, List<BJavaFunction>> systemProxies = new HashMap<String, List<BJavaFunction>>();
+		Map<String, List<BJavaFunction>> guardedFunctions = new HashMap<String, List<BJavaFunction>>();
+		Map<String, List<BJavaFunction>> typeCalculatedFunctions = new HashMap<String, List<BJavaFunction>>();
 
 		// create and initialize a BJavaFunction to represent each public static function
-		for(Method m : methods) {
-			counter++; // start on 1
-			final int modifiers = m.getModifiers();
-			if(Modifier.isStatic(modifiers) && Modifier.isPublic(modifiers)) {
-				BJavaFunction f = B3backendFactory.eINSTANCE.createBJavaFunction();
-				// TODO: f's Resource ?!?
-//				String fileName = clazz.getCanonicalName();
-//				fileRef.setFileName(fileName == null ? "anonymous class" : fileName);
+		for(Method m : clazz.getDeclaredMethods()) {
+			// the call type of the function may later change to system call
+			BJavaFunction f = createJavaFunction(m, BJavaCallType.FUNCTION);
 
-				f.setName(m.getName());	// set original name (as default)
-				f.setFinal(Modifier.isFinal(modifiers)); // make it final in b3 as well
-				f.setCallType(BJavaCallType.FUNCTION); // may later change to system call
-				f.setMethod(m); // add the thing to call
+			if(f == null)
+				continue;
 
-				// check for annotations
-				B3Backend annotation = m.getAnnotation(B3Backend.class);
-				if(annotation != null) {
-					f.setExecutionMode(BackendHelper.getExecutionMode(annotation));
-					f.setVisibility(BackendHelper.getVisibility(annotation));
-					if(annotation.hideOriginal()) {
-						String[] names = annotation.funcNames();
-						if(names == null || names.length < 1)
-							throw new B3FunctionLoadException("hidesOriginal annotation specified but not funcNames annotation", m);
-						f.setName(names[0]);
-					}
-				}
-				f.setReturnType(m.getGenericReturnType());
-				f.setExceptionTypes(m.getGenericExceptionTypes());
-				f.setParameterTypes(m.getGenericParameterTypes());
-				f.setVarArgs(m.isVarArgs());
-				Annotation[][] pa = m.getParameterAnnotations();
-				String pNames[] = new String[pa.length];
-				f.setParameterNames(pNames);
-				for(int i = 0; i < pa.length; i++) {
-					Annotation[] pan = pa[i];
-					if(pan == null)
-						pNames[i] = String.valueOf('a'+i);
-					else {
-						for(int j = 0; j < pan.length; j++) {
-							if(pan[j] instanceof B3Backend) {
-								pNames[i]=((B3Backend)pan[j]).name();
-								break; // only use first named declared for the parameter
-							}
-						}
-					}
-				}
-				f.setTypeParameters(m.getTypeParameters());
+			// check for annotations
+			B3Backend annotation = m.getAnnotation(B3Backend.class);
 
-				// If the function is a system function - set it aside.
-				// if it is a function that is a specification of a system function,
-				// add it to a list of functions to patch after the fact.
-				// if it is a guard, set it aside and patch the functions using it after the fact
-				//
-				if(annotation != null && annotation.system()) {
-					systemFunctions.put(f.getName(), f);
-				}
-				else if (annotation != null && annotation.guard()) {
-					guards.put(f.getName(), f);
-					// guards are called using system calling convention
-					f.setCallType(BJavaCallType.SYSTEM);
-				}
-				else if (annotation != null && annotation.typeCalculator()) {
-					typeCalculators.put(f.getName(), f);
-				}
-				else {
-					// add defined function to the func store
-					if(annotation == null || !annotation.hideOriginal())
-						funcStore.defineFunction(m.getName(), f);
-					if(annotation != null)
-						for(String fname : annotation.funcNames())
-							funcStore.defineFunction(fname, f);
-					// if a function is a proxy for a system function
-					if(annotation != null && annotation.systemFunction() != null
-							&& annotation.systemFunction().length() > 0) {
-						String systemFunctionName = annotation.systemFunction();
-						List<BJavaFunction> fs = null;
-						if((fs = systemProxies.get(systemFunctionName)) == null)
-							systemProxies.put(systemFunctionName, fs = new ArrayList<BJavaFunction>());
-						fs.add(f);
-					}
-					// if a function is guarded remember it
-					if(annotation != null && annotation.guardFunction() != null && annotation.guardFunction().length() > 0) {
-						String guardFunctionName = annotation.guardFunction();
-						List<BJavaFunction> gf = null;
-						if((gf = guardedFunctions.get(guardFunctionName)) == null )
-							guardedFunctions.put(guardFunctionName, gf = new ArrayList<BJavaFunction>());
-						gf.add(f);
-					}
-					// if a function has a type calculator remember it
-					if(annotation != null && annotation.typeFunction() != null && annotation.typeFunction().length() > 0) {
-						String typeFunctionName = annotation.typeFunction();
-						List<BJavaFunction> tf = null;
-						if((tf = typeCalculatedFunctions.get(typeFunctionName)) == null )
-							typeCalculatedFunctions.put(typeFunctionName, tf = new ArrayList<BJavaFunction>());
-						tf.add(f);
-					}
+			// take a shortcut if there is no annotation
+			if(annotation == null) {
+				funcStore.defineFunction(m.getName(), f);
+				continue;
+			}
+
+			if(annotation.hideOriginal()) {
+				String[] names = annotation.funcNames();
+				if(names == null || names.length == 0)
+					throw new B3FunctionLoadException("hideOriginal annotation specified but not funcNames annotation",
+							m);
+				f.setName(names[0]);
+			}
+
+			f.setExecutionMode(BackendHelper.getExecutionMode(annotation));
+			f.setVisibility(BackendHelper.getVisibility(annotation));
+
+			// If the function is a system function, set it aside and patch the functions proxying it later.
+			if(annotation.system()) {
+				systemFunctions.put(f.getName(), f);
+				continue;
+			}
+
+			// If the function is a guard, set it aside and patch the functions using it later.
+			if(annotation.guard()) {
+				// guards are called using system calling convention
+				f.setCallType(BJavaCallType.SYSTEM);
+				guards.put(f.getName(), f);
+				continue;
+			}
+
+			// If the function is a type calculator, set it aside and patch the functions using it later.
+			if(annotation.typeCalculator()) {
+				typeCalculators.put(f.getName(), f);
+				continue;
+			}
+
+			// add defined function to the func store
+			if(!annotation.hideOriginal())
+				funcStore.defineFunction(m.getName(), f);
+			for(String fname : annotation.funcNames())
+				funcStore.defineFunction(fname, f);
+
+			// if a function is a proxy for a system function, remember it
+			{
+				String systemFunctionName = annotation.systemFunction();
+				if(systemFunctionName != null && systemFunctionName.length() > 0) {
+					List<BJavaFunction> fs = null;
+					if((fs = systemProxies.get(systemFunctionName)) == null)
+						systemProxies.put(systemFunctionName, fs = new ArrayList<BJavaFunction>());
+					fs.add(f);
 				}
 			}
 
+			// if a function is guarded, remember it
+			{
+				String guardFunctionName = annotation.guardFunction();
+				if(guardFunctionName != null && guardFunctionName.length() > 0) {
+					List<BJavaFunction> gf = null;
+					if((gf = guardedFunctions.get(guardFunctionName)) == null)
+						guardedFunctions.put(guardFunctionName, gf = new ArrayList<BJavaFunction>());
+					gf.add(f);
+				}
+			}
+
+			// if a function has a type calculator, remember it
+			{
+				String typeCalculatorFunctionName = annotation.typeFunction();
+				if(typeCalculatorFunctionName != null && typeCalculatorFunctionName.length() > 0) {
+					List<BJavaFunction> tf = null;
+					if((tf = typeCalculatedFunctions.get(typeCalculatorFunctionName)) == null)
+						typeCalculatedFunctions.put(typeCalculatorFunctionName, tf = new ArrayList<BJavaFunction>());
+					tf.add(f);
+				}
+			}
 		}
+
 		// patch system functions
 		// ---
 		// revisit all functions that reference a system function and replace their method
 		// with the system method, and also indicate that the call should be made as a system
 		// call.
-		for( Entry<String, List<BJavaFunction>> e : systemProxies.entrySet()) {
+		for(Entry<String, List<BJavaFunction>> e : systemProxies.entrySet()) {
 			for(BJavaFunction s : e.getValue()) {
 				BJavaFunction sys = systemFunctions.get(e.getKey());
 				if(sys == null)
-					throw new B3FunctionLoadException("reference to system function: "
-							+e.getKey()+" can not be satisfied - no such method found.", s.getMethod());
+					throw new B3FunctionLoadException("reference to system function: " + e.getKey()
+							+ " can not be satisfied - no such method found.", s.getMethod());
 				// patch the method in the func store with values from the system function
 				s.setCallType(BJavaCallType.SYSTEM);
 				s.setMethod(sys.getMethod());
 			}
 		}
+
 		// link guards
 		// ---
 		// revisit all functions that reference a guardFunction and set that function as a guard
 		// 
-		for( Entry<String, List<BJavaFunction>> e : guardedFunctions.entrySet()) {
+		for(Entry<String, List<BJavaFunction>> e : guardedFunctions.entrySet()) {
 			for(BJavaFunction guarded : e.getValue()) {
 				BJavaFunction g = guards.get(e.getKey());
 				if(g == null)
-					throw new B3FunctionLoadException("reference to guard function: "
-							+e.getKey()+" can not be satisfied - no such guard found.", guarded.getMethod());
+					throw new B3FunctionLoadException("reference to guard function: " + e.getKey()
+							+ " can not be satisfied - no such guard found.", guarded.getMethod());
 				// set the guard function, wrapped in a guard
 				BGuardFunction gf = B3backendFactory.eINSTANCE.createBGuardFunction();
 				gf.setFunc(g);
 				guarded.setGuard(gf);
 			}
-		}			
+		}
+
 		// link type calculators
 		// ---
 		// revisit all functions that reference a typeFunction and set that function as a typeCalculator
 		// 
-		for( Entry<String, List<BJavaFunction>> e : typeCalculatedFunctions.entrySet()) {
+		for(Entry<String, List<BJavaFunction>> e : typeCalculatedFunctions.entrySet()) {
 			for(BJavaFunction typed : e.getValue()) {
 				BJavaFunction tc = typeCalculators.get(e.getKey());
 				if(tc == null)
-					throw new B3FunctionLoadException("reference to type calculator function: "
-							+e.getKey()+" can not be satisfied - no such function found.", typed.getMethod());
+					throw new B3FunctionLoadException("reference to type calculator function: " + e.getKey()
+							+ " can not be satisfied - no such function found.", typed.getMethod());
 				// set the guard function, wrapped in a guard
 				BTypeCalculatorFunction tcf = B3backendFactory.eINSTANCE.createBTypeCalculatorFunction();
 				tcf.setFunc(tc);
 				typed.setTypeCalculator(tcf);
 			}
-		}			
+		}
 	}
 
 	/**
@@ -516,49 +503,132 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 */
 	public BJavaFunction loadFunction(Method m) throws B3EngineException {
 		createFuncStore();
-		final int modifiers = m.getModifiers();
-		boolean isStatic = Modifier.isStatic(modifiers);
-		// create and initialize a BJavaFunction to represent the method m
-		
-		if(Modifier.isPublic(modifiers)) {
-			BJavaFunction f = B3backendFactory.eINSTANCE.createBJavaFunction();
-			// TODO: f's resource ?
-			f.setName(m.getName());	
-			f.setFinal(Modifier.isFinal(modifiers)); // make it final in b3 as well
-			f.setClassFunction(isStatic); // invokable via class - i.e. "static" in java
-			f.setCallType(BJavaCallType.METHOD); // i.e. first parameter is not passed as parameter
-			f.setMethod(m); // add the thing to call
 
-			f.setReturnType(TypeUtils.objectify(m.getGenericReturnType()));
-			f.setExceptionTypes(m.getGenericExceptionTypes());
-			// set parameter types, but add the declaring class as the first parameter
-//			f.setParameterTypes(getGenericParameterTypes(m, isStatic));
-			f.setVarArgs(m.isVarArgs());
-			// there may be parameter annotations, but very unlikely - at least there is
-			// an empty array of parameter annotations, so can just as well use this
-			Annotation[][] pa = m.getParameterAnnotations();
-			String pNames[] = new String[pa.length + 1];
-//			f.setParameterNames(pNames);
-			pNames[0] = isStatic ? "aClass" : "this";
-			PARAMETER: for(int i = 0; i < pa.length; i++) {
-				Annotation[] pan = pa[i];
-				if(pan != null) {
-					for(int j = 0; j < pan.length; j++) {
-						if(pan[j] instanceof B3Backend) {
-							pNames[i+1]=((B3Backend)pan[j]).name();
-							continue PARAMETER; // only use first name declared for the parameter
+		BJavaFunction javaFunction = createJavaFunction(m, BJavaCallType.METHOD);
+		if(javaFunction != null)
+			funcStore.defineFunction(javaFunction.getName(), javaFunction);
+
+		return javaFunction;
+	}
+
+	private static BJavaFunction createJavaFunction(Method m, BJavaCallType callType) {
+		int modifiers = m.getModifiers();
+		boolean isStatic;
+
+		// only handle public methods and also require the methods to be static if the call type is different from
+		// BJavaCallType.METHOD
+		if(!(Modifier.isPublic(modifiers) && ((isStatic = Modifier.isStatic(modifiers)) || callType == BJavaCallType.METHOD)))
+			return null;
+
+		// create and initialize a BJavaFunction to represent the method m
+		BJavaFunction f = B3backendFactory.eINSTANCE.createBJavaFunction();
+
+		// TODO: f's Resource ?!?
+		// String fileName = m.getDeclaringClass().getCanonicalName();
+		// fileRef.setFileName(fileName == null ? "anonymous class" : fileName);
+
+		f.setName(m.getName());
+		f.setMethod(m); // add the thing to call
+		f.setFinal(Modifier.isFinal(modifiers)); // make it final in b3 as well
+		f.setCallType(callType);
+		f.setVarArgs(m.isVarArgs());
+		f.setTypeParameters(m.getTypeParameters());
+
+		Type[] instanceParameterTypes;
+		String[] instanceParameterNames;
+
+		if(callType == BJavaCallType.METHOD) {
+			// only set this for methods with call type == BJavaCallType.METHOD
+			f.setClassFunction(isStatic); // invokable via class - i.e. "static" in java
+			if(isStatic) {
+				B3MetaClass metaClass = B3backendFactory.eINSTANCE.createB3MetaClass();
+				metaClass.setInstanceClass(m.getDeclaringClass());
+				instanceParameterTypes = new Type[] { metaClass };
+				instanceParameterNames = new String[] { "class" };
+			}
+			else {
+				instanceParameterTypes = new Type[] { m.getDeclaringClass() };
+				instanceParameterNames = new String[] { "this" };
+			}
+		}
+		else {
+			instanceParameterTypes = null;
+			instanceParameterNames = null;
+		}
+
+		TypeUtils.JavaCandidate javaFunctionCandidate = (TypeUtils.JavaCandidate) FunctionCandidateAdapterFactory.eINSTANCE.adapt(f);
+		// this eventually calls f.setParameterTypes()
+		javaFunctionCandidate.processJavaParameterTypes(instanceParameterTypes);
+
+		f.setParameterNames(getParameterNames(m.getParameterAnnotations(), instanceParameterNames));
+
+		setParameterDeclarations(f);
+
+		f.setReturnType(TypeUtils.objectify(m.getGenericReturnType()));
+		f.setExceptionTypes(m.getGenericExceptionTypes());
+
+		return f;
+	}
+	private static void setParameterDeclarations(BJavaFunction f) {
+		Type[] types = f.getParameterTypes();
+		String[] names = f.getParameterNames();
+		if(types.length != names.length)
+			throw new IllegalArgumentException("All types must have a name");
+		EList<BParameterDeclaration> parameters = f.getParameters();
+		for(int i = 0; i < types.length; i++) {
+			BParameterDeclaration decl = B3backendFactory.eINSTANCE.createBParameterDeclaration();
+			Type type = types[i];
+			if(!(type instanceof EObject)) {
+				B3ParameterizedType b3type = B3backendFactory.eINSTANCE.createB3ParameterizedType();
+				b3type.setRawType(type);
+				types[i] = type = b3type; // modify the parameterTypes array as well to keep it in sync
+			}
+			decl.setType(type);
+			decl.setName(names[i]);
+			parameters.add(decl);
+		}
+	}
+	private static String[] getParameterNames(Annotation[][] allParametersAnnotations, String... instanceParameterNames) {
+		int instanceParameterNamesCount = instanceParameterNames != null
+				? instanceParameterNames.length
+				: 0;
+		String parameterNames[] = new String[instanceParameterNamesCount + allParametersAnnotations.length];
+		HashSet<String> usedNames = new HashSet<String>();
+		// first process the instance parameter names - don't allow duplicates
+		for(int i = 0 ; i < instanceParameterNamesCount; ++i) {
+			String name = instanceParameterNames[i];
+			if(!usedNames.contains(name)) {
+				parameterNames[i] = name;
+				usedNames.add(name);
+			}
+		}
+		// now look for parameter names defined by annotations - watch for duplicates again
+		for(int i = 0; i < allParametersAnnotations.length; ++i) {
+			Annotation[] parameterAnnotations = allParametersAnnotations[i];
+			if(parameterAnnotations != null) {
+				for(int j = 0; j < parameterAnnotations.length; ++j) {
+					if(parameterAnnotations[j] instanceof B3Backend) {
+						String name = ((B3Backend) parameterAnnotations[j]).name();
+						if(!usedNames.contains(name)) {
+							parameterNames[instanceParameterNamesCount + i] = name;
+							usedNames.add(name);
 						}
+						break; // only use first name declared for the parameter
 					}
 				}
-				pNames[i+1] = toAlphabetString(i);
 			}
-			setParameterDeclarations(f, getGenericParameterTypes(m, isStatic), pNames);
-			f.setTypeParameters(m.getTypeParameters());
-
-			funcStore.defineFunction(m.getName(), f);
-			return f;
 		}
-		return null;
+		// finally supply default unique names for those parameters which have no name assigned by now
+		for(int i = 0, j = 0; i < parameterNames.length; ++i) {
+			if(parameterNames[i] == null) {
+				String name;
+				while(usedNames.contains(name = toAlphabetString(j++)))
+					;
+				parameterNames[i] = name;
+				usedNames.add(name);
+			}
+		}
+		return parameterNames;
 	}
 	private static String toAlphabetString(long number) {
 		if(number < 0)
@@ -573,39 +643,6 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		buf.append((char) ('a' + (int) number));
 
 		return buf.reverse().toString();
-	}
-	private void setParameterDeclarations(IFunction f, Type[] types, String[] names) {
-		if(types.length != names.length) {
-			throw new IllegalArgumentException("All types must have a name");
-		}
-		EList<BParameterDeclaration> plist = f.getParameters();
-		for(int i = 0; i < types.length; i++) {
-			BParameterDeclaration decl = B3backendFactory.eINSTANCE.createBParameterDeclaration();
-			decl.setName(names[i]);
-			Type t = types[i];
-			if(!(t instanceof EObject)) {
-				B3ParameterizedType b3t = B3backendFactory.eINSTANCE.createB3ParameterizedType();
-				b3t.setRawType(t);
-				t = b3t;
-			}
-			decl.setType(t);
-			plist.add(decl);
-		}
-	}
-	private Type[] getGenericParameterTypes(Method m, boolean isStatic) {
-		Type[] original = m.getGenericParameterTypes();
-		Type[] rewritten = new Type[original.length + 1];
-		if (isStatic) {
-			B3MetaClass metaClass = B3backendFactory.eINSTANCE
-					.createB3MetaClass();
-			metaClass.setInstanceClass(m.getDeclaringClass());
-			rewritten[0] = metaClass;
-		} else {
-			rewritten[0] = m.getDeclaringClass();
-		}
-		for (int i = 0; i < original.length; i++)
-			rewritten[i + 1] = TypeUtils.objectify(original[i]);
-		return rewritten;
 	}
 
 	/**

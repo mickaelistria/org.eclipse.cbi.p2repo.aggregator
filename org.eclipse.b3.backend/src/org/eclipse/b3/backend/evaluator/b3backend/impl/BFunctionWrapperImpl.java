@@ -76,6 +76,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl#getTypeCalculator <em>Type Calculator</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl#getContainer <em>Container</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl#isClassFunction <em>Class Function</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl#getVarargArrayType <em>Vararg Array Type</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl#getAroundExpr <em>Around Expr</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl#getOriginal <em>Original</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl#getParameterMap <em>Parameter Map</em>}</li>
@@ -368,6 +369,26 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	 * @ordered
 	 */
 	protected boolean classFunction = CLASS_FUNCTION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getVarargArrayType() <em>Vararg Array Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVarargArrayType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Type VARARG_ARRAY_TYPE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getVarargArrayType() <em>Vararg Array Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVarargArrayType()
+	 * @generated
+	 * @ordered
+	 */
+	protected Type varargArrayType = VARARG_ARRAY_TYPE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getAroundExpr() <em>Around Expr</em>}' reference.
@@ -875,6 +896,24 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Type getVarargArrayType() {
+		return getOriginal().getVarargArrayType();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void setVarargArrayType(Type newVarargArrayType) {
+		throwImmutableException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public BExpression getAroundExpr() {
@@ -1187,6 +1226,8 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 				return getContainer();
 			case B3backendPackage.BFUNCTION_WRAPPER__CLASS_FUNCTION:
 				return isClassFunction();
+			case B3backendPackage.BFUNCTION_WRAPPER__VARARG_ARRAY_TYPE:
+				return getVarargArrayType();
 			case B3backendPackage.BFUNCTION_WRAPPER__AROUND_EXPR:
 				if (resolve) return getAroundExpr();
 				return basicGetAroundExpr();
@@ -1261,6 +1302,9 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 				return;
 			case B3backendPackage.BFUNCTION_WRAPPER__CLASS_FUNCTION:
 				setClassFunction((Boolean)newValue);
+				return;
+			case B3backendPackage.BFUNCTION_WRAPPER__VARARG_ARRAY_TYPE:
+				setVarargArrayType((Type)newValue);
 				return;
 			case B3backendPackage.BFUNCTION_WRAPPER__AROUND_EXPR:
 				setAroundExpr((BExpression)newValue);
@@ -1337,6 +1381,9 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 			case B3backendPackage.BFUNCTION_WRAPPER__CLASS_FUNCTION:
 				setClassFunction(CLASS_FUNCTION_EDEFAULT);
 				return;
+			case B3backendPackage.BFUNCTION_WRAPPER__VARARG_ARRAY_TYPE:
+				setVarargArrayType(VARARG_ARRAY_TYPE_EDEFAULT);
+				return;
 			case B3backendPackage.BFUNCTION_WRAPPER__AROUND_EXPR:
 				setAroundExpr((BExpression)null);
 				return;
@@ -1395,6 +1442,8 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 				return getContainer() != null;
 			case B3backendPackage.BFUNCTION_WRAPPER__CLASS_FUNCTION:
 				return classFunction != CLASS_FUNCTION_EDEFAULT;
+			case B3backendPackage.BFUNCTION_WRAPPER__VARARG_ARRAY_TYPE:
+				return VARARG_ARRAY_TYPE_EDEFAULT == null ? varargArrayType != null : !VARARG_ARRAY_TYPE_EDEFAULT.equals(varargArrayType);
 			case B3backendPackage.BFUNCTION_WRAPPER__AROUND_EXPR:
 				return aroundExpr != null;
 			case B3backendPackage.BFUNCTION_WRAPPER__ORIGINAL:
@@ -1438,6 +1487,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 				case B3backendPackage.BFUNCTION_WRAPPER__TYPE_CALCULATOR: return B3backendPackage.IFUNCTION__TYPE_CALCULATOR;
 				case B3backendPackage.BFUNCTION_WRAPPER__CONTAINER: return B3backendPackage.IFUNCTION__CONTAINER;
 				case B3backendPackage.BFUNCTION_WRAPPER__CLASS_FUNCTION: return B3backendPackage.IFUNCTION__CLASS_FUNCTION;
+				case B3backendPackage.BFUNCTION_WRAPPER__VARARG_ARRAY_TYPE: return B3backendPackage.IFUNCTION__VARARG_ARRAY_TYPE;
 				default: return -1;
 			}
 		}
@@ -1475,6 +1525,7 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 				case B3backendPackage.IFUNCTION__TYPE_CALCULATOR: return B3backendPackage.BFUNCTION_WRAPPER__TYPE_CALCULATOR;
 				case B3backendPackage.IFUNCTION__CONTAINER: return B3backendPackage.BFUNCTION_WRAPPER__CONTAINER;
 				case B3backendPackage.IFUNCTION__CLASS_FUNCTION: return B3backendPackage.BFUNCTION_WRAPPER__CLASS_FUNCTION;
+				case B3backendPackage.IFUNCTION__VARARG_ARRAY_TYPE: return B3backendPackage.BFUNCTION_WRAPPER__VARARG_ARRAY_TYPE;
 				default: return -1;
 			}
 		}
@@ -1513,6 +1564,8 @@ public class BFunctionWrapperImpl extends BExpressionImpl implements BFunctionWr
 		result.append(documentation);
 		result.append(", classFunction: ");
 		result.append(classFunction);
+		result.append(", varargArrayType: ");
+		result.append(varargArrayType);
 		result.append(", parameterMap: ");
 		result.append(parameterMap);
 		result.append(", varargsName: ");

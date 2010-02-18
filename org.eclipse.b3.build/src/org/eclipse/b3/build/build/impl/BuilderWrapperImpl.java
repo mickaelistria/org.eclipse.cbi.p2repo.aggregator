@@ -13,15 +13,12 @@ import java.util.Iterator;
 import java.util.Map;
 
 import org.eclipse.b3.backend.core.SerialIterator;
-import org.eclipse.b3.backend.core.SingletonIterator;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
-
 import org.eclipse.b3.backend.evaluator.b3backend.impl.BFunctionWrapperImpl;
-
 import org.eclipse.b3.build.build.B3BuildFactory;
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.BuildUnit;
@@ -35,17 +32,12 @@ import org.eclipse.b3.build.build.IBuilder;
 import org.eclipse.b3.build.build.IProvidedCapabilityContainer;
 import org.eclipse.b3.build.build.PathGroup;
 import org.eclipse.b3.build.build.Prerequisite;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -598,28 +590,39 @@ public class BuilderWrapperImpl extends BFunctionWrapperImpl implements BuilderW
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_WRAPPER__UNIT_TYPE, oldUnitType, unitType));
 
-		// Must copy and process original's parameters
-		// the full parameter declarations
+		// Must copy and process original's parameters the full parameter
+		// declarations
 		// (Must make copies as the parameter declarations are contained).
-		EList<BParameterDeclaration> myParameters = getParametersGen();
-		for(BParameterDeclaration pd : original.getParameters()) {
-			myParameters.add(BParameterDeclaration.class.cast(EcoreUtil.copy(pd)));
-			myParameters.get(0).setType(unitType);
-
-			// The cached types (since it is not possible to delegate to original
-			Type[] types = original.getParameterTypes();
-			types[0] = unitType;
-			setParameterTypesGen(types);
-
-			// parameter names are the same (first parameter is always called unit), but since it may not be in 
-			// the map (if unmatched by type rules, it must be remapped).
-			Map<String, String> pm = getParameterMap();
-			// unit is always mapped.
-			pm.put("unit", "unit");
+		EList<BParameterDeclaration> originalParameters = original
+				.getParameters();
+		EList<BParameterDeclaration> parameters = getParametersGen();
+		parameters.clear();
+		for (BParameterDeclaration pd : originalParameters) {
+			parameters.add((BParameterDeclaration) EcoreUtil.copy(pd));
 		}
+
+		// Must cache types (since it is not possible to delegate to original
+		Type[] originalTypes = original.getParameterTypes();
+		Type[] types = new Type[originalTypes.length];
+		System.arraycopy(originalParameters, 0, types, 0, originalTypes.length);
+
+		Map<String, String> parameterMap = getParameterMap();
+
+		if (originalParameters.size() > 0) {
+			parameters.get(0).setType(unitType);
+
+			types[0] = unitType;
+
+			// parameter names are the same (first parameter is always called
+			// unit), but since it may not be in the map (if unmatched by type
+			// rules, it must be re-mapped). unit is always mapped.
+			parameterMap.put("unit", "unit");
+		}
+
+		setParameterTypesGen(types);
 	}
 
-/**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
