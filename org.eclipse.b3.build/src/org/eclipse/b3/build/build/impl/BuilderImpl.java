@@ -14,9 +14,7 @@ import java.util.Iterator;
 import org.eclipse.b3.backend.core.B3InternalError;
 import org.eclipse.b3.backend.core.SerialIterator;
 import org.eclipse.b3.backend.core.SingletonIterator;
-import org.eclipse.b3.backend.evaluator.b3backend.B3ParameterizedType;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
-import org.eclipse.b3.backend.evaluator.b3backend.B3backendFactory;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionContainer;
 import org.eclipse.b3.backend.evaluator.b3backend.BParameterDeclaration;
@@ -862,31 +860,5 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 			}
 		}
 	}
-	
-//	@Override
-//	public EList<BParameterDeclaration> getParameters() {
-//		EList<BParameterDeclaration> originalParameters = super.getParameters();
-//
-//		// if the first parameter is called "unit" and is a BuildUnit instance, processing is done
-//		if(originalParameters.size() >= 1) {
-//			BParameterDeclaration p = originalParameters.get(0);
-//			if("unit".equals(p.getName())) 
-//				return originalParameters;
-////			&& TypeUtils.isAssignableFrom(p.getType(), BuildUnit.class))
-//		}
-//		// if unitType is defined, create the "unit" parameter
-//		Class<? extends BuildUnit> uType = getUnitType();
-//		if(uType != null) {
-//			BParameterDeclaration unitParameter = B3backendFactory.eINSTANCE.createBParameterDeclaration();
-//			unitParameter.setName("unit");
-//			B3ParameterizedType t = B3backendFactory.eINSTANCE.createB3ParameterizedType();
-//			t.setRawType(uType);
-//			unitParameter.setType(t);
-//			originalParameters.add(0, unitParameter);
-//		}
-//		return originalParameters;
-//	}
-
-	
 	
 } //BuilderImpl
