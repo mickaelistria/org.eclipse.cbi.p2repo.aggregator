@@ -217,7 +217,7 @@ public class BSystemContextImpl extends BExecutionContextImpl implements BSystem
 	public Type getDeclaredFunctionType(String functionName, Type[] types) throws Throwable {
 		Method m = findMethod(functionName, types);
 
-		return TypeUtils.objectify(m.getReturnType());
+		return TypeUtils.objectify(m.getGenericReturnType());
 	}
 
 } // BSystemContextImpl
