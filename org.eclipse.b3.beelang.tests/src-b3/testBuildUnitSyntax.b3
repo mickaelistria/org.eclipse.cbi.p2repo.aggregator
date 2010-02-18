@@ -98,7 +98,7 @@ concern TestingBuilderContextBody {
 		+ input when ($this.property.is.set) a / b /1.0.0 #foo ("hello", "goodbye");
 		- input a / b#c ;
 		- input _#x ;
-		+ output /a/basePath [ subpathA, subpathB/c];
+		+ output "http://somewhere.com/a/base%20Path" [ subpathA, subpathB/c];
 		- output ~/\/a\/b.*/;
 		- output /a/basePath [subpathX];
 	}
