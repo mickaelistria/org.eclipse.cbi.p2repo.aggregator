@@ -1106,7 +1106,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 		try {
 			if(matchParameters) {
 				TypePattern pattern = TypePattern.compile(getParameters());
-				Matcher matcher = pattern.match(b.getParameters());
+				Matcher matcher = pattern.match(b.getParameterTypes());
 				if(!matcher.isMatch())
 					return false;
 
@@ -1147,7 +1147,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * @throws B3EngineException
 	 */
 	private boolean weaveIfParametersMatch(TypePattern pattern, IBuilder b, BExecutionContext ctx, BuildUnit promoteToUnit) throws B3EngineException {
-		Matcher matcher = pattern.match(b.getParameters());
+		Matcher matcher = pattern.match(b.getParameterTypes());
 		if(matchParameters && !matcher.isMatch())
 			return false;
 

@@ -953,8 +953,11 @@ public class BFunctionImpl extends BExpressionImpl implements BFunction {
 		t.setVarArgs(isVarArgs());
 		t.setTypeCalculator(getTypeCalculator());
 		EList<Type> pt = t.getParameterTypes();
-		for(BParameterDeclaration p : getParameters())
-			pt.add(p.getType());
+		Type[] ptarray = getParameterTypes();
+		for(int i = 0; i < ptarray.length; i++)
+			pt.add(ptarray[i]);
+//		for(BParameterDeclaration p : getParameters())
+//			pt.add(p.getType());
 		return t;
 	}
 
