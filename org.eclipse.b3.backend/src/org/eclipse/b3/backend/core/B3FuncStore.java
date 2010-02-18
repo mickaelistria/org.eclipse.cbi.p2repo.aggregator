@@ -586,27 +586,27 @@ public class B3FuncStore {
 		return true;
 	}
 
-	/**
-	 * Computes the specificity distance of the function.
-	 * 
-	 * @param f
-	 * @param types
-	 * @return parameter distance from stated types - 0 is most specific
-	 */
-	public int specificity(IFunction f, Type[] types) {
-		Type[] pt = f.getParameterTypes();
-		int distance = 0;
-		for(int i = 0; i < pt.length; i++)
-			distance += TypeUtils.typeDistance(pt[i], types[i]);
-		//		
-		// Class ptc = pt[i].getClass();
-		// if(ptc.isInterface())
-		// distance += (1+TypeUtils.interfaceDistance(ptc, types[i]));
-		// else
-		// distance += TypeUtils.classDistance(ptc, types[i]);
-		// }
-		return distance;
-	}
+//	/**
+//	 * Computes the specificity distance of the function.
+//	 * 
+//	 * @param f
+//	 * @param types
+//	 * @return parameter distance from stated types - 0 is most specific
+//	 */
+//	public int specificity(IFunction f, Type[] types) {
+//		Type[] pt = f.getParameterTypes();
+//		int distance = 0;
+//		for(int i = 0; i < pt.length; i++)
+//			distance += TypeUtils.typeDistance(pt[i], types[i]);
+//		//		
+//		// Class ptc = pt[i].getClass();
+//		// if(ptc.isInterface())
+//		// distance += (1+TypeUtils.interfaceDistance(ptc, types[i]));
+//		// else
+//		// distance += TypeUtils.classDistance(ptc, types[i]);
+//		// }
+//		return distance;
+//	}
 
 	public void undefineFunction(String name, BFunction func) {
 		dirtyFunctions.add(name);

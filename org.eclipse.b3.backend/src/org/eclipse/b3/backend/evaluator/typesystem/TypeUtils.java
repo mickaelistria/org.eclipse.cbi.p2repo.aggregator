@@ -479,8 +479,8 @@ public class TypeUtils {
 			else
 				varargArrayType = null;
 
-			setVarargArrayType(varargArrayType);
 			setParameterTypes(parameterTypes);
+			setVarargArrayType(varargArrayType);
 
 			instanceParametersCount = instanceParameterTypesCount;
 		}
@@ -490,18 +490,6 @@ public class TypeUtils {
 		protected abstract void setParameterTypes(Type[] types);
 
 		protected abstract void setVarargArrayType(Type type);
-
-	}
-
-	public interface JavaParameterContainer {
-
-		Type[] getJavaParameterTypes();
-
-		boolean isVarArgs();
-
-		void setParameterTypes(Type[] types);
-
-		void setVarargParameterArrayType(Type type);
 
 	}
 
@@ -563,23 +551,23 @@ public class TypeUtils {
 		}
 	}
 
-	/**
-	 * Computes the specificity distance of a class
-	 * 
-	 * @param ptc
-	 * @param pc
-	 * @return
-	 */
-	@SuppressWarnings({ "rawtypes" })
-	public static int classDistance(Class ptc, Class pc) {
-		if(pc == null)
-			throw new IllegalArgumentException("Internal error: type is not a specialization of the class");
-		if(ptc == pc)
-			return 0;
-		if(pc.isInterface())
-			return classDistance(ptc, Object.class) + 1;
-		return classDistance(ptc, pc.getSuperclass()) + 1;
-	}
+	// /**
+	// * Computes the specificity distance of a class
+	// *
+	// * @param ptc
+	// * @param pc
+	// * @return
+	// */
+	// @SuppressWarnings({ "rawtypes" })
+	// public static int classDistance(Class ptc, Class pc) {
+	// if(pc == null)
+	// throw new IllegalArgumentException("Internal error: type is not a specialization of the class");
+	// if(ptc == pc)
+	// return 0;
+	// if(pc.isInterface())
+	// return classDistance(ptc, Object.class) + 1;
+	// return classDistance(ptc, pc.getSuperclass()) + 1;
+	// }
 
 	public static Type getArrayComponentType(Type type) {
 		Type arrayType = type;
@@ -624,7 +612,7 @@ public class TypeUtils {
 
 	public static Type getCommonSuperType(Type[] types) {
 		TypeDistance td = null;
-		;
+
 		synchronized(lock) {
 			td = typeDistance.get();
 			if(td == null)
@@ -693,31 +681,32 @@ public class TypeUtils {
 		throw new UnsupportedOperationException("UNSUPPORTED TYPE CLASS - was: " + t);
 	}
 
-	/**
-	 * Returns the (best) specificity distance for an interface. (A class may restate its implementation of an inherited
-	 * interface - this will give a shorter distance).
-	 * 
-	 * @param ptc
-	 * @param pc
-	 * @return
-	 */
-	@SuppressWarnings("rawtypes")
-	public static int interfaceDistance(Class ptc, Class pc) {
-		if(ptc == pc)
-			return 0;
-		int best = Integer.MAX_VALUE;
-		for(Class i : pc.getInterfaces()) {
-			int distance = interfaceDistance(ptc, i);
-			if(distance < best) {
-				best = distance;
-				if(best == 0)
-					break; // unbeatable
-			}
-		}
-		return best != Integer.MAX_VALUE
-				? best + 1
-				: best;
-	}
+	// /**
+	// * Returns the (best) specificity distance for an interface. (A class may restate its implementation of an
+	// inherited
+	// * interface - this will give a shorter distance).
+	// *
+	// * @param ptc
+	// * @param pc
+	// * @return
+	// */
+	// @SuppressWarnings("rawtypes")
+	// public static int interfaceDistance(Class ptc, Class pc) {
+	// if(ptc == pc)
+	// return 0;
+	// int best = Integer.MAX_VALUE;
+	// for(Class i : pc.getInterfaces()) {
+	// int distance = interfaceDistance(ptc, i);
+	// if(distance < best) {
+	// best = distance;
+	// if(best == 0)
+	// break; // unbeatable
+	// }
+	// }
+	// return best != Integer.MAX_VALUE
+	// ? best + 1
+	// : best;
+	// }
 
 	public static boolean isArray(Type baseType) {
 		if(baseType instanceof B3ParameterizedType)
@@ -774,12 +763,12 @@ public class TypeUtils {
 				: objectType;
 	}
 
-	public static int typeDistance(Type baseType, Type queriedType) {
-		Class<?> baseClass = getRaw(baseType);
-		if(baseClass.isInterface())
-			return interfaceDistance(baseClass, getRaw(queriedType));
-		return classDistance(baseClass, getRaw(queriedType));
-	}
+	// public static int typeDistance(Type baseType, Type queriedType) {
+	// Class<?> baseClass = getRaw(baseType);
+	// if(baseClass.isInterface())
+	// return interfaceDistance(baseClass, getRaw(queriedType));
+	// return classDistance(baseClass, getRaw(queriedType));
+	// }
 
 	protected static Class<?> getRaw(GenericArrayType type) {
 		StringBuilder rawArrayClassName = new StringBuilder();
