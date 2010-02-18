@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: b3 Aggregator Editor
+Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.b3.aggregator.editor;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.eclipse.b3.aggregator.presentation.AggregatorEditorPlugin$Implementation
 Bundle-Localization: plugin
@@ -10,8 +10,8 @@ Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.eclipse.b3.aggregator.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
- org.eclipse.b3.aggregator.edit;visibility:=reexport,
- org.eclipse.b3.aggregator.engine;visibility:=reexport,
+ org.eclipse.b3.aggregator.edit;bundle-version="0.1.0";visibility:=reexport,
+ org.eclipse.b3.aggregator.engine;bundle-version="0.1.0";visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.emf.edit.ui;visibility:=reexport,
  org.eclipse.ui.ide;visibility:=reexport,
@@ -22,6 +22,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ui.workbench.texteditor;bundle-version="3.3.0",
  org.eclipse.jface.text;bundle-version="3.3.0",
  org.eclipse.core.expressions;bundle-version="3.4.100",
- org.eclipse.b3.cli;bundle-version="1.0.0",
- org.eclipse.b3.util;bundle-version="1.0.0"
+ org.eclipse.b3.cli;bundle-version="0.1.0",
+ org.eclipse.b3.util;bundle-version="0.1.0"
 Bundle-ActivationPolicy: lazy
+Bundle-Vendor: %providerName
