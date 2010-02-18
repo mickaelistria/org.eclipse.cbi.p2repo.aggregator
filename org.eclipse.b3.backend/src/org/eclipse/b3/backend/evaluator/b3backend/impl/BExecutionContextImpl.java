@@ -327,13 +327,15 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 	 * @return
 	 */
 	protected B3FuncStore getEffectiveFuncStore() {
-		B3FuncStore fs = getFuncStore();
-		if(fs != null)
-			return fs;
-		BExecutionContext p = getParentContext();
-		while(p != null && p.getFuncStore() == null)
-			p = p.getParentContext();
-		return p == null ? null : p.getFuncStore();
+		BExecutionContext p = this;
+		B3FuncStore fs;
+
+		do {
+			if((fs = p.getFuncStore()) != null)
+				return fs;
+		} while((p = p.getParentContext()) != null);
+
+		return null;
 	}
 
 	/**
@@ -625,7 +627,8 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 				while(usedNames.contains(name = toAlphabetString(j++)))
 					;
 				parameterNames[i] = name;
-				usedNames.add(name);
+				// usedNames.add(name); // this is not necessary as the toAlphabetString(j++) will not produce
+				// duplicates
 			}
 		}
 		return parameterNames;
