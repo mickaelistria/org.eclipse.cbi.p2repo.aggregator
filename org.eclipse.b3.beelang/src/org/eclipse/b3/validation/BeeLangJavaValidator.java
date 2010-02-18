@@ -6,6 +6,7 @@ import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.Builder;
 import org.eclipse.b3.build.build.BuilderConcernContext;
 import org.eclipse.b3.backend.core.TypePattern;
+import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
 import org.eclipse.b3.backend.evaluator.b3backend.BFunctionConcernContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BProceedExpression;
@@ -75,6 +76,20 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator {
 		TypePattern.compile(fcc.getParameters());
 		} catch(Throwable t) {
 			error(t.getMessage(), fcc, B3backendPackage.BFUNCTION_CONCERN_CONTEXT__PARAMETERS);
+		}
+	}
+	
+	/**
+	 * Validate that import references a class that can be loaded.
+	 */
+	@Check
+	public void checkImportability(B3JavaImport jimport) {
+		try { 
+			if(jimport.getType() == null)
+				error("Could not import type", jimport, B3backendPackage.B3_JAVA_IMPORT__QUALIFIED_NAME);
+				
+		} catch(Throwable t) {
+			error(t.getMessage(), jimport, B3backendPackage.B3_JAVA_IMPORT__QUALIFIED_NAME);
 		}
 	}
 }
