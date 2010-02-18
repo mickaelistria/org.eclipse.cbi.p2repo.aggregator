@@ -23,7 +23,6 @@ import java.util.Set;
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.index.TermEnum;
-import org.codehaus.plexus.DefaultPlexusContainer;
 import org.codehaus.plexus.PlexusContainer;
 import org.eclipse.b3.aggregator.engine.maven.MavenActivator;
 import org.eclipse.b3.aggregator.engine.maven.VersionUtil;
@@ -188,10 +187,7 @@ public class MavenNexusIndexer implements IMaven2Indexer {
 		}
 		File indexDirectory = new File(cacheDirectory, "index");
 		try {
-			// TODO How to refactor this?
-			// MavenEmbedder embedder = getMavenEmbedder();
-			// PlexusContainer plexus = embedder.getPlexusContainer();
-			PlexusContainer plexus = new DefaultPlexusContainer();
+			PlexusContainer plexus = Activator.getPlugin().getPlexusContainer();
 
 			NexusIndexer indexer = plexus.lookup(NexusIndexer.class);
 			IndexUpdater updater = plexus.lookup(IndexUpdater.class);
@@ -227,10 +223,7 @@ public class MavenNexusIndexer implements IMaven2Indexer {
 
 	public void updateLocalIndex(URI location, boolean createNew) throws CoreException {
 		try {
-			// TODO How to refactor this?
-			// MavenEmbedder embedder = getMavenEmbedder();
-			// PlexusContainer plexus = embedder.getPlexusContainer();
-			PlexusContainer plexus = new DefaultPlexusContainer();
+			PlexusContainer plexus = Activator.getPlugin().getPlexusContainer();
 
 			NexusIndexer indexer = plexus.lookup(NexusIndexer.class);
 			IndexPacker packer = plexus.lookup(IndexPacker.class);
@@ -264,29 +257,4 @@ public class MavenNexusIndexer implements IMaven2Indexer {
 			throw ExceptionUtils.fromMessage(e, "Unable to create an index for %s", location.toString());
 		}
 	}
-
-	/*
-	 * TODO How to refactor this?
-	 * private MavenEmbedder getMavenEmbedder() throws CoreException {
-	 * Configuration configuration = new DefaultConfiguration();
-	 * ConfigurationValidationResult validationResult = MavenEmbedder.validateConfiguration(configuration);
-	 * 
-	 * if(validationResult.isValid()) {
-	 * try {
-	 * return new MavenEmbedder(configuration);
-	 * }
-	 * catch(MavenEmbedderException e) {
-	 * throw ExceptionUtils.fromMessage(e, "Error obtaining a maven embedder");
-	 * }
-	 * }
-	 * else {
-	 * if(validationResult.getGlobalSettingsException() != null)
-	 * throw ExceptionUtils.fromMessage(validationResult.getGlobalSettingsException().getMessage());
-	 * else if(validationResult.getUserSettingsException() != null)
-	 * throw ExceptionUtils.fromMessage(validationResult.getUserSettingsException().getMessage());
-	 * else
-	 * throw ExceptionUtils.fromMessage("Maven configuration is not valid");
-	 * }
-	 * }
-	 */
 }
