@@ -226,8 +226,6 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (valueMap: ");
 		result.append(valueMap);
-		result.append(" pathVectors: ");
-		result.append(getPathVectors().toString());
 		result.append(')');
 		return result.toString();
 	}

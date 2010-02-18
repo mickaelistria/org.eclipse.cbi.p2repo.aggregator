@@ -268,6 +268,11 @@ public class BeeLangTerminalConverters extends  AbstractDeclarativeValueConverte
 
 		};
 	}
+	@ValueConverter(rule = "Path")
+	public IValueConverter<URI> Path() { 
+		return URI();
+	}
+	
 	@ValueConverter(rule = "VersionLiteral")
 	public IValueConverter<Version> Version() {
 		return new IValueConverter<Version>() {

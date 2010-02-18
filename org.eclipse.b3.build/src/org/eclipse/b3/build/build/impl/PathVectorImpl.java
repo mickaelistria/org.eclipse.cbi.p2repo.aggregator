@@ -6,21 +6,16 @@
  */
 package org.eclipse.b3.build.build.impl;
 
+import java.net.URI;
 import java.util.Collection;
-
-import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.PathVector;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -49,7 +44,7 @@ public class PathVectorImpl extends EObjectImpl implements PathVector {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<String> paths;
+	protected EList<URI> paths;
 
 	/**
 	 * The default value of the '{@link #getBasePath() <em>Base Path</em>}' attribute.
@@ -59,7 +54,7 @@ public class PathVectorImpl extends EObjectImpl implements PathVector {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String BASE_PATH_EDEFAULT = null;
+	protected static final URI BASE_PATH_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getBasePath() <em>Base Path</em>}' attribute.
@@ -69,7 +64,7 @@ public class PathVectorImpl extends EObjectImpl implements PathVector {
 	 * @generated
 	 * @ordered
 	 */
-	protected String basePath = BASE_PATH_EDEFAULT;
+	protected URI basePath = BASE_PATH_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -95,7 +90,7 @@ public class PathVectorImpl extends EObjectImpl implements PathVector {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getBasePath() {
+	public URI getBasePath() {
 		return basePath;
 	}
 
@@ -104,8 +99,8 @@ public class PathVectorImpl extends EObjectImpl implements PathVector {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBasePath(String newBasePath) {
-		String oldBasePath = basePath;
+	public void setBasePath(URI newBasePath) {
+		URI oldBasePath = basePath;
 		basePath = newBasePath;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.PATH_VECTOR__BASE_PATH, oldBasePath, basePath));
@@ -116,9 +111,9 @@ public class PathVectorImpl extends EObjectImpl implements PathVector {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<String> getPaths() {
+	public EList<URI> getPaths() {
 		if (paths == null) {
-			paths = new EDataTypeUniqueEList<String>(String.class, this, B3BuildPackage.PATH_VECTOR__PATHS);
+			paths = new EDataTypeUniqueEList<URI>(URI.class, this, B3BuildPackage.PATH_VECTOR__PATHS);
 		}
 		return paths;
 	}
@@ -150,10 +145,10 @@ public class PathVectorImpl extends EObjectImpl implements PathVector {
 		switch (featureID) {
 			case B3BuildPackage.PATH_VECTOR__PATHS:
 				getPaths().clear();
-				getPaths().addAll((Collection<? extends String>)newValue);
+				getPaths().addAll((Collection<? extends URI>)newValue);
 				return;
 			case B3BuildPackage.PATH_VECTOR__BASE_PATH:
-				setBasePath((String)newValue);
+				setBasePath((URI)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

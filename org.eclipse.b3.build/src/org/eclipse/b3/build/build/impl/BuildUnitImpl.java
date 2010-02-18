@@ -7,6 +7,7 @@
 package org.eclipse.b3.build.build.impl;
 
 import java.lang.reflect.Type;
+import java.net.URI;
 import java.util.Collection;
 import java.util.Iterator;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
@@ -68,6 +69,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getRepositories <em>Repositories</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getContainers <em>Containers</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getPropertySets <em>Property Sets</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getBaseLocation <em>Base Location</em>}</li>
  * </ul>
  * </p>
  *
@@ -210,6 +212,25 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * @ordered
 	 */
 	protected EList<BPropertySet> propertySets;
+
+	/**
+	 * The default value of the '{@link #getBaseLocation() <em>Base Location</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBaseLocation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final URI BASE_LOCATION_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getBaseLocation() <em>Base Location</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBaseLocation()
+	 * @generated
+	 * @ordered
+	 */
+	protected URI baseLocation = BASE_LOCATION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -458,6 +479,27 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public URI getBaseLocation() {
+		return baseLocation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBaseLocation(URI newBaseLocation) {
+		URI oldBaseLocation = baseLocation;
+		baseLocation = newBaseLocation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILD_UNIT__BASE_LOCATION, oldBaseLocation, baseLocation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * Returns a Facade containing the effective and advised view of the BuildUnit (provided, required,
 	 * and meta required capabilities). Filters are evaluated and advice is applied. 
 	 * See {@link EffectiveUnitFacade} for more information.
@@ -631,6 +673,8 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				return getContainers();
 			case B3BuildPackage.BUILD_UNIT__PROPERTY_SETS:
 				return getPropertySets();
+			case B3BuildPackage.BUILD_UNIT__BASE_LOCATION:
+				return getBaseLocation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -693,6 +737,9 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				getPropertySets().clear();
 				getPropertySets().addAll((Collection<? extends BPropertySet>)newValue);
 				return;
+			case B3BuildPackage.BUILD_UNIT__BASE_LOCATION:
+				setBaseLocation((URI)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -744,6 +791,9 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 			case B3BuildPackage.BUILD_UNIT__PROPERTY_SETS:
 				getPropertySets().clear();
 				return;
+			case B3BuildPackage.BUILD_UNIT__BASE_LOCATION:
+				setBaseLocation(BASE_LOCATION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -784,6 +834,8 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				return containers != null && !containers.isEmpty();
 			case B3BuildPackage.BUILD_UNIT__PROPERTY_SETS:
 				return propertySets != null && !propertySets.isEmpty();
+			case B3BuildPackage.BUILD_UNIT__BASE_LOCATION:
+				return BASE_LOCATION_EDEFAULT == null ? baseLocation != null : !BASE_LOCATION_EDEFAULT.equals(baseLocation);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -858,6 +910,8 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 		result.append(documentation);
 		result.append(", executionMode: ");
 		result.append(executionMode);
+		result.append(", baseLocation: ");
+		result.append(baseLocation);
 		result.append(')');
 		return result.toString();
 	}

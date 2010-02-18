@@ -1,28 +1,28 @@
 package org.eclipse.b3.build.core;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.eclipse.b3.backend.core.B3URIUtils;
 import org.eclipse.b3.backend.core.SerialIterator;
 import org.eclipse.b3.build.build.BuildResult;
 import org.eclipse.b3.build.build.ConditionalPathVector;
 import org.eclipse.b3.build.build.PathGroup;
 import org.eclipse.b3.build.build.PathVector;
-import org.eclipse.core.runtime.IPath;
-import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.EList;
 
-public class PathIterator implements Iterator<IPath> {
+public class PathIterator implements Iterator<URI> {
 	
-	private Iterator<IPath> itor;
+	private Iterator<URI> itor;
 	
 	/**
 	 * Returns paths from a PathGroup (i.e. "builder output") - NO EVALUATION OF FILTERS !!
 	 * @param pathGroup
 	 */
 	public PathIterator(PathGroup pathGroup) {
-		SerialIterator<IPath> sitor = new SerialIterator<IPath>();
+		SerialIterator<URI> sitor = new SerialIterator<URI>();
 		for(ConditionalPathVector cpv : pathGroup.getPathVectors())
 			sitor.addIterator(new PathIterator(cpv));
 		itor = sitor;
@@ -36,7 +36,7 @@ public class PathIterator implements Iterator<IPath> {
 		if(pvs.size() == 1)
 			itor = new PathVectorIterator(pvs.get(0));
 		else {
-			SerialIterator<IPath> sitor = new SerialIterator<IPath>();
+			SerialIterator<URI> sitor = new SerialIterator<URI>();
 			for(PathVector pv : pvs)
 				sitor.addIterator(new PathVectorIterator(pv));
 			itor = sitor;
@@ -47,7 +47,7 @@ public class PathIterator implements Iterator<IPath> {
 	 * @param buildResult
 	 */
 	public PathIterator(BuildResult buildResult) {
-		SerialIterator<IPath> sitor = new SerialIterator<IPath>();
+		SerialIterator<URI> sitor = new SerialIterator<URI>();
 		for(PathVector pv : buildResult.getPathVectors())
 			sitor.addIterator(new PathIterator(pv));
 		itor = sitor;
@@ -60,7 +60,7 @@ public class PathIterator implements Iterator<IPath> {
 		return itor.hasNext();
 	}
 
-	public IPath next() {
+	public URI next() {
 		return itor.next();
 	}
 	
@@ -68,40 +68,39 @@ public class PathIterator implements Iterator<IPath> {
 		itor.remove();
 	}
 	
-	public List<IPath> toList() {
-		List<IPath> list = new ArrayList<IPath>();
+	public List<URI> toList() {
+		List<URI> list = new ArrayList<URI>();
 		while(hasNext())
 			list.add(next());
 		return list;
 	}
-	public static class PathVectorIterator implements Iterator<IPath> {
-		private String basePathString;
+	public static class PathVectorIterator implements Iterator<URI> {
+		private URI baseURI;
 		int	index;
-		private EList<String> pathStrings;
+		private EList<URI> fragmentURIs;
 		private PathVector vector;
 		
 		public PathVectorIterator(PathVector pathVector) {
 			vector = pathVector;
 			index = 0;
-			basePathString = pathVector.getBasePath();
-			pathStrings = pathVector.getPaths();
+			baseURI = pathVector.getBasePath();
+			fragmentURIs = pathVector.getPaths();
 		}
 		public boolean hasNext() {
-			if(index == 0 && basePathString != null && pathStrings.size() == 0)
+			if(index == 0 && baseURI != null && fragmentURIs.size() == 0)
 				return true;
-			return index < pathStrings.size();
+			return index < fragmentURIs.size();
 		}
 
-		public IPath next() {
-			IPath result = null;
-			if(index == 0 && basePathString != null && pathStrings.size() == 0)
-				result = new Path(basePathString);
-			else if(basePathString != null) {
-				IPath base = new Path(basePathString);
-				result =  base.append(pathStrings.get(index));
+		public URI next() {
+			URI result = null;
+			if(index == 0 && baseURI != null && fragmentURIs.size() == 0)
+				result = baseURI;
+			else if(baseURI != null) {
+				result = B3URIUtils.appendPath(baseURI, fragmentURIs.get(index));
 			}
 			else
-				result = new Path(pathStrings.get(index));
+				result = fragmentURIs.get(index);
 			index++;
 			return result;
 		}
@@ -109,12 +108,12 @@ public class PathIterator implements Iterator<IPath> {
 		public void remove() {
 			if(index == 0)
 				throw new IllegalStateException("Remove without preceeding next");
-			if(index == 1 && basePathString != null && pathStrings.size() == 0)
+			if(index == 1 && baseURI != null && fragmentURIs.size() == 0)
 				vector.setBasePath(null);
 			else {
-				pathStrings.remove(index-1);
+				fragmentURIs.remove(index-1);
 				// don't leave the basepath if all subpaths have been removed
-				if(pathStrings.size() == 0)
+				if(fragmentURIs.size() == 0)
 					vector.setBasePath(null);
 			}
 		}

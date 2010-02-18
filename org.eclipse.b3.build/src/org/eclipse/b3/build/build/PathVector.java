@@ -6,6 +6,7 @@
  */
 package org.eclipse.b3.build.build;
 
+import java.net.URI;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -37,12 +38,12 @@ public interface PathVector extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Base Path</em>' attribute.
-	 * @see #setBasePath(String)
+	 * @see #setBasePath(URI)
 	 * @see org.eclipse.b3.build.build.B3BuildPackage#getPathVector_BasePath()
-	 * @model
+	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.URI"
 	 * @generated
 	 */
-	String getBasePath();
+	URI getBasePath();
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.build.build.PathVector#getBasePath <em>Base Path</em>}' attribute.
@@ -52,11 +53,11 @@ public interface PathVector extends EObject {
 	 * @see #getBasePath()
 	 * @generated
 	 */
-	void setBasePath(String value);
+	void setBasePath(URI value);
 
 	/**
 	 * Returns the value of the '<em><b>Paths</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.String}.
+	 * The list contents are of type {@link java.net.URI}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Paths</em>' attribute list isn't clear,
@@ -65,9 +66,9 @@ public interface PathVector extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Paths</em>' attribute list.
 	 * @see org.eclipse.b3.build.build.B3BuildPackage#getPathVector_Paths()
-	 * @model
+	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.URI"
 	 * @generated
 	 */
-	EList<String> getPaths();
+	EList<URI> getPaths();
 
 } // PathVector

@@ -336,13 +336,22 @@ public interface B3BuildPackage extends EPackage {
 	int BUILD_UNIT__PROPERTY_SETS = VERSIONED_CAPABILITY_FEATURE_COUNT + 13;
 
 	/**
+	 * The feature id for the '<em><b>Base Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_UNIT__BASE_LOCATION = VERSIONED_CAPABILITY_FEATURE_COUNT + 14;
+
+	/**
 	 * The number of structural features of the '<em>Build Unit</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT_FEATURE_COUNT = VERSIONED_CAPABILITY_FEATURE_COUNT + 14;
+	int BUILD_UNIT_FEATURE_COUNT = VERSIONED_CAPABILITY_FEATURE_COUNT + 15;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderImpl <em>Builder</em>}' class.
@@ -3595,6 +3604,17 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBuildUnit_PropertySets();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuildUnit#getBaseLocation <em>Base Location</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Base Location</em>'.
+	 * @see org.eclipse.b3.build.build.BuildUnit#getBaseLocation()
+	 * @see #getBuildUnit()
+	 * @generated
+	 */
+	EAttribute getBuildUnit_BaseLocation();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.IBuilder <em>IBuilder</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5380,6 +5400,14 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BUILD_UNIT__PROPERTY_SETS = eINSTANCE.getBuildUnit_PropertySets();
+
+		/**
+		 * The meta object literal for the '<em><b>Base Location</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BUILD_UNIT__BASE_LOCATION = eINSTANCE.getBuildUnit_BaseLocation();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.IBuilder <em>IBuilder</em>}' class.

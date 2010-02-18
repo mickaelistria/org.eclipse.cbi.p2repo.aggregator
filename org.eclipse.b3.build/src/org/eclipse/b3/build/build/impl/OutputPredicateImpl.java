@@ -7,6 +7,7 @@
 package org.eclipse.b3.build.build.impl;
 
 import java.lang.reflect.Type;
+import java.net.URI;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -24,7 +25,6 @@ import org.eclipse.b3.build.build.OutputPredicate;
 import org.eclipse.b3.build.build.PathGroup;
 import org.eclipse.b3.build.build.PathVector;
 import org.eclipse.b3.build.core.PathIterator;
-import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
@@ -194,8 +194,8 @@ public class OutputPredicateImpl extends BExpressionImpl implements OutputPredic
 		boolean modified = false;
 		
 		NEXTPATH: while(pitor.hasNext()) {
-			IPath p = pitor.next();
-			// strategy choice - either apply a pattern on each paths, or match each against paths from a path vector
+			URI p = pitor.next();
+			// strategy choice - either apply a pattern on each path, or match each against paths from a path vector
 
 			// choice 1 - match against a path vector
 			if(pathPattern == null) {
@@ -330,8 +330,8 @@ public class OutputPredicateImpl extends BExpressionImpl implements OutputPredic
 			if(pathVector == null)
 				throw new B3InternalError("OutputPredicate has neither pattern nor path vector");
 				
-			List<IPath> predicates = new PathIterator(getPathVector()).toList();
-			List<IPath> candidate = new PathIterator(pg).toList();
+			List<URI> predicates = new PathIterator(getPathVector()).toList();
+			List<URI> candidate = new PathIterator(pg).toList();
 			return Boolean.valueOf(candidate.containsAll(predicates));
 		}
 		// choice 2 - compare against a regexp or wildcard == ANY

@@ -183,7 +183,7 @@ ConditionalPathVector returns build::ConditionalPathVector : {build::Conditional
 	;
 
 // A path can be written without quotes if it consists of safe chars 
-Path hidden()
+Path returns be::URI hidden()
 	: STRING
 	| ('/')? QID ('/' QID)* ('/')? 
 	;
