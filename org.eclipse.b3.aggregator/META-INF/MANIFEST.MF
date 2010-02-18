@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: b3 Aggregator Model
+Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.b3.aggregator;singleton:=true
-Bundle-Version: 1.0.360.qualifier
+Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.eclipse.b3.aggregator.AggregatorPlugin$Implementation
 Bundle-Localization: plugin
@@ -20,7 +20,7 @@ Export-Package: org.eclipse.b3.aggregator,
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
- org.eclipse.b3.util;bundle-version="1.0.0",
+ org.eclipse.b3.util;bundle-version="0.1.0",
  org.eclipse.ecf;bundle-version="3.0.0",
  org.eclipse.equinox.p2.artifact.repository;bundle-version="1.0.100",
  org.eclipse.equinox.p2.core;bundle-version="1.1.0",
@@ -28,3 +28,4 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.equinox.p2.metadata.repository;bundle-version="1.0.100",
  org.eclipse.equinox.p2.repository;bundle-version="2.0.0"
 Bundle-ActivationPolicy: lazy
+Bundle-Vendor: %providerName
