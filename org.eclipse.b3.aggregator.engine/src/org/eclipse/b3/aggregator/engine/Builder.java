@@ -988,7 +988,10 @@ public class Builder extends AbstractCommand {
 	}
 
 	private void verifyContributions() throws CoreException {
-		URI buildModelFolderURI = buildModelLocation.getParentFile().toURI();
+		File parentFolder = buildModelLocation.getParentFile();
+		if(parentFolder == null)
+			parentFolder = new File(".");
+		URI buildModelFolderURI = parentFolder.toURI();
 		DocumentBuilderFactory docBldFact = DocumentBuilderFactory.newInstance();
 		DocumentBuilder docBld;
 		try {
