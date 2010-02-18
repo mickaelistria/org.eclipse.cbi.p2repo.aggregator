@@ -5,16 +5,16 @@ import org.eclipse.b3.beelang.tests.buildunittypes.Fruit;
 import org.eclipse.b3.build.core.B3BuilderJob;
 
 concern FruitProcessing {
-	builder dice(Fruit unit) {
+	builder dice(Fruit unit ) {
 		input { unit#pulp; }
 		// dice the pulp - for now, just return the pulp of the fruit
 		}
 }
 
 function main(List argv) {
-	with properties { $test.argv = argv ; } :  testStuff();
+	with properties { $test.argv = argv ; } :  testRunBuildersAndMergeResult();
 }
-function testStuff() {
+function testRunBuildersAndMergeResult() {
 	var argv = $test.argv;
 	assertEquals("Should have engine + 4 units", argv.size(), 5);
 	assertTrue("Argv should be Iterable", argv instanceof Iterable);
