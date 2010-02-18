@@ -90,6 +90,7 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 
 			addVersionMatchPropertyDescriptor(object);
 			addVersionPropertyDescriptor(object);
+			addFilterPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -163,10 +164,27 @@ public class AvailableVersionItemProvider extends AggregatorItemProviderAdapter 
 		switch(notification.getFeatureID(AvailableVersion.class)) {
 		case AggregatorPackage.AVAILABLE_VERSION__VERSION_MATCH:
 		case AggregatorPackage.AVAILABLE_VERSION__VERSION:
+		case AggregatorPackage.AVAILABLE_VERSION__FILTER:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}
 		super.notifyChanged(notification);
+	}
+
+	/**
+	 * This adds a property descriptor for the Filter feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addFilterPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_AvailableVersion_filter_feature"), getString("_UI_PropertyDescriptor_description",
+						"_UI_AvailableVersion_filter_feature", "_UI_AvailableVersion_type"),
+				AggregatorPackage.Literals.AVAILABLE_VERSION__FILTER, false, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**

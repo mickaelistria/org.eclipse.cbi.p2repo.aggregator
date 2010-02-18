@@ -27,6 +27,7 @@ import org.eclipse.equinox.p2.metadata.Version;
  * <ul>
  * <li>{@link org.eclipse.b3.aggregator.impl.AvailableVersionImpl#getVersionMatch <em>Version Match</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.impl.AvailableVersionImpl#getVersion <em>Version</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.impl.AvailableVersionImpl#getFilter <em>Filter</em>}</li>
  * </ul>
  * </p>
  * 
@@ -119,6 +120,28 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	protected Version version = VERSION_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getFilter() <em>Filter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getFilter()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String FILTER_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getFilter() <em>Filter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getFilter()
+	 * @generated
+	 * @ordered
+	 */
+	protected String filter = FILTER_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -141,6 +164,8 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 			return getVersionMatch();
 		case AggregatorPackage.AVAILABLE_VERSION__VERSION:
 			return getVersion();
+		case AggregatorPackage.AVAILABLE_VERSION__FILTER:
+			return getFilter();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -160,6 +185,10 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 			return VERSION_EDEFAULT == null
 					? version != null
 					: !VERSION_EDEFAULT.equals(version);
+		case AggregatorPackage.AVAILABLE_VERSION__FILTER:
+			return FILTER_EDEFAULT == null
+					? filter != null
+					: !FILTER_EDEFAULT.equals(filter);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -178,6 +207,9 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 			return;
 		case AggregatorPackage.AVAILABLE_VERSION__VERSION:
 			setVersion((Version) newValue);
+			return;
+		case AggregatorPackage.AVAILABLE_VERSION__FILTER:
+			setFilter((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -198,8 +230,21 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 		case AggregatorPackage.AVAILABLE_VERSION__VERSION:
 			setVersion(VERSION_EDEFAULT);
 			return;
+		case AggregatorPackage.AVAILABLE_VERSION__FILTER:
+			setFilter(FILTER_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public String getFilter() {
+		return filter;
 	}
 
 	/**
@@ -220,6 +265,20 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 	 */
 	public VersionMatch getVersionMatch() {
 		return VERSION_MATCH_EFLAG_VALUES[(eFlags & VERSION_MATCH_EFLAG) >>> VERSION_MATCH_EFLAG_OFFSET];
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setFilter(String newFilter) {
+		String oldFilter = filter;
+		filter = newFilter;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AggregatorPackage.AVAILABLE_VERSION__FILTER,
+					oldFilter, filter));
 	}
 
 	/**
@@ -268,6 +327,8 @@ public class AvailableVersionImpl extends MinimalEObjectImpl.Container implement
 		result.append(VERSION_MATCH_EFLAG_VALUES[(eFlags & VERSION_MATCH_EFLAG) >>> VERSION_MATCH_EFLAG_OFFSET]);
 		result.append(", version: ");
 		result.append(version);
+		result.append(", filter: ");
+		result.append(filter);
 		result.append(')');
 		return result.toString();
 	}

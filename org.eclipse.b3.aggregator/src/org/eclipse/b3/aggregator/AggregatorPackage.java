@@ -770,6 +770,15 @@ public interface AggregatorPackage extends EPackage {
 		EAttribute AVAILABLE_VERSION__VERSION = eINSTANCE.getAvailableVersion_Version();
 
 		/**
+		 * The meta object literal for the '<em><b>Filter</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute AVAILABLE_VERSION__FILTER = eINSTANCE.getAvailableVersion_Filter();
+
+		/**
 		 * The meta object literal for the '{@link java.lang.Comparable <em>Comparable</em>}' class.
 		 * <!-- begin-user-doc
 		 * --> <!-- end-user-doc -->
@@ -3381,6 +3390,16 @@ public interface AggregatorPackage extends EPackage {
 	int AVAILABLE_VERSION__VERSION = 1;
 
 	/**
+	 * The feature id for the '<em><b>Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int AVAILABLE_VERSION__FILTER = 2;
+
+	/**
 	 * The number of structural features of the '<em>Available Version</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3388,7 +3407,7 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AVAILABLE_VERSION_FEATURE_COUNT = 2;
+	int AVAILABLE_VERSION_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.AggregateType <em>Aggregate Type</em>}' enum.
@@ -3687,6 +3706,19 @@ public interface AggregatorPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getAvailableVersion();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.aggregator.AvailableVersion#getFilter
+	 * <em>Filter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Filter</em>'.
+	 * @see org.eclipse.b3.aggregator.AvailableVersion#getFilter()
+	 * @see #getAvailableVersion()
+	 * @generated
+	 */
+	EAttribute getAvailableVersion_Filter();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.b3.aggregator.AvailableVersion#getVersion

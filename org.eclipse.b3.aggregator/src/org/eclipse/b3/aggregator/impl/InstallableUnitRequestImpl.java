@@ -10,8 +10,8 @@
 package org.eclipse.b3.aggregator.impl;
 
 import java.util.Collection;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.Map;
+import java.util.TreeMap;
 
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
@@ -694,23 +694,23 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 
 		MetadataRepository mdr = ((MappedRepository) eContainer()).getMetadataRepository(false);
 
-		Set<Version> versionSet = new TreeSet<Version>();
+		Map<Version, String> versionMap = new TreeMap<Version, String>();
 		InstallableUnitQuery query = new InstallableUnitQuery(name);
 
 		if(StringUtils.trimmedOrNull(name) != null && mdr != null && !((EObject) mdr).eIsProxy()) {
 			IQueryResult<IInstallableUnit> ius = mdr.query(query, null);
 
 			for(IInstallableUnit iu : ius.toSet())
-				versionSet.add(iu.getVersion());
+				versionMap.put(iu.getVersion(), iu.getFilter().toString());
 		}
 
-		if(versionSet.size() == 0) {
+		if(versionMap.size() == 0) {
 			AvailableVersion av = AggregatorFactory.eINSTANCE.createAvailableVersion();
 			av.setVersionMatch(VersionMatch.MATCHES);
 			availableVersions.add(av);
 		}
 		else {
-			for(Version version : versionSet) {
+			for(Version version : versionMap.keySet()) {
 				AvailableVersion av = AggregatorFactory.eINSTANCE.createAvailableVersion();
 
 				if(versionRange == null || versionRange.isIncluded(version))
@@ -724,6 +724,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 						av.setVersionMatch(VersionMatch.ABOVE);
 				}
 				av.setVersion(version);
+				av.setFilter(versionMap.get(version));
 				availableVersions.add(av);
 			}
 		}

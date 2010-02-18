@@ -45,7 +45,7 @@ public interface InstallableUnit extends IInstallableUnit {
 	 * 
 	 * @return the value of the '<em>Property Map</em>' map.
 	 * @see org.eclipse.b3.aggregator.p2.P2Package#getInstallableUnit_PropertyMap()
-	 * @model 
+	 * @model
 	 *        mapType="org.eclipse.b3.aggregator.p2.Property<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString>"
 	 * @generated
 	 */

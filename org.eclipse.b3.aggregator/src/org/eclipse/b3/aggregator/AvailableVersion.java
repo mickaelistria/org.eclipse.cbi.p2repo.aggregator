@@ -21,6 +21,7 @@ import org.eclipse.equinox.p2.metadata.Version;
  * <ul>
  * <li>{@link org.eclipse.b3.aggregator.AvailableVersion#getVersionMatch <em>Version Match</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.AvailableVersion#getVersion <em>Version</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.AvailableVersion#getFilter <em>Filter</em>}</li>
  * </ul>
  * </p>
  * 
@@ -29,6 +30,23 @@ import org.eclipse.equinox.p2.metadata.Version;
  * @generated
  */
 public interface AvailableVersion {
+	/**
+	 * Returns the value of the '<em><b>Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Filter</em>' attribute isn't clear, there really should be more of a description
+	 * here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Filter</em>' attribute.
+	 * @see #setFilter(String)
+	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAvailableVersion_Filter()
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 * @generated
+	 */
+	String getFilter();
+
 	/**
 	 * Returns the value of the '<em><b>Version</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -65,6 +83,18 @@ public interface AvailableVersion {
 	 * @generated
 	 */
 	VersionMatch getVersionMatch();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.aggregator.AvailableVersion#getFilter <em>Filter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Filter</em>' attribute.
+	 * @see #getFilter()
+	 * @generated
+	 */
+	void setFilter(String value);
 
 	/**
 	 * Sets the value of the '{@link org.eclipse.b3.aggregator.AvailableVersion#getVersion <em>Version</em>}' attribute.

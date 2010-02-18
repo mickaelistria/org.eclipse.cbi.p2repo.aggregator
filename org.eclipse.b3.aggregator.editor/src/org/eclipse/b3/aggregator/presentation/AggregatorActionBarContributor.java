@@ -25,11 +25,13 @@ import java.util.Map.Entry;
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
+import org.eclipse.b3.aggregator.AvailableVersion;
 import org.eclipse.b3.aggregator.Configuration;
 import org.eclipse.b3.aggregator.Contact;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.CustomCategory;
 import org.eclipse.b3.aggregator.EnabledStatusProvider;
+import org.eclipse.b3.aggregator.MappedUnit;
 import org.eclipse.b3.aggregator.MetadataRepositoryReference;
 import org.eclipse.b3.aggregator.StatusCode;
 import org.eclipse.b3.aggregator.engine.Builder;
@@ -81,7 +83,11 @@ import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
 import org.eclipse.emf.edit.ui.action.LoadResourceAction;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.equinox.app.IApplication;
+import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
+import org.eclipse.equinox.internal.provisional.p2.metadata.MetadataFactory;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
+import org.eclipse.equinox.p2.metadata.IRequirement;
+import org.eclipse.equinox.p2.metadata.VersionRange;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.ActionContributionItem;
 import org.eclipse.jface.action.IAction;
@@ -514,10 +520,17 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 	}
 
 	class SelectMatchingIUAction extends Action {
-		private RequirementWrapper requirementWrapper;
+		private IRequirement requirement;
 
-		public SelectMatchingIUAction(RequirementWrapper requirementWrapper) {
-			this.requirementWrapper = requirementWrapper;
+		private MetadataRepository mdr;
+
+		public SelectMatchingIUAction(IRequirement requirement) {
+			this(null, requirement);
+		}
+
+		public SelectMatchingIUAction(MetadataRepository mdr, IRequirement requirement) {
+			this.mdr = mdr;
+			this.requirement = requirement;
 
 			setText(getString("_UI_Select_matching_IU_menu_item"));
 		}
@@ -536,11 +549,16 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 						if(!(resource instanceof MetadataRepositoryResourceImpl))
 							continue;
 
-						TwoColumnMatrix<IUPresentation, Object[]> result = ((MetadataRepositoryResourceImpl) resource).findIUPresentationsWhichSatisfies(
-								requirementWrapper.getGenuine(), true);
+						MetadataRepositoryResourceImpl mdrResource = (MetadataRepositoryResourceImpl) resource;
+
+						if(mdr == null || mdr != mdrResource.getMetadataRepository())
+							continue;
+
+						TwoColumnMatrix<IUPresentation, Object[]> result = mdrResource.findIUPresentationsWhichSatisfies(
+								requirement, true);
 
 						if(result != null && result.size() > 0)
-							foundIUs.put((MetadataRepositoryResourceImpl) resource, result);
+							foundIUs.put(mdrResource, result);
 					}
 
 					if(foundIUs.size() == 0) {
@@ -1138,7 +1156,6 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 		Collection<?> newChildDescriptors = null;
 		Collection<?> newSiblingDescriptors = null;
 		selectMatchingIUAction = null;
-
 		reloadOrCancelRepoActionVisible = false;
 
 		if(selection instanceof IStructuredSelection && ((IStructuredSelection) selection).size() >= 1) {
@@ -1224,7 +1241,20 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 				newSiblingDescriptors = domain.getNewChildDescriptors(null, object);
 
 				if(object instanceof RequirementWrapper) {
-					selectMatchingIUAction = new SelectMatchingIUAction((RequirementWrapper) object);
+					selectMatchingIUAction = new SelectMatchingIUAction(((RequirementWrapper) object).getGenuine());
+				}
+				if(object instanceof AvailableVersion) {
+					AvailableVersion av = (AvailableVersion) object;
+					MappedUnit mappedUnit = (MappedUnit) ((EObject) av).eContainer();
+					MetadataRepositoryReference mdrRef = (MetadataRepositoryReference) ((EObject) mappedUnit).eContainer();
+					MetadataRepository mdr = mdrRef.getMetadataRepository();
+
+					if(mdr != null && !((EObject) mdr).eIsProxy()) {
+						IRequiredCapability requiredCapability = MetadataFactory.createRequiredCapability(
+								IInstallableUnit.NAMESPACE_IU_ID, mappedUnit.getName(), new VersionRange(
+										av.getVersion(), true, av.getVersion(), true), null, false, true);
+						selectMatchingIUAction = new SelectMatchingIUAction(mdr, requiredCapability);
+					}
 				}
 			}
 		}

@@ -39,6 +39,7 @@
       <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//Architecture/X86"/>
       <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//Architecture/PPC"/>
       <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//Architecture/X86_64"/>
+      <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//Architecture/IA64"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="Aggregator.ecore#//PackedStrategy">
       <genEnumLiterals ecoreEnumLiteral="Aggregator.ecore#//PackedStrategy/Copy"/>
@@ -133,6 +134,7 @@
     <genClasses image="false" ecoreClass="Aggregator.ecore#//MappedUnit">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Aggregator.ecore#//MappedUnit/validConfigurations"/>
       <genOperations ecoreOperation="Aggregator.ecore#//MappedUnit/getRequiredCapability"/>
+      <genOperations ecoreOperation="Aggregator.ecore#//MappedUnit/getFilter"/>
     </genClasses>
     <genClasses ecoreClass="Aggregator.ecore#//Product"/>
     <genClasses ecoreClass="Aggregator.ecore#//Property">
@@ -233,6 +235,7 @@
     <genClasses ecoreClass="Aggregator.ecore#//AvailableVersion">
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//AvailableVersion/versionMatch"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//AvailableVersion/version"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//AvailableVersion/filter"/>
     </genClasses>
     <nestedGenPackages prefix="P2" disposableProviderFactory="true" multipleEditorPages="false"
         generateModelWizard="false" ecorePackage="Aggregator.ecore#//p2">

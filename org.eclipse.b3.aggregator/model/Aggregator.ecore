@@ -273,6 +273,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="versionMatch" lowerBound="1"
         eType="#//VersionMatch" defaultValueLiteral=""/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="#//p2/Version"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="filter" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="VersionMatch">
     <eLiterals name="BELOW" literal="below"/>

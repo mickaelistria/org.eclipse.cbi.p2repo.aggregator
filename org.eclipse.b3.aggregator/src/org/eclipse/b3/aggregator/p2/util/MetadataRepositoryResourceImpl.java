@@ -472,10 +472,8 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 			for(Contribution contribution : aggregator.getContributions())
 				for(MappedRepository mappedRepo : contribution.getRepositories())
 					if(repository.getLocation().toString().equals(mappedRepo.getLocation()))
-						for(MappedUnit unit : mappedRepo.getUnits(false)) {
-							// TODO implement
-							// unit.reResolveAvailableVersions(repository);
-						}
+						for(MappedUnit unit : mappedRepo.getUnits(false))
+							unit.resolveAvailableVersions(true);
 		}
 	}
 
@@ -635,6 +633,13 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 
 	public Exception getLastException() {
 		return lastException;
+	}
+
+	public MetadataRepository getMetadataRepository() {
+		if(repoView != null)
+			return repoView.getMetadataRepository();
+
+		return null;
 	}
 
 	public Status getStatus() {

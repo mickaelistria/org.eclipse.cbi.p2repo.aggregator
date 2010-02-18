@@ -565,6 +565,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		availableVersionEClass = createEClass(AVAILABLE_VERSION);
 		createEAttribute(availableVersionEClass, AVAILABLE_VERSION__VERSION_MATCH);
 		createEAttribute(availableVersionEClass, AVAILABLE_VERSION__VERSION);
+		createEAttribute(availableVersionEClass, AVAILABLE_VERSION__FILTER);
 
 		// Create enums
 		aggregateTypeEEnum = createEEnum(AGGREGATE_TYPE);
@@ -741,6 +742,16 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 	 */
 	public EClass getAvailableVersion() {
 		return availableVersionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getAvailableVersion_Filter() {
+		return (EAttribute) availableVersionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1945,6 +1956,9 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 				AvailableVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAvailableVersion_Version(), theP2Package.getVersion(), "version", null, 0, 1,
+				AvailableVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAvailableVersion_Filter(), theXMLTypePackage.getString(), "filter", null, 0, 1,
 				AvailableVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 
