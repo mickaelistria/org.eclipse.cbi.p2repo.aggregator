@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.b3.site.eclipse"
+      label="Eclipse b3"
+      version="0.1.0.qualifier"
+      provider-name="Eclipse b3 Project">
+
+   <description url="http://www.eclipse.org/b3">
+      This is the b3 Update Site for Helios Milestones
+   </description>
+
+   <url>
+      <update label="b3 Helios Milestones" url="http://www.eclipse.org/downloads/download.php?file=/emft/b3/updates-3.6/&amp;protocol=http&amp;format=xml"/>
+   </url>
+
+   <includes
+         id="org.eclipse.b3.aggregator.editor.feature"
+         version="0.0.0"/>
+
+</feature>
