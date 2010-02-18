@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.b3.site.eclipse.headless"
+      label="Eclipse b3 Headless"
+      version="0.1.0.qualifier"
+      provider-name="Eclipse b3 Project">
+
+   <description url="http://www.eclipse.org/b3">
+      This is the b3 Headless Update Site for Helios Milestones
+   </description>
+
+   <url>
+      <update label="b3 Helios Milestones" url="http://www.eclipse.org/downloads/download.php?file=/emft/b3/headless-3.6/&amp;protocol=http&amp;format=xml"/>
+   </url>
+
+   <includes
+         id="org.eclipse.b3.aggregator.engine.feature"
+         version="0.0.0"/>
+
+</feature>

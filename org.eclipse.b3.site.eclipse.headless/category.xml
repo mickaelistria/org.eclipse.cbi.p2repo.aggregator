@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.eclipse.b3.aggregator.engine.feature_0.1.0.qualifier.jar" id="org.eclipse.b3.aggregator.engine.feature" version="0.1.0.qualifier">
+      <category name="b3headless"/>
+   </feature>
+   <category-def name="b3headless" label="b3 Headless Build System">
+      <description>
+         The b3 build system headless features
+      </description>
+   </category-def>
+</site>
