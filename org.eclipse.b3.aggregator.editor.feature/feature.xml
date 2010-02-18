@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.b3.aggregator.editor.feature"
       label="b3 Aggregator Editor"
-      version="1.0.0.qualifier"
+      version="0.1.0.qualifier"
       provider-name="Eclipse b3 Project">
 
    <description>
