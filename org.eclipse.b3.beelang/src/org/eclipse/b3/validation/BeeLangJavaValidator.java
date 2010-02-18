@@ -5,6 +5,8 @@ import java.util.List;
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.Builder;
 import org.eclipse.b3.build.build.BuilderConcernContext;
+import org.eclipse.b3.build.build.PathVector;
+import org.eclipse.b3.build.core.PathIterator;
 import org.eclipse.b3.backend.core.TypePattern;
 import org.eclipse.b3.backend.evaluator.b3backend.B3JavaImport;
 import org.eclipse.b3.backend.evaluator.b3backend.B3backendPackage;
@@ -91,5 +93,19 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator {
 		} catch(Throwable t) {
 			error(t.getMessage(), jimport, B3backendPackage.B3_JAVA_IMPORT__QUALIFIED_NAME);
 		}
+	}
+	/** 
+	 * Validate that path vectors are consistent
+	 */
+	@Check
+	public void checkPathVector(PathVector pathVector) {
+		try {
+		PathIterator pvItor = new PathIterator(pathVector);
+		while(pvItor.hasNext())
+			pvItor.next();
+		} catch(Throwable t) {
+			error(t.getMessage(), pathVector, B3BuildPackage.PATH_VECTOR);
+		}
+		
 	}
 }
