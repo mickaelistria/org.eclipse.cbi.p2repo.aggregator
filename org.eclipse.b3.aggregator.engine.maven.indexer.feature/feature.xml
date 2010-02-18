@@ -26,8 +26,8 @@ such license is available at www.eclipse.org.
 
    <requires>
       <import plugin="org.eclipse.b3.aggregator.engine.maven" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.maven.ide.components.maven_embedder" version="2.1.0" match="greaterOrEqual"/>
-      <import plugin="org.maven.ide.components.nexus_indexer" version="1.9.0" match="greaterOrEqual"/>
+      <import plugin="org.maven.ide.eclipse.maven_embedder" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.maven.ide.eclipse.nexus_indexer" version="0.1.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.core.runtime" version="3.5.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.b3.util" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.equinox.p2.core"/>
