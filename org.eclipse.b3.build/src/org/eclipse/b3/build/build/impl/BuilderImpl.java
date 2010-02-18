@@ -823,29 +823,6 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 		return result.toString();
 	}
 
-	@Override
-	public EList<BParameterDeclaration> getParameters() {
-		EList<BParameterDeclaration> originalParameters = super.getParameters();
-
-		// if the first parameter is called "unit" and is a BuildUnit instance, processing is done
-		if(originalParameters.size() >= 1) {
-			BParameterDeclaration p = originalParameters.get(0);
-			if("unit".equals(p.getName())) 
-				return originalParameters;
-//			&& TypeUtils.isAssignableFrom(p.getType(), BuildUnit.class))
-		}
-		// if unitType is defined, create the "unit" parameter
-		Class<? extends BuildUnit> uType = getUnitType();
-		if(uType != null) {
-			BParameterDeclaration unitParameter = B3backendFactory.eINSTANCE.createBParameterDeclaration();
-			unitParameter.setName("unit");
-			B3ParameterizedType t = B3backendFactory.eINSTANCE.createB3ParameterizedType();
-			t.setRawType(uType);
-			unitParameter.setType(t);
-			originalParameters.add(0, unitParameter);
-		}
-		return originalParameters;
-	}
 	/**
 	 * This specialization returns a B3BuilderJob that performs the evaluation.
 	 */
@@ -863,4 +840,53 @@ public class BuilderImpl extends B3FunctionImpl implements Builder {
 	public Type getDeclaredType(BExecutionContext ctx) throws Throwable {
 		return B3BuilderJob.class;
 	}
+	@Override
+	protected void computeParameters() {
+		// TODO: Should react to changes in Parameters instead of doing this stupid thing
+		// and on changes to BuildUnitType
+		
+		if(parameterNames == null || parameterTypes == null) {
+			
+			EList<BParameterDeclaration> pList = getParameters();
+			boolean insertUnit = !(pList.size() >= 1 && "unit".equals(pList.get(0).getName()));
+			parameterNames = new String[pList.size() + (insertUnit ? 1 : 0)];
+			parameterTypes = new Type[pList.size() + (insertUnit ? 1 : 0)];
+			int i = 0;
+			if(insertUnit) {
+				parameterTypes[i] = getUnitType();
+				parameterNames[i++] = "unit";
+			}
+			for(BParameterDeclaration p : pList) {
+				parameterNames[i] = p.getName();
+				parameterTypes[i++] = p.getType();
+			}
+		}
+	}
+	
+//	@Override
+//	public EList<BParameterDeclaration> getParameters() {
+//		EList<BParameterDeclaration> originalParameters = super.getParameters();
+//
+//		// if the first parameter is called "unit" and is a BuildUnit instance, processing is done
+//		if(originalParameters.size() >= 1) {
+//			BParameterDeclaration p = originalParameters.get(0);
+//			if("unit".equals(p.getName())) 
+//				return originalParameters;
+////			&& TypeUtils.isAssignableFrom(p.getType(), BuildUnit.class))
+//		}
+//		// if unitType is defined, create the "unit" parameter
+//		Class<? extends BuildUnit> uType = getUnitType();
+//		if(uType != null) {
+//			BParameterDeclaration unitParameter = B3backendFactory.eINSTANCE.createBParameterDeclaration();
+//			unitParameter.setName("unit");
+//			B3ParameterizedType t = B3backendFactory.eINSTANCE.createB3ParameterizedType();
+//			t.setRawType(uType);
+//			unitParameter.setType(t);
+//			originalParameters.add(0, unitParameter);
+//		}
+//		return originalParameters;
+//	}
+
+	
+	
 } //BuilderImpl

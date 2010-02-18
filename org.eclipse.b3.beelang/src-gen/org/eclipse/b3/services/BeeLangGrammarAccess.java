@@ -2627,34 +2627,33 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cBuilderKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Assignment cNameAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cNameBuilderNameParserRuleCall_6_0 = (RuleCall)cNameAssignment_6.eContents().get(0);
-		private final Alternatives cAlternatives_7 = (Alternatives)cGroup.eContents().get(7);
-		private final Group cGroup_7_0 = (Group)cAlternatives_7.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_7_0_0 = (Keyword)cGroup_7_0.eContents().get(0);
-		private final Group cGroup_7_0_1 = (Group)cGroup_7_0.eContents().get(1);
-		private final Alternatives cAlternatives_7_0_1_0 = (Alternatives)cGroup_7_0_1.eContents().get(0);
-		private final Group cGroup_7_0_1_0_0 = (Group)cAlternatives_7_0_1_0.eContents().get(0);
-		private final Assignment cExplicitUnitTypeAssignment_7_0_1_0_0_0 = (Assignment)cGroup_7_0_1_0_0.eContents().get(0);
-		private final RuleCall cExplicitUnitTypeTypeRefParserRuleCall_7_0_1_0_0_0_0 = (RuleCall)cExplicitUnitTypeAssignment_7_0_1_0_0_0.eContents().get(0);
-		private final Keyword cUnitKeyword_7_0_1_0_0_1 = (Keyword)cGroup_7_0_1_0_0.eContents().get(1);
-		private final Assignment cParametersAssignment_7_0_1_0_1 = (Assignment)cAlternatives_7_0_1_0.eContents().get(1);
-		private final RuleCall cParametersParameterDeclarationParserRuleCall_7_0_1_0_1_0 = (RuleCall)cParametersAssignment_7_0_1_0_1.eContents().get(0);
-		private final Group cGroup_7_0_1_1 = (Group)cGroup_7_0_1.eContents().get(1);
-		private final Keyword cCommaKeyword_7_0_1_1_0 = (Keyword)cGroup_7_0_1_1.eContents().get(0);
-		private final Assignment cParametersAssignment_7_0_1_1_1 = (Assignment)cGroup_7_0_1_1.eContents().get(1);
-		private final RuleCall cParametersParameterDeclarationParserRuleCall_7_0_1_1_1_0 = (RuleCall)cParametersAssignment_7_0_1_1_1.eContents().get(0);
-		private final Group cGroup_7_0_1_2 = (Group)cGroup_7_0_1.eContents().get(2);
-		private final Keyword cCommaKeyword_7_0_1_2_0 = (Keyword)cGroup_7_0_1_2.eContents().get(0);
-		private final Assignment cVarArgsAssignment_7_0_1_2_1 = (Assignment)cGroup_7_0_1_2.eContents().get(1);
-		private final Keyword cVarArgsFullStopFullStopFullStopKeyword_7_0_1_2_1_0 = (Keyword)cVarArgsAssignment_7_0_1_2_1.eContents().get(0);
-		private final Assignment cParametersAssignment_7_0_1_2_2 = (Assignment)cGroup_7_0_1_2.eContents().get(2);
-		private final RuleCall cParametersParameterDeclarationParserRuleCall_7_0_1_2_2_0 = (RuleCall)cParametersAssignment_7_0_1_2_2.eContents().get(0);
-		private final Group cGroup_7_1 = (Group)cAlternatives_7.eContents().get(1);
-		private final Group cGroup_7_1_0 = (Group)cGroup_7_1.eContents().get(0);
-		private final Assignment cVarArgsAssignment_7_1_0_0 = (Assignment)cGroup_7_1_0.eContents().get(0);
-		private final Keyword cVarArgsFullStopFullStopFullStopKeyword_7_1_0_0_0 = (Keyword)cVarArgsAssignment_7_1_0_0.eContents().get(0);
-		private final Assignment cParametersAssignment_7_1_0_1 = (Assignment)cGroup_7_1_0.eContents().get(1);
-		private final RuleCall cParametersParameterDeclarationParserRuleCall_7_1_0_1_0 = (RuleCall)cParametersAssignment_7_1_0_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_7_1_1 = (Keyword)cGroup_7_1.eContents().get(1);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cLeftParenthesisKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Alternatives cAlternatives_7_1 = (Alternatives)cGroup_7.eContents().get(1);
+		private final Group cGroup_7_1_0 = (Group)cAlternatives_7_1.eContents().get(0);
+		private final Alternatives cAlternatives_7_1_0_0 = (Alternatives)cGroup_7_1_0.eContents().get(0);
+		private final Group cGroup_7_1_0_0_0 = (Group)cAlternatives_7_1_0_0.eContents().get(0);
+		private final Assignment cExplicitUnitTypeAssignment_7_1_0_0_0_0 = (Assignment)cGroup_7_1_0_0_0.eContents().get(0);
+		private final RuleCall cExplicitUnitTypeTypeRefParserRuleCall_7_1_0_0_0_0_0 = (RuleCall)cExplicitUnitTypeAssignment_7_1_0_0_0_0.eContents().get(0);
+		private final Keyword cUnitKeyword_7_1_0_0_0_1 = (Keyword)cGroup_7_1_0_0_0.eContents().get(1);
+		private final Assignment cParametersAssignment_7_1_0_0_1 = (Assignment)cAlternatives_7_1_0_0.eContents().get(1);
+		private final RuleCall cParametersParameterDeclarationParserRuleCall_7_1_0_0_1_0 = (RuleCall)cParametersAssignment_7_1_0_0_1.eContents().get(0);
+		private final Group cGroup_7_1_0_1 = (Group)cGroup_7_1_0.eContents().get(1);
+		private final Keyword cCommaKeyword_7_1_0_1_0 = (Keyword)cGroup_7_1_0_1.eContents().get(0);
+		private final Assignment cParametersAssignment_7_1_0_1_1 = (Assignment)cGroup_7_1_0_1.eContents().get(1);
+		private final RuleCall cParametersParameterDeclarationParserRuleCall_7_1_0_1_1_0 = (RuleCall)cParametersAssignment_7_1_0_1_1.eContents().get(0);
+		private final Group cGroup_7_1_0_2 = (Group)cGroup_7_1_0.eContents().get(2);
+		private final Keyword cCommaKeyword_7_1_0_2_0 = (Keyword)cGroup_7_1_0_2.eContents().get(0);
+		private final Assignment cVarArgsAssignment_7_1_0_2_1 = (Assignment)cGroup_7_1_0_2.eContents().get(1);
+		private final Keyword cVarArgsFullStopFullStopFullStopKeyword_7_1_0_2_1_0 = (Keyword)cVarArgsAssignment_7_1_0_2_1.eContents().get(0);
+		private final Assignment cParametersAssignment_7_1_0_2_2 = (Assignment)cGroup_7_1_0_2.eContents().get(2);
+		private final RuleCall cParametersParameterDeclarationParserRuleCall_7_1_0_2_2_0 = (RuleCall)cParametersAssignment_7_1_0_2_2.eContents().get(0);
+		private final Group cGroup_7_1_1 = (Group)cAlternatives_7_1.eContents().get(1);
+		private final Assignment cVarArgsAssignment_7_1_1_0 = (Assignment)cGroup_7_1_1.eContents().get(0);
+		private final Keyword cVarArgsFullStopFullStopFullStopKeyword_7_1_1_0_0 = (Keyword)cVarArgsAssignment_7_1_1_0.eContents().get(0);
+		private final Assignment cParametersAssignment_7_1_1_1 = (Assignment)cGroup_7_1_1.eContents().get(1);
+		private final RuleCall cParametersParameterDeclarationParserRuleCall_7_1_1_1_0 = (RuleCall)cParametersAssignment_7_1_1_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_7_2 = (Keyword)cGroup_7.eContents().get(2);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
 		private final Keyword cWhenKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
 		private final Assignment cGuardAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
@@ -2719,7 +2718,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//  {build::Builder} documentation=DOCUMENTATION? visibility=Visibility? executionMode=
 		//  ExecutionMode? final?="final"? "builder" name=BuilderName ("(" ((explicitUnitType=
 		//  TypeRef "unit"|parameters+=ParameterDeclaration) ("," parameters+=
-		//  ParameterDeclaration)* ("," varArgs?="..." parameters+=ParameterDeclaration)?)|(
+		//  ParameterDeclaration)* ("," varArgs?="..." parameters+=ParameterDeclaration)?|
 		//  varArgs?="..." parameters+=ParameterDeclaration) ")")? ("when" guard=GuardExpression
 		//  )? ("provides" providedCapabilities+=ProvidedCapability ("," providedCapabilities+=
 		//  ProvidedCapability)*)? ("precondition" (":" precondExpr=Expression ";"|precondExpr=
@@ -2740,7 +2739,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//{build::Builder} documentation=DOCUMENTATION? visibility=Visibility? executionMode=
 		//ExecutionMode? final?="final"? "builder" name=BuilderName ("(" ((explicitUnitType=
 		//TypeRef "unit"|parameters+=ParameterDeclaration) ("," parameters+=
-		//ParameterDeclaration)* ("," varArgs?="..." parameters+=ParameterDeclaration)?)|(
+		//ParameterDeclaration)* ("," varArgs?="..." parameters+=ParameterDeclaration)?|
 		//varArgs?="..." parameters+=ParameterDeclaration) ")")? ("when" guard=GuardExpression
 		//)? ("provides" providedCapabilities+=ProvidedCapability ("," providedCapabilities+=
 		//ProvidedCapability)*)? ("precondition" (":" precondExpr=Expression ";"|precondExpr=
@@ -2795,92 +2794,89 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 		//("(" ((explicitUnitType=TypeRef "unit"|parameters+=ParameterDeclaration) (","
 		//parameters+=ParameterDeclaration)* ("," varArgs?="..." parameters+=
-		//ParameterDeclaration)?)|(varArgs?="..." parameters+=ParameterDeclaration) ")")?
-		public Alternatives getAlternatives_7() { return cAlternatives_7; }
-
-		//"(" ((explicitUnitType=TypeRef "unit"|parameters+=ParameterDeclaration) (","
-		//parameters+=ParameterDeclaration)* ("," varArgs?="..." parameters+=
-		//ParameterDeclaration)?)
-		public Group getGroup_7_0() { return cGroup_7_0; }
+		//ParameterDeclaration)?|varArgs?="..." parameters+=ParameterDeclaration) ")")?
+		public Group getGroup_7() { return cGroup_7; }
 
 		//"("
-		public Keyword getLeftParenthesisKeyword_7_0_0() { return cLeftParenthesisKeyword_7_0_0; }
+		public Keyword getLeftParenthesisKeyword_7_0() { return cLeftParenthesisKeyword_7_0; }
+
+		//(explicitUnitType=TypeRef "unit"|parameters+=ParameterDeclaration) ("," parameters
+		//+=ParameterDeclaration)* ("," varArgs?="..." parameters+=ParameterDeclaration)?|
+		//varArgs?="..." parameters+=ParameterDeclaration
+		public Alternatives getAlternatives_7_1() { return cAlternatives_7_1; }
 
 		//(explicitUnitType=TypeRef "unit"|parameters+=ParameterDeclaration) ("," parameters
 		//+=ParameterDeclaration)* ("," varArgs?="..." parameters+=ParameterDeclaration)?
-		public Group getGroup_7_0_1() { return cGroup_7_0_1; }
-
-		//explicitUnitType=TypeRef "unit"|parameters+=ParameterDeclaration
-		public Alternatives getAlternatives_7_0_1_0() { return cAlternatives_7_0_1_0; }
-
-		//explicitUnitType=TypeRef "unit"
-		public Group getGroup_7_0_1_0_0() { return cGroup_7_0_1_0_0; }
-
-		//explicitUnitType=TypeRef
-		public Assignment getExplicitUnitTypeAssignment_7_0_1_0_0_0() { return cExplicitUnitTypeAssignment_7_0_1_0_0_0; }
-
-		//TypeRef
-		public RuleCall getExplicitUnitTypeTypeRefParserRuleCall_7_0_1_0_0_0_0() { return cExplicitUnitTypeTypeRefParserRuleCall_7_0_1_0_0_0_0; }
-
-		//"unit"
-		public Keyword getUnitKeyword_7_0_1_0_0_1() { return cUnitKeyword_7_0_1_0_0_1; }
-
-		//parameters+=ParameterDeclaration
-		public Assignment getParametersAssignment_7_0_1_0_1() { return cParametersAssignment_7_0_1_0_1; }
-
-		//ParameterDeclaration
-		public RuleCall getParametersParameterDeclarationParserRuleCall_7_0_1_0_1_0() { return cParametersParameterDeclarationParserRuleCall_7_0_1_0_1_0; }
-
-		//("," parameters+=ParameterDeclaration)*
-		public Group getGroup_7_0_1_1() { return cGroup_7_0_1_1; }
-
-		//","
-		public Keyword getCommaKeyword_7_0_1_1_0() { return cCommaKeyword_7_0_1_1_0; }
-
-		//parameters+=ParameterDeclaration
-		public Assignment getParametersAssignment_7_0_1_1_1() { return cParametersAssignment_7_0_1_1_1; }
-
-		//ParameterDeclaration
-		public RuleCall getParametersParameterDeclarationParserRuleCall_7_0_1_1_1_0() { return cParametersParameterDeclarationParserRuleCall_7_0_1_1_1_0; }
-
-		//("," varArgs?="..." parameters+=ParameterDeclaration)?
-		public Group getGroup_7_0_1_2() { return cGroup_7_0_1_2; }
-
-		//","
-		public Keyword getCommaKeyword_7_0_1_2_0() { return cCommaKeyword_7_0_1_2_0; }
-
-		//varArgs?="..."
-		public Assignment getVarArgsAssignment_7_0_1_2_1() { return cVarArgsAssignment_7_0_1_2_1; }
-
-		//"..."
-		public Keyword getVarArgsFullStopFullStopFullStopKeyword_7_0_1_2_1_0() { return cVarArgsFullStopFullStopFullStopKeyword_7_0_1_2_1_0; }
-
-		//parameters+=ParameterDeclaration
-		public Assignment getParametersAssignment_7_0_1_2_2() { return cParametersAssignment_7_0_1_2_2; }
-
-		//ParameterDeclaration
-		public RuleCall getParametersParameterDeclarationParserRuleCall_7_0_1_2_2_0() { return cParametersParameterDeclarationParserRuleCall_7_0_1_2_2_0; }
-
-		//(varArgs?="..." parameters+=ParameterDeclaration) ")"
-		public Group getGroup_7_1() { return cGroup_7_1; }
-
-		//varArgs?="..." parameters+=ParameterDeclaration
 		public Group getGroup_7_1_0() { return cGroup_7_1_0; }
 
-		//varArgs?="..."
-		public Assignment getVarArgsAssignment_7_1_0_0() { return cVarArgsAssignment_7_1_0_0; }
+		//explicitUnitType=TypeRef "unit"|parameters+=ParameterDeclaration
+		public Alternatives getAlternatives_7_1_0_0() { return cAlternatives_7_1_0_0; }
 
-		//"..."
-		public Keyword getVarArgsFullStopFullStopFullStopKeyword_7_1_0_0_0() { return cVarArgsFullStopFullStopFullStopKeyword_7_1_0_0_0; }
+		//explicitUnitType=TypeRef "unit"
+		public Group getGroup_7_1_0_0_0() { return cGroup_7_1_0_0_0; }
+
+		//explicitUnitType=TypeRef
+		public Assignment getExplicitUnitTypeAssignment_7_1_0_0_0_0() { return cExplicitUnitTypeAssignment_7_1_0_0_0_0; }
+
+		//TypeRef
+		public RuleCall getExplicitUnitTypeTypeRefParserRuleCall_7_1_0_0_0_0_0() { return cExplicitUnitTypeTypeRefParserRuleCall_7_1_0_0_0_0_0; }
+
+		//"unit"
+		public Keyword getUnitKeyword_7_1_0_0_0_1() { return cUnitKeyword_7_1_0_0_0_1; }
 
 		//parameters+=ParameterDeclaration
-		public Assignment getParametersAssignment_7_1_0_1() { return cParametersAssignment_7_1_0_1; }
+		public Assignment getParametersAssignment_7_1_0_0_1() { return cParametersAssignment_7_1_0_0_1; }
 
 		//ParameterDeclaration
-		public RuleCall getParametersParameterDeclarationParserRuleCall_7_1_0_1_0() { return cParametersParameterDeclarationParserRuleCall_7_1_0_1_0; }
+		public RuleCall getParametersParameterDeclarationParserRuleCall_7_1_0_0_1_0() { return cParametersParameterDeclarationParserRuleCall_7_1_0_0_1_0; }
+
+		//("," parameters+=ParameterDeclaration)*
+		public Group getGroup_7_1_0_1() { return cGroup_7_1_0_1; }
+
+		//","
+		public Keyword getCommaKeyword_7_1_0_1_0() { return cCommaKeyword_7_1_0_1_0; }
+
+		//parameters+=ParameterDeclaration
+		public Assignment getParametersAssignment_7_1_0_1_1() { return cParametersAssignment_7_1_0_1_1; }
+
+		//ParameterDeclaration
+		public RuleCall getParametersParameterDeclarationParserRuleCall_7_1_0_1_1_0() { return cParametersParameterDeclarationParserRuleCall_7_1_0_1_1_0; }
+
+		//("," varArgs?="..." parameters+=ParameterDeclaration)?
+		public Group getGroup_7_1_0_2() { return cGroup_7_1_0_2; }
+
+		//","
+		public Keyword getCommaKeyword_7_1_0_2_0() { return cCommaKeyword_7_1_0_2_0; }
+
+		//varArgs?="..."
+		public Assignment getVarArgsAssignment_7_1_0_2_1() { return cVarArgsAssignment_7_1_0_2_1; }
+
+		//"..."
+		public Keyword getVarArgsFullStopFullStopFullStopKeyword_7_1_0_2_1_0() { return cVarArgsFullStopFullStopFullStopKeyword_7_1_0_2_1_0; }
+
+		//parameters+=ParameterDeclaration
+		public Assignment getParametersAssignment_7_1_0_2_2() { return cParametersAssignment_7_1_0_2_2; }
+
+		//ParameterDeclaration
+		public RuleCall getParametersParameterDeclarationParserRuleCall_7_1_0_2_2_0() { return cParametersParameterDeclarationParserRuleCall_7_1_0_2_2_0; }
+
+		//varArgs?="..." parameters+=ParameterDeclaration
+		public Group getGroup_7_1_1() { return cGroup_7_1_1; }
+
+		//varArgs?="..."
+		public Assignment getVarArgsAssignment_7_1_1_0() { return cVarArgsAssignment_7_1_1_0; }
+
+		//"..."
+		public Keyword getVarArgsFullStopFullStopFullStopKeyword_7_1_1_0_0() { return cVarArgsFullStopFullStopFullStopKeyword_7_1_1_0_0; }
+
+		//parameters+=ParameterDeclaration
+		public Assignment getParametersAssignment_7_1_1_1() { return cParametersAssignment_7_1_1_1; }
+
+		//ParameterDeclaration
+		public RuleCall getParametersParameterDeclarationParserRuleCall_7_1_1_1_0() { return cParametersParameterDeclarationParserRuleCall_7_1_1_1_0; }
 
 		//")"
-		public Keyword getRightParenthesisKeyword_7_1_1() { return cRightParenthesisKeyword_7_1_1; }
+		public Keyword getRightParenthesisKeyword_7_2() { return cRightParenthesisKeyword_7_2; }
 
 		//("when" guard=GuardExpression)?
 		public Group getGroup_8() { return cGroup_8; }
@@ -11073,7 +11069,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//  {build::Builder} documentation=DOCUMENTATION? visibility=Visibility? executionMode=
 	//  ExecutionMode? final?="final"? "builder" name=BuilderName ("(" ((explicitUnitType=
 	//  TypeRef "unit"|parameters+=ParameterDeclaration) ("," parameters+=
-	//  ParameterDeclaration)* ("," varArgs?="..." parameters+=ParameterDeclaration)?)|(
+	//  ParameterDeclaration)* ("," varArgs?="..." parameters+=ParameterDeclaration)?|
 	//  varArgs?="..." parameters+=ParameterDeclaration) ")")? ("when" guard=GuardExpression
 	//  )? ("provides" providedCapabilities+=ProvidedCapability ("," providedCapabilities+=
 	//  ProvidedCapability)*)? ("precondition" (":" precondExpr=Expression ";"|precondExpr=

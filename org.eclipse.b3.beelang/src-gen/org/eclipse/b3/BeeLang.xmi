@@ -1033,10 +1033,10 @@
       <tokens xsi:type="xtext:Assignment" feature="name" operator="=">
         <terminal xsi:type="xtext:RuleCall" rule="//@rules.155"/>
       </tokens>
-      <tokens xsi:type="xtext:Alternatives" cardinality="?">
-        <groups xsi:type="xtext:Group">
-          <tokens xsi:type="xtext:Keyword" value="("/>
-          <tokens xsi:type="xtext:Group">
+      <tokens xsi:type="xtext:Group" cardinality="?">
+        <tokens xsi:type="xtext:Keyword" value="("/>
+        <tokens xsi:type="xtext:Alternatives">
+          <groups xsi:type="xtext:Group">
             <tokens xsi:type="xtext:Alternatives">
               <groups xsi:type="xtext:Group">
                 <tokens xsi:type="xtext:Assignment" feature="explicitUnitType" operator="=">
@@ -1063,19 +1063,17 @@
                 <terminal xsi:type="xtext:RuleCall" rule="//@rules.35"/>
               </tokens>
             </tokens>
-          </tokens>
-        </groups>
-        <groups xsi:type="xtext:Group">
-          <tokens xsi:type="xtext:Group">
+          </groups>
+          <groups xsi:type="xtext:Group">
             <tokens xsi:type="xtext:Assignment" feature="varArgs" operator="?=">
               <terminal xsi:type="xtext:Keyword" value="..."/>
             </tokens>
             <tokens xsi:type="xtext:Assignment" feature="parameters" operator="+=">
               <terminal xsi:type="xtext:RuleCall" rule="//@rules.35"/>
             </tokens>
-          </tokens>
-          <tokens xsi:type="xtext:Keyword" value=")"/>
-        </groups>
+          </groups>
+        </tokens>
+        <tokens xsi:type="xtext:Keyword" value=")"/>
       </tokens>
       <tokens xsi:type="xtext:Group" cardinality="?">
         <tokens xsi:type="xtext:Keyword" value="when"/>

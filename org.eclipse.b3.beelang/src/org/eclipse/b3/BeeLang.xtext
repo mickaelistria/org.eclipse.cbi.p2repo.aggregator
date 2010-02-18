@@ -244,10 +244,10 @@ Builder returns build::Builder : {build::Builder}
 	name=BuilderName
 	('(' 
 		
-		( ((explicitUnitType = TypeRef "unit") | (parameters += ParameterDeclaration))
+		(( ((explicitUnitType = TypeRef "unit") | (parameters += ParameterDeclaration))
 			(',' parameters += ParameterDeclaration)* 
 			(',' varArgs?="..." parameters += ParameterDeclaration)?)
-		| 	(    varArgs?="..." parameters += ParameterDeclaration)
+		| 	(    varArgs?="..." parameters += ParameterDeclaration))
 	')' )?
 	("when" guard = GuardExpression)?
 	('provides' providedCapabilities += ProvidedCapability (',' providedCapabilities += ProvidedCapability)*  )?
