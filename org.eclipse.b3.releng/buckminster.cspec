@@ -2,8 +2,6 @@
 <cs:cspec xmlns:cs="http://www.eclipse.org/buckminster/CSpec-1.0" name="org.eclipse.b3.releng" componentType="buckminster" version="0.1.0.qualifier">
     <cs:dependencies>
         <cs:dependency name="org.apache.log4j" componentType="osgi.bundle"/>
-        <cs:dependency name="org.eclipse.b3.aggregator.editor.feature" componentType="eclipse.feature"/>
-        <cs:dependency name="org.eclipse.b3.aggregator.engine.maven.indexer.feature" componentType="eclipse.feature"/>
         <cs:dependency name="org.eclipse.b3.backend" componentType="osgi.bundle"/>
         <cs:dependency name="org.eclipse.b3.backend.edit" componentType="osgi.bundle"/>
         <cs:dependency name="org.eclipse.b3.backend.editor"/>
@@ -14,6 +12,8 @@
         <cs:dependency name="org.eclipse.b3.beelang.ui"/>
         <cs:dependency name="org.eclipse.b3.build"/>
         <cs:dependency name="org.eclipse.b3.core"/>
+        <cs:dependency name="org.eclipse.b3.site.eclipse" componentType="eclipse.feature"/>
+        <cs:dependency name="org.eclipse.b3.site.eclipse.headless" componentType="eclipse.feature"/>
         <cs:dependency name="org.eclipse.b3.util" componentType="osgi.bundle"/>
         <cs:dependency name="org.eclipse.rcp" componentType="eclipse.feature"/>
         <cs:dependency name="org.kohsuke.args4j" componentType="osgi.bundle"/>

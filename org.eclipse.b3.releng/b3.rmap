@@ -122,7 +122,7 @@
   </rm:searchPath>
   <rm:searchPath name="m2eclipse">
     <rm:provider componentTypes="eclipse.feature,osgi.bundle" readerType="eclipse.import" source="false" mutable="false">
-      <rm:uri format="http://m2eclipse.sonatype.org/update"/>
+      <rm:uri format="http://m2eclipse.sonatype.org/sites/m2e"/>
     </rm:provider>
   </rm:searchPath>
   <rm:property key="eclipse.download.prefix" value="http://download.eclipse.org"/>
