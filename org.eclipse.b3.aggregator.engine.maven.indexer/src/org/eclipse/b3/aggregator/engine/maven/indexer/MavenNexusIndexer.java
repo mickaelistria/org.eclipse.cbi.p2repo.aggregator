@@ -23,11 +23,7 @@ import java.util.Set;
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.index.TermEnum;
-import org.apache.maven.embedder.Configuration;
-import org.apache.maven.embedder.ConfigurationValidationResult;
-import org.apache.maven.embedder.DefaultConfiguration;
-import org.apache.maven.embedder.MavenEmbedder;
-import org.apache.maven.embedder.MavenEmbedderException;
+import org.codehaus.plexus.DefaultPlexusContainer;
 import org.codehaus.plexus.PlexusContainer;
 import org.eclipse.b3.aggregator.engine.maven.MavenActivator;
 import org.eclipse.b3.aggregator.engine.maven.VersionUtil;
@@ -192,11 +188,14 @@ public class MavenNexusIndexer implements IMaven2Indexer {
 		}
 		File indexDirectory = new File(cacheDirectory, "index");
 		try {
-			MavenEmbedder embedder = getMavenEmbedder();
-			PlexusContainer plexus = embedder.getPlexusContainer();
-			NexusIndexer indexer = (NexusIndexer) plexus.lookup(NexusIndexer.class);
-			IndexUpdater updater = (IndexUpdater) plexus.lookup(IndexUpdater.class);
-			IndexCreator creator = (IndexCreator) plexus.lookup(IndexCreator.class, "min");
+			// TODO How to refactor this?
+			// MavenEmbedder embedder = getMavenEmbedder();
+			// PlexusContainer plexus = embedder.getPlexusContainer();
+			PlexusContainer plexus = new DefaultPlexusContainer();
+
+			NexusIndexer indexer = plexus.lookup(NexusIndexer.class);
+			IndexUpdater updater = plexus.lookup(IndexUpdater.class);
+			IndexCreator creator = plexus.lookup(IndexCreator.class, "min");
 
 			String repoId = "mavenRepo";
 			if(!clearLocalCache)
@@ -228,18 +227,21 @@ public class MavenNexusIndexer implements IMaven2Indexer {
 
 	public void updateLocalIndex(URI location, boolean createNew) throws CoreException {
 		try {
-			MavenEmbedder embedder = getMavenEmbedder();
-			PlexusContainer plexus = embedder.getPlexusContainer();
-			NexusIndexer indexer = (NexusIndexer) plexus.lookup(NexusIndexer.class);
-			IndexPacker packer = (IndexPacker) plexus.lookup(IndexPacker.class);
+			// TODO How to refactor this?
+			// MavenEmbedder embedder = getMavenEmbedder();
+			// PlexusContainer plexus = embedder.getPlexusContainer();
+			PlexusContainer plexus = new DefaultPlexusContainer();
+
+			NexusIndexer indexer = plexus.lookup(NexusIndexer.class);
+			IndexPacker packer = plexus.lookup(IndexPacker.class);
 			String repoId = "mavenRepo";
 			File repository = new File(location);
 			File index = new File(repository, ".index");
 			File internalIndex = new File(new File(repository.getParentFile().getParentFile(), "interim"),
 					"maven-index");
 			List<IndexCreator> creators = new ArrayList<IndexCreator>(2);
-			creators.add((IndexCreator) plexus.lookup(IndexCreator.class, "min"));
-			creators.add((IndexCreator) plexus.lookup(IndexCreator.class, "jarContent"));
+			creators.add(plexus.lookup(IndexCreator.class, "min"));
+			creators.add(plexus.lookup(IndexCreator.class, "jarContent"));
 			IndexingContext context = indexer.addIndexingContext(repoId, repoId, repository, internalIndex, null, null,
 					creators);
 			try {
@@ -263,25 +265,28 @@ public class MavenNexusIndexer implements IMaven2Indexer {
 		}
 	}
 
-	private MavenEmbedder getMavenEmbedder() throws CoreException {
-		Configuration configuration = new DefaultConfiguration();
-		ConfigurationValidationResult validationResult = MavenEmbedder.validateConfiguration(configuration);
-
-		if(validationResult.isValid()) {
-			try {
-				return new MavenEmbedder(configuration);
-			}
-			catch(MavenEmbedderException e) {
-				throw ExceptionUtils.fromMessage(e, "Error obtaining a maven embedder");
-			}
-		}
-		else {
-			if(validationResult.getGlobalSettingsException() != null)
-				throw ExceptionUtils.fromMessage(validationResult.getGlobalSettingsException().getMessage());
-			else if(validationResult.getUserSettingsException() != null)
-				throw ExceptionUtils.fromMessage(validationResult.getUserSettingsException().getMessage());
-			else
-				throw ExceptionUtils.fromMessage("Maven configuration is not valid");
-		}
-	}
+	/*
+	 * TODO How to refactor this?
+	 * private MavenEmbedder getMavenEmbedder() throws CoreException {
+	 * Configuration configuration = new DefaultConfiguration();
+	 * ConfigurationValidationResult validationResult = MavenEmbedder.validateConfiguration(configuration);
+	 * 
+	 * if(validationResult.isValid()) {
+	 * try {
+	 * return new MavenEmbedder(configuration);
+	 * }
+	 * catch(MavenEmbedderException e) {
+	 * throw ExceptionUtils.fromMessage(e, "Error obtaining a maven embedder");
+	 * }
+	 * }
+	 * else {
+	 * if(validationResult.getGlobalSettingsException() != null)
+	 * throw ExceptionUtils.fromMessage(validationResult.getGlobalSettingsException().getMessage());
+	 * else if(validationResult.getUserSettingsException() != null)
+	 * throw ExceptionUtils.fromMessage(validationResult.getUserSettingsException().getMessage());
+	 * else
+	 * throw ExceptionUtils.fromMessage("Maven configuration is not valid");
+	 * }
+	 * }
+	 */
 }
