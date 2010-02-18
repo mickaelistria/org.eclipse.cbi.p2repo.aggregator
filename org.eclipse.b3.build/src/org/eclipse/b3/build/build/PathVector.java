@@ -6,8 +6,6 @@
  */
 package org.eclipse.b3.build.build;
 
-import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
