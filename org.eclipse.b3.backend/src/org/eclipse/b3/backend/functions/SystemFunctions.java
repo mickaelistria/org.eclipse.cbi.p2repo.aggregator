@@ -25,6 +25,25 @@ public class SystemFunctions {
 				throw new B3AssertionFailedException(message, expected, actual.getClass());
 			return Boolean.TRUE;
 	}
+	/**
+	 * Asserts that a variable of type <code>expected</code> can be assigned the value
+	 * <code>actual</code>.
+	 * @param message
+	 * @param expected
+	 * @param actual
+	 * @return
+	 * @throws Throwable
+	 */
+	public static Boolean assertAssignable(
+			@B3Backend(name="message")String message, 
+			@B3Backend(name="expectedType")Object expected, 
+			@B3Backend(name="actualType")Object actual) throws Throwable {
+			if(!(expected instanceof Type))
+				throw new B3AssertionFailedException(message, expected, actual.getClass());
+			if(!TypeUtils.isAssignableFrom((Type)expected, actual))
+				throw new B3AssertionFailedException(message, expected, actual.getClass());
+			return Boolean.TRUE;
+	}
 	@B3Backend(systemFunction="_assertEquals")
 	public static Boolean assertEquals(
 			@B3Backend(name="message")String message, 
