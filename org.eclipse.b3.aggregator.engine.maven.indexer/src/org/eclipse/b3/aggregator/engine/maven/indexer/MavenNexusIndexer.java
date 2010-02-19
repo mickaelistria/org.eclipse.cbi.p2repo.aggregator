@@ -35,6 +35,7 @@ import org.sonatype.nexus.index.context.IndexCreator;
 import org.sonatype.nexus.index.context.IndexingContext;
 import org.sonatype.nexus.index.packer.IndexPacker;
 import org.sonatype.nexus.index.packer.IndexPackingRequest;
+import org.sonatype.nexus.index.updater.DefaultIndexUpdater;
 import org.sonatype.nexus.index.updater.IndexUpdateRequest;
 import org.sonatype.nexus.index.updater.IndexUpdater;
 
@@ -174,6 +175,7 @@ public class MavenNexusIndexer implements IMaven2Indexer {
 		return counter;
 	}
 
+	@SuppressWarnings("deprecation")
 	public void openRemoteIndex(URI location, boolean clearLocalCache) throws IndexNotFoundException, CoreException {
 		closeRemoteIndex();
 		openIterators.clear();
@@ -192,6 +194,9 @@ public class MavenNexusIndexer implements IMaven2Indexer {
 			NexusIndexer indexer = plexus.lookup(NexusIndexer.class);
 			IndexUpdater updater = plexus.lookup(IndexUpdater.class);
 			IndexCreator creator = plexus.lookup(IndexCreator.class, "min");
+
+			// The full class name is here to avoid suppressing deprecation warning on the whole class
+			org.apache.maven.artifact.manager.WagonManager wagonManager = plexus.lookup(org.apache.maven.artifact.manager.WagonManager.class);
 
 			String repoId = "mavenRepo";
 			if(!clearLocalCache)
@@ -214,6 +219,7 @@ public class MavenNexusIndexer implements IMaven2Indexer {
 						Collections.singletonList(creator));
 
 			IndexUpdateRequest request = new IndexUpdateRequest(context);
+			request.setResourceFetcher(new DefaultIndexUpdater.WagonFetcher(wagonManager, null, null, null));
 			updater.fetchAndUpdateIndex(request);
 		}
 		catch(Exception e) {
