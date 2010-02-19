@@ -373,8 +373,9 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 				continue;
 			}
 
+			String[] names = annotation.funcNames();
+
 			if(annotation.hideOriginal()) {
-				String[] names = annotation.funcNames();
 				if(names == null || names.length == 0)
 					throw new B3FunctionLoadException("hideOriginal annotation specified but not funcNames annotation",
 							m);
@@ -407,8 +408,10 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 			// add defined function to the func store
 			if(!annotation.hideOriginal())
 				funcStore.defineFunction(m.getName(), f);
-			for(String fname : annotation.funcNames())
-				funcStore.defineFunction(fname, f);
+			if(names != null) {
+				for(String fname : names)
+					funcStore.defineFunction(fname, f);
+			}
 
 			// if a function is a proxy for a system function, remember it
 			{
@@ -513,6 +516,18 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		return javaFunction;
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * Create and initialize a BJavaFunction to represent the method m.
+	 * 
+	 * @param m
+	 *            the method to create the BJavaFunction representation for
+	 * @param callType
+	 *            the intended call type of the BJavaFunction to be created
+	 * @return the BJavaFunction representation of the method m
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
 	private static BJavaFunction createJavaFunction(Method m, BJavaCallType callType) {
 		int modifiers = m.getModifiers();
 		boolean isStatic;
@@ -522,7 +537,6 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 		if(!(Modifier.isPublic(modifiers) && ((isStatic = Modifier.isStatic(modifiers)) || callType == BJavaCallType.METHOD)))
 			return null;
 
-		// create and initialize a BJavaFunction to represent the method m
 		BJavaFunction f = B3backendFactory.eINSTANCE.createBJavaFunction();
 
 		// TODO: f's Resource ?!?
