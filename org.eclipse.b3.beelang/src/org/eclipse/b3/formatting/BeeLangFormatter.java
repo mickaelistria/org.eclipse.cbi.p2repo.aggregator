@@ -18,8 +18,8 @@ public class BeeLangFormatter extends AbstractDeclarativeFormatter {
 	
 	@Override
 	protected void configureFormatting(FormattingConfig c) {
-		org.eclipse.b3.services.BeeLangGrammarAccess f = (org.eclipse.b3.services.BeeLangGrammarAccess) getGrammarAccess();
-
+		// TODO: Specify special formatting...
+		// org.eclipse.b3.services.BeeLangGrammarAccess f = (org.eclipse.b3.services.BeeLangGrammarAccess) getGrammarAccess();
 		//...
 	}
 }
