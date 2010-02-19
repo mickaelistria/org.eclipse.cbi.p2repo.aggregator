@@ -35,6 +35,7 @@ function testMathSin() {
 	assertEquals("0 == Math.sin(0)", 0, Math.sin(0));
 }
 function testNonObjectVararg() {
+	// new ProcessBuilder().command(); // workaround to make the test pass 
 	assertEquals("[\"java\", \"Test\"] == new ProcessBuilder().command(\"java\", \"Test\").command()", ["java", "Test"], new ProcessBuilder().command("java", "Test").command());
 }
 function testStaticStringFormat() {
