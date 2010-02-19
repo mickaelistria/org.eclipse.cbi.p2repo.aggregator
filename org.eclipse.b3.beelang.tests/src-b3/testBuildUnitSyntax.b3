@@ -98,9 +98,18 @@ concern TestingBuilderContextBody {
 		+ input when ($this.property.is.set) a / b /1.0.0 #foo ("hello", "goodbye");
 		- input a / b#c ;
 		- input _#x ;
+		
+		- source a/b;
+		+ source x/y;
+		- annotations source $a.b, $a.c;
+		+ annotations source { $a = 1; $b = 2; }
+		
 		+ output "http://somewhere.com/a/base%20Path" [ subpathA, subpathB/c];
 		- output ~/\/a\/b.*/;
 		- output /a/basePath [subpathX];
+		
+		- annotations output $a.b, $a.c;
+		+ annotations output { $a = 1; $b = 2; }
 	}
 }
 concern TestingUnitContextBody {
@@ -113,4 +122,24 @@ concern TestingUnitContextBody {
 		// can find the "greenStuff" declared above
 		builder foo { input { greenStuff#files; } }
 	}
+}
+// Define a unit
+unit aTestUnit version 1.0.0 {
+	source = "resource:/a.b.c/src/";
+	output = "output:/a.b.c/";
+		
+	provides food.nutrition.vitamin/B6;
+	provides food.nutrition.vitamin/C;
+	provides food.nutrition.mineral/potassium;
+	
+	builder peel {
+		output { bananapeel.txt; }
+	}
+	builder seeds {
+		output { bananaseeds.txt; }
+	}
+	builder pulp {
+		output { bananapulp.txt; }
+	}
+	
 }
