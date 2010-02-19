@@ -212,8 +212,8 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 				return createBuilderConcernContextAdapter();
 			}
 			@Override
-			public Adapter caseOutputPredicate(OutputPredicate object) {
-				return createOutputPredicateAdapter();
+			public Adapter casePathGroupPredicate(PathGroupPredicate object) {
+				return createPathGroupPredicateAdapter();
 			}
 			@Override
 			public Adapter caseAliasedRequiredCapability(AliasedRequiredCapability object) {
@@ -282,6 +282,14 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseBuildResultContext(BuildResultContext object) {
 				return createBuildResultContextAdapter();
+			}
+			@Override
+			public Adapter caseOutputPredicate(OutputPredicate object) {
+				return createOutputPredicateAdapter();
+			}
+			@Override
+			public Adapter caseSourcePredicate(SourcePredicate object) {
+				return createSourcePredicateAdapter();
 			}
 			@Override
 			public Adapter caseBFunctionContainer(BFunctionContainer object) {
@@ -554,6 +562,34 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBuildResultContextAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.OutputPredicate <em>Output Predicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.OutputPredicate
+	 * @generated
+	 */
+	public Adapter createOutputPredicateAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.SourcePredicate <em>Source Predicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.SourcePredicate
+	 * @generated
+	 */
+	public Adapter createSourcePredicateAdapter() {
 		return null;
 	}
 
@@ -894,16 +930,16 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.OutputPredicate <em>Output Predicate</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.PathGroupPredicate <em>Path Group Predicate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.b3.build.build.OutputPredicate
+	 * @see org.eclipse.b3.build.build.PathGroupPredicate
 	 * @generated
 	 */
-	public Adapter createOutputPredicateAdapter() {
+	public Adapter createPathGroupPredicateAdapter() {
 		return null;
 	}
 

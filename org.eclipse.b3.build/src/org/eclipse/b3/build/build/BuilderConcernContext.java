@@ -37,8 +37,12 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#getPostcondExpr <em>Postcond Expr</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#getPostinputcondExpr <em>Postinputcond Expr</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#getProvidesRemovals <em>Provides Removals</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#getAnnotationsRemovals <em>Annotations Removals</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#getAnnotationsAdditions <em>Annotations Additions</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#getOutputAnnotationsRemovals <em>Output Annotations Removals</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#getOutputAnnotationAdditions <em>Output Annotation Additions</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#getSourceRemovals <em>Source Removals</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#getSourceAdditions <em>Source Additions</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#getSourceAnnotationsRemovals <em>Source Annotations Removals</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.BuilderConcernContext#getSourceAnnotationAdditions <em>Source Annotation Additions</em>}</li>
  * </ul>
  * </p>
  *
@@ -404,46 +408,120 @@ public interface BuilderConcernContext extends BuildConcernContext {
 	EList<ProvidesPredicate> getProvidesRemovals();
 
 	/**
-	 * Returns the value of the '<em><b>Annotations Removals</b></em>' attribute list.
+	 * Returns the value of the '<em><b>Output Annotations Removals</b></em>' attribute list.
 	 * The list contents are of type {@link java.lang.String}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Annotations Removals</em>' attribute list isn't clear,
+	 * If the meaning of the '<em>Output Annotations Removals</em>' attribute list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Annotations Removals</em>' attribute list.
-	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuilderConcernContext_AnnotationsRemovals()
+	 * @return the value of the '<em>Output Annotations Removals</em>' attribute list.
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuilderConcernContext_OutputAnnotationsRemovals()
 	 * @model
 	 * @generated
 	 */
-	EList<String> getAnnotationsRemovals();
+	EList<String> getOutputAnnotationsRemovals();
 
 	/**
-	 * Returns the value of the '<em><b>Annotations Additions</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Output Annotation Additions</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Annotations Additions</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Output Annotation Additions</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Annotations Additions</em>' containment reference.
-	 * @see #setAnnotationsAdditions(BPropertySet)
-	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuilderConcernContext_AnnotationsAdditions()
+	 * @return the value of the '<em>Output Annotation Additions</em>' containment reference.
+	 * @see #setOutputAnnotationAdditions(BPropertySet)
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuilderConcernContext_OutputAnnotationAdditions()
 	 * @model containment="true"
 	 * @generated
 	 */
-	BPropertySet getAnnotationsAdditions();
+	BPropertySet getOutputAnnotationAdditions();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderConcernContext#getAnnotationsAdditions <em>Annotations Additions</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderConcernContext#getOutputAnnotationAdditions <em>Output Annotation Additions</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Annotations Additions</em>' containment reference.
-	 * @see #getAnnotationsAdditions()
+	 * @param value the new value of the '<em>Output Annotation Additions</em>' containment reference.
+	 * @see #getOutputAnnotationAdditions()
 	 * @generated
 	 */
-	void setAnnotationsAdditions(BPropertySet value);
+	void setOutputAnnotationAdditions(BPropertySet value);
+
+	/**
+	 * Returns the value of the '<em><b>Source Removals</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.b3.build.build.SourcePredicate}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Source Removals</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Source Removals</em>' containment reference list.
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuilderConcernContext_SourceRemovals()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<SourcePredicate> getSourceRemovals();
+
+	/**
+	 * Returns the value of the '<em><b>Source Additions</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.b3.build.build.ConditionalPathVector}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Source Additions</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Source Additions</em>' containment reference list.
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuilderConcernContext_SourceAdditions()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ConditionalPathVector> getSourceAdditions();
+
+	/**
+	 * Returns the value of the '<em><b>Source Annotations Removals</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Source Annotations Removals</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Source Annotations Removals</em>' attribute list.
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuilderConcernContext_SourceAnnotationsRemovals()
+	 * @model
+	 * @generated
+	 */
+	EList<String> getSourceAnnotationsRemovals();
+
+	/**
+	 * Returns the value of the '<em><b>Source Annotation Additions</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Source Annotation Additions</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Source Annotation Additions</em>' containment reference.
+	 * @see #setSourceAnnotationAdditions(BPropertySet)
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuilderConcernContext_SourceAnnotationAdditions()
+	 * @model containment="true"
+	 * @generated
+	 */
+	BPropertySet getSourceAnnotationAdditions();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuilderConcernContext#getSourceAnnotationAdditions <em>Source Annotation Additions</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Source Annotation Additions</em>' containment reference.
+	 * @see #getSourceAnnotationAdditions()
+	 * @generated
+	 */
+	void setSourceAnnotationAdditions(BPropertySet value);
 
 	/**
 	 * <!-- begin-user-doc -->

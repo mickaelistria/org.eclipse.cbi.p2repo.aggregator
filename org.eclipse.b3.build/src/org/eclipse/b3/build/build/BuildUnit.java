@@ -34,7 +34,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getRepositories <em>Repositories</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getContainers <em>Containers</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getPropertySets <em>Property Sets</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getBaseLocation <em>Base Location</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getSourceLocation <em>Source Location</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.BuildUnit#getOutputLocation <em>Output Location</em>}</li>
  * </ul>
  * </p>
  *
@@ -254,30 +255,56 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	EList<BPropertySet> getPropertySets();
 
 	/**
-	 * Returns the value of the '<em><b>Base Location</b></em>' attribute.
+	 * Returns the value of the '<em><b>Source Location</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Base Location</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Source Location</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Base Location</em>' attribute.
-	 * @see #setBaseLocation(URI)
-	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuildUnit_BaseLocation()
+	 * @return the value of the '<em>Source Location</em>' attribute.
+	 * @see #setSourceLocation(URI)
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuildUnit_SourceLocation()
 	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.URI"
 	 * @generated
 	 */
-	URI getBaseLocation();
+	URI getSourceLocation();
 
 	/**
-	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuildUnit#getBaseLocation <em>Base Location</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuildUnit#getSourceLocation <em>Source Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Base Location</em>' attribute.
-	 * @see #getBaseLocation()
+	 * @param value the new value of the '<em>Source Location</em>' attribute.
+	 * @see #getSourceLocation()
 	 * @generated
 	 */
-	void setBaseLocation(URI value);
+	void setSourceLocation(URI value);
+
+	/**
+	 * Returns the value of the '<em><b>Output Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Output Location</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Output Location</em>' attribute.
+	 * @see #setOutputLocation(URI)
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuildUnit_OutputLocation()
+	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.URI"
+	 * @generated
+	 */
+	URI getOutputLocation();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.BuildUnit#getOutputLocation <em>Output Location</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Output Location</em>' attribute.
+	 * @see #getOutputLocation()
+	 * @generated
+	 */
+	void setOutputLocation(URI value);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -69,7 +69,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getRepositories <em>Repositories</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getContainers <em>Containers</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getPropertySets <em>Property Sets</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getBaseLocation <em>Base Location</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getSourceLocation <em>Source Location</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuildUnitImpl#getOutputLocation <em>Output Location</em>}</li>
  * </ul>
  * </p>
  *
@@ -214,24 +215,41 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	protected EList<BPropertySet> propertySets;
 
 	/**
-	 * The default value of the '{@link #getBaseLocation() <em>Base Location</em>}' attribute.
+	 * The default value of the '{@link #getSourceLocation() <em>Source Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBaseLocation()
+	 * @see #getSourceLocation()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final URI BASE_LOCATION_EDEFAULT = null;
+	protected static final URI SOURCE_LOCATION_EDEFAULT = null;
 	/**
-	 * The cached value of the '{@link #getBaseLocation() <em>Base Location</em>}' attribute.
+	 * The cached value of the '{@link #getSourceLocation() <em>Source Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBaseLocation()
+	 * @see #getSourceLocation()
 	 * @generated
 	 * @ordered
 	 */
-	protected URI baseLocation = BASE_LOCATION_EDEFAULT;
-
+	protected URI sourceLocation = SOURCE_LOCATION_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getOutputLocation() <em>Output Location</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOutputLocation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final URI OUTPUT_LOCATION_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getOutputLocation() <em>Output Location</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOutputLocation()
+	 * @generated
+	 * @ordered
+	 */
+	protected URI outputLocation = OUTPUT_LOCATION_EDEFAULT;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -482,8 +500,8 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public URI getBaseLocation() {
-		return baseLocation;
+	public URI getSourceLocation() {
+		return sourceLocation;
 	}
 
 	/**
@@ -491,11 +509,32 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBaseLocation(URI newBaseLocation) {
-		URI oldBaseLocation = baseLocation;
-		baseLocation = newBaseLocation;
+	public void setSourceLocation(URI newSourceLocation) {
+		URI oldSourceLocation = sourceLocation;
+		sourceLocation = newSourceLocation;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILD_UNIT__BASE_LOCATION, oldBaseLocation, baseLocation));
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILD_UNIT__SOURCE_LOCATION, oldSourceLocation, sourceLocation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public URI getOutputLocation() {
+		return outputLocation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOutputLocation(URI newOutputLocation) {
+		URI oldOutputLocation = outputLocation;
+		outputLocation = newOutputLocation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILD_UNIT__OUTPUT_LOCATION, oldOutputLocation, outputLocation));
 	}
 
 	/**
@@ -673,8 +712,10 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				return getContainers();
 			case B3BuildPackage.BUILD_UNIT__PROPERTY_SETS:
 				return getPropertySets();
-			case B3BuildPackage.BUILD_UNIT__BASE_LOCATION:
-				return getBaseLocation();
+			case B3BuildPackage.BUILD_UNIT__SOURCE_LOCATION:
+				return getSourceLocation();
+			case B3BuildPackage.BUILD_UNIT__OUTPUT_LOCATION:
+				return getOutputLocation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -737,8 +778,11 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				getPropertySets().clear();
 				getPropertySets().addAll((Collection<? extends BPropertySet>)newValue);
 				return;
-			case B3BuildPackage.BUILD_UNIT__BASE_LOCATION:
-				setBaseLocation((URI)newValue);
+			case B3BuildPackage.BUILD_UNIT__SOURCE_LOCATION:
+				setSourceLocation((URI)newValue);
+				return;
+			case B3BuildPackage.BUILD_UNIT__OUTPUT_LOCATION:
+				setOutputLocation((URI)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -791,8 +835,11 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 			case B3BuildPackage.BUILD_UNIT__PROPERTY_SETS:
 				getPropertySets().clear();
 				return;
-			case B3BuildPackage.BUILD_UNIT__BASE_LOCATION:
-				setBaseLocation(BASE_LOCATION_EDEFAULT);
+			case B3BuildPackage.BUILD_UNIT__SOURCE_LOCATION:
+				setSourceLocation(SOURCE_LOCATION_EDEFAULT);
+				return;
+			case B3BuildPackage.BUILD_UNIT__OUTPUT_LOCATION:
+				setOutputLocation(OUTPUT_LOCATION_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -834,8 +881,10 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 				return containers != null && !containers.isEmpty();
 			case B3BuildPackage.BUILD_UNIT__PROPERTY_SETS:
 				return propertySets != null && !propertySets.isEmpty();
-			case B3BuildPackage.BUILD_UNIT__BASE_LOCATION:
-				return BASE_LOCATION_EDEFAULT == null ? baseLocation != null : !BASE_LOCATION_EDEFAULT.equals(baseLocation);
+			case B3BuildPackage.BUILD_UNIT__SOURCE_LOCATION:
+				return SOURCE_LOCATION_EDEFAULT == null ? sourceLocation != null : !SOURCE_LOCATION_EDEFAULT.equals(sourceLocation);
+			case B3BuildPackage.BUILD_UNIT__OUTPUT_LOCATION:
+				return OUTPUT_LOCATION_EDEFAULT == null ? outputLocation != null : !OUTPUT_LOCATION_EDEFAULT.equals(outputLocation);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -910,8 +959,10 @@ public class BuildUnitImpl extends VersionedCapabilityImpl implements BuildUnit 
 		result.append(documentation);
 		result.append(", executionMode: ");
 		result.append(executionMode);
-		result.append(", baseLocation: ");
-		result.append(baseLocation);
+		result.append(", sourceLocation: ");
+		result.append(sourceLocation);
+		result.append(", outputLocation: ");
+		result.append(outputLocation);
 		result.append(')');
 		return result.toString();
 	}

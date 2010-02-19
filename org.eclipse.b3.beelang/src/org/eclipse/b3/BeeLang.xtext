@@ -50,12 +50,15 @@ BuildUnit returns build::BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT) : {build::
 	'unit' (name=UnitName)? ('version' version = VersionLiteral)?
 		('implements' implements += SimpleTypeRef (',' implements+=SimpleTypeRef)*)? 
 	'{'
-		(	//-- PROPERTIES
-			// goes first, because they may be used in the other clauses. TODO: can probably be relaxed
-			// since linking will find them anyway.
-			//
-			  ('default' 'properties'  defaultProperties = PropertySetDefault)
-		)?
+		//-- PROPERTIES
+		// goes first, because they may be used in the other clauses. TODO: can probably be relaxed
+		// since linking will find them anyway.
+		//
+		('default' 'properties'  defaultProperties = PropertySetDefault)?
+		//--LOCATIONS
+		('source' '=' sourceLocation = Path ';')?
+		('output' '=' outputLocation = Path ';')?
+		
 		( 	//-- PROVIDES
 			  ('provides' '{' (providedCapabilities += ProvidedCapability ';')+ '}')
 			| ('provides' providedCapabilities += ProvidedCapability ';')
@@ -257,6 +260,7 @@ Builder returns build::Builder : {build::Builder}
 	 '{'
 		('default' 'properties' defaultProperties = PropertySetDefault)?
 	     ( input = BuilderInput )? 
+	     ( "source" '{' source = PathGroup '}' )?
 	     ( "output" '{' output = PathGroup '}' )? 
 	     (funcExpr = BlockExpressionWithoutBrackets)?
 	 '}'
@@ -717,12 +721,16 @@ BuilderConcernContext returns build::BuilderConcernContext : {build::BuilderConc
 		( ('+' "input" inputAdditions += Prerequisite) 
 		| ('-' inputRemovals += InputPredicate ';')
 		)*
+
+		( ('+' "source" sourceAdditions += ConditionalPathVector)
+		| ('-' "source" sourceRemovals += SourcePredicate ';'))*
+		('-' "annotations" "source" sourceAnnotationsRemovals += PID (',' outputAnnotationsRemovals += PID)* ';')?
+		('+' "annotations" "source" sourceAnnotationAdditions = PropertySet )?
 		
 		( ('+' "output" outputAdditions += ConditionalPathVector)
 		| ('-' "output" outputRemovals += OutputPredicate ';'))*
-		
-		('-' "annotations" annotationsRemovals += PID (',' annotationsRemovals += PID)* ';')?
-		('+' "annotations" annotationsAdditions = PropertySet )?
+		('-' "annotations" "output" outputAnnotationsRemovals += PID (',' outputAnnotationsRemovals += PID)* ';')?
+		('+' "annotations" "output" outputAnnotationAdditions = PropertySet )?
 		
 		(funcExpr = BlockExpression)? // replaces the builder's funcExpression TODO: around? etc?
 	'}'
@@ -743,6 +751,7 @@ UnitNotOrPrimaryExpression returns be::BExpression :
 UnitNotExpression returns be::BExpression : {be::BUnaryOpExpression} 
 	functionName=("!") expr=UnitPrimaryExpression
 	;
+	
 UnitPrimaryExpression returns be::BExpression :
 	  RequiresPredicate
 	| ImplementsPredcicate
@@ -750,6 +759,7 @@ UnitPrimaryExpression returns be::BExpression :
 	| UnitNamePredicate
 	| GroupedUnitPrimaryExpression
 	;
+	
 GroupedUnitPrimaryExpression returns be::BExpression : '(' UnitOrExpression ')' ;
 
 	
@@ -783,6 +793,12 @@ InputPredicate returns build::InputPredicate: {build::InputPredicate}
 	'#' builderPredicate = NamePredicate
 	;
 	
+SourcePredicate returns build::SourcePredicate : {build::SourcePredicate}
+	  pathVector = BasePathPredicate
+	| pathVector = PathPredicate
+	| pathPattern = RegexpLiteral
+	;
+
 OutputPredicate returns build::OutputPredicate : {build::OutputPredicate}
 	  pathVector = BasePathPredicate
 	| pathVector = PathPredicate

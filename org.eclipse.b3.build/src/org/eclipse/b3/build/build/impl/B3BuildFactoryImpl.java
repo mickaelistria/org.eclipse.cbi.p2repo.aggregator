@@ -91,7 +91,7 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 			case B3BuildPackage.INPUT_PREDICATE: return createInputPredicate();
 			case B3BuildPackage.UNIT_CONCERN_CONTEXT: return createUnitConcernContext();
 			case B3BuildPackage.BUILDER_CONCERN_CONTEXT: return createBuilderConcernContext();
-			case B3BuildPackage.OUTPUT_PREDICATE: return createOutputPredicate();
+			case B3BuildPackage.PATH_GROUP_PREDICATE: return createPathGroupPredicate();
 			case B3BuildPackage.ALIASED_REQUIRED_CAPABILITY: return createAliasedRequiredCapability();
 			case B3BuildPackage.BUILDER_QUERY: return createBuilderQuery();
 			case B3BuildPackage.BUILDER: return createBuilder();
@@ -107,6 +107,8 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 			case B3BuildPackage.EFFECTIVE_BUILDER_REFERENCE_FACADE: return createEffectiveBuilderReferenceFacade();
 			case B3BuildPackage.BUILD_RESULT: return createBuildResult();
 			case B3BuildPackage.BUILD_RESULT_CONTEXT: return createBuildResultContext();
+			case B3BuildPackage.OUTPUT_PREDICATE: return createOutputPredicate();
+			case B3BuildPackage.SOURCE_PREDICATE: return createSourcePredicate();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -284,6 +286,26 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	public BuildResultContext createBuildResultContext() {
 		BuildResultContextImpl buildResultContext = new BuildResultContextImpl();
 		return buildResultContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OutputPredicate createOutputPredicate() {
+		OutputPredicateImpl outputPredicate = new OutputPredicateImpl();
+		return outputPredicate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SourcePredicate createSourcePredicate() {
+		SourcePredicateImpl sourcePredicate = new SourcePredicateImpl();
+		return sourcePredicate;
 	}
 
 	/**
@@ -511,9 +533,9 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public OutputPredicate createOutputPredicate() {
-		OutputPredicateImpl outputPredicate = new OutputPredicateImpl();
-		return outputPredicate;
+	public PathGroupPredicate createPathGroupPredicate() {
+		PathGroupPredicateImpl pathGroupPredicate = new PathGroupPredicateImpl();
+		return pathGroupPredicate;
 	}
 
 	/**

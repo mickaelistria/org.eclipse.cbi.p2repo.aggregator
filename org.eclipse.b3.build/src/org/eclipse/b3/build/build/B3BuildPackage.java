@@ -336,13 +336,22 @@ public interface B3BuildPackage extends EPackage {
 	int BUILD_UNIT__PROPERTY_SETS = VERSIONED_CAPABILITY_FEATURE_COUNT + 13;
 
 	/**
-	 * The feature id for the '<em><b>Base Location</b></em>' attribute.
+	 * The feature id for the '<em><b>Source Location</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT__BASE_LOCATION = VERSIONED_CAPABILITY_FEATURE_COUNT + 14;
+	int BUILD_UNIT__SOURCE_LOCATION = VERSIONED_CAPABILITY_FEATURE_COUNT + 14;
+
+	/**
+	 * The feature id for the '<em><b>Output Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_UNIT__OUTPUT_LOCATION = VERSIONED_CAPABILITY_FEATURE_COUNT + 15;
 
 	/**
 	 * The number of structural features of the '<em>Build Unit</em>' class.
@@ -351,7 +360,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT_FEATURE_COUNT = VERSIONED_CAPABILITY_FEATURE_COUNT + 15;
+	int BUILD_UNIT_FEATURE_COUNT = VERSIONED_CAPABILITY_FEATURE_COUNT + 16;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderImpl <em>Builder</em>}' class.
@@ -642,16 +651,6 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	int BUILDER_CONCERN_CONTEXT = 31;
-
-	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.OutputPredicateImpl <em>Output Predicate</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.impl.OutputPredicateImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getOutputPredicate()
-	 * @generated
-	 */
-	int OUTPUT_PREDICATE = 32;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.AliasedRequiredCapabilityImpl <em>Aliased Required Capability</em>}' class.
@@ -2009,22 +2008,58 @@ public interface B3BuildPackage extends EPackage {
 	int BUILDER_CONCERN_CONTEXT__PROVIDES_REMOVALS = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 15;
 
 	/**
-	 * The feature id for the '<em><b>Annotations Removals</b></em>' attribute list.
+	 * The feature id for the '<em><b>Output Annotations Removals</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILDER_CONCERN_CONTEXT__ANNOTATIONS_REMOVALS = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 16;
+	int BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATIONS_REMOVALS = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 16;
 
 	/**
-	 * The feature id for the '<em><b>Annotations Additions</b></em>' containment reference.
+	 * The feature id for the '<em><b>Output Annotation Additions</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILDER_CONCERN_CONTEXT__ANNOTATIONS_ADDITIONS = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 17;
+	int BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATION_ADDITIONS = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 17;
+
+	/**
+	 * The feature id for the '<em><b>Source Removals</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_CONCERN_CONTEXT__SOURCE_REMOVALS = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 18;
+
+	/**
+	 * The feature id for the '<em><b>Source Additions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_CONCERN_CONTEXT__SOURCE_ADDITIONS = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 19;
+
+	/**
+	 * The feature id for the '<em><b>Source Annotations Removals</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATIONS_REMOVALS = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 20;
+
+	/**
+	 * The feature id for the '<em><b>Source Annotation Additions</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATION_ADDITIONS = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 21;
 
 	/**
 	 * The number of structural features of the '<em>Builder Concern Context</em>' class.
@@ -2033,7 +2068,17 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILDER_CONCERN_CONTEXT_FEATURE_COUNT = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 18;
+	int BUILDER_CONCERN_CONTEXT_FEATURE_COUNT = BUILD_CONCERN_CONTEXT_FEATURE_COUNT + 22;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.PathGroupPredicateImpl <em>Path Group Predicate</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.PathGroupPredicateImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getPathGroupPredicate()
+	 * @generated
+	 */
+	int PATH_GROUP_PREDICATE = 32;
 
 	/**
 	 * The feature id for the '<em><b>Path Vector</b></em>' containment reference.
@@ -2042,7 +2087,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OUTPUT_PREDICATE__PATH_VECTOR = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 0;
+	int PATH_GROUP_PREDICATE__PATH_VECTOR = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Path Pattern</b></em>' containment reference.
@@ -2051,16 +2096,16 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OUTPUT_PREDICATE__PATH_PATTERN = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 1;
+	int PATH_GROUP_PREDICATE__PATH_PATTERN = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Output Predicate</em>' class.
+	 * The number of structural features of the '<em>Path Group Predicate</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OUTPUT_PREDICATE_FEATURE_COUNT = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 2;
+	int PATH_GROUP_PREDICATE_FEATURE_COUNT = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3534,6 +3579,80 @@ public interface B3BuildPackage extends EPackage {
 	int BUILD_RESULT_CONTEXT_FEATURE_COUNT = B3backendPackage.BINNER_CONTEXT_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.OutputPredicateImpl <em>Output Predicate</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.OutputPredicateImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getOutputPredicate()
+	 * @generated
+	 */
+	int OUTPUT_PREDICATE = 50;
+
+	/**
+	 * The feature id for the '<em><b>Path Vector</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PREDICATE__PATH_VECTOR = PATH_GROUP_PREDICATE__PATH_VECTOR;
+
+	/**
+	 * The feature id for the '<em><b>Path Pattern</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PREDICATE__PATH_PATTERN = PATH_GROUP_PREDICATE__PATH_PATTERN;
+
+	/**
+	 * The number of structural features of the '<em>Output Predicate</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_PREDICATE_FEATURE_COUNT = PATH_GROUP_PREDICATE_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.SourcePredicateImpl <em>Source Predicate</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.SourcePredicateImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getSourcePredicate()
+	 * @generated
+	 */
+	int SOURCE_PREDICATE = 51;
+
+	/**
+	 * The feature id for the '<em><b>Path Vector</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_PREDICATE__PATH_VECTOR = PATH_GROUP_PREDICATE__PATH_VECTOR;
+
+	/**
+	 * The feature id for the '<em><b>Path Pattern</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_PREDICATE__PATH_PATTERN = PATH_GROUP_PREDICATE__PATH_PATTERN;
+
+	/**
+	 * The number of structural features of the '<em>Source Predicate</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_PREDICATE_FEATURE_COUNT = PATH_GROUP_PREDICATE_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '<em>Version Range</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3541,7 +3660,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getVersionRange()
 	 * @generated
 	 */
-	int VERSION_RANGE = 50;
+	int VERSION_RANGE = 52;
 
 	/**
 	 * The meta object id for the '<em>Version</em>' data type.
@@ -3551,7 +3670,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getVersion()
 	 * @generated
 	 */
-	int VERSION = 51;
+	int VERSION = 53;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuildUnit <em>Build Unit</em>}'.
@@ -3685,15 +3804,26 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBuildUnit_PropertySets();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuildUnit#getBaseLocation <em>Base Location</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuildUnit#getSourceLocation <em>Source Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Base Location</em>'.
-	 * @see org.eclipse.b3.build.build.BuildUnit#getBaseLocation()
+	 * @return the meta object for the attribute '<em>Source Location</em>'.
+	 * @see org.eclipse.b3.build.build.BuildUnit#getSourceLocation()
 	 * @see #getBuildUnit()
 	 * @generated
 	 */
-	EAttribute getBuildUnit_BaseLocation();
+	EAttribute getBuildUnit_SourceLocation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuildUnit#getOutputLocation <em>Output Location</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Output Location</em>'.
+	 * @see org.eclipse.b3.build.build.BuildUnit#getOutputLocation()
+	 * @see #getBuildUnit()
+	 * @generated
+	 */
+	EAttribute getBuildUnit_OutputLocation();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.IBuilder <em>IBuilder</em>}'.
@@ -4208,6 +4338,26 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getBuildResultContext();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.OutputPredicate <em>Output Predicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Output Predicate</em>'.
+	 * @see org.eclipse.b3.build.build.OutputPredicate
+	 * @generated
+	 */
+	EClass getOutputPredicate();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.SourcePredicate <em>Source Predicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Source Predicate</em>'.
+	 * @see org.eclipse.b3.build.build.SourcePredicate
+	 * @generated
+	 */
+	EClass getSourcePredicate();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.VersionedCapability <em>Versioned Capability</em>}'.
@@ -5022,58 +5172,102 @@ public interface B3BuildPackage extends EPackage {
 	EReference getBuilderConcernContext_ProvidesRemovals();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link org.eclipse.b3.build.build.BuilderConcernContext#getAnnotationsRemovals <em>Annotations Removals</em>}'.
+	 * Returns the meta object for the attribute list '{@link org.eclipse.b3.build.build.BuilderConcernContext#getOutputAnnotationsRemovals <em>Output Annotations Removals</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Annotations Removals</em>'.
-	 * @see org.eclipse.b3.build.build.BuilderConcernContext#getAnnotationsRemovals()
+	 * @return the meta object for the attribute list '<em>Output Annotations Removals</em>'.
+	 * @see org.eclipse.b3.build.build.BuilderConcernContext#getOutputAnnotationsRemovals()
 	 * @see #getBuilderConcernContext()
 	 * @generated
 	 */
-	EAttribute getBuilderConcernContext_AnnotationsRemovals();
+	EAttribute getBuilderConcernContext_OutputAnnotationsRemovals();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.BuilderConcernContext#getAnnotationsAdditions <em>Annotations Additions</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.BuilderConcernContext#getOutputAnnotationAdditions <em>Output Annotation Additions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Annotations Additions</em>'.
-	 * @see org.eclipse.b3.build.build.BuilderConcernContext#getAnnotationsAdditions()
+	 * @return the meta object for the containment reference '<em>Output Annotation Additions</em>'.
+	 * @see org.eclipse.b3.build.build.BuilderConcernContext#getOutputAnnotationAdditions()
 	 * @see #getBuilderConcernContext()
 	 * @generated
 	 */
-	EReference getBuilderConcernContext_AnnotationsAdditions();
+	EReference getBuilderConcernContext_OutputAnnotationAdditions();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.OutputPredicate <em>Output Predicate</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BuilderConcernContext#getSourceRemovals <em>Source Removals</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Output Predicate</em>'.
-	 * @see org.eclipse.b3.build.build.OutputPredicate
+	 * @return the meta object for the containment reference list '<em>Source Removals</em>'.
+	 * @see org.eclipse.b3.build.build.BuilderConcernContext#getSourceRemovals()
+	 * @see #getBuilderConcernContext()
 	 * @generated
 	 */
-	EClass getOutputPredicate();
+	EReference getBuilderConcernContext_SourceRemovals();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.OutputPredicate#getPathVector <em>Path Vector</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclipse.b3.build.build.BuilderConcernContext#getSourceAdditions <em>Source Additions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Source Additions</em>'.
+	 * @see org.eclipse.b3.build.build.BuilderConcernContext#getSourceAdditions()
+	 * @see #getBuilderConcernContext()
+	 * @generated
+	 */
+	EReference getBuilderConcernContext_SourceAdditions();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.eclipse.b3.build.build.BuilderConcernContext#getSourceAnnotationsRemovals <em>Source Annotations Removals</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Source Annotations Removals</em>'.
+	 * @see org.eclipse.b3.build.build.BuilderConcernContext#getSourceAnnotationsRemovals()
+	 * @see #getBuilderConcernContext()
+	 * @generated
+	 */
+	EAttribute getBuilderConcernContext_SourceAnnotationsRemovals();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.BuilderConcernContext#getSourceAnnotationAdditions <em>Source Annotation Additions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Source Annotation Additions</em>'.
+	 * @see org.eclipse.b3.build.build.BuilderConcernContext#getSourceAnnotationAdditions()
+	 * @see #getBuilderConcernContext()
+	 * @generated
+	 */
+	EReference getBuilderConcernContext_SourceAnnotationAdditions();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.PathGroupPredicate <em>Path Group Predicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Path Group Predicate</em>'.
+	 * @see org.eclipse.b3.build.build.PathGroupPredicate
+	 * @generated
+	 */
+	EClass getPathGroupPredicate();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.PathGroupPredicate#getPathVector <em>Path Vector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Path Vector</em>'.
-	 * @see org.eclipse.b3.build.build.OutputPredicate#getPathVector()
-	 * @see #getOutputPredicate()
+	 * @see org.eclipse.b3.build.build.PathGroupPredicate#getPathVector()
+	 * @see #getPathGroupPredicate()
 	 * @generated
 	 */
-	EReference getOutputPredicate_PathVector();
+	EReference getPathGroupPredicate_PathVector();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.OutputPredicate#getPathPattern <em>Path Pattern</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.PathGroupPredicate#getPathPattern <em>Path Pattern</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Path Pattern</em>'.
-	 * @see org.eclipse.b3.build.build.OutputPredicate#getPathPattern()
-	 * @see #getOutputPredicate()
+	 * @see org.eclipse.b3.build.build.PathGroupPredicate#getPathPattern()
+	 * @see #getPathGroupPredicate()
 	 * @generated
 	 */
-	EReference getOutputPredicate_PathPattern();
+	EReference getPathGroupPredicate_PathPattern();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.AliasedRequiredCapability <em>Aliased Required Capability</em>}'.
@@ -5505,12 +5699,20 @@ public interface B3BuildPackage extends EPackage {
 		EReference BUILD_UNIT__PROPERTY_SETS = eINSTANCE.getBuildUnit_PropertySets();
 
 		/**
-		 * The meta object literal for the '<em><b>Base Location</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Source Location</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute BUILD_UNIT__BASE_LOCATION = eINSTANCE.getBuildUnit_BaseLocation();
+		EAttribute BUILD_UNIT__SOURCE_LOCATION = eINSTANCE.getBuildUnit_SourceLocation();
+
+		/**
+		 * The meta object literal for the '<em><b>Output Location</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BUILD_UNIT__OUTPUT_LOCATION = eINSTANCE.getBuildUnit_OutputLocation();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.IBuilder <em>IBuilder</em>}' class.
@@ -5923,6 +6125,26 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EClass BUILD_RESULT_CONTEXT = eINSTANCE.getBuildResultContext();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.OutputPredicateImpl <em>Output Predicate</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.impl.OutputPredicateImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getOutputPredicate()
+		 * @generated
+		 */
+		EClass OUTPUT_PREDICATE = eINSTANCE.getOutputPredicate();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.SourcePredicateImpl <em>Source Predicate</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.impl.SourcePredicateImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getSourcePredicate()
+		 * @generated
+		 */
+		EClass SOURCE_PREDICATE = eINSTANCE.getSourcePredicate();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.VersionedCapabilityImpl <em>Versioned Capability</em>}' class.
@@ -6581,30 +6803,62 @@ public interface B3BuildPackage extends EPackage {
 		EReference BUILDER_CONCERN_CONTEXT__PROVIDES_REMOVALS = eINSTANCE.getBuilderConcernContext_ProvidesRemovals();
 
 		/**
-		 * The meta object literal for the '<em><b>Annotations Removals</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Output Annotations Removals</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute BUILDER_CONCERN_CONTEXT__ANNOTATIONS_REMOVALS = eINSTANCE.getBuilderConcernContext_AnnotationsRemovals();
+		EAttribute BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATIONS_REMOVALS = eINSTANCE.getBuilderConcernContext_OutputAnnotationsRemovals();
 
 		/**
-		 * The meta object literal for the '<em><b>Annotations Additions</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Output Annotation Additions</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BUILDER_CONCERN_CONTEXT__ANNOTATIONS_ADDITIONS = eINSTANCE.getBuilderConcernContext_AnnotationsAdditions();
+		EReference BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATION_ADDITIONS = eINSTANCE.getBuilderConcernContext_OutputAnnotationAdditions();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.OutputPredicateImpl <em>Output Predicate</em>}' class.
+		 * The meta object literal for the '<em><b>Source Removals</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipse.b3.build.build.impl.OutputPredicateImpl
-		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getOutputPredicate()
 		 * @generated
 		 */
-		EClass OUTPUT_PREDICATE = eINSTANCE.getOutputPredicate();
+		EReference BUILDER_CONCERN_CONTEXT__SOURCE_REMOVALS = eINSTANCE.getBuilderConcernContext_SourceRemovals();
+
+		/**
+		 * The meta object literal for the '<em><b>Source Additions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BUILDER_CONCERN_CONTEXT__SOURCE_ADDITIONS = eINSTANCE.getBuilderConcernContext_SourceAdditions();
+
+		/**
+		 * The meta object literal for the '<em><b>Source Annotations Removals</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATIONS_REMOVALS = eINSTANCE.getBuilderConcernContext_SourceAnnotationsRemovals();
+
+		/**
+		 * The meta object literal for the '<em><b>Source Annotation Additions</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATION_ADDITIONS = eINSTANCE.getBuilderConcernContext_SourceAnnotationAdditions();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.PathGroupPredicateImpl <em>Path Group Predicate</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.impl.PathGroupPredicateImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getPathGroupPredicate()
+		 * @generated
+		 */
+		EClass PATH_GROUP_PREDICATE = eINSTANCE.getPathGroupPredicate();
 
 		/**
 		 * The meta object literal for the '<em><b>Path Vector</b></em>' containment reference feature.
@@ -6612,7 +6866,7 @@ public interface B3BuildPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference OUTPUT_PREDICATE__PATH_VECTOR = eINSTANCE.getOutputPredicate_PathVector();
+		EReference PATH_GROUP_PREDICATE__PATH_VECTOR = eINSTANCE.getPathGroupPredicate_PathVector();
 
 		/**
 		 * The meta object literal for the '<em><b>Path Pattern</b></em>' containment reference feature.
@@ -6620,7 +6874,7 @@ public interface B3BuildPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference OUTPUT_PREDICATE__PATH_PATTERN = eINSTANCE.getOutputPredicate_PathPattern();
+		EReference PATH_GROUP_PREDICATE__PATH_PATTERN = eINSTANCE.getPathGroupPredicate_PathPattern();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.AliasedRequiredCapabilityImpl <em>Aliased Required Capability</em>}' class.

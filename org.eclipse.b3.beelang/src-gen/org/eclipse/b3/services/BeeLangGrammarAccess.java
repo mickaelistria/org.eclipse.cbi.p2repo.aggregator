@@ -194,87 +194,100 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cPropertiesKeyword_8_1 = (Keyword)cGroup_8.eContents().get(1);
 		private final Assignment cDefaultPropertiesAssignment_8_2 = (Assignment)cGroup_8.eContents().get(2);
 		private final RuleCall cDefaultPropertiesPropertySetDefaultParserRuleCall_8_2_0 = (RuleCall)cDefaultPropertiesAssignment_8_2.eContents().get(0);
-		private final Alternatives cAlternatives_9 = (Alternatives)cGroup.eContents().get(9);
-		private final Group cGroup_9_0 = (Group)cAlternatives_9.eContents().get(0);
-		private final Keyword cProvidesKeyword_9_0_0 = (Keyword)cGroup_9_0.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_9_0_1 = (Keyword)cGroup_9_0.eContents().get(1);
-		private final Group cGroup_9_0_2 = (Group)cGroup_9_0.eContents().get(2);
-		private final Assignment cProvidedCapabilitiesAssignment_9_0_2_0 = (Assignment)cGroup_9_0_2.eContents().get(0);
-		private final RuleCall cProvidedCapabilitiesProvidedCapabilityParserRuleCall_9_0_2_0_0 = (RuleCall)cProvidedCapabilitiesAssignment_9_0_2_0.eContents().get(0);
-		private final Keyword cSemicolonKeyword_9_0_2_1 = (Keyword)cGroup_9_0_2.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_9_0_3 = (Keyword)cGroup_9_0.eContents().get(3);
-		private final Group cGroup_9_1 = (Group)cAlternatives_9.eContents().get(1);
-		private final Keyword cProvidesKeyword_9_1_0 = (Keyword)cGroup_9_1.eContents().get(0);
-		private final Assignment cProvidedCapabilitiesAssignment_9_1_1 = (Assignment)cGroup_9_1.eContents().get(1);
-		private final RuleCall cProvidedCapabilitiesProvidedCapabilityParserRuleCall_9_1_1_0 = (RuleCall)cProvidedCapabilitiesAssignment_9_1_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_9_1_2 = (Keyword)cGroup_9_1.eContents().get(2);
-		private final Group cGroup_9_2 = (Group)cAlternatives_9.eContents().get(2);
-		private final Keyword cRequiresKeyword_9_2_0 = (Keyword)cGroup_9_2.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_9_2_1 = (Keyword)cGroup_9_2.eContents().get(1);
-		private final Group cGroup_9_2_2 = (Group)cGroup_9_2.eContents().get(2);
-		private final Assignment cRequiredCapabilitiesAssignment_9_2_2_0 = (Assignment)cGroup_9_2_2.eContents().get(0);
-		private final RuleCall cRequiredCapabilitiesAliasedRequiredCapabilityParserRuleCall_9_2_2_0_0 = (RuleCall)cRequiredCapabilitiesAssignment_9_2_2_0.eContents().get(0);
-		private final Keyword cSemicolonKeyword_9_2_2_1 = (Keyword)cGroup_9_2_2.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_9_2_3 = (Keyword)cGroup_9_2.eContents().get(3);
-		private final Group cGroup_9_3 = (Group)cAlternatives_9.eContents().get(3);
-		private final Keyword cRequiresKeyword_9_3_0 = (Keyword)cGroup_9_3.eContents().get(0);
-		private final Assignment cRequiredCapabilitiesAssignment_9_3_1 = (Assignment)cGroup_9_3.eContents().get(1);
-		private final RuleCall cRequiredCapabilitiesAliasedRequiredCapabilityParserRuleCall_9_3_1_0 = (RuleCall)cRequiredCapabilitiesAssignment_9_3_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_9_3_2 = (Keyword)cGroup_9_3.eContents().get(2);
-		private final Group cGroup_9_4 = (Group)cAlternatives_9.eContents().get(4);
-		private final Keyword cEnvKeyword_9_4_0 = (Keyword)cGroup_9_4.eContents().get(0);
-		private final Keyword cRequiresKeyword_9_4_1 = (Keyword)cGroup_9_4.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_9_4_2 = (Keyword)cGroup_9_4.eContents().get(2);
-		private final Group cGroup_9_4_3 = (Group)cGroup_9_4.eContents().get(3);
-		private final Assignment cMetaRequiredCapabilitiesAssignment_9_4_3_0 = (Assignment)cGroup_9_4_3.eContents().get(0);
-		private final RuleCall cMetaRequiredCapabilitiesRequiredCapabilityParserRuleCall_9_4_3_0_0 = (RuleCall)cMetaRequiredCapabilitiesAssignment_9_4_3_0.eContents().get(0);
-		private final Keyword cSemicolonKeyword_9_4_3_1 = (Keyword)cGroup_9_4_3.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_9_4_4 = (Keyword)cGroup_9_4.eContents().get(4);
-		private final Group cGroup_9_5 = (Group)cAlternatives_9.eContents().get(5);
-		private final Keyword cEnvKeyword_9_5_0 = (Keyword)cGroup_9_5.eContents().get(0);
-		private final Keyword cRequiresKeyword_9_5_1 = (Keyword)cGroup_9_5.eContents().get(1);
-		private final Assignment cMetaRequiredCapabilitiesAssignment_9_5_2 = (Assignment)cGroup_9_5.eContents().get(2);
-		private final RuleCall cMetaRequiredCapabilitiesRequiredCapabilityParserRuleCall_9_5_2_0 = (RuleCall)cMetaRequiredCapabilitiesAssignment_9_5_2.eContents().get(0);
-		private final Keyword cSemicolonKeyword_9_5_3 = (Keyword)cGroup_9_5.eContents().get(3);
-		private final Assignment cConcernsAssignment_9_6 = (Assignment)cAlternatives_9.eContents().get(6);
-		private final RuleCall cConcernsConcern_NamedParserRuleCall_9_6_0 = (RuleCall)cConcernsAssignment_9_6.eContents().get(0);
-		private final Group cGroup_9_7 = (Group)cAlternatives_9.eContents().get(7);
-		private final Keyword cSequentialKeyword_9_7_0 = (Keyword)cGroup_9_7.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_9_7_1 = (Keyword)cGroup_9_7.eContents().get(1);
-		private final Assignment cSynchronizationsAssignment_9_7_2 = (Assignment)cGroup_9_7.eContents().get(2);
-		private final RuleCall cSynchronizationsSynchronizationParserRuleCall_9_7_2_0 = (RuleCall)cSynchronizationsAssignment_9_7_2.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_9_7_3 = (Keyword)cGroup_9_7.eContents().get(3);
-		private final Group cGroup_9_8 = (Group)cAlternatives_9.eContents().get(8);
-		private final Keyword cSequentialKeyword_9_8_0 = (Keyword)cGroup_9_8.eContents().get(0);
-		private final Assignment cSynchronizationsAssignment_9_8_1 = (Assignment)cGroup_9_8.eContents().get(1);
-		private final RuleCall cSynchronizationsSynchronizationParserRuleCall_9_8_1_0 = (RuleCall)cSynchronizationsAssignment_9_8_1.eContents().get(0);
-		private final Assignment cFunctionsAssignment_9_9 = (Assignment)cAlternatives_9.eContents().get(9);
-		private final RuleCall cFunctionsBuilderParserRuleCall_9_9_0 = (RuleCall)cFunctionsAssignment_9_9.eContents().get(0);
-		private final Assignment cFunctionsAssignment_9_10 = (Assignment)cAlternatives_9.eContents().get(10);
-		private final RuleCall cFunctionsFunctionParserRuleCall_9_10_0 = (RuleCall)cFunctionsAssignment_9_10.eContents().get(0);
-		private final Group cGroup_9_11 = (Group)cAlternatives_9.eContents().get(11);
-		private final Keyword cRepositoriesKeyword_9_11_0 = (Keyword)cGroup_9_11.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_9_11_1 = (Keyword)cGroup_9_11.eContents().get(1);
-		private final Assignment cRepositoriesAssignment_9_11_2 = (Assignment)cGroup_9_11.eContents().get(2);
-		private final RuleCall cRepositoriesRepositoryConfigurationParserRuleCall_9_11_2_0 = (RuleCall)cRepositoriesAssignment_9_11_2.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_9_11_3 = (Keyword)cGroup_9_11.eContents().get(3);
-		private final Group cGroup_9_12 = (Group)cAlternatives_9.eContents().get(12);
-		private final Keyword cPropertiesKeyword_9_12_0 = (Keyword)cGroup_9_12.eContents().get(0);
-		private final Assignment cPropertySetsAssignment_9_12_1 = (Assignment)cGroup_9_12.eContents().get(1);
-		private final RuleCall cPropertySetsPropertySet_NamedParserRuleCall_9_12_1_0 = (RuleCall)cPropertySetsAssignment_9_12_1.eContents().get(0);
-		private final Group cGroup_9_13 = (Group)cAlternatives_9.eContents().get(13);
-		private final Keyword cContainersKeyword_9_13_0 = (Keyword)cGroup_9_13.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_9_13_1 = (Keyword)cGroup_9_13.eContents().get(1);
-		private final Assignment cContainersAssignment_9_13_2 = (Assignment)cGroup_9_13.eContents().get(2);
-		private final RuleCall cContainersContainerConfigurationParserRuleCall_9_13_2_0 = (RuleCall)cContainersAssignment_9_13_2.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_9_13_3 = (Keyword)cGroup_9_13.eContents().get(3);
-		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
+		private final Keyword cSourceKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_9_1 = (Keyword)cGroup_9.eContents().get(1);
+		private final Assignment cSourceLocationAssignment_9_2 = (Assignment)cGroup_9.eContents().get(2);
+		private final RuleCall cSourceLocationPathParserRuleCall_9_2_0 = (RuleCall)cSourceLocationAssignment_9_2.eContents().get(0);
+		private final Keyword cSemicolonKeyword_9_3 = (Keyword)cGroup_9.eContents().get(3);
+		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
+		private final Keyword cOutputKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_10_1 = (Keyword)cGroup_10.eContents().get(1);
+		private final Assignment cOutputLocationAssignment_10_2 = (Assignment)cGroup_10.eContents().get(2);
+		private final RuleCall cOutputLocationPathParserRuleCall_10_2_0 = (RuleCall)cOutputLocationAssignment_10_2.eContents().get(0);
+		private final Keyword cSemicolonKeyword_10_3 = (Keyword)cGroup_10.eContents().get(3);
+		private final Alternatives cAlternatives_11 = (Alternatives)cGroup.eContents().get(11);
+		private final Group cGroup_11_0 = (Group)cAlternatives_11.eContents().get(0);
+		private final Keyword cProvidesKeyword_11_0_0 = (Keyword)cGroup_11_0.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_11_0_1 = (Keyword)cGroup_11_0.eContents().get(1);
+		private final Group cGroup_11_0_2 = (Group)cGroup_11_0.eContents().get(2);
+		private final Assignment cProvidedCapabilitiesAssignment_11_0_2_0 = (Assignment)cGroup_11_0_2.eContents().get(0);
+		private final RuleCall cProvidedCapabilitiesProvidedCapabilityParserRuleCall_11_0_2_0_0 = (RuleCall)cProvidedCapabilitiesAssignment_11_0_2_0.eContents().get(0);
+		private final Keyword cSemicolonKeyword_11_0_2_1 = (Keyword)cGroup_11_0_2.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_11_0_3 = (Keyword)cGroup_11_0.eContents().get(3);
+		private final Group cGroup_11_1 = (Group)cAlternatives_11.eContents().get(1);
+		private final Keyword cProvidesKeyword_11_1_0 = (Keyword)cGroup_11_1.eContents().get(0);
+		private final Assignment cProvidedCapabilitiesAssignment_11_1_1 = (Assignment)cGroup_11_1.eContents().get(1);
+		private final RuleCall cProvidedCapabilitiesProvidedCapabilityParserRuleCall_11_1_1_0 = (RuleCall)cProvidedCapabilitiesAssignment_11_1_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_11_1_2 = (Keyword)cGroup_11_1.eContents().get(2);
+		private final Group cGroup_11_2 = (Group)cAlternatives_11.eContents().get(2);
+		private final Keyword cRequiresKeyword_11_2_0 = (Keyword)cGroup_11_2.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_11_2_1 = (Keyword)cGroup_11_2.eContents().get(1);
+		private final Group cGroup_11_2_2 = (Group)cGroup_11_2.eContents().get(2);
+		private final Assignment cRequiredCapabilitiesAssignment_11_2_2_0 = (Assignment)cGroup_11_2_2.eContents().get(0);
+		private final RuleCall cRequiredCapabilitiesAliasedRequiredCapabilityParserRuleCall_11_2_2_0_0 = (RuleCall)cRequiredCapabilitiesAssignment_11_2_2_0.eContents().get(0);
+		private final Keyword cSemicolonKeyword_11_2_2_1 = (Keyword)cGroup_11_2_2.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_11_2_3 = (Keyword)cGroup_11_2.eContents().get(3);
+		private final Group cGroup_11_3 = (Group)cAlternatives_11.eContents().get(3);
+		private final Keyword cRequiresKeyword_11_3_0 = (Keyword)cGroup_11_3.eContents().get(0);
+		private final Assignment cRequiredCapabilitiesAssignment_11_3_1 = (Assignment)cGroup_11_3.eContents().get(1);
+		private final RuleCall cRequiredCapabilitiesAliasedRequiredCapabilityParserRuleCall_11_3_1_0 = (RuleCall)cRequiredCapabilitiesAssignment_11_3_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_11_3_2 = (Keyword)cGroup_11_3.eContents().get(2);
+		private final Group cGroup_11_4 = (Group)cAlternatives_11.eContents().get(4);
+		private final Keyword cEnvKeyword_11_4_0 = (Keyword)cGroup_11_4.eContents().get(0);
+		private final Keyword cRequiresKeyword_11_4_1 = (Keyword)cGroup_11_4.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_11_4_2 = (Keyword)cGroup_11_4.eContents().get(2);
+		private final Group cGroup_11_4_3 = (Group)cGroup_11_4.eContents().get(3);
+		private final Assignment cMetaRequiredCapabilitiesAssignment_11_4_3_0 = (Assignment)cGroup_11_4_3.eContents().get(0);
+		private final RuleCall cMetaRequiredCapabilitiesRequiredCapabilityParserRuleCall_11_4_3_0_0 = (RuleCall)cMetaRequiredCapabilitiesAssignment_11_4_3_0.eContents().get(0);
+		private final Keyword cSemicolonKeyword_11_4_3_1 = (Keyword)cGroup_11_4_3.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_11_4_4 = (Keyword)cGroup_11_4.eContents().get(4);
+		private final Group cGroup_11_5 = (Group)cAlternatives_11.eContents().get(5);
+		private final Keyword cEnvKeyword_11_5_0 = (Keyword)cGroup_11_5.eContents().get(0);
+		private final Keyword cRequiresKeyword_11_5_1 = (Keyword)cGroup_11_5.eContents().get(1);
+		private final Assignment cMetaRequiredCapabilitiesAssignment_11_5_2 = (Assignment)cGroup_11_5.eContents().get(2);
+		private final RuleCall cMetaRequiredCapabilitiesRequiredCapabilityParserRuleCall_11_5_2_0 = (RuleCall)cMetaRequiredCapabilitiesAssignment_11_5_2.eContents().get(0);
+		private final Keyword cSemicolonKeyword_11_5_3 = (Keyword)cGroup_11_5.eContents().get(3);
+		private final Assignment cConcernsAssignment_11_6 = (Assignment)cAlternatives_11.eContents().get(6);
+		private final RuleCall cConcernsConcern_NamedParserRuleCall_11_6_0 = (RuleCall)cConcernsAssignment_11_6.eContents().get(0);
+		private final Group cGroup_11_7 = (Group)cAlternatives_11.eContents().get(7);
+		private final Keyword cSequentialKeyword_11_7_0 = (Keyword)cGroup_11_7.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_11_7_1 = (Keyword)cGroup_11_7.eContents().get(1);
+		private final Assignment cSynchronizationsAssignment_11_7_2 = (Assignment)cGroup_11_7.eContents().get(2);
+		private final RuleCall cSynchronizationsSynchronizationParserRuleCall_11_7_2_0 = (RuleCall)cSynchronizationsAssignment_11_7_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_11_7_3 = (Keyword)cGroup_11_7.eContents().get(3);
+		private final Group cGroup_11_8 = (Group)cAlternatives_11.eContents().get(8);
+		private final Keyword cSequentialKeyword_11_8_0 = (Keyword)cGroup_11_8.eContents().get(0);
+		private final Assignment cSynchronizationsAssignment_11_8_1 = (Assignment)cGroup_11_8.eContents().get(1);
+		private final RuleCall cSynchronizationsSynchronizationParserRuleCall_11_8_1_0 = (RuleCall)cSynchronizationsAssignment_11_8_1.eContents().get(0);
+		private final Assignment cFunctionsAssignment_11_9 = (Assignment)cAlternatives_11.eContents().get(9);
+		private final RuleCall cFunctionsBuilderParserRuleCall_11_9_0 = (RuleCall)cFunctionsAssignment_11_9.eContents().get(0);
+		private final Assignment cFunctionsAssignment_11_10 = (Assignment)cAlternatives_11.eContents().get(10);
+		private final RuleCall cFunctionsFunctionParserRuleCall_11_10_0 = (RuleCall)cFunctionsAssignment_11_10.eContents().get(0);
+		private final Group cGroup_11_11 = (Group)cAlternatives_11.eContents().get(11);
+		private final Keyword cRepositoriesKeyword_11_11_0 = (Keyword)cGroup_11_11.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_11_11_1 = (Keyword)cGroup_11_11.eContents().get(1);
+		private final Assignment cRepositoriesAssignment_11_11_2 = (Assignment)cGroup_11_11.eContents().get(2);
+		private final RuleCall cRepositoriesRepositoryConfigurationParserRuleCall_11_11_2_0 = (RuleCall)cRepositoriesAssignment_11_11_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_11_11_3 = (Keyword)cGroup_11_11.eContents().get(3);
+		private final Group cGroup_11_12 = (Group)cAlternatives_11.eContents().get(12);
+		private final Keyword cPropertiesKeyword_11_12_0 = (Keyword)cGroup_11_12.eContents().get(0);
+		private final Assignment cPropertySetsAssignment_11_12_1 = (Assignment)cGroup_11_12.eContents().get(1);
+		private final RuleCall cPropertySetsPropertySet_NamedParserRuleCall_11_12_1_0 = (RuleCall)cPropertySetsAssignment_11_12_1.eContents().get(0);
+		private final Group cGroup_11_13 = (Group)cAlternatives_11.eContents().get(13);
+		private final Keyword cContainersKeyword_11_13_0 = (Keyword)cGroup_11_13.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_11_13_1 = (Keyword)cGroup_11_13.eContents().get(1);
+		private final Assignment cContainersAssignment_11_13_2 = (Assignment)cGroup_11_13.eContents().get(2);
+		private final RuleCall cContainersContainerConfigurationParserRuleCall_11_13_2_0 = (RuleCall)cContainersAssignment_11_13_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_11_13_3 = (Keyword)cGroup_11_13.eContents().get(3);
+		private final Keyword cRightCurlyBracketKeyword_12 = (Keyword)cGroup.eContents().get(12);
 		
 		//BuildUnit returns build::BuildUnit hidden ( WS , ML_COMMENT , SL_COMMENT ):
 		//  {build::BuildUnit} documentation=DOCUMENTATION? executionMode=ExecutionMode? "unit"
 		//  name=UnitName? ("version" version=VersionLiteral)? ("implements" implements+=
 		//  SimpleTypeRef ("," implements+=SimpleTypeRef)*)? "{" ("default" "properties"
-		//  defaultProperties=PropertySetDefault)? ("provides" "{" (providedCapabilities+=
+		//  defaultProperties=PropertySetDefault)? ("source" "=" sourceLocation=Path ";")? (
+		//  "output" "=" outputLocation=Path ";")? ("provides" "{" (providedCapabilities+=
 		//  ProvidedCapability ";")+ "}"|"provides" providedCapabilities+=ProvidedCapability ";"
 		//  |"requires" "{" (requiredCapabilities+=AliasedRequiredCapability ";")+ "}"|
 		//  "requires" requiredCapabilities+=AliasedRequiredCapability ";"|"env" "requires" "{" (
@@ -300,11 +313,14 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//	          
 		//		           
 		//	
-		//			 //-- PROPERTIES
-		//			 // goes first, because they may be used in the other clauses. TODO: can probably be relaxed
-		//			 // since linking will find them anyway.
-		//			 //
-		//			            
+		//		//-- PROPERTIES
+		//		 // goes first, because they may be used in the other clauses. TODO: can probably be relaxed
+		//		 // since linking will find them anyway.
+		//		 //
+		//		          
+		//		//--LOCATIONS
+		//		           
+		//		          
 		//		
 		//		 	 //-- PROVIDES
 		//			               
@@ -328,7 +344,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//{build::BuildUnit} documentation=DOCUMENTATION? executionMode=ExecutionMode? "unit"
 		//name=UnitName? ("version" version=VersionLiteral)? ("implements" implements+=
 		//SimpleTypeRef ("," implements+=SimpleTypeRef)*)? "{" ("default" "properties"
-		//defaultProperties=PropertySetDefault)? ("provides" "{" (providedCapabilities+=
+		//defaultProperties=PropertySetDefault)? ("source" "=" sourceLocation=Path ";")? (
+		//"output" "=" outputLocation=Path ";")? ("provides" "{" (providedCapabilities+=
 		//ProvidedCapability ";")+ "}"|"provides" providedCapabilities+=ProvidedCapability ";"
 		//|"requires" "{" (requiredCapabilities+=AliasedRequiredCapability ";")+ "}"|
 		//"requires" requiredCapabilities+=AliasedRequiredCapability ";"|"env" "requires" "{" (
@@ -344,11 +361,14 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//	          
 		//		           
 		//	
-		//			 //-- PROPERTIES
-		//			 // goes first, because they may be used in the other clauses. TODO: can probably be relaxed
-		//			 // since linking will find them anyway.
-		//			 //
-		//			            
+		//		//-- PROPERTIES
+		//		 // goes first, because they may be used in the other clauses. TODO: can probably be relaxed
+		//		 // since linking will find them anyway.
+		//		 //
+		//		          
+		//		//--LOCATIONS
+		//		           
+		//		          
 		//		
 		//		 	 //-- PROVIDES
 		//			               
@@ -429,7 +449,12 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//SimpleTypeRef
 		public RuleCall getImplementsSimpleTypeRefParserRuleCall_6_2_1_0() { return cImplementsSimpleTypeRefParserRuleCall_6_2_1_0; }
 
-		//"{"
+		//"{"  
+		//	
+		//		//-- PROPERTIES
+		//		 // goes first, because they may be used in the other clauses. TODO: can probably be relaxed
+		//		 // since linking will find them anyway.
+		//		 //
 		public Keyword getLeftCurlyBracketKeyword_7() { return cLeftCurlyBracketKeyword_7; }
 
 		//("default" "properties" defaultProperties=PropertySetDefault)?
@@ -447,6 +472,42 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//PropertySetDefault
 		public RuleCall getDefaultPropertiesPropertySetDefaultParserRuleCall_8_2_0() { return cDefaultPropertiesPropertySetDefaultParserRuleCall_8_2_0; }
 
+		//("source" "=" sourceLocation=Path ";")?
+		public Group getGroup_9() { return cGroup_9; }
+
+		//"source"
+		public Keyword getSourceKeyword_9_0() { return cSourceKeyword_9_0; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_9_1() { return cEqualsSignKeyword_9_1; }
+
+		//sourceLocation=Path
+		public Assignment getSourceLocationAssignment_9_2() { return cSourceLocationAssignment_9_2; }
+
+		//Path
+		public RuleCall getSourceLocationPathParserRuleCall_9_2_0() { return cSourceLocationPathParserRuleCall_9_2_0; }
+
+		//";"
+		public Keyword getSemicolonKeyword_9_3() { return cSemicolonKeyword_9_3; }
+
+		//("output" "=" outputLocation=Path ";")?
+		public Group getGroup_10() { return cGroup_10; }
+
+		//"output"
+		public Keyword getOutputKeyword_10_0() { return cOutputKeyword_10_0; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_10_1() { return cEqualsSignKeyword_10_1; }
+
+		//outputLocation=Path
+		public Assignment getOutputLocationAssignment_10_2() { return cOutputLocationAssignment_10_2; }
+
+		//Path
+		public RuleCall getOutputLocationPathParserRuleCall_10_2_0() { return cOutputLocationPathParserRuleCall_10_2_0; }
+
+		//";"
+		public Keyword getSemicolonKeyword_10_3() { return cSemicolonKeyword_10_3; }
+
 		//("provides" "{" (providedCapabilities+=ProvidedCapability ";")+ "}"|"provides"
 		//providedCapabilities+=ProvidedCapability ";"|"requires" "{" (requiredCapabilities+=
 		//AliasedRequiredCapability ";")+ "}"|"requires" requiredCapabilities+=
@@ -457,6 +518,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//Builder|functions+=Function|"repositories" "{" repositories+=
 		//RepositoryConfiguration* "}"|"properties" propertySets+=PropertySet_Named|
 		//"containers" "{" containers+=ContainerConfiguration* "}")* 
+		//		
 		//		 	 //-- PROVIDES
 		//			               
 		//			          
@@ -474,229 +536,229 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//			         			
 		//			        			
 		//			//-- REPOSITORIES
-		public Alternatives getAlternatives_9() { return cAlternatives_9; }
+		public Alternatives getAlternatives_11() { return cAlternatives_11; }
 
 		//"provides" "{" (providedCapabilities+=ProvidedCapability ";")+ "}"
-		public Group getGroup_9_0() { return cGroup_9_0; }
+		public Group getGroup_11_0() { return cGroup_11_0; }
 
 		//"provides"
-		public Keyword getProvidesKeyword_9_0_0() { return cProvidesKeyword_9_0_0; }
+		public Keyword getProvidesKeyword_11_0_0() { return cProvidesKeyword_11_0_0; }
 
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_9_0_1() { return cLeftCurlyBracketKeyword_9_0_1; }
+		public Keyword getLeftCurlyBracketKeyword_11_0_1() { return cLeftCurlyBracketKeyword_11_0_1; }
 
 		//(providedCapabilities+=ProvidedCapability ";")+
-		public Group getGroup_9_0_2() { return cGroup_9_0_2; }
+		public Group getGroup_11_0_2() { return cGroup_11_0_2; }
 
 		//providedCapabilities+=ProvidedCapability
-		public Assignment getProvidedCapabilitiesAssignment_9_0_2_0() { return cProvidedCapabilitiesAssignment_9_0_2_0; }
+		public Assignment getProvidedCapabilitiesAssignment_11_0_2_0() { return cProvidedCapabilitiesAssignment_11_0_2_0; }
 
 		//ProvidedCapability
-		public RuleCall getProvidedCapabilitiesProvidedCapabilityParserRuleCall_9_0_2_0_0() { return cProvidedCapabilitiesProvidedCapabilityParserRuleCall_9_0_2_0_0; }
+		public RuleCall getProvidedCapabilitiesProvidedCapabilityParserRuleCall_11_0_2_0_0() { return cProvidedCapabilitiesProvidedCapabilityParserRuleCall_11_0_2_0_0; }
 
 		//";"
-		public Keyword getSemicolonKeyword_9_0_2_1() { return cSemicolonKeyword_9_0_2_1; }
+		public Keyword getSemicolonKeyword_11_0_2_1() { return cSemicolonKeyword_11_0_2_1; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_9_0_3() { return cRightCurlyBracketKeyword_9_0_3; }
+		public Keyword getRightCurlyBracketKeyword_11_0_3() { return cRightCurlyBracketKeyword_11_0_3; }
 
 		//"provides" providedCapabilities+=ProvidedCapability ";"
-		public Group getGroup_9_1() { return cGroup_9_1; }
+		public Group getGroup_11_1() { return cGroup_11_1; }
 
 		//"provides"
-		public Keyword getProvidesKeyword_9_1_0() { return cProvidesKeyword_9_1_0; }
+		public Keyword getProvidesKeyword_11_1_0() { return cProvidesKeyword_11_1_0; }
 
 		//providedCapabilities+=ProvidedCapability
-		public Assignment getProvidedCapabilitiesAssignment_9_1_1() { return cProvidedCapabilitiesAssignment_9_1_1; }
+		public Assignment getProvidedCapabilitiesAssignment_11_1_1() { return cProvidedCapabilitiesAssignment_11_1_1; }
 
 		//ProvidedCapability
-		public RuleCall getProvidedCapabilitiesProvidedCapabilityParserRuleCall_9_1_1_0() { return cProvidedCapabilitiesProvidedCapabilityParserRuleCall_9_1_1_0; }
+		public RuleCall getProvidedCapabilitiesProvidedCapabilityParserRuleCall_11_1_1_0() { return cProvidedCapabilitiesProvidedCapabilityParserRuleCall_11_1_1_0; }
 
 		//";"
-		public Keyword getSemicolonKeyword_9_1_2() { return cSemicolonKeyword_9_1_2; }
+		public Keyword getSemicolonKeyword_11_1_2() { return cSemicolonKeyword_11_1_2; }
 
 		//"requires" "{" (requiredCapabilities+=AliasedRequiredCapability ";")+ "}"
-		public Group getGroup_9_2() { return cGroup_9_2; }
+		public Group getGroup_11_2() { return cGroup_11_2; }
 
 		//"requires"
-		public Keyword getRequiresKeyword_9_2_0() { return cRequiresKeyword_9_2_0; }
+		public Keyword getRequiresKeyword_11_2_0() { return cRequiresKeyword_11_2_0; }
 
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_9_2_1() { return cLeftCurlyBracketKeyword_9_2_1; }
+		public Keyword getLeftCurlyBracketKeyword_11_2_1() { return cLeftCurlyBracketKeyword_11_2_1; }
 
 		//(requiredCapabilities+=AliasedRequiredCapability ";")+
-		public Group getGroup_9_2_2() { return cGroup_9_2_2; }
+		public Group getGroup_11_2_2() { return cGroup_11_2_2; }
 
 		//requiredCapabilities+=AliasedRequiredCapability
-		public Assignment getRequiredCapabilitiesAssignment_9_2_2_0() { return cRequiredCapabilitiesAssignment_9_2_2_0; }
+		public Assignment getRequiredCapabilitiesAssignment_11_2_2_0() { return cRequiredCapabilitiesAssignment_11_2_2_0; }
 
 		//AliasedRequiredCapability
-		public RuleCall getRequiredCapabilitiesAliasedRequiredCapabilityParserRuleCall_9_2_2_0_0() { return cRequiredCapabilitiesAliasedRequiredCapabilityParserRuleCall_9_2_2_0_0; }
+		public RuleCall getRequiredCapabilitiesAliasedRequiredCapabilityParserRuleCall_11_2_2_0_0() { return cRequiredCapabilitiesAliasedRequiredCapabilityParserRuleCall_11_2_2_0_0; }
 
 		//";"
-		public Keyword getSemicolonKeyword_9_2_2_1() { return cSemicolonKeyword_9_2_2_1; }
+		public Keyword getSemicolonKeyword_11_2_2_1() { return cSemicolonKeyword_11_2_2_1; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_9_2_3() { return cRightCurlyBracketKeyword_9_2_3; }
+		public Keyword getRightCurlyBracketKeyword_11_2_3() { return cRightCurlyBracketKeyword_11_2_3; }
 
 		//"requires" requiredCapabilities+=AliasedRequiredCapability ";"
-		public Group getGroup_9_3() { return cGroup_9_3; }
+		public Group getGroup_11_3() { return cGroup_11_3; }
 
 		//"requires"
-		public Keyword getRequiresKeyword_9_3_0() { return cRequiresKeyword_9_3_0; }
+		public Keyword getRequiresKeyword_11_3_0() { return cRequiresKeyword_11_3_0; }
 
 		//requiredCapabilities+=AliasedRequiredCapability
-		public Assignment getRequiredCapabilitiesAssignment_9_3_1() { return cRequiredCapabilitiesAssignment_9_3_1; }
+		public Assignment getRequiredCapabilitiesAssignment_11_3_1() { return cRequiredCapabilitiesAssignment_11_3_1; }
 
 		//AliasedRequiredCapability
-		public RuleCall getRequiredCapabilitiesAliasedRequiredCapabilityParserRuleCall_9_3_1_0() { return cRequiredCapabilitiesAliasedRequiredCapabilityParserRuleCall_9_3_1_0; }
+		public RuleCall getRequiredCapabilitiesAliasedRequiredCapabilityParserRuleCall_11_3_1_0() { return cRequiredCapabilitiesAliasedRequiredCapabilityParserRuleCall_11_3_1_0; }
 
 		//";"
-		public Keyword getSemicolonKeyword_9_3_2() { return cSemicolonKeyword_9_3_2; }
+		public Keyword getSemicolonKeyword_11_3_2() { return cSemicolonKeyword_11_3_2; }
 
 		//"env" "requires" "{" (metaRequiredCapabilities+=RequiredCapability ";")+ "}"
-		public Group getGroup_9_4() { return cGroup_9_4; }
+		public Group getGroup_11_4() { return cGroup_11_4; }
 
 		//"env"
-		public Keyword getEnvKeyword_9_4_0() { return cEnvKeyword_9_4_0; }
+		public Keyword getEnvKeyword_11_4_0() { return cEnvKeyword_11_4_0; }
 
 		//"requires"
-		public Keyword getRequiresKeyword_9_4_1() { return cRequiresKeyword_9_4_1; }
+		public Keyword getRequiresKeyword_11_4_1() { return cRequiresKeyword_11_4_1; }
 
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_9_4_2() { return cLeftCurlyBracketKeyword_9_4_2; }
+		public Keyword getLeftCurlyBracketKeyword_11_4_2() { return cLeftCurlyBracketKeyword_11_4_2; }
 
 		//(metaRequiredCapabilities+=RequiredCapability ";")+
-		public Group getGroup_9_4_3() { return cGroup_9_4_3; }
+		public Group getGroup_11_4_3() { return cGroup_11_4_3; }
 
 		//metaRequiredCapabilities+=RequiredCapability
-		public Assignment getMetaRequiredCapabilitiesAssignment_9_4_3_0() { return cMetaRequiredCapabilitiesAssignment_9_4_3_0; }
+		public Assignment getMetaRequiredCapabilitiesAssignment_11_4_3_0() { return cMetaRequiredCapabilitiesAssignment_11_4_3_0; }
 
 		//RequiredCapability
-		public RuleCall getMetaRequiredCapabilitiesRequiredCapabilityParserRuleCall_9_4_3_0_0() { return cMetaRequiredCapabilitiesRequiredCapabilityParserRuleCall_9_4_3_0_0; }
+		public RuleCall getMetaRequiredCapabilitiesRequiredCapabilityParserRuleCall_11_4_3_0_0() { return cMetaRequiredCapabilitiesRequiredCapabilityParserRuleCall_11_4_3_0_0; }
 
 		//";"
-		public Keyword getSemicolonKeyword_9_4_3_1() { return cSemicolonKeyword_9_4_3_1; }
+		public Keyword getSemicolonKeyword_11_4_3_1() { return cSemicolonKeyword_11_4_3_1; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_9_4_4() { return cRightCurlyBracketKeyword_9_4_4; }
+		public Keyword getRightCurlyBracketKeyword_11_4_4() { return cRightCurlyBracketKeyword_11_4_4; }
 
 		//"env" "requires" metaRequiredCapabilities+=RequiredCapability ";"
-		public Group getGroup_9_5() { return cGroup_9_5; }
+		public Group getGroup_11_5() { return cGroup_11_5; }
 
 		//"env"
-		public Keyword getEnvKeyword_9_5_0() { return cEnvKeyword_9_5_0; }
+		public Keyword getEnvKeyword_11_5_0() { return cEnvKeyword_11_5_0; }
 
 		//"requires"
-		public Keyword getRequiresKeyword_9_5_1() { return cRequiresKeyword_9_5_1; }
+		public Keyword getRequiresKeyword_11_5_1() { return cRequiresKeyword_11_5_1; }
 
 		//metaRequiredCapabilities+=RequiredCapability
-		public Assignment getMetaRequiredCapabilitiesAssignment_9_5_2() { return cMetaRequiredCapabilitiesAssignment_9_5_2; }
+		public Assignment getMetaRequiredCapabilitiesAssignment_11_5_2() { return cMetaRequiredCapabilitiesAssignment_11_5_2; }
 
 		//RequiredCapability
-		public RuleCall getMetaRequiredCapabilitiesRequiredCapabilityParserRuleCall_9_5_2_0() { return cMetaRequiredCapabilitiesRequiredCapabilityParserRuleCall_9_5_2_0; }
+		public RuleCall getMetaRequiredCapabilitiesRequiredCapabilityParserRuleCall_11_5_2_0() { return cMetaRequiredCapabilitiesRequiredCapabilityParserRuleCall_11_5_2_0; }
 
 		//";"
-		public Keyword getSemicolonKeyword_9_5_3() { return cSemicolonKeyword_9_5_3; }
+		public Keyword getSemicolonKeyword_11_5_3() { return cSemicolonKeyword_11_5_3; }
 
 		//concerns+=Concern_Named
-		public Assignment getConcernsAssignment_9_6() { return cConcernsAssignment_9_6; }
+		public Assignment getConcernsAssignment_11_6() { return cConcernsAssignment_11_6; }
 
 		//Concern_Named
-		public RuleCall getConcernsConcern_NamedParserRuleCall_9_6_0() { return cConcernsConcern_NamedParserRuleCall_9_6_0; }
+		public RuleCall getConcernsConcern_NamedParserRuleCall_11_6_0() { return cConcernsConcern_NamedParserRuleCall_11_6_0; }
 
 		//"sequential" "{" synchronizations+=Synchronization+ "}"
-		public Group getGroup_9_7() { return cGroup_9_7; }
+		public Group getGroup_11_7() { return cGroup_11_7; }
 
 		//"sequential"
-		public Keyword getSequentialKeyword_9_7_0() { return cSequentialKeyword_9_7_0; }
+		public Keyword getSequentialKeyword_11_7_0() { return cSequentialKeyword_11_7_0; }
 
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_9_7_1() { return cLeftCurlyBracketKeyword_9_7_1; }
+		public Keyword getLeftCurlyBracketKeyword_11_7_1() { return cLeftCurlyBracketKeyword_11_7_1; }
 
 		//synchronizations+=Synchronization+
-		public Assignment getSynchronizationsAssignment_9_7_2() { return cSynchronizationsAssignment_9_7_2; }
+		public Assignment getSynchronizationsAssignment_11_7_2() { return cSynchronizationsAssignment_11_7_2; }
 
 		//Synchronization
-		public RuleCall getSynchronizationsSynchronizationParserRuleCall_9_7_2_0() { return cSynchronizationsSynchronizationParserRuleCall_9_7_2_0; }
+		public RuleCall getSynchronizationsSynchronizationParserRuleCall_11_7_2_0() { return cSynchronizationsSynchronizationParserRuleCall_11_7_2_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_9_7_3() { return cRightCurlyBracketKeyword_9_7_3; }
+		public Keyword getRightCurlyBracketKeyword_11_7_3() { return cRightCurlyBracketKeyword_11_7_3; }
 
 		//"sequential" synchronizations+=Synchronization
-		public Group getGroup_9_8() { return cGroup_9_8; }
+		public Group getGroup_11_8() { return cGroup_11_8; }
 
 		//"sequential"
-		public Keyword getSequentialKeyword_9_8_0() { return cSequentialKeyword_9_8_0; }
+		public Keyword getSequentialKeyword_11_8_0() { return cSequentialKeyword_11_8_0; }
 
 		//synchronizations+=Synchronization
-		public Assignment getSynchronizationsAssignment_9_8_1() { return cSynchronizationsAssignment_9_8_1; }
+		public Assignment getSynchronizationsAssignment_11_8_1() { return cSynchronizationsAssignment_11_8_1; }
 
 		//Synchronization
-		public RuleCall getSynchronizationsSynchronizationParserRuleCall_9_8_1_0() { return cSynchronizationsSynchronizationParserRuleCall_9_8_1_0; }
+		public RuleCall getSynchronizationsSynchronizationParserRuleCall_11_8_1_0() { return cSynchronizationsSynchronizationParserRuleCall_11_8_1_0; }
 
 		//functions+=Builder
-		public Assignment getFunctionsAssignment_9_9() { return cFunctionsAssignment_9_9; }
+		public Assignment getFunctionsAssignment_11_9() { return cFunctionsAssignment_11_9; }
 
 		//Builder
-		public RuleCall getFunctionsBuilderParserRuleCall_9_9_0() { return cFunctionsBuilderParserRuleCall_9_9_0; }
+		public RuleCall getFunctionsBuilderParserRuleCall_11_9_0() { return cFunctionsBuilderParserRuleCall_11_9_0; }
 
 		//functions+=Function
-		public Assignment getFunctionsAssignment_9_10() { return cFunctionsAssignment_9_10; }
+		public Assignment getFunctionsAssignment_11_10() { return cFunctionsAssignment_11_10; }
 
 		//Function
-		public RuleCall getFunctionsFunctionParserRuleCall_9_10_0() { return cFunctionsFunctionParserRuleCall_9_10_0; }
+		public RuleCall getFunctionsFunctionParserRuleCall_11_10_0() { return cFunctionsFunctionParserRuleCall_11_10_0; }
 
 		//"repositories" "{" repositories+=RepositoryConfiguration* "}"
-		public Group getGroup_9_11() { return cGroup_9_11; }
+		public Group getGroup_11_11() { return cGroup_11_11; }
 
 		//"repositories"
-		public Keyword getRepositoriesKeyword_9_11_0() { return cRepositoriesKeyword_9_11_0; }
+		public Keyword getRepositoriesKeyword_11_11_0() { return cRepositoriesKeyword_11_11_0; }
 
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_9_11_1() { return cLeftCurlyBracketKeyword_9_11_1; }
+		public Keyword getLeftCurlyBracketKeyword_11_11_1() { return cLeftCurlyBracketKeyword_11_11_1; }
 
 		//repositories+=RepositoryConfiguration*
-		public Assignment getRepositoriesAssignment_9_11_2() { return cRepositoriesAssignment_9_11_2; }
+		public Assignment getRepositoriesAssignment_11_11_2() { return cRepositoriesAssignment_11_11_2; }
 
 		//RepositoryConfiguration
-		public RuleCall getRepositoriesRepositoryConfigurationParserRuleCall_9_11_2_0() { return cRepositoriesRepositoryConfigurationParserRuleCall_9_11_2_0; }
+		public RuleCall getRepositoriesRepositoryConfigurationParserRuleCall_11_11_2_0() { return cRepositoriesRepositoryConfigurationParserRuleCall_11_11_2_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_9_11_3() { return cRightCurlyBracketKeyword_9_11_3; }
+		public Keyword getRightCurlyBracketKeyword_11_11_3() { return cRightCurlyBracketKeyword_11_11_3; }
 
 		//"properties" propertySets+=PropertySet_Named
-		public Group getGroup_9_12() { return cGroup_9_12; }
+		public Group getGroup_11_12() { return cGroup_11_12; }
 
 		//"properties"
-		public Keyword getPropertiesKeyword_9_12_0() { return cPropertiesKeyword_9_12_0; }
+		public Keyword getPropertiesKeyword_11_12_0() { return cPropertiesKeyword_11_12_0; }
 
 		//propertySets+=PropertySet_Named
-		public Assignment getPropertySetsAssignment_9_12_1() { return cPropertySetsAssignment_9_12_1; }
+		public Assignment getPropertySetsAssignment_11_12_1() { return cPropertySetsAssignment_11_12_1; }
 
 		//PropertySet_Named
-		public RuleCall getPropertySetsPropertySet_NamedParserRuleCall_9_12_1_0() { return cPropertySetsPropertySet_NamedParserRuleCall_9_12_1_0; }
+		public RuleCall getPropertySetsPropertySet_NamedParserRuleCall_11_12_1_0() { return cPropertySetsPropertySet_NamedParserRuleCall_11_12_1_0; }
 
 		//"containers" "{" containers+=ContainerConfiguration* "}"
-		public Group getGroup_9_13() { return cGroup_9_13; }
+		public Group getGroup_11_13() { return cGroup_11_13; }
 
 		//"containers"
-		public Keyword getContainersKeyword_9_13_0() { return cContainersKeyword_9_13_0; }
+		public Keyword getContainersKeyword_11_13_0() { return cContainersKeyword_11_13_0; }
 
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_9_13_1() { return cLeftCurlyBracketKeyword_9_13_1; }
+		public Keyword getLeftCurlyBracketKeyword_11_13_1() { return cLeftCurlyBracketKeyword_11_13_1; }
 
 		//containers+=ContainerConfiguration*
-		public Assignment getContainersAssignment_9_13_2() { return cContainersAssignment_9_13_2; }
+		public Assignment getContainersAssignment_11_13_2() { return cContainersAssignment_11_13_2; }
 
 		//ContainerConfiguration
-		public RuleCall getContainersContainerConfigurationParserRuleCall_9_13_2_0() { return cContainersContainerConfigurationParserRuleCall_9_13_2_0; }
+		public RuleCall getContainersContainerConfigurationParserRuleCall_11_13_2_0() { return cContainersContainerConfigurationParserRuleCall_11_13_2_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_9_13_3() { return cRightCurlyBracketKeyword_9_13_3; }
+		public Keyword getRightCurlyBracketKeyword_11_13_3() { return cRightCurlyBracketKeyword_11_13_3; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_10() { return cRightCurlyBracketKeyword_10; }
+		public Keyword getRightCurlyBracketKeyword_12() { return cRightCurlyBracketKeyword_12; }
 	}
 
 	public class ProvidedCapabilityElements extends AbstractParserRuleElementFinder {
@@ -2076,7 +2138,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cQIDParserRuleCall_1_2_1 = (RuleCall)cGroup_1_2.eContents().get(1);
 		private final Keyword cSolidusKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
 		
-		//Path returns ecore::EString hidden ( ):
+		//Path returns be::URI hidden ( ):
 		//  STRING|"/"? QID ("/" QID)* "/"?; 
 		//
 		//// A path can be written without quotes if it consists of safe chars
@@ -2705,14 +2767,20 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cInputAssignment_15 = (Assignment)cGroup.eContents().get(15);
 		private final RuleCall cInputBuilderInputParserRuleCall_15_0 = (RuleCall)cInputAssignment_15.eContents().get(0);
 		private final Group cGroup_16 = (Group)cGroup.eContents().get(16);
-		private final Keyword cOutputKeyword_16_0 = (Keyword)cGroup_16.eContents().get(0);
+		private final Keyword cSourceKeyword_16_0 = (Keyword)cGroup_16.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_16_1 = (Keyword)cGroup_16.eContents().get(1);
-		private final Assignment cOutputAssignment_16_2 = (Assignment)cGroup_16.eContents().get(2);
-		private final RuleCall cOutputPathGroupParserRuleCall_16_2_0 = (RuleCall)cOutputAssignment_16_2.eContents().get(0);
+		private final Assignment cSourceAssignment_16_2 = (Assignment)cGroup_16.eContents().get(2);
+		private final RuleCall cSourcePathGroupParserRuleCall_16_2_0 = (RuleCall)cSourceAssignment_16_2.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_16_3 = (Keyword)cGroup_16.eContents().get(3);
-		private final Assignment cFuncExprAssignment_17 = (Assignment)cGroup.eContents().get(17);
-		private final RuleCall cFuncExprBlockExpressionWithoutBracketsParserRuleCall_17_0 = (RuleCall)cFuncExprAssignment_17.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_18 = (Keyword)cGroup.eContents().get(18);
+		private final Group cGroup_17 = (Group)cGroup.eContents().get(17);
+		private final Keyword cOutputKeyword_17_0 = (Keyword)cGroup_17.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_17_1 = (Keyword)cGroup_17.eContents().get(1);
+		private final Assignment cOutputAssignment_17_2 = (Assignment)cGroup_17.eContents().get(2);
+		private final RuleCall cOutputPathGroupParserRuleCall_17_2_0 = (RuleCall)cOutputAssignment_17_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_17_3 = (Keyword)cGroup_17.eContents().get(3);
+		private final Assignment cFuncExprAssignment_18 = (Assignment)cGroup.eContents().get(18);
+		private final RuleCall cFuncExprBlockExpressionWithoutBracketsParserRuleCall_18_0 = (RuleCall)cFuncExprAssignment_18.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_19 = (Keyword)cGroup.eContents().get(19);
 		
 		//Builder returns build::Builder:
 		//  {build::Builder} documentation=DOCUMENTATION? visibility=Visibility? executionMode=
@@ -2725,8 +2793,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//  BlockExpression))? ("postinputcondition" (":" postinputcondExpr=Expression ";"|
 		//  postinputcondExpr=BlockExpression))? ("postcondition" (":" postcondExpr=Expression
 		//  ";"|postcondExpr=BlockExpression))? "{" ("default" "properties" defaultProperties=
-		//  PropertySetDefault)? input=BuilderInput? ("output" "{" output=PathGroup "}")? funcExpr
-		//  =BlockExpressionWithoutBrackets? "}"; 
+		//  PropertySetDefault)? input=BuilderInput? ("source" "{" source=PathGroup "}")? (
+		//  "output" "{" output=PathGroup "}")? funcExpr=BlockExpressionWithoutBrackets? "}"; 
 		//	
 		//        
 		//	     
@@ -2746,8 +2814,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//BlockExpression))? ("postinputcondition" (":" postinputcondExpr=Expression ";"|
 		//postinputcondExpr=BlockExpression))? ("postcondition" (":" postcondExpr=Expression
 		//";"|postcondExpr=BlockExpression))? "{" ("default" "properties" defaultProperties=
-		//PropertySetDefault)? input=BuilderInput? ("output" "{" output=PathGroup "}")? funcExpr
-		//=BlockExpressionWithoutBrackets? "}"   
+		//PropertySetDefault)? input=BuilderInput? ("source" "{" source=PathGroup "}")? (
+		//"output" "{" output=PathGroup "}")? funcExpr=BlockExpressionWithoutBrackets? "}"   
 		//	     
 		//	    
 		//        
@@ -3030,32 +3098,50 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//BuilderInput
 		public RuleCall getInputBuilderInputParserRuleCall_15_0() { return cInputBuilderInputParserRuleCall_15_0; }
 
-		//("output" "{" output=PathGroup "}")?
+		//("source" "{" source=PathGroup "}")?
 		public Group getGroup_16() { return cGroup_16; }
 
-		//"output"
-		public Keyword getOutputKeyword_16_0() { return cOutputKeyword_16_0; }
+		//"source"
+		public Keyword getSourceKeyword_16_0() { return cSourceKeyword_16_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_16_1() { return cLeftCurlyBracketKeyword_16_1; }
 
-		//output=PathGroup
-		public Assignment getOutputAssignment_16_2() { return cOutputAssignment_16_2; }
+		//source=PathGroup
+		public Assignment getSourceAssignment_16_2() { return cSourceAssignment_16_2; }
 
 		//PathGroup
-		public RuleCall getOutputPathGroupParserRuleCall_16_2_0() { return cOutputPathGroupParserRuleCall_16_2_0; }
+		public RuleCall getSourcePathGroupParserRuleCall_16_2_0() { return cSourcePathGroupParserRuleCall_16_2_0; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_16_3() { return cRightCurlyBracketKeyword_16_3; }
 
-		//funcExpr=BlockExpressionWithoutBrackets?
-		public Assignment getFuncExprAssignment_17() { return cFuncExprAssignment_17; }
+		//("output" "{" output=PathGroup "}")?
+		public Group getGroup_17() { return cGroup_17; }
 
-		//BlockExpressionWithoutBrackets
-		public RuleCall getFuncExprBlockExpressionWithoutBracketsParserRuleCall_17_0() { return cFuncExprBlockExpressionWithoutBracketsParserRuleCall_17_0; }
+		//"output"
+		public Keyword getOutputKeyword_17_0() { return cOutputKeyword_17_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_17_1() { return cLeftCurlyBracketKeyword_17_1; }
+
+		//output=PathGroup
+		public Assignment getOutputAssignment_17_2() { return cOutputAssignment_17_2; }
+
+		//PathGroup
+		public RuleCall getOutputPathGroupParserRuleCall_17_2_0() { return cOutputPathGroupParserRuleCall_17_2_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_18() { return cRightCurlyBracketKeyword_18; }
+		public Keyword getRightCurlyBracketKeyword_17_3() { return cRightCurlyBracketKeyword_17_3; }
+
+		//funcExpr=BlockExpressionWithoutBrackets?
+		public Assignment getFuncExprAssignment_18() { return cFuncExprAssignment_18; }
+
+		//BlockExpressionWithoutBrackets
+		public RuleCall getFuncExprBlockExpressionWithoutBracketsParserRuleCall_18_0() { return cFuncExprBlockExpressionWithoutBracketsParserRuleCall_18_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_19() { return cRightCurlyBracketKeyword_19; }
 	}
 
 	public class ParameterListElements extends AbstractParserRuleElementFinder {
@@ -7311,33 +7397,64 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives_17 = (Alternatives)cGroup.eContents().get(17);
 		private final Group cGroup_17_0 = (Group)cAlternatives_17.eContents().get(0);
 		private final Keyword cPlusSignKeyword_17_0_0 = (Keyword)cGroup_17_0.eContents().get(0);
-		private final Keyword cOutputKeyword_17_0_1 = (Keyword)cGroup_17_0.eContents().get(1);
-		private final Assignment cOutputAdditionsAssignment_17_0_2 = (Assignment)cGroup_17_0.eContents().get(2);
-		private final RuleCall cOutputAdditionsConditionalPathVectorParserRuleCall_17_0_2_0 = (RuleCall)cOutputAdditionsAssignment_17_0_2.eContents().get(0);
+		private final Keyword cSourceKeyword_17_0_1 = (Keyword)cGroup_17_0.eContents().get(1);
+		private final Assignment cSourceAdditionsAssignment_17_0_2 = (Assignment)cGroup_17_0.eContents().get(2);
+		private final RuleCall cSourceAdditionsConditionalPathVectorParserRuleCall_17_0_2_0 = (RuleCall)cSourceAdditionsAssignment_17_0_2.eContents().get(0);
 		private final Group cGroup_17_1 = (Group)cAlternatives_17.eContents().get(1);
 		private final Keyword cHyphenMinusKeyword_17_1_0 = (Keyword)cGroup_17_1.eContents().get(0);
-		private final Keyword cOutputKeyword_17_1_1 = (Keyword)cGroup_17_1.eContents().get(1);
-		private final Assignment cOutputRemovalsAssignment_17_1_2 = (Assignment)cGroup_17_1.eContents().get(2);
-		private final RuleCall cOutputRemovalsOutputPredicateParserRuleCall_17_1_2_0 = (RuleCall)cOutputRemovalsAssignment_17_1_2.eContents().get(0);
+		private final Keyword cSourceKeyword_17_1_1 = (Keyword)cGroup_17_1.eContents().get(1);
+		private final Assignment cSourceRemovalsAssignment_17_1_2 = (Assignment)cGroup_17_1.eContents().get(2);
+		private final RuleCall cSourceRemovalsSourcePredicateParserRuleCall_17_1_2_0 = (RuleCall)cSourceRemovalsAssignment_17_1_2.eContents().get(0);
 		private final Keyword cSemicolonKeyword_17_1_3 = (Keyword)cGroup_17_1.eContents().get(3);
 		private final Group cGroup_18 = (Group)cGroup.eContents().get(18);
 		private final Keyword cHyphenMinusKeyword_18_0 = (Keyword)cGroup_18.eContents().get(0);
 		private final Keyword cAnnotationsKeyword_18_1 = (Keyword)cGroup_18.eContents().get(1);
-		private final Assignment cAnnotationsRemovalsAssignment_18_2 = (Assignment)cGroup_18.eContents().get(2);
-		private final RuleCall cAnnotationsRemovalsPIDTerminalRuleCall_18_2_0 = (RuleCall)cAnnotationsRemovalsAssignment_18_2.eContents().get(0);
-		private final Group cGroup_18_3 = (Group)cGroup_18.eContents().get(3);
-		private final Keyword cCommaKeyword_18_3_0 = (Keyword)cGroup_18_3.eContents().get(0);
-		private final Assignment cAnnotationsRemovalsAssignment_18_3_1 = (Assignment)cGroup_18_3.eContents().get(1);
-		private final RuleCall cAnnotationsRemovalsPIDTerminalRuleCall_18_3_1_0 = (RuleCall)cAnnotationsRemovalsAssignment_18_3_1.eContents().get(0);
-		private final Keyword cSemicolonKeyword_18_4 = (Keyword)cGroup_18.eContents().get(4);
+		private final Keyword cSourceKeyword_18_2 = (Keyword)cGroup_18.eContents().get(2);
+		private final Assignment cSourceAnnotationsRemovalsAssignment_18_3 = (Assignment)cGroup_18.eContents().get(3);
+		private final RuleCall cSourceAnnotationsRemovalsPIDTerminalRuleCall_18_3_0 = (RuleCall)cSourceAnnotationsRemovalsAssignment_18_3.eContents().get(0);
+		private final Group cGroup_18_4 = (Group)cGroup_18.eContents().get(4);
+		private final Keyword cCommaKeyword_18_4_0 = (Keyword)cGroup_18_4.eContents().get(0);
+		private final Assignment cOutputAnnotationsRemovalsAssignment_18_4_1 = (Assignment)cGroup_18_4.eContents().get(1);
+		private final RuleCall cOutputAnnotationsRemovalsPIDTerminalRuleCall_18_4_1_0 = (RuleCall)cOutputAnnotationsRemovalsAssignment_18_4_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_18_5 = (Keyword)cGroup_18.eContents().get(5);
 		private final Group cGroup_19 = (Group)cGroup.eContents().get(19);
 		private final Keyword cPlusSignKeyword_19_0 = (Keyword)cGroup_19.eContents().get(0);
 		private final Keyword cAnnotationsKeyword_19_1 = (Keyword)cGroup_19.eContents().get(1);
-		private final Assignment cAnnotationsAdditionsAssignment_19_2 = (Assignment)cGroup_19.eContents().get(2);
-		private final RuleCall cAnnotationsAdditionsPropertySetParserRuleCall_19_2_0 = (RuleCall)cAnnotationsAdditionsAssignment_19_2.eContents().get(0);
-		private final Assignment cFuncExprAssignment_20 = (Assignment)cGroup.eContents().get(20);
-		private final RuleCall cFuncExprBlockExpressionParserRuleCall_20_0 = (RuleCall)cFuncExprAssignment_20.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_21 = (Keyword)cGroup.eContents().get(21);
+		private final Keyword cSourceKeyword_19_2 = (Keyword)cGroup_19.eContents().get(2);
+		private final Assignment cSourceAnnotationAdditionsAssignment_19_3 = (Assignment)cGroup_19.eContents().get(3);
+		private final RuleCall cSourceAnnotationAdditionsPropertySetParserRuleCall_19_3_0 = (RuleCall)cSourceAnnotationAdditionsAssignment_19_3.eContents().get(0);
+		private final Alternatives cAlternatives_20 = (Alternatives)cGroup.eContents().get(20);
+		private final Group cGroup_20_0 = (Group)cAlternatives_20.eContents().get(0);
+		private final Keyword cPlusSignKeyword_20_0_0 = (Keyword)cGroup_20_0.eContents().get(0);
+		private final Keyword cOutputKeyword_20_0_1 = (Keyword)cGroup_20_0.eContents().get(1);
+		private final Assignment cOutputAdditionsAssignment_20_0_2 = (Assignment)cGroup_20_0.eContents().get(2);
+		private final RuleCall cOutputAdditionsConditionalPathVectorParserRuleCall_20_0_2_0 = (RuleCall)cOutputAdditionsAssignment_20_0_2.eContents().get(0);
+		private final Group cGroup_20_1 = (Group)cAlternatives_20.eContents().get(1);
+		private final Keyword cHyphenMinusKeyword_20_1_0 = (Keyword)cGroup_20_1.eContents().get(0);
+		private final Keyword cOutputKeyword_20_1_1 = (Keyword)cGroup_20_1.eContents().get(1);
+		private final Assignment cOutputRemovalsAssignment_20_1_2 = (Assignment)cGroup_20_1.eContents().get(2);
+		private final RuleCall cOutputRemovalsOutputPredicateParserRuleCall_20_1_2_0 = (RuleCall)cOutputRemovalsAssignment_20_1_2.eContents().get(0);
+		private final Keyword cSemicolonKeyword_20_1_3 = (Keyword)cGroup_20_1.eContents().get(3);
+		private final Group cGroup_21 = (Group)cGroup.eContents().get(21);
+		private final Keyword cHyphenMinusKeyword_21_0 = (Keyword)cGroup_21.eContents().get(0);
+		private final Keyword cAnnotationsKeyword_21_1 = (Keyword)cGroup_21.eContents().get(1);
+		private final Keyword cOutputKeyword_21_2 = (Keyword)cGroup_21.eContents().get(2);
+		private final Assignment cOutputAnnotationsRemovalsAssignment_21_3 = (Assignment)cGroup_21.eContents().get(3);
+		private final RuleCall cOutputAnnotationsRemovalsPIDTerminalRuleCall_21_3_0 = (RuleCall)cOutputAnnotationsRemovalsAssignment_21_3.eContents().get(0);
+		private final Group cGroup_21_4 = (Group)cGroup_21.eContents().get(4);
+		private final Keyword cCommaKeyword_21_4_0 = (Keyword)cGroup_21_4.eContents().get(0);
+		private final Assignment cOutputAnnotationsRemovalsAssignment_21_4_1 = (Assignment)cGroup_21_4.eContents().get(1);
+		private final RuleCall cOutputAnnotationsRemovalsPIDTerminalRuleCall_21_4_1_0 = (RuleCall)cOutputAnnotationsRemovalsAssignment_21_4_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_21_5 = (Keyword)cGroup_21.eContents().get(5);
+		private final Group cGroup_22 = (Group)cGroup.eContents().get(22);
+		private final Keyword cPlusSignKeyword_22_0 = (Keyword)cGroup_22.eContents().get(0);
+		private final Keyword cAnnotationsKeyword_22_1 = (Keyword)cGroup_22.eContents().get(1);
+		private final Keyword cOutputKeyword_22_2 = (Keyword)cGroup_22.eContents().get(2);
+		private final Assignment cOutputAnnotationAdditionsAssignment_22_3 = (Assignment)cGroup_22.eContents().get(3);
+		private final RuleCall cOutputAnnotationAdditionsPropertySetParserRuleCall_22_3_0 = (RuleCall)cOutputAnnotationAdditionsAssignment_22_3.eContents().get(0);
+		private final Assignment cFuncExprAssignment_23 = (Assignment)cGroup.eContents().get(23);
+		private final RuleCall cFuncExprBlockExpressionParserRuleCall_23_0 = (RuleCall)cFuncExprAssignment_23.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_24 = (Keyword)cGroup.eContents().get(24);
 		
 		//BuilderConcernContext returns build::BuilderConcernContext:
 		//  {build::BuilderConcernContext} documentation=DOCUMENTATION? "context" "builder" ("("
@@ -7354,10 +7471,14 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//  "-" "default" "properties" defaultPropertiesRemovals+=PID (","
 		//  defaultPropertiesRemovals+=PID)* ";")? ("+" "default" "properties"
 		//  defaultPropertiesAdditions=PropertySetDefault)? ("+" "input" inputAdditions+=
-		//  Prerequisite|"-" inputRemovals+=InputPredicate ";")* ("+" "output" outputAdditions+=
-		//  ConditionalPathVector|"-" "output" outputRemovals+=OutputPredicate ";")* ("-"
-		//  "annotations" annotationsRemovals+=PID ("," annotationsRemovals+=PID)* ";")? ("+"
-		//  "annotations" annotationsAdditions=PropertySet)? funcExpr=BlockExpression? "}"; 
+		//  Prerequisite|"-" inputRemovals+=InputPredicate ";")* ("+" "source" sourceAdditions+=
+		//  ConditionalPathVector|"-" "source" sourceRemovals+=SourcePredicate ";")* ("-"
+		//  "annotations" "source" sourceAnnotationsRemovals+=PID ("," outputAnnotationsRemovals
+		//  +=PID)* ";")? ("+" "annotations" "source" sourceAnnotationAdditions=PropertySet)? ("+"
+		//  "output" outputAdditions+=ConditionalPathVector|"-" "output" outputRemovals+=
+		//  OutputPredicate ";")* ("-" "annotations" "output" outputAnnotationsRemovals+=PID (","
+		//  outputAnnotationsRemovals+=PID)* ";")? ("+" "annotations" "output"
+		//  outputAnnotationAdditions=PropertySet)? funcExpr=BlockExpression? "}"; 
 		//	
 		//// Advice for Builders	
 		//        
@@ -7387,12 +7508,16 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//		           
 		//		          
 		//		
+		//
+		//		          
+		//		            
+		//		                    
+		//		            
 		//		
 		//		          
 		//		            
-		//		
-		//		                  
-		//		          
+		//		                    
+		//		            
 		//		
 		//		      // replaces the builder's funcExpression TODO: around? etc?
 		public ParserRule getRule() { return rule; }
@@ -7411,10 +7536,14 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//"-" "default" "properties" defaultPropertiesRemovals+=PID (","
 		//defaultPropertiesRemovals+=PID)* ";")? ("+" "default" "properties"
 		//defaultPropertiesAdditions=PropertySetDefault)? ("+" "input" inputAdditions+=
-		//Prerequisite|"-" inputRemovals+=InputPredicate ";")* ("+" "output" outputAdditions+=
-		//ConditionalPathVector|"-" "output" outputRemovals+=OutputPredicate ";")* ("-"
-		//"annotations" annotationsRemovals+=PID ("," annotationsRemovals+=PID)* ";")? ("+"
-		//"annotations" annotationsAdditions=PropertySet)? funcExpr=BlockExpression? "}"   
+		//Prerequisite|"-" inputRemovals+=InputPredicate ";")* ("+" "source" sourceAdditions+=
+		//ConditionalPathVector|"-" "source" sourceRemovals+=SourcePredicate ";")* ("-"
+		//"annotations" "source" sourceAnnotationsRemovals+=PID ("," outputAnnotationsRemovals
+		//+=PID)* ";")? ("+" "annotations" "source" sourceAnnotationAdditions=PropertySet)? ("+"
+		//"output" outputAdditions+=ConditionalPathVector|"-" "output" outputRemovals+=
+		//OutputPredicate ";")* ("-" "annotations" "output" outputAnnotationsRemovals+=PID (","
+		//outputAnnotationsRemovals+=PID)* ";")? ("+" "annotations" "output"
+		//outputAnnotationAdditions=PropertySet)? funcExpr=BlockExpression? "}"   
 		//	      
 		//	  
 		//	 	  
@@ -7441,12 +7570,16 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//		           
 		//		          
 		//		
+		//
+		//		          
+		//		            
+		//		                    
+		//		            
 		//		
 		//		          
 		//		            
-		//		
-		//		                  
-		//		          
+		//		                    
+		//		            
 		//		
 		//		      // replaces the builder's funcExpression TODO: around? etc?
 		public Group getGroup() { return cGroup; }
@@ -7820,44 +7953,45 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//";"
 		public Keyword getSemicolonKeyword_16_1_2() { return cSemicolonKeyword_16_1_2; }
 
-		//("+" "output" outputAdditions+=ConditionalPathVector|"-" "output" outputRemovals+=
-		//OutputPredicate ";")*
+		//("+" "source" sourceAdditions+=ConditionalPathVector|"-" "source" sourceRemovals+=
+		//SourcePredicate ";")*
 		public Alternatives getAlternatives_17() { return cAlternatives_17; }
 
-		//"+" "output" outputAdditions+=ConditionalPathVector
+		//"+" "source" sourceAdditions+=ConditionalPathVector
 		public Group getGroup_17_0() { return cGroup_17_0; }
 
 		//"+"
 		public Keyword getPlusSignKeyword_17_0_0() { return cPlusSignKeyword_17_0_0; }
 
-		//"output"
-		public Keyword getOutputKeyword_17_0_1() { return cOutputKeyword_17_0_1; }
+		//"source"
+		public Keyword getSourceKeyword_17_0_1() { return cSourceKeyword_17_0_1; }
 
-		//outputAdditions+=ConditionalPathVector
-		public Assignment getOutputAdditionsAssignment_17_0_2() { return cOutputAdditionsAssignment_17_0_2; }
+		//sourceAdditions+=ConditionalPathVector
+		public Assignment getSourceAdditionsAssignment_17_0_2() { return cSourceAdditionsAssignment_17_0_2; }
 
 		//ConditionalPathVector
-		public RuleCall getOutputAdditionsConditionalPathVectorParserRuleCall_17_0_2_0() { return cOutputAdditionsConditionalPathVectorParserRuleCall_17_0_2_0; }
+		public RuleCall getSourceAdditionsConditionalPathVectorParserRuleCall_17_0_2_0() { return cSourceAdditionsConditionalPathVectorParserRuleCall_17_0_2_0; }
 
-		//"-" "output" outputRemovals+=OutputPredicate ";"
+		//"-" "source" sourceRemovals+=SourcePredicate ";"
 		public Group getGroup_17_1() { return cGroup_17_1; }
 
 		//"-"
 		public Keyword getHyphenMinusKeyword_17_1_0() { return cHyphenMinusKeyword_17_1_0; }
 
-		//"output"
-		public Keyword getOutputKeyword_17_1_1() { return cOutputKeyword_17_1_1; }
+		//"source"
+		public Keyword getSourceKeyword_17_1_1() { return cSourceKeyword_17_1_1; }
 
-		//outputRemovals+=OutputPredicate
-		public Assignment getOutputRemovalsAssignment_17_1_2() { return cOutputRemovalsAssignment_17_1_2; }
+		//sourceRemovals+=SourcePredicate
+		public Assignment getSourceRemovalsAssignment_17_1_2() { return cSourceRemovalsAssignment_17_1_2; }
 
-		//OutputPredicate
-		public RuleCall getOutputRemovalsOutputPredicateParserRuleCall_17_1_2_0() { return cOutputRemovalsOutputPredicateParserRuleCall_17_1_2_0; }
+		//SourcePredicate
+		public RuleCall getSourceRemovalsSourcePredicateParserRuleCall_17_1_2_0() { return cSourceRemovalsSourcePredicateParserRuleCall_17_1_2_0; }
 
 		//";"
 		public Keyword getSemicolonKeyword_17_1_3() { return cSemicolonKeyword_17_1_3; }
 
-		//("-" "annotations" annotationsRemovals+=PID ("," annotationsRemovals+=PID)* ";")?
+		//("-" "annotations" "source" sourceAnnotationsRemovals+=PID (","
+		//outputAnnotationsRemovals+=PID)* ";")?
 		public Group getGroup_18() { return cGroup_18; }
 
 		//"-"
@@ -7866,28 +8000,31 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//"annotations"
 		public Keyword getAnnotationsKeyword_18_1() { return cAnnotationsKeyword_18_1; }
 
-		//annotationsRemovals+=PID
-		public Assignment getAnnotationsRemovalsAssignment_18_2() { return cAnnotationsRemovalsAssignment_18_2; }
+		//"source"
+		public Keyword getSourceKeyword_18_2() { return cSourceKeyword_18_2; }
+
+		//sourceAnnotationsRemovals+=PID
+		public Assignment getSourceAnnotationsRemovalsAssignment_18_3() { return cSourceAnnotationsRemovalsAssignment_18_3; }
 
 		//PID
-		public RuleCall getAnnotationsRemovalsPIDTerminalRuleCall_18_2_0() { return cAnnotationsRemovalsPIDTerminalRuleCall_18_2_0; }
+		public RuleCall getSourceAnnotationsRemovalsPIDTerminalRuleCall_18_3_0() { return cSourceAnnotationsRemovalsPIDTerminalRuleCall_18_3_0; }
 
-		//("," annotationsRemovals+=PID)*
-		public Group getGroup_18_3() { return cGroup_18_3; }
+		//("," outputAnnotationsRemovals+=PID)*
+		public Group getGroup_18_4() { return cGroup_18_4; }
 
 		//","
-		public Keyword getCommaKeyword_18_3_0() { return cCommaKeyword_18_3_0; }
+		public Keyword getCommaKeyword_18_4_0() { return cCommaKeyword_18_4_0; }
 
-		//annotationsRemovals+=PID
-		public Assignment getAnnotationsRemovalsAssignment_18_3_1() { return cAnnotationsRemovalsAssignment_18_3_1; }
+		//outputAnnotationsRemovals+=PID
+		public Assignment getOutputAnnotationsRemovalsAssignment_18_4_1() { return cOutputAnnotationsRemovalsAssignment_18_4_1; }
 
 		//PID
-		public RuleCall getAnnotationsRemovalsPIDTerminalRuleCall_18_3_1_0() { return cAnnotationsRemovalsPIDTerminalRuleCall_18_3_1_0; }
+		public RuleCall getOutputAnnotationsRemovalsPIDTerminalRuleCall_18_4_1_0() { return cOutputAnnotationsRemovalsPIDTerminalRuleCall_18_4_1_0; }
 
 		//";"
-		public Keyword getSemicolonKeyword_18_4() { return cSemicolonKeyword_18_4; }
+		public Keyword getSemicolonKeyword_18_5() { return cSemicolonKeyword_18_5; }
 
-		//("+" "annotations" annotationsAdditions=PropertySet)?
+		//("+" "annotations" "source" sourceAnnotationAdditions=PropertySet)?
 		public Group getGroup_19() { return cGroup_19; }
 
 		//"+"
@@ -7896,20 +8033,112 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//"annotations"
 		public Keyword getAnnotationsKeyword_19_1() { return cAnnotationsKeyword_19_1; }
 
-		//annotationsAdditions=PropertySet
-		public Assignment getAnnotationsAdditionsAssignment_19_2() { return cAnnotationsAdditionsAssignment_19_2; }
+		//"source"
+		public Keyword getSourceKeyword_19_2() { return cSourceKeyword_19_2; }
+
+		//sourceAnnotationAdditions=PropertySet
+		public Assignment getSourceAnnotationAdditionsAssignment_19_3() { return cSourceAnnotationAdditionsAssignment_19_3; }
 
 		//PropertySet
-		public RuleCall getAnnotationsAdditionsPropertySetParserRuleCall_19_2_0() { return cAnnotationsAdditionsPropertySetParserRuleCall_19_2_0; }
+		public RuleCall getSourceAnnotationAdditionsPropertySetParserRuleCall_19_3_0() { return cSourceAnnotationAdditionsPropertySetParserRuleCall_19_3_0; }
+
+		//("+" "output" outputAdditions+=ConditionalPathVector|"-" "output" outputRemovals+=
+		//OutputPredicate ";")*
+		public Alternatives getAlternatives_20() { return cAlternatives_20; }
+
+		//"+" "output" outputAdditions+=ConditionalPathVector
+		public Group getGroup_20_0() { return cGroup_20_0; }
+
+		//"+"
+		public Keyword getPlusSignKeyword_20_0_0() { return cPlusSignKeyword_20_0_0; }
+
+		//"output"
+		public Keyword getOutputKeyword_20_0_1() { return cOutputKeyword_20_0_1; }
+
+		//outputAdditions+=ConditionalPathVector
+		public Assignment getOutputAdditionsAssignment_20_0_2() { return cOutputAdditionsAssignment_20_0_2; }
+
+		//ConditionalPathVector
+		public RuleCall getOutputAdditionsConditionalPathVectorParserRuleCall_20_0_2_0() { return cOutputAdditionsConditionalPathVectorParserRuleCall_20_0_2_0; }
+
+		//"-" "output" outputRemovals+=OutputPredicate ";"
+		public Group getGroup_20_1() { return cGroup_20_1; }
+
+		//"-"
+		public Keyword getHyphenMinusKeyword_20_1_0() { return cHyphenMinusKeyword_20_1_0; }
+
+		//"output"
+		public Keyword getOutputKeyword_20_1_1() { return cOutputKeyword_20_1_1; }
+
+		//outputRemovals+=OutputPredicate
+		public Assignment getOutputRemovalsAssignment_20_1_2() { return cOutputRemovalsAssignment_20_1_2; }
+
+		//OutputPredicate
+		public RuleCall getOutputRemovalsOutputPredicateParserRuleCall_20_1_2_0() { return cOutputRemovalsOutputPredicateParserRuleCall_20_1_2_0; }
+
+		//";"
+		public Keyword getSemicolonKeyword_20_1_3() { return cSemicolonKeyword_20_1_3; }
+
+		//("-" "annotations" "output" outputAnnotationsRemovals+=PID (","
+		//outputAnnotationsRemovals+=PID)* ";")?
+		public Group getGroup_21() { return cGroup_21; }
+
+		//"-"
+		public Keyword getHyphenMinusKeyword_21_0() { return cHyphenMinusKeyword_21_0; }
+
+		//"annotations"
+		public Keyword getAnnotationsKeyword_21_1() { return cAnnotationsKeyword_21_1; }
+
+		//"output"
+		public Keyword getOutputKeyword_21_2() { return cOutputKeyword_21_2; }
+
+		//outputAnnotationsRemovals+=PID
+		public Assignment getOutputAnnotationsRemovalsAssignment_21_3() { return cOutputAnnotationsRemovalsAssignment_21_3; }
+
+		//PID
+		public RuleCall getOutputAnnotationsRemovalsPIDTerminalRuleCall_21_3_0() { return cOutputAnnotationsRemovalsPIDTerminalRuleCall_21_3_0; }
+
+		//("," outputAnnotationsRemovals+=PID)*
+		public Group getGroup_21_4() { return cGroup_21_4; }
+
+		//","
+		public Keyword getCommaKeyword_21_4_0() { return cCommaKeyword_21_4_0; }
+
+		//outputAnnotationsRemovals+=PID
+		public Assignment getOutputAnnotationsRemovalsAssignment_21_4_1() { return cOutputAnnotationsRemovalsAssignment_21_4_1; }
+
+		//PID
+		public RuleCall getOutputAnnotationsRemovalsPIDTerminalRuleCall_21_4_1_0() { return cOutputAnnotationsRemovalsPIDTerminalRuleCall_21_4_1_0; }
+
+		//";"
+		public Keyword getSemicolonKeyword_21_5() { return cSemicolonKeyword_21_5; }
+
+		//("+" "annotations" "output" outputAnnotationAdditions=PropertySet)?
+		public Group getGroup_22() { return cGroup_22; }
+
+		//"+"
+		public Keyword getPlusSignKeyword_22_0() { return cPlusSignKeyword_22_0; }
+
+		//"annotations"
+		public Keyword getAnnotationsKeyword_22_1() { return cAnnotationsKeyword_22_1; }
+
+		//"output"
+		public Keyword getOutputKeyword_22_2() { return cOutputKeyword_22_2; }
+
+		//outputAnnotationAdditions=PropertySet
+		public Assignment getOutputAnnotationAdditionsAssignment_22_3() { return cOutputAnnotationAdditionsAssignment_22_3; }
+
+		//PropertySet
+		public RuleCall getOutputAnnotationAdditionsPropertySetParserRuleCall_22_3_0() { return cOutputAnnotationAdditionsPropertySetParserRuleCall_22_3_0; }
 
 		//funcExpr=BlockExpression?
-		public Assignment getFuncExprAssignment_20() { return cFuncExprAssignment_20; }
+		public Assignment getFuncExprAssignment_23() { return cFuncExprAssignment_23; }
 
 		//BlockExpression
-		public RuleCall getFuncExprBlockExpressionParserRuleCall_20_0() { return cFuncExprBlockExpressionParserRuleCall_20_0; }
+		public RuleCall getFuncExprBlockExpressionParserRuleCall_23_0() { return cFuncExprBlockExpressionParserRuleCall_23_0; }
 
 		//"}"   // replaces the builder's funcExpression TODO: around? etc?
-		public Keyword getRightCurlyBracketKeyword_21() { return cRightCurlyBracketKeyword_21; }
+		public Keyword getRightCurlyBracketKeyword_24() { return cRightCurlyBracketKeyword_24; }
 	}
 
 	public class UnitOrExpressionElements extends AbstractParserRuleElementFinder {
@@ -8315,6 +8544,52 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 		//NamePredicate
 		public RuleCall getBuilderPredicateNamePredicateParserRuleCall_4_0() { return cBuilderPredicateNamePredicateParserRuleCall_4_0; }
+	}
+
+	public class SourcePredicateElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SourcePredicate");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Action cSourcePredicateAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final Assignment cPathVectorAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cPathVectorBasePathPredicateParserRuleCall_0_1_0 = (RuleCall)cPathVectorAssignment_0_1.eContents().get(0);
+		private final Assignment cPathVectorAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final RuleCall cPathVectorPathPredicateParserRuleCall_1_0 = (RuleCall)cPathVectorAssignment_1.eContents().get(0);
+		private final Assignment cPathPatternAssignment_2 = (Assignment)cAlternatives.eContents().get(2);
+		private final RuleCall cPathPatternRegexpLiteralParserRuleCall_2_0 = (RuleCall)cPathPatternAssignment_2.eContents().get(0);
+		
+		//SourcePredicate returns build::SourcePredicate:
+		//  {build::SourcePredicate} pathVector=BasePathPredicate|pathVector=PathPredicate|
+		//  pathPattern=RegexpLiteral;
+		public ParserRule getRule() { return rule; }
+
+		//{build::SourcePredicate} pathVector=BasePathPredicate|pathVector=PathPredicate|
+		//pathPattern=RegexpLiteral
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//{build::SourcePredicate} pathVector=BasePathPredicate
+		public Group getGroup_0() { return cGroup_0; }
+
+		//{build::SourcePredicate}
+		public Action getSourcePredicateAction_0_0() { return cSourcePredicateAction_0_0; }
+
+		//pathVector=BasePathPredicate
+		public Assignment getPathVectorAssignment_0_1() { return cPathVectorAssignment_0_1; }
+
+		//BasePathPredicate
+		public RuleCall getPathVectorBasePathPredicateParserRuleCall_0_1_0() { return cPathVectorBasePathPredicateParserRuleCall_0_1_0; }
+
+		//pathVector=PathPredicate
+		public Assignment getPathVectorAssignment_1() { return cPathVectorAssignment_1; }
+
+		//PathPredicate
+		public RuleCall getPathVectorPathPredicateParserRuleCall_1_0() { return cPathVectorPathPredicateParserRuleCall_1_0; }
+
+		//pathPattern=RegexpLiteral
+		public Assignment getPathPatternAssignment_2() { return cPathPatternAssignment_2; }
+
+		//RegexpLiteral
+		public RuleCall getPathPatternRegexpLiteralParserRuleCall_2_0() { return cPathPatternRegexpLiteralParserRuleCall_2_0; }
 	}
 
 	public class OutputPredicateElements extends AbstractParserRuleElementFinder {
@@ -10464,6 +10739,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	private UnitNamePredicateElements pUnitNamePredicate;
 	private BuilderNamePredicateElements pBuilderNamePredicate;
 	private InputPredicateElements pInputPredicate;
+	private SourcePredicateElements pSourcePredicate;
 	private OutputPredicateElements pOutputPredicate;
 	private BasePathPredicateElements pBasePathPredicate;
 	private PathPredicateElements pPathPredicate;
@@ -10579,7 +10855,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//  {build::BuildUnit} documentation=DOCUMENTATION? executionMode=ExecutionMode? "unit"
 	//  name=UnitName? ("version" version=VersionLiteral)? ("implements" implements+=
 	//  SimpleTypeRef ("," implements+=SimpleTypeRef)*)? "{" ("default" "properties"
-	//  defaultProperties=PropertySetDefault)? ("provides" "{" (providedCapabilities+=
+	//  defaultProperties=PropertySetDefault)? ("source" "=" sourceLocation=Path ";")? (
+	//  "output" "=" outputLocation=Path ";")? ("provides" "{" (providedCapabilities+=
 	//  ProvidedCapability ";")+ "}"|"provides" providedCapabilities+=ProvidedCapability ";"
 	//  |"requires" "{" (requiredCapabilities+=AliasedRequiredCapability ";")+ "}"|
 	//  "requires" requiredCapabilities+=AliasedRequiredCapability ";"|"env" "requires" "{" (
@@ -10605,11 +10882,14 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//	          
 	//		           
 	//	
-	//			 //-- PROPERTIES
-	//			 // goes first, because they may be used in the other clauses. TODO: can probably be relaxed
-	//			 // since linking will find them anyway.
-	//			 //
-	//			            
+	//		//-- PROPERTIES
+	//		 // goes first, because they may be used in the other clauses. TODO: can probably be relaxed
+	//		 // since linking will find them anyway.
+	//		 //
+	//		          
+	//		//--LOCATIONS
+	//		           
+	//		          
 	//		
 	//		 	 //-- PROVIDES
 	//			               
@@ -10934,7 +11214,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		return getConditionalPathVectorAccess().getRule();
 	}
 
-	//Path returns ecore::EString hidden ( ):
+	//Path returns be::URI hidden ( ):
 	//  STRING|"/"? QID ("/" QID)* "/"?; 
 	//
 	//// A path can be written without quotes if it consists of safe chars
@@ -11076,8 +11356,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//  BlockExpression))? ("postinputcondition" (":" postinputcondExpr=Expression ";"|
 	//  postinputcondExpr=BlockExpression))? ("postcondition" (":" postcondExpr=Expression
 	//  ";"|postcondExpr=BlockExpression))? "{" ("default" "properties" defaultProperties=
-	//  PropertySetDefault)? input=BuilderInput? ("output" "{" output=PathGroup "}")? funcExpr
-	//  =BlockExpressionWithoutBrackets? "}"; 
+	//  PropertySetDefault)? input=BuilderInput? ("source" "{" source=PathGroup "}")? (
+	//  "output" "{" output=PathGroup "}")? funcExpr=BlockExpressionWithoutBrackets? "}"; 
 	//	
 	//        
 	//	     
@@ -12098,10 +12378,14 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//  "-" "default" "properties" defaultPropertiesRemovals+=PID (","
 	//  defaultPropertiesRemovals+=PID)* ";")? ("+" "default" "properties"
 	//  defaultPropertiesAdditions=PropertySetDefault)? ("+" "input" inputAdditions+=
-	//  Prerequisite|"-" inputRemovals+=InputPredicate ";")* ("+" "output" outputAdditions+=
-	//  ConditionalPathVector|"-" "output" outputRemovals+=OutputPredicate ";")* ("-"
-	//  "annotations" annotationsRemovals+=PID ("," annotationsRemovals+=PID)* ";")? ("+"
-	//  "annotations" annotationsAdditions=PropertySet)? funcExpr=BlockExpression? "}"; 
+	//  Prerequisite|"-" inputRemovals+=InputPredicate ";")* ("+" "source" sourceAdditions+=
+	//  ConditionalPathVector|"-" "source" sourceRemovals+=SourcePredicate ";")* ("-"
+	//  "annotations" "source" sourceAnnotationsRemovals+=PID ("," outputAnnotationsRemovals
+	//  +=PID)* ";")? ("+" "annotations" "source" sourceAnnotationAdditions=PropertySet)? ("+"
+	//  "output" outputAdditions+=ConditionalPathVector|"-" "output" outputRemovals+=
+	//  OutputPredicate ";")* ("-" "annotations" "output" outputAnnotationsRemovals+=PID (","
+	//  outputAnnotationsRemovals+=PID)* ";")? ("+" "annotations" "output"
+	//  outputAnnotationAdditions=PropertySet)? funcExpr=BlockExpression? "}"; 
 	//	
 	//// Advice for Builders	
 	//        
@@ -12131,12 +12415,16 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//		           
 	//		          
 	//		
+	//
+	//		          
+	//		            
+	//		                    
+	//		            
 	//		
 	//		          
 	//		            
-	//		
-	//		                  
-	//		          
+	//		                    
+	//		            
 	//		
 	//		      // replaces the builder's funcExpression TODO: around? etc?
 	public BuilderConcernContextElements getBuilderConcernContextAccess() {
@@ -12271,6 +12559,17 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getInputPredicateRule() {
 		return getInputPredicateAccess().getRule();
+	}
+
+	//SourcePredicate returns build::SourcePredicate:
+	//  {build::SourcePredicate} pathVector=BasePathPredicate|pathVector=PathPredicate|
+	//  pathPattern=RegexpLiteral;
+	public SourcePredicateElements getSourcePredicateAccess() {
+		return (pSourcePredicate != null) ? pSourcePredicate : (pSourcePredicate = new SourcePredicateElements());
+	}
+	
+	public ParserRule getSourcePredicateRule() {
+		return getSourcePredicateAccess().getRule();
 	}
 
 	//OutputPredicate returns build::OutputPredicate:

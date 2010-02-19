@@ -334,10 +334,10 @@ public class B3BuildSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case B3BuildPackage.OUTPUT_PREDICATE: {
-				OutputPredicate outputPredicate = (OutputPredicate)theEObject;
-				T result = caseOutputPredicate(outputPredicate);
-				if (result == null) result = caseBExpression(outputPredicate);
+			case B3BuildPackage.PATH_GROUP_PREDICATE: {
+				PathGroupPredicate pathGroupPredicate = (PathGroupPredicate)theEObject;
+				T result = casePathGroupPredicate(pathGroupPredicate);
+				if (result == null) result = caseBExpression(pathGroupPredicate);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -468,6 +468,22 @@ public class B3BuildSwitch<T> {
 				T result = caseBuildResultContext(buildResultContext);
 				if (result == null) result = caseBInnerContext(buildResultContext);
 				if (result == null) result = caseBExecutionContext(buildResultContext);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.OUTPUT_PREDICATE: {
+				OutputPredicate outputPredicate = (OutputPredicate)theEObject;
+				T result = caseOutputPredicate(outputPredicate);
+				if (result == null) result = casePathGroupPredicate(outputPredicate);
+				if (result == null) result = caseBExpression(outputPredicate);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3BuildPackage.SOURCE_PREDICATE: {
+				SourcePredicate sourcePredicate = (SourcePredicate)theEObject;
+				T result = caseSourcePredicate(sourcePredicate);
+				if (result == null) result = casePathGroupPredicate(sourcePredicate);
+				if (result == null) result = caseBExpression(sourcePredicate);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -697,6 +713,36 @@ public class B3BuildSwitch<T> {
 	 * @generated
 	 */
 	public T caseBuildResultContext(BuildResultContext object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Output Predicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Output Predicate</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOutputPredicate(OutputPredicate object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Source Predicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Source Predicate</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSourcePredicate(SourcePredicate object) {
 		return null;
 	}
 
@@ -1061,17 +1107,17 @@ public class B3BuildSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Output Predicate</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Path Group Predicate</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Output Predicate</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Path Group Predicate</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseOutputPredicate(OutputPredicate object) {
+	public T casePathGroupPredicate(PathGroupPredicate object) {
 		return null;
 	}
 

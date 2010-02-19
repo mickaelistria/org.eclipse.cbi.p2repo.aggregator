@@ -39,6 +39,7 @@ import org.eclipse.b3.build.build.OutputPredicate;
 import org.eclipse.b3.build.build.PathGroup;
 import org.eclipse.b3.build.build.Prerequisite;
 import org.eclipse.b3.build.build.ProvidesPredicate;
+import org.eclipse.b3.build.build.SourcePredicate;
 import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -79,8 +80,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getPostcondExpr <em>Postcond Expr</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getPostinputcondExpr <em>Postinputcond Expr</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getProvidesRemovals <em>Provides Removals</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getAnnotationsRemovals <em>Annotations Removals</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getAnnotationsAdditions <em>Annotations Additions</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getOutputAnnotationsRemovals <em>Output Annotations Removals</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getOutputAnnotationAdditions <em>Output Annotation Additions</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getSourceRemovals <em>Source Removals</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getSourceAdditions <em>Source Additions</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getSourceAnnotationsRemovals <em>Source Annotations Removals</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuilderConcernContextImpl#getSourceAnnotationAdditions <em>Source Annotation Additions</em>}</li>
  * </ul>
  * </p>
  *
@@ -298,24 +303,64 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	protected EList<ProvidesPredicate> providesRemovals;
 
 	/**
-	 * The cached value of the '{@link #getAnnotationsRemovals() <em>Annotations Removals</em>}' attribute list.
+	 * The cached value of the '{@link #getOutputAnnotationsRemovals() <em>Output Annotations Removals</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAnnotationsRemovals()
+	 * @see #getOutputAnnotationsRemovals()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<String> annotationsRemovals;
+	protected EList<String> outputAnnotationsRemovals;
 
 	/**
-	 * The cached value of the '{@link #getAnnotationsAdditions() <em>Annotations Additions</em>}' containment reference.
+	 * The cached value of the '{@link #getOutputAnnotationAdditions() <em>Output Annotation Additions</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAnnotationsAdditions()
+	 * @see #getOutputAnnotationAdditions()
 	 * @generated
 	 * @ordered
 	 */
-	protected BPropertySet annotationsAdditions;
+	protected BPropertySet outputAnnotationAdditions;
+
+	/**
+	 * The cached value of the '{@link #getSourceRemovals() <em>Source Removals</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceRemovals()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<SourcePredicate> sourceRemovals;
+
+	/**
+	 * The cached value of the '{@link #getSourceAdditions() <em>Source Additions</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceAdditions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ConditionalPathVector> sourceAdditions;
+
+	/**
+	 * The cached value of the '{@link #getSourceAnnotationsRemovals() <em>Source Annotations Removals</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceAnnotationsRemovals()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> sourceAnnotationsRemovals;
+
+	/**
+	 * The cached value of the '{@link #getSourceAnnotationAdditions() <em>Source Annotation Additions</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceAnnotationAdditions()
+	 * @generated
+	 * @ordered
+	 */
+	protected BPropertySet sourceAnnotationAdditions;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -733,11 +778,11 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<String> getAnnotationsRemovals() {
-		if (annotationsRemovals == null) {
-			annotationsRemovals = new EDataTypeUniqueEList<String>(String.class, this, B3BuildPackage.BUILDER_CONCERN_CONTEXT__ANNOTATIONS_REMOVALS);
+	public EList<String> getOutputAnnotationsRemovals() {
+		if (outputAnnotationsRemovals == null) {
+			outputAnnotationsRemovals = new EDataTypeUniqueEList<String>(String.class, this, B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATIONS_REMOVALS);
 		}
-		return annotationsRemovals;
+		return outputAnnotationsRemovals;
 	}
 
 	/**
@@ -745,8 +790,8 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BPropertySet getAnnotationsAdditions() {
-		return annotationsAdditions;
+	public BPropertySet getOutputAnnotationAdditions() {
+		return outputAnnotationAdditions;
 	}
 
 	/**
@@ -754,11 +799,11 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAnnotationsAdditions(BPropertySet newAnnotationsAdditions, NotificationChain msgs) {
-		BPropertySet oldAnnotationsAdditions = annotationsAdditions;
-		annotationsAdditions = newAnnotationsAdditions;
+	public NotificationChain basicSetOutputAnnotationAdditions(BPropertySet newOutputAnnotationAdditions, NotificationChain msgs) {
+		BPropertySet oldOutputAnnotationAdditions = outputAnnotationAdditions;
+		outputAnnotationAdditions = newOutputAnnotationAdditions;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__ANNOTATIONS_ADDITIONS, oldAnnotationsAdditions, newAnnotationsAdditions);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATION_ADDITIONS, oldOutputAnnotationAdditions, newOutputAnnotationAdditions);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -769,18 +814,97 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAnnotationsAdditions(BPropertySet newAnnotationsAdditions) {
-		if (newAnnotationsAdditions != annotationsAdditions) {
+	public void setOutputAnnotationAdditions(BPropertySet newOutputAnnotationAdditions) {
+		if (newOutputAnnotationAdditions != outputAnnotationAdditions) {
 			NotificationChain msgs = null;
-			if (annotationsAdditions != null)
-				msgs = ((InternalEObject)annotationsAdditions).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_CONCERN_CONTEXT__ANNOTATIONS_ADDITIONS, null, msgs);
-			if (newAnnotationsAdditions != null)
-				msgs = ((InternalEObject)newAnnotationsAdditions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_CONCERN_CONTEXT__ANNOTATIONS_ADDITIONS, null, msgs);
-			msgs = basicSetAnnotationsAdditions(newAnnotationsAdditions, msgs);
+			if (outputAnnotationAdditions != null)
+				msgs = ((InternalEObject)outputAnnotationAdditions).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATION_ADDITIONS, null, msgs);
+			if (newOutputAnnotationAdditions != null)
+				msgs = ((InternalEObject)newOutputAnnotationAdditions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATION_ADDITIONS, null, msgs);
+			msgs = basicSetOutputAnnotationAdditions(newOutputAnnotationAdditions, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__ANNOTATIONS_ADDITIONS, newAnnotationsAdditions, newAnnotationsAdditions));
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATION_ADDITIONS, newOutputAnnotationAdditions, newOutputAnnotationAdditions));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<SourcePredicate> getSourceRemovals() {
+		if (sourceRemovals == null) {
+			sourceRemovals = new EObjectContainmentEList<SourcePredicate>(SourcePredicate.class, this, B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_REMOVALS);
+		}
+		return sourceRemovals;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ConditionalPathVector> getSourceAdditions() {
+		if (sourceAdditions == null) {
+			sourceAdditions = new EObjectContainmentEList<ConditionalPathVector>(ConditionalPathVector.class, this, B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ADDITIONS);
+		}
+		return sourceAdditions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<String> getSourceAnnotationsRemovals() {
+		if (sourceAnnotationsRemovals == null) {
+			sourceAnnotationsRemovals = new EDataTypeUniqueEList<String>(String.class, this, B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATIONS_REMOVALS);
+		}
+		return sourceAnnotationsRemovals;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BPropertySet getSourceAnnotationAdditions() {
+		return sourceAnnotationAdditions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSourceAnnotationAdditions(BPropertySet newSourceAnnotationAdditions, NotificationChain msgs) {
+		BPropertySet oldSourceAnnotationAdditions = sourceAnnotationAdditions;
+		sourceAnnotationAdditions = newSourceAnnotationAdditions;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATION_ADDITIONS, oldSourceAnnotationAdditions, newSourceAnnotationAdditions);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSourceAnnotationAdditions(BPropertySet newSourceAnnotationAdditions) {
+		if (newSourceAnnotationAdditions != sourceAnnotationAdditions) {
+			NotificationChain msgs = null;
+			if (sourceAnnotationAdditions != null)
+				msgs = ((InternalEObject)sourceAnnotationAdditions).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATION_ADDITIONS, null, msgs);
+			if (newSourceAnnotationAdditions != null)
+				msgs = ((InternalEObject)newSourceAnnotationAdditions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATION_ADDITIONS, null, msgs);
+			msgs = basicSetSourceAnnotationAdditions(newSourceAnnotationAdditions, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATION_ADDITIONS, newSourceAnnotationAdditions, newSourceAnnotationAdditions));
 	}
 
 	/**
@@ -827,8 +951,14 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 				return basicSetPostinputcondExpr(null, msgs);
 			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PROVIDES_REMOVALS:
 				return ((InternalEList<?>)getProvidesRemovals()).basicRemove(otherEnd, msgs);
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__ANNOTATIONS_ADDITIONS:
-				return basicSetAnnotationsAdditions(null, msgs);
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATION_ADDITIONS:
+				return basicSetOutputAnnotationAdditions(null, msgs);
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_REMOVALS:
+				return ((InternalEList<?>)getSourceRemovals()).basicRemove(otherEnd, msgs);
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ADDITIONS:
+				return ((InternalEList<?>)getSourceAdditions()).basicRemove(otherEnd, msgs);
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATION_ADDITIONS:
+				return basicSetSourceAnnotationAdditions(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -873,10 +1003,18 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 				return getPostinputcondExpr();
 			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PROVIDES_REMOVALS:
 				return getProvidesRemovals();
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__ANNOTATIONS_REMOVALS:
-				return getAnnotationsRemovals();
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__ANNOTATIONS_ADDITIONS:
-				return getAnnotationsAdditions();
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATIONS_REMOVALS:
+				return getOutputAnnotationsRemovals();
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATION_ADDITIONS:
+				return getOutputAnnotationAdditions();
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_REMOVALS:
+				return getSourceRemovals();
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ADDITIONS:
+				return getSourceAdditions();
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATIONS_REMOVALS:
+				return getSourceAnnotationsRemovals();
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATION_ADDITIONS:
+				return getSourceAnnotationAdditions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -944,12 +1082,27 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 				getProvidesRemovals().clear();
 				getProvidesRemovals().addAll((Collection<? extends ProvidesPredicate>)newValue);
 				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__ANNOTATIONS_REMOVALS:
-				getAnnotationsRemovals().clear();
-				getAnnotationsRemovals().addAll((Collection<? extends String>)newValue);
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATIONS_REMOVALS:
+				getOutputAnnotationsRemovals().clear();
+				getOutputAnnotationsRemovals().addAll((Collection<? extends String>)newValue);
 				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__ANNOTATIONS_ADDITIONS:
-				setAnnotationsAdditions((BPropertySet)newValue);
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATION_ADDITIONS:
+				setOutputAnnotationAdditions((BPropertySet)newValue);
+				return;
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_REMOVALS:
+				getSourceRemovals().clear();
+				getSourceRemovals().addAll((Collection<? extends SourcePredicate>)newValue);
+				return;
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ADDITIONS:
+				getSourceAdditions().clear();
+				getSourceAdditions().addAll((Collection<? extends ConditionalPathVector>)newValue);
+				return;
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATIONS_REMOVALS:
+				getSourceAnnotationsRemovals().clear();
+				getSourceAnnotationsRemovals().addAll((Collection<? extends String>)newValue);
+				return;
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATION_ADDITIONS:
+				setSourceAnnotationAdditions((BPropertySet)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1011,11 +1164,23 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PROVIDES_REMOVALS:
 				getProvidesRemovals().clear();
 				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__ANNOTATIONS_REMOVALS:
-				getAnnotationsRemovals().clear();
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATIONS_REMOVALS:
+				getOutputAnnotationsRemovals().clear();
 				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__ANNOTATIONS_ADDITIONS:
-				setAnnotationsAdditions((BPropertySet)null);
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATION_ADDITIONS:
+				setOutputAnnotationAdditions((BPropertySet)null);
+				return;
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_REMOVALS:
+				getSourceRemovals().clear();
+				return;
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ADDITIONS:
+				getSourceAdditions().clear();
+				return;
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATIONS_REMOVALS:
+				getSourceAnnotationsRemovals().clear();
+				return;
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATION_ADDITIONS:
+				setSourceAnnotationAdditions((BPropertySet)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -1061,10 +1226,18 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 				return postinputcondExpr != null;
 			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PROVIDES_REMOVALS:
 				return providesRemovals != null && !providesRemovals.isEmpty();
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__ANNOTATIONS_REMOVALS:
-				return annotationsRemovals != null && !annotationsRemovals.isEmpty();
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__ANNOTATIONS_ADDITIONS:
-				return annotationsAdditions != null;
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATIONS_REMOVALS:
+				return outputAnnotationsRemovals != null && !outputAnnotationsRemovals.isEmpty();
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATION_ADDITIONS:
+				return outputAnnotationAdditions != null;
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_REMOVALS:
+				return sourceRemovals != null && !sourceRemovals.isEmpty();
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ADDITIONS:
+				return sourceAdditions != null && !sourceAdditions.isEmpty();
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATIONS_REMOVALS:
+				return sourceAnnotationsRemovals != null && !sourceAnnotationsRemovals.isEmpty();
+			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATION_ADDITIONS:
+				return sourceAnnotationAdditions != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1089,8 +1262,10 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 		result.append(removePostCondition);
 		result.append(", removePostInputCondition: ");
 		result.append(removePostInputCondition);
-		result.append(", annotationsRemovals: ");
-		result.append(annotationsRemovals);
+		result.append(", outputAnnotationsRemovals: ");
+		result.append(outputAnnotationsRemovals);
+		result.append(", sourceAnnotationsRemovals: ");
+		result.append(sourceAnnotationsRemovals);
 		result.append(')');
 		return result.toString();
 	}
@@ -1255,6 +1430,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 
 			wrapper.setInputAdvised(true);
 		}
+
 		// WRAP OUTPUT
 		// by copying original output, setting a flag that output is advised, and then first do removals,
 		// and then additions. Everything needs to be copied as output is by containment, and the output rules
@@ -1263,7 +1439,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 		// is output advised ?
 		ADVICEOUTPUT: 
 			if(getOutputRemovals().size() > 0 || getOutputAdditions().size() > 0 
-				|| getAnnotationsRemovals().size() > 0 || getAnnotationsAdditions() != null) {
+				|| getOutputAnnotationsRemovals().size() > 0 || getOutputAnnotationAdditions() != null) {
 				boolean modified = false;
 				PathGroup pg = null;
 				PathGroup originalOutput = b.getOutput();
@@ -1287,21 +1463,69 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 				// Same as Default properties, but for annotations.
 				// TODO: What to do if there is no output? It may still be useful to modify annotations in the produced result
 				// in input?? (Current impl will throw NPE if there is no output...)
-				if(getAnnotationsRemovals().size() > 0 || getAnnotationsAdditions() != null) {
+				if(getOutputAnnotationsRemovals().size() > 0 || getOutputAnnotationAdditions() != null) {
 					BPropertySet as = B3backendFactory.eINSTANCE.createBDefaultPropertySet();
-					modified = processProperties(as, getAnnotationsRemovals(), b.getOutput().getAnnotations(), getAnnotationsAdditions())
+					modified = processProperties(as, getOutputAnnotationsRemovals(), b.getOutput().getAnnotations(), getOutputAnnotationAdditions())
 						|| modified;
 					wrapper.getOutput().setAnnotations(as);
 				}
 				// optimize if unchanged
-				if(!modified && getOutputAdditions().size() == 0 && getAnnotationsAdditions() != null) {
+				if(!modified && getOutputAdditions().size() == 0 && getOutputAnnotationAdditions() != null) {
 					wrapper.setOutput(null);
 					break ADVICEOUTPUT;
 				}
 				wrapper.setOutputAdvised(true);
 
 			}
+//
+		// WRAP SOURCE
+		// by copying original source, setting a flag that source is advised, and then first do removals,
+		// and then additions. Everything needs to be copied as source is by containment, and the source rules
+		// may be needed multiple times.
+		
+		// is source advised ?
+		ADVICESOURCE: 
+			if(getSourceRemovals().size() > 0 || getOutputAdditions().size() > 0 
+				|| getSourceAnnotationsRemovals().size() > 0 || getSourceAnnotationAdditions() != null) {
+				boolean modified = false;
+				PathGroup pg = null;
+				PathGroup originalSource = b.getSource();
+				if(originalSource != null)
+					wrapper.setSource(pg = PathGroup.class.cast(EcoreUtil.copy(b.getSource())));
+				else {
+					// TODO: Should probably log warning that empty source was created as a consequence of advice.
+					originalSource = B3BuildFactory.eINSTANCE.createPathGroup();
+				}
+				// removal
+				for(SourcePredicate sp : getSourceRemovals())
+					modified = sp.removeMatching(pg) || modified;
 
+				// addition
+				EList<ConditionalPathVector> vectors = pg.getPathVectors();
+				for( ConditionalPathVector pv : getSourceAdditions())
+					vectors.add(ConditionalPathVector.class.cast(EcoreUtil.copy(pv)));
+
+
+				// WRAP ANNOTATIONS
+				// Same as Default properties, but for annotations.
+				// TODO: What to do if there is no source? It may still be useful to modify annotations in the produced result
+				// in input?? (Current impl will throw NPE if there is no source...)
+				if(getSourceAnnotationsRemovals().size() > 0 || getSourceAnnotationAdditions() != null) {
+					BPropertySet as = B3backendFactory.eINSTANCE.createBDefaultPropertySet();
+					modified = processProperties(as, getSourceAnnotationsRemovals(), b.getSource().getAnnotations(), getSourceAnnotationAdditions())
+						|| modified;
+					wrapper.getSource().setAnnotations(as);
+				}
+				// optimize if unchanged
+				if(!modified && getSourceAdditions().size() == 0 && getSourceAnnotationAdditions() != null) {
+					wrapper.setSource(null);
+					break ADVICESOURCE;
+				}
+				wrapper.setSourceAdvised(true);
+
+			}
+
+//
 		// WRAP PROVIDED CAPABILITIES
 		ADVICEPROVIDES: if(getProvidesRemovals().size() > 0 || getProvidedCapabilities().size() > 0) {
 			boolean modified = false;

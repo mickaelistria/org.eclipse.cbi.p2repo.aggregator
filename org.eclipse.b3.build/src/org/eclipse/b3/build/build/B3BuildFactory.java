@@ -152,6 +152,24 @@ public interface B3BuildFactory extends EFactory {
 	BuildResultContext createBuildResultContext();
 
 	/**
+	 * Returns a new object of class '<em>Output Predicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Output Predicate</em>'.
+	 * @generated
+	 */
+	OutputPredicate createOutputPredicate();
+
+	/**
+	 * Returns a new object of class '<em>Source Predicate</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Source Predicate</em>'.
+	 * @generated
+	 */
+	SourcePredicate createSourcePredicate();
+
+	/**
 	 * Returns a new object of class '<em>Versioned Capability</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -350,13 +368,13 @@ public interface B3BuildFactory extends EFactory {
 	BuilderConcernContext createBuilderConcernContext();
 
 	/**
-	 * Returns a new object of class '<em>Output Predicate</em>'.
+	 * Returns a new object of class '<em>Path Group Predicate</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Output Predicate</em>'.
+	 * @return a new object of class '<em>Path Group Predicate</em>'.
 	 * @generated
 	 */
-	OutputPredicate createOutputPredicate();
+	PathGroupPredicate createPathGroupPredicate();
 
 	/**
 	 * Returns a new object of class '<em>Aliased Required Capability</em>'.

@@ -31,7 +31,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="propertySets" upperBound="-1"
         eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BPropertySet"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="baseLocation" eType="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//URI"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceLocation" eType="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//URI"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputLocation" eType="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//URI"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IBuilder" abstract="true" interface="true"
       eSuperTypes="#//IProvidedCapabilityContainer ../../org.eclipse.b3.backend/model/B3Backend.ecore#//IFunction">
@@ -371,12 +372,22 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="providesRemovals" upperBound="-1"
         eType="#//ProvidesPredicate" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="annotationsRemovals" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="annotationsAdditions" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BPropertySet"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputAnnotationsRemovals"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputAnnotationAdditions"
+        eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BPropertySet"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceRemovals" upperBound="-1"
+        eType="#//SourcePredicate" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceAdditions" upperBound="-1"
+        eType="#//ConditionalPathVector" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceAnnotationsRemovals"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceAnnotationAdditions"
+        eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BPropertySet"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="OutputPredicate" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression">
+  <eClassifiers xsi:type="ecore:EClass" name="PathGroupPredicate" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression">
     <eOperations name="removeMatching" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Removes matching prerequisites and returns true if something was removed."/>
@@ -489,4 +500,6 @@
       <details key="documentation" value="This specialization of BExecutionContext is used to evaluate properties and default properties against its ValueMap, but in contrast to the regular BExecutionContext, the check for existience of already set properties is limited to this specific context (i.e. no check in parent contexts is performed). &#xA;The intended use is to collect a set of property values that are used in BuildResult (i.e. named values that are not set as regular properties)."/>
     </eAnnotations>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OutputPredicate" eSuperTypes="#//PathGroupPredicate"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SourcePredicate" eSuperTypes="#//PathGroupPredicate"/>
 </ecore:EPackage>
