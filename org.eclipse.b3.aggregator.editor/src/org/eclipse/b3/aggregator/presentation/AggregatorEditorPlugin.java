@@ -6,10 +6,9 @@
  */
 package org.eclipse.b3.aggregator.presentation;
 
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.emf.common.EMFPlugin;
-
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
-
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 
@@ -33,8 +32,13 @@ public final class AggregatorEditorPlugin extends EMFPlugin {
 		 * 
 		 * @generated
 		 */
+		@SuppressWarnings("deprecation")
 		public Implementation() {
 			super();
+
+			// disable file linking in the aggregator wizard and in the model transformation wizard
+			// this parameter is read in org.eclipse.ui.dialogs.WizardNewFileCreationPage
+			ResourcesPlugin.getPlugin().getPluginPreferences().setValue(ResourcesPlugin.PREF_DISABLE_LINKING, true);
 
 			// Remember the static instance.
 			//

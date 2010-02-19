@@ -469,11 +469,12 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 		private void updateAvailableVersions() {
 			Aggregator aggregator = ResourceUtils.getAggregator(getResourceSet());
 
-			for(Contribution contribution : aggregator.getContributions())
-				for(MappedRepository mappedRepo : contribution.getRepositories())
-					if(repository.getLocation().toString().equals(mappedRepo.getLocation()))
-						for(MappedUnit unit : mappedRepo.getUnits(false))
-							unit.resolveAvailableVersions(true);
+			if(aggregator != null)
+				for(Contribution contribution : aggregator.getContributions())
+					for(MappedRepository mappedRepo : contribution.getRepositories())
+						if(repository.getLocation().toString().equals(mappedRepo.getLocation()))
+							for(MappedUnit unit : mappedRepo.getUnits(false))
+								unit.resolveAvailableVersions(true);
 		}
 	}
 

@@ -701,7 +701,9 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 			IQueryResult<IInstallableUnit> ius = mdr.query(query, null);
 
 			for(IInstallableUnit iu : ius.toSet())
-				versionMap.put(iu.getVersion(), iu.getFilter().toString());
+				versionMap.put(iu.getVersion(), iu.getFilter() == null
+						? null
+						: iu.getFilter().toString());
 		}
 
 		if(versionMap.size() == 0) {

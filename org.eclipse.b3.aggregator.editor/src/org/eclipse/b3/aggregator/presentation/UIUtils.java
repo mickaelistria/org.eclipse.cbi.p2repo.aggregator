@@ -37,6 +37,13 @@ public class UIUtils {
 		return new TreePath(segments.toArray());
 	}
 
+	public static void safeSetText(Text formatStringText, String currentFormatString) {
+		formatStringText.setText(currentFormatString == null
+				? ""
+				: currentFormatString);
+
+	}
+
 	public static String trimmedValue(String string) {
 		String value = null;
 
