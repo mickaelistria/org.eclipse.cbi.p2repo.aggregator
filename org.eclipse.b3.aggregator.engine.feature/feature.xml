@@ -66,11 +66,6 @@ Java and all Java-based trademarks are trademarks of Sun Microsystems, Inc. in t
       <import plugin="org.eclipse.core.contenttype" version="3.3.0" match="compatible"/>
       <import plugin="org.eclipse.core.jobs" version="3.2.0" match="compatible"/>
       <import plugin="org.eclipse.core.runtime" version="3.5.0" match="compatible"/>
-      <import plugin="org.eclipse.ecf"/>
-      <import plugin="org.eclipse.ecf.filetransfer"/>
-      <import plugin="org.eclipse.ecf.identity"/>
-      <import plugin="org.eclipse.ecf.provider.filetransfer"/>
-      <import plugin="org.eclipse.ecf.provider.filetransfer.httpclient"/>
       <import plugin="org.eclipse.equinox.app"/>
       <import plugin="org.eclipse.equinox.common" version="3.5.0" match="compatible"/>
       <import plugin="org.eclipse.equinox.p2.artifact.repository"/>
@@ -176,6 +171,65 @@ Java and all Java-based trademarks are trademarks of Sun Microsystems, Inc. in t
          download-size="0"
          install-size="0"
          version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.filetransfer"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.identity"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.provider.filetransfer"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.provider.filetransfer.httpclient"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.provider.filetransfer.httpclient.ssl"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.provider.filetransfer.ssl"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ecf.ssl"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"
          unpack="false"/>
 
 </feature>
