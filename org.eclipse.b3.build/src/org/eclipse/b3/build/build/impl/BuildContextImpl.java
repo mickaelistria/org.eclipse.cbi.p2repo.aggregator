@@ -1,9 +1,14 @@
 /**
- * <copyright>
- * </copyright>
- *
- * $Id$
+ * Copyright (c) 2010, Cloudsmith Inc and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * Contributors:
+ * - Cloudsmith Inc - initial API and implementation.
+ * 
  */
+
 package org.eclipse.b3.build.build.impl;
 
 import java.lang.reflect.Type;
@@ -27,7 +32,6 @@ import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.BeeModel;
 import org.eclipse.b3.build.build.BuildContext;
 import org.eclipse.b3.build.build.BuildUnit;
-import org.eclipse.b3.build.build.Builder;
 import org.eclipse.b3.build.build.IBuilder;
 import org.eclipse.b3.build.core.BuildUnitProxyAdapter;
 import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;

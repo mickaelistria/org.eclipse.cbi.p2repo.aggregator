@@ -1,9 +1,4 @@
-/**
- * <copyright>
- * </copyright>
- *
- * $Id$
- */
+
 package org.eclipse.b3.build.build.impl;
 
 import java.lang.reflect.Type;
@@ -17,7 +12,6 @@ import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.impl.BJavaFunctionImpl;
 
 import org.eclipse.b3.build.build.B3BuildPackage;
-import org.eclipse.b3.build.build.BuildContext;
 import org.eclipse.b3.build.build.BuildUnit;
 import org.eclipse.b3.build.build.BuilderInput;
 import org.eclipse.b3.build.build.BuilderJava;
