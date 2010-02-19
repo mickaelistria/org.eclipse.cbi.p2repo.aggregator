@@ -57,7 +57,7 @@
                 <cs:attribute name="clear.site.eclipse.headless" contributor="false"/>
                 <cs:attribute name="site.p2" component="org.eclipse.b3.site.eclipse.headless"/>
             </cs:prerequisites>
-            <cs:products alias="action.output" base="${buckminster.download.area}/headless-${site.suffix}/"/>
+            <cs:products alias="action.output" base="${b3.download.area}/headless-${site.suffix}/"/>
         </cs:public>
         <cs:public name="promote.sites.to.archive" actor="ant">
             <cs:actorProperties>
