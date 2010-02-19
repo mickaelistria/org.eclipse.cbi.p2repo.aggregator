@@ -712,6 +712,15 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getIBuilder_Source() {
+		return (EReference)iBuilderEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBuilder() {
 		return builderEClass;
 	}
@@ -777,6 +786,15 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 */
 	public EAttribute getBuilderWrapper_DefaultPropertiesAdvised() {
 		return (EAttribute)builderWrapperEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBuilderWrapper_SourceAdvised() {
+		return (EAttribute)builderWrapperEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -2081,6 +2099,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		createEReference(iBuilderEClass, IBUILDER__POSTINPUTCOND_EXPR);
 		createEAttribute(iBuilderEClass, IBUILDER__UNIT_TYPE);
 		createEReference(iBuilderEClass, IBUILDER__EXPLICIT_UNIT_TYPE);
+		createEReference(iBuilderEClass, IBUILDER__SOURCE);
 
 		versionedCapabilityEClass = createEClass(VERSIONED_CAPABILITY);
 		createEAttribute(versionedCapabilityEClass, VERSIONED_CAPABILITY__VERSION);
@@ -2235,6 +2254,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		createEAttribute(builderWrapperEClass, BUILDER_WRAPPER__UNIT_TYPE_ADVISED);
 		createEAttribute(builderWrapperEClass, BUILDER_WRAPPER__PROVIDES_ADVISED);
 		createEAttribute(builderWrapperEClass, BUILDER_WRAPPER__DEFAULT_PROPERTIES_ADVISED);
+		createEAttribute(builderWrapperEClass, BUILDER_WRAPPER__SOURCE_ADVISED);
 
 		beeModelEClass = createEClass(BEE_MODEL);
 		createEReference(beeModelEClass, BEE_MODEL__IMPORTS);
@@ -2385,6 +2405,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		g2.setEUpperBound(g3);
 		initEAttribute(getIBuilder_UnitType(), g1, "unitType", null, 0, 1, IBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIBuilder_ExplicitUnitType(), theB3backendPackage.getIType(), null, "explicitUnitType", null, 0, 1, IBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIBuilder_Source(), this.getPathGroup(), null, "source", null, 0, 1, IBuilder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(iBuilderEClass, null, "getEffectiveRequirements", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theB3backendPackage.getBExecutionContext(), "ctx", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -2671,6 +2692,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		initEAttribute(getBuilderWrapper_UnitTypeAdvised(), ecorePackage.getEBoolean(), "unitTypeAdvised", null, 0, 1, BuilderWrapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBuilderWrapper_ProvidesAdvised(), ecorePackage.getEBoolean(), "providesAdvised", null, 0, 1, BuilderWrapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBuilderWrapper_DefaultPropertiesAdvised(), ecorePackage.getEBoolean(), "defaultPropertiesAdvised", null, 0, 1, BuilderWrapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBuilderWrapper_SourceAdvised(), ecorePackage.getEBoolean(), "sourceAdvised", null, 0, 1, BuilderWrapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(beeModelEClass, BeeModel.class, "BeeModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBeeModel_Imports(), theB3backendPackage.getIType(), null, "imports", null, 0, -1, BeeModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -29,6 +29,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
  *   <li>{@link org.eclipse.b3.build.build.IBuilder#getPostinputcondExpr <em>Postinputcond Expr</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.IBuilder#getUnitType <em>Unit Type</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.IBuilder#getExplicitUnitType <em>Explicit Unit Type</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.IBuilder#getSource <em>Source</em>}</li>
  * </ul>
  * </p>
  *
@@ -244,6 +245,32 @@ public interface IBuilder extends IProvidedCapabilityContainer, IFunction {
 	 * @generated
 	 */
 	void setExplicitUnitType(Type value);
+
+	/**
+	 * Returns the value of the '<em><b>Source</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Source</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Source</em>' containment reference.
+	 * @see #setSource(PathGroup)
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getIBuilder_Source()
+	 * @model containment="true"
+	 * @generated
+	 */
+	PathGroup getSource();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.b3.build.build.IBuilder#getSource <em>Source</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Source</em>' containment reference.
+	 * @see #getSource()
+	 * @generated
+	 */
+	void setSource(PathGroup value);
 
 	/**
 	 * <!-- begin-user-doc -->

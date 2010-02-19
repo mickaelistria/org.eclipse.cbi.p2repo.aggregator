@@ -61,6 +61,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderJavaImpl#getPostinputcondExpr <em>Postinputcond Expr</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderJavaImpl#getUnitType <em>Unit Type</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.impl.BuilderJavaImpl#getExplicitUnitType <em>Explicit Unit Type</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuilderJavaImpl#getSource <em>Source</em>}</li>
  * </ul>
  * </p>
  *
@@ -156,6 +157,16 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	 * @ordered
 	 */
 	protected Type explicitUnitType;
+
+	/**
+	 * The cached value of the '{@link #getSource() <em>Source</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSource()
+	 * @generated
+	 * @ordered
+	 */
+	protected PathGroup source;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -515,6 +526,49 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public PathGroup getSource() {
+		return source;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSource(PathGroup newSource, NotificationChain msgs) {
+		PathGroup oldSource = source;
+		source = newSource;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_JAVA__SOURCE, oldSource, newSource);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSource(PathGroup newSource) {
+		if (newSource != source) {
+			NotificationChain msgs = null;
+			if (source != null)
+				msgs = ((InternalEObject)source).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_JAVA__SOURCE, null, msgs);
+			if (newSource != null)
+				msgs = ((InternalEObject)newSource).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_JAVA__SOURCE, null, msgs);
+			msgs = basicSetSource(newSource, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_JAVA__SOURCE, newSource, newSource));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Iterator<EffectiveRequirementFacade> getEffectiveRequirements(BExecutionContext ctx) throws Throwable {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -567,6 +621,8 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 				return basicSetPostinputcondExpr(null, msgs);
 			case B3BuildPackage.BUILDER_JAVA__EXPLICIT_UNIT_TYPE:
 				return basicSetExplicitUnitType(null, msgs);
+			case B3BuildPackage.BUILDER_JAVA__SOURCE:
+				return basicSetSource(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -597,6 +653,8 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 				return getUnitType();
 			case B3BuildPackage.BUILDER_JAVA__EXPLICIT_UNIT_TYPE:
 				return getExplicitUnitType();
+			case B3BuildPackage.BUILDER_JAVA__SOURCE:
+				return getSource();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -638,6 +696,9 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 			case B3BuildPackage.BUILDER_JAVA__EXPLICIT_UNIT_TYPE:
 				setExplicitUnitType((Type)newValue);
 				return;
+			case B3BuildPackage.BUILDER_JAVA__SOURCE:
+				setSource((PathGroup)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -677,6 +738,9 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 			case B3BuildPackage.BUILDER_JAVA__EXPLICIT_UNIT_TYPE:
 				setExplicitUnitType((Type)null);
 				return;
+			case B3BuildPackage.BUILDER_JAVA__SOURCE:
+				setSource((PathGroup)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -707,6 +771,8 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 				return unitType != null;
 			case B3BuildPackage.BUILDER_JAVA__EXPLICIT_UNIT_TYPE:
 				return explicitUnitType != null;
+			case B3BuildPackage.BUILDER_JAVA__SOURCE:
+				return source != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -734,6 +800,7 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 				case B3BuildPackage.BUILDER_JAVA__POSTINPUTCOND_EXPR: return B3BuildPackage.IBUILDER__POSTINPUTCOND_EXPR;
 				case B3BuildPackage.BUILDER_JAVA__UNIT_TYPE: return B3BuildPackage.IBUILDER__UNIT_TYPE;
 				case B3BuildPackage.BUILDER_JAVA__EXPLICIT_UNIT_TYPE: return B3BuildPackage.IBUILDER__EXPLICIT_UNIT_TYPE;
+				case B3BuildPackage.BUILDER_JAVA__SOURCE: return B3BuildPackage.IBUILDER__SOURCE;
 				default: return -1;
 			}
 		}
@@ -763,6 +830,7 @@ public class BuilderJavaImpl extends BJavaFunctionImpl implements BuilderJava {
 				case B3BuildPackage.IBUILDER__POSTINPUTCOND_EXPR: return B3BuildPackage.BUILDER_JAVA__POSTINPUTCOND_EXPR;
 				case B3BuildPackage.IBUILDER__UNIT_TYPE: return B3BuildPackage.BUILDER_JAVA__UNIT_TYPE;
 				case B3BuildPackage.IBUILDER__EXPLICIT_UNIT_TYPE: return B3BuildPackage.BUILDER_JAVA__EXPLICIT_UNIT_TYPE;
+				case B3BuildPackage.IBUILDER__SOURCE: return B3BuildPackage.BUILDER_JAVA__SOURCE;
 				default: return -1;
 			}
 		}

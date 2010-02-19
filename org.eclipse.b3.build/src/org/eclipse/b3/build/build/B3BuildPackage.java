@@ -955,13 +955,22 @@ public interface B3BuildPackage extends EPackage {
 	int IBUILDER__EXPLICIT_UNIT_TYPE = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 25;
 
 	/**
+	 * The feature id for the '<em><b>Source</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IBUILDER__SOURCE = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 26;
+
+	/**
 	 * The number of structural features of the '<em>IBuilder</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IBUILDER_FEATURE_COUNT = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 26;
+	int IBUILDER_FEATURE_COUNT = IPROVIDED_CAPABILITY_CONTAINER_FEATURE_COUNT + 27;
 
 	/**
 	 * The feature id for the '<em><b>Prerequisites</b></em>' containment reference list.
@@ -2415,13 +2424,22 @@ public interface B3BuildPackage extends EPackage {
 	int BUILDER__EXPLICIT_UNIT_TYPE = B3backendPackage.B3_FUNCTION_FEATURE_COUNT + 8;
 
 	/**
+	 * The feature id for the '<em><b>Source</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER__SOURCE = B3backendPackage.B3_FUNCTION_FEATURE_COUNT + 9;
+
+	/**
 	 * The number of structural features of the '<em>Builder</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILDER_FEATURE_COUNT = B3backendPackage.B3_FUNCTION_FEATURE_COUNT + 9;
+	int BUILDER_FEATURE_COUNT = B3backendPackage.B3_FUNCTION_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Visibility</b></em>' attribute.
@@ -2686,13 +2704,22 @@ public interface B3BuildPackage extends EPackage {
 	int BUILDER_JAVA__EXPLICIT_UNIT_TYPE = B3backendPackage.BJAVA_FUNCTION_FEATURE_COUNT + 8;
 
 	/**
+	 * The feature id for the '<em><b>Source</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_JAVA__SOURCE = B3backendPackage.BJAVA_FUNCTION_FEATURE_COUNT + 9;
+
+	/**
 	 * The number of structural features of the '<em>Builder Java</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILDER_JAVA_FEATURE_COUNT = B3backendPackage.BJAVA_FUNCTION_FEATURE_COUNT + 9;
+	int BUILDER_JAVA_FEATURE_COUNT = B3backendPackage.BJAVA_FUNCTION_FEATURE_COUNT + 10;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuilderWrapperImpl <em>Builder Wrapper</em>}' class.
@@ -2984,13 +3011,22 @@ public interface B3BuildPackage extends EPackage {
 	int BUILDER_WRAPPER__EXPLICIT_UNIT_TYPE = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 8;
 
 	/**
+	 * The feature id for the '<em><b>Source</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_WRAPPER__SOURCE = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 9;
+
+	/**
 	 * The feature id for the '<em><b>Input Advised</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILDER_WRAPPER__INPUT_ADVISED = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 9;
+	int BUILDER_WRAPPER__INPUT_ADVISED = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Output Advised</b></em>' attribute.
@@ -2999,7 +3035,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILDER_WRAPPER__OUTPUT_ADVISED = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 10;
+	int BUILDER_WRAPPER__OUTPUT_ADVISED = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Unit Type Advised</b></em>' attribute.
@@ -3008,7 +3044,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILDER_WRAPPER__UNIT_TYPE_ADVISED = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 11;
+	int BUILDER_WRAPPER__UNIT_TYPE_ADVISED = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Provides Advised</b></em>' attribute.
@@ -3017,7 +3053,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILDER_WRAPPER__PROVIDES_ADVISED = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 12;
+	int BUILDER_WRAPPER__PROVIDES_ADVISED = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Default Properties Advised</b></em>' attribute.
@@ -3026,7 +3062,16 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILDER_WRAPPER__DEFAULT_PROPERTIES_ADVISED = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 13;
+	int BUILDER_WRAPPER__DEFAULT_PROPERTIES_ADVISED = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 14;
+
+	/**
+	 * The feature id for the '<em><b>Source Advised</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_WRAPPER__SOURCE_ADVISED = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 15;
 
 	/**
 	 * The number of structural features of the '<em>Builder Wrapper</em>' class.
@@ -3035,7 +3080,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILDER_WRAPPER_FEATURE_COUNT = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 14;
+	int BUILDER_WRAPPER_FEATURE_COUNT = B3backendPackage.BFUNCTION_WRAPPER_FEATURE_COUNT + 16;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BeeModelImpl <em>Bee Model</em>}' class.
@@ -3749,6 +3794,17 @@ public interface B3BuildPackage extends EPackage {
 	EReference getIBuilder_ExplicitUnitType();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.IBuilder#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Source</em>'.
+	 * @see org.eclipse.b3.build.build.IBuilder#getSource()
+	 * @see #getIBuilder()
+	 * @generated
+	 */
+	EReference getIBuilder_Source();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.Builder <em>Builder</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3832,6 +3888,17 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getBuilderWrapper_DefaultPropertiesAdvised();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuilderWrapper#isSourceAdvised <em>Source Advised</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Source Advised</em>'.
+	 * @see org.eclipse.b3.build.build.BuilderWrapper#isSourceAdvised()
+	 * @see #getBuilderWrapper()
+	 * @generated
+	 */
+	EAttribute getBuilderWrapper_SourceAdvised();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BeeModel <em>Bee Model</em>}'.
@@ -5520,6 +5587,14 @@ public interface B3BuildPackage extends EPackage {
 		EReference IBUILDER__EXPLICIT_UNIT_TYPE = eINSTANCE.getIBuilder_ExplicitUnitType();
 
 		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IBUILDER__SOURCE = eINSTANCE.getIBuilder_Source();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuilderImpl <em>Builder</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5588,6 +5663,14 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute BUILDER_WRAPPER__DEFAULT_PROPERTIES_ADVISED = eINSTANCE.getBuilderWrapper_DefaultPropertiesAdvised();
+
+		/**
+		 * The meta object literal for the '<em><b>Source Advised</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BUILDER_WRAPPER__SOURCE_ADVISED = eINSTANCE.getBuilderWrapper_SourceAdvised();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BeeModelImpl <em>Bee Model</em>}' class.
