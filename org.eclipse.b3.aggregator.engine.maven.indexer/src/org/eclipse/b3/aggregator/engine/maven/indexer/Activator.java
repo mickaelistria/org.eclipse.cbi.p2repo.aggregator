@@ -39,26 +39,8 @@ public class Activator extends Plugin {
 	}
 
 	public void start(BundleContext context) throws Exception {
-		// TODO Unfortunately, this container does not see org/eclipse/jetty/client/security/Authorization
-		// from org.sonatype.nexus.index.updater.DefaultIndexUpdater. What's needed?
-		// This helps, however, it needs to modify the m2eclipse plugins:
-		// 1)
-		// Add following exported packages to the
-		// org.maven.ide.eclipse.maven_embedder_0.10.0.20100209-0800/META-INF/MANIFEST.MF:
-		// org.eclipse.jetty.client,org.eclipse.jetty.client.security,org.eclipse.jetty.client.webdav,
-		// org.eclipse.jetty.http,org.eclipse.jetty.http.secutiry,org.eclipse.jetty.http.ssl,org.eclipse.jetty.io,
-		// org.eclipse.jetty.io.bio,org.eclipse.jetty.io.nio,org.eclipse.jetty.util,
-		// org.eclipse.jetty.util.ajax,org.eclipse.jetty.util.component,org.eclipse.jetty.util.log,org.eclipse.jetty.util.resource,
-		// org.eclipse.jetty.util.thread
-		// 2)
-		// Add following line to the org.maven.ide.eclipse.maven_embedder_0.10.0.20100209-0800/META-INF/MANIFEST.MF:
-		// Eclipse-BuddyPolicy: registered
-		// 3)
-		// Add following line to the org.maven.ide.eclipse.nexus_indexer_0.10.0.20100209-0800/META-INF/MANIFEST.MF:
-		// Eclipse-RegisterBuddy: org.maven.ide.eclipse.maven_embedder
-
 		ContainerConfiguration cc = new DefaultContainerConfiguration().setClassWorld(
-				new ClassWorld("b3.aggregator", Activator.class.getClassLoader())).setName("plexus");
+				new ClassWorld("b3.aggregator", Activator.class.getClassLoader())).setName("b3.plexus");
 		plexus = new DefaultPlexusContainer(cc);
 	}
 
