@@ -279,7 +279,7 @@ public class BJavaFunctionImpl extends BFunctionImpl implements BJavaFunction {
 			if(isSystemCall())
 				return method.invoke(null, ctx, parameters, types);
 
-			TypeUtils.JavaCandidate javaFunctionCandidate = (TypeUtils.JavaCandidate) FunctionCandidateAdapterFactory.eINSTANCE.adapt(this);
+			TypeUtils.JavaCandidate javaFunctionCandidate = FunctionCandidateAdapterFactory.eINSTANCE.adapt(this, TypeUtils.JavaCandidate.class);
 
 			Object instance = javaFunctionCandidate.getInstanceParametersCount() > 0 ? parameters[0] : null;
 			Object[] callParameters = javaFunctionCandidate.prepareJavaCallParameters(types, parameters);

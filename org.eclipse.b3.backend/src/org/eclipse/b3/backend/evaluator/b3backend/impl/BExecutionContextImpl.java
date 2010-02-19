@@ -572,7 +572,7 @@ public abstract class BExecutionContextImpl extends EObjectImpl implements BExec
 			instanceParameterNames = null;
 		}
 
-		TypeUtils.JavaCandidate javaFunctionCandidate = (TypeUtils.JavaCandidate) FunctionCandidateAdapterFactory.eINSTANCE.adapt(f);
+		TypeUtils.JavaCandidate javaFunctionCandidate = FunctionCandidateAdapterFactory.eINSTANCE.adapt(f, TypeUtils.JavaCandidate.class);
 		// this eventually calls f.setParameterTypes()
 		javaFunctionCandidate.processJavaParameterTypes(instanceParameterTypes);
 

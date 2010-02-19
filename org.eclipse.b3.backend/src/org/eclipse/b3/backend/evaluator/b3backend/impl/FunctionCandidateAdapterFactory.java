@@ -47,7 +47,7 @@ public class FunctionCandidateAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		public boolean isAdapterForType(Object type) {
-			return (type instanceof Class<?>) && ((Class<?>) type).isAssignableFrom(getClass());
+			return isAssignableFrom(type, getClass());
 		}
 
 		public boolean isVarArgs() {
@@ -64,7 +64,8 @@ public class FunctionCandidateAdapterFactory extends AdapterFactoryImpl {
 
 	}
 
-	protected static class JavaFunctionCandidateAdapter extends TypeUtils.JavaCandidate implements IFunctionCandidateAdapter {
+	protected static class JavaFunctionCandidateAdapter extends TypeUtils.JavaCandidate implements
+			IFunctionCandidateAdapter {
 
 		private BJavaFunction target;
 
@@ -85,7 +86,7 @@ public class FunctionCandidateAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		public boolean isAdapterForType(Object type) {
-			return (type instanceof Class<?>) && ((Class<?>) type).isAssignableFrom(getClass());
+			return isAssignableFrom(type, getClass());
 		}
 
 		public boolean isVarArgs() {
@@ -119,36 +120,48 @@ public class FunctionCandidateAdapterFactory extends AdapterFactoryImpl {
 
 	public static final FunctionCandidateAdapterFactory eINSTANCE = new FunctionCandidateAdapterFactory();
 
+	protected static boolean isAssignableFrom(Object baseType, Class<?> fromType) {
+		return (baseType instanceof Class<?>) && ((Class<?>) baseType).isAssignableFrom(fromType);
+	}
+
 	protected FunctionCandidateAdapterFactory() {
 	}
 
-	public IFunctionCandidateAdapter adapt(IFunction target) {
+	public IFunctionCandidateAdapter adapt(Notifier target) {
 		return adapt(target, IFunctionCandidateAdapter.class);
 	}
 
-	@Override
-	public boolean isFactoryForType(Object type) {
-		return type == IFunctionCandidateAdapter.class;
-	}
-
-	/**
-	 * Type safe variant of adapt
-	 * 
-	 * @param <T>
-	 * @param target
-	 * @param type
-	 * @return
-	 */
-	protected <T> T adapt(IFunction target, Class<T> type) {
+	public <T> T adapt(Notifier target, Class<T> type) {
+		// this cast is safe as the createAdapter(Notifier target, Object type) - a result of which is eventually
+		// returned by super.adapt() - never creates an adapter not matching the required type (at worst it returns
+		// null)
 		return type.cast(super.adapt(target, type));
 	}
 
 	@Override
-	protected IFunctionCandidateAdapter createAdapter(Notifier target) {
-		if(target instanceof BJavaFunction)
-			return new JavaFunctionCandidateAdapter((BJavaFunction) target);
-		if(target instanceof IFunction)
-			return new FunctionCandidateAdapter((IFunction) target);
+	public void adaptAllNew(Notifier target) {
+		adapt(target);
+	}
+
+	@Override
+	public boolean isFactoryForType(Object type) {
+		return isAssignableFrom(type, IFunctionCandidateAdapter.class);
+	}
+
+	@Override
+	protected Adapter createAdapter(Notifier target) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	protected IFunctionCandidateAdapter createAdapter(Notifier target, Object type) {
+		if(type instanceof Class<?>) {
+			Class<?> typeClass = (Class<?>) type;
+			if(target instanceof BJavaFunction && typeClass.isAssignableFrom(JavaFunctionCandidateAdapter.class))
+				return new JavaFunctionCandidateAdapter((BJavaFunction) target);
+			if(target instanceof IFunction && typeClass.isAssignableFrom(FunctionCandidateAdapter.class))
+				return new FunctionCandidateAdapter((IFunction) target);
+		}
 		return null;
 	}
 
