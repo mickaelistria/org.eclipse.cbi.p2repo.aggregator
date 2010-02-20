@@ -56,45 +56,48 @@ unit fruitsallad version 1.0.0 {
 }
 
 unit apple version 1.0.0  implements Fruit {
+	source = "resource:/org.eclipse.b3.beelang.tests/src-b3/testunits/apple/";
 	builder peel {
-		output { applepeel.txt; }
+		source { applepeel.txt; }
 	}
 	builder seeds {
-		output { appleseeds.txt; }
+		source { appleseeds.txt; }
 	}
 	builder pulp {
-		output { applepulp.txt; }
+		source { applepulp.txt; }
 	}
 }
 
 unit banana version 1.0.0 implements Fruit {
+	source = "resource:/org.eclipse.b3.beelang.tests/src-b3/testunits/banana/";
 	
 	provides food.nutrition.vitamin/B6;
 	provides food.nutrition.vitamin/C;
 	provides food.nutrition.mineral/potassium;
 	
 	builder peel {
-		output { bananapeel.txt; }
+		source { txt/bananapeel.txt; }
 	}
 	builder seeds {
-		output { bananaseeds.txt; }
+		source { txt/bananaseeds.txt; }
 	}
 	builder pulp {
-		output { bananapulp.txt; }
+		source { txt/bananapulp.txt; }
 	}
 }
 
 unit orange version 1.0.0 implements Fruit {
+	source = "resource:/org.eclipse.b3.beelang.tests/src-b3/testunits/orange/";
 	
 	provides food.nutrition.vitamin/C;
 	
 	builder peel provides gastronomy.taste/zest {
-		output { orangepeel.txt; }
+		source { orangepeel.txt; }
 	}
 	builder seeds {
-		output { orangeseeds.txt; }
+		source { orangeseeds.txt; }
 	}
 	builder pulp {
-		output { orangepulp.txt; }
+		source { orangepulp.txt; }
 	}
 }
