@@ -255,7 +255,8 @@ public class BeeLangTerminalConverters extends  AbstractDeclarativeValueConverte
 				if (Strings.isEmpty(string))
 					throw new ValueConverterException("Can not convert empty string to URI", node, null);
 				try {
-					string = Strings.convertFromJavaString(string.substring(1, string.length() - 1));
+					int truncate = string.startsWith("\"") && string.endsWith("\"") ? 1 : 0;
+					string = Strings.convertFromJavaString(string.substring(truncate, string.length() - truncate));
 
 					return new URI(string);
 				} catch (URISyntaxException e) {

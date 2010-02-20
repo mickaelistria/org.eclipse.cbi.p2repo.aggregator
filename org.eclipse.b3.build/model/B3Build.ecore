@@ -31,7 +31,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="propertySets" upperBound="-1"
         eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BPropertySet"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceLocation" eType="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//URI"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceLocation" eType="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//URI"
+        defaultValueLiteral="resource:/"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputLocation" eType="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//URI"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IBuilder" abstract="true" interface="true"
@@ -205,6 +206,9 @@
         eType="#//PathVector" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PathVector">
+    <eOperations name="resolve" eType="#//PathVector">
+      <eParameters name="baseUri" eType="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//URI"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="paths" upperBound="-1"
         eType="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//URI"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="basePath" eType="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//URI"/>

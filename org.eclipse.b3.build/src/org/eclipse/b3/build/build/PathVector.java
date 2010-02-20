@@ -56,6 +56,14 @@ public interface PathVector extends EObject {
 	void setBasePath(URI value);
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model baseUriDataType="org.eclipse.b3.backend.evaluator.b3backend.URI"
+	 * @generated
+	 */
+	PathVector resolve(URI baseUri);
+
+	/**
 	 * Returns the value of the '<em><b>Paths</b></em>' attribute list.
 	 * The list contents are of type {@link java.net.URI}.
 	 * <!-- begin-user-doc -->

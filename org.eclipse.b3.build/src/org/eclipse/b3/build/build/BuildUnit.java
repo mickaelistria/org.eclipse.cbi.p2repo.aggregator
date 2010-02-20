@@ -256,6 +256,7 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 
 	/**
 	 * Returns the value of the '<em><b>Source Location</b></em>' attribute.
+	 * The default value is <code>"resource:/"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Source Location</em>' attribute isn't clear,
@@ -265,7 +266,7 @@ public interface BuildUnit extends VersionedCapability, BFunctionContainer, IReq
 	 * @return the value of the '<em>Source Location</em>' attribute.
 	 * @see #setSourceLocation(URI)
 	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuildUnit_SourceLocation()
-	 * @model dataType="org.eclipse.b3.backend.evaluator.b3backend.URI"
+	 * @model default="resource:/" dataType="org.eclipse.b3.backend.evaluator.b3backend.URI"
 	 * @generated
 	 */
 	URI getSourceLocation();

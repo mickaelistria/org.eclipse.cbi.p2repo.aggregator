@@ -44,9 +44,10 @@ public class BeeLangJavaValidator extends AbstractBeeLangJavaValidator {
 	public void checkBuilderMustReturnSomething(Builder builder) {
 		if (builder.getOutput() == null 
 				&& builder.getInput() == null
-				&& (builder.getFuncExpr() == null )
+				&& builder.getSource() == null
+				&& builder.getFuncExpr() == null 
 				) {
-			error("a builder must have at least one of: input, output or expression",
+			error("A builder must have one of: input, source, output or expression returning BuildResult.",
 					builder,
 					B3BuildPackage.BUILDER__NAME);
 		}
