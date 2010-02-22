@@ -10,6 +10,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.Capability;
 
+import org.eclipse.b3.build.build.RequiredCapability;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -196,6 +197,17 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 		else if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.CAPABILITY__COND_EXPR, newCondExpr,
 					newCondExpr));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean satisfies(RequiredCapability requirement) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**

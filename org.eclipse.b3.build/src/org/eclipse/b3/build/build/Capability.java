@@ -106,4 +106,12 @@ public interface Capability extends EObject {
 	 */
 	void setCondExpr(BExpression value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean satisfies(RequiredCapability requirement);
+
 } // Capability

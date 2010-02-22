@@ -191,6 +191,9 @@
         eType="#//AliasedRequiredCapability"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Capability">
+    <eOperations name="satisfies" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="requirement" eType="#//RequiredCapability"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nameSpace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="condExpr" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"
@@ -511,11 +514,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="OutputPredicate" eSuperTypes="#//PathGroupPredicate"/>
   <eClassifiers xsi:type="ecore:EClass" name="SourcePredicate" eSuperTypes="#//PathGroupPredicate"/>
   <eClassifiers xsi:type="ecore:EClass" name="BuildUnitRepository" abstract="true">
-    <eOperations name="resolve" eType="#//BuildUnit">
+    <eOperations name="resolve" eType="#//BuildUnit" eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
       <eParameters name="ctx" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExecutionContext"/>
       <eParameters name="requiredCapability" eType="#//RequiredCapability"/>
     </eOperations>
-    <eOperations name="resolve" eType="#//BuildUnit">
+    <eOperations name="resolve" eType="#//BuildUnit" eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Resolves an EffectiveRequireent (i.e. a combination of requirement and context) and returns a BuilUnit that matches the requirement, or null if no such unit can be found.&#xA;This method is the same as calling resolve(effective.getContext(), effective.getRequirement().&#xA;"/>
       </eAnnotations>

@@ -10,9 +10,12 @@
  */
 package org.eclipse.b3.build.build.impl;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.build.build.B3BuildPackage;
+import org.eclipse.b3.build.build.BuildUnit;
+import org.eclipse.b3.build.build.BuildUnitRepository;
 import org.eclipse.b3.build.build.CompundBestFoundRepository;
-
+import org.eclipse.b3.build.build.RequiredCapability;
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -21,7 +24,7 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class CompundBestFoundRepositoryImpl extends CompoundBuildUnitRepositoryImpl implements
@@ -29,6 +32,7 @@ public class CompundBestFoundRepositoryImpl extends CompoundBuildUnitRepositoryI
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected CompundBestFoundRepositoryImpl() {
@@ -38,6 +42,7 @@ public class CompundBestFoundRepositoryImpl extends CompoundBuildUnitRepositoryI
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -45,4 +50,18 @@ public class CompundBestFoundRepositoryImpl extends CompoundBuildUnitRepositoryI
 		return B3BuildPackage.Literals.COMPUND_BEST_FOUND_REPOSITORY;
 	}
 
-} //CompundBestFoundRepositoryImpl
+	/**
+	 * TODO: THIS IS A FAKE IMPLEMENTATION OF BEST FOUND - IT IS IDENTICAL TO FIRST FOUND
+	 * The implementation should obtain all possible resolutions and then use the unit that best
+	 * resembles the preference for source, binary, etc.
+	 */
+	@Override
+	public BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability) throws Throwable {
+		BuildUnit result = null;
+		for(BuildUnitRepository repo : getRepositories())
+			if((result = repo.resolve(ctx, requiredCapability)) != null)
+				return result;
+		return null;
+	}
+
+} // CompundBestFoundRepositoryImpl

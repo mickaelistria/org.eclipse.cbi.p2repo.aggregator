@@ -10,9 +10,17 @@
  */
 package org.eclipse.b3.build.build.impl;
 
-import org.eclipse.b3.build.build.B3BuildPackage;
-import org.eclipse.b3.build.build.ExecutionStackRepository;
+import java.util.Iterator;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
+import org.eclipse.b3.build.build.B3BuildPackage;
+import org.eclipse.b3.build.build.BuildContext;
+import org.eclipse.b3.build.build.BuildUnit;
+import org.eclipse.b3.build.build.Capability;
+import org.eclipse.b3.build.build.EffectiveCapabilityFacade;
+import org.eclipse.b3.build.build.ExecutionStackRepository;
+import org.eclipse.b3.build.build.RequiredCapability;
+import org.eclipse.b3.build.core.EffectiveUnitIterator;
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -21,13 +29,14 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class ExecutionStackRepositoryImpl extends BuildUnitRepositoryImpl implements ExecutionStackRepository {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ExecutionStackRepositoryImpl() {
@@ -37,6 +46,7 @@ public class ExecutionStackRepositoryImpl extends BuildUnitRepositoryImpl implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -44,4 +54,25 @@ public class ExecutionStackRepositoryImpl extends BuildUnitRepositoryImpl implem
 		return B3BuildPackage.Literals.EXECUTION_STACK_REPOSITORY;
 	}
 
-} //ExecutionStackRepositoryImpl
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.b3.build.build.impl.BuildUnitRepositoryImpl#resolve(org.eclipse.b3.backend.evaluator.b3backend.
+	 * BExecutionContext, org.eclipse.b3.build.build.RequiredCapability)
+	 */
+	@Override
+	public BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability) throws Throwable {
+		BuildContext bctx = ctx.getContext(BuildContext.class);
+		EffectiveUnitIterator uItor = new EffectiveUnitIterator(bctx);
+		while(uItor.hasNext()) {
+			BuildUnit u = uItor.next();
+			Iterator<EffectiveCapabilityFacade> pcItor = u.getEffectiveFacade(bctx).getProvidedCapabilities().iterator();
+			while(pcItor.hasNext()) {
+				Capability pc = pcItor.next().getProvidedCapability();
+				if(pc.satisfies(requiredCapability))
+					return u;
+			}
+		}
+		return null;
+	}
+} // ExecutionStackRepositoryImpl

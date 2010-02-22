@@ -994,6 +994,10 @@
         <styles xmi:type="notation:FilteringStyle" xmi:id="_OAsJNPbjEd6fhZ-cYf2Uvg"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_OAsJNfbjEd6fhZ-cYf2Uvg" type="5002">
+        <children xmi:type="notation:Node" xmi:id="_f52swB-sEd-1AeaT9jSBFw" type="2002">
+          <element xmi:type="ecore:EOperation" href="B3Build.ecore#//Capability/satisfies"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_f52swR-sEd-1AeaT9jSBFw"/>
+        </children>
         <styles xmi:type="notation:DrawerStyle" xmi:id="_OAsJNvbjEd6fhZ-cYf2Uvg"/>
         <styles xmi:type="notation:SortingStyle" xmi:id="_OAsJN_bjEd6fhZ-cYf2Uvg"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_OAsJOPbjEd6fhZ-cYf2Uvg"/>
@@ -1764,7 +1768,7 @@
       </children>
       <styles xmi:type="notation:ShapeStyle" xmi:id="_STIxIR84Ed-Sze_ETjMK_Q" fontColor="4210752" fontName="Lucida Grande" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
       <element xmi:type="ecore:EClass" href="B3Build.ecore#//BuildUnitRepository"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_STIxIh84Ed-Sze_ETjMK_Q" x="-252" y="117"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_STIxIh84Ed-Sze_ETjMK_Q" x="-333" y="117"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_l1j9AB86Ed-1AeaT9jSBFw" type="1001">
       <children xmi:type="notation:Node" xmi:id="_l1lyMB86Ed-1AeaT9jSBFw" type="4001"/>

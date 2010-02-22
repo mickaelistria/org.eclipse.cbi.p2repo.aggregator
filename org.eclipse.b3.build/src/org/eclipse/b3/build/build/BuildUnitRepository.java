@@ -28,10 +28,10 @@ public interface BuildUnitRepository extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
 	 * @generated
 	 */
-	BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability);
+	BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability) throws Throwable;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -41,9 +41,9 @@ public interface BuildUnitRepository extends EObject {
 	 * This method is the same as calling resolve(effective.getContext(), effective.getRequirement().
 	 * 
 	 * <!-- end-model-doc -->
-	 * @model
+	 * @model exceptions="org.eclipse.b3.backend.evaluator.b3backend.Throwable"
 	 * @generated
 	 */
-	BuildUnit resolve(EffectiveRequirementFacade effectiveRequirement);
+	BuildUnit resolve(EffectiveRequirementFacade effectiveRequirement) throws Throwable;
 
 } // BuildUnitRepository
