@@ -30,8 +30,6 @@ import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
-import org.osgi.framework.Bundle;
-import org.osgi.service.packageadmin.PackageAdmin;
 
 /**
  * @author filip.hrbek@cloudsmith.com
@@ -201,18 +199,5 @@ public class Headless implements IApplication {
 
 	public void stop() {
 		// do nothing
-	}
-
-	private synchronized Bundle getBundle(PackageAdmin packageAdmin, String symbolicName) {
-		Bundle[] bundles = packageAdmin.getBundles(symbolicName, null);
-		if(bundles == null)
-			return null;
-		// Return the first bundle that is not installed or uninstalled
-		for(int i = 0; i < bundles.length; i++) {
-			if((bundles[i].getState() & (Bundle.INSTALLED | Bundle.UNINSTALLED)) == 0) {
-				return bundles[i];
-			}
-		}
-		return null;
 	}
 }
