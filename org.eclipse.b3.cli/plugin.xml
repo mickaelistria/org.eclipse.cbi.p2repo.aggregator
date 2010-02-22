@@ -26,10 +26,19 @@
       </application>
    </extension>
    <extension
+         id="product"
          point="org.eclipse.core.runtime.products">
       <product
             application="org.eclipse.b3.cli.headless"
-            name="b3 headless launcher">
+            name="b3 Headless Launcher">
+      </product>
+   </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="org.eclipse.b3.cli.headless"
+            name="b3">
       </product>
    </extension>
 
