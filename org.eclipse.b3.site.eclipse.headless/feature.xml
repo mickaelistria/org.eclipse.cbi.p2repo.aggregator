@@ -17,4 +17,8 @@
          id="org.eclipse.b3.aggregator.engine.feature"
          version="0.0.0"/>
 
+   <includes
+         id="org.eclipse.b3.product"
+         version="0.0.0"/>
+
 </feature>
