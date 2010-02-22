@@ -567,6 +567,9 @@ public class AggregatorTransformer_080_2_100 extends ResourceTransformer {
 
 		EAttribute enabledEAttr = (EAttribute) iuEObject.eClass().getEStructuralFeature(ENABLED_ATTR);
 		iuEObject.eSet(enabledEAttr, Boolean.TRUE);
+
+		// enable used repository, repositories without IUs are disabled
+		trgtParentTreePath.getLastSegment().eSet(enabledEAttr, Boolean.TRUE);
 	}
 
 	private void transformRepoIUs(TreePath trgtRepositoryTreePath, EObject srcRepositoryEObject,
@@ -591,7 +594,9 @@ public class AggregatorTransformer_080_2_100 extends ResourceTransformer {
 		copyRepositoryNodeAttributes(srcEObject, repositoryEObject);
 
 		EAttribute enabledEAttr = (EAttribute) repositoryEObject.eClass().getEStructuralFeature(ENABLED_ATTR);
-		repositoryEObject.eSet(enabledEAttr, Boolean.TRUE);
+
+		// it's enabled once an IU is added
+		repositoryEObject.eSet(enabledEAttr, Boolean.FALSE);
 	}
 
 }
