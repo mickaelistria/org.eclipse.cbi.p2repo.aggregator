@@ -41,7 +41,7 @@ public class Headless implements IApplication {
 
 	private static final int CONSOLE_WIDTH = 80;
 
-	private static final String APPLICATION_NAME = "org.eclipse.b3.cli.headless";
+	private static final String APPLICATION_NAME = "b3";
 
 	private static final String COMMAND_EXTENSION = "org.eclipse.b3.cli.commands";
 
