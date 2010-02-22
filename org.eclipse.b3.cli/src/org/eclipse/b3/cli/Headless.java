@@ -20,7 +20,6 @@ import java.util.Locale;
 
 import org.eclipse.b3.cli.helpers.CliException;
 import org.eclipse.b3.cli.helpers.EmptyCommand;
-import org.eclipse.b3.util.B3Util;
 import org.eclipse.b3.util.ExceptionUtils;
 import org.eclipse.b3.util.IOUtils;
 import org.eclipse.b3.util.StringUtils;
@@ -32,7 +31,6 @@ import org.eclipse.equinox.app.IApplicationContext;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 import org.osgi.framework.Bundle;
-import org.osgi.framework.BundleException;
 import org.osgi.service.packageadmin.PackageAdmin;
 
 /**
@@ -40,12 +38,6 @@ import org.osgi.service.packageadmin.PackageAdmin;
  * 
  */
 public class Headless implements IApplication {
-
-	private static final String EXEMPLARY_SETUP = "org.eclipse.equinox.p2.exemplarysetup"; //$NON-NLS-1$
-
-	private static final String FRAMEWORKADMIN_EQUINOX = "org.eclipse.equinox.frameworkadmin.equinox"; //$NON-NLS-1$
-
-	private static final String SIMPLE_CONFIGURATOR_MANIPULATOR = "org.eclipse.equinox.simpleconfigurator.manipulator"; //$NON-NLS-1$
 
 	private static final int CONSOLE_WIDTH = 80;
 
@@ -200,7 +192,7 @@ public class Headless implements IApplication {
 	}
 
 	public Object start(IApplicationContext context) throws Exception {
-		startBundles(EXEMPLARY_SETUP, SIMPLE_CONFIGURATOR_MANIPULATOR, FRAMEWORKADMIN_EQUINOX);
+		// startBundles(EXEMPLARY_SETUP, SIMPLE_CONFIGURATOR_MANIPULATOR, FRAMEWORKADMIN_EQUINOX);
 
 		String args[] = (String[]) context.getArguments().get(IApplicationContext.APPLICATION_ARGS);
 
@@ -223,26 +215,4 @@ public class Headless implements IApplication {
 		}
 		return null;
 	}
-
-	private void startBundles(String... bundleNames) throws Exception {
-		B3Util b3util = B3Util.getPlugin();
-		PackageAdmin packageAdmin = b3util.getService(PackageAdmin.class);
-		try {
-			for(String bundleName : bundleNames)
-				if(!startEarly(packageAdmin, bundleName))
-					throw new Exception("Missing bundle: " + bundleName);
-		}
-		finally {
-			b3util.ungetService(b3util);
-		}
-	}
-
-	private boolean startEarly(PackageAdmin packageAdmin, String bundleName) throws BundleException {
-		Bundle bundle = getBundle(packageAdmin, bundleName);
-		if(bundle == null)
-			return false;
-		bundle.start(Bundle.START_TRANSIENT);
-		return true;
-	}
-
 }
