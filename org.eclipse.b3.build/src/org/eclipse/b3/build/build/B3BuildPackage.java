@@ -1261,13 +1261,31 @@ public interface B3BuildPackage extends EPackage {
 	int SYNCHRONIZATION_FEATURE_COUNT = 1;
 
 	/**
+	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_CONFIGURATION__COND_EXPR = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Repository Configuration</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY_CONFIGURATION_FEATURE_COUNT = 0;
+	int REPOSITORY_CONFIGURATION_FEATURE_COUNT = B3backendPackage.BEXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_DECLARATION__COND_EXPR = REPOSITORY_CONFIGURATION__COND_EXPR;
 
 	/**
 	 * The feature id for the '<em><b>Documentation</b></em>' attribute.
@@ -1315,6 +1333,15 @@ public interface B3BuildPackage extends EPackage {
 	int REPOSITORY_DECLARATION_FEATURE_COUNT = REPOSITORY_CONFIGURATION_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOLUTION_STRATEGY__COND_EXPR = REPOSITORY_CONFIGURATION__COND_EXPR;
+
+	/**
 	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1333,6 +1360,15 @@ public interface B3BuildPackage extends EPackage {
 	int RESOLUTION_STRATEGY_FEATURE_COUNT = REPOSITORY_CONFIGURATION_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOLUTION_STRATEGY_FIRST__COND_EXPR = RESOLUTION_STRATEGY__COND_EXPR;
+
+	/**
 	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1349,6 +1385,15 @@ public interface B3BuildPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOLUTION_STRATEGY_FIRST_FEATURE_COUNT = RESOLUTION_STRATEGY_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Cond Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOLUTION_STRATEGY_BEST__COND_EXPR = RESOLUTION_STRATEGY__COND_EXPR;
 
 	/**
 	 * The feature id for the '<em><b>Repositories</b></em>' containment reference list.
@@ -2657,7 +2702,6 @@ public interface B3BuildPackage extends EPackage {
 	 */
 	int BUILDER_JAVA__METHOD = B3backendPackage.BJAVA_FUNCTION__METHOD;
 
-
 	/**
 	 * The feature id for the '<em><b>Call Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -3653,6 +3697,156 @@ public interface B3BuildPackage extends EPackage {
 	int SOURCE_PREDICATE_FEATURE_COUNT = PATH_GROUP_PREDICATE_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuildUnitRepositoryImpl <em>Build Unit Repository</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.BuildUnitRepositoryImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuildUnitRepository()
+	 * @generated
+	 */
+	int BUILD_UNIT_REPOSITORY = 52;
+
+	/**
+	 * The number of structural features of the '<em>Build Unit Repository</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_UNIT_REPOSITORY_FEATURE_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.CompoundBuildUnitRepositoryImpl <em>Compound Build Unit Repository</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.CompoundBuildUnitRepositoryImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getCompoundBuildUnitRepository()
+	 * @generated
+	 */
+	int COMPOUND_BUILD_UNIT_REPOSITORY = 53;
+
+	/**
+	 * The feature id for the '<em><b>Repositories</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOUND_BUILD_UNIT_REPOSITORY__REPOSITORIES = BUILD_UNIT_REPOSITORY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Compound Build Unit Repository</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOUND_BUILD_UNIT_REPOSITORY_FEATURE_COUNT = BUILD_UNIT_REPOSITORY_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.CompoundFirstFoundRepositoryImpl <em>Compound First Found Repository</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.CompoundFirstFoundRepositoryImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getCompoundFirstFoundRepository()
+	 * @generated
+	 */
+	int COMPOUND_FIRST_FOUND_REPOSITORY = 54;
+
+	/**
+	 * The feature id for the '<em><b>Repositories</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOUND_FIRST_FOUND_REPOSITORY__REPOSITORIES = COMPOUND_BUILD_UNIT_REPOSITORY__REPOSITORIES;
+
+	/**
+	 * The number of structural features of the '<em>Compound First Found Repository</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOUND_FIRST_FOUND_REPOSITORY_FEATURE_COUNT = COMPOUND_BUILD_UNIT_REPOSITORY_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.CompundBestFoundRepositoryImpl <em>Compund Best Found Repository</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.CompundBestFoundRepositoryImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getCompundBestFoundRepository()
+	 * @generated
+	 */
+	int COMPUND_BEST_FOUND_REPOSITORY = 55;
+
+	/**
+	 * The feature id for the '<em><b>Repositories</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPUND_BEST_FOUND_REPOSITORY__REPOSITORIES = COMPOUND_BUILD_UNIT_REPOSITORY__REPOSITORIES;
+
+	/**
+	 * The number of structural features of the '<em>Compund Best Found Repository</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPUND_BEST_FOUND_REPOSITORY_FEATURE_COUNT = COMPOUND_BUILD_UNIT_REPOSITORY_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ExecutionStackRepositoryImpl <em>Execution Stack Repository</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.ExecutionStackRepositoryImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getExecutionStackRepository()
+	 * @generated
+	 */
+	int EXECUTION_STACK_REPOSITORY = 56;
+
+	/**
+	 * The number of structural features of the '<em>Execution Stack Repository</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_STACK_REPOSITORY_FEATURE_COUNT = BUILD_UNIT_REPOSITORY_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.SimpleRepositoryImpl <em>Simple Repository</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.SimpleRepositoryImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getSimpleRepository()
+	 * @generated
+	 */
+	int SIMPLE_REPOSITORY = 57;
+
+	/**
+	 * The feature id for the '<em><b>Bee Models</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_REPOSITORY__BEE_MODELS = BUILD_UNIT_REPOSITORY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Simple Repository</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_REPOSITORY_FEATURE_COUNT = BUILD_UNIT_REPOSITORY_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '<em>Version Range</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3660,7 +3854,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getVersionRange()
 	 * @generated
 	 */
-	int VERSION_RANGE = 52;
+	int VERSION_RANGE = 58;
 
 	/**
 	 * The meta object id for the '<em>Version</em>' data type.
@@ -3670,7 +3864,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getVersion()
 	 * @generated
 	 */
-	int VERSION = 53;
+	int VERSION = 59;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuildUnit <em>Build Unit</em>}'.
@@ -4360,6 +4554,88 @@ public interface B3BuildPackage extends EPackage {
 	EClass getSourcePredicate();
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuildUnitRepository <em>Build Unit Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Build Unit Repository</em>'.
+	 * @see org.eclipse.b3.build.build.BuildUnitRepository
+	 * @generated
+	 */
+	EClass getBuildUnitRepository();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.CompoundBuildUnitRepository <em>Compound Build Unit Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Compound Build Unit Repository</em>'.
+	 * @see org.eclipse.b3.build.build.CompoundBuildUnitRepository
+	 * @generated
+	 */
+	EClass getCompoundBuildUnitRepository();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.eclipse.b3.build.build.CompoundBuildUnitRepository#getRepositories <em>Repositories</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Repositories</em>'.
+	 * @see org.eclipse.b3.build.build.CompoundBuildUnitRepository#getRepositories()
+	 * @see #getCompoundBuildUnitRepository()
+	 * @generated
+	 */
+	EReference getCompoundBuildUnitRepository_Repositories();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.CompoundFirstFoundRepository <em>Compound First Found Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Compound First Found Repository</em>'.
+	 * @see org.eclipse.b3.build.build.CompoundFirstFoundRepository
+	 * @generated
+	 */
+	EClass getCompoundFirstFoundRepository();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.CompundBestFoundRepository <em>Compund Best Found Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Compund Best Found Repository</em>'.
+	 * @see org.eclipse.b3.build.build.CompundBestFoundRepository
+	 * @generated
+	 */
+	EClass getCompundBestFoundRepository();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.ExecutionStackRepository <em>Execution Stack Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Execution Stack Repository</em>'.
+	 * @see org.eclipse.b3.build.build.ExecutionStackRepository
+	 * @generated
+	 */
+	EClass getExecutionStackRepository();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.SimpleRepository <em>Simple Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Simple Repository</em>'.
+	 * @see org.eclipse.b3.build.build.SimpleRepository
+	 * @generated
+	 */
+	EClass getSimpleRepository();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.eclipse.b3.build.build.SimpleRepository#getBeeModels <em>Bee Models</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Bee Models</em>'.
+	 * @see org.eclipse.b3.build.build.SimpleRepository#getBeeModels()
+	 * @see #getSimpleRepository()
+	 * @generated
+	 */
+	EReference getSimpleRepository_BeeModels();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.VersionedCapability <em>Versioned Capability</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4538,6 +4814,17 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getRepositoryConfiguration();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.b3.build.build.RepositoryConfiguration#getCondExpr <em>Cond Expr</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Cond Expr</em>'.
+	 * @see org.eclipse.b3.build.build.RepositoryConfiguration#getCondExpr()
+	 * @see #getRepositoryConfiguration()
+	 * @generated
+	 */
+	EReference getRepositoryConfiguration_CondExpr();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.RepositoryDeclaration <em>Repository Declaration</em>}'.
@@ -6147,6 +6434,82 @@ public interface B3BuildPackage extends EPackage {
 		EClass SOURCE_PREDICATE = eINSTANCE.getSourcePredicate();
 
 		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuildUnitRepositoryImpl <em>Build Unit Repository</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.impl.BuildUnitRepositoryImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuildUnitRepository()
+		 * @generated
+		 */
+		EClass BUILD_UNIT_REPOSITORY = eINSTANCE.getBuildUnitRepository();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.CompoundBuildUnitRepositoryImpl <em>Compound Build Unit Repository</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.impl.CompoundBuildUnitRepositoryImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getCompoundBuildUnitRepository()
+		 * @generated
+		 */
+		EClass COMPOUND_BUILD_UNIT_REPOSITORY = eINSTANCE.getCompoundBuildUnitRepository();
+
+		/**
+		 * The meta object literal for the '<em><b>Repositories</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPOUND_BUILD_UNIT_REPOSITORY__REPOSITORIES = eINSTANCE.getCompoundBuildUnitRepository_Repositories();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.CompoundFirstFoundRepositoryImpl <em>Compound First Found Repository</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.impl.CompoundFirstFoundRepositoryImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getCompoundFirstFoundRepository()
+		 * @generated
+		 */
+		EClass COMPOUND_FIRST_FOUND_REPOSITORY = eINSTANCE.getCompoundFirstFoundRepository();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.CompundBestFoundRepositoryImpl <em>Compund Best Found Repository</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.impl.CompundBestFoundRepositoryImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getCompundBestFoundRepository()
+		 * @generated
+		 */
+		EClass COMPUND_BEST_FOUND_REPOSITORY = eINSTANCE.getCompundBestFoundRepository();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.ExecutionStackRepositoryImpl <em>Execution Stack Repository</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.impl.ExecutionStackRepositoryImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getExecutionStackRepository()
+		 * @generated
+		 */
+		EClass EXECUTION_STACK_REPOSITORY = eINSTANCE.getExecutionStackRepository();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.SimpleRepositoryImpl <em>Simple Repository</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.impl.SimpleRepositoryImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getSimpleRepository()
+		 * @generated
+		 */
+		EClass SIMPLE_REPOSITORY = eINSTANCE.getSimpleRepository();
+
+		/**
+		 * The meta object literal for the '<em><b>Bee Models</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SIMPLE_REPOSITORY__BEE_MODELS = eINSTANCE.getSimpleRepository_BeeModels();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.VersionedCapabilityImpl <em>Versioned Capability</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6295,6 +6658,14 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EClass REPOSITORY_CONFIGURATION = eINSTANCE.getRepositoryConfiguration();
+
+		/**
+		 * The meta object literal for the '<em><b>Cond Expr</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference REPOSITORY_CONFIGURATION__COND_EXPR = eINSTANCE.getRepositoryConfiguration_CondExpr();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.RepositoryDeclarationImpl <em>Repository Declaration</em>}' class.

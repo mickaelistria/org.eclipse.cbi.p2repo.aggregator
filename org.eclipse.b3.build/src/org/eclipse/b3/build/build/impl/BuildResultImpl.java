@@ -31,11 +31,11 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.build.impl.BuildResultImpl#getPathVectors <em>Path Vectors</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.BuildResultImpl#getValueMap <em>Value Map</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuildResultImpl#getPathVectors <em>Path Vectors</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.impl.BuildResultImpl#getValueMap <em>Value Map</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class BuildResultImpl extends EObjectImpl implements BuildResult {
@@ -43,7 +43,6 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 	 * The cached value of the '{@link #getPathVectors() <em>Path Vectors</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getPathVectors()
 	 * @generated
 	 * @ordered
@@ -54,7 +53,6 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 	 * The default value of the '{@link #getValueMap() <em>Value Map</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getValueMap()
 	 * @generated
 	 * @ordered
@@ -65,7 +63,6 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 	 * The cached value of the '{@link #getValueMap() <em>Value Map</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getValueMap()
 	 * @generated
 	 * @ordered
@@ -75,7 +72,6 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BuildResultImpl() {
@@ -85,7 +81,6 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -102,7 +97,6 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -121,7 +115,6 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -142,7 +135,6 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -153,7 +145,6 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -172,7 +163,6 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<PathVector> getPathVectors() {
@@ -217,7 +207,6 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setValueMap(ValueMap newValueMap) {

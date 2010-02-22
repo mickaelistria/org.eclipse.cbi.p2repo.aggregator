@@ -54,7 +54,7 @@ public class B3BuildSwitch<T> {
 	 * @generated
 	 */
 	public B3BuildSwitch() {
-		if (modelPackage == null) {
+		if(modelPackage == null) {
 			modelPackage = B3BuildPackage.eINSTANCE;
 		}
 	}
@@ -78,15 +78,14 @@ public class B3BuildSwitch<T> {
 	 * @generated
 	 */
 	protected T doSwitch(EClass theEClass, EObject theEObject) {
-		if (theEClass.eContainer() == modelPackage) {
+		if(theEClass.eContainer() == modelPackage) {
 			return doSwitch(theEClass.getClassifierID(), theEObject);
 		}
 		else {
 			List<EClass> eSuperTypes = theEClass.getESuperTypes();
-			return
-				eSuperTypes.isEmpty() ?
-					defaultCase(theEObject) :
-					doSwitch(eSuperTypes.get(0), theEObject);
+			return eSuperTypes.isEmpty()
+					? defaultCase(theEObject)
+					: doSwitch(eSuperTypes.get(0), theEObject);
 		}
 	}
 
@@ -98,396 +97,591 @@ public class B3BuildSwitch<T> {
 	 * @generated
 	 */
 	protected T doSwitch(int classifierID, EObject theEObject) {
-		switch (classifierID) {
-			case B3BuildPackage.BUILD_UNIT: {
-				BuildUnit buildUnit = (BuildUnit)theEObject;
-				T result = caseBuildUnit(buildUnit);
-				if (result == null) result = caseVersionedCapability(buildUnit);
-				if (result == null) result = caseBFunctionContainer(buildUnit);
-				if (result == null) result = caseIRequiredCapabilityContainer(buildUnit);
-				if (result == null) result = caseIProvidedCapabilityContainer(buildUnit);
-				if (result == null) result = caseCapability(buildUnit);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.IBUILDER: {
-				IBuilder iBuilder = (IBuilder)theEObject;
-				T result = caseIBuilder(iBuilder);
-				if (result == null) result = caseIProvidedCapabilityContainer(iBuilder);
-				if (result == null) result = caseIFunction(iBuilder);
-				if (result == null) result = caseIGenericDeclaration(iBuilder);
-				if (result == null) result = caseBExpression(iBuilder);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.VERSIONED_CAPABILITY: {
-				VersionedCapability versionedCapability = (VersionedCapability)theEObject;
-				T result = caseVersionedCapability(versionedCapability);
-				if (result == null) result = caseCapability(versionedCapability);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.BUILDER_INPUT: {
-				BuilderInput builderInput = (BuilderInput)theEObject;
-				T result = caseBuilderInput(builderInput);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.PATH_GROUP: {
-				PathGroup pathGroup = (PathGroup)theEObject;
-				T result = casePathGroup(pathGroup);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.PREREQUISITE: {
-				Prerequisite prerequisite = (Prerequisite)theEObject;
-				T result = casePrerequisite(prerequisite);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.BUILD_RESULT_REFERENCE: {
-				BuildResultReference buildResultReference = (BuildResultReference)theEObject;
-				T result = caseBuildResultReference(buildResultReference);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.COMPOUND_BUILD_RESULT_REFERENCE: {
-				CompoundBuildResultReference compoundBuildResultReference = (CompoundBuildResultReference)theEObject;
-				T result = caseCompoundBuildResultReference(compoundBuildResultReference);
-				if (result == null) result = caseBuildResultReference(compoundBuildResultReference);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.BUILDER_REFERENCE: {
-				BuilderReference builderReference = (BuilderReference)theEObject;
-				T result = caseBuilderReference(builderReference);
-				if (result == null) result = caseBuildResultReference(builderReference);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.CAPABILITY: {
-				Capability capability = (Capability)theEObject;
-				T result = caseCapability(capability);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.REQUIRED_CAPABILITY: {
-				RequiredCapability requiredCapability = (RequiredCapability)theEObject;
-				T result = caseRequiredCapability(requiredCapability);
-				if (result == null) result = caseCapability(requiredCapability);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.CONDITIONAL_PATH_VECTOR: {
-				ConditionalPathVector conditionalPathVector = (ConditionalPathVector)theEObject;
-				T result = caseConditionalPathVector(conditionalPathVector);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.PATH_VECTOR: {
-				PathVector pathVector = (PathVector)theEObject;
-				T result = casePathVector(pathVector);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.SYNCHRONIZATION: {
-				Synchronization synchronization = (Synchronization)theEObject;
-				T result = caseSynchronization(synchronization);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.REPOSITORY_CONFIGURATION: {
-				RepositoryConfiguration repositoryConfiguration = (RepositoryConfiguration)theEObject;
-				T result = caseRepositoryConfiguration(repositoryConfiguration);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.REPOSITORY_DECLARATION: {
-				RepositoryDeclaration repositoryDeclaration = (RepositoryDeclaration)theEObject;
-				T result = caseRepositoryDeclaration(repositoryDeclaration);
-				if (result == null) result = caseRepositoryConfiguration(repositoryDeclaration);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.RESOLUTION_STRATEGY: {
-				ResolutionStrategy resolutionStrategy = (ResolutionStrategy)theEObject;
-				T result = caseResolutionStrategy(resolutionStrategy);
-				if (result == null) result = caseRepositoryConfiguration(resolutionStrategy);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.RESOLUTION_STRATEGY_FIRST: {
-				ResolutionStrategyFirst resolutionStrategyFirst = (ResolutionStrategyFirst)theEObject;
-				T result = caseResolutionStrategyFirst(resolutionStrategyFirst);
-				if (result == null) result = caseResolutionStrategy(resolutionStrategyFirst);
-				if (result == null) result = caseRepositoryConfiguration(resolutionStrategyFirst);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.RESOLUTION_STRATEGY_BEST: {
-				ResolutionStrategyBest resolutionStrategyBest = (ResolutionStrategyBest)theEObject;
-				T result = caseResolutionStrategyBest(resolutionStrategyBest);
-				if (result == null) result = caseResolutionStrategy(resolutionStrategyBest);
-				if (result == null) result = caseRepositoryConfiguration(resolutionStrategyBest);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.CONTAINER_CONFIGURATION: {
-				ContainerConfiguration containerConfiguration = (ContainerConfiguration)theEObject;
-				T result = caseContainerConfiguration(containerConfiguration);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.BUILD_CONTEXT: {
-				BuildContext buildContext = (BuildContext)theEObject;
-				T result = caseBuildContext(buildContext);
-				if (result == null) result = caseBExecutionContext(buildContext);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.BUILD_CONCERN_CONTEXT: {
-				BuildConcernContext buildConcernContext = (BuildConcernContext)theEObject;
-				T result = caseBuildConcernContext(buildConcernContext);
-				if (result == null) result = caseBConcernContext(buildConcernContext);
-				if (result == null) result = caseIProvidedCapabilityContainer(buildConcernContext);
-				if (result == null) result = caseBExpression(buildConcernContext);
-				if (result == null) result = caseBFunctionContainer(buildConcernContext);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.REQUIRES_PREDICATE: {
-				RequiresPredicate requiresPredicate = (RequiresPredicate)theEObject;
-				T result = caseRequiresPredicate(requiresPredicate);
-				if (result == null) result = caseBExpression(requiresPredicate);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.CAPABILITY_PREDICATE: {
-				CapabilityPredicate capabilityPredicate = (CapabilityPredicate)theEObject;
-				T result = caseCapabilityPredicate(capabilityPredicate);
-				if (result == null) result = caseBExpression(capabilityPredicate);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.IMPLEMENTS_PREDICATE: {
-				ImplementsPredicate implementsPredicate = (ImplementsPredicate)theEObject;
-				T result = caseImplementsPredicate(implementsPredicate);
-				if (result == null) result = caseBExpression(implementsPredicate);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.PROVIDES_PREDICATE: {
-				ProvidesPredicate providesPredicate = (ProvidesPredicate)theEObject;
-				T result = caseProvidesPredicate(providesPredicate);
-				if (result == null) result = caseBExpression(providesPredicate);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.NAME_SPACE_PREDICATE: {
-				NameSpacePredicate nameSpacePredicate = (NameSpacePredicate)theEObject;
-				T result = caseNameSpacePredicate(nameSpacePredicate);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.UNIT_NAME_PREDICATE: {
-				UnitNamePredicate unitNamePredicate = (UnitNamePredicate)theEObject;
-				T result = caseUnitNamePredicate(unitNamePredicate);
-				if (result == null) result = caseCapabilityPredicate(unitNamePredicate);
-				if (result == null) result = caseBExpression(unitNamePredicate);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.BUILDER_NAME_PREDICATE: {
-				BuilderNamePredicate builderNamePredicate = (BuilderNamePredicate)theEObject;
-				T result = caseBuilderNamePredicate(builderNamePredicate);
-				if (result == null) result = caseBExpression(builderNamePredicate);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.INPUT_PREDICATE: {
-				InputPredicate inputPredicate = (InputPredicate)theEObject;
-				T result = caseInputPredicate(inputPredicate);
-				if (result == null) result = caseBExpression(inputPredicate);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.UNIT_CONCERN_CONTEXT: {
-				UnitConcernContext unitConcernContext = (UnitConcernContext)theEObject;
-				T result = caseUnitConcernContext(unitConcernContext);
-				if (result == null) result = caseBuildConcernContext(unitConcernContext);
-				if (result == null) result = caseIRequiredCapabilityContainer(unitConcernContext);
-				if (result == null) result = caseBConcernContext(unitConcernContext);
-				if (result == null) result = caseIProvidedCapabilityContainer(unitConcernContext);
-				if (result == null) result = caseBExpression(unitConcernContext);
-				if (result == null) result = caseBFunctionContainer(unitConcernContext);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT: {
-				BuilderConcernContext builderConcernContext = (BuilderConcernContext)theEObject;
-				T result = caseBuilderConcernContext(builderConcernContext);
-				if (result == null) result = caseBuildConcernContext(builderConcernContext);
-				if (result == null) result = caseBConcernContext(builderConcernContext);
-				if (result == null) result = caseIProvidedCapabilityContainer(builderConcernContext);
-				if (result == null) result = caseBExpression(builderConcernContext);
-				if (result == null) result = caseBFunctionContainer(builderConcernContext);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.PATH_GROUP_PREDICATE: {
-				PathGroupPredicate pathGroupPredicate = (PathGroupPredicate)theEObject;
-				T result = casePathGroupPredicate(pathGroupPredicate);
-				if (result == null) result = caseBExpression(pathGroupPredicate);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.ALIASED_REQUIRED_CAPABILITY: {
-				AliasedRequiredCapability aliasedRequiredCapability = (AliasedRequiredCapability)theEObject;
-				T result = caseAliasedRequiredCapability(aliasedRequiredCapability);
-				if (result == null) result = caseRequiredCapability(aliasedRequiredCapability);
-				if (result == null) result = caseCapability(aliasedRequiredCapability);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.IREQUIRED_CAPABILITY_CONTAINER: {
-				IRequiredCapabilityContainer iRequiredCapabilityContainer = (IRequiredCapabilityContainer)theEObject;
-				T result = caseIRequiredCapabilityContainer(iRequiredCapabilityContainer);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.IPROVIDED_CAPABILITY_CONTAINER: {
-				IProvidedCapabilityContainer iProvidedCapabilityContainer = (IProvidedCapabilityContainer)theEObject;
-				T result = caseIProvidedCapabilityContainer(iProvidedCapabilityContainer);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.BUILDER_QUERY: {
-				BuilderQuery builderQuery = (BuilderQuery)theEObject;
-				T result = caseBuilderQuery(builderQuery);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.BUILDER: {
-				Builder builder = (Builder)theEObject;
-				T result = caseBuilder(builder);
-				if (result == null) result = caseB3Function(builder);
-				if (result == null) result = caseIBuilder(builder);
-				if (result == null) result = caseBFunction(builder);
-				if (result == null) result = caseIProvidedCapabilityContainer(builder);
-				if (result == null) result = caseIFunction(builder);
-				if (result == null) result = caseBExpression(builder);
-				if (result == null) result = caseIGenericDeclaration(builder);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.BUILDER_JAVA: {
-				BuilderJava builderJava = (BuilderJava)theEObject;
-				T result = caseBuilderJava(builderJava);
-				if (result == null) result = caseBJavaFunction(builderJava);
-				if (result == null) result = caseIBuilder(builderJava);
-				if (result == null) result = caseBFunction(builderJava);
-				if (result == null) result = caseIProvidedCapabilityContainer(builderJava);
-				if (result == null) result = caseIFunction(builderJava);
-				if (result == null) result = caseBExpression(builderJava);
-				if (result == null) result = caseIGenericDeclaration(builderJava);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.BUILDER_WRAPPER: {
-				BuilderWrapper builderWrapper = (BuilderWrapper)theEObject;
-				T result = caseBuilderWrapper(builderWrapper);
-				if (result == null) result = caseBFunctionWrapper(builderWrapper);
-				if (result == null) result = caseIBuilder(builderWrapper);
-				if (result == null) result = caseIFunction(builderWrapper);
-				if (result == null) result = caseIProvidedCapabilityContainer(builderWrapper);
-				if (result == null) result = caseBExpression(builderWrapper);
-				if (result == null) result = caseIGenericDeclaration(builderWrapper);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.BEE_MODEL: {
-				BeeModel beeModel = (BeeModel)theEObject;
-				T result = caseBeeModel(beeModel);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.BEE_HIVE: {
-				BeeHive beeHive = (BeeHive)theEObject;
-				T result = caseBeeHive(beeHive);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.RESOLUTION_INFO: {
-				ResolutionInfo resolutionInfo = (ResolutionInfo)theEObject;
-				T result = caseResolutionInfo(resolutionInfo);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.EFFECTIVE_FACADE: {
-				EffectiveFacade effectiveFacade = (EffectiveFacade)theEObject;
-				T result = caseEffectiveFacade(effectiveFacade);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.EFFECTIVE_UNIT_FACADE: {
-				EffectiveUnitFacade effectiveUnitFacade = (EffectiveUnitFacade)theEObject;
-				T result = caseEffectiveUnitFacade(effectiveUnitFacade);
-				if (result == null) result = caseEffectiveFacade(effectiveUnitFacade);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.EFFECTIVE_REQUIREMENT_FACADE: {
-				EffectiveRequirementFacade effectiveRequirementFacade = (EffectiveRequirementFacade)theEObject;
-				T result = caseEffectiveRequirementFacade(effectiveRequirementFacade);
-				if (result == null) result = caseEffectiveFacade(effectiveRequirementFacade);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.EFFECTIVE_CAPABILITY_FACADE: {
-				EffectiveCapabilityFacade effectiveCapabilityFacade = (EffectiveCapabilityFacade)theEObject;
-				T result = caseEffectiveCapabilityFacade(effectiveCapabilityFacade);
-				if (result == null) result = caseEffectiveFacade(effectiveCapabilityFacade);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.EFFECTIVE_BUILDER_REFERENCE_FACADE: {
-				EffectiveBuilderReferenceFacade effectiveBuilderReferenceFacade = (EffectiveBuilderReferenceFacade)theEObject;
-				T result = caseEffectiveBuilderReferenceFacade(effectiveBuilderReferenceFacade);
-				if (result == null) result = caseEffectiveFacade(effectiveBuilderReferenceFacade);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.BUILD_RESULT: {
-				BuildResult buildResult = (BuildResult)theEObject;
-				T result = caseBuildResult(buildResult);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.BUILD_RESULT_CONTEXT: {
-				BuildResultContext buildResultContext = (BuildResultContext)theEObject;
-				T result = caseBuildResultContext(buildResultContext);
-				if (result == null) result = caseBInnerContext(buildResultContext);
-				if (result == null) result = caseBExecutionContext(buildResultContext);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.OUTPUT_PREDICATE: {
-				OutputPredicate outputPredicate = (OutputPredicate)theEObject;
-				T result = caseOutputPredicate(outputPredicate);
-				if (result == null) result = casePathGroupPredicate(outputPredicate);
-				if (result == null) result = caseBExpression(outputPredicate);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case B3BuildPackage.SOURCE_PREDICATE: {
-				SourcePredicate sourcePredicate = (SourcePredicate)theEObject;
-				T result = caseSourcePredicate(sourcePredicate);
-				if (result == null) result = casePathGroupPredicate(sourcePredicate);
-				if (result == null) result = caseBExpression(sourcePredicate);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			default: return defaultCase(theEObject);
+		switch(classifierID) {
+		case B3BuildPackage.BUILD_UNIT: {
+			BuildUnit buildUnit = (BuildUnit) theEObject;
+			T result = caseBuildUnit(buildUnit);
+			if(result == null)
+				result = caseVersionedCapability(buildUnit);
+			if(result == null)
+				result = caseBFunctionContainer(buildUnit);
+			if(result == null)
+				result = caseIRequiredCapabilityContainer(buildUnit);
+			if(result == null)
+				result = caseIProvidedCapabilityContainer(buildUnit);
+			if(result == null)
+				result = caseCapability(buildUnit);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.IBUILDER: {
+			IBuilder iBuilder = (IBuilder) theEObject;
+			T result = caseIBuilder(iBuilder);
+			if(result == null)
+				result = caseIProvidedCapabilityContainer(iBuilder);
+			if(result == null)
+				result = caseIFunction(iBuilder);
+			if(result == null)
+				result = caseIGenericDeclaration(iBuilder);
+			if(result == null)
+				result = caseBExpression(iBuilder);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.VERSIONED_CAPABILITY: {
+			VersionedCapability versionedCapability = (VersionedCapability) theEObject;
+			T result = caseVersionedCapability(versionedCapability);
+			if(result == null)
+				result = caseCapability(versionedCapability);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.BUILDER_INPUT: {
+			BuilderInput builderInput = (BuilderInput) theEObject;
+			T result = caseBuilderInput(builderInput);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.PATH_GROUP: {
+			PathGroup pathGroup = (PathGroup) theEObject;
+			T result = casePathGroup(pathGroup);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.PREREQUISITE: {
+			Prerequisite prerequisite = (Prerequisite) theEObject;
+			T result = casePrerequisite(prerequisite);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.BUILD_RESULT_REFERENCE: {
+			BuildResultReference buildResultReference = (BuildResultReference) theEObject;
+			T result = caseBuildResultReference(buildResultReference);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.COMPOUND_BUILD_RESULT_REFERENCE: {
+			CompoundBuildResultReference compoundBuildResultReference = (CompoundBuildResultReference) theEObject;
+			T result = caseCompoundBuildResultReference(compoundBuildResultReference);
+			if(result == null)
+				result = caseBuildResultReference(compoundBuildResultReference);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.BUILDER_REFERENCE: {
+			BuilderReference builderReference = (BuilderReference) theEObject;
+			T result = caseBuilderReference(builderReference);
+			if(result == null)
+				result = caseBuildResultReference(builderReference);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.CAPABILITY: {
+			Capability capability = (Capability) theEObject;
+			T result = caseCapability(capability);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.REQUIRED_CAPABILITY: {
+			RequiredCapability requiredCapability = (RequiredCapability) theEObject;
+			T result = caseRequiredCapability(requiredCapability);
+			if(result == null)
+				result = caseCapability(requiredCapability);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.CONDITIONAL_PATH_VECTOR: {
+			ConditionalPathVector conditionalPathVector = (ConditionalPathVector) theEObject;
+			T result = caseConditionalPathVector(conditionalPathVector);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.PATH_VECTOR: {
+			PathVector pathVector = (PathVector) theEObject;
+			T result = casePathVector(pathVector);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.SYNCHRONIZATION: {
+			Synchronization synchronization = (Synchronization) theEObject;
+			T result = caseSynchronization(synchronization);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.REPOSITORY_CONFIGURATION: {
+			RepositoryConfiguration repositoryConfiguration = (RepositoryConfiguration) theEObject;
+			T result = caseRepositoryConfiguration(repositoryConfiguration);
+			if(result == null)
+				result = caseBExpression(repositoryConfiguration);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.REPOSITORY_DECLARATION: {
+			RepositoryDeclaration repositoryDeclaration = (RepositoryDeclaration) theEObject;
+			T result = caseRepositoryDeclaration(repositoryDeclaration);
+			if(result == null)
+				result = caseRepositoryConfiguration(repositoryDeclaration);
+			if(result == null)
+				result = caseBExpression(repositoryDeclaration);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.RESOLUTION_STRATEGY: {
+			ResolutionStrategy resolutionStrategy = (ResolutionStrategy) theEObject;
+			T result = caseResolutionStrategy(resolutionStrategy);
+			if(result == null)
+				result = caseRepositoryConfiguration(resolutionStrategy);
+			if(result == null)
+				result = caseBExpression(resolutionStrategy);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.RESOLUTION_STRATEGY_FIRST: {
+			ResolutionStrategyFirst resolutionStrategyFirst = (ResolutionStrategyFirst) theEObject;
+			T result = caseResolutionStrategyFirst(resolutionStrategyFirst);
+			if(result == null)
+				result = caseResolutionStrategy(resolutionStrategyFirst);
+			if(result == null)
+				result = caseRepositoryConfiguration(resolutionStrategyFirst);
+			if(result == null)
+				result = caseBExpression(resolutionStrategyFirst);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.RESOLUTION_STRATEGY_BEST: {
+			ResolutionStrategyBest resolutionStrategyBest = (ResolutionStrategyBest) theEObject;
+			T result = caseResolutionStrategyBest(resolutionStrategyBest);
+			if(result == null)
+				result = caseResolutionStrategy(resolutionStrategyBest);
+			if(result == null)
+				result = caseRepositoryConfiguration(resolutionStrategyBest);
+			if(result == null)
+				result = caseBExpression(resolutionStrategyBest);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.CONTAINER_CONFIGURATION: {
+			ContainerConfiguration containerConfiguration = (ContainerConfiguration) theEObject;
+			T result = caseContainerConfiguration(containerConfiguration);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.BUILD_CONTEXT: {
+			BuildContext buildContext = (BuildContext) theEObject;
+			T result = caseBuildContext(buildContext);
+			if(result == null)
+				result = caseBExecutionContext(buildContext);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.BUILD_CONCERN_CONTEXT: {
+			BuildConcernContext buildConcernContext = (BuildConcernContext) theEObject;
+			T result = caseBuildConcernContext(buildConcernContext);
+			if(result == null)
+				result = caseBConcernContext(buildConcernContext);
+			if(result == null)
+				result = caseIProvidedCapabilityContainer(buildConcernContext);
+			if(result == null)
+				result = caseBExpression(buildConcernContext);
+			if(result == null)
+				result = caseBFunctionContainer(buildConcernContext);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.REQUIRES_PREDICATE: {
+			RequiresPredicate requiresPredicate = (RequiresPredicate) theEObject;
+			T result = caseRequiresPredicate(requiresPredicate);
+			if(result == null)
+				result = caseBExpression(requiresPredicate);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.CAPABILITY_PREDICATE: {
+			CapabilityPredicate capabilityPredicate = (CapabilityPredicate) theEObject;
+			T result = caseCapabilityPredicate(capabilityPredicate);
+			if(result == null)
+				result = caseBExpression(capabilityPredicate);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.IMPLEMENTS_PREDICATE: {
+			ImplementsPredicate implementsPredicate = (ImplementsPredicate) theEObject;
+			T result = caseImplementsPredicate(implementsPredicate);
+			if(result == null)
+				result = caseBExpression(implementsPredicate);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.PROVIDES_PREDICATE: {
+			ProvidesPredicate providesPredicate = (ProvidesPredicate) theEObject;
+			T result = caseProvidesPredicate(providesPredicate);
+			if(result == null)
+				result = caseBExpression(providesPredicate);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.NAME_SPACE_PREDICATE: {
+			NameSpacePredicate nameSpacePredicate = (NameSpacePredicate) theEObject;
+			T result = caseNameSpacePredicate(nameSpacePredicate);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.UNIT_NAME_PREDICATE: {
+			UnitNamePredicate unitNamePredicate = (UnitNamePredicate) theEObject;
+			T result = caseUnitNamePredicate(unitNamePredicate);
+			if(result == null)
+				result = caseCapabilityPredicate(unitNamePredicate);
+			if(result == null)
+				result = caseBExpression(unitNamePredicate);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.BUILDER_NAME_PREDICATE: {
+			BuilderNamePredicate builderNamePredicate = (BuilderNamePredicate) theEObject;
+			T result = caseBuilderNamePredicate(builderNamePredicate);
+			if(result == null)
+				result = caseBExpression(builderNamePredicate);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.INPUT_PREDICATE: {
+			InputPredicate inputPredicate = (InputPredicate) theEObject;
+			T result = caseInputPredicate(inputPredicate);
+			if(result == null)
+				result = caseBExpression(inputPredicate);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.UNIT_CONCERN_CONTEXT: {
+			UnitConcernContext unitConcernContext = (UnitConcernContext) theEObject;
+			T result = caseUnitConcernContext(unitConcernContext);
+			if(result == null)
+				result = caseBuildConcernContext(unitConcernContext);
+			if(result == null)
+				result = caseIRequiredCapabilityContainer(unitConcernContext);
+			if(result == null)
+				result = caseBConcernContext(unitConcernContext);
+			if(result == null)
+				result = caseIProvidedCapabilityContainer(unitConcernContext);
+			if(result == null)
+				result = caseBExpression(unitConcernContext);
+			if(result == null)
+				result = caseBFunctionContainer(unitConcernContext);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT: {
+			BuilderConcernContext builderConcernContext = (BuilderConcernContext) theEObject;
+			T result = caseBuilderConcernContext(builderConcernContext);
+			if(result == null)
+				result = caseBuildConcernContext(builderConcernContext);
+			if(result == null)
+				result = caseBConcernContext(builderConcernContext);
+			if(result == null)
+				result = caseIProvidedCapabilityContainer(builderConcernContext);
+			if(result == null)
+				result = caseBExpression(builderConcernContext);
+			if(result == null)
+				result = caseBFunctionContainer(builderConcernContext);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.PATH_GROUP_PREDICATE: {
+			PathGroupPredicate pathGroupPredicate = (PathGroupPredicate) theEObject;
+			T result = casePathGroupPredicate(pathGroupPredicate);
+			if(result == null)
+				result = caseBExpression(pathGroupPredicate);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.ALIASED_REQUIRED_CAPABILITY: {
+			AliasedRequiredCapability aliasedRequiredCapability = (AliasedRequiredCapability) theEObject;
+			T result = caseAliasedRequiredCapability(aliasedRequiredCapability);
+			if(result == null)
+				result = caseRequiredCapability(aliasedRequiredCapability);
+			if(result == null)
+				result = caseCapability(aliasedRequiredCapability);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.IREQUIRED_CAPABILITY_CONTAINER: {
+			IRequiredCapabilityContainer iRequiredCapabilityContainer = (IRequiredCapabilityContainer) theEObject;
+			T result = caseIRequiredCapabilityContainer(iRequiredCapabilityContainer);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.IPROVIDED_CAPABILITY_CONTAINER: {
+			IProvidedCapabilityContainer iProvidedCapabilityContainer = (IProvidedCapabilityContainer) theEObject;
+			T result = caseIProvidedCapabilityContainer(iProvidedCapabilityContainer);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.BUILDER_QUERY: {
+			BuilderQuery builderQuery = (BuilderQuery) theEObject;
+			T result = caseBuilderQuery(builderQuery);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.BUILDER: {
+			Builder builder = (Builder) theEObject;
+			T result = caseBuilder(builder);
+			if(result == null)
+				result = caseB3Function(builder);
+			if(result == null)
+				result = caseIBuilder(builder);
+			if(result == null)
+				result = caseBFunction(builder);
+			if(result == null)
+				result = caseIProvidedCapabilityContainer(builder);
+			if(result == null)
+				result = caseIFunction(builder);
+			if(result == null)
+				result = caseBExpression(builder);
+			if(result == null)
+				result = caseIGenericDeclaration(builder);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.BUILDER_JAVA: {
+			BuilderJava builderJava = (BuilderJava) theEObject;
+			T result = caseBuilderJava(builderJava);
+			if(result == null)
+				result = caseBJavaFunction(builderJava);
+			if(result == null)
+				result = caseIBuilder(builderJava);
+			if(result == null)
+				result = caseBFunction(builderJava);
+			if(result == null)
+				result = caseIProvidedCapabilityContainer(builderJava);
+			if(result == null)
+				result = caseIFunction(builderJava);
+			if(result == null)
+				result = caseBExpression(builderJava);
+			if(result == null)
+				result = caseIGenericDeclaration(builderJava);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.BUILDER_WRAPPER: {
+			BuilderWrapper builderWrapper = (BuilderWrapper) theEObject;
+			T result = caseBuilderWrapper(builderWrapper);
+			if(result == null)
+				result = caseBFunctionWrapper(builderWrapper);
+			if(result == null)
+				result = caseIBuilder(builderWrapper);
+			if(result == null)
+				result = caseIFunction(builderWrapper);
+			if(result == null)
+				result = caseIProvidedCapabilityContainer(builderWrapper);
+			if(result == null)
+				result = caseBExpression(builderWrapper);
+			if(result == null)
+				result = caseIGenericDeclaration(builderWrapper);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.BEE_MODEL: {
+			BeeModel beeModel = (BeeModel) theEObject;
+			T result = caseBeeModel(beeModel);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.BEE_HIVE: {
+			BeeHive beeHive = (BeeHive) theEObject;
+			T result = caseBeeHive(beeHive);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.RESOLUTION_INFO: {
+			ResolutionInfo resolutionInfo = (ResolutionInfo) theEObject;
+			T result = caseResolutionInfo(resolutionInfo);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.EFFECTIVE_FACADE: {
+			EffectiveFacade effectiveFacade = (EffectiveFacade) theEObject;
+			T result = caseEffectiveFacade(effectiveFacade);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.EFFECTIVE_UNIT_FACADE: {
+			EffectiveUnitFacade effectiveUnitFacade = (EffectiveUnitFacade) theEObject;
+			T result = caseEffectiveUnitFacade(effectiveUnitFacade);
+			if(result == null)
+				result = caseEffectiveFacade(effectiveUnitFacade);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.EFFECTIVE_REQUIREMENT_FACADE: {
+			EffectiveRequirementFacade effectiveRequirementFacade = (EffectiveRequirementFacade) theEObject;
+			T result = caseEffectiveRequirementFacade(effectiveRequirementFacade);
+			if(result == null)
+				result = caseEffectiveFacade(effectiveRequirementFacade);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.EFFECTIVE_CAPABILITY_FACADE: {
+			EffectiveCapabilityFacade effectiveCapabilityFacade = (EffectiveCapabilityFacade) theEObject;
+			T result = caseEffectiveCapabilityFacade(effectiveCapabilityFacade);
+			if(result == null)
+				result = caseEffectiveFacade(effectiveCapabilityFacade);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.EFFECTIVE_BUILDER_REFERENCE_FACADE: {
+			EffectiveBuilderReferenceFacade effectiveBuilderReferenceFacade = (EffectiveBuilderReferenceFacade) theEObject;
+			T result = caseEffectiveBuilderReferenceFacade(effectiveBuilderReferenceFacade);
+			if(result == null)
+				result = caseEffectiveFacade(effectiveBuilderReferenceFacade);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.BUILD_RESULT: {
+			BuildResult buildResult = (BuildResult) theEObject;
+			T result = caseBuildResult(buildResult);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.BUILD_RESULT_CONTEXT: {
+			BuildResultContext buildResultContext = (BuildResultContext) theEObject;
+			T result = caseBuildResultContext(buildResultContext);
+			if(result == null)
+				result = caseBInnerContext(buildResultContext);
+			if(result == null)
+				result = caseBExecutionContext(buildResultContext);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.OUTPUT_PREDICATE: {
+			OutputPredicate outputPredicate = (OutputPredicate) theEObject;
+			T result = caseOutputPredicate(outputPredicate);
+			if(result == null)
+				result = casePathGroupPredicate(outputPredicate);
+			if(result == null)
+				result = caseBExpression(outputPredicate);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.SOURCE_PREDICATE: {
+			SourcePredicate sourcePredicate = (SourcePredicate) theEObject;
+			T result = caseSourcePredicate(sourcePredicate);
+			if(result == null)
+				result = casePathGroupPredicate(sourcePredicate);
+			if(result == null)
+				result = caseBExpression(sourcePredicate);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.BUILD_UNIT_REPOSITORY: {
+			BuildUnitRepository buildUnitRepository = (BuildUnitRepository) theEObject;
+			T result = caseBuildUnitRepository(buildUnitRepository);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.COMPOUND_BUILD_UNIT_REPOSITORY: {
+			CompoundBuildUnitRepository compoundBuildUnitRepository = (CompoundBuildUnitRepository) theEObject;
+			T result = caseCompoundBuildUnitRepository(compoundBuildUnitRepository);
+			if(result == null)
+				result = caseBuildUnitRepository(compoundBuildUnitRepository);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.COMPOUND_FIRST_FOUND_REPOSITORY: {
+			CompoundFirstFoundRepository compoundFirstFoundRepository = (CompoundFirstFoundRepository) theEObject;
+			T result = caseCompoundFirstFoundRepository(compoundFirstFoundRepository);
+			if(result == null)
+				result = caseCompoundBuildUnitRepository(compoundFirstFoundRepository);
+			if(result == null)
+				result = caseBuildUnitRepository(compoundFirstFoundRepository);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.COMPUND_BEST_FOUND_REPOSITORY: {
+			CompundBestFoundRepository compundBestFoundRepository = (CompundBestFoundRepository) theEObject;
+			T result = caseCompundBestFoundRepository(compundBestFoundRepository);
+			if(result == null)
+				result = caseCompoundBuildUnitRepository(compundBestFoundRepository);
+			if(result == null)
+				result = caseBuildUnitRepository(compundBestFoundRepository);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.EXECUTION_STACK_REPOSITORY: {
+			ExecutionStackRepository executionStackRepository = (ExecutionStackRepository) theEObject;
+			T result = caseExecutionStackRepository(executionStackRepository);
+			if(result == null)
+				result = caseBuildUnitRepository(executionStackRepository);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.SIMPLE_REPOSITORY: {
+			SimpleRepository simpleRepository = (SimpleRepository) theEObject;
+			T result = caseSimpleRepository(simpleRepository);
+			if(result == null)
+				result = caseBuildUnitRepository(simpleRepository);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		default:
+			return defaultCase(theEObject);
 		}
 	}
 
@@ -743,6 +937,96 @@ public class B3BuildSwitch<T> {
 	 * @generated
 	 */
 	public T caseSourcePredicate(SourcePredicate object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Build Unit Repository</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Build Unit Repository</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBuildUnitRepository(BuildUnitRepository object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Compound Build Unit Repository</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Compound Build Unit Repository</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCompoundBuildUnitRepository(CompoundBuildUnitRepository object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Compound First Found Repository</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Compound First Found Repository</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCompoundFirstFoundRepository(CompoundFirstFoundRepository object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Compund Best Found Repository</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Compund Best Found Repository</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCompundBestFoundRepository(CompundBestFoundRepository object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Execution Stack Repository</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Execution Stack Repository</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExecutionStackRepository(ExecutionStackRepository object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Simple Repository</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Simple Repository</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSimpleRepository(SimpleRepository object) {
 		return null;
 	}
 

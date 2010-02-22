@@ -10,7 +10,6 @@
  */
 package org.eclipse.b3.build.build;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Effective Capability Facade</b></em>'.

@@ -6,7 +6,6 @@
  */
 package org.eclipse.b3.build.build;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Unit Name Predicate</b></em>'.

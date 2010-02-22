@@ -87,12 +87,18 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCapabilityPredicate(CapabilityPredicate newCapabilityPredicate, NotificationChain msgs) {
+	public NotificationChain basicSetCapabilityPredicate(CapabilityPredicate newCapabilityPredicate,
+			NotificationChain msgs) {
 		CapabilityPredicate oldCapabilityPredicate = capabilityPredicate;
 		capabilityPredicate = newCapabilityPredicate;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.PROVIDES_PREDICATE__CAPABILITY_PREDICATE, oldCapabilityPredicate, newCapabilityPredicate);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.PROVIDES_PREDICATE__CAPABILITY_PREDICATE, oldCapabilityPredicate,
+					newCapabilityPredicate);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -103,17 +109,22 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 	 * @generated
 	 */
 	public void setCapabilityPredicate(CapabilityPredicate newCapabilityPredicate) {
-		if (newCapabilityPredicate != capabilityPredicate) {
+		if(newCapabilityPredicate != capabilityPredicate) {
 			NotificationChain msgs = null;
-			if (capabilityPredicate != null)
-				msgs = ((InternalEObject)capabilityPredicate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.PROVIDES_PREDICATE__CAPABILITY_PREDICATE, null, msgs);
-			if (newCapabilityPredicate != null)
-				msgs = ((InternalEObject)newCapabilityPredicate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.PROVIDES_PREDICATE__CAPABILITY_PREDICATE, null, msgs);
+			if(capabilityPredicate != null)
+				msgs = ((InternalEObject) capabilityPredicate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.PROVIDES_PREDICATE__CAPABILITY_PREDICATE, null, msgs);
+			if(newCapabilityPredicate != null)
+				msgs = ((InternalEObject) newCapabilityPredicate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.PROVIDES_PREDICATE__CAPABILITY_PREDICATE, null, msgs);
 			msgs = basicSetCapabilityPredicate(newCapabilityPredicate, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.PROVIDES_PREDICATE__CAPABILITY_PREDICATE, newCapabilityPredicate, newCapabilityPredicate));
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.PROVIDES_PREDICATE__CAPABILITY_PREDICATE, newCapabilityPredicate,
+					newCapabilityPredicate));
 	}
 
 	/**
@@ -129,7 +140,7 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
-	 */ 
+	 */
 	public boolean matches(VersionedCapability candidate) {
 		return capabilityPredicate.matches(candidate);
 	}
@@ -144,7 +155,9 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 		boolean result = false;
 		while(cItor.hasNext()) {
 			Capability c = cItor.next();
-			if((c instanceof VersionedCapability) ? matches((VersionedCapability)c) : matches(c)) {
+			if((c instanceof VersionedCapability)
+					? matches((VersionedCapability) c)
+					: matches(c)) {
 				result = true;
 				cItor.remove();
 			}
@@ -152,16 +165,16 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 		return result;
 	}
 
-//	/**
-//	 * Removes the capability from its container if it matches
-//	 * (watch out for concurrent modification if iterating over the collection and calling this method.
-//	 */
-//	public boolean removeMatching(Capability input) {
-//		boolean result = false;
-//		if(result = (input instanceof VersionedCapability) ? matches((VersionedCapability)input) : matches(input))
-//			((EList<?>)input.eContainer().eGet(input.eContainingFeature())).remove(input);
-//		return result;
-//	}
+	//	/**
+	//	 * Removes the capability from its container if it matches
+	//	 * (watch out for concurrent modification if iterating over the collection and calling this method.
+	//	 */
+	//	public boolean removeMatching(Capability input) {
+	//		boolean result = false;
+	//		if(result = (input instanceof VersionedCapability) ? matches((VersionedCapability)input) : matches(input))
+	//			((EList<?>)input.eContainer().eGet(input.eContainingFeature())).remove(input);
+	//		return result;
+	//	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -170,9 +183,9 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case B3BuildPackage.PROVIDES_PREDICATE__CAPABILITY_PREDICATE:
-				return basicSetCapabilityPredicate(null, msgs);
+		switch(featureID) {
+		case B3BuildPackage.PROVIDES_PREDICATE__CAPABILITY_PREDICATE:
+			return basicSetCapabilityPredicate(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -184,9 +197,9 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case B3BuildPackage.PROVIDES_PREDICATE__CAPABILITY_PREDICATE:
-				return getCapabilityPredicate();
+		switch(featureID) {
+		case B3BuildPackage.PROVIDES_PREDICATE__CAPABILITY_PREDICATE:
+			return getCapabilityPredicate();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -198,10 +211,10 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case B3BuildPackage.PROVIDES_PREDICATE__CAPABILITY_PREDICATE:
-				setCapabilityPredicate((CapabilityPredicate)newValue);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.PROVIDES_PREDICATE__CAPABILITY_PREDICATE:
+			setCapabilityPredicate((CapabilityPredicate) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -213,10 +226,10 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.PROVIDES_PREDICATE__CAPABILITY_PREDICATE:
-				setCapabilityPredicate((CapabilityPredicate)null);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.PROVIDES_PREDICATE__CAPABILITY_PREDICATE:
+			setCapabilityPredicate((CapabilityPredicate) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -228,21 +241,22 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.PROVIDES_PREDICATE__CAPABILITY_PREDICATE:
-				return capabilityPredicate != null;
+		switch(featureID) {
+		case B3BuildPackage.PROVIDES_PREDICATE__CAPABILITY_PREDICATE:
+			return capabilityPredicate != null;
 		}
 		return super.eIsSet(featureID);
 	}
+
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 		// pick up "@test" parameter from context
 		Object test = ctx.getValue("@test");
 		EList<Capability> pcList = null;
 		if(test instanceof IBuilder)
-			pcList = ((IBuilder)test).getProvidedCapabilities();
-		else if( test instanceof BuildUnit)
-			pcList = ((BuildUnit)test).getProvidedCapabilities();
+			pcList = ((IBuilder) test).getProvidedCapabilities();
+		else if(test instanceof BuildUnit)
+			pcList = ((BuildUnit) test).getProvidedCapabilities();
 		else
 			throw new B3InternalError("Attempt to evaluate ProvidedPredicate against non IBuilder or BuildUnit");
 		for(Capability c : pcList) {
@@ -251,6 +265,7 @@ public class ProvidesPredicateImpl extends BExpressionImpl implements ProvidesPr
 		}
 		return Boolean.FALSE;
 	}
+
 	/**
 	 * Always returns Boolean.
 	 */

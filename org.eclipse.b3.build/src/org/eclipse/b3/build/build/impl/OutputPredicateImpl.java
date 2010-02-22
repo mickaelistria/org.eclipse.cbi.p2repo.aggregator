@@ -60,8 +60,8 @@ public class OutputPredicateImpl extends PathGroupPredicateImpl implements Outpu
 		Object test = ctx.getValue("@test");
 		if(!(test instanceof IBuilder))
 			throw new B3InternalError("Attempt to evaluate OutputPredicate against non IBuilder");
-		
-		IBuilder b = (IBuilder)test;
+
+		IBuilder b = (IBuilder) test;
 		PathGroup pg = b.getOutput();
 		ctx.defineVariableValue("@test.pathgroup", pg, PathGroup.class);
 		return super.evaluate(ctx);

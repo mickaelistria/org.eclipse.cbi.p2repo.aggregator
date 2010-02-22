@@ -217,7 +217,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="builderQueries" upperBound="-1"
         eType="#//BuilderQuery" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RepositoryConfiguration" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RepositoryConfiguration" abstract="true"
+      eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condExpr" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExpression"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RepositoryDeclaration" eSuperTypes="#//RepositoryConfiguration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//URI"/>
@@ -506,4 +510,28 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OutputPredicate" eSuperTypes="#//PathGroupPredicate"/>
   <eClassifiers xsi:type="ecore:EClass" name="SourcePredicate" eSuperTypes="#//PathGroupPredicate"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BuildUnitRepository" abstract="true">
+    <eOperations name="resolve" eType="#//BuildUnit">
+      <eParameters name="ctx" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExecutionContext"/>
+      <eParameters name="requiredCapability" eType="#//RequiredCapability"/>
+    </eOperations>
+    <eOperations name="resolve" eType="#//BuildUnit">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Resolves an EffectiveRequireent (i.e. a combination of requirement and context) and returns a BuilUnit that matches the requirement, or null if no such unit can be found.&#xA;This method is the same as calling resolve(effective.getContext(), effective.getRequirement().&#xA;"/>
+      </eAnnotations>
+      <eParameters name="effectiveRequirement" eType="#//EffectiveRequirementFacade"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CompoundBuildUnitRepository" abstract="true"
+      eSuperTypes="#//BuildUnitRepository">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="repositories" upperBound="-1"
+        eType="#//BuildUnitRepository"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CompoundFirstFoundRepository" eSuperTypes="#//CompoundBuildUnitRepository"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CompundBestFoundRepository" eSuperTypes="#//CompoundBuildUnitRepository"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExecutionStackRepository" eSuperTypes="#//BuildUnitRepository"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SimpleRepository" eSuperTypes="#//BuildUnitRepository">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="beeModels" upperBound="-1"
+        eType="#//BeeModel"/>
+  </eClassifiers>
 </ecore:EPackage>

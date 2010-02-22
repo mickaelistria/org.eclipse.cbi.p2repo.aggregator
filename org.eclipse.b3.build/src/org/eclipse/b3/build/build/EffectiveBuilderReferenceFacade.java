@@ -12,7 +12,6 @@ package org.eclipse.b3.build.build;
 
 import org.eclipse.emf.common.util.EList;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Effective Builder Reference Facade</b></em>'.

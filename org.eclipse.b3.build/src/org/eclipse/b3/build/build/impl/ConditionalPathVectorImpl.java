@@ -103,9 +103,13 @@ public class ConditionalPathVectorImpl extends EObjectImpl implements Conditiona
 	public NotificationChain basicSetCondExpr(BExpression newCondExpr, NotificationChain msgs) {
 		BExpression oldCondExpr = condExpr;
 		condExpr = newCondExpr;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.CONDITIONAL_PATH_VECTOR__COND_EXPR, oldCondExpr, newCondExpr);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.CONDITIONAL_PATH_VECTOR__COND_EXPR, oldCondExpr, newCondExpr);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -116,17 +120,21 @@ public class ConditionalPathVectorImpl extends EObjectImpl implements Conditiona
 	 * @generated
 	 */
 	public void setCondExpr(BExpression newCondExpr) {
-		if (newCondExpr != condExpr) {
+		if(newCondExpr != condExpr) {
 			NotificationChain msgs = null;
-			if (condExpr != null)
-				msgs = ((InternalEObject)condExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.CONDITIONAL_PATH_VECTOR__COND_EXPR, null, msgs);
-			if (newCondExpr != null)
-				msgs = ((InternalEObject)newCondExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.CONDITIONAL_PATH_VECTOR__COND_EXPR, null, msgs);
+			if(condExpr != null)
+				msgs = ((InternalEObject) condExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.CONDITIONAL_PATH_VECTOR__COND_EXPR, null, msgs);
+			if(newCondExpr != null)
+				msgs = ((InternalEObject) newCondExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.CONDITIONAL_PATH_VECTOR__COND_EXPR, null, msgs);
 			msgs = basicSetCondExpr(newCondExpr, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.CONDITIONAL_PATH_VECTOR__COND_EXPR, newCondExpr, newCondExpr));
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.CONDITIONAL_PATH_VECTOR__COND_EXPR,
+					newCondExpr, newCondExpr));
 	}
 
 	/**
@@ -135,8 +143,9 @@ public class ConditionalPathVectorImpl extends EObjectImpl implements Conditiona
 	 * @generated
 	 */
 	public EList<PathVector> getPathVectors() {
-		if (pathVectors == null) {
-			pathVectors = new EObjectContainmentEList<PathVector>(PathVector.class, this, B3BuildPackage.CONDITIONAL_PATH_VECTOR__PATH_VECTORS);
+		if(pathVectors == null) {
+			pathVectors = new EObjectContainmentEList<PathVector>(PathVector.class, this,
+					B3BuildPackage.CONDITIONAL_PATH_VECTOR__PATH_VECTORS);
 		}
 		return pathVectors;
 	}
@@ -148,11 +157,11 @@ public class ConditionalPathVectorImpl extends EObjectImpl implements Conditiona
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case B3BuildPackage.CONDITIONAL_PATH_VECTOR__COND_EXPR:
-				return basicSetCondExpr(null, msgs);
-			case B3BuildPackage.CONDITIONAL_PATH_VECTOR__PATH_VECTORS:
-				return ((InternalEList<?>)getPathVectors()).basicRemove(otherEnd, msgs);
+		switch(featureID) {
+		case B3BuildPackage.CONDITIONAL_PATH_VECTOR__COND_EXPR:
+			return basicSetCondExpr(null, msgs);
+		case B3BuildPackage.CONDITIONAL_PATH_VECTOR__PATH_VECTORS:
+			return ((InternalEList<?>) getPathVectors()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -164,11 +173,11 @@ public class ConditionalPathVectorImpl extends EObjectImpl implements Conditiona
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case B3BuildPackage.CONDITIONAL_PATH_VECTOR__COND_EXPR:
-				return getCondExpr();
-			case B3BuildPackage.CONDITIONAL_PATH_VECTOR__PATH_VECTORS:
-				return getPathVectors();
+		switch(featureID) {
+		case B3BuildPackage.CONDITIONAL_PATH_VECTOR__COND_EXPR:
+			return getCondExpr();
+		case B3BuildPackage.CONDITIONAL_PATH_VECTOR__PATH_VECTORS:
+			return getPathVectors();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -181,14 +190,14 @@ public class ConditionalPathVectorImpl extends EObjectImpl implements Conditiona
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case B3BuildPackage.CONDITIONAL_PATH_VECTOR__COND_EXPR:
-				setCondExpr((BExpression)newValue);
-				return;
-			case B3BuildPackage.CONDITIONAL_PATH_VECTOR__PATH_VECTORS:
-				getPathVectors().clear();
-				getPathVectors().addAll((Collection<? extends PathVector>)newValue);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.CONDITIONAL_PATH_VECTOR__COND_EXPR:
+			setCondExpr((BExpression) newValue);
+			return;
+		case B3BuildPackage.CONDITIONAL_PATH_VECTOR__PATH_VECTORS:
+			getPathVectors().clear();
+			getPathVectors().addAll((Collection<? extends PathVector>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -200,13 +209,13 @@ public class ConditionalPathVectorImpl extends EObjectImpl implements Conditiona
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.CONDITIONAL_PATH_VECTOR__COND_EXPR:
-				setCondExpr((BExpression)null);
-				return;
-			case B3BuildPackage.CONDITIONAL_PATH_VECTOR__PATH_VECTORS:
-				getPathVectors().clear();
-				return;
+		switch(featureID) {
+		case B3BuildPackage.CONDITIONAL_PATH_VECTOR__COND_EXPR:
+			setCondExpr((BExpression) null);
+			return;
+		case B3BuildPackage.CONDITIONAL_PATH_VECTOR__PATH_VECTORS:
+			getPathVectors().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -218,11 +227,11 @@ public class ConditionalPathVectorImpl extends EObjectImpl implements Conditiona
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.CONDITIONAL_PATH_VECTOR__COND_EXPR:
-				return condExpr != null;
-			case B3BuildPackage.CONDITIONAL_PATH_VECTOR__PATH_VECTORS:
-				return pathVectors != null && !pathVectors.isEmpty();
+		switch(featureID) {
+		case B3BuildPackage.CONDITIONAL_PATH_VECTOR__COND_EXPR:
+			return condExpr != null;
+		case B3BuildPackage.CONDITIONAL_PATH_VECTOR__PATH_VECTORS:
+			return pathVectors != null && !pathVectors.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

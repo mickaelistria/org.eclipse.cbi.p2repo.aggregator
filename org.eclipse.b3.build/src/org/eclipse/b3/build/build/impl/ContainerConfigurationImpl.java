@@ -135,8 +135,9 @@ public class ContainerConfigurationImpl extends EObjectImpl implements Container
 	public void setDocumentation(String newDocumentation) {
 		String oldDocumentation = documentation;
 		documentation = newDocumentation;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.CONTAINER_CONFIGURATION__DOCUMENTATION, oldDocumentation, documentation));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.CONTAINER_CONFIGURATION__DOCUMENTATION, oldDocumentation, documentation));
 	}
 
 	/**
@@ -156,8 +157,9 @@ public class ContainerConfigurationImpl extends EObjectImpl implements Container
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.CONTAINER_CONFIGURATION__NAME, oldName, name));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.CONTAINER_CONFIGURATION__NAME,
+					oldName, name));
 	}
 
 	/**
@@ -177,9 +179,13 @@ public class ContainerConfigurationImpl extends EObjectImpl implements Container
 	public NotificationChain basicSetAgentType(Type newAgentType, NotificationChain msgs) {
 		Type oldAgentType = agentType;
 		agentType = newAgentType;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.CONTAINER_CONFIGURATION__AGENT_TYPE, oldAgentType, newAgentType);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.CONTAINER_CONFIGURATION__AGENT_TYPE, oldAgentType, newAgentType);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -190,17 +196,21 @@ public class ContainerConfigurationImpl extends EObjectImpl implements Container
 	 * @generated
 	 */
 	public void setAgentType(Type newAgentType) {
-		if (newAgentType != agentType) {
+		if(newAgentType != agentType) {
 			NotificationChain msgs = null;
-			if (agentType != null)
-				msgs = ((InternalEObject)agentType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.CONTAINER_CONFIGURATION__AGENT_TYPE, null, msgs);
-			if (newAgentType != null)
-				msgs = ((InternalEObject)newAgentType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.CONTAINER_CONFIGURATION__AGENT_TYPE, null, msgs);
+			if(agentType != null)
+				msgs = ((InternalEObject) agentType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.CONTAINER_CONFIGURATION__AGENT_TYPE, null, msgs);
+			if(newAgentType != null)
+				msgs = ((InternalEObject) newAgentType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.CONTAINER_CONFIGURATION__AGENT_TYPE, null, msgs);
 			msgs = basicSetAgentType(newAgentType, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.CONTAINER_CONFIGURATION__AGENT_TYPE, newAgentType, newAgentType));
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.CONTAINER_CONFIGURATION__AGENT_TYPE,
+					newAgentType, newAgentType));
 	}
 
 	/**
@@ -220,9 +230,13 @@ public class ContainerConfigurationImpl extends EObjectImpl implements Container
 	public NotificationChain basicSetContextBlock(BExpression newContextBlock, NotificationChain msgs) {
 		BExpression oldContextBlock = contextBlock;
 		contextBlock = newContextBlock;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.CONTAINER_CONFIGURATION__CONTEXT_BLOCK, oldContextBlock, newContextBlock);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.CONTAINER_CONFIGURATION__CONTEXT_BLOCK, oldContextBlock, newContextBlock);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -233,17 +247,21 @@ public class ContainerConfigurationImpl extends EObjectImpl implements Container
 	 * @generated
 	 */
 	public void setContextBlock(BExpression newContextBlock) {
-		if (newContextBlock != contextBlock) {
+		if(newContextBlock != contextBlock) {
 			NotificationChain msgs = null;
-			if (contextBlock != null)
-				msgs = ((InternalEObject)contextBlock).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.CONTAINER_CONFIGURATION__CONTEXT_BLOCK, null, msgs);
-			if (newContextBlock != null)
-				msgs = ((InternalEObject)newContextBlock).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.CONTAINER_CONFIGURATION__CONTEXT_BLOCK, null, msgs);
+			if(contextBlock != null)
+				msgs = ((InternalEObject) contextBlock).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.CONTAINER_CONFIGURATION__CONTEXT_BLOCK, null, msgs);
+			if(newContextBlock != null)
+				msgs = ((InternalEObject) newContextBlock).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.CONTAINER_CONFIGURATION__CONTEXT_BLOCK, null, msgs);
 			msgs = basicSetContextBlock(newContextBlock, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.CONTAINER_CONFIGURATION__CONTEXT_BLOCK, newContextBlock, newContextBlock));
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.CONTAINER_CONFIGURATION__CONTEXT_BLOCK, newContextBlock, newContextBlock));
 	}
 
 	/**
@@ -253,11 +271,11 @@ public class ContainerConfigurationImpl extends EObjectImpl implements Container
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case B3BuildPackage.CONTAINER_CONFIGURATION__AGENT_TYPE:
-				return basicSetAgentType(null, msgs);
-			case B3BuildPackage.CONTAINER_CONFIGURATION__CONTEXT_BLOCK:
-				return basicSetContextBlock(null, msgs);
+		switch(featureID) {
+		case B3BuildPackage.CONTAINER_CONFIGURATION__AGENT_TYPE:
+			return basicSetAgentType(null, msgs);
+		case B3BuildPackage.CONTAINER_CONFIGURATION__CONTEXT_BLOCK:
+			return basicSetContextBlock(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -269,15 +287,15 @@ public class ContainerConfigurationImpl extends EObjectImpl implements Container
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case B3BuildPackage.CONTAINER_CONFIGURATION__DOCUMENTATION:
-				return getDocumentation();
-			case B3BuildPackage.CONTAINER_CONFIGURATION__NAME:
-				return getName();
-			case B3BuildPackage.CONTAINER_CONFIGURATION__AGENT_TYPE:
-				return getAgentType();
-			case B3BuildPackage.CONTAINER_CONFIGURATION__CONTEXT_BLOCK:
-				return getContextBlock();
+		switch(featureID) {
+		case B3BuildPackage.CONTAINER_CONFIGURATION__DOCUMENTATION:
+			return getDocumentation();
+		case B3BuildPackage.CONTAINER_CONFIGURATION__NAME:
+			return getName();
+		case B3BuildPackage.CONTAINER_CONFIGURATION__AGENT_TYPE:
+			return getAgentType();
+		case B3BuildPackage.CONTAINER_CONFIGURATION__CONTEXT_BLOCK:
+			return getContextBlock();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -289,19 +307,19 @@ public class ContainerConfigurationImpl extends EObjectImpl implements Container
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case B3BuildPackage.CONTAINER_CONFIGURATION__DOCUMENTATION:
-				setDocumentation((String)newValue);
-				return;
-			case B3BuildPackage.CONTAINER_CONFIGURATION__NAME:
-				setName((String)newValue);
-				return;
-			case B3BuildPackage.CONTAINER_CONFIGURATION__AGENT_TYPE:
-				setAgentType((Type)newValue);
-				return;
-			case B3BuildPackage.CONTAINER_CONFIGURATION__CONTEXT_BLOCK:
-				setContextBlock((BExpression)newValue);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.CONTAINER_CONFIGURATION__DOCUMENTATION:
+			setDocumentation((String) newValue);
+			return;
+		case B3BuildPackage.CONTAINER_CONFIGURATION__NAME:
+			setName((String) newValue);
+			return;
+		case B3BuildPackage.CONTAINER_CONFIGURATION__AGENT_TYPE:
+			setAgentType((Type) newValue);
+			return;
+		case B3BuildPackage.CONTAINER_CONFIGURATION__CONTEXT_BLOCK:
+			setContextBlock((BExpression) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -313,19 +331,19 @@ public class ContainerConfigurationImpl extends EObjectImpl implements Container
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.CONTAINER_CONFIGURATION__DOCUMENTATION:
-				setDocumentation(DOCUMENTATION_EDEFAULT);
-				return;
-			case B3BuildPackage.CONTAINER_CONFIGURATION__NAME:
-				setName(NAME_EDEFAULT);
-				return;
-			case B3BuildPackage.CONTAINER_CONFIGURATION__AGENT_TYPE:
-				setAgentType((Type)null);
-				return;
-			case B3BuildPackage.CONTAINER_CONFIGURATION__CONTEXT_BLOCK:
-				setContextBlock((BExpression)null);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.CONTAINER_CONFIGURATION__DOCUMENTATION:
+			setDocumentation(DOCUMENTATION_EDEFAULT);
+			return;
+		case B3BuildPackage.CONTAINER_CONFIGURATION__NAME:
+			setName(NAME_EDEFAULT);
+			return;
+		case B3BuildPackage.CONTAINER_CONFIGURATION__AGENT_TYPE:
+			setAgentType((Type) null);
+			return;
+		case B3BuildPackage.CONTAINER_CONFIGURATION__CONTEXT_BLOCK:
+			setContextBlock((BExpression) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -337,15 +355,19 @@ public class ContainerConfigurationImpl extends EObjectImpl implements Container
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.CONTAINER_CONFIGURATION__DOCUMENTATION:
-				return DOCUMENTATION_EDEFAULT == null ? documentation != null : !DOCUMENTATION_EDEFAULT.equals(documentation);
-			case B3BuildPackage.CONTAINER_CONFIGURATION__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case B3BuildPackage.CONTAINER_CONFIGURATION__AGENT_TYPE:
-				return agentType != null;
-			case B3BuildPackage.CONTAINER_CONFIGURATION__CONTEXT_BLOCK:
-				return contextBlock != null;
+		switch(featureID) {
+		case B3BuildPackage.CONTAINER_CONFIGURATION__DOCUMENTATION:
+			return DOCUMENTATION_EDEFAULT == null
+					? documentation != null
+					: !DOCUMENTATION_EDEFAULT.equals(documentation);
+		case B3BuildPackage.CONTAINER_CONFIGURATION__NAME:
+			return NAME_EDEFAULT == null
+					? name != null
+					: !NAME_EDEFAULT.equals(name);
+		case B3BuildPackage.CONTAINER_CONFIGURATION__AGENT_TYPE:
+			return agentType != null;
+		case B3BuildPackage.CONTAINER_CONFIGURATION__CONTEXT_BLOCK:
+			return contextBlock != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -357,7 +379,8 @@ public class ContainerConfigurationImpl extends EObjectImpl implements Container
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (documentation: ");

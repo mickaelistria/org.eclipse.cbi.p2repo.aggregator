@@ -136,8 +136,9 @@ public class RepositoryDeclarationImpl extends RepositoryConfigurationImpl imple
 	public void setDocumentation(String newDocumentation) {
 		String oldDocumentation = documentation;
 		documentation = newDocumentation;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.REPOSITORY_DECLARATION__DOCUMENTATION, oldDocumentation, documentation));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.REPOSITORY_DECLARATION__DOCUMENTATION,
+					oldDocumentation, documentation));
 	}
 
 	/**
@@ -157,8 +158,9 @@ public class RepositoryDeclarationImpl extends RepositoryConfigurationImpl imple
 	public void setLocation(URI newLocation) {
 		URI oldLocation = location;
 		location = newLocation;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.REPOSITORY_DECLARATION__LOCATION, oldLocation, location));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.REPOSITORY_DECLARATION__LOCATION,
+					oldLocation, location));
 	}
 
 	/**
@@ -178,9 +180,13 @@ public class RepositoryDeclarationImpl extends RepositoryConfigurationImpl imple
 	public NotificationChain basicSetResolverType(Type newResolverType, NotificationChain msgs) {
 		Type oldResolverType = resolverType;
 		resolverType = newResolverType;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.REPOSITORY_DECLARATION__RESOLVER_TYPE, oldResolverType, newResolverType);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.REPOSITORY_DECLARATION__RESOLVER_TYPE, oldResolverType, newResolverType);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -191,17 +197,21 @@ public class RepositoryDeclarationImpl extends RepositoryConfigurationImpl imple
 	 * @generated
 	 */
 	public void setResolverType(Type newResolverType) {
-		if (newResolverType != resolverType) {
+		if(newResolverType != resolverType) {
 			NotificationChain msgs = null;
-			if (resolverType != null)
-				msgs = ((InternalEObject)resolverType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.REPOSITORY_DECLARATION__RESOLVER_TYPE, null, msgs);
-			if (newResolverType != null)
-				msgs = ((InternalEObject)newResolverType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.REPOSITORY_DECLARATION__RESOLVER_TYPE, null, msgs);
+			if(resolverType != null)
+				msgs = ((InternalEObject) resolverType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.REPOSITORY_DECLARATION__RESOLVER_TYPE, null, msgs);
+			if(newResolverType != null)
+				msgs = ((InternalEObject) newResolverType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.REPOSITORY_DECLARATION__RESOLVER_TYPE, null, msgs);
 			msgs = basicSetResolverType(newResolverType, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.REPOSITORY_DECLARATION__RESOLVER_TYPE, newResolverType, newResolverType));
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.REPOSITORY_DECLARATION__RESOLVER_TYPE,
+					newResolverType, newResolverType));
 	}
 
 	/**
@@ -221,9 +231,13 @@ public class RepositoryDeclarationImpl extends RepositoryConfigurationImpl imple
 	public NotificationChain basicSetContextBlock(BExpression newContextBlock, NotificationChain msgs) {
 		BExpression oldContextBlock = contextBlock;
 		contextBlock = newContextBlock;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.REPOSITORY_DECLARATION__CONTEXT_BLOCK, oldContextBlock, newContextBlock);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.REPOSITORY_DECLARATION__CONTEXT_BLOCK, oldContextBlock, newContextBlock);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -234,17 +248,21 @@ public class RepositoryDeclarationImpl extends RepositoryConfigurationImpl imple
 	 * @generated
 	 */
 	public void setContextBlock(BExpression newContextBlock) {
-		if (newContextBlock != contextBlock) {
+		if(newContextBlock != contextBlock) {
 			NotificationChain msgs = null;
-			if (contextBlock != null)
-				msgs = ((InternalEObject)contextBlock).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.REPOSITORY_DECLARATION__CONTEXT_BLOCK, null, msgs);
-			if (newContextBlock != null)
-				msgs = ((InternalEObject)newContextBlock).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.REPOSITORY_DECLARATION__CONTEXT_BLOCK, null, msgs);
+			if(contextBlock != null)
+				msgs = ((InternalEObject) contextBlock).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.REPOSITORY_DECLARATION__CONTEXT_BLOCK, null, msgs);
+			if(newContextBlock != null)
+				msgs = ((InternalEObject) newContextBlock).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.REPOSITORY_DECLARATION__CONTEXT_BLOCK, null, msgs);
 			msgs = basicSetContextBlock(newContextBlock, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.REPOSITORY_DECLARATION__CONTEXT_BLOCK, newContextBlock, newContextBlock));
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.REPOSITORY_DECLARATION__CONTEXT_BLOCK,
+					newContextBlock, newContextBlock));
 	}
 
 	/**
@@ -254,11 +272,11 @@ public class RepositoryDeclarationImpl extends RepositoryConfigurationImpl imple
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case B3BuildPackage.REPOSITORY_DECLARATION__RESOLVER_TYPE:
-				return basicSetResolverType(null, msgs);
-			case B3BuildPackage.REPOSITORY_DECLARATION__CONTEXT_BLOCK:
-				return basicSetContextBlock(null, msgs);
+		switch(featureID) {
+		case B3BuildPackage.REPOSITORY_DECLARATION__RESOLVER_TYPE:
+			return basicSetResolverType(null, msgs);
+		case B3BuildPackage.REPOSITORY_DECLARATION__CONTEXT_BLOCK:
+			return basicSetContextBlock(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -270,15 +288,15 @@ public class RepositoryDeclarationImpl extends RepositoryConfigurationImpl imple
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case B3BuildPackage.REPOSITORY_DECLARATION__DOCUMENTATION:
-				return getDocumentation();
-			case B3BuildPackage.REPOSITORY_DECLARATION__LOCATION:
-				return getLocation();
-			case B3BuildPackage.REPOSITORY_DECLARATION__RESOLVER_TYPE:
-				return getResolverType();
-			case B3BuildPackage.REPOSITORY_DECLARATION__CONTEXT_BLOCK:
-				return getContextBlock();
+		switch(featureID) {
+		case B3BuildPackage.REPOSITORY_DECLARATION__DOCUMENTATION:
+			return getDocumentation();
+		case B3BuildPackage.REPOSITORY_DECLARATION__LOCATION:
+			return getLocation();
+		case B3BuildPackage.REPOSITORY_DECLARATION__RESOLVER_TYPE:
+			return getResolverType();
+		case B3BuildPackage.REPOSITORY_DECLARATION__CONTEXT_BLOCK:
+			return getContextBlock();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -290,19 +308,19 @@ public class RepositoryDeclarationImpl extends RepositoryConfigurationImpl imple
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case B3BuildPackage.REPOSITORY_DECLARATION__DOCUMENTATION:
-				setDocumentation((String)newValue);
-				return;
-			case B3BuildPackage.REPOSITORY_DECLARATION__LOCATION:
-				setLocation((URI)newValue);
-				return;
-			case B3BuildPackage.REPOSITORY_DECLARATION__RESOLVER_TYPE:
-				setResolverType((Type)newValue);
-				return;
-			case B3BuildPackage.REPOSITORY_DECLARATION__CONTEXT_BLOCK:
-				setContextBlock((BExpression)newValue);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.REPOSITORY_DECLARATION__DOCUMENTATION:
+			setDocumentation((String) newValue);
+			return;
+		case B3BuildPackage.REPOSITORY_DECLARATION__LOCATION:
+			setLocation((URI) newValue);
+			return;
+		case B3BuildPackage.REPOSITORY_DECLARATION__RESOLVER_TYPE:
+			setResolverType((Type) newValue);
+			return;
+		case B3BuildPackage.REPOSITORY_DECLARATION__CONTEXT_BLOCK:
+			setContextBlock((BExpression) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -314,19 +332,19 @@ public class RepositoryDeclarationImpl extends RepositoryConfigurationImpl imple
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.REPOSITORY_DECLARATION__DOCUMENTATION:
-				setDocumentation(DOCUMENTATION_EDEFAULT);
-				return;
-			case B3BuildPackage.REPOSITORY_DECLARATION__LOCATION:
-				setLocation(LOCATION_EDEFAULT);
-				return;
-			case B3BuildPackage.REPOSITORY_DECLARATION__RESOLVER_TYPE:
-				setResolverType((Type)null);
-				return;
-			case B3BuildPackage.REPOSITORY_DECLARATION__CONTEXT_BLOCK:
-				setContextBlock((BExpression)null);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.REPOSITORY_DECLARATION__DOCUMENTATION:
+			setDocumentation(DOCUMENTATION_EDEFAULT);
+			return;
+		case B3BuildPackage.REPOSITORY_DECLARATION__LOCATION:
+			setLocation(LOCATION_EDEFAULT);
+			return;
+		case B3BuildPackage.REPOSITORY_DECLARATION__RESOLVER_TYPE:
+			setResolverType((Type) null);
+			return;
+		case B3BuildPackage.REPOSITORY_DECLARATION__CONTEXT_BLOCK:
+			setContextBlock((BExpression) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -338,15 +356,19 @@ public class RepositoryDeclarationImpl extends RepositoryConfigurationImpl imple
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.REPOSITORY_DECLARATION__DOCUMENTATION:
-				return DOCUMENTATION_EDEFAULT == null ? documentation != null : !DOCUMENTATION_EDEFAULT.equals(documentation);
-			case B3BuildPackage.REPOSITORY_DECLARATION__LOCATION:
-				return LOCATION_EDEFAULT == null ? location != null : !LOCATION_EDEFAULT.equals(location);
-			case B3BuildPackage.REPOSITORY_DECLARATION__RESOLVER_TYPE:
-				return resolverType != null;
-			case B3BuildPackage.REPOSITORY_DECLARATION__CONTEXT_BLOCK:
-				return contextBlock != null;
+		switch(featureID) {
+		case B3BuildPackage.REPOSITORY_DECLARATION__DOCUMENTATION:
+			return DOCUMENTATION_EDEFAULT == null
+					? documentation != null
+					: !DOCUMENTATION_EDEFAULT.equals(documentation);
+		case B3BuildPackage.REPOSITORY_DECLARATION__LOCATION:
+			return LOCATION_EDEFAULT == null
+					? location != null
+					: !LOCATION_EDEFAULT.equals(location);
+		case B3BuildPackage.REPOSITORY_DECLARATION__RESOLVER_TYPE:
+			return resolverType != null;
+		case B3BuildPackage.REPOSITORY_DECLARATION__CONTEXT_BLOCK:
+			return contextBlock != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -358,7 +380,8 @@ public class RepositoryDeclarationImpl extends RepositoryConfigurationImpl imple
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (documentation: ");

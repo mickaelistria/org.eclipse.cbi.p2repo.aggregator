@@ -87,8 +87,9 @@ public class BuilderQueryImpl extends EObjectImpl implements BuilderQuery {
 	 * @generated
 	 */
 	public EList<BExpression> getBuilderQueries() {
-		if (builderQueries == null) {
-			builderQueries = new EObjectContainmentEList<BExpression>(BExpression.class, this, B3BuildPackage.BUILDER_QUERY__BUILDER_QUERIES);
+		if(builderQueries == null) {
+			builderQueries = new EObjectContainmentEList<BExpression>(BExpression.class, this,
+					B3BuildPackage.BUILDER_QUERY__BUILDER_QUERIES);
 		}
 		return builderQueries;
 	}
@@ -110,9 +111,13 @@ public class BuilderQueryImpl extends EObjectImpl implements BuilderQuery {
 	public NotificationChain basicSetUnitQuery(BExpression newUnitQuery, NotificationChain msgs) {
 		BExpression oldUnitQuery = unitQuery;
 		unitQuery = newUnitQuery;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_QUERY__UNIT_QUERY, oldUnitQuery, newUnitQuery);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.BUILDER_QUERY__UNIT_QUERY, oldUnitQuery, newUnitQuery);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -123,17 +128,21 @@ public class BuilderQueryImpl extends EObjectImpl implements BuilderQuery {
 	 * @generated
 	 */
 	public void setUnitQuery(BExpression newUnitQuery) {
-		if (newUnitQuery != unitQuery) {
+		if(newUnitQuery != unitQuery) {
 			NotificationChain msgs = null;
-			if (unitQuery != null)
-				msgs = ((InternalEObject)unitQuery).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_QUERY__UNIT_QUERY, null, msgs);
-			if (newUnitQuery != null)
-				msgs = ((InternalEObject)newUnitQuery).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_QUERY__UNIT_QUERY, null, msgs);
+			if(unitQuery != null)
+				msgs = ((InternalEObject) unitQuery).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.BUILDER_QUERY__UNIT_QUERY, null, msgs);
+			if(newUnitQuery != null)
+				msgs = ((InternalEObject) newUnitQuery).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.BUILDER_QUERY__UNIT_QUERY, null, msgs);
 			msgs = basicSetUnitQuery(newUnitQuery, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_QUERY__UNIT_QUERY, newUnitQuery, newUnitQuery));
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_QUERY__UNIT_QUERY,
+					newUnitQuery, newUnitQuery));
 	}
 
 	/**
@@ -143,11 +152,11 @@ public class BuilderQueryImpl extends EObjectImpl implements BuilderQuery {
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case B3BuildPackage.BUILDER_QUERY__BUILDER_QUERIES:
-				return ((InternalEList<?>)getBuilderQueries()).basicRemove(otherEnd, msgs);
-			case B3BuildPackage.BUILDER_QUERY__UNIT_QUERY:
-				return basicSetUnitQuery(null, msgs);
+		switch(featureID) {
+		case B3BuildPackage.BUILDER_QUERY__BUILDER_QUERIES:
+			return ((InternalEList<?>) getBuilderQueries()).basicRemove(otherEnd, msgs);
+		case B3BuildPackage.BUILDER_QUERY__UNIT_QUERY:
+			return basicSetUnitQuery(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -159,11 +168,11 @@ public class BuilderQueryImpl extends EObjectImpl implements BuilderQuery {
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case B3BuildPackage.BUILDER_QUERY__BUILDER_QUERIES:
-				return getBuilderQueries();
-			case B3BuildPackage.BUILDER_QUERY__UNIT_QUERY:
-				return getUnitQuery();
+		switch(featureID) {
+		case B3BuildPackage.BUILDER_QUERY__BUILDER_QUERIES:
+			return getBuilderQueries();
+		case B3BuildPackage.BUILDER_QUERY__UNIT_QUERY:
+			return getUnitQuery();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -176,14 +185,14 @@ public class BuilderQueryImpl extends EObjectImpl implements BuilderQuery {
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case B3BuildPackage.BUILDER_QUERY__BUILDER_QUERIES:
-				getBuilderQueries().clear();
-				getBuilderQueries().addAll((Collection<? extends BExpression>)newValue);
-				return;
-			case B3BuildPackage.BUILDER_QUERY__UNIT_QUERY:
-				setUnitQuery((BExpression)newValue);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.BUILDER_QUERY__BUILDER_QUERIES:
+			getBuilderQueries().clear();
+			getBuilderQueries().addAll((Collection<? extends BExpression>) newValue);
+			return;
+		case B3BuildPackage.BUILDER_QUERY__UNIT_QUERY:
+			setUnitQuery((BExpression) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -195,13 +204,13 @@ public class BuilderQueryImpl extends EObjectImpl implements BuilderQuery {
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.BUILDER_QUERY__BUILDER_QUERIES:
-				getBuilderQueries().clear();
-				return;
-			case B3BuildPackage.BUILDER_QUERY__UNIT_QUERY:
-				setUnitQuery((BExpression)null);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.BUILDER_QUERY__BUILDER_QUERIES:
+			getBuilderQueries().clear();
+			return;
+		case B3BuildPackage.BUILDER_QUERY__UNIT_QUERY:
+			setUnitQuery((BExpression) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -213,11 +222,11 @@ public class BuilderQueryImpl extends EObjectImpl implements BuilderQuery {
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.BUILDER_QUERY__BUILDER_QUERIES:
-				return builderQueries != null && !builderQueries.isEmpty();
-			case B3BuildPackage.BUILDER_QUERY__UNIT_QUERY:
-				return unitQuery != null;
+		switch(featureID) {
+		case B3BuildPackage.BUILDER_QUERY__BUILDER_QUERIES:
+			return builderQueries != null && !builderQueries.isEmpty();
+		case B3BuildPackage.BUILDER_QUERY__UNIT_QUERY:
+			return unitQuery != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -87,8 +87,9 @@ public class VersionedCapabilityImpl extends CapabilityImpl implements Versioned
 	public void setVersion(Version newVersion) {
 		Version oldVersion = version;
 		version = newVersion;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.VERSIONED_CAPABILITY__VERSION, oldVersion, version));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.VERSIONED_CAPABILITY__VERSION,
+					oldVersion, version));
 	}
 
 	/**
@@ -98,9 +99,9 @@ public class VersionedCapabilityImpl extends CapabilityImpl implements Versioned
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case B3BuildPackage.VERSIONED_CAPABILITY__VERSION:
-				return getVersion();
+		switch(featureID) {
+		case B3BuildPackage.VERSIONED_CAPABILITY__VERSION:
+			return getVersion();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -112,10 +113,10 @@ public class VersionedCapabilityImpl extends CapabilityImpl implements Versioned
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case B3BuildPackage.VERSIONED_CAPABILITY__VERSION:
-				setVersion((Version)newValue);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.VERSIONED_CAPABILITY__VERSION:
+			setVersion((Version) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -127,10 +128,10 @@ public class VersionedCapabilityImpl extends CapabilityImpl implements Versioned
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.VERSIONED_CAPABILITY__VERSION:
-				setVersion(VERSION_EDEFAULT);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.VERSIONED_CAPABILITY__VERSION:
+			setVersion(VERSION_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -142,9 +143,11 @@ public class VersionedCapabilityImpl extends CapabilityImpl implements Versioned
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.VERSIONED_CAPABILITY__VERSION:
-				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
+		switch(featureID) {
+		case B3BuildPackage.VERSIONED_CAPABILITY__VERSION:
+			return VERSION_EDEFAULT == null
+					? version != null
+					: !VERSION_EDEFAULT.equals(version);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -156,7 +159,8 @@ public class VersionedCapabilityImpl extends CapabilityImpl implements Versioned
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (version: ");

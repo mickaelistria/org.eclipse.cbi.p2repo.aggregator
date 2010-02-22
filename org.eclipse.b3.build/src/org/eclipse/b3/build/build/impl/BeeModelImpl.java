@@ -128,7 +128,7 @@ public class BeeModelImpl extends EObjectImpl implements BeeModel {
 	 * @generated
 	 */
 	public EList<Type> getImports() {
-		if (imports == null) {
+		if(imports == null) {
 			imports = new EObjectContainmentEList<Type>(Type.class, this, B3BuildPackage.BEE_MODEL__IMPORTS);
 		}
 		return imports;
@@ -140,8 +140,9 @@ public class BeeModelImpl extends EObjectImpl implements BeeModel {
 	 * @generated
 	 */
 	public EList<IFunction> getFunctions() {
-		if (functions == null) {
-			functions = new EObjectContainmentEList<IFunction>(IFunction.class, this, B3BuildPackage.BEE_MODEL__FUNCTIONS);
+		if(functions == null) {
+			functions = new EObjectContainmentEList<IFunction>(IFunction.class, this,
+					B3BuildPackage.BEE_MODEL__FUNCTIONS);
 		}
 		return functions;
 	}
@@ -152,7 +153,7 @@ public class BeeModelImpl extends EObjectImpl implements BeeModel {
 	 * @generated
 	 */
 	public EList<BConcern> getConcerns() {
-		if (concerns == null) {
+		if(concerns == null) {
 			concerns = new EObjectContainmentEList<BConcern>(BConcern.class, this, B3BuildPackage.BEE_MODEL__CONCERNS);
 		}
 		return concerns;
@@ -164,8 +165,9 @@ public class BeeModelImpl extends EObjectImpl implements BeeModel {
 	 * @generated
 	 */
 	public EList<BuildUnit> getBuildUnits() {
-		if (buildUnits == null) {
-			buildUnits = new EObjectContainmentEList<BuildUnit>(BuildUnit.class, this, B3BuildPackage.BEE_MODEL__BUILD_UNITS);
+		if(buildUnits == null) {
+			buildUnits = new EObjectContainmentEList<BuildUnit>(BuildUnit.class, this,
+					B3BuildPackage.BEE_MODEL__BUILD_UNITS);
 		}
 		return buildUnits;
 	}
@@ -176,8 +178,9 @@ public class BeeModelImpl extends EObjectImpl implements BeeModel {
 	 * @generated
 	 */
 	public EList<BPropertySet> getPropertySets() {
-		if (propertySets == null) {
-			propertySets = new EObjectContainmentEList<BPropertySet>(BPropertySet.class, this, B3BuildPackage.BEE_MODEL__PROPERTY_SETS);
+		if(propertySets == null) {
+			propertySets = new EObjectContainmentEList<BPropertySet>(BPropertySet.class, this,
+					B3BuildPackage.BEE_MODEL__PROPERTY_SETS);
 		}
 		return propertySets;
 	}
@@ -189,17 +192,17 @@ public class BeeModelImpl extends EObjectImpl implements BeeModel {
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case B3BuildPackage.BEE_MODEL__IMPORTS:
-				return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
-			case B3BuildPackage.BEE_MODEL__FUNCTIONS:
-				return ((InternalEList<?>)getFunctions()).basicRemove(otherEnd, msgs);
-			case B3BuildPackage.BEE_MODEL__CONCERNS:
-				return ((InternalEList<?>)getConcerns()).basicRemove(otherEnd, msgs);
-			case B3BuildPackage.BEE_MODEL__BUILD_UNITS:
-				return ((InternalEList<?>)getBuildUnits()).basicRemove(otherEnd, msgs);
-			case B3BuildPackage.BEE_MODEL__PROPERTY_SETS:
-				return ((InternalEList<?>)getPropertySets()).basicRemove(otherEnd, msgs);
+		switch(featureID) {
+		case B3BuildPackage.BEE_MODEL__IMPORTS:
+			return ((InternalEList<?>) getImports()).basicRemove(otherEnd, msgs);
+		case B3BuildPackage.BEE_MODEL__FUNCTIONS:
+			return ((InternalEList<?>) getFunctions()).basicRemove(otherEnd, msgs);
+		case B3BuildPackage.BEE_MODEL__CONCERNS:
+			return ((InternalEList<?>) getConcerns()).basicRemove(otherEnd, msgs);
+		case B3BuildPackage.BEE_MODEL__BUILD_UNITS:
+			return ((InternalEList<?>) getBuildUnits()).basicRemove(otherEnd, msgs);
+		case B3BuildPackage.BEE_MODEL__PROPERTY_SETS:
+			return ((InternalEList<?>) getPropertySets()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -211,17 +214,17 @@ public class BeeModelImpl extends EObjectImpl implements BeeModel {
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case B3BuildPackage.BEE_MODEL__IMPORTS:
-				return getImports();
-			case B3BuildPackage.BEE_MODEL__FUNCTIONS:
-				return getFunctions();
-			case B3BuildPackage.BEE_MODEL__CONCERNS:
-				return getConcerns();
-			case B3BuildPackage.BEE_MODEL__BUILD_UNITS:
-				return getBuildUnits();
-			case B3BuildPackage.BEE_MODEL__PROPERTY_SETS:
-				return getPropertySets();
+		switch(featureID) {
+		case B3BuildPackage.BEE_MODEL__IMPORTS:
+			return getImports();
+		case B3BuildPackage.BEE_MODEL__FUNCTIONS:
+			return getFunctions();
+		case B3BuildPackage.BEE_MODEL__CONCERNS:
+			return getConcerns();
+		case B3BuildPackage.BEE_MODEL__BUILD_UNITS:
+			return getBuildUnits();
+		case B3BuildPackage.BEE_MODEL__PROPERTY_SETS:
+			return getPropertySets();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -234,27 +237,27 @@ public class BeeModelImpl extends EObjectImpl implements BeeModel {
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case B3BuildPackage.BEE_MODEL__IMPORTS:
-				getImports().clear();
-				getImports().addAll((Collection<? extends Type>)newValue);
-				return;
-			case B3BuildPackage.BEE_MODEL__FUNCTIONS:
-				getFunctions().clear();
-				getFunctions().addAll((Collection<? extends IFunction>)newValue);
-				return;
-			case B3BuildPackage.BEE_MODEL__CONCERNS:
-				getConcerns().clear();
-				getConcerns().addAll((Collection<? extends BConcern>)newValue);
-				return;
-			case B3BuildPackage.BEE_MODEL__BUILD_UNITS:
-				getBuildUnits().clear();
-				getBuildUnits().addAll((Collection<? extends BuildUnit>)newValue);
-				return;
-			case B3BuildPackage.BEE_MODEL__PROPERTY_SETS:
-				getPropertySets().clear();
-				getPropertySets().addAll((Collection<? extends BPropertySet>)newValue);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.BEE_MODEL__IMPORTS:
+			getImports().clear();
+			getImports().addAll((Collection<? extends Type>) newValue);
+			return;
+		case B3BuildPackage.BEE_MODEL__FUNCTIONS:
+			getFunctions().clear();
+			getFunctions().addAll((Collection<? extends IFunction>) newValue);
+			return;
+		case B3BuildPackage.BEE_MODEL__CONCERNS:
+			getConcerns().clear();
+			getConcerns().addAll((Collection<? extends BConcern>) newValue);
+			return;
+		case B3BuildPackage.BEE_MODEL__BUILD_UNITS:
+			getBuildUnits().clear();
+			getBuildUnits().addAll((Collection<? extends BuildUnit>) newValue);
+			return;
+		case B3BuildPackage.BEE_MODEL__PROPERTY_SETS:
+			getPropertySets().clear();
+			getPropertySets().addAll((Collection<? extends BPropertySet>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -266,22 +269,22 @@ public class BeeModelImpl extends EObjectImpl implements BeeModel {
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.BEE_MODEL__IMPORTS:
-				getImports().clear();
-				return;
-			case B3BuildPackage.BEE_MODEL__FUNCTIONS:
-				getFunctions().clear();
-				return;
-			case B3BuildPackage.BEE_MODEL__CONCERNS:
-				getConcerns().clear();
-				return;
-			case B3BuildPackage.BEE_MODEL__BUILD_UNITS:
-				getBuildUnits().clear();
-				return;
-			case B3BuildPackage.BEE_MODEL__PROPERTY_SETS:
-				getPropertySets().clear();
-				return;
+		switch(featureID) {
+		case B3BuildPackage.BEE_MODEL__IMPORTS:
+			getImports().clear();
+			return;
+		case B3BuildPackage.BEE_MODEL__FUNCTIONS:
+			getFunctions().clear();
+			return;
+		case B3BuildPackage.BEE_MODEL__CONCERNS:
+			getConcerns().clear();
+			return;
+		case B3BuildPackage.BEE_MODEL__BUILD_UNITS:
+			getBuildUnits().clear();
+			return;
+		case B3BuildPackage.BEE_MODEL__PROPERTY_SETS:
+			getPropertySets().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -293,17 +296,17 @@ public class BeeModelImpl extends EObjectImpl implements BeeModel {
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.BEE_MODEL__IMPORTS:
-				return imports != null && !imports.isEmpty();
-			case B3BuildPackage.BEE_MODEL__FUNCTIONS:
-				return functions != null && !functions.isEmpty();
-			case B3BuildPackage.BEE_MODEL__CONCERNS:
-				return concerns != null && !concerns.isEmpty();
-			case B3BuildPackage.BEE_MODEL__BUILD_UNITS:
-				return buildUnits != null && !buildUnits.isEmpty();
-			case B3BuildPackage.BEE_MODEL__PROPERTY_SETS:
-				return propertySets != null && !propertySets.isEmpty();
+		switch(featureID) {
+		case B3BuildPackage.BEE_MODEL__IMPORTS:
+			return imports != null && !imports.isEmpty();
+		case B3BuildPackage.BEE_MODEL__FUNCTIONS:
+			return functions != null && !functions.isEmpty();
+		case B3BuildPackage.BEE_MODEL__CONCERNS:
+			return concerns != null && !concerns.isEmpty();
+		case B3BuildPackage.BEE_MODEL__BUILD_UNITS:
+			return buildUnits != null && !buildUnits.isEmpty();
+		case B3BuildPackage.BEE_MODEL__PROPERTY_SETS:
+			return propertySets != null && !propertySets.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

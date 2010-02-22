@@ -70,12 +70,13 @@ public class EffectiveRequirementFacadeImpl extends EffectiveFacadeImpl implemen
 	 * @generated
 	 */
 	public RequiredCapability getRequirement() {
-		if (requirement != null && requirement.eIsProxy()) {
-			InternalEObject oldRequirement = (InternalEObject)requirement;
-			requirement = (RequiredCapability)eResolveProxy(oldRequirement);
-			if (requirement != oldRequirement) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3BuildPackage.EFFECTIVE_REQUIREMENT_FACADE__REQUIREMENT, oldRequirement, requirement));
+		if(requirement != null && requirement.eIsProxy()) {
+			InternalEObject oldRequirement = (InternalEObject) requirement;
+			requirement = (RequiredCapability) eResolveProxy(oldRequirement);
+			if(requirement != oldRequirement) {
+				if(eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+							B3BuildPackage.EFFECTIVE_REQUIREMENT_FACADE__REQUIREMENT, oldRequirement, requirement));
 			}
 		}
 		return requirement;
@@ -98,8 +99,9 @@ public class EffectiveRequirementFacadeImpl extends EffectiveFacadeImpl implemen
 	public void setRequirement(RequiredCapability newRequirement) {
 		RequiredCapability oldRequirement = requirement;
 		requirement = newRequirement;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.EFFECTIVE_REQUIREMENT_FACADE__REQUIREMENT, oldRequirement, requirement));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.EFFECTIVE_REQUIREMENT_FACADE__REQUIREMENT, oldRequirement, requirement));
 	}
 
 	/**
@@ -109,10 +111,11 @@ public class EffectiveRequirementFacadeImpl extends EffectiveFacadeImpl implemen
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case B3BuildPackage.EFFECTIVE_REQUIREMENT_FACADE__REQUIREMENT:
-				if (resolve) return getRequirement();
-				return basicGetRequirement();
+		switch(featureID) {
+		case B3BuildPackage.EFFECTIVE_REQUIREMENT_FACADE__REQUIREMENT:
+			if(resolve)
+				return getRequirement();
+			return basicGetRequirement();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -124,10 +127,10 @@ public class EffectiveRequirementFacadeImpl extends EffectiveFacadeImpl implemen
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case B3BuildPackage.EFFECTIVE_REQUIREMENT_FACADE__REQUIREMENT:
-				setRequirement((RequiredCapability)newValue);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.EFFECTIVE_REQUIREMENT_FACADE__REQUIREMENT:
+			setRequirement((RequiredCapability) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -139,10 +142,10 @@ public class EffectiveRequirementFacadeImpl extends EffectiveFacadeImpl implemen
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.EFFECTIVE_REQUIREMENT_FACADE__REQUIREMENT:
-				setRequirement((RequiredCapability)null);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.EFFECTIVE_REQUIREMENT_FACADE__REQUIREMENT:
+			setRequirement((RequiredCapability) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -154,9 +157,9 @@ public class EffectiveRequirementFacadeImpl extends EffectiveFacadeImpl implemen
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.EFFECTIVE_REQUIREMENT_FACADE__REQUIREMENT:
-				return requirement != null;
+		switch(featureID) {
+		case B3BuildPackage.EFFECTIVE_REQUIREMENT_FACADE__REQUIREMENT:
+			return requirement != null;
 		}
 		return super.eIsSet(featureID);
 	}

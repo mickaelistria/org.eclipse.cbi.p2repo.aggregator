@@ -170,6 +170,42 @@ public interface B3BuildFactory extends EFactory {
 	SourcePredicate createSourcePredicate();
 
 	/**
+	 * Returns a new object of class '<em>Compound First Found Repository</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Compound First Found Repository</em>'.
+	 * @generated
+	 */
+	CompoundFirstFoundRepository createCompoundFirstFoundRepository();
+
+	/**
+	 * Returns a new object of class '<em>Compund Best Found Repository</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Compund Best Found Repository</em>'.
+	 * @generated
+	 */
+	CompundBestFoundRepository createCompundBestFoundRepository();
+
+	/**
+	 * Returns a new object of class '<em>Execution Stack Repository</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Execution Stack Repository</em>'.
+	 * @generated
+	 */
+	ExecutionStackRepository createExecutionStackRepository();
+
+	/**
+	 * Returns a new object of class '<em>Simple Repository</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Simple Repository</em>'.
+	 * @generated
+	 */
+	SimpleRepository createSimpleRepository();
+
+	/**
 	 * Returns a new object of class '<em>Versioned Capability</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -99,7 +99,7 @@ public class BeeHiveImpl extends EObjectImpl implements BeeHive {
 	 * @generated
 	 */
 	public EList<BeeModel> getBeeModels() {
-		if (beeModels == null) {
+		if(beeModels == null) {
 			beeModels = new EObjectResolvingEList<BeeModel>(BeeModel.class, this, B3BuildPackage.BEE_HIVE__BEE_MODELS);
 		}
 		return beeModels;
@@ -111,12 +111,13 @@ public class BeeHiveImpl extends EObjectImpl implements BeeHive {
 	 * @generated
 	 */
 	public BeeHive getParent() {
-		if (parent != null && parent.eIsProxy()) {
-			InternalEObject oldParent = (InternalEObject)parent;
-			parent = (BeeHive)eResolveProxy(oldParent);
-			if (parent != oldParent) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3BuildPackage.BEE_HIVE__PARENT, oldParent, parent));
+		if(parent != null && parent.eIsProxy()) {
+			InternalEObject oldParent = (InternalEObject) parent;
+			parent = (BeeHive) eResolveProxy(oldParent);
+			if(parent != oldParent) {
+				if(eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3BuildPackage.BEE_HIVE__PARENT,
+							oldParent, parent));
 			}
 		}
 		return parent;
@@ -139,7 +140,7 @@ public class BeeHiveImpl extends EObjectImpl implements BeeHive {
 	public void setParent(BeeHive newParent) {
 		BeeHive oldParent = parent;
 		parent = newParent;
-		if (eNotificationRequired())
+		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BEE_HIVE__PARENT, oldParent, parent));
 	}
 
@@ -160,8 +161,9 @@ public class BeeHiveImpl extends EObjectImpl implements BeeHive {
 	public void setResolutions(Map<RequiredCapability, Capability> newResolutions) {
 		Map<RequiredCapability, Capability> oldResolutions = resolutions;
 		resolutions = newResolutions;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BEE_HIVE__RESOLUTIONS, oldResolutions, resolutions));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BEE_HIVE__RESOLUTIONS, oldResolutions,
+					resolutions));
 	}
 
 	/**
@@ -182,14 +184,15 @@ public class BeeHiveImpl extends EObjectImpl implements BeeHive {
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case B3BuildPackage.BEE_HIVE__BEE_MODELS:
-				return getBeeModels();
-			case B3BuildPackage.BEE_HIVE__PARENT:
-				if (resolve) return getParent();
-				return basicGetParent();
-			case B3BuildPackage.BEE_HIVE__RESOLUTIONS:
-				return getResolutions();
+		switch(featureID) {
+		case B3BuildPackage.BEE_HIVE__BEE_MODELS:
+			return getBeeModels();
+		case B3BuildPackage.BEE_HIVE__PARENT:
+			if(resolve)
+				return getParent();
+			return basicGetParent();
+		case B3BuildPackage.BEE_HIVE__RESOLUTIONS:
+			return getResolutions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -202,17 +205,17 @@ public class BeeHiveImpl extends EObjectImpl implements BeeHive {
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case B3BuildPackage.BEE_HIVE__BEE_MODELS:
-				getBeeModels().clear();
-				getBeeModels().addAll((Collection<? extends BeeModel>)newValue);
-				return;
-			case B3BuildPackage.BEE_HIVE__PARENT:
-				setParent((BeeHive)newValue);
-				return;
-			case B3BuildPackage.BEE_HIVE__RESOLUTIONS:
-				setResolutions((Map<RequiredCapability, Capability>)newValue);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.BEE_HIVE__BEE_MODELS:
+			getBeeModels().clear();
+			getBeeModels().addAll((Collection<? extends BeeModel>) newValue);
+			return;
+		case B3BuildPackage.BEE_HIVE__PARENT:
+			setParent((BeeHive) newValue);
+			return;
+		case B3BuildPackage.BEE_HIVE__RESOLUTIONS:
+			setResolutions((Map<RequiredCapability, Capability>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -224,16 +227,16 @@ public class BeeHiveImpl extends EObjectImpl implements BeeHive {
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.BEE_HIVE__BEE_MODELS:
-				getBeeModels().clear();
-				return;
-			case B3BuildPackage.BEE_HIVE__PARENT:
-				setParent((BeeHive)null);
-				return;
-			case B3BuildPackage.BEE_HIVE__RESOLUTIONS:
-				setResolutions((Map<RequiredCapability, Capability>)null);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.BEE_HIVE__BEE_MODELS:
+			getBeeModels().clear();
+			return;
+		case B3BuildPackage.BEE_HIVE__PARENT:
+			setParent((BeeHive) null);
+			return;
+		case B3BuildPackage.BEE_HIVE__RESOLUTIONS:
+			setResolutions((Map<RequiredCapability, Capability>) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -245,13 +248,13 @@ public class BeeHiveImpl extends EObjectImpl implements BeeHive {
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.BEE_HIVE__BEE_MODELS:
-				return beeModels != null && !beeModels.isEmpty();
-			case B3BuildPackage.BEE_HIVE__PARENT:
-				return parent != null;
-			case B3BuildPackage.BEE_HIVE__RESOLUTIONS:
-				return resolutions != null;
+		switch(featureID) {
+		case B3BuildPackage.BEE_HIVE__BEE_MODELS:
+			return beeModels != null && !beeModels.isEmpty();
+		case B3BuildPackage.BEE_HIVE__PARENT:
+			return parent != null;
+		case B3BuildPackage.BEE_HIVE__RESOLUTIONS:
+			return resolutions != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -263,7 +266,8 @@ public class BeeHiveImpl extends EObjectImpl implements BeeHive {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (resolutions: ");

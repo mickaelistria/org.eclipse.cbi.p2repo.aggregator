@@ -12,14 +12,13 @@ package org.eclipse.b3.build.build;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Output Predicate</b></em>'.
+ * A representation of the model object '<em><b>Compound First Found Repository</b></em>'.
  * <!-- end-user-doc -->
  *
  *
- * @see org.eclipse.b3.build.build.B3BuildPackage#getOutputPredicate()
+ * @see org.eclipse.b3.build.build.B3BuildPackage#getCompoundFirstFoundRepository()
  * @model
  * @generated
  */
-public interface OutputPredicate extends PathGroupPredicate {
-
-} // OutputPredicate
+public interface CompoundFirstFoundRepository extends CompoundBuildUnitRepository {
+} // CompoundFirstFoundRepository

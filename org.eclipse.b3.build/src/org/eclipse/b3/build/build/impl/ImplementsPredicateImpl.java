@@ -86,9 +86,13 @@ public class ImplementsPredicateImpl extends BExpressionImpl implements Implemen
 	public NotificationChain basicSetType(Type newType, NotificationChain msgs) {
 		Type oldType = type;
 		type = newType;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.IMPLEMENTS_PREDICATE__TYPE, oldType, newType);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.IMPLEMENTS_PREDICATE__TYPE, oldType, newType);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -99,17 +103,21 @@ public class ImplementsPredicateImpl extends BExpressionImpl implements Implemen
 	 * @generated
 	 */
 	public void setType(Type newType) {
-		if (newType != type) {
+		if(newType != type) {
 			NotificationChain msgs = null;
-			if (type != null)
-				msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.IMPLEMENTS_PREDICATE__TYPE, null, msgs);
-			if (newType != null)
-				msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.IMPLEMENTS_PREDICATE__TYPE, null, msgs);
+			if(type != null)
+				msgs = ((InternalEObject) type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.IMPLEMENTS_PREDICATE__TYPE, null, msgs);
+			if(newType != null)
+				msgs = ((InternalEObject) newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.IMPLEMENTS_PREDICATE__TYPE, null, msgs);
 			msgs = basicSetType(newType, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.IMPLEMENTS_PREDICATE__TYPE, newType, newType));
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.IMPLEMENTS_PREDICATE__TYPE, newType,
+					newType));
 	}
 
 	/**
@@ -119,9 +127,9 @@ public class ImplementsPredicateImpl extends BExpressionImpl implements Implemen
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case B3BuildPackage.IMPLEMENTS_PREDICATE__TYPE:
-				return basicSetType(null, msgs);
+		switch(featureID) {
+		case B3BuildPackage.IMPLEMENTS_PREDICATE__TYPE:
+			return basicSetType(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -133,9 +141,9 @@ public class ImplementsPredicateImpl extends BExpressionImpl implements Implemen
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case B3BuildPackage.IMPLEMENTS_PREDICATE__TYPE:
-				return getType();
+		switch(featureID) {
+		case B3BuildPackage.IMPLEMENTS_PREDICATE__TYPE:
+			return getType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -147,10 +155,10 @@ public class ImplementsPredicateImpl extends BExpressionImpl implements Implemen
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case B3BuildPackage.IMPLEMENTS_PREDICATE__TYPE:
-				setType((Type)newValue);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.IMPLEMENTS_PREDICATE__TYPE:
+			setType((Type) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -162,10 +170,10 @@ public class ImplementsPredicateImpl extends BExpressionImpl implements Implemen
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.IMPLEMENTS_PREDICATE__TYPE:
-				setType((Type)null);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.IMPLEMENTS_PREDICATE__TYPE:
+			setType((Type) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -177,12 +185,13 @@ public class ImplementsPredicateImpl extends BExpressionImpl implements Implemen
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.IMPLEMENTS_PREDICATE__TYPE:
-				return type != null;
+		switch(featureID) {
+		case B3BuildPackage.IMPLEMENTS_PREDICATE__TYPE:
+			return type != null;
 		}
 		return super.eIsSet(featureID);
 	}
+
 	/**
 	 * Iterates over the BuildUnit referenced as the context value "@test" and returns true if one of the implements
 	 * in the unit matches the predicate.
@@ -194,7 +203,7 @@ public class ImplementsPredicateImpl extends BExpressionImpl implements Implemen
 		Object test = ctx.getValue("@test");
 		if(!(test instanceof BuildUnit))
 			throw new B3InternalError("Attempt to evaluate ImplementsPredicate against non BuildUnit or Builder");
-		BuildUnit u = (BuildUnit)test;
+		BuildUnit u = (BuildUnit) test;
 		EList<Type> iList = u.getImplements();
 		for(Type t : iList) {
 			if(TypeUtils.isAssignableFrom(type, t))
@@ -202,6 +211,7 @@ public class ImplementsPredicateImpl extends BExpressionImpl implements Implemen
 		}
 		return Boolean.FALSE;
 	}
+
 	/**
 	 * Always returns Boolean.
 	 */

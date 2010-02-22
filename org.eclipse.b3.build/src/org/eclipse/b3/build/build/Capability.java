@@ -9,7 +9,6 @@ package org.eclipse.b3.build.build;
 import org.eclipse.b3.backend.evaluator.b3backend.BExpression;
 import org.eclipse.emf.ecore.EObject;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Capability</b></em>'.

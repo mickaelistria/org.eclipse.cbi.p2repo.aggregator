@@ -398,9 +398,13 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	public NotificationChain basicSetQuery(BExpression newQuery, NotificationChain msgs) {
 		BExpression oldQuery = query;
 		query = newQuery;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__QUERY, oldQuery, newQuery);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.BUILDER_CONCERN_CONTEXT__QUERY, oldQuery, newQuery);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -411,17 +415,21 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * @generated
 	 */
 	public void setQuery(BExpression newQuery) {
-		if (newQuery != query) {
+		if(newQuery != query) {
 			NotificationChain msgs = null;
-			if (query != null)
-				msgs = ((InternalEObject)query).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_CONCERN_CONTEXT__QUERY, null, msgs);
-			if (newQuery != null)
-				msgs = ((InternalEObject)newQuery).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_CONCERN_CONTEXT__QUERY, null, msgs);
+			if(query != null)
+				msgs = ((InternalEObject) query).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.BUILDER_CONCERN_CONTEXT__QUERY, null, msgs);
+			if(newQuery != null)
+				msgs = ((InternalEObject) newQuery).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.BUILDER_CONCERN_CONTEXT__QUERY, null, msgs);
 			msgs = basicSetQuery(newQuery, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__QUERY, newQuery, newQuery));
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__QUERY,
+					newQuery, newQuery));
 	}
 
 	/**
@@ -430,8 +438,9 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * @generated
 	 */
 	public EList<Prerequisite> getInputAdditions() {
-		if (inputAdditions == null) {
-			inputAdditions = new EObjectContainmentEList<Prerequisite>(Prerequisite.class, this, B3BuildPackage.BUILDER_CONCERN_CONTEXT__INPUT_ADDITIONS);
+		if(inputAdditions == null) {
+			inputAdditions = new EObjectContainmentEList<Prerequisite>(Prerequisite.class, this,
+					B3BuildPackage.BUILDER_CONCERN_CONTEXT__INPUT_ADDITIONS);
 		}
 		return inputAdditions;
 	}
@@ -442,8 +451,9 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * @generated
 	 */
 	public EList<InputPredicate> getInputRemovals() {
-		if (inputRemovals == null) {
-			inputRemovals = new EObjectContainmentEList<InputPredicate>(InputPredicate.class, this, B3BuildPackage.BUILDER_CONCERN_CONTEXT__INPUT_REMOVALS);
+		if(inputRemovals == null) {
+			inputRemovals = new EObjectContainmentEList<InputPredicate>(InputPredicate.class, this,
+					B3BuildPackage.BUILDER_CONCERN_CONTEXT__INPUT_REMOVALS);
 		}
 		return inputRemovals;
 	}
@@ -454,8 +464,9 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * @generated
 	 */
 	public EList<ConditionalPathVector> getOutputAdditions() {
-		if (outputAdditions == null) {
-			outputAdditions = new EObjectContainmentEList<ConditionalPathVector>(ConditionalPathVector.class, this, B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ADDITIONS);
+		if(outputAdditions == null) {
+			outputAdditions = new EObjectContainmentEList<ConditionalPathVector>(ConditionalPathVector.class, this,
+					B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ADDITIONS);
 		}
 		return outputAdditions;
 	}
@@ -466,8 +477,9 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * @generated
 	 */
 	public EList<OutputPredicate> getOutputRemovals() {
-		if (outputRemovals == null) {
-			outputRemovals = new EObjectContainmentEList<OutputPredicate>(OutputPredicate.class, this, B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_REMOVALS);
+		if(outputRemovals == null) {
+			outputRemovals = new EObjectContainmentEList<OutputPredicate>(OutputPredicate.class, this,
+					B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_REMOVALS);
 		}
 		return outputRemovals;
 	}
@@ -489,9 +501,13 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	public NotificationChain basicSetFuncExpr(BExpression newFuncExpr, NotificationChain msgs) {
 		BExpression oldFuncExpr = funcExpr;
 		funcExpr = newFuncExpr;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__FUNC_EXPR, oldFuncExpr, newFuncExpr);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.BUILDER_CONCERN_CONTEXT__FUNC_EXPR, oldFuncExpr, newFuncExpr);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -502,17 +518,21 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * @generated
 	 */
 	public void setFuncExpr(BExpression newFuncExpr) {
-		if (newFuncExpr != funcExpr) {
+		if(newFuncExpr != funcExpr) {
 			NotificationChain msgs = null;
-			if (funcExpr != null)
-				msgs = ((InternalEObject)funcExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_CONCERN_CONTEXT__FUNC_EXPR, null, msgs);
-			if (newFuncExpr != null)
-				msgs = ((InternalEObject)newFuncExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_CONCERN_CONTEXT__FUNC_EXPR, null, msgs);
+			if(funcExpr != null)
+				msgs = ((InternalEObject) funcExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.BUILDER_CONCERN_CONTEXT__FUNC_EXPR, null, msgs);
+			if(newFuncExpr != null)
+				msgs = ((InternalEObject) newFuncExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.BUILDER_CONCERN_CONTEXT__FUNC_EXPR, null, msgs);
 			msgs = basicSetFuncExpr(newFuncExpr, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__FUNC_EXPR, newFuncExpr, newFuncExpr));
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__FUNC_EXPR,
+					newFuncExpr, newFuncExpr));
 	}
 
 	/**
@@ -532,8 +552,9 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	public void setVarArgs(boolean newVarArgs) {
 		boolean oldVarArgs = varArgs;
 		varArgs = newVarArgs;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__VAR_ARGS, oldVarArgs, varArgs));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__VAR_ARGS,
+					oldVarArgs, varArgs));
 	}
 
 	/**
@@ -542,8 +563,9 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * @generated
 	 */
 	public EList<BParameterPredicate> getParameters() {
-		if (parameters == null) {
-			parameters = new EObjectContainmentEList<BParameterPredicate>(BParameterPredicate.class, this, B3BuildPackage.BUILDER_CONCERN_CONTEXT__PARAMETERS);
+		if(parameters == null) {
+			parameters = new EObjectContainmentEList<BParameterPredicate>(BParameterPredicate.class, this,
+					B3BuildPackage.BUILDER_CONCERN_CONTEXT__PARAMETERS);
 		}
 		return parameters;
 	}
@@ -565,8 +587,9 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	public void setMatchParameters(boolean newMatchParameters) {
 		boolean oldMatchParameters = matchParameters;
 		matchParameters = newMatchParameters;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__MATCH_PARAMETERS, oldMatchParameters, matchParameters));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.BUILDER_CONCERN_CONTEXT__MATCH_PARAMETERS, oldMatchParameters, matchParameters));
 	}
 
 	/**
@@ -586,8 +609,10 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	public void setRemovePreCondition(boolean newRemovePreCondition) {
 		boolean oldRemovePreCondition = removePreCondition;
 		removePreCondition = newRemovePreCondition;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_PRE_CONDITION, oldRemovePreCondition, removePreCondition));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_PRE_CONDITION, oldRemovePreCondition,
+					removePreCondition));
 	}
 
 	/**
@@ -607,8 +632,10 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	public void setRemovePostCondition(boolean newRemovePostCondition) {
 		boolean oldRemovePostCondition = removePostCondition;
 		removePostCondition = newRemovePostCondition;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_POST_CONDITION, oldRemovePostCondition, removePostCondition));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_POST_CONDITION, oldRemovePostCondition,
+					removePostCondition));
 	}
 
 	/**
@@ -628,8 +655,10 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	public void setRemovePostInputCondition(boolean newRemovePostInputCondition) {
 		boolean oldRemovePostInputCondition = removePostInputCondition;
 		removePostInputCondition = newRemovePostInputCondition;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_POST_INPUT_CONDITION, oldRemovePostInputCondition, removePostInputCondition));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_POST_INPUT_CONDITION, oldRemovePostInputCondition,
+					removePostInputCondition));
 	}
 
 	/**
@@ -649,9 +678,13 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	public NotificationChain basicSetPrecondExpr(BExpression newPrecondExpr, NotificationChain msgs) {
 		BExpression oldPrecondExpr = precondExpr;
 		precondExpr = newPrecondExpr;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__PRECOND_EXPR, oldPrecondExpr, newPrecondExpr);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.BUILDER_CONCERN_CONTEXT__PRECOND_EXPR, oldPrecondExpr, newPrecondExpr);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -662,17 +695,21 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * @generated
 	 */
 	public void setPrecondExpr(BExpression newPrecondExpr) {
-		if (newPrecondExpr != precondExpr) {
+		if(newPrecondExpr != precondExpr) {
 			NotificationChain msgs = null;
-			if (precondExpr != null)
-				msgs = ((InternalEObject)precondExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_CONCERN_CONTEXT__PRECOND_EXPR, null, msgs);
-			if (newPrecondExpr != null)
-				msgs = ((InternalEObject)newPrecondExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_CONCERN_CONTEXT__PRECOND_EXPR, null, msgs);
+			if(precondExpr != null)
+				msgs = ((InternalEObject) precondExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.BUILDER_CONCERN_CONTEXT__PRECOND_EXPR, null, msgs);
+			if(newPrecondExpr != null)
+				msgs = ((InternalEObject) newPrecondExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.BUILDER_CONCERN_CONTEXT__PRECOND_EXPR, null, msgs);
 			msgs = basicSetPrecondExpr(newPrecondExpr, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__PRECOND_EXPR, newPrecondExpr, newPrecondExpr));
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__PRECOND_EXPR,
+					newPrecondExpr, newPrecondExpr));
 	}
 
 	/**
@@ -692,9 +729,13 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	public NotificationChain basicSetPostcondExpr(BExpression newPostcondExpr, NotificationChain msgs) {
 		BExpression oldPostcondExpr = postcondExpr;
 		postcondExpr = newPostcondExpr;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTCOND_EXPR, oldPostcondExpr, newPostcondExpr);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTCOND_EXPR, oldPostcondExpr, newPostcondExpr);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -705,17 +746,21 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * @generated
 	 */
 	public void setPostcondExpr(BExpression newPostcondExpr) {
-		if (newPostcondExpr != postcondExpr) {
+		if(newPostcondExpr != postcondExpr) {
 			NotificationChain msgs = null;
-			if (postcondExpr != null)
-				msgs = ((InternalEObject)postcondExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTCOND_EXPR, null, msgs);
-			if (newPostcondExpr != null)
-				msgs = ((InternalEObject)newPostcondExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTCOND_EXPR, null, msgs);
+			if(postcondExpr != null)
+				msgs = ((InternalEObject) postcondExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTCOND_EXPR, null, msgs);
+			if(newPostcondExpr != null)
+				msgs = ((InternalEObject) newPostcondExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTCOND_EXPR, null, msgs);
 			msgs = basicSetPostcondExpr(newPostcondExpr, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTCOND_EXPR, newPostcondExpr, newPostcondExpr));
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTCOND_EXPR, newPostcondExpr, newPostcondExpr));
 	}
 
 	/**
@@ -735,9 +780,14 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	public NotificationChain basicSetPostinputcondExpr(BExpression newPostinputcondExpr, NotificationChain msgs) {
 		BExpression oldPostinputcondExpr = postinputcondExpr;
 		postinputcondExpr = newPostinputcondExpr;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTINPUTCOND_EXPR, oldPostinputcondExpr, newPostinputcondExpr);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTINPUTCOND_EXPR, oldPostinputcondExpr,
+					newPostinputcondExpr);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -748,17 +798,22 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * @generated
 	 */
 	public void setPostinputcondExpr(BExpression newPostinputcondExpr) {
-		if (newPostinputcondExpr != postinputcondExpr) {
+		if(newPostinputcondExpr != postinputcondExpr) {
 			NotificationChain msgs = null;
-			if (postinputcondExpr != null)
-				msgs = ((InternalEObject)postinputcondExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTINPUTCOND_EXPR, null, msgs);
-			if (newPostinputcondExpr != null)
-				msgs = ((InternalEObject)newPostinputcondExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTINPUTCOND_EXPR, null, msgs);
+			if(postinputcondExpr != null)
+				msgs = ((InternalEObject) postinputcondExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTINPUTCOND_EXPR, null, msgs);
+			if(newPostinputcondExpr != null)
+				msgs = ((InternalEObject) newPostinputcondExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTINPUTCOND_EXPR, null, msgs);
 			msgs = basicSetPostinputcondExpr(newPostinputcondExpr, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTINPUTCOND_EXPR, newPostinputcondExpr, newPostinputcondExpr));
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTINPUTCOND_EXPR, newPostinputcondExpr,
+					newPostinputcondExpr));
 	}
 
 	/**
@@ -767,8 +822,9 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * @generated
 	 */
 	public EList<ProvidesPredicate> getProvidesRemovals() {
-		if (providesRemovals == null) {
-			providesRemovals = new EObjectContainmentEList<ProvidesPredicate>(ProvidesPredicate.class, this, B3BuildPackage.BUILDER_CONCERN_CONTEXT__PROVIDES_REMOVALS);
+		if(providesRemovals == null) {
+			providesRemovals = new EObjectContainmentEList<ProvidesPredicate>(ProvidesPredicate.class, this,
+					B3BuildPackage.BUILDER_CONCERN_CONTEXT__PROVIDES_REMOVALS);
 		}
 		return providesRemovals;
 	}
@@ -779,8 +835,9 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * @generated
 	 */
 	public EList<String> getOutputAnnotationsRemovals() {
-		if (outputAnnotationsRemovals == null) {
-			outputAnnotationsRemovals = new EDataTypeUniqueEList<String>(String.class, this, B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATIONS_REMOVALS);
+		if(outputAnnotationsRemovals == null) {
+			outputAnnotationsRemovals = new EDataTypeUniqueEList<String>(String.class, this,
+					B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATIONS_REMOVALS);
 		}
 		return outputAnnotationsRemovals;
 	}
@@ -799,12 +856,18 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOutputAnnotationAdditions(BPropertySet newOutputAnnotationAdditions, NotificationChain msgs) {
+	public NotificationChain basicSetOutputAnnotationAdditions(BPropertySet newOutputAnnotationAdditions,
+			NotificationChain msgs) {
 		BPropertySet oldOutputAnnotationAdditions = outputAnnotationAdditions;
 		outputAnnotationAdditions = newOutputAnnotationAdditions;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATION_ADDITIONS, oldOutputAnnotationAdditions, newOutputAnnotationAdditions);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATION_ADDITIONS, oldOutputAnnotationAdditions,
+					newOutputAnnotationAdditions);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -815,17 +878,22 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * @generated
 	 */
 	public void setOutputAnnotationAdditions(BPropertySet newOutputAnnotationAdditions) {
-		if (newOutputAnnotationAdditions != outputAnnotationAdditions) {
+		if(newOutputAnnotationAdditions != outputAnnotationAdditions) {
 			NotificationChain msgs = null;
-			if (outputAnnotationAdditions != null)
-				msgs = ((InternalEObject)outputAnnotationAdditions).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATION_ADDITIONS, null, msgs);
-			if (newOutputAnnotationAdditions != null)
-				msgs = ((InternalEObject)newOutputAnnotationAdditions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATION_ADDITIONS, null, msgs);
+			if(outputAnnotationAdditions != null)
+				msgs = ((InternalEObject) outputAnnotationAdditions).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATION_ADDITIONS, null, msgs);
+			if(newOutputAnnotationAdditions != null)
+				msgs = ((InternalEObject) newOutputAnnotationAdditions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATION_ADDITIONS, null, msgs);
 			msgs = basicSetOutputAnnotationAdditions(newOutputAnnotationAdditions, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATION_ADDITIONS, newOutputAnnotationAdditions, newOutputAnnotationAdditions));
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATION_ADDITIONS, newOutputAnnotationAdditions,
+					newOutputAnnotationAdditions));
 	}
 
 	/**
@@ -834,8 +902,9 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * @generated
 	 */
 	public EList<SourcePredicate> getSourceRemovals() {
-		if (sourceRemovals == null) {
-			sourceRemovals = new EObjectContainmentEList<SourcePredicate>(SourcePredicate.class, this, B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_REMOVALS);
+		if(sourceRemovals == null) {
+			sourceRemovals = new EObjectContainmentEList<SourcePredicate>(SourcePredicate.class, this,
+					B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_REMOVALS);
 		}
 		return sourceRemovals;
 	}
@@ -846,8 +915,9 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * @generated
 	 */
 	public EList<ConditionalPathVector> getSourceAdditions() {
-		if (sourceAdditions == null) {
-			sourceAdditions = new EObjectContainmentEList<ConditionalPathVector>(ConditionalPathVector.class, this, B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ADDITIONS);
+		if(sourceAdditions == null) {
+			sourceAdditions = new EObjectContainmentEList<ConditionalPathVector>(ConditionalPathVector.class, this,
+					B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ADDITIONS);
 		}
 		return sourceAdditions;
 	}
@@ -858,8 +928,9 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * @generated
 	 */
 	public EList<String> getSourceAnnotationsRemovals() {
-		if (sourceAnnotationsRemovals == null) {
-			sourceAnnotationsRemovals = new EDataTypeUniqueEList<String>(String.class, this, B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATIONS_REMOVALS);
+		if(sourceAnnotationsRemovals == null) {
+			sourceAnnotationsRemovals = new EDataTypeUniqueEList<String>(String.class, this,
+					B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATIONS_REMOVALS);
 		}
 		return sourceAnnotationsRemovals;
 	}
@@ -878,12 +949,18 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSourceAnnotationAdditions(BPropertySet newSourceAnnotationAdditions, NotificationChain msgs) {
+	public NotificationChain basicSetSourceAnnotationAdditions(BPropertySet newSourceAnnotationAdditions,
+			NotificationChain msgs) {
 		BPropertySet oldSourceAnnotationAdditions = sourceAnnotationAdditions;
 		sourceAnnotationAdditions = newSourceAnnotationAdditions;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATION_ADDITIONS, oldSourceAnnotationAdditions, newSourceAnnotationAdditions);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATION_ADDITIONS, oldSourceAnnotationAdditions,
+					newSourceAnnotationAdditions);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -894,17 +971,22 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * @generated
 	 */
 	public void setSourceAnnotationAdditions(BPropertySet newSourceAnnotationAdditions) {
-		if (newSourceAnnotationAdditions != sourceAnnotationAdditions) {
+		if(newSourceAnnotationAdditions != sourceAnnotationAdditions) {
 			NotificationChain msgs = null;
-			if (sourceAnnotationAdditions != null)
-				msgs = ((InternalEObject)sourceAnnotationAdditions).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATION_ADDITIONS, null, msgs);
-			if (newSourceAnnotationAdditions != null)
-				msgs = ((InternalEObject)newSourceAnnotationAdditions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATION_ADDITIONS, null, msgs);
+			if(sourceAnnotationAdditions != null)
+				msgs = ((InternalEObject) sourceAnnotationAdditions).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATION_ADDITIONS, null, msgs);
+			if(newSourceAnnotationAdditions != null)
+				msgs = ((InternalEObject) newSourceAnnotationAdditions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATION_ADDITIONS, null, msgs);
 			msgs = basicSetSourceAnnotationAdditions(newSourceAnnotationAdditions, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATION_ADDITIONS, newSourceAnnotationAdditions, newSourceAnnotationAdditions));
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATION_ADDITIONS, newSourceAnnotationAdditions,
+					newSourceAnnotationAdditions));
 	}
 
 	/**
@@ -914,10 +996,11 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public boolean evaluateIfMatching(Object candidate, BExecutionContext ctx, BuildUnit promoteToUnit) throws Throwable {
+	public boolean evaluateIfMatching(Object candidate, BExecutionContext ctx, BuildUnit promoteToUnit)
+			throws Throwable {
 		TypePattern pattern = TypePattern.compile(getParameters());
-		if(candidate instanceof IBuilder && matchesQuery((IBuilder)candidate, ctx))
-			return weaveIfParametersMatch(pattern, (IBuilder)candidate, ctx, null); // do not promote
+		if(candidate instanceof IBuilder && matchesQuery((IBuilder) candidate, ctx))
+			return weaveIfParametersMatch(pattern, (IBuilder) candidate, ctx, null); // do not promote
 		return false;
 	}
 
@@ -928,37 +1011,37 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__QUERY:
-				return basicSetQuery(null, msgs);
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__INPUT_ADDITIONS:
-				return ((InternalEList<?>)getInputAdditions()).basicRemove(otherEnd, msgs);
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__INPUT_REMOVALS:
-				return ((InternalEList<?>)getInputRemovals()).basicRemove(otherEnd, msgs);
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ADDITIONS:
-				return ((InternalEList<?>)getOutputAdditions()).basicRemove(otherEnd, msgs);
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_REMOVALS:
-				return ((InternalEList<?>)getOutputRemovals()).basicRemove(otherEnd, msgs);
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__FUNC_EXPR:
-				return basicSetFuncExpr(null, msgs);
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PARAMETERS:
-				return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PRECOND_EXPR:
-				return basicSetPrecondExpr(null, msgs);
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTCOND_EXPR:
-				return basicSetPostcondExpr(null, msgs);
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTINPUTCOND_EXPR:
-				return basicSetPostinputcondExpr(null, msgs);
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PROVIDES_REMOVALS:
-				return ((InternalEList<?>)getProvidesRemovals()).basicRemove(otherEnd, msgs);
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATION_ADDITIONS:
-				return basicSetOutputAnnotationAdditions(null, msgs);
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_REMOVALS:
-				return ((InternalEList<?>)getSourceRemovals()).basicRemove(otherEnd, msgs);
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ADDITIONS:
-				return ((InternalEList<?>)getSourceAdditions()).basicRemove(otherEnd, msgs);
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATION_ADDITIONS:
-				return basicSetSourceAnnotationAdditions(null, msgs);
+		switch(featureID) {
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__QUERY:
+			return basicSetQuery(null, msgs);
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__INPUT_ADDITIONS:
+			return ((InternalEList<?>) getInputAdditions()).basicRemove(otherEnd, msgs);
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__INPUT_REMOVALS:
+			return ((InternalEList<?>) getInputRemovals()).basicRemove(otherEnd, msgs);
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ADDITIONS:
+			return ((InternalEList<?>) getOutputAdditions()).basicRemove(otherEnd, msgs);
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_REMOVALS:
+			return ((InternalEList<?>) getOutputRemovals()).basicRemove(otherEnd, msgs);
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__FUNC_EXPR:
+			return basicSetFuncExpr(null, msgs);
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PARAMETERS:
+			return ((InternalEList<?>) getParameters()).basicRemove(otherEnd, msgs);
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PRECOND_EXPR:
+			return basicSetPrecondExpr(null, msgs);
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTCOND_EXPR:
+			return basicSetPostcondExpr(null, msgs);
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTINPUTCOND_EXPR:
+			return basicSetPostinputcondExpr(null, msgs);
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PROVIDES_REMOVALS:
+			return ((InternalEList<?>) getProvidesRemovals()).basicRemove(otherEnd, msgs);
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATION_ADDITIONS:
+			return basicSetOutputAnnotationAdditions(null, msgs);
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_REMOVALS:
+			return ((InternalEList<?>) getSourceRemovals()).basicRemove(otherEnd, msgs);
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ADDITIONS:
+			return ((InternalEList<?>) getSourceAdditions()).basicRemove(otherEnd, msgs);
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATION_ADDITIONS:
+			return basicSetSourceAnnotationAdditions(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -970,51 +1053,51 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__QUERY:
-				return getQuery();
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__INPUT_ADDITIONS:
-				return getInputAdditions();
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__INPUT_REMOVALS:
-				return getInputRemovals();
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ADDITIONS:
-				return getOutputAdditions();
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_REMOVALS:
-				return getOutputRemovals();
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__FUNC_EXPR:
-				return getFuncExpr();
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__VAR_ARGS:
-				return isVarArgs();
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PARAMETERS:
-				return getParameters();
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__MATCH_PARAMETERS:
-				return isMatchParameters();
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_PRE_CONDITION:
-				return isRemovePreCondition();
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_POST_CONDITION:
-				return isRemovePostCondition();
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_POST_INPUT_CONDITION:
-				return isRemovePostInputCondition();
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PRECOND_EXPR:
-				return getPrecondExpr();
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTCOND_EXPR:
-				return getPostcondExpr();
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTINPUTCOND_EXPR:
-				return getPostinputcondExpr();
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PROVIDES_REMOVALS:
-				return getProvidesRemovals();
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATIONS_REMOVALS:
-				return getOutputAnnotationsRemovals();
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATION_ADDITIONS:
-				return getOutputAnnotationAdditions();
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_REMOVALS:
-				return getSourceRemovals();
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ADDITIONS:
-				return getSourceAdditions();
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATIONS_REMOVALS:
-				return getSourceAnnotationsRemovals();
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATION_ADDITIONS:
-				return getSourceAnnotationAdditions();
+		switch(featureID) {
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__QUERY:
+			return getQuery();
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__INPUT_ADDITIONS:
+			return getInputAdditions();
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__INPUT_REMOVALS:
+			return getInputRemovals();
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ADDITIONS:
+			return getOutputAdditions();
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_REMOVALS:
+			return getOutputRemovals();
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__FUNC_EXPR:
+			return getFuncExpr();
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__VAR_ARGS:
+			return isVarArgs();
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PARAMETERS:
+			return getParameters();
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__MATCH_PARAMETERS:
+			return isMatchParameters();
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_PRE_CONDITION:
+			return isRemovePreCondition();
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_POST_CONDITION:
+			return isRemovePostCondition();
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_POST_INPUT_CONDITION:
+			return isRemovePostInputCondition();
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PRECOND_EXPR:
+			return getPrecondExpr();
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTCOND_EXPR:
+			return getPostcondExpr();
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTINPUTCOND_EXPR:
+			return getPostinputcondExpr();
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PROVIDES_REMOVALS:
+			return getProvidesRemovals();
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATIONS_REMOVALS:
+			return getOutputAnnotationsRemovals();
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATION_ADDITIONS:
+			return getOutputAnnotationAdditions();
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_REMOVALS:
+			return getSourceRemovals();
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ADDITIONS:
+			return getSourceAdditions();
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATIONS_REMOVALS:
+			return getSourceAnnotationsRemovals();
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATION_ADDITIONS:
+			return getSourceAnnotationAdditions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1027,83 +1110,83 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__QUERY:
-				setQuery((BExpression)newValue);
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__INPUT_ADDITIONS:
-				getInputAdditions().clear();
-				getInputAdditions().addAll((Collection<? extends Prerequisite>)newValue);
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__INPUT_REMOVALS:
-				getInputRemovals().clear();
-				getInputRemovals().addAll((Collection<? extends InputPredicate>)newValue);
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ADDITIONS:
-				getOutputAdditions().clear();
-				getOutputAdditions().addAll((Collection<? extends ConditionalPathVector>)newValue);
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_REMOVALS:
-				getOutputRemovals().clear();
-				getOutputRemovals().addAll((Collection<? extends OutputPredicate>)newValue);
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__FUNC_EXPR:
-				setFuncExpr((BExpression)newValue);
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__VAR_ARGS:
-				setVarArgs((Boolean)newValue);
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PARAMETERS:
-				getParameters().clear();
-				getParameters().addAll((Collection<? extends BParameterPredicate>)newValue);
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__MATCH_PARAMETERS:
-				setMatchParameters((Boolean)newValue);
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_PRE_CONDITION:
-				setRemovePreCondition((Boolean)newValue);
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_POST_CONDITION:
-				setRemovePostCondition((Boolean)newValue);
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_POST_INPUT_CONDITION:
-				setRemovePostInputCondition((Boolean)newValue);
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PRECOND_EXPR:
-				setPrecondExpr((BExpression)newValue);
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTCOND_EXPR:
-				setPostcondExpr((BExpression)newValue);
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTINPUTCOND_EXPR:
-				setPostinputcondExpr((BExpression)newValue);
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PROVIDES_REMOVALS:
-				getProvidesRemovals().clear();
-				getProvidesRemovals().addAll((Collection<? extends ProvidesPredicate>)newValue);
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATIONS_REMOVALS:
-				getOutputAnnotationsRemovals().clear();
-				getOutputAnnotationsRemovals().addAll((Collection<? extends String>)newValue);
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATION_ADDITIONS:
-				setOutputAnnotationAdditions((BPropertySet)newValue);
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_REMOVALS:
-				getSourceRemovals().clear();
-				getSourceRemovals().addAll((Collection<? extends SourcePredicate>)newValue);
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ADDITIONS:
-				getSourceAdditions().clear();
-				getSourceAdditions().addAll((Collection<? extends ConditionalPathVector>)newValue);
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATIONS_REMOVALS:
-				getSourceAnnotationsRemovals().clear();
-				getSourceAnnotationsRemovals().addAll((Collection<? extends String>)newValue);
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATION_ADDITIONS:
-				setSourceAnnotationAdditions((BPropertySet)newValue);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__QUERY:
+			setQuery((BExpression) newValue);
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__INPUT_ADDITIONS:
+			getInputAdditions().clear();
+			getInputAdditions().addAll((Collection<? extends Prerequisite>) newValue);
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__INPUT_REMOVALS:
+			getInputRemovals().clear();
+			getInputRemovals().addAll((Collection<? extends InputPredicate>) newValue);
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ADDITIONS:
+			getOutputAdditions().clear();
+			getOutputAdditions().addAll((Collection<? extends ConditionalPathVector>) newValue);
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_REMOVALS:
+			getOutputRemovals().clear();
+			getOutputRemovals().addAll((Collection<? extends OutputPredicate>) newValue);
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__FUNC_EXPR:
+			setFuncExpr((BExpression) newValue);
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__VAR_ARGS:
+			setVarArgs((Boolean) newValue);
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PARAMETERS:
+			getParameters().clear();
+			getParameters().addAll((Collection<? extends BParameterPredicate>) newValue);
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__MATCH_PARAMETERS:
+			setMatchParameters((Boolean) newValue);
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_PRE_CONDITION:
+			setRemovePreCondition((Boolean) newValue);
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_POST_CONDITION:
+			setRemovePostCondition((Boolean) newValue);
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_POST_INPUT_CONDITION:
+			setRemovePostInputCondition((Boolean) newValue);
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PRECOND_EXPR:
+			setPrecondExpr((BExpression) newValue);
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTCOND_EXPR:
+			setPostcondExpr((BExpression) newValue);
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTINPUTCOND_EXPR:
+			setPostinputcondExpr((BExpression) newValue);
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PROVIDES_REMOVALS:
+			getProvidesRemovals().clear();
+			getProvidesRemovals().addAll((Collection<? extends ProvidesPredicate>) newValue);
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATIONS_REMOVALS:
+			getOutputAnnotationsRemovals().clear();
+			getOutputAnnotationsRemovals().addAll((Collection<? extends String>) newValue);
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATION_ADDITIONS:
+			setOutputAnnotationAdditions((BPropertySet) newValue);
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_REMOVALS:
+			getSourceRemovals().clear();
+			getSourceRemovals().addAll((Collection<? extends SourcePredicate>) newValue);
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ADDITIONS:
+			getSourceAdditions().clear();
+			getSourceAdditions().addAll((Collection<? extends ConditionalPathVector>) newValue);
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATIONS_REMOVALS:
+			getSourceAnnotationsRemovals().clear();
+			getSourceAnnotationsRemovals().addAll((Collection<? extends String>) newValue);
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATION_ADDITIONS:
+			setSourceAnnotationAdditions((BPropertySet) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1115,73 +1198,73 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__QUERY:
-				setQuery((BExpression)null);
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__INPUT_ADDITIONS:
-				getInputAdditions().clear();
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__INPUT_REMOVALS:
-				getInputRemovals().clear();
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ADDITIONS:
-				getOutputAdditions().clear();
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_REMOVALS:
-				getOutputRemovals().clear();
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__FUNC_EXPR:
-				setFuncExpr((BExpression)null);
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__VAR_ARGS:
-				setVarArgs(VAR_ARGS_EDEFAULT);
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PARAMETERS:
-				getParameters().clear();
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__MATCH_PARAMETERS:
-				setMatchParameters(MATCH_PARAMETERS_EDEFAULT);
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_PRE_CONDITION:
-				setRemovePreCondition(REMOVE_PRE_CONDITION_EDEFAULT);
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_POST_CONDITION:
-				setRemovePostCondition(REMOVE_POST_CONDITION_EDEFAULT);
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_POST_INPUT_CONDITION:
-				setRemovePostInputCondition(REMOVE_POST_INPUT_CONDITION_EDEFAULT);
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PRECOND_EXPR:
-				setPrecondExpr((BExpression)null);
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTCOND_EXPR:
-				setPostcondExpr((BExpression)null);
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTINPUTCOND_EXPR:
-				setPostinputcondExpr((BExpression)null);
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PROVIDES_REMOVALS:
-				getProvidesRemovals().clear();
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATIONS_REMOVALS:
-				getOutputAnnotationsRemovals().clear();
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATION_ADDITIONS:
-				setOutputAnnotationAdditions((BPropertySet)null);
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_REMOVALS:
-				getSourceRemovals().clear();
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ADDITIONS:
-				getSourceAdditions().clear();
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATIONS_REMOVALS:
-				getSourceAnnotationsRemovals().clear();
-				return;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATION_ADDITIONS:
-				setSourceAnnotationAdditions((BPropertySet)null);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__QUERY:
+			setQuery((BExpression) null);
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__INPUT_ADDITIONS:
+			getInputAdditions().clear();
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__INPUT_REMOVALS:
+			getInputRemovals().clear();
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ADDITIONS:
+			getOutputAdditions().clear();
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_REMOVALS:
+			getOutputRemovals().clear();
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__FUNC_EXPR:
+			setFuncExpr((BExpression) null);
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__VAR_ARGS:
+			setVarArgs(VAR_ARGS_EDEFAULT);
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PARAMETERS:
+			getParameters().clear();
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__MATCH_PARAMETERS:
+			setMatchParameters(MATCH_PARAMETERS_EDEFAULT);
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_PRE_CONDITION:
+			setRemovePreCondition(REMOVE_PRE_CONDITION_EDEFAULT);
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_POST_CONDITION:
+			setRemovePostCondition(REMOVE_POST_CONDITION_EDEFAULT);
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_POST_INPUT_CONDITION:
+			setRemovePostInputCondition(REMOVE_POST_INPUT_CONDITION_EDEFAULT);
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PRECOND_EXPR:
+			setPrecondExpr((BExpression) null);
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTCOND_EXPR:
+			setPostcondExpr((BExpression) null);
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTINPUTCOND_EXPR:
+			setPostinputcondExpr((BExpression) null);
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PROVIDES_REMOVALS:
+			getProvidesRemovals().clear();
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATIONS_REMOVALS:
+			getOutputAnnotationsRemovals().clear();
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATION_ADDITIONS:
+			setOutputAnnotationAdditions((BPropertySet) null);
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_REMOVALS:
+			getSourceRemovals().clear();
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ADDITIONS:
+			getSourceAdditions().clear();
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATIONS_REMOVALS:
+			getSourceAnnotationsRemovals().clear();
+			return;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATION_ADDITIONS:
+			setSourceAnnotationAdditions((BPropertySet) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1193,55 +1276,55 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__QUERY:
-				return query != null;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__INPUT_ADDITIONS:
-				return inputAdditions != null && !inputAdditions.isEmpty();
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__INPUT_REMOVALS:
-				return inputRemovals != null && !inputRemovals.isEmpty();
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ADDITIONS:
-				return outputAdditions != null && !outputAdditions.isEmpty();
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_REMOVALS:
-				return outputRemovals != null && !outputRemovals.isEmpty();
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__FUNC_EXPR:
-				return funcExpr != null;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__VAR_ARGS:
-				return varArgs != VAR_ARGS_EDEFAULT;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PARAMETERS:
-				return parameters != null && !parameters.isEmpty();
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__MATCH_PARAMETERS:
-				return matchParameters != MATCH_PARAMETERS_EDEFAULT;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_PRE_CONDITION:
-				return removePreCondition != REMOVE_PRE_CONDITION_EDEFAULT;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_POST_CONDITION:
-				return removePostCondition != REMOVE_POST_CONDITION_EDEFAULT;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_POST_INPUT_CONDITION:
-				return removePostInputCondition != REMOVE_POST_INPUT_CONDITION_EDEFAULT;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PRECOND_EXPR:
-				return precondExpr != null;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTCOND_EXPR:
-				return postcondExpr != null;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTINPUTCOND_EXPR:
-				return postinputcondExpr != null;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PROVIDES_REMOVALS:
-				return providesRemovals != null && !providesRemovals.isEmpty();
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATIONS_REMOVALS:
-				return outputAnnotationsRemovals != null && !outputAnnotationsRemovals.isEmpty();
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATION_ADDITIONS:
-				return outputAnnotationAdditions != null;
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_REMOVALS:
-				return sourceRemovals != null && !sourceRemovals.isEmpty();
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ADDITIONS:
-				return sourceAdditions != null && !sourceAdditions.isEmpty();
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATIONS_REMOVALS:
-				return sourceAnnotationsRemovals != null && !sourceAnnotationsRemovals.isEmpty();
-			case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATION_ADDITIONS:
-				return sourceAnnotationAdditions != null;
+		switch(featureID) {
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__QUERY:
+			return query != null;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__INPUT_ADDITIONS:
+			return inputAdditions != null && !inputAdditions.isEmpty();
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__INPUT_REMOVALS:
+			return inputRemovals != null && !inputRemovals.isEmpty();
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ADDITIONS:
+			return outputAdditions != null && !outputAdditions.isEmpty();
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_REMOVALS:
+			return outputRemovals != null && !outputRemovals.isEmpty();
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__FUNC_EXPR:
+			return funcExpr != null;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__VAR_ARGS:
+			return varArgs != VAR_ARGS_EDEFAULT;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PARAMETERS:
+			return parameters != null && !parameters.isEmpty();
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__MATCH_PARAMETERS:
+			return matchParameters != MATCH_PARAMETERS_EDEFAULT;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_PRE_CONDITION:
+			return removePreCondition != REMOVE_PRE_CONDITION_EDEFAULT;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_POST_CONDITION:
+			return removePostCondition != REMOVE_POST_CONDITION_EDEFAULT;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__REMOVE_POST_INPUT_CONDITION:
+			return removePostInputCondition != REMOVE_POST_INPUT_CONDITION_EDEFAULT;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PRECOND_EXPR:
+			return precondExpr != null;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTCOND_EXPR:
+			return postcondExpr != null;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__POSTINPUTCOND_EXPR:
+			return postinputcondExpr != null;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__PROVIDES_REMOVALS:
+			return providesRemovals != null && !providesRemovals.isEmpty();
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATIONS_REMOVALS:
+			return outputAnnotationsRemovals != null && !outputAnnotationsRemovals.isEmpty();
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__OUTPUT_ANNOTATION_ADDITIONS:
+			return outputAnnotationAdditions != null;
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_REMOVALS:
+			return sourceRemovals != null && !sourceRemovals.isEmpty();
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ADDITIONS:
+			return sourceAdditions != null && !sourceAdditions.isEmpty();
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATIONS_REMOVALS:
+			return sourceAnnotationsRemovals != null && !sourceAnnotationsRemovals.isEmpty();
+		case B3BuildPackage.BUILDER_CONCERN_CONTEXT__SOURCE_ANNOTATION_ADDITIONS:
+			return sourceAnnotationAdditions != null;
 		}
 		return super.eIsSet(featureID);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1249,7 +1332,8 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (varArgs: ");
@@ -1275,9 +1359,9 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 */
 	@Override
 	public boolean matches(Object candidate, BExecutionContext ctx) {
-		if(! (candidate instanceof IBuilder))
+		if(!(candidate instanceof IBuilder))
 			return false;
-		IBuilder b = (IBuilder)candidate;
+		IBuilder b = (IBuilder) candidate;
 		try {
 			if(matchParameters) {
 				TypePattern pattern = TypePattern.compile(getParameters());
@@ -1288,11 +1372,12 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 			}
 			return matchesQuery(b, ctx);
 
-		} catch (Throwable e) {
+		}
+		catch(Throwable e) {
 			throw new B3InternalError("Error while evaluating if BuilderConcernContext matches a Builder", e);
-		}			
+		}
 	}
-	
+
 	/**
 	 * Evaluates the query and returns true, if the candidate matches the query. This method does not include
 	 * parameter type matching.
@@ -1305,8 +1390,9 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	private boolean matchesQuery(IBuilder candidate, BExecutionContext ctx) throws Throwable {
 		BExecutionContext ictx = ctx.createInnerContext();
 		ictx.defineVariableValue("@test", candidate, Builder.class);
-		return getQuery().evaluate(ictx) == Boolean.TRUE ;
+		return getQuery().evaluate(ictx) == Boolean.TRUE;
 	}
+
 	/**
 	 * Performs parameter type matching and if parameters match, a wrapper is created and added to the context.
 	 * 
@@ -1321,13 +1407,14 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 	 * @return
 	 * @throws B3EngineException
 	 */
-	private boolean weaveIfParametersMatch(TypePattern pattern, IBuilder b, BExecutionContext ctx, BuildUnit promoteToUnit) throws B3EngineException {
+	private boolean weaveIfParametersMatch(TypePattern pattern, IBuilder b, BExecutionContext ctx,
+			BuildUnit promoteToUnit) throws B3EngineException {
 		Matcher matcher = pattern.match(b.getParameterTypes());
 		if(matchParameters && !matcher.isMatch())
 			return false;
 
 		// create a map of parameter name in advise and parameter name in matched function
-		Map<String, String> nameMap = new HashMap<String,String>();
+		Map<String, String> nameMap = new HashMap<String, String>();
 		EList<BParameterPredicate> plist = getParameters(); // i.e. predicates
 		int limit = plist.size();
 		String pName = null;
@@ -1339,7 +1426,7 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 					throw new B3InternalError("Matched parameter reported to have an index of -1");
 				nameMap.put(pName, b.getParameters().get(matcher.getMatchStart(matchedIdx)).getName());
 			}
-		
+
 		// Create a wrapping function and define it in the context
 		BuilderWrapper wrapper = B3BuildFactory.eINSTANCE.createBuilderWrapper();
 		wrapper.setOriginal(b);
@@ -1350,9 +1437,9 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 			wrapper.setUnitTypeAdvised(true);
 		}
 		// if function has varargs, and the varargs parameter was mapped, the wrapper needs to know this
-		if(isVarArgs() && ((pName = plist.get(plist.size()-1).getName()) != null))
+		if(isVarArgs() && ((pName = plist.get(plist.size() - 1).getName()) != null))
 			wrapper.setVarargsName(pName);
-		
+
 		// WRAP ASSERTS by chaining any added condition with the original (unless original is removed).
 		B3backendFactory factory = B3backendFactory.eINSTANCE;
 		// --pre
@@ -1363,13 +1450,15 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 				ew.setOriginal(getPrecondExpr());
 				pcExpr.getExpressions().add(ew);
 			}
-			if(b.getPrecondExpr() != null && ! removePreCondition) {
+			if(b.getPrecondExpr() != null && !removePreCondition) {
 				BExpressionWrapper ew = factory.createBExpressionWrapper();
 				ew.setOriginal(b.getPrecondExpr());
 				pcExpr.getExpressions().add(ew);
 			}
 			// set, and optimize if there is only one expression
-			wrapper.setPrecondExpr(pcExpr.getExpressions().size() == 1 ? pcExpr.getExpressions().get(0) : pcExpr);
+			wrapper.setPrecondExpr(pcExpr.getExpressions().size() == 1
+					? pcExpr.getExpressions().get(0)
+					: pcExpr);
 		}
 		// --postinput
 		if(b.getPostinputcondExpr() != null || isRemovePostInputCondition() || getPostinputcondExpr() != null) {
@@ -1379,13 +1468,15 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 				ew.setOriginal(getPostinputcondExpr());
 				pcExpr.getExpressions().add(ew);
 			}
-			if(b.getPostinputcondExpr() != null && ! removePostInputCondition) {
+			if(b.getPostinputcondExpr() != null && !removePostInputCondition) {
 				BExpressionWrapper ew = factory.createBExpressionWrapper();
 				ew.setOriginal(b.getPostinputcondExpr());
 				pcExpr.getExpressions().add(ew);
 			}
 			// set, and optimize if there is only one expression
-			wrapper.setPostinputcondExpr(pcExpr.getExpressions().size() == 1 ? pcExpr.getExpressions().get(0) : pcExpr);
+			wrapper.setPostinputcondExpr(pcExpr.getExpressions().size() == 1
+					? pcExpr.getExpressions().get(0)
+					: pcExpr);
 
 		}
 		// --post
@@ -1396,20 +1487,22 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 				ew.setOriginal(getPostcondExpr());
 				pcExpr.getExpressions().add(ew);
 			}
-			if(b.getPostcondExpr() != null && ! removePostCondition) {
+			if(b.getPostcondExpr() != null && !removePostCondition) {
 				BExpressionWrapper ew = factory.createBExpressionWrapper();
 				ew.setOriginal(b.getPostcondExpr());
 				pcExpr.getExpressions().add(ew);
 			}
 			// set, and optimize if there is only one expression
-			wrapper.setPostcondExpr(pcExpr.getExpressions().size() == 1 ? pcExpr.getExpressions().get(0) : pcExpr);
+			wrapper.setPostcondExpr(pcExpr.getExpressions().size() == 1
+					? pcExpr.getExpressions().get(0)
+					: pcExpr);
 		}
-		
+
 		// WRAP INPUT 
 		// by copying original input, setting a flag that input is advised, and then first do removals,
 		// and then additions. Everything needs to be copied as input is by containment, and the input rules may
 		// be needed multiple times.
-		
+
 		// is input advised?
 		ADVICEINPUT: if(getInputRemovals().size() > 0 || getInputAdditions().size() > 0) {
 			boolean modified = false;
@@ -1435,97 +1528,95 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 		// by copying original output, setting a flag that output is advised, and then first do removals,
 		// and then additions. Everything needs to be copied as output is by containment, and the output rules
 		// may be needed multiple times.,
-		
+
 		// is output advised ?
-		ADVICEOUTPUT: 
-			if(getOutputRemovals().size() > 0 || getOutputAdditions().size() > 0 
+		ADVICEOUTPUT: if(getOutputRemovals().size() > 0 || getOutputAdditions().size() > 0
 				|| getOutputAnnotationsRemovals().size() > 0 || getOutputAnnotationAdditions() != null) {
-				boolean modified = false;
-				PathGroup pg = null;
-				PathGroup originalOutput = b.getOutput();
-				if(originalOutput != null)
-					wrapper.setOutput(pg = PathGroup.class.cast(EcoreUtil.copy(b.getOutput())));
-				else {
-					// TODO: Should probably log warning that empty output was created as a consequence of advice.
-					originalOutput = B3BuildFactory.eINSTANCE.createPathGroup();
-				}
-				// removal
-				for(OutputPredicate op : getOutputRemovals())
-					modified = op.removeMatching(pg) || modified;
-
-				// addition
-				EList<ConditionalPathVector> vectors = pg.getPathVectors();
-				for( ConditionalPathVector pv : getOutputAdditions())
-					vectors.add(ConditionalPathVector.class.cast(EcoreUtil.copy(pv)));
-
-
-				// WRAP ANNOTATIONS
-				// Same as Default properties, but for annotations.
-				// TODO: What to do if there is no output? It may still be useful to modify annotations in the produced result
-				// in input?? (Current impl will throw NPE if there is no output...)
-				if(getOutputAnnotationsRemovals().size() > 0 || getOutputAnnotationAdditions() != null) {
-					BPropertySet as = B3backendFactory.eINSTANCE.createBDefaultPropertySet();
-					modified = processProperties(as, getOutputAnnotationsRemovals(), b.getOutput().getAnnotations(), getOutputAnnotationAdditions())
-						|| modified;
-					wrapper.getOutput().setAnnotations(as);
-				}
-				// optimize if unchanged
-				if(!modified && getOutputAdditions().size() == 0 && getOutputAnnotationAdditions() != null) {
-					wrapper.setOutput(null);
-					break ADVICEOUTPUT;
-				}
-				wrapper.setOutputAdvised(true);
-
+			boolean modified = false;
+			PathGroup pg = null;
+			PathGroup originalOutput = b.getOutput();
+			if(originalOutput != null)
+				wrapper.setOutput(pg = PathGroup.class.cast(EcoreUtil.copy(b.getOutput())));
+			else {
+				// TODO: Should probably log warning that empty output was created as a consequence of advice.
+				originalOutput = B3BuildFactory.eINSTANCE.createPathGroup();
 			}
-//
+			// removal
+			for(OutputPredicate op : getOutputRemovals())
+				modified = op.removeMatching(pg) || modified;
+
+			// addition
+			EList<ConditionalPathVector> vectors = pg.getPathVectors();
+			for(ConditionalPathVector pv : getOutputAdditions())
+				vectors.add(ConditionalPathVector.class.cast(EcoreUtil.copy(pv)));
+
+			// WRAP ANNOTATIONS
+			// Same as Default properties, but for annotations.
+			// TODO: What to do if there is no output? It may still be useful to modify annotations in the produced result
+			// in input?? (Current impl will throw NPE if there is no output...)
+			if(getOutputAnnotationsRemovals().size() > 0 || getOutputAnnotationAdditions() != null) {
+				BPropertySet as = B3backendFactory.eINSTANCE.createBDefaultPropertySet();
+				modified = processProperties(as, getOutputAnnotationsRemovals(), b.getOutput().getAnnotations(),
+						getOutputAnnotationAdditions())
+						|| modified;
+				wrapper.getOutput().setAnnotations(as);
+			}
+			// optimize if unchanged
+			if(!modified && getOutputAdditions().size() == 0 && getOutputAnnotationAdditions() != null) {
+				wrapper.setOutput(null);
+				break ADVICEOUTPUT;
+			}
+			wrapper.setOutputAdvised(true);
+
+		}
+		//
 		// WRAP SOURCE
 		// by copying original source, setting a flag that source is advised, and then first do removals,
 		// and then additions. Everything needs to be copied as source is by containment, and the source rules
 		// may be needed multiple times.
-		
+
 		// is source advised ?
-		ADVICESOURCE: 
-			if(getSourceRemovals().size() > 0 || getOutputAdditions().size() > 0 
+		ADVICESOURCE: if(getSourceRemovals().size() > 0 || getOutputAdditions().size() > 0
 				|| getSourceAnnotationsRemovals().size() > 0 || getSourceAnnotationAdditions() != null) {
-				boolean modified = false;
-				PathGroup pg = null;
-				PathGroup originalSource = b.getSource();
-				if(originalSource != null)
-					wrapper.setSource(pg = PathGroup.class.cast(EcoreUtil.copy(b.getSource())));
-				else {
-					// TODO: Should probably log warning that empty source was created as a consequence of advice.
-					originalSource = B3BuildFactory.eINSTANCE.createPathGroup();
-				}
-				// removal
-				for(SourcePredicate sp : getSourceRemovals())
-					modified = sp.removeMatching(pg) || modified;
-
-				// addition
-				EList<ConditionalPathVector> vectors = pg.getPathVectors();
-				for( ConditionalPathVector pv : getSourceAdditions())
-					vectors.add(ConditionalPathVector.class.cast(EcoreUtil.copy(pv)));
-
-
-				// WRAP ANNOTATIONS
-				// Same as Default properties, but for annotations.
-				// TODO: What to do if there is no source? It may still be useful to modify annotations in the produced result
-				// in input?? (Current impl will throw NPE if there is no source...)
-				if(getSourceAnnotationsRemovals().size() > 0 || getSourceAnnotationAdditions() != null) {
-					BPropertySet as = B3backendFactory.eINSTANCE.createBDefaultPropertySet();
-					modified = processProperties(as, getSourceAnnotationsRemovals(), b.getSource().getAnnotations(), getSourceAnnotationAdditions())
-						|| modified;
-					wrapper.getSource().setAnnotations(as);
-				}
-				// optimize if unchanged
-				if(!modified && getSourceAdditions().size() == 0 && getSourceAnnotationAdditions() != null) {
-					wrapper.setSource(null);
-					break ADVICESOURCE;
-				}
-				wrapper.setSourceAdvised(true);
-
+			boolean modified = false;
+			PathGroup pg = null;
+			PathGroup originalSource = b.getSource();
+			if(originalSource != null)
+				wrapper.setSource(pg = PathGroup.class.cast(EcoreUtil.copy(b.getSource())));
+			else {
+				// TODO: Should probably log warning that empty source was created as a consequence of advice.
+				originalSource = B3BuildFactory.eINSTANCE.createPathGroup();
 			}
+			// removal
+			for(SourcePredicate sp : getSourceRemovals())
+				modified = sp.removeMatching(pg) || modified;
 
-//
+			// addition
+			EList<ConditionalPathVector> vectors = pg.getPathVectors();
+			for(ConditionalPathVector pv : getSourceAdditions())
+				vectors.add(ConditionalPathVector.class.cast(EcoreUtil.copy(pv)));
+
+			// WRAP ANNOTATIONS
+			// Same as Default properties, but for annotations.
+			// TODO: What to do if there is no source? It may still be useful to modify annotations in the produced result
+			// in input?? (Current impl will throw NPE if there is no source...)
+			if(getSourceAnnotationsRemovals().size() > 0 || getSourceAnnotationAdditions() != null) {
+				BPropertySet as = B3backendFactory.eINSTANCE.createBDefaultPropertySet();
+				modified = processProperties(as, getSourceAnnotationsRemovals(), b.getSource().getAnnotations(),
+						getSourceAnnotationAdditions())
+						|| modified;
+				wrapper.getSource().setAnnotations(as);
+			}
+			// optimize if unchanged
+			if(!modified && getSourceAdditions().size() == 0 && getSourceAnnotationAdditions() != null) {
+				wrapper.setSource(null);
+				break ADVICESOURCE;
+			}
+			wrapper.setSourceAdvised(true);
+
+		}
+
+		//
 		// WRAP PROVIDED CAPABILITIES
 		ADVICEPROVIDES: if(getProvidesRemovals().size() > 0 || getProvidedCapabilities().size() > 0) {
 			boolean modified = false;
@@ -1555,13 +1646,15 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 		if(getDefaultPropertiesRemovals().size() > 0 || getDefaultPropertiesAdditions() != null) {
 			BPropertySet ps = B3backendFactory.eINSTANCE.createBDefaultPropertySet();
 			wrapper.setDefaultProperties(ps);
-			processProperties(ps, getDefaultPropertiesRemovals(), b.getDefaultProperties(), getDefaultPropertiesAdditions());			
+			processProperties(ps, getDefaultPropertiesRemovals(), b.getDefaultProperties(),
+					getDefaultPropertiesAdditions());
 		}
-		
+
 		// define the wrapper, and we are done
 		ctx.defineFunction(wrapper);
 		return true;
 	}
+
 	/**
 	 * Applies the advice to all already defined builders matching the query and type pattern specified
 	 * in this context. Each matching builder is wrapped with a BuildWrapper and added to the context passed
@@ -1577,12 +1670,12 @@ public class BuilderConcernContextImpl extends BuildConcernContextImpl implement
 
 		while(fItor.hasNext()) {
 			IFunction f = fItor.next();
-			if(f instanceof IBuilder && matchesQuery((IBuilder)f, ctx))
-				weaveIfParametersMatch(pattern, (IBuilder)f, ctx, null); // do not promote
+			if(f instanceof IBuilder && matchesQuery((IBuilder) f, ctx))
+				weaveIfParametersMatch(pattern, (IBuilder) f, ctx, null); // do not promote
 		}
 		return this;
 	}
-	
+
 	/**
 	 * Performs the same operation as {@link #evaluate(BExecutionContext)} but for a single object (candidate).
 	 */

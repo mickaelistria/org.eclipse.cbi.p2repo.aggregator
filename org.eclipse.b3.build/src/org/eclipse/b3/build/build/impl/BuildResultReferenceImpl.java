@@ -88,7 +88,8 @@ public abstract class BuildResultReferenceImpl extends EObjectImpl implements Bu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Iterator<EffectiveBuilderReferenceFacade> getEffectiveBuilderReferences(BExecutionContext ctx) throws Throwable {
+	public Iterator<EffectiveBuilderReferenceFacade> getEffectiveBuilderReferences(BExecutionContext ctx)
+			throws Throwable {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

@@ -45,6 +45,7 @@ public class BuildResultContextImpl extends BInnerContextImpl implements BuildRe
 	protected EClass eStaticClass() {
 		return B3BuildPackage.Literals.BUILD_RESULT_CONTEXT;
 	}
+
 	/**
 	 * Does not check if parent has final value if the value is a property reference.
 	 */
@@ -54,6 +55,7 @@ public class BuildResultContextImpl extends BInnerContextImpl implements BuildRe
 			return getValueMap().isFinal(name);
 		return super.isFinal(name);
 	}
+
 	/**
 	 * Does not check if parent has immutable value if the value is a property reference.
 	 */
@@ -63,6 +65,7 @@ public class BuildResultContextImpl extends BInnerContextImpl implements BuildRe
 			return getValueMap().isImmutable(name);
 		return super.isFinal(name);
 	}
+
 	@Override
 	public boolean isPropertyScope() {
 		return true;

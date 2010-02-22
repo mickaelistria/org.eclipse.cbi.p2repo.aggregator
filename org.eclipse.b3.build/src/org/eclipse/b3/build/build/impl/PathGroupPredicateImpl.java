@@ -108,9 +108,13 @@ public class PathGroupPredicateImpl extends BExpressionImpl implements PathGroup
 	public NotificationChain basicSetPathVector(PathVector newPathVector, NotificationChain msgs) {
 		PathVector oldPathVector = pathVector;
 		pathVector = newPathVector;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.PATH_GROUP_PREDICATE__PATH_VECTOR, oldPathVector, newPathVector);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.PATH_GROUP_PREDICATE__PATH_VECTOR, oldPathVector, newPathVector);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -121,17 +125,21 @@ public class PathGroupPredicateImpl extends BExpressionImpl implements PathGroup
 	 * @generated
 	 */
 	public void setPathVector(PathVector newPathVector) {
-		if (newPathVector != pathVector) {
+		if(newPathVector != pathVector) {
 			NotificationChain msgs = null;
-			if (pathVector != null)
-				msgs = ((InternalEObject)pathVector).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.PATH_GROUP_PREDICATE__PATH_VECTOR, null, msgs);
-			if (newPathVector != null)
-				msgs = ((InternalEObject)newPathVector).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.PATH_GROUP_PREDICATE__PATH_VECTOR, null, msgs);
+			if(pathVector != null)
+				msgs = ((InternalEObject) pathVector).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.PATH_GROUP_PREDICATE__PATH_VECTOR, null, msgs);
+			if(newPathVector != null)
+				msgs = ((InternalEObject) newPathVector).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.PATH_GROUP_PREDICATE__PATH_VECTOR, null, msgs);
 			msgs = basicSetPathVector(newPathVector, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.PATH_GROUP_PREDICATE__PATH_VECTOR, newPathVector, newPathVector));
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.PATH_GROUP_PREDICATE__PATH_VECTOR,
+					newPathVector, newPathVector));
 	}
 
 	/**
@@ -151,9 +159,13 @@ public class PathGroupPredicateImpl extends BExpressionImpl implements PathGroup
 	public NotificationChain basicSetPathPattern(BExpression newPathPattern, NotificationChain msgs) {
 		BExpression oldPathPattern = pathPattern;
 		pathPattern = newPathPattern;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.PATH_GROUP_PREDICATE__PATH_PATTERN, oldPathPattern, newPathPattern);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.PATH_GROUP_PREDICATE__PATH_PATTERN, oldPathPattern, newPathPattern);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -164,17 +176,21 @@ public class PathGroupPredicateImpl extends BExpressionImpl implements PathGroup
 	 * @generated
 	 */
 	public void setPathPattern(BExpression newPathPattern) {
-		if (newPathPattern != pathPattern) {
+		if(newPathPattern != pathPattern) {
 			NotificationChain msgs = null;
-			if (pathPattern != null)
-				msgs = ((InternalEObject)pathPattern).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.PATH_GROUP_PREDICATE__PATH_PATTERN, null, msgs);
-			if (newPathPattern != null)
-				msgs = ((InternalEObject)newPathPattern).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.PATH_GROUP_PREDICATE__PATH_PATTERN, null, msgs);
+			if(pathPattern != null)
+				msgs = ((InternalEObject) pathPattern).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.PATH_GROUP_PREDICATE__PATH_PATTERN, null, msgs);
+			if(newPathPattern != null)
+				msgs = ((InternalEObject) newPathPattern).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.PATH_GROUP_PREDICATE__PATH_PATTERN, null, msgs);
 			msgs = basicSetPathPattern(newPathPattern, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.PATH_GROUP_PREDICATE__PATH_PATTERN, newPathPattern, newPathPattern));
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.PATH_GROUP_PREDICATE__PATH_PATTERN,
+					newPathPattern, newPathPattern));
 	}
 
 	/**
@@ -184,11 +200,11 @@ public class PathGroupPredicateImpl extends BExpressionImpl implements PathGroup
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case B3BuildPackage.PATH_GROUP_PREDICATE__PATH_VECTOR:
-				return basicSetPathVector(null, msgs);
-			case B3BuildPackage.PATH_GROUP_PREDICATE__PATH_PATTERN:
-				return basicSetPathPattern(null, msgs);
+		switch(featureID) {
+		case B3BuildPackage.PATH_GROUP_PREDICATE__PATH_VECTOR:
+			return basicSetPathVector(null, msgs);
+		case B3BuildPackage.PATH_GROUP_PREDICATE__PATH_PATTERN:
+			return basicSetPathPattern(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -200,11 +216,11 @@ public class PathGroupPredicateImpl extends BExpressionImpl implements PathGroup
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case B3BuildPackage.PATH_GROUP_PREDICATE__PATH_VECTOR:
-				return getPathVector();
-			case B3BuildPackage.PATH_GROUP_PREDICATE__PATH_PATTERN:
-				return getPathPattern();
+		switch(featureID) {
+		case B3BuildPackage.PATH_GROUP_PREDICATE__PATH_VECTOR:
+			return getPathVector();
+		case B3BuildPackage.PATH_GROUP_PREDICATE__PATH_PATTERN:
+			return getPathPattern();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -216,13 +232,13 @@ public class PathGroupPredicateImpl extends BExpressionImpl implements PathGroup
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case B3BuildPackage.PATH_GROUP_PREDICATE__PATH_VECTOR:
-				setPathVector((PathVector)newValue);
-				return;
-			case B3BuildPackage.PATH_GROUP_PREDICATE__PATH_PATTERN:
-				setPathPattern((BExpression)newValue);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.PATH_GROUP_PREDICATE__PATH_VECTOR:
+			setPathVector((PathVector) newValue);
+			return;
+		case B3BuildPackage.PATH_GROUP_PREDICATE__PATH_PATTERN:
+			setPathPattern((BExpression) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -234,13 +250,13 @@ public class PathGroupPredicateImpl extends BExpressionImpl implements PathGroup
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.PATH_GROUP_PREDICATE__PATH_VECTOR:
-				setPathVector((PathVector)null);
-				return;
-			case B3BuildPackage.PATH_GROUP_PREDICATE__PATH_PATTERN:
-				setPathPattern((BExpression)null);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.PATH_GROUP_PREDICATE__PATH_VECTOR:
+			setPathVector((PathVector) null);
+			return;
+		case B3BuildPackage.PATH_GROUP_PREDICATE__PATH_PATTERN:
+			setPathPattern((BExpression) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -252,14 +268,15 @@ public class PathGroupPredicateImpl extends BExpressionImpl implements PathGroup
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.PATH_GROUP_PREDICATE__PATH_VECTOR:
-				return pathVector != null;
-			case B3BuildPackage.PATH_GROUP_PREDICATE__PATH_PATTERN:
-				return pathPattern != null;
+		switch(featureID) {
+		case B3BuildPackage.PATH_GROUP_PREDICATE__PATH_VECTOR:
+			return pathVector != null;
+		case B3BuildPackage.PATH_GROUP_PREDICATE__PATH_PATTERN:
+			return pathPattern != null;
 		}
 		return super.eIsSet(featureID);
 	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -276,11 +293,11 @@ public class PathGroupPredicateImpl extends BExpressionImpl implements PathGroup
 			pathGroup.getPathVectors().clear();
 			return true;
 		}
-		
+
 		// iterate over output paths, match and remove
 		PathIterator pitor = new PathIterator(pathGroup);
 		boolean modified = false;
-		
+
 		NEXTPATH: while(pitor.hasNext()) {
 			URI p = pitor.next();
 			// strategy choice - either apply a pattern on each path, or match each against paths from a path vector
@@ -300,7 +317,7 @@ public class PathGroupPredicateImpl extends BExpressionImpl implements PathGroup
 				// choice 2 - compare against a regexp (wildcard already optimized)
 				BExpression expr = getPathPattern();
 				if(expr instanceof BRegularExpression) {
-					if(((BRegularExpression)expr).getPattern().matcher(p.toString()).matches()) {
+					if(((BRegularExpression) expr).getPattern().matcher(p.toString()).matches()) {
 						pitor.remove();
 						modified = true;
 					}
@@ -309,7 +326,7 @@ public class PathGroupPredicateImpl extends BExpressionImpl implements PathGroup
 		}
 		return modified;
 	}
-	
+
 	/**
 	 * Evaluates the output of the IBuilder assigned to the context variable "@test" and matches that against
 	 * either the path vector or pathPattern (a literal any or literal regexp). In the case of a path vector,
@@ -324,19 +341,19 @@ public class PathGroupPredicateImpl extends BExpressionImpl implements PathGroup
 		// if the value is null (as opposed to not defined at all) this means there is nothing to match against
 		// so result can never be true.
 		if(test == null)
-			return Boolean.FALSE; 
+			return Boolean.FALSE;
 
 		if(!(test instanceof PathGroup))
 			throw new B3InternalError("Attempt to evaluate PathGroupPredicate against non PathGroup");
-		
-		PathGroup pg = (PathGroup)test;		
+
+		PathGroup pg = (PathGroup) test;
 		// strategy choice - either apply a pattern on all paths, or have a set of paths which must all be available
-		
+
 		// choice 1 - compare against a path vector
 		if(pathPattern == null) {
 			if(pathVector == null)
 				throw new B3InternalError("OutputPredicate has neither pattern nor path vector");
-				
+
 			List<URI> predicates = new PathIterator(getPathVector()).toList();
 			List<URI> candidate = new PathIterator(pg).toList();
 			return Boolean.valueOf(candidate.containsAll(predicates));
@@ -346,7 +363,7 @@ public class PathGroupPredicateImpl extends BExpressionImpl implements PathGroup
 		if(p instanceof BLiteralAny)
 			return Boolean.TRUE;
 		if(p instanceof BRegularExpression) {
-			Pattern pattern = ((BRegularExpression)p).getPattern();
+			Pattern pattern = ((BRegularExpression) p).getPattern();
 			PathIterator paths = new PathIterator(pg);
 			while(paths.hasNext()) {
 				if(pattern.matcher(paths.next().toString()).matches())
@@ -355,7 +372,7 @@ public class PathGroupPredicateImpl extends BExpressionImpl implements PathGroup
 		}
 		return Boolean.FALSE;
 	}
-	
+
 	/**
 	 * Always returns Boolean.
 	 */

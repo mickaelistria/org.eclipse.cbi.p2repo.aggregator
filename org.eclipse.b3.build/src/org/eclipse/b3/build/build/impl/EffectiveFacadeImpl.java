@@ -72,12 +72,13 @@ public class EffectiveFacadeImpl extends EObjectImpl implements EffectiveFacade 
 	 * @generated
 	 */
 	public BExecutionContext getContext() {
-		if (context != null && context.eIsProxy()) {
-			InternalEObject oldContext = (InternalEObject)context;
-			context = (BExecutionContext)eResolveProxy(oldContext);
-			if (context != oldContext) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3BuildPackage.EFFECTIVE_FACADE__CONTEXT, oldContext, context));
+		if(context != null && context.eIsProxy()) {
+			InternalEObject oldContext = (InternalEObject) context;
+			context = (BExecutionContext) eResolveProxy(oldContext);
+			if(context != oldContext) {
+				if(eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3BuildPackage.EFFECTIVE_FACADE__CONTEXT,
+							oldContext, context));
 			}
 		}
 		return context;
@@ -100,8 +101,9 @@ public class EffectiveFacadeImpl extends EObjectImpl implements EffectiveFacade 
 	public void setContext(BExecutionContext newContext) {
 		BExecutionContext oldContext = context;
 		context = newContext;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.EFFECTIVE_FACADE__CONTEXT, oldContext, context));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.EFFECTIVE_FACADE__CONTEXT, oldContext,
+					context));
 	}
 
 	/**
@@ -111,10 +113,11 @@ public class EffectiveFacadeImpl extends EObjectImpl implements EffectiveFacade 
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case B3BuildPackage.EFFECTIVE_FACADE__CONTEXT:
-				if (resolve) return getContext();
-				return basicGetContext();
+		switch(featureID) {
+		case B3BuildPackage.EFFECTIVE_FACADE__CONTEXT:
+			if(resolve)
+				return getContext();
+			return basicGetContext();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -126,10 +129,10 @@ public class EffectiveFacadeImpl extends EObjectImpl implements EffectiveFacade 
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case B3BuildPackage.EFFECTIVE_FACADE__CONTEXT:
-				setContext((BExecutionContext)newValue);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.EFFECTIVE_FACADE__CONTEXT:
+			setContext((BExecutionContext) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -141,10 +144,10 @@ public class EffectiveFacadeImpl extends EObjectImpl implements EffectiveFacade 
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.EFFECTIVE_FACADE__CONTEXT:
-				setContext((BExecutionContext)null);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.EFFECTIVE_FACADE__CONTEXT:
+			setContext((BExecutionContext) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -156,9 +159,9 @@ public class EffectiveFacadeImpl extends EObjectImpl implements EffectiveFacade 
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.EFFECTIVE_FACADE__CONTEXT:
-				return context != null;
+		switch(featureID) {
+		case B3BuildPackage.EFFECTIVE_FACADE__CONTEXT:
+			return context != null;
 		}
 		return super.eIsSet(featureID);
 	}

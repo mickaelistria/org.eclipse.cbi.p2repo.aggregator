@@ -113,12 +113,13 @@ public class EffectiveUnitFacadeImpl extends EffectiveFacadeImpl implements Effe
 	 * @generated
 	 */
 	public BuildUnit getUnit() {
-		if (unit != null && unit.eIsProxy()) {
-			InternalEObject oldUnit = (InternalEObject)unit;
-			unit = (BuildUnit)eResolveProxy(oldUnit);
-			if (unit != oldUnit) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3BuildPackage.EFFECTIVE_UNIT_FACADE__UNIT, oldUnit, unit));
+		if(unit != null && unit.eIsProxy()) {
+			InternalEObject oldUnit = (InternalEObject) unit;
+			unit = (BuildUnit) eResolveProxy(oldUnit);
+			if(unit != oldUnit) {
+				if(eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+							B3BuildPackage.EFFECTIVE_UNIT_FACADE__UNIT, oldUnit, unit));
 			}
 		}
 		return unit;
@@ -141,8 +142,9 @@ public class EffectiveUnitFacadeImpl extends EffectiveFacadeImpl implements Effe
 	public void setUnit(BuildUnit newUnit) {
 		BuildUnit oldUnit = unit;
 		unit = newUnit;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.EFFECTIVE_UNIT_FACADE__UNIT, oldUnit, unit));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.EFFECTIVE_UNIT_FACADE__UNIT, oldUnit,
+					unit));
 	}
 
 	/**
@@ -151,8 +153,9 @@ public class EffectiveUnitFacadeImpl extends EffectiveFacadeImpl implements Effe
 	 * @generated
 	 */
 	public EList<EffectiveCapabilityFacade> getProvidedCapabilities() {
-		if (providedCapabilities == null) {
-			providedCapabilities = new EObjectContainmentEList<EffectiveCapabilityFacade>(EffectiveCapabilityFacade.class, this, B3BuildPackage.EFFECTIVE_UNIT_FACADE__PROVIDED_CAPABILITIES);
+		if(providedCapabilities == null) {
+			providedCapabilities = new EObjectContainmentEList<EffectiveCapabilityFacade>(
+					EffectiveCapabilityFacade.class, this, B3BuildPackage.EFFECTIVE_UNIT_FACADE__PROVIDED_CAPABILITIES);
 		}
 		return providedCapabilities;
 	}
@@ -163,8 +166,9 @@ public class EffectiveUnitFacadeImpl extends EffectiveFacadeImpl implements Effe
 	 * @generated
 	 */
 	public EList<EffectiveRequirementFacade> getRequiredCapabilities() {
-		if (requiredCapabilities == null) {
-			requiredCapabilities = new EObjectContainmentEList<EffectiveRequirementFacade>(EffectiveRequirementFacade.class, this, B3BuildPackage.EFFECTIVE_UNIT_FACADE__REQUIRED_CAPABILITIES);
+		if(requiredCapabilities == null) {
+			requiredCapabilities = new EObjectContainmentEList<EffectiveRequirementFacade>(
+					EffectiveRequirementFacade.class, this, B3BuildPackage.EFFECTIVE_UNIT_FACADE__REQUIRED_CAPABILITIES);
 		}
 		return requiredCapabilities;
 	}
@@ -175,8 +179,10 @@ public class EffectiveUnitFacadeImpl extends EffectiveFacadeImpl implements Effe
 	 * @generated
 	 */
 	public EList<EffectiveRequirementFacade> getMetaRequiredCapabilities() {
-		if (metaRequiredCapabilities == null) {
-			metaRequiredCapabilities = new EObjectContainmentEList<EffectiveRequirementFacade>(EffectiveRequirementFacade.class, this, B3BuildPackage.EFFECTIVE_UNIT_FACADE__META_REQUIRED_CAPABILITIES);
+		if(metaRequiredCapabilities == null) {
+			metaRequiredCapabilities = new EObjectContainmentEList<EffectiveRequirementFacade>(
+					EffectiveRequirementFacade.class, this,
+					B3BuildPackage.EFFECTIVE_UNIT_FACADE__META_REQUIRED_CAPABILITIES);
 		}
 		return metaRequiredCapabilities;
 	}
@@ -188,13 +194,13 @@ public class EffectiveUnitFacadeImpl extends EffectiveFacadeImpl implements Effe
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case B3BuildPackage.EFFECTIVE_UNIT_FACADE__PROVIDED_CAPABILITIES:
-				return ((InternalEList<?>)getProvidedCapabilities()).basicRemove(otherEnd, msgs);
-			case B3BuildPackage.EFFECTIVE_UNIT_FACADE__REQUIRED_CAPABILITIES:
-				return ((InternalEList<?>)getRequiredCapabilities()).basicRemove(otherEnd, msgs);
-			case B3BuildPackage.EFFECTIVE_UNIT_FACADE__META_REQUIRED_CAPABILITIES:
-				return ((InternalEList<?>)getMetaRequiredCapabilities()).basicRemove(otherEnd, msgs);
+		switch(featureID) {
+		case B3BuildPackage.EFFECTIVE_UNIT_FACADE__PROVIDED_CAPABILITIES:
+			return ((InternalEList<?>) getProvidedCapabilities()).basicRemove(otherEnd, msgs);
+		case B3BuildPackage.EFFECTIVE_UNIT_FACADE__REQUIRED_CAPABILITIES:
+			return ((InternalEList<?>) getRequiredCapabilities()).basicRemove(otherEnd, msgs);
+		case B3BuildPackage.EFFECTIVE_UNIT_FACADE__META_REQUIRED_CAPABILITIES:
+			return ((InternalEList<?>) getMetaRequiredCapabilities()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -206,16 +212,17 @@ public class EffectiveUnitFacadeImpl extends EffectiveFacadeImpl implements Effe
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case B3BuildPackage.EFFECTIVE_UNIT_FACADE__UNIT:
-				if (resolve) return getUnit();
-				return basicGetUnit();
-			case B3BuildPackage.EFFECTIVE_UNIT_FACADE__PROVIDED_CAPABILITIES:
-				return getProvidedCapabilities();
-			case B3BuildPackage.EFFECTIVE_UNIT_FACADE__REQUIRED_CAPABILITIES:
-				return getRequiredCapabilities();
-			case B3BuildPackage.EFFECTIVE_UNIT_FACADE__META_REQUIRED_CAPABILITIES:
-				return getMetaRequiredCapabilities();
+		switch(featureID) {
+		case B3BuildPackage.EFFECTIVE_UNIT_FACADE__UNIT:
+			if(resolve)
+				return getUnit();
+			return basicGetUnit();
+		case B3BuildPackage.EFFECTIVE_UNIT_FACADE__PROVIDED_CAPABILITIES:
+			return getProvidedCapabilities();
+		case B3BuildPackage.EFFECTIVE_UNIT_FACADE__REQUIRED_CAPABILITIES:
+			return getRequiredCapabilities();
+		case B3BuildPackage.EFFECTIVE_UNIT_FACADE__META_REQUIRED_CAPABILITIES:
+			return getMetaRequiredCapabilities();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -228,22 +235,22 @@ public class EffectiveUnitFacadeImpl extends EffectiveFacadeImpl implements Effe
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case B3BuildPackage.EFFECTIVE_UNIT_FACADE__UNIT:
-				setUnit((BuildUnit)newValue);
-				return;
-			case B3BuildPackage.EFFECTIVE_UNIT_FACADE__PROVIDED_CAPABILITIES:
-				getProvidedCapabilities().clear();
-				getProvidedCapabilities().addAll((Collection<? extends EffectiveCapabilityFacade>)newValue);
-				return;
-			case B3BuildPackage.EFFECTIVE_UNIT_FACADE__REQUIRED_CAPABILITIES:
-				getRequiredCapabilities().clear();
-				getRequiredCapabilities().addAll((Collection<? extends EffectiveRequirementFacade>)newValue);
-				return;
-			case B3BuildPackage.EFFECTIVE_UNIT_FACADE__META_REQUIRED_CAPABILITIES:
-				getMetaRequiredCapabilities().clear();
-				getMetaRequiredCapabilities().addAll((Collection<? extends EffectiveRequirementFacade>)newValue);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.EFFECTIVE_UNIT_FACADE__UNIT:
+			setUnit((BuildUnit) newValue);
+			return;
+		case B3BuildPackage.EFFECTIVE_UNIT_FACADE__PROVIDED_CAPABILITIES:
+			getProvidedCapabilities().clear();
+			getProvidedCapabilities().addAll((Collection<? extends EffectiveCapabilityFacade>) newValue);
+			return;
+		case B3BuildPackage.EFFECTIVE_UNIT_FACADE__REQUIRED_CAPABILITIES:
+			getRequiredCapabilities().clear();
+			getRequiredCapabilities().addAll((Collection<? extends EffectiveRequirementFacade>) newValue);
+			return;
+		case B3BuildPackage.EFFECTIVE_UNIT_FACADE__META_REQUIRED_CAPABILITIES:
+			getMetaRequiredCapabilities().clear();
+			getMetaRequiredCapabilities().addAll((Collection<? extends EffectiveRequirementFacade>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -255,19 +262,19 @@ public class EffectiveUnitFacadeImpl extends EffectiveFacadeImpl implements Effe
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.EFFECTIVE_UNIT_FACADE__UNIT:
-				setUnit((BuildUnit)null);
-				return;
-			case B3BuildPackage.EFFECTIVE_UNIT_FACADE__PROVIDED_CAPABILITIES:
-				getProvidedCapabilities().clear();
-				return;
-			case B3BuildPackage.EFFECTIVE_UNIT_FACADE__REQUIRED_CAPABILITIES:
-				getRequiredCapabilities().clear();
-				return;
-			case B3BuildPackage.EFFECTIVE_UNIT_FACADE__META_REQUIRED_CAPABILITIES:
-				getMetaRequiredCapabilities().clear();
-				return;
+		switch(featureID) {
+		case B3BuildPackage.EFFECTIVE_UNIT_FACADE__UNIT:
+			setUnit((BuildUnit) null);
+			return;
+		case B3BuildPackage.EFFECTIVE_UNIT_FACADE__PROVIDED_CAPABILITIES:
+			getProvidedCapabilities().clear();
+			return;
+		case B3BuildPackage.EFFECTIVE_UNIT_FACADE__REQUIRED_CAPABILITIES:
+			getRequiredCapabilities().clear();
+			return;
+		case B3BuildPackage.EFFECTIVE_UNIT_FACADE__META_REQUIRED_CAPABILITIES:
+			getMetaRequiredCapabilities().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -279,15 +286,15 @@ public class EffectiveUnitFacadeImpl extends EffectiveFacadeImpl implements Effe
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.EFFECTIVE_UNIT_FACADE__UNIT:
-				return unit != null;
-			case B3BuildPackage.EFFECTIVE_UNIT_FACADE__PROVIDED_CAPABILITIES:
-				return providedCapabilities != null && !providedCapabilities.isEmpty();
-			case B3BuildPackage.EFFECTIVE_UNIT_FACADE__REQUIRED_CAPABILITIES:
-				return requiredCapabilities != null && !requiredCapabilities.isEmpty();
-			case B3BuildPackage.EFFECTIVE_UNIT_FACADE__META_REQUIRED_CAPABILITIES:
-				return metaRequiredCapabilities != null && !metaRequiredCapabilities.isEmpty();
+		switch(featureID) {
+		case B3BuildPackage.EFFECTIVE_UNIT_FACADE__UNIT:
+			return unit != null;
+		case B3BuildPackage.EFFECTIVE_UNIT_FACADE__PROVIDED_CAPABILITIES:
+			return providedCapabilities != null && !providedCapabilities.isEmpty();
+		case B3BuildPackage.EFFECTIVE_UNIT_FACADE__REQUIRED_CAPABILITIES:
+			return requiredCapabilities != null && !requiredCapabilities.isEmpty();
+		case B3BuildPackage.EFFECTIVE_UNIT_FACADE__META_REQUIRED_CAPABILITIES:
+			return metaRequiredCapabilities != null && !metaRequiredCapabilities.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

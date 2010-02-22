@@ -25,6 +25,7 @@ import org.eclipse.b3.build.build.BuilderReference;
 import org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade;
 import org.eclipse.b3.build.build.IBuilder;
 import org.eclipse.b3.build.build.PathVector;
+import org.eclipse.b3.build.build.RequiredCapability;
 import org.eclipse.b3.build.internal.B3BuildActivator;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
@@ -207,7 +208,21 @@ public class B3BuilderJob extends Job {
 						values[idx] = p.getExpr().evaluate(ctxToUse);
 						types[idx++] = p.getExpr().getDeclaredType(ctxToUse);
 					}
-				values[0] = unit;
+				// TODO: CHEATING HERE - CALLING ON THE SAME UNIT ONLY
+				// TODO: SHOULD GET THE RESOLVED UNIT FROM THE BUILDER REFERENCE
+				//
+				BuildUnit unitToUse = unit;
+				RequiredCapability rq = null;
+				rq = bref.getRequiredCapability();
+				if(rq == null)
+					rq = bref.getRequiredCapabilityReference();
+
+				// TODO: CHEATING HERE - CALLING ON THE SAME UNIT ONLY
+				// TODO: SHOULD GET THE RESOLVED UNIT FROM THE BUILDER REFERENCE
+				//
+				if(rq != null)
+					unitToUse = null; // TODO: lookup resolution as adapter
+				values[0] = unitToUse;
 				types[0] = BuildUnitProxyAdapterFactory.eINSTANCE.adapt(unit).getProxy().getClass();
 				Object buildJobObject = ctxToUse.callFunction(builderName, values, types);
 				if(!(buildJobObject instanceof B3BuilderJob))
@@ -274,7 +289,7 @@ public class B3BuilderJob extends Job {
 			Object br = builder.internalCall(ctx, new Object[] {}, new Type[] {});
 
 			// A return of null means there was no funcExpression (or that the funcExpression returned
-			// null explicitly). In both cases - this means that (in decreasing order of significanse) the
+			// null explicitly). In both cases - this means that (in decreasing order of significance) the
 			// first specified of "output", "source", or "input" should be returned
 			// Lastly, if none of these were specified, empty output is returned.
 			//

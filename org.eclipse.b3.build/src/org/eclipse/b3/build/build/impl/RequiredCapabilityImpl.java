@@ -87,8 +87,9 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	public void setVersionRange(VersionRange newVersionRange) {
 		VersionRange oldVersionRange = versionRange;
 		versionRange = newVersionRange;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.REQUIRED_CAPABILITY__VERSION_RANGE, oldVersionRange, versionRange));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.REQUIRED_CAPABILITY__VERSION_RANGE,
+					oldVersionRange, versionRange));
 	}
 
 	/**
@@ -98,9 +99,9 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case B3BuildPackage.REQUIRED_CAPABILITY__VERSION_RANGE:
-				return getVersionRange();
+		switch(featureID) {
+		case B3BuildPackage.REQUIRED_CAPABILITY__VERSION_RANGE:
+			return getVersionRange();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -112,10 +113,10 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case B3BuildPackage.REQUIRED_CAPABILITY__VERSION_RANGE:
-				setVersionRange((VersionRange)newValue);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.REQUIRED_CAPABILITY__VERSION_RANGE:
+			setVersionRange((VersionRange) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -127,10 +128,10 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.REQUIRED_CAPABILITY__VERSION_RANGE:
-				setVersionRange(VERSION_RANGE_EDEFAULT);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.REQUIRED_CAPABILITY__VERSION_RANGE:
+			setVersionRange(VERSION_RANGE_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -142,9 +143,11 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.REQUIRED_CAPABILITY__VERSION_RANGE:
-				return VERSION_RANGE_EDEFAULT == null ? versionRange != null : !VERSION_RANGE_EDEFAULT.equals(versionRange);
+		switch(featureID) {
+		case B3BuildPackage.REQUIRED_CAPABILITY__VERSION_RANGE:
+			return VERSION_RANGE_EDEFAULT == null
+					? versionRange != null
+					: !VERSION_RANGE_EDEFAULT.equals(versionRange);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -156,7 +159,8 @@ public class RequiredCapabilityImpl extends CapabilityImpl implements RequiredCa
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (versionRange: ");

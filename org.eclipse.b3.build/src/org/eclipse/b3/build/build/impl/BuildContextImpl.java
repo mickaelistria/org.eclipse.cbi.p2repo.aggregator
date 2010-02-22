@@ -83,7 +83,7 @@ public class BuildContextImpl extends BExecutionContextImpl implements BuildCont
 		BuildUnitProxyAdapter p = BuildUnitProxyAdapterFactory.eINSTANCE.adapt(unit);
 		Class<? extends BuildUnit> iface = p.getIface();
 		if(unitStore.containsKey(iface))
-			throw new IllegalArgumentException("Attempt to redefine a build unit named: "+unit.getName());
+			throw new IllegalArgumentException("Attempt to redefine a build unit named: " + unit.getName());
 
 		BuildUnit unitToStore = unit;
 		boolean woven = false;
@@ -94,7 +94,8 @@ public class BuildContextImpl extends BExecutionContextImpl implements BuildCont
 					try {
 						if(c.evaluateIfMatching(unit, this))
 							woven = true;
-					} catch (Throwable e) {
+					}
+					catch(Throwable e) {
 						throw new B3WeavingFailedException(e);
 					}
 			}
@@ -102,7 +103,7 @@ public class BuildContextImpl extends BExecutionContextImpl implements BuildCont
 		// do not store original if it was woven
 		if(!woven)
 			unitStore.put(iface, unitToStore);
-		
+
 		// define all of the unit's builders
 		for(IBuilder b : unit.getBuilders())
 			defineFunction(b);
@@ -116,7 +117,7 @@ public class BuildContextImpl extends BExecutionContextImpl implements BuildCont
 	 * @generated NOT
 	 */
 	public BuildContext defineBeeModel(BeeModel beeModel) throws B3EngineException {
-		
+
 		// Define all IMPORTS as constants
 		for(Type t : beeModel.getImports()) {
 			if(t instanceof B3JavaImport) {
@@ -126,12 +127,12 @@ public class BuildContextImpl extends BExecutionContextImpl implements BuildCont
 				defineValue(((B3JavaImport) t).getName(), x, metaClass);
 			}
 		}
-		
+
 		// Define all FUNCTIONS
 		for(IFunction f : beeModel.getFunctions()) {
 			this.defineFunction(f);
 		}
-		
+
 		// Define all BUILD UNITS (currently only one - could easily have more than one)
 		for(BuildUnit u : beeModel.getBuildUnits())
 			if(u != null)
@@ -139,9 +140,10 @@ public class BuildContextImpl extends BExecutionContextImpl implements BuildCont
 
 		// Concerns, and defined property sets are only used via direct model references,
 		// so these are not defined in the context.
-		
+
 		return this;
 	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -150,7 +152,7 @@ public class BuildContextImpl extends BExecutionContextImpl implements BuildCont
 	public BuildUnit getEffectiveBuildUnit(BuildUnit unit) {
 		ParentContextIterator pitor = new ParentContextIterator(this, BuildContext.class);
 		while(pitor.hasNext()) {
-			BuildContextImpl ctx = (BuildContextImpl)pitor.next();
+			BuildContextImpl ctx = (BuildContextImpl) pitor.next();
 			BuildUnit u = ctx.getBuildUnitStore().get(BuildUnitProxyAdapterFactory.eINSTANCE.adapt(unit).getIface());
 			if(u != null)
 				return u;

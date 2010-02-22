@@ -85,8 +85,9 @@ public class AliasedRequiredCapabilityImpl extends RequiredCapabilityImpl implem
 	public void setAlias(String newAlias) {
 		String oldAlias = alias;
 		alias = newAlias;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.ALIASED_REQUIRED_CAPABILITY__ALIAS, oldAlias, alias));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.ALIASED_REQUIRED_CAPABILITY__ALIAS,
+					oldAlias, alias));
 	}
 
 	/**
@@ -96,9 +97,9 @@ public class AliasedRequiredCapabilityImpl extends RequiredCapabilityImpl implem
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case B3BuildPackage.ALIASED_REQUIRED_CAPABILITY__ALIAS:
-				return getAlias();
+		switch(featureID) {
+		case B3BuildPackage.ALIASED_REQUIRED_CAPABILITY__ALIAS:
+			return getAlias();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -110,10 +111,10 @@ public class AliasedRequiredCapabilityImpl extends RequiredCapabilityImpl implem
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case B3BuildPackage.ALIASED_REQUIRED_CAPABILITY__ALIAS:
-				setAlias((String)newValue);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.ALIASED_REQUIRED_CAPABILITY__ALIAS:
+			setAlias((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -125,10 +126,10 @@ public class AliasedRequiredCapabilityImpl extends RequiredCapabilityImpl implem
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.ALIASED_REQUIRED_CAPABILITY__ALIAS:
-				setAlias(ALIAS_EDEFAULT);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.ALIASED_REQUIRED_CAPABILITY__ALIAS:
+			setAlias(ALIAS_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -140,9 +141,11 @@ public class AliasedRequiredCapabilityImpl extends RequiredCapabilityImpl implem
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.ALIASED_REQUIRED_CAPABILITY__ALIAS:
-				return ALIAS_EDEFAULT == null ? alias != null : !ALIAS_EDEFAULT.equals(alias);
+		switch(featureID) {
+		case B3BuildPackage.ALIASED_REQUIRED_CAPABILITY__ALIAS:
+			return ALIAS_EDEFAULT == null
+					? alias != null
+					: !ALIAS_EDEFAULT.equals(alias);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -154,7 +157,8 @@ public class AliasedRequiredCapabilityImpl extends RequiredCapabilityImpl implem
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (alias: ");

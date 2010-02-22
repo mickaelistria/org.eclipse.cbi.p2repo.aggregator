@@ -46,6 +46,7 @@ public class SynchronizationImpl extends EObjectImpl implements Synchronization 
 	 * @ordered
 	 */
 	protected EList<BuilderQuery> builderQueries;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -71,8 +72,9 @@ public class SynchronizationImpl extends EObjectImpl implements Synchronization 
 	 * @generated
 	 */
 	public EList<BuilderQuery> getBuilderQueries() {
-		if (builderQueries == null) {
-			builderQueries = new EObjectContainmentEList<BuilderQuery>(BuilderQuery.class, this, B3BuildPackage.SYNCHRONIZATION__BUILDER_QUERIES);
+		if(builderQueries == null) {
+			builderQueries = new EObjectContainmentEList<BuilderQuery>(BuilderQuery.class, this,
+					B3BuildPackage.SYNCHRONIZATION__BUILDER_QUERIES);
 		}
 		return builderQueries;
 	}
@@ -84,9 +86,9 @@ public class SynchronizationImpl extends EObjectImpl implements Synchronization 
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case B3BuildPackage.SYNCHRONIZATION__BUILDER_QUERIES:
-				return ((InternalEList<?>)getBuilderQueries()).basicRemove(otherEnd, msgs);
+		switch(featureID) {
+		case B3BuildPackage.SYNCHRONIZATION__BUILDER_QUERIES:
+			return ((InternalEList<?>) getBuilderQueries()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -98,9 +100,9 @@ public class SynchronizationImpl extends EObjectImpl implements Synchronization 
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case B3BuildPackage.SYNCHRONIZATION__BUILDER_QUERIES:
-				return getBuilderQueries();
+		switch(featureID) {
+		case B3BuildPackage.SYNCHRONIZATION__BUILDER_QUERIES:
+			return getBuilderQueries();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -113,11 +115,11 @@ public class SynchronizationImpl extends EObjectImpl implements Synchronization 
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case B3BuildPackage.SYNCHRONIZATION__BUILDER_QUERIES:
-				getBuilderQueries().clear();
-				getBuilderQueries().addAll((Collection<? extends BuilderQuery>)newValue);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.SYNCHRONIZATION__BUILDER_QUERIES:
+			getBuilderQueries().clear();
+			getBuilderQueries().addAll((Collection<? extends BuilderQuery>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -129,10 +131,10 @@ public class SynchronizationImpl extends EObjectImpl implements Synchronization 
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.SYNCHRONIZATION__BUILDER_QUERIES:
-				getBuilderQueries().clear();
-				return;
+		switch(featureID) {
+		case B3BuildPackage.SYNCHRONIZATION__BUILDER_QUERIES:
+			getBuilderQueries().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -144,9 +146,9 @@ public class SynchronizationImpl extends EObjectImpl implements Synchronization 
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.SYNCHRONIZATION__BUILDER_QUERIES:
-				return builderQueries != null && !builderQueries.isEmpty();
+		switch(featureID) {
+		case B3BuildPackage.SYNCHRONIZATION__BUILDER_QUERIES:
+			return builderQueries != null && !builderQueries.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

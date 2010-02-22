@@ -85,9 +85,13 @@ public class BuilderNamePredicateImpl extends BExpressionImpl implements Builder
 	public NotificationChain basicSetNamePredicate(BNamePredicate newNamePredicate, NotificationChain msgs) {
 		BNamePredicate oldNamePredicate = namePredicate;
 		namePredicate = newNamePredicate;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_NAME_PREDICATE__NAME_PREDICATE, oldNamePredicate, newNamePredicate);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.BUILDER_NAME_PREDICATE__NAME_PREDICATE, oldNamePredicate, newNamePredicate);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -98,17 +102,21 @@ public class BuilderNamePredicateImpl extends BExpressionImpl implements Builder
 	 * @generated
 	 */
 	public void setNamePredicate(BNamePredicate newNamePredicate) {
-		if (newNamePredicate != namePredicate) {
+		if(newNamePredicate != namePredicate) {
 			NotificationChain msgs = null;
-			if (namePredicate != null)
-				msgs = ((InternalEObject)namePredicate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_NAME_PREDICATE__NAME_PREDICATE, null, msgs);
-			if (newNamePredicate != null)
-				msgs = ((InternalEObject)newNamePredicate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_NAME_PREDICATE__NAME_PREDICATE, null, msgs);
+			if(namePredicate != null)
+				msgs = ((InternalEObject) namePredicate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.BUILDER_NAME_PREDICATE__NAME_PREDICATE, null, msgs);
+			if(newNamePredicate != null)
+				msgs = ((InternalEObject) newNamePredicate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.BUILDER_NAME_PREDICATE__NAME_PREDICATE, null, msgs);
 			msgs = basicSetNamePredicate(newNamePredicate, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_NAME_PREDICATE__NAME_PREDICATE, newNamePredicate, newNamePredicate));
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.BUILDER_NAME_PREDICATE__NAME_PREDICATE, newNamePredicate, newNamePredicate));
 	}
 
 	/**
@@ -118,9 +126,9 @@ public class BuilderNamePredicateImpl extends BExpressionImpl implements Builder
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case B3BuildPackage.BUILDER_NAME_PREDICATE__NAME_PREDICATE:
-				return basicSetNamePredicate(null, msgs);
+		switch(featureID) {
+		case B3BuildPackage.BUILDER_NAME_PREDICATE__NAME_PREDICATE:
+			return basicSetNamePredicate(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -132,9 +140,9 @@ public class BuilderNamePredicateImpl extends BExpressionImpl implements Builder
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case B3BuildPackage.BUILDER_NAME_PREDICATE__NAME_PREDICATE:
-				return getNamePredicate();
+		switch(featureID) {
+		case B3BuildPackage.BUILDER_NAME_PREDICATE__NAME_PREDICATE:
+			return getNamePredicate();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -146,10 +154,10 @@ public class BuilderNamePredicateImpl extends BExpressionImpl implements Builder
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case B3BuildPackage.BUILDER_NAME_PREDICATE__NAME_PREDICATE:
-				setNamePredicate((BNamePredicate)newValue);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.BUILDER_NAME_PREDICATE__NAME_PREDICATE:
+			setNamePredicate((BNamePredicate) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -161,10 +169,10 @@ public class BuilderNamePredicateImpl extends BExpressionImpl implements Builder
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.BUILDER_NAME_PREDICATE__NAME_PREDICATE:
-				setNamePredicate((BNamePredicate)null);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.BUILDER_NAME_PREDICATE__NAME_PREDICATE:
+			setNamePredicate((BNamePredicate) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -176,21 +184,23 @@ public class BuilderNamePredicateImpl extends BExpressionImpl implements Builder
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.BUILDER_NAME_PREDICATE__NAME_PREDICATE:
-				return namePredicate != null;
+		switch(featureID) {
+		case B3BuildPackage.BUILDER_NAME_PREDICATE__NAME_PREDICATE:
+			return namePredicate != null;
 		}
 		return super.eIsSet(featureID);
 	}
+
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 		// pick up "@test" parameter from context
 		Object test = ctx.getValue("@test");
 		if(!(test instanceof IBuilder))
 			throw new B3InternalError("Attempt to evaluate BuilderNamePredicate against non IBuilder");
-		IBuilder b = (IBuilder)test;
+		IBuilder b = (IBuilder) test;
 		return Boolean.valueOf(namePredicate.matches(b.getName()));
 	}
+
 	/**
 	 * Always returns Boolean.
 	 */

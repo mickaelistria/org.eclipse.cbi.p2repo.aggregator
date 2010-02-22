@@ -52,6 +52,7 @@ public class PathGroupImpl extends EObjectImpl implements PathGroup {
 	 * @ordered
 	 */
 	protected BPropertySet annotations;
+
 	/**
 	 * The cached value of the '{@link #getPathVectors() <em>Path Vectors</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -98,9 +99,13 @@ public class PathGroupImpl extends EObjectImpl implements PathGroup {
 	public NotificationChain basicSetAnnotations(BPropertySet newAnnotations, NotificationChain msgs) {
 		BPropertySet oldAnnotations = annotations;
 		annotations = newAnnotations;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.PATH_GROUP__ANNOTATIONS, oldAnnotations, newAnnotations);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.PATH_GROUP__ANNOTATIONS, oldAnnotations, newAnnotations);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -111,17 +116,21 @@ public class PathGroupImpl extends EObjectImpl implements PathGroup {
 	 * @generated
 	 */
 	public void setAnnotations(BPropertySet newAnnotations) {
-		if (newAnnotations != annotations) {
+		if(newAnnotations != annotations) {
 			NotificationChain msgs = null;
-			if (annotations != null)
-				msgs = ((InternalEObject)annotations).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.PATH_GROUP__ANNOTATIONS, null, msgs);
-			if (newAnnotations != null)
-				msgs = ((InternalEObject)newAnnotations).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.PATH_GROUP__ANNOTATIONS, null, msgs);
+			if(annotations != null)
+				msgs = ((InternalEObject) annotations).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.PATH_GROUP__ANNOTATIONS, null, msgs);
+			if(newAnnotations != null)
+				msgs = ((InternalEObject) newAnnotations).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.PATH_GROUP__ANNOTATIONS, null, msgs);
 			msgs = basicSetAnnotations(newAnnotations, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.PATH_GROUP__ANNOTATIONS, newAnnotations, newAnnotations));
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.PATH_GROUP__ANNOTATIONS,
+					newAnnotations, newAnnotations));
 	}
 
 	/**
@@ -130,8 +139,9 @@ public class PathGroupImpl extends EObjectImpl implements PathGroup {
 	 * @generated
 	 */
 	public EList<ConditionalPathVector> getPathVectors() {
-		if (pathVectors == null) {
-			pathVectors = new EObjectContainmentEList<ConditionalPathVector>(ConditionalPathVector.class, this, B3BuildPackage.PATH_GROUP__PATH_VECTORS);
+		if(pathVectors == null) {
+			pathVectors = new EObjectContainmentEList<ConditionalPathVector>(ConditionalPathVector.class, this,
+					B3BuildPackage.PATH_GROUP__PATH_VECTORS);
 		}
 		return pathVectors;
 	}
@@ -143,11 +153,11 @@ public class PathGroupImpl extends EObjectImpl implements PathGroup {
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case B3BuildPackage.PATH_GROUP__ANNOTATIONS:
-				return basicSetAnnotations(null, msgs);
-			case B3BuildPackage.PATH_GROUP__PATH_VECTORS:
-				return ((InternalEList<?>)getPathVectors()).basicRemove(otherEnd, msgs);
+		switch(featureID) {
+		case B3BuildPackage.PATH_GROUP__ANNOTATIONS:
+			return basicSetAnnotations(null, msgs);
+		case B3BuildPackage.PATH_GROUP__PATH_VECTORS:
+			return ((InternalEList<?>) getPathVectors()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -159,11 +169,11 @@ public class PathGroupImpl extends EObjectImpl implements PathGroup {
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case B3BuildPackage.PATH_GROUP__ANNOTATIONS:
-				return getAnnotations();
-			case B3BuildPackage.PATH_GROUP__PATH_VECTORS:
-				return getPathVectors();
+		switch(featureID) {
+		case B3BuildPackage.PATH_GROUP__ANNOTATIONS:
+			return getAnnotations();
+		case B3BuildPackage.PATH_GROUP__PATH_VECTORS:
+			return getPathVectors();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -176,14 +186,14 @@ public class PathGroupImpl extends EObjectImpl implements PathGroup {
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case B3BuildPackage.PATH_GROUP__ANNOTATIONS:
-				setAnnotations((BPropertySet)newValue);
-				return;
-			case B3BuildPackage.PATH_GROUP__PATH_VECTORS:
-				getPathVectors().clear();
-				getPathVectors().addAll((Collection<? extends ConditionalPathVector>)newValue);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.PATH_GROUP__ANNOTATIONS:
+			setAnnotations((BPropertySet) newValue);
+			return;
+		case B3BuildPackage.PATH_GROUP__PATH_VECTORS:
+			getPathVectors().clear();
+			getPathVectors().addAll((Collection<? extends ConditionalPathVector>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -195,13 +205,13 @@ public class PathGroupImpl extends EObjectImpl implements PathGroup {
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.PATH_GROUP__ANNOTATIONS:
-				setAnnotations((BPropertySet)null);
-				return;
-			case B3BuildPackage.PATH_GROUP__PATH_VECTORS:
-				getPathVectors().clear();
-				return;
+		switch(featureID) {
+		case B3BuildPackage.PATH_GROUP__ANNOTATIONS:
+			setAnnotations((BPropertySet) null);
+			return;
+		case B3BuildPackage.PATH_GROUP__PATH_VECTORS:
+			getPathVectors().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -213,11 +223,11 @@ public class PathGroupImpl extends EObjectImpl implements PathGroup {
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.PATH_GROUP__ANNOTATIONS:
-				return annotations != null;
-			case B3BuildPackage.PATH_GROUP__PATH_VECTORS:
-				return pathVectors != null && !pathVectors.isEmpty();
+		switch(featureID) {
+		case B3BuildPackage.PATH_GROUP__ANNOTATIONS:
+			return annotations != null;
+		case B3BuildPackage.PATH_GROUP__PATH_VECTORS:
+			return pathVectors != null && !pathVectors.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

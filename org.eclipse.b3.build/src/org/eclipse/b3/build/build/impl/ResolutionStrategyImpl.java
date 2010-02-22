@@ -71,8 +71,9 @@ public abstract class ResolutionStrategyImpl extends RepositoryConfigurationImpl
 	 * @generated
 	 */
 	public EList<RepositoryConfiguration> getRepositories() {
-		if (repositories == null) {
-			repositories = new EObjectContainmentEList<RepositoryConfiguration>(RepositoryConfiguration.class, this, B3BuildPackage.RESOLUTION_STRATEGY__REPOSITORIES);
+		if(repositories == null) {
+			repositories = new EObjectContainmentEList<RepositoryConfiguration>(RepositoryConfiguration.class, this,
+					B3BuildPackage.RESOLUTION_STRATEGY__REPOSITORIES);
 		}
 		return repositories;
 	}
@@ -84,9 +85,9 @@ public abstract class ResolutionStrategyImpl extends RepositoryConfigurationImpl
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case B3BuildPackage.RESOLUTION_STRATEGY__REPOSITORIES:
-				return ((InternalEList<?>)getRepositories()).basicRemove(otherEnd, msgs);
+		switch(featureID) {
+		case B3BuildPackage.RESOLUTION_STRATEGY__REPOSITORIES:
+			return ((InternalEList<?>) getRepositories()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -98,9 +99,9 @@ public abstract class ResolutionStrategyImpl extends RepositoryConfigurationImpl
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case B3BuildPackage.RESOLUTION_STRATEGY__REPOSITORIES:
-				return getRepositories();
+		switch(featureID) {
+		case B3BuildPackage.RESOLUTION_STRATEGY__REPOSITORIES:
+			return getRepositories();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -113,11 +114,11 @@ public abstract class ResolutionStrategyImpl extends RepositoryConfigurationImpl
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case B3BuildPackage.RESOLUTION_STRATEGY__REPOSITORIES:
-				getRepositories().clear();
-				getRepositories().addAll((Collection<? extends RepositoryConfiguration>)newValue);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.RESOLUTION_STRATEGY__REPOSITORIES:
+			getRepositories().clear();
+			getRepositories().addAll((Collection<? extends RepositoryConfiguration>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -129,10 +130,10 @@ public abstract class ResolutionStrategyImpl extends RepositoryConfigurationImpl
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.RESOLUTION_STRATEGY__REPOSITORIES:
-				getRepositories().clear();
-				return;
+		switch(featureID) {
+		case B3BuildPackage.RESOLUTION_STRATEGY__REPOSITORIES:
+			getRepositories().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -144,9 +145,9 @@ public abstract class ResolutionStrategyImpl extends RepositoryConfigurationImpl
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.RESOLUTION_STRATEGY__REPOSITORIES:
-				return repositories != null && !repositories.isEmpty();
+		switch(featureID) {
+		case B3BuildPackage.RESOLUTION_STRATEGY__REPOSITORIES:
+			return repositories != null && !repositories.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -138,9 +138,13 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 	public NotificationChain basicSetParameters(BParameterList newParameters, NotificationChain msgs) {
 		BParameterList oldParameters = parameters;
 		parameters = newParameters;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_REFERENCE__PARAMETERS, oldParameters, newParameters);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.BUILDER_REFERENCE__PARAMETERS, oldParameters, newParameters);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -151,17 +155,21 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 	 * @generated
 	 */
 	public void setParameters(BParameterList newParameters) {
-		if (newParameters != parameters) {
+		if(newParameters != parameters) {
 			NotificationChain msgs = null;
-			if (parameters != null)
-				msgs = ((InternalEObject)parameters).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_REFERENCE__PARAMETERS, null, msgs);
-			if (newParameters != null)
-				msgs = ((InternalEObject)newParameters).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_REFERENCE__PARAMETERS, null, msgs);
+			if(parameters != null)
+				msgs = ((InternalEObject) parameters).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.BUILDER_REFERENCE__PARAMETERS, null, msgs);
+			if(newParameters != null)
+				msgs = ((InternalEObject) newParameters).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.BUILDER_REFERENCE__PARAMETERS, null, msgs);
 			msgs = basicSetParameters(newParameters, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_REFERENCE__PARAMETERS, newParameters, newParameters));
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_REFERENCE__PARAMETERS,
+					newParameters, newParameters));
 	}
 
 	/**
@@ -181,8 +189,9 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 	public void setBuilderName(String newBuilderName) {
 		String oldBuilderName = builderName;
 		builderName = newBuilderName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_REFERENCE__BUILDER_NAME, oldBuilderName, builderName));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_REFERENCE__BUILDER_NAME,
+					oldBuilderName, builderName));
 	}
 
 	/**
@@ -202,9 +211,13 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 	public NotificationChain basicSetRequiredCapability(RequiredCapability newRequiredCapability, NotificationChain msgs) {
 		RequiredCapability oldRequiredCapability = requiredCapability;
 		requiredCapability = newRequiredCapability;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_REFERENCE__REQUIRED_CAPABILITY, oldRequiredCapability, newRequiredCapability);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.BUILDER_REFERENCE__REQUIRED_CAPABILITY, oldRequiredCapability, newRequiredCapability);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -215,17 +228,21 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 	 * @generated
 	 */
 	public void setRequiredCapability(RequiredCapability newRequiredCapability) {
-		if (newRequiredCapability != requiredCapability) {
+		if(newRequiredCapability != requiredCapability) {
 			NotificationChain msgs = null;
-			if (requiredCapability != null)
-				msgs = ((InternalEObject)requiredCapability).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_REFERENCE__REQUIRED_CAPABILITY, null, msgs);
-			if (newRequiredCapability != null)
-				msgs = ((InternalEObject)newRequiredCapability).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILDER_REFERENCE__REQUIRED_CAPABILITY, null, msgs);
+			if(requiredCapability != null)
+				msgs = ((InternalEObject) requiredCapability).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.BUILDER_REFERENCE__REQUIRED_CAPABILITY, null, msgs);
+			if(newRequiredCapability != null)
+				msgs = ((InternalEObject) newRequiredCapability).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.BUILDER_REFERENCE__REQUIRED_CAPABILITY, null, msgs);
 			msgs = basicSetRequiredCapability(newRequiredCapability, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_REFERENCE__REQUIRED_CAPABILITY, newRequiredCapability, newRequiredCapability));
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.BUILDER_REFERENCE__REQUIRED_CAPABILITY, newRequiredCapability, newRequiredCapability));
 	}
 
 	/**
@@ -234,12 +251,14 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 	 * @generated
 	 */
 	public AliasedRequiredCapability getRequiredCapabilityReference() {
-		if (requiredCapabilityReference != null && requiredCapabilityReference.eIsProxy()) {
-			InternalEObject oldRequiredCapabilityReference = (InternalEObject)requiredCapabilityReference;
-			requiredCapabilityReference = (AliasedRequiredCapability)eResolveProxy(oldRequiredCapabilityReference);
-			if (requiredCapabilityReference != oldRequiredCapabilityReference) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, B3BuildPackage.BUILDER_REFERENCE__REQUIRED_CAPABILITY_REFERENCE, oldRequiredCapabilityReference, requiredCapabilityReference));
+		if(requiredCapabilityReference != null && requiredCapabilityReference.eIsProxy()) {
+			InternalEObject oldRequiredCapabilityReference = (InternalEObject) requiredCapabilityReference;
+			requiredCapabilityReference = (AliasedRequiredCapability) eResolveProxy(oldRequiredCapabilityReference);
+			if(requiredCapabilityReference != oldRequiredCapabilityReference) {
+				if(eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+							B3BuildPackage.BUILDER_REFERENCE__REQUIRED_CAPABILITY_REFERENCE,
+							oldRequiredCapabilityReference, requiredCapabilityReference));
 			}
 		}
 		return requiredCapabilityReference;
@@ -262,8 +281,10 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 	public void setRequiredCapabilityReference(AliasedRequiredCapability newRequiredCapabilityReference) {
 		AliasedRequiredCapability oldRequiredCapabilityReference = requiredCapabilityReference;
 		requiredCapabilityReference = newRequiredCapabilityReference;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILDER_REFERENCE__REQUIRED_CAPABILITY_REFERENCE, oldRequiredCapabilityReference, requiredCapabilityReference));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.BUILDER_REFERENCE__REQUIRED_CAPABILITY_REFERENCE, oldRequiredCapabilityReference,
+					requiredCapabilityReference));
 	}
 
 	/**
@@ -273,11 +294,11 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case B3BuildPackage.BUILDER_REFERENCE__PARAMETERS:
-				return basicSetParameters(null, msgs);
-			case B3BuildPackage.BUILDER_REFERENCE__REQUIRED_CAPABILITY:
-				return basicSetRequiredCapability(null, msgs);
+		switch(featureID) {
+		case B3BuildPackage.BUILDER_REFERENCE__PARAMETERS:
+			return basicSetParameters(null, msgs);
+		case B3BuildPackage.BUILDER_REFERENCE__REQUIRED_CAPABILITY:
+			return basicSetRequiredCapability(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -289,16 +310,17 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case B3BuildPackage.BUILDER_REFERENCE__PARAMETERS:
-				return getParameters();
-			case B3BuildPackage.BUILDER_REFERENCE__BUILDER_NAME:
-				return getBuilderName();
-			case B3BuildPackage.BUILDER_REFERENCE__REQUIRED_CAPABILITY:
-				return getRequiredCapability();
-			case B3BuildPackage.BUILDER_REFERENCE__REQUIRED_CAPABILITY_REFERENCE:
-				if (resolve) return getRequiredCapabilityReference();
-				return basicGetRequiredCapabilityReference();
+		switch(featureID) {
+		case B3BuildPackage.BUILDER_REFERENCE__PARAMETERS:
+			return getParameters();
+		case B3BuildPackage.BUILDER_REFERENCE__BUILDER_NAME:
+			return getBuilderName();
+		case B3BuildPackage.BUILDER_REFERENCE__REQUIRED_CAPABILITY:
+			return getRequiredCapability();
+		case B3BuildPackage.BUILDER_REFERENCE__REQUIRED_CAPABILITY_REFERENCE:
+			if(resolve)
+				return getRequiredCapabilityReference();
+			return basicGetRequiredCapabilityReference();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -310,19 +332,19 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case B3BuildPackage.BUILDER_REFERENCE__PARAMETERS:
-				setParameters((BParameterList)newValue);
-				return;
-			case B3BuildPackage.BUILDER_REFERENCE__BUILDER_NAME:
-				setBuilderName((String)newValue);
-				return;
-			case B3BuildPackage.BUILDER_REFERENCE__REQUIRED_CAPABILITY:
-				setRequiredCapability((RequiredCapability)newValue);
-				return;
-			case B3BuildPackage.BUILDER_REFERENCE__REQUIRED_CAPABILITY_REFERENCE:
-				setRequiredCapabilityReference((AliasedRequiredCapability)newValue);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.BUILDER_REFERENCE__PARAMETERS:
+			setParameters((BParameterList) newValue);
+			return;
+		case B3BuildPackage.BUILDER_REFERENCE__BUILDER_NAME:
+			setBuilderName((String) newValue);
+			return;
+		case B3BuildPackage.BUILDER_REFERENCE__REQUIRED_CAPABILITY:
+			setRequiredCapability((RequiredCapability) newValue);
+			return;
+		case B3BuildPackage.BUILDER_REFERENCE__REQUIRED_CAPABILITY_REFERENCE:
+			setRequiredCapabilityReference((AliasedRequiredCapability) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -334,19 +356,19 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.BUILDER_REFERENCE__PARAMETERS:
-				setParameters((BParameterList)null);
-				return;
-			case B3BuildPackage.BUILDER_REFERENCE__BUILDER_NAME:
-				setBuilderName(BUILDER_NAME_EDEFAULT);
-				return;
-			case B3BuildPackage.BUILDER_REFERENCE__REQUIRED_CAPABILITY:
-				setRequiredCapability((RequiredCapability)null);
-				return;
-			case B3BuildPackage.BUILDER_REFERENCE__REQUIRED_CAPABILITY_REFERENCE:
-				setRequiredCapabilityReference((AliasedRequiredCapability)null);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.BUILDER_REFERENCE__PARAMETERS:
+			setParameters((BParameterList) null);
+			return;
+		case B3BuildPackage.BUILDER_REFERENCE__BUILDER_NAME:
+			setBuilderName(BUILDER_NAME_EDEFAULT);
+			return;
+		case B3BuildPackage.BUILDER_REFERENCE__REQUIRED_CAPABILITY:
+			setRequiredCapability((RequiredCapability) null);
+			return;
+		case B3BuildPackage.BUILDER_REFERENCE__REQUIRED_CAPABILITY_REFERENCE:
+			setRequiredCapabilityReference((AliasedRequiredCapability) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -358,15 +380,17 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.BUILDER_REFERENCE__PARAMETERS:
-				return parameters != null;
-			case B3BuildPackage.BUILDER_REFERENCE__BUILDER_NAME:
-				return BUILDER_NAME_EDEFAULT == null ? builderName != null : !BUILDER_NAME_EDEFAULT.equals(builderName);
-			case B3BuildPackage.BUILDER_REFERENCE__REQUIRED_CAPABILITY:
-				return requiredCapability != null;
-			case B3BuildPackage.BUILDER_REFERENCE__REQUIRED_CAPABILITY_REFERENCE:
-				return requiredCapabilityReference != null;
+		switch(featureID) {
+		case B3BuildPackage.BUILDER_REFERENCE__PARAMETERS:
+			return parameters != null;
+		case B3BuildPackage.BUILDER_REFERENCE__BUILDER_NAME:
+			return BUILDER_NAME_EDEFAULT == null
+					? builderName != null
+					: !BUILDER_NAME_EDEFAULT.equals(builderName);
+		case B3BuildPackage.BUILDER_REFERENCE__REQUIRED_CAPABILITY:
+			return requiredCapability != null;
+		case B3BuildPackage.BUILDER_REFERENCE__REQUIRED_CAPABILITY_REFERENCE:
+			return requiredCapabilityReference != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -378,7 +402,8 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (builderName: ");
@@ -386,7 +411,7 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 		result.append(')');
 		return result.toString();
 	}
-	
+
 	/**
 	 * Returns a (singleton) iterator referencing the required capability. Only requirements stated
 	 * explicitly for the builder and does not reference the unit itself are included.
@@ -399,6 +424,7 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 		facade.setRequirement(getRequiredCapability());
 		return result;
 	}
+
 	/**
 	 * Adds a contained required capability to the set of effective capabilities. If however the requirement
 	 * is a reference via an alias, the requirement is used as stated at the unit level and is then not included
@@ -411,10 +437,13 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 		RequiredCapability r = getRequiredCapability();
 		if(r != null)
 			result.add(r);
-		
+
 		// TODO: ISSUE - IS IT OK TO REUSE THE UNFILTERED FEATURE WHEN THERE IS NO DERIVED FEATURE ?
-		return new EcoreEList.UnmodifiableEList<RequiredCapability>(this, B3BuildPackage.Literals.IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_CAPABILITIES, result.size(), result.toArray());
+		return new EcoreEList.UnmodifiableEList<RequiredCapability>(this,
+				B3BuildPackage.Literals.IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_CAPABILITIES, result.size(),
+				result.toArray());
 	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -424,7 +453,8 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 		List<BuilderReference> result = new ArrayList<BuilderReference>();
 		result.add(this);
 		// TODO: ISSUE - IS IT OK TO REUSE THE UNFILTERED FEATURE WHEN THERE IS NO DERIVED FEATURE ?
-		return new EcoreEList.UnmodifiableEList<BuilderReference>(this, B3BuildPackage.Literals.PREREQUISITE__BUILD_RESULT, result.size(), result.toArray());
+		return new EcoreEList.UnmodifiableEList<BuilderReference>(this,
+				B3BuildPackage.Literals.PREREQUISITE__BUILD_RESULT, result.size(), result.toArray());
 	}
 
 	/**
@@ -432,23 +462,24 @@ public class BuilderReferenceImpl extends BuildResultReferenceImpl implements Bu
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public Iterator<EffectiveBuilderReferenceFacade> getEffectiveBuilderReferences(BExecutionContext ctx) throws Throwable {
+	public Iterator<EffectiveBuilderReferenceFacade> getEffectiveBuilderReferences(BExecutionContext ctx)
+			throws Throwable {
 		EffectiveBuilderReferenceFacade facade = B3BuildFactory.eINSTANCE.createEffectiveBuilderReferenceFacade();
 		facade.setContext(ctx);
 		facade.setBuilderReference(this);
-		
+
 		// set all aliases in the facade (i.e alias from all containing Prerequisites until container is BuilderInput)
 		EObject container = eContainer();
 		while(container != null && !(container instanceof BuilderInput)) {
 			if(container instanceof Prerequisite) {
 				// in case of bogus input where same aliases used multiple times, just add it once
-				String a = ((Prerequisite)container).getAlias();
+				String a = ((Prerequisite) container).getAlias();
 				if(!facade.getAliases().contains(a))
 					facade.getAliases().add(a);
 			}
 			container = container.eContainer();
 		}
-			
+
 		return new SingletonIterator<EffectiveBuilderReferenceFacade>(facade);
 	}
 } //BuilderReferenceImpl

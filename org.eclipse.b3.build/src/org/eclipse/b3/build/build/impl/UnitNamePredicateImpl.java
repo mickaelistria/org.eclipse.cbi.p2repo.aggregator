@@ -44,15 +44,17 @@ public class UnitNamePredicateImpl extends CapabilityPredicateImpl implements Un
 	protected EClass eStaticClass() {
 		return B3BuildPackage.Literals.UNIT_NAME_PREDICATE;
 	}
+
 	@Override
 	public Object evaluate(BExecutionContext ctx) throws Throwable {
 		// pick up "@test" parameter from context
 		Object test = ctx.getValue("@test");
 		if(!(test instanceof BuildUnit))
 			throw new B3InternalError("Attempt to evaluate UnitNamePredicate against non BuildUnit");
-		BuildUnit u = (BuildUnit)test;
+		BuildUnit u = (BuildUnit) test;
 		return Boolean.valueOf(namePredicate.matches(u.getName()));
 	}
+
 	/**
 	 * Always returns Boolean.
 	 */

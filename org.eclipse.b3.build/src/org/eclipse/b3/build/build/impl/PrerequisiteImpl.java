@@ -138,9 +138,13 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	public NotificationChain basicSetCondExpr(BExpression newCondExpr, NotificationChain msgs) {
 		BExpression oldCondExpr = condExpr;
 		condExpr = newCondExpr;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.PREREQUISITE__COND_EXPR, oldCondExpr, newCondExpr);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.PREREQUISITE__COND_EXPR, oldCondExpr, newCondExpr);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -151,17 +155,21 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	 * @generated
 	 */
 	public void setCondExpr(BExpression newCondExpr) {
-		if (newCondExpr != condExpr) {
+		if(newCondExpr != condExpr) {
 			NotificationChain msgs = null;
-			if (condExpr != null)
-				msgs = ((InternalEObject)condExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.PREREQUISITE__COND_EXPR, null, msgs);
-			if (newCondExpr != null)
-				msgs = ((InternalEObject)newCondExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.PREREQUISITE__COND_EXPR, null, msgs);
+			if(condExpr != null)
+				msgs = ((InternalEObject) condExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.PREREQUISITE__COND_EXPR, null, msgs);
+			if(newCondExpr != null)
+				msgs = ((InternalEObject) newCondExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.PREREQUISITE__COND_EXPR, null, msgs);
 			msgs = basicSetCondExpr(newCondExpr, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.PREREQUISITE__COND_EXPR, newCondExpr, newCondExpr));
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.PREREQUISITE__COND_EXPR, newCondExpr,
+					newCondExpr));
 	}
 
 	/**
@@ -181,7 +189,7 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	public void setAlias(String newAlias) {
 		String oldAlias = alias;
 		alias = newAlias;
-		if (eNotificationRequired())
+		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.PREREQUISITE__ALIAS, oldAlias, alias));
 	}
 
@@ -202,9 +210,13 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	public NotificationChain basicSetWithExpr(BWithExpression newWithExpr, NotificationChain msgs) {
 		BWithExpression oldWithExpr = withExpr;
 		withExpr = newWithExpr;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.PREREQUISITE__WITH_EXPR, oldWithExpr, newWithExpr);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.PREREQUISITE__WITH_EXPR, oldWithExpr, newWithExpr);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -215,17 +227,21 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	 * @generated
 	 */
 	public void setWithExpr(BWithExpression newWithExpr) {
-		if (newWithExpr != withExpr) {
+		if(newWithExpr != withExpr) {
 			NotificationChain msgs = null;
-			if (withExpr != null)
-				msgs = ((InternalEObject)withExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.PREREQUISITE__WITH_EXPR, null, msgs);
-			if (newWithExpr != null)
-				msgs = ((InternalEObject)newWithExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.PREREQUISITE__WITH_EXPR, null, msgs);
+			if(withExpr != null)
+				msgs = ((InternalEObject) withExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.PREREQUISITE__WITH_EXPR, null, msgs);
+			if(newWithExpr != null)
+				msgs = ((InternalEObject) newWithExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.PREREQUISITE__WITH_EXPR, null, msgs);
 			msgs = basicSetWithExpr(newWithExpr, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.PREREQUISITE__WITH_EXPR, newWithExpr, newWithExpr));
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.PREREQUISITE__WITH_EXPR, newWithExpr,
+					newWithExpr));
 	}
 
 	/**
@@ -245,9 +261,13 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	public NotificationChain basicSetBuildResult(BuildResultReference newBuildResult, NotificationChain msgs) {
 		BuildResultReference oldBuildResult = buildResult;
 		buildResult = newBuildResult;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.PREREQUISITE__BUILD_RESULT, oldBuildResult, newBuildResult);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.PREREQUISITE__BUILD_RESULT, oldBuildResult, newBuildResult);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -258,17 +278,21 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	 * @generated
 	 */
 	public void setBuildResult(BuildResultReference newBuildResult) {
-		if (newBuildResult != buildResult) {
+		if(newBuildResult != buildResult) {
 			NotificationChain msgs = null;
-			if (buildResult != null)
-				msgs = ((InternalEObject)buildResult).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.PREREQUISITE__BUILD_RESULT, null, msgs);
-			if (newBuildResult != null)
-				msgs = ((InternalEObject)newBuildResult).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.PREREQUISITE__BUILD_RESULT, null, msgs);
+			if(buildResult != null)
+				msgs = ((InternalEObject) buildResult).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.PREREQUISITE__BUILD_RESULT, null, msgs);
+			if(newBuildResult != null)
+				msgs = ((InternalEObject) newBuildResult).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.PREREQUISITE__BUILD_RESULT, null, msgs);
 			msgs = basicSetBuildResult(newBuildResult, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.PREREQUISITE__BUILD_RESULT, newBuildResult, newBuildResult));
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.PREREQUISITE__BUILD_RESULT,
+					newBuildResult, newBuildResult));
 	}
 
 	/**
@@ -283,11 +307,15 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 		BuildResultReference br = getBuildResult();
 		if(br != null) {
 			BExpression cond = getCondExpr();
-			Object r = (cond == null) ? null : cond.evaluate(ctx);
-			if(r == null || ! (r instanceof Boolean) || r != Boolean.FALSE)
-				return br.getEffectiveRequirements(withExpr == null ? ctx : withExpr.getEvaluationContext(ctx));
+			Object r = (cond == null)
+					? null
+					: cond.evaluate(ctx);
+			if(r == null || !(r instanceof Boolean) || r != Boolean.FALSE)
+				return br.getEffectiveRequirements(withExpr == null
+						? ctx
+						: withExpr.getEvaluationContext(ctx));
 		}
-		
+
 		return new SingletonIterator<EffectiveRequirementFacade>(null);
 	}
 
@@ -304,7 +332,9 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 
 		// if there were no buildResults, return an empty list.
 		// TODO: ISSUE - IS IT OK TO REUSE THE UNFILTERED FEATURE WHEN THERE IS NO DERIVED FEATURE ?
-		return new EcoreEList.UnmodifiableEList<RequiredCapability>(this, B3BuildPackage.Literals.IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_CAPABILITIES, result.size(), result.toArray());
+		return new EcoreEList.UnmodifiableEList<RequiredCapability>(this,
+				B3BuildPackage.Literals.IREQUIRED_CAPABILITY_CONTAINER__REQUIRED_CAPABILITIES, result.size(),
+				result.toArray());
 	}
 
 	/**
@@ -315,11 +345,12 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	public EList<BuilderReference> getBuilderReferences() throws Throwable {
 		List<BuilderReference> result = new ArrayList<BuilderReference>();
 		BuildResultReference br = getBuildResult();
-		if(br != null) {	
-				result.addAll(br.getBuilderReferences());
+		if(br != null) {
+			result.addAll(br.getBuilderReferences());
 		}
 		// TODO: ISSUE - IS IT OK TO REUSE THE UNFILTERED FEATURE WHEN THERE IS NO DERIVED FEATURE ?
-		return new EcoreEList.UnmodifiableEList<BuilderReference>(this, B3BuildPackage.Literals.PREREQUISITE__BUILD_RESULT, result.size(), result.toArray());
+		return new EcoreEList.UnmodifiableEList<BuilderReference>(this,
+				B3BuildPackage.Literals.PREREQUISITE__BUILD_RESULT, result.size(), result.toArray());
 	}
 
 	/**
@@ -327,18 +358,22 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public Iterator<EffectiveBuilderReferenceFacade> getEffectiveBuilderReferences(BExecutionContext ctx) throws Throwable {
+	public Iterator<EffectiveBuilderReferenceFacade> getEffectiveBuilderReferences(BExecutionContext ctx)
+			throws Throwable {
 		SerialIterator<EffectiveBuilderReferenceFacade> itor = new SerialIterator<EffectiveBuilderReferenceFacade>();
 		BuildResultReference br = getBuildResult();
-		if(br != null) {	
+		if(br != null) {
 			BExpression cond = getCondExpr();
-			Object r = (cond == null) ? null : cond.evaluate(ctx);
-			if(r == null || ! (r instanceof Boolean) || r != Boolean.FALSE)
-				itor.addIterator(br.getEffectiveBuilderReferences(withExpr == null ? ctx : withExpr.getEvaluationContext(ctx)));
+			Object r = (cond == null)
+					? null
+					: cond.evaluate(ctx);
+			if(r == null || !(r instanceof Boolean) || r != Boolean.FALSE)
+				itor.addIterator(br.getEffectiveBuilderReferences(withExpr == null
+						? ctx
+						: withExpr.getEvaluationContext(ctx)));
 		}
 		return itor;
 	}
-
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -347,13 +382,13 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case B3BuildPackage.PREREQUISITE__COND_EXPR:
-				return basicSetCondExpr(null, msgs);
-			case B3BuildPackage.PREREQUISITE__WITH_EXPR:
-				return basicSetWithExpr(null, msgs);
-			case B3BuildPackage.PREREQUISITE__BUILD_RESULT:
-				return basicSetBuildResult(null, msgs);
+		switch(featureID) {
+		case B3BuildPackage.PREREQUISITE__COND_EXPR:
+			return basicSetCondExpr(null, msgs);
+		case B3BuildPackage.PREREQUISITE__WITH_EXPR:
+			return basicSetWithExpr(null, msgs);
+		case B3BuildPackage.PREREQUISITE__BUILD_RESULT:
+			return basicSetBuildResult(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -365,15 +400,15 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case B3BuildPackage.PREREQUISITE__COND_EXPR:
-				return getCondExpr();
-			case B3BuildPackage.PREREQUISITE__ALIAS:
-				return getAlias();
-			case B3BuildPackage.PREREQUISITE__WITH_EXPR:
-				return getWithExpr();
-			case B3BuildPackage.PREREQUISITE__BUILD_RESULT:
-				return getBuildResult();
+		switch(featureID) {
+		case B3BuildPackage.PREREQUISITE__COND_EXPR:
+			return getCondExpr();
+		case B3BuildPackage.PREREQUISITE__ALIAS:
+			return getAlias();
+		case B3BuildPackage.PREREQUISITE__WITH_EXPR:
+			return getWithExpr();
+		case B3BuildPackage.PREREQUISITE__BUILD_RESULT:
+			return getBuildResult();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -385,19 +420,19 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case B3BuildPackage.PREREQUISITE__COND_EXPR:
-				setCondExpr((BExpression)newValue);
-				return;
-			case B3BuildPackage.PREREQUISITE__ALIAS:
-				setAlias((String)newValue);
-				return;
-			case B3BuildPackage.PREREQUISITE__WITH_EXPR:
-				setWithExpr((BWithExpression)newValue);
-				return;
-			case B3BuildPackage.PREREQUISITE__BUILD_RESULT:
-				setBuildResult((BuildResultReference)newValue);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.PREREQUISITE__COND_EXPR:
+			setCondExpr((BExpression) newValue);
+			return;
+		case B3BuildPackage.PREREQUISITE__ALIAS:
+			setAlias((String) newValue);
+			return;
+		case B3BuildPackage.PREREQUISITE__WITH_EXPR:
+			setWithExpr((BWithExpression) newValue);
+			return;
+		case B3BuildPackage.PREREQUISITE__BUILD_RESULT:
+			setBuildResult((BuildResultReference) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -409,19 +444,19 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.PREREQUISITE__COND_EXPR:
-				setCondExpr((BExpression)null);
-				return;
-			case B3BuildPackage.PREREQUISITE__ALIAS:
-				setAlias(ALIAS_EDEFAULT);
-				return;
-			case B3BuildPackage.PREREQUISITE__WITH_EXPR:
-				setWithExpr((BWithExpression)null);
-				return;
-			case B3BuildPackage.PREREQUISITE__BUILD_RESULT:
-				setBuildResult((BuildResultReference)null);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.PREREQUISITE__COND_EXPR:
+			setCondExpr((BExpression) null);
+			return;
+		case B3BuildPackage.PREREQUISITE__ALIAS:
+			setAlias(ALIAS_EDEFAULT);
+			return;
+		case B3BuildPackage.PREREQUISITE__WITH_EXPR:
+			setWithExpr((BWithExpression) null);
+			return;
+		case B3BuildPackage.PREREQUISITE__BUILD_RESULT:
+			setBuildResult((BuildResultReference) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -433,15 +468,17 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.PREREQUISITE__COND_EXPR:
-				return condExpr != null;
-			case B3BuildPackage.PREREQUISITE__ALIAS:
-				return ALIAS_EDEFAULT == null ? alias != null : !ALIAS_EDEFAULT.equals(alias);
-			case B3BuildPackage.PREREQUISITE__WITH_EXPR:
-				return withExpr != null;
-			case B3BuildPackage.PREREQUISITE__BUILD_RESULT:
-				return buildResult != null;
+		switch(featureID) {
+		case B3BuildPackage.PREREQUISITE__COND_EXPR:
+			return condExpr != null;
+		case B3BuildPackage.PREREQUISITE__ALIAS:
+			return ALIAS_EDEFAULT == null
+					? alias != null
+					: !ALIAS_EDEFAULT.equals(alias);
+		case B3BuildPackage.PREREQUISITE__WITH_EXPR:
+			return withExpr != null;
+		case B3BuildPackage.PREREQUISITE__BUILD_RESULT:
+			return buildResult != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -453,7 +490,8 @@ public class PrerequisiteImpl extends EObjectImpl implements Prerequisite {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (alias: ");

@@ -43,7 +43,8 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface BuildUnit extends VersionedCapability, BFunctionContainer, IRequiredCapabilityContainer, IProvidedCapabilityContainer {
+public interface BuildUnit extends VersionedCapability, BFunctionContainer, IRequiredCapabilityContainer,
+		IProvidedCapabilityContainer {
 
 	/**
 	 * Returns the value of the '<em><b>Builders</b></em>' reference list.

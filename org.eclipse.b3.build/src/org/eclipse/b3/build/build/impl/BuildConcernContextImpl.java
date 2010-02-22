@@ -66,6 +66,7 @@ public class BuildConcernContextImpl extends BConcernContextImpl implements Buil
 	 * @ordered
 	 */
 	protected EList<String> defaultPropertiesRemovals;
+
 	/**
 	 * The cached value of the '{@link #getDefaultPropertiesAdditions() <em>Default Properties Additions</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -101,8 +102,9 @@ public class BuildConcernContextImpl extends BConcernContextImpl implements Buil
 	 * @generated
 	 */
 	public EList<Capability> getProvidedCapabilities() {
-		if (providedCapabilities == null) {
-			providedCapabilities = new EObjectContainmentEList<Capability>(Capability.class, this, B3BuildPackage.BUILD_CONCERN_CONTEXT__PROVIDED_CAPABILITIES);
+		if(providedCapabilities == null) {
+			providedCapabilities = new EObjectContainmentEList<Capability>(Capability.class, this,
+					B3BuildPackage.BUILD_CONCERN_CONTEXT__PROVIDED_CAPABILITIES);
 		}
 		return providedCapabilities;
 	}
@@ -113,8 +115,9 @@ public class BuildConcernContextImpl extends BConcernContextImpl implements Buil
 	 * @generated
 	 */
 	public EList<String> getDefaultPropertiesRemovals() {
-		if (defaultPropertiesRemovals == null) {
-			defaultPropertiesRemovals = new EDataTypeUniqueEList<String>(String.class, this, B3BuildPackage.BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_REMOVALS);
+		if(defaultPropertiesRemovals == null) {
+			defaultPropertiesRemovals = new EDataTypeUniqueEList<String>(String.class, this,
+					B3BuildPackage.BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_REMOVALS);
 		}
 		return defaultPropertiesRemovals;
 	}
@@ -133,12 +136,18 @@ public class BuildConcernContextImpl extends BConcernContextImpl implements Buil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDefaultPropertiesAdditions(BPropertySet newDefaultPropertiesAdditions, NotificationChain msgs) {
+	public NotificationChain basicSetDefaultPropertiesAdditions(BPropertySet newDefaultPropertiesAdditions,
+			NotificationChain msgs) {
 		BPropertySet oldDefaultPropertiesAdditions = defaultPropertiesAdditions;
 		defaultPropertiesAdditions = newDefaultPropertiesAdditions;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS, oldDefaultPropertiesAdditions, newDefaultPropertiesAdditions);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS, oldDefaultPropertiesAdditions,
+					newDefaultPropertiesAdditions);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -149,17 +158,22 @@ public class BuildConcernContextImpl extends BConcernContextImpl implements Buil
 	 * @generated
 	 */
 	public void setDefaultPropertiesAdditions(BPropertySet newDefaultPropertiesAdditions) {
-		if (newDefaultPropertiesAdditions != defaultPropertiesAdditions) {
+		if(newDefaultPropertiesAdditions != defaultPropertiesAdditions) {
 			NotificationChain msgs = null;
-			if (defaultPropertiesAdditions != null)
-				msgs = ((InternalEObject)defaultPropertiesAdditions).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS, null, msgs);
-			if (newDefaultPropertiesAdditions != null)
-				msgs = ((InternalEObject)newDefaultPropertiesAdditions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS, null, msgs);
+			if(defaultPropertiesAdditions != null)
+				msgs = ((InternalEObject) defaultPropertiesAdditions).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS, null, msgs);
+			if(newDefaultPropertiesAdditions != null)
+				msgs = ((InternalEObject) newDefaultPropertiesAdditions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS, null, msgs);
 			msgs = basicSetDefaultPropertiesAdditions(newDefaultPropertiesAdditions, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS, newDefaultPropertiesAdditions, newDefaultPropertiesAdditions));
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS, newDefaultPropertiesAdditions,
+					newDefaultPropertiesAdditions));
 	}
 
 	/**
@@ -169,11 +183,11 @@ public class BuildConcernContextImpl extends BConcernContextImpl implements Buil
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case B3BuildPackage.BUILD_CONCERN_CONTEXT__PROVIDED_CAPABILITIES:
-				return ((InternalEList<?>)getProvidedCapabilities()).basicRemove(otherEnd, msgs);
-			case B3BuildPackage.BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS:
-				return basicSetDefaultPropertiesAdditions(null, msgs);
+		switch(featureID) {
+		case B3BuildPackage.BUILD_CONCERN_CONTEXT__PROVIDED_CAPABILITIES:
+			return ((InternalEList<?>) getProvidedCapabilities()).basicRemove(otherEnd, msgs);
+		case B3BuildPackage.BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS:
+			return basicSetDefaultPropertiesAdditions(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -185,13 +199,13 @@ public class BuildConcernContextImpl extends BConcernContextImpl implements Buil
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case B3BuildPackage.BUILD_CONCERN_CONTEXT__PROVIDED_CAPABILITIES:
-				return getProvidedCapabilities();
-			case B3BuildPackage.BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_REMOVALS:
-				return getDefaultPropertiesRemovals();
-			case B3BuildPackage.BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS:
-				return getDefaultPropertiesAdditions();
+		switch(featureID) {
+		case B3BuildPackage.BUILD_CONCERN_CONTEXT__PROVIDED_CAPABILITIES:
+			return getProvidedCapabilities();
+		case B3BuildPackage.BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_REMOVALS:
+			return getDefaultPropertiesRemovals();
+		case B3BuildPackage.BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS:
+			return getDefaultPropertiesAdditions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -204,18 +218,18 @@ public class BuildConcernContextImpl extends BConcernContextImpl implements Buil
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case B3BuildPackage.BUILD_CONCERN_CONTEXT__PROVIDED_CAPABILITIES:
-				getProvidedCapabilities().clear();
-				getProvidedCapabilities().addAll((Collection<? extends Capability>)newValue);
-				return;
-			case B3BuildPackage.BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_REMOVALS:
-				getDefaultPropertiesRemovals().clear();
-				getDefaultPropertiesRemovals().addAll((Collection<? extends String>)newValue);
-				return;
-			case B3BuildPackage.BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS:
-				setDefaultPropertiesAdditions((BPropertySet)newValue);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.BUILD_CONCERN_CONTEXT__PROVIDED_CAPABILITIES:
+			getProvidedCapabilities().clear();
+			getProvidedCapabilities().addAll((Collection<? extends Capability>) newValue);
+			return;
+		case B3BuildPackage.BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_REMOVALS:
+			getDefaultPropertiesRemovals().clear();
+			getDefaultPropertiesRemovals().addAll((Collection<? extends String>) newValue);
+			return;
+		case B3BuildPackage.BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS:
+			setDefaultPropertiesAdditions((BPropertySet) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -227,16 +241,16 @@ public class BuildConcernContextImpl extends BConcernContextImpl implements Buil
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.BUILD_CONCERN_CONTEXT__PROVIDED_CAPABILITIES:
-				getProvidedCapabilities().clear();
-				return;
-			case B3BuildPackage.BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_REMOVALS:
-				getDefaultPropertiesRemovals().clear();
-				return;
-			case B3BuildPackage.BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS:
-				setDefaultPropertiesAdditions((BPropertySet)null);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.BUILD_CONCERN_CONTEXT__PROVIDED_CAPABILITIES:
+			getProvidedCapabilities().clear();
+			return;
+		case B3BuildPackage.BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_REMOVALS:
+			getDefaultPropertiesRemovals().clear();
+			return;
+		case B3BuildPackage.BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS:
+			setDefaultPropertiesAdditions((BPropertySet) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -248,13 +262,13 @@ public class BuildConcernContextImpl extends BConcernContextImpl implements Buil
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.BUILD_CONCERN_CONTEXT__PROVIDED_CAPABILITIES:
-				return providedCapabilities != null && !providedCapabilities.isEmpty();
-			case B3BuildPackage.BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_REMOVALS:
-				return defaultPropertiesRemovals != null && !defaultPropertiesRemovals.isEmpty();
-			case B3BuildPackage.BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS:
-				return defaultPropertiesAdditions != null;
+		switch(featureID) {
+		case B3BuildPackage.BUILD_CONCERN_CONTEXT__PROVIDED_CAPABILITIES:
+			return providedCapabilities != null && !providedCapabilities.isEmpty();
+		case B3BuildPackage.BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_REMOVALS:
+			return defaultPropertiesRemovals != null && !defaultPropertiesRemovals.isEmpty();
+		case B3BuildPackage.BUILD_CONCERN_CONTEXT__DEFAULT_PROPERTIES_ADDITIONS:
+			return defaultPropertiesAdditions != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -266,10 +280,12 @@ public class BuildConcernContextImpl extends BConcernContextImpl implements Buil
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == IProvidedCapabilityContainer.class) {
-			switch (derivedFeatureID) {
-				case B3BuildPackage.BUILD_CONCERN_CONTEXT__PROVIDED_CAPABILITIES: return B3BuildPackage.IPROVIDED_CAPABILITY_CONTAINER__PROVIDED_CAPABILITIES;
-				default: return -1;
+		if(baseClass == IProvidedCapabilityContainer.class) {
+			switch(derivedFeatureID) {
+			case B3BuildPackage.BUILD_CONCERN_CONTEXT__PROVIDED_CAPABILITIES:
+				return B3BuildPackage.IPROVIDED_CAPABILITY_CONTAINER__PROVIDED_CAPABILITIES;
+			default:
+				return -1;
 			}
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
@@ -282,10 +298,12 @@ public class BuildConcernContextImpl extends BConcernContextImpl implements Buil
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == IProvidedCapabilityContainer.class) {
-			switch (baseFeatureID) {
-				case B3BuildPackage.IPROVIDED_CAPABILITY_CONTAINER__PROVIDED_CAPABILITIES: return B3BuildPackage.BUILD_CONCERN_CONTEXT__PROVIDED_CAPABILITIES;
-				default: return -1;
+		if(baseClass == IProvidedCapabilityContainer.class) {
+			switch(baseFeatureID) {
+			case B3BuildPackage.IPROVIDED_CAPABILITY_CONTAINER__PROVIDED_CAPABILITIES:
+				return B3BuildPackage.BUILD_CONCERN_CONTEXT__PROVIDED_CAPABILITIES;
+			default:
+				return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
@@ -298,7 +316,8 @@ public class BuildConcernContextImpl extends BConcernContextImpl implements Buil
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (defaultPropertiesRemovals: ");
@@ -316,7 +335,8 @@ public class BuildConcernContextImpl extends BConcernContextImpl implements Buil
 	 * @param additions - additions to set after removals have been made
 	 * @returns true if the resulting copied and advised set is different than the original
 	 */
-	protected boolean processProperties(BPropertySet propertySet, EList<String> removals, BPropertySet originalSet, BPropertySet additions) {
+	protected boolean processProperties(BPropertySet propertySet, EList<String> removals, BPropertySet originalSet,
+			BPropertySet additions) {
 		boolean modified = false;
 		EList<BPropertyOperation> operations = propertySet.getOperations();
 		PropertyOperationIterator psItor = new PropertyOperationIterator(originalSet);
@@ -336,7 +356,7 @@ public class BuildConcernContextImpl extends BConcernContextImpl implements Buil
 						modified = true;
 					}
 				}
-			}	
+			}
 		}
 
 		// add new definitions

@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
-
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Capability</b></em>'.
@@ -122,7 +121,7 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
-		if (eNotificationRequired())
+		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.CAPABILITY__NAME, oldName, name));
 	}
 
@@ -143,8 +142,9 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	public void setNameSpace(String newNameSpace) {
 		String oldNameSpace = nameSpace;
 		nameSpace = newNameSpace;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.CAPABILITY__NAME_SPACE, oldNameSpace, nameSpace));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.CAPABILITY__NAME_SPACE, oldNameSpace,
+					nameSpace));
 	}
 
 	/**
@@ -164,9 +164,13 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	public NotificationChain basicSetCondExpr(BExpression newCondExpr, NotificationChain msgs) {
 		BExpression oldCondExpr = condExpr;
 		condExpr = newCondExpr;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, B3BuildPackage.CAPABILITY__COND_EXPR, oldCondExpr, newCondExpr);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+		if(eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					B3BuildPackage.CAPABILITY__COND_EXPR, oldCondExpr, newCondExpr);
+			if(msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -177,17 +181,21 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	 * @generated
 	 */
 	public void setCondExpr(BExpression newCondExpr) {
-		if (newCondExpr != condExpr) {
+		if(newCondExpr != condExpr) {
 			NotificationChain msgs = null;
-			if (condExpr != null)
-				msgs = ((InternalEObject)condExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.CAPABILITY__COND_EXPR, null, msgs);
-			if (newCondExpr != null)
-				msgs = ((InternalEObject)newCondExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - B3BuildPackage.CAPABILITY__COND_EXPR, null, msgs);
+			if(condExpr != null)
+				msgs = ((InternalEObject) condExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.CAPABILITY__COND_EXPR, null, msgs);
+			if(newCondExpr != null)
+				msgs = ((InternalEObject) newCondExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+						- B3BuildPackage.CAPABILITY__COND_EXPR, null, msgs);
 			msgs = basicSetCondExpr(newCondExpr, msgs);
-			if (msgs != null) msgs.dispatch();
+			if(msgs != null)
+				msgs.dispatch();
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.CAPABILITY__COND_EXPR, newCondExpr, newCondExpr));
+		else if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.CAPABILITY__COND_EXPR, newCondExpr,
+					newCondExpr));
 	}
 
 	/**
@@ -197,9 +205,9 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case B3BuildPackage.CAPABILITY__COND_EXPR:
-				return basicSetCondExpr(null, msgs);
+		switch(featureID) {
+		case B3BuildPackage.CAPABILITY__COND_EXPR:
+			return basicSetCondExpr(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -211,13 +219,13 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case B3BuildPackage.CAPABILITY__NAME:
-				return getName();
-			case B3BuildPackage.CAPABILITY__NAME_SPACE:
-				return getNameSpace();
-			case B3BuildPackage.CAPABILITY__COND_EXPR:
-				return getCondExpr();
+		switch(featureID) {
+		case B3BuildPackage.CAPABILITY__NAME:
+			return getName();
+		case B3BuildPackage.CAPABILITY__NAME_SPACE:
+			return getNameSpace();
+		case B3BuildPackage.CAPABILITY__COND_EXPR:
+			return getCondExpr();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -229,16 +237,16 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case B3BuildPackage.CAPABILITY__NAME:
-				setName((String)newValue);
-				return;
-			case B3BuildPackage.CAPABILITY__NAME_SPACE:
-				setNameSpace((String)newValue);
-				return;
-			case B3BuildPackage.CAPABILITY__COND_EXPR:
-				setCondExpr((BExpression)newValue);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.CAPABILITY__NAME:
+			setName((String) newValue);
+			return;
+		case B3BuildPackage.CAPABILITY__NAME_SPACE:
+			setNameSpace((String) newValue);
+			return;
+		case B3BuildPackage.CAPABILITY__COND_EXPR:
+			setCondExpr((BExpression) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -250,16 +258,16 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.CAPABILITY__NAME:
-				setName(NAME_EDEFAULT);
-				return;
-			case B3BuildPackage.CAPABILITY__NAME_SPACE:
-				setNameSpace(NAME_SPACE_EDEFAULT);
-				return;
-			case B3BuildPackage.CAPABILITY__COND_EXPR:
-				setCondExpr((BExpression)null);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.CAPABILITY__NAME:
+			setName(NAME_EDEFAULT);
+			return;
+		case B3BuildPackage.CAPABILITY__NAME_SPACE:
+			setNameSpace(NAME_SPACE_EDEFAULT);
+			return;
+		case B3BuildPackage.CAPABILITY__COND_EXPR:
+			setCondExpr((BExpression) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -271,13 +279,17 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.CAPABILITY__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case B3BuildPackage.CAPABILITY__NAME_SPACE:
-				return NAME_SPACE_EDEFAULT == null ? nameSpace != null : !NAME_SPACE_EDEFAULT.equals(nameSpace);
-			case B3BuildPackage.CAPABILITY__COND_EXPR:
-				return condExpr != null;
+		switch(featureID) {
+		case B3BuildPackage.CAPABILITY__NAME:
+			return NAME_EDEFAULT == null
+					? name != null
+					: !NAME_EDEFAULT.equals(name);
+		case B3BuildPackage.CAPABILITY__NAME_SPACE:
+			return NAME_SPACE_EDEFAULT == null
+					? nameSpace != null
+					: !NAME_SPACE_EDEFAULT.equals(nameSpace);
+		case B3BuildPackage.CAPABILITY__COND_EXPR:
+			return condExpr != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -289,7 +301,8 @@ public class CapabilityImpl extends EObjectImpl implements Capability {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");

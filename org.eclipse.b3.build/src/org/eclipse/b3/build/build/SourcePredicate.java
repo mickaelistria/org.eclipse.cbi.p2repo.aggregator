@@ -10,7 +10,6 @@
  */
 package org.eclipse.b3.build.build;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Source Predicate</b></em>'.

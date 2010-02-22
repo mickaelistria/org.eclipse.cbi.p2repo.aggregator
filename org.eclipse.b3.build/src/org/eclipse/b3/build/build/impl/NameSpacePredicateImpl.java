@@ -86,8 +86,9 @@ public class NameSpacePredicateImpl extends EObjectImpl implements NameSpacePred
 	public void setNameSpace(String newNameSpace) {
 		String oldNameSpace = nameSpace;
 		nameSpace = newNameSpace;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.NAME_SPACE_PREDICATE__NAME_SPACE, oldNameSpace, nameSpace));
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.NAME_SPACE_PREDICATE__NAME_SPACE,
+					oldNameSpace, nameSpace));
 	}
 
 	/**
@@ -97,9 +98,9 @@ public class NameSpacePredicateImpl extends EObjectImpl implements NameSpacePred
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case B3BuildPackage.NAME_SPACE_PREDICATE__NAME_SPACE:
-				return getNameSpace();
+		switch(featureID) {
+		case B3BuildPackage.NAME_SPACE_PREDICATE__NAME_SPACE:
+			return getNameSpace();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -111,10 +112,10 @@ public class NameSpacePredicateImpl extends EObjectImpl implements NameSpacePred
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case B3BuildPackage.NAME_SPACE_PREDICATE__NAME_SPACE:
-				setNameSpace((String)newValue);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.NAME_SPACE_PREDICATE__NAME_SPACE:
+			setNameSpace((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -126,10 +127,10 @@ public class NameSpacePredicateImpl extends EObjectImpl implements NameSpacePred
 	 */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.NAME_SPACE_PREDICATE__NAME_SPACE:
-				setNameSpace(NAME_SPACE_EDEFAULT);
-				return;
+		switch(featureID) {
+		case B3BuildPackage.NAME_SPACE_PREDICATE__NAME_SPACE:
+			setNameSpace(NAME_SPACE_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -141,9 +142,11 @@ public class NameSpacePredicateImpl extends EObjectImpl implements NameSpacePred
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case B3BuildPackage.NAME_SPACE_PREDICATE__NAME_SPACE:
-				return NAME_SPACE_EDEFAULT == null ? nameSpace != null : !NAME_SPACE_EDEFAULT.equals(nameSpace);
+		switch(featureID) {
+		case B3BuildPackage.NAME_SPACE_PREDICATE__NAME_SPACE:
+			return NAME_SPACE_EDEFAULT == null
+					? nameSpace != null
+					: !NAME_SPACE_EDEFAULT.equals(nameSpace);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -155,7 +158,8 @@ public class NameSpacePredicateImpl extends EObjectImpl implements NameSpacePred
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if(eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (nameSpace: ");
