@@ -14,9 +14,7 @@
         <cs:dependency name="org.eclipse.b3.core"/>
         <cs:dependency name="org.eclipse.b3.site.eclipse" componentType="eclipse.feature"/>
         <cs:dependency name="org.eclipse.b3.site.eclipse.headless" componentType="eclipse.feature"/>
-        <cs:dependency name="org.eclipse.b3.util" componentType="osgi.bundle"/>
         <cs:dependency name="org.eclipse.rcp" componentType="eclipse.feature"/>
-        <cs:dependency name="org.kohsuke.args4j" componentType="osgi.bundle"/>
     </cs:dependencies>
     <cs:actions>
         <cs:public name="clear.site.eclipse" actor="ant" always="true">
