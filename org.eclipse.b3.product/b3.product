@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product name="b3" id="org.eclipse.b3.cli.product" application="org.eclipse.b3.cli.headless" useFeatures="true" includeLaunchers="true">
+
+
+   <configIni use="default">
+   </configIni>
+
+   <launcherArgs>
+      <programArgs>-nosplash</programArgs>
+      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
+   </launcherArgs>
+
+   <windowImages/>
+
+
+   <launcher>
+      <solaris/>
+      <win useIco="false">
+         <bmp/>
+      </win>
+   </launcher>
+
+
+   <vm>
+   </vm>
+
+
+   <plugins>
+   </plugins>
+
+   <features>
+      <feature id="org.eclipse.b3.product" version="0.1.0.qualifier"/>
+   </features>
+
+
+</product>

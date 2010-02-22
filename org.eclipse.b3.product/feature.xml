@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.b3.product"
+      label="b3 Product"
+      version="0.1.0.qualifier"
+      provider-name="Eclipse b3 Project">
+
+   <description url="http://www.eclipse.org/b3">
+      This feature includes all features needed for the product.
+   </description>
+
+   <copyright url="http://www.eclipse.org/b3/COPYRIGHT">
+      Copyright (c) 2006-2008, Cloudsmith Inc.
+The code, documentation and other materials contained herein have been
+licensed under the Eclipse Public License - v 1.0 by the copyright holder
+listed above, as the Initial Contributor under such license. The text of
+such license is available at www.eclipse.org.
+   </copyright>
+
+   <plugin
+         id="org.eclipse.b3.cli"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>
