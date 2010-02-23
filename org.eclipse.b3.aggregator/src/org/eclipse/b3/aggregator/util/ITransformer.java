@@ -8,6 +8,8 @@
 
 package org.eclipse.b3.aggregator.util;
 
+import java.util.Map;
+
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 
@@ -28,7 +30,7 @@ public interface ITransformer {
 	 * @param trgtPackage
 	 *            target package which is used for target resource generation
 	 */
-	void initTransformer(Resource srcResource, Resource trgtResource, EPackage trgtPackage);
+	void initTransformer(Resource srcResource, Resource trgtResource, EPackage trgtPackage, Map<String, Object> context);
 
 	/**
 	 * Starts transformation

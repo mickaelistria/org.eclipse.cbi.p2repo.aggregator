@@ -51,10 +51,17 @@ public class ResourceTransformer implements ITransformer {
 
 	protected Map<EObject, EObject> transformationMapping = new HashMap<EObject, EObject>();
 
-	public void initTransformer(Resource srcResource, Resource trgtResource, EPackage trgtPackage) {
+	protected Map<String, Object> context;
+
+	public void initTransformer(Resource srcResource, Resource trgtResource, EPackage trgtPackage,
+			Map<String, Object> context) {
 		this.srcResource = srcResource;
 		this.trgtResource = trgtResource;
 		this.trgtPackage = trgtPackage;
+		this.context = context;
+
+		if(this.context == null)
+			this.context = new HashMap<String, Object>();
 
 		trgtPackageFactory = trgtPackage.getEFactoryInstance();
 	}

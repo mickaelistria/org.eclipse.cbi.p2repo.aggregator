@@ -8,11 +8,15 @@
 
 package org.eclipse.b3.aggregator.legacy;
 
+import java.util.Map;
+
 import org.eclipse.b3.aggregator.util.InstallableUnitUtils;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.equinox.internal.p2.metadata.VersionedId;
 import org.eclipse.equinox.p2.metadata.VersionRange;
 
@@ -22,6 +26,8 @@ import org.eclipse.equinox.p2.metadata.VersionRange;
  * @author Karel Brezina
  */
 public class AggregatorTransformer_090_2_100 extends ResourceTransformer {
+
+	public static final String CONTEXT_FIXED_VERSION = "AggregatorTransformer_090_2_100.FIXED_VERSION";
 
 	private static final String FEATURE_NODE = "Feature";
 
@@ -40,6 +46,19 @@ public class AggregatorTransformer_090_2_100 extends ResourceTransformer {
 	private static final String NAME_ATTR = "name";
 
 	private static final String VERSIONRANGE_ATTR = "versionRange";
+
+	private boolean fixedVersion;
+
+	@Override
+	public void initTransformer(Resource srcResource, Resource trgtResource, EPackage trgtPackage,
+			Map<String, Object> context) {
+		super.initTransformer(srcResource, trgtResource, trgtPackage, context);
+
+		fixedVersion = false;
+		Object object = context.get(CONTEXT_FIXED_VERSION);
+		if(object != null)
+			fixedVersion = ((Boolean) object).booleanValue();
+	}
 
 	@Override
 	protected void transform(EObject srcEObject, TreePath trgtParentTreePath) {
@@ -80,7 +99,9 @@ public class AggregatorTransformer_090_2_100 extends ResourceTransformer {
 		EAttribute trgtVersionRangeEAttr = (EAttribute) iuEObject.eClass().getEStructuralFeature(VERSIONRANGE_ATTR);
 
 		if(versionedId.getVersion() != null) {
-			VersionRange vr = new VersionRange(versionedId.getVersion(), true, null, true);
+			VersionRange vr = new VersionRange(versionedId.getVersion(), true, fixedVersion
+					? versionedId.getVersion()
+					: null, true);
 			iuEObject.eSet(trgtVersionRangeEAttr, vr);
 		}
 	}

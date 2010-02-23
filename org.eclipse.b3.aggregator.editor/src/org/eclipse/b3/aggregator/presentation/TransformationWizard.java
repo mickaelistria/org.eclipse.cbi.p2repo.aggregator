@@ -14,14 +14,17 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.b3.aggregator.AggregatorFactory;
 import org.eclipse.b3.aggregator.AggregatorPackage;
 import org.eclipse.b3.aggregator.util.AggregatorResourceImpl;
 import org.eclipse.b3.aggregator.util.ITransformer;
+import org.eclipse.b3.aggregator.util.ITransformerContextContributor;
 import org.eclipse.b3.aggregator.util.ResourceUtils;
 import org.eclipse.b3.util.StringUtils;
 import org.eclipse.core.resources.IContainer;
@@ -45,9 +48,11 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
@@ -69,7 +74,7 @@ public class TransformationWizard extends Wizard implements INewWizard {
 
 		private boolean transformationSequenceExists;
 
-		protected InfoPage(String pageId, boolean srcNamespaceFound, boolean transformationSequenceExists) {
+		public InfoPage(String pageId, boolean srcNamespaceFound, boolean transformationSequenceExists) {
 			super(pageId);
 			this.srcNamespaceFound = srcNamespaceFound;
 			this.transformationSequenceExists = transformationSequenceExists;
@@ -83,7 +88,10 @@ public class TransformationWizard extends Wizard implements INewWizard {
 		 * @see org.eclipse.jface.dialogs.IDialogPage#createControl(org.eclipse.swt.widgets.Composite)
 		 */
 		public void createControl(Composite parent) {
-			Label label = new Label(parent, SWT.None);
+			Composite composite = new Composite(parent, SWT.NONE);
+			composite.setLayout(new GridLayout(2, false));
+
+			Label label = new Label(composite, SWT.None);
 
 			if(!srcNamespaceFound || !transformationSequenceExists) {
 				label.setText("Transformation from the selected resource model was not defined - transformation is not possible");
@@ -92,7 +100,7 @@ public class TransformationWizard extends Wizard implements INewWizard {
 			else
 				label.setText("This wizard will take you through Aggregation Model Transformation");
 
-			setControl(label);
+			setControl(composite);
 		}
 	}
 
@@ -154,6 +162,8 @@ public class TransformationWizard extends Wizard implements INewWizard {
 
 	private static String LEGACY_TRANSFORMATION_ATTR_TARGET_ECORE = "targetEcoreUri";
 
+	private static String LEGACY_TRANSFORMATION_ATTR_CONTEXT_CONTRIBUTOR = "contextContributor";
+
 	/**
 	 * The supported extensions for created files.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -181,6 +191,8 @@ public class TransformationWizard extends Wizard implements INewWizard {
 	protected AggregatorFactory aggregatorFactory = aggregatorPackage.getAggregatorFactory();
 
 	protected InfoPage infoPage;
+
+	protected List<ITransformerContextContributor> contextContributors = new ArrayList<ITransformerContextContributor>();
 
 	/**
 	 * This is the file creation page.
@@ -217,6 +229,8 @@ public class TransformationWizard extends Wizard implements INewWizard {
 
 	private Resource finalResource;
 
+	private Map<String, Object> context = new HashMap<String, Object>();
+
 	public TransformationWizard(URI srcResourceURI) {
 		this.srcResourceURI = srcResourceURI;
 
@@ -251,6 +265,20 @@ public class TransformationWizard extends Wizard implements INewWizard {
 
 			transformationSequence = resolveTransformationSequence(transformations, requiredSourceNS, requiredTargetNS,
 					new ArrayList<IConfigurationElement>());
+
+			for(IConfigurationElement transformation : transformationSequence) {
+				ITransformerContextContributor contextContributor = null;
+				try {
+					if(transformation.getAttribute(LEGACY_TRANSFORMATION_ATTR_CONTEXT_CONTRIBUTOR) != null)
+						contextContributor = (ITransformerContextContributor) transformation.createExecutableExtension(LEGACY_TRANSFORMATION_ATTR_CONTEXT_CONTRIBUTOR);
+				}
+				catch(CoreException e) {
+					throw new RuntimeException(
+							"Depricated resource was not transformed - transformation wizard cannot be started", e);
+				}
+				if(contextContributor != null)
+					contextContributors.add(contextContributor);
+			}
 		}
 	}
 
@@ -264,6 +292,10 @@ public class TransformationWizard extends Wizard implements INewWizard {
 		infoPage.setTitle("Depricated Resource");
 		infoPage.setDescription("Selected resource needs to be transformed to the up-to-date structure");
 		addPage(infoPage);
+
+		for(ITransformerContextContributor contextContributor : contextContributors)
+			if(contextContributor instanceof IWizardPage)
+				addPage((IWizardPage) contextContributor);
 
 		newFileCreationPage = new NewFileCreationPage("FileCreationPage", selection);
 		newFileCreationPage.setTitle("Target Location");
@@ -335,6 +367,10 @@ public class TransformationWizard extends Wizard implements INewWizard {
 			public void run(IProgressMonitor monitor) throws InvocationTargetException, InterruptedException {
 				try {
 					monitor.beginTask("Transformation is in progress", IProgressMonitor.UNKNOWN);
+
+					for(ITransformerContextContributor contextContributor : contextContributors)
+						contextContributor.contributeToContext(context);
+
 					finalResource = transformResource(transformationSequence, srcResourceURI);
 
 					finalResource.setURI(URI.createPlatformResourceURI(modelFile.getFullPath().toString(), true));
@@ -467,7 +503,7 @@ public class TransformationWizard extends Wizard implements INewWizard {
 
 			ITransformer transformer = (ITransformer) transformation.createExecutableExtension(LEGACY_TRANSFORMATION_ATTR_CLASS);
 
-			transformer.initTransformer(res01, res02, package02);
+			transformer.initTransformer(res01, res02, package02, context);
 			transformer.startTransformation();
 		}
 
