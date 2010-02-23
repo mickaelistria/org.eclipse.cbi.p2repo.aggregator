@@ -103,6 +103,8 @@ such license is available at www.eclipse.org.
 
    <plugin
          id="org.eclipse.core.net.linux.x86"
+         os="linux"
+         arch="x86"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -111,6 +113,8 @@ such license is available at www.eclipse.org.
 
    <plugin
          id="org.eclipse.core.net.win32.x86"
+         ws="win32"
+         arch="x86"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -119,6 +123,8 @@ such license is available at www.eclipse.org.
 
    <plugin
          id="org.eclipse.core.net.win32.x86_64"
+         os="win32"
+         arch="x86_64"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -141,6 +147,8 @@ such license is available at www.eclipse.org.
 
    <plugin
          id="org.eclipse.equinox.security.win32.x86"
+         os="win32"
+         arch="x86"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -149,6 +157,8 @@ such license is available at www.eclipse.org.
 
    <plugin
          id="org.eclipse.equinox.security.macosx"
+         os="macosx"
+         arch="ppc,x86,x86_64"
          download-size="0"
          install-size="0"
          version="0.0.0"
