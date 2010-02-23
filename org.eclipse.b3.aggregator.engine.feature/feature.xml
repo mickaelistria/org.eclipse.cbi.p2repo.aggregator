@@ -62,7 +62,6 @@ Java and all Java-based trademarks are trademarks of Sun Microsystems, Inc. in t
    </license>
 
    <requires>
-      <import plugin="org.apache.ant"/>
       <import plugin="org.eclipse.core.contenttype" version="3.3.0" match="compatible"/>
       <import plugin="org.eclipse.core.jobs" version="3.2.0" match="compatible"/>
       <import plugin="org.eclipse.core.runtime" version="3.5.0" match="compatible"/>
@@ -252,5 +251,11 @@ Java and all Java-based trademarks are trademarks of Sun Microsystems, Inc. in t
          install-size="0"
          version="0.0.0"
          unpack="false"/>
+
+   <plugin
+         id="org.apache.ant"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
 
 </feature>
