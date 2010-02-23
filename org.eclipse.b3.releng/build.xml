@@ -207,6 +207,7 @@
 	<target name="clean.tools">
 		<delete dir="${tools}/director" failonerror="true" quiet="true" />
 		<delete dir="${tools}/buckminster" failonerror="true" quiet="true" />
+		<delete dir="${tools}/templates" failonerror="true" quiet="true" />
 	</target>
 
 	<target name="clean.tp">
