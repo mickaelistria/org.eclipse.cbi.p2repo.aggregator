@@ -769,7 +769,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 				return false;
 
 			if(other instanceof InstallableUnitImpl) {
-				VersionedId thisVn = InstallableUnitUtils.getVersionedNameFromProxy(this);
+				VersionedId thisVn = InstallableUnitUtils.getVersionedNameFromProxy((InstallableUnit) this);
 				VersionedId otherVn = InstallableUnitUtils.getVersionedNameFromProxy((InstallableUnit) other);
 
 				if(thisVn == null) {

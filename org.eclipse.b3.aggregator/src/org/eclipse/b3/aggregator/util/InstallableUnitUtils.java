@@ -8,6 +8,8 @@
 
 package org.eclipse.b3.aggregator.util;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -70,7 +72,12 @@ public class InstallableUnitUtils {
 	 * Obtains the name and version information from the proxy URI fragment
 	 */
 	public static VersionedId getVersionedNameFromProxy(InstallableUnit iu) {
-		URI uri = ((InternalEObject) iu).eProxyURI();
+		return getVersionedNameFromProxy((InternalEObject) iu);
+	}
+
+	// needed for dynamic EMF
+	public static VersionedId getVersionedNameFromProxy(InternalEObject iu) {
+		URI uri = iu.eProxyURI();
 		if(uri == null)
 			return null;
 
@@ -79,9 +86,14 @@ public class InstallableUnitUtils {
 			return null;
 
 		Matcher m = proxyFragmentPattern.matcher(frag);
-		return m.matches()
-				? new VersionedId(m.group(1), m.group(2))
-				: null;
+		try {
+			return m.matches()
+					? new VersionedId(URLDecoder.decode(m.group(1), "UTF-8"), m.group(2))
+					: null;
+		}
+		catch(UnsupportedEncodingException e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 	private static boolean isOSGiBundle(IInstallableUnit iu) {

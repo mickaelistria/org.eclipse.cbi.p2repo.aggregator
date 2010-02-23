@@ -16,6 +16,7 @@ import org.eclipse.b3.aggregator.util.ITransformer;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EEnumLiteral;
 import org.eclipse.emf.ecore.EFactory;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -83,7 +84,16 @@ public class ResourceTransformer implements ITransformer {
 			// throw new IllegalArgumentException(srcEObject.eClass().getName() + "." + srcEAttr.getName()
 			// + " is not a valid EAttribute in the target model");
 
-			trgtEObject.eSet(trgtEAttr, srcEAttrValue);
+			Object trgtEAttrValue = null;
+
+			if(srcEAttrValue instanceof EEnumLiteral)
+				// tries to create an enum with the same name and value
+				trgtEAttrValue = createTrgtEEnumLiteral(((EEnumLiteral) srcEAttrValue).getEEnum().getName(),
+						((EEnumLiteral) srcEAttrValue).getLiteral());
+			else
+				trgtEAttrValue = srcEAttrValue;
+
+			trgtEObject.eSet(trgtEAttr, trgtEAttrValue);
 		}
 	}
 
@@ -190,7 +200,7 @@ public class ResourceTransformer implements ITransformer {
 
 				EReference trgtERef = (EReference) trgtEClass.getEStructuralFeature(srcERef.getName());
 
-				if(trgtERef == null)
+				if(trgtERef == null || trgtERef.isTransient())
 					continue;
 				// throw new IllegalArgumentException(srcEObject.eClass().getName() + "." + srcERef.getName()
 				// + " is not a valid EReference in the target model");

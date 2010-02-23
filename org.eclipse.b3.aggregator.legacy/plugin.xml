@@ -5,11 +5,21 @@
          point="org.eclipse.b3.aggregator.legacy_transformation">
       <transformer
             class="org.eclipse.b3.aggregator.legacy.AggregatorTransformer_080_2_100"
-            name="From  0.8.0 to 1.0.0"
+            name="From 0.8.0 to 1.0.0"
             sourceEcoreUri="platform:/plugin/org.eclipse.b3.aggregator.legacy/models/aggregator_0.8.0.ecore"
             sourceNS="http://www.eclipse.org/amalgam/2008/build"
             sourceNSAttribute="xmlns:build"
             sourceTopElement="build:Build"
+            targetEcoreUri="platform:/plugin/org.eclipse.b3.aggregator.legacy/models/aggregator_1.0.0.ecore"
+            targetNS="http://www.eclipse.org/b3/2010/aggregator/1.0.0">
+      </transformer>
+      <transformer
+            class="org.eclipse.b3.aggregator.legacy.AggregatorTransformer_090_2_100"
+            name="From 0.9.0 to 1.0.0"
+            sourceEcoreUri="platform:/plugin/org.eclipse.b3.aggregator.legacy/models/aggregator_0.9.0.ecore"
+            sourceNS="http://www.eclipse.org/buckminster/2009/aggregator"
+            sourceNSAttribute="xmlns:aggregator"
+            sourceTopElement="aggregator:Aggregator"
             targetEcoreUri="platform:/plugin/org.eclipse.b3.aggregator.legacy/models/aggregator_1.0.0.ecore"
             targetNS="http://www.eclipse.org/b3/2010/aggregator/1.0.0">
       </transformer>
