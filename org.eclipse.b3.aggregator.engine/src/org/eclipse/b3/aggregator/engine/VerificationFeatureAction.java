@@ -150,7 +150,7 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 					if(repository.isMapExclusive()) {
 						for(MappedUnit mu : repository.getUnits(true)) {
 							if(mu instanceof Category) {
-								addCategoryContent(mu.resolveAsSingleton(), repository, allIUs, required, errors,
+								addCategoryContent(mu.resolveAsSingleton(true), repository, allIUs, required, errors,
 										explicit);
 								continue;
 							}
