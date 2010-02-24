@@ -144,7 +144,7 @@ public class RepositoryVerifier extends BuilderPhase {
 		IProfileRegistry profileRegistry = b3util.getService(IProfileRegistry.class);
 		IPlanner planner = b3util.getService(IPlanner.class);
 		URI repoLocation = builder.getSourceCompositeURI();
-		IMetadataRepositoryManager mdrMgr = b3util.getService(IMetadataRepositoryManager.class);
+		IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(IMetadataRepositoryManager.class);
 		try {
 			Set<IInstallableUnit> validationOnlyIUs = null;
 			List<MetadataRepositoryReference> validationRepos = aggregator.getValidationRepositories();
@@ -307,7 +307,7 @@ public class RepositoryVerifier extends BuilderPhase {
 			MonitorUtils.done(subMon);
 			b3util.ungetService(profileRegistry);
 			b3util.ungetService(planner);
-			b3util.ungetService(mdrMgr);
+			P2Utils.ungetRepositoryManager(mdrMgr);
 		}
 	}
 
