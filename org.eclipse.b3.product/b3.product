@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="b3" id="org.eclipse.b3.cli.product" application="org.eclipse.b3.cli.headless" useFeatures="true" includeLaunchers="true">
-
+<product name="b3" id="org.eclipse.b3.cli.product" application="org.eclipse.b3.cli.headless" useFeatures="true" includeLaunchers="false">
 
    <configIni use="default">
    </configIni>
@@ -14,7 +13,6 @@
 
    <windowImages/>
 
-
    <launcher>
       <solaris/>
       <win useIco="false">
@@ -22,10 +20,8 @@
       </win>
    </launcher>
 
-
    <vm>
    </vm>
-
 
    <plugins>
    </plugins>
