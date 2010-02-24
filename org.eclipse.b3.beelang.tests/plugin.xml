@@ -7,5 +7,12 @@
             interface-name="org.eclipse.b3.beelang.tests.buildunittypes.Fruit">
       </interface>
    </extension>
+   <extension
+         point="org.eclipse.b3.build.RepositoryScheme">
+      <repositoryType
+            buildUnitRepositoryClass="org.eclipse.b3.beelang.tests.repo.TestRepo"
+            scheme="b3test">
+      </repositoryType>
+   </extension>
 
 </plugin>

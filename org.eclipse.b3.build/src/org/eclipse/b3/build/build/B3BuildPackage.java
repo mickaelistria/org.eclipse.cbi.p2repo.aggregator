@@ -3292,13 +3292,22 @@ public interface B3BuildPackage extends EPackage {
 	int RESOLUTION_INFO = 42;
 
 	/**
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOLUTION_INFO__STATUS = 0;
+
+	/**
 	 * The number of structural features of the '<em>Resolution Info</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOLUTION_INFO_FEATURE_COUNT = 0;
+	int RESOLUTION_INFO_FEATURE_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.EffectiveFacadeImpl <em>Effective Facade</em>}' class.
@@ -3697,6 +3706,25 @@ public interface B3BuildPackage extends EPackage {
 	int SOURCE_PREDICATE_FEATURE_COUNT = PATH_GROUP_PREDICATE_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.core.IBuildUnitRepository <em>IBuild Unit Repository</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.core.IBuildUnitRepository
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getIBuildUnitRepository()
+	 * @generated
+	 */
+	int IBUILD_UNIT_REPOSITORY = 58;
+
+	/**
+	 * The number of structural features of the '<em>IBuild Unit Repository</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IBUILD_UNIT_REPOSITORY_FEATURE_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuildUnitRepositoryImpl <em>Build Unit Repository</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3713,7 +3741,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_UNIT_REPOSITORY_FEATURE_COUNT = 0;
+	int BUILD_UNIT_REPOSITORY_FEATURE_COUNT = IBUILD_UNIT_REPOSITORY_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.CompoundBuildUnitRepositoryImpl <em>Compound Build Unit Repository</em>}' class.
@@ -3772,14 +3800,14 @@ public interface B3BuildPackage extends EPackage {
 	int COMPOUND_FIRST_FOUND_REPOSITORY_FEATURE_COUNT = COMPOUND_BUILD_UNIT_REPOSITORY_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.CompundBestFoundRepositoryImpl <em>Compund Best Found Repository</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.CompoundBestFoundRepositoryImpl <em>Compound Best Found Repository</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.impl.CompundBestFoundRepositoryImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getCompundBestFoundRepository()
+	 * @see org.eclipse.b3.build.build.impl.CompoundBestFoundRepositoryImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getCompoundBestFoundRepository()
 	 * @generated
 	 */
-	int COMPUND_BEST_FOUND_REPOSITORY = 55;
+	int COMPOUND_BEST_FOUND_REPOSITORY = 55;
 
 	/**
 	 * The feature id for the '<em><b>Repositories</b></em>' reference list.
@@ -3788,16 +3816,16 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPUND_BEST_FOUND_REPOSITORY__REPOSITORIES = COMPOUND_BUILD_UNIT_REPOSITORY__REPOSITORIES;
+	int COMPOUND_BEST_FOUND_REPOSITORY__REPOSITORIES = COMPOUND_BUILD_UNIT_REPOSITORY__REPOSITORIES;
 
 	/**
-	 * The number of structural features of the '<em>Compund Best Found Repository</em>' class.
+	 * The number of structural features of the '<em>Compound Best Found Repository</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPUND_BEST_FOUND_REPOSITORY_FEATURE_COUNT = COMPOUND_BUILD_UNIT_REPOSITORY_FEATURE_COUNT + 0;
+	int COMPOUND_BEST_FOUND_REPOSITORY_FEATURE_COUNT = COMPOUND_BUILD_UNIT_REPOSITORY_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.ExecutionStackRepositoryImpl <em>Execution Stack Repository</em>}' class.
@@ -3847,6 +3875,52 @@ public interface B3BuildPackage extends EPackage {
 	int SIMPLE_REPOSITORY_FEATURE_COUNT = BUILD_UNIT_REPOSITORY_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.UnitResolutionInfoImpl <em>Unit Resolution Info</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.build.impl.UnitResolutionInfoImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getUnitResolutionInfo()
+	 * @generated
+	 */
+	int UNIT_RESOLUTION_INFO = 59;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_RESOLUTION_INFO__STATUS = RESOLUTION_INFO__STATUS;
+
+	/**
+	 * The feature id for the '<em><b>Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_RESOLUTION_INFO__UNIT = RESOLUTION_INFO_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_RESOLUTION_INFO__CONTEXT = RESOLUTION_INFO_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Unit Resolution Info</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_RESOLUTION_INFO_FEATURE_COUNT = RESOLUTION_INFO_FEATURE_COUNT + 2;
+
+	/**
 	 * The meta object id for the '<em>Version Range</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3854,7 +3928,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getVersionRange()
 	 * @generated
 	 */
-	int VERSION_RANGE = 58;
+	int VERSION_RANGE = 60;
 
 	/**
 	 * The meta object id for the '<em>Version</em>' data type.
@@ -3864,7 +3938,17 @@ public interface B3BuildPackage extends EPackage {
 	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getVersion()
 	 * @generated
 	 */
-	int VERSION = 59;
+	int VERSION = 61;
+
+	/**
+	 * The meta object id for the '<em>IStatus</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.core.runtime.IStatus
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getIStatus()
+	 * @generated
+	 */
+	int ISTATUS = 62;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuildUnit <em>Build Unit</em>}'.
@@ -4343,6 +4427,17 @@ public interface B3BuildPackage extends EPackage {
 	EClass getResolutionInfo();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.ResolutionInfo#getStatus <em>Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Status</em>'.
+	 * @see org.eclipse.b3.build.build.ResolutionInfo#getStatus()
+	 * @see #getResolutionInfo()
+	 * @generated
+	 */
+	EAttribute getResolutionInfo_Status();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.EffectiveFacade <em>Effective Facade</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4595,14 +4690,14 @@ public interface B3BuildPackage extends EPackage {
 	EClass getCompoundFirstFoundRepository();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.CompundBestFoundRepository <em>Compund Best Found Repository</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.CompoundBestFoundRepository <em>Compound Best Found Repository</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Compund Best Found Repository</em>'.
-	 * @see org.eclipse.b3.build.build.CompundBestFoundRepository
+	 * @return the meta object for class '<em>Compound Best Found Repository</em>'.
+	 * @see org.eclipse.b3.build.build.CompoundBestFoundRepository
 	 * @generated
 	 */
-	EClass getCompundBestFoundRepository();
+	EClass getCompoundBestFoundRepository();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.ExecutionStackRepository <em>Execution Stack Repository</em>}'.
@@ -4634,6 +4729,49 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSimpleRepository_BeeModels();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.core.IBuildUnitRepository <em>IBuild Unit Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>IBuild Unit Repository</em>'.
+	 * @see org.eclipse.b3.build.core.IBuildUnitRepository
+	 * @model instanceClass="org.eclipse.b3.build.core.IBuildUnitRepository"
+	 * @generated
+	 */
+	EClass getIBuildUnitRepository();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.UnitResolutionInfo <em>Unit Resolution Info</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Unit Resolution Info</em>'.
+	 * @see org.eclipse.b3.build.build.UnitResolutionInfo
+	 * @generated
+	 */
+	EClass getUnitResolutionInfo();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.build.build.UnitResolutionInfo#getUnit <em>Unit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Unit</em>'.
+	 * @see org.eclipse.b3.build.build.UnitResolutionInfo#getUnit()
+	 * @see #getUnitResolutionInfo()
+	 * @generated
+	 */
+	EReference getUnitResolutionInfo_Unit();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipse.b3.build.build.UnitResolutionInfo#getContext <em>Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Context</em>'.
+	 * @see org.eclipse.b3.build.build.UnitResolutionInfo#getContext()
+	 * @see #getUnitResolutionInfo()
+	 * @generated
+	 */
+	EReference getUnitResolutionInfo_Context();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.VersionedCapability <em>Versioned Capability</em>}'.
@@ -5866,6 +6004,17 @@ public interface B3BuildPackage extends EPackage {
 	EDataType getVersion();
 
 	/**
+	 * Returns the meta object for data type '{@link org.eclipse.core.runtime.IStatus <em>IStatus</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>IStatus</em>'.
+	 * @see org.eclipse.core.runtime.IStatus
+	 * @model instanceClass="org.eclipse.core.runtime.IStatus"
+	 * @generated
+	 */
+	EDataType getIStatus();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6256,6 +6405,14 @@ public interface B3BuildPackage extends EPackage {
 		EClass RESOLUTION_INFO = eINSTANCE.getResolutionInfo();
 
 		/**
+		 * The meta object literal for the '<em><b>Status</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESOLUTION_INFO__STATUS = eINSTANCE.getResolutionInfo_Status();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.EffectiveFacadeImpl <em>Effective Facade</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6472,14 +6629,14 @@ public interface B3BuildPackage extends EPackage {
 		EClass COMPOUND_FIRST_FOUND_REPOSITORY = eINSTANCE.getCompoundFirstFoundRepository();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.CompundBestFoundRepositoryImpl <em>Compund Best Found Repository</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.CompoundBestFoundRepositoryImpl <em>Compound Best Found Repository</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipse.b3.build.build.impl.CompundBestFoundRepositoryImpl
-		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getCompundBestFoundRepository()
+		 * @see org.eclipse.b3.build.build.impl.CompoundBestFoundRepositoryImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getCompoundBestFoundRepository()
 		 * @generated
 		 */
-		EClass COMPUND_BEST_FOUND_REPOSITORY = eINSTANCE.getCompundBestFoundRepository();
+		EClass COMPOUND_BEST_FOUND_REPOSITORY = eINSTANCE.getCompoundBestFoundRepository();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.ExecutionStackRepositoryImpl <em>Execution Stack Repository</em>}' class.
@@ -6508,6 +6665,42 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SIMPLE_REPOSITORY__BEE_MODELS = eINSTANCE.getSimpleRepository_BeeModels();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.core.IBuildUnitRepository <em>IBuild Unit Repository</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.core.IBuildUnitRepository
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getIBuildUnitRepository()
+		 * @generated
+		 */
+		EClass IBUILD_UNIT_REPOSITORY = eINSTANCE.getIBuildUnitRepository();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.UnitResolutionInfoImpl <em>Unit Resolution Info</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.build.impl.UnitResolutionInfoImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getUnitResolutionInfo()
+		 * @generated
+		 */
+		EClass UNIT_RESOLUTION_INFO = eINSTANCE.getUnitResolutionInfo();
+
+		/**
+		 * The meta object literal for the '<em><b>Unit</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UNIT_RESOLUTION_INFO__UNIT = eINSTANCE.getUnitResolutionInfo_Unit();
+
+		/**
+		 * The meta object literal for the '<em><b>Context</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UNIT_RESOLUTION_INFO__CONTEXT = eINSTANCE.getUnitResolutionInfo_Context();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.VersionedCapabilityImpl <em>Versioned Capability</em>}' class.
@@ -7502,6 +7695,16 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType VERSION = eINSTANCE.getVersion();
+
+		/**
+		 * The meta object literal for the '<em>IStatus</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.core.runtime.IStatus
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getIStatus()
+		 * @generated
+		 */
+		EDataType ISTATUS = eINSTANCE.getIStatus();
 
 	}
 

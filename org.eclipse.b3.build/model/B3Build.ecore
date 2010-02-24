@@ -474,7 +474,9 @@
       </eGenericType>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ResolutionInfo"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ResolutionInfo">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="status" eType="#//IStatus"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EffectiveFacade">
     <eStructuralFeatures xsi:type="ecore:EReference" name="context" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExecutionContext"/>
   </eClassifiers>
@@ -513,7 +515,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OutputPredicate" eSuperTypes="#//PathGroupPredicate"/>
   <eClassifiers xsi:type="ecore:EClass" name="SourcePredicate" eSuperTypes="#//PathGroupPredicate"/>
-  <eClassifiers xsi:type="ecore:EClass" name="BuildUnitRepository" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="BuildUnitRepository" abstract="true"
+      eSuperTypes="#//IBuildUnitRepository">
     <eOperations name="resolve" eType="#//BuildUnit" eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//Throwable">
       <eParameters name="ctx" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExecutionContext"/>
       <eParameters name="requiredCapability" eType="#//RequiredCapability"/>
@@ -528,13 +531,20 @@
   <eClassifiers xsi:type="ecore:EClass" name="CompoundBuildUnitRepository" abstract="true"
       eSuperTypes="#//BuildUnitRepository">
     <eStructuralFeatures xsi:type="ecore:EReference" name="repositories" upperBound="-1"
-        eType="#//BuildUnitRepository"/>
+        eType="#//IBuildUnitRepository"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompoundFirstFoundRepository" eSuperTypes="#//CompoundBuildUnitRepository"/>
-  <eClassifiers xsi:type="ecore:EClass" name="CompundBestFoundRepository" eSuperTypes="#//CompoundBuildUnitRepository"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CompoundBestFoundRepository" eSuperTypes="#//CompoundBuildUnitRepository"/>
   <eClassifiers xsi:type="ecore:EClass" name="ExecutionStackRepository" eSuperTypes="#//BuildUnitRepository"/>
   <eClassifiers xsi:type="ecore:EClass" name="SimpleRepository" eSuperTypes="#//BuildUnitRepository">
     <eStructuralFeatures xsi:type="ecore:EReference" name="beeModels" upperBound="-1"
         eType="#//BeeModel"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IBuildUnitRepository" instanceClassName="org.eclipse.b3.build.core.IBuildUnitRepository"
+      abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="IStatus" instanceClassName="org.eclipse.core.runtime.IStatus"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UnitResolutionInfo" eSuperTypes="#//ResolutionInfo">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unit" eType="#//BuildUnit"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="context" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExecutionContext"/>
   </eClassifiers>
 </ecore:EPackage>

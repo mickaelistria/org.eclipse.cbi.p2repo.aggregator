@@ -20,6 +20,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.build.build.*;
 
+import org.eclipse.b3.build.core.IBuildUnitRepository;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -358,8 +359,8 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseCompundBestFoundRepository(CompundBestFoundRepository object) {
-			return createCompundBestFoundRepositoryAdapter();
+		public Adapter caseCompoundBestFoundRepository(CompoundBestFoundRepository object) {
+			return createCompoundBestFoundRepositoryAdapter();
 		}
 
 		@Override
@@ -370,6 +371,16 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseSimpleRepository(SimpleRepository object) {
 			return createSimpleRepositoryAdapter();
+		}
+
+		@Override
+		public Adapter caseIBuildUnitRepository(IBuildUnitRepository object) {
+			return createIBuildUnitRepositoryAdapter();
+		}
+
+		@Override
+		public Adapter caseUnitResolutionInfo(UnitResolutionInfo object) {
+			return createUnitResolutionInfoAdapter();
 		}
 
 		@Override
@@ -727,16 +738,16 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.CompundBestFoundRepository <em>Compund Best Found Repository</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.CompoundBestFoundRepository <em>Compound Best Found Repository</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.b3.build.build.CompundBestFoundRepository
+	 * @see org.eclipse.b3.build.build.CompoundBestFoundRepository
 	 * @generated
 	 */
-	public Adapter createCompundBestFoundRepositoryAdapter() {
+	public Adapter createCompoundBestFoundRepositoryAdapter() {
 		return null;
 	}
 
@@ -765,6 +776,34 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSimpleRepositoryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.core.IBuildUnitRepository <em>IBuild Unit Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.core.IBuildUnitRepository
+	 * @generated
+	 */
+	public Adapter createIBuildUnitRepositoryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.UnitResolutionInfo <em>Unit Resolution Info</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.build.build.UnitResolutionInfo
+	 * @generated
+	 */
+	public Adapter createUnitResolutionInfoAdapter() {
 		return null;
 	}
 

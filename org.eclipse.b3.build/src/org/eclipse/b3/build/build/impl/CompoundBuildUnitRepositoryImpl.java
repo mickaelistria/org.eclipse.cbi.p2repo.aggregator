@@ -16,6 +16,7 @@ import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.BuildUnitRepository;
 import org.eclipse.b3.build.build.CompoundBuildUnitRepository;
 
+import org.eclipse.b3.build.core.IBuildUnitRepository;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -45,7 +46,7 @@ public abstract class CompoundBuildUnitRepositoryImpl extends BuildUnitRepositor
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<BuildUnitRepository> repositories;
+	protected EList<IBuildUnitRepository> repositories;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -71,9 +72,9 @@ public abstract class CompoundBuildUnitRepositoryImpl extends BuildUnitRepositor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<BuildUnitRepository> getRepositories() {
+	public EList<IBuildUnitRepository> getRepositories() {
 		if(repositories == null) {
-			repositories = new EObjectResolvingEList<BuildUnitRepository>(BuildUnitRepository.class, this,
+			repositories = new EObjectResolvingEList<IBuildUnitRepository>(IBuildUnitRepository.class, this,
 					B3BuildPackage.COMPOUND_BUILD_UNIT_REPOSITORY__REPOSITORIES);
 		}
 		return repositories;
@@ -104,7 +105,7 @@ public abstract class CompoundBuildUnitRepositoryImpl extends BuildUnitRepositor
 		switch(featureID) {
 		case B3BuildPackage.COMPOUND_BUILD_UNIT_REPOSITORY__REPOSITORIES:
 			getRepositories().clear();
-			getRepositories().addAll((Collection<? extends BuildUnitRepository>) newValue);
+			getRepositories().addAll((Collection<? extends IBuildUnitRepository>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);

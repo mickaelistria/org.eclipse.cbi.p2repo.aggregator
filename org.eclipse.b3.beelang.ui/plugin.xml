@@ -117,9 +117,18 @@
           id="org.eclipse.b3.beelang.ui.execute"
           name="Run Main Function">
     </command>
+    <command
+          description="Resolves and Runs the function called main"
+          id="org.eclipse.b3.beelang.ui.resolve"
+          name="Run Resolve Main Function">
+    </command>
  </extension>
  <extension
        point="org.eclipse.ui.handlers">
+    <handler
+          class="org.eclipse.b3.commands.ResolveHandler"
+          commandId="org.eclipse.b3.beelang.ui.resolve">
+    </handler>
     <handler
           class="org.eclipse.b3.commands.ExecuteHandler"
           commandId="org.eclipse.b3.beelang.ui.execute">
@@ -127,6 +136,22 @@
  </extension>
  <extension
        point="org.eclipse.ui.menus">
+    <menuContribution
+          locationURI="popup:org.eclipse.xtext.ui.common.outline?after=additions">
+       <command
+             commandId="org.eclipse.b3.beelang.ui.resolve"
+             label="Resolve and Run Main Function"
+             style="push">
+          <visibleWhen
+                checkEnabled="false">
+             <iterate>
+                <adapt
+                      type="org.eclipse.b3.build.build.BeeModel">
+                </adapt>
+             </iterate>
+          </visibleWhen>
+       </command>
+    </menuContribution>
     <menuContribution
           locationURI="popup:org.eclipse.xtext.ui.common.outline?after=additions">
        <command

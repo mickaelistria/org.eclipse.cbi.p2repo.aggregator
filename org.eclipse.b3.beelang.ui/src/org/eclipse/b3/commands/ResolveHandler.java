@@ -1,0 +1,13 @@
+package org.eclipse.b3.commands;
+
+import org.eclipse.core.commands.ExecutionEvent;
+import org.eclipse.core.commands.ExecutionException;
+
+public class ResolveHandler extends ExecuteHandler {
+	
+	public Object execute(ExecutionEvent event) throws ExecutionException {
+		setPerformResolve(true);
+		return super.execute(event);
+	}
+
+}

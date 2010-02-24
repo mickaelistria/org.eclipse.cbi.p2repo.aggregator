@@ -22,6 +22,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
 import org.eclipse.b3.build.build.*;
 
+import org.eclipse.b3.build.core.IBuildUnitRepository;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
@@ -628,6 +629,8 @@ public class B3BuildSwitch<T> {
 			BuildUnitRepository buildUnitRepository = (BuildUnitRepository) theEObject;
 			T result = caseBuildUnitRepository(buildUnitRepository);
 			if(result == null)
+				result = caseIBuildUnitRepository(buildUnitRepository);
+			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -636,6 +639,8 @@ public class B3BuildSwitch<T> {
 			T result = caseCompoundBuildUnitRepository(compoundBuildUnitRepository);
 			if(result == null)
 				result = caseBuildUnitRepository(compoundBuildUnitRepository);
+			if(result == null)
+				result = caseIBuildUnitRepository(compoundBuildUnitRepository);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -648,16 +653,20 @@ public class B3BuildSwitch<T> {
 			if(result == null)
 				result = caseBuildUnitRepository(compoundFirstFoundRepository);
 			if(result == null)
+				result = caseIBuildUnitRepository(compoundFirstFoundRepository);
+			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case B3BuildPackage.COMPUND_BEST_FOUND_REPOSITORY: {
-			CompundBestFoundRepository compundBestFoundRepository = (CompundBestFoundRepository) theEObject;
-			T result = caseCompundBestFoundRepository(compundBestFoundRepository);
+		case B3BuildPackage.COMPOUND_BEST_FOUND_REPOSITORY: {
+			CompoundBestFoundRepository compoundBestFoundRepository = (CompoundBestFoundRepository) theEObject;
+			T result = caseCompoundBestFoundRepository(compoundBestFoundRepository);
 			if(result == null)
-				result = caseCompoundBuildUnitRepository(compundBestFoundRepository);
+				result = caseCompoundBuildUnitRepository(compoundBestFoundRepository);
 			if(result == null)
-				result = caseBuildUnitRepository(compundBestFoundRepository);
+				result = caseBuildUnitRepository(compoundBestFoundRepository);
+			if(result == null)
+				result = caseIBuildUnitRepository(compoundBestFoundRepository);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -668,6 +677,8 @@ public class B3BuildSwitch<T> {
 			if(result == null)
 				result = caseBuildUnitRepository(executionStackRepository);
 			if(result == null)
+				result = caseIBuildUnitRepository(executionStackRepository);
+			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -676,6 +687,17 @@ public class B3BuildSwitch<T> {
 			T result = caseSimpleRepository(simpleRepository);
 			if(result == null)
 				result = caseBuildUnitRepository(simpleRepository);
+			if(result == null)
+				result = caseIBuildUnitRepository(simpleRepository);
+			if(result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case B3BuildPackage.UNIT_RESOLUTION_INFO: {
+			UnitResolutionInfo unitResolutionInfo = (UnitResolutionInfo) theEObject;
+			T result = caseUnitResolutionInfo(unitResolutionInfo);
+			if(result == null)
+				result = caseResolutionInfo(unitResolutionInfo);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -986,17 +1008,17 @@ public class B3BuildSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Compund Best Found Repository</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Compound Best Found Repository</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Compund Best Found Repository</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Compound Best Found Repository</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseCompundBestFoundRepository(CompundBestFoundRepository object) {
+	public T caseCompoundBestFoundRepository(CompoundBestFoundRepository object) {
 		return null;
 	}
 
@@ -1027,6 +1049,36 @@ public class B3BuildSwitch<T> {
 	 * @generated
 	 */
 	public T caseSimpleRepository(SimpleRepository object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IBuild Unit Repository</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IBuild Unit Repository</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIBuildUnitRepository(IBuildUnitRepository object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Unit Resolution Info</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Unit Resolution Info</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUnitResolutionInfo(UnitResolutionInfo object) {
 		return null;
 	}
 

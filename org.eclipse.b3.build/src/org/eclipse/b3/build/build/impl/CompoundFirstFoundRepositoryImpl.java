@@ -13,9 +13,9 @@ package org.eclipse.b3.build.build.impl;
 import org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext;
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.BuildUnit;
-import org.eclipse.b3.build.build.BuildUnitRepository;
 import org.eclipse.b3.build.build.CompoundFirstFoundRepository;
 import org.eclipse.b3.build.build.RequiredCapability;
+import org.eclipse.b3.build.core.IBuildUnitRepository;
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- * 
+ *
  * @generated
  */
 public class CompoundFirstFoundRepositoryImpl extends CompoundBuildUnitRepositoryImpl implements
@@ -32,7 +32,6 @@ public class CompoundFirstFoundRepositoryImpl extends CompoundBuildUnitRepositor
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected CompoundFirstFoundRepositoryImpl() {
@@ -42,7 +41,6 @@ public class CompoundFirstFoundRepositoryImpl extends CompoundBuildUnitRepositor
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -59,7 +57,7 @@ public class CompoundFirstFoundRepositoryImpl extends CompoundBuildUnitRepositor
 	@Override
 	public BuildUnit resolve(BExecutionContext ctx, RequiredCapability requiredCapability) throws Throwable {
 		BuildUnit result = null;
-		for(BuildUnitRepository repo : getRepositories())
+		for(IBuildUnitRepository repo : getRepositories())
 			if((result = repo.resolve(ctx, requiredCapability)) != null)
 				return result;
 		return null;

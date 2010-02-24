@@ -8,6 +8,7 @@ package org.eclipse.b3.build.build.impl;
 
 import org.eclipse.b3.build.build.*;
 
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -157,12 +158,14 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 			return createSourcePredicate();
 		case B3BuildPackage.COMPOUND_FIRST_FOUND_REPOSITORY:
 			return createCompoundFirstFoundRepository();
-		case B3BuildPackage.COMPUND_BEST_FOUND_REPOSITORY:
-			return createCompundBestFoundRepository();
+		case B3BuildPackage.COMPOUND_BEST_FOUND_REPOSITORY:
+			return createCompoundBestFoundRepository();
 		case B3BuildPackage.EXECUTION_STACK_REPOSITORY:
 			return createExecutionStackRepository();
 		case B3BuildPackage.SIMPLE_REPOSITORY:
 			return createSimpleRepository();
+		case B3BuildPackage.UNIT_RESOLUTION_INFO:
+			return createUnitResolutionInfo();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -180,6 +183,8 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 			return createVersionRangeFromString(eDataType, initialValue);
 		case B3BuildPackage.VERSION:
 			return createVersionFromString(eDataType, initialValue);
+		case B3BuildPackage.ISTATUS:
+			return createIStatusFromString(eDataType, initialValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -197,6 +202,8 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 			return convertVersionRangeToString(eDataType, instanceValue);
 		case B3BuildPackage.VERSION:
 			return convertVersionToString(eDataType, instanceValue);
+		case B3BuildPackage.ISTATUS:
+			return convertIStatusToString(eDataType, instanceValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -377,9 +384,9 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CompundBestFoundRepository createCompundBestFoundRepository() {
-		CompundBestFoundRepositoryImpl compundBestFoundRepository = new CompundBestFoundRepositoryImpl();
-		return compundBestFoundRepository;
+	public CompoundBestFoundRepository createCompoundBestFoundRepository() {
+		CompoundBestFoundRepositoryImpl compoundBestFoundRepository = new CompoundBestFoundRepositoryImpl();
+		return compoundBestFoundRepository;
 	}
 
 	/**
@@ -400,6 +407,16 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	public SimpleRepository createSimpleRepository() {
 		SimpleRepositoryImpl simpleRepository = new SimpleRepositoryImpl();
 		return simpleRepository;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UnitResolutionInfo createUnitResolutionInfo() {
+		UnitResolutionInfoImpl unitResolutionInfo = new UnitResolutionInfoImpl();
+		return unitResolutionInfo;
 	}
 
 	/**
@@ -735,6 +752,24 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	 * @generated
 	 */
 	public String convertVersionToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IStatus createIStatusFromString(EDataType eDataType, String initialValue) {
+		return (IStatus) super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertIStatusToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 

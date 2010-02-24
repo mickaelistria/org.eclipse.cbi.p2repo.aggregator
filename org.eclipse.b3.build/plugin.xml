@@ -10,6 +10,7 @@
 
 <plugin>
    <extension-point id="BuildUnitInterface" name="BuildUnitInterface" schema="schema/BuildUnitInterface.exsd"/>
+   <extension-point id="RepositoryScheme" name="RepositoryScheme" schema="schema/RepositoryScheme.exsd"/>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package

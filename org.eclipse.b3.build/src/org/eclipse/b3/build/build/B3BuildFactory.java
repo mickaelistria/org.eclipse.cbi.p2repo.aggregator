@@ -179,13 +179,13 @@ public interface B3BuildFactory extends EFactory {
 	CompoundFirstFoundRepository createCompoundFirstFoundRepository();
 
 	/**
-	 * Returns a new object of class '<em>Compund Best Found Repository</em>'.
+	 * Returns a new object of class '<em>Compound Best Found Repository</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Compund Best Found Repository</em>'.
+	 * @return a new object of class '<em>Compound Best Found Repository</em>'.
 	 * @generated
 	 */
-	CompundBestFoundRepository createCompundBestFoundRepository();
+	CompoundBestFoundRepository createCompoundBestFoundRepository();
 
 	/**
 	 * Returns a new object of class '<em>Execution Stack Repository</em>'.
@@ -204,6 +204,15 @@ public interface B3BuildFactory extends EFactory {
 	 * @generated
 	 */
 	SimpleRepository createSimpleRepository();
+
+	/**
+	 * Returns a new object of class '<em>Unit Resolution Info</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Unit Resolution Info</em>'.
+	 * @generated
+	 */
+	UnitResolutionInfo createUnitResolutionInfo();
 
 	/**
 	 * Returns a new object of class '<em>Versioned Capability</em>'.

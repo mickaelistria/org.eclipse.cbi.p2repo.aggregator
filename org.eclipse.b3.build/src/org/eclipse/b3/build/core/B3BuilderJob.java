@@ -1,5 +1,6 @@
 package org.eclipse.b3.build.core;
 
+import java.lang.reflect.Proxy;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -26,6 +27,8 @@ import org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade;
 import org.eclipse.b3.build.build.IBuilder;
 import org.eclipse.b3.build.build.PathVector;
 import org.eclipse.b3.build.build.RequiredCapability;
+import org.eclipse.b3.build.build.ResolutionInfo;
+import org.eclipse.b3.build.build.UnitResolutionInfo;
 import org.eclipse.b3.build.internal.B3BuildActivator;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
@@ -208,22 +211,42 @@ public class B3BuilderJob extends Job {
 						values[idx] = p.getExpr().evaluate(ctxToUse);
 						types[idx++] = p.getExpr().getDeclaredType(ctxToUse);
 					}
-				// TODO: CHEATING HERE - CALLING ON THE SAME UNIT ONLY
-				// TODO: SHOULD GET THE RESOLVED UNIT FROM THE BUILDER REFERENCE
-				//
-				BuildUnit unitToUse = unit;
-				RequiredCapability rq = null;
-				rq = bref.getRequiredCapability();
-				if(rq == null)
-					rq = bref.getRequiredCapabilityReference();
 
-				// TODO: CHEATING HERE - CALLING ON THE SAME UNIT ONLY
-				// TODO: SHOULD GET THE RESOLVED UNIT FROM THE BUILDER REFERENCE
+				// Get the resolved unit in the current resolution scope
 				//
-				if(rq != null)
-					unitToUse = null; // TODO: lookup resolution as adapter
+				BuildUnit unitToUse = unit; // default is a call on "self"
+				RequiredCapability rq = null;
+				rq = bref.getRequiredCapability(); // a contained requirement
+				if(rq == null)
+					rq = bref.getRequiredCapabilityReference(); // a requirement via reference
+
+				// if call is on unit other than 'self', find the resolution
+				if(rq != null) {
+					// the resolution is associated with a resoloution scope which is defined in the
+					// execution context
+					//
+					Object resolutionScope = null;
+					try {
+						resolutionScope = ctxToUse.getValue(B3BuildConstants.B3ENGINE_VAR_RESOLUTION_SCOPE);
+					}
+					catch(B3EngineException e) {
+						throw new B3NoResolutionScopeException();
+					}
+					// get the resolution info
+					ResolutionInfo rinfo = ResolutionInfoAdapterFactory.eINSTANCE.adapt(rq).getAssociatedInfo(
+							resolutionScope);
+					// TODO: Should probably pass status to exception if info and status exist
+					if(rinfo == null || !rinfo.getStatus().isOK() || !(rinfo instanceof UnitResolutionInfo))
+						throw new B3UnresolvedRequirementException(unit, builder, rq);
+					unitToUse = ((UnitResolutionInfo) rinfo).getUnit();
+
+				}
+				// in case a non proxy managed to get this far...
+				if(!Proxy.isProxyClass(unitToUse.getClass()))
+					unitToUse = BuildUnitProxyAdapterFactory.eINSTANCE.adapt(unitToUse).getProxy();
+
 				values[0] = unitToUse;
-				types[0] = BuildUnitProxyAdapterFactory.eINSTANCE.adapt(unit).getProxy().getClass();
+				types[0] = unitToUse.getClass();
 				Object buildJobObject = ctxToUse.callFunction(builderName, values, types);
 				if(!(buildJobObject instanceof B3BuilderJob))
 					throw new B3InternalError("Builder did not return a B3BuilderJob: " + builderName);

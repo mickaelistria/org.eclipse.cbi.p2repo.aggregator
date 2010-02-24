@@ -16,9 +16,9 @@ package org.eclipse.b3.build.build;
  * <!-- end-user-doc -->
  *
  *
- * @see org.eclipse.b3.build.build.B3BuildPackage#getCompundBestFoundRepository()
+ * @see org.eclipse.b3.build.build.B3BuildPackage#getCompoundBestFoundRepository()
  * @model
  * @generated
  */
-public interface CompundBestFoundRepository extends CompoundBuildUnitRepository {
-} // CompundBestFoundRepository
+public interface CompoundBestFoundRepository extends CompoundBuildUnitRepository {
+} // CompoundBestFoundRepository

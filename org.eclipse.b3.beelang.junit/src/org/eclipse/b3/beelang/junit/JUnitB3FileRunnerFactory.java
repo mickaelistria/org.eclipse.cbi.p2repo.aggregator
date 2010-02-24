@@ -184,9 +184,14 @@ class JUnitB3FileRunnerFactory {
 			engine.getBuildContext().defineBeeModel(beeModel);
 			final List<Object> argv = new ArrayList<Object>();
 			argv.add(engine);
+			ctx.defineFinalValue("$test.engine", engine, B3BuildEngine.class);
+
 			EffectiveUnitIterator uItor = new EffectiveUnitIterator(engine.getBuildContext());
 			while(uItor.hasNext()) {
-				argv.add(BuildUnitProxyAdapterFactory.eINSTANCE.adapt(uItor.next()).getProxy());
+				BuildUnit unit = uItor.next();
+				BuildUnit unitProxy = BuildUnitProxyAdapterFactory.eINSTANCE.adapt(unit).getProxy();
+				argv.add(unitProxy);
+				ctx.defineFinalValue("$test." + unitProxy.getName(), unitProxy, unitProxy.getClass());
 			}
 			ctx.defineFinalValue("$test.argv", argv, List.class);
 

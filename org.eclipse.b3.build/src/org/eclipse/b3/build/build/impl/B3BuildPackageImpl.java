@@ -39,7 +39,7 @@ import org.eclipse.b3.build.build.CapabilityPredicate;
 import org.eclipse.b3.build.build.CompoundBuildResultReference;
 import org.eclipse.b3.build.build.CompoundBuildUnitRepository;
 import org.eclipse.b3.build.build.CompoundFirstFoundRepository;
-import org.eclipse.b3.build.build.CompundBestFoundRepository;
+import org.eclipse.b3.build.build.CompoundBestFoundRepository;
 import org.eclipse.b3.build.build.ConditionalPathVector;
 import org.eclipse.b3.build.build.ContainerConfiguration;
 import org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade;
@@ -73,7 +73,10 @@ import org.eclipse.b3.build.build.SourcePredicate;
 import org.eclipse.b3.build.build.Synchronization;
 import org.eclipse.b3.build.build.UnitConcernContext;
 import org.eclipse.b3.build.build.UnitNamePredicate;
+import org.eclipse.b3.build.build.UnitResolutionInfo;
 import org.eclipse.b3.build.build.VersionedCapability;
+import org.eclipse.b3.build.core.IBuildUnitRepository;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -238,7 +241,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass compundBestFoundRepositoryEClass = null;
+	private EClass compoundBestFoundRepositoryEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -253,6 +256,20 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * @generated
 	 */
 	private EClass simpleRepositoryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass iBuildUnitRepositoryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass unitResolutionInfoEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -512,6 +529,13 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * @generated
 	 */
 	private EDataType versionEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType iStatusEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -980,6 +1004,15 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getResolutionInfo_Status() {
+		return (EAttribute) resolutionInfoEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getEffectiveFacade() {
 		return effectiveFacadeEClass;
 	}
@@ -1196,8 +1229,8 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getCompundBestFoundRepository() {
-		return compundBestFoundRepositoryEClass;
+	public EClass getCompoundBestFoundRepository() {
+		return compoundBestFoundRepositoryEClass;
 	}
 
 	/**
@@ -1225,6 +1258,42 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 */
 	public EReference getSimpleRepository_BeeModels() {
 		return (EReference) simpleRepositoryEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIBuildUnitRepository() {
+		return iBuildUnitRepositoryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUnitResolutionInfo() {
+		return unitResolutionInfoEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUnitResolutionInfo_Unit() {
+		return (EReference) unitResolutionInfoEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUnitResolutionInfo_Context() {
+		return (EReference) unitResolutionInfoEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2267,6 +2336,15 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EDataType getIStatus() {
+		return iStatusEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public B3BuildFactory getB3BuildFactory() {
 		return (B3BuildFactory) getEFactoryInstance();
 	}
@@ -2490,6 +2568,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		createEAttribute(beeHiveEClass, BEE_HIVE__RESOLUTIONS);
 
 		resolutionInfoEClass = createEClass(RESOLUTION_INFO);
+		createEAttribute(resolutionInfoEClass, RESOLUTION_INFO__STATUS);
 
 		effectiveFacadeEClass = createEClass(EFFECTIVE_FACADE);
 		createEReference(effectiveFacadeEClass, EFFECTIVE_FACADE__CONTEXT);
@@ -2527,16 +2606,23 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 
 		compoundFirstFoundRepositoryEClass = createEClass(COMPOUND_FIRST_FOUND_REPOSITORY);
 
-		compundBestFoundRepositoryEClass = createEClass(COMPUND_BEST_FOUND_REPOSITORY);
+		compoundBestFoundRepositoryEClass = createEClass(COMPOUND_BEST_FOUND_REPOSITORY);
 
 		executionStackRepositoryEClass = createEClass(EXECUTION_STACK_REPOSITORY);
 
 		simpleRepositoryEClass = createEClass(SIMPLE_REPOSITORY);
 		createEReference(simpleRepositoryEClass, SIMPLE_REPOSITORY__BEE_MODELS);
 
+		iBuildUnitRepositoryEClass = createEClass(IBUILD_UNIT_REPOSITORY);
+
+		unitResolutionInfoEClass = createEClass(UNIT_RESOLUTION_INFO);
+		createEReference(unitResolutionInfoEClass, UNIT_RESOLUTION_INFO__UNIT);
+		createEReference(unitResolutionInfoEClass, UNIT_RESOLUTION_INFO__CONTEXT);
+
 		// Create data types
 		versionRangeEDataType = createEDataType(VERSION_RANGE);
 		versionEDataType = createEDataType(VERSION);
+		iStatusEDataType = createEDataType(ISTATUS);
 	}
 
 	/**
@@ -2614,11 +2700,13 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		buildResultContextEClass.getESuperTypes().add(theB3backendPackage.getBInnerContext());
 		outputPredicateEClass.getESuperTypes().add(this.getPathGroupPredicate());
 		sourcePredicateEClass.getESuperTypes().add(this.getPathGroupPredicate());
+		buildUnitRepositoryEClass.getESuperTypes().add(this.getIBuildUnitRepository());
 		compoundBuildUnitRepositoryEClass.getESuperTypes().add(this.getBuildUnitRepository());
 		compoundFirstFoundRepositoryEClass.getESuperTypes().add(this.getCompoundBuildUnitRepository());
-		compundBestFoundRepositoryEClass.getESuperTypes().add(this.getCompoundBuildUnitRepository());
+		compoundBestFoundRepositoryEClass.getESuperTypes().add(this.getCompoundBuildUnitRepository());
 		executionStackRepositoryEClass.getESuperTypes().add(this.getBuildUnitRepository());
 		simpleRepositoryEClass.getESuperTypes().add(this.getBuildUnitRepository());
+		unitResolutionInfoEClass.getESuperTypes().add(this.getResolutionInfo());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(buildUnitEClass, BuildUnit.class, "BuildUnit", !IS_ABSTRACT, !IS_INTERFACE,
@@ -3253,6 +3341,8 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 
 		initEClass(resolutionInfoEClass, ResolutionInfo.class, "ResolutionInfo", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getResolutionInfo_Status(), this.getIStatus(), "status", null, 0, 1, ResolutionInfo.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(effectiveFacadeEClass, EffectiveFacade.class, "EffectiveFacade", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -3332,14 +3422,14 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 
 		initEClass(compoundBuildUnitRepositoryEClass, CompoundBuildUnitRepository.class, "CompoundBuildUnitRepository",
 				IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCompoundBuildUnitRepository_Repositories(), this.getBuildUnitRepository(), null,
+		initEReference(getCompoundBuildUnitRepository_Repositories(), this.getIBuildUnitRepository(), null,
 				"repositories", null, 0, -1, CompoundBuildUnitRepository.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(compoundFirstFoundRepositoryEClass, CompoundFirstFoundRepository.class,
 				"CompoundFirstFoundRepository", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(compundBestFoundRepositoryEClass, CompundBestFoundRepository.class, "CompundBestFoundRepository",
+		initEClass(compoundBestFoundRepositoryEClass, CompoundBestFoundRepository.class, "CompoundBestFoundRepository",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(executionStackRepositoryEClass, ExecutionStackRepository.class, "ExecutionStackRepository",
@@ -3351,10 +3441,23 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 				SimpleRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(iBuildUnitRepositoryEClass, IBuildUnitRepository.class, "IBuildUnitRepository", IS_ABSTRACT,
+				IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(unitResolutionInfoEClass, UnitResolutionInfo.class, "UnitResolutionInfo", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getUnitResolutionInfo_Unit(), this.getBuildUnit(), null, "unit", null, 0, 1,
+				UnitResolutionInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUnitResolutionInfo_Context(), theB3backendPackage.getBExecutionContext(), null, "context",
+				null, 0, 1, UnitResolutionInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize data types
 		initEDataType(versionRangeEDataType, VersionRange.class, "VersionRange", IS_SERIALIZABLE,
 				!IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(versionEDataType, Version.class, "Version", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(iStatusEDataType, IStatus.class, "IStatus", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
