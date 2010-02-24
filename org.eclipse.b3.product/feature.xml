@@ -17,6 +17,10 @@ listed above, as the Initial Contributor under such license. The text of
 such license is available at www.eclipse.org.
    </copyright>
 
+   <includes
+         id="org.eclipse.equinox.executable"
+         version="0.0.0"/>
+
    <plugin
          id="org.eclipse.b3.cli"
          download-size="0"
@@ -216,6 +220,13 @@ such license is available at www.eclipse.org.
 
    <plugin
          id="org.eclipse.equinox.p2.repository"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.core.expressions"
          download-size="0"
          install-size="0"
          version="0.0.0"
