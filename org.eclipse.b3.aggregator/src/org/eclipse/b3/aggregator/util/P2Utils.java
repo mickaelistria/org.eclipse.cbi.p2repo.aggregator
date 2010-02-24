@@ -9,6 +9,7 @@
 package org.eclipse.b3.aggregator.util;
 
 import org.eclipse.b3.util.B3Util;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.equinox.p2.core.IProvisioningAgent;
 import org.eclipse.equinox.p2.core.IProvisioningAgentProvider;
 import org.eclipse.equinox.p2.core.spi.IAgentServiceFactory;
@@ -22,13 +23,17 @@ public class P2Utils {
 
 	public static <T extends IRepositoryManager<?>> T getRepositoryManager(Class<T> clazz) {
 		try {
-			IProvisioningAgent agent = B3Util.getPlugin().getService(IProvisioningAgent.class);
+			IProvisioningAgent agent = null;
+			try {
+				agent = B3Util.getPlugin().getService(IProvisioningAgent.class);
+			}
+			catch(CoreException e) {
+				// agent is null, further steps may fix it
+			}
 
 			if(agent == null) {
 				IProvisioningAgentProvider agentProvider = B3Util.getPlugin().getService(
 						IProvisioningAgentProvider.class);
-				if(agentProvider == null)
-					throw new RuntimeException("No agent provider available");
 				agent = agentProvider.createAgent(null);
 				B3Util.getPlugin().ungetService(agentProvider);
 			}
