@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(JUnitB3TestRunner.class)
 @B3TestFiles({ "/src-b3/smoketestFunctionArithmetic.b3", //
-		"/src-b3/testAmbiguousCall.b3", //
+		"/src-b3/testAmbiguousCalls.b3", //
 		"/src-b3/testArithmeticFunctions.b3", //
 		"/src-b3/testAssertFunctions.b3", //
 		"/src-b3/testAssigmentFunctions.b3", //
