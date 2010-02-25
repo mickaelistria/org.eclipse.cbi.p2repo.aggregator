@@ -19,9 +19,12 @@ import org.eclipse.b3.build.build.BeeModel;
 import org.eclipse.b3.build.build.BuildContext;
 import org.eclipse.b3.build.build.BuildUnit;
 import org.eclipse.b3.build.build.IBuilder;
+import org.eclipse.b3.build.core.B3BuildConstants;
 import org.eclipse.b3.build.core.B3BuildEngine;
 import org.eclipse.b3.build.core.BuildUnitProxyAdapterFactory;
 import org.eclipse.b3.build.core.EffectiveUnitIterator;
+import org.eclipse.b3.build.core.SimpleResolver;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.ContentHandler;
@@ -195,6 +198,8 @@ class JUnitB3FileRunnerFactory {
 			}
 			ctx.defineFinalValue("$test.argv", argv, List.class);
 
+			performResolution();
+
 			testFunctionDescriptors = new ArrayList<TestFunctionDescriptor>();
 
 			// Define all functions and create descriptors of test functions
@@ -211,6 +216,19 @@ class JUnitB3FileRunnerFactory {
 
 			if(testFunctionDescriptors.isEmpty())
 				throw new Exception("No test functions");
+		}
+
+		private void performResolution() throws Exception {
+			// If resolving, run a resolution
+			SimpleResolver resolver = new SimpleResolver();
+			// bind the resolver, it is later looked up by build jobs to get the
+			// current resolutions of requirements
+			engine.getContext().defineValue(B3BuildConstants.B3ENGINE_VAR_RESOLUTION_SCOPE, resolver,
+					SimpleResolver.class);
+			IStatus status = resolver.resolveAll(engine.getBuildContext());
+			if(!status.isOK()) {
+				throw new Exception(status.toString());
+			}
 		}
 
 		@Override
