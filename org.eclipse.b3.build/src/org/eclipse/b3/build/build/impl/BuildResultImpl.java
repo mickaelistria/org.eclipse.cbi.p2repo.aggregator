@@ -17,6 +17,7 @@ import org.eclipse.b3.backend.core.ValueMap;
 import org.eclipse.b3.build.build.B3BuildPackage;
 import org.eclipse.b3.build.build.BuildResult;
 import org.eclipse.b3.build.build.PathVector;
+import org.eclipse.b3.build.core.PathIterator;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -31,11 +32,12 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.b3.build.build.impl.BuildResultImpl#getPathVectors <em>Path Vectors</em>}</li>
- *   <li>{@link org.eclipse.b3.build.build.impl.BuildResultImpl#getValueMap <em>Value Map</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuildResultImpl#getPathVectors <em>Path Vectors</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuildResultImpl#getValueMap <em>Value Map</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuildResultImpl#getPathIterator <em>Path Iterator</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class BuildResultImpl extends EObjectImpl implements BuildResult {
@@ -43,6 +45,7 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 	 * The cached value of the '{@link #getPathVectors() <em>Path Vectors</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getPathVectors()
 	 * @generated
 	 * @ordered
@@ -53,6 +56,7 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 	 * The default value of the '{@link #getValueMap() <em>Value Map</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getValueMap()
 	 * @generated
 	 * @ordered
@@ -63,6 +67,7 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 	 * The cached value of the '{@link #getValueMap() <em>Value Map</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getValueMap()
 	 * @generated
 	 * @ordered
@@ -70,8 +75,20 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 	protected ValueMap valueMap = VALUE_MAP_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getPathIterator() <em>Path Iterator</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getPathIterator()
+	 * @generated NOT
+	 * @ordered
+	 */
+	protected static final PathIterator PATH_ITERATOR_EDEFAULT = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BuildResultImpl() {
@@ -81,6 +98,7 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -90,6 +108,8 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 			return getPathVectors();
 		case B3BuildPackage.BUILD_RESULT__VALUE_MAP:
 			return getValueMap();
+		case B3BuildPackage.BUILD_RESULT__PATH_ITERATOR:
+			return getPathIterator();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -97,6 +117,7 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -108,6 +129,10 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 			return VALUE_MAP_EDEFAULT == null
 					? valueMap != null
 					: !VALUE_MAP_EDEFAULT.equals(valueMap);
+		case B3BuildPackage.BUILD_RESULT__PATH_ITERATOR:
+			return PATH_ITERATOR_EDEFAULT == null
+					? getPathIterator() != null
+					: !PATH_ITERATOR_EDEFAULT.equals(getPathIterator());
 		}
 		return super.eIsSet(featureID);
 	}
@@ -115,6 +140,7 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -135,6 +161,7 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -145,6 +172,7 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -163,6 +191,17 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public PathIterator getPathIterator() {
+		return new PathIterator(this);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<PathVector> getPathVectors() {
@@ -207,6 +246,7 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setValueMap(ValueMap newValueMap) {

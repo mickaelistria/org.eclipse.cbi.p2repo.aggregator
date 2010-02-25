@@ -13,6 +13,7 @@ package org.eclipse.b3.build.build;
 import org.eclipse.b3.backend.core.B3EngineException;
 import org.eclipse.b3.backend.core.ValueMap;
 
+import org.eclipse.b3.build.core.PathIterator;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
@@ -26,6 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.eclipse.b3.build.build.BuildResult#getPathVectors <em>Path Vectors</em>}</li>
  *   <li>{@link org.eclipse.b3.build.build.BuildResult#getValueMap <em>Value Map</em>}</li>
+ *   <li>{@link org.eclipse.b3.build.build.BuildResult#getPathIterator <em>Path Iterator</em>}</li>
  * </ul>
  * </p>
  *
@@ -75,6 +77,22 @@ public interface BuildResult extends EObject {
 	 * @generated
 	 */
 	void setValueMap(ValueMap value);
+
+	/**
+	 * Returns the value of the '<em><b>Path Iterator</b></em>' attribute.
+	 * The default value is <code>""</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Path Iterator</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Path Iterator</em>' attribute.
+	 * @see org.eclipse.b3.build.build.B3BuildPackage#getBuildResult_PathIterator()
+	 * @model default="" unique="false" dataType="org.eclipse.b3.build.build.PathIterator" transient="true" changeable="false" volatile="true" derived="true" ordered="false"
+	 * @generated
+	 */
+	PathIterator getPathIterator();
 
 	/**
 	 * <!-- begin-user-doc -->

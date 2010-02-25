@@ -3550,13 +3550,22 @@ public interface B3BuildPackage extends EPackage {
 	int BUILD_RESULT__VALUE_MAP = 1;
 
 	/**
+	 * The feature id for the '<em><b>Path Iterator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILD_RESULT__PATH_ITERATOR = 2;
+
+	/**
 	 * The number of structural features of the '<em>Build Result</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_RESULT_FEATURE_COUNT = 2;
+	int BUILD_RESULT_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuildResultContextImpl <em>Build Result Context</em>}' class.
@@ -3949,6 +3958,16 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	int ISTATUS = 62;
+
+	/**
+	 * The meta object id for the '<em>Path Iterator</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.build.core.PathIterator
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getPathIterator()
+	 * @generated
+	 */
+	int PATH_ITERATOR = 63;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuildUnit <em>Build Unit</em>}'.
@@ -4617,6 +4636,17 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getBuildResult_ValueMap();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuildResult#getPathIterator <em>Path Iterator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Path Iterator</em>'.
+	 * @see org.eclipse.b3.build.build.BuildResult#getPathIterator()
+	 * @see #getBuildResult()
+	 * @generated
+	 */
+	EAttribute getBuildResult_PathIterator();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuildResultContext <em>Build Result Context</em>}'.
@@ -6015,6 +6045,17 @@ public interface B3BuildPackage extends EPackage {
 	EDataType getIStatus();
 
 	/**
+	 * Returns the meta object for data type '{@link org.eclipse.b3.build.core.PathIterator <em>Path Iterator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Path Iterator</em>'.
+	 * @see org.eclipse.b3.build.core.PathIterator
+	 * @model instanceClass="org.eclipse.b3.build.core.PathIterator"
+	 * @generated
+	 */
+	EDataType getPathIterator();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6559,6 +6600,14 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute BUILD_RESULT__VALUE_MAP = eINSTANCE.getBuildResult_ValueMap();
+
+		/**
+		 * The meta object literal for the '<em><b>Path Iterator</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BUILD_RESULT__PATH_ITERATOR = eINSTANCE.getBuildResult_PathIterator();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuildResultContextImpl <em>Build Result Context</em>}' class.
@@ -7705,6 +7754,16 @@ public interface B3BuildPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType ISTATUS = eINSTANCE.getIStatus();
+
+		/**
+		 * The meta object literal for the '<em>Path Iterator</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.build.core.PathIterator
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getPathIterator()
+		 * @generated
+		 */
+		EDataType PATH_ITERATOR = eINSTANCE.getPathIterator();
 
 	}
 

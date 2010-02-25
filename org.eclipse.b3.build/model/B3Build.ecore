@@ -507,6 +507,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="pathVectors" upperBound="-1"
         eType="#//PathVector"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueMap" eType="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//ValueMap"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pathIterator" ordered="false"
+        unique="false" eType="#//PathIterator" changeable="false" volatile="true"
+        transient="true" defaultValueLiteral="" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BuildResultContext" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//BInnerContext">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -547,4 +550,5 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="unit" eType="#//BuildUnit"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="context" eType="ecore:EClass ../../org.eclipse.b3.backend/model/B3Backend.ecore#//BExecutionContext"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="PathIterator" instanceClassName="org.eclipse.b3.build.core.PathIterator"/>
 </ecore:EPackage>

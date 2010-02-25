@@ -76,6 +76,7 @@ import org.eclipse.b3.build.build.UnitNamePredicate;
 import org.eclipse.b3.build.build.UnitResolutionInfo;
 import org.eclipse.b3.build.build.VersionedCapability;
 import org.eclipse.b3.build.core.IBuildUnitRepository;
+import org.eclipse.b3.build.core.PathIterator;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -536,6 +537,13 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * @generated
 	 */
 	private EDataType iStatusEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType pathIteratorEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -1159,6 +1167,15 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 */
 	public EAttribute getBuildResult_ValueMap() {
 		return (EAttribute) buildResultEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBuildResult_PathIterator() {
+		return (EAttribute) buildResultEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2345,6 +2362,15 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EDataType getPathIterator() {
+		return pathIteratorEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public B3BuildFactory getB3BuildFactory() {
 		return (B3BuildFactory) getEFactoryInstance();
 	}
@@ -2592,6 +2618,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		buildResultEClass = createEClass(BUILD_RESULT);
 		createEReference(buildResultEClass, BUILD_RESULT__PATH_VECTORS);
 		createEAttribute(buildResultEClass, BUILD_RESULT__VALUE_MAP);
+		createEAttribute(buildResultEClass, BUILD_RESULT__PATH_ITERATOR);
 
 		buildResultContextEClass = createEClass(BUILD_RESULT_CONTEXT);
 
@@ -2623,6 +2650,7 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		versionRangeEDataType = createEDataType(VERSION_RANGE);
 		versionEDataType = createEDataType(VERSION);
 		iStatusEDataType = createEDataType(ISTATUS);
+		pathIteratorEDataType = createEDataType(PATH_ITERATOR);
 	}
 
 	/**
@@ -3394,6 +3422,9 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 		initEAttribute(getBuildResult_ValueMap(), theB3backendPackage.getValueMap(), "valueMap", null, 0, 1,
 				BuildResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBuildResult_PathIterator(), this.getPathIterator(), "pathIterator", "", 0, 1,
+				BuildResult.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
+				IS_DERIVED, !IS_ORDERED);
 
 		op = addEOperation(buildResultEClass, null, "merge", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getBuildResult(), "buildResult", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -3458,6 +3489,8 @@ public class B3BuildPackageImpl extends EPackageImpl implements B3BuildPackage {
 				!IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(versionEDataType, Version.class, "Version", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(iStatusEDataType, IStatus.class, "IStatus", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(pathIteratorEDataType, PathIterator.class, "PathIterator", IS_SERIALIZABLE,
+				!IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

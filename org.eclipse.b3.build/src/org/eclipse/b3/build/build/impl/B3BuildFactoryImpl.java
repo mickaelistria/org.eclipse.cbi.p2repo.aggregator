@@ -8,6 +8,7 @@ package org.eclipse.b3.build.build.impl;
 
 import org.eclipse.b3.build.build.*;
 
+import org.eclipse.b3.build.core.PathIterator;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -185,6 +186,8 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 			return createVersionFromString(eDataType, initialValue);
 		case B3BuildPackage.ISTATUS:
 			return createIStatusFromString(eDataType, initialValue);
+		case B3BuildPackage.PATH_ITERATOR:
+			return createPathIteratorFromString(eDataType, initialValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -204,6 +207,8 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 			return convertVersionToString(eDataType, instanceValue);
 		case B3BuildPackage.ISTATUS:
 			return convertIStatusToString(eDataType, instanceValue);
+		case B3BuildPackage.PATH_ITERATOR:
+			return convertPathIteratorToString(eDataType, instanceValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -770,6 +775,24 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	 * @generated
 	 */
 	public String convertIStatusToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PathIterator createPathIteratorFromString(EDataType eDataType, String initialValue) {
+		return (PathIterator) super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertPathIteratorToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 
