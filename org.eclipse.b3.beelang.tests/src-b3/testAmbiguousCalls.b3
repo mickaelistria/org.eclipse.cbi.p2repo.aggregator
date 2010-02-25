@@ -1,0 +1,10 @@
+import java.util.List;
+
+function main(List argv) {
+	testContainsAllTwice();
+}
+function testContainsAllTwice() {
+	var list = ["hello", "goodbye"];
+	assertTrue("Should have both hello and goodbye", list.containsAll(["hello", "goodbye"]));
+	assertTrue("Should have both hello and goodbye", list.containsAll(["hello", "goodbye"]));
+}
