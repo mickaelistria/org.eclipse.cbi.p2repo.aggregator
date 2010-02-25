@@ -216,7 +216,7 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 
 				createStructuredView();
 
-				LogUtils.debug("Done. Took %s", TimeUtils.getFormattedDuration(start));
+				LogUtils.debug("Repository %s loaded (Took %s)", location, TimeUtils.getFormattedDuration(start));
 			}
 			catch(Exception e) {
 				exception = e;
@@ -650,29 +650,37 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 	public void load(Map<?, ?> options) throws IOException {
 		lastException = null;
 
-		if(isLoaded)
-			return;
-
-		Notification notification = setLoaded(true);
-		java.net.URI location;
 		try {
-			location = new java.net.URI(getURI().opaquePart());
-		}
-		catch(URISyntaxException e) {
-			lastException = new Resource.IOWrappedException(e);
-			return;
-		}
+			synchronized(this) {
+				if(isLoading) {
+					Job jobThreadSafeCopy = loadingJob;
+					if(jobThreadSafeCopy != null)
+						jobThreadSafeCopy.join();
 
-		isLoading = true;
+					return;
+				}
+				else {
+					isLoading = true;
 
-		MetadataRepositoryImpl repository = (MetadataRepositoryImpl) P2Factory.eINSTANCE.createMetadataRepository();
+					java.net.URI location;
+					try {
+						location = new java.net.URI(getURI().opaquePart());
+					}
+					catch(URISyntaxException e) {
+						lastException = new Resource.IOWrappedException(e);
+						return;
+					}
 
-		repoView = P2viewFactory.eINSTANCE.createMetadataRepositoryStructuredView(repository);
-		allIUPresentationMatrix.clear();
+					MetadataRepositoryImpl repository = (MetadataRepositoryImpl) P2Factory.eINSTANCE.createMetadataRepository();
 
-		loadingJob = new RepositoryLoaderJob(repository, location, forceReload, repoView, allIUPresentationMatrix);
+					repoView = P2viewFactory.eINSTANCE.createMetadataRepositoryStructuredView(repository);
+					allIUPresentationMatrix.clear();
 
-		try {
+					loadingJob = new RepositoryLoaderJob(repository, location, forceReload, repoView,
+							allIUPresentationMatrix);
+				}
+			}
+
 			boolean jobManagerReadyBeforeJobScheduled = !Job.getJobManager().isSuspended();
 			loadingJob.schedule();
 			loadingJob.join();
@@ -688,9 +696,13 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 						"Unknown repository status - loading job was scheduled while job manager was suspended");
 		}
 		catch(InterruptedException e) {
+			throw new IOException("Repository loading was interrupted");
 		}
 		finally {
 			isLoading = false;
+			loadingJob = null;
+			Notification notification = setLoaded(true);
+
 			if(notification != null) {
 				if(options.containsKey(NOTIFICATION_KEY)) {
 					Notification notificationRef[] = (Notification[]) options.get(NOTIFICATION_KEY);
@@ -764,14 +776,17 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 	synchronized public void startAsynchronousLoad(boolean forceReload) {
 		setStatus(AggregatorFactory.eINSTANCE.createStatus(StatusCode.WAITING));
 
+		boolean wasLoaded = false;
 		// force listeners to update status
-		// TODO is this necessary?
-		eNotify(setLoaded(isLoaded));
+		synchronized(this) {
+			eNotify(setLoaded(isLoaded));
+			wasLoaded = isLoaded() && !isLoading();
+		}
 
 		String myLocation = getURI().toString();
 		MetadataRepository myMDR;
 		boolean mdrFinal = false;
-		if(!forceReload && isLoaded() && !isLoading()) {
+		if(!forceReload && wasLoaded) {
 			myMDR = loadRepository(false);
 			mdrFinal = true;
 		}
