@@ -752,7 +752,7 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 	 */
 	public EList<Configuration> getConfigurations() {
 		if(configurations == null) {
-			configurations = new EObjectContainmentEList<Configuration>(Configuration.class, this,
+			configurations = new EObjectContainmentEList.Resolving<Configuration>(Configuration.class, this,
 					AggregatorPackage.AGGREGATOR__CONFIGURATIONS);
 		}
 		return configurations;
@@ -765,7 +765,7 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 	 */
 	public EList<Contact> getContacts() {
 		if(contacts == null) {
-			contacts = new EObjectContainmentWithInverseEList<Contact>(Contact.class, this,
+			contacts = new EObjectContainmentWithInverseEList.Resolving<Contact>(Contact.class, this,
 					AggregatorPackage.AGGREGATOR__CONTACTS, AggregatorPackage.CONTACT__AGGREGATOR);
 		}
 		return contacts;
@@ -778,7 +778,7 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 	 */
 	public EList<Contribution> getContributions() {
 		if(contributions == null) {
-			contributions = new EObjectContainmentEList<Contribution>(Contribution.class, this,
+			contributions = new EObjectContainmentEList.Resolving<Contribution>(Contribution.class, this,
 					AggregatorPackage.AGGREGATOR__CONTRIBUTIONS);
 		}
 		return contributions;
@@ -821,7 +821,7 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 	 */
 	public EList<CustomCategory> getCustomCategories() {
 		if(customCategories == null) {
-			customCategories = new EObjectContainmentEList<CustomCategory>(CustomCategory.class, this,
+			customCategories = new EObjectContainmentEList.Resolving<CustomCategory>(CustomCategory.class, this,
 					AggregatorPackage.AGGREGATOR__CUSTOM_CATEGORIES);
 		}
 		return customCategories;
@@ -867,7 +867,7 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 	 */
 	public EList<MavenMapping> getMavenMappings() {
 		if(mavenMappings == null) {
-			mavenMappings = new EObjectContainmentEList<MavenMapping>(MavenMapping.class, this,
+			mavenMappings = new EObjectContainmentEList.Resolving<MavenMapping>(MavenMapping.class, this,
 					AggregatorPackage.AGGREGATOR__MAVEN_MAPPINGS);
 		}
 		return mavenMappings;
@@ -915,7 +915,7 @@ public class AggregatorImpl extends DescriptionProviderImpl implements Aggregato
 	 */
 	public EList<MetadataRepositoryReference> getValidationRepositories() {
 		if(validationRepositories == null) {
-			validationRepositories = new EObjectContainmentEList<MetadataRepositoryReference>(
+			validationRepositories = new EObjectContainmentEList.Resolving<MetadataRepositoryReference>(
 					MetadataRepositoryReference.class, this, AggregatorPackage.AGGREGATOR__VALIDATION_REPOSITORIES);
 		}
 		return validationRepositories;

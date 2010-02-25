@@ -43,7 +43,8 @@ public interface MetadataRepository extends IMetadataRepository {
 	 * 
 	 * @return the value of the '<em>Installable Units</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.p2.P2Package#getMetadataRepository_InstallableUnits()
-	 * @model type="org.eclipse.b3.aggregator.p2.IInstallableUnit" containment="true" keys="id version"
+	 * @model type="org.eclipse.b3.aggregator.p2.IInstallableUnit" containment="true" resolveProxies="true"
+	 *        keys="id version"
 	 * @generated
 	 */
 	EList<IInstallableUnit> getInstallableUnits();
@@ -89,7 +90,7 @@ public interface MetadataRepository extends IMetadataRepository {
 	 * 
 	 * @return the value of the '<em>Repository References</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.p2.P2Package#getMetadataRepository_RepositoryReferences()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<RepositoryReference> getRepositoryReferences();

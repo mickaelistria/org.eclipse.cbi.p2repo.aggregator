@@ -144,7 +144,7 @@ public class InstallableUnitFragmentImpl extends InstallableUnitImpl implements 
 	 */
 	public EList<Requirement> getHostList() {
 		if(hostList == null) {
-			hostList = new EObjectContainmentEList<Requirement>(Requirement.class, this,
+			hostList = new EObjectContainmentEList.Resolving<Requirement>(Requirement.class, this,
 					P2Package.INSTALLABLE_UNIT_FRAGMENT__HOST_LIST);
 		}
 		return hostList;

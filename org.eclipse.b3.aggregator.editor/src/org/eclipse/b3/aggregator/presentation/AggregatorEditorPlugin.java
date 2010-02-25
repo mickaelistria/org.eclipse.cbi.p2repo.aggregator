@@ -18,6 +18,7 @@ import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
  * 
  * @generated
  */
+@SuppressWarnings("deprecation")
 public final class AggregatorEditorPlugin extends EMFPlugin {
 	/**
 	 * The actual implementation of the Eclipse <b>Plugin</b>.
@@ -30,9 +31,8 @@ public final class AggregatorEditorPlugin extends EMFPlugin {
 		 * Creates an instance.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
-		 * @generated
+		 * @generated NOT
 		 */
-		@SuppressWarnings("deprecation")
 		public Implementation() {
 			super();
 

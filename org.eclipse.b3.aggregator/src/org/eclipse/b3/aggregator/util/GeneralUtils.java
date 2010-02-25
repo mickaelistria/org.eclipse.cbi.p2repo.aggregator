@@ -8,6 +8,10 @@
 
 package org.eclipse.b3.aggregator.util;
 
+import org.eclipse.b3.aggregator.Aggregator;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.equinox.p2.metadata.Version;
 
 /**
@@ -50,6 +54,29 @@ public class GeneralUtils {
 				: value;
 	}
 
+	public static Aggregator getAggregator(EObject eObject) {
+		EList<EObject> contents = getAggregatorResource(eObject).getContents();
+
+		if(contents != null && contents.size() > 0)
+			return (Aggregator) contents.get(0);
+
+		throw new IllegalArgumentException("Aggregator was not found");
+	}
+
+	public static AggregatorResource getAggregatorResource(EObject eObject) {
+
+		try {
+			for(Resource resource : eObject.eResource().getResourceSet().getResources())
+				if(resource instanceof AggregatorResource)
+					return (AggregatorResource) resource;
+		}
+		catch(Exception e) {
+			throw new IllegalArgumentException("AggregatorResource was not found", e);
+		}
+
+		throw new IllegalArgumentException("AggregatorResource was not found");
+	}
+
 	public static String stringifyVersion(Version version) {
 		String result = version.getOriginal();
 
@@ -58,5 +85,4 @@ public class GeneralUtils {
 
 		return result;
 	}
-
 }

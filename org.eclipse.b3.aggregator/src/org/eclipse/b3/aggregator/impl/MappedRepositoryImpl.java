@@ -22,6 +22,7 @@ import org.eclipse.b3.aggregator.MappedUnit;
 import org.eclipse.b3.aggregator.Product;
 import org.eclipse.b3.aggregator.Status;
 import org.eclipse.b3.aggregator.StatusCode;
+import org.eclipse.b3.aggregator.util.GeneralUtils;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -388,7 +389,11 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 
 	@Override
 	public Aggregator getAggregator() {
-		return (Aggregator) eContainer().eContainer();
+		Aggregator aggregator = (Aggregator) eContainer().eContainer();
+
+		return aggregator != null
+				? aggregator
+				: GeneralUtils.getAggregator(this);
 	}
 
 	/**
@@ -398,7 +403,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	 */
 	public EList<Bundle> getBundles() {
 		if(bundles == null) {
-			bundles = new EObjectContainmentEList<Bundle>(Bundle.class, this,
+			bundles = new EObjectContainmentEList.Resolving<Bundle>(Bundle.class, this,
 					AggregatorPackage.MAPPED_REPOSITORY__BUNDLES);
 		}
 		return bundles;
@@ -411,7 +416,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	 */
 	public EList<Category> getCategories() {
 		if(categories == null) {
-			categories = new EObjectContainmentEList<Category>(Category.class, this,
+			categories = new EObjectContainmentEList.Resolving<Category>(Category.class, this,
 					AggregatorPackage.MAPPED_REPOSITORY__CATEGORIES);
 		}
 		return categories;
@@ -469,7 +474,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	 */
 	public EList<Feature> getFeatures() {
 		if(features == null) {
-			features = new EObjectContainmentEList<Feature>(Feature.class, this,
+			features = new EObjectContainmentEList.Resolving<Feature>(Feature.class, this,
 					AggregatorPackage.MAPPED_REPOSITORY__FEATURES);
 		}
 		return features;
@@ -482,7 +487,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	 */
 	public EList<MapRule> getMapRules() {
 		if(mapRules == null) {
-			mapRules = new EObjectContainmentEList<MapRule>(MapRule.class, this,
+			mapRules = new EObjectContainmentEList.Resolving<MapRule>(MapRule.class, this,
 					AggregatorPackage.MAPPED_REPOSITORY__MAP_RULES);
 		}
 		return mapRules;
@@ -495,7 +500,7 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 	 */
 	public EList<Product> getProducts() {
 		if(products == null) {
-			products = new EObjectContainmentEList<Product>(Product.class, this,
+			products = new EObjectContainmentEList.Resolving<Product>(Product.class, this,
 					AggregatorPackage.MAPPED_REPOSITORY__PRODUCTS);
 		}
 		return products;

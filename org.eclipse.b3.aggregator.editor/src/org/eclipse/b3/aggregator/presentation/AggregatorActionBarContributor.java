@@ -76,7 +76,6 @@ import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-import org.eclipse.emf.edit.ui.action.ControlAction;
 import org.eclipse.emf.edit.ui.action.CreateChildAction;
 import org.eclipse.emf.edit.ui.action.CreateSiblingAction;
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
@@ -887,7 +886,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 		super(ADDITIONS_LAST_STYLE);
 		loadResourceAction = new LoadResourceAction();
 		validateAction = new AggregatorValidateAction();
-		controlAction = new ControlAction();
+		controlAction = new DetachContributionResourceAction();
 		enabledStatusActionVisibility = new LinkedHashMap<EnabledStatusAction, Boolean>();
 		enabledStatusActionVisibility.put(new EnabledStatusAction(true), Boolean.FALSE);
 		enabledStatusActionVisibility.put(new EnabledStatusAction(false), Boolean.FALSE);

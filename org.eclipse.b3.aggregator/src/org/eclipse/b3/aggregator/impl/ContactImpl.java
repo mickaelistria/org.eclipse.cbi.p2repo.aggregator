@@ -95,6 +95,18 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public Aggregator basicGetAggregator() {
+		if(eContainerFeatureID() != AggregatorPackage.CONTACT__AGGREGATOR)
+			return null;
+		return (Aggregator) eInternalContainer();
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -132,7 +144,9 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 		case AggregatorPackage.CONTACT__EMAIL:
 			return getEmail();
 		case AggregatorPackage.CONTACT__AGGREGATOR:
-			return getAggregator();
+			if(resolve)
+				return getAggregator();
+			return basicGetAggregator();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -184,7 +198,7 @@ public class ContactImpl extends MinimalEObjectImpl.Container implements Contact
 					? email != null
 					: !EMAIL_EDEFAULT.equals(email);
 		case AggregatorPackage.CONTACT__AGGREGATOR:
-			return getAggregator() != null;
+			return basicGetAggregator() != null;
 		}
 		return super.eIsSet(featureID);
 	}

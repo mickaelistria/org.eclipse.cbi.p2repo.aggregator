@@ -38,7 +38,7 @@ public interface InstallableUnitFragment extends InstallableUnit, IInstallableUn
 	 * 
 	 * @return the value of the '<em>Host List</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.p2.P2Package#getInstallableUnitFragment_HostList()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<Requirement> getHostList();

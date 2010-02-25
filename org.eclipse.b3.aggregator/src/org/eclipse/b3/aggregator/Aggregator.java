@@ -90,7 +90,7 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	 * 
 	 * @return the value of the '<em>Configurations</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregator_Configurations()
-	 * @model containment="true" required="true"
+	 * @model containment="true" resolveProxies="true" required="true"
 	 * @generated
 	 */
 	EList<Configuration> getConfigurations();
@@ -110,7 +110,7 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	 * @return the value of the '<em>Contacts</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregator_Contacts()
 	 * @see org.eclipse.b3.aggregator.Contact#getAggregator
-	 * @model opposite="aggregator" containment="true" keys="email"
+	 * @model opposite="aggregator" containment="true" resolveProxies="true" keys="email"
 	 * @generated
 	 */
 	EList<Contact> getContacts();
@@ -127,7 +127,7 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	 * 
 	 * @return the value of the '<em>Contributions</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregator_Contributions()
-	 * @model containment="true" keys="label"
+	 * @model containment="true" resolveProxies="true" keys="label"
 	 * @generated
 	 */
 	EList<Contribution> getContributions();
@@ -152,7 +152,7 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	 * 
 	 * @return the value of the '<em>Custom Categories</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregator_CustomCategories()
-	 * @model containment="true" keys="identifier"
+	 * @model containment="true" resolveProxies="true" keys="identifier"
 	 * @generated
 	 */
 	EList<CustomCategory> getCustomCategories();
@@ -186,7 +186,7 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	 * 
 	 * @return the value of the '<em>Maven Mappings</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregator_MavenMappings()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<MavenMapping> getMavenMappings();
@@ -240,7 +240,7 @@ public interface Aggregator extends DescriptionProvider, StatusProvider, InfosPr
 	 * 
 	 * @return the value of the '<em>Validation Repositories</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getAggregator_ValidationRepositories()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<MetadataRepositoryReference> getValidationRepositories();

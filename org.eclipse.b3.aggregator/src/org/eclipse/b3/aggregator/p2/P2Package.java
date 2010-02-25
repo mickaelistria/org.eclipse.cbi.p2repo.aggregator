@@ -4066,6 +4066,7 @@ public interface P2Package extends EPackage {
 	 * @see java.util.Map.Entry
 	 * @model keyDataType="org.eclipse.emf.ecore.EString" keyRequired="true"
 	 *        valueType="org.eclipse.b3.aggregator.p2.ITouchpointInstruction" valueContainment="true"
+	 *        valueResolveProxies="true"
 	 * @generated
 	 */
 	EClass getInstructionMap();

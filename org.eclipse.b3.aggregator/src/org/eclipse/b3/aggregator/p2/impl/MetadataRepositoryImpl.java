@@ -558,7 +558,7 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 	 */
 	public EList<IInstallableUnit> getInstallableUnits() {
 		if(installableUnits == null) {
-			installableUnits = new EObjectContainmentEList<IInstallableUnit>(IInstallableUnit.class, this,
+			installableUnits = new EObjectContainmentEList.Resolving<IInstallableUnit>(IInstallableUnit.class, this,
 					P2Package.METADATA_REPOSITORY__INSTALLABLE_UNITS);
 		}
 		return installableUnits;
@@ -637,8 +637,8 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 	 */
 	public EList<RepositoryReference> getRepositoryReferences() {
 		if(repositoryReferences == null) {
-			repositoryReferences = new EObjectContainmentEList<RepositoryReference>(RepositoryReference.class, this,
-					P2Package.METADATA_REPOSITORY__REPOSITORY_REFERENCES);
+			repositoryReferences = new EObjectContainmentEList.Resolving<RepositoryReference>(
+					RepositoryReference.class, this, P2Package.METADATA_REPOSITORY__REPOSITORY_REFERENCES);
 		}
 		return repositoryReferences;
 	}

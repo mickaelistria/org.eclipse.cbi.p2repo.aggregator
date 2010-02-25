@@ -33,6 +33,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -552,6 +553,36 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public ICopyright basicGetCopyright() {
+		return copyright;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public ITouchpointType basicGetTouchpointType() {
+		return touchpointType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public IUpdateDescriptor basicGetUpdateDescriptor() {
+		return updateDescriptor;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -635,7 +666,9 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 		case P2Package.INSTALLABLE_UNIT__ARTIFACTS:
 			return getArtifacts();
 		case P2Package.INSTALLABLE_UNIT__COPYRIGHT:
-			return getCopyright();
+			if(resolve)
+				return getCopyright();
+			return basicGetCopyright();
 		case P2Package.INSTALLABLE_UNIT__FILTER:
 			return getFilter();
 		case P2Package.INSTALLABLE_UNIT__FRAGMENTS:
@@ -651,9 +684,13 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 		case P2Package.INSTALLABLE_UNIT__TOUCHPOINT_DATA:
 			return getTouchpointData();
 		case P2Package.INSTALLABLE_UNIT__TOUCHPOINT_TYPE:
-			return getTouchpointType();
+			if(resolve)
+				return getTouchpointType();
+			return basicGetTouchpointType();
 		case P2Package.INSTALLABLE_UNIT__UPDATE_DESCRIPTOR:
-			return getUpdateDescriptor();
+			if(resolve)
+				return getUpdateDescriptor();
+			return basicGetUpdateDescriptor();
 		case P2Package.INSTALLABLE_UNIT__RESOLVED:
 			return isResolved();
 		case P2Package.INSTALLABLE_UNIT__SINGLETON:
@@ -920,7 +957,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 */
 	public EList<IArtifactKey> getArtifacts() {
 		if(artifacts == null) {
-			artifacts = new EObjectContainmentEList<IArtifactKey>(IArtifactKey.class, this,
+			artifacts = new EObjectContainmentEList.Resolving<IArtifactKey>(IArtifactKey.class, this,
 					P2Package.INSTALLABLE_UNIT__ARTIFACTS);
 		}
 		return artifacts;
@@ -932,6 +969,24 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	public ICopyright getCopyright() {
+		if(copyright != null && ((EObject) copyright).eIsProxy()) {
+			InternalEObject oldCopyright = (InternalEObject) copyright;
+			copyright = (ICopyright) eResolveProxy(oldCopyright);
+			if(copyright != oldCopyright) {
+				InternalEObject newCopyright = (InternalEObject) copyright;
+				NotificationChain msgs = oldCopyright.eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- P2Package.INSTALLABLE_UNIT__COPYRIGHT, null, null);
+				if(newCopyright.eInternalContainer() == null) {
+					msgs = newCopyright.eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+							- P2Package.INSTALLABLE_UNIT__COPYRIGHT, null, msgs);
+				}
+				if(msgs != null)
+					msgs.dispatch();
+				if(eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, P2Package.INSTALLABLE_UNIT__COPYRIGHT,
+							oldCopyright, copyright));
+			}
+		}
 		return copyright;
 	}
 
@@ -984,7 +1039,8 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 */
 	public EList<ILicense> getLicenses() {
 		if(licenses == null) {
-			licenses = new EObjectContainmentEList<ILicense>(ILicense.class, this, P2Package.INSTALLABLE_UNIT__LICENSES);
+			licenses = new EObjectContainmentEList.Resolving<ILicense>(ILicense.class, this,
+					P2Package.INSTALLABLE_UNIT__LICENSES);
 		}
 		return licenses;
 	}
@@ -1006,7 +1062,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 */
 	public EList<IRequirement> getMetaRequiredCapabilities() {
 		if(metaRequiredCapabilities == null) {
-			metaRequiredCapabilities = new EObjectContainmentEList<IRequirement>(IRequirement.class, this,
+			metaRequiredCapabilities = new EObjectContainmentEList.Resolving<IRequirement>(IRequirement.class, this,
 					P2Package.INSTALLABLE_UNIT__META_REQUIRED_CAPABILITIES);
 		}
 		return metaRequiredCapabilities;
@@ -1077,8 +1133,8 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 */
 	public EList<IProvidedCapability> getProvidedCapabilities() {
 		if(providedCapabilities == null) {
-			providedCapabilities = new EObjectContainmentEList<IProvidedCapability>(IProvidedCapability.class, this,
-					P2Package.INSTALLABLE_UNIT__PROVIDED_CAPABILITIES);
+			providedCapabilities = new EObjectContainmentEList.Resolving<IProvidedCapability>(
+					IProvidedCapability.class, this, P2Package.INSTALLABLE_UNIT__PROVIDED_CAPABILITIES);
 		}
 		return providedCapabilities;
 	}
@@ -1090,7 +1146,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 */
 	public EList<IRequirement> getRequiredCapabilities() {
 		if(requiredCapabilities == null) {
-			requiredCapabilities = new EObjectContainmentEList<IRequirement>(IRequirement.class, this,
+			requiredCapabilities = new EObjectContainmentEList.Resolving<IRequirement>(IRequirement.class, this,
 					P2Package.INSTALLABLE_UNIT__REQUIRED_CAPABILITIES);
 		}
 		return requiredCapabilities;
@@ -1103,7 +1159,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 */
 	public EList<ITouchpointData> getTouchpointData() {
 		if(touchpointData == null) {
-			touchpointData = new EObjectContainmentEList<ITouchpointData>(ITouchpointData.class, this,
+			touchpointData = new EObjectContainmentEList.Resolving<ITouchpointData>(ITouchpointData.class, this,
 					P2Package.INSTALLABLE_UNIT__TOUCHPOINT_DATA);
 		}
 		return touchpointData;
@@ -1128,6 +1184,24 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	public IUpdateDescriptor getUpdateDescriptor() {
+		if(updateDescriptor != null && ((EObject) updateDescriptor).eIsProxy()) {
+			InternalEObject oldUpdateDescriptor = (InternalEObject) updateDescriptor;
+			updateDescriptor = (IUpdateDescriptor) eResolveProxy(oldUpdateDescriptor);
+			if(updateDescriptor != oldUpdateDescriptor) {
+				InternalEObject newUpdateDescriptor = (InternalEObject) updateDescriptor;
+				NotificationChain msgs = oldUpdateDescriptor.eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- P2Package.INSTALLABLE_UNIT__UPDATE_DESCRIPTOR, null, null);
+				if(newUpdateDescriptor.eInternalContainer() == null) {
+					msgs = newUpdateDescriptor.eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+							- P2Package.INSTALLABLE_UNIT__UPDATE_DESCRIPTOR, null, msgs);
+				}
+				if(msgs != null)
+					msgs.dispatch();
+				if(eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+							P2Package.INSTALLABLE_UNIT__UPDATE_DESCRIPTOR, oldUpdateDescriptor, updateDescriptor));
+			}
+		}
 		return updateDescriptor;
 	}
 

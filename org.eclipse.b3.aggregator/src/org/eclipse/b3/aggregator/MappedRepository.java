@@ -50,7 +50,7 @@ public interface MappedRepository extends MetadataRepositoryReference, Descripti
 	 * 
 	 * @return the value of the '<em>Bundles</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getMappedRepository_Bundles()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<Bundle> getBundles();
@@ -67,7 +67,7 @@ public interface MappedRepository extends MetadataRepositoryReference, Descripti
 	 * 
 	 * @return the value of the '<em>Categories</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getMappedRepository_Categories()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<Category> getCategories();
@@ -101,7 +101,7 @@ public interface MappedRepository extends MetadataRepositoryReference, Descripti
 	 * 
 	 * @return the value of the '<em>Features</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getMappedRepository_Features()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<Feature> getFeatures();
@@ -118,7 +118,7 @@ public interface MappedRepository extends MetadataRepositoryReference, Descripti
 	 * 
 	 * @return the value of the '<em>Map Rules</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getMappedRepository_MapRules()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<MapRule> getMapRules();
@@ -135,7 +135,7 @@ public interface MappedRepository extends MetadataRepositoryReference, Descripti
 	 * 
 	 * @return the value of the '<em>Products</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getMappedRepository_Products()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<Product> getProducts();

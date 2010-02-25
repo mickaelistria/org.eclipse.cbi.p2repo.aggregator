@@ -523,7 +523,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	 */
 	public EList<MavenMapping> getMavenMappings() {
 		if(mavenMappings == null) {
-			mavenMappings = new EObjectContainmentEList<MavenMapping>(MavenMapping.class, this,
+			mavenMappings = new EObjectContainmentEList.Resolving<MavenMapping>(MavenMapping.class, this,
 					AggregatorPackage.CONTRIBUTION__MAVEN_MAPPINGS);
 		}
 		return mavenMappings;
@@ -536,7 +536,7 @@ public class ContributionImpl extends MinimalEObjectImpl.Container implements Co
 	 */
 	public EList<MappedRepository> getRepositories() {
 		if(repositories == null) {
-			repositories = new EObjectContainmentEList<MappedRepository>(MappedRepository.class, this,
+			repositories = new EObjectContainmentEList.Resolving<MappedRepository>(MappedRepository.class, this,
 					AggregatorPackage.CONTRIBUTION__REPOSITORIES);
 		}
 		return repositories;

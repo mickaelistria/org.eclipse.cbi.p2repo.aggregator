@@ -81,7 +81,7 @@ public interface Contribution extends EnabledStatusProvider, DescriptionProvider
 	 * 
 	 * @return the value of the '<em>Maven Mappings</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getContribution_MavenMappings()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<MavenMapping> getMavenMappings();
@@ -98,7 +98,7 @@ public interface Contribution extends EnabledStatusProvider, DescriptionProvider
 	 * 
 	 * @return the value of the '<em>Repositories</em>' containment reference list.
 	 * @see org.eclipse.b3.aggregator.AggregatorPackage#getContribution_Repositories()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<MappedRepository> getRepositories();

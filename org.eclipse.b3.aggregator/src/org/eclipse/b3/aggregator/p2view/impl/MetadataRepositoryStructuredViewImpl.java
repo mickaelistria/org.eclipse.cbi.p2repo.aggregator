@@ -19,6 +19,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -148,6 +149,26 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public InstallableUnits basicGetInstallableUnitList() {
+		return installableUnitList;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public Properties basicGetProperties() {
+		return properties;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -219,9 +240,13 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 		case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__NAME:
 			return getName();
 		case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST:
-			return getInstallableUnitList();
+			if(resolve)
+				return getInstallableUnitList();
+			return basicGetInstallableUnitList();
 		case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES:
-			return getProperties();
+			if(resolve)
+				return getProperties();
+			return basicGetProperties();
 		case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__METADATA_REPOSITORY:
 			return getMetadataRepository();
 		case P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__LOADED:
@@ -345,6 +370,25 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	 * @generated
 	 */
 	public InstallableUnits getInstallableUnitList() {
+		if(installableUnitList != null && ((EObject) installableUnitList).eIsProxy()) {
+			InternalEObject oldInstallableUnitList = (InternalEObject) installableUnitList;
+			installableUnitList = (InstallableUnits) eResolveProxy(oldInstallableUnitList);
+			if(installableUnitList != oldInstallableUnitList) {
+				InternalEObject newInstallableUnitList = (InternalEObject) installableUnitList;
+				NotificationChain msgs = oldInstallableUnitList.eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST, null, null);
+				if(newInstallableUnitList.eInternalContainer() == null) {
+					msgs = newInstallableUnitList.eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+							- P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST, null, msgs);
+				}
+				if(msgs != null)
+					msgs.dispatch();
+				if(eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+							P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__INSTALLABLE_UNIT_LIST,
+							oldInstallableUnitList, installableUnitList));
+			}
+		}
 		return installableUnitList;
 	}
 
@@ -384,6 +428,24 @@ public class MetadataRepositoryStructuredViewImpl extends MinimalEObjectImpl.Con
 	 * @generated
 	 */
 	public Properties getProperties() {
+		if(properties != null && ((EObject) properties).eIsProxy()) {
+			InternalEObject oldProperties = (InternalEObject) properties;
+			properties = (Properties) eResolveProxy(oldProperties);
+			if(properties != oldProperties) {
+				InternalEObject newProperties = (InternalEObject) properties;
+				NotificationChain msgs = oldProperties.eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES, null, null);
+				if(newProperties.eInternalContainer() == null) {
+					msgs = newProperties.eInverseAdd(this, EOPPOSITE_FEATURE_BASE
+							- P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES, null, msgs);
+				}
+				if(msgs != null)
+					msgs.dispatch();
+				if(eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+							P2viewPackage.METADATA_REPOSITORY_STRUCTURED_VIEW__PROPERTIES, oldProperties, properties));
+			}
+		}
 		return properties;
 	}
 

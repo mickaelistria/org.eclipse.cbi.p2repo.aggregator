@@ -409,6 +409,8 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	 * @generated NOT
 	 */
 	public Aggregator getAggregator() {
+		// TODO check it
+		// return GeneralUtils.getAggregator(this);
 		return (Aggregator) eContainer();
 	}
 
@@ -584,8 +586,15 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 					return AggregatorFactory.eINSTANCE.createStatus(StatusCode.BROKEN,
 							getString("_UI_ErrorMessage_RepositoryIsNotSet"));
 
-				MetadataRepositoryResourceImpl res = (MetadataRepositoryResourceImpl) MetadataRepositoryResourceImpl.getResourceForNatureAndLocation(
-						nature, location, getAggregator(), false);
+				MetadataRepositoryResourceImpl res;
+				try {
+					res = (MetadataRepositoryResourceImpl) MetadataRepositoryResourceImpl.getResourceForNatureAndLocation(
+							nature, location, getAggregator(), false);
+				}
+				catch(Exception e) {
+					// cannot get Aggregator top node
+					res = null;
+				}
 
 				if(res != null)
 					return res.getStatus();
@@ -642,7 +651,7 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 						AggregatorPackage.INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS, null, null));
 		}
 
-		((AggregatorResource) eResource()).analyzeResource();
+		getAggregatorResource().analyzeResource();
 	}
 
 	/**
@@ -765,5 +774,23 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 	@Override
 	protected EClass eStaticClass() {
 		return AggregatorPackage.Literals.METADATA_REPOSITORY_REFERENCE;
+	}
+
+	private AggregatorResource getAggregatorResource() {
+
+		if(eResource() instanceof AggregatorResource)
+			return (AggregatorResource) eResource();
+
+		// TODO check it
+		// return GeneralUtils.getAggregatorResource(this);
+
+		EObject parent = this.eContainer;
+		while(parent != null && !(parent instanceof Aggregator))
+			parent = parent.eContainer();
+
+		if(parent == null)
+			throw new RuntimeException("Cannot find aggregator top node");
+
+		return (AggregatorResource) parent.eResource();
 	}
 } // MetadataRepositoryReferenceImpl

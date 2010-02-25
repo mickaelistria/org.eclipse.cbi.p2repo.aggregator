@@ -98,9 +98,10 @@ public class ResourceUtils {
 			while(allResources.hasNext()) {
 				Resource res = allResources.next();
 				if(!referencedResources.contains(res)) {
-					if(res instanceof MetadataRepositoryResourceImpl)
+					if(res instanceof MetadataRepositoryResourceImpl) {
 						((MetadataRepositoryResourceImpl) res).cancelLoadingJob();
-					allResources.remove();
+						allResources.remove();
+					}
 				}
 			}
 		}

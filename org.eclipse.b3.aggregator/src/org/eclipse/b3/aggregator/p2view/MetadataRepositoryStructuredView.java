@@ -46,7 +46,7 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	 * @return the value of the '<em>Installable Unit List</em>' containment reference.
 	 * @see #setInstallableUnitList(InstallableUnits)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getMetadataRepositoryStructuredView_InstallableUnitList()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	InstallableUnits getInstallableUnitList();
@@ -97,7 +97,7 @@ public interface MetadataRepositoryStructuredView extends ChildrenProvider<Insta
 	 * @return the value of the '<em>Properties</em>' containment reference.
 	 * @see #setProperties(Properties)
 	 * @see org.eclipse.b3.aggregator.p2view.P2viewPackage#getMetadataRepositoryStructuredView_Properties()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	Properties getProperties();

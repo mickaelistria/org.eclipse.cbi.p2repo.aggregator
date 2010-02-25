@@ -48,8 +48,6 @@ public class VersionRangeEditorDialog extends Dialog {
 
 	private static final String VERSION_TYPE_OSGI = "OSGi";
 
-	private static final int VERSION_TYPE_OSGI_IDX = 0;
-
 	private static final String VERSION_TYPE_STRING = "String";
 
 	private static final String VERSION_TYPE_TIMESTAMP = "Timestamp";

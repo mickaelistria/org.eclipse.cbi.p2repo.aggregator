@@ -100,6 +100,16 @@ public class InstructionMapImpl extends MinimalEObjectImpl.Container implements
 	 * 
 	 * @generated
 	 */
+	public ITouchpointInstruction basicGetTypedValue() {
+		return value;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public NotificationChain basicSetTypedValue(ITouchpointInstruction newValue, NotificationChain msgs) {
 		ITouchpointInstruction oldValue = value;
 		value = newValue;
@@ -125,7 +135,9 @@ public class InstructionMapImpl extends MinimalEObjectImpl.Container implements
 		case P2Package.INSTRUCTION_MAP__KEY:
 			return getTypedKey();
 		case P2Package.INSTRUCTION_MAP__VALUE:
-			return getTypedValue();
+			if(resolve)
+				return getTypedValue();
+			return basicGetTypedValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -250,6 +262,24 @@ public class InstructionMapImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	public ITouchpointInstruction getTypedValue() {
+		if(value != null && ((EObject) value).eIsProxy()) {
+			InternalEObject oldValue = (InternalEObject) value;
+			value = (ITouchpointInstruction) eResolveProxy(oldValue);
+			if(value != oldValue) {
+				InternalEObject newValue = (InternalEObject) value;
+				NotificationChain msgs = oldValue.eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+						- P2Package.INSTRUCTION_MAP__VALUE, null, null);
+				if(newValue.eInternalContainer() == null) {
+					msgs = newValue.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - P2Package.INSTRUCTION_MAP__VALUE, null,
+							msgs);
+				}
+				if(msgs != null)
+					msgs.dispatch();
+				if(eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, P2Package.INSTRUCTION_MAP__VALUE,
+							oldValue, value));
+			}
+		}
 		return value;
 	}
 
