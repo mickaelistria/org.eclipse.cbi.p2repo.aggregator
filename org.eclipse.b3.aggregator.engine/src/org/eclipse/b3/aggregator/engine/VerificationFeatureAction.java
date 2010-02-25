@@ -304,7 +304,7 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 
 		if(explicit.contains(id)) {
 			if(!isExplicit) {
-				LogUtils.debug("%s excluded since it is already explicitly mapped", rc.getMatches());
+				LogUtils.debug("%s excluded since it is already explicitly mapped", rc.toString());
 				// Remove the new one
 				repoReqs.remove(rq);
 			}
@@ -336,7 +336,7 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 				if(req.equals(rq))
 					continue;
 
-				LogUtils.debug("%s excluded since it is explicitly mapped", req.requirement);
+				LogUtils.debug("%s excluded since it is explicitly mapped", req.requirement.toString());
 				itor.remove();
 			}
 

@@ -33,6 +33,7 @@ import org.eclipse.b3.aggregator.Contact;
 import org.eclipse.b3.aggregator.Contribution;
 import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.MetadataRepositoryReference;
+import org.eclipse.b3.aggregator.p2.MetadataRepository;
 import org.eclipse.b3.aggregator.p2.util.MetadataRepositoryResourceImpl;
 import org.eclipse.b3.aggregator.util.LogUtils;
 import org.eclipse.b3.aggregator.util.MonitorUtils;
@@ -588,7 +589,7 @@ public class Builder extends AbstractCommand {
 					b3util.ungetService(profileRegistry);
 				}
 
-				startAsynchronousLoadForAllMappedRepositories();
+				loadAllMappedRepositories();
 				runCompositeGenerator(MonitorUtils.subMonitor(monitor, 70));
 				runVerificationFeatureGenerator(MonitorUtils.subMonitor(monitor, 15));
 				runCategoriesRepoGenerator(MonitorUtils.subMonitor(monitor, 15));
@@ -843,6 +844,26 @@ public class Builder extends AbstractCommand {
 		}
 	}
 
+	private void loadAllMappedRepositories() throws CoreException {
+		Set<MetadataRepositoryReference> repositoriesToLoad = new HashSet<MetadataRepositoryReference>();
+
+		// first, set up asynchronous loading jobs so that the repos are loaded in parallel
+		for(MetadataRepositoryReference repo : getAggregator().getAllMetadataRepositoryReferences(true)) {
+			MetadataRepositoryResourceImpl res = (MetadataRepositoryResourceImpl) MetadataRepositoryResourceImpl.getResourceForNatureAndLocation(
+					repo.getNature(), repo.getResolvedLocation(), repo.getAggregator());
+			res.startAsynchronousLoad(false);
+			repositoriesToLoad.add(repo);
+		}
+
+		// and now, wait until all the jobs are done (we need all repositories anyway)
+		for(MetadataRepositoryReference repo : repositoriesToLoad) {
+			MetadataRepository mdr;
+			if((mdr = repo.getMetadataRepository()) == null || ((EObject) mdr).eIsProxy())
+				throw ExceptionUtils.fromMessage("Unable to load repository %s:%s", repo.getNature(),
+						repo.getLocation());
+		}
+	}
+
 	private EmailAddress mockCCRecipient() throws UnsupportedEncodingException {
 		EmailAddress mock = null;
 		if(mockEmailCC != null)
@@ -977,14 +998,6 @@ public class Builder extends AbstractCommand {
 	private void runVerificationFeatureGenerator(IProgressMonitor monitor) throws CoreException {
 		VerificationFeatureGenerator generator = new VerificationFeatureGenerator(this);
 		generator.run(monitor);
-	}
-
-	private void startAsynchronousLoadForAllMappedRepositories() {
-		for(MetadataRepositoryReference repo : getAggregator().getAllMetadataRepositoryReferences(true)) {
-			MetadataRepositoryResourceImpl res = (MetadataRepositoryResourceImpl) MetadataRepositoryResourceImpl.getResourceForNatureAndLocation(
-					repo.getNature(), repo.getResolvedLocation(), repo.getAggregator());
-			res.startAsynchronousLoad(false);
-		}
 	}
 
 	private void verifyContributions() throws CoreException {
