@@ -1,60 +1,120 @@
-import java.lang.Object;
 import java.util.List;
 import java.lang.Iterable;
 import org.eclipse.b3.beelang.tests.buildunittypes.Fruit;
-import org.eclipse.b3.build.core.B3BuilderJob;
+import org.eclipse.b3.build.build.BuildUnit;
 
+/**
+* Used to advice 'Fruit' that the waste (seeds and peel) can be built.
+*/
 concern FruitProcessing {
-	builder dice(Fruit unit ) {
-		input { unit#pulp; }
-		// dice the pulp - for now, just return the pulp of the fruit
+	builder waste(Fruit unit ) {
+		input { 
+			unit#peel; 
+			unit#seeds; }
 		}
 }
 
+/**
+ * Runs test in the IDE.
+ */
 function main(List argv) {
+	testBuildingFruitSallad();
+	with (FruitProcessing) : testFruitWaste();
 	with properties { $test.argv = argv ; } :  testRunBuildersAndMergeResult();
 }
-function testRunBuildersAndMergeResult() {
-	var argv = $test.argv;
-	assertEquals("Should have engine + 4 units", argv.size(), 5);
-	assertTrue("Argv should be Iterable", argv instanceof Iterable);
-	List<Fruit> fruits = argv.select(x | x instanceof Fruit);
-	
-//	var results = diceTheFruit(fruits);
-//	var classes = results.collect(x | x.getClass());
-//	var job = results[0];
-//	job.schedule();
-//	job.join();
-	Fruit f = fruits[0];
-	var x = f.pulp();
+
+/**
+* Tests that a fruitsallad can be build - i.e, that its prerequisites in input has
+* been resolved, the builders are found, exectuted, returns a result that is merged
+* as expected.
+*/
+function testBuildingFruitSallad() {
+	var engine = $test.engine;
+	var sallad = $test.fruitsallad;
+	assertEquals("The fruitsallad unit is found", "fruitsallad", sallad.name);
+	assertEquals("The fruitsallad unit is found", "fruitsallad", ($test.fruitsallad).name);
+	var e = sallad.getEffectiveFacade(engine.getBuildContext());
+	var x = sallad.make();
 	x.schedule();
 	x.join();
 	var r = x.getBuildResult();
-	f = fruits[1];
-	with (FruitProcessing) : x = f.dice();
+	
+	assertContainsAll("All input in fruitsallaed is merged", r.getPathIterator().toList().collect(x|x.toString()),
+	[
+		"resource:/org.eclipse.b3.beelang.tests/src-b3/testunits/apple/applepulp.txt",
+		"resource:/org.eclipse.b3.beelang.tests/src-b3/testunits/banana/txt/bananapulp.txt",
+		"resource:/org.eclipse.b3.beelang.tests/src-b3/testunits/orange/orangepulp.txt", 
+		"resource:/org.eclipse.b3.beelang.tests/src-b3/testunits/orange/orangepeel.txt"
+	]);	
+}
+
+/**
+* Basic test of running simplest type of builder (returns source), and merging result.
+*/
+function testRunBuildersAndMergeResult() {
+	assertTrue("Test should have initialized property $test.banana", $test.banana instanceof Fruit);	
+	assertTrue("Test should have initialized property $test.orange", $test.orange instanceof Fruit);	
+	Fruit banana = $test.banana;
+	Fruit orange = $test.orange;
+	
+	var x = banana.pulp();
+	x.schedule();
+	x.join();
+	var r = x.getBuildResult();
+	
+	x = orange.peel();
 	x.schedule();
 	x.join();
 	r.merge(x.getBuildResult());
-	r;
-//	var pulps = fruits.collect(Fruit x | x.pulp());
+	
+	// needs typecast to List see Bug 303920
+	assertContainsAll("Orange and Banana should have been merged", 
+		r.getPathIterator().toList().collect(x|x.toString()),
+	[
+		"resource:/org.eclipse.b3.beelang.tests/src-b3/testunits/banana/bananapulp.txt",
+		"resource:/org.eclipse.b3.beelang.tests/src-b3/testunits/orange/orangepeel.txt"
+	]);
+}
+
+/**
+* Test that builder advice is applied on Fruit as expected and that the correct result is
+* produced.
+*/
+function testFruitWaste() {
+	var apple = $test.apple;
+	var x = apple.waste();
+	x.schedule();
+	x.join();
+	// needs typecast to List see Bug 303920
+	assertContainsAll("Advice used and two files returned", 
+		x.getBuildResult().getPathIterator().toList().collect(x|x.toString()),
+		[
+			"resource:/org.eclipse.b3.beelang.tests/src-b3/testunits/apple/applepeel.txt",
+			"resource:/org.eclipse.b3.beelang.tests/src-b3/testunits/apple/appleseeds.txt"
+		]);	
 	
 }
-function List<B3BuilderJob> diceTheFruit(List<Fruit> fruits) {
-	with(FruitProcessing) { 
-		var results = fruits.collect(Fruit x | x.dice());
-		};	
-}
+
+/**
+* A Buildunit that has prerequisites on build units, and on a non unit capability.
+* Declared with a b3test:/... repository (a repository that only looks at units visible in
+* the current execution context). 
+*/
 unit fruitsallad version 1.0.0 {
+	repositories { "b3test:/somewhere.com/test" }
 	builder make {
 		input {
-			unit/apple/1.0.0#dice;
-			unit/banana/1.0.0#dice;
-			unit/orange/1.0.0#dice;
-			gastronomy.taste/zest#peel;
+			unit/apple/1.0.0#pulp;
+			unit/banana/1.0.0#pulp;
+			unit/orange/1.0.0#pulp;
+			gastronomy.taste/zestyPeel#peel;
 		}
 	}
 }
 
+/**
+* A Fruit with the simplest form of builders (source).
+*/
 unit apple version 1.0.0  implements Fruit {
 	source = "resource:/org.eclipse.b3.beelang.tests/src-b3/testunits/apple/";
 	builder peel {
@@ -68,6 +128,10 @@ unit apple version 1.0.0  implements Fruit {
 	}
 }
 
+/**
+* A Fruit with the simplest form of builders (source).
+* Has some extra provided capabilities.
+*/
 unit banana version 1.0.0 implements Fruit {
 	source = "resource:/org.eclipse.b3.beelang.tests/src-b3/testunits/banana/";
 	
@@ -86,12 +150,16 @@ unit banana version 1.0.0 implements Fruit {
 	}
 }
 
+/**
+* A Fruit with the simplest form of builders (source).
+* Has some extra provided capabilities, and a capability provided by a builder.
+*/
 unit orange version 1.0.0 implements Fruit {
 	source = "resource:/org.eclipse.b3.beelang.tests/src-b3/testunits/orange/";
 	
 	provides food.nutrition.vitamin/C;
 	
-	builder peel provides gastronomy.taste/zest {
+	builder peel provides gastronomy.taste/zestyPeel {
 		source { orangepeel.txt; }
 	}
 	builder seeds {
