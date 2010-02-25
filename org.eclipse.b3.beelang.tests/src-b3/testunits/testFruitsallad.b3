@@ -19,8 +19,8 @@ concern FruitProcessing {
  */
 function main(List argv) {
 	testBuildingFruitSallad();
-	with (FruitProcessing) : testFruitWaste();
-	with properties { $test.argv = argv ; } :  testRunBuildersAndMergeResult();
+	testFruitWaste();
+	testRunBuildersAndMergeResult();
 }
 
 /**
@@ -76,11 +76,8 @@ function testRunBuildersAndMergeResult() {
 	]);
 }
 
-/**
-* Test that builder advice is applied on Fruit as expected and that the correct result is
-* produced.
-*/
-function testFruitWaste() {
+
+private function fruitWaste() {
 	var apple = $test.apple;
 	var x = apple.waste();
 	x.schedule();
@@ -93,6 +90,13 @@ function testFruitWaste() {
 			"resource:/org.eclipse.b3.beelang.tests/src-b3/testunits/apple/appleseeds.txt"
 		]);	
 	
+}
+/**
+* Test that builder advice is applied on Fruit as expected and that the correct result is
+* produced.
+*/
+function testFruitWaste() {
+		with (FruitProcessing) : fruitWaste();
 }
 
 /**
