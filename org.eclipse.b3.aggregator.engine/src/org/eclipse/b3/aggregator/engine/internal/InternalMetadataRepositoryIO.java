@@ -54,6 +54,7 @@ import org.xml.sax.SAXException;
  * @author filip.hrbek@cloudsmith.com
  * 
  */
+@Deprecated
 public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 
 	protected class InternalWriter extends Writer {

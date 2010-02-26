@@ -8,6 +8,7 @@
             name="aggregate">
       </command>
    </extension>
+   <!-- Uncomment to register MDR supporting enhanced requirements
    <extension
          id="internalRepository"
          point="org.eclipse.equinox.p2.metadata.repository.metadataRepositories">
@@ -18,4 +19,5 @@
             class="org.eclipse.b3.aggregator.engine.internal.InternalMetadataRepositoryFactory">
       </factory>
    </extension>
+   -->
 </plugin>

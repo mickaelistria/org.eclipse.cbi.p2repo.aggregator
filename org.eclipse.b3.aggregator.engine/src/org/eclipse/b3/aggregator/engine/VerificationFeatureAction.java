@@ -270,7 +270,9 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 		}
 		IRequiredCapability rc = MetadataFactory.createRequiredCapability(IInstallableUnit.NAMESPACE_IU_ID, id, range,
 				iuFilter, false, false);
-		IRequirement req = RequirementUtils.createMultiRangeRequirement(mr.getMetadataRepository(), rc);
+		// TODO Use this to activate the "version enumeration" policy workaround
+		// IRequirement req = RequirementUtils.createMultiRangeRequirement(mr.getMetadataRepository(), rc);
+		IRequirement req = rc;
 
 		addRequirementFor(mr, req, requirements, errors, explicit, isExplicit);
 	}
@@ -354,9 +356,12 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 			break;
 		}
 
-		IRequirement union = RequirementUtils.versionUnion(orig, rq.requirement);
+		// TODO Use this to activate the "version enumeration" policy workaround
+		// IRequirement modifiedReq = RequirementUtils.versionUnion(orig, rq.requirement);
+		IRequirement modifiedReq = MetadataFactory.createRequiredCapability(IInstallableUnit.NAMESPACE_IU_ID, id,
+				VersionRange.emptyRange, orig.getFilter(), false, false);
 
 		for(RepositoryRequirement req : repoReqs)
-			req.requirement = union;
+			req.requirement = modifiedReq;
 	}
 }

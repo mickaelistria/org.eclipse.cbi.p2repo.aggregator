@@ -16,16 +16,21 @@ import java.util.Set;
 
 import org.eclipse.b3.aggregator.p2.MetadataRepository;
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
+import org.eclipse.equinox.internal.provisional.p2.metadata.MetadataFactory;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.IRequirement;
 import org.eclipse.equinox.p2.metadata.Version;
+import org.eclipse.equinox.p2.metadata.VersionRange;
 import org.osgi.framework.Filter;
 
 /**
  * @author filip.hrbek@cloudsmith.com
  * 
  */
+@SuppressWarnings("deprecation")
 public class RequirementUtils {
+
+	private static final VersionRange ANY_VERSION = VersionRange.emptyRange;
 
 	public static IRequirement[] createAllAvailableVersionsRequirements(List<IInstallableUnit> ius, Filter filter) {
 		Map<String, Set<Version>> versionMap = new HashMap<String, Set<Version>>();
@@ -45,7 +50,10 @@ public class RequirementUtils {
 			String name = iuEntry.getKey();
 			String namespace = IInstallableUnit.NAMESPACE_IU_ID;
 
-			requirements[i++] = new MultiRangeRequirement(name, namespace, iuEntry.getValue(), null, filter);
+			// TODO Use this to activate the "version enumeration" policy workaround
+			// requirements[i++] = new MultiRangeRequirement(name, namespace, iuEntry.getValue(), null, filter);
+			requirements[i++] = MetadataFactory.createRequiredCapability(namespace, name, ANY_VERSION, filter, false,
+					false);
 		}
 
 		return requirements;

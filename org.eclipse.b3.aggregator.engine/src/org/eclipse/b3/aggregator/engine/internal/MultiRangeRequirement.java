@@ -33,6 +33,7 @@ import org.eclipse.equinox.p2.metadata.expression.IExpressionVisitor;
 import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 import org.osgi.framework.Filter;
 
+@Deprecated
 public class MultiRangeRequirement implements IRequirement {
 
 	// TODO This is just a ultramegahack to satisfy the RequiredCapability.assertValid

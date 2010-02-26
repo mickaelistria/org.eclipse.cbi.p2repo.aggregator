@@ -40,6 +40,7 @@ import org.eclipse.osgi.util.NLS;
  * @author filip.hrbek@cloudsmith.com
  * 
  */
+@Deprecated
 public class InternalMetadataRepositoryFactory extends SimpleMetadataRepositoryFactory {
 	private static final String JAR_EXTENSION = ".jar"; //$NON-NLS-1$
 

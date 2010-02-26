@@ -44,7 +44,11 @@ public class VerificationFeatureGenerator extends BuilderPhase {
 
 		try {
 			mdrMgr.removeRepository(locationURI);
-			IMetadataRepository mdr = mdrMgr.createRepository(locationURI, name, Builder.INTERNAL_METADATA_TYPE,
+
+			// TODO Use this to activate the "version enumeration" policy workaround
+			// IMetadataRepository mdr = mdrMgr.createRepository(locationURI, name, Builder.INTERNAL_METADATA_TYPE,
+			// properties);
+			IMetadataRepository mdr = mdrMgr.createRepository(locationURI, name, Builder.SIMPLE_METADATA_TYPE,
 					properties);
 
 			PublisherInfo pubInfo = new PublisherInfo();
