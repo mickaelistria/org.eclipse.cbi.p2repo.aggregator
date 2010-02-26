@@ -168,6 +168,10 @@ public class InstallableUnitRequestItemProvider extends AggregatorItemProviderAd
 			iuRequest.resolveAvailableVersions(true);
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			((AggregatorResource) ((EObject) iuRequest).eResource()).analyzeResource();
+			return;
+		case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__AVAILABLE_VERSIONS:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+			return;
 		case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__ERRORS:
 		case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__WARNINGS:
 		case AggregatorPackage.INSTALLABLE_UNIT_REQUEST__INFOS:

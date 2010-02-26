@@ -550,7 +550,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 
 						MetadataRepositoryResourceImpl mdrResource = (MetadataRepositoryResourceImpl) resource;
 
-						if(mdr == null || mdr != mdrResource.getMetadataRepository())
+						if(mdr != null && mdr != mdrResource.getMetadataRepository())
 							continue;
 
 						TwoColumnMatrix<IUPresentation, Object[]> result = mdrResource.findIUPresentationsWhichSatisfies(
@@ -1245,15 +1245,11 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 				if(object instanceof AvailableVersion) {
 					AvailableVersion av = (AvailableVersion) object;
 					MappedUnit mappedUnit = (MappedUnit) ((EObject) av).eContainer();
-					MetadataRepositoryReference mdrRef = (MetadataRepositoryReference) ((EObject) mappedUnit).eContainer();
-					MetadataRepository mdr = mdrRef.getMetadataRepository();
 
-					if(mdr != null && !((EObject) mdr).eIsProxy()) {
-						IRequiredCapability requiredCapability = MetadataFactory.createRequiredCapability(
-								IInstallableUnit.NAMESPACE_IU_ID, mappedUnit.getName(), new VersionRange(
-										av.getVersion(), true, av.getVersion(), true), null, false, true);
-						selectMatchingIUAction = new SelectMatchingIUAction(mdr, requiredCapability);
-					}
+					IRequiredCapability requiredCapability = MetadataFactory.createRequiredCapability(
+							IInstallableUnit.NAMESPACE_IU_ID, mappedUnit.getName(), new VersionRange(av.getVersion(),
+									true, av.getVersion(), true), null, false, true);
+					selectMatchingIUAction = new SelectMatchingIUAction(null, requiredCapability);
 				}
 			}
 		}

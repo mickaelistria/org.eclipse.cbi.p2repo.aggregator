@@ -671,15 +671,12 @@ public class MappedRepositoryImpl extends MetadataRepositoryReferenceImpl implem
 		return result.toString();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.b3.aggregator.MappedRepository#updateAvailableVersions()
-	 */
 	public void updateAvailableVersions() {
-		for(MappedUnit unit : getUnits(false)) {
-			unit.resolveAvailableVersions(true);
-		}
+
+		for(Contribution contribution : GeneralUtils.getAggregator(this).getContributions())
+			for(MappedRepository mappedRepository : contribution.getRepositories())
+				for(MappedUnit unit : mappedRepository.getUnits(false))
+					unit.resolveAvailableVersions(true);
 	}
 
 	/**

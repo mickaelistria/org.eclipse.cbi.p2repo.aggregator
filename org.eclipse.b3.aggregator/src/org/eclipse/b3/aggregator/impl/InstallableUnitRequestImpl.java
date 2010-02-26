@@ -10,6 +10,7 @@
 package org.eclipse.b3.aggregator.impl;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -31,6 +32,8 @@ import org.eclipse.b3.aggregator.p2.InstallableUnit;
 import org.eclipse.b3.aggregator.p2.MetadataRepository;
 import org.eclipse.b3.aggregator.p2.P2Factory;
 import org.eclipse.b3.aggregator.p2.P2Package;
+import org.eclipse.b3.aggregator.p2.util.MetadataRepositoryResourceImpl;
+import org.eclipse.b3.aggregator.util.GeneralUtils;
 import org.eclipse.b3.util.StringUtils;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.notify.Notification;
@@ -42,6 +45,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -681,7 +685,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 			return null;
 	}
 
-	public void resolveAvailableVersions(boolean updateOnly) {
+	synchronized public void resolveAvailableVersions(boolean updateOnly) {
 
 		if(availableVersions == null) {
 			if(updateOnly)
@@ -692,18 +696,24 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 		else
 			availableVersions.clear();
 
-		MetadataRepository mdr = ((MappedRepository) eContainer()).getMetadataRepository(false);
-
-		Map<Version, String> versionMap = new TreeMap<Version, String>();
+		Map<Version, String> versionMap = new TreeMap<Version, String>(Collections.reverseOrder());
 		InstallableUnitQuery query = new InstallableUnitQuery(name);
 
-		if(StringUtils.trimmedOrNull(name) != null && mdr != null && !((EObject) mdr).eIsProxy()) {
-			IQueryResult<IInstallableUnit> ius = mdr.query(query, null);
+		for(Resource resource : GeneralUtils.getAggregatorResource(this).getResourceSet().getResources()) {
 
-			for(IInstallableUnit iu : ius.toSet())
-				versionMap.put(iu.getVersion(), iu.getFilter() == null
-						? null
-						: iu.getFilter().toString());
+			if(!(resource instanceof MetadataRepositoryResourceImpl))
+				continue;
+
+			MetadataRepository mdr = ((MetadataRepositoryResourceImpl) resource).getMetadataRepository();
+
+			if(StringUtils.trimmedOrNull(name) != null && mdr != null && !((EObject) mdr).eIsProxy()) {
+				IQueryResult<IInstallableUnit> ius = mdr.query(query, null);
+
+				for(IInstallableUnit iu : ius.toSet())
+					versionMap.put(iu.getVersion(), iu.getFilter() == null
+							? null
+							: iu.getFilter().toString());
+			}
 		}
 
 		if(versionMap.size() == 0) {

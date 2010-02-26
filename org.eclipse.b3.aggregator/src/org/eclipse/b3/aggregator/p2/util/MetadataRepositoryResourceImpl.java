@@ -621,7 +621,7 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 			IInstallableUnit iu = iup.getInstallableUnit();
 
 			if(iu.satisfies(rc))
-				if(!skipCategoriesSubTree || !(allIUPresentationMatrix.getValue(i)[2] instanceof Categories))
+				if(!skipCategoriesSubTree || !(allIUPresentationMatrix.getValue(i)[3] instanceof Categories))
 					found.add(iup, allIUPresentationMatrix.getValue(i));
 		}
 
