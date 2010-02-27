@@ -43,13 +43,13 @@ function main(List args) {
 	testWeavingJavaMap();
 }
 function testWeavingVarargs() {
-	var a = with  (aMatterOfTaste) : bar(1,2,3);
+	var a = with  aMatterOfTaste : bar(1,2,3);
 	assertEquals("weaving should make this have value 666", 666, a);
 	a = bar(1,2,3);
 	assertEquals("unwoven should have value 1", 1, a);
 }
 function testWeaving() {
-	var a = with  (aMatterOfTaste) : foo(10);
+	var a = with  aMatterOfTaste : foo(10);
 	assertEquals("weaving should make this have value 3", 3, a);
 	a = foo(10);
 	assertEquals("unwoven should have value 11", 11, a);
@@ -62,13 +62,13 @@ function testWithClauseWithFunction() {
 	assertEquals("Function 'addedLater' unwoven", 6, a);
 }
 function testWeavingBequest() {	
-	var b = with (aMatterOfTaste) concern {
+	var b = with aMatterOfTaste concern {
 			function Integer addedLater(Integer b) { b + 1; }
 		} : addedLater(100);
 	assertEquals("Weaving should have found the 'addedLater' function", 11, b);
 }
 function testWeavingBequest2() {	
-	var b = with (aMatterOfTaste) 
+	var b = with aMatterOfTaste 
 		: with concern { function Integer addedLater(Integer b) { b + 1; } }
 			: addedLater(100);
 	assertEquals("Weaving should have found the 'addedLater' function", 11, b);
@@ -76,6 +76,6 @@ function testWeavingBequest2() {
 function testWeavingJavaMap() {
 //	var n = [key1: "value", key2: "value"].get("somethingNotDefined");
 //	assertEquals("Should not have found the missing key", null, n);
-	var a = with (MakeMapReturnDummy) : [key1: "value", key2: "value"].get("somethingNotDefined");
+	var a = with MakeMapReturnDummy : [key1: "value", key2: "value"].get("somethingNotDefined");
 	assertEquals("Java Map#get(Object key) should have been woven", "dummy", a);
 }
