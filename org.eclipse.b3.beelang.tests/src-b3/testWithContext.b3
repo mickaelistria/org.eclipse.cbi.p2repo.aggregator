@@ -1,0 +1,13 @@
+import java.util.List;
+import java.util.Map;
+import org.eclipse.b3.beelang.tests.testmaterial.Person;
+
+function main(List argv) {
+	testWithContext();
+}
+function testWithContext() {
+	var a = [ [bananas: ["b1", "b2"], pyjamas: ["striped", "checkered"] ]];
+	with context a[0] {
+		assertEquals("Size of bananas map should be 2", 2, size); 
+	};
+}
