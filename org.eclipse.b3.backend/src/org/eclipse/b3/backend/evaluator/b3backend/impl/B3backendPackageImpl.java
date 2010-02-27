@@ -99,6 +99,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BUnaryPostOpExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BUnaryPreOpExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BVariableExpression;
 
+import org.eclipse.b3.backend.evaluator.b3backend.BWithContextExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BWithExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext;
 import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
@@ -419,6 +420,13 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * @generated
 	 */
 	private EClass bExpressionWrapperEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bWithContextExpressionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2043,6 +2051,42 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getBWithContextExpression() {
+		return bWithContextExpressionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBWithContextExpression_Alias() {
+		return (EAttribute)bWithContextExpressionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBWithContextExpression_Expr() {
+		return (EReference)bWithContextExpressionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBWithContextExpression_ContextBlock() {
+		return (EReference)bWithContextExpressionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBGuard() {
 		return bGuardEClass;
 	}
@@ -3472,6 +3516,11 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		bExpressionWrapperEClass = createEClass(BEXPRESSION_WRAPPER);
 		createEReference(bExpressionWrapperEClass, BEXPRESSION_WRAPPER__ORIGINAL);
 
+		bWithContextExpressionEClass = createEClass(BWITH_CONTEXT_EXPRESSION);
+		createEAttribute(bWithContextExpressionEClass, BWITH_CONTEXT_EXPRESSION__ALIAS);
+		createEReference(bWithContextExpressionEClass, BWITH_CONTEXT_EXPRESSION__EXPR);
+		createEReference(bWithContextExpressionEClass, BWITH_CONTEXT_EXPRESSION__CONTEXT_BLOCK);
+
 		// Create enums
 		visibilityEEnum = createEEnum(VISIBILITY);
 		executionModeEEnum = createEEnum(EXECUTION_MODE);
@@ -3605,6 +3654,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		bWrappingContextEClass.getESuperTypes().add(this.getBDelegatingContext());
 		b3MetaClassEClass.getESuperTypes().add(this.getIType());
 		bExpressionWrapperEClass.getESuperTypes().add(this.getBExpression());
+		bWithContextExpressionEClass.getESuperTypes().add(this.getBExpression());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(bExpressionEClass, BExpression.class, "BExpression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -4203,6 +4253,11 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 
 		initEClass(bExpressionWrapperEClass, BExpressionWrapper.class, "BExpressionWrapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBExpressionWrapper_Original(), this.getBExpression(), null, "original", null, 0, 1, BExpressionWrapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(bWithContextExpressionEClass, BWithContextExpression.class, "BWithContextExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBWithContextExpression_Alias(), ecorePackage.getEString(), "alias", null, 0, 1, BWithContextExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBWithContextExpression_Expr(), this.getBExpression(), null, "expr", null, 1, 1, BWithContextExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBWithContextExpression_ContextBlock(), this.getBExpression(), null, "contextBlock", null, 1, 1, BWithContextExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(visibilityEEnum, Visibility.class, "Visibility");

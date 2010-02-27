@@ -421,6 +421,11 @@ public class BCatchItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BCATCH__CATCH_EXPR,
 				 B3backendFactory.eINSTANCE.createBExpressionWrapper()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BCATCH__CATCH_EXPR,
+				 B3backendFactory.eINSTANCE.createBWithContextExpression()));
 	}
 
 	/**

@@ -358,6 +358,11 @@ public class BBinaryExpressionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(B3backendPackage.Literals.BBINARY_EXPRESSION__LEFT_EXPR,
+				 B3backendFactory.eINSTANCE.createBWithContextExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(B3backendPackage.Literals.BBINARY_EXPRESSION__RIGHT_EXPR,
 				 B3backendFactory.eINSTANCE.createBIfExpression()));
 
@@ -565,6 +570,11 @@ public class BBinaryExpressionItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BBINARY_EXPRESSION__RIGHT_EXPR,
 				 B3backendFactory.eINSTANCE.createBExpressionWrapper()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BBINARY_EXPRESSION__RIGHT_EXPR,
+				 B3backendFactory.eINSTANCE.createBWithContextExpression()));
 	}
 
 	/**

@@ -84,6 +84,7 @@ public class BFunctionItemProvider
 			addDocumentationPropertyDescriptor(object);
 			addClosurePropertyDescriptor(object);
 			addClassFunctionPropertyDescriptor(object);
+			addVarargArrayTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -216,6 +217,28 @@ public class BFunctionItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Vararg Array Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addVarargArrayTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_IFunction_varargArrayType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_IFunction_varargArrayType_feature", "_UI_IFunction_type"),
+				 B3backendPackage.Literals.IFUNCTION__VARARG_ARRAY_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -433,6 +456,7 @@ public class BFunctionItemProvider
 			case B3backendPackage.BFUNCTION__VAR_ARGS:
 			case B3backendPackage.BFUNCTION__DOCUMENTATION:
 			case B3backendPackage.BFUNCTION__CLASS_FUNCTION:
+			case B3backendPackage.BFUNCTION__VARARG_ARRAY_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case B3backendPackage.BFUNCTION__GUARD:

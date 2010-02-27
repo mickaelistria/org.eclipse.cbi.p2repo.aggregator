@@ -438,6 +438,11 @@ public class BFunctionConcernContextItemProvider
 			(createChildParameter
 				(B3backendPackage.Literals.BFUNCTION_CONCERN_CONTEXT__FUNC_EXPR,
 				 B3backendFactory.eINSTANCE.createBExpressionWrapper()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(B3backendPackage.Literals.BFUNCTION_CONCERN_CONTEXT__FUNC_EXPR,
+				 B3backendFactory.eINSTANCE.createBWithContextExpression()));
 	}
 
 	/**

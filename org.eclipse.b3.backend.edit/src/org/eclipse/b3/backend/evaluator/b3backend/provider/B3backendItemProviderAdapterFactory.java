@@ -1647,6 +1647,29 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.b3.backend.evaluator.b3backend.BWithContextExpression} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BWithContextExpressionItemProvider bWithContextExpressionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipse.b3.backend.evaluator.b3backend.BWithContextExpression}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBWithContextExpressionAdapter() {
+		if (bWithContextExpressionItemProvider == null) {
+			bWithContextExpressionItemProvider = new BWithContextExpressionItemProvider(this);
+		}
+
+		return bWithContextExpressionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1813,6 +1836,7 @@ public class B3backendItemProviderAdapterFactory extends B3backendAdapterFactory
 		if (bWrappingContextItemProvider != null) bWrappingContextItemProvider.dispose();
 		if (b3MetaClassItemProvider != null) b3MetaClassItemProvider.dispose();
 		if (bExpressionWrapperItemProvider != null) bExpressionWrapperItemProvider.dispose();
+		if (bWithContextExpressionItemProvider != null) bWithContextExpressionItemProvider.dispose();
 	}
 
 }

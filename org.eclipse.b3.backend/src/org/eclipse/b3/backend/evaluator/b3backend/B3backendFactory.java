@@ -646,6 +646,15 @@ public interface B3backendFactory extends EFactory {
 	BExpressionWrapper createBExpressionWrapper();
 
 	/**
+	 * Returns a new object of class '<em>BWith Context Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>BWith Context Expression</em>'.
+	 * @generated
+	 */
+	BWithContextExpression createBWithContextExpression();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

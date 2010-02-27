@@ -301,7 +301,7 @@ RepositoryConfiguration returns build::RepositoryConfiguration
 
 RepositoryDeclaration returns build::RepositoryDeclaration : {build::RepositoryDeclaration}
 	(documentation = DOCUMENTATION)?
-	(location=URI | ('repository' resolverType=TypeRef) ) (contextBlock = ContextBlock_Creation)?
+	(location=URI | ('repository' resolverType=TypeRef) ) (contextBlock = BlockExpression)?
 	;
 
 ResolutionStrategy returns build::ResolutionStrategy 
@@ -319,7 +319,7 @@ ResolutionStrategyBest returns build::ResolutionStrategyBest : {build::Resolutio
 
 ContainerConfiguration returns build::ContainerConfiguration: {build::ContainerConfiguration} 
 	(documentation=DOCUMENTATION)? 
-	"container" name=ID "agent" agentType=TypeRef (contextBlock = ContextBlock_Creation)? 
+	"container" name=ID "agent" agentType=TypeRef (contextBlock = BlockExpression)? 
 	;
 	
 URI returns be::URI : 
@@ -353,7 +353,7 @@ Concern_Anonymous returns be::BConcern : {be::BConcern}
 Function returns be::B3Function : {be::B3Function}
 	(documentation = DOCUMENTATION)?
    	(visibility = Visibility)?
-    (executionMode = ExecutionMode)?	   	
+//    (executionMode = ExecutionMode)?	   	
    	(final ?= "final")?
    	"function"
    	(returnType = TypeRef)?
@@ -549,6 +549,7 @@ PrimaryExpression returns be::BExpression
 	| ProceedExpression
 	| WildcardExpression
 	| WithExpression
+	| WithContextExpression
 	;
 
 // Validation checks that there is at least one of references, properties or concern.
@@ -561,14 +562,10 @@ WithExpression returns be::BWithExpression : {be::BWithExpression}
 		)*
 		( (':' funcExpr = Expression ) | ('{' funcExpr = BlockExpressionWithoutBrackets '}' ) )
 		;
-	
-//WithExpression returns Expression: WithClauseExpression | WithContextExpression ;
-//WithClauseExpression returns Expression : {WithClauseExpression} 
-//	withclause=WithClause expr = BlockExpression 
-//	;
-//WithContextExpression returns Expresion : {WithContextExpression } 
-//	"with" "context" context = Expression expr = BlockExpression
-//	;
+		
+WithContextExpression returns be::BWithContextExpression : {be::BWithContextExpression}
+	"with" "context" expr = Expression contextBlock = BlockExpression
+	;	
 
 ProceedExpression returns be::BExpression : {be::BProceedExpression}
 	"proceed"
@@ -640,7 +637,7 @@ ConstructorCallExpression returns be::BExpression : {be::BCreateExpression}
 	"new" typeExpr=LiteralType 
 	('(' (parameterList=ParameterList)? ')')?
 	("as" alias=ID)? 
-	(contextBlock = ContextBlock_Creation)?
+	(contextBlock = BlockExpression)?
 	;
 
 // Used in a concern to describe pointcuts/advice for units and/or builders
@@ -846,11 +843,6 @@ BuilderPrimaryExpression returns be::BExpression :
 	;
 	
 GroupedBuilderPrimaryExpression returns be::BExpression : '(' BuilderOrExpression ')' ;
-
-// Follows a "new" operation
-ContextBlock_Creation returns be::BExpression : {be::BChainedExpression} 
-	'{' (expressions+=TopLevelExpression ';')* '}' 
-	;
 					
 Literal returns be::BExpression
 	: ValueLiteral

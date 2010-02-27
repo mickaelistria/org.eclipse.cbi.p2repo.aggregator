@@ -28,6 +28,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper;
  * <ul>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getParameterTypes() <em>Parameter Types</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getParameterNames() <em>Parameter Names</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getVarargArrayType() <em>Vararg Array Type</em>}</li>
  * </ul>
  * </p>
  * <p>
@@ -150,6 +151,32 @@ public class BFunctionWrapperTest extends BExpressionTest {
 	 * @generated
 	 */
 	public void testSetParameterNames() {
+		// TODO: implement this feature setter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#getVarargArrayType() <em>Vararg Array Type</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.IFunction#getVarargArrayType()
+	 * @generated
+	 */
+	public void testGetVarargArrayType() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.IFunction#setVarargArrayType(java.lang.reflect.Type) <em>Vararg Array Type</em>}' feature setter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.IFunction#setVarargArrayType(java.lang.reflect.Type)
+	 * @generated
+	 */
+	public void testSetVarargArrayType() {
 		// TODO: implement this feature setter test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
