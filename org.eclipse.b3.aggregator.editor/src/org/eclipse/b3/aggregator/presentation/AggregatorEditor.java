@@ -88,6 +88,7 @@ import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProvider;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
+import org.eclipse.emf.edit.provider.resource.ResourceSetItemProvider;
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
 import org.eclipse.emf.edit.ui.celleditor.AdapterFactoryTreeEditor;
 import org.eclipse.emf.edit.ui.dnd.EditingDomainViewerDropAdapter;
@@ -1925,6 +1926,25 @@ public class AggregatorEditor extends MultiPageEditorPart implements IEditingDom
 			@Override
 			public Adapter createResourceAdapter() {
 				return new ResourceItemProviderWithFontSupport(this);
+			}
+
+			// Present only the main resource and loaded MDR's (not detached contributions)
+			@Override
+			public Adapter createResourceSetAdapter() {
+				return new ResourceSetItemProvider(this) {
+					@Override
+					public Collection<?> getChildren(Object object) {
+						ResourceSet resourceSet = (ResourceSet) object;
+
+						List<Resource> filtered = new ArrayList<Resource>();
+						for(Resource resource : resourceSet.getResources())
+							if(resource instanceof AggregatorResourceImpl
+									|| resource instanceof MetadataRepositoryResourceImpl)
+								filtered.add(resource);
+
+						return filtered;
+					}
+				};
 			}
 		});
 		adapterFactory.addAdapterFactory(new StatusProviderAdapterFactory());
