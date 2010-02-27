@@ -42,6 +42,7 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAliasedRequiredCapabilityAccess().getAlternatives_2(), "rule__AliasedRequiredCapability__Alternatives_2");
 					put(grammarAccess.getRequiredCapabilityAccess().getAlternatives_2(), "rule__RequiredCapability__Alternatives_2");
 					put(grammarAccess.getRequiredCapability_UnfilteredAccess().getAlternatives_1(), "rule__RequiredCapability_Unfiltered__Alternatives_1");
+					put(grammarAccess.getPropertySet_NamedAccess().getAlternatives(), "rule__PropertySet_Named__Alternatives");
 					put(grammarAccess.getPropertySetAccess().getAlternatives(), "rule__PropertySet__Alternatives");
 					put(grammarAccess.getPropertySetDefaultAccess().getAlternatives(), "rule__PropertySetDefault__Alternatives");
 					put(grammarAccess.getPropertyOperationAccess().getAlternatives(), "rule__PropertyOperation__Alternatives");
@@ -180,7 +181,10 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRequiredCapabilityAccess().getGroup_5(), "rule__RequiredCapability__Group_5__0");
 					put(grammarAccess.getRequiredCapability_UnfilteredAccess().getGroup(), "rule__RequiredCapability_Unfiltered__Group__0");
 					put(grammarAccess.getRequiredCapability_UnfilteredAccess().getGroup_4(), "rule__RequiredCapability_Unfiltered__Group_4__0");
-					put(grammarAccess.getPropertySet_NamedAccess().getGroup(), "rule__PropertySet_Named__Group__0");
+					put(grammarAccess.getPropertySet_NamedAccess().getGroup_0(), "rule__PropertySet_Named__Group_0__0");
+					put(grammarAccess.getPropertySet_NamedAccess().getGroup_0_2(), "rule__PropertySet_Named__Group_0_2__0");
+					put(grammarAccess.getPropertySet_NamedAccess().getGroup_0_2_0(), "rule__PropertySet_Named__Group_0_2_0__0");
+					put(grammarAccess.getPropertySet_NamedAccess().getGroup_1(), "rule__PropertySet_Named__Group_1__0");
 					put(grammarAccess.getPropertySet_NamedAccess().getGroup_2(), "rule__PropertySet_Named__Group_2__0");
 					put(grammarAccess.getPropertySetAccess().getGroup_0(), "rule__PropertySet__Group_0__0");
 					put(grammarAccess.getPropertySetAccess().getGroup_0_1(), "rule__PropertySet__Group_0_1__0");
@@ -527,9 +531,11 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRequiredCapability_UnfilteredAccess().getNameSpaceAssignment_1_0(), "rule__RequiredCapability_Unfiltered__NameSpaceAssignment_1_0");
 					put(grammarAccess.getRequiredCapability_UnfilteredAccess().getNameAssignment_3(), "rule__RequiredCapability_Unfiltered__NameAssignment_3");
 					put(grammarAccess.getRequiredCapability_UnfilteredAccess().getVersionRangeAssignment_4_1(), "rule__RequiredCapability_Unfiltered__VersionRangeAssignment_4_1");
-					put(grammarAccess.getPropertySet_NamedAccess().getNameAssignment_1(), "rule__PropertySet_Named__NameAssignment_1");
-					put(grammarAccess.getPropertySet_NamedAccess().getExtendsAssignment_2_1(), "rule__PropertySet_Named__ExtendsAssignment_2_1");
-					put(grammarAccess.getPropertySet_NamedAccess().getOperationsAssignment_4(), "rule__PropertySet_Named__OperationsAssignment_4");
+					put(grammarAccess.getPropertySet_NamedAccess().getNameAssignment_0_1(), "rule__PropertySet_Named__NameAssignment_0_1");
+					put(grammarAccess.getPropertySet_NamedAccess().getExtendsAssignment_0_2_0_1(), "rule__PropertySet_Named__ExtendsAssignment_0_2_0_1");
+					put(grammarAccess.getPropertySet_NamedAccess().getOperationsAssignment_0_2_2(), "rule__PropertySet_Named__OperationsAssignment_0_2_2");
+					put(grammarAccess.getPropertySet_NamedAccess().getPropertiesFileAssignment_1_0(), "rule__PropertySet_Named__PropertiesFileAssignment_1_0");
+					put(grammarAccess.getPropertySet_NamedAccess().getExtendsAssignment_2_0(), "rule__PropertySet_Named__ExtendsAssignment_2_0");
 					put(grammarAccess.getPropertySetAccess().getExtendsAssignment_0_1_0_1(), "rule__PropertySet__ExtendsAssignment_0_1_0_1");
 					put(grammarAccess.getPropertySetAccess().getOperationsAssignment_0_1_2(), "rule__PropertySet__OperationsAssignment_0_1_2");
 					put(grammarAccess.getPropertySetAccess().getPropertiesFileAssignment_1_0(), "rule__PropertySet__PropertiesFileAssignment_1_0");

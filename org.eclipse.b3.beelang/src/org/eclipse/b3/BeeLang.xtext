@@ -111,9 +111,11 @@ RequiredCapability_Unfiltered returns build::RequiredCapability : {build::Requir
 	('/' versionRange=VersionRangeLiteral)?  
 	;
 	
-// An optionally named sequence of property statements
+// A named sequence of property statements
 PropertySet_Named returns be::BPropertySet : {be::BPropertySet} 
-	name = ID ("extends" extends=[be::BPropertySet | QIDREF])? '{' (operations += PropertyOperation )* '}' 
+	name = ID (("extends" extends=[be::BPropertySet | QIDREF])? '{' (operations += PropertyOperation )* '}' )
+	| (propertiesFile = URI ';')
+	| (extends = [be::BPropertySet | QIDREF] ';')
 	;
 
 // Sequence of possibly filtered property statements	

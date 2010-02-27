@@ -1089,7 +1089,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//	    
 		//	
 		//	
-		//// An optionally named sequence of property statements
+		//// A named sequence of property statements
 		public ParserRule getRule() { return rule; }
 
 		//{build::RequiredCapability} (nameSpace=InterfaceName|"unit") "/" name=
@@ -1135,71 +1135,130 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 
 	public class PropertySet_NamedElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PropertySet_Named");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cBPropertySetAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cExtendsKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cExtendsAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final CrossReference cExtendsBPropertySetCrossReference_2_1_0 = (CrossReference)cExtendsAssignment_2_1.eContents().get(0);
-		private final RuleCall cExtendsBPropertySetQIDREFParserRuleCall_2_1_0_1 = (RuleCall)cExtendsBPropertySetCrossReference_2_1_0.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cOperationsAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cOperationsPropertyOperationParserRuleCall_4_0 = (RuleCall)cOperationsAssignment_4.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Action cBPropertySetAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final Assignment cNameAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_0_1_0 = (RuleCall)cNameAssignment_0_1.eContents().get(0);
+		private final Group cGroup_0_2 = (Group)cGroup_0.eContents().get(2);
+		private final Group cGroup_0_2_0 = (Group)cGroup_0_2.eContents().get(0);
+		private final Keyword cExtendsKeyword_0_2_0_0 = (Keyword)cGroup_0_2_0.eContents().get(0);
+		private final Assignment cExtendsAssignment_0_2_0_1 = (Assignment)cGroup_0_2_0.eContents().get(1);
+		private final CrossReference cExtendsBPropertySetCrossReference_0_2_0_1_0 = (CrossReference)cExtendsAssignment_0_2_0_1.eContents().get(0);
+		private final RuleCall cExtendsBPropertySetQIDREFParserRuleCall_0_2_0_1_0_1 = (RuleCall)cExtendsBPropertySetCrossReference_0_2_0_1_0.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_0_2_1 = (Keyword)cGroup_0_2.eContents().get(1);
+		private final Assignment cOperationsAssignment_0_2_2 = (Assignment)cGroup_0_2.eContents().get(2);
+		private final RuleCall cOperationsPropertyOperationParserRuleCall_0_2_2_0 = (RuleCall)cOperationsAssignment_0_2_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_0_2_3 = (Keyword)cGroup_0_2.eContents().get(3);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Assignment cPropertiesFileAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final RuleCall cPropertiesFileURIParserRuleCall_1_0_0 = (RuleCall)cPropertiesFileAssignment_1_0.eContents().get(0);
+		private final Keyword cSemicolonKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Assignment cExtendsAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
+		private final CrossReference cExtendsBPropertySetCrossReference_2_0_0 = (CrossReference)cExtendsAssignment_2_0.eContents().get(0);
+		private final RuleCall cExtendsBPropertySetQIDREFParserRuleCall_2_0_0_1 = (RuleCall)cExtendsBPropertySetCrossReference_2_0_0.eContents().get(1);
+		private final Keyword cSemicolonKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
 		
 		//PropertySet_Named returns be::BPropertySet:
-		//  {be::BPropertySet} name=ID ("extends" extends=[be::BPropertySet|QIDREF])? "{"
-		//  operations+=PropertyOperation* "}"; 
+		//  {be::BPropertySet} name=ID (("extends" extends=[be::BPropertySet|QIDREF])? "{"
+		//  operations+=PropertyOperation* "}")|propertiesFile=URI ";"|extends=[be::
+		//  BPropertySet|QIDREF] ";"; 
 		//	
-		//// An optionally named sequence of property statements
+		//// A named sequence of property statements
 		//         
-		//	                         
+		//	                          
+		//	        
+		//	            
 		//	
 		//
 		//// Sequence of possibly filtered property statements
 		public ParserRule getRule() { return rule; }
 
-		//{be::BPropertySet} name=ID ("extends" extends=[be::BPropertySet|QIDREF])? "{"
-		//operations+=PropertyOperation* "}"
-		public Group getGroup() { return cGroup; }
+		//{be::BPropertySet} name=ID (("extends" extends=[be::BPropertySet|QIDREF])? "{"
+		//operations+=PropertyOperation* "}")|propertiesFile=URI ";"|extends=[be::
+		//BPropertySet|QIDREF] ";" 
+		//	
+		//// A named sequence of property statements
+		//         
+		//	                          
+		//	        
+		//	            
+		//	
+		//
+		//// Sequence of possibly filtered property statements
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//{be::BPropertySet} name=ID (("extends" extends=[be::BPropertySet|QIDREF])? "{"
+		//operations+=PropertyOperation* "}")
+		public Group getGroup_0() { return cGroup_0; }
 
 		//{be::BPropertySet}
-		public Action getBPropertySetAction_0() { return cBPropertySetAction_0; }
+		public Action getBPropertySetAction_0_0() { return cBPropertySetAction_0_0; }
 
 		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		public Assignment getNameAssignment_0_1() { return cNameAssignment_0_1; }
 
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_0_1_0() { return cNameIDTerminalRuleCall_0_1_0; }
+
+		//("extends" extends=[be::BPropertySet|QIDREF])? "{" operations+=PropertyOperation*
+		//"}"
+		public Group getGroup_0_2() { return cGroup_0_2; }
 
 		//("extends" extends=[be::BPropertySet|QIDREF])?
-		public Group getGroup_2() { return cGroup_2; }
+		public Group getGroup_0_2_0() { return cGroup_0_2_0; }
 
 		//"extends"
-		public Keyword getExtendsKeyword_2_0() { return cExtendsKeyword_2_0; }
+		public Keyword getExtendsKeyword_0_2_0_0() { return cExtendsKeyword_0_2_0_0; }
 
 		//extends=[be::BPropertySet|QIDREF]
-		public Assignment getExtendsAssignment_2_1() { return cExtendsAssignment_2_1; }
+		public Assignment getExtendsAssignment_0_2_0_1() { return cExtendsAssignment_0_2_0_1; }
 
 		//[be::BPropertySet|QIDREF]
-		public CrossReference getExtendsBPropertySetCrossReference_2_1_0() { return cExtendsBPropertySetCrossReference_2_1_0; }
+		public CrossReference getExtendsBPropertySetCrossReference_0_2_0_1_0() { return cExtendsBPropertySetCrossReference_0_2_0_1_0; }
 
 		//QIDREF
-		public RuleCall getExtendsBPropertySetQIDREFParserRuleCall_2_1_0_1() { return cExtendsBPropertySetQIDREFParserRuleCall_2_1_0_1; }
+		public RuleCall getExtendsBPropertySetQIDREFParserRuleCall_0_2_0_1_0_1() { return cExtendsBPropertySetQIDREFParserRuleCall_0_2_0_1_0_1; }
 
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
+		public Keyword getLeftCurlyBracketKeyword_0_2_1() { return cLeftCurlyBracketKeyword_0_2_1; }
 
 		//operations+=PropertyOperation*
-		public Assignment getOperationsAssignment_4() { return cOperationsAssignment_4; }
+		public Assignment getOperationsAssignment_0_2_2() { return cOperationsAssignment_0_2_2; }
 
 		//PropertyOperation
-		public RuleCall getOperationsPropertyOperationParserRuleCall_4_0() { return cOperationsPropertyOperationParserRuleCall_4_0; }
+		public RuleCall getOperationsPropertyOperationParserRuleCall_0_2_2_0() { return cOperationsPropertyOperationParserRuleCall_0_2_2_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		public Keyword getRightCurlyBracketKeyword_0_2_3() { return cRightCurlyBracketKeyword_0_2_3; }
+
+		//propertiesFile=URI ";"
+		public Group getGroup_1() { return cGroup_1; }
+
+		//propertiesFile=URI
+		public Assignment getPropertiesFileAssignment_1_0() { return cPropertiesFileAssignment_1_0; }
+
+		//URI
+		public RuleCall getPropertiesFileURIParserRuleCall_1_0_0() { return cPropertiesFileURIParserRuleCall_1_0_0; }
+
+		//";"
+		public Keyword getSemicolonKeyword_1_1() { return cSemicolonKeyword_1_1; }
+
+		//extends=[be::BPropertySet|QIDREF] ";"
+		public Group getGroup_2() { return cGroup_2; }
+
+		//extends=[be::BPropertySet|QIDREF]
+		public Assignment getExtendsAssignment_2_0() { return cExtendsAssignment_2_0; }
+
+		//[be::BPropertySet|QIDREF]
+		public CrossReference getExtendsBPropertySetCrossReference_2_0_0() { return cExtendsBPropertySetCrossReference_2_0_0; }
+
+		//QIDREF
+		public RuleCall getExtendsBPropertySetQIDREFParserRuleCall_2_0_0_1() { return cExtendsBPropertySetQIDREFParserRuleCall_2_0_0_1; }
+
+		//";"
+		public Keyword getSemicolonKeyword_2_1() { return cSemicolonKeyword_2_1; }
 	}
 
 	public class PropertySetElements extends AbstractParserRuleElementFinder {
@@ -10966,7 +11025,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	//	    
 	//	
 	//	
-	//// An optionally named sequence of property statements
+	//// A named sequence of property statements
 	public RequiredCapability_UnfilteredElements getRequiredCapability_UnfilteredAccess() {
 		return (pRequiredCapability_Unfiltered != null) ? pRequiredCapability_Unfiltered : (pRequiredCapability_Unfiltered = new RequiredCapability_UnfilteredElements());
 	}
@@ -10976,12 +11035,15 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//PropertySet_Named returns be::BPropertySet:
-	//  {be::BPropertySet} name=ID ("extends" extends=[be::BPropertySet|QIDREF])? "{"
-	//  operations+=PropertyOperation* "}"; 
+	//  {be::BPropertySet} name=ID (("extends" extends=[be::BPropertySet|QIDREF])? "{"
+	//  operations+=PropertyOperation* "}")|propertiesFile=URI ";"|extends=[be::
+	//  BPropertySet|QIDREF] ";"; 
 	//	
-	//// An optionally named sequence of property statements
+	//// A named sequence of property statements
 	//         
-	//	                         
+	//	                          
+	//	        
+	//	            
 	//	
 	//
 	//// Sequence of possibly filtered property statements

@@ -1793,15 +1793,15 @@ rulePropertySet_Named returns [EObject current=null]
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
     }:
-((
+(((
 	{ 
 	  /* */ 
 	}
     { 
-        temp=factory.create(grammarAccess.getPropertySet_NamedAccess().getBPropertySetAction_0().getType().getClassifier());
+        temp=factory.create(grammarAccess.getPropertySet_NamedAccess().getBPropertySetAction_0_0().getType().getClassifier());
         $current = temp; 
         temp = null;
-        CompositeNode newNode = createCompositeNode(grammarAccess.getPropertySet_NamedAccess().getBPropertySetAction_0(), currentNode.getParent());
+        CompositeNode newNode = createCompositeNode(grammarAccess.getPropertySet_NamedAccess().getBPropertySetAction_0_0(), currentNode.getParent());
     newNode.getChildren().add(currentNode);
     moveLookaheadInfo(currentNode, newNode);
     currentNode = newNode; 
@@ -1811,7 +1811,7 @@ rulePropertySet_Named returns [EObject current=null]
 (
 		lv_name_1_0=RULE_ID
 		{
-			createLeafNode(grammarAccess.getPropertySet_NamedAccess().getNameIDTerminalRuleCall_1_0(), "name"); 
+			createLeafNode(grammarAccess.getPropertySet_NamedAccess().getNameIDTerminalRuleCall_0_1_0(), "name"); 
 		}
 		{
 	        if ($current==null) {
@@ -1831,9 +1831,9 @@ rulePropertySet_Named returns [EObject current=null]
 	    }
 
 )
-)(	'extends' 
+)((	'extends' 
     {
-        createLeafNode(grammarAccess.getPropertySet_NamedAccess().getExtendsKeyword_2_0(), null); 
+        createLeafNode(grammarAccess.getPropertySet_NamedAccess().getExtendsKeyword_0_2_0_0(), null); 
     }
 (
 (
@@ -1847,7 +1847,7 @@ rulePropertySet_Named returns [EObject current=null]
 	        }
         }
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getPropertySet_NamedAccess().getExtendsBPropertySetCrossReference_2_1_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getPropertySet_NamedAccess().getExtendsBPropertySetCrossReference_0_2_0_1_0(), currentNode); 
 	    }
 		ruleQIDREF		{ 
 	        currentNode = currentNode.getParent();
@@ -1856,12 +1856,12 @@ rulePropertySet_Named returns [EObject current=null]
 )
 ))?	'{' 
     {
-        createLeafNode(grammarAccess.getPropertySet_NamedAccess().getLeftCurlyBracketKeyword_3(), null); 
+        createLeafNode(grammarAccess.getPropertySet_NamedAccess().getLeftCurlyBracketKeyword_0_2_1(), null); 
     }
 (
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getPropertySet_NamedAccess().getOperationsPropertyOperationParserRuleCall_4_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getPropertySet_NamedAccess().getOperationsPropertyOperationParserRuleCall_0_2_2_0(), currentNode); 
 	    }
 		lv_operations_5_0=rulePropertyOperation		{
 	        if ($current==null) {
@@ -1884,9 +1884,62 @@ rulePropertySet_Named returns [EObject current=null]
 )
 )*	'}' 
     {
-        createLeafNode(grammarAccess.getPropertySet_NamedAccess().getRightCurlyBracketKeyword_5(), null); 
+        createLeafNode(grammarAccess.getPropertySet_NamedAccess().getRightCurlyBracketKeyword_0_2_3(), null); 
+    }
+))
+    |((
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getPropertySet_NamedAccess().getPropertiesFileURIParserRuleCall_1_0_0(), currentNode); 
+	    }
+		lv_propertiesFile_7_0=ruleURI		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getPropertySet_NamedRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"propertiesFile",
+	        		lv_propertiesFile_7_0, 
+	        		"URI", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+)	';' 
+    {
+        createLeafNode(grammarAccess.getPropertySet_NamedAccess().getSemicolonKeyword_1_1(), null); 
     }
 )
+    |((
+(
+		{ 
+		  /* */ 
+		}
+		{
+			if ($current==null) {
+	            $current = factory.create(grammarAccess.getPropertySet_NamedRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+        }
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getPropertySet_NamedAccess().getExtendsBPropertySetCrossReference_2_0_0(), currentNode); 
+	    }
+		ruleQIDREF		{ 
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+)	';' 
+    {
+        createLeafNode(grammarAccess.getPropertySet_NamedAccess().getSemicolonKeyword_2_1(), null); 
+    }
+))
 ;
 
 

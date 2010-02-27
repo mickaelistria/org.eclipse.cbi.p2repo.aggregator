@@ -380,17 +380,42 @@
     <type metamodel="//@metamodelDeclarations.1">
       <classifier xsi:type="ecore:EClass" href="http://b3backend/1.0#//BPropertySet"/>
     </type>
-    <alternatives xsi:type="xtext:Group">
-      <tokens xsi:type="xtext:Action">
-        <type metamodel="//@metamodelDeclarations.1">
-          <classifier xsi:type="ecore:EClass" href="http://b3backend/1.0#//BPropertySet"/>
-        </type>
-      </tokens>
-      <tokens xsi:type="xtext:Assignment" feature="name" operator="=">
-        <terminal xsi:type="xtext:RuleCall" rule="//@rules.162"/>
-      </tokens>
-      <tokens xsi:type="xtext:Group" cardinality="?">
-        <tokens xsi:type="xtext:Keyword" value="extends"/>
+    <alternatives xsi:type="xtext:Alternatives">
+      <groups xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Action">
+          <type metamodel="//@metamodelDeclarations.1">
+            <classifier xsi:type="ecore:EClass" href="http://b3backend/1.0#//BPropertySet"/>
+          </type>
+        </tokens>
+        <tokens xsi:type="xtext:Assignment" feature="name" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.162"/>
+        </tokens>
+        <tokens xsi:type="xtext:Group">
+          <tokens xsi:type="xtext:Group" cardinality="?">
+            <tokens xsi:type="xtext:Keyword" value="extends"/>
+            <tokens xsi:type="xtext:Assignment" feature="extends" operator="=">
+              <terminal xsi:type="xtext:CrossReference">
+                <type metamodel="//@metamodelDeclarations.1">
+                  <classifier xsi:type="ecore:EClass" href="http://b3backend/1.0#//BPropertySet"/>
+                </type>
+                <terminal xsi:type="xtext:RuleCall" rule="//@rules.151"/>
+              </terminal>
+            </tokens>
+          </tokens>
+          <tokens xsi:type="xtext:Keyword" value="{"/>
+          <tokens xsi:type="xtext:Assignment" cardinality="*" feature="operations" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.10"/>
+          </tokens>
+          <tokens xsi:type="xtext:Keyword" value="}"/>
+        </tokens>
+      </groups>
+      <groups xsi:type="xtext:Group">
+        <tokens xsi:type="xtext:Assignment" feature="propertiesFile" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.44"/>
+        </tokens>
+        <tokens xsi:type="xtext:Keyword" value=";"/>
+      </groups>
+      <groups xsi:type="xtext:Group">
         <tokens xsi:type="xtext:Assignment" feature="extends" operator="=">
           <terminal xsi:type="xtext:CrossReference">
             <type metamodel="//@metamodelDeclarations.1">
@@ -399,12 +424,8 @@
             <terminal xsi:type="xtext:RuleCall" rule="//@rules.151"/>
           </terminal>
         </tokens>
-      </tokens>
-      <tokens xsi:type="xtext:Keyword" value="{"/>
-      <tokens xsi:type="xtext:Assignment" cardinality="*" feature="operations" operator="+=">
-        <terminal xsi:type="xtext:RuleCall" rule="//@rules.10"/>
-      </tokens>
-      <tokens xsi:type="xtext:Keyword" value="}"/>
+        <tokens xsi:type="xtext:Keyword" value=";"/>
+      </groups>
     </alternatives>
   </rules>
   <rules xsi:type="xtext:ParserRule" name="PropertySet">
