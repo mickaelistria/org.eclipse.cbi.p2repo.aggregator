@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="org.eclipse.b3.product"
-      label="b3 Product"
+      label="b3 Product (Incubation)"
       version="0.1.0.qualifier"
       provider-name="Eclipse b3 Project">
 
