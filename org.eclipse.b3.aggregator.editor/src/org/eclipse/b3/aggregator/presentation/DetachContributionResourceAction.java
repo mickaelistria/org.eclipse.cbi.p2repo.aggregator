@@ -50,7 +50,7 @@ public class DetachContributionResourceAction extends ControlAction {
 
 			String mainResourceUri = uri.toString();
 			if(uri.lastSegment().contains("."))
-				mainResourceUri = mainResourceUri.replaceAll("\\..*$", "");
+				mainResourceUri = mainResourceUri.replaceAll("\\.[^.]*$", "");
 
 			String lastSegment;
 			if(UIUtils.trimmedValue(((Contribution) currentEObject).getLabel()) != null)
