@@ -838,8 +838,11 @@
         </tokens>
         <tokens xsi:type="xtext:Keyword" value=")"/>
       </tokens>
-      <tokens xsi:type="xtext:Assignment" cardinality="?" feature="withExpr" operator="=">
-        <terminal xsi:type="xtext:RuleCall" rule="//@rules.24"/>
+      <tokens xsi:type="xtext:Group" cardinality="?">
+        <tokens xsi:type="xtext:Assignment" feature="withExpr" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.24"/>
+        </tokens>
+        <tokens xsi:type="xtext:Keyword" value=":"/>
       </tokens>
       <tokens xsi:type="xtext:Assignment" feature="buildResult" operator="=">
         <terminal xsi:type="xtext:RuleCall" rule="//@rules.25"/>
@@ -865,7 +868,6 @@
       </tokens>
       <tokens xsi:type="xtext:Keyword" value="with"/>
       <tokens xsi:type="xtext:Group" cardinality="?">
-        <tokens xsi:type="xtext:Keyword" value="("/>
         <tokens xsi:type="xtext:Assignment" feature="referencedAdvice" operator="+=">
           <terminal xsi:type="xtext:CrossReference">
             <type metamodel="//@metamodelDeclarations.1">
@@ -885,7 +887,6 @@
             </terminal>
           </tokens>
         </tokens>
-        <tokens xsi:type="xtext:Keyword" value=")"/>
       </tokens>
       <tokens xsi:type="xtext:Alternatives" cardinality="*">
         <groups xsi:type="xtext:Group">
@@ -2287,7 +2288,6 @@
       </tokens>
       <tokens xsi:type="xtext:Keyword" value="with"/>
       <tokens xsi:type="xtext:Group" cardinality="?">
-        <tokens xsi:type="xtext:Keyword" value="("/>
         <tokens xsi:type="xtext:Assignment" feature="referencedAdvice" operator="+=">
           <terminal xsi:type="xtext:CrossReference">
             <type metamodel="//@metamodelDeclarations.1">
@@ -2307,7 +2307,6 @@
             </terminal>
           </tokens>
         </tokens>
-        <tokens xsi:type="xtext:Keyword" value=")"/>
       </tokens>
       <tokens xsi:type="xtext:Alternatives" cardinality="*">
         <groups xsi:type="xtext:Group">

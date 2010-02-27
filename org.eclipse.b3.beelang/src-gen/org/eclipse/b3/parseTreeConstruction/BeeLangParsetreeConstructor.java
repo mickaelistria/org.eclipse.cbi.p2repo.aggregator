@@ -9679,12 +9679,12 @@ protected class ConditionalPathVector_PathVectorsAssignment_1_1 extends Assignme
 /************ begin Rule Prerequisite ****************
  *
  * Prerequisite returns build::Prerequisite:
- *   {build::Prerequisite} ("when" "(" condExpr=Expression ")")? withExpr=WithClause?
+ *   {build::Prerequisite} ("when" "(" condExpr=Expression ")")? (withExpr=WithClause ":")?
  *   buildResult=BuildResultReference ("as" alias=ID)? ";"; 
  * 
  *          
  * 	        
- * 	    
+ * 	      
  * 	
  * 	    
  * 	
@@ -9693,7 +9693,7 @@ protected class ConditionalPathVector_PathVectorsAssignment_1_1 extends Assignme
  *
  **/
 
-// {build::Prerequisite} ("when" "(" condExpr=Expression ")")? withExpr=WithClause?
+// {build::Prerequisite} ("when" "(" condExpr=Expression ")")? (withExpr=WithClause ":")?
 // buildResult=BuildResultReference ("as" alias=ID)? ";"
 protected class Prerequisite_Group extends GroupToken {
 	
@@ -9884,16 +9884,38 @@ protected class Prerequisite_RightParenthesisKeyword_1_3 extends KeywordToken  {
 }
 
 
-// withExpr=WithClause?
-protected class Prerequisite_WithExprAssignment_2 extends AssignmentToken  {
+// (withExpr=WithClause ":")?
+protected class Prerequisite_Group_2 extends GroupToken {
 	
-	public Prerequisite_WithExprAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public Prerequisite_Group_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getPrerequisiteAccess().getGroup_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Prerequisite_ColonKeyword_2_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// withExpr=WithClause
+protected class Prerequisite_WithExprAssignment_2_0 extends AssignmentToken  {
+	
+	public Prerequisite_WithExprAssignment_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getPrerequisiteAccess().getWithExprAssignment_2();
+		return grammarAccess.getPrerequisiteAccess().getWithExprAssignment_2_0();
 	}
 
     @Override
@@ -9912,7 +9934,7 @@ protected class Prerequisite_WithExprAssignment_2 extends AssignmentToken  {
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getWithClauseRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getPrerequisiteAccess().getWithExprWithClauseParserRuleCall_2_0(); 
+				element = grammarAccess.getPrerequisiteAccess().getWithExprWithClauseParserRuleCall_2_0_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -9930,6 +9952,29 @@ protected class Prerequisite_WithExprAssignment_2 extends AssignmentToken  {
 		}	
 	}	
 }
+
+// ":"
+protected class Prerequisite_ColonKeyword_2_1 extends KeywordToken  {
+	
+	public Prerequisite_ColonKeyword_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getPrerequisiteAccess().getColonKeyword_2_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new Prerequisite_WithExprAssignment_2_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
 
 // buildResult=BuildResultReference
 protected class Prerequisite_BuildResultAssignment_3 extends AssignmentToken  {
@@ -9971,7 +10016,7 @@ protected class Prerequisite_BuildResultAssignment_3 extends AssignmentToken  {
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new Prerequisite_WithExprAssignment_2(parent, next, actIndex, consumed);
+			case 0: return new Prerequisite_Group_2(parent, next, actIndex, consumed);
 			case 1: return new Prerequisite_Group_1(parent, next, actIndex, consumed);
 			case 2: return new Prerequisite_PrerequisiteAction_0(parent, next, actIndex, consumed);
 			default: return null;
@@ -10088,19 +10133,24 @@ protected class Prerequisite_SemicolonKeyword_5 extends KeywordToken  {
 /************ begin Rule WithClause ****************
  *
  * WithClause returns be::BWithExpression:
- *   {be::BWithExpression} "with" ("(" referencedAdvice+=[be::BAdvice] (","
- *   referencedAdvice+=[be::BAdvice])* ")")? ("properties" propertySets+=PropertySet|
- *   "default" "properties" propertySets+=PropertySetDefault|"concern" concerns+=
- *   Concern_Anonymous)*; 
+ *   {be::BWithExpression} "with" (referencedAdvice+=[be::BAdvice] ("," referencedAdvice
+ *   +=[be::BAdvice])*)? ("properties" propertySets+=PropertySet|"default" "properties"
+ *   propertySets+=PropertySetDefault|"concern" concerns+=Concern_Anonymous)*; 
  * 
  * // Validation checks that there is at least one of references, properties or concern.
+ *         
+ * 		
+ * 		                         
+ * //		( '(' referencedAdvice += [be::BAdvice | ID] (',' referencedAdvice += [be::BAdvice | ID])* ')' )?
  *
  **/
 
-// {be::BWithExpression} "with" ("(" referencedAdvice+=[be::BAdvice] (","
-// referencedAdvice+=[be::BAdvice])* ")")? ("properties" propertySets+=PropertySet|
-// "default" "properties" propertySets+=PropertySetDefault|"concern" concerns+=
-// Concern_Anonymous)*
+// {be::BWithExpression} "with" (referencedAdvice+=[be::BAdvice] ("," referencedAdvice
+// +=[be::BAdvice])*)? ("properties" propertySets+=PropertySet|"default" "properties"
+// propertySets+=PropertySetDefault|"concern" concerns+=Concern_Anonymous)*   
+// 		
+// 		                         
+// //		( '(' referencedAdvice += [be::BAdvice | ID] (',' referencedAdvice += [be::BAdvice | ID])* ')' )?
 protected class WithClause_Group extends GroupToken {
 	
 	public WithClause_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -10179,7 +10229,7 @@ protected class WithClause_WithKeyword_1 extends KeywordToken  {
 		
 }
 
-// ("(" referencedAdvice+=[be::BAdvice] ("," referencedAdvice+=[be::BAdvice])* ")")?
+// (referencedAdvice+=[be::BAdvice] ("," referencedAdvice+=[be::BAdvice])*)?
 protected class WithClause_Group_2 extends GroupToken {
 	
 	public WithClause_Group_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -10194,23 +10244,24 @@ protected class WithClause_Group_2 extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new WithClause_RightParenthesisKeyword_2_3(parent, this, 0, inst);
+			case 0: return new WithClause_Group_2_1(parent, this, 0, inst);
+			case 1: return new WithClause_ReferencedAdviceAssignment_2_0(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
 		
 }
 
-// "("
-protected class WithClause_LeftParenthesisKeyword_2_0 extends KeywordToken  {
+// referencedAdvice+=[be::BAdvice]
+protected class WithClause_ReferencedAdviceAssignment_2_0 extends AssignmentToken  {
 	
-	public WithClause_LeftParenthesisKeyword_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public WithClause_ReferencedAdviceAssignment_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getWithClauseAccess().getLeftParenthesisKeyword_2_0();
+	public Assignment getGrammarElement() {
+		return grammarAccess.getWithClauseAccess().getReferencedAdviceAssignment_2_0();
 	}
 
     @Override
@@ -10221,37 +10272,15 @@ protected class WithClause_LeftParenthesisKeyword_2_0 extends KeywordToken  {
 		}	
 	}	
 		
-}
-
-// referencedAdvice+=[be::BAdvice]
-protected class WithClause_ReferencedAdviceAssignment_2_1 extends AssignmentToken  {
-	
-	public WithClause_ReferencedAdviceAssignment_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getWithClauseAccess().getReferencedAdviceAssignment_2_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new WithClause_LeftParenthesisKeyword_2_0(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
     @Override	
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("referencedAdvice",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("referencedAdvice");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
 			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getWithClauseAccess().getReferencedAdviceBAdviceCrossReference_2_1_0().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getWithClauseAccess().getReferencedAdviceBAdviceCrossReference_2_0_0().getType().getClassifier())) {
 				type = AssignmentType.CR;
-				element = grammarAccess.getWithClauseAccess().getReferencedAdviceBAdviceCrossReference_2_1_0(); 
+				element = grammarAccess.getWithClauseAccess().getReferencedAdviceBAdviceCrossReference_2_0_0(); 
 				return obj;
 			}
 		}
@@ -10261,21 +10290,21 @@ protected class WithClause_ReferencedAdviceAssignment_2_1 extends AssignmentToke
 }
 
 // ("," referencedAdvice+=[be::BAdvice])*
-protected class WithClause_Group_2_2 extends GroupToken {
+protected class WithClause_Group_2_1 extends GroupToken {
 	
-	public WithClause_Group_2_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public WithClause_Group_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Group getGrammarElement() {
-		return grammarAccess.getWithClauseAccess().getGroup_2_2();
+		return grammarAccess.getWithClauseAccess().getGroup_2_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new WithClause_ReferencedAdviceAssignment_2_2_1(parent, this, 0, inst);
+			case 0: return new WithClause_ReferencedAdviceAssignment_2_1_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -10283,22 +10312,22 @@ protected class WithClause_Group_2_2 extends GroupToken {
 }
 
 // ","
-protected class WithClause_CommaKeyword_2_2_0 extends KeywordToken  {
+protected class WithClause_CommaKeyword_2_1_0 extends KeywordToken  {
 	
-	public WithClause_CommaKeyword_2_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public WithClause_CommaKeyword_2_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getWithClauseAccess().getCommaKeyword_2_2_0();
+		return grammarAccess.getWithClauseAccess().getCommaKeyword_2_1_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new WithClause_Group_2_2(parent, this, 0, inst);
-			case 1: return new WithClause_ReferencedAdviceAssignment_2_1(parent, this, 1, inst);
+			case 0: return new WithClause_Group_2_1(parent, this, 0, inst);
+			case 1: return new WithClause_ReferencedAdviceAssignment_2_0(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -10306,21 +10335,21 @@ protected class WithClause_CommaKeyword_2_2_0 extends KeywordToken  {
 }
 
 // referencedAdvice+=[be::BAdvice]
-protected class WithClause_ReferencedAdviceAssignment_2_2_1 extends AssignmentToken  {
+protected class WithClause_ReferencedAdviceAssignment_2_1_1 extends AssignmentToken  {
 	
-	public WithClause_ReferencedAdviceAssignment_2_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public WithClause_ReferencedAdviceAssignment_2_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getWithClauseAccess().getReferencedAdviceAssignment_2_2_1();
+		return grammarAccess.getWithClauseAccess().getReferencedAdviceAssignment_2_1_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new WithClause_CommaKeyword_2_2_0(parent, this, 0, inst);
+			case 0: return new WithClause_CommaKeyword_2_1_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -10331,9 +10360,9 @@ protected class WithClause_ReferencedAdviceAssignment_2_2_1 extends AssignmentTo
 		IInstanceDescription obj = current.cloneAndConsume("referencedAdvice");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
 			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getWithClauseAccess().getReferencedAdviceBAdviceCrossReference_2_2_1_0().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getWithClauseAccess().getReferencedAdviceBAdviceCrossReference_2_1_1_0().getType().getClassifier())) {
 				type = AssignmentType.CR;
-				element = grammarAccess.getWithClauseAccess().getReferencedAdviceBAdviceCrossReference_2_2_1_0(); 
+				element = grammarAccess.getWithClauseAccess().getReferencedAdviceBAdviceCrossReference_2_1_1_0(); 
 				return obj;
 			}
 		}
@@ -10343,32 +10372,10 @@ protected class WithClause_ReferencedAdviceAssignment_2_2_1 extends AssignmentTo
 }
 
 
-// ")"
-protected class WithClause_RightParenthesisKeyword_2_3 extends KeywordToken  {
-	
-	public WithClause_RightParenthesisKeyword_2_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getWithClauseAccess().getRightParenthesisKeyword_2_3();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new WithClause_Group_2_2(parent, this, 0, inst);
-			case 1: return new WithClause_ReferencedAdviceAssignment_2_1(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
 
 // ("properties" propertySets+=PropertySet|"default" "properties" propertySets+=
-// PropertySetDefault|"concern" concerns+=Concern_Anonymous)*
+// PropertySetDefault|"concern" concerns+=Concern_Anonymous)*  
+// //		( '(' referencedAdvice += [be::BAdvice | ID] (',' referencedAdvice += [be::BAdvice | ID])* ')' )?
 protected class WithClause_Alternatives_3 extends AlternativesToken {
 
 	public WithClause_Alternatives_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -25603,21 +25610,26 @@ protected class PrimaryExpression_WithContextExpressionParserRuleCall_15 extends
 /************ begin Rule WithExpression ****************
  *
  * WithExpression returns be::BWithExpression:
- *   {be::BWithExpression} "with" ("(" referencedAdvice+=[be::BAdvice] (","
- *   referencedAdvice+=[be::BAdvice])* ")")? ("properties" propertySets+=PropertySet|
- *   "default" "properties" propertySets+=PropertySetDefault|"concern" concerns+=
- *   Concern_Anonymous)* (":" funcExpr=Expression|"{" funcExpr=
- *   BlockExpressionWithoutBrackets "}"); 
+ *   {be::BWithExpression} "with" (referencedAdvice+=[be::BAdvice] ("," referencedAdvice
+ *   +=[be::BAdvice])*)? ("properties" propertySets+=PropertySet|"default" "properties"
+ *   propertySets+=PropertySetDefault|"concern" concerns+=Concern_Anonymous)* (":"
+ *   funcExpr=Expression|"{" funcExpr=BlockExpressionWithoutBrackets "}"); 
  * 
  * // Validation checks that there is at least one of references, properties or concern.
+ *         
+ * 		
+ * 		                         
+ * //		( '(' referencedAdvice += [be::BAdvice | ID] (',' referencedAdvice += [be::BAdvice | ID])* ')' )?
  *
  **/
 
-// {be::BWithExpression} "with" ("(" referencedAdvice+=[be::BAdvice] (","
-// referencedAdvice+=[be::BAdvice])* ")")? ("properties" propertySets+=PropertySet|
-// "default" "properties" propertySets+=PropertySetDefault|"concern" concerns+=
-// Concern_Anonymous)* (":" funcExpr=Expression|"{" funcExpr=
-// BlockExpressionWithoutBrackets "}")
+// {be::BWithExpression} "with" (referencedAdvice+=[be::BAdvice] ("," referencedAdvice
+// +=[be::BAdvice])*)? ("properties" propertySets+=PropertySet|"default" "properties"
+// propertySets+=PropertySetDefault|"concern" concerns+=Concern_Anonymous)* (":"
+// funcExpr=Expression|"{" funcExpr=BlockExpressionWithoutBrackets "}")   
+// 		
+// 		                         
+// //		( '(' referencedAdvice += [be::BAdvice | ID] (',' referencedAdvice += [be::BAdvice | ID])* ')' )?
 protected class WithExpression_Group extends GroupToken {
 	
 	public WithExpression_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -25694,7 +25706,7 @@ protected class WithExpression_WithKeyword_1 extends KeywordToken  {
 		
 }
 
-// ("(" referencedAdvice+=[be::BAdvice] ("," referencedAdvice+=[be::BAdvice])* ")")?
+// (referencedAdvice+=[be::BAdvice] ("," referencedAdvice+=[be::BAdvice])*)?
 protected class WithExpression_Group_2 extends GroupToken {
 	
 	public WithExpression_Group_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -25709,23 +25721,24 @@ protected class WithExpression_Group_2 extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new WithExpression_RightParenthesisKeyword_2_3(parent, this, 0, inst);
+			case 0: return new WithExpression_Group_2_1(parent, this, 0, inst);
+			case 1: return new WithExpression_ReferencedAdviceAssignment_2_0(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
 		
 }
 
-// "("
-protected class WithExpression_LeftParenthesisKeyword_2_0 extends KeywordToken  {
+// referencedAdvice+=[be::BAdvice]
+protected class WithExpression_ReferencedAdviceAssignment_2_0 extends AssignmentToken  {
 	
-	public WithExpression_LeftParenthesisKeyword_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public WithExpression_ReferencedAdviceAssignment_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getWithExpressionAccess().getLeftParenthesisKeyword_2_0();
+	public Assignment getGrammarElement() {
+		return grammarAccess.getWithExpressionAccess().getReferencedAdviceAssignment_2_0();
 	}
 
     @Override
@@ -25736,37 +25749,15 @@ protected class WithExpression_LeftParenthesisKeyword_2_0 extends KeywordToken  
 		}	
 	}	
 		
-}
-
-// referencedAdvice+=[be::BAdvice]
-protected class WithExpression_ReferencedAdviceAssignment_2_1 extends AssignmentToken  {
-	
-	public WithExpression_ReferencedAdviceAssignment_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getWithExpressionAccess().getReferencedAdviceAssignment_2_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new WithExpression_LeftParenthesisKeyword_2_0(parent, this, 0, inst);
-			default: return null;
-		}	
-	}	
-		
     @Override	
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("referencedAdvice",true)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("referencedAdvice");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
 			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getWithExpressionAccess().getReferencedAdviceBAdviceCrossReference_2_1_0().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getWithExpressionAccess().getReferencedAdviceBAdviceCrossReference_2_0_0().getType().getClassifier())) {
 				type = AssignmentType.CR;
-				element = grammarAccess.getWithExpressionAccess().getReferencedAdviceBAdviceCrossReference_2_1_0(); 
+				element = grammarAccess.getWithExpressionAccess().getReferencedAdviceBAdviceCrossReference_2_0_0(); 
 				return obj;
 			}
 		}
@@ -25776,21 +25767,21 @@ protected class WithExpression_ReferencedAdviceAssignment_2_1 extends Assignment
 }
 
 // ("," referencedAdvice+=[be::BAdvice])*
-protected class WithExpression_Group_2_2 extends GroupToken {
+protected class WithExpression_Group_2_1 extends GroupToken {
 	
-	public WithExpression_Group_2_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public WithExpression_Group_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Group getGrammarElement() {
-		return grammarAccess.getWithExpressionAccess().getGroup_2_2();
+		return grammarAccess.getWithExpressionAccess().getGroup_2_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new WithExpression_ReferencedAdviceAssignment_2_2_1(parent, this, 0, inst);
+			case 0: return new WithExpression_ReferencedAdviceAssignment_2_1_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -25798,22 +25789,22 @@ protected class WithExpression_Group_2_2 extends GroupToken {
 }
 
 // ","
-protected class WithExpression_CommaKeyword_2_2_0 extends KeywordToken  {
+protected class WithExpression_CommaKeyword_2_1_0 extends KeywordToken  {
 	
-	public WithExpression_CommaKeyword_2_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public WithExpression_CommaKeyword_2_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getWithExpressionAccess().getCommaKeyword_2_2_0();
+		return grammarAccess.getWithExpressionAccess().getCommaKeyword_2_1_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new WithExpression_Group_2_2(parent, this, 0, inst);
-			case 1: return new WithExpression_ReferencedAdviceAssignment_2_1(parent, this, 1, inst);
+			case 0: return new WithExpression_Group_2_1(parent, this, 0, inst);
+			case 1: return new WithExpression_ReferencedAdviceAssignment_2_0(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -25821,21 +25812,21 @@ protected class WithExpression_CommaKeyword_2_2_0 extends KeywordToken  {
 }
 
 // referencedAdvice+=[be::BAdvice]
-protected class WithExpression_ReferencedAdviceAssignment_2_2_1 extends AssignmentToken  {
+protected class WithExpression_ReferencedAdviceAssignment_2_1_1 extends AssignmentToken  {
 	
-	public WithExpression_ReferencedAdviceAssignment_2_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public WithExpression_ReferencedAdviceAssignment_2_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getWithExpressionAccess().getReferencedAdviceAssignment_2_2_1();
+		return grammarAccess.getWithExpressionAccess().getReferencedAdviceAssignment_2_1_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new WithExpression_CommaKeyword_2_2_0(parent, this, 0, inst);
+			case 0: return new WithExpression_CommaKeyword_2_1_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -25846,9 +25837,9 @@ protected class WithExpression_ReferencedAdviceAssignment_2_2_1 extends Assignme
 		IInstanceDescription obj = current.cloneAndConsume("referencedAdvice");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
 			IInstanceDescription param = getDescr((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getWithExpressionAccess().getReferencedAdviceBAdviceCrossReference_2_2_1_0().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getWithExpressionAccess().getReferencedAdviceBAdviceCrossReference_2_1_1_0().getType().getClassifier())) {
 				type = AssignmentType.CR;
-				element = grammarAccess.getWithExpressionAccess().getReferencedAdviceBAdviceCrossReference_2_2_1_0(); 
+				element = grammarAccess.getWithExpressionAccess().getReferencedAdviceBAdviceCrossReference_2_1_1_0(); 
 				return obj;
 			}
 		}
@@ -25858,32 +25849,10 @@ protected class WithExpression_ReferencedAdviceAssignment_2_2_1 extends Assignme
 }
 
 
-// ")"
-protected class WithExpression_RightParenthesisKeyword_2_3 extends KeywordToken  {
-	
-	public WithExpression_RightParenthesisKeyword_2_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getWithExpressionAccess().getRightParenthesisKeyword_2_3();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new WithExpression_Group_2_2(parent, this, 0, inst);
-			case 1: return new WithExpression_ReferencedAdviceAssignment_2_1(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
-}
-
 
 // ("properties" propertySets+=PropertySet|"default" "properties" propertySets+=
-// PropertySetDefault|"concern" concerns+=Concern_Anonymous)*
+// PropertySetDefault|"concern" concerns+=Concern_Anonymous)*  
+// //		( '(' referencedAdvice += [be::BAdvice | ID] (',' referencedAdvice += [be::BAdvice | ID])* ')' )?
 protected class WithExpression_Alternatives_3 extends AlternativesToken {
 
 	public WithExpression_Alternatives_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {

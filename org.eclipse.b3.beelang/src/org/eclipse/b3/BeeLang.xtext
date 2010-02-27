@@ -193,7 +193,7 @@ Path returns be::URI hidden()
 
 Prerequisite returns build::Prerequisite : {build::Prerequisite} 
 	('when' '(' condExpr=Expression ')' )?
-	(withExpr = WithClause)?
+	(withExpr = WithClause ':')?
 	buildResult=BuildResultReference
 	("as" alias=ID)? ';'
 	;
@@ -201,7 +201,8 @@ Prerequisite returns build::Prerequisite : {build::Prerequisite}
 // Validation checks that there is at least one of references, properties or concern.
 WithClause returns be::BWithExpression : {be::BWithExpression}
 		"with"
-		( '(' referencedAdvice += [be::BAdvice | ID] (',' referencedAdvice += [be::BAdvice | ID])* ')' )? 
+		( referencedAdvice += [be::BAdvice | ID] (',' referencedAdvice += [be::BAdvice | ID])* )? 
+//		( '(' referencedAdvice += [be::BAdvice | ID] (',' referencedAdvice += [be::BAdvice | ID])* ')' )? 
 		( ( "properties" propertySets += PropertySet )
 		| ( "default" "properties" propertySets += PropertySetDefault)
 		| ( "concern" concerns += Concern_Anonymous )
@@ -555,7 +556,8 @@ PrimaryExpression returns be::BExpression
 // Validation checks that there is at least one of references, properties or concern.
 WithExpression returns be::BWithExpression : {be::BWithExpression}
 		'with'
-		( '(' referencedAdvice += [be::BAdvice | ID] (',' referencedAdvice += [be::BAdvice | ID])* ')' )? 
+		( referencedAdvice += [be::BAdvice | ID] (',' referencedAdvice += [be::BAdvice | ID])* )? 
+//		( '(' referencedAdvice += [be::BAdvice | ID] (',' referencedAdvice += [be::BAdvice | ID])* ')' )? 
 		( ( 'properties' propertySets += PropertySet )
 		| ( "default" "properties" propertySets += PropertySetDefault ) 
 		| ( 'concern' concerns += Concern_Anonymous )

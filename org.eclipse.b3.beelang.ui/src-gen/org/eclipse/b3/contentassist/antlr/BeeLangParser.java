@@ -219,10 +219,11 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPathAccess().getGroup_1_2(), "rule__Path__Group_1_2__0");
 					put(grammarAccess.getPrerequisiteAccess().getGroup(), "rule__Prerequisite__Group__0");
 					put(grammarAccess.getPrerequisiteAccess().getGroup_1(), "rule__Prerequisite__Group_1__0");
+					put(grammarAccess.getPrerequisiteAccess().getGroup_2(), "rule__Prerequisite__Group_2__0");
 					put(grammarAccess.getPrerequisiteAccess().getGroup_4(), "rule__Prerequisite__Group_4__0");
 					put(grammarAccess.getWithClauseAccess().getGroup(), "rule__WithClause__Group__0");
 					put(grammarAccess.getWithClauseAccess().getGroup_2(), "rule__WithClause__Group_2__0");
-					put(grammarAccess.getWithClauseAccess().getGroup_2_2(), "rule__WithClause__Group_2_2__0");
+					put(grammarAccess.getWithClauseAccess().getGroup_2_1(), "rule__WithClause__Group_2_1__0");
 					put(grammarAccess.getWithClauseAccess().getGroup_3_0(), "rule__WithClause__Group_3_0__0");
 					put(grammarAccess.getWithClauseAccess().getGroup_3_1(), "rule__WithClause__Group_3_1__0");
 					put(grammarAccess.getWithClauseAccess().getGroup_3_2(), "rule__WithClause__Group_3_2__0");
@@ -332,7 +333,7 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCallExpressionAccess().getGroup_1(), "rule__CallExpression__Group_1__0");
 					put(grammarAccess.getWithExpressionAccess().getGroup(), "rule__WithExpression__Group__0");
 					put(grammarAccess.getWithExpressionAccess().getGroup_2(), "rule__WithExpression__Group_2__0");
-					put(grammarAccess.getWithExpressionAccess().getGroup_2_2(), "rule__WithExpression__Group_2_2__0");
+					put(grammarAccess.getWithExpressionAccess().getGroup_2_1(), "rule__WithExpression__Group_2_1__0");
 					put(grammarAccess.getWithExpressionAccess().getGroup_3_0(), "rule__WithExpression__Group_3_0__0");
 					put(grammarAccess.getWithExpressionAccess().getGroup_3_1(), "rule__WithExpression__Group_3_1__0");
 					put(grammarAccess.getWithExpressionAccess().getGroup_3_2(), "rule__WithExpression__Group_3_2__0");
@@ -569,11 +570,11 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getConditionalPathVectorAccess().getCondExprAssignment_1_0_2(), "rule__ConditionalPathVector__CondExprAssignment_1_0_2");
 					put(grammarAccess.getConditionalPathVectorAccess().getPathVectorsAssignment_1_1(), "rule__ConditionalPathVector__PathVectorsAssignment_1_1");
 					put(grammarAccess.getPrerequisiteAccess().getCondExprAssignment_1_2(), "rule__Prerequisite__CondExprAssignment_1_2");
-					put(grammarAccess.getPrerequisiteAccess().getWithExprAssignment_2(), "rule__Prerequisite__WithExprAssignment_2");
+					put(grammarAccess.getPrerequisiteAccess().getWithExprAssignment_2_0(), "rule__Prerequisite__WithExprAssignment_2_0");
 					put(grammarAccess.getPrerequisiteAccess().getBuildResultAssignment_3(), "rule__Prerequisite__BuildResultAssignment_3");
 					put(grammarAccess.getPrerequisiteAccess().getAliasAssignment_4_1(), "rule__Prerequisite__AliasAssignment_4_1");
-					put(grammarAccess.getWithClauseAccess().getReferencedAdviceAssignment_2_1(), "rule__WithClause__ReferencedAdviceAssignment_2_1");
-					put(grammarAccess.getWithClauseAccess().getReferencedAdviceAssignment_2_2_1(), "rule__WithClause__ReferencedAdviceAssignment_2_2_1");
+					put(grammarAccess.getWithClauseAccess().getReferencedAdviceAssignment_2_0(), "rule__WithClause__ReferencedAdviceAssignment_2_0");
+					put(grammarAccess.getWithClauseAccess().getReferencedAdviceAssignment_2_1_1(), "rule__WithClause__ReferencedAdviceAssignment_2_1_1");
 					put(grammarAccess.getWithClauseAccess().getPropertySetsAssignment_3_0_1(), "rule__WithClause__PropertySetsAssignment_3_0_1");
 					put(grammarAccess.getWithClauseAccess().getPropertySetsAssignment_3_1_2(), "rule__WithClause__PropertySetsAssignment_3_1_2");
 					put(grammarAccess.getWithClauseAccess().getConcernsAssignment_3_2_1(), "rule__WithClause__ConcernsAssignment_3_2_1");
@@ -708,8 +709,8 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getInfixExpressionAccess().getIndexExprAssignment_1_1_2(), "rule__InfixExpression__IndexExprAssignment_1_1_2");
 					put(grammarAccess.getInfixExpressionAccess().getFeatureNameAssignment_1_2_2(), "rule__InfixExpression__FeatureNameAssignment_1_2_2");
 					put(grammarAccess.getCallExpressionAccess().getParameterListAssignment_1_2(), "rule__CallExpression__ParameterListAssignment_1_2");
-					put(grammarAccess.getWithExpressionAccess().getReferencedAdviceAssignment_2_1(), "rule__WithExpression__ReferencedAdviceAssignment_2_1");
-					put(grammarAccess.getWithExpressionAccess().getReferencedAdviceAssignment_2_2_1(), "rule__WithExpression__ReferencedAdviceAssignment_2_2_1");
+					put(grammarAccess.getWithExpressionAccess().getReferencedAdviceAssignment_2_0(), "rule__WithExpression__ReferencedAdviceAssignment_2_0");
+					put(grammarAccess.getWithExpressionAccess().getReferencedAdviceAssignment_2_1_1(), "rule__WithExpression__ReferencedAdviceAssignment_2_1_1");
 					put(grammarAccess.getWithExpressionAccess().getPropertySetsAssignment_3_0_1(), "rule__WithExpression__PropertySetsAssignment_3_0_1");
 					put(grammarAccess.getWithExpressionAccess().getPropertySetsAssignment_3_1_2(), "rule__WithExpression__PropertySetsAssignment_3_1_2");
 					put(grammarAccess.getWithExpressionAccess().getConcernsAssignment_3_2_1(), "rule__WithExpression__ConcernsAssignment_3_2_1");

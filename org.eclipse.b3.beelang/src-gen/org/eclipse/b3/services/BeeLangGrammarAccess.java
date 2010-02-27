@@ -2184,8 +2184,10 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cCondExprAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
 		private final RuleCall cCondExprExpressionParserRuleCall_1_2_0 = (RuleCall)cCondExprAssignment_1_2.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
-		private final Assignment cWithExprAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cWithExprWithClauseParserRuleCall_2_0 = (RuleCall)cWithExprAssignment_2.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Assignment cWithExprAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
+		private final RuleCall cWithExprWithClauseParserRuleCall_2_0_0 = (RuleCall)cWithExprAssignment_2_0.eContents().get(0);
+		private final Keyword cColonKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
 		private final Assignment cBuildResultAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cBuildResultBuildResultReferenceParserRuleCall_3_0 = (RuleCall)cBuildResultAssignment_3.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
@@ -2195,12 +2197,12 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//Prerequisite returns build::Prerequisite:
-		//  {build::Prerequisite} ("when" "(" condExpr=Expression ")")? withExpr=WithClause?
+		//  {build::Prerequisite} ("when" "(" condExpr=Expression ")")? (withExpr=WithClause ":")?
 		//  buildResult=BuildResultReference ("as" alias=ID)? ";"; 
 		//
 		//         
 		//	        
-		//	    
+		//	      
 		//	
 		//	    
 		//	
@@ -2208,7 +2210,7 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//// Validation checks that there is at least one of references, properties or concern.
 		public ParserRule getRule() { return rule; }
 
-		//{build::Prerequisite} ("when" "(" condExpr=Expression ")")? withExpr=WithClause?
+		//{build::Prerequisite} ("when" "(" condExpr=Expression ")")? (withExpr=WithClause ":")?
 		//buildResult=BuildResultReference ("as" alias=ID)? ";"
 		public Group getGroup() { return cGroup; }
 
@@ -2233,11 +2235,17 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//")"
 		public Keyword getRightParenthesisKeyword_1_3() { return cRightParenthesisKeyword_1_3; }
 
-		//withExpr=WithClause?
-		public Assignment getWithExprAssignment_2() { return cWithExprAssignment_2; }
+		//(withExpr=WithClause ":")?
+		public Group getGroup_2() { return cGroup_2; }
+
+		//withExpr=WithClause
+		public Assignment getWithExprAssignment_2_0() { return cWithExprAssignment_2_0; }
 
 		//WithClause
-		public RuleCall getWithExprWithClauseParserRuleCall_2_0() { return cWithExprWithClauseParserRuleCall_2_0; }
+		public RuleCall getWithExprWithClauseParserRuleCall_2_0_0() { return cWithExprWithClauseParserRuleCall_2_0_0; }
+
+		//":"
+		public Keyword getColonKeyword_2_1() { return cColonKeyword_2_1; }
 
 		//buildResult=BuildResultReference
 		public Assignment getBuildResultAssignment_3() { return cBuildResultAssignment_3; }
@@ -2267,16 +2275,14 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cBWithExpressionAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cWithKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cLeftParenthesisKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cReferencedAdviceAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final CrossReference cReferencedAdviceBAdviceCrossReference_2_1_0 = (CrossReference)cReferencedAdviceAssignment_2_1.eContents().get(0);
-		private final RuleCall cReferencedAdviceBAdviceIDTerminalRuleCall_2_1_0_1 = (RuleCall)cReferencedAdviceBAdviceCrossReference_2_1_0.eContents().get(1);
-		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
-		private final Keyword cCommaKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
-		private final Assignment cReferencedAdviceAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
-		private final CrossReference cReferencedAdviceBAdviceCrossReference_2_2_1_0 = (CrossReference)cReferencedAdviceAssignment_2_2_1.eContents().get(0);
-		private final RuleCall cReferencedAdviceBAdviceIDTerminalRuleCall_2_2_1_0_1 = (RuleCall)cReferencedAdviceBAdviceCrossReference_2_2_1_0.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
+		private final Assignment cReferencedAdviceAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
+		private final CrossReference cReferencedAdviceBAdviceCrossReference_2_0_0 = (CrossReference)cReferencedAdviceAssignment_2_0.eContents().get(0);
+		private final RuleCall cReferencedAdviceBAdviceIDTerminalRuleCall_2_0_0_1 = (RuleCall)cReferencedAdviceBAdviceCrossReference_2_0_0.eContents().get(1);
+		private final Group cGroup_2_1 = (Group)cGroup_2.eContents().get(1);
+		private final Keyword cCommaKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
+		private final Assignment cReferencedAdviceAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
+		private final CrossReference cReferencedAdviceBAdviceCrossReference_2_1_1_0 = (CrossReference)cReferencedAdviceAssignment_2_1_1.eContents().get(0);
+		private final RuleCall cReferencedAdviceBAdviceIDTerminalRuleCall_2_1_1_0_1 = (RuleCall)cReferencedAdviceBAdviceCrossReference_2_1_1_0.eContents().get(1);
 		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
 		private final Group cGroup_3_0 = (Group)cAlternatives_3.eContents().get(0);
 		private final Keyword cPropertiesKeyword_3_0_0 = (Keyword)cGroup_3_0.eContents().get(0);
@@ -2293,18 +2299,23 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cConcernsConcern_AnonymousParserRuleCall_3_2_1_0 = (RuleCall)cConcernsAssignment_3_2_1.eContents().get(0);
 		
 		//WithClause returns be::BWithExpression:
-		//  {be::BWithExpression} "with" ("(" referencedAdvice+=[be::BAdvice] (","
-		//  referencedAdvice+=[be::BAdvice])* ")")? ("properties" propertySets+=PropertySet|
-		//  "default" "properties" propertySets+=PropertySetDefault|"concern" concerns+=
-		//  Concern_Anonymous)*; 
+		//  {be::BWithExpression} "with" (referencedAdvice+=[be::BAdvice] ("," referencedAdvice
+		//  +=[be::BAdvice])*)? ("properties" propertySets+=PropertySet|"default" "properties"
+		//  propertySets+=PropertySetDefault|"concern" concerns+=Concern_Anonymous)*; 
 		//
 		//// Validation checks that there is at least one of references, properties or concern.
+		//        
+		//		
+		//		                         
+		////		( '(' referencedAdvice += [be::BAdvice | ID] (',' referencedAdvice += [be::BAdvice | ID])* ')' )?
 		public ParserRule getRule() { return rule; }
 
-		//{be::BWithExpression} "with" ("(" referencedAdvice+=[be::BAdvice] (","
-		//referencedAdvice+=[be::BAdvice])* ")")? ("properties" propertySets+=PropertySet|
-		//"default" "properties" propertySets+=PropertySetDefault|"concern" concerns+=
-		//Concern_Anonymous)*
+		//{be::BWithExpression} "with" (referencedAdvice+=[be::BAdvice] ("," referencedAdvice
+		//+=[be::BAdvice])*)? ("properties" propertySets+=PropertySet|"default" "properties"
+		//propertySets+=PropertySetDefault|"concern" concerns+=Concern_Anonymous)*   
+		//		
+		//		                         
+		////		( '(' referencedAdvice += [be::BAdvice | ID] (',' referencedAdvice += [be::BAdvice | ID])* ')' )?
 		public Group getGroup() { return cGroup; }
 
 		//{be::BWithExpression}
@@ -2313,41 +2324,36 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//"with"
 		public Keyword getWithKeyword_1() { return cWithKeyword_1; }
 
-		//("(" referencedAdvice+=[be::BAdvice] ("," referencedAdvice+=[be::BAdvice])* ")")?
+		//(referencedAdvice+=[be::BAdvice] ("," referencedAdvice+=[be::BAdvice])*)?
 		public Group getGroup_2() { return cGroup_2; }
 
-		//"("
-		public Keyword getLeftParenthesisKeyword_2_0() { return cLeftParenthesisKeyword_2_0; }
-
 		//referencedAdvice+=[be::BAdvice]
-		public Assignment getReferencedAdviceAssignment_2_1() { return cReferencedAdviceAssignment_2_1; }
+		public Assignment getReferencedAdviceAssignment_2_0() { return cReferencedAdviceAssignment_2_0; }
 
 		//[be::BAdvice]
-		public CrossReference getReferencedAdviceBAdviceCrossReference_2_1_0() { return cReferencedAdviceBAdviceCrossReference_2_1_0; }
+		public CrossReference getReferencedAdviceBAdviceCrossReference_2_0_0() { return cReferencedAdviceBAdviceCrossReference_2_0_0; }
 
 		//ID
-		public RuleCall getReferencedAdviceBAdviceIDTerminalRuleCall_2_1_0_1() { return cReferencedAdviceBAdviceIDTerminalRuleCall_2_1_0_1; }
+		public RuleCall getReferencedAdviceBAdviceIDTerminalRuleCall_2_0_0_1() { return cReferencedAdviceBAdviceIDTerminalRuleCall_2_0_0_1; }
 
 		//("," referencedAdvice+=[be::BAdvice])*
-		public Group getGroup_2_2() { return cGroup_2_2; }
+		public Group getGroup_2_1() { return cGroup_2_1; }
 
 		//","
-		public Keyword getCommaKeyword_2_2_0() { return cCommaKeyword_2_2_0; }
+		public Keyword getCommaKeyword_2_1_0() { return cCommaKeyword_2_1_0; }
 
 		//referencedAdvice+=[be::BAdvice]
-		public Assignment getReferencedAdviceAssignment_2_2_1() { return cReferencedAdviceAssignment_2_2_1; }
+		public Assignment getReferencedAdviceAssignment_2_1_1() { return cReferencedAdviceAssignment_2_1_1; }
 
 		//[be::BAdvice]
-		public CrossReference getReferencedAdviceBAdviceCrossReference_2_2_1_0() { return cReferencedAdviceBAdviceCrossReference_2_2_1_0; }
+		public CrossReference getReferencedAdviceBAdviceCrossReference_2_1_1_0() { return cReferencedAdviceBAdviceCrossReference_2_1_1_0; }
 
 		//ID
-		public RuleCall getReferencedAdviceBAdviceIDTerminalRuleCall_2_2_1_0_1() { return cReferencedAdviceBAdviceIDTerminalRuleCall_2_2_1_0_1; }
-
-		//")"
-		public Keyword getRightParenthesisKeyword_2_3() { return cRightParenthesisKeyword_2_3; }
+		public RuleCall getReferencedAdviceBAdviceIDTerminalRuleCall_2_1_1_0_1() { return cReferencedAdviceBAdviceIDTerminalRuleCall_2_1_1_0_1; }
 
 		//("properties" propertySets+=PropertySet|"default" "properties" propertySets+=
-		//PropertySetDefault|"concern" concerns+=Concern_Anonymous)*
+		//PropertySetDefault|"concern" concerns+=Concern_Anonymous)*  
+		////		( '(' referencedAdvice += [be::BAdvice | ID] (',' referencedAdvice += [be::BAdvice | ID])* ')' )?
 		public Alternatives getAlternatives_3() { return cAlternatives_3; }
 
 		//"properties" propertySets+=PropertySet
@@ -5777,16 +5783,14 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cBWithExpressionAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cWithKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cLeftParenthesisKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cReferencedAdviceAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final CrossReference cReferencedAdviceBAdviceCrossReference_2_1_0 = (CrossReference)cReferencedAdviceAssignment_2_1.eContents().get(0);
-		private final RuleCall cReferencedAdviceBAdviceIDTerminalRuleCall_2_1_0_1 = (RuleCall)cReferencedAdviceBAdviceCrossReference_2_1_0.eContents().get(1);
-		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
-		private final Keyword cCommaKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
-		private final Assignment cReferencedAdviceAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
-		private final CrossReference cReferencedAdviceBAdviceCrossReference_2_2_1_0 = (CrossReference)cReferencedAdviceAssignment_2_2_1.eContents().get(0);
-		private final RuleCall cReferencedAdviceBAdviceIDTerminalRuleCall_2_2_1_0_1 = (RuleCall)cReferencedAdviceBAdviceCrossReference_2_2_1_0.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
+		private final Assignment cReferencedAdviceAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
+		private final CrossReference cReferencedAdviceBAdviceCrossReference_2_0_0 = (CrossReference)cReferencedAdviceAssignment_2_0.eContents().get(0);
+		private final RuleCall cReferencedAdviceBAdviceIDTerminalRuleCall_2_0_0_1 = (RuleCall)cReferencedAdviceBAdviceCrossReference_2_0_0.eContents().get(1);
+		private final Group cGroup_2_1 = (Group)cGroup_2.eContents().get(1);
+		private final Keyword cCommaKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
+		private final Assignment cReferencedAdviceAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
+		private final CrossReference cReferencedAdviceBAdviceCrossReference_2_1_1_0 = (CrossReference)cReferencedAdviceAssignment_2_1_1.eContents().get(0);
+		private final RuleCall cReferencedAdviceBAdviceIDTerminalRuleCall_2_1_1_0_1 = (RuleCall)cReferencedAdviceBAdviceCrossReference_2_1_1_0.eContents().get(1);
 		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
 		private final Group cGroup_3_0 = (Group)cAlternatives_3.eContents().get(0);
 		private final Keyword cPropertiesKeyword_3_0_0 = (Keyword)cGroup_3_0.eContents().get(0);
@@ -5813,20 +5817,25 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_4_1_2 = (Keyword)cGroup_4_1.eContents().get(2);
 		
 		//WithExpression returns be::BWithExpression:
-		//  {be::BWithExpression} "with" ("(" referencedAdvice+=[be::BAdvice] (","
-		//  referencedAdvice+=[be::BAdvice])* ")")? ("properties" propertySets+=PropertySet|
-		//  "default" "properties" propertySets+=PropertySetDefault|"concern" concerns+=
-		//  Concern_Anonymous)* (":" funcExpr=Expression|"{" funcExpr=
-		//  BlockExpressionWithoutBrackets "}"); 
+		//  {be::BWithExpression} "with" (referencedAdvice+=[be::BAdvice] ("," referencedAdvice
+		//  +=[be::BAdvice])*)? ("properties" propertySets+=PropertySet|"default" "properties"
+		//  propertySets+=PropertySetDefault|"concern" concerns+=Concern_Anonymous)* (":"
+		//  funcExpr=Expression|"{" funcExpr=BlockExpressionWithoutBrackets "}"); 
 		//
 		//// Validation checks that there is at least one of references, properties or concern.
+		//        
+		//		
+		//		                         
+		////		( '(' referencedAdvice += [be::BAdvice | ID] (',' referencedAdvice += [be::BAdvice | ID])* ')' )?
 		public ParserRule getRule() { return rule; }
 
-		//{be::BWithExpression} "with" ("(" referencedAdvice+=[be::BAdvice] (","
-		//referencedAdvice+=[be::BAdvice])* ")")? ("properties" propertySets+=PropertySet|
-		//"default" "properties" propertySets+=PropertySetDefault|"concern" concerns+=
-		//Concern_Anonymous)* (":" funcExpr=Expression|"{" funcExpr=
-		//BlockExpressionWithoutBrackets "}")
+		//{be::BWithExpression} "with" (referencedAdvice+=[be::BAdvice] ("," referencedAdvice
+		//+=[be::BAdvice])*)? ("properties" propertySets+=PropertySet|"default" "properties"
+		//propertySets+=PropertySetDefault|"concern" concerns+=Concern_Anonymous)* (":"
+		//funcExpr=Expression|"{" funcExpr=BlockExpressionWithoutBrackets "}")   
+		//		
+		//		                         
+		////		( '(' referencedAdvice += [be::BAdvice | ID] (',' referencedAdvice += [be::BAdvice | ID])* ')' )?
 		public Group getGroup() { return cGroup; }
 
 		//{be::BWithExpression}
@@ -5835,41 +5844,36 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//"with"
 		public Keyword getWithKeyword_1() { return cWithKeyword_1; }
 
-		//("(" referencedAdvice+=[be::BAdvice] ("," referencedAdvice+=[be::BAdvice])* ")")?
+		//(referencedAdvice+=[be::BAdvice] ("," referencedAdvice+=[be::BAdvice])*)?
 		public Group getGroup_2() { return cGroup_2; }
 
-		//"("
-		public Keyword getLeftParenthesisKeyword_2_0() { return cLeftParenthesisKeyword_2_0; }
-
 		//referencedAdvice+=[be::BAdvice]
-		public Assignment getReferencedAdviceAssignment_2_1() { return cReferencedAdviceAssignment_2_1; }
+		public Assignment getReferencedAdviceAssignment_2_0() { return cReferencedAdviceAssignment_2_0; }
 
 		//[be::BAdvice]
-		public CrossReference getReferencedAdviceBAdviceCrossReference_2_1_0() { return cReferencedAdviceBAdviceCrossReference_2_1_0; }
+		public CrossReference getReferencedAdviceBAdviceCrossReference_2_0_0() { return cReferencedAdviceBAdviceCrossReference_2_0_0; }
 
 		//ID
-		public RuleCall getReferencedAdviceBAdviceIDTerminalRuleCall_2_1_0_1() { return cReferencedAdviceBAdviceIDTerminalRuleCall_2_1_0_1; }
+		public RuleCall getReferencedAdviceBAdviceIDTerminalRuleCall_2_0_0_1() { return cReferencedAdviceBAdviceIDTerminalRuleCall_2_0_0_1; }
 
 		//("," referencedAdvice+=[be::BAdvice])*
-		public Group getGroup_2_2() { return cGroup_2_2; }
+		public Group getGroup_2_1() { return cGroup_2_1; }
 
 		//","
-		public Keyword getCommaKeyword_2_2_0() { return cCommaKeyword_2_2_0; }
+		public Keyword getCommaKeyword_2_1_0() { return cCommaKeyword_2_1_0; }
 
 		//referencedAdvice+=[be::BAdvice]
-		public Assignment getReferencedAdviceAssignment_2_2_1() { return cReferencedAdviceAssignment_2_2_1; }
+		public Assignment getReferencedAdviceAssignment_2_1_1() { return cReferencedAdviceAssignment_2_1_1; }
 
 		//[be::BAdvice]
-		public CrossReference getReferencedAdviceBAdviceCrossReference_2_2_1_0() { return cReferencedAdviceBAdviceCrossReference_2_2_1_0; }
+		public CrossReference getReferencedAdviceBAdviceCrossReference_2_1_1_0() { return cReferencedAdviceBAdviceCrossReference_2_1_1_0; }
 
 		//ID
-		public RuleCall getReferencedAdviceBAdviceIDTerminalRuleCall_2_2_1_0_1() { return cReferencedAdviceBAdviceIDTerminalRuleCall_2_2_1_0_1; }
-
-		//")"
-		public Keyword getRightParenthesisKeyword_2_3() { return cRightParenthesisKeyword_2_3; }
+		public RuleCall getReferencedAdviceBAdviceIDTerminalRuleCall_2_1_1_0_1() { return cReferencedAdviceBAdviceIDTerminalRuleCall_2_1_1_0_1; }
 
 		//("properties" propertySets+=PropertySet|"default" "properties" propertySets+=
-		//PropertySetDefault|"concern" concerns+=Concern_Anonymous)*
+		//PropertySetDefault|"concern" concerns+=Concern_Anonymous)*  
+		////		( '(' referencedAdvice += [be::BAdvice | ID] (',' referencedAdvice += [be::BAdvice | ID])* ')' )?
 		public Alternatives getAlternatives_3() { return cAlternatives_3; }
 
 		//"properties" propertySets+=PropertySet
@@ -11196,12 +11200,12 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Prerequisite returns build::Prerequisite:
-	//  {build::Prerequisite} ("when" "(" condExpr=Expression ")")? withExpr=WithClause?
+	//  {build::Prerequisite} ("when" "(" condExpr=Expression ")")? (withExpr=WithClause ":")?
 	//  buildResult=BuildResultReference ("as" alias=ID)? ";"; 
 	//
 	//         
 	//	        
-	//	    
+	//	      
 	//	
 	//	    
 	//	
@@ -11216,12 +11220,15 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//WithClause returns be::BWithExpression:
-	//  {be::BWithExpression} "with" ("(" referencedAdvice+=[be::BAdvice] (","
-	//  referencedAdvice+=[be::BAdvice])* ")")? ("properties" propertySets+=PropertySet|
-	//  "default" "properties" propertySets+=PropertySetDefault|"concern" concerns+=
-	//  Concern_Anonymous)*; 
+	//  {be::BWithExpression} "with" (referencedAdvice+=[be::BAdvice] ("," referencedAdvice
+	//  +=[be::BAdvice])*)? ("properties" propertySets+=PropertySet|"default" "properties"
+	//  propertySets+=PropertySetDefault|"concern" concerns+=Concern_Anonymous)*; 
 	//
 	//// Validation checks that there is at least one of references, properties or concern.
+	//        
+	//		
+	//		                         
+	////		( '(' referencedAdvice += [be::BAdvice | ID] (',' referencedAdvice += [be::BAdvice | ID])* ')' )?
 	public WithClauseElements getWithClauseAccess() {
 		return (pWithClause != null) ? pWithClause : (pWithClause = new WithClauseElements());
 	}
@@ -12005,13 +12012,16 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//WithExpression returns be::BWithExpression:
-	//  {be::BWithExpression} "with" ("(" referencedAdvice+=[be::BAdvice] (","
-	//  referencedAdvice+=[be::BAdvice])* ")")? ("properties" propertySets+=PropertySet|
-	//  "default" "properties" propertySets+=PropertySetDefault|"concern" concerns+=
-	//  Concern_Anonymous)* (":" funcExpr=Expression|"{" funcExpr=
-	//  BlockExpressionWithoutBrackets "}"); 
+	//  {be::BWithExpression} "with" (referencedAdvice+=[be::BAdvice] ("," referencedAdvice
+	//  +=[be::BAdvice])*)? ("properties" propertySets+=PropertySet|"default" "properties"
+	//  propertySets+=PropertySetDefault|"concern" concerns+=Concern_Anonymous)* (":"
+	//  funcExpr=Expression|"{" funcExpr=BlockExpressionWithoutBrackets "}"); 
 	//
 	//// Validation checks that there is at least one of references, properties or concern.
+	//        
+	//		
+	//		                         
+	////		( '(' referencedAdvice += [be::BAdvice | ID] (',' referencedAdvice += [be::BAdvice | ID])* ')' )?
 	public WithExpressionElements getWithExpressionAccess() {
 		return (pWithExpression != null) ? pWithExpression : (pWithExpression = new WithExpressionElements());
 	}
