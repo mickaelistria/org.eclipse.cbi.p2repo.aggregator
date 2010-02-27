@@ -341,7 +341,9 @@ public class SystemFunctions {
 	public static Boolean assertContainsAll(@B3Backend(name = "message") String message,
 			@B3Backend(name = "container") Collection<?> container, @B3Backend(name = "data") Collection<?> data)
 			throws Throwable {
-		return Boolean.valueOf(container.containsAll(data));
+		if(!container.containsAll(data))
+			throw new B3AssertionFailedException(message, data, container);
+		return Boolean.TRUE;
 
 	}
 
