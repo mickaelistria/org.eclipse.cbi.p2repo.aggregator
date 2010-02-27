@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="org.eclipse.b3.aggregator.editor.feature"
-      label="b3 Aggregator Editor"
+      label="b3 Aggregator Editor (Incubation)"
       version="0.1.0.qualifier"
       provider-name="Eclipse b3 Project">
 
