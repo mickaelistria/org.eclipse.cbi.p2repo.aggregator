@@ -34,6 +34,7 @@ import org.junit.runner.RunWith;
 		"/src-b3/testTypes.b3", //
 		"/src-b3/testVarargs.b3", //
 		"/src-b3/testVarValScope.b3", //
+		"/src-b3/testWithContext.b3", //
 
 		"/src-b3/testunits/testFruitsallad.b3" //
 })
