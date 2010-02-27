@@ -650,37 +650,42 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 	public void load(Map<?, ?> options) throws IOException {
 		lastException = null;
 
-		try {
-			synchronized(this) {
-				if(isLoading) {
-					Job jobThreadSafeCopy = loadingJob;
-					if(jobThreadSafeCopy != null)
+		synchronized(this) {
+			if(isLoading) {
+				Job jobThreadSafeCopy = loadingJob;
+				if(jobThreadSafeCopy != null)
+					try {
 						jobThreadSafeCopy.join();
+					}
+					catch(InterruptedException e) {
+						throw new IOException("Repository loading was interrupted");
+					}
 
+				return;
+			}
+			else {
+				isLoading = true;
+
+				java.net.URI location;
+				try {
+					location = new java.net.URI(getURI().opaquePart());
+				}
+				catch(URISyntaxException e) {
+					lastException = new Resource.IOWrappedException(e);
 					return;
 				}
-				else {
-					isLoading = true;
 
-					java.net.URI location;
-					try {
-						location = new java.net.URI(getURI().opaquePart());
-					}
-					catch(URISyntaxException e) {
-						lastException = new Resource.IOWrappedException(e);
-						return;
-					}
+				MetadataRepositoryImpl repository = (MetadataRepositoryImpl) P2Factory.eINSTANCE.createMetadataRepository();
 
-					MetadataRepositoryImpl repository = (MetadataRepositoryImpl) P2Factory.eINSTANCE.createMetadataRepository();
+				repoView = P2viewFactory.eINSTANCE.createMetadataRepositoryStructuredView(repository);
+				allIUPresentationMatrix.clear();
 
-					repoView = P2viewFactory.eINSTANCE.createMetadataRepositoryStructuredView(repository);
-					allIUPresentationMatrix.clear();
-
-					loadingJob = new RepositoryLoaderJob(repository, location, forceReload, repoView,
-							allIUPresentationMatrix);
-				}
+				loadingJob = new RepositoryLoaderJob(repository, location, forceReload, repoView,
+						allIUPresentationMatrix);
 			}
+		}
 
+		try {
 			boolean jobManagerReadyBeforeJobScheduled = !Job.getJobManager().isSuspended();
 			loadingJob.schedule();
 			loadingJob.join();
