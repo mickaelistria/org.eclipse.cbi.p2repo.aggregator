@@ -39,10 +39,11 @@ function testBuildingFruitSallad() {
 	x.join();
 	var r = x.getBuildResult();
 	
-	assertContainsAll("All input in fruitsallaed is merged", r.getPathIterator().toList().collect(x|x.toString()),
+	assertContainsAll("All input in fruitsallaed is merged", 
+	r.getPathIterator().toList().collect(x|x.toString()),
 	[
 		"resource:/org.eclipse.b3.beelang.tests/src-b3/testunits/apple/applepulp.txt",
-		"resource:/org.eclipse.b3.beelang.tests/src-b3/testunits/banana/txt/bananapulp.txt",
+		"resource:/org.eclipse.b3.beelang.tests/src-b3/testunits/banana/bananapulp.txt",
 		"resource:/org.eclipse.b3.beelang.tests/src-b3/testunits/orange/orangepulp.txt", 
 		"resource:/org.eclipse.b3.beelang.tests/src-b3/testunits/orange/orangepeel.txt"
 	]);	
@@ -96,7 +97,7 @@ private function fruitWaste() {
 * produced.
 */
 function testFruitWaste() {
-		with (FruitProcessing) : fruitWaste();
+		with FruitProcessing : fruitWaste();
 }
 
 /**
@@ -144,13 +145,13 @@ unit banana version 1.0.0 implements Fruit {
 	provides food.nutrition.mineral/potassium;
 	
 	builder peel {
-		source { txt/bananapeel.txt; }
+		source { bananapeel.txt; }
 	}
 	builder seeds {
-		source { txt/bananaseeds.txt; }
+		source { bananaseeds.txt; }
 	}
 	builder pulp {
-		source { txt/bananapulp.txt; }
+		source { bananapulp.txt; }
 	}
 }
 
