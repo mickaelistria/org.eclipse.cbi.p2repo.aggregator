@@ -31,7 +31,9 @@
    </features>
 
    <configurations>
-      <plugin id="org.eclipse.equinox.app" autoStart="true" startLevel="4" />
+      <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="1" />
+      <plugin id="org.eclipse.equinox.util" autoStart="true" startLevel="1" />
+      <plugin id="org.eclipse.osgi.services" autoStart="true" startLevel="1" />
    </configurations>
 
 </product>
