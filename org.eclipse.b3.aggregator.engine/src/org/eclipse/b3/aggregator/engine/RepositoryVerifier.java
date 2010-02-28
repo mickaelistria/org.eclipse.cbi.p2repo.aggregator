@@ -507,8 +507,13 @@ public class RepositoryVerifier extends BuilderPhase {
 				request.setInstallableUnitProfileProperty(rootIU, IProfile.PROP_PROFILE_ROOT_IU,
 						Boolean.TRUE.toString());
 			request.addInstallableUnits(rootArr);
+
+			// we don't pass the main monitor since we expect a possible failure which is silently ignored
+			// to avoid this, we use a null monitor and when the plan is ready, we add the full amount of ticks
+			// to the main monitor
 			ProvisioningPlan plan = (ProvisioningPlan) planner.getProvisioningPlan(request, new ProvisioningContext(
-					new URI[] { repoLocation }), monitor.newChild(8));
+					new URI[] { repoLocation }), new NullProgressMonitor());
+			monitor.worked(8);
 
 			HashSet<IInstallableUnit> units = new HashSet<IInstallableUnit>();
 			units.add(patch);
