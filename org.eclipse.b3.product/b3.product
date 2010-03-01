@@ -3,6 +3,7 @@
 
 <product name="b3" id="org.eclipse.b3.cli.product" application="org.eclipse.b3.cli.headless" useFeatures="true" includeLaunchers="true">
 
+
    <configIni use="default">
    </configIni>
 
@@ -13,15 +14,18 @@
 
    <windowImages/>
 
-   <launcher>
+
+   <launcher name="b3">
       <solaris/>
       <win useIco="false">
          <bmp/>
       </win>
    </launcher>
 
+
    <vm>
    </vm>
+
 
    <plugins>
    </plugins>
@@ -30,5 +34,10 @@
       <feature id="org.eclipse.b3.product" version="0.1.0.qualifier"/>
    </features>
 
+   <configurations>
+      <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="1" />
+      <plugin id="org.eclipse.equinox.util" autoStart="true" startLevel="1" />
+      <plugin id="org.eclipse.osgi.services" autoStart="true" startLevel="1" />
+   </configurations>
 
 </product>
