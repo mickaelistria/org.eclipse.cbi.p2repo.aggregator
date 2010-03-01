@@ -21,10 +21,6 @@ import java.util.TimeZone;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
 import org.apache.tools.ant.Project;
 import org.apache.tools.ant.util.DateUtils;
 import org.apache.tools.mail.MailMessage;
@@ -75,10 +71,6 @@ import org.kohsuke.args4j.Option;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleException;
 import org.osgi.service.packageadmin.PackageAdmin;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.xml.sax.SAXParseException;
 
 public class Builder extends AbstractCommand {
 	public enum ActionType{
@@ -536,11 +528,7 @@ public class Builder extends AbstractCommand {
 			if(smtpPort <= 0)
 				smtpPort = 25;
 
-			// Verify that all contributions can be parsed, i.e. contains
-			// well-formed XML
-			//
-			verifyContributions();
-			runTransformation(now);
+			loadModel(now);
 			switch(action) {
 			case CLEAN:
 			case CLEAN_BUILD:
@@ -864,6 +852,57 @@ public class Builder extends AbstractCommand {
 		}
 	}
 
+	/**
+	 * Loads the model into memory
+	 * 
+	 * @throws CoreException
+	 *             If something goes wrong with during the process
+	 */
+	private void loadModel(Date now) throws CoreException {
+		try {
+			// Load the Java model into memory
+			resourceSet = new ResourceSetImpl();
+			org.eclipse.emf.common.util.URI fileURI = org.eclipse.emf.common.util.URI.createFileURI(buildModelLocation.getAbsolutePath());
+			Resource resource = resourceSet.getResource(fileURI, true);
+			EList<EObject> content = resource.getContents();
+			if(content.size() != 1)
+				throw ExceptionUtils.fromMessage("ECore Resource did not contain one resource. It had %d",
+						Integer.valueOf(content.size()));
+
+			aggregator = (Aggregator) content.get(0);
+
+			verifyContributions();
+
+			sendmail = aggregator.isSendmail();
+			buildLabel = aggregator.getLabel();
+
+			Contact buildMaster = aggregator.getBuildmaster();
+			if(buildMaster != null) {
+				buildMasterName = buildMaster.getName();
+				buildMasterEmail = buildMaster.getEmail();
+			}
+
+			Diagnostic diag = Diagnostician.INSTANCE.validate((EObject) aggregator);
+			if(diag.getSeverity() == Diagnostic.ERROR) {
+				for(Diagnostic childDiag : diag.getChildren())
+					LogUtils.error(childDiag.getMessage());
+				throw ExceptionUtils.fromMessage("Build model validation failed: %s", diag.getMessage());
+			}
+
+			if(buildRoot == null) {
+				setBuildRoot(new File(PROPERTY_REPLACER.replaceProperties(aggregator.getBuildRoot())));
+
+				if(!buildRoot.isAbsolute())
+					setBuildRoot(new File(buildModelLocation.getParent(), buildRoot.getPath()));
+			}
+			else if(!buildRoot.isAbsolute())
+				setBuildRoot(buildRoot.getAbsoluteFile());
+		}
+		catch(Exception e) {
+			throw ExceptionUtils.wrap(e);
+		}
+	}
+
 	private EmailAddress mockCCRecipient() throws UnsupportedEncodingException {
 		EmailAddress mock = null;
 		if(mockEmailCC != null)
@@ -959,117 +998,19 @@ public class Builder extends AbstractCommand {
 		ipt.run(monitor);
 	}
 
-	/**
-	 * Runs the transformation and loads the model into memory
-	 * 
-	 * @throws CoreException
-	 *             If something goes wrong with during the process
-	 */
-	private void runTransformation(Date now) throws CoreException {
-		try {
-			// Load the Java model into memory
-			resourceSet = new ResourceSetImpl();
-			org.eclipse.emf.common.util.URI fileURI = org.eclipse.emf.common.util.URI.createFileURI(buildModelLocation.getAbsolutePath());
-			Resource resource = resourceSet.getResource(fileURI, true);
-			EList<EObject> content = resource.getContents();
-			if(content.size() != 1)
-				throw ExceptionUtils.fromMessage("ECore Resource did not contain one resource. It had %d",
-						Integer.valueOf(content.size()));
-
-			aggregator = (Aggregator) content.get(0);
-			Diagnostic diag = Diagnostician.INSTANCE.validate((EObject) aggregator);
-			if(diag.getSeverity() == Diagnostic.ERROR) {
-				for(Diagnostic childDiag : diag.getChildren())
-					LogUtils.error(childDiag.getMessage());
-				throw ExceptionUtils.fromMessage("Build model validation failed: %s", diag.getMessage());
-			}
-
-			if(buildRoot == null)
-				setBuildRoot(new File(PROPERTY_REPLACER.replaceProperties(aggregator.getBuildRoot())));
-
-			if(!buildRoot.isAbsolute())
-				buildRoot = new File(buildModelLocation.getParent(), buildRoot.getPath());
-		}
-		catch(Exception e) {
-			throw ExceptionUtils.wrap(e);
-		}
-	}
-
 	private void runVerificationFeatureGenerator(IProgressMonitor monitor) throws CoreException {
 		VerificationFeatureGenerator generator = new VerificationFeatureGenerator(this);
 		generator.run(monitor);
 	}
 
 	private void verifyContributions() throws CoreException {
-		File parentFolder = buildModelLocation.getParentFile();
-		if(parentFolder == null)
-			parentFolder = new File(".");
-		URI buildModelFolderURI = parentFolder.toURI();
-		DocumentBuilderFactory docBldFact = DocumentBuilderFactory.newInstance();
-		DocumentBuilder docBld;
-		try {
-			docBld = docBldFact.newDocumentBuilder();
-		}
-		catch(ParserConfigurationException e) {
-			throw new RuntimeException(e);
-		}
-
-		Element masterBuild;
-		try {
-			Document doc = docBld.parse(buildModelLocation);
-			masterBuild = doc.getDocumentElement();
-			sendmail = "true".equalsIgnoreCase(masterBuild.getAttribute("sendmail"));
-			buildLabel = StringUtils.trimmedOrNull(masterBuild.getAttribute("label"));
-		}
-		catch(Exception e) {
-			String msg;
-			if(e instanceof SAXParseException)
-				msg = format("Unable to parse file: %s: Error at line %s: %s", buildModelLocation,
-						Integer.valueOf(((SAXParseException) e).getLineNumber()), e.getMessage());
-			else
-				msg = format("Unable to parse file '%s': %s", buildModelLocation, e.getMessage());
-			throw ExceptionUtils.fromMessage(msg);
-		}
-
-		List<File> contributionFiles = new ArrayList<File>();
-		for(Node child = masterBuild.getFirstChild(); child != null; child = child.getNextSibling()) {
-			if(!(child instanceof Element))
-				continue;
-
-			Element elem = (Element) child;
-			if("contributions".equals(elem.getNodeName())) {
-				String attr = StringUtils.trimmedOrNull(elem.getAttribute("href"));
-				if(attr == null)
-					continue;
-				if(attr.endsWith("#/"))
-					attr = attr.substring(0, attr.length() - 2);
-				URI uri = buildModelFolderURI.resolve(URI.create(attr));
-				contributionFiles.add(new File(uri));
-			}
-
-			if("buildmaster".equals(elem.getNodeName())) {
-				buildMasterEmail = StringUtils.trimmedOrNull(elem.getAttribute("email"));
-				buildMasterName = StringUtils.trimmedOrNull(elem.getAttribute("name"));
-			}
-		}
-
 		List<String> errors = new ArrayList<String>();
-		for(File buildFile : contributionFiles) {
-			try {
-				docBld.parse(buildFile);
-			}
-			catch(Exception e) {
-				String msg;
-				if(e instanceof SAXParseException)
-					msg = format("Unable to parse file: %s: Error at line %s: %s", buildFile,
-							Integer.valueOf(((SAXParseException) e).getLineNumber()), e.getMessage());
-				else
-					msg = format("Unable to parse file: %s: %s", buildFile, e.getMessage());
-				LogUtils.error(e, msg);
+		for(Contribution contribution : aggregator.getContributions()) {
+			Resource res = ((EObject) contribution).eResource();
+			for(Resource.Diagnostic diag : res.getErrors()) {
+				String msg = res.getURI() + ": " + diag.toString();
+				LogUtils.error(msg);
 				errors.add(msg);
-			}
-			finally {
-				docBld.reset();
 			}
 		}
 
