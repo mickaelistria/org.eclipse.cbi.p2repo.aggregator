@@ -71,6 +71,8 @@ public class AggregatorTransformer_080_2_100 extends ResourceTransformer {
 
 	private static final String CATEGORIES_REF = "categories";
 
+	private static final String CATEGORY_REF = "category";
+
 	private static final String DEFAULTMAILLIST_REF = "defaultMailList";
 
 	private static final String BUILDMASTER_REF = "buildmaster";
@@ -383,63 +385,116 @@ public class AggregatorTransformer_080_2_100 extends ResourceTransformer {
 
 	@SuppressWarnings("unchecked")
 	private void transformCategoryRef() {
-		EClass scrEClass = null;
-		EReference srcERef = null;
-		EClass trgtEClass = null;
-		EReference trgtERef = null;
-		EReference trgtCategoriesERef = null;
+		// explore from category to feature
+		{
+			EClass scrEClass = null;
+			EReference srcERef = null;
+			EClass trgtEClass = null;
+			EReference trgtERef = null;
+			EReference trgtCategoriesERef = null;
 
-		for(EObject srcCategory : srcCategories) {
+			for(EObject srcCategory : srcCategories) {
 
-			EObject trgtCategory = transformationMapping.get(srcCategory);
+				EObject trgtCategory = transformationMapping.get(srcCategory);
 
-			if(scrEClass == null) {
-				scrEClass = srcCategory.eClass();
-				srcERef = (EReference) scrEClass.getEStructuralFeature(FEATURES_REF);
-				trgtEClass = trgtCategory.eClass();
-				trgtERef = (EReference) trgtEClass.getEStructuralFeature(FEATURES_REF);
-			}
-
-			Object srcERefValue = srcCategory.eGet(srcERef);
-
-			if(srcERefValue == null)
-				continue;
-
-			List<EObject> trgtCategoryFeatureList = (List<EObject>) trgtCategory.eGet(trgtERef);
-
-			for(EObject srcFeature : (List<EObject>) srcERefValue) {
-
-				EObject srcContribution = srcFeature.eContainer();
-
-				if(!srcContributions.contains(srcContribution)) {
-					String srcCategoryName = (String) getValue(srcCategory, NAME_ATTR);
-					String srcContributionLabel = (String) getValue(srcContribution, LABEL_ATTR);
-					String srcFeatureId = (String) getValue(srcFeature, ID_ATTR);
-
-					throw new RuntimeException("Category " + srcCategoryName + " references feature " + srcFeatureId
-							+ " which belongs to a missing contribution " + srcContributionLabel);
+				if(scrEClass == null) {
+					scrEClass = srcCategory.eClass();
+					srcERef = (EReference) scrEClass.getEStructuralFeature(FEATURES_REF);
+					trgtEClass = trgtCategory.eClass();
+					trgtERef = (EReference) trgtEClass.getEStructuralFeature(FEATURES_REF);
 				}
 
-				// e.g. branding feature - only for source build not for aggregation
-				if(srcIUsWithoutRepo.contains(srcFeature))
+				Object srcERefValue = srcCategory.eGet(srcERef);
+
+				if(srcERefValue == null)
 					continue;
 
-				EObject trgtFeature = transformationMapping.get(srcFeature);
+				List<EObject> trgtCategoryFeatureList = (List<EObject>) trgtCategory.eGet(trgtERef);
 
-				if(trgtFeature == null) {
-					String srcIUId = (String) getFeatureValue(srcFeature, ID_ATTR);
-					String srcCategoryName = (String) getFeatureValue(srcCategory, NAME_ATTR);
-					throw new RuntimeException("Feature " + srcIUId + " is located in category " + srcCategoryName
-							+ " but not in any contribution");
+				for(EObject srcFeature : (List<EObject>) srcERefValue) {
+
+					EObject srcContribution = srcFeature.eContainer();
+
+					if(!srcContributions.contains(srcContribution)) {
+						String srcCategoryName = (String) getValue(srcCategory, NAME_ATTR);
+						String srcContributionLabel = (String) getValue(srcContribution, LABEL_ATTR);
+						String srcFeatureId = (String) getValue(srcFeature, ID_ATTR);
+
+						throw new RuntimeException("Category " + srcCategoryName + " references feature "
+								+ srcFeatureId + " which belongs to a missing contribution " + srcContributionLabel);
+					}
+
+					// e.g. branding feature - only for source build not for aggregation
+					if(srcIUsWithoutRepo.contains(srcFeature))
+						continue;
+
+					EObject trgtFeature = transformationMapping.get(srcFeature);
+
+					if(trgtFeature == null) {
+						String srcIUId = (String) getFeatureValue(srcFeature, ID_ATTR);
+						String srcCategoryName = (String) getFeatureValue(srcCategory, NAME_ATTR);
+						throw new RuntimeException("Feature " + srcIUId + " is located in category " + srcCategoryName
+								+ " but not in any contribution");
+					}
+
+					if(trgtCategoriesERef == null)
+						trgtCategoriesERef = (EReference) trgtFeature.eClass().getEStructuralFeature(CATEGORIES_REF);
+
+					List<EObject> trgtFeatureCategoryList = (List<EObject>) trgtFeature.eGet(trgtCategoriesERef);
+
+					trgtFeatureCategoryList.add(trgtCategory);
+					trgtCategoryFeatureList.add(trgtFeature);
 				}
+			}
+		}
 
-				if(trgtCategoriesERef == null)
-					trgtCategoriesERef = (EReference) trgtFeature.eClass().getEStructuralFeature(CATEGORIES_REF);
+		// explore from feature to category
 
-				List<EObject> trgtFeatureCategoryList = (List<EObject>) trgtFeature.eGet(trgtCategoriesERef);
+		{
+			EReference srcFeaturesERef = null;
+			EReference srcCategoriesERef = null;
+			EReference trgtCategoriesERef = null;
+			EReference trgtFeaturesERef = null;
 
-				trgtFeatureCategoryList.add(trgtCategory);
-				trgtCategoryFeatureList.add(trgtFeature);
+			for(EObject srcContribution : srcContributions) {
+
+				if(srcFeaturesERef == null)
+					srcFeaturesERef = (EReference) srcContribution.eClass().getEStructuralFeature(FEATURES_REF);
+
+				for(EObject srcFeature : ((List<EObject>) srcContribution.eGet(srcFeaturesERef))) {
+
+					if(srcCategoriesERef == null)
+						srcCategoriesERef = (EReference) srcFeature.eClass().getEStructuralFeature(CATEGORY_REF);
+
+					EObject trgtFeature = transformationMapping.get(srcFeature);
+
+					if(trgtFeature == null)
+						continue;
+
+					if(trgtCategoriesERef == null)
+						trgtCategoriesERef = (EReference) trgtFeature.eClass().getEStructuralFeature(CATEGORIES_REF);
+
+					List<EObject> trgtFeatureCategoryList = (List<EObject>) trgtFeature.eGet(trgtCategoriesERef);
+
+					for(EObject srcCategory : ((List<EObject>) srcFeature.eGet(srcCategoriesERef))) {
+
+						EObject trgtCategory = transformationMapping.get(srcCategory);
+
+						if(trgtCategory == null)
+							continue;
+
+						if(trgtFeaturesERef == null)
+							trgtFeaturesERef = (EReference) trgtCategory.eClass().getEStructuralFeature(FEATURES_REF);
+
+						List<EObject> trgtCategoryFeatureList = (List<EObject>) trgtCategory.eGet(trgtFeaturesERef);
+
+						if(!trgtCategoryFeatureList.contains(trgtFeature))
+							trgtCategoryFeatureList.add(trgtFeature);
+
+						if(!trgtFeatureCategoryList.contains(trgtCategory))
+							trgtFeatureCategoryList.add(trgtCategory);
+					}
+				}
 			}
 		}
 	}
