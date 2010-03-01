@@ -26,11 +26,11 @@ import org.eclipse.emf.edit.provider.IItemLabelProvider;
  */
 public class SortCommand<T> extends AbstractCommand {
 
-	class LabelComparator implements Comparator<T> {
+	class LabelHashComparator implements Comparator<T> {
 
 		private IItemLabelProvider labelProvider;
 
-		public LabelComparator(IItemLabelProvider labelProvider) {
+		public LabelHashComparator(IItemLabelProvider labelProvider) {
 			this.labelProvider = labelProvider;
 		}
 
@@ -43,8 +43,15 @@ public class SortCommand<T> extends AbstractCommand {
 					return -1;
 			else if(o2 == null)
 				return 1;
-			else
-				return labelProvider.getText(o1).compareTo(labelProvider.getText(o2));
+			else {
+				int result = labelProvider.getText(o1).compareTo(labelProvider.getText(o2));
+
+				// when two different instances have the same label, sort them according to their hash
+				if(result == 0)
+					result = System.identityHashCode(o1) - System.identityHashCode(o2);
+
+				return result;
+			}
 		}
 
 	};
@@ -78,7 +85,7 @@ public class SortCommand<T> extends AbstractCommand {
 	 * @see org.eclipse.emf.common.command.Command#execute()
 	 */
 	public void execute() {
-		sortedSet = new TreeSet<T>(new LabelComparator(labelProvider));
+		sortedSet = new TreeSet<T>(new LabelHashComparator(labelProvider));
 		sortedSet.addAll(containment);
 
 		originalList = new ArrayList<T>();
