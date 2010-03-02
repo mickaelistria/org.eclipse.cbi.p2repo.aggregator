@@ -371,7 +371,7 @@ public class MetadataRepositoryReferenceItemProvider extends AggregatorItemProvi
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null) {
 			@Override
 			public Collection<?> getChoiceOfValues(Object object) {
-				MappedRepository repo = (MappedRepository) object;
+				MetadataRepositoryReference repo = (MetadataRepositoryReference) object;
 				String currentValue = repo.getNature();
 				List<String> supportedValues = AggregatorPlugin.getPlugin().getSupportedRepositoryNatureList();
 				if(!supportedValues.contains(currentValue)) {
