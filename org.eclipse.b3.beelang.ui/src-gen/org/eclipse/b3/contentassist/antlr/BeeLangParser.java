@@ -459,7 +459,8 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getClosureExpressionAccess().getGroup_1(), "rule__ClosureExpression__Group_1__0");
 					put(grammarAccess.getClosureExpressionAccess().getGroup_2_0(), "rule__ClosureExpression__Group_2_0__0");
 					put(grammarAccess.getClosureExpressionAccess().getGroup_2_0_1(), "rule__ClosureExpression__Group_2_0_1__0");
-					put(grammarAccess.getClosureExpressionAccess().getGroup_2_0_2(), "rule__ClosureExpression__Group_2_0_2__0");
+					put(grammarAccess.getClosureExpressionAccess().getGroup_2_0_1_1(), "rule__ClosureExpression__Group_2_0_1_1__0");
+					put(grammarAccess.getClosureExpressionAccess().getGroup_2_0_1_2(), "rule__ClosureExpression__Group_2_0_1_2__0");
 					put(grammarAccess.getClosureExpressionAccess().getGroup_2_1(), "rule__ClosureExpression__Group_2_1__0");
 					put(grammarAccess.getBlockExpressionWithoutBracketsAccess().getGroup(), "rule__BlockExpressionWithoutBrackets__Group__0");
 					put(grammarAccess.getBlockExpressionWithoutBracketsAccess().getGroup_1(), "rule__BlockExpressionWithoutBrackets__Group_1__0");
@@ -862,10 +863,10 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getLiteralMapAccess().getKeyTypeAssignment_1_3(), "rule__LiteralMap__KeyTypeAssignment_1_3");
 					put(grammarAccess.getLiteralMapAccess().getValueTypeAssignment_1_5(), "rule__LiteralMap__ValueTypeAssignment_1_5");
 					put(grammarAccess.getClosureExpressionAccess().getReturnTypeAssignment_1_1(), "rule__ClosureExpression__ReturnTypeAssignment_1_1");
-					put(grammarAccess.getClosureExpressionAccess().getParametersAssignment_2_0_0(), "rule__ClosureExpression__ParametersAssignment_2_0_0");
-					put(grammarAccess.getClosureExpressionAccess().getParametersAssignment_2_0_1_1(), "rule__ClosureExpression__ParametersAssignment_2_0_1_1");
-					put(grammarAccess.getClosureExpressionAccess().getVarArgsAssignment_2_0_2_1(), "rule__ClosureExpression__VarArgsAssignment_2_0_2_1");
-					put(grammarAccess.getClosureExpressionAccess().getParametersAssignment_2_0_2_2(), "rule__ClosureExpression__ParametersAssignment_2_0_2_2");
+					put(grammarAccess.getClosureExpressionAccess().getParametersAssignment_2_0_1_0(), "rule__ClosureExpression__ParametersAssignment_2_0_1_0");
+					put(grammarAccess.getClosureExpressionAccess().getParametersAssignment_2_0_1_1_1(), "rule__ClosureExpression__ParametersAssignment_2_0_1_1_1");
+					put(grammarAccess.getClosureExpressionAccess().getVarArgsAssignment_2_0_1_2_1(), "rule__ClosureExpression__VarArgsAssignment_2_0_1_2_1");
+					put(grammarAccess.getClosureExpressionAccess().getParametersAssignment_2_0_1_2_2(), "rule__ClosureExpression__ParametersAssignment_2_0_1_2_2");
 					put(grammarAccess.getClosureExpressionAccess().getVarArgsAssignment_2_1_0(), "rule__ClosureExpression__VarArgsAssignment_2_1_0");
 					put(grammarAccess.getClosureExpressionAccess().getParametersAssignment_2_1_1(), "rule__ClosureExpression__ParametersAssignment_2_1_1");
 					put(grammarAccess.getClosureExpressionAccess().getFuncExprAssignment_4(), "rule__ClosureExpression__FuncExprAssignment_4");
