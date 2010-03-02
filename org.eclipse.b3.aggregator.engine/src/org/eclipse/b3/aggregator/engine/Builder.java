@@ -68,9 +68,6 @@ import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
 import org.kohsuke.args4j.Argument;
 import org.kohsuke.args4j.Option;
-import org.osgi.framework.Bundle;
-import org.osgi.framework.BundleException;
-import org.osgi.service.packageadmin.PackageAdmin;
 
 public class Builder extends AbstractCommand {
 	public enum ActionType{
@@ -216,20 +213,6 @@ public class Builder extends AbstractCommand {
 		deleteAndCheck(repoFolder, "content.xml");
 	}
 
-	private static synchronized Bundle getBundle(PackageAdmin packageAdmin, String symbolicName) {
-		Bundle[] bundles = packageAdmin.getBundles(symbolicName, null);
-		if(bundles == null)
-			return null;
-
-		// Return the first bundle that is not installed or uninstalled
-		for(int i = 0; i < bundles.length; i++) {
-			Bundle bundle = bundles[i];
-			if((bundle.getState() & (Bundle.INSTALLED | Bundle.UNINSTALLED)) == 0)
-				return bundle;
-		}
-		return null;
-	}
-
 	private static void getExceptionMessages(Throwable e, StringBuilder bld) {
 		bld.append(e.getClass().getName());
 		bld.append(": ");
@@ -264,22 +247,6 @@ public class Builder extends AbstractCommand {
 		PrintStream out = mailMessage.getPrintStream();
 		out.print(message);
 		mailMessage.sendAndClose();
-	}
-
-	private static boolean startEarly(PackageAdmin packageAdmin, String bundleName) throws BundleException {
-		Bundle bundle = getBundle(packageAdmin, bundleName);
-		if(bundle == null)
-			return false;
-		bundle.start(Bundle.START_TRANSIENT);
-		return true;
-	}
-
-	private static boolean stopBundle(PackageAdmin packageAdmin, String bundleName) throws BundleException {
-		Bundle bundle = getBundle(packageAdmin, bundleName);
-		if(bundle == null || bundle.getState() != Bundle.ACTIVE)
-			return false;
-		bundle.stop(Bundle.STOP_TRANSIENT);
-		return true;
 	}
 
 	// === OPTIONS ===
@@ -362,10 +329,6 @@ public class Builder extends AbstractCommand {
 	private Set<MappedRepository> exclusions;
 
 	private CompositeMetadataRepository sourceComposite;
-
-	private String preservedDataArea;
-
-	private String preservedProfile;
 
 	private IProvisioningAgent provisioningAgent;
 
