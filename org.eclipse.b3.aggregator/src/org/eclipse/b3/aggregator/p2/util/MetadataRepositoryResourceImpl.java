@@ -650,18 +650,13 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 	public void load(Map<?, ?> options) throws IOException {
 		lastException = null;
 
+		boolean threadSafeIsLoading = false;
+		Job jobThreadSafeCopy = null;
+
 		synchronized(this) {
 			if(isLoading) {
-				Job jobThreadSafeCopy = loadingJob;
-				if(jobThreadSafeCopy != null)
-					try {
-						jobThreadSafeCopy.join();
-					}
-					catch(InterruptedException e) {
-						throw new IOException("Repository loading was interrupted");
-					}
-
-				return;
+				threadSafeIsLoading = true;
+				jobThreadSafeCopy = loadingJob;
 			}
 			else {
 				isLoading = true;
@@ -683,6 +678,23 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 				loadingJob = new RepositoryLoaderJob(repository, location, forceReload, repoView,
 						allIUPresentationMatrix);
 			}
+		}
+
+		if(threadSafeIsLoading) {
+			if(jobThreadSafeCopy != null)
+				try {
+					while(true) {
+						if(jobThreadSafeCopy.getState() != Job.RUNNING && jobThreadSafeCopy.getState() == Job.NONE)
+							continue;
+						break;
+					}
+					jobThreadSafeCopy.join();
+				}
+				catch(InterruptedException e) {
+					throw new IOException("Repository loading was interrupted");
+				}
+
+			return;
 		}
 
 		try {

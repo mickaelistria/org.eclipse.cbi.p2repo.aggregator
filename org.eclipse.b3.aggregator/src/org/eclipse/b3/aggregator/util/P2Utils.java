@@ -8,11 +8,15 @@
 
 package org.eclipse.b3.aggregator.util;
 
+import java.net.URI;
+
 import org.eclipse.b3.util.B3Util;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.equinox.internal.provisional.p2.director.IPlanner;
 import org.eclipse.equinox.p2.core.IProvisioningAgent;
 import org.eclipse.equinox.p2.core.IProvisioningAgentProvider;
 import org.eclipse.equinox.p2.core.spi.IAgentServiceFactory;
+import org.eclipse.equinox.p2.engine.IProfileRegistry;
 import org.eclipse.equinox.p2.repository.IRepositoryManager;
 
 /**
@@ -21,21 +25,62 @@ import org.eclipse.equinox.p2.repository.IRepositoryManager;
  */
 public class P2Utils {
 
-	public static <T extends IRepositoryManager<?>> T getRepositoryManager(Class<T> clazz) {
-		try {
-			IProvisioningAgent agent = null;
-			try {
-				agent = B3Util.getPlugin().getService(IProvisioningAgent.class);
-			}
-			catch(CoreException e) {
-				// agent is null, further steps may fix it
-			}
+	public static IProvisioningAgent createDedicatedProvisioningAgent(URI location) throws CoreException {
+		IProvisioningAgentProvider agentProvider = null;
 
+		try {
+			agentProvider = B3Util.getPlugin().getService(IProvisioningAgentProvider.class);
+			return agentProvider.createAgent(location);
+		}
+		finally {
+			B3Util.getPlugin().ungetService(agentProvider);
+		}
+	}
+
+	public static IPlanner getPlanner(IProvisioningAgent agent) {
+		return getP2Service(agent, IPlanner.class);
+	}
+
+	public static IProfileRegistry getProfileRegistry(IProvisioningAgent agent) {
+		return getP2Service(agent, IProfileRegistry.class);
+	}
+
+	public static <T extends IRepositoryManager<?>> T getRepositoryManager(Class<T> clazz) {
+		return getP2Service(null, clazz);
+	}
+
+	public static <T extends IRepositoryManager<?>> T getRepositoryManager(IProvisioningAgent agent, Class<T> clazz) {
+		return getP2Service(agent, clazz);
+	}
+
+	public static void ungetPlanner(IPlanner planner) {
+		B3Util.getPlugin().ungetService(planner);
+	}
+
+	public static void ungetProfileRegistry(IProfileRegistry registry) {
+		B3Util.getPlugin().ungetService(registry);
+	}
+
+	public static void ungetRepositoryManager(IRepositoryManager<?> manager) {
+		B3Util.getPlugin().ungetService(manager);
+	}
+
+	private static <T> T getP2Service(IProvisioningAgent agent, Class<T> clazz) {
+		try {
 			if(agent == null) {
-				IProvisioningAgentProvider agentProvider = B3Util.getPlugin().getService(
-						IProvisioningAgentProvider.class);
-				agent = agentProvider.createAgent(null);
-				B3Util.getPlugin().ungetService(agentProvider);
+				try {
+					agent = B3Util.getPlugin().getService(IProvisioningAgent.class);
+				}
+				catch(CoreException e) {
+					// agent is null, further steps may fix it
+				}
+
+				if(agent == null) {
+					IProvisioningAgentProvider agentProvider = B3Util.getPlugin().getService(
+							IProvisioningAgentProvider.class);
+					agent = agentProvider.createAgent(null);
+					B3Util.getPlugin().ungetService(agentProvider);
+				}
 			}
 
 			Object service = agent.getService(clazz.getName());
@@ -56,10 +101,7 @@ public class P2Utils {
 			throw new RuntimeException(t);
 		}
 
-		throw new RuntimeException("Repository manager " + clazz.getName() + "not available");
+		throw new RuntimeException("p2 service " + clazz.getName() + "not available");
 	}
 
-	public static void ungetRepositoryManager(IRepositoryManager<?> manager) {
-		B3Util.getPlugin().ungetService(manager);
-	}
 }
