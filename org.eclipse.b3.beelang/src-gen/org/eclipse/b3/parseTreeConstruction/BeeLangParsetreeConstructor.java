@@ -43230,10 +43230,10 @@ protected class LiteralFunction_RightCurlyBracketKeyword_2 extends KeywordToken 
 /************ begin Rule ClosureExpression ****************
  *
  * ClosureExpression returns be::BExpression:
- *   {be::B3Function} ("<" returnType=TypeRef ">")? (parameters+=ParameterDeclaration (","
- *   parameters+=ParameterDeclaration)* ("," varArgs?="..." parameters+=
- *   ParameterDeclaration)?|varArgs?="..." parameters+=ParameterDeclaration)? "|"
- *   funcExpr=OneOrManyExpressions; 
+ *   {be::B3Function} ("<" returnType=TypeRef ">")? ("|"? (parameters+=
+ *   ParameterDeclaration ("," parameters+=ParameterDeclaration)* ("," varArgs?="..."
+ *   parameters+=ParameterDeclaration)?)|varArgs?="..." parameters+=
+ *   ParameterDeclaration)? "|" funcExpr=OneOrManyExpressions; 
  * 
  * //LiteralFunction returns be::BExpression : {be::B3Function} 
  * //	'{' ('<' returnType=TypeRef '>')?
@@ -43249,10 +43249,10 @@ protected class LiteralFunction_RightCurlyBracketKeyword_2 extends KeywordToken 
  *
  **/
 
-// {be::B3Function} ("<" returnType=TypeRef ">")? (parameters+=ParameterDeclaration (","
-// parameters+=ParameterDeclaration)* ("," varArgs?="..." parameters+=
-// ParameterDeclaration)?|varArgs?="..." parameters+=ParameterDeclaration)? "|"
-// funcExpr=OneOrManyExpressions
+// {be::B3Function} ("<" returnType=TypeRef ">")? ("|"? (parameters+=
+// ParameterDeclaration ("," parameters+=ParameterDeclaration)* ("," varArgs?="..."
+// parameters+=ParameterDeclaration)?)|varArgs?="..." parameters+=
+// ParameterDeclaration)? "|" funcExpr=OneOrManyExpressions
 protected class ClosureExpression_Group extends GroupToken {
 	
 	public ClosureExpression_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -43420,8 +43420,8 @@ protected class ClosureExpression_GreaterThanSignKeyword_1_2 extends KeywordToke
 }
 
 
-// (parameters+=ParameterDeclaration ("," parameters+=ParameterDeclaration)* (","
-// varArgs?="..." parameters+=ParameterDeclaration)?|varArgs?="..." parameters+=
+// ("|"? (parameters+=ParameterDeclaration ("," parameters+=ParameterDeclaration)* (","
+// varArgs?="..." parameters+=ParameterDeclaration)?)|varArgs?="..." parameters+=
 // ParameterDeclaration)?
 protected class ClosureExpression_Alternatives_2 extends AlternativesToken {
 
@@ -43445,8 +43445,8 @@ protected class ClosureExpression_Alternatives_2 extends AlternativesToken {
 		
 }
 
-// parameters+=ParameterDeclaration ("," parameters+=ParameterDeclaration)* (","
-// varArgs?="..." parameters+=ParameterDeclaration)?
+// "|"? (parameters+=ParameterDeclaration ("," parameters+=ParameterDeclaration)* (","
+// varArgs?="..." parameters+=ParameterDeclaration)?)
 protected class ClosureExpression_Group_2_0 extends GroupToken {
 	
 	public ClosureExpression_Group_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -43461,9 +43461,32 @@ protected class ClosureExpression_Group_2_0 extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ClosureExpression_Group_2_0_2(parent, this, 0, inst);
-			case 1: return new ClosureExpression_Group_2_0_1(parent, this, 1, inst);
-			case 2: return new ClosureExpression_ParametersAssignment_2_0_0(parent, this, 2, inst);
+			case 0: return new ClosureExpression_Group_2_0_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// parameters+=ParameterDeclaration ("," parameters+=ParameterDeclaration)* (","
+// varArgs?="..." parameters+=ParameterDeclaration)?
+protected class ClosureExpression_Group_2_0_1 extends GroupToken {
+	
+	public ClosureExpression_Group_2_0_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getClosureExpressionAccess().getGroup_2_0_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new ClosureExpression_Group_2_0_1_2(parent, this, 0, inst);
+			case 1: return new ClosureExpression_Group_2_0_1_1(parent, this, 1, inst);
+			case 2: return new ClosureExpression_ParametersAssignment_2_0_1_0(parent, this, 2, inst);
 			default: return null;
 		}	
 	}	
@@ -43471,15 +43494,15 @@ protected class ClosureExpression_Group_2_0 extends GroupToken {
 }
 
 // parameters+=ParameterDeclaration
-protected class ClosureExpression_ParametersAssignment_2_0_0 extends AssignmentToken  {
+protected class ClosureExpression_ParametersAssignment_2_0_1_0 extends AssignmentToken  {
 	
-	public ClosureExpression_ParametersAssignment_2_0_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ClosureExpression_ParametersAssignment_2_0_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getClosureExpressionAccess().getParametersAssignment_2_0_0();
+		return grammarAccess.getClosureExpressionAccess().getParametersAssignment_2_0_1_0();
 	}
 
     @Override
@@ -43498,7 +43521,7 @@ protected class ClosureExpression_ParametersAssignment_2_0_0 extends AssignmentT
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getParameterDeclarationRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getClosureExpressionAccess().getParametersParameterDeclarationParserRuleCall_2_0_0_0(); 
+				element = grammarAccess.getClosureExpressionAccess().getParametersParameterDeclarationParserRuleCall_2_0_1_0_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -43518,21 +43541,21 @@ protected class ClosureExpression_ParametersAssignment_2_0_0 extends AssignmentT
 }
 
 // ("," parameters+=ParameterDeclaration)*
-protected class ClosureExpression_Group_2_0_1 extends GroupToken {
+protected class ClosureExpression_Group_2_0_1_1 extends GroupToken {
 	
-	public ClosureExpression_Group_2_0_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ClosureExpression_Group_2_0_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Group getGrammarElement() {
-		return grammarAccess.getClosureExpressionAccess().getGroup_2_0_1();
+		return grammarAccess.getClosureExpressionAccess().getGroup_2_0_1_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ClosureExpression_ParametersAssignment_2_0_1_1(parent, this, 0, inst);
+			case 0: return new ClosureExpression_ParametersAssignment_2_0_1_1_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -43540,22 +43563,22 @@ protected class ClosureExpression_Group_2_0_1 extends GroupToken {
 }
 
 // ","
-protected class ClosureExpression_CommaKeyword_2_0_1_0 extends KeywordToken  {
+protected class ClosureExpression_CommaKeyword_2_0_1_1_0 extends KeywordToken  {
 	
-	public ClosureExpression_CommaKeyword_2_0_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ClosureExpression_CommaKeyword_2_0_1_1_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getClosureExpressionAccess().getCommaKeyword_2_0_1_0();
+		return grammarAccess.getClosureExpressionAccess().getCommaKeyword_2_0_1_1_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ClosureExpression_Group_2_0_1(parent, this, 0, inst);
-			case 1: return new ClosureExpression_ParametersAssignment_2_0_0(parent, this, 1, inst);
+			case 0: return new ClosureExpression_Group_2_0_1_1(parent, this, 0, inst);
+			case 1: return new ClosureExpression_ParametersAssignment_2_0_1_0(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -43563,15 +43586,15 @@ protected class ClosureExpression_CommaKeyword_2_0_1_0 extends KeywordToken  {
 }
 
 // parameters+=ParameterDeclaration
-protected class ClosureExpression_ParametersAssignment_2_0_1_1 extends AssignmentToken  {
+protected class ClosureExpression_ParametersAssignment_2_0_1_1_1 extends AssignmentToken  {
 	
-	public ClosureExpression_ParametersAssignment_2_0_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ClosureExpression_ParametersAssignment_2_0_1_1_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getClosureExpressionAccess().getParametersAssignment_2_0_1_1();
+		return grammarAccess.getClosureExpressionAccess().getParametersAssignment_2_0_1_1_1();
 	}
 
     @Override
@@ -43590,7 +43613,7 @@ protected class ClosureExpression_ParametersAssignment_2_0_1_1 extends Assignmen
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getParameterDeclarationRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getClosureExpressionAccess().getParametersParameterDeclarationParserRuleCall_2_0_1_1_0(); 
+				element = grammarAccess.getClosureExpressionAccess().getParametersParameterDeclarationParserRuleCall_2_0_1_1_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -43602,7 +43625,7 @@ protected class ClosureExpression_ParametersAssignment_2_0_1_1 extends Assignmen
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new ClosureExpression_CommaKeyword_2_0_1_0(parent, next, actIndex, consumed);
+			case 0: return new ClosureExpression_CommaKeyword_2_0_1_1_0(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
@@ -43610,21 +43633,21 @@ protected class ClosureExpression_ParametersAssignment_2_0_1_1 extends Assignmen
 
 
 // ("," varArgs?="..." parameters+=ParameterDeclaration)?
-protected class ClosureExpression_Group_2_0_2 extends GroupToken {
+protected class ClosureExpression_Group_2_0_1_2 extends GroupToken {
 	
-	public ClosureExpression_Group_2_0_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ClosureExpression_Group_2_0_1_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Group getGrammarElement() {
-		return grammarAccess.getClosureExpressionAccess().getGroup_2_0_2();
+		return grammarAccess.getClosureExpressionAccess().getGroup_2_0_1_2();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ClosureExpression_ParametersAssignment_2_0_2_2(parent, this, 0, inst);
+			case 0: return new ClosureExpression_ParametersAssignment_2_0_1_2_2(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -43632,22 +43655,22 @@ protected class ClosureExpression_Group_2_0_2 extends GroupToken {
 }
 
 // ","
-protected class ClosureExpression_CommaKeyword_2_0_2_0 extends KeywordToken  {
+protected class ClosureExpression_CommaKeyword_2_0_1_2_0 extends KeywordToken  {
 	
-	public ClosureExpression_CommaKeyword_2_0_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ClosureExpression_CommaKeyword_2_0_1_2_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getClosureExpressionAccess().getCommaKeyword_2_0_2_0();
+		return grammarAccess.getClosureExpressionAccess().getCommaKeyword_2_0_1_2_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ClosureExpression_Group_2_0_1(parent, this, 0, inst);
-			case 1: return new ClosureExpression_ParametersAssignment_2_0_0(parent, this, 1, inst);
+			case 0: return new ClosureExpression_Group_2_0_1_1(parent, this, 0, inst);
+			case 1: return new ClosureExpression_ParametersAssignment_2_0_1_0(parent, this, 1, inst);
 			default: return null;
 		}	
 	}	
@@ -43655,21 +43678,21 @@ protected class ClosureExpression_CommaKeyword_2_0_2_0 extends KeywordToken  {
 }
 
 // varArgs?="..."
-protected class ClosureExpression_VarArgsAssignment_2_0_2_1 extends AssignmentToken  {
+protected class ClosureExpression_VarArgsAssignment_2_0_1_2_1 extends AssignmentToken  {
 	
-	public ClosureExpression_VarArgsAssignment_2_0_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ClosureExpression_VarArgsAssignment_2_0_1_2_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getClosureExpressionAccess().getVarArgsAssignment_2_0_2_1();
+		return grammarAccess.getClosureExpressionAccess().getVarArgsAssignment_2_0_1_2_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new ClosureExpression_CommaKeyword_2_0_2_0(parent, this, 0, inst);
+			case 0: return new ClosureExpression_CommaKeyword_2_0_1_2_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -43680,7 +43703,7 @@ protected class ClosureExpression_VarArgsAssignment_2_0_2_1 extends AssignmentTo
 		IInstanceDescription obj = current.cloneAndConsume("varArgs");
 		if(Boolean.TRUE.equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
 			type = AssignmentType.KW;
-			element = grammarAccess.getClosureExpressionAccess().getVarArgsFullStopFullStopFullStopKeyword_2_0_2_1_0();
+			element = grammarAccess.getClosureExpressionAccess().getVarArgsFullStopFullStopFullStopKeyword_2_0_1_2_1_0();
 			return obj;
 		}
 		return null;
@@ -43689,15 +43712,15 @@ protected class ClosureExpression_VarArgsAssignment_2_0_2_1 extends AssignmentTo
 }
 
 // parameters+=ParameterDeclaration
-protected class ClosureExpression_ParametersAssignment_2_0_2_2 extends AssignmentToken  {
+protected class ClosureExpression_ParametersAssignment_2_0_1_2_2 extends AssignmentToken  {
 	
-	public ClosureExpression_ParametersAssignment_2_0_2_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public ClosureExpression_ParametersAssignment_2_0_1_2_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getClosureExpressionAccess().getParametersAssignment_2_0_2_2();
+		return grammarAccess.getClosureExpressionAccess().getParametersAssignment_2_0_1_2_2();
 	}
 
     @Override
@@ -43716,7 +43739,7 @@ protected class ClosureExpression_ParametersAssignment_2_0_2_2 extends Assignmen
 			IInstanceDescription param = getDescr((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getParameterDeclarationRule().getType().getClassifier())) {
 				type = AssignmentType.PRC;
-				element = grammarAccess.getClosureExpressionAccess().getParametersParameterDeclarationParserRuleCall_2_0_2_2_0(); 
+				element = grammarAccess.getClosureExpressionAccess().getParametersParameterDeclarationParserRuleCall_2_0_1_2_2_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -43728,11 +43751,12 @@ protected class ClosureExpression_ParametersAssignment_2_0_2_2 extends Assignmen
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new ClosureExpression_VarArgsAssignment_2_0_2_1(parent, next, actIndex, consumed);
+			case 0: return new ClosureExpression_VarArgsAssignment_2_0_1_2_1(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
+
 
 
 

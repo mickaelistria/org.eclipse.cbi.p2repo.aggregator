@@ -884,7 +884,7 @@ LiteralFunction returns be::BExpression :
 // A lambda (without delimiters)
 ClosureExpression returns be::BExpression: {be::B3Function} 
 	('<' returnType=TypeRef '>')?
-	(
+	( '|'?
 	(parameters += ParameterDeclaration (',' parameters += ParameterDeclaration)* 
 		(',' varArgs?="..." parameters += ParameterDeclaration)?)
 	| 	(    varArgs?="..." parameters += ParameterDeclaration)

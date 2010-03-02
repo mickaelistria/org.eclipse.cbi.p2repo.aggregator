@@ -16725,12 +16725,16 @@ ruleClosureExpression returns [EObject current=null]
     {
         createLeafNode(grammarAccess.getClosureExpressionAccess().getGreaterThanSignKeyword_1_2(), null); 
     }
-)?(((
+)?(((	'|' 
+    {
+        createLeafNode(grammarAccess.getClosureExpressionAccess().getVerticalLineKeyword_2_0_0(), null); 
+    }
+)?((
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getClosureExpressionAccess().getParametersParameterDeclarationParserRuleCall_2_0_0_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getClosureExpressionAccess().getParametersParameterDeclarationParserRuleCall_2_0_1_0_0(), currentNode); 
 	    }
-		lv_parameters_4_0=ruleParameterDeclaration		{
+		lv_parameters_5_0=ruleParameterDeclaration		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getClosureExpressionRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -16739,7 +16743,7 @@ ruleClosureExpression returns [EObject current=null]
 	       		add(
 	       			$current, 
 	       			"parameters",
-	        		lv_parameters_4_0, 
+	        		lv_parameters_5_0, 
 	        		"ParameterDeclaration", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -16751,14 +16755,14 @@ ruleClosureExpression returns [EObject current=null]
 )
 )(	',' 
     {
-        createLeafNode(grammarAccess.getClosureExpressionAccess().getCommaKeyword_2_0_1_0(), null); 
+        createLeafNode(grammarAccess.getClosureExpressionAccess().getCommaKeyword_2_0_1_1_0(), null); 
     }
 (
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getClosureExpressionAccess().getParametersParameterDeclarationParserRuleCall_2_0_1_1_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getClosureExpressionAccess().getParametersParameterDeclarationParserRuleCall_2_0_1_1_1_0(), currentNode); 
 	    }
-		lv_parameters_6_0=ruleParameterDeclaration		{
+		lv_parameters_7_0=ruleParameterDeclaration		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getClosureExpressionRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -16767,7 +16771,7 @@ ruleClosureExpression returns [EObject current=null]
 	       		add(
 	       			$current, 
 	       			"parameters",
-	        		lv_parameters_6_0, 
+	        		lv_parameters_7_0, 
 	        		"ParameterDeclaration", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -16779,13 +16783,13 @@ ruleClosureExpression returns [EObject current=null]
 )
 ))*(	',' 
     {
-        createLeafNode(grammarAccess.getClosureExpressionAccess().getCommaKeyword_2_0_2_0(), null); 
+        createLeafNode(grammarAccess.getClosureExpressionAccess().getCommaKeyword_2_0_1_2_0(), null); 
     }
 (
 (
-		lv_varArgs_8_0=	'...' 
+		lv_varArgs_9_0=	'...' 
     {
-        createLeafNode(grammarAccess.getClosureExpressionAccess().getVarArgsFullStopFullStopFullStopKeyword_2_0_2_1_0(), "varArgs"); 
+        createLeafNode(grammarAccess.getClosureExpressionAccess().getVarArgsFullStopFullStopFullStopKeyword_2_0_1_2_1_0(), "varArgs"); 
     }
  
 	    {
@@ -16805,9 +16809,9 @@ ruleClosureExpression returns [EObject current=null]
 )(
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getClosureExpressionAccess().getParametersParameterDeclarationParserRuleCall_2_0_2_2_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getClosureExpressionAccess().getParametersParameterDeclarationParserRuleCall_2_0_1_2_2_0(), currentNode); 
 	    }
-		lv_parameters_9_0=ruleParameterDeclaration		{
+		lv_parameters_10_0=ruleParameterDeclaration		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getClosureExpressionRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -16816,7 +16820,7 @@ ruleClosureExpression returns [EObject current=null]
 	       		add(
 	       			$current, 
 	       			"parameters",
-	        		lv_parameters_9_0, 
+	        		lv_parameters_10_0, 
 	        		"ParameterDeclaration", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -16826,10 +16830,10 @@ ruleClosureExpression returns [EObject current=null]
 	    }
 
 )
-))?)
+))?))
     |((
 (
-		lv_varArgs_10_0=	'...' 
+		lv_varArgs_11_0=	'...' 
     {
         createLeafNode(grammarAccess.getClosureExpressionAccess().getVarArgsFullStopFullStopFullStopKeyword_2_1_0_0(), "varArgs"); 
     }
@@ -16853,7 +16857,7 @@ ruleClosureExpression returns [EObject current=null]
 		{ 
 	        currentNode=createCompositeNode(grammarAccess.getClosureExpressionAccess().getParametersParameterDeclarationParserRuleCall_2_1_1_0(), currentNode); 
 	    }
-		lv_parameters_11_0=ruleParameterDeclaration		{
+		lv_parameters_12_0=ruleParameterDeclaration		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getClosureExpressionRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -16862,7 +16866,7 @@ ruleClosureExpression returns [EObject current=null]
 	       		add(
 	       			$current, 
 	       			"parameters",
-	        		lv_parameters_11_0, 
+	        		lv_parameters_12_0, 
 	        		"ParameterDeclaration", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -16881,7 +16885,7 @@ ruleClosureExpression returns [EObject current=null]
 		{ 
 	        currentNode=createCompositeNode(grammarAccess.getClosureExpressionAccess().getFuncExprOneOrManyExpressionsParserRuleCall_4_0(), currentNode); 
 	    }
-		lv_funcExpr_13_0=ruleOneOrManyExpressions		{
+		lv_funcExpr_14_0=ruleOneOrManyExpressions		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getClosureExpressionRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -16890,7 +16894,7 @@ ruleClosureExpression returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"funcExpr",
-	        		lv_funcExpr_13_0, 
+	        		lv_funcExpr_14_0, 
 	        		"OneOrManyExpressions", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
