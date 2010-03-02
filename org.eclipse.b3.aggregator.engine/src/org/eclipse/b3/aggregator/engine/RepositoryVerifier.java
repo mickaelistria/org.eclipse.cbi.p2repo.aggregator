@@ -28,7 +28,6 @@ import org.eclipse.b3.aggregator.util.LogUtils;
 import org.eclipse.b3.aggregator.util.MonitorUtils;
 import org.eclipse.b3.aggregator.util.P2Utils;
 import org.eclipse.b3.aggregator.util.TimeUtils;
-import org.eclipse.b3.util.B3Util;
 import org.eclipse.b3.util.ExceptionUtils;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -37,7 +36,6 @@ import org.eclipse.core.runtime.MultiStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubMonitor;
-import org.eclipse.equinox.internal.p2.console.ProvisioningHelper;
 import org.eclipse.equinox.internal.p2.director.Explanation;
 import org.eclipse.equinox.internal.p2.director.Explanation.HardRequirement;
 import org.eclipse.equinox.internal.p2.director.Explanation.MissingIU;
@@ -106,12 +104,12 @@ public class RepositoryVerifier extends BuilderPhase {
 		return requestStatus.getExplanations();
 	}
 
-	private static IInstallableUnit[] getRootIUs(URI site, IProfile profile, String iuName, Version version,
-			IProgressMonitor monitor) throws CoreException {
+	private static IInstallableUnit[] getRootIUs(IMetadataRepository site, IProfile profile, String iuName,
+			Version version, IProgressMonitor monitor) throws CoreException {
 		IQuery<IInstallableUnit> query = new InstallableUnitQuery(iuName,
 				new VersionRange(version, true, version, true));
-		IQueryResult<IInstallableUnit> roots = ProvisioningHelper.getInstallableUnits(site,
-				CompoundQuery.createCompoundQuery(query, new LatestIUVersionQuery<IInstallableUnit>(), true), monitor);
+		IQueryResult<IInstallableUnit> roots = site.query(CompoundQuery.createCompoundQuery(query,
+				new LatestIUVersionQuery<IInstallableUnit>(), true), monitor);
 
 		if(roots.isEmpty())
 			roots = profile.query(query, new NullProgressMonitor());
@@ -140,11 +138,11 @@ public class RepositoryVerifier extends BuilderPhase {
 		String profilePrefix = Builder.PROFILE_ID + '_';
 
 		final Set<IInstallableUnit> unitsToAggregate = builder.getUnitsToAggregate();
-		B3Util b3util = B3Util.getPlugin();
-		IProfileRegistry profileRegistry = b3util.getService(IProfileRegistry.class);
-		IPlanner planner = b3util.getService(IPlanner.class);
+		IProfileRegistry profileRegistry = P2Utils.getProfileRegistry(getBuilder().getProvisioningAgent());
+		IPlanner planner = P2Utils.getPlanner(getBuilder().getProvisioningAgent());
 		URI repoLocation = builder.getSourceCompositeURI();
-		IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(IMetadataRepositoryManager.class);
+		IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(getBuilder().getProvisioningAgent(),
+				IMetadataRepositoryManager.class);
 		try {
 			Set<IInstallableUnit> validationOnlyIUs = null;
 			List<MetadataRepositoryReference> validationRepos = aggregator.getValidationRepositories();
@@ -184,7 +182,7 @@ public class RepositoryVerifier extends BuilderPhase {
 				if(profile == null)
 					profile = profileRegistry.addProfile(profileId, props);
 
-				IInstallableUnit[] rootArr = getRootIUs(repoLocation, profile, Builder.ALL_CONTRIBUTED_CONTENT_FEATURE,
+				IInstallableUnit[] rootArr = getRootIUs(sourceRepo, profile, Builder.ALL_CONTRIBUTED_CONTENT_FEATURE,
 						Builder.ALL_CONTRIBUTED_CONTENT_VERSION, subMon.newChild(9));
 
 				// Add as root IU's to a request
@@ -305,14 +303,15 @@ public class RepositoryVerifier extends BuilderPhase {
 		}
 		finally {
 			MonitorUtils.done(subMon);
-			b3util.ungetService(profileRegistry);
-			b3util.ungetService(planner);
+			P2Utils.ungetProfileRegistry(profileRegistry);
+			P2Utils.ungetPlanner(planner);
 			P2Utils.ungetRepositoryManager(mdrMgr);
 		}
 	}
 
 	InstallableUnit resolvePartialIU(IInstallableUnit iu, SubMonitor subMon) throws CoreException {
-		IArtifactRepositoryManager arMgr = P2Utils.getRepositoryManager(IArtifactRepositoryManager.class);
+		IArtifactRepositoryManager arMgr = P2Utils.getRepositoryManager(getBuilder().getProvisioningAgent(),
+				IArtifactRepositoryManager.class);
 		String info = "Converting partial IU for " + iu.getId() + "...";
 		subMon.beginTask(info, IProgressMonitor.UNKNOWN);
 		LogUtils.debug(info);
@@ -493,7 +492,8 @@ public class RepositoryVerifier extends BuilderPhase {
 
 	private Set<IInstallableUnit> getUnpatchedTransitiveScope(IInstallableUnitPatch patch, IProfile profile,
 			IPlanner planner, URI repoLocation, SubMonitor monitor) throws CoreException {
-		IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(IMetadataRepositoryManager.class);
+		IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(getBuilder().getProvisioningAgent(),
+				IMetadataRepositoryManager.class);
 		try {
 			monitor.beginTask(null, 10);
 			IMetadataRepository sourceRepo = mdrMgr.loadRepository(repoLocation, monitor.newChild(1));

@@ -405,8 +405,8 @@ public class MirrorGenerator extends BuilderPhase {
 		File aggregateDestination = new File(destination, Builder.REPO_FOLDER_AGGREGATE);
 		URI aggregateURI = Builder.createURI(aggregateDestination);
 
-		mdrMgr = P2Utils.getRepositoryManager(IMetadataRepositoryManager.class);
-		arMgr = P2Utils.getRepositoryManager(IArtifactRepositoryManager.class);
+		mdrMgr = P2Utils.getRepositoryManager(getBuilder().getProvisioningAgent(), IMetadataRepositoryManager.class);
+		arMgr = P2Utils.getRepositoryManager(getBuilder().getProvisioningAgent(), IArtifactRepositoryManager.class);
 		arCache = null;
 		SubMonitor subMon = SubMonitor.convert(monitor, 1000);
 		boolean artifactErrors = false;

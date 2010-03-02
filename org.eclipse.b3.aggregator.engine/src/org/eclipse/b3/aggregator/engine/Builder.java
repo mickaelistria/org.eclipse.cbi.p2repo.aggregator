@@ -35,7 +35,6 @@ import org.eclipse.b3.aggregator.util.LogUtils;
 import org.eclipse.b3.aggregator.util.MonitorUtils;
 import org.eclipse.b3.aggregator.util.P2Utils;
 import org.eclipse.b3.cli.AbstractCommand;
-import org.eclipse.b3.util.B3Util;
 import org.eclipse.b3.util.ExceptionUtils;
 import org.eclipse.b3.util.StringUtils;
 import org.eclipse.core.resources.IContainer;
@@ -56,6 +55,7 @@ import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.equinox.internal.p2.core.helpers.FileUtils;
 import org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository;
 import org.eclipse.equinox.internal.provisional.p2.metadata.MetadataFactory.InstallableUnitDescription;
+import org.eclipse.equinox.p2.core.IProvisioningAgent;
 import org.eclipse.equinox.p2.engine.IProfile;
 import org.eclipse.equinox.p2.engine.IProfileRegistry;
 import org.eclipse.equinox.p2.metadata.IArtifactKey;
@@ -114,7 +114,7 @@ public class Builder extends AbstractCommand {
 
 	public static final String NAMESPACE_OSGI_BUNDLE = "osgi.bundle"; //$NON-NLS-1$
 
-	public static final String PROFILE_ID = "GalileoTest"; //$NON-NLS-1$
+	public static final String PROFILE_ID = "b3AggregatorProfile"; //$NON-NLS-1$
 
 	public static final String REPO_FOLDER_VERIFICATION = "verification"; //$NON-NLS-1$
 
@@ -140,21 +140,7 @@ public class Builder extends AbstractCommand {
 
 	static final IArtifactKey[] NO_ARTIFACT_KEYS = new IArtifactKey[0];
 
-	private static final String BUNDLE_ECF_FS_PROVIDER = "org.eclipse.ecf.provider.filetransfer"; //$NON-NLS-1$
-
-	private static final String BUNDLE_EXEMPLARY_SETUP = "org.eclipse.equinox.p2.exemplarysetup"; //$NON-NLS-1$
-
-	private static final String BUNDLE_UPDATESITE = "org.eclipse.equinox.p2.updatesite"; //$NON-NLS-1$
-
-	private static final String BUNDLE_CORE = "org.eclipse.equinox.p2.core"; //$NON-NLS-1$
-
-	static private final String BUNDLE_ENGINE = "org.eclipse.equinox.p2.engine"; //$NON-NLS-1$
-
 	private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyyMMdd"); //$NON-NLS-1$
-
-	private static final String PROP_P2_DATA_AREA = "eclipse.p2.data.area"; //$NON-NLS-1$
-
-	private static final String PROP_P2_PROFILE = "eclipse.p2.profile"; //$NON-NLS-1$
 
 	private static final Project PROPERTY_REPLACER = new Project();
 
@@ -381,6 +367,8 @@ public class Builder extends AbstractCommand {
 
 	private String preservedProfile;
 
+	private IProvisioningAgent provisioningAgent;
+
 	/**
 	 * Prevent that the {@link IInstallableUnit} identified by <code>versionedName</code> is mapped from
 	 * <code>repository</code>.
@@ -415,6 +403,13 @@ public class Builder extends AbstractCommand {
 
 	public List<IInstallableUnit> getCategoryIUs() {
 		return categoryIUs;
+	}
+
+	/**
+	 * @return the provisioningAgent
+	 */
+	public IProvisioningAgent getProvisioningAgent() {
+		return provisioningAgent;
 	}
 
 	@Override
@@ -529,13 +524,16 @@ public class Builder extends AbstractCommand {
 				smtpPort = 25;
 
 			loadModel(now);
+
+			provisioningAgent = P2Utils.createDedicatedProvisioningAgent(new File(buildRoot, "p2").toURI());
+
 			switch(action) {
 			case CLEAN:
 			case CLEAN_BUILD:
-				cleanAll();
+				cleanAll(provisioningAgent);
 				break;
 			default:
-				cleanMetadata();
+				cleanMetadata(provisioningAgent);
 			}
 
 			if(action == ActionType.CLEAN)
@@ -545,50 +543,42 @@ public class Builder extends AbstractCommand {
 			if(!buildRoot.exists())
 				throw ExceptionUtils.fromMessage("Failed to create folder %s", buildRoot);
 
-			B3Util b3util = B3Util.getPlugin();
-			restartP2Bundles();
+			// Remove previously used profiles.
+			//
+			IProfileRegistry profileRegistry = P2Utils.getProfileRegistry(provisioningAgent);
 			try {
-				// Remove previously used profiles.
-				//
-				IProfileRegistry profileRegistry = b3util.getService(IProfileRegistry.class);
-				try {
-					List<String> knownIDs = new ArrayList<String>();
-					for(IProfile profile : profileRegistry.getProfiles()) {
-						String id = profile.getProfileId();
-						if(id.startsWith(PROFILE_ID))
-							knownIDs.add(id);
-					}
-
-					for(String id : knownIDs)
-						profileRegistry.removeProfile(id);
-
-					String instArea = buildRoot.toString();
-					Map<String, String> props = new HashMap<String, String>();
-					// TODO Where is PROP_FLAVOR gone?
-					//props.put(IProfile.PROP_FLAVOR, "tooling"); //$NON-NLS-1$
-					props.put(IProfile.PROP_NAME, aggregator.getLabel());
-					props.put(IProfile.PROP_DESCRIPTION, format("Default profile during %s build",
-							aggregator.getLabel()));
-					props.put(IProfile.PROP_CACHE, instArea);
-					props.put(IProfile.PROP_INSTALL_FOLDER, instArea);
-					profileRegistry.addProfile(PROFILE_ID, props);
-				}
-				finally {
-					b3util.ungetService(profileRegistry);
+				List<String> knownIDs = new ArrayList<String>();
+				for(IProfile profile : profileRegistry.getProfiles()) {
+					String id = profile.getProfileId();
+					if(id.startsWith(PROFILE_ID))
+						knownIDs.add(id);
 				}
 
-				loadAllMappedRepositories();
-				runCompositeGenerator(MonitorUtils.subMonitor(monitor, 70));
-				runVerificationFeatureGenerator(MonitorUtils.subMonitor(monitor, 15));
-				runCategoriesRepoGenerator(MonitorUtils.subMonitor(monitor, 15));
-				runRepositoryVerifier(MonitorUtils.subMonitor(monitor, 100));
-				if(action != ActionType.VERIFY)
-					runMirroring(MonitorUtils.subMonitor(monitor, 2000));
-				return 0;
+				for(String id : knownIDs)
+					profileRegistry.removeProfile(id);
+
+				String instArea = buildRoot.toString();
+				Map<String, String> props = new HashMap<String, String>();
+				// TODO Where is PROP_FLAVOR gone?
+				//props.put(IProfile.PROP_FLAVOR, "tooling"); //$NON-NLS-1$
+				props.put(IProfile.PROP_NAME, aggregator.getLabel());
+				props.put(IProfile.PROP_DESCRIPTION, format("Default profile during %s build", aggregator.getLabel()));
+				props.put(IProfile.PROP_CACHE, instArea);
+				props.put(IProfile.PROP_INSTALL_FOLDER, instArea);
+				profileRegistry.addProfile(PROFILE_ID, props);
 			}
 			finally {
-				restoreP2Bundles();
+				P2Utils.ungetProfileRegistry(profileRegistry);
 			}
+
+			loadAllMappedRepositories();
+			runCompositeGenerator(MonitorUtils.subMonitor(monitor, 70));
+			runVerificationFeatureGenerator(MonitorUtils.subMonitor(monitor, 15));
+			runCategoriesRepoGenerator(MonitorUtils.subMonitor(monitor, 15));
+			runRepositoryVerifier(MonitorUtils.subMonitor(monitor, 100));
+			if(action != ActionType.VERIFY)
+				runMirroring(MonitorUtils.subMonitor(monitor, 2000));
+			return 0;
 		}
 		catch(Throwable e) {
 			LogUtils.error(e, "Build failed! Exception was %s", getExceptionMessages(e));
@@ -598,6 +588,11 @@ public class Builder extends AbstractCommand {
 			throw new Exception(e);
 		}
 		finally {
+			if(provisioningAgent != null) {
+				provisioningAgent.stop();
+				provisioningAgent = null;
+			}
+
 			if(fromIDE && buildRoot != null) {
 				IWorkspaceRoot wsRoot = ResourcesPlugin.getWorkspace().getRoot();
 				for(IContainer rootContainer : wsRoot.findContainersForLocationURI(buildRoot.toURI()))
@@ -797,10 +792,10 @@ public class Builder extends AbstractCommand {
 		return run(false, monitor);
 	}
 
-	private void cleanAll() throws CoreException {
-		cleanMetadata();
+	private void cleanAll(IProvisioningAgent agent) throws CoreException {
+		cleanMetadata(agent);
 
-		IArtifactRepositoryManager arMgr = P2Utils.getRepositoryManager(IArtifactRepositoryManager.class);
+		IArtifactRepositoryManager arMgr = P2Utils.getRepositoryManager(agent, IArtifactRepositoryManager.class);
 		try {
 			File destination = new File(buildRoot, Builder.REPO_FOLDER_FINAL);
 			arMgr.removeRepository(Builder.createURI(destination));
@@ -817,8 +812,8 @@ public class Builder extends AbstractCommand {
 		}
 	}
 
-	private void cleanMetadata() throws CoreException {
-		IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(IMetadataRepositoryManager.class);
+	private void cleanMetadata(IProvisioningAgent agent) throws CoreException {
+		IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(agent, IMetadataRepositoryManager.class);
 		try {
 			File finalRepo = new File(buildRoot, Builder.REPO_FOLDER_FINAL);
 			deleteMetadataRepository(mdrMgr, finalRepo);
@@ -893,7 +888,7 @@ public class Builder extends AbstractCommand {
 				setBuildRoot(new File(PROPERTY_REPLACER.replaceProperties(aggregator.getBuildRoot())));
 
 				if(!buildRoot.isAbsolute())
-					setBuildRoot(new File(buildModelLocation.getParent(), buildRoot.getPath()));
+					setBuildRoot(new File(buildModelLocation.getParent(), buildRoot.getPath()).getAbsoluteFile());
 			}
 			else if(!buildRoot.isAbsolute())
 				setBuildRoot(buildRoot.getAbsoluteFile());
@@ -914,68 +909,6 @@ public class Builder extends AbstractCommand {
 		if(mockEmailTo != null)
 			return Collections.singletonList(new EmailAddress(mockEmailTo, null));
 		return Collections.emptyList();
-	}
-
-	private void restartP2Bundles() throws CoreException {
-		B3Util b3util = B3Util.getPlugin();
-		PackageAdmin packageAdmin = b3util.getService(PackageAdmin.class);
-
-		try {
-			stopBundle(packageAdmin, BUNDLE_EXEMPLARY_SETUP);
-			stopBundle(packageAdmin, BUNDLE_ENGINE);
-			stopBundle(packageAdmin, BUNDLE_CORE);
-
-			String p2DataArea = new File(buildRoot, "p2").toString();
-			preservedDataArea = System.setProperty(PROP_P2_DATA_AREA, p2DataArea);
-			preservedProfile = System.setProperty(PROP_P2_PROFILE, PROFILE_ID);
-
-			if(!startEarly(packageAdmin, BUNDLE_ECF_FS_PROVIDER))
-				throw ExceptionUtils.fromMessage("Missing bundle %s", BUNDLE_ECF_FS_PROVIDER);
-			if(!startEarly(packageAdmin, BUNDLE_CORE))
-				throw ExceptionUtils.fromMessage("Missing bundle %s", BUNDLE_CORE);
-			if(!startEarly(packageAdmin, BUNDLE_ENGINE))
-				throw ExceptionUtils.fromMessage("Missing bundle %s", BUNDLE_ENGINE);
-			if(!startEarly(packageAdmin, BUNDLE_EXEMPLARY_SETUP))
-				throw ExceptionUtils.fromMessage("Missing bundle %s", BUNDLE_EXEMPLARY_SETUP);
-			if(!startEarly(packageAdmin, BUNDLE_UPDATESITE))
-				throw ExceptionUtils.fromMessage("Missing bundle %s", BUNDLE_UPDATESITE);
-		}
-		catch(BundleException e) {
-			throw ExceptionUtils.wrap(e);
-		}
-		finally {
-			b3util.ungetService(packageAdmin);
-		}
-	}
-
-	private void restoreP2Bundles() throws CoreException {
-		B3Util b3util = B3Util.getPlugin();
-		PackageAdmin packageAdmin = b3util.getService(PackageAdmin.class);
-
-		try {
-			stopBundle(packageAdmin, BUNDLE_EXEMPLARY_SETUP);
-			stopBundle(packageAdmin, BUNDLE_ENGINE);
-			stopBundle(packageAdmin, BUNDLE_CORE);
-
-			if(preservedDataArea == null)
-				System.clearProperty(PROP_P2_DATA_AREA);
-			else
-				System.setProperty(PROP_P2_DATA_AREA, preservedDataArea);
-			if(preservedProfile == null)
-				System.clearProperty(PROP_P2_PROFILE);
-			else
-				System.setProperty(PROP_P2_PROFILE, preservedProfile);
-
-			startEarly(packageAdmin, BUNDLE_CORE);
-			startEarly(packageAdmin, BUNDLE_ENGINE);
-			startEarly(packageAdmin, BUNDLE_EXEMPLARY_SETUP);
-		}
-		catch(BundleException e) {
-			throw ExceptionUtils.wrap(e);
-		}
-		finally {
-			b3util.ungetService(packageAdmin);
-		}
 	}
 
 	private void runCategoriesRepoGenerator(IProgressMonitor monitor) throws CoreException {

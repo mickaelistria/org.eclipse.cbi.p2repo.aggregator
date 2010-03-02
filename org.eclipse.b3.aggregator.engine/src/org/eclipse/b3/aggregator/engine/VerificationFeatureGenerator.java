@@ -40,7 +40,8 @@ public class VerificationFeatureGenerator extends BuilderPhase {
 		Map<String, String> properties = new HashMap<String, String>();
 		URI locationURI = Builder.createURI(location);
 
-		IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(IMetadataRepositoryManager.class);
+		IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(getBuilder().getProvisioningAgent(),
+				IMetadataRepositoryManager.class);
 
 		try {
 			mdrMgr.removeRepository(locationURI);

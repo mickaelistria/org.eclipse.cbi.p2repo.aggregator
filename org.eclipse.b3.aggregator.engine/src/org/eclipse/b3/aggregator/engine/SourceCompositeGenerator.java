@@ -52,7 +52,8 @@ public class SourceCompositeGenerator extends BuilderPhase {
 		properties.put(IRepository.PROP_COMPRESSED, Boolean.toString(true));
 		boolean errorsFound = false;
 
-		IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(IMetadataRepositoryManager.class);
+		IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(getBuilder().getProvisioningAgent(),
+				IMetadataRepositoryManager.class);
 
 		Builder builder = getBuilder();
 		URI locationURI = builder.getSourceCompositeURI();
