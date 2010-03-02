@@ -90,7 +90,7 @@ public class P2RepositoryLoader implements IRepositoryLoader {
 		for(int i = 2; i >= 0; i--) {
 			try {
 				if(avoidCache) {
-					// This is a workaround - we need to clear the NotFound cahce to force
+					// This is a workaround - we need to clear the NotFound cache to force
 					// the MDR manager to fetch the repo again.
 					if(mdrMgr.contains(location))
 						// if the repo is known to MDR manager, it should be simply refreshed
