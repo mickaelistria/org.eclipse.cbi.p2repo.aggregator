@@ -1,6 +1,8 @@
 import java.util.List;
 import java.lang.Integer;
 import java.lang.Boolean;
+import java.lang.Object;
+import java.lang.Double;
 
 function main(List argv) {
 	testInject();
@@ -17,6 +19,7 @@ function testInject() {
 	assertEquals("looping over a sequence 1-9 (auto-curry)", 45, (1..9).inject(0, <Integer> Integer x, Integer y | x + y));
 	assertEquals("looping over a sequence 1-9 (curry 1)", 45, (1..9).inject(0, _, <Integer> Integer x, Integer y | x + y));
 	assertEquals("looping over a sequence 1-9 (curry 0)", 45, (1..9).inject(_, 0, <Integer> Integer x, Integer y | x + y));
+	assertEquals("looping over a sequence 1-9 with | and no type", 45, (1..9).inject( _ , 0, | x, y | (Integer)(x)+ (Integer)(y)));
 }
 function testSelect() {
 	assertEquals("select odd values 1-9", 
