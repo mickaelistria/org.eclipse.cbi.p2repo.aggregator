@@ -66,6 +66,36 @@ public class RelationalFunctions {
 	}
 
 	@B3Backend(system = true)
+	public static Object _listMatches(BExecutionContext ctx, Object[] params, Type[] types) throws Throwable {
+		List<?> left = (List<?>) params[0];
+		List<?> right = (List<?>) params[1];
+		if(left == right)
+			return Boolean.TRUE;
+		if(left == null || right == null)
+			return Boolean.FALSE;
+		if(left.size() != right.size())
+			return Boolean.FALSE;
+		try {
+			if(left.equals(right))
+				return Boolean.TRUE;
+		}
+		catch(ClassCastException e) {
+			// ignore and compare using different method
+		}
+		Object p[] = new Object[2];
+		Type t[] = new Type[2];
+		for(int i = 0; i < left.size(); i++) {
+			p[0] = left.get(i);
+			p[1] = right.get(i);
+			t[0] = p[0].getClass();
+			t[1] = p[1].getClass();
+			if(ctx.callFunction("matches", p, t) != Boolean.TRUE)
+				return Boolean.FALSE;
+		}
+		return Boolean.TRUE;
+	}
+
+	@B3Backend(system = true)
 	public static Object _mapEquals(BExecutionContext ctx, Object[] params, Type[] types) throws Throwable {
 		Map<?, ?> left = (Map<?, ?>) params[0];
 		Map<?, ?> right = (Map<?, ?>) params[1];
@@ -90,6 +120,36 @@ public class RelationalFunctions {
 			t[0] = p[0].getClass();
 			t[1] = p[1].getClass();
 			if(ctx.callFunction("equals", p, t) != Boolean.TRUE)
+				return Boolean.FALSE;
+		}
+		return Boolean.TRUE;
+	}
+
+	@B3Backend(system = true)
+	public static Object _mapMatches(BExecutionContext ctx, Object[] params, Type[] types) throws Throwable {
+		Map<?, ?> left = (Map<?, ?>) params[0];
+		Map<?, ?> right = (Map<?, ?>) params[1];
+		if(left == right)
+			return Boolean.TRUE;
+		if(left == null || right == null)
+			return Boolean.FALSE;
+		if(left.size() != right.size())
+			return Boolean.FALSE;
+		try {
+			if(left.equals(right))
+				return Boolean.TRUE;
+		}
+		catch(ClassCastException e) {
+			// ignore and compare using different method
+		}
+		Object p[] = new Object[2];
+		Type t[] = new Type[2];
+		for(Object k : left.keySet()) {
+			p[0] = left.get(k);
+			p[1] = right.get(k);
+			t[0] = p[0].getClass();
+			t[1] = p[1].getClass();
+			if(ctx.callFunction("matches", p, t) != Boolean.TRUE)
 				return Boolean.FALSE;
 		}
 		return Boolean.TRUE;
@@ -298,6 +358,26 @@ public class RelationalFunctions {
 		return pattern.matcher(string).matches()
 				? Boolean.TRUE
 				: Boolean.FALSE;
+	}
+
+	@B3Backend(funcNames = { "~=" }, systemFunction = "_listMatches")
+	public static Boolean matches(@B3Backend(name = "op1") List<?> left, @B3Backend(name = "op2") List<?> right) {
+		return null;
+	}
+
+	@B3Backend(funcNames = { "~=" }, systemFunction = "_mapMatches")
+	public static Boolean matches(@B3Backend(name = "op1") Map<?, ?> left, @B3Backend(name = "op2") Map<?, ?> right) {
+		return null;
+	}
+
+	@B3Backend(funcNames = { "~=" })
+	public static Boolean matches(Number a, Number b) {
+		return equals(a, b);
+	}
+
+	@B3Backend(funcNames = { "~=" })
+	public static Boolean matches(Object a, Object b) {
+		return equals(a, b);
 	}
 
 	@B3Backend(funcNames = { "~=" })
