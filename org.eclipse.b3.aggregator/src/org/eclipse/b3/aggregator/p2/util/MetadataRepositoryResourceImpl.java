@@ -650,13 +650,25 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 	public void load(Map<?, ?> options) throws IOException {
 		lastException = null;
 
-		boolean threadSafeIsLoading = false;
-		Job jobThreadSafeCopy = null;
+		boolean jobManagerReadyBeforeJobScheduled = !Job.getJobManager().isSuspended();
 
 		synchronized(this) {
 			if(isLoading) {
-				threadSafeIsLoading = true;
-				jobThreadSafeCopy = loadingJob;
+				if(loadingJob != null) {
+					try {
+						loadingJob.join();
+					}
+					catch(InterruptedException e) {
+						finishLoading(options);
+						throw new IOException("Repository loading was interrupted");
+					}
+				}
+				else {
+					finishLoading(options);
+					throw new IOException("The resource is loading but no loader job was found");
+				}
+
+				return;
 			}
 			else {
 				isLoading = true;
@@ -667,6 +679,7 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 				}
 				catch(URISyntaxException e) {
 					lastException = new Resource.IOWrappedException(e);
+					finishLoading(options);
 					return;
 				}
 
@@ -677,31 +690,11 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 
 				loadingJob = new RepositoryLoaderJob(repository, location, forceReload, repoView,
 						allIUPresentationMatrix);
+				loadingJob.schedule();
 			}
 		}
 
-		if(threadSafeIsLoading) {
-			if(jobThreadSafeCopy != null)
-				try {
-					while(true) {
-						if(jobThreadSafeCopy.getState() != Job.RUNNING && jobThreadSafeCopy.getState() == Job.NONE) {
-							Thread.sleep(100);
-							continue;
-						}
-						break;
-					}
-					jobThreadSafeCopy.join();
-				}
-				catch(InterruptedException e) {
-					throw new IOException("Repository loading was interrupted");
-				}
-
-			return;
-		}
-
 		try {
-			boolean jobManagerReadyBeforeJobScheduled = !Job.getJobManager().isSuspended();
-			loadingJob.schedule();
 			loadingJob.join();
 
 			Exception e = loadingJob.getException();
@@ -715,22 +708,11 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 						"Unknown repository status - loading job was scheduled while job manager was suspended");
 		}
 		catch(InterruptedException e) {
+			loadingJob.cancel();
 			throw new IOException("Repository loading was interrupted");
 		}
 		finally {
-			isLoading = false;
-			loadingJob = null;
-			Notification notification = setLoaded(true);
-
-			if(notification != null) {
-				if(options.containsKey(NOTIFICATION_KEY)) {
-					Notification notificationRef[] = (Notification[]) options.get(NOTIFICATION_KEY);
-					notificationRef[0] = notification;
-				}
-				else
-					eNotify(notification);
-			}
-			setModified(false);
+			finishLoading(options);
 		}
 	}
 
@@ -894,6 +876,25 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 		}
 
 		return null;
+	}
+
+	private void finishLoading(Map<?, ?> options) {
+		Notification notification = null;
+		synchronized(this) {
+			isLoading = false;
+			loadingJob = null;
+			notification = setLoaded(true);
+		}
+
+		if(notification != null) {
+			if(options.containsKey(NOTIFICATION_KEY)) {
+				Notification notificationRef[] = (Notification[]) options.get(NOTIFICATION_KEY);
+				notificationRef[0] = notification;
+			}
+			else
+				eNotify(notification);
+		}
+		setModified(false);
 	}
 
 	private Aggregator getAggregator() {
