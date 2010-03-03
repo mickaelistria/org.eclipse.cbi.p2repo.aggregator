@@ -684,8 +684,10 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 			if(jobThreadSafeCopy != null)
 				try {
 					while(true) {
-						if(jobThreadSafeCopy.getState() != Job.RUNNING && jobThreadSafeCopy.getState() == Job.NONE)
+						if(jobThreadSafeCopy.getState() != Job.RUNNING && jobThreadSafeCopy.getState() == Job.NONE) {
+							Thread.sleep(100);
 							continue;
+						}
 						break;
 					}
 					jobThreadSafeCopy.join();
