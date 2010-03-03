@@ -8,8 +8,8 @@
   <rm:locator pattern="^org\.apache\.log4j(\..+)?" searchPathRef="orbit"/>
   <rm:locator pattern="^de\.itemis\.xtext(\..+)?" searchPathRef="itemis"/>
   <rm:locator pattern="^org\.antlr(\..+)?" searchPathRef="itemis"/>
-  <rm:locator pattern="^org\.eclipse\.xtext" searchPathRef="emft"/>
-  <rm:locator pattern="^org\.eclipse\.emf\.mwe(\..+)?" searchPathRef="emft"/>
+  <rm:locator pattern="^org\.eclipse\.xtext" searchPathRef="itemis"/>
+  <rm:locator pattern="^org\.eclipse\.emf\.mwe(\..+)?" searchPathRef="mwe"/>
   <rm:locator searchPathRef="platform" failOnError="false"/>
   <rm:locator searchPathRef="modeling" failOnError="false"/>
   <rm:locator searchPathRef="simultanious.release" failOnError="false"/>
@@ -22,13 +22,27 @@
     </rm:provider>
   </rm:searchPath>
   <rm:searchPath name="itemis">
-    <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
+    <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false" resolutionFilter="(build.type=R)">
+      <rm:uri format="http://download.itemis.com/updates/releases"/>
+    </rm:provider>
+    <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false" resolutionFilter="(|(build.type=M)(build.type=I))">
       <rm:uri format="http://download.itemis.com/updates/milestones"/>
     </rm:provider>
   </rm:searchPath>
   <rm:searchPath name="emft">
-    <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
+    <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false" resolutionFilter="(build.type=R)">
       <rm:uri format="http://download.eclipse.org/modeling/emft/updates/releases"/>
+    </rm:provider>
+    <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false" resolutionFilter="(|(build.type=M)(build.type=I))">
+      <rm:uri format="http://download.eclipse.org/modeling/emft/updates/milestones"/>
+    </rm:provider>
+  </rm:searchPath>
+  <rm:searchPath name="mwe">
+    <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false" resolutionFilter="(build.type=R)">
+      <rm:uri format="http://download.eclipse.org/modeling/emft/mwe/updates/releases"/>
+    </rm:provider>
+    <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false" resolutionFilter="(|(build.type=M)(build.type=I))">
+      <rm:uri format="http://download.eclipse.org/modeling/emft/mwe/updates/milestones"/>
     </rm:provider>
   </rm:searchPath>
   <rm:searchPath name="platform">
