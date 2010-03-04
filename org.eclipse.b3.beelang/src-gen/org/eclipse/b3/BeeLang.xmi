@@ -169,8 +169,8 @@
           <tokens xsi:type="xtext:Keyword" value=";"/>
         </groups>
         <groups xsi:type="xtext:Group">
-          <tokens xsi:type="xtext:Keyword" value="env"/>
           <tokens xsi:type="xtext:Keyword" value="requires"/>
+          <tokens xsi:type="xtext:Keyword" value="env"/>
           <tokens xsi:type="xtext:Keyword" value="{"/>
           <tokens xsi:type="xtext:Group" cardinality="+">
             <tokens xsi:type="xtext:Assignment" feature="metaRequiredCapabilities" operator="+=">
@@ -181,8 +181,8 @@
           <tokens xsi:type="xtext:Keyword" value="}"/>
         </groups>
         <groups xsi:type="xtext:Group">
-          <tokens xsi:type="xtext:Keyword" value="env"/>
           <tokens xsi:type="xtext:Keyword" value="requires"/>
+          <tokens xsi:type="xtext:Keyword" value="env"/>
           <tokens xsi:type="xtext:Assignment" feature="metaRequiredCapabilities" operator="+=">
             <terminal xsi:type="xtext:RuleCall" rule="//@rules.5"/>
           </tokens>
@@ -3310,10 +3310,10 @@
           <classifier xsi:type="ecore:EClass" href="http://b3build/1.0#//RequiresPredicate"/>
         </type>
       </tokens>
+      <tokens xsi:type="xtext:Keyword" value="requires"/>
       <tokens xsi:type="xtext:Assignment" cardinality="?" feature="meta" operator="?=">
         <terminal xsi:type="xtext:Keyword" value="env"/>
       </tokens>
-      <tokens xsi:type="xtext:Keyword" value="requires"/>
       <tokens xsi:type="xtext:Assignment" feature="capabilityPredicate" operator="=">
         <terminal xsi:type="xtext:RuleCall" rule="//@rules.119"/>
       </tokens>

@@ -65,8 +65,8 @@ BuildUnit returns build::BuildUnit hidden(WS, ML_COMMENT, SL_COMMENT) : {build::
 			//-- REQUIRES & META REQUIRES
 			| ('requires' '{' (requiredCapabilities += AliasedRequiredCapability ';')+ '}')
 			| ('requires' requiredCapabilities += AliasedRequiredCapability ';')
-			| ('env' 'requires' '{' (metaRequiredCapabilities += RequiredCapability ';')+ '}' )
-			| ('env' 'requires' metaRequiredCapabilities += RequiredCapability ';')
+			| ('requires' 'env' '{' (metaRequiredCapabilities += RequiredCapability ';')+ '}' )
+			| ('requires' 'env' metaRequiredCapabilities += RequiredCapability ';')
 			//--CONCERNS
 			| (concerns += Concern_Named)
 			//--SYNCHRONIZE
@@ -765,7 +765,7 @@ GroupedUnitPrimaryExpression returns be::BExpression : '(' UnitOrExpression ')' 
 
 	
 RequiresPredicate returns build::RequiresPredicate : {build::RequiresPredicate}
-	(meta ?= "env")? "requires" capabilityPredicate = CapabilityPredicate 
+	"requires" (meta ?= "env")? capabilityPredicate = CapabilityPredicate 
 	;
 	
 ImplementsPredcicate returns be::BExpression: {build::ImplementsPredicate}

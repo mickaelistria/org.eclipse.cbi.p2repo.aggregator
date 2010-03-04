@@ -819,13 +819,13 @@ ruleBuildUnit returns [EObject current=null]
         createLeafNode(grammarAccess.getBuildUnitAccess().getSemicolonKeyword_11_3_2(), null); 
     }
 )
-    |(	'env' 
+    |(	'requires' 
     {
-        createLeafNode(grammarAccess.getBuildUnitAccess().getEnvKeyword_11_4_0(), null); 
+        createLeafNode(grammarAccess.getBuildUnitAccess().getRequiresKeyword_11_4_0(), null); 
     }
-	'requires' 
+	'env' 
     {
-        createLeafNode(grammarAccess.getBuildUnitAccess().getRequiresKeyword_11_4_1(), null); 
+        createLeafNode(grammarAccess.getBuildUnitAccess().getEnvKeyword_11_4_1(), null); 
     }
 	'{' 
     {
@@ -864,13 +864,13 @@ ruleBuildUnit returns [EObject current=null]
         createLeafNode(grammarAccess.getBuildUnitAccess().getRightCurlyBracketKeyword_11_4_4(), null); 
     }
 )
-    |(	'env' 
+    |(	'requires' 
     {
-        createLeafNode(grammarAccess.getBuildUnitAccess().getEnvKeyword_11_5_0(), null); 
+        createLeafNode(grammarAccess.getBuildUnitAccess().getRequiresKeyword_11_5_0(), null); 
     }
-	'requires' 
+	'env' 
     {
-        createLeafNode(grammarAccess.getBuildUnitAccess().getRequiresKeyword_11_5_1(), null); 
+        createLeafNode(grammarAccess.getBuildUnitAccess().getEnvKeyword_11_5_1(), null); 
     }
 (
 (
@@ -14579,11 +14579,15 @@ ruleRequiresPredicate returns [EObject current=null]
     currentNode = newNode; 
         associateNodeWithAstElement(currentNode, $current); 
     }
-)(
-(
-		lv_meta_1_0=	'env' 
+)	'requires' 
     {
-        createLeafNode(grammarAccess.getRequiresPredicateAccess().getMetaEnvKeyword_1_0(), "meta"); 
+        createLeafNode(grammarAccess.getRequiresPredicateAccess().getRequiresKeyword_1(), null); 
+    }
+(
+(
+		lv_meta_2_0=	'env' 
+    {
+        createLeafNode(grammarAccess.getRequiresPredicateAccess().getMetaEnvKeyword_2_0(), "meta"); 
     }
  
 	    {
@@ -14600,11 +14604,7 @@ ruleRequiresPredicate returns [EObject current=null]
 	    }
 
 )
-)?	'requires' 
-    {
-        createLeafNode(grammarAccess.getRequiresPredicateAccess().getRequiresKeyword_2(), null); 
-    }
-(
+)?(
 (
 		{ 
 	        currentNode=createCompositeNode(grammarAccess.getRequiresPredicateAccess().getCapabilityPredicateCapabilityPredicateParserRuleCall_3_0(), currentNode); 

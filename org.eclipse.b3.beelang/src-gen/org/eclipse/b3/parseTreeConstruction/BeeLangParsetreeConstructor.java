@@ -872,8 +872,8 @@ protected class Import_SemicolonKeyword_5 extends KeywordToken  {
  *   "output" "=" outputLocation=Path ";")? ("provides" "{" (providedCapabilities+=
  *   ProvidedCapability ";")+ "}"|"provides" providedCapabilities+=ProvidedCapability ";"
  *   |"requires" "{" (requiredCapabilities+=AliasedRequiredCapability ";")+ "}"|
- *   "requires" requiredCapabilities+=AliasedRequiredCapability ";"|"env" "requires" "{" (
- *   metaRequiredCapabilities+=RequiredCapability ";")+ "}"|"env" "requires"
+ *   "requires" requiredCapabilities+=AliasedRequiredCapability ";"|"requires" "env" "{" (
+ *   metaRequiredCapabilities+=RequiredCapability ";")+ "}"|"requires" "env"
  *   metaRequiredCapabilities+=RequiredCapability ";"|concerns+=Concern_Named|
  *   "sequential" "{" synchronizations+=Synchronization+ "}"|"sequential"
  *   synchronizations+=Synchronization|functions+=Builder|functions+=Function|
@@ -931,8 +931,8 @@ protected class Import_SemicolonKeyword_5 extends KeywordToken  {
 // "output" "=" outputLocation=Path ";")? ("provides" "{" (providedCapabilities+=
 // ProvidedCapability ";")+ "}"|"provides" providedCapabilities+=ProvidedCapability ";"
 // |"requires" "{" (requiredCapabilities+=AliasedRequiredCapability ";")+ "}"|
-// "requires" requiredCapabilities+=AliasedRequiredCapability ";"|"env" "requires" "{" (
-// metaRequiredCapabilities+=RequiredCapability ";")+ "}"|"env" "requires"
+// "requires" requiredCapabilities+=AliasedRequiredCapability ";"|"requires" "env" "{" (
+// metaRequiredCapabilities+=RequiredCapability ";")+ "}"|"requires" "env"
 // metaRequiredCapabilities+=RequiredCapability ";"|concerns+=Concern_Named|
 // "sequential" "{" synchronizations+=Synchronization+ "}"|"sequential"
 // synchronizations+=Synchronization|functions+=Builder|functions+=Function|
@@ -1812,8 +1812,8 @@ protected class BuildUnit_SemicolonKeyword_10_3 extends KeywordToken  {
 // ("provides" "{" (providedCapabilities+=ProvidedCapability ";")+ "}"|"provides"
 // providedCapabilities+=ProvidedCapability ";"|"requires" "{" (requiredCapabilities+=
 // AliasedRequiredCapability ";")+ "}"|"requires" requiredCapabilities+=
-// AliasedRequiredCapability ";"|"env" "requires" "{" (metaRequiredCapabilities+=
-// RequiredCapability ";")+ "}"|"env" "requires" metaRequiredCapabilities+=
+// AliasedRequiredCapability ";"|"requires" "env" "{" (metaRequiredCapabilities+=
+// RequiredCapability ";")+ "}"|"requires" "env" metaRequiredCapabilities+=
 // RequiredCapability ";"|concerns+=Concern_Named|"sequential" "{" synchronizations+=
 // Synchronization+ "}"|"sequential" synchronizations+=Synchronization|functions+=
 // Builder|functions+=Function|"repositories" "{" repositories+=
@@ -2475,7 +2475,7 @@ protected class BuildUnit_SemicolonKeyword_11_3_2 extends KeywordToken  {
 }
 
 
-// "env" "requires" "{" (metaRequiredCapabilities+=RequiredCapability ";")+ "}"
+// "requires" "env" "{" (metaRequiredCapabilities+=RequiredCapability ";")+ "}"
 protected class BuildUnit_Group_11_4 extends GroupToken {
 	
 	public BuildUnit_Group_11_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -2497,16 +2497,16 @@ protected class BuildUnit_Group_11_4 extends GroupToken {
 		
 }
 
-// "env"
-protected class BuildUnit_EnvKeyword_11_4_0 extends KeywordToken  {
+// "requires"
+protected class BuildUnit_RequiresKeyword_11_4_0 extends KeywordToken  {
 	
-	public BuildUnit_EnvKeyword_11_4_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BuildUnit_RequiresKeyword_11_4_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getBuildUnitAccess().getEnvKeyword_11_4_0();
+		return grammarAccess.getBuildUnitAccess().getRequiresKeyword_11_4_0();
 	}
 
     @Override
@@ -2523,22 +2523,22 @@ protected class BuildUnit_EnvKeyword_11_4_0 extends KeywordToken  {
 		
 }
 
-// "requires"
-protected class BuildUnit_RequiresKeyword_11_4_1 extends KeywordToken  {
+// "env"
+protected class BuildUnit_EnvKeyword_11_4_1 extends KeywordToken  {
 	
-	public BuildUnit_RequiresKeyword_11_4_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BuildUnit_EnvKeyword_11_4_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getBuildUnitAccess().getRequiresKeyword_11_4_1();
+		return grammarAccess.getBuildUnitAccess().getEnvKeyword_11_4_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new BuildUnit_EnvKeyword_11_4_0(parent, this, 0, inst);
+			case 0: return new BuildUnit_RequiresKeyword_11_4_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -2560,7 +2560,7 @@ protected class BuildUnit_LeftCurlyBracketKeyword_11_4_2 extends KeywordToken  {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new BuildUnit_RequiresKeyword_11_4_1(parent, this, 0, inst);
+			case 0: return new BuildUnit_EnvKeyword_11_4_1(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -2682,7 +2682,7 @@ protected class BuildUnit_RightCurlyBracketKeyword_11_4_4 extends KeywordToken  
 }
 
 
-// "env" "requires" metaRequiredCapabilities+=RequiredCapability ";"
+// "requires" "env" metaRequiredCapabilities+=RequiredCapability ";"
 protected class BuildUnit_Group_11_5 extends GroupToken {
 	
 	public BuildUnit_Group_11_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -2704,16 +2704,16 @@ protected class BuildUnit_Group_11_5 extends GroupToken {
 		
 }
 
-// "env"
-protected class BuildUnit_EnvKeyword_11_5_0 extends KeywordToken  {
+// "requires"
+protected class BuildUnit_RequiresKeyword_11_5_0 extends KeywordToken  {
 	
-	public BuildUnit_EnvKeyword_11_5_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BuildUnit_RequiresKeyword_11_5_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getBuildUnitAccess().getEnvKeyword_11_5_0();
+		return grammarAccess.getBuildUnitAccess().getRequiresKeyword_11_5_0();
 	}
 
     @Override
@@ -2730,22 +2730,22 @@ protected class BuildUnit_EnvKeyword_11_5_0 extends KeywordToken  {
 		
 }
 
-// "requires"
-protected class BuildUnit_RequiresKeyword_11_5_1 extends KeywordToken  {
+// "env"
+protected class BuildUnit_EnvKeyword_11_5_1 extends KeywordToken  {
 	
-	public BuildUnit_RequiresKeyword_11_5_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public BuildUnit_EnvKeyword_11_5_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getBuildUnitAccess().getRequiresKeyword_11_5_1();
+		return grammarAccess.getBuildUnitAccess().getEnvKeyword_11_5_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new BuildUnit_EnvKeyword_11_5_0(parent, this, 0, inst);
+			case 0: return new BuildUnit_RequiresKeyword_11_5_0(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -2792,7 +2792,7 @@ protected class BuildUnit_MetaRequiredCapabilitiesAssignment_11_5_2 extends Assi
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new BuildUnit_RequiresKeyword_11_5_1(parent, next, actIndex, consumed);
+			case 0: return new BuildUnit_EnvKeyword_11_5_1(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
@@ -38198,12 +38198,12 @@ protected class GroupedUnitPrimaryExpression_RightParenthesisKeyword_2 extends K
 /************ begin Rule RequiresPredicate ****************
  *
  * RequiresPredicate returns build::RequiresPredicate:
- *   {build::RequiresPredicate} meta?="env"? "requires" capabilityPredicate=
+ *   {build::RequiresPredicate} "requires" meta?="env"? capabilityPredicate=
  *   CapabilityPredicate;
  *
  **/
 
-// {build::RequiresPredicate} meta?="env"? "requires" capabilityPredicate=
+// {build::RequiresPredicate} "requires" meta?="env"? capabilityPredicate=
 // CapabilityPredicate
 protected class RequiresPredicate_Group extends GroupToken {
 	
@@ -38259,16 +38259,16 @@ protected class RequiresPredicate_RequiresPredicateAction_0 extends ActionToken 
 	}
 }
 
-// meta?="env"?
-protected class RequiresPredicate_MetaAssignment_1 extends AssignmentToken  {
+// "requires"
+protected class RequiresPredicate_RequiresKeyword_1 extends KeywordToken  {
 	
-	public RequiresPredicate_MetaAssignment_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public RequiresPredicate_RequiresKeyword_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getRequiresPredicateAccess().getMetaAssignment_1();
+	public Keyword getGrammarElement() {
+		return grammarAccess.getRequiresPredicateAccess().getRequiresKeyword_1();
 	}
 
     @Override
@@ -38279,41 +38279,40 @@ protected class RequiresPredicate_MetaAssignment_1 extends AssignmentToken  {
 		}	
 	}	
 		
+}
+
+// meta?="env"?
+protected class RequiresPredicate_MetaAssignment_2 extends AssignmentToken  {
+	
+	public RequiresPredicate_MetaAssignment_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getRequiresPredicateAccess().getMetaAssignment_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new RequiresPredicate_RequiresKeyword_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
     @Override	
 	protected IInstanceDescription tryConsumeVal() {
 		if((value = current.getConsumable("meta",false)) == null) return null;
 		IInstanceDescription obj = current.cloneAndConsume("meta");
 		if(Boolean.TRUE.equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
 			type = AssignmentType.KW;
-			element = grammarAccess.getRequiresPredicateAccess().getMetaEnvKeyword_1_0();
+			element = grammarAccess.getRequiresPredicateAccess().getMetaEnvKeyword_2_0();
 			return obj;
 		}
 		return null;
 	}
 
-}
-
-// "requires"
-protected class RequiresPredicate_RequiresKeyword_2 extends KeywordToken  {
-	
-	public RequiresPredicate_RequiresKeyword_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
-		super(parent, next, no, current);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getRequiresPredicateAccess().getRequiresKeyword_2();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IInstanceDescription inst) {
-		switch(index) {
-			case 0: return new RequiresPredicate_MetaAssignment_1(parent, this, 0, inst);
-			case 1: return new RequiresPredicate_RequiresPredicateAction_0(parent, this, 1, inst);
-			default: return null;
-		}	
-	}	
-		
 }
 
 // capabilityPredicate=CapabilityPredicate
@@ -38356,7 +38355,8 @@ protected class RequiresPredicate_CapabilityPredicateAssignment_3 extends Assign
 	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
 		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new RequiresPredicate_RequiresKeyword_2(parent, next, actIndex, consumed);
+			case 0: return new RequiresPredicate_MetaAssignment_2(parent, next, actIndex, consumed);
+			case 1: return new RequiresPredicate_RequiresKeyword_1(parent, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	

@@ -826,7 +826,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleBuildUnit
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:385:1: ruleBuildUnit returns [EObject current=null] : ( () ( (lv_documentation_1_0= RULE_DOCUMENTATION ) )? ( (lv_executionMode_2_0= ruleExecutionMode ) )? 'unit' ( (lv_name_4_0= ruleUnitName ) )? ( 'version' ( (lv_version_6_0= ruleVersionLiteral ) ) )? ( 'implements' ( (lv_implements_8_0= ruleSimpleTypeRef ) ) ( ',' ( (lv_implements_10_0= ruleSimpleTypeRef ) ) )* )? '{' ( 'default' 'properties' ( (lv_defaultProperties_14_0= rulePropertySetDefault ) ) )? ( 'source' '=' ( (lv_sourceLocation_17_0= rulePath ) ) ';' )? ( 'output' '=' ( (lv_outputLocation_21_0= rulePath ) ) ';' )? ( ( 'provides' '{' ( ( (lv_providedCapabilities_25_0= ruleProvidedCapability ) ) ';' )+ '}' ) | ( 'provides' ( (lv_providedCapabilities_29_0= ruleProvidedCapability ) ) ';' ) | ( 'requires' '{' ( ( (lv_requiredCapabilities_33_0= ruleAliasedRequiredCapability ) ) ';' )+ '}' ) | ( 'requires' ( (lv_requiredCapabilities_37_0= ruleAliasedRequiredCapability ) ) ';' ) | ( 'env' 'requires' '{' ( ( (lv_metaRequiredCapabilities_42_0= ruleRequiredCapability ) ) ';' )+ '}' ) | ( 'env' 'requires' ( (lv_metaRequiredCapabilities_47_0= ruleRequiredCapability ) ) ';' ) | ( (lv_concerns_49_0= ruleConcern_Named ) ) | ( 'sequential' '{' ( (lv_synchronizations_52_0= ruleSynchronization ) )+ '}' ) | ( 'sequential' ( (lv_synchronizations_55_0= ruleSynchronization ) ) ) | ( (lv_functions_56_0= ruleBuilder ) ) | ( (lv_functions_57_0= ruleFunction ) ) | ( 'repositories' '{' ( (lv_repositories_60_0= ruleRepositoryConfiguration ) )* '}' ) | ( 'properties' ( (lv_propertySets_63_0= rulePropertySet_Named ) ) ) | ( 'containers' '{' ( (lv_containers_66_0= ruleContainerConfiguration ) )* '}' ) )* '}' ) ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:385:1: ruleBuildUnit returns [EObject current=null] : ( () ( (lv_documentation_1_0= RULE_DOCUMENTATION ) )? ( (lv_executionMode_2_0= ruleExecutionMode ) )? 'unit' ( (lv_name_4_0= ruleUnitName ) )? ( 'version' ( (lv_version_6_0= ruleVersionLiteral ) ) )? ( 'implements' ( (lv_implements_8_0= ruleSimpleTypeRef ) ) ( ',' ( (lv_implements_10_0= ruleSimpleTypeRef ) ) )* )? '{' ( 'default' 'properties' ( (lv_defaultProperties_14_0= rulePropertySetDefault ) ) )? ( 'source' '=' ( (lv_sourceLocation_17_0= rulePath ) ) ';' )? ( 'output' '=' ( (lv_outputLocation_21_0= rulePath ) ) ';' )? ( ( 'provides' '{' ( ( (lv_providedCapabilities_25_0= ruleProvidedCapability ) ) ';' )+ '}' ) | ( 'provides' ( (lv_providedCapabilities_29_0= ruleProvidedCapability ) ) ';' ) | ( 'requires' '{' ( ( (lv_requiredCapabilities_33_0= ruleAliasedRequiredCapability ) ) ';' )+ '}' ) | ( 'requires' ( (lv_requiredCapabilities_37_0= ruleAliasedRequiredCapability ) ) ';' ) | ( 'requires' 'env' '{' ( ( (lv_metaRequiredCapabilities_42_0= ruleRequiredCapability ) ) ';' )+ '}' ) | ( 'requires' 'env' ( (lv_metaRequiredCapabilities_47_0= ruleRequiredCapability ) ) ';' ) | ( (lv_concerns_49_0= ruleConcern_Named ) ) | ( 'sequential' '{' ( (lv_synchronizations_52_0= ruleSynchronization ) )+ '}' ) | ( 'sequential' ( (lv_synchronizations_55_0= ruleSynchronization ) ) ) | ( (lv_functions_56_0= ruleBuilder ) ) | ( (lv_functions_57_0= ruleFunction ) ) | ( 'repositories' '{' ( (lv_repositories_60_0= ruleRepositoryConfiguration ) )* '}' ) | ( 'properties' ( (lv_propertySets_63_0= rulePropertySet_Named ) ) ) | ( 'containers' '{' ( (lv_containers_66_0= ruleContainerConfiguration ) )* '}' ) )* '}' ) ;
     public final EObject ruleBuildUnit() throws RecognitionException {
         EObject current = null;
 
@@ -880,11 +880,11 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
         		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_ML_COMMENT", "RULE_SL_COMMENT");
             
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:391:6: ( ( () ( (lv_documentation_1_0= RULE_DOCUMENTATION ) )? ( (lv_executionMode_2_0= ruleExecutionMode ) )? 'unit' ( (lv_name_4_0= ruleUnitName ) )? ( 'version' ( (lv_version_6_0= ruleVersionLiteral ) ) )? ( 'implements' ( (lv_implements_8_0= ruleSimpleTypeRef ) ) ( ',' ( (lv_implements_10_0= ruleSimpleTypeRef ) ) )* )? '{' ( 'default' 'properties' ( (lv_defaultProperties_14_0= rulePropertySetDefault ) ) )? ( 'source' '=' ( (lv_sourceLocation_17_0= rulePath ) ) ';' )? ( 'output' '=' ( (lv_outputLocation_21_0= rulePath ) ) ';' )? ( ( 'provides' '{' ( ( (lv_providedCapabilities_25_0= ruleProvidedCapability ) ) ';' )+ '}' ) | ( 'provides' ( (lv_providedCapabilities_29_0= ruleProvidedCapability ) ) ';' ) | ( 'requires' '{' ( ( (lv_requiredCapabilities_33_0= ruleAliasedRequiredCapability ) ) ';' )+ '}' ) | ( 'requires' ( (lv_requiredCapabilities_37_0= ruleAliasedRequiredCapability ) ) ';' ) | ( 'env' 'requires' '{' ( ( (lv_metaRequiredCapabilities_42_0= ruleRequiredCapability ) ) ';' )+ '}' ) | ( 'env' 'requires' ( (lv_metaRequiredCapabilities_47_0= ruleRequiredCapability ) ) ';' ) | ( (lv_concerns_49_0= ruleConcern_Named ) ) | ( 'sequential' '{' ( (lv_synchronizations_52_0= ruleSynchronization ) )+ '}' ) | ( 'sequential' ( (lv_synchronizations_55_0= ruleSynchronization ) ) ) | ( (lv_functions_56_0= ruleBuilder ) ) | ( (lv_functions_57_0= ruleFunction ) ) | ( 'repositories' '{' ( (lv_repositories_60_0= ruleRepositoryConfiguration ) )* '}' ) | ( 'properties' ( (lv_propertySets_63_0= rulePropertySet_Named ) ) ) | ( 'containers' '{' ( (lv_containers_66_0= ruleContainerConfiguration ) )* '}' ) )* '}' ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:392:1: ( () ( (lv_documentation_1_0= RULE_DOCUMENTATION ) )? ( (lv_executionMode_2_0= ruleExecutionMode ) )? 'unit' ( (lv_name_4_0= ruleUnitName ) )? ( 'version' ( (lv_version_6_0= ruleVersionLiteral ) ) )? ( 'implements' ( (lv_implements_8_0= ruleSimpleTypeRef ) ) ( ',' ( (lv_implements_10_0= ruleSimpleTypeRef ) ) )* )? '{' ( 'default' 'properties' ( (lv_defaultProperties_14_0= rulePropertySetDefault ) ) )? ( 'source' '=' ( (lv_sourceLocation_17_0= rulePath ) ) ';' )? ( 'output' '=' ( (lv_outputLocation_21_0= rulePath ) ) ';' )? ( ( 'provides' '{' ( ( (lv_providedCapabilities_25_0= ruleProvidedCapability ) ) ';' )+ '}' ) | ( 'provides' ( (lv_providedCapabilities_29_0= ruleProvidedCapability ) ) ';' ) | ( 'requires' '{' ( ( (lv_requiredCapabilities_33_0= ruleAliasedRequiredCapability ) ) ';' )+ '}' ) | ( 'requires' ( (lv_requiredCapabilities_37_0= ruleAliasedRequiredCapability ) ) ';' ) | ( 'env' 'requires' '{' ( ( (lv_metaRequiredCapabilities_42_0= ruleRequiredCapability ) ) ';' )+ '}' ) | ( 'env' 'requires' ( (lv_metaRequiredCapabilities_47_0= ruleRequiredCapability ) ) ';' ) | ( (lv_concerns_49_0= ruleConcern_Named ) ) | ( 'sequential' '{' ( (lv_synchronizations_52_0= ruleSynchronization ) )+ '}' ) | ( 'sequential' ( (lv_synchronizations_55_0= ruleSynchronization ) ) ) | ( (lv_functions_56_0= ruleBuilder ) ) | ( (lv_functions_57_0= ruleFunction ) ) | ( 'repositories' '{' ( (lv_repositories_60_0= ruleRepositoryConfiguration ) )* '}' ) | ( 'properties' ( (lv_propertySets_63_0= rulePropertySet_Named ) ) ) | ( 'containers' '{' ( (lv_containers_66_0= ruleContainerConfiguration ) )* '}' ) )* '}' )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:391:6: ( ( () ( (lv_documentation_1_0= RULE_DOCUMENTATION ) )? ( (lv_executionMode_2_0= ruleExecutionMode ) )? 'unit' ( (lv_name_4_0= ruleUnitName ) )? ( 'version' ( (lv_version_6_0= ruleVersionLiteral ) ) )? ( 'implements' ( (lv_implements_8_0= ruleSimpleTypeRef ) ) ( ',' ( (lv_implements_10_0= ruleSimpleTypeRef ) ) )* )? '{' ( 'default' 'properties' ( (lv_defaultProperties_14_0= rulePropertySetDefault ) ) )? ( 'source' '=' ( (lv_sourceLocation_17_0= rulePath ) ) ';' )? ( 'output' '=' ( (lv_outputLocation_21_0= rulePath ) ) ';' )? ( ( 'provides' '{' ( ( (lv_providedCapabilities_25_0= ruleProvidedCapability ) ) ';' )+ '}' ) | ( 'provides' ( (lv_providedCapabilities_29_0= ruleProvidedCapability ) ) ';' ) | ( 'requires' '{' ( ( (lv_requiredCapabilities_33_0= ruleAliasedRequiredCapability ) ) ';' )+ '}' ) | ( 'requires' ( (lv_requiredCapabilities_37_0= ruleAliasedRequiredCapability ) ) ';' ) | ( 'requires' 'env' '{' ( ( (lv_metaRequiredCapabilities_42_0= ruleRequiredCapability ) ) ';' )+ '}' ) | ( 'requires' 'env' ( (lv_metaRequiredCapabilities_47_0= ruleRequiredCapability ) ) ';' ) | ( (lv_concerns_49_0= ruleConcern_Named ) ) | ( 'sequential' '{' ( (lv_synchronizations_52_0= ruleSynchronization ) )+ '}' ) | ( 'sequential' ( (lv_synchronizations_55_0= ruleSynchronization ) ) ) | ( (lv_functions_56_0= ruleBuilder ) ) | ( (lv_functions_57_0= ruleFunction ) ) | ( 'repositories' '{' ( (lv_repositories_60_0= ruleRepositoryConfiguration ) )* '}' ) | ( 'properties' ( (lv_propertySets_63_0= rulePropertySet_Named ) ) ) | ( 'containers' '{' ( (lv_containers_66_0= ruleContainerConfiguration ) )* '}' ) )* '}' ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:392:1: ( () ( (lv_documentation_1_0= RULE_DOCUMENTATION ) )? ( (lv_executionMode_2_0= ruleExecutionMode ) )? 'unit' ( (lv_name_4_0= ruleUnitName ) )? ( 'version' ( (lv_version_6_0= ruleVersionLiteral ) ) )? ( 'implements' ( (lv_implements_8_0= ruleSimpleTypeRef ) ) ( ',' ( (lv_implements_10_0= ruleSimpleTypeRef ) ) )* )? '{' ( 'default' 'properties' ( (lv_defaultProperties_14_0= rulePropertySetDefault ) ) )? ( 'source' '=' ( (lv_sourceLocation_17_0= rulePath ) ) ';' )? ( 'output' '=' ( (lv_outputLocation_21_0= rulePath ) ) ';' )? ( ( 'provides' '{' ( ( (lv_providedCapabilities_25_0= ruleProvidedCapability ) ) ';' )+ '}' ) | ( 'provides' ( (lv_providedCapabilities_29_0= ruleProvidedCapability ) ) ';' ) | ( 'requires' '{' ( ( (lv_requiredCapabilities_33_0= ruleAliasedRequiredCapability ) ) ';' )+ '}' ) | ( 'requires' ( (lv_requiredCapabilities_37_0= ruleAliasedRequiredCapability ) ) ';' ) | ( 'requires' 'env' '{' ( ( (lv_metaRequiredCapabilities_42_0= ruleRequiredCapability ) ) ';' )+ '}' ) | ( 'requires' 'env' ( (lv_metaRequiredCapabilities_47_0= ruleRequiredCapability ) ) ';' ) | ( (lv_concerns_49_0= ruleConcern_Named ) ) | ( 'sequential' '{' ( (lv_synchronizations_52_0= ruleSynchronization ) )+ '}' ) | ( 'sequential' ( (lv_synchronizations_55_0= ruleSynchronization ) ) ) | ( (lv_functions_56_0= ruleBuilder ) ) | ( (lv_functions_57_0= ruleFunction ) ) | ( 'repositories' '{' ( (lv_repositories_60_0= ruleRepositoryConfiguration ) )* '}' ) | ( 'properties' ( (lv_propertySets_63_0= rulePropertySet_Named ) ) ) | ( 'containers' '{' ( (lv_containers_66_0= ruleContainerConfiguration ) )* '}' ) )* '}' )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:392:1: ( () ( (lv_documentation_1_0= RULE_DOCUMENTATION ) )? ( (lv_executionMode_2_0= ruleExecutionMode ) )? 'unit' ( (lv_name_4_0= ruleUnitName ) )? ( 'version' ( (lv_version_6_0= ruleVersionLiteral ) ) )? ( 'implements' ( (lv_implements_8_0= ruleSimpleTypeRef ) ) ( ',' ( (lv_implements_10_0= ruleSimpleTypeRef ) ) )* )? '{' ( 'default' 'properties' ( (lv_defaultProperties_14_0= rulePropertySetDefault ) ) )? ( 'source' '=' ( (lv_sourceLocation_17_0= rulePath ) ) ';' )? ( 'output' '=' ( (lv_outputLocation_21_0= rulePath ) ) ';' )? ( ( 'provides' '{' ( ( (lv_providedCapabilities_25_0= ruleProvidedCapability ) ) ';' )+ '}' ) | ( 'provides' ( (lv_providedCapabilities_29_0= ruleProvidedCapability ) ) ';' ) | ( 'requires' '{' ( ( (lv_requiredCapabilities_33_0= ruleAliasedRequiredCapability ) ) ';' )+ '}' ) | ( 'requires' ( (lv_requiredCapabilities_37_0= ruleAliasedRequiredCapability ) ) ';' ) | ( 'env' 'requires' '{' ( ( (lv_metaRequiredCapabilities_42_0= ruleRequiredCapability ) ) ';' )+ '}' ) | ( 'env' 'requires' ( (lv_metaRequiredCapabilities_47_0= ruleRequiredCapability ) ) ';' ) | ( (lv_concerns_49_0= ruleConcern_Named ) ) | ( 'sequential' '{' ( (lv_synchronizations_52_0= ruleSynchronization ) )+ '}' ) | ( 'sequential' ( (lv_synchronizations_55_0= ruleSynchronization ) ) ) | ( (lv_functions_56_0= ruleBuilder ) ) | ( (lv_functions_57_0= ruleFunction ) ) | ( 'repositories' '{' ( (lv_repositories_60_0= ruleRepositoryConfiguration ) )* '}' ) | ( 'properties' ( (lv_propertySets_63_0= rulePropertySet_Named ) ) ) | ( 'containers' '{' ( (lv_containers_66_0= ruleContainerConfiguration ) )* '}' ) )* '}' )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:392:2: () ( (lv_documentation_1_0= RULE_DOCUMENTATION ) )? ( (lv_executionMode_2_0= ruleExecutionMode ) )? 'unit' ( (lv_name_4_0= ruleUnitName ) )? ( 'version' ( (lv_version_6_0= ruleVersionLiteral ) ) )? ( 'implements' ( (lv_implements_8_0= ruleSimpleTypeRef ) ) ( ',' ( (lv_implements_10_0= ruleSimpleTypeRef ) ) )* )? '{' ( 'default' 'properties' ( (lv_defaultProperties_14_0= rulePropertySetDefault ) ) )? ( 'source' '=' ( (lv_sourceLocation_17_0= rulePath ) ) ';' )? ( 'output' '=' ( (lv_outputLocation_21_0= rulePath ) ) ';' )? ( ( 'provides' '{' ( ( (lv_providedCapabilities_25_0= ruleProvidedCapability ) ) ';' )+ '}' ) | ( 'provides' ( (lv_providedCapabilities_29_0= ruleProvidedCapability ) ) ';' ) | ( 'requires' '{' ( ( (lv_requiredCapabilities_33_0= ruleAliasedRequiredCapability ) ) ';' )+ '}' ) | ( 'requires' ( (lv_requiredCapabilities_37_0= ruleAliasedRequiredCapability ) ) ';' ) | ( 'env' 'requires' '{' ( ( (lv_metaRequiredCapabilities_42_0= ruleRequiredCapability ) ) ';' )+ '}' ) | ( 'env' 'requires' ( (lv_metaRequiredCapabilities_47_0= ruleRequiredCapability ) ) ';' ) | ( (lv_concerns_49_0= ruleConcern_Named ) ) | ( 'sequential' '{' ( (lv_synchronizations_52_0= ruleSynchronization ) )+ '}' ) | ( 'sequential' ( (lv_synchronizations_55_0= ruleSynchronization ) ) ) | ( (lv_functions_56_0= ruleBuilder ) ) | ( (lv_functions_57_0= ruleFunction ) ) | ( 'repositories' '{' ( (lv_repositories_60_0= ruleRepositoryConfiguration ) )* '}' ) | ( 'properties' ( (lv_propertySets_63_0= rulePropertySet_Named ) ) ) | ( 'containers' '{' ( (lv_containers_66_0= ruleContainerConfiguration ) )* '}' ) )* '}'
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:392:1: ( () ( (lv_documentation_1_0= RULE_DOCUMENTATION ) )? ( (lv_executionMode_2_0= ruleExecutionMode ) )? 'unit' ( (lv_name_4_0= ruleUnitName ) )? ( 'version' ( (lv_version_6_0= ruleVersionLiteral ) ) )? ( 'implements' ( (lv_implements_8_0= ruleSimpleTypeRef ) ) ( ',' ( (lv_implements_10_0= ruleSimpleTypeRef ) ) )* )? '{' ( 'default' 'properties' ( (lv_defaultProperties_14_0= rulePropertySetDefault ) ) )? ( 'source' '=' ( (lv_sourceLocation_17_0= rulePath ) ) ';' )? ( 'output' '=' ( (lv_outputLocation_21_0= rulePath ) ) ';' )? ( ( 'provides' '{' ( ( (lv_providedCapabilities_25_0= ruleProvidedCapability ) ) ';' )+ '}' ) | ( 'provides' ( (lv_providedCapabilities_29_0= ruleProvidedCapability ) ) ';' ) | ( 'requires' '{' ( ( (lv_requiredCapabilities_33_0= ruleAliasedRequiredCapability ) ) ';' )+ '}' ) | ( 'requires' ( (lv_requiredCapabilities_37_0= ruleAliasedRequiredCapability ) ) ';' ) | ( 'requires' 'env' '{' ( ( (lv_metaRequiredCapabilities_42_0= ruleRequiredCapability ) ) ';' )+ '}' ) | ( 'requires' 'env' ( (lv_metaRequiredCapabilities_47_0= ruleRequiredCapability ) ) ';' ) | ( (lv_concerns_49_0= ruleConcern_Named ) ) | ( 'sequential' '{' ( (lv_synchronizations_52_0= ruleSynchronization ) )+ '}' ) | ( 'sequential' ( (lv_synchronizations_55_0= ruleSynchronization ) ) ) | ( (lv_functions_56_0= ruleBuilder ) ) | ( (lv_functions_57_0= ruleFunction ) ) | ( 'repositories' '{' ( (lv_repositories_60_0= ruleRepositoryConfiguration ) )* '}' ) | ( 'properties' ( (lv_propertySets_63_0= rulePropertySet_Named ) ) ) | ( 'containers' '{' ( (lv_containers_66_0= ruleContainerConfiguration ) )* '}' ) )* '}' )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:392:2: () ( (lv_documentation_1_0= RULE_DOCUMENTATION ) )? ( (lv_executionMode_2_0= ruleExecutionMode ) )? 'unit' ( (lv_name_4_0= ruleUnitName ) )? ( 'version' ( (lv_version_6_0= ruleVersionLiteral ) ) )? ( 'implements' ( (lv_implements_8_0= ruleSimpleTypeRef ) ) ( ',' ( (lv_implements_10_0= ruleSimpleTypeRef ) ) )* )? '{' ( 'default' 'properties' ( (lv_defaultProperties_14_0= rulePropertySetDefault ) ) )? ( 'source' '=' ( (lv_sourceLocation_17_0= rulePath ) ) ';' )? ( 'output' '=' ( (lv_outputLocation_21_0= rulePath ) ) ';' )? ( ( 'provides' '{' ( ( (lv_providedCapabilities_25_0= ruleProvidedCapability ) ) ';' )+ '}' ) | ( 'provides' ( (lv_providedCapabilities_29_0= ruleProvidedCapability ) ) ';' ) | ( 'requires' '{' ( ( (lv_requiredCapabilities_33_0= ruleAliasedRequiredCapability ) ) ';' )+ '}' ) | ( 'requires' ( (lv_requiredCapabilities_37_0= ruleAliasedRequiredCapability ) ) ';' ) | ( 'requires' 'env' '{' ( ( (lv_metaRequiredCapabilities_42_0= ruleRequiredCapability ) ) ';' )+ '}' ) | ( 'requires' 'env' ( (lv_metaRequiredCapabilities_47_0= ruleRequiredCapability ) ) ';' ) | ( (lv_concerns_49_0= ruleConcern_Named ) ) | ( 'sequential' '{' ( (lv_synchronizations_52_0= ruleSynchronization ) )+ '}' ) | ( 'sequential' ( (lv_synchronizations_55_0= ruleSynchronization ) ) ) | ( (lv_functions_56_0= ruleBuilder ) ) | ( (lv_functions_57_0= ruleFunction ) ) | ( 'repositories' '{' ( (lv_repositories_60_0= ruleRepositoryConfiguration ) )* '}' ) | ( 'properties' ( (lv_propertySets_63_0= rulePropertySet_Named ) ) ) | ( 'containers' '{' ( (lv_containers_66_0= ruleContainerConfiguration ) )* '}' ) )* '}'
             {
             // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:392:2: ()
             // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:393:2: 
@@ -1486,7 +1486,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:674:3: ( ( 'provides' '{' ( ( (lv_providedCapabilities_25_0= ruleProvidedCapability ) ) ';' )+ '}' ) | ( 'provides' ( (lv_providedCapabilities_29_0= ruleProvidedCapability ) ) ';' ) | ( 'requires' '{' ( ( (lv_requiredCapabilities_33_0= ruleAliasedRequiredCapability ) ) ';' )+ '}' ) | ( 'requires' ( (lv_requiredCapabilities_37_0= ruleAliasedRequiredCapability ) ) ';' ) | ( 'env' 'requires' '{' ( ( (lv_metaRequiredCapabilities_42_0= ruleRequiredCapability ) ) ';' )+ '}' ) | ( 'env' 'requires' ( (lv_metaRequiredCapabilities_47_0= ruleRequiredCapability ) ) ';' ) | ( (lv_concerns_49_0= ruleConcern_Named ) ) | ( 'sequential' '{' ( (lv_synchronizations_52_0= ruleSynchronization ) )+ '}' ) | ( 'sequential' ( (lv_synchronizations_55_0= ruleSynchronization ) ) ) | ( (lv_functions_56_0= ruleBuilder ) ) | ( (lv_functions_57_0= ruleFunction ) ) | ( 'repositories' '{' ( (lv_repositories_60_0= ruleRepositoryConfiguration ) )* '}' ) | ( 'properties' ( (lv_propertySets_63_0= rulePropertySet_Named ) ) ) | ( 'containers' '{' ( (lv_containers_66_0= ruleContainerConfiguration ) )* '}' ) )*
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:674:3: ( ( 'provides' '{' ( ( (lv_providedCapabilities_25_0= ruleProvidedCapability ) ) ';' )+ '}' ) | ( 'provides' ( (lv_providedCapabilities_29_0= ruleProvidedCapability ) ) ';' ) | ( 'requires' '{' ( ( (lv_requiredCapabilities_33_0= ruleAliasedRequiredCapability ) ) ';' )+ '}' ) | ( 'requires' ( (lv_requiredCapabilities_37_0= ruleAliasedRequiredCapability ) ) ';' ) | ( 'requires' 'env' '{' ( ( (lv_metaRequiredCapabilities_42_0= ruleRequiredCapability ) ) ';' )+ '}' ) | ( 'requires' 'env' ( (lv_metaRequiredCapabilities_47_0= ruleRequiredCapability ) ) ';' ) | ( (lv_concerns_49_0= ruleConcern_Named ) ) | ( 'sequential' '{' ( (lv_synchronizations_52_0= ruleSynchronization ) )+ '}' ) | ( 'sequential' ( (lv_synchronizations_55_0= ruleSynchronization ) ) ) | ( (lv_functions_56_0= ruleBuilder ) ) | ( (lv_functions_57_0= ruleFunction ) ) | ( 'repositories' '{' ( (lv_repositories_60_0= ruleRepositoryConfiguration ) )* '}' ) | ( 'properties' ( (lv_propertySets_63_0= rulePropertySet_Named ) ) ) | ( 'containers' '{' ( (lv_containers_66_0= ruleContainerConfiguration ) )* '}' ) )*
             loop21:
             do {
                 int alt21=15;
@@ -1833,21 +1833,21 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 5 :
-            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:822:6: ( 'env' 'requires' '{' ( ( (lv_metaRequiredCapabilities_42_0= ruleRequiredCapability ) ) ';' )+ '}' )
+            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:822:6: ( 'requires' 'env' '{' ( ( (lv_metaRequiredCapabilities_42_0= ruleRequiredCapability ) ) ';' )+ '}' )
             	    {
-            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:822:6: ( 'env' 'requires' '{' ( ( (lv_metaRequiredCapabilities_42_0= ruleRequiredCapability ) ) ';' )+ '}' )
-            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:822:8: 'env' 'requires' '{' ( ( (lv_metaRequiredCapabilities_42_0= ruleRequiredCapability ) ) ';' )+ '}'
+            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:822:6: ( 'requires' 'env' '{' ( ( (lv_metaRequiredCapabilities_42_0= ruleRequiredCapability ) ) ';' )+ '}' )
+            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:822:8: 'requires' 'env' '{' ( ( (lv_metaRequiredCapabilities_42_0= ruleRequiredCapability ) ) ';' )+ '}'
             	    {
-            	    match(input,33,FOLLOW_33_in_ruleBuildUnit1157); if (failed) return current;
+            	    match(input,32,FOLLOW_32_in_ruleBuildUnit1157); if (failed) return current;
             	    if ( backtracking==0 ) {
 
-            	              createLeafNode(grammarAccess.getBuildUnitAccess().getEnvKeyword_11_4_0(), null); 
+            	              createLeafNode(grammarAccess.getBuildUnitAccess().getRequiresKeyword_11_4_0(), null); 
             	          
             	    }
-            	    match(input,32,FOLLOW_32_in_ruleBuildUnit1167); if (failed) return current;
+            	    match(input,33,FOLLOW_33_in_ruleBuildUnit1167); if (failed) return current;
             	    if ( backtracking==0 ) {
 
-            	              createLeafNode(grammarAccess.getBuildUnitAccess().getRequiresKeyword_11_4_1(), null); 
+            	              createLeafNode(grammarAccess.getBuildUnitAccess().getEnvKeyword_11_4_1(), null); 
             	          
             	    }
             	    match(input,25,FOLLOW_25_in_ruleBuildUnit1177); if (failed) return current;
@@ -1945,21 +1945,21 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 6 :
-            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:867:6: ( 'env' 'requires' ( (lv_metaRequiredCapabilities_47_0= ruleRequiredCapability ) ) ';' )
+            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:867:6: ( 'requires' 'env' ( (lv_metaRequiredCapabilities_47_0= ruleRequiredCapability ) ) ';' )
             	    {
-            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:867:6: ( 'env' 'requires' ( (lv_metaRequiredCapabilities_47_0= ruleRequiredCapability ) ) ';' )
-            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:867:8: 'env' 'requires' ( (lv_metaRequiredCapabilities_47_0= ruleRequiredCapability ) ) ';'
+            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:867:6: ( 'requires' 'env' ( (lv_metaRequiredCapabilities_47_0= ruleRequiredCapability ) ) ';' )
+            	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:867:8: 'requires' 'env' ( (lv_metaRequiredCapabilities_47_0= ruleRequiredCapability ) ) ';'
             	    {
-            	    match(input,33,FOLLOW_33_in_ruleBuildUnit1239); if (failed) return current;
+            	    match(input,32,FOLLOW_32_in_ruleBuildUnit1239); if (failed) return current;
             	    if ( backtracking==0 ) {
 
-            	              createLeafNode(grammarAccess.getBuildUnitAccess().getEnvKeyword_11_5_0(), null); 
+            	              createLeafNode(grammarAccess.getBuildUnitAccess().getRequiresKeyword_11_5_0(), null); 
             	          
             	    }
-            	    match(input,32,FOLLOW_32_in_ruleBuildUnit1249); if (failed) return current;
+            	    match(input,33,FOLLOW_33_in_ruleBuildUnit1249); if (failed) return current;
             	    if ( backtracking==0 ) {
 
-            	              createLeafNode(grammarAccess.getBuildUnitAccess().getRequiresKeyword_11_5_1(), null); 
+            	              createLeafNode(grammarAccess.getBuildUnitAccess().getEnvKeyword_11_5_1(), null); 
             	          
             	    }
             	    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:875:1: ( (lv_metaRequiredCapabilities_47_0= ruleRequiredCapability ) )
@@ -31879,7 +31879,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
                     if ( (LA206_6==30) ) {
                         alt206=8;
                     }
-                    else if ( ((LA206_6>=32 && LA206_6<=33)) ) {
+                    else if ( (LA206_6==32) ) {
                         alt206=5;
                     }
 
@@ -35804,7 +35804,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
             if ( (LA237_0==91) ) {
                 alt237=1;
             }
-            else if ( (LA237_0==RULE_ID||(LA237_0>=RULE_STRING && LA237_0<=RULE_REGULAR_EXPR)||LA237_0==23||LA237_0==30||(LA237_0>=32 && LA237_0<=33)||LA237_0==38||LA237_0==97) ) {
+            else if ( (LA237_0==RULE_ID||(LA237_0>=RULE_STRING && LA237_0<=RULE_REGULAR_EXPR)||LA237_0==23||LA237_0==30||LA237_0==32||LA237_0==38||LA237_0==97) ) {
                 alt237=2;
             }
             else {
@@ -36133,7 +36133,6 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
             int alt238=5;
             switch ( input.LA(1) ) {
             case 32:
-            case 33:
                 {
                 alt238=1;
                 }
@@ -36476,22 +36475,22 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleRequiresPredicate
-    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:14562:1: ruleRequiresPredicate returns [EObject current=null] : ( () ( (lv_meta_1_0= 'env' ) )? 'requires' ( (lv_capabilityPredicate_3_0= ruleCapabilityPredicate ) ) ) ;
+    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:14562:1: ruleRequiresPredicate returns [EObject current=null] : ( () 'requires' ( (lv_meta_2_0= 'env' ) )? ( (lv_capabilityPredicate_3_0= ruleCapabilityPredicate ) ) ) ;
     public final EObject ruleRequiresPredicate() throws RecognitionException {
         EObject current = null;
 
-        Token lv_meta_1_0=null;
+        Token lv_meta_2_0=null;
         EObject lv_capabilityPredicate_3_0 = null;
 
 
          @SuppressWarnings("unused") EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:14567:6: ( ( () ( (lv_meta_1_0= 'env' ) )? 'requires' ( (lv_capabilityPredicate_3_0= ruleCapabilityPredicate ) ) ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:14568:1: ( () ( (lv_meta_1_0= 'env' ) )? 'requires' ( (lv_capabilityPredicate_3_0= ruleCapabilityPredicate ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:14567:6: ( ( () 'requires' ( (lv_meta_2_0= 'env' ) )? ( (lv_capabilityPredicate_3_0= ruleCapabilityPredicate ) ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:14568:1: ( () 'requires' ( (lv_meta_2_0= 'env' ) )? ( (lv_capabilityPredicate_3_0= ruleCapabilityPredicate ) ) )
             {
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:14568:1: ( () ( (lv_meta_1_0= 'env' ) )? 'requires' ( (lv_capabilityPredicate_3_0= ruleCapabilityPredicate ) ) )
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:14568:2: () ( (lv_meta_1_0= 'env' ) )? 'requires' ( (lv_capabilityPredicate_3_0= ruleCapabilityPredicate ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:14568:1: ( () 'requires' ( (lv_meta_2_0= 'env' ) )? ( (lv_capabilityPredicate_3_0= ruleCapabilityPredicate ) ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:14568:2: () 'requires' ( (lv_meta_2_0= 'env' ) )? ( (lv_capabilityPredicate_3_0= ruleCapabilityPredicate ) )
             {
             // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:14568:2: ()
             // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:14569:2: 
@@ -36516,7 +36515,13 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:14582:2: ( (lv_meta_1_0= 'env' ) )?
+            match(input,32,FOLLOW_32_in_ruleRequiresPredicate23878); if (failed) return current;
+            if ( backtracking==0 ) {
+
+                      createLeafNode(grammarAccess.getRequiresPredicateAccess().getRequiresKeyword_1(), null); 
+                  
+            }
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:14586:1: ( (lv_meta_2_0= 'env' ) )?
             int alt239=2;
             int LA239_0 = input.LA(1);
 
@@ -36525,16 +36530,16 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
             }
             switch (alt239) {
                 case 1 :
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:14583:1: (lv_meta_1_0= 'env' )
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:14587:1: (lv_meta_2_0= 'env' )
                     {
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:14583:1: (lv_meta_1_0= 'env' )
-                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:14584:3: lv_meta_1_0= 'env'
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:14587:1: (lv_meta_2_0= 'env' )
+                    // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:14588:3: lv_meta_2_0= 'env'
                     {
-                    lv_meta_1_0=(Token)input.LT(1);
-                    match(input,33,FOLLOW_33_in_ruleRequiresPredicate23886); if (failed) return current;
+                    lv_meta_2_0=(Token)input.LT(1);
+                    match(input,33,FOLLOW_33_in_ruleRequiresPredicate23896); if (failed) return current;
                     if ( backtracking==0 ) {
 
-                              createLeafNode(grammarAccess.getRequiresPredicateAccess().getMetaEnvKeyword_1_0(), "meta"); 
+                              createLeafNode(grammarAccess.getRequiresPredicateAccess().getMetaEnvKeyword_2_0(), "meta"); 
                           
                     }
                     if ( backtracking==0 ) {
@@ -36560,13 +36565,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,32,FOLLOW_32_in_ruleRequiresPredicate23910); if (failed) return current;
-            if ( backtracking==0 ) {
-
-                      createLeafNode(grammarAccess.getRequiresPredicateAccess().getRequiresKeyword_2(), null); 
-                  
-            }
-            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:14607:1: ( (lv_capabilityPredicate_3_0= ruleCapabilityPredicate ) )
+            // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:14607:3: ( (lv_capabilityPredicate_3_0= ruleCapabilityPredicate ) )
             // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:14608:1: (lv_capabilityPredicate_3_0= ruleCapabilityPredicate )
             {
             // ../org.eclipse.b3.beelang/src-gen/org/eclipse/b3/parser/antlr/internal/InternalBeeLang.g:14608:1: (lv_capabilityPredicate_3_0= ruleCapabilityPredicate )
@@ -49804,37 +49803,35 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
     protected DFA264 dfa264 = new DFA264(this);
     protected DFA310 dfa310 = new DFA310(this);
     static final String DFA21_eotS =
-        "\44\uffff";
+        "\43\uffff";
     static final String DFA21_eofS =
-        "\44\uffff";
+        "\43\uffff";
     static final String DFA21_minS =
-        "\1\5\1\uffff\2\4\1\40\1\42\1\uffff\1\25\2\42\1\uffff\1\54\10\uffff"+
-        "\1\4\2\uffff\1\4\2\uffff\1\24\11\4";
+        "\1\5\1\uffff\2\4\1\42\1\uffff\1\25\2\42\1\uffff\1\54\7\uffff\1\4"+
+        "\3\uffff\1\4\2\uffff\1\24\11\4";
     static final String DFA21_maxS =
-        "\1\172\1\uffff\2\45\1\40\1\172\1\uffff\1\54\2\172\1\uffff\1\76\10"+
-        "\uffff\1\45\2\uffff\1\141\2\uffff\1\124\4\136\1\4\4\136";
+        "\1\172\1\uffff\2\45\1\172\1\uffff\1\54\2\172\1\uffff\1\76\7\uffff"+
+        "\1\45\3\uffff\1\141\2\uffff\1\124\4\136\1\4\4\136";
     static final String DFA21_acceptS =
-        "\1\uffff\1\17\4\uffff\1\7\3\uffff\1\12\1\uffff\1\13\1\14\1\15\1"+
-        "\16\1\1\1\2\1\3\1\4\1\uffff\1\10\1\11\1\uffff\1\5\1\6\12\uffff";
+        "\1\uffff\1\17\3\uffff\1\7\3\uffff\1\12\1\uffff\1\13\1\14\1\15\1"+
+        "\16\1\1\1\2\1\3\1\uffff\1\4\1\10\1\11\1\uffff\1\5\1\6\12\uffff";
     static final String DFA21_specialS =
-        "\44\uffff}>";
+        "\43\uffff}>";
     static final String[] DFA21_transitionS = {
-            "\1\5\12\uffff\1\16\15\uffff\1\2\1\1\1\3\1\4\1\7\1\15\1\17\5"+
-            "\uffff\1\13\1\uffff\1\12\5\uffff\1\6\13\uffff\1\14\71\uffff"+
-            "\1\10\1\11\1\12",
+            "\1\4\12\uffff\1\15\15\uffff\1\2\1\1\1\3\1\uffff\1\6\1\14\1\16"+
+            "\5\uffff\1\12\1\uffff\1\11\5\uffff\1\5\13\uffff\1\13\71\uffff"+
+            "\1\7\1\10\1\11",
             "",
-            "\1\21\24\uffff\1\20\13\uffff\1\21",
-            "\1\23\20\uffff\1\23\3\uffff\1\22\13\uffff\1\23",
-            "\1\24",
-            "\1\12\7\uffff\1\13\1\uffff\1\12\5\uffff\1\6\13\uffff\1\14\71"+
-            "\uffff\1\10\1\11\1\12",
+            "\1\20\24\uffff\1\17\13\uffff\1\20",
+            "\1\23\20\uffff\1\23\3\uffff\1\21\7\uffff\1\22\3\uffff\1\23",
+            "\1\11\7\uffff\1\12\1\uffff\1\11\5\uffff\1\5\13\uffff\1\13\71"+
+            "\uffff\1\7\1\10\1\11",
             "",
-            "\1\26\3\uffff\1\25\20\uffff\1\12\1\uffff\1\27",
-            "\1\12\7\uffff\1\13\1\uffff\1\12\21\uffff\1\14\73\uffff\1\12",
-            "\1\12\7\uffff\1\13\1\uffff\1\12\21\uffff\1\14\73\uffff\1\12",
+            "\1\25\3\uffff\1\24\20\uffff\1\11\1\uffff\1\26",
+            "\1\11\7\uffff\1\12\1\uffff\1\11\21\uffff\1\13\73\uffff\1\11",
+            "\1\11\7\uffff\1\12\1\uffff\1\11\21\uffff\1\13\73\uffff\1\11",
             "",
-            "\1\12\21\uffff\1\14",
-            "",
+            "\1\11\21\uffff\1\13",
             "",
             "",
             "",
@@ -49842,32 +49839,33 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
             "",
             "",
             "",
-            "\1\31\20\uffff\1\31\3\uffff\1\30\13\uffff\1\31",
+            "\1\30\20\uffff\1\30\3\uffff\1\27\13\uffff\1\30",
             "",
             "",
-            "\1\33\2\uffff\1\32\1\26\25\uffff\1\26\7\uffff\1\26\21\uffff"+
-            "\1\26\42\uffff\1\26\5\uffff\1\26",
+            "",
+            "\1\32\2\uffff\1\31\1\25\25\uffff\1\25\7\uffff\1\25\21\uffff"+
+            "\1\25\42\uffff\1\25\5\uffff\1\25",
             "",
             "",
-            "\1\26\3\uffff\1\26\1\12\4\uffff\1\12\6\uffff\2\12\16\uffff\3"+
-            "\12\33\uffff\2\26",
-            "\1\36\4\uffff\1\34\1\35\11\uffff\1\26\3\uffff\1\26\1\12\4\uffff"+
-            "\1\12\6\uffff\2\12\16\uffff\3\12\33\uffff\2\26\11\uffff\1\37",
-            "\1\36\4\uffff\1\34\1\35\11\uffff\1\26\3\uffff\1\26\1\12\4\uffff"+
-            "\1\12\6\uffff\2\12\16\uffff\3\12\33\uffff\2\26\11\uffff\1\37",
-            "\1\36\4\uffff\1\34\1\35\11\uffff\1\26\3\uffff\1\26\1\12\4\uffff"+
-            "\1\12\6\uffff\2\12\16\uffff\3\12\33\uffff\2\26\11\uffff\1\37",
-            "\1\36\4\uffff\1\34\1\35\11\uffff\1\26\3\uffff\1\26\1\12\4\uffff"+
-            "\1\12\6\uffff\2\12\16\uffff\3\12\33\uffff\2\26\11\uffff\1\37",
-            "\1\40",
-            "\1\43\4\uffff\1\41\1\42\11\uffff\1\26\3\uffff\1\26\1\12\4\uffff"+
-            "\1\12\6\uffff\2\12\16\uffff\3\12\33\uffff\2\26\11\uffff\1\37",
-            "\1\43\4\uffff\1\41\1\42\11\uffff\1\26\3\uffff\1\26\1\12\4\uffff"+
-            "\1\12\6\uffff\2\12\16\uffff\3\12\33\uffff\2\26\11\uffff\1\37",
-            "\1\43\4\uffff\1\41\1\42\11\uffff\1\26\3\uffff\1\26\1\12\4\uffff"+
-            "\1\12\6\uffff\2\12\16\uffff\3\12\33\uffff\2\26\11\uffff\1\37",
-            "\1\43\4\uffff\1\41\1\42\11\uffff\1\26\3\uffff\1\26\1\12\4\uffff"+
-            "\1\12\6\uffff\2\12\16\uffff\3\12\33\uffff\2\26\11\uffff\1\37"
+            "\1\25\3\uffff\1\25\1\11\4\uffff\1\11\6\uffff\2\11\16\uffff\3"+
+            "\11\33\uffff\2\25",
+            "\1\35\4\uffff\1\33\1\34\11\uffff\1\25\3\uffff\1\25\1\11\4\uffff"+
+            "\1\11\6\uffff\2\11\16\uffff\3\11\33\uffff\2\25\11\uffff\1\36",
+            "\1\35\4\uffff\1\33\1\34\11\uffff\1\25\3\uffff\1\25\1\11\4\uffff"+
+            "\1\11\6\uffff\2\11\16\uffff\3\11\33\uffff\2\25\11\uffff\1\36",
+            "\1\35\4\uffff\1\33\1\34\11\uffff\1\25\3\uffff\1\25\1\11\4\uffff"+
+            "\1\11\6\uffff\2\11\16\uffff\3\11\33\uffff\2\25\11\uffff\1\36",
+            "\1\35\4\uffff\1\33\1\34\11\uffff\1\25\3\uffff\1\25\1\11\4\uffff"+
+            "\1\11\6\uffff\2\11\16\uffff\3\11\33\uffff\2\25\11\uffff\1\36",
+            "\1\37",
+            "\1\42\4\uffff\1\40\1\41\11\uffff\1\25\3\uffff\1\25\1\11\4\uffff"+
+            "\1\11\6\uffff\2\11\16\uffff\3\11\33\uffff\2\25\11\uffff\1\36",
+            "\1\42\4\uffff\1\40\1\41\11\uffff\1\25\3\uffff\1\25\1\11\4\uffff"+
+            "\1\11\6\uffff\2\11\16\uffff\3\11\33\uffff\2\25\11\uffff\1\36",
+            "\1\42\4\uffff\1\40\1\41\11\uffff\1\25\3\uffff\1\25\1\11\4\uffff"+
+            "\1\11\6\uffff\2\11\16\uffff\3\11\33\uffff\2\25\11\uffff\1\36",
+            "\1\42\4\uffff\1\40\1\41\11\uffff\1\25\3\uffff\1\25\1\11\4\uffff"+
+            "\1\11\6\uffff\2\11\16\uffff\3\11\33\uffff\2\25\11\uffff\1\36"
     };
 
     static final short[] DFA21_eot = DFA.unpackEncodedString(DFA21_eotS);
@@ -49900,7 +49898,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
             this.transition = DFA21_transition;
         }
         public String getDescription() {
-            return "()* loopback of 674:3: ( ( 'provides' '{' ( ( (lv_providedCapabilities_25_0= ruleProvidedCapability ) ) ';' )+ '}' ) | ( 'provides' ( (lv_providedCapabilities_29_0= ruleProvidedCapability ) ) ';' ) | ( 'requires' '{' ( ( (lv_requiredCapabilities_33_0= ruleAliasedRequiredCapability ) ) ';' )+ '}' ) | ( 'requires' ( (lv_requiredCapabilities_37_0= ruleAliasedRequiredCapability ) ) ';' ) | ( 'env' 'requires' '{' ( ( (lv_metaRequiredCapabilities_42_0= ruleRequiredCapability ) ) ';' )+ '}' ) | ( 'env' 'requires' ( (lv_metaRequiredCapabilities_47_0= ruleRequiredCapability ) ) ';' ) | ( (lv_concerns_49_0= ruleConcern_Named ) ) | ( 'sequential' '{' ( (lv_synchronizations_52_0= ruleSynchronization ) )+ '}' ) | ( 'sequential' ( (lv_synchronizations_55_0= ruleSynchronization ) ) ) | ( (lv_functions_56_0= ruleBuilder ) ) | ( (lv_functions_57_0= ruleFunction ) ) | ( 'repositories' '{' ( (lv_repositories_60_0= ruleRepositoryConfiguration ) )* '}' ) | ( 'properties' ( (lv_propertySets_63_0= rulePropertySet_Named ) ) ) | ( 'containers' '{' ( (lv_containers_66_0= ruleContainerConfiguration ) )* '}' ) )*";
+            return "()* loopback of 674:3: ( ( 'provides' '{' ( ( (lv_providedCapabilities_25_0= ruleProvidedCapability ) ) ';' )+ '}' ) | ( 'provides' ( (lv_providedCapabilities_29_0= ruleProvidedCapability ) ) ';' ) | ( 'requires' '{' ( ( (lv_requiredCapabilities_33_0= ruleAliasedRequiredCapability ) ) ';' )+ '}' ) | ( 'requires' ( (lv_requiredCapabilities_37_0= ruleAliasedRequiredCapability ) ) ';' ) | ( 'requires' 'env' '{' ( ( (lv_metaRequiredCapabilities_42_0= ruleRequiredCapability ) ) ';' )+ '}' ) | ( 'requires' 'env' ( (lv_metaRequiredCapabilities_47_0= ruleRequiredCapability ) ) ';' ) | ( (lv_concerns_49_0= ruleConcern_Named ) ) | ( 'sequential' '{' ( (lv_synchronizations_52_0= ruleSynchronization ) )+ '}' ) | ( 'sequential' ( (lv_synchronizations_55_0= ruleSynchronization ) ) ) | ( (lv_functions_56_0= ruleBuilder ) ) | ( (lv_functions_57_0= ruleFunction ) ) | ( 'repositories' '{' ( (lv_repositories_60_0= ruleRepositoryConfiguration ) )* '}' ) | ( 'properties' ( (lv_propertySets_63_0= rulePropertySet_Named ) ) ) | ( 'containers' '{' ( (lv_containers_66_0= ruleContainerConfiguration ) )* '}' ) )*";
         }
     }
     static final String DFA58_eotS =
@@ -51388,63 +51386,63 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleSimpleTypeRef_in_ruleBuildUnit705 = new BitSet(new long[]{0x0000000003000000L});
     public static final BitSet FOLLOW_24_in_ruleBuildUnit716 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_ruleSimpleTypeRef_in_ruleBuildUnit737 = new BitSet(new long[]{0x0000000003000000L});
-    public static final BitSet FOLLOW_25_in_ruleBuildUnit751 = new BitSet(new long[]{0x4004141FEC010020L,0x0700000000000000L});
+    public static final BitSet FOLLOW_25_in_ruleBuildUnit751 = new BitSet(new long[]{0x4004141DEC010020L,0x0700000000000000L});
     public static final BitSet FOLLOW_26_in_ruleBuildUnit762 = new BitSet(new long[]{0x0000000000010000L});
     public static final BitSet FOLLOW_16_in_ruleBuildUnit772 = new BitSet(new long[]{0x0000020002200090L,0x0010000000020000L});
-    public static final BitSet FOLLOW_rulePropertySetDefault_in_ruleBuildUnit793 = new BitSet(new long[]{0x4004141FE8010020L,0x0700000000000000L});
+    public static final BitSet FOLLOW_rulePropertySetDefault_in_ruleBuildUnit793 = new BitSet(new long[]{0x4004141DE8010020L,0x0700000000000000L});
     public static final BitSet FOLLOW_27_in_ruleBuildUnit806 = new BitSet(new long[]{0x0000000010000000L});
     public static final BitSet FOLLOW_28_in_ruleBuildUnit816 = new BitSet(new long[]{0x0000010000000090L});
     public static final BitSet FOLLOW_rulePath_in_ruleBuildUnit837 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_20_in_ruleBuildUnit847 = new BitSet(new long[]{0x4004141FE0010020L,0x0700000000000000L});
+    public static final BitSet FOLLOW_20_in_ruleBuildUnit847 = new BitSet(new long[]{0x4004141DE0010020L,0x0700000000000000L});
     public static final BitSet FOLLOW_29_in_ruleBuildUnit860 = new BitSet(new long[]{0x0000000010000000L});
     public static final BitSet FOLLOW_28_in_ruleBuildUnit870 = new BitSet(new long[]{0x0000010000000090L});
     public static final BitSet FOLLOW_rulePath_in_ruleBuildUnit891 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_20_in_ruleBuildUnit901 = new BitSet(new long[]{0x4004141FC0010020L,0x0700000000000000L});
+    public static final BitSet FOLLOW_20_in_ruleBuildUnit901 = new BitSet(new long[]{0x4004141DC0010020L,0x0700000000000000L});
     public static final BitSet FOLLOW_30_in_ruleBuildUnit915 = new BitSet(new long[]{0x0000000002000000L});
     public static final BitSet FOLLOW_25_in_ruleBuildUnit925 = new BitSet(new long[]{0x0000002000000010L});
     public static final BitSet FOLLOW_ruleProvidedCapability_in_ruleBuildUnit947 = new BitSet(new long[]{0x0000000000100000L});
     public static final BitSet FOLLOW_20_in_ruleBuildUnit957 = new BitSet(new long[]{0x0000002080000010L});
-    public static final BitSet FOLLOW_31_in_ruleBuildUnit969 = new BitSet(new long[]{0x4004141FC0010020L,0x0700000000000000L});
+    public static final BitSet FOLLOW_31_in_ruleBuildUnit969 = new BitSet(new long[]{0x4004141DC0010020L,0x0700000000000000L});
     public static final BitSet FOLLOW_30_in_ruleBuildUnit987 = new BitSet(new long[]{0x0000002000000010L});
     public static final BitSet FOLLOW_ruleProvidedCapability_in_ruleBuildUnit1008 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_20_in_ruleBuildUnit1018 = new BitSet(new long[]{0x4004141FC0010020L,0x0700000000000000L});
+    public static final BitSet FOLLOW_20_in_ruleBuildUnit1018 = new BitSet(new long[]{0x4004141DC0010020L,0x0700000000000000L});
     public static final BitSet FOLLOW_32_in_ruleBuildUnit1036 = new BitSet(new long[]{0x0000000002000000L});
     public static final BitSet FOLLOW_25_in_ruleBuildUnit1046 = new BitSet(new long[]{0x0000002000200010L});
     public static final BitSet FOLLOW_ruleAliasedRequiredCapability_in_ruleBuildUnit1068 = new BitSet(new long[]{0x0000000000100000L});
     public static final BitSet FOLLOW_20_in_ruleBuildUnit1078 = new BitSet(new long[]{0x0000002080200010L});
-    public static final BitSet FOLLOW_31_in_ruleBuildUnit1090 = new BitSet(new long[]{0x4004141FC0010020L,0x0700000000000000L});
+    public static final BitSet FOLLOW_31_in_ruleBuildUnit1090 = new BitSet(new long[]{0x4004141DC0010020L,0x0700000000000000L});
     public static final BitSet FOLLOW_32_in_ruleBuildUnit1108 = new BitSet(new long[]{0x0000002000200010L});
     public static final BitSet FOLLOW_ruleAliasedRequiredCapability_in_ruleBuildUnit1129 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_20_in_ruleBuildUnit1139 = new BitSet(new long[]{0x4004141FC0010020L,0x0700000000000000L});
-    public static final BitSet FOLLOW_33_in_ruleBuildUnit1157 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_32_in_ruleBuildUnit1167 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_20_in_ruleBuildUnit1139 = new BitSet(new long[]{0x4004141DC0010020L,0x0700000000000000L});
+    public static final BitSet FOLLOW_32_in_ruleBuildUnit1157 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_33_in_ruleBuildUnit1167 = new BitSet(new long[]{0x0000000002000000L});
     public static final BitSet FOLLOW_25_in_ruleBuildUnit1177 = new BitSet(new long[]{0x0000002000200010L});
     public static final BitSet FOLLOW_ruleRequiredCapability_in_ruleBuildUnit1199 = new BitSet(new long[]{0x0000000000100000L});
     public static final BitSet FOLLOW_20_in_ruleBuildUnit1209 = new BitSet(new long[]{0x0000002080200010L});
-    public static final BitSet FOLLOW_31_in_ruleBuildUnit1221 = new BitSet(new long[]{0x4004141FC0010020L,0x0700000000000000L});
-    public static final BitSet FOLLOW_33_in_ruleBuildUnit1239 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_32_in_ruleBuildUnit1249 = new BitSet(new long[]{0x0000002000200010L});
+    public static final BitSet FOLLOW_31_in_ruleBuildUnit1221 = new BitSet(new long[]{0x4004141DC0010020L,0x0700000000000000L});
+    public static final BitSet FOLLOW_32_in_ruleBuildUnit1239 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_33_in_ruleBuildUnit1249 = new BitSet(new long[]{0x0000002000200010L});
     public static final BitSet FOLLOW_ruleRequiredCapability_in_ruleBuildUnit1270 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_20_in_ruleBuildUnit1280 = new BitSet(new long[]{0x4004141FC0010020L,0x0700000000000000L});
-    public static final BitSet FOLLOW_ruleConcern_Named_in_ruleBuildUnit1308 = new BitSet(new long[]{0x4004141FC0010020L,0x0700000000000000L});
+    public static final BitSet FOLLOW_20_in_ruleBuildUnit1280 = new BitSet(new long[]{0x4004141DC0010020L,0x0700000000000000L});
+    public static final BitSet FOLLOW_ruleConcern_Named_in_ruleBuildUnit1308 = new BitSet(new long[]{0x4004141DC0010020L,0x0700000000000000L});
     public static final BitSet FOLLOW_34_in_ruleBuildUnit1325 = new BitSet(new long[]{0x0000000002000000L});
     public static final BitSet FOLLOW_25_in_ruleBuildUnit1335 = new BitSet(new long[]{0x0000100000200000L});
     public static final BitSet FOLLOW_ruleSynchronization_in_ruleBuildUnit1356 = new BitSet(new long[]{0x0000100080200000L});
-    public static final BitSet FOLLOW_31_in_ruleBuildUnit1367 = new BitSet(new long[]{0x4004141FC0010020L,0x0700000000000000L});
+    public static final BitSet FOLLOW_31_in_ruleBuildUnit1367 = new BitSet(new long[]{0x4004141DC0010020L,0x0700000000000000L});
     public static final BitSet FOLLOW_34_in_ruleBuildUnit1385 = new BitSet(new long[]{0x0000100000200000L});
-    public static final BitSet FOLLOW_ruleSynchronization_in_ruleBuildUnit1406 = new BitSet(new long[]{0x4004141FC0010020L,0x0700000000000000L});
-    public static final BitSet FOLLOW_ruleBuilder_in_ruleBuildUnit1434 = new BitSet(new long[]{0x4004141FC0010020L,0x0700000000000000L});
-    public static final BitSet FOLLOW_ruleFunction_in_ruleBuildUnit1461 = new BitSet(new long[]{0x4004141FC0010020L,0x0700000000000000L});
+    public static final BitSet FOLLOW_ruleSynchronization_in_ruleBuildUnit1406 = new BitSet(new long[]{0x4004141DC0010020L,0x0700000000000000L});
+    public static final BitSet FOLLOW_ruleBuilder_in_ruleBuildUnit1434 = new BitSet(new long[]{0x4004141DC0010020L,0x0700000000000000L});
+    public static final BitSet FOLLOW_ruleFunction_in_ruleBuildUnit1461 = new BitSet(new long[]{0x4004141DC0010020L,0x0700000000000000L});
     public static final BitSet FOLLOW_35_in_ruleBuildUnit1478 = new BitSet(new long[]{0x0000000002000000L});
     public static final BitSet FOLLOW_25_in_ruleBuildUnit1488 = new BitSet(new long[]{0x0E000000800000A0L});
     public static final BitSet FOLLOW_ruleRepositoryConfiguration_in_ruleBuildUnit1509 = new BitSet(new long[]{0x0E000000800000A0L});
-    public static final BitSet FOLLOW_31_in_ruleBuildUnit1520 = new BitSet(new long[]{0x4004141FC0010020L,0x0700000000000000L});
+    public static final BitSet FOLLOW_31_in_ruleBuildUnit1520 = new BitSet(new long[]{0x4004141DC0010020L,0x0700000000000000L});
     public static final BitSet FOLLOW_16_in_ruleBuildUnit1538 = new BitSet(new long[]{0x0000000000200090L,0x0010000000020000L});
-    public static final BitSet FOLLOW_rulePropertySet_Named_in_ruleBuildUnit1559 = new BitSet(new long[]{0x4004141FC0010020L,0x0700000000000000L});
+    public static final BitSet FOLLOW_rulePropertySet_Named_in_ruleBuildUnit1559 = new BitSet(new long[]{0x4004141DC0010020L,0x0700000000000000L});
     public static final BitSet FOLLOW_36_in_ruleBuildUnit1577 = new BitSet(new long[]{0x0000000002000000L});
     public static final BitSet FOLLOW_25_in_ruleBuildUnit1587 = new BitSet(new long[]{0x1000000080000020L});
     public static final BitSet FOLLOW_ruleContainerConfiguration_in_ruleBuildUnit1608 = new BitSet(new long[]{0x1000000080000020L});
-    public static final BitSet FOLLOW_31_in_ruleBuildUnit1619 = new BitSet(new long[]{0x4004141FC0010020L,0x0700000000000000L});
+    public static final BitSet FOLLOW_31_in_ruleBuildUnit1619 = new BitSet(new long[]{0x4004141DC0010020L,0x0700000000000000L});
     public static final BitSet FOLLOW_31_in_ruleBuildUnit1632 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleProvidedCapability_in_entryRuleProvidedCapability1672 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleProvidedCapability1682 = new BitSet(new long[]{0x0000000000000002L});
@@ -51570,7 +51568,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_20_in_ruleSynchronization4502 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleBuilderQuery_in_entryRuleBuilderQuery4538 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleBuilderQuery4548 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_21_in_ruleBuilderQuery4596 = new BitSet(new long[]{0x0000004340800190L,0x0000000208000000L});
+    public static final BitSet FOLLOW_21_in_ruleBuilderQuery4596 = new BitSet(new long[]{0x0000004140800190L,0x0000000208000000L});
     public static final BitSet FOLLOW_ruleUnitOrExpression_in_ruleBuilderQuery4617 = new BitSet(new long[]{0x0000100000000000L});
     public static final BitSet FOLLOW_44_in_ruleBuilderQuery4630 = new BitSet(new long[]{0x0100004040000190L,0x0000000208000000L});
     public static final BitSet FOLLOW_ruleBuilderOrExpression_in_ruleBuilderQuery4651 = new BitSet(new long[]{0x0000000001000002L});
@@ -52218,7 +52216,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_EOF_in_entryRuleUnitConcernContext20614 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_DOCUMENTATION_in_ruleUnitConcernContext20668 = new BitSet(new long[]{0x0000000000000000L,0x0000000080000000L});
     public static final BitSet FOLLOW_95_in_ruleUnitConcernContext20684 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_21_in_ruleUnitConcernContext20694 = new BitSet(new long[]{0x0000004340800190L,0x0000000208000000L});
+    public static final BitSet FOLLOW_21_in_ruleUnitConcernContext20694 = new BitSet(new long[]{0x0000004140800190L,0x0000000208000000L});
     public static final BitSet FOLLOW_ruleUnitOrExpression_in_ruleUnitConcernContext20715 = new BitSet(new long[]{0x0000000002000000L});
     public static final BitSet FOLLOW_25_in_ruleUnitConcernContext20725 = new BitSet(new long[]{0x0000140480000020L,0x0700000080C00000L});
     public static final BitSet FOLLOW_ruleBuilder_in_ruleUnitConcernContext20747 = new BitSet(new long[]{0x0000140480000020L,0x0700000080C00000L});
@@ -52233,7 +52231,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_32_in_ruleUnitConcernContext20883 = new BitSet(new long[]{0x0000002000200010L});
     public static final BitSet FOLLOW_ruleAliasedRequiredCapability_in_ruleUnitConcernContext20904 = new BitSet(new long[]{0x0000000000100000L});
     public static final BitSet FOLLOW_20_in_ruleUnitConcernContext20914 = new BitSet(new long[]{0x0000140480000020L,0x0700000080C00000L});
-    public static final BitSet FOLLOW_87_in_ruleUnitConcernContext20932 = new BitSet(new long[]{0x0000000300000000L});
+    public static final BitSet FOLLOW_87_in_ruleUnitConcernContext20932 = new BitSet(new long[]{0x0000000100000000L});
     public static final BitSet FOLLOW_ruleRequiresPredicate_in_ruleUnitConcernContext20953 = new BitSet(new long[]{0x0000000000100000L});
     public static final BitSet FOLLOW_20_in_ruleUnitConcernContext20963 = new BitSet(new long[]{0x0000140480000020L,0x0700000080C00000L});
     public static final BitSet FOLLOW_86_in_ruleUnitConcernContext20981 = new BitSet(new long[]{0x0000000040000000L});
@@ -52360,12 +52358,12 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleUnitOrExpression_in_entryRuleUnitOrExpression22949 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleUnitOrExpression22959 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleUnitAndExpression_in_ruleUnitOrExpression23009 = new BitSet(new long[]{0x0000000000000002L,0x0000000000080000L});
-    public static final BitSet FOLLOW_83_in_ruleUnitOrExpression23031 = new BitSet(new long[]{0x0000004340800190L,0x0000000208000000L});
+    public static final BitSet FOLLOW_83_in_ruleUnitOrExpression23031 = new BitSet(new long[]{0x0000004140800190L,0x0000000208000000L});
     public static final BitSet FOLLOW_ruleUnitAndExpression_in_ruleUnitOrExpression23052 = new BitSet(new long[]{0x0000000000000002L,0x0000000000080000L});
     public static final BitSet FOLLOW_ruleUnitAndExpression_in_entryRuleUnitAndExpression23090 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleUnitAndExpression23100 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleUnitNotOrPrimaryExpression_in_ruleUnitAndExpression23150 = new BitSet(new long[]{0x0000000000000002L,0x0000000000100000L});
-    public static final BitSet FOLLOW_84_in_ruleUnitAndExpression23172 = new BitSet(new long[]{0x0000004340800190L,0x0000000208000000L});
+    public static final BitSet FOLLOW_84_in_ruleUnitAndExpression23172 = new BitSet(new long[]{0x0000004140800190L,0x0000000208000000L});
     public static final BitSet FOLLOW_ruleUnitNotOrPrimaryExpression_in_ruleUnitAndExpression23193 = new BitSet(new long[]{0x0000000000000002L,0x0000000000100000L});
     public static final BitSet FOLLOW_ruleUnitNotOrPrimaryExpression_in_entryRuleUnitNotOrPrimaryExpression23231 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleUnitNotOrPrimaryExpression23241 = new BitSet(new long[]{0x0000000000000002L});
@@ -52373,7 +52371,7 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleUnitPrimaryExpression_in_ruleUnitNotOrPrimaryExpression23321 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleUnitNotExpression_in_entryRuleUnitNotExpression23356 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleUnitNotExpression23366 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_91_in_ruleUnitNotExpression23421 = new BitSet(new long[]{0x0000004340800190L,0x0000000200000000L});
+    public static final BitSet FOLLOW_91_in_ruleUnitNotExpression23421 = new BitSet(new long[]{0x0000004140800190L,0x0000000200000000L});
     public static final BitSet FOLLOW_ruleUnitPrimaryExpression_in_ruleUnitNotExpression23455 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleUnitPrimaryExpression_in_entryRuleUnitPrimaryExpression23491 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleUnitPrimaryExpression23501 = new BitSet(new long[]{0x0000000000000002L});
@@ -52384,13 +52382,13 @@ public class InternalBeeLangParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleGroupedUnitPrimaryExpression_in_ruleUnitPrimaryExpression23671 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleGroupedUnitPrimaryExpression_in_entryRuleGroupedUnitPrimaryExpression23706 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleGroupedUnitPrimaryExpression23716 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_38_in_ruleGroupedUnitPrimaryExpression23751 = new BitSet(new long[]{0x0000004340800190L,0x0000000208000000L});
+    public static final BitSet FOLLOW_38_in_ruleGroupedUnitPrimaryExpression23751 = new BitSet(new long[]{0x0000004140800190L,0x0000000208000000L});
     public static final BitSet FOLLOW_ruleUnitOrExpression_in_ruleGroupedUnitPrimaryExpression23776 = new BitSet(new long[]{0x0000008000000000L});
     public static final BitSet FOLLOW_39_in_ruleGroupedUnitPrimaryExpression23785 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleRequiresPredicate_in_entryRuleRequiresPredicate23821 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleRequiresPredicate23831 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_33_in_ruleRequiresPredicate23886 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_32_in_ruleRequiresPredicate23910 = new BitSet(new long[]{0x0000000000000190L,0x0000000200000000L});
+    public static final BitSet FOLLOW_32_in_ruleRequiresPredicate23878 = new BitSet(new long[]{0x0000000200000190L,0x0000000200000000L});
+    public static final BitSet FOLLOW_33_in_ruleRequiresPredicate23896 = new BitSet(new long[]{0x0000000000000190L,0x0000000200000000L});
     public static final BitSet FOLLOW_ruleCapabilityPredicate_in_ruleRequiresPredicate23931 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleImplementsPredcicate_in_entryRuleImplementsPredcicate23967 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleImplementsPredcicate23977 = new BitSet(new long[]{0x0000000000000002L});

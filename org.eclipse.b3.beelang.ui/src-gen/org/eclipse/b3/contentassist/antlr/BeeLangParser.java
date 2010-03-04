@@ -821,7 +821,7 @@ public class BeeLangParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUnitAndExpressionAccess().getRightExprAssignment_1_2(), "rule__UnitAndExpression__RightExprAssignment_1_2");
 					put(grammarAccess.getUnitNotExpressionAccess().getFunctionNameAssignment_1(), "rule__UnitNotExpression__FunctionNameAssignment_1");
 					put(grammarAccess.getUnitNotExpressionAccess().getExprAssignment_2(), "rule__UnitNotExpression__ExprAssignment_2");
-					put(grammarAccess.getRequiresPredicateAccess().getMetaAssignment_1(), "rule__RequiresPredicate__MetaAssignment_1");
+					put(grammarAccess.getRequiresPredicateAccess().getMetaAssignment_2(), "rule__RequiresPredicate__MetaAssignment_2");
 					put(grammarAccess.getRequiresPredicateAccess().getCapabilityPredicateAssignment_3(), "rule__RequiresPredicate__CapabilityPredicateAssignment_3");
 					put(grammarAccess.getImplementsPredcicateAccess().getTypeAssignment_2(), "rule__ImplementsPredcicate__TypeAssignment_2");
 					put(grammarAccess.getProvidesPredicateAccess().getCapabilityPredicateAssignment_2(), "rule__ProvidesPredicate__CapabilityPredicateAssignment_2");
