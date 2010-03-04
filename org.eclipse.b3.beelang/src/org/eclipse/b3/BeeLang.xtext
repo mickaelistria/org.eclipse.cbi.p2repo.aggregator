@@ -625,7 +625,7 @@ VariableValue returns  be::BExpression : {be::BVariableExpression}
 	;
 	
 KeywordVariables returns  be::BExpression : {be::BVariableExpression} 
-	name = ("input" | "output" | "properties" | "unit")
+	name = ("input" | "output" | "source" | "properties" | "builder" | "unit")
 	;
 
 FeatureCall returns be::BExpression :

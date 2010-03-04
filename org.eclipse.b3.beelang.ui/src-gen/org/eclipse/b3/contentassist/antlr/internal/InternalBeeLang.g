@@ -6183,19 +6183,35 @@ rule__KeywordVariables__NameAlternatives_1_0
 )
 
     |(
-{ before(grammarAccess.getKeywordVariablesAccess().getNamePropertiesKeyword_1_0_2()); }
+{ before(grammarAccess.getKeywordVariablesAccess().getNameSourceKeyword_1_0_2()); }
 
-	'properties' 
+	'source' 
 
-{ after(grammarAccess.getKeywordVariablesAccess().getNamePropertiesKeyword_1_0_2()); }
+{ after(grammarAccess.getKeywordVariablesAccess().getNameSourceKeyword_1_0_2()); }
 )
 
     |(
-{ before(grammarAccess.getKeywordVariablesAccess().getNameUnitKeyword_1_0_3()); }
+{ before(grammarAccess.getKeywordVariablesAccess().getNamePropertiesKeyword_1_0_3()); }
+
+	'properties' 
+
+{ after(grammarAccess.getKeywordVariablesAccess().getNamePropertiesKeyword_1_0_3()); }
+)
+
+    |(
+{ before(grammarAccess.getKeywordVariablesAccess().getNameBuilderKeyword_1_0_4()); }
+
+	'builder' 
+
+{ after(grammarAccess.getKeywordVariablesAccess().getNameBuilderKeyword_1_0_4()); }
+)
+
+    |(
+{ before(grammarAccess.getKeywordVariablesAccess().getNameUnitKeyword_1_0_5()); }
 
 	'unit' 
 
-{ after(grammarAccess.getKeywordVariablesAccess().getNameUnitKeyword_1_0_3()); }
+{ after(grammarAccess.getKeywordVariablesAccess().getNameUnitKeyword_1_0_5()); }
 )
 
 ;

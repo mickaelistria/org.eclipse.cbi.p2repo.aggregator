@@ -394,6 +394,8 @@ public class B3BuilderJob extends Job {
 
 			// POST CONDITION
 			// just evaluate, supposed to throw exception if not acceptable
+			// make the actual returned value available
+			ctx.defineFinalValue("builder", buildResult, BuildResult.class);
 			tmp = builder.getPostcondExpr();
 			if(tmp != null)
 				tmp.evaluate(ctx);

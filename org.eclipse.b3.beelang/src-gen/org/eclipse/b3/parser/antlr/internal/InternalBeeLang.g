@@ -11548,9 +11548,9 @@ ruleKeywordVariables returns [EObject current=null]
 	        }
 	    }
 
-    |		lv_name_1_3=	'properties' 
+    |		lv_name_1_3=	'source' 
     {
-        createLeafNode(grammarAccess.getKeywordVariablesAccess().getNamePropertiesKeyword_1_0_2(), "name"); 
+        createLeafNode(grammarAccess.getKeywordVariablesAccess().getNameSourceKeyword_1_0_2(), "name"); 
     }
  
 	    {
@@ -11566,9 +11566,9 @@ ruleKeywordVariables returns [EObject current=null]
 	        }
 	    }
 
-    |		lv_name_1_4=	'unit' 
+    |		lv_name_1_4=	'properties' 
     {
-        createLeafNode(grammarAccess.getKeywordVariablesAccess().getNameUnitKeyword_1_0_3(), "name"); 
+        createLeafNode(grammarAccess.getKeywordVariablesAccess().getNamePropertiesKeyword_1_0_3(), "name"); 
     }
  
 	    {
@@ -11579,6 +11579,42 @@ ruleKeywordVariables returns [EObject current=null]
 	        
 	        try {
 	       		set($current, "name", lv_name_1_4, null, lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+    |		lv_name_1_5=	'builder' 
+    {
+        createLeafNode(grammarAccess.getKeywordVariablesAccess().getNameBuilderKeyword_1_0_4(), "name"); 
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getKeywordVariablesRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "name", lv_name_1_5, null, lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+    |		lv_name_1_6=	'unit' 
+    {
+        createLeafNode(grammarAccess.getKeywordVariablesAccess().getNameUnitKeyword_1_0_5(), "name"); 
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getKeywordVariablesRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "name", lv_name_1_6, null, lastConsumedNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }

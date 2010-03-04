@@ -6543,23 +6543,27 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cNameAlternatives_1_0 = (Alternatives)cNameAssignment_1.eContents().get(0);
 		private final Keyword cNameInputKeyword_1_0_0 = (Keyword)cNameAlternatives_1_0.eContents().get(0);
 		private final Keyword cNameOutputKeyword_1_0_1 = (Keyword)cNameAlternatives_1_0.eContents().get(1);
-		private final Keyword cNamePropertiesKeyword_1_0_2 = (Keyword)cNameAlternatives_1_0.eContents().get(2);
-		private final Keyword cNameUnitKeyword_1_0_3 = (Keyword)cNameAlternatives_1_0.eContents().get(3);
+		private final Keyword cNameSourceKeyword_1_0_2 = (Keyword)cNameAlternatives_1_0.eContents().get(2);
+		private final Keyword cNamePropertiesKeyword_1_0_3 = (Keyword)cNameAlternatives_1_0.eContents().get(3);
+		private final Keyword cNameBuilderKeyword_1_0_4 = (Keyword)cNameAlternatives_1_0.eContents().get(4);
+		private final Keyword cNameUnitKeyword_1_0_5 = (Keyword)cNameAlternatives_1_0.eContents().get(5);
 		
 		//KeywordVariables returns be::BExpression:
-		//  {be::BVariableExpression} name=( "input" | "output" | "properties" | "unit" );
+		//  {be::BVariableExpression} name=( "input" | "output" | "source" | "properties" | "builder" |
+		//  "unit" );
 		public ParserRule getRule() { return rule; }
 
-		//{be::BVariableExpression} name=( "input" | "output" | "properties" | "unit" )
+		//{be::BVariableExpression} name=( "input" | "output" | "source" | "properties" | "builder" |
+		//"unit" )
 		public Group getGroup() { return cGroup; }
 
 		//{be::BVariableExpression}
 		public Action getBVariableExpressionAction_0() { return cBVariableExpressionAction_0; }
 
-		//name=( "input" | "output" | "properties" | "unit" )
+		//name=( "input" | "output" | "source" | "properties" | "builder" | "unit" )
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
-		//"input"|"output"|"properties"|"unit"
+		//"input"|"output"|"source"|"properties"|"builder"|"unit"
 		public Alternatives getNameAlternatives_1_0() { return cNameAlternatives_1_0; }
 
 		//"input"
@@ -6568,11 +6572,17 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 		//"output"
 		public Keyword getNameOutputKeyword_1_0_1() { return cNameOutputKeyword_1_0_1; }
 
+		//"source"
+		public Keyword getNameSourceKeyword_1_0_2() { return cNameSourceKeyword_1_0_2; }
+
 		//"properties"
-		public Keyword getNamePropertiesKeyword_1_0_2() { return cNamePropertiesKeyword_1_0_2; }
+		public Keyword getNamePropertiesKeyword_1_0_3() { return cNamePropertiesKeyword_1_0_3; }
+
+		//"builder"
+		public Keyword getNameBuilderKeyword_1_0_4() { return cNameBuilderKeyword_1_0_4; }
 
 		//"unit"
-		public Keyword getNameUnitKeyword_1_0_3() { return cNameUnitKeyword_1_0_3; }
+		public Keyword getNameUnitKeyword_1_0_5() { return cNameUnitKeyword_1_0_5; }
 	}
 
 	public class FeatureCallElements extends AbstractParserRuleElementFinder {
@@ -12237,7 +12247,8 @@ public class BeeLangGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//KeywordVariables returns be::BExpression:
-	//  {be::BVariableExpression} name=( "input" | "output" | "properties" | "unit" );
+	//  {be::BVariableExpression} name=( "input" | "output" | "source" | "properties" | "builder" |
+	//  "unit" );
 	public KeywordVariablesElements getKeywordVariablesAccess() {
 		return (pKeywordVariables != null) ? pKeywordVariables : (pKeywordVariables = new KeywordVariablesElements());
 	}
