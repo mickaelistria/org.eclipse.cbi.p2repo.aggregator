@@ -171,19 +171,24 @@ public class B3BuilderJob extends Job {
 	@Override
 	protected IStatus run(IProgressMonitor monitor) {
 		try {
-			// set the UNIT DEFAULT PROPERTIES in a context visible downstream
+			// set the UNIT DEFAULT PROPERTIES and BUILDER DEFAULT PROPERTIES in a
+			// context visible downstream
 			// (but only if there are default properties to evaluate).
-			BPropertySet properties = unit.getDefaultProperties();
-			if(properties != null) {
+			BPropertySet unitProperties = unit.getDefaultProperties();
+			BPropertySet builderProperties = builder.getDefaultProperties();
+			if(unitProperties != null || builderProperties != null) {
 				BInnerContext ictx = ctx.createWrappedInnerContext();
-				properties.evaluateDefaults(ictx.getOuterContext(), true);
+				if(unitProperties != null)
+					unitProperties.evaluateDefaults(ictx.getOuterContext(), true);
+				if(builderProperties != null)
+					builderProperties.evaluateDefaults(ictx.getOuterContext(), true);
 				ctx = ictx;
 			}
 
 			// PRECONDITION
 			// just evaluate, supposed to throw exception if not acceptable
-			// The precondition sees the input context, and unit default properties
-			// but not 'output', 'input', and the builder's default properties.
+			// The precondition sees the input context, and unit+builder default properties
+			// but not 'output', 'input', and 'source'.
 			//
 			BExpression tmp = builder.getPrecondExpr();
 			if(tmp != null)
