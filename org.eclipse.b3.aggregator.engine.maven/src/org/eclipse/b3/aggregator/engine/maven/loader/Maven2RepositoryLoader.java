@@ -79,6 +79,7 @@ import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactDescriptor;
 import org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository;
 import org.eclipse.equinox.internal.provisional.p2.metadata.MetadataFactory.InstallableUnitDescription;
+import org.eclipse.equinox.p2.core.IProvisioningAgent;
 import org.eclipse.equinox.p2.metadata.IArtifactKey;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.IRequirement;
@@ -162,6 +163,8 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 
 	private URI location;
 
+	private IProvisioningAgent agent;
+
 	private MetadataRepositoryImpl repository;
 
 	private Map<String, IInstallableUnit> cachedIUs;
@@ -235,8 +238,9 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 		load(monitor, false);
 	}
 
-	public void open(URI location, MetadataRepositoryImpl mdr) throws CoreException {
+	public void open(URI location, IProvisioningAgent agent, MetadataRepositoryImpl mdr) throws CoreException {
 		this.location = location;
+		this.agent = agent;
 		indexer = IndexerUtils.getIndexer("nexus");
 
 		// get nexus index timestamp without using nexus tools for now
@@ -776,7 +780,7 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 			LogUtils.debug("Opening cache for %s", repository.toString());
 
 			try {
-				cacheLoader.open(getCacheLocation().toURI(), repository);
+				cacheLoader.open(getCacheLocation().toURI(), agent, repository);
 			}
 			catch(MalformedURLException e) {
 				throw ExceptionUtils.wrap(e);
