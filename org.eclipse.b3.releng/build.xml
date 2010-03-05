@@ -193,7 +193,11 @@
 
 	<target name="promote.sites" depends="clean.workspace,provision">
 		<echo message="Building all projects in workspace ${workspace}" />
-		<buckminster command="build" />
+		<buckminster command="build">
+			<cmdargs>
+				<arg value="--thorough" />
+			</cmdargs>
+		</buckminster>
 
 		<echo message="Performing org.eclipse.b3.releng#promote" />
 		<buckminster command="perform">
