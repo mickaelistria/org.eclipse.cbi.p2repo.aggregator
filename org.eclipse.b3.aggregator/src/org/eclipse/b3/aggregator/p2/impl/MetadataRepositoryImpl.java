@@ -678,19 +678,10 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	public IProvisioningAgent getProvisioningAgent() {
-		if(provisioningAgent != null && ((EObject) provisioningAgent).eIsProxy()) {
-			InternalEObject oldProvisioningAgent = (InternalEObject) provisioningAgent;
-			provisioningAgent = (IProvisioningAgent) eResolveProxy(oldProvisioningAgent);
-			if(provisioningAgent != oldProvisioningAgent) {
-				if(eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							P2Package.METADATA_REPOSITORY__PROVISIONING_AGENT, oldProvisioningAgent, provisioningAgent));
-			}
-		}
-		return provisioningAgent;
+		return basicGetProvisioningAgent();
 	}
 
 	/**
