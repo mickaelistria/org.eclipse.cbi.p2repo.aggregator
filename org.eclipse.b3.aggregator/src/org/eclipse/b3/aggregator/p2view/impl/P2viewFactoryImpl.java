@@ -302,16 +302,20 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 		IUDetails iuDetails = createIUDetails();
 
 		List<RequirementWrapper> reqwList = new ArrayList<RequirementWrapper>();
-		for(IRequirement req : iu.getRequiredCapabilities()) {
+		for(IRequirement req : iu.getRequirements()) {
 			RequirementWrapper reqw = createRequirementWrapper(req);
 
 			if(req instanceof IRequiredCapability) {
 				IRequiredCapability rc = (IRequiredCapability) req;
 				CapabilityNamespace cn = CapabilityNamespace.byId(rc.getNamespace());
+				StringBuilder labelBuilder = new StringBuilder();
 				if(cn == CapabilityNamespace.UNKNOWN)
-					reqw.setLabel(rc.getNamespace() + ":" + " " + rc.getName());
+					labelBuilder.append(rc.getNamespace() + ":" + " " + rc.getName());
 				else
-					reqw.setLabel(cn.getLabel() + " " + rc.getName());
+					labelBuilder.append(cn.getLabel() + " " + rc.getName());
+				labelBuilder.append(" / ");
+				labelBuilder.append(rc.getRange().toString());
+				reqw.setLabel(labelBuilder.toString());
 			}
 			else {
 				// TODO Get more from the requirement to make the label user friendlier
@@ -338,10 +342,15 @@ public class P2viewFactoryImpl extends EFactoryImpl implements P2viewFactory {
 
 			CapabilityNamespace cn = CapabilityNamespace.byId(pc.getNamespace());
 
+			StringBuilder labelBuilder = new StringBuilder();
 			if(cn == CapabilityNamespace.UNKNOWN)
-				pcw.setLabel(pc.getNamespace() + ":" + " " + pc.getName());
+				labelBuilder.append(pc.getNamespace() + ":" + " " + pc.getName());
 			else
-				pcw.setLabel(cn.getLabel() + " " + pc.getName());
+				labelBuilder.append(cn.getLabel() + " " + pc.getName());
+
+			labelBuilder.append(" / ");
+			labelBuilder.append(pc.getVersion().toString());
+			pcw.setLabel(labelBuilder.toString());
 
 			pcwList.add(pcw);
 		}

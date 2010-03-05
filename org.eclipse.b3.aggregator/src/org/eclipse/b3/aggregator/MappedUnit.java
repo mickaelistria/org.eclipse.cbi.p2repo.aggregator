@@ -7,7 +7,7 @@
 package org.eclipse.b3.aggregator;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
+import org.eclipse.equinox.p2.metadata.IRequirement;
 import org.osgi.framework.Filter;
 
 /**
@@ -40,10 +40,10 @@ public interface MappedUnit extends InstallableUnitRequest, EnabledStatusProvide
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @model kind="operation" type="org.eclipse.b3.aggregator.p2.IRequiredCapability"
+	 * @model kind="operation" type="org.eclipse.b3.aggregator.p2.IRequirement"
 	 * @generated
 	 */
-	IRequiredCapability getRequiredCapability();
+	IRequirement getRequirement();
 
 	/**
 	 * Returns the value of the '<em><b>Valid Configurations</b></em>' reference list.

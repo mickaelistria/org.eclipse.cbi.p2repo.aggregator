@@ -39,6 +39,7 @@ import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository;
 import org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository;
+import org.eclipse.equinox.p2.core.IProvisioningAgent;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.query.IQuery;
 import org.eclipse.equinox.p2.query.IQueryResult;
@@ -51,6 +52,8 @@ import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
  * <p>
  * The following features are implemented:
  * <ul>
+ * <li>{@link org.eclipse.b3.aggregator.p2.impl.MetadataRepositoryImpl#getProvisioningAgent <em>Provisioning Agent</em>}
+ * </li>
  * <li>{@link org.eclipse.b3.aggregator.p2.impl.MetadataRepositoryImpl#getLocation <em>Location</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2.impl.MetadataRepositoryImpl#getName <em>Name</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2.impl.MetadataRepositoryImpl#getType <em>Type</em>}</li>
@@ -88,6 +91,17 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 	 * @ordered
 	 */
 	protected int eFlags = 0;
+
+	/**
+	 * The cached value of the '{@link #getProvisioningAgent() <em>Provisioning Agent</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getProvisioningAgent()
+	 * @generated
+	 * @ordered
+	 */
+	protected IProvisioningAgent provisioningAgent;
 
 	/**
 	 * The default value of the '{@link #getLocation() <em>Location</em>}' attribute.
@@ -288,10 +302,18 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 	 * 
 	 * @generated NOT
 	 */
-	public void addInstallableUnits(IInstallableUnit[] installableUnits) {
+	public void addInstallableUnits(Collection<IInstallableUnit> installableUnits) {
 		EList<IInstallableUnit> iuList = getInstallableUnits();
 		for(IInstallableUnit iu : installableUnits)
 			iuList.add(InstallableUnitImpl.importToModel(iu));
+	}
+
+	/**
+	 * Excluded from the model; this is deprecated in the new API
+	 */
+	@Deprecated
+	public void addInstallableUnits(IInstallableUnit[] installableUnits) {
+		addInstallableUnits(Arrays.asList(installableUnits));
 	}
 
 	/**
@@ -329,6 +351,16 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public IProvisioningAgent basicGetProvisioningAgent() {
+		return provisioningAgent;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -336,6 +368,10 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
+		case P2Package.METADATA_REPOSITORY__PROVISIONING_AGENT:
+			if(resolve)
+				return getProvisioningAgent();
+			return basicGetProvisioningAgent();
 		case P2Package.METADATA_REPOSITORY__LOCATION:
 			return getLocation();
 		case P2Package.METADATA_REPOSITORY__NAME:
@@ -389,6 +425,8 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
+		case P2Package.METADATA_REPOSITORY__PROVISIONING_AGENT:
+			return provisioningAgent != null;
 		case P2Package.METADATA_REPOSITORY__LOCATION:
 			return LOCATION_EDEFAULT == null
 					? location != null
@@ -454,6 +492,9 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
+		case P2Package.METADATA_REPOSITORY__PROVISIONING_AGENT:
+			setProvisioningAgent((IProvisioningAgent) newValue);
+			return;
 		case P2Package.METADATA_REPOSITORY__LOCATION:
 			setLocation((URI) newValue);
 			return;
@@ -498,6 +539,9 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
+		case P2Package.METADATA_REPOSITORY__PROVISIONING_AGENT:
+			setProvisioningAgent((IProvisioningAgent) null);
+			return;
 		case P2Package.METADATA_REPOSITORY__LOCATION:
 			setLocation(LOCATION_EDEFAULT);
 			return;
@@ -631,6 +675,25 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public IProvisioningAgent getProvisioningAgent() {
+		if(provisioningAgent != null && ((EObject) provisioningAgent).eIsProxy()) {
+			InternalEObject oldProvisioningAgent = (InternalEObject) provisioningAgent;
+			provisioningAgent = (IProvisioningAgent) eResolveProxy(oldProvisioningAgent);
+			if(provisioningAgent != oldProvisioningAgent) {
+				if(eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+							P2Package.METADATA_REPOSITORY__PROVISIONING_AGENT, oldProvisioningAgent, provisioningAgent));
+			}
+		}
+		return provisioningAgent;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -700,13 +763,21 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 	 * 
 	 * @generated NOT
 	 */
-	public boolean removeInstallableUnits(IInstallableUnit[] installableUnits, IProgressMonitor monitor) {
+	public boolean removeInstallableUnits(Collection<IInstallableUnit> installableUnits) {
 		if(installableUnits == null)
 			return false;
 
 		List<IInstallableUnit> units = getInstallableUnits();
 
-		return units.removeAll(Arrays.asList(installableUnits));
+		return units.removeAll(installableUnits);
+	}
+
+	/**
+	 * Excluded from the model; this is deprecated in the new API
+	 */
+	@Deprecated
+	public boolean removeInstallableUnits(IInstallableUnit[] installableUnits, IProgressMonitor monitor) {
+		return removeInstallableUnits(Arrays.asList(installableUnits));
 	}
 
 	/**
@@ -783,6 +854,20 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 		if(eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.METADATA_REPOSITORY__PROVIDER, oldProvider,
 					provider));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setProvisioningAgent(IProvisioningAgent newProvisioningAgent) {
+		IProvisioningAgent oldProvisioningAgent = provisioningAgent;
+		provisioningAgent = newProvisioningAgent;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.METADATA_REPOSITORY__PROVISIONING_AGENT,
+					oldProvisioningAgent, provisioningAgent));
 	}
 
 	/**

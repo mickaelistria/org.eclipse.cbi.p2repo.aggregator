@@ -408,7 +408,7 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 			System.arraycopy(oldTreePath, 0, categoryTreePath, 0, len);
 			categoryTreePath[len] = category;
 
-			for(IRequirement requirement : category.getInstallableUnit().getRequiredCapabilities()) {
+			for(IRequirement requirement : category.getInstallableUnit().getRequirements()) {
 				if(!(requirement instanceof IRequiredCapability))
 					continue;
 

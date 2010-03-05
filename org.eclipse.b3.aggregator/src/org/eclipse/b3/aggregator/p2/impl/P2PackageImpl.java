@@ -6,6 +6,7 @@
  */
 package org.eclipse.b3.aggregator.p2.impl;
 
+import java.util.Collection;
 import java.util.Map;
 
 import org.eclipse.b3.aggregator.AggregatorPackage;
@@ -41,6 +42,7 @@ import org.eclipse.emf.ecore.ETypeParameter;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
+import org.eclipse.equinox.p2.core.IProvisioningAgent;
 import org.eclipse.equinox.p2.metadata.IArtifactKey;
 import org.eclipse.equinox.p2.metadata.ICopyright;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
@@ -305,6 +307,14 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	private EClass iAdaptableEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass iProvisioningAgentEClass = null;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -324,6 +334,14 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 * @generated
 	 */
 	private EDataType iInstallableUnitArrayEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EDataType collectionEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -556,9 +574,9 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		createEAttribute(iInstallableUnitEClass, IINSTALLABLE_UNIT__FILTER);
 		createEReference(iInstallableUnitEClass, IINSTALLABLE_UNIT__FRAGMENTS);
 		createEReference(iInstallableUnitEClass, IINSTALLABLE_UNIT__LICENSES);
-		createEReference(iInstallableUnitEClass, IINSTALLABLE_UNIT__META_REQUIRED_CAPABILITIES);
+		createEReference(iInstallableUnitEClass, IINSTALLABLE_UNIT__META_REQUIREMENTS);
 		createEReference(iInstallableUnitEClass, IINSTALLABLE_UNIT__PROVIDED_CAPABILITIES);
-		createEReference(iInstallableUnitEClass, IINSTALLABLE_UNIT__REQUIRED_CAPABILITIES);
+		createEReference(iInstallableUnitEClass, IINSTALLABLE_UNIT__REQUIREMENTS);
 		createEReference(iInstallableUnitEClass, IINSTALLABLE_UNIT__TOUCHPOINT_DATA);
 		createEReference(iInstallableUnitEClass, IINSTALLABLE_UNIT__TOUCHPOINT_TYPE);
 		createEReference(iInstallableUnitEClass, IINSTALLABLE_UNIT__UPDATE_DESCRIPTOR);
@@ -654,6 +672,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		iMetadataRepositoryEClass = createEClass(IMETADATA_REPOSITORY);
 
 		iRepositoryEClass = createEClass(IREPOSITORY);
+		createEReference(iRepositoryEClass, IREPOSITORY__PROVISIONING_AGENT);
 		createEAttribute(iRepositoryEClass, IREPOSITORY__LOCATION);
 		createEAttribute(iRepositoryEClass, IREPOSITORY__NAME);
 		createEAttribute(iRepositoryEClass, IREPOSITORY__TYPE);
@@ -670,10 +689,13 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 
 		iAdaptableEClass = createEClass(IADAPTABLE);
 
+		iProvisioningAgentEClass = createEClass(IPROVISIONING_AGENT);
+
 		// Create data types
 		versionEDataType = createEDataType(VERSION);
 		versionRangeEDataType = createEDataType(VERSION_RANGE);
 		iInstallableUnitArrayEDataType = createEDataType(IINSTALLABLE_UNIT_ARRAY);
+		collectionEDataType = createEDataType(COLLECTION);
 		iRequirementArrayEDataType = createEDataType(IREQUIREMENT_ARRAY);
 		iProvidedCapabilityArrayEDataType = createEDataType(IPROVIDED_CAPABILITY_ARRAY);
 		iInstallableUnitFragmentArrayEDataType = createEDataType(IINSTALLABLE_UNIT_FRAGMENT_ARRAY);
@@ -698,6 +720,16 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 */
 	public EClass getArtifactKey() {
 		return artifactKeyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EDataType getCollection() {
+		return collectionEDataType;
 	}
 
 	/**
@@ -872,7 +904,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 * 
 	 * @generated
 	 */
-	public EReference getIInstallableUnit_MetaRequiredCapabilities() {
+	public EReference getIInstallableUnit_MetaRequirements() {
 		return (EReference) iInstallableUnitEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -892,7 +924,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 * 
 	 * @generated
 	 */
-	public EReference getIInstallableUnit_RequiredCapabilities() {
+	public EReference getIInstallableUnit_Requirements() {
 		return (EReference) iInstallableUnitEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -1158,6 +1190,16 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 * 
 	 * @generated
 	 */
+	public EClass getIProvisioningAgent() {
+		return iProvisioningAgentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EDataType getIQuery() {
 		return iQueryEDataType;
 	}
@@ -1196,42 +1238,6 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 * @generated
 	 */
 	public EAttribute getIRepository_Description() {
-		return (EAttribute) iRepositoryEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EAttribute getIRepository_Location() {
-		return (EAttribute) iRepositoryEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EAttribute getIRepository_Modifiable() {
-		return (EAttribute) iRepositoryEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EAttribute getIRepository_Name() {
-		return (EAttribute) iRepositoryEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EAttribute getIRepository_Provider() {
 		return (EAttribute) iRepositoryEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -1240,7 +1246,25 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 * 
 	 * @generated
 	 */
-	public EAttribute getIRepository_Type() {
+	public EAttribute getIRepository_Location() {
+		return (EAttribute) iRepositoryEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getIRepository_Modifiable() {
+		return (EAttribute) iRepositoryEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getIRepository_Name() {
 		return (EAttribute) iRepositoryEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1249,8 +1273,36 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 * 
 	 * @generated
 	 */
-	public EAttribute getIRepository_Version() {
+	public EAttribute getIRepository_Provider() {
+		return (EAttribute) iRepositoryEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EReference getIRepository_ProvisioningAgent() {
+		return (EReference) iRepositoryEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getIRepository_Type() {
 		return (EAttribute) iRepositoryEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getIRepository_Version() {
+		return (EAttribute) iRepositoryEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1775,6 +1827,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		// Create type parameters
 		addETypeParameter(iQueryableEClass, "T");
 		ETypeParameter iRepositoryEClass_T = addETypeParameter(iRepositoryEClass, "T");
+		addETypeParameter(collectionEDataType, "T");
 		addETypeParameter(mapEDataType, "K");
 		addETypeParameter(mapEDataType, "V");
 		addETypeParameter(iQueryResultEDataType, "T");
@@ -1850,15 +1903,15 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		initEReference(getIInstallableUnit_Licenses(), this.getILicense(), null, "licenses", null, 0, -1,
 				IInstallableUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIInstallableUnit_MetaRequiredCapabilities(), this.getIRequirement(), null,
-				"metaRequiredCapabilities", null, 0, -1, IInstallableUnit.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIInstallableUnit_MetaRequirements(), this.getIRequirement(), null, "metaRequirements", null,
+				0, -1, IInstallableUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIInstallableUnit_ProvidedCapabilities(), this.getIProvidedCapability(), null,
 				"providedCapabilities", null, 0, -1, IInstallableUnit.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIInstallableUnit_RequiredCapabilities(), this.getIRequirement(), null,
-				"requiredCapabilities", null, 0, -1, IInstallableUnit.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIInstallableUnit_Requirements(), this.getIRequirement(), null, "requirements", null, 0, -1,
+				IInstallableUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIInstallableUnit_TouchpointData(), this.getITouchpointData(), null, "touchpointData", null,
 				0, -1, IInstallableUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1881,7 +1934,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 				IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "locale", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(iInstallableUnitEClass, this.getILicenseArray(), "getLicenses", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(iInstallableUnitEClass, this.getILicense(), "getLicenses", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "locale", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(iInstallableUnitEClass, null, "getProperties", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -2105,7 +2158,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 				IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 
 		op = addEOperation(iMetadataRepositoryEClass, null, "addInstallableUnits", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getIInstallableUnitArray(), "installableUnits", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getCollection());
+		g2 = createEGenericType(this.getIInstallableUnit());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "installableUnits", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(iMetadataRepositoryEClass, null, "addReference", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theAggregatorPackage.getURI(), "location", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -2117,11 +2173,16 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 
 		op = addEOperation(iMetadataRepositoryEClass, ecorePackage.getEBoolean(), "removeInstallableUnits", 0, 1,
 				IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getIInstallableUnitArray(), "installableUnits", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getIProgressMonitor(), "monitor", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getCollection());
+		g2 = createEGenericType(this.getIInstallableUnit());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "installableUnits", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(iRepositoryEClass, IRepository.class, "IRepository", IS_ABSTRACT, IS_INTERFACE,
 				!IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getIRepository_ProvisioningAgent(), this.getIProvisioningAgent(), null, "provisioningAgent",
+				null, 0, 1, IRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIRepository_Location(), theAggregatorPackage.getURI(), "location", null, 1, 1,
 				IRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
@@ -2177,12 +2238,17 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "adapter", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		initEClass(iProvisioningAgentEClass, IProvisioningAgent.class, "IProvisioningAgent", IS_ABSTRACT, IS_INTERFACE,
+				!IS_GENERATED_INSTANCE_CLASS);
+
 		// Initialize data types
 		initEDataType(versionEDataType, Version.class, "Version", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(versionRangeEDataType, VersionRange.class, "VersionRange", IS_SERIALIZABLE,
 				!IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(iInstallableUnitArrayEDataType, IInstallableUnit[].class, "IInstallableUnitArray",
 				IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(collectionEDataType, Collection.class, "Collection", IS_SERIALIZABLE,
+				!IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(iRequirementArrayEDataType, IRequirement[].class, "IRequirementArray", IS_SERIALIZABLE,
 				!IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(iProvidedCapabilityArrayEDataType, IProvidedCapability[].class, "IProvidedCapabilityArray",

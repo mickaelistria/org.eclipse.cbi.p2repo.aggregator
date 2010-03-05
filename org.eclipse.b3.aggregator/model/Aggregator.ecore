@@ -96,7 +96,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Bundle" eSuperTypes="#//MappedUnit"/>
   <eClassifiers xsi:type="ecore:EClass" name="MappedUnit" abstract="true" eSuperTypes="#//InstallableUnitRequest #//EnabledStatusProvider">
-    <eOperations name="getRequiredCapability" eType="#//p2/IRequiredCapability"/>
+    <eOperations name="getRequirement" eType="#//p2/IRequirement"/>
     <eOperations name="getFilter" eType="#//p2/Filter"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="validConfigurations" upperBound="-1"
         eType="#//Configuration" eKeys="#//Configuration/operatingSystem #//Configuration/windowSystem #//Configuration/architecture"/>
@@ -300,7 +300,7 @@
       <eOperations name="getCopyright" eType="#//p2/ICopyright">
         <eParameters name="locale" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
-      <eOperations name="getLicenses" eType="#//p2/ILicenseArray">
+      <eOperations name="getLicenses" upperBound="-1" eType="#//p2/ILicense">
         <eParameters name="locale" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
       <eOperations name="getProperties">
@@ -329,12 +329,12 @@
           eType="#//p2/IInstallableUnitFragment"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="licenses" upperBound="-1"
           eType="#//p2/ILicense" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="metaRequiredCapabilities"
-          upperBound="-1" eType="#//p2/IRequirement" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="metaRequirements" upperBound="-1"
+          eType="#//p2/IRequirement" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="providedCapabilities"
           upperBound="-1" eType="#//p2/IProvidedCapability" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredCapabilities"
-          upperBound="-1" eType="#//p2/IRequirement" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requirements" upperBound="-1"
+          eType="#//p2/IRequirement" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="touchpointData" upperBound="-1"
           eType="#//p2/ITouchpointData" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="touchpointType" eType="#//p2/ITouchpointType"
@@ -460,6 +460,9 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EDataType" name="VersionRange" instanceClassName="org.eclipse.equinox.p2.metadata.VersionRange"/>
     <eClassifiers xsi:type="ecore:EDataType" name="IInstallableUnitArray" instanceClassName="org.eclipse.equinox.p2.metadata.IInstallableUnit[]"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="Collection" instanceClassName="java.util.Collection">
+      <eTypeParameters name="T"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EDataType" name="IRequirementArray" instanceClassName="org.eclipse.equinox.p2.metadata.IRequirement[]"/>
     <eClassifiers xsi:type="ecore:EDataType" name="IProvidedCapabilityArray" instanceClassName="org.eclipse.equinox.p2.metadata.IProvidedCapability[]"/>
     <eClassifiers xsi:type="ecore:EDataType" name="IInstallableUnitFragmentArray"
@@ -502,7 +505,11 @@
     <eClassifiers xsi:type="ecore:EClass" name="IMetadataRepository" instanceClassName="org.eclipse.equinox.p2.repository.metadata.IMetadataRepository"
         abstract="true" interface="true">
       <eOperations name="addInstallableUnits">
-        <eParameters name="installableUnits" eType="#//p2/IInstallableUnitArray"/>
+        <eParameters name="installableUnits">
+          <eGenericType eClassifier="#//p2/Collection">
+            <eTypeArguments eClassifier="#//p2/IInstallableUnit"/>
+          </eGenericType>
+        </eParameters>
       </eOperations>
       <eOperations name="addReference">
         <eParameters name="location" eType="#//URI"/>
@@ -512,8 +519,11 @@
       </eOperations>
       <eOperations name="removeAll"/>
       <eOperations name="removeInstallableUnits" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-        <eParameters name="installableUnits" eType="#//p2/IInstallableUnitArray"/>
-        <eParameters name="monitor" eType="#//p2/IProgressMonitor"/>
+        <eParameters name="installableUnits">
+          <eGenericType eClassifier="#//p2/Collection">
+            <eTypeArguments eClassifier="#//p2/IInstallableUnit"/>
+          </eGenericType>
+        </eParameters>
       </eOperations>
       <eGenericSuperTypes eClassifier="#//p2/IRepository">
         <eTypeArguments eClassifier="#//p2/IInstallableUnit"/>
@@ -532,6 +542,7 @@
         <eParameters name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="provisioningAgent" eType="#//p2/IProvisioningAgent"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" lowerBound="1"
           eType="#//URI"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -563,6 +574,8 @@
         </eParameters>
       </eOperations>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IProvisioningAgent" instanceClassName="org.eclipse.equinox.p2.core.IProvisioningAgent"
+        abstract="true" interface="true"/>
   </eSubpackages>
   <eSubpackages name="p2view" nsURI="http://www.eclipse.org/b3/2010/aggregator/p2view/1.0.0"
       nsPrefix="p2view">

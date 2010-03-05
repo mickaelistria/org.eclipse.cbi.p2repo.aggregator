@@ -6,6 +6,7 @@
  */
 package org.eclipse.b3.aggregator.p2.impl;
 
+import java.util.Collection;
 import java.util.Map;
 
 import org.eclipse.b3.aggregator.p2.ArtifactKey;
@@ -94,6 +95,16 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	 */
 	public P2FactoryImpl() {
 		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public String convertCollectionToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(instanceValue);
 	}
 
 	/**
@@ -224,6 +235,8 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 			return convertVersionRangeToString(eDataType, instanceValue);
 		case P2Package.IINSTALLABLE_UNIT_ARRAY:
 			return convertIInstallableUnitArrayToString(eDataType, instanceValue);
+		case P2Package.COLLECTION:
+			return convertCollectionToString(eDataType, instanceValue);
 		case P2Package.IREQUIREMENT_ARRAY:
 			return convertIRequirementArrayToString(eDataType, instanceValue);
 		case P2Package.IPROVIDED_CAPABILITY_ARRAY:
@@ -336,6 +349,16 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public Collection<?> createCollectionFromString(EDataType eDataType, String initialValue) {
+		return (Collection<?>) super.createFromString(initialValue);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -377,6 +400,8 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 			return createVersionRangeFromString(eDataType, initialValue);
 		case P2Package.IINSTALLABLE_UNIT_ARRAY:
 			return createIInstallableUnitArrayFromString(eDataType, initialValue);
+		case P2Package.COLLECTION:
+			return createCollectionFromString(eDataType, initialValue);
 		case P2Package.IREQUIREMENT_ARRAY:
 			return createIRequirementArrayFromString(eDataType, initialValue);
 		case P2Package.IPROVIDED_CAPABILITY_ARRAY:

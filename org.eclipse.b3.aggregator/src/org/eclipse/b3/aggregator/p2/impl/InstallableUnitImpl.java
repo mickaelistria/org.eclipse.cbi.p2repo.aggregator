@@ -30,6 +30,7 @@ import org.eclipse.b3.aggregator.util.RepositoryTranslationSupport;
 import org.eclipse.b3.util.StringUtils;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
@@ -273,12 +274,12 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 		for(IArtifactKey key : iu.getArtifacts())
 			keys.add(importToModel(key));
 
-		List<IRequirement> reqs = miu.getMetaRequiredCapabilities();
-		for(IRequirement req : iu.getMetaRequiredCapabilities())
+		List<IRequirement> reqs = miu.getMetaRequirements();
+		for(IRequirement req : iu.getMetaRequirements())
 			reqs.add(importToModel(req));
 
-		reqs = miu.getRequiredCapabilities();
-		for(IRequirement rc : iu.getRequiredCapabilities())
+		reqs = miu.getRequirements();
+		for(IRequirement rc : iu.getRequirements())
 			reqs.add(importToModel(rc));
 
 		List<IProvidedCapability> pcs = miu.getProvidedCapabilities();
@@ -422,16 +423,15 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	protected EList<ILicense> licenses;
 
 	/**
-	 * The cached value of the '{@link #getMetaRequiredCapabilities() <em>Meta Required Capabilities</em>}' containment
-	 * reference list.
+	 * The cached value of the '{@link #getMetaRequirements() <em>Meta Requirements</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see #getMetaRequiredCapabilities()
+	 * @see #getMetaRequirements()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<IRequirement> metaRequiredCapabilities;
+	protected EList<IRequirement> metaRequirements;
 
 	/**
 	 * The cached value of the '{@link #getProvidedCapabilities() <em>Provided Capabilities</em>}' containment reference
@@ -446,16 +446,15 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	protected EList<IProvidedCapability> providedCapabilities;
 
 	/**
-	 * The cached value of the '{@link #getRequiredCapabilities() <em>Required Capabilities</em>}' containment reference
-	 * list.
+	 * The cached value of the '{@link #getRequirements() <em>Requirements</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @see #getRequiredCapabilities()
+	 * @see #getRequirements()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<IRequirement> requiredCapabilities;
+	protected EList<IRequirement> requirements;
 
 	/**
 	 * The cached value of the '{@link #getTouchpointData() <em>Touchpoint Data</em>}' containment reference list.
@@ -675,12 +674,12 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 			return getFragments();
 		case P2Package.INSTALLABLE_UNIT__LICENSES:
 			return getLicenses();
-		case P2Package.INSTALLABLE_UNIT__META_REQUIRED_CAPABILITIES:
-			return getMetaRequiredCapabilities();
+		case P2Package.INSTALLABLE_UNIT__META_REQUIREMENTS:
+			return getMetaRequirements();
 		case P2Package.INSTALLABLE_UNIT__PROVIDED_CAPABILITIES:
 			return getProvidedCapabilities();
-		case P2Package.INSTALLABLE_UNIT__REQUIRED_CAPABILITIES:
-			return getRequiredCapabilities();
+		case P2Package.INSTALLABLE_UNIT__REQUIREMENTS:
+			return getRequirements();
 		case P2Package.INSTALLABLE_UNIT__TOUCHPOINT_DATA:
 			return getTouchpointData();
 		case P2Package.INSTALLABLE_UNIT__TOUCHPOINT_TYPE:
@@ -718,12 +717,12 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 			return basicSetCopyright(null, msgs);
 		case P2Package.INSTALLABLE_UNIT__LICENSES:
 			return ((InternalEList<?>) getLicenses()).basicRemove(otherEnd, msgs);
-		case P2Package.INSTALLABLE_UNIT__META_REQUIRED_CAPABILITIES:
-			return ((InternalEList<?>) getMetaRequiredCapabilities()).basicRemove(otherEnd, msgs);
+		case P2Package.INSTALLABLE_UNIT__META_REQUIREMENTS:
+			return ((InternalEList<?>) getMetaRequirements()).basicRemove(otherEnd, msgs);
 		case P2Package.INSTALLABLE_UNIT__PROVIDED_CAPABILITIES:
 			return ((InternalEList<?>) getProvidedCapabilities()).basicRemove(otherEnd, msgs);
-		case P2Package.INSTALLABLE_UNIT__REQUIRED_CAPABILITIES:
-			return ((InternalEList<?>) getRequiredCapabilities()).basicRemove(otherEnd, msgs);
+		case P2Package.INSTALLABLE_UNIT__REQUIREMENTS:
+			return ((InternalEList<?>) getRequirements()).basicRemove(otherEnd, msgs);
 		case P2Package.INSTALLABLE_UNIT__TOUCHPOINT_DATA:
 			return ((InternalEList<?>) getTouchpointData()).basicRemove(otherEnd, msgs);
 		case P2Package.INSTALLABLE_UNIT__TOUCHPOINT_TYPE:
@@ -764,12 +763,12 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 			return fragments != null && !fragments.isEmpty();
 		case P2Package.INSTALLABLE_UNIT__LICENSES:
 			return licenses != null && !licenses.isEmpty();
-		case P2Package.INSTALLABLE_UNIT__META_REQUIRED_CAPABILITIES:
-			return metaRequiredCapabilities != null && !metaRequiredCapabilities.isEmpty();
+		case P2Package.INSTALLABLE_UNIT__META_REQUIREMENTS:
+			return metaRequirements != null && !metaRequirements.isEmpty();
 		case P2Package.INSTALLABLE_UNIT__PROVIDED_CAPABILITIES:
 			return providedCapabilities != null && !providedCapabilities.isEmpty();
-		case P2Package.INSTALLABLE_UNIT__REQUIRED_CAPABILITIES:
-			return requiredCapabilities != null && !requiredCapabilities.isEmpty();
+		case P2Package.INSTALLABLE_UNIT__REQUIREMENTS:
+			return requirements != null && !requirements.isEmpty();
 		case P2Package.INSTALLABLE_UNIT__TOUCHPOINT_DATA:
 			return touchpointData != null && !touchpointData.isEmpty();
 		case P2Package.INSTALLABLE_UNIT__TOUCHPOINT_TYPE:
@@ -855,17 +854,17 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 			getLicenses().clear();
 			getLicenses().addAll((Collection<? extends ILicense>) newValue);
 			return;
-		case P2Package.INSTALLABLE_UNIT__META_REQUIRED_CAPABILITIES:
-			getMetaRequiredCapabilities().clear();
-			getMetaRequiredCapabilities().addAll((Collection<? extends IRequirement>) newValue);
+		case P2Package.INSTALLABLE_UNIT__META_REQUIREMENTS:
+			getMetaRequirements().clear();
+			getMetaRequirements().addAll((Collection<? extends IRequirement>) newValue);
 			return;
 		case P2Package.INSTALLABLE_UNIT__PROVIDED_CAPABILITIES:
 			getProvidedCapabilities().clear();
 			getProvidedCapabilities().addAll((Collection<? extends IProvidedCapability>) newValue);
 			return;
-		case P2Package.INSTALLABLE_UNIT__REQUIRED_CAPABILITIES:
-			getRequiredCapabilities().clear();
-			getRequiredCapabilities().addAll((Collection<? extends IRequirement>) newValue);
+		case P2Package.INSTALLABLE_UNIT__REQUIREMENTS:
+			getRequirements().clear();
+			getRequirements().addAll((Collection<? extends IRequirement>) newValue);
 			return;
 		case P2Package.INSTALLABLE_UNIT__TOUCHPOINT_DATA:
 			getTouchpointData().clear();
@@ -919,14 +918,14 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 		case P2Package.INSTALLABLE_UNIT__LICENSES:
 			getLicenses().clear();
 			return;
-		case P2Package.INSTALLABLE_UNIT__META_REQUIRED_CAPABILITIES:
-			getMetaRequiredCapabilities().clear();
+		case P2Package.INSTALLABLE_UNIT__META_REQUIREMENTS:
+			getMetaRequirements().clear();
 			return;
 		case P2Package.INSTALLABLE_UNIT__PROVIDED_CAPABILITIES:
 			getProvidedCapabilities().clear();
 			return;
-		case P2Package.INSTALLABLE_UNIT__REQUIRED_CAPABILITIES:
-			getRequiredCapabilities().clear();
+		case P2Package.INSTALLABLE_UNIT__REQUIREMENTS:
+			getRequirements().clear();
 			return;
 		case P2Package.INSTALLABLE_UNIT__TOUCHPOINT_DATA:
 			getTouchpointData().clear();
@@ -1051,21 +1050,27 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	 * 
 	 * @generated NOT
 	 */
-	public ILicense[] getLicenses(String locale) {
-		return RepositoryTranslationSupport.getInstance((MetadataRepository) eContainer()).getLicenses(this, locale);
+	public EList<ILicense> getLicenses(String locale) {
+		EList<ILicense> licenses = new BasicEList<ILicense>();
+		for(ILicense license : RepositoryTranslationSupport.getInstance((MetadataRepository) eContainer()).getLicenses(
+				this, locale))
+			licenses.add(license);
+
+		return licenses;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	public EList<IRequirement> getMetaRequiredCapabilities() {
-		if(metaRequiredCapabilities == null) {
-			metaRequiredCapabilities = new EObjectContainmentEList.Resolving<IRequirement>(IRequirement.class, this,
-					P2Package.INSTALLABLE_UNIT__META_REQUIRED_CAPABILITIES);
+	public EList<IRequirement> getMetaRequirements() {
+		if(metaRequirements == null) {
+			metaRequirements = new EObjectContainmentEList.Resolving<IRequirement>(IRequirement.class, this,
+					P2Package.INSTALLABLE_UNIT__META_REQUIREMENTS);
 		}
-		return metaRequiredCapabilities;
+		return metaRequirements;
 	}
 
 	/**
@@ -1140,16 +1145,17 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	public EList<IRequirement> getRequiredCapabilities() {
-		if(requiredCapabilities == null) {
-			requiredCapabilities = new EObjectContainmentEList.Resolving<IRequirement>(IRequirement.class, this,
-					P2Package.INSTALLABLE_UNIT__REQUIRED_CAPABILITIES);
+	public EList<IRequirement> getRequirements() {
+		if(requirements == null) {
+			requirements = new EObjectContainmentEList.Resolving<IRequirement>(IRequirement.class, this,
+					P2Package.INSTALLABLE_UNIT__REQUIREMENTS);
 		}
-		return requiredCapabilities;
+		return requirements;
 	}
 
 	/**

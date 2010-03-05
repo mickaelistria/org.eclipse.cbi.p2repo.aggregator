@@ -12,11 +12,15 @@ import java.net.URI;
 
 import org.eclipse.b3.util.B3Util;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.equinox.internal.provisional.p2.director.IPlanner;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.equinox.p2.core.IProvisioningAgent;
 import org.eclipse.equinox.p2.core.IProvisioningAgentProvider;
 import org.eclipse.equinox.p2.core.spi.IAgentServiceFactory;
 import org.eclipse.equinox.p2.engine.IProfileRegistry;
+import org.eclipse.equinox.p2.planner.IPlanner;
 import org.eclipse.equinox.p2.repository.IRepositoryManager;
 
 /**
@@ -25,15 +29,36 @@ import org.eclipse.equinox.p2.repository.IRepositoryManager;
  */
 public class P2Utils {
 
+	private static final long AGENT_STOP_DELAY = 2000;
+
 	public static IProvisioningAgent createDedicatedProvisioningAgent(URI location) throws CoreException {
 		IProvisioningAgentProvider agentProvider = null;
 
 		try {
 			agentProvider = B3Util.getPlugin().getService(IProvisioningAgentProvider.class);
-			return agentProvider.createAgent(location);
+			IProvisioningAgent agent = agentProvider.createAgent(location);
+			return agent;
 		}
 		finally {
 			B3Util.getPlugin().ungetService(agentProvider);
+		}
+	}
+
+	public static void destroyProvisioningAgent(final IProvisioningAgent agent) {
+		if(agent != null) {
+			// Give other processes a chance to use the agent in last seconds of its life (AGENT_STOP_DELAY grace time)
+			Job stopJob = new Job("AgentStopper") {
+
+				@Override
+				protected IStatus run(IProgressMonitor monitor) {
+					agent.stop();
+					return Status.OK_STATUS;
+				}
+
+			};
+
+			stopJob.setSystem(true);
+			stopJob.schedule(AGENT_STOP_DELAY);
 		}
 	}
 

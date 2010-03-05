@@ -18,9 +18,9 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
 import org.eclipse.equinox.internal.provisional.p2.metadata.MetadataFactory;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
+import org.eclipse.equinox.p2.metadata.IRequirement;
 import org.eclipse.equinox.p2.metadata.expression.ExpressionUtil;
 import org.osgi.framework.Filter;
 
@@ -223,7 +223,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 	 * 
 	 * @generated NOT
 	 */
-	public IRequiredCapability getRequiredCapability() {
+	public IRequirement getRequirement() {
 		// TODO Cache calculated value
 		return MetadataFactory.createRequiredCapability(IInstallableUnit.NAMESPACE_IU_ID, getName(), getVersionRange(),
 				getFilter(), false, false);

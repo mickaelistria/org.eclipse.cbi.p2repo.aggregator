@@ -49,14 +49,12 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.equinox.internal.p2.metadata.query.LatestIUVersionQuery;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
-import org.eclipse.equinox.p2.metadata.query.InstallableUnitQuery;
-import org.eclipse.equinox.p2.query.CompoundQuery;
 import org.eclipse.equinox.p2.query.IQuery;
 import org.eclipse.equinox.p2.query.IQueryResult;
+import org.eclipse.equinox.p2.query.QueryUtil;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Installable Unit Reference</b></em>'. <!--
@@ -664,14 +662,14 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 		if(id == null)
 			return null;
 
-		IQuery<IInstallableUnit> query = new InstallableUnitQuery(id, versionRange);
+		IQuery<IInstallableUnit> query = QueryUtil.createIUQuery(id, versionRange);
 
 		MetadataRepository mdr = ((MappedRepository) eContainer()).getMetadataRepository(forceResolve);
 		if(mdr == null || ((EObject) mdr).eIsProxy())
 			return null;
 
-		IQueryResult<IInstallableUnit> ius = mdr.query(CompoundQuery.createCompoundQuery(query,
-				new LatestIUVersionQuery<IInstallableUnit>(), true), new NullProgressMonitor());
+		IQueryResult<IInstallableUnit> ius = mdr.query(QueryUtil.createCompoundQuery(query,
+				QueryUtil.createLatestIUQuery(), true), new NullProgressMonitor());
 
 		if(ius.isEmpty())
 			// TODO Why this? When does it happen that the latest IU query does not return a result?
@@ -697,7 +695,7 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 			availableVersions.clear();
 
 		Map<Version, String> versionMap = new TreeMap<Version, String>(Collections.reverseOrder());
-		InstallableUnitQuery query = new InstallableUnitQuery(name);
+		IQuery<IInstallableUnit> query = QueryUtil.createIUQuery(name);
 
 		for(Resource resource : GeneralUtils.getAggregatorResource(this).getResourceSet().getResources()) {
 

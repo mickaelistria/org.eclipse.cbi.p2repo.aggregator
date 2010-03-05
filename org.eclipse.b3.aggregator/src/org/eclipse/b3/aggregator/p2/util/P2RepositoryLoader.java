@@ -27,7 +27,7 @@ import org.eclipse.equinox.p2.core.ProvisionException;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.query.IQuery;
 import org.eclipse.equinox.p2.query.IQueryResult;
-import org.eclipse.equinox.p2.query.MatchQuery;
+import org.eclipse.equinox.p2.query.QueryUtil;
 import org.eclipse.equinox.p2.repository.artifact.IArtifactRepository;
 import org.eclipse.equinox.p2.repository.artifact.IArtifactRepositoryManager;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
@@ -40,12 +40,7 @@ public class P2RepositoryLoader implements IRepositoryLoader {
 
 	private IMetadataRepositoryManager mdrMgr;
 
-	private static final IQuery<IInstallableUnit> QUERY_ALL_IUS = new MatchQuery<IInstallableUnit>() {
-		@Override
-		public boolean isMatch(IInstallableUnit candidate) {
-			return true;
-		}
-	};
+	private static final IQuery<IInstallableUnit> QUERY_ALL_IUS = QueryUtil.createIUAnyQuery();
 
 	public void close() {
 		P2Utils.ungetRepositoryManager(mdrMgr);
@@ -132,6 +127,7 @@ public class P2RepositoryLoader implements IRepositoryLoader {
 			}
 		}
 
+		repository.setProvisioningAgent(repo.getProvisioningAgent());
 		repository.setName(repo.getName());
 		repository.setLocation(repo.getLocation());
 		repository.setDescription(repo.getDescription());

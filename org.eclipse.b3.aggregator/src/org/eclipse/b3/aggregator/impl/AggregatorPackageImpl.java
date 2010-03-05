@@ -1764,8 +1764,7 @@ public class AggregatorPackageImpl extends EPackageImpl implements AggregatorPac
 		getMappedUnit_ValidConfigurations().getEKeys().add(this.getConfiguration_WindowSystem());
 		getMappedUnit_ValidConfigurations().getEKeys().add(this.getConfiguration_Architecture());
 
-		addEOperation(mappedUnitEClass, theP2Package.getIRequiredCapability(), "getRequiredCapability", 0, 1,
-				IS_UNIQUE, IS_ORDERED);
+		addEOperation(mappedUnitEClass, theP2Package.getIRequirement(), "getRequirement", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(mappedUnitEClass, theP2Package.getFilter(), "getFilter", 0, 1, IS_UNIQUE, IS_ORDERED);
 
