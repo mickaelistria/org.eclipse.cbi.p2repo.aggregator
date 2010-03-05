@@ -13,6 +13,7 @@ import java.net.URI;
 import org.eclipse.b3.aggregator.p2.impl.MetadataRepositoryImpl;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.equinox.p2.core.IProvisioningAgent;
 import org.eclipse.equinox.p2.repository.artifact.IArtifactRepository;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
 
@@ -35,7 +36,7 @@ public interface IRepositoryLoader {
 
 	void load(IProgressMonitor monitor) throws CoreException;
 
-	void open(URI location, MetadataRepositoryImpl mdr) throws CoreException;
+	void open(URI location, IProvisioningAgent agent, MetadataRepositoryImpl mdr) throws CoreException;
 
 	void reload(IProgressMonitor monitor) throws CoreException;
 }

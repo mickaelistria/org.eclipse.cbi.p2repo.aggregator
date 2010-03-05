@@ -23,6 +23,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
+import org.eclipse.equinox.p2.core.IProvisioningAgent;
 import org.eclipse.equinox.p2.core.ProvisionException;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.query.IQuery;
@@ -63,10 +64,10 @@ public class P2RepositoryLoader implements IRepositoryLoader {
 		load(monitor, false);
 	}
 
-	public void open(URI location, MetadataRepositoryImpl mdr) throws CoreException {
+	public void open(URI location, IProvisioningAgent agent, MetadataRepositoryImpl mdr) throws CoreException {
 		this.location = location;
 		repository = mdr;
-		mdrMgr = P2Utils.getRepositoryManager(IMetadataRepositoryManager.class);
+		mdrMgr = P2Utils.getRepositoryManager(agent, IMetadataRepositoryManager.class);
 	}
 
 	public void reload(IProgressMonitor monitor) throws CoreException {

@@ -63,6 +63,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
+import org.eclipse.equinox.p2.core.IProvisioningAgent;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.IRequirement;
 import org.eclipse.equinox.p2.metadata.Version;
@@ -168,6 +169,8 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 
 		private final java.net.URI location;
 
+		private IProvisioningAgent agent;
+
 		private boolean forceReload;
 
 		private final MetadataRepositoryStructuredView repoView;
@@ -176,9 +179,11 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 
 		private TwoColumnMatrix<IUPresentation, Object[]> allIUMatrix;
 
-		public RepositoryLoaderJob(MetadataRepositoryImpl repository, java.net.URI location, boolean forceReload,
-				MetadataRepositoryStructuredView repoView, TwoColumnMatrix<IUPresentation, Object[]> allIUMap) {
+		public RepositoryLoaderJob(IProvisioningAgent agent, MetadataRepositoryImpl repository, java.net.URI location,
+				boolean forceReload, MetadataRepositoryStructuredView repoView,
+				TwoColumnMatrix<IUPresentation, Object[]> allIUMap) {
 			super("Repository Loader");
+			this.agent = agent;
 			this.repository = repository;
 			this.location = location;
 			this.forceReload = forceReload;
@@ -199,7 +204,7 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 			String msg = format("Loading repository %s", location);
 			SubMonitor subMon = SubMonitor.convert(monitor, msg, 100);
 			try {
-				loader.open(location, repository);
+				loader.open(location, agent, repository);
 				LogUtils.debug(msg);
 				long start = TimeUtils.getNow();
 
@@ -688,7 +693,13 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 				repoView = P2viewFactory.eINSTANCE.createMetadataRepositoryStructuredView(repository);
 				allIUPresentationMatrix.clear();
 
-				loadingJob = new RepositoryLoaderJob(repository, location, forceReload, repoView,
+				ResourceSet resourceSet = getResourceSet();
+				IProvisioningAgent agent = null;
+
+				if(resourceSet instanceof ResourceSetWithAgent)
+					agent = ((ResourceSetWithAgent) resourceSet).getProvisioningAgent();
+
+				loadingJob = new RepositoryLoaderJob(agent, repository, location, forceReload, repoView,
 						allIUPresentationMatrix);
 				loadingJob.schedule();
 			}
