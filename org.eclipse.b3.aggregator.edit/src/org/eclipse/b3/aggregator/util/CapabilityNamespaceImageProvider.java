@@ -31,6 +31,9 @@ public class CapabilityNamespaceImageProvider {
 	}
 
 	public static Object getImage(String namespace) {
+		if(namespace == null)
+			return null;
+
 		CapabilityNamespace cn = CapabilityNamespace.byId(namespace);
 		String imageKey = namespaceMap.get(cn);
 		return imageKey == null

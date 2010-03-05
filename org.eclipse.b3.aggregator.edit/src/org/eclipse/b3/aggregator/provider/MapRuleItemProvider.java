@@ -20,7 +20,7 @@ import org.eclipse.b3.aggregator.ExclusionRule;
 import org.eclipse.b3.aggregator.InstallableUnitRequest;
 import org.eclipse.b3.aggregator.MapRule;
 import org.eclipse.b3.aggregator.MappedRepository;
-import org.eclipse.b3.aggregator.util.InstallableUnitUtils;
+import org.eclipse.b3.aggregator.util.SpecialQueries;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
@@ -35,7 +35,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.query.IQuery;
-import org.eclipse.equinox.p2.query.MatchQuery;
+import org.eclipse.equinox.p2.query.QueryUtil;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.MapRule} object. <!--
@@ -152,16 +152,7 @@ public class MapRuleItemProvider extends InstallableUnitRequestItemProvider impl
 
 	@Override
 	protected IQuery<IInstallableUnit> getInstallableUnitQuery() {
-		return new MatchQuery<IInstallableUnit>() {
-			@Override
-			public boolean isMatch(IInstallableUnit candidate) {
-				switch(InstallableUnitUtils.getType(candidate)) {
-				case PRODUCT:
-				case FEATURE:
-					return true;
-				}
-				return false;
-			}
-		};
+		return QueryUtil.createCompoundQuery(SpecialQueries.createProductQuery(), SpecialQueries.createFeatureQuery(),
+				false);
 	}
 }

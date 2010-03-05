@@ -11,9 +11,8 @@ import java.util.List;
 
 import org.eclipse.b3.aggregator.Bundle;
 import org.eclipse.b3.aggregator.InstallableUnitRequest;
-import org.eclipse.b3.aggregator.InstallableUnitType;
 import org.eclipse.b3.aggregator.MappedRepository;
-import org.eclipse.b3.aggregator.util.InstallableUnitUtils;
+import org.eclipse.b3.aggregator.util.SpecialQueries;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -26,7 +25,6 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.query.IQuery;
-import org.eclipse.equinox.p2.query.MatchQuery;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.Bundle} object.
@@ -122,12 +120,6 @@ public class BundleItemProvider extends MappedUnitItemProvider implements IEditi
 
 	@Override
 	protected IQuery<IInstallableUnit> getInstallableUnitQuery() {
-		return new MatchQuery<IInstallableUnit>() {
-			@Override
-			public boolean isMatch(IInstallableUnit candidate) {
-				return InstallableUnitUtils.getType(candidate) == InstallableUnitType.BUNDLE
-						|| InstallableUnitUtils.getType(candidate) == InstallableUnitType.FRAGMENT;
-			}
-		};
+		return SpecialQueries.createBundleQuery();
 	}
 }

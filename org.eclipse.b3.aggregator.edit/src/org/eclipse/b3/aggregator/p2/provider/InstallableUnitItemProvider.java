@@ -11,8 +11,10 @@ import java.util.List;
 
 import org.eclipse.b3.aggregator.p2.InstallableUnit;
 import org.eclipse.b3.aggregator.p2.MetadataRepository;
+import org.eclipse.b3.aggregator.p2.P2Factory;
 import org.eclipse.b3.aggregator.p2.P2Package;
 import org.eclipse.b3.aggregator.p2.impl.InstallableUnitImpl;
+import org.eclipse.b3.aggregator.p2view.P2viewFactory;
 import org.eclipse.b3.aggregator.provider.AggregatorEditPlugin;
 import org.eclipse.b3.aggregator.provider.AggregatorItemProviderAdapter;
 import org.eclipse.b3.aggregator.util.GeneralUtils;
@@ -41,7 +43,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.equinox.internal.p2.metadata.VersionedId;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
-import org.eclipse.equinox.p2.metadata.query.CategoryQuery;
+import org.eclipse.equinox.p2.query.QueryUtil;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.p2.InstallableUnit} object. <!--
@@ -79,15 +81,37 @@ public class InstallableUnitItemProvider extends AggregatorItemProviderAdapter i
 			childrenFeatures.add(P2Package.Literals.IINSTALLABLE_UNIT__COPYRIGHT);
 			childrenFeatures.add(P2Package.Literals.IINSTALLABLE_UNIT__FILTER);
 			childrenFeatures.add(P2Package.Literals.IINSTALLABLE_UNIT__LICENSES);
-			childrenFeatures.add(P2Package.Literals.IINSTALLABLE_UNIT__META_REQUIRED_CAPABILITIES);
+			childrenFeatures.add(P2Package.Literals.IINSTALLABLE_UNIT__META_REQUIREMENTS);
 			childrenFeatures.add(P2Package.Literals.IINSTALLABLE_UNIT__PROVIDED_CAPABILITIES);
-			childrenFeatures.add(P2Package.Literals.IINSTALLABLE_UNIT__REQUIRED_CAPABILITIES);
+			childrenFeatures.add(P2Package.Literals.IINSTALLABLE_UNIT__REQUIREMENTS);
 			childrenFeatures.add(P2Package.Literals.IINSTALLABLE_UNIT__TOUCHPOINT_DATA);
 			childrenFeatures.add(P2Package.Literals.IINSTALLABLE_UNIT__TOUCHPOINT_TYPE);
 			childrenFeatures.add(P2Package.Literals.IINSTALLABLE_UNIT__UPDATE_DESCRIPTOR);
 			childrenFeatures.add(P2Package.Literals.INSTALLABLE_UNIT__PROPERTY_MAP);
 		}
 		return childrenFeatures;
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify = childFeature == P2Package.Literals.IINSTALLABLE_UNIT__META_REQUIREMENTS
+				|| childFeature == P2Package.Literals.IINSTALLABLE_UNIT__REQUIREMENTS;
+
+		if(qualify) {
+			return getString("_UI_CreateChild_text2", new Object[] { getTypeText(childObject),
+					getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**
@@ -151,7 +175,7 @@ public class InstallableUnitItemProvider extends AggregatorItemProviderAdapter i
 			if(vn != null)
 				label = vn.getId() + " / " + GeneralUtils.stringifyVersion(vn.getVersion()) + " (missing)";
 		}
-		else if(CategoryQuery.isCategory(iu)) {
+		else if(QueryUtil.isCategory(iu)) {
 			// The id and version are meaningless in categories. We display the name
 			// instead.
 			String name = iu.getProperty(IInstallableUnit.PROP_NAME);
@@ -197,9 +221,9 @@ public class InstallableUnitItemProvider extends AggregatorItemProviderAdapter i
 		case P2Package.INSTALLABLE_UNIT__COPYRIGHT:
 		case P2Package.INSTALLABLE_UNIT__FILTER:
 		case P2Package.INSTALLABLE_UNIT__LICENSES:
-		case P2Package.INSTALLABLE_UNIT__META_REQUIRED_CAPABILITIES:
+		case P2Package.INSTALLABLE_UNIT__META_REQUIREMENTS:
 		case P2Package.INSTALLABLE_UNIT__PROVIDED_CAPABILITIES:
-		case P2Package.INSTALLABLE_UNIT__REQUIRED_CAPABILITIES:
+		case P2Package.INSTALLABLE_UNIT__REQUIREMENTS:
 		case P2Package.INSTALLABLE_UNIT__TOUCHPOINT_DATA:
 		case P2Package.INSTALLABLE_UNIT__TOUCHPOINT_TYPE:
 		case P2Package.INSTALLABLE_UNIT__UPDATE_DESCRIPTOR:
@@ -352,6 +376,24 @@ public class InstallableUnitItemProvider extends AggregatorItemProviderAdapter i
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add(createChildParameter(P2Package.Literals.IINSTALLABLE_UNIT__META_REQUIREMENTS,
+				P2Factory.eINSTANCE.createRequirement()));
+
+		newChildDescriptors.add(createChildParameter(P2Package.Literals.IINSTALLABLE_UNIT__META_REQUIREMENTS,
+				P2Factory.eINSTANCE.createRequiredCapability()));
+
+		newChildDescriptors.add(createChildParameter(P2Package.Literals.IINSTALLABLE_UNIT__META_REQUIREMENTS,
+				P2viewFactory.eINSTANCE.createRequirementWrapper()));
+
+		newChildDescriptors.add(createChildParameter(P2Package.Literals.IINSTALLABLE_UNIT__REQUIREMENTS,
+				P2Factory.eINSTANCE.createRequirement()));
+
+		newChildDescriptors.add(createChildParameter(P2Package.Literals.IINSTALLABLE_UNIT__REQUIREMENTS,
+				P2Factory.eINSTANCE.createRequiredCapability()));
+
+		newChildDescriptors.add(createChildParameter(P2Package.Literals.IINSTALLABLE_UNIT__REQUIREMENTS,
+				P2viewFactory.eINSTANCE.createRequirementWrapper()));
 	}
 
 	/**
