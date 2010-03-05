@@ -31,6 +31,7 @@ import org.eclipse.b3.aggregator.MappedRepository;
 import org.eclipse.b3.aggregator.MetadataRepositoryReference;
 import org.eclipse.b3.aggregator.p2.MetadataRepository;
 import org.eclipse.b3.aggregator.p2.util.MetadataRepositoryResourceImpl;
+import org.eclipse.b3.aggregator.p2.util.ResourceSetWithAgent;
 import org.eclipse.b3.aggregator.util.LogUtils;
 import org.eclipse.b3.aggregator.util.MonitorUtils;
 import org.eclipse.b3.aggregator.util.P2Utils;
@@ -50,7 +51,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.equinox.internal.p2.core.helpers.FileUtils;
 import org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository;
@@ -487,7 +487,7 @@ public class Builder extends AbstractCommand {
 			if(smtpPort <= 0)
 				smtpPort = 25;
 
-			loadModel(now);
+			loadModel();
 
 			provisioningAgent = P2Utils.createDedicatedProvisioningAgent(new File(buildRoot, "p2").toURI());
 
@@ -498,7 +498,8 @@ public class Builder extends AbstractCommand {
 
 				// reinitialize deleted directory structure
 				P2Utils.destroyProvisioningAgent(provisioningAgent);
-				provisioningAgent = P2Utils.createDedicatedProvisioningAgent(new File(buildRoot, "p2").toURI());
+				if(action == ActionType.CLEAN_BUILD)
+					provisioningAgent = P2Utils.createDedicatedProvisioningAgent(new File(buildRoot, "p2").toURI());
 				break;
 			default:
 				cleanMetadata(provisioningAgent);
@@ -506,6 +507,9 @@ public class Builder extends AbstractCommand {
 
 			if(action == ActionType.CLEAN)
 				return 0;
+
+			// Associate current resource set with the dedicated provisioning agent
+			((ResourceSetWithAgent) resourceSet).setProvisioningAgent(provisioningAgent);
 
 			buildRoot.mkdirs();
 			if(!buildRoot.exists())
@@ -825,10 +829,10 @@ public class Builder extends AbstractCommand {
 	 * @throws CoreException
 	 *             If something goes wrong with during the process
 	 */
-	private void loadModel(Date now) throws CoreException {
+	private void loadModel() throws CoreException {
 		try {
 			// Load the Java model into memory
-			resourceSet = new ResourceSetImpl();
+			resourceSet = new ResourceSetWithAgent();
 			org.eclipse.emf.common.util.URI fileURI = org.eclipse.emf.common.util.URI.createFileURI(buildModelLocation.getAbsolutePath());
 			Resource resource = resourceSet.getResource(fileURI, true);
 			EList<EObject> content = resource.getContents();
