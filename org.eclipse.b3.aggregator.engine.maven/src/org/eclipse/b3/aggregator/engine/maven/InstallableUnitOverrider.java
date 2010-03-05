@@ -9,7 +9,6 @@
 package org.eclipse.b3.aggregator.engine.maven;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
 
 import org.eclipse.equinox.p2.metadata.IArtifactKey;
@@ -65,7 +64,7 @@ public class InstallableUnitOverrider implements IInstallableUnit {
 		return installableUnit.getFilter();
 	}
 
-	public List<IInstallableUnitFragment> getFragments() {
+	public Collection<IInstallableUnitFragment> getFragments() {
 		return installableUnit.getFragments();
 	}
 
@@ -80,12 +79,12 @@ public class InstallableUnitOverrider implements IInstallableUnit {
 		return installableUnit.getLicenses();
 	}
 
-	public ILicense[] getLicenses(String locale) {
+	public Collection<ILicense> getLicenses(String locale) {
 		return installableUnit.getLicenses(locale);
 	}
 
-	public Collection<IRequirement> getMetaRequiredCapabilities() {
-		return installableUnit.getMetaRequiredCapabilities();
+	public Collection<IRequirement> getMetaRequirements() {
+		return installableUnit.getMetaRequirements();
 	}
 
 	public Map<String, String> getProperties() {
@@ -104,14 +103,14 @@ public class InstallableUnitOverrider implements IInstallableUnit {
 		return installableUnit.getProvidedCapabilities();
 	}
 
-	public Collection<IRequirement> getRequiredCapabilities() {
+	public Collection<IRequirement> getRequirements() {
 		if(requirements != null)
 			return requirements;
 
-		return installableUnit.getRequiredCapabilities();
+		return installableUnit.getRequirements();
 	}
 
-	public List<ITouchpointData> getTouchpointData() {
+	public Collection<ITouchpointData> getTouchpointData() {
 		return installableUnit.getTouchpointData();
 	}
 

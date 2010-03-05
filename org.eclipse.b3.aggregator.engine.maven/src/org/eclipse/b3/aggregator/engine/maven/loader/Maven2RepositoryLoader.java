@@ -87,7 +87,7 @@ import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
 import org.eclipse.equinox.p2.query.IQuery;
 import org.eclipse.equinox.p2.query.IQueryResult;
-import org.eclipse.equinox.p2.query.MatchQuery;
+import org.eclipse.equinox.p2.query.QueryUtil;
 import org.eclipse.equinox.p2.repository.IRepository;
 import org.eclipse.equinox.p2.repository.artifact.IArtifactRepository;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
@@ -149,12 +149,7 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 
 	private static final String MAVEN_METADATA_LOCAL = "maven-metadata-local.xml";
 
-	private static final IQuery<IInstallableUnit> QUERY_ALL_IUS = new MatchQuery<IInstallableUnit>() {
-		@Override
-		public boolean isMatch(IInstallableUnit candidate) {
-			return true;
-		}
-	};
+	private static final IQuery<IInstallableUnit> QUERY_ALL_IUS = QueryUtil.createIUAnyQuery();
 
 	public static final String SIMPLE_METADATA_TYPE = org.eclipse.equinox.internal.p2.metadata.repository.Activator.ID
 			+ ".simpleRepository"; //$NON-NLS-1$
@@ -195,8 +190,9 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 			throws CoreException {
 		monitor.beginTask("Generating artifact repository", 100);
 		SubMonitor subMon = SubMonitor.convert(monitor);
-		SimpleArtifactRepository ar = new SimpleArtifactRepository(mdr.getName(), mdr.getLocation(), null) {
-			public void save(boolean compress) {
+		SimpleArtifactRepository ar = new SimpleArtifactRepository(mdr.getProvisioningAgent(), mdr.getName(),
+				mdr.getLocation(), null) {
+			public void save() {
 				// no-op
 			}
 		};
@@ -401,7 +397,7 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 								? 0
 								: 1);
 
-					iu.getRequiredCapabilities().add(rc);
+					iu.getRequirements().add(rc);
 				}
 			}
 
@@ -938,7 +934,7 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 				rc.setName(iu.getId());
 				rc.setNamespace(IInstallableUnit.NAMESPACE_IU_ID);
 				rc.setRange(new VersionRange(iu.getVersion(), true, iu.getVersion(), true));
-				List<IRequirement> rcList = category.getRequiredCapabilities();
+				List<IRequirement> rcList = category.getRequirements();
 				rcList.add(rc);
 
 				ius.add(iu);
@@ -1039,8 +1035,7 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 				throw ExceptionUtils.wrap(e);
 			}
 			mdr.setDescription(repository.getDescription());
-			mdr.addInstallableUnits(repository.getInstallableUnits().toArray(
-					new IInstallableUnit[repository.getInstallableUnits().size()]));
+			mdr.addInstallableUnits(repository.getInstallableUnits());
 		}
 		finally {
 			P2Utils.ungetRepositoryManager(mdrMgr);

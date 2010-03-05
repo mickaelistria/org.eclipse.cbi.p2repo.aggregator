@@ -186,7 +186,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		if(getVersion() != null && !getVersion().equals(Version.emptyVersion))
 			model.setVersion(getVersionString());
 
-		Collection<IRequirement> requirements = getRequiredCapabilities();
+		Collection<IRequirement> requirements = getRequirements();
 		if(requirements.size() > 0) {
 			DependenciesType dependencies = PomFactory.eINSTANCE.createDependenciesType();
 			for(IRequirement req : requirements) {
@@ -323,7 +323,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		return installableUnit.getFilter();
 	}
 
-	public List<IInstallableUnitFragment> getFragments() {
+	public Collection<IInstallableUnitFragment> getFragments() {
 		return installableUnit.getFragments();
 	}
 
@@ -335,7 +335,7 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		return installableUnit.getLicenses();
 	}
 
-	public ILicense[] getLicenses(String locale) {
+	public Collection<ILicense> getLicenses(String locale) {
 		return installableUnit.getLicenses(locale);
 	}
 
@@ -343,8 +343,8 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		return mainArtifact;
 	}
 
-	public Collection<IRequirement> getMetaRequiredCapabilities() {
-		return installableUnit.getMetaRequiredCapabilities();
+	public Collection<IRequirement> getMetaRequirements() {
+		return installableUnit.getMetaRequirements();
 	}
 
 	public InstallableUnitMapping getParent() {
@@ -379,25 +379,25 @@ public class InstallableUnitMapping implements IInstallableUnit {
 		return map().getGroupId().replace('.', '/') + "/" + map().getArtifactId() + "/" + getVersionString();
 	}
 
-	public Collection<IRequirement> getRequiredCapabilities() {
+	public Collection<IRequirement> getRequirements() {
 		if(parent != null) {
 			Collection<IRequirement> myList = new ArrayList<IRequirement>();
-			Collection<IRequirement> parentList = parent.installableUnit.getRequiredCapabilities();
-			for(IRequirement my : installableUnit.getRequiredCapabilities())
+			Collection<IRequirement> parentList = parent.installableUnit.getRequirements();
+			for(IRequirement my : installableUnit.getRequirements())
 				if(!parentList.contains(my))
 					myList.add(my);
 
 			return myList;
 		}
 
-		return installableUnit.getRequiredCapabilities();
+		return installableUnit.getRequirements();
 	}
 
 	public List<InstallableUnitMapping> getSiblings() {
 		return siblings;
 	}
 
-	public List<ITouchpointData> getTouchpointData() {
+	public Collection<ITouchpointData> getTouchpointData() {
 		return installableUnit.getTouchpointData();
 	}
 
