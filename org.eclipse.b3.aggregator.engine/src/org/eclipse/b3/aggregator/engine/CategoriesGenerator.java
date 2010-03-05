@@ -39,7 +39,7 @@ public class CategoriesGenerator extends BuilderPhase {
 	private static void assignCategoryVersion(InstallableUnitImpl category) {
 		List<VersionedId> includedBundles = new ArrayList<VersionedId>();
 		List<VersionedId> includedFeatures = new ArrayList<VersionedId>();
-		for(IRequirement req : category.getRequiredCapabilities()) {
+		for(IRequirement req : category.getRequirements()) {
 			if(!(req instanceof IRequiredCapability))
 				continue;
 
@@ -113,14 +113,14 @@ public class CategoriesGenerator extends BuilderPhase {
 		props.put(InstallableUnitDescription.PROP_TYPE_CATEGORY, "true"); //$NON-NLS-1$
 
 		List<Feature> features = category.getFeatures();
-		List<IRequirement> rcs = cat.getRequiredCapabilities();
+		List<IRequirement> rcs = cat.getRequirements();
 		List<VersionedId> includedBundles = new ArrayList<VersionedId>();
 		List<VersionedId> includedFeatures = new ArrayList<VersionedId>();
 		for(Feature feature : features) {
 			if(!feature.isBranchEnabled())
 				continue;
 
-			rcs.add(InstallableUnitImpl.importToModel(feature.getRequiredCapability()));
+			rcs.add(InstallableUnitImpl.importToModel(feature.getRequirement()));
 
 			VersionedId vn = new VersionedId(feature.getName(), feature.getVersionRange().getMinimum());
 			if(vn.getId().endsWith(Builder.FEATURE_GROUP_SUFFIX))
@@ -221,7 +221,7 @@ public class CategoriesGenerator extends BuilderPhase {
 
 			// TODO Before we could map version ranges, here had been an algorithm fixing possible version replacements.
 			// This may be required in future again but it will need a different implementation
-			caps.addAll(category.getRequiredCapabilities());
+			caps.addAll(category.getRequirements());
 
 			IInstallableUnit oldCat = catMap.put(name, category);
 			if(oldCat == null)
@@ -253,7 +253,7 @@ public class CategoriesGenerator extends BuilderPhase {
 		for(IInstallableUnit category : catMap.values()) {
 			String name = category.getProperty(IInstallableUnit.PROP_NAME);
 			List<IRequirement> newCaps = map.get(name);
-			Collection<IRequirement> origCaps = category.getRequiredCapabilities();
+			Collection<IRequirement> origCaps = category.getRequirements();
 			if(origCaps.size() == newCaps.size() && origCaps.containsAll(newCaps)) {
 				// This category passed through normalization without change
 				normalized.add(category);
@@ -264,7 +264,7 @@ public class CategoriesGenerator extends BuilderPhase {
 			newCategory.setId(category.getId());
 			for(Map.Entry<String, String> entry : category.getProperties().entrySet())
 				newCategory.getPropertyMap().put(entry.getKey(), entry.getValue());
-			newCategory.getRequiredCapabilities().addAll(newCaps);
+			newCategory.getRequirements().addAll(newCaps);
 			assignCategoryVersion(newCategory);
 			tossCategory(category);
 			normalized.add(newCategory);

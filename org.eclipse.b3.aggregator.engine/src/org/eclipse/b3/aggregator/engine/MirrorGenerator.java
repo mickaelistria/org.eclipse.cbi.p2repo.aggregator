@@ -88,7 +88,8 @@ public class MirrorGenerator extends BuilderPhase {
 		}
 
 		@Override
-		public void perform(IProgressMonitor monitor) {
+		public void perform(IArtifactRepository sourceRepository, IProgressMonitor monitor) {
+			setSourceRepository(sourceRepository);
 			setResult(transfer(canonicalDescriptor, optimizedDescriptor, monitor));
 		}
 	}
@@ -223,8 +224,7 @@ public class MirrorGenerator extends BuilderPhase {
 			return targetDesc;
 
 		RawMirrorRequest request = new RawMirrorRequest(sourceDesc, targetDesc, dest);
-		request.setSourceRepository(source);
-		request.perform(monitor);
+		request.perform(source, monitor);
 		IStatus result = request.getResult();
 		switch(result.getSeverity()) {
 		case IStatus.INFO:
@@ -336,7 +336,7 @@ public class MirrorGenerator extends BuilderPhase {
 	private static void unpack(IArtifactRepository source, IArtifactRepository target, IArtifactDescriptor optimized,
 			IArtifactDescriptor canonical, IProgressMonitor monitor) throws CoreException {
 		CanonicalizeRequest request = new CanonicalizeRequest(optimized, canonical, source, target);
-		request.perform(monitor);
+		request.perform(source, monitor);
 		IStatus result = request.getResult();
 		if(result.getSeverity() != IStatus.ERROR
 				|| result.getCode() == org.eclipse.equinox.p2.core.ProvisionException.ARTIFACT_EXISTS) {
@@ -351,7 +351,7 @@ public class MirrorGenerator extends BuilderPhase {
 	private static void unpackToSibling(IArtifactRepository target, IArtifactDescriptor optimized,
 			IArtifactDescriptor canonical, boolean verifyOnly, IProgressMonitor monitor) throws CoreException {
 		CanonicalizeRequest request = new CanonicalizeRequest(optimized, canonical, target);
-		request.perform(monitor);
+		request.perform(target, monitor);
 		IStatus result = request.getResult();
 		if(result.getSeverity() != IStatus.ERROR
 				|| result.getCode() == org.eclipse.equinox.p2.core.ProvisionException.ARTIFACT_EXISTS) {
@@ -852,7 +852,7 @@ public class MirrorGenerator extends BuilderPhase {
 
 	private void mirror(List<IInstallableUnit> iusToMirror, MetadataRepository source, final IMetadataRepository dest,
 			IProgressMonitor monitor) throws CoreException {
-		dest.addInstallableUnits(iusToMirror.toArray(new IInstallableUnit[iusToMirror.size()]));
+		dest.addInstallableUnits(iusToMirror);
 
 		Builder builder = getBuilder();
 		if(source != null && builder.isMirrorReferences()) {

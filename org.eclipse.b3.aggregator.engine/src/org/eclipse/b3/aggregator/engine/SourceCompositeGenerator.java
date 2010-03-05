@@ -104,7 +104,8 @@ public class SourceCompositeGenerator extends BuilderPhase {
 	private IRepository<IInstallableUnit> createLocalMdr(URI locationBase, MetadataRepository mdr)
 			throws URISyntaxException, NoSuchAlgorithmException {
 		URI location = new URI(locationBase.toString() + "/transformed/" + encode(mdr.getLocation().toString()));
-		LocalMetadataRepository localMdr = new LocalMetadataRepository(location, mdr.getName(), mdr.getProperties());
+		LocalMetadataRepository localMdr = new LocalMetadataRepository(getBuilder().getProvisioningAgent(), location,
+				mdr.getName(), mdr.getProperties());
 		localMdr.setDescription(mdr.getDescription());
 		localMdr.setProvider(mdr.getProvider());
 		localMdr.addInstallableUnits(mdr.getInstallableUnits().toArray(

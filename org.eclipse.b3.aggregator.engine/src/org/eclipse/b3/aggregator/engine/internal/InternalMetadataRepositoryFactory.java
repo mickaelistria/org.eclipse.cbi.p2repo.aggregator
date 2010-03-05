@@ -57,7 +57,7 @@ public class InternalMetadataRepositoryFactory extends SimpleMetadataRepositoryF
 	@Override
 	public IMetadataRepository create(URI location, String name, String type, Map<String, String> properties) {
 		if(location.getScheme().equals("file")) //$NON-NLS-1$
-			return new InternalMetadataRepository(location, name, properties);
+			return new InternalMetadataRepository(getAgent(), location, name, properties);
 
 		throw new UnsupportedOperationException();
 	}
@@ -95,8 +95,8 @@ public class InternalMetadataRepositoryFactory extends SimpleMetadataRepositoryF
 					InputStream descriptorStream = jarStream != null
 							? jarStream
 							: inStream;
-					IMetadataRepository result = new InternalMetadataRepositoryIO().read(localFile.toURI().toURL(),
-							descriptorStream, sub.newChild(100));
+					IMetadataRepository result = new InternalMetadataRepositoryIO(getAgent()).read(
+							localFile.toURI().toURL(), descriptorStream, sub.newChild(100));
 					if(result != null && (flags & IRepositoryManager.REPOSITORY_HINT_MODIFIABLE) > 0
 							&& !result.isModifiable())
 						return null;

@@ -61,8 +61,9 @@ import org.eclipse.equinox.p2.engine.IProfileRegistry;
 import org.eclipse.equinox.p2.metadata.IArtifactKey;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.Version;
-import org.eclipse.equinox.p2.metadata.query.InstallableUnitQuery;
+import org.eclipse.equinox.p2.query.IQuery;
 import org.eclipse.equinox.p2.query.IQueryResult;
+import org.eclipse.equinox.p2.query.QueryUtil;
 import org.eclipse.equinox.p2.repository.artifact.IArtifactRepositoryManager;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
@@ -187,9 +188,9 @@ public class Builder extends AbstractCommand {
 
 	public static IInstallableUnit getIU(IMetadataRepository mdr, String id, String version) {
 		version = StringUtils.trimmedOrNull(version);
-		InstallableUnitQuery query = version == null
-				? new InstallableUnitQuery(id)
-				: new InstallableUnitQuery(id, Version.create(version));
+		IQuery<IInstallableUnit> query = version == null
+				? QueryUtil.createIUQuery(id)
+				: QueryUtil.createIUQuery(id, Version.create(version));
 		IQueryResult<IInstallableUnit> result = mdr.query(query, null);
 		return !result.isEmpty()
 				? result.iterator().next()
@@ -494,6 +495,10 @@ public class Builder extends AbstractCommand {
 			case CLEAN:
 			case CLEAN_BUILD:
 				cleanAll(provisioningAgent);
+
+				// reinitialize deleted directory structure
+				P2Utils.destroyProvisioningAgent(provisioningAgent);
+				provisioningAgent = P2Utils.createDedicatedProvisioningAgent(new File(buildRoot, "p2").toURI());
 				break;
 			default:
 				cleanMetadata(provisioningAgent);
@@ -552,7 +557,7 @@ public class Builder extends AbstractCommand {
 		}
 		finally {
 			if(provisioningAgent != null) {
-				provisioningAgent.stop();
+				P2Utils.destroyProvisioningAgent(provisioningAgent);
 				provisioningAgent = null;
 			}
 
@@ -767,6 +772,10 @@ public class Builder extends AbstractCommand {
 		finally {
 			P2Utils.ungetRepositoryManager(arMgr);
 		}
+
+		IProfileRegistry profileRegistry = P2Utils.getProfileRegistry(provisioningAgent);
+		for(IProfile profile : profileRegistry.getProfiles())
+			profileRegistry.removeProfile(profile.getProfileId());
 
 		if(buildRoot.exists()) {
 			FileUtils.deleteAll(buildRoot);

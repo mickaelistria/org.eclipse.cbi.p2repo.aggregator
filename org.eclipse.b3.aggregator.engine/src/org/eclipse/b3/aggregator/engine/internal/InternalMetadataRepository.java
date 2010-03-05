@@ -27,6 +27,7 @@ import org.eclipse.equinox.internal.p2.core.helpers.ServiceHelper;
 import org.eclipse.equinox.internal.p2.metadata.repository.Activator;
 import org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository;
 import org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager;
+import org.eclipse.equinox.p2.core.IProvisioningAgent;
 import org.eclipse.equinox.p2.core.ProvisionException;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.repository.IRepository;
@@ -60,8 +61,8 @@ public class InternalMetadataRepository extends LocalMetadataRepository {
 		return new File(path + extension);
 	}
 
-	public InternalMetadataRepository() {
-		super();
+	public InternalMetadataRepository(IProvisioningAgent agent) {
+		super(agent);
 	}
 
 	/**
@@ -69,8 +70,9 @@ public class InternalMetadataRepository extends LocalMetadataRepository {
 	 * @param name
 	 * @param properties
 	 */
-	public InternalMetadataRepository(URI location, String name, Map<String, String> properties) {
-		super();
+	public InternalMetadataRepository(IProvisioningAgent agent, URI location, String name,
+			Map<String, String> properties) {
+		super(agent);
 		this.name = name;
 		this.type = getClass().getName();
 		this.version = "1";
@@ -158,7 +160,7 @@ public class InternalMetadataRepository extends LocalMetadataRepository {
 				output = jOutput;
 			}
 			basicSetProperty(IRepository.PROP_TIMESTAMP, Long.toString(System.currentTimeMillis()));
-			new InternalMetadataRepositoryIO().write(this, output);
+			new InternalMetadataRepositoryIO(getProvisioningAgent()).write(this, output);
 		}
 		catch(IOException e) {
 			LogHelper.log(new Status(IStatus.ERROR, Activator.ID, ProvisionException.REPOSITORY_FAILED_WRITE,

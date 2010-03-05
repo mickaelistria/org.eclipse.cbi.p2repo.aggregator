@@ -27,6 +27,7 @@ import org.eclipse.b3.aggregator.p2.impl.InstallableUnitImpl;
 import org.eclipse.b3.aggregator.util.LogUtils;
 import org.eclipse.b3.aggregator.util.MonitorUtils;
 import org.eclipse.b3.aggregator.util.P2Utils;
+import org.eclipse.b3.aggregator.util.SpecialQueries;
 import org.eclipse.b3.aggregator.util.TimeUtils;
 import org.eclipse.b3.util.ExceptionUtils;
 import org.eclipse.core.runtime.CoreException;
@@ -40,30 +41,27 @@ import org.eclipse.equinox.internal.p2.director.Explanation;
 import org.eclipse.equinox.internal.p2.director.Explanation.HardRequirement;
 import org.eclipse.equinox.internal.p2.director.Explanation.MissingIU;
 import org.eclipse.equinox.internal.p2.director.Explanation.Singleton;
+import org.eclipse.equinox.internal.p2.engine.InstallableUnitOperand;
+import org.eclipse.equinox.internal.p2.engine.Operand;
+import org.eclipse.equinox.internal.p2.engine.ProvisioningPlan;
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
-import org.eclipse.equinox.internal.p2.metadata.query.LatestIUVersionQuery;
 import org.eclipse.equinox.internal.p2.touchpoint.eclipse.PublisherUtil;
-import org.eclipse.equinox.internal.provisional.p2.director.IPlanner;
+import org.eclipse.equinox.internal.provisional.p2.director.PlannerStatus;
 import org.eclipse.equinox.internal.provisional.p2.director.ProfileChangeRequest;
 import org.eclipse.equinox.internal.provisional.p2.director.RequestStatus;
 import org.eclipse.equinox.p2.core.ProvisionException;
 import org.eclipse.equinox.p2.engine.IProfile;
 import org.eclipse.equinox.p2.engine.IProfileRegistry;
-import org.eclipse.equinox.p2.engine.InstallableUnitOperand;
-import org.eclipse.equinox.p2.engine.Operand;
 import org.eclipse.equinox.p2.engine.ProvisioningContext;
-import org.eclipse.equinox.p2.engine.ProvisioningPlan;
 import org.eclipse.equinox.p2.metadata.IArtifactKey;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.IInstallableUnitPatch;
 import org.eclipse.equinox.p2.metadata.IRequirement;
 import org.eclipse.equinox.p2.metadata.Version;
-import org.eclipse.equinox.p2.metadata.VersionRange;
-import org.eclipse.equinox.p2.metadata.query.InstallableUnitQuery;
-import org.eclipse.equinox.p2.query.CompoundQuery;
+import org.eclipse.equinox.p2.planner.IPlanner;
 import org.eclipse.equinox.p2.query.IQuery;
 import org.eclipse.equinox.p2.query.IQueryResult;
-import org.eclipse.equinox.p2.query.MatchQuery;
+import org.eclipse.equinox.p2.query.QueryUtil;
 import org.eclipse.equinox.p2.repository.artifact.IArtifactRepository;
 import org.eclipse.equinox.p2.repository.artifact.IArtifactRepositoryManager;
 import org.eclipse.equinox.p2.repository.artifact.IFileArtifactRepository;
@@ -71,45 +69,15 @@ import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
 
 public class RepositoryVerifier extends BuilderPhase {
-	static class AllPatchesQuery extends MatchQuery<IInstallableUnit> {
-		@Override
-		public boolean isMatch(IInstallableUnit candidate) {
-			return candidate instanceof IInstallableUnitPatch;
-		}
-	}
-
-	static class PatchApplicabilityQuery extends MatchQuery<IInstallableUnit> {
-		private final IInstallableUnitPatch patch;
-
-		PatchApplicabilityQuery(IInstallableUnitPatch patch) {
-			this.patch = patch;
-		}
-
-		@Override
-		public boolean isMatch(IInstallableUnit candidate) {
-			IInstallableUnit iu = candidate;
-			for(IRequirement[] rqs : patch.getApplicabilityScope()) {
-				int idx = rqs.length;
-				while(--idx >= 0)
-					if(!iu.satisfies(rqs[idx]))
-						break;
-				if(idx < 0)
-					return true;
-			}
-			return false;
-		}
-	}
-
 	private static Set<Explanation> getExplanations(RequestStatus requestStatus) {
 		return requestStatus.getExplanations();
 	}
 
 	private static IInstallableUnit[] getRootIUs(IMetadataRepository site, IProfile profile, String iuName,
 			Version version, IProgressMonitor monitor) throws CoreException {
-		IQuery<IInstallableUnit> query = new InstallableUnitQuery(iuName,
-				new VersionRange(version, true, version, true));
-		IQueryResult<IInstallableUnit> roots = site.query(CompoundQuery.createCompoundQuery(query,
-				new LatestIUVersionQuery<IInstallableUnit>(), true), monitor);
+		IQuery<IInstallableUnit> query = QueryUtil.createIUQuery(iuName, version);
+		IQueryResult<IInstallableUnit> roots = site.query(QueryUtil.createCompoundQuery(query,
+				QueryUtil.createLatestIUQuery(), true), monitor);
 
 		if(roots.isEmpty())
 			roots = profile.query(query, new NullProgressMonitor());
@@ -201,7 +169,7 @@ public class RepositoryVerifier extends BuilderPhase {
 
 					IStatus status = plan.getStatus();
 					if(status.getSeverity() == IStatus.ERROR) {
-						sendEmails((RequestStatus) plan.getRequestStatus());
+						sendEmails((PlannerStatus) status);
 						LogUtils.info("Done. Took %s", TimeUtils.getFormattedDuration(start)); //$NON-NLS-1$
 						throw new CoreException(status);
 					}
@@ -240,7 +208,8 @@ public class RepositoryVerifier extends BuilderPhase {
 						}
 					}
 
-					Iterator<IInstallableUnit> itor = sourceRepo.query(new AllPatchesQuery(), subMon.newChild(1)).iterator();
+					Iterator<IInstallableUnit> itor = sourceRepo.query(QueryUtil.createIUPatchQuery(),
+							subMon.newChild(1)).iterator();
 
 					while(itor.hasNext()) {
 						Set<IInstallableUnit> units = getUnpatchedTransitiveScope((IInstallableUnitPatch) itor.next(),
@@ -271,25 +240,25 @@ public class RepositoryVerifier extends BuilderPhase {
 						//
 						final Set<IInstallableUnit> candidates = suspectedValidationOnlyIUs;
 						final boolean hadPartialsHolder[] = new boolean[] { false };
-						sourceRepo.query(new MatchQuery<IInstallableUnit>() {
-							@Override
-							public boolean isMatch(IInstallableUnit iu) {
-								if(candidates.contains(iu) && !unitsToAggregate.contains(iu)) {
-									try {
-										if(Boolean.valueOf(iu.getProperty(IInstallableUnit.PROP_PARTIAL_IU)).booleanValue()) {
-											iu = resolvePartialIU(iu, SubMonitor.convert(new NullProgressMonitor()));
-											hadPartialsHolder[0] = true;
-										}
-									}
-									catch(CoreException e) {
-										throw new RuntimeException(e);
-									}
-									unitsToAggregate.add(iu);
-								}
 
-								return false; // Since we don't use the results
+						Iterator<IInstallableUnit> allIUs = sourceRepo.query(QueryUtil.createIUAnyQuery(),
+								subMon.newChild(1)).iterator();
+
+						while(allIUs.hasNext()) {
+							IInstallableUnit iu = allIUs.next();
+							if(candidates.contains(iu) && !unitsToAggregate.contains(iu)) {
+								try {
+									if(Boolean.valueOf(iu.getProperty(IInstallableUnit.PROP_PARTIAL_IU)).booleanValue()) {
+										iu = resolvePartialIU(iu, SubMonitor.convert(new NullProgressMonitor()));
+										hadPartialsHolder[0] = true;
+									}
+								}
+								catch(CoreException e) {
+									throw new RuntimeException(e);
+								}
+								unitsToAggregate.add(iu);
 							}
-						}, subMon.newChild(1));
+						}
 					}
 
 					if(hadPartials)
@@ -497,7 +466,7 @@ public class RepositoryVerifier extends BuilderPhase {
 		try {
 			monitor.beginTask(null, 10);
 			IMetadataRepository sourceRepo = mdrMgr.loadRepository(repoLocation, monitor.newChild(1));
-			PatchApplicabilityQuery query = new PatchApplicabilityQuery(patch);
+			IQuery<IInstallableUnit> query = SpecialQueries.createPatchApplicabilityQuery(patch);
 			IQueryResult<IInstallableUnit> result = sourceRepo.query(query, monitor.newChild(1));
 
 			IInstallableUnit[] rootArr = result.toArray(IInstallableUnit.class);
@@ -534,58 +503,64 @@ public class RepositoryVerifier extends BuilderPhase {
 		}
 	}
 
-	private void sendEmails(RequestStatus requestStatus) {
+	private void sendEmails(PlannerStatus plannerStatus) {
 		Builder builder = getBuilder();
 		if(!builder.getAggregator().isSendmail())
 			return;
 
 		ArrayList<String> errors = new ArrayList<String>();
-		Set<Explanation> explanations = getExplanations(requestStatus);
-		Map<String, Contribution> contribs = new HashMap<String, Contribution>();
-		for(Explanation explanation : explanations) {
-			errors.add(explanation.toString());
-			if(explanation instanceof Singleton) {
-				// A singleton is always a leaf problem. Add contributions
-				// if we can find any. They are all culprits
-				for(IInstallableUnit iu : ((Singleton) explanation).ius) {
-					Contribution contrib = findContribution(iu.getId());
+		Map<IInstallableUnit, RequestStatus> requestChanges = plannerStatus.getRequestChanges();
+		if(requestChanges == null)
+			return;
+
+		for(RequestStatus requestStatus : requestChanges.values()) {
+			Set<Explanation> explanations = getExplanations(requestStatus);
+			Map<String, Contribution> contribs = new HashMap<String, Contribution>();
+			for(Explanation explanation : explanations) {
+				errors.add(explanation.toString());
+				if(explanation instanceof Singleton) {
+					// A singleton is always a leaf problem. Add contributions
+					// if we can find any. They are all culprits
+					for(IInstallableUnit iu : ((Singleton) explanation).ius) {
+						Contribution contrib = findContribution(iu.getId());
+						if(contrib == null)
+							continue;
+						contribs.put(contrib.getLabel(), contrib);
+					}
+					continue;
+				}
+
+				IInstallableUnit iu;
+				IRequirement crq;
+				if(explanation instanceof HardRequirement) {
+					HardRequirement hrq = (HardRequirement) explanation;
+					iu = hrq.iu;
+					crq = hrq.req;
+				}
+				else if(explanation instanceof MissingIU) {
+					MissingIU miu = (MissingIU) explanation;
+					iu = miu.iu;
+					crq = miu.req;
+				}
+				else
+					continue;
+
+				// Find the leafmost contributions for the problem. We don't want to
+				// blame
+				// consuming contributors
+				if(!addLeafmostContributions(explanations, contribs, crq)) {
+					Contribution contrib = findContribution(iu, crq);
 					if(contrib == null)
 						continue;
 					contribs.put(contrib.getLabel(), contrib);
 				}
-				continue;
 			}
-
-			IInstallableUnit iu;
-			IRequirement crq;
-			if(explanation instanceof HardRequirement) {
-				HardRequirement hrq = (HardRequirement) explanation;
-				iu = hrq.iu;
-				crq = hrq.req;
+			if(contribs.isEmpty())
+				builder.sendEmail(null, errors);
+			else {
+				for(Contribution contrib : contribs.values())
+					builder.sendEmail(contrib, errors);
 			}
-			else if(explanation instanceof MissingIU) {
-				MissingIU miu = (MissingIU) explanation;
-				iu = miu.iu;
-				crq = miu.req;
-			}
-			else
-				continue;
-
-			// Find the leafmost contributions for the problem. We don't want to
-			// blame
-			// consuming contributors
-			if(!addLeafmostContributions(explanations, contribs, crq)) {
-				Contribution contrib = findContribution(iu, crq);
-				if(contrib == null)
-					continue;
-				contribs.put(contrib.getLabel(), contrib);
-			}
-		}
-		if(contribs.isEmpty())
-			builder.sendEmail(null, errors);
-		else {
-			for(Contribution contrib : contribs.values())
-				builder.sendEmail(contrib, errors);
 		}
 	}
 

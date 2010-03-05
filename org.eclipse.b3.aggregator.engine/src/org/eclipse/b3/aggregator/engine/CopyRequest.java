@@ -26,8 +26,9 @@ public class CopyRequest extends ArtifactRequest {
 	}
 
 	@Override
-	public void perform(IProgressMonitor monitor) {
+	public void perform(IArtifactRepository sourceRepository, IProgressMonitor monitor) {
 		monitor.subTask("Downloading " + getArtifactKey().getId());
+		setSourceRepository(sourceRepository);
 
 		// if the request does not have a descriptor then try to fill one in by getting
 		// the list of all and randomly picking one that appears to be optimized.

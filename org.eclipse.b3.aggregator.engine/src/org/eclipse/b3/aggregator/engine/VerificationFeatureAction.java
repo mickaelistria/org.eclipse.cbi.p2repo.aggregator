@@ -10,6 +10,7 @@ package org.eclipse.b3.aggregator.engine;
 import static java.lang.String.format;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -154,7 +155,7 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 										explicit);
 								continue;
 							}
-							addRequirementFor(repository, mu.getRequiredCapability(), required, errors, explicit, true);
+							addRequirementFor(repository, mu.getRequirement(), required, errors, explicit, true);
 						}
 					}
 					else {
@@ -215,8 +216,8 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 			pdePlatform.addProvidedCapabilities(Collections.singletonList(MetadataFactory.createProvidedCapability(
 					Builder.PDE_TARGET_PLATFORM_NAMESPACE, pdePlatform.getId(), pdePlatform.getVersion())));
 
-			mdr.addInstallableUnits(new IInstallableUnit[] { MetadataFactory.createInstallableUnit(iu),
-					MetadataFactory.createInstallableUnit(pdePlatform) });
+			mdr.addInstallableUnits(Arrays.asList(new IInstallableUnit[] { MetadataFactory.createInstallableUnit(iu),
+					MetadataFactory.createInstallableUnit(pdePlatform) }));
 			return Status.OK_STATUS;
 		}
 		finally {
@@ -229,7 +230,7 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 			Set<String> explicit) {
 		// We don't map categories verbatim here. They are added elsewhere. We do
 		// map their contents though.
-		requirements: for(IRequirement rc : category.getRequiredCapabilities()) {
+		requirements: for(IRequirement rc : category.getRequirements()) {
 			for(IInstallableUnit riu : allIUs) {
 				if(riu.satisfies(rc)) {
 					if("true".equalsIgnoreCase(riu.getProperty(InstallableUnitDescription.PROP_TYPE_CATEGORY))) {

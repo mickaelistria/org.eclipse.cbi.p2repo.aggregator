@@ -33,6 +33,7 @@ import org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryIO;
 import org.eclipse.equinox.internal.p2.metadata.repository.io.MetadataParser;
 import org.eclipse.equinox.internal.provisional.p2.metadata.MetadataFactory;
 import org.eclipse.equinox.internal.provisional.p2.metadata.MetadataFactory.InstallableUnitDescription;
+import org.eclipse.equinox.p2.core.IProvisioningAgent;
 import org.eclipse.equinox.p2.core.ProvisionException;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.IRequirement;
@@ -535,6 +536,10 @@ public class InternalMetadataRepositoryIO extends MetadataRepositoryIO {
 	private static final String REQUIREMENT_VERSION_RANGE_ELEMENT = "range";
 
 	private static final String REQUIREMENT_VERSION_SERIALIZED_ATTRIBUTE = "serialized";
+
+	public InternalMetadataRepositoryIO(IProvisioningAgent agent) {
+		super(agent);
+	}
 
 	public IMetadataRepository read(URL location, InputStream input, IProgressMonitor monitor)
 			throws ProvisionException {
