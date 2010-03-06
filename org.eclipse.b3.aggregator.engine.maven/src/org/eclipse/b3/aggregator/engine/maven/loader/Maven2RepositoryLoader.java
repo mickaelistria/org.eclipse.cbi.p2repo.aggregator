@@ -955,8 +955,8 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 
 	private void removeCache() throws CoreException {
 		IMetadataRepositoryManager mdrMgr = null;
+		mdrMgr = P2Utils.getRepositoryManager(agent, IMetadataRepositoryManager.class);
 		try {
-			mdrMgr = P2Utils.getRepositoryManager(IMetadataRepositoryManager.class);
 			mdrMgr.removeRepository(getCacheLocation().toURI());
 			deleteTree(getCacheLocation());
 		}
@@ -964,7 +964,7 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 			throw ExceptionUtils.wrap(e);
 		}
 		finally {
-			P2Utils.ungetRepositoryManager(mdrMgr);
+			P2Utils.ungetRepositoryManager(agent, mdrMgr);
 		}
 	}
 
@@ -1025,8 +1025,8 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 
 	private void storeCache() throws CoreException {
 		IMetadataRepositoryManager mdrMgr = null;
+		mdrMgr = P2Utils.getRepositoryManager(agent, IMetadataRepositoryManager.class);
 		try {
-			mdrMgr = P2Utils.getRepositoryManager(IMetadataRepositoryManager.class);
 			Map<String, String> properties = new HashMap<String, String>(2);
 			properties.put(IRepository.PROP_COMPRESSED, "true");
 			properties.put(PROP_INDEX_TIMESTAMP, repository.getPropertyMap().get(PROP_INDEX_TIMESTAMP));
@@ -1042,7 +1042,7 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 			mdr.addInstallableUnits(repository.getInstallableUnits());
 		}
 		finally {
-			P2Utils.ungetRepositoryManager(mdrMgr);
+			P2Utils.ungetRepositoryManager(agent, mdrMgr);
 		}
 	}
 }
