@@ -11,6 +11,7 @@ package org.eclipse.b3.aggregator.impl;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.ConcurrentModificationException;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -697,20 +698,35 @@ public abstract class InstallableUnitRequestImpl extends MinimalEObjectImpl.Cont
 		Map<Version, String> versionMap = new TreeMap<Version, String>(Collections.reverseOrder());
 		IQuery<IInstallableUnit> query = QueryUtil.createIUQuery(name);
 
-		for(Resource resource : GeneralUtils.getAggregatorResource(this).getResourceSet().getResources()) {
+		while(true) {
+			try {
+				versionMap.clear();
+				for(Resource resource : GeneralUtils.getAggregatorResource(this).getResourceSet().getResources()) {
 
-			if(!(resource instanceof MetadataRepositoryResourceImpl))
-				continue;
+					if(!(resource instanceof MetadataRepositoryResourceImpl))
+						continue;
 
-			MetadataRepository mdr = ((MetadataRepositoryResourceImpl) resource).getMetadataRepository();
+					MetadataRepository mdr = ((MetadataRepositoryResourceImpl) resource).getMetadataRepository();
 
-			if(StringUtils.trimmedOrNull(name) != null && mdr != null && !((EObject) mdr).eIsProxy()) {
-				IQueryResult<IInstallableUnit> ius = mdr.query(query, null);
+					if(StringUtils.trimmedOrNull(name) != null && mdr != null && !((EObject) mdr).eIsProxy()) {
+						IQueryResult<IInstallableUnit> ius = mdr.query(query, null);
 
-				for(IInstallableUnit iu : ius.toSet())
-					versionMap.put(iu.getVersion(), iu.getFilter() == null
-							? null
-							: iu.getFilter().toString());
+						for(IInstallableUnit iu : ius.toSet())
+							versionMap.put(iu.getVersion(), iu.getFilter() == null
+									? null
+									: iu.getFilter().toString());
+					}
+				}
+				break;
+			}
+			catch(ConcurrentModificationException e) {
+				// wait a while and try again
+				try {
+					Thread.sleep(100);
+				}
+				catch(InterruptedException e1) {
+					// ignore
+				}
 			}
 		}
 

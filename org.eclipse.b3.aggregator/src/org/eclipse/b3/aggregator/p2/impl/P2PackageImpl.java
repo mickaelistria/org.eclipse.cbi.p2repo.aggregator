@@ -307,14 +307,6 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	private EClass iAdaptableEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	private EClass iProvisioningAgentEClass = null;
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -454,6 +446,14 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 * @generated
 	 */
 	private EDataType iMatchExpressionEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EDataType iProvisioningAgentEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -672,7 +672,6 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		iMetadataRepositoryEClass = createEClass(IMETADATA_REPOSITORY);
 
 		iRepositoryEClass = createEClass(IREPOSITORY);
-		createEReference(iRepositoryEClass, IREPOSITORY__PROVISIONING_AGENT);
 		createEAttribute(iRepositoryEClass, IREPOSITORY__LOCATION);
 		createEAttribute(iRepositoryEClass, IREPOSITORY__NAME);
 		createEAttribute(iRepositoryEClass, IREPOSITORY__TYPE);
@@ -688,8 +687,6 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		createEAttribute(repositoryReferenceEClass, REPOSITORY_REFERENCE__NICKNAME);
 
 		iAdaptableEClass = createEClass(IADAPTABLE);
-
-		iProvisioningAgentEClass = createEClass(IPROVISIONING_AGENT);
 
 		// Create data types
 		versionEDataType = createEDataType(VERSION);
@@ -711,6 +708,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		iProgressMonitorEDataType = createEDataType(IPROGRESS_MONITOR);
 		filterEDataType = createEDataType(FILTER);
 		iMatchExpressionEDataType = createEDataType(IMATCH_EXPRESSION);
+		iProvisioningAgentEDataType = createEDataType(IPROVISIONING_AGENT);
 	}
 
 	/**
@@ -1190,8 +1188,8 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 * 
 	 * @generated
 	 */
-	public EClass getIProvisioningAgent() {
-		return iProvisioningAgentEClass;
+	public EDataType getIProvisioningAgent() {
+		return iProvisioningAgentEDataType;
 	}
 
 	/**
@@ -1238,7 +1236,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 * @generated
 	 */
 	public EAttribute getIRepository_Description() {
-		return (EAttribute) iRepositoryEClass.getEStructuralFeatures().get(5);
+		return (EAttribute) iRepositoryEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1247,7 +1245,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 * @generated
 	 */
 	public EAttribute getIRepository_Location() {
-		return (EAttribute) iRepositoryEClass.getEStructuralFeatures().get(1);
+		return (EAttribute) iRepositoryEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1256,7 +1254,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 * @generated
 	 */
 	public EAttribute getIRepository_Modifiable() {
-		return (EAttribute) iRepositoryEClass.getEStructuralFeatures().get(7);
+		return (EAttribute) iRepositoryEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1265,7 +1263,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 * @generated
 	 */
 	public EAttribute getIRepository_Name() {
-		return (EAttribute) iRepositoryEClass.getEStructuralFeatures().get(2);
+		return (EAttribute) iRepositoryEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1274,17 +1272,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 * @generated
 	 */
 	public EAttribute getIRepository_Provider() {
-		return (EAttribute) iRepositoryEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public EReference getIRepository_ProvisioningAgent() {
-		return (EReference) iRepositoryEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) iRepositoryEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1293,7 +1281,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 * @generated
 	 */
 	public EAttribute getIRepository_Type() {
-		return (EAttribute) iRepositoryEClass.getEStructuralFeatures().get(3);
+		return (EAttribute) iRepositoryEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1302,7 +1290,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 * @generated
 	 */
 	public EAttribute getIRepository_Version() {
-		return (EAttribute) iRepositoryEClass.getEStructuralFeatures().get(4);
+		return (EAttribute) iRepositoryEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -2180,9 +2168,6 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 
 		initEClass(iRepositoryEClass, IRepository.class, "IRepository", IS_ABSTRACT, IS_INTERFACE,
 				!IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getIRepository_ProvisioningAgent(), this.getIProvisioningAgent(), null, "provisioningAgent",
-				null, 0, 1, IRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIRepository_Location(), theAggregatorPackage.getURI(), "location", null, 1, 1,
 				IRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
@@ -2213,6 +2198,9 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		addEParameter(op, ecorePackage.getEString(), "key", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		addEOperation(iRepositoryEClass, this.getIProvisioningAgent(), "getProvisioningAgent", 0, 1, IS_UNIQUE,
+				IS_ORDERED);
+
 		initEClass(repositoryReferenceEClass, RepositoryReference.class, "RepositoryReference", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRepositoryReference_Location(), theAggregatorPackage.getURI(), "location", null, 0, 1,
@@ -2237,9 +2225,6 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "adapter", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEClass(iProvisioningAgentEClass, IProvisioningAgent.class, "IProvisioningAgent", IS_ABSTRACT, IS_INTERFACE,
-				!IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize data types
 		initEDataType(versionEDataType, Version.class, "Version", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
@@ -2273,6 +2258,8 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 				!IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(filterEDataType, Filter.class, "Filter", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(iMatchExpressionEDataType, IMatchExpression.class, "IMatchExpression", IS_SERIALIZABLE,
+				!IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(iProvisioningAgentEDataType, IProvisioningAgent.class, "IProvisioningAgent", IS_SERIALIZABLE,
 				!IS_GENERATED_INSTANCE_CLASS);
 
 		// Create annotations

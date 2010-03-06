@@ -29,7 +29,6 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
-import org.eclipse.equinox.p2.core.IProvisioningAgent;
 import org.eclipse.equinox.p2.metadata.IArtifactKey;
 import org.eclipse.equinox.p2.metadata.ICopyright;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
@@ -132,11 +131,6 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseIProvidedCapability(IProvidedCapability object) {
 			return createIProvidedCapabilityAdapter();
-		}
-
-		@Override
-		public Adapter caseIProvisioningAgent(IProvisioningAgent object) {
-			return createIProvisioningAgentAdapter();
 		}
 
 		@Override
@@ -465,22 +459,6 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createIProvidedCapabilityAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.equinox.p2.core.IProvisioningAgent
-	 * <em>IProvisioning Agent</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see org.eclipse.equinox.p2.core.IProvisioningAgent
-	 * @generated
-	 */
-	public Adapter createIProvisioningAgentAdapter() {
 		return null;
 	}
 

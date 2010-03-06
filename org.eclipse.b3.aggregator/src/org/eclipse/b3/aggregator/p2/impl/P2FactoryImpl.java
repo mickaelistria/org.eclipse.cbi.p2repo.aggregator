@@ -33,6 +33,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.equinox.p2.core.IProvisioningAgent;
 import org.eclipse.equinox.p2.metadata.IArtifactKey;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.IInstallableUnitFragment;
@@ -179,6 +180,16 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	 * 
 	 * @generated
 	 */
+	public String convertIProvisioningAgentToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public String convertIQueryResultToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(instanceValue);
 	}
@@ -261,6 +272,8 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 			return convertFilterToString(eDataType, instanceValue);
 		case P2Package.IMATCH_EXPRESSION:
 			return convertIMatchExpressionToString(eDataType, instanceValue);
+		case P2Package.IPROVISIONING_AGENT:
+			return convertIProvisioningAgentToString(eDataType, instanceValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -426,6 +439,8 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 			return createFilterFromString(eDataType, initialValue);
 		case P2Package.IMATCH_EXPRESSION:
 			return createIMatchExpressionFromString(eDataType, initialValue);
+		case P2Package.IPROVISIONING_AGENT:
+			return createIProvisioningAgentFromString(eDataType, initialValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -516,6 +531,16 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	 */
 	public IProvidedCapability[] createIProvidedCapabilityArrayFromString(EDataType eDataType, String initialValue) {
 		return (IProvidedCapability[]) super.createFromString(initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public IProvisioningAgent createIProvisioningAgentFromString(EDataType eDataType, String initialValue) {
+		return (IProvisioningAgent) super.createFromString(eDataType, initialValue);
 	}
 
 	/**

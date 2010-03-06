@@ -845,15 +845,6 @@ public interface P2Package extends EPackage {
 		EClass IREPOSITORY = eINSTANCE.getIRepository();
 
 		/**
-		 * The meta object literal for the '<em><b>Provisioning Agent</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EReference IREPOSITORY__PROVISIONING_AGENT = eINSTANCE.getIRepository_ProvisioningAgent();
-
-		/**
 		 * The meta object literal for the '<em><b>Location</b></em>' attribute feature.
 		 * <!-- begin-user-doc --> <!--
 		 * end-user-doc -->
@@ -974,8 +965,7 @@ public interface P2Package extends EPackage {
 		EClass IADAPTABLE = eINSTANCE.getIAdaptable();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.equinox.p2.core.IProvisioningAgent
-		 * <em>IProvisioning Agent</em>}' class.
+		 * The meta object literal for the '<em>IProvisioning Agent</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * 
@@ -983,7 +973,7 @@ public interface P2Package extends EPackage {
 		 * @see org.eclipse.b3.aggregator.p2.impl.P2PackageImpl#getIProvisioningAgent()
 		 * @generated
 		 */
-		EClass IPROVISIONING_AGENT = eINSTANCE.getIProvisioningAgent();
+		EDataType IPROVISIONING_AGENT = eINSTANCE.getIProvisioningAgent();
 
 		/**
 		 * The meta object literal for the '<em>Version</em>' data type.
@@ -2367,23 +2357,13 @@ public interface P2Package extends EPackage {
 	int IREPOSITORY = 30;
 
 	/**
-	 * The feature id for the '<em><b>Provisioning Agent</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IREPOSITORY__PROVISIONING_AGENT = IADAPTABLE_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Location</b></em>' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int IREPOSITORY__LOCATION = IADAPTABLE_FEATURE_COUNT + 1;
+	int IREPOSITORY__LOCATION = IADAPTABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2392,7 +2372,7 @@ public interface P2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IREPOSITORY__NAME = IADAPTABLE_FEATURE_COUNT + 2;
+	int IREPOSITORY__NAME = IADAPTABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -2401,7 +2381,7 @@ public interface P2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IREPOSITORY__TYPE = IADAPTABLE_FEATURE_COUNT + 3;
+	int IREPOSITORY__TYPE = IADAPTABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -2410,7 +2390,7 @@ public interface P2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IREPOSITORY__VERSION = IADAPTABLE_FEATURE_COUNT + 4;
+	int IREPOSITORY__VERSION = IADAPTABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2419,7 +2399,7 @@ public interface P2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IREPOSITORY__DESCRIPTION = IADAPTABLE_FEATURE_COUNT + 5;
+	int IREPOSITORY__DESCRIPTION = IADAPTABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Provider</b></em>' attribute.
@@ -2428,7 +2408,7 @@ public interface P2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IREPOSITORY__PROVIDER = IADAPTABLE_FEATURE_COUNT + 6;
+	int IREPOSITORY__PROVIDER = IADAPTABLE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Modifiable</b></em>' attribute.
@@ -2437,7 +2417,7 @@ public interface P2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IREPOSITORY__MODIFIABLE = IADAPTABLE_FEATURE_COUNT + 7;
+	int IREPOSITORY__MODIFIABLE = IADAPTABLE_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>IRepository</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
@@ -2446,17 +2426,7 @@ public interface P2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IREPOSITORY_FEATURE_COUNT = IADAPTABLE_FEATURE_COUNT + 8;
-
-	/**
-	 * The feature id for the '<em><b>Provisioning Agent</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IMETADATA_REPOSITORY__PROVISIONING_AGENT = IREPOSITORY__PROVISIONING_AGENT;
+	int IREPOSITORY_FEATURE_COUNT = IADAPTABLE_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' attribute.
@@ -2530,16 +2500,6 @@ public interface P2Package extends EPackage {
 	 * @ordered
 	 */
 	int IMETADATA_REPOSITORY_FEATURE_COUNT = IREPOSITORY_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Provisioning Agent</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int METADATA_REPOSITORY__PROVISIONING_AGENT = IMETADATA_REPOSITORY__PROVISIONING_AGENT;
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' attribute.
@@ -3444,8 +3404,7 @@ public interface P2Package extends EPackage {
 	int REPOSITORY_REFERENCE_FEATURE_COUNT = 4;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.equinox.p2.core.IProvisioningAgent <em>IProvisioning Agent</em>}'
-	 * class.
+	 * The meta object id for the '<em>IProvisioning Agent</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -3453,17 +3412,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2.impl.P2PackageImpl#getIProvisioningAgent()
 	 * @generated
 	 */
-	int IPROVISIONING_AGENT = 33;
-
-	/**
-	 * The number of structural features of the '<em>IProvisioning Agent</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int IPROVISIONING_AGENT_FEATURE_COUNT = 0;
+	int IPROVISIONING_AGENT = 52;
 
 	/**
 	 * The meta object id for the '<em>Version</em>' data type.
@@ -3473,7 +3422,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2.impl.P2PackageImpl#getVersion()
 	 * @generated
 	 */
-	int VERSION = 34;
+	int VERSION = 33;
 
 	/**
 	 * The meta object id for the '<em>Version Range</em>' data type.
@@ -3483,7 +3432,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2.impl.P2PackageImpl#getVersionRange()
 	 * @generated
 	 */
-	int VERSION_RANGE = 35;
+	int VERSION_RANGE = 34;
 
 	/**
 	 * The meta object id for the '<em>IInstallable Unit Array</em>' data type.
@@ -3493,7 +3442,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2.impl.P2PackageImpl#getIInstallableUnitArray()
 	 * @generated
 	 */
-	int IINSTALLABLE_UNIT_ARRAY = 36;
+	int IINSTALLABLE_UNIT_ARRAY = 35;
 
 	/**
 	 * The meta object id for the '<em>Collection</em>' data type.
@@ -3504,7 +3453,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2.impl.P2PackageImpl#getCollection()
 	 * @generated
 	 */
-	int COLLECTION = 37;
+	int COLLECTION = 36;
 
 	/**
 	 * The meta object id for the '<em>IRequirement Array</em>' data type.
@@ -3514,7 +3463,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2.impl.P2PackageImpl#getIRequirementArray()
 	 * @generated
 	 */
-	int IREQUIREMENT_ARRAY = 38;
+	int IREQUIREMENT_ARRAY = 37;
 
 	/**
 	 * The meta object id for the '<em>IProvided Capability Array</em>' data type.
@@ -3524,7 +3473,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2.impl.P2PackageImpl#getIProvidedCapabilityArray()
 	 * @generated
 	 */
-	int IPROVIDED_CAPABILITY_ARRAY = 39;
+	int IPROVIDED_CAPABILITY_ARRAY = 38;
 
 	/**
 	 * The meta object id for the '<em>IInstallable Unit Fragment Array</em>' data type.
@@ -3534,7 +3483,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2.impl.P2PackageImpl#getIInstallableUnitFragmentArray()
 	 * @generated
 	 */
-	int IINSTALLABLE_UNIT_FRAGMENT_ARRAY = 40;
+	int IINSTALLABLE_UNIT_FRAGMENT_ARRAY = 39;
 
 	/**
 	 * The meta object id for the '<em>IArtifact Key Array</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc
@@ -3543,7 +3492,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2.impl.P2PackageImpl#getIArtifactKeyArray()
 	 * @generated
 	 */
-	int IARTIFACT_KEY_ARRAY = 41;
+	int IARTIFACT_KEY_ARRAY = 40;
 
 	/**
 	 * The meta object id for the '<em>ITouchpoint Data Array</em>' data type. <!-- begin-user-doc --> <!-- end-user-doc
@@ -3552,7 +3501,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2.impl.P2PackageImpl#getITouchpointDataArray()
 	 * @generated
 	 */
-	int ITOUCHPOINT_DATA_ARRAY = 42;
+	int ITOUCHPOINT_DATA_ARRAY = 41;
 
 	/**
 	 * The meta object id for the '<em>String Array</em>' data type.
@@ -3561,7 +3510,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2.impl.P2PackageImpl#getStringArray()
 	 * @generated
 	 */
-	int STRING_ARRAY = 43;
+	int STRING_ARRAY = 42;
 
 	/**
 	 * The meta object id for the '<em>Untyped Map</em>' data type.
@@ -3571,7 +3520,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2.impl.P2PackageImpl#getUntypedMap()
 	 * @generated
 	 */
-	int UNTYPED_MAP = 44;
+	int UNTYPED_MAP = 43;
 
 	/**
 	 * The meta object id for the '<em>Map</em>' data type.
@@ -3582,7 +3531,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2.impl.P2PackageImpl#getMap()
 	 * @generated
 	 */
-	int MAP = 45;
+	int MAP = 44;
 
 	/**
 	 * The meta object id for the '<em>ILicense Array</em>' data type.
@@ -3592,7 +3541,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2.impl.P2PackageImpl#getILicenseArray()
 	 * @generated
 	 */
-	int ILICENSE_ARRAY = 46;
+	int ILICENSE_ARRAY = 45;
 
 	/**
 	 * The meta object id for the '<em>IQuery Result</em>' data type.
@@ -3603,7 +3552,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2.impl.P2PackageImpl#getIQueryResult()
 	 * @generated
 	 */
-	int IQUERY_RESULT = 47;
+	int IQUERY_RESULT = 46;
 
 	/**
 	 * The meta object id for the '<em>IQuery</em>' data type.
@@ -3614,7 +3563,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2.impl.P2PackageImpl#getIQuery()
 	 * @generated
 	 */
-	int IQUERY = 48;
+	int IQUERY = 47;
 
 	/**
 	 * The meta object id for the '<em>Collector</em>' data type.
@@ -3624,7 +3573,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2.impl.P2PackageImpl#getCollector()
 	 * @generated
 	 */
-	int COLLECTOR = 49;
+	int COLLECTOR = 48;
 
 	/**
 	 * The meta object id for the '<em>IProgress Monitor</em>' data type.
@@ -3634,7 +3583,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2.impl.P2PackageImpl#getIProgressMonitor()
 	 * @generated
 	 */
-	int IPROGRESS_MONITOR = 50;
+	int IPROGRESS_MONITOR = 49;
 
 	/**
 	 * The meta object id for the '<em>Filter</em>' data type.
@@ -3645,7 +3594,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2.impl.P2PackageImpl#getFilter()
 	 * @generated
 	 */
-	int FILTER = 51;
+	int FILTER = 50;
 
 	/**
 	 * The meta object id for the '<em>IMatch Expression</em>' data type.
@@ -3656,7 +3605,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2.impl.P2PackageImpl#getIMatchExpression()
 	 * @generated
 	 */
-	int IMATCH_EXPRESSION = 52;
+	int IMATCH_EXPRESSION = 51;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.p2.ArtifactKey <em>Artifact Key</em>}'.
@@ -4271,17 +4220,17 @@ public interface P2Package extends EPackage {
 	EDataType getIProvidedCapabilityArray();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.equinox.p2.core.IProvisioningAgent
+	 * Returns the meta object for data type '{@link org.eclipse.equinox.p2.core.IProvisioningAgent
 	 * <em>IProvisioning Agent</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the meta object for class '<em>IProvisioning Agent</em>'.
+	 * @return the meta object for data type '<em>IProvisioning Agent</em>'.
 	 * @see org.eclipse.equinox.p2.core.IProvisioningAgent
 	 * @model instanceClass="org.eclipse.equinox.p2.core.IProvisioningAgent"
 	 * @generated
 	 */
-	EClass getIProvisioningAgent();
+	EDataType getIProvisioningAgent();
 
 	/**
 	 * Returns the meta object for data type '{@link org.eclipse.equinox.p2.query.IQuery <em>IQuery</em>}'.
@@ -4389,19 +4338,6 @@ public interface P2Package extends EPackage {
 	 * @generated
 	 */
 	EAttribute getIRepository_Provider();
-
-	/**
-	 * Returns the meta object for the reference '
-	 * {@link org.eclipse.equinox.p2.repository.IRepository#getProvisioningAgent <em>Provisioning Agent</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the reference '<em>Provisioning Agent</em>'.
-	 * @see org.eclipse.equinox.p2.repository.IRepository#getProvisioningAgent()
-	 * @see #getIRepository()
-	 * @generated
-	 */
-	EReference getIRepository_ProvisioningAgent();
 
 	/**
 	 * Returns the meta object for the attribute ' {@link org.eclipse.equinox.p2.repository.IRepository#getType

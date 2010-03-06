@@ -35,6 +35,8 @@ import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
 
 public class P2RepositoryLoader implements IRepositoryLoader {
+	private IProvisioningAgent agent;
+
 	private URI location;
 
 	private MetadataRepositoryImpl repository;
@@ -44,7 +46,7 @@ public class P2RepositoryLoader implements IRepositoryLoader {
 	private static final IQuery<IInstallableUnit> QUERY_ALL_IUS = QueryUtil.createIUAnyQuery();
 
 	public void close() {
-		P2Utils.ungetRepositoryManager(mdrMgr);
+		P2Utils.ungetRepositoryManager(agent, mdrMgr);
 	}
 
 	public IArtifactRepository getArtifactRepository(IMetadataRepository mdr, IProgressMonitor monitor)
@@ -52,11 +54,11 @@ public class P2RepositoryLoader implements IRepositoryLoader {
 		IArtifactRepositoryManager arMgr = null;
 
 		try {
-			arMgr = P2Utils.getRepositoryManager(IArtifactRepositoryManager.class);
+			arMgr = P2Utils.getRepositoryManager(agent, IArtifactRepositoryManager.class);
 			return arMgr.loadRepository(mdr.getLocation(), monitor);
 		}
 		finally {
-			P2Utils.ungetRepositoryManager(arMgr);
+			P2Utils.ungetRepositoryManager(agent, arMgr);
 		}
 	}
 
@@ -65,6 +67,7 @@ public class P2RepositoryLoader implements IRepositoryLoader {
 	}
 
 	public void open(URI location, IProvisioningAgent agent, MetadataRepositoryImpl mdr) throws CoreException {
+		this.agent = agent;
 		this.location = location;
 		repository = mdr;
 		mdrMgr = P2Utils.getRepositoryManager(agent, IMetadataRepositoryManager.class);

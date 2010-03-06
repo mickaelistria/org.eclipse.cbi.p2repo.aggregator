@@ -133,7 +133,7 @@
     <genClasses ecoreClass="Aggregator.ecore#//Bundle"/>
     <genClasses image="false" ecoreClass="Aggregator.ecore#//MappedUnit">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Aggregator.ecore#//MappedUnit/validConfigurations"/>
-      <genOperations ecoreOperation="Aggregator.ecore#//MappedUnit/getRequiredCapability"/>
+      <genOperations ecoreOperation="Aggregator.ecore#//MappedUnit/getRequirement"/>
       <genOperations ecoreOperation="Aggregator.ecore#//MappedUnit/getFilter"/>
     </genClasses>
     <genClasses ecoreClass="Aggregator.ecore#//Product"/>
@@ -242,6 +242,9 @@
       <genDataTypes ecoreDataType="Aggregator.ecore#//p2/Version"/>
       <genDataTypes ecoreDataType="Aggregator.ecore#//p2/VersionRange"/>
       <genDataTypes ecoreDataType="Aggregator.ecore#//p2/IInstallableUnitArray"/>
+      <genDataTypes ecoreDataType="Aggregator.ecore#//p2/Collection">
+        <genTypeParameters ecoreTypeParameter="Aggregator.ecore#//p2/Collection/T"/>
+      </genDataTypes>
       <genDataTypes ecoreDataType="Aggregator.ecore#//p2/IRequirementArray"/>
       <genDataTypes ecoreDataType="Aggregator.ecore#//p2/IProvidedCapabilityArray"/>
       <genDataTypes ecoreDataType="Aggregator.ecore#//p2/IInstallableUnitFragmentArray"/>
@@ -284,9 +287,9 @@
         <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference Aggregator.ecore#//p2/IInstallableUnit/fragments"/>
         <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference Aggregator.ecore#//p2/IInstallableUnit/licenses"/>
-        <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference Aggregator.ecore#//p2/IInstallableUnit/metaRequiredCapabilities"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//p2/IInstallableUnit/metaRequirements"/>
         <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference Aggregator.ecore#//p2/IInstallableUnit/providedCapabilities"/>
-        <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference Aggregator.ecore#//p2/IInstallableUnit/requiredCapabilities"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Aggregator.ecore#//p2/IInstallableUnit/requirements"/>
         <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference Aggregator.ecore#//p2/IInstallableUnit/touchpointData"/>
         <genFeatures property="Readonly" children="true" createChild="false" ecoreFeature="ecore:EReference Aggregator.ecore#//p2/IInstallableUnit/touchpointType"/>
         <genFeatures property="Readonly" children="true" createChild="false" ecoreFeature="ecore:EReference Aggregator.ecore#//p2/IInstallableUnit/updateDescriptor"/>
@@ -420,11 +423,12 @@
         <genOperations ecoreOperation="Aggregator.ecore#//p2/IMetadataRepository/removeAll"/>
         <genOperations ecoreOperation="Aggregator.ecore#//p2/IMetadataRepository/removeInstallableUnits">
           <genParameters ecoreParameter="Aggregator.ecore#//p2/IMetadataRepository/removeInstallableUnits/installableUnits"/>
-          <genParameters ecoreParameter="Aggregator.ecore#//p2/IMetadataRepository/removeInstallableUnits/monitor"/>
         </genOperations>
       </genClasses>
       <genClasses image="false" ecoreClass="Aggregator.ecore#//p2/IRepository">
         <genTypeParameters ecoreTypeParameter="Aggregator.ecore#//p2/IRepository/T"/>
+        <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference Aggregator.ecore#//p2/IRepository/provisioningAgent"/>
         <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//p2/IRepository/location"/>
         <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//p2/IRepository/name"/>
         <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Aggregator.ecore#//p2/IRepository/type"/>
@@ -449,6 +453,7 @@
           <genParameters ecoreParameter="Aggregator.ecore#//p2/IAdaptable/getAdapter/adapter"/>
         </genOperations>
       </genClasses>
+      <genClasses image="false" ecoreClass="Aggregator.ecore#//p2/IProvisioningAgent"/>
     </nestedGenPackages>
     <nestedGenPackages prefix="P2view" resource="XML" disposableProviderFactory="true"
         multipleEditorPages="false" generateModelWizard="false" ecorePackage="Aggregator.ecore#//p2view">

@@ -10,12 +10,9 @@ package org.eclipse.b3.aggregator.util;
 
 import java.net.URI;
 
+import org.eclipse.b3.aggregator.p2.util.BackgroundProvisioningAgent;
 import org.eclipse.b3.util.B3Util;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Status;
-import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.equinox.p2.core.IProvisioningAgent;
 import org.eclipse.equinox.p2.core.IProvisioningAgentProvider;
 import org.eclipse.equinox.p2.core.spi.IAgentServiceFactory;
@@ -29,15 +26,13 @@ import org.eclipse.equinox.p2.repository.IRepositoryManager;
  */
 public class P2Utils {
 
-	private static final long AGENT_STOP_DELAY = 2000;
-
 	public static IProvisioningAgent createDedicatedProvisioningAgent(URI location) throws CoreException {
 		IProvisioningAgentProvider agentProvider = null;
 
 		try {
 			agentProvider = B3Util.getPlugin().getService(IProvisioningAgentProvider.class);
 			IProvisioningAgent agent = agentProvider.createAgent(location);
-			return agent;
+			return new BackgroundProvisioningAgent(agent);
 		}
 		finally {
 			B3Util.getPlugin().ungetService(agentProvider);
@@ -45,21 +40,8 @@ public class P2Utils {
 	}
 
 	public static void destroyProvisioningAgent(final IProvisioningAgent agent) {
-		if(agent != null) {
-			// Give other processes a chance to use the agent in last seconds of its life (AGENT_STOP_DELAY grace time)
-			Job stopJob = new Job("AgentStopper") {
-
-				@Override
-				protected IStatus run(IProgressMonitor monitor) {
-					agent.stop();
-					return Status.OK_STATUS;
-				}
-
-			};
-
-			stopJob.setSystem(true);
-			stopJob.schedule(AGENT_STOP_DELAY);
-		}
+		if(agent != null)
+			agent.stop();
 	}
 
 	public static IPlanner getPlanner(IProvisioningAgent agent) {
@@ -78,20 +60,24 @@ public class P2Utils {
 		return getP2Service(agent, clazz);
 	}
 
-	public static void ungetPlanner(IPlanner planner) {
-		B3Util.getPlugin().ungetService(planner);
+	public static void ungetPlanner(IProvisioningAgent agent, IPlanner planner) {
+		if(agent != null && agent instanceof BackgroundProvisioningAgent)
+			((BackgroundProvisioningAgent) agent).unregisterTask();
 	}
 
-	public static void ungetProfileRegistry(IProfileRegistry registry) {
-		B3Util.getPlugin().ungetService(registry);
+	public static void ungetProfileRegistry(IProvisioningAgent agent, IProfileRegistry registry) {
+		if(agent != null && agent instanceof BackgroundProvisioningAgent)
+			((BackgroundProvisioningAgent) agent).unregisterTask();
 	}
 
-	public static void ungetRepositoryManager(IRepositoryManager<?> manager) {
-		B3Util.getPlugin().ungetService(manager);
+	public static void ungetRepositoryManager(IProvisioningAgent agent, IRepositoryManager<?> manager) {
+		if(agent != null && agent instanceof BackgroundProvisioningAgent)
+			((BackgroundProvisioningAgent) agent).unregisterTask();
 	}
 
 	private static <T> T getP2Service(IProvisioningAgent agent, Class<T> clazz) {
 		try {
+			IProvisioningAgent agentParam = agent;
 			if(agent == null) {
 				try {
 					agent = B3Util.getPlugin().getService(IProvisioningAgent.class);
@@ -119,8 +105,11 @@ public class P2Utils {
 
 			B3Util.getPlugin().ungetService(agent);
 
-			if(result != null)
+			if(result != null) {
+				if(agentParam != null && agentParam instanceof BackgroundProvisioningAgent)
+					((BackgroundProvisioningAgent) agentParam).registerTask();
 				return result;
+			}
 		}
 		catch(Throwable t) {
 			throw new RuntimeException(t);

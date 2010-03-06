@@ -52,8 +52,6 @@ import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.aggregator.p2.impl.MetadataRepositoryImpl#getProvisioningAgent <em>Provisioning Agent</em>}
- * </li>
  * <li>{@link org.eclipse.b3.aggregator.p2.impl.MetadataRepositoryImpl#getLocation <em>Location</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2.impl.MetadataRepositoryImpl#getName <em>Name</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2.impl.MetadataRepositoryImpl#getType <em>Type</em>}</li>
@@ -92,15 +90,6 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 	 */
 	protected int eFlags = 0;
 
-	/**
-	 * The cached value of the '{@link #getProvisioningAgent() <em>Provisioning Agent</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @see #getProvisioningAgent()
-	 * @generated
-	 * @ordered
-	 */
 	protected IProvisioningAgent provisioningAgent;
 
 	/**
@@ -351,16 +340,6 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public IProvisioningAgent basicGetProvisioningAgent() {
-		return provisioningAgent;
-	}
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -368,10 +347,6 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case P2Package.METADATA_REPOSITORY__PROVISIONING_AGENT:
-			if(resolve)
-				return getProvisioningAgent();
-			return basicGetProvisioningAgent();
 		case P2Package.METADATA_REPOSITORY__LOCATION:
 			return getLocation();
 		case P2Package.METADATA_REPOSITORY__NAME:
@@ -425,8 +400,6 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case P2Package.METADATA_REPOSITORY__PROVISIONING_AGENT:
-			return provisioningAgent != null;
 		case P2Package.METADATA_REPOSITORY__LOCATION:
 			return LOCATION_EDEFAULT == null
 					? location != null
@@ -492,9 +465,6 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case P2Package.METADATA_REPOSITORY__PROVISIONING_AGENT:
-			setProvisioningAgent((IProvisioningAgent) newValue);
-			return;
 		case P2Package.METADATA_REPOSITORY__LOCATION:
 			setLocation((URI) newValue);
 			return;
@@ -539,9 +509,6 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case P2Package.METADATA_REPOSITORY__PROVISIONING_AGENT:
-			setProvisioningAgent((IProvisioningAgent) null);
-			return;
 		case P2Package.METADATA_REPOSITORY__LOCATION:
 			setLocation(LOCATION_EDEFAULT);
 			return;
@@ -681,7 +648,7 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 	 * @generated NOT
 	 */
 	public IProvisioningAgent getProvisioningAgent() {
-		return basicGetProvisioningAgent();
+		return provisioningAgent;
 	}
 
 	/**
@@ -851,14 +818,10 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
-	public void setProvisioningAgent(IProvisioningAgent newProvisioningAgent) {
-		IProvisioningAgent oldProvisioningAgent = provisioningAgent;
-		provisioningAgent = newProvisioningAgent;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.METADATA_REPOSITORY__PROVISIONING_AGENT,
-					oldProvisioningAgent, provisioningAgent));
+	public void setProvisioningAgent(IProvisioningAgent provisioningAgent) {
+		this.provisioningAgent = provisioningAgent;
 	}
 
 	/**
