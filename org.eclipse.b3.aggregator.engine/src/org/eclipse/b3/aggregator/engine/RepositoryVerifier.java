@@ -108,10 +108,10 @@ public class RepositoryVerifier extends BuilderPhase {
 		final Set<IInstallableUnit> unitsToAggregate = builder.getUnitsToAggregate();
 		IProfileRegistry profileRegistry = P2Utils.getProfileRegistry(getBuilder().getProvisioningAgent());
 		IPlanner planner = P2Utils.getPlanner(getBuilder().getProvisioningAgent());
-		URI repoLocation = builder.getSourceCompositeURI();
 		IMetadataRepositoryManager mdrMgr = P2Utils.getRepositoryManager(getBuilder().getProvisioningAgent(),
 				IMetadataRepositoryManager.class);
 		try {
+			URI repoLocation = builder.getSourceCompositeURI();
 			Set<IInstallableUnit> validationOnlyIUs = null;
 			List<MetadataRepositoryReference> validationRepos = aggregator.getValidationRepositories();
 			for(MetadataRepositoryReference validationRepo : validationRepos) {
@@ -272,9 +272,9 @@ public class RepositoryVerifier extends BuilderPhase {
 		}
 		finally {
 			MonitorUtils.done(subMon);
-			P2Utils.ungetProfileRegistry(profileRegistry);
-			P2Utils.ungetPlanner(planner);
-			P2Utils.ungetRepositoryManager(mdrMgr);
+			P2Utils.ungetProfileRegistry(getBuilder().getProvisioningAgent(), profileRegistry);
+			P2Utils.ungetPlanner(getBuilder().getProvisioningAgent(), planner);
+			P2Utils.ungetRepositoryManager(getBuilder().getProvisioningAgent(), mdrMgr);
 		}
 	}
 
@@ -352,7 +352,7 @@ public class RepositoryVerifier extends BuilderPhase {
 			return newIU;
 		}
 		finally {
-			P2Utils.ungetRepositoryManager(arMgr);
+			P2Utils.ungetRepositoryManager(getBuilder().getProvisioningAgent(), arMgr);
 		}
 	}
 
@@ -499,7 +499,7 @@ public class RepositoryVerifier extends BuilderPhase {
 			return units;
 		}
 		finally {
-			P2Utils.ungetRepositoryManager(mdrMgr);
+			P2Utils.ungetRepositoryManager(getBuilder().getProvisioningAgent(), mdrMgr);
 		}
 	}
 
@@ -509,58 +509,56 @@ public class RepositoryVerifier extends BuilderPhase {
 			return;
 
 		ArrayList<String> errors = new ArrayList<String>();
-		Map<IInstallableUnit, RequestStatus> requestChanges = plannerStatus.getRequestChanges();
-		if(requestChanges == null)
+		RequestStatus requestStatus = plannerStatus.getRequestStatus();
+		if(requestStatus == null)
 			return;
 
-		for(RequestStatus requestStatus : requestChanges.values()) {
-			Set<Explanation> explanations = getExplanations(requestStatus);
-			Map<String, Contribution> contribs = new HashMap<String, Contribution>();
-			for(Explanation explanation : explanations) {
-				errors.add(explanation.toString());
-				if(explanation instanceof Singleton) {
-					// A singleton is always a leaf problem. Add contributions
-					// if we can find any. They are all culprits
-					for(IInstallableUnit iu : ((Singleton) explanation).ius) {
-						Contribution contrib = findContribution(iu.getId());
-						if(contrib == null)
-							continue;
-						contribs.put(contrib.getLabel(), contrib);
-					}
-					continue;
-				}
-
-				IInstallableUnit iu;
-				IRequirement crq;
-				if(explanation instanceof HardRequirement) {
-					HardRequirement hrq = (HardRequirement) explanation;
-					iu = hrq.iu;
-					crq = hrq.req;
-				}
-				else if(explanation instanceof MissingIU) {
-					MissingIU miu = (MissingIU) explanation;
-					iu = miu.iu;
-					crq = miu.req;
-				}
-				else
-					continue;
-
-				// Find the leafmost contributions for the problem. We don't want to
-				// blame
-				// consuming contributors
-				if(!addLeafmostContributions(explanations, contribs, crq)) {
-					Contribution contrib = findContribution(iu, crq);
+		Set<Explanation> explanations = getExplanations(requestStatus);
+		Map<String, Contribution> contribs = new HashMap<String, Contribution>();
+		for(Explanation explanation : explanations) {
+			errors.add(explanation.toString());
+			if(explanation instanceof Singleton) {
+				// A singleton is always a leaf problem. Add contributions
+				// if we can find any. They are all culprits
+				for(IInstallableUnit iu : ((Singleton) explanation).ius) {
+					Contribution contrib = findContribution(iu.getId());
 					if(contrib == null)
 						continue;
 					contribs.put(contrib.getLabel(), contrib);
 				}
+				continue;
 			}
-			if(contribs.isEmpty())
-				builder.sendEmail(null, errors);
-			else {
-				for(Contribution contrib : contribs.values())
-					builder.sendEmail(contrib, errors);
+
+			IInstallableUnit iu;
+			IRequirement crq;
+			if(explanation instanceof HardRequirement) {
+				HardRequirement hrq = (HardRequirement) explanation;
+				iu = hrq.iu;
+				crq = hrq.req;
 			}
+			else if(explanation instanceof MissingIU) {
+				MissingIU miu = (MissingIU) explanation;
+				iu = miu.iu;
+				crq = miu.req;
+			}
+			else
+				continue;
+
+			// Find the leafmost contributions for the problem. We don't want to
+			// blame
+			// consuming contributors
+			if(!addLeafmostContributions(explanations, contribs, crq)) {
+				Contribution contrib = findContribution(iu, crq);
+				if(contrib == null)
+					continue;
+				contribs.put(contrib.getLabel(), contrib);
+			}
+		}
+		if(contribs.isEmpty())
+			builder.sendEmail(null, errors);
+		else {
+			for(Contribution contrib : contribs.values())
+				builder.sendEmail(contrib, errors);
 		}
 	}
 

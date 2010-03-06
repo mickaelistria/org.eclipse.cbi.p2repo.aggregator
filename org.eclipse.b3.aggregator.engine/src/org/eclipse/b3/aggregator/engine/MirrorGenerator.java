@@ -823,9 +823,9 @@ public class MirrorGenerator extends BuilderPhase {
 			MonitorUtils.done(childMonitor);
 		}
 		finally {
-			P2Utils.ungetRepositoryManager(mdrMgr);
+			P2Utils.ungetRepositoryManager(getBuilder().getProvisioningAgent(), mdrMgr);
 			mdrMgr = null;
-			P2Utils.ungetRepositoryManager(arMgr);
+			P2Utils.ungetRepositoryManager(getBuilder().getProvisioningAgent(), arMgr);
 			arMgr = null;
 			MonitorUtils.done(subMon);
 		}

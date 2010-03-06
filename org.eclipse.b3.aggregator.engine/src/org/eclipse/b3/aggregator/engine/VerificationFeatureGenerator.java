@@ -62,7 +62,7 @@ public class VerificationFeatureGenerator extends BuilderPhase {
 			getBuilder().getSourceComposite().addChild(mdr.getLocation());
 		}
 		finally {
-			P2Utils.ungetRepositoryManager(mdrMgr);
+			P2Utils.ungetRepositoryManager(getBuilder().getProvisioningAgent(), mdrMgr);
 			MonitorUtils.done(monitor);
 		}
 		LogUtils.info("Done. Took %s", TimeUtils.getFormattedDuration(start)); //$NON-NLS-1$

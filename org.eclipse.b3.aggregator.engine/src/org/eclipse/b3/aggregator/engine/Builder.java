@@ -64,7 +64,6 @@ import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.query.IQuery;
 import org.eclipse.equinox.p2.query.IQueryResult;
 import org.eclipse.equinox.p2.query.QueryUtil;
-import org.eclipse.equinox.p2.repository.artifact.IArtifactRepositoryManager;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
 import org.kohsuke.args4j.Argument;
@@ -494,12 +493,7 @@ public class Builder extends AbstractCommand {
 			switch(action) {
 			case CLEAN:
 			case CLEAN_BUILD:
-				cleanAll(provisioningAgent);
-
-				// reinitialize deleted directory structure
-				P2Utils.destroyProvisioningAgent(provisioningAgent);
-				if(action == ActionType.CLEAN_BUILD)
-					provisioningAgent = P2Utils.createDedicatedProvisioningAgent(new File(buildRoot, "p2").toURI());
+				cleanAll();
 				break;
 			default:
 				cleanMetadata(provisioningAgent);
@@ -540,7 +534,7 @@ public class Builder extends AbstractCommand {
 				profileRegistry.addProfile(PROFILE_ID, props);
 			}
 			finally {
-				P2Utils.ungetProfileRegistry(profileRegistry);
+				P2Utils.ungetProfileRegistry(provisioningAgent, profileRegistry);
 			}
 
 			loadAllMappedRepositories();
@@ -764,23 +758,7 @@ public class Builder extends AbstractCommand {
 		return run(false, monitor);
 	}
 
-	private void cleanAll(IProvisioningAgent agent) throws CoreException {
-		cleanMetadata(agent);
-
-		IArtifactRepositoryManager arMgr = P2Utils.getRepositoryManager(agent, IArtifactRepositoryManager.class);
-		try {
-			File destination = new File(buildRoot, Builder.REPO_FOLDER_FINAL);
-			arMgr.removeRepository(Builder.createURI(destination));
-			arMgr.removeRepository(Builder.createURI(new File(destination, Builder.REPO_FOLDER_AGGREGATE)));
-		}
-		finally {
-			P2Utils.ungetRepositoryManager(arMgr);
-		}
-
-		IProfileRegistry profileRegistry = P2Utils.getProfileRegistry(provisioningAgent);
-		for(IProfile profile : profileRegistry.getProfiles())
-			profileRegistry.removeProfile(profile.getProfileId());
-
+	private void cleanAll() throws CoreException {
 		if(buildRoot.exists()) {
 			FileUtils.deleteAll(buildRoot);
 			if(buildRoot.exists())
@@ -799,7 +777,7 @@ public class Builder extends AbstractCommand {
 			deleteMetadataRepository(mdrMgr, new File(interimRepo, Builder.REPO_FOLDER_VERIFICATION));
 		}
 		finally {
-			P2Utils.ungetRepositoryManager(mdrMgr);
+			P2Utils.ungetRepositoryManager(provisioningAgent, mdrMgr);
 		}
 	}
 
@@ -814,12 +792,20 @@ public class Builder extends AbstractCommand {
 			repositoriesToLoad.add(repo);
 		}
 
-		// and now, wait until all the jobs are done (we need all repositories anyway)
-		for(MetadataRepositoryReference repo : repositoriesToLoad) {
-			MetadataRepository mdr;
-			if((mdr = repo.getMetadataRepository()) == null || ((EObject) mdr).eIsProxy())
-				throw ExceptionUtils.fromMessage("Unable to load repository %s:%s", repo.getNature(),
-						repo.getLocation());
+		try {
+			// and now, wait until all the jobs are done (we need all repositories anyway)
+			for(MetadataRepositoryReference repo : repositoriesToLoad) {
+				MetadataRepository mdr;
+				if((mdr = repo.getMetadataRepository()) == null || ((EObject) mdr).eIsProxy())
+					throw ExceptionUtils.fromMessage("Unable to load repository %s:%s", repo.getNature(),
+							repo.getLocation());
+			}
+		}
+		catch(CoreException e) {
+			for(MetadataRepositoryReference repo : repositoriesToLoad) {
+				repo.cancelRepositoryLoad();
+			}
+			throw e;
 		}
 	}
 
