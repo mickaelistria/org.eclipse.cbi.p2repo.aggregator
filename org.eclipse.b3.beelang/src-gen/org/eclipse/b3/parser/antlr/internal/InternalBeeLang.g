@@ -12983,9 +12983,113 @@ ruleUnitConcernContext returns [EObject current=null]
     {
         createLeafNode(grammarAccess.getUnitConcernContextAccess().getSemicolonKeyword_6_7_2(), null); 
     }
-))*	'}' 
+))*(	'-' 
     {
-        createLeafNode(grammarAccess.getUnitConcernContextAccess().getRightCurlyBracketKeyword_7(), null); 
+        createLeafNode(grammarAccess.getUnitConcernContextAccess().getHyphenMinusKeyword_7_0(), null); 
+    }
+	'default' 
+    {
+        createLeafNode(grammarAccess.getUnitConcernContextAccess().getDefaultKeyword_7_1(), null); 
+    }
+	'properties' 
+    {
+        createLeafNode(grammarAccess.getUnitConcernContextAccess().getPropertiesKeyword_7_2(), null); 
+    }
+(
+(
+		lv_defaultPropertiesRemovals_37_0=RULE_PID
+		{
+			createLeafNode(grammarAccess.getUnitConcernContextAccess().getDefaultPropertiesRemovalsPIDTerminalRuleCall_7_3_0(), "defaultPropertiesRemovals"); 
+		}
+		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getUnitConcernContextRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        try {
+	       		add(
+	       			$current, 
+	       			"defaultPropertiesRemovals",
+	        		lv_defaultPropertiesRemovals_37_0, 
+	        		"PID", 
+	        		lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+)(	',' 
+    {
+        createLeafNode(grammarAccess.getUnitConcernContextAccess().getCommaKeyword_7_4_0(), null); 
+    }
+(
+(
+		lv_defaultPropertiesRemovals_39_0=RULE_PID
+		{
+			createLeafNode(grammarAccess.getUnitConcernContextAccess().getDefaultPropertiesRemovalsPIDTerminalRuleCall_7_4_1_0(), "defaultPropertiesRemovals"); 
+		}
+		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getUnitConcernContextRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        try {
+	       		add(
+	       			$current, 
+	       			"defaultPropertiesRemovals",
+	        		lv_defaultPropertiesRemovals_39_0, 
+	        		"PID", 
+	        		lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+))*	';' 
+    {
+        createLeafNode(grammarAccess.getUnitConcernContextAccess().getSemicolonKeyword_7_5(), null); 
+    }
+)?(	'+' 
+    {
+        createLeafNode(grammarAccess.getUnitConcernContextAccess().getPlusSignKeyword_8_0(), null); 
+    }
+	'default' 
+    {
+        createLeafNode(grammarAccess.getUnitConcernContextAccess().getDefaultKeyword_8_1(), null); 
+    }
+	'properties' 
+    {
+        createLeafNode(grammarAccess.getUnitConcernContextAccess().getPropertiesKeyword_8_2(), null); 
+    }
+(
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getUnitConcernContextAccess().getDefaultPropertiesAdditionsPropertySetDefaultParserRuleCall_8_3_0(), currentNode); 
+	    }
+		lv_defaultPropertiesAdditions_44_0=rulePropertySetDefault		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getUnitConcernContextRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"defaultPropertiesAdditions",
+	        		lv_defaultPropertiesAdditions_44_0, 
+	        		"PropertySetDefault", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+))?	'}' 
+    {
+        createLeafNode(grammarAccess.getUnitConcernContextAccess().getRightCurlyBracketKeyword_9(), null); 
     }
 )
 ;

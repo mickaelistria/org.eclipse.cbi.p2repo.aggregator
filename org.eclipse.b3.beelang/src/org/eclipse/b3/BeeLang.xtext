@@ -689,8 +689,11 @@ UnitConcernContext returns build::UnitConcernContext : {build::UnitConcernContex
 	| ('-' requiresRemovals += RequiresPredicate ';')
 	| ('+' 'provides' '{' (providedCapabilities += ProvidedCapability ';')+ '}')
 	| ('+' 'provides' providedCapabilities += ProvidedCapability ';')
-	| ('-' providesRemovals += ProvidesPredicate ';')	
+	| ('-' providesRemovals += ProvidesPredicate ';')		
 	)*
+	('-' "default" "properties" defaultPropertiesRemovals += PID (',' defaultPropertiesRemovals += PID)* ';')?
+	('+' "default" "properties" defaultPropertiesAdditions = PropertySetDefault )?
+	
 	'}'
 	;
 	

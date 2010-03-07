@@ -2945,6 +2945,29 @@
           <tokens xsi:type="xtext:Keyword" value=";"/>
         </groups>
       </tokens>
+      <tokens xsi:type="xtext:Group" cardinality="?">
+        <tokens xsi:type="xtext:Keyword" value="-"/>
+        <tokens xsi:type="xtext:Keyword" value="default"/>
+        <tokens xsi:type="xtext:Keyword" value="properties"/>
+        <tokens xsi:type="xtext:Assignment" feature="defaultPropertiesRemovals" operator="+=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.163"/>
+        </tokens>
+        <tokens xsi:type="xtext:Group" cardinality="*">
+          <tokens xsi:type="xtext:Keyword" value=","/>
+          <tokens xsi:type="xtext:Assignment" feature="defaultPropertiesRemovals" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="//@rules.163"/>
+          </tokens>
+        </tokens>
+        <tokens xsi:type="xtext:Keyword" value=";"/>
+      </tokens>
+      <tokens xsi:type="xtext:Group" cardinality="?">
+        <tokens xsi:type="xtext:Keyword" value="+"/>
+        <tokens xsi:type="xtext:Keyword" value="default"/>
+        <tokens xsi:type="xtext:Keyword" value="properties"/>
+        <tokens xsi:type="xtext:Assignment" feature="defaultPropertiesAdditions" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="//@rules.9"/>
+        </tokens>
+      </tokens>
       <tokens xsi:type="xtext:Keyword" value="}"/>
     </alternatives>
   </rules>

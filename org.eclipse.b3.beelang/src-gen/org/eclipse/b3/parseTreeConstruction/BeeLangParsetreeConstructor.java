@@ -31594,7 +31594,9 @@ protected class ParameterVarargsPredicate_NameAssignment_1_1 extends AssignmentT
  *   "requires" requiredCapabilities+=AliasedRequiredCapability ";"|"-" requiresRemovals
  *   +=RequiresPredicate ";"|"+" "provides" "{" (providedCapabilities+=ProvidedCapability
  *   ";")+ "}"|"+" "provides" providedCapabilities+=ProvidedCapability ";"|"-"
- *   providesRemovals+=ProvidesPredicate ";")* "}"; 
+ *   providesRemovals+=ProvidesPredicate ";")* ("-" "default" "properties"
+ *   defaultPropertiesRemovals+=PID ("," defaultPropertiesRemovals+=PID)* ";")? ("+"
+ *   "default" "properties" defaultPropertiesAdditions=PropertySetDefault)? "}"; 
  * 
  * // Advice for units consists of Builders, and advice for Builders
  *         
@@ -31608,7 +31610,10 @@ protected class ParameterVarargsPredicate_NameAssignment_1_1 extends AssignmentT
  * 	          
  * 	                
  * 	            
- * 	          	
+ * 	          		
+ * 	
+ * 	                    
+ * 	            
  * 	
  * 	
  * 	
@@ -31623,7 +31628,9 @@ protected class ParameterVarargsPredicate_NameAssignment_1_1 extends AssignmentT
 // "requires" requiredCapabilities+=AliasedRequiredCapability ";"|"-" requiresRemovals
 // +=RequiresPredicate ";"|"+" "provides" "{" (providedCapabilities+=ProvidedCapability
 // ";")+ "}"|"+" "provides" providedCapabilities+=ProvidedCapability ";"|"-"
-// providesRemovals+=ProvidesPredicate ";")* "}"
+// providesRemovals+=ProvidesPredicate ";")* ("-" "default" "properties"
+// defaultPropertiesRemovals+=PID ("," defaultPropertiesRemovals+=PID)* ";")? ("+"
+// "default" "properties" defaultPropertiesAdditions=PropertySetDefault)? "}"
 protected class UnitConcernContext_Group extends GroupToken {
 	
 	public UnitConcernContext_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -31638,7 +31645,7 @@ protected class UnitConcernContext_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new UnitConcernContext_RightCurlyBracketKeyword_7(parent, this, 0, inst);
+			case 0: return new UnitConcernContext_RightCurlyBracketKeyword_9(parent, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -32862,16 +32869,39 @@ protected class UnitConcernContext_SemicolonKeyword_6_7_2 extends KeywordToken  
 
 
 
-// "}"
-protected class UnitConcernContext_RightCurlyBracketKeyword_7 extends KeywordToken  {
+// ("-" "default" "properties" defaultPropertiesRemovals+=PID (","
+// defaultPropertiesRemovals+=PID)* ";")?
+protected class UnitConcernContext_Group_7 extends GroupToken {
 	
-	public UnitConcernContext_RightCurlyBracketKeyword_7(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public UnitConcernContext_Group_7(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getUnitConcernContextAccess().getGroup_7();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new UnitConcernContext_SemicolonKeyword_7_5(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "-"
+protected class UnitConcernContext_HyphenMinusKeyword_7_0 extends KeywordToken  {
+	
+	public UnitConcernContext_HyphenMinusKeyword_7_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getUnitConcernContextAccess().getRightCurlyBracketKeyword_7();
+		return grammarAccess.getUnitConcernContextAccess().getHyphenMinusKeyword_7_0();
 	}
 
     @Override
@@ -32879,6 +32909,350 @@ protected class UnitConcernContext_RightCurlyBracketKeyword_7 extends KeywordTok
 		switch(index) {
 			case 0: return new UnitConcernContext_Alternatives_6(parent, this, 0, inst);
 			case 1: return new UnitConcernContext_LeftCurlyBracketKeyword_5(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "default"
+protected class UnitConcernContext_DefaultKeyword_7_1 extends KeywordToken  {
+	
+	public UnitConcernContext_DefaultKeyword_7_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getUnitConcernContextAccess().getDefaultKeyword_7_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new UnitConcernContext_HyphenMinusKeyword_7_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "properties"
+protected class UnitConcernContext_PropertiesKeyword_7_2 extends KeywordToken  {
+	
+	public UnitConcernContext_PropertiesKeyword_7_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getUnitConcernContextAccess().getPropertiesKeyword_7_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new UnitConcernContext_DefaultKeyword_7_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// defaultPropertiesRemovals+=PID
+protected class UnitConcernContext_DefaultPropertiesRemovalsAssignment_7_3 extends AssignmentToken  {
+	
+	public UnitConcernContext_DefaultPropertiesRemovalsAssignment_7_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getUnitConcernContextAccess().getDefaultPropertiesRemovalsAssignment_7_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new UnitConcernContext_PropertiesKeyword_7_2(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("defaultPropertiesRemovals",true)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("defaultPropertiesRemovals");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
+			type = AssignmentType.LRC;
+			element = grammarAccess.getUnitConcernContextAccess().getDefaultPropertiesRemovalsPIDTerminalRuleCall_7_3_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// ("," defaultPropertiesRemovals+=PID)*
+protected class UnitConcernContext_Group_7_4 extends GroupToken {
+	
+	public UnitConcernContext_Group_7_4(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getUnitConcernContextAccess().getGroup_7_4();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new UnitConcernContext_DefaultPropertiesRemovalsAssignment_7_4_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// ","
+protected class UnitConcernContext_CommaKeyword_7_4_0 extends KeywordToken  {
+	
+	public UnitConcernContext_CommaKeyword_7_4_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getUnitConcernContextAccess().getCommaKeyword_7_4_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new UnitConcernContext_Group_7_4(parent, this, 0, inst);
+			case 1: return new UnitConcernContext_DefaultPropertiesRemovalsAssignment_7_3(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// defaultPropertiesRemovals+=PID
+protected class UnitConcernContext_DefaultPropertiesRemovalsAssignment_7_4_1 extends AssignmentToken  {
+	
+	public UnitConcernContext_DefaultPropertiesRemovalsAssignment_7_4_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getUnitConcernContextAccess().getDefaultPropertiesRemovalsAssignment_7_4_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new UnitConcernContext_CommaKeyword_7_4_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("defaultPropertiesRemovals",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("defaultPropertiesRemovals");
+		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
+			type = AssignmentType.LRC;
+			element = grammarAccess.getUnitConcernContextAccess().getDefaultPropertiesRemovalsPIDTerminalRuleCall_7_4_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+
+// ";"
+protected class UnitConcernContext_SemicolonKeyword_7_5 extends KeywordToken  {
+	
+	public UnitConcernContext_SemicolonKeyword_7_5(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getUnitConcernContextAccess().getSemicolonKeyword_7_5();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new UnitConcernContext_Group_7_4(parent, this, 0, inst);
+			case 1: return new UnitConcernContext_DefaultPropertiesRemovalsAssignment_7_3(parent, this, 1, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+
+// ("+" "default" "properties" defaultPropertiesAdditions=PropertySetDefault)?
+protected class UnitConcernContext_Group_8 extends GroupToken {
+	
+	public UnitConcernContext_Group_8(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getUnitConcernContextAccess().getGroup_8();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new UnitConcernContext_DefaultPropertiesAdditionsAssignment_8_3(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "+"
+protected class UnitConcernContext_PlusSignKeyword_8_0 extends KeywordToken  {
+	
+	public UnitConcernContext_PlusSignKeyword_8_0(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getUnitConcernContextAccess().getPlusSignKeyword_8_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new UnitConcernContext_Group_7(parent, this, 0, inst);
+			case 1: return new UnitConcernContext_Alternatives_6(parent, this, 1, inst);
+			case 2: return new UnitConcernContext_LeftCurlyBracketKeyword_5(parent, this, 2, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "default"
+protected class UnitConcernContext_DefaultKeyword_8_1 extends KeywordToken  {
+	
+	public UnitConcernContext_DefaultKeyword_8_1(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getUnitConcernContextAccess().getDefaultKeyword_8_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new UnitConcernContext_PlusSignKeyword_8_0(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// "properties"
+protected class UnitConcernContext_PropertiesKeyword_8_2 extends KeywordToken  {
+	
+	public UnitConcernContext_PropertiesKeyword_8_2(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getUnitConcernContextAccess().getPropertiesKeyword_8_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new UnitConcernContext_DefaultKeyword_8_1(parent, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+}
+
+// defaultPropertiesAdditions=PropertySetDefault
+protected class UnitConcernContext_DefaultPropertiesAdditionsAssignment_8_3 extends AssignmentToken  {
+	
+	public UnitConcernContext_DefaultPropertiesAdditionsAssignment_8_3(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getUnitConcernContextAccess().getDefaultPropertiesAdditionsAssignment_8_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new PropertySetDefault_Alternatives(this, this, 0, inst);
+			default: return null;
+		}	
+	}	
+		
+    @Override	
+	protected IInstanceDescription tryConsumeVal() {
+		if((value = current.getConsumable("defaultPropertiesAdditions",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("defaultPropertiesAdditions");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IInstanceDescription param = getDescr((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getPropertySetDefaultRule().getType().getClassifier())) {
+				type = AssignmentType.PRC;
+				element = grammarAccess.getUnitConcernContextAccess().getDefaultPropertiesAdditionsPropertySetDefaultParserRuleCall_8_3_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createParentFollower(AbstractToken next,	int actIndex, int index, IInstanceDescription inst) {
+		if(value == inst.getDelegate() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new UnitConcernContext_PropertiesKeyword_8_2(parent, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+
+// "}"
+protected class UnitConcernContext_RightCurlyBracketKeyword_9 extends KeywordToken  {
+	
+	public UnitConcernContext_RightCurlyBracketKeyword_9(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+		super(parent, next, no, current);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getUnitConcernContextAccess().getRightCurlyBracketKeyword_9();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IInstanceDescription inst) {
+		switch(index) {
+			case 0: return new UnitConcernContext_Group_8(parent, this, 0, inst);
+			case 1: return new UnitConcernContext_Group_7(parent, this, 1, inst);
+			case 2: return new UnitConcernContext_Alternatives_6(parent, this, 2, inst);
+			case 3: return new UnitConcernContext_LeftCurlyBracketKeyword_5(parent, this, 3, inst);
 			default: return null;
 		}	
 	}	
@@ -32954,7 +33328,7 @@ protected class UnitConcernContext_RightCurlyBracketKeyword_7 extends KeywordTok
  * 		                    
  * 		            
  * 		
- * 		      // replaces the builder's funcExpression TODO: around? etc?
+ * 		      // replaces the builder's funcExpression
  *
  **/
 
@@ -33017,7 +33391,7 @@ protected class UnitConcernContext_RightCurlyBracketKeyword_7 extends KeywordTok
 // 		                    
 // 		            
 // 		
-// 		      // replaces the builder's funcExpression TODO: around? etc?
+// 		      // replaces the builder's funcExpression
 protected class BuilderConcernContext_Group extends GroupToken {
 	
 	public BuilderConcernContext_Group(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -37175,7 +37549,7 @@ protected class BuilderConcernContext_FuncExprAssignment_23 extends AssignmentTo
 	}	
 }
 
-// "}"   // replaces the builder's funcExpression TODO: around? etc?
+// "}"   // replaces the builder's funcExpression
 protected class BuilderConcernContext_RightCurlyBracketKeyword_24 extends KeywordToken  {
 	
 	public BuilderConcernContext_RightCurlyBracketKeyword_24(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
