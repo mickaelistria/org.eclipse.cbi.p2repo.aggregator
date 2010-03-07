@@ -273,6 +273,10 @@ public class B3BuilderJob extends Job {
 			if(!status.isOK())
 				return status;
 
+			// TODO - INPUT ANNOTATIONS
+			// Currently missing in input, but should act as default annotations
+			// Should be processed here
+
 			// SOURCE (if stated) should be evaluated at this point to make it available in
 			// the post input condition. Even if there is no source, assign an empty build result to "source"
 			// (for consistency, and user code may modify this instance).
@@ -283,12 +287,28 @@ public class B3BuilderJob extends Job {
 			while(pvItor.hasNext())
 				sourcePaths.add(pvItor.next().resolve(unit.getSourceLocation()));
 
+			// ANNOTATION PROCESSING IN SOURCE
+			// Annotations in input are processed before source is made available in the context
+			if(builder.getSource() != null) {
+				BPropertySet propertySet = builder.getSource().getAnnotations();
+				if(propertySet != null) {
+					BuildResultContext specialContext = B3BuildFactory.eINSTANCE.createBuildResultContext();
+					specialContext.setParentContext(ctx);
+					specialContext.setOuterContext(ctx instanceof BInnerContext
+							? ((BInnerContext) ctx).getOuterContext()
+							: ctx);
+					specialContext.getValueMap().merge(source.getValueMap());
+					propertySet.evaluateDefaults(specialContext.createInnerContext(), false);
+					source.setValueMap(specialContext.getValueMap());
+				}
+			}
+
 			ctx.defineFinalValue("source", source, BuildResult.class);
 
 			// OUTPUT (if stated) should be evaluated at this point to make it available in
 			// the post input condition. Even if there is no output, assign an empty build result to "output"
 			// (for consistency, and user code may modify this instance).
-			//
+			// Annotations in output are not processed until later.
 			BuildResult output = B3BuildFactory.eINSTANCE.createBuildResult();
 			pvItor = new EffectivePathVectorIterator(ctx, builder.getOutput());
 			EList<PathVector> outputPaths = output.getPathVectors();
@@ -378,22 +398,6 @@ public class B3BuilderJob extends Job {
 					// Steal the value map from the special context and use it in the result
 					// (the context is forgotten at this point and does not need its values).
 					output.setValueMap(specialContext.getValueMap());
-				}
-			}
-
-			// ANNOTATION PROCESSING IF SOURCE IS RETURNED
-			// (same as above for output, see comments above)
-			if(buildResult == source && builder.getSource() != null) {
-				BPropertySet propertySet = builder.getSource().getAnnotations();
-				if(propertySet != null) {
-					BuildResultContext specialContext = B3BuildFactory.eINSTANCE.createBuildResultContext();
-					specialContext.setParentContext(ctx);
-					specialContext.setOuterContext(ctx instanceof BInnerContext
-							? ((BInnerContext) ctx).getOuterContext()
-							: ctx);
-					specialContext.getValueMap().merge(source.getValueMap());
-					propertySet.evaluateDefaults(specialContext.createInnerContext(), false);
-					source.setValueMap(specialContext.getValueMap());
 				}
 			}
 
