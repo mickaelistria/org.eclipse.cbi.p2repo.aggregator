@@ -733,7 +733,7 @@ BuilderConcernContext returns build::BuilderConcernContext : {build::BuilderConc
 		('-' "annotations" "output" outputAnnotationsRemovals += PID (',' outputAnnotationsRemovals += PID)* ';')?
 		('+' "annotations" "output" outputAnnotationAdditions = PropertySet )?
 		
-		(funcExpr = BlockExpression)? // replaces the builder's funcExpression TODO: around? etc?
+		(funcExpr = BlockExpression)? // replaces the builder's funcExpression
 	'}'
 	;
 
