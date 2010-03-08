@@ -10,6 +10,7 @@
 package org.eclipse.b3.aggregator.p2;
 
 import java.net.URI;
+import org.eclipse.equinox.p2.repository.IRepositoryReference;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Repository Reference</b></em>'. <!--
@@ -26,10 +27,10 @@ import java.net.URI;
  * </p>
  * 
  * @see org.eclipse.b3.aggregator.p2.P2Package#getRepositoryReference()
- * @model
+ * @model superTypes="org.eclipse.b3.aggregator.p2.IRepositoryReference"
  * @generated
  */
-public interface RepositoryReference {
+public interface RepositoryReference extends IRepositoryReference {
 	/**
 	 * Returns the value of the '<em><b>Location</b></em>' attribute.
 	 * <!-- begin-user-doc -->

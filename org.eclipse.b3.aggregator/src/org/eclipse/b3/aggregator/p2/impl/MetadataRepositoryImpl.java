@@ -43,6 +43,7 @@ import org.eclipse.equinox.p2.core.IProvisioningAgent;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.query.IQuery;
 import org.eclipse.equinox.p2.query.IQueryResult;
+import org.eclipse.equinox.p2.repository.IRepositoryReference;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
 
@@ -60,8 +61,7 @@ import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
  * <li>{@link org.eclipse.b3.aggregator.p2.impl.MetadataRepositoryImpl#getProvider <em>Provider</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2.impl.MetadataRepositoryImpl#isModifiable <em>Modifiable</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2.impl.MetadataRepositoryImpl#getInstallableUnits <em>Installable Units</em>}</li>
- * <li>{@link org.eclipse.b3.aggregator.p2.impl.MetadataRepositoryImpl#getRepositoryReferences <em>Repository References
- * </em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2.impl.MetadataRepositoryImpl#getReferences <em>References</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2.impl.MetadataRepositoryImpl#getPropertyMap <em>Property Map</em>}</li>
  * </ul>
  * </p>
@@ -252,15 +252,15 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 	protected EList<IInstallableUnit> installableUnits;
 
 	/**
-	 * The cached value of the '{@link #getRepositoryReferences() <em>Repository References</em>}' containment reference
-	 * list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getReferences() <em>References</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
-	 * @see #getRepositoryReferences()
+	 * @see #getReferences()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<RepositoryReference> repositoryReferences;
+	protected EList<IRepositoryReference> references;
 
 	/**
 	 * The cached value of the '{@link #getPropertyMap() <em>Property Map</em>}' map.
@@ -298,25 +298,14 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 	}
 
 	/**
-	 * Excluded from the model; this is deprecated in the new API
-	 */
-	@Deprecated
-	public void addInstallableUnits(IInstallableUnit[] installableUnits) {
-		addInstallableUnits(Arrays.asList(installableUnits));
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
 	 */
-	public void addReference(URI location, String nickname, int type, int options) {
-		RepositoryReference ref = P2Factory.eINSTANCE.createRepositoryReference();
-		ref.setLocation(location);
-		ref.setNickname(nickname);
-		ref.setType(type);
-		ref.setOptions(options);
-		getRepositoryReferences().add(ref);
+	public void addReferences(Collection<? extends IRepositoryReference> references) {
+		for(IRepositoryReference reference : references)
+			addReference(reference.getLocation(), reference.getNickname(), reference.getType(), reference.getOptions());
 	}
 
 	public void addRepositoryReferences(IMetadataRepositoryManager mdrMgr, IMetadataRepository mdr)
@@ -326,7 +315,7 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 				@SuppressWarnings("unchecked")
 				List<org.eclipse.equinox.p2.repository.spi.RepositoryReference> refs = (List<org.eclipse.equinox.p2.repository.spi.RepositoryReference>) LocalMetadataRepository_createRepositoriesSnapshot.invoke(mdr);
 				for(org.eclipse.equinox.p2.repository.spi.RepositoryReference ref : refs)
-					addReference(ref.Location, ref.Nickname, ref.Type, ref.Options);
+					addReference(ref.getLocation(), ref.getNickname(), ref.getType(), ref.getOptions());
 			}
 			catch(Exception e) {
 				throw ExceptionUtils.wrap(e);
@@ -363,8 +352,8 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 			return isModifiable();
 		case P2Package.METADATA_REPOSITORY__INSTALLABLE_UNITS:
 			return getInstallableUnits();
-		case P2Package.METADATA_REPOSITORY__REPOSITORY_REFERENCES:
-			return getRepositoryReferences();
+		case P2Package.METADATA_REPOSITORY__REFERENCES:
+			return getReferences();
 		case P2Package.METADATA_REPOSITORY__PROPERTY_MAP:
 			if(coreType)
 				return getPropertyMap();
@@ -384,8 +373,8 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 		switch(featureID) {
 		case P2Package.METADATA_REPOSITORY__INSTALLABLE_UNITS:
 			return ((InternalEList<?>) getInstallableUnits()).basicRemove(otherEnd, msgs);
-		case P2Package.METADATA_REPOSITORY__REPOSITORY_REFERENCES:
-			return ((InternalEList<?>) getRepositoryReferences()).basicRemove(otherEnd, msgs);
+		case P2Package.METADATA_REPOSITORY__REFERENCES:
+			return ((InternalEList<?>) getReferences()).basicRemove(otherEnd, msgs);
 		case P2Package.METADATA_REPOSITORY__PROPERTY_MAP:
 			return ((InternalEList<?>) getPropertyMap()).basicRemove(otherEnd, msgs);
 		}
@@ -428,8 +417,8 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 			return ((eFlags & MODIFIABLE_EFLAG) != 0) != MODIFIABLE_EDEFAULT;
 		case P2Package.METADATA_REPOSITORY__INSTALLABLE_UNITS:
 			return installableUnits != null && !installableUnits.isEmpty();
-		case P2Package.METADATA_REPOSITORY__REPOSITORY_REFERENCES:
-			return repositoryReferences != null && !repositoryReferences.isEmpty();
+		case P2Package.METADATA_REPOSITORY__REFERENCES:
+			return references != null && !references.isEmpty();
 		case P2Package.METADATA_REPOSITORY__PROPERTY_MAP:
 			return propertyMap != null && !propertyMap.isEmpty();
 		}
@@ -490,9 +479,9 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 			getInstallableUnits().clear();
 			getInstallableUnits().addAll((Collection<? extends IInstallableUnit>) newValue);
 			return;
-		case P2Package.METADATA_REPOSITORY__REPOSITORY_REFERENCES:
-			getRepositoryReferences().clear();
-			getRepositoryReferences().addAll((Collection<? extends RepositoryReference>) newValue);
+		case P2Package.METADATA_REPOSITORY__REFERENCES:
+			getReferences().clear();
+			getReferences().addAll((Collection<? extends IRepositoryReference>) newValue);
 			return;
 		case P2Package.METADATA_REPOSITORY__PROPERTY_MAP:
 			((EStructuralFeature.Setting) getPropertyMap()).set(newValue);
@@ -533,8 +522,8 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 		case P2Package.METADATA_REPOSITORY__INSTALLABLE_UNITS:
 			getInstallableUnits().clear();
 			return;
-		case P2Package.METADATA_REPOSITORY__REPOSITORY_REFERENCES:
-			getRepositoryReferences().clear();
+		case P2Package.METADATA_REPOSITORY__REFERENCES:
+			getReferences().clear();
 			return;
 		case P2Package.METADATA_REPOSITORY__PROPERTY_MAP:
 			getPropertyMap().clear();
@@ -620,6 +609,16 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public String getProperty(String key) {
+		return getPropertyMap().get(key);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -652,16 +651,17 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 */
-	public EList<RepositoryReference> getRepositoryReferences() {
-		if(repositoryReferences == null) {
-			repositoryReferences = new EObjectContainmentEList.Resolving<RepositoryReference>(
-					RepositoryReference.class, this, P2Package.METADATA_REPOSITORY__REPOSITORY_REFERENCES);
+	public EList<IRepositoryReference> getReferences() {
+		if(references == null) {
+			references = new EObjectContainmentEList.Resolving<IRepositoryReference>(IRepositoryReference.class, this,
+					P2Package.METADATA_REPOSITORY__REFERENCES);
 		}
-		return repositoryReferences;
+		return references;
 	}
 
 	public URI getSafeLocation() {
@@ -886,6 +886,20 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	protected EClass eStaticClass() {
 		return P2Package.Literals.METADATA_REPOSITORY;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	private void addReference(URI location, String nickname, int type, int options) {
+		RepositoryReference ref = P2Factory.eINSTANCE.createRepositoryReference();
+		ref.setLocation(location);
+		ref.setNickname(nickname);
+		ref.setType(type);
+		ref.setOptions(options);
+		getReferences().add(ref);
 	}
 
 } // MetadataRepositoryImpl

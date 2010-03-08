@@ -11,6 +11,7 @@ import java.net.URI;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
+import org.eclipse.equinox.p2.repository.IRepositoryReference;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
 
 /**
@@ -79,21 +80,21 @@ public interface MetadataRepository extends IMetadataRepository {
 	EMap<String, String> getPropertyMap();
 
 	/**
-	 * Returns the value of the '<em><b>Repository References</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.b3.aggregator.p2.RepositoryReference}.
+	 * Returns the value of the '<em><b>References</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.equinox.p2.repository.IRepositoryReference}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Repository References</em>' containment reference list isn't clear, there really
-	 * should be more of a description here...
+	 * If the meaning of the '<em>References</em>' containment reference list isn't clear, there really should be more
+	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Repository References</em>' containment reference list.
-	 * @see org.eclipse.b3.aggregator.p2.P2Package#getMetadataRepository_RepositoryReferences()
-	 * @model containment="true" resolveProxies="true"
+	 * @return the value of the '<em>References</em>' containment reference list.
+	 * @see org.eclipse.b3.aggregator.p2.P2Package#getMetadataRepository_References()
+	 * @model type="org.eclipse.b3.aggregator.p2.IRepositoryReference" containment="true" resolveProxies="true"
 	 * @generated
 	 */
-	EList<RepositoryReference> getRepositoryReferences();
+	EList<IRepositoryReference> getReferences();
 
 	/*
 	 * Returns location URI

@@ -39,7 +39,6 @@ import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.IInstallableUnitFragment;
 import org.eclipse.equinox.p2.metadata.ILicense;
 import org.eclipse.equinox.p2.metadata.IProvidedCapability;
-import org.eclipse.equinox.p2.metadata.IRequirement;
 import org.eclipse.equinox.p2.metadata.ITouchpointData;
 import org.eclipse.equinox.p2.metadata.ITouchpointInstruction;
 import org.eclipse.equinox.p2.metadata.Version;
@@ -195,16 +194,6 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public String convertIRequirementArrayToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(instanceValue);
-	}
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -248,8 +237,6 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 			return convertIInstallableUnitArrayToString(eDataType, instanceValue);
 		case P2Package.COLLECTION:
 			return convertCollectionToString(eDataType, instanceValue);
-		case P2Package.IREQUIREMENT_ARRAY:
-			return convertIRequirementArrayToString(eDataType, instanceValue);
 		case P2Package.IPROVIDED_CAPABILITY_ARRAY:
 			return convertIProvidedCapabilityArrayToString(eDataType, instanceValue);
 		case P2Package.IINSTALLABLE_UNIT_FRAGMENT_ARRAY:
@@ -415,8 +402,6 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 			return createIInstallableUnitArrayFromString(eDataType, initialValue);
 		case P2Package.COLLECTION:
 			return createCollectionFromString(eDataType, initialValue);
-		case P2Package.IREQUIREMENT_ARRAY:
-			return createIRequirementArrayFromString(eDataType, initialValue);
 		case P2Package.IPROVIDED_CAPABILITY_ARRAY:
 			return createIProvidedCapabilityArrayFromString(eDataType, initialValue);
 		case P2Package.IINSTALLABLE_UNIT_FRAGMENT_ARRAY:
@@ -551,16 +536,6 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	 */
 	public IQueryResult<?> createIQueryResultFromString(EDataType eDataType, String initialValue) {
 		return (IQueryResult<?>) super.createFromString(initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public IRequirement[] createIRequirementArrayFromString(EDataType eDataType, String initialValue) {
-		return (IRequirement[]) super.createFromString(initialValue);
 	}
 
 	/**

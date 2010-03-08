@@ -6,6 +6,9 @@
  */
 package org.eclipse.b3.aggregator.p2.impl;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import org.eclipse.b3.aggregator.p2.P2Package;
 import org.eclipse.b3.aggregator.p2.UpdateDescriptor;
 import org.eclipse.emf.common.notify.Notification;
@@ -13,7 +16,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
-import org.eclipse.equinox.p2.metadata.VersionRange;
+import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Update Descriptor</b></em>'. <!-- end-user-doc
@@ -31,6 +34,8 @@ import org.eclipse.equinox.p2.metadata.VersionRange;
  * @generated
  */
 public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implements UpdateDescriptor {
+	private Collection<IMatchExpression<IInstallableUnit>> matchExpressions;
+
 	/**
 	 * A set of bit flags representing the values of boolean attributes and whether unsettable features have been set.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -61,47 +66,6 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	 * @ordered
 	 */
 	protected String description = DESCRIPTION_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getId()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String ID_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getId()
-	 * @generated
-	 * @ordered
-	 */
-	protected String id = ID_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getRange() <em>Range</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @see #getRange()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final VersionRange RANGE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getRange() <em>Range</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @see #getRange()
-	 * @generated
-	 * @ordered
-	 */
-	protected VersionRange range = RANGE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getSeverity() <em>Severity</em>}' attribute.
@@ -144,10 +108,6 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 		switch(featureID) {
 		case P2Package.UPDATE_DESCRIPTOR__DESCRIPTION:
 			return getDescription();
-		case P2Package.UPDATE_DESCRIPTOR__ID:
-			return getId();
-		case P2Package.UPDATE_DESCRIPTOR__RANGE:
-			return getRange();
 		case P2Package.UPDATE_DESCRIPTOR__SEVERITY:
 			return getSeverity();
 		}
@@ -166,14 +126,6 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 			return DESCRIPTION_EDEFAULT == null
 					? description != null
 					: !DESCRIPTION_EDEFAULT.equals(description);
-		case P2Package.UPDATE_DESCRIPTOR__ID:
-			return ID_EDEFAULT == null
-					? id != null
-					: !ID_EDEFAULT.equals(id);
-		case P2Package.UPDATE_DESCRIPTOR__RANGE:
-			return RANGE_EDEFAULT == null
-					? range != null
-					: !RANGE_EDEFAULT.equals(range);
 		case P2Package.UPDATE_DESCRIPTOR__SEVERITY:
 			return severity != SEVERITY_EDEFAULT;
 		}
@@ -190,12 +142,6 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 		switch(featureID) {
 		case P2Package.UPDATE_DESCRIPTOR__DESCRIPTION:
 			setDescription((String) newValue);
-			return;
-		case P2Package.UPDATE_DESCRIPTOR__ID:
-			setId((String) newValue);
-			return;
-		case P2Package.UPDATE_DESCRIPTOR__RANGE:
-			setRange((VersionRange) newValue);
 			return;
 		case P2Package.UPDATE_DESCRIPTOR__SEVERITY:
 			setSeverity((Integer) newValue);
@@ -215,12 +161,6 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 		case P2Package.UPDATE_DESCRIPTOR__DESCRIPTION:
 			setDescription(DESCRIPTION_EDEFAULT);
 			return;
-		case P2Package.UPDATE_DESCRIPTOR__ID:
-			setId(ID_EDEFAULT);
-			return;
-		case P2Package.UPDATE_DESCRIPTOR__RANGE:
-			setRange(RANGE_EDEFAULT);
-			return;
 		case P2Package.UPDATE_DESCRIPTOR__SEVERITY:
 			setSeverity(SEVERITY_EDEFAULT);
 			return;
@@ -238,21 +178,16 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
-	public String getId() {
-		return id;
-	}
+	public Collection<IMatchExpression<IInstallableUnit>> getIUsBeingUpdated() {
+		if(matchExpressions == null)
+			matchExpressions = new ArrayList<IMatchExpression<IInstallableUnit>>();
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public VersionRange getRange() {
-		return range;
+		return matchExpressions;
 	}
 
 	/**
@@ -268,12 +203,15 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean isUpdateOf(IInstallableUnit installableUnit) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		for(IMatchExpression<IInstallableUnit> expr : getIUsBeingUpdated()) {
+			if(expr.isMatch(installableUnit))
+				return true;
+		}
+
+		return false;
 	}
 
 	/**
@@ -289,28 +227,8 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 					oldDescription, description));
 	}
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public void setId(String newId) {
-		String oldId = id;
-		id = newId;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.UPDATE_DESCRIPTOR__ID, oldId, id));
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public void setRange(VersionRange newRange) {
-		VersionRange oldRange = range;
-		range = newRange;
-		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.UPDATE_DESCRIPTOR__RANGE, oldRange, range));
+	public void setIUsBeingUpdated(Collection<IMatchExpression<IInstallableUnit>> IUsBeingUpdated) {
+		getIUsBeingUpdated().addAll(IUsBeingUpdated);
 	}
 
 	/**
@@ -339,10 +257,6 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (description: ");
 		result.append(description);
-		result.append(", id: ");
-		result.append(id);
-		result.append(", range: ");
-		result.append(range);
 		result.append(", severity: ");
 		result.append(severity);
 		result.append(')');

@@ -42,6 +42,7 @@ import org.eclipse.equinox.p2.metadata.IUpdateDescriptor;
 import org.eclipse.equinox.p2.metadata.IVersionedId;
 import org.eclipse.equinox.p2.query.IQueryable;
 import org.eclipse.equinox.p2.repository.IRepository;
+import org.eclipse.equinox.p2.repository.IRepositoryReference;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
 
 /**
@@ -296,6 +297,23 @@ public class P2Switch<T1> {
 	 * @generated
 	 */
 	public <T> T1 caseIRepository(IRepository<T> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IRepository Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IRepository Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseIRepositoryReference(IRepositoryReference object) {
 		return null;
 	}
 
@@ -787,6 +805,8 @@ public class P2Switch<T1> {
 		case P2Package.REPOSITORY_REFERENCE: {
 			RepositoryReference repositoryReference = (RepositoryReference) theEObject;
 			T1 result = caseRepositoryReference(repositoryReference);
+			if(result == null)
+				result = caseIRepositoryReference(repositoryReference);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;

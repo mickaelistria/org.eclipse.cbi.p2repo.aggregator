@@ -43,6 +43,7 @@ import org.eclipse.equinox.p2.metadata.IUpdateDescriptor;
 import org.eclipse.equinox.p2.metadata.IVersionedId;
 import org.eclipse.equinox.p2.query.IQueryable;
 import org.eclipse.equinox.p2.repository.IRepository;
+import org.eclipse.equinox.p2.repository.IRepositoryReference;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
 
 /**
@@ -141,6 +142,11 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public <T> Adapter caseIRepository(IRepository<T> object) {
 			return createIRepositoryAdapter();
+		}
+
+		@Override
+		public Adapter caseIRepositoryReference(IRepositoryReference object) {
+			return createIRepositoryReferenceAdapter();
 		}
 
 		@Override
@@ -487,6 +493,22 @@ public class P2AdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createIRepositoryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.equinox.p2.repository.IRepositoryReference
+	 * <em>IRepository Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.eclipse.equinox.p2.repository.IRepositoryReference
+	 * @generated
+	 */
+	public Adapter createIRepositoryReferenceAdapter() {
 		return null;
 	}
 

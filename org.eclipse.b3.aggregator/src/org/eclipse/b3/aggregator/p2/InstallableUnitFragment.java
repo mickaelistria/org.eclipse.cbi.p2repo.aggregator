@@ -6,19 +6,14 @@
  */
 package org.eclipse.b3.aggregator.p2;
 
-import org.eclipse.emf.common.util.EList;
+import java.util.Collection;
 import org.eclipse.equinox.p2.metadata.IInstallableUnitFragment;
+import org.eclipse.equinox.p2.metadata.IRequirement;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Installable Unit Fragment</b></em>'. <!--
  * end-user-doc -->
  * 
- * <p>
- * The following features are supported:
- * <ul>
- * <li>{@link org.eclipse.b3.aggregator.p2.InstallableUnitFragment#getHostList <em>Host List</em>}</li>
- * </ul>
- * </p>
  * 
  * @see org.eclipse.b3.aggregator.p2.P2Package#getInstallableUnitFragment()
  * @model 
@@ -27,20 +22,17 @@ import org.eclipse.equinox.p2.metadata.IInstallableUnitFragment;
  */
 public interface InstallableUnitFragment extends InstallableUnit, IInstallableUnitFragment {
 	/**
-	 * Returns the value of the '<em><b>Host List</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.b3.aggregator.p2.Requirement}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Host List</em>' containment reference list isn't clear, there really should be more of
-	 * a description here...
+	 * If the meaning of the '<em>Host</em>' containment reference list isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Host List</em>' containment reference list.
-	 * @see org.eclipse.b3.aggregator.p2.P2Package#getInstallableUnitFragment_HostList()
-	 * @model containment="true" resolveProxies="true"
+	 * @model kind="operation"
+	 *        dataType="org.eclipse.b3.aggregator.p2.Collection<org.eclipse.b3.aggregator.p2.IRequirement>"
 	 * @generated
 	 */
-	EList<Requirement> getHostList();
+	Collection<IRequirement> getHost();
 
 } // InstallableUnitFragment

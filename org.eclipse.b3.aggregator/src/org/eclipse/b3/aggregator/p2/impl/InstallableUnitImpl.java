@@ -247,7 +247,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 		InstallableUnitImpl miu;
 		if(iu instanceof IInstallableUnitFragment) {
 			InstallableUnitFragmentImpl miuf = (InstallableUnitFragmentImpl) factory.createInstallableUnitFragment();
-			List<Requirement> mhosts = miuf.getHostList();
+			Collection<IRequirement> mhosts = miuf.getHost();
 			for(IRequirement host : ((IInstallableUnitFragment) iu).getHost())
 				mhosts.add(importToModel(host));
 			miu = miuf;
@@ -307,8 +307,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 			return null;
 		UpdateDescriptorImpl mud = (UpdateDescriptorImpl) P2Factory.eINSTANCE.createUpdateDescriptor();
 		mud.setDescription(ud.getDescription());
-		mud.setId(ud.getId());
-		mud.setRange(ud.getRange());
+		mud.setIUsBeingUpdated(ud.getIUsBeingUpdated());
 		mud.setSeverity(ud.getSeverity());
 		return mud;
 	}
