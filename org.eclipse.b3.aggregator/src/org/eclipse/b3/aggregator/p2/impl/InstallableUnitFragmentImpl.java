@@ -6,7 +6,9 @@
  */
 package org.eclipse.b3.aggregator.p2.impl;
 
+import java.util.ArrayList;
 import java.util.Collection;
+
 import org.eclipse.b3.aggregator.p2.InstallableUnitFragment;
 import org.eclipse.b3.aggregator.p2.P2Package;
 import org.eclipse.emf.ecore.EClass;
@@ -21,6 +23,8 @@ import org.eclipse.equinox.p2.metadata.IRequirement;
  * @generated
  */
 public class InstallableUnitFragmentImpl extends InstallableUnitImpl implements InstallableUnitFragment {
+	private Collection<IRequirement> hostList;
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -33,12 +37,13 @@ public class InstallableUnitFragmentImpl extends InstallableUnitImpl implements 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	public Collection<IRequirement> getHost() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if(hostList == null)
+			hostList = new ArrayList<IRequirement>();
+
+		return hostList;
 	}
 
 	@Override
