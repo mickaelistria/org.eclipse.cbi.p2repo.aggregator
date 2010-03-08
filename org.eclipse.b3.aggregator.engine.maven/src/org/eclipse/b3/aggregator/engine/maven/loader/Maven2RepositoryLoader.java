@@ -78,7 +78,6 @@ import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactDescriptor;
 import org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository;
-import org.eclipse.equinox.internal.provisional.p2.metadata.MetadataFactory.InstallableUnitDescription;
 import org.eclipse.equinox.p2.core.IProvisioningAgent;
 import org.eclipse.equinox.p2.metadata.IArtifactKey;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
@@ -86,6 +85,7 @@ import org.eclipse.equinox.p2.metadata.IRequirement;
 import org.eclipse.equinox.p2.metadata.ITouchpointType;
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
+import org.eclipse.equinox.p2.metadata.MetadataFactory.InstallableUnitDescription;
 import org.eclipse.equinox.p2.query.IQuery;
 import org.eclipse.equinox.p2.query.IQueryResult;
 import org.eclipse.equinox.p2.query.QueryUtil;
@@ -1030,6 +1030,7 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 			Map<String, String> properties = new HashMap<String, String>(2);
 			properties.put(IRepository.PROP_COMPRESSED, "true");
 			properties.put(PROP_INDEX_TIMESTAMP, repository.getPropertyMap().get(PROP_INDEX_TIMESTAMP));
+			properties.put(IMetadataRepository.PROP_DESCRIPTION, repository.getDescription());
 			IMetadataRepository mdr = null;
 			try {
 				mdr = mdrMgr.createRepository(getCacheLocation().toURI(), repository.getName(), SIMPLE_METADATA_TYPE,
@@ -1038,7 +1039,6 @@ public class Maven2RepositoryLoader implements IRepositoryLoader {
 			catch(MalformedURLException e) {
 				throw ExceptionUtils.wrap(e);
 			}
-			mdr.setDescription(repository.getDescription());
 			mdr.addInstallableUnits(repository.getInstallableUnits());
 		}
 		finally {
