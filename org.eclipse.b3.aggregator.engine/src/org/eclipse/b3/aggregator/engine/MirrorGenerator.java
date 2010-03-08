@@ -26,7 +26,6 @@ import org.eclipse.b3.aggregator.engine.maven.indexer.IMaven2Indexer;
 import org.eclipse.b3.aggregator.engine.maven.indexer.IndexerUtils;
 import org.eclipse.b3.aggregator.loader.IRepositoryLoader;
 import org.eclipse.b3.aggregator.p2.MetadataRepository;
-import org.eclipse.b3.aggregator.p2.RepositoryReference;
 import org.eclipse.b3.aggregator.util.GeneralUtils;
 import org.eclipse.b3.aggregator.util.LogUtils;
 import org.eclipse.b3.aggregator.util.MonitorUtils;
@@ -56,6 +55,7 @@ import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.publisher.Publisher;
 import org.eclipse.equinox.p2.query.IQueryResult;
 import org.eclipse.equinox.p2.repository.IRepository;
+import org.eclipse.equinox.p2.repository.IRepositoryReference;
 import org.eclipse.equinox.p2.repository.artifact.ArtifactKeyQuery;
 import org.eclipse.equinox.p2.repository.artifact.IArtifactDescriptor;
 import org.eclipse.equinox.p2.repository.artifact.IArtifactRepository;
@@ -856,7 +856,8 @@ public class MirrorGenerator extends BuilderPhase {
 
 		Builder builder = getBuilder();
 		if(source != null && builder.isMirrorReferences()) {
-			for(RepositoryReference ref : source.getRepositoryReferences()) {
+			List<IRepositoryReference> refs = new ArrayList<IRepositoryReference>();
+			for(IRepositoryReference ref : source.getReferences()) {
 				URI location = ref.getLocation();
 				String refKey = location.toString();
 				String refType = ref.getType() == IRepository.TYPE_METADATA
@@ -871,8 +872,12 @@ public class MirrorGenerator extends BuilderPhase {
 					location = URI.create(refKey.substring(0, refKey.length() - 8));
 
 				LogUtils.debug("- mirroring %s reference %s", refType, refKey);
-				dest.addReference(location, ref.getNickname(), ref.getType(), 0);
+
+				refs.add(new org.eclipse.equinox.p2.repository.spi.RepositoryReference(location, ref.getNickname(),
+						ref.getType(), 0));
 			}
+
+			dest.addReferences(refs);
 		}
 	}
 

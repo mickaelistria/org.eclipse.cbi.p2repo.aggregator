@@ -73,12 +73,12 @@ public class InternalMetadataRepository extends LocalMetadataRepository {
 	public InternalMetadataRepository(IProvisioningAgent agent, URI location, String name,
 			Map<String, String> properties) {
 		super(agent);
-		this.name = name;
-		this.type = getClass().getName();
-		this.version = "1";
-		this.location = location;
+		setName(name);
+		setType(getClass().getName());
+		setVersion("1");
+		setLocation(location);
 		if(properties != null)
-			this.properties.putAll(properties);
+			getProperties().putAll(properties);
 		save();
 	}
 
@@ -92,8 +92,8 @@ public class InternalMetadataRepository extends LocalMetadataRepository {
 	public synchronized String basicSetProperty(String key, String value) {
 		assertModifiable();
 		return(value == null
-				? properties.remove(key)
-				: properties.put(key, value));
+				? getProperties().remove(key)
+				: getProperties().put(key, value));
 	}
 
 	public synchronized void removeAll() {
@@ -129,9 +129,9 @@ public class InternalMetadataRepository extends LocalMetadataRepository {
 	}
 
 	private void save() {
-		File file = getActualLocation(location, XML_EXTENSION);
-		File jarFile = getActualLocation(location, JAR_EXTENSION);
-		boolean compress = "true".equalsIgnoreCase(properties.get(PROP_COMPRESSED)); //$NON-NLS-1$
+		File file = getActualLocation(getLocation(), XML_EXTENSION);
+		File jarFile = getActualLocation(getLocation(), JAR_EXTENSION);
+		boolean compress = "true".equalsIgnoreCase(getProperties().get(PROP_COMPRESSED)); //$NON-NLS-1$
 		try {
 			OutputStream output = null;
 			if(!compress) {
@@ -164,7 +164,7 @@ public class InternalMetadataRepository extends LocalMetadataRepository {
 		}
 		catch(IOException e) {
 			LogHelper.log(new Status(IStatus.ERROR, Activator.ID, ProvisionException.REPOSITORY_FAILED_WRITE,
-					"Error saving metadata repository: " + location, e)); //$NON-NLS-1$
+					"Error saving metadata repository: " + getLocation(), e)); //$NON-NLS-1$
 		}
 	}
 }

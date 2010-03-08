@@ -112,8 +112,7 @@ public class SourceCompositeGenerator extends BuilderPhase {
 				mdr.getName(), mdr.getProperties());
 		localMdr.setDescription(mdr.getDescription());
 		localMdr.setProvider(mdr.getProvider());
-		localMdr.addInstallableUnits(mdr.getInstallableUnits().toArray(
-				new IInstallableUnit[mdr.getInstallableUnits().size()]));
+		localMdr.addInstallableUnits(mdr.getInstallableUnits());
 		localMdr.setProperty(IRepository.PROP_COMPRESSED, "true");
 		return localMdr;
 	}
