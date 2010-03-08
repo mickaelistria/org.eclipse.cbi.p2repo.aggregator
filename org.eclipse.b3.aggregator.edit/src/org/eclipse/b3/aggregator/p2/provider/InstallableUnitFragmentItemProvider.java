@@ -9,15 +9,11 @@ package org.eclipse.b3.aggregator.p2.provider;
 import java.util.Collection;
 import java.util.List;
 
-import org.eclipse.b3.aggregator.p2.InstallableUnitFragment;
 import org.eclipse.b3.aggregator.p2.P2Package;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
-
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemColorProvider;
 import org.eclipse.emf.edit.provider.IItemFontProvider;
@@ -26,7 +22,6 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.p2.InstallableUnitFragment} object.
@@ -45,24 +40,6 @@ public class InstallableUnitFragmentItemProvider extends InstallableUnitItemProv
 	 */
 	public InstallableUnitFragmentItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
-	}
-
-	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if(childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(P2Package.Literals.INSTALLABLE_UNIT_FRAGMENT__HOST_LIST);
-		}
-		return childrenFeatures;
 	}
 
 	/**
@@ -109,7 +86,6 @@ public class InstallableUnitFragmentItemProvider extends InstallableUnitItemProv
 		if(itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addHostListPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -134,28 +110,7 @@ public class InstallableUnitFragmentItemProvider extends InstallableUnitItemProv
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch(notification.getFeatureID(InstallableUnitFragment.class)) {
-		case P2Package.INSTALLABLE_UNIT_FRAGMENT__HOST_LIST:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-			return;
-		}
 		super.notifyChanged(notification);
-	}
-
-	/**
-	 * This adds a property descriptor for the Host List feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected void addHostListPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_InstallableUnitFragment_hostList_feature"), getString(
-						"_UI_PropertyDescriptor_description", "_UI_InstallableUnitFragment_hostList_feature",
-						"_UI_InstallableUnitFragment_type"), P2Package.Literals.INSTALLABLE_UNIT_FRAGMENT__HOST_LIST,
-				false, false, false, null, null, null));
 	}
 
 	/**
@@ -168,19 +123,6 @@ public class InstallableUnitFragmentItemProvider extends InstallableUnitItemProv
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
 	}
 
 }

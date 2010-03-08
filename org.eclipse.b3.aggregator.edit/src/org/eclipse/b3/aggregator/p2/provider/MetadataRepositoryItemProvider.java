@@ -11,6 +11,7 @@ import java.util.List;
 
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.p2.MetadataRepository;
+import org.eclipse.b3.aggregator.p2.P2Factory;
 import org.eclipse.b3.aggregator.p2.P2Package;
 import org.eclipse.b3.aggregator.provider.AggregatorEditPlugin;
 import org.eclipse.b3.aggregator.provider.AggregatorItemProviderAdapter;
@@ -68,7 +69,7 @@ public class MetadataRepositoryItemProvider extends AggregatorItemProviderAdapte
 		if(childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(P2Package.Literals.METADATA_REPOSITORY__INSTALLABLE_UNITS);
-			childrenFeatures.add(P2Package.Literals.METADATA_REPOSITORY__REPOSITORY_REFERENCES);
+			childrenFeatures.add(P2Package.Literals.METADATA_REPOSITORY__REFERENCES);
 			childrenFeatures.add(P2Package.Literals.METADATA_REPOSITORY__PROPERTY_MAP);
 		}
 		return childrenFeatures;
@@ -104,7 +105,6 @@ public class MetadataRepositoryItemProvider extends AggregatorItemProviderAdapte
 			addProviderPropertyDescriptor(object);
 			addModifiablePropertyDescriptor(object);
 			addInstallableUnitsPropertyDescriptor(object);
-			addRepositoryReferencesPropertyDescriptor(object);
 			addPropertyMapPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -168,7 +168,7 @@ public class MetadataRepositoryItemProvider extends AggregatorItemProviderAdapte
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case P2Package.METADATA_REPOSITORY__INSTALLABLE_UNITS:
-		case P2Package.METADATA_REPOSITORY__REPOSITORY_REFERENCES:
+		case P2Package.METADATA_REPOSITORY__REFERENCES:
 		case P2Package.METADATA_REPOSITORY__PROPERTY_MAP:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
@@ -281,21 +281,6 @@ public class MetadataRepositoryItemProvider extends AggregatorItemProviderAdapte
 	}
 
 	/**
-	 * This adds a property descriptor for the Repository References feature. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 */
-	protected void addRepositoryReferencesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_MetadataRepository_repositoryReferences_feature"), getString(
-						"_UI_PropertyDescriptor_description", "_UI_MetadataRepository_repositoryReferences_feature",
-						"_UI_MetadataRepository_type"), P2Package.Literals.METADATA_REPOSITORY__REPOSITORY_REFERENCES,
-				false, false, false, null, null, null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Type feature.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -334,6 +319,9 @@ public class MetadataRepositoryItemProvider extends AggregatorItemProviderAdapte
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add(createChildParameter(P2Package.Literals.METADATA_REPOSITORY__REFERENCES,
+				P2Factory.eINSTANCE.createRepositoryReference()));
 	}
 
 	/**
