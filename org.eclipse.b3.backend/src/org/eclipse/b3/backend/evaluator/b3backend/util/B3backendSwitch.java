@@ -113,6 +113,7 @@ public class B3backendSwitch<T> {
 			case B3backendPackage.BEXECUTION_CONTEXT: {
 				BExecutionContext bExecutionContext = (BExecutionContext)theEObject;
 				T result = caseBExecutionContext(bExecutionContext);
+				if (result == null) result = caseITypedValueContainer(bExecutionContext);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -330,6 +331,7 @@ public class B3backendSwitch<T> {
 				BSystemContext bSystemContext = (BSystemContext)theEObject;
 				T result = caseBSystemContext(bSystemContext);
 				if (result == null) result = caseBExecutionContext(bSystemContext);
+				if (result == null) result = caseITypedValueContainer(bSystemContext);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -337,6 +339,7 @@ public class B3backendSwitch<T> {
 				BContext bContext = (BContext)theEObject;
 				T result = caseBContext(bContext);
 				if (result == null) result = caseBExecutionContext(bContext);
+				if (result == null) result = caseITypedValueContainer(bContext);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -344,6 +347,7 @@ public class B3backendSwitch<T> {
 				BInnerContext bInnerContext = (BInnerContext)theEObject;
 				T result = caseBInnerContext(bInnerContext);
 				if (result == null) result = caseBExecutionContext(bInnerContext);
+				if (result == null) result = caseITypedValueContainer(bInnerContext);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -351,6 +355,7 @@ public class B3backendSwitch<T> {
 				BInvocationContext bInvocationContext = (BInvocationContext)theEObject;
 				T result = caseBInvocationContext(bInvocationContext);
 				if (result == null) result = caseBExecutionContext(bInvocationContext);
+				if (result == null) result = caseITypedValueContainer(bInvocationContext);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -500,6 +505,7 @@ public class B3backendSwitch<T> {
 				T result = caseBInstanceContext(bInstanceContext);
 				if (result == null) result = caseBInnerContext(bInstanceContext);
 				if (result == null) result = caseBExecutionContext(bInstanceContext);
+				if (result == null) result = caseITypedValueContainer(bInstanceContext);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -648,6 +654,7 @@ public class B3backendSwitch<T> {
 				T result = caseBDelegatingContext(bDelegatingContext);
 				if (result == null) result = caseBInnerContext(bDelegatingContext);
 				if (result == null) result = caseBExecutionContext(bDelegatingContext);
+				if (result == null) result = caseITypedValueContainer(bDelegatingContext);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -657,6 +664,7 @@ public class B3backendSwitch<T> {
 				if (result == null) result = caseBDelegatingContext(bWrappingContext);
 				if (result == null) result = caseBInnerContext(bWrappingContext);
 				if (result == null) result = caseBExecutionContext(bWrappingContext);
+				if (result == null) result = caseITypedValueContainer(bWrappingContext);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -678,6 +686,12 @@ public class B3backendSwitch<T> {
 				BWithContextExpression bWithContextExpression = (BWithContextExpression)theEObject;
 				T result = caseBWithContextExpression(bWithContextExpression);
 				if (result == null) result = caseBExpression(bWithContextExpression);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case B3backendPackage.ITYPED_VALUE_CONTAINER: {
+				ITypedValueContainer iTypedValueContainer = (ITypedValueContainer)theEObject;
+				T result = caseITypedValueContainer(iTypedValueContainer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1312,6 +1326,21 @@ public class B3backendSwitch<T> {
 	 * @generated
 	 */
 	public T caseBWithContextExpression(BWithContextExpression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>ITyped Value Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>ITyped Value Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseITypedValueContainer(ITypedValueContainer object) {
 		return null;
 	}
 

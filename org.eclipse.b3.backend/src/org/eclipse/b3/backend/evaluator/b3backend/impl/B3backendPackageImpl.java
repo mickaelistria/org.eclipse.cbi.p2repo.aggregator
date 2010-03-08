@@ -104,6 +104,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BWithExpression;
 import org.eclipse.b3.backend.evaluator.b3backend.BWrappingContext;
 import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer;
 import org.eclipse.b3.backend.evaluator.b3backend.Visibility;
 import org.eclipse.core.runtime.CoreException;
 
@@ -427,6 +428,13 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * @generated
 	 */
 	private EClass bWithContextExpressionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass iTypedValueContainerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2087,6 +2095,15 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getITypedValueContainer() {
+		return iTypedValueContainerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBGuard() {
 		return bGuardEClass;
 	}
@@ -3521,6 +3538,8 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		createEReference(bWithContextExpressionEClass, BWITH_CONTEXT_EXPRESSION__EXPR);
 		createEReference(bWithContextExpressionEClass, BWITH_CONTEXT_EXPRESSION__CONTEXT_BLOCK);
 
+		iTypedValueContainerEClass = createEClass(ITYPED_VALUE_CONTAINER);
+
 		// Create enums
 		visibilityEEnum = createEEnum(VISIBILITY);
 		executionModeEEnum = createEEnum(EXECUTION_MODE);
@@ -3579,6 +3598,7 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		iTypeVariableEClass_D.getEBounds().add(g1);
 
 		// Add supertypes to classes
+		bExecutionContextEClass.getESuperTypes().add(this.getITypedValueContainer());
 		bIfExpressionEClass.getESuperTypes().add(this.getBExpression());
 		bSwitchExpressionEClass.getESuperTypes().add(this.getBExpression());
 		bTryExpressionEClass.getESuperTypes().add(this.getBExpression());
@@ -3702,44 +3722,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		addEParameter(op, this.getTypeArray(), "types", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getThrowable());
 
-		op = addEOperation(bExecutionContextEClass, ecorePackage.getEJavaObject(), "getValue", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getB3EngineException());
-
-		op = addEOperation(bExecutionContextEClass, this.getLValue(), "getLValue", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getB3EngineException());
-
-		op = addEOperation(bExecutionContextEClass, ecorePackage.getEJavaObject(), "defineValue", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEJavaObject(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getIType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getB3EngineException());
-
-		op = addEOperation(bExecutionContextEClass, ecorePackage.getEJavaObject(), "defineFinalValue", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEJavaObject(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getIType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getB3EngineException());
-
-		op = addEOperation(bExecutionContextEClass, ecorePackage.getEJavaObject(), "defineVariableValue", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEJavaObject(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getIType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getB3EngineException());
-
-		op = addEOperation(bExecutionContextEClass, ecorePackage.getEJavaObject(), "defineFinalVariableValue", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEJavaObject(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getIType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getB3EngineException());
-
-		op = addEOperation(bExecutionContextEClass, ecorePackage.getEBoolean(), "isFinal", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(bExecutionContextEClass, ecorePackage.getEBoolean(), "isImmutable", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		op = addEOperation(bExecutionContextEClass, this.getBInvocationContext(), "getInvocationContext", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getB3EngineException());
 
@@ -3748,10 +3730,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		addEOperation(bExecutionContextEClass, this.getBInnerContext(), "createWrappedInnerContext", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(bExecutionContextEClass, this.getBExecutionContext(), "createOuterContext", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(bExecutionContextEClass, this.getIType(), "getDeclaredValueType", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getB3EngineException());
 
 		op = addEOperation(bExecutionContextEClass, this.getIType(), "getDeclaredFunctionType", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "functionName", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -3800,10 +3778,6 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		g2 = createEGenericType(this.getBConcernContext());
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
-
-		op = addEOperation(bExecutionContextEClass, ecorePackage.getEBoolean(), "containsValue", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEBoolean(), "allVisible", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(bIfExpressionEClass, BIfExpression.class, "BIfExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBIfExpression_ConditionExpr(), this.getBExpression(), null, "conditionExpr", null, 0, 1, BIfExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4258,6 +4232,54 @@ public class B3backendPackageImpl extends EPackageImpl implements B3backendPacka
 		initEAttribute(getBWithContextExpression_Alias(), ecorePackage.getEString(), "alias", null, 0, 1, BWithContextExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBWithContextExpression_Expr(), this.getBExpression(), null, "expr", null, 1, 1, BWithContextExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBWithContextExpression_ContextBlock(), this.getBExpression(), null, "contextBlock", null, 1, 1, BWithContextExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(iTypedValueContainerEClass, ITypedValueContainer.class, "ITypedValueContainer", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = addEOperation(iTypedValueContainerEClass, ecorePackage.getEJavaObject(), "getValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getB3EngineException());
+
+		op = addEOperation(iTypedValueContainerEClass, this.getLValue(), "getLValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getB3EngineException());
+
+		op = addEOperation(iTypedValueContainerEClass, ecorePackage.getEJavaObject(), "defineValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getIType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getB3EngineException());
+
+		op = addEOperation(iTypedValueContainerEClass, ecorePackage.getEJavaObject(), "defineFinalValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getIType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getB3EngineException());
+
+		op = addEOperation(iTypedValueContainerEClass, ecorePackage.getEJavaObject(), "defineVariableValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getIType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getB3EngineException());
+
+		op = addEOperation(iTypedValueContainerEClass, ecorePackage.getEJavaObject(), "defineFinalVariableValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getIType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getB3EngineException());
+
+		op = addEOperation(iTypedValueContainerEClass, ecorePackage.getEBoolean(), "isFinal", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(iTypedValueContainerEClass, ecorePackage.getEBoolean(), "isImmutable", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(iTypedValueContainerEClass, this.getIType(), "getDeclaredValueType", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getB3EngineException());
+
+		op = addEOperation(iTypedValueContainerEClass, ecorePackage.getEBoolean(), "containsValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "allVisible", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(visibilityEEnum, Visibility.class, "Visibility");

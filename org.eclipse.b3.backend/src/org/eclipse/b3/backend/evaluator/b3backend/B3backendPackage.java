@@ -107,6 +107,25 @@ public interface B3backendPackage extends EPackage {
 	int BLINE_REFERENCE_FEATURE_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer <em>ITyped Value Container</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getITypedValueContainer()
+	 * @generated
+	 */
+	int ITYPED_VALUE_CONTAINER = 84;
+
+	/**
+	 * The number of structural features of the '<em>ITyped Value Container</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITYPED_VALUE_CONTAINER_FEATURE_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BExecutionContextImpl <em>BExecution Context</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -123,7 +142,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BEXECUTION_CONTEXT__PARENT_CONTEXT = 0;
+	int BEXECUTION_CONTEXT__PARENT_CONTEXT = ITYPED_VALUE_CONTAINER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Value Map</b></em>' attribute.
@@ -132,7 +151,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BEXECUTION_CONTEXT__VALUE_MAP = 1;
+	int BEXECUTION_CONTEXT__VALUE_MAP = ITYPED_VALUE_CONTAINER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Func Store</b></em>' attribute.
@@ -141,7 +160,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BEXECUTION_CONTEXT__FUNC_STORE = 2;
+	int BEXECUTION_CONTEXT__FUNC_STORE = ITYPED_VALUE_CONTAINER_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Effective Concerns</b></em>' reference list.
@@ -150,7 +169,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS = 3;
+	int BEXECUTION_CONTEXT__EFFECTIVE_CONCERNS = ITYPED_VALUE_CONTAINER_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Progress Monitor</b></em>' attribute.
@@ -159,7 +178,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BEXECUTION_CONTEXT__PROGRESS_MONITOR = 4;
+	int BEXECUTION_CONTEXT__PROGRESS_MONITOR = ITYPED_VALUE_CONTAINER_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>BExecution Context</em>' class.
@@ -168,7 +187,7 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BEXECUTION_CONTEXT_FEATURE_COUNT = 5;
+	int BEXECUTION_CONTEXT_FEATURE_COUNT = ITYPED_VALUE_CONTAINER_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BIfExpressionImpl <em>BIf Expression</em>}' class.
@@ -4264,7 +4283,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getVisibility()
 	 * @generated
 	 */
-	int VISIBILITY = 84;
+	int VISIBILITY = 85;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode <em>Execution Mode</em>}' enum.
@@ -4274,7 +4293,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getExecutionMode()
 	 * @generated
 	 */
-	int EXECUTION_MODE = 85;
+	int EXECUTION_MODE = 86;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.backend.evaluator.b3backend.BJavaCallType <em>BJava Call Type</em>}' enum.
@@ -4284,7 +4303,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getBJavaCallType()
 	 * @generated
 	 */
-	int BJAVA_CALL_TYPE = 86;
+	int BJAVA_CALL_TYPE = 87;
 
 	/**
 	 * The meta object id for the '<em>Core Exception</em>' data type.
@@ -4294,7 +4313,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getCoreException()
 	 * @generated
 	 */
-	int CORE_EXCEPTION = 87;
+	int CORE_EXCEPTION = 88;
 
 
 	/**
@@ -4305,7 +4324,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 88;
+	int TYPE = 89;
 
 	/**
 	 * The meta object id for the '<em>Object Array</em>' data type.
@@ -4314,7 +4333,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getObjectArray()
 	 * @generated
 	 */
-	int OBJECT_ARRAY = 89;
+	int OBJECT_ARRAY = 90;
 
 
 	/**
@@ -4325,7 +4344,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getValueMap()
 	 * @generated
 	 */
-	int VALUE_MAP = 90;
+	int VALUE_MAP = 91;
 
 
 	/**
@@ -4336,7 +4355,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3EngineException()
 	 * @generated
 	 */
-	int B3_ENGINE_EXCEPTION = 91;
+	int B3_ENGINE_EXCEPTION = 92;
 
 
 	/**
@@ -4347,7 +4366,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3ExpressionCache()
 	 * @generated
 	 */
-	int B3_EXPRESSION_CACHE = 92;
+	int B3_EXPRESSION_CACHE = 93;
 
 
 	/**
@@ -4358,7 +4377,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getThrowable()
 	 * @generated
 	 */
-	int THROWABLE = 93;
+	int THROWABLE = 94;
 
 	/**
 	 * The meta object id for the '<em>LValue</em>' data type.
@@ -4368,7 +4387,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getLValue()
 	 * @generated
 	 */
-	int LVALUE = 94;
+	int LVALUE = 95;
 
 	/**
 	 * The meta object id for the '<em>Type Array</em>' data type.
@@ -4377,7 +4396,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getTypeArray()
 	 * @generated
 	 */
-	int TYPE_ARRAY = 95;
+	int TYPE_ARRAY = 96;
 
 	/**
 	 * The meta object id for the '<em>Method</em>' data type.
@@ -4387,7 +4406,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getMethod()
 	 * @generated
 	 */
-	int METHOD = 96;
+	int METHOD = 97;
 
 	/**
 	 * The meta object id for the '<em>Type Variable Array</em>' data type.
@@ -4396,7 +4415,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getTypeVariableArray()
 	 * @generated
 	 */
-	int TYPE_VARIABLE_ARRAY = 97;
+	int TYPE_VARIABLE_ARRAY = 98;
 
 	/**
 	 * The meta object id for the '<em>Func Store</em>' data type.
@@ -4406,7 +4425,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getFuncStore()
 	 * @generated
 	 */
-	int FUNC_STORE = 98;
+	int FUNC_STORE = 99;
 
 	/**
 	 * The meta object id for the '<em>Regexp Pattern</em>' data type.
@@ -4416,7 +4435,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getRegexpPattern()
 	 * @generated
 	 */
-	int REGEXP_PATTERN = 99;
+	int REGEXP_PATTERN = 100;
 
 	/**
 	 * The meta object id for the '<em>String Array</em>' data type.
@@ -4425,7 +4444,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getStringArray()
 	 * @generated
 	 */
-	int STRING_ARRAY = 100;
+	int STRING_ARRAY = 101;
 
 	/**
 	 * The meta object id for the '<em>B3 Dynamic Class Loader</em>' data type.
@@ -4435,7 +4454,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getB3DynamicClassLoader()
 	 * @generated
 	 */
-	int B3_DYNAMIC_CLASS_LOADER = 101;
+	int B3_DYNAMIC_CLASS_LOADER = 102;
 
 	/**
 	 * The meta object id for the '<em>Java Iterator</em>' data type.
@@ -4445,7 +4464,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getJavaIterator()
 	 * @generated
 	 */
-	int JAVA_ITERATOR = 102;
+	int JAVA_ITERATOR = 103;
 
 	/**
 	 * The meta object id for the '<em>URI</em>' data type.
@@ -4455,7 +4474,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getURI()
 	 * @generated
 	 */
-	int URI = 103;
+	int URI = 104;
 
 	/**
 	 * The meta object id for the '<em>IProgress Monitor</em>' data type.
@@ -4465,7 +4484,7 @@ public interface B3backendPackage extends EPackage {
 	 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getIProgressMonitor()
 	 * @generated
 	 */
-	int IPROGRESS_MONITOR = 104;
+	int IPROGRESS_MONITOR = 105;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BExpression <em>BExpression</em>}'.
@@ -5832,6 +5851,16 @@ public interface B3backendPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBWithContextExpression_ContextBlock();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer <em>ITyped Value Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>ITyped Value Container</em>'.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer
+	 * @generated
+	 */
+	EClass getITypedValueContainer();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.backend.evaluator.b3backend.BGuard <em>BGuard</em>}'.
@@ -8260,6 +8289,16 @@ public interface B3backendPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BWITH_CONTEXT_EXPRESSION__CONTEXT_BLOCK = eINSTANCE.getBWithContextExpression_ContextBlock();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer <em>ITyped Value Container</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer
+		 * @see org.eclipse.b3.backend.evaluator.b3backend.impl.B3backendPackageImpl#getITypedValueContainer()
+		 * @generated
+		 */
+		EClass ITYPED_VALUE_CONTAINER = eINSTANCE.getITypedValueContainer();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.backend.evaluator.b3backend.impl.BGuardImpl <em>BGuard</em>}' class.

@@ -41,19 +41,10 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#loadFunction(java.lang.reflect.Method) <em>Load Function</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#defineFunction(org.eclipse.b3.backend.evaluator.b3backend.IFunction) <em>Define Function</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#callFunction(java.lang.String, java.lang.Object[], java.lang.reflect.Type[]) <em>Call Function</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getValue(java.lang.String) <em>Get Value</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getLValue(java.lang.String) <em>Get LValue</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#defineValue(java.lang.String, java.lang.Object, java.lang.reflect.Type) <em>Define Value</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#defineFinalValue(java.lang.String, java.lang.Object, java.lang.reflect.Type) <em>Define Final Value</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#defineVariableValue(java.lang.String, java.lang.Object, java.lang.reflect.Type) <em>Define Variable Value</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#defineFinalVariableValue(java.lang.String, java.lang.Object, java.lang.reflect.Type) <em>Define Final Variable Value</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#isFinal(java.lang.String) <em>Is Final</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#isImmutable(java.lang.String) <em>Is Immutable</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getInvocationContext() <em>Get Invocation Context</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#createInnerContext() <em>Create Inner Context</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#createWrappedInnerContext() <em>Create Wrapped Inner Context</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#createOuterContext() <em>Create Outer Context</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getDeclaredValueType(java.lang.String) <em>Get Declared Value Type</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getDeclaredFunctionType(java.lang.String, java.lang.reflect.Type[]) <em>Get Declared Function Type</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#isPropertyScope() <em>Is Property Scope</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getContext(java.lang.Class) <em>Get Context</em>}</li>
@@ -61,7 +52,16 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getFunctionIterator(java.lang.String) <em>Get Function Iterator</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getFunctionIterator(java.lang.reflect.Type, java.lang.Class) <em>Get Function Iterator</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#getConcernIterator(java.lang.Object) <em>Get Concern Iterator</em>}</li>
- *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#containsValue(java.lang.String, boolean) <em>Contains Value</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#getValue(java.lang.String) <em>Get Value</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#getLValue(java.lang.String) <em>Get LValue</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#defineValue(java.lang.String, java.lang.Object, java.lang.reflect.Type) <em>Define Value</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#defineFinalValue(java.lang.String, java.lang.Object, java.lang.reflect.Type) <em>Define Final Value</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#defineVariableValue(java.lang.String, java.lang.Object, java.lang.reflect.Type) <em>Define Variable Value</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#defineFinalVariableValue(java.lang.String, java.lang.Object, java.lang.reflect.Type) <em>Define Final Variable Value</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#isFinal(java.lang.String) <em>Is Final</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#isImmutable(java.lang.String) <em>Is Immutable</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#getDeclaredValueType(java.lang.String) <em>Get Declared Value Type</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#containsValue(java.lang.String, boolean) <em>Contains Value</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -741,10 +741,10 @@ public abstract class BExecutionContextTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#containsValue(java.lang.String, boolean) <em>Contains Value</em>}' operation.
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#containsValue(java.lang.String, boolean) <em>Contains Value</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.backend.evaluator.b3backend.BExecutionContext#containsValue(java.lang.String, boolean)
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#containsValue(java.lang.String, boolean)
 	 * @generated
 	 */
 	public void testContainsValue__String_boolean() {
