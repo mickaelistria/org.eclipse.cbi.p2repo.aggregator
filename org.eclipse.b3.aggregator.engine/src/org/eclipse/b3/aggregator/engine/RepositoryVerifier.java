@@ -266,6 +266,8 @@ public class RepositoryVerifier extends BuilderPhase {
 						LogUtils.info("Partial IU's encountered. Verifying %s again...", configName); //$NON-NLS-1$
 				}
 			}
+
+			LogUtils.info("Verification successful"); //$NON-NLS-1$
 		}
 		catch(RuntimeException e) {
 			throw ExceptionUtils.wrap(e);
@@ -275,6 +277,8 @@ public class RepositoryVerifier extends BuilderPhase {
 			P2Utils.ungetProfileRegistry(getBuilder().getProvisioningAgent(), profileRegistry);
 			P2Utils.ungetPlanner(getBuilder().getProvisioningAgent(), planner);
 			P2Utils.ungetRepositoryManager(getBuilder().getProvisioningAgent(), mdrMgr);
+
+			LogUtils.info("Done. Took %s", TimeUtils.getFormattedDuration(start)); //$NON-NLS-1$
 		}
 	}
 

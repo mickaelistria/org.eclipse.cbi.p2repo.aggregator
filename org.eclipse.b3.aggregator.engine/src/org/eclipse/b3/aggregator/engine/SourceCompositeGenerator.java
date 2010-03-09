@@ -72,7 +72,7 @@ public class SourceCompositeGenerator extends BuilderPhase {
 				List<String> errors = new ArrayList<String>();
 				for(MappedRepository repo : repos) {
 					try {
-						URI childLocation = new URI(repo.getLocation());
+						URI childLocation = new URI(repo.getResolvedLocation());
 						LogUtils.info("Adding child meta-data repository %s", childLocation);
 
 						// if the original repository is not p2 compatible, persist its virtual metadata as a local p2
