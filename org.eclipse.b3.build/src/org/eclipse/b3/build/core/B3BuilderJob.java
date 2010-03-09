@@ -19,8 +19,8 @@ import org.eclipse.b3.backend.evaluator.b3backend.BParameterList;
 import org.eclipse.b3.backend.evaluator.b3backend.BPropertySet;
 import org.eclipse.b3.backend.evaluator.b3backend.ExecutionMode;
 import org.eclipse.b3.build.build.B3BuildFactory;
-import org.eclipse.b3.build.build.BuildResult;
 import org.eclipse.b3.build.build.BuildResultContext;
+import org.eclipse.b3.build.build.BuildSet;
 import org.eclipse.b3.build.build.BuildUnit;
 import org.eclipse.b3.build.build.BuilderReference;
 import org.eclipse.b3.build.build.EffectiveBuilderReferenceFacade;
@@ -112,18 +112,18 @@ public class B3BuilderJob extends Job {
 		//
 		// create the resulting map, and make sure there is at least an empty BuildResult
 		// (i.e. when no effective input was declared).
-		Map<String, BuildResult> resultMap = new HashMap<String, BuildResult>();
-		resultMap.put("input", B3BuildFactory.eINSTANCE.createBuildResult());
+		Map<String, BuildSet> resultMap = new HashMap<String, BuildSet>();
+		resultMap.put("input", B3BuildFactory.eINSTANCE.createBuildSet());
 
 		for(B3BuilderJob job : jobsToRun) {
-			BuildResult r = job.getBuildResult();
+			BuildSet r = job.getBuildResult();
 			for(String alias : job.getAliases())
 				mergeResult(alias, r, resultMap);
 			mergeResult("input", r, resultMap); // all are added to "input"
 		}
 		// define all the BuildResults in the context per respective name
 		for(String key : resultMap.keySet())
-			ctx.defineFinalValue(key, resultMap.get(key), BuildResult.class);
+			ctx.defineFinalValue(key, resultMap.get(key), BuildSet.class);
 
 		return Status.OK_STATUS;
 	}
@@ -143,7 +143,7 @@ public class B3BuilderJob extends Job {
 	 * @throws IllegalStateException
 	 *             (if this method is called when state is not OK).
 	 */
-	public BuildResult getBuildResult() {
+	public BuildSet getBuildResult() {
 		IStatus r = getResult();
 		if(r != null && r.isOK())
 			return ((B3BuilderStatus) r).getBuildResult();
@@ -159,10 +159,10 @@ public class B3BuilderJob extends Job {
 	 * @throws B3EngineException
 	 *             - if merging values causes type or immutable violation
 	 */
-	private void mergeResult(String key, BuildResult add, Map<String, BuildResult> resultMap) throws B3EngineException {
-		BuildResult buildResult = resultMap.get(key);
+	private void mergeResult(String key, BuildSet add, Map<String, BuildSet> resultMap) throws B3EngineException {
+		BuildSet buildResult = resultMap.get(key);
 		if(buildResult == null)
-			resultMap.put(key, buildResult = B3BuildFactory.eINSTANCE.createBuildResult());
+			resultMap.put(key, buildResult = B3BuildFactory.eINSTANCE.createBuildSet());
 
 		// merge the job result to add into the buildResult
 		buildResult.merge(add);
@@ -281,7 +281,7 @@ public class B3BuilderJob extends Job {
 			// the post input condition. Even if there is no source, assign an empty build result to "source"
 			// (for consistency, and user code may modify this instance).
 			//
-			BuildResult source = B3BuildFactory.eINSTANCE.createBuildResult();
+			BuildSet source = B3BuildFactory.eINSTANCE.createBuildSet();
 			EffectivePathVectorIterator pvItor = new EffectivePathVectorIterator(ctx, builder.getSource());
 			EList<PathVector> sourcePaths = source.getPathVectors();
 			while(pvItor.hasNext())
@@ -303,19 +303,19 @@ public class B3BuilderJob extends Job {
 				}
 			}
 
-			ctx.defineFinalValue("source", source, BuildResult.class);
+			ctx.defineFinalValue("source", source, BuildSet.class);
 
 			// OUTPUT (if stated) should be evaluated at this point to make it available in
 			// the post input condition. Even if there is no output, assign an empty build result to "output"
 			// (for consistency, and user code may modify this instance).
 			// Annotations in output are not processed until later.
-			BuildResult output = B3BuildFactory.eINSTANCE.createBuildResult();
+			BuildSet output = B3BuildFactory.eINSTANCE.createBuildSet();
 			pvItor = new EffectivePathVectorIterator(ctx, builder.getOutput());
 			EList<PathVector> outputPaths = output.getPathVectors();
 			while(pvItor.hasNext())
 				outputPaths.add(pvItor.next().resolve(unit.getOutputLocation()));
 
-			ctx.defineFinalValue("output", output, BuildResult.class);
+			ctx.defineFinalValue("output", output, BuildSet.class);
 
 			// POST INPUT CONDITION
 			// just evaluate, supposed to throw exception if not acceptable
@@ -356,12 +356,12 @@ public class B3BuilderJob extends Job {
 
 			// if still null, use an empty output result
 			if(br == null)
-				br = B3BuildFactory.eINSTANCE.createBuildResult();
+				br = B3BuildFactory.eINSTANCE.createBuildSet();
 
-			if(!(br instanceof BuildResult))
+			if(!(br instanceof BuildSet))
 				throw new B3WrongBuilderReturnType(builder.getName(), br.getClass());
 
-			BuildResult buildResult = (BuildResult) br;
+			BuildSet buildResult = (BuildSet) br;
 
 			// PROCESS DEFAULT ANNOTATIONS
 			// If the returned value is the result of processing output (and there was output declared)
@@ -404,7 +404,7 @@ public class B3BuilderJob extends Job {
 			// POST CONDITION
 			// just evaluate, supposed to throw exception if not acceptable
 			// make the actual returned value available
-			ctx.defineFinalValue("builder", buildResult, BuildResult.class);
+			ctx.defineFinalValue("builder", buildResult, BuildSet.class);
 			tmp = builder.getPostcondExpr();
 			if(tmp != null)
 				tmp.evaluate(ctx);

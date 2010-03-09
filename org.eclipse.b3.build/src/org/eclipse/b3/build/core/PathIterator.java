@@ -7,85 +7,30 @@ import java.util.List;
 
 import org.eclipse.b3.backend.core.B3URIUtils;
 import org.eclipse.b3.backend.core.SerialIterator;
-import org.eclipse.b3.build.build.BuildResult;
+import org.eclipse.b3.build.build.BuildSet;
 import org.eclipse.b3.build.build.ConditionalPathVector;
 import org.eclipse.b3.build.build.PathGroup;
 import org.eclipse.b3.build.build.PathVector;
 import org.eclipse.emf.common.util.EList;
 
 public class PathIterator implements Iterator<URI> {
-	
-	private Iterator<URI> itor;
-	
-	/**
-	 * Returns paths from a PathGroup (i.e. "builder output") - NO EVALUATION OF FILTERS !!
-	 * @param pathGroup
-	 */
-	public PathIterator(PathGroup pathGroup) {
-		SerialIterator<URI> sitor = new SerialIterator<URI>();
-		for(ConditionalPathVector cpv : pathGroup.getPathVectors())
-			sitor.addIterator(new PathIterator(cpv));
-		itor = sitor;
-	}
-	/**
-	 * Returns paths from ConditionalPathVector - NO EVALUATION OF FILTERS !!
-	 * @param cpv
-	 */
-	public PathIterator(ConditionalPathVector cpv) {
-		EList<PathVector> pvs = cpv.getPathVectors();
-		if(pvs.size() == 1)
-			itor = new PathVectorIterator(pvs.get(0));
-		else {
-			SerialIterator<URI> sitor = new SerialIterator<URI>();
-			for(PathVector pv : pvs)
-				sitor.addIterator(new PathVectorIterator(pv));
-			itor = sitor;
-		}
-	}
-	/**
-	 * Returns paths from build result.
-	 * @param buildResult
-	 */
-	public PathIterator(BuildResult buildResult) {
-		SerialIterator<URI> sitor = new SerialIterator<URI>();
-		for(PathVector pv : buildResult.getPathVectors())
-			sitor.addIterator(new PathIterator(pv));
-		itor = sitor;
-	}
-	public PathIterator(PathVector pathVector) {
-		itor = new PathVectorIterator(pathVector);
-	}
 
-	public boolean hasNext() {
-		return itor.hasNext();
-	}
-
-	public URI next() {
-		return itor.next();
-	}
-	
-	public void remove() {
-		itor.remove();
-	}
-	
-	public List<URI> toList() {
-		List<URI> list = new ArrayList<URI>();
-		while(hasNext())
-			list.add(next());
-		return list;
-	}
 	public static class PathVectorIterator implements Iterator<URI> {
 		private URI baseURI;
-		int	index;
+
+		int index;
+
 		private EList<URI> fragmentURIs;
+
 		private PathVector vector;
-		
+
 		public PathVectorIterator(PathVector pathVector) {
 			vector = pathVector;
 			index = 0;
 			baseURI = pathVector.getBasePath();
 			fragmentURIs = pathVector.getPaths();
 		}
+
 		public boolean hasNext() {
 			if(index == 0 && baseURI != null && fragmentURIs.size() == 0)
 				return true;
@@ -111,12 +56,78 @@ public class PathIterator implements Iterator<URI> {
 			if(index == 1 && baseURI != null && fragmentURIs.size() == 0)
 				vector.setBasePath(null);
 			else {
-				fragmentURIs.remove(index-1);
+				fragmentURIs.remove(index - 1);
 				// don't leave the basepath if all subpaths have been removed
 				if(fragmentURIs.size() == 0)
 					vector.setBasePath(null);
 			}
 		}
-		
+
+	}
+
+	private Iterator<URI> itor;
+
+	/**
+	 * Returns paths from build result.
+	 * 
+	 * @param buildResult
+	 */
+	public PathIterator(BuildSet buildResult) {
+		SerialIterator<URI> sitor = new SerialIterator<URI>();
+		for(PathVector pv : buildResult.getPathVectors())
+			sitor.addIterator(new PathIterator(pv));
+		itor = sitor;
+	}
+
+	/**
+	 * Returns paths from ConditionalPathVector - NO EVALUATION OF FILTERS !!
+	 * 
+	 * @param cpv
+	 */
+	public PathIterator(ConditionalPathVector cpv) {
+		EList<PathVector> pvs = cpv.getPathVectors();
+		if(pvs.size() == 1)
+			itor = new PathVectorIterator(pvs.get(0));
+		else {
+			SerialIterator<URI> sitor = new SerialIterator<URI>();
+			for(PathVector pv : pvs)
+				sitor.addIterator(new PathVectorIterator(pv));
+			itor = sitor;
+		}
+	}
+
+	/**
+	 * Returns paths from a PathGroup (i.e. "builder output") - NO EVALUATION OF FILTERS !!
+	 * 
+	 * @param pathGroup
+	 */
+	public PathIterator(PathGroup pathGroup) {
+		SerialIterator<URI> sitor = new SerialIterator<URI>();
+		for(ConditionalPathVector cpv : pathGroup.getPathVectors())
+			sitor.addIterator(new PathIterator(cpv));
+		itor = sitor;
+	}
+
+	public PathIterator(PathVector pathVector) {
+		itor = new PathVectorIterator(pathVector);
+	}
+
+	public boolean hasNext() {
+		return itor.hasNext();
+	}
+
+	public URI next() {
+		return itor.next();
+	}
+
+	public void remove() {
+		itor.remove();
+	}
+
+	public List<URI> toList() {
+		List<URI> list = new ArrayList<URI>();
+		while(hasNext())
+			list.add(next());
+		return list;
 	}
 }

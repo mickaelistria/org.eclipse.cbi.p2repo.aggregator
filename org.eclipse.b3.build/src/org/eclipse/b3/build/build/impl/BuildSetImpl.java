@@ -10,12 +10,16 @@
  */
 package org.eclipse.b3.build.build.impl;
 
+import java.lang.reflect.Type;
 import java.util.Collection;
 
 import org.eclipse.b3.backend.core.B3EngineException;
+import org.eclipse.b3.backend.core.B3FinalVariableRedefinitionException;
+import org.eclipse.b3.backend.core.B3NoSuchVariableException;
+import org.eclipse.b3.backend.core.LValue;
 import org.eclipse.b3.backend.core.ValueMap;
 import org.eclipse.b3.build.build.B3BuildPackage;
-import org.eclipse.b3.build.build.BuildResult;
+import org.eclipse.b3.build.build.BuildSet;
 import org.eclipse.b3.build.build.PathVector;
 import org.eclipse.b3.build.core.PathIterator;
 import org.eclipse.emf.common.notify.Notification;
@@ -32,15 +36,47 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.eclipse.b3.build.build.impl.BuildResultImpl#getPathVectors <em>Path Vectors</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.BuildResultImpl#getValueMap <em>Value Map</em>}</li>
- * <li>{@link org.eclipse.b3.build.build.impl.BuildResultImpl#getPathIterator <em>Path Iterator</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuildSetImpl#getPathVectors <em>Path Vectors</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuildSetImpl#getValueMap <em>Value Map</em>}</li>
+ * <li>{@link org.eclipse.b3.build.build.impl.BuildSetImpl#getPathIterator <em>Path Iterator</em>}</li>
  * </ul>
  * </p>
  * 
  * @generated
  */
-public class BuildResultImpl extends EObjectImpl implements BuildResult {
+public class BuildSetImpl extends EObjectImpl implements BuildSet {
+	protected class ValueMapLVal implements LValue {
+		private String name;
+
+		ValueMapLVal(String name) {
+			this.name = name;
+		}
+
+		public Object get() throws B3EngineException {
+			return getValueMap().get(name);
+		}
+
+		public Type getDeclaredType() throws B3EngineException {
+			return getValueMap().getType(name);
+		}
+
+		public boolean isGetable() throws B3EngineException {
+			return true;
+		}
+
+		public boolean isSettable() {
+			return getValueMap().isImmutable(name);
+		}
+
+		public Object set(Object value) throws B3EngineException {
+			return getValueMap().set(name, value);
+		}
+
+		public void setDeclaredType(Type t) throws B3EngineException {
+			getValueMap().setType(name, t);
+		}
+	}
+
 	/**
 	 * The cached value of the '{@link #getPathVectors() <em>Path Vectors</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -91,8 +127,80 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 	 * 
 	 * @generated
 	 */
-	protected BuildResultImpl() {
+	protected BuildSetImpl() {
 		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public boolean containsValue(String name) {
+		return containsValue(name, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public boolean containsValue(String name, boolean allVisible) {
+		return getValueMap().containsKey(name);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public Object defineFinalValue(String name, Object value, Type t) throws B3EngineException {
+		if(isFinal(name))
+			throw new B3FinalVariableRedefinitionException(name);
+		valueMap.defineFinalValue(name, value, t);
+		return value;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public Object defineFinalVariableValue(String name, Object value, Type t) throws B3EngineException {
+		if(isFinal(name))
+			throw new B3FinalVariableRedefinitionException(name);
+		valueMap.defineFinalVariable(name, value, t);
+		return value;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public Object defineValue(String name, Object value, Type t) throws B3EngineException {
+		if(isFinal(name))
+			throw new B3FinalVariableRedefinitionException(name);
+		valueMap.defineValue(name, value, t);
+		return value;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public Object defineVariableValue(String name, Object value, Type t) throws B3EngineException {
+		if(isFinal(name))
+			throw new B3FinalVariableRedefinitionException(name);
+		valueMap.defineVariable(name, value, t);
+		return value;
 	}
 
 	/**
@@ -104,11 +212,11 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch(featureID) {
-		case B3BuildPackage.BUILD_RESULT__PATH_VECTORS:
+		case B3BuildPackage.BUILD_SET__PATH_VECTORS:
 			return getPathVectors();
-		case B3BuildPackage.BUILD_RESULT__VALUE_MAP:
+		case B3BuildPackage.BUILD_SET__VALUE_MAP:
 			return getValueMap();
-		case B3BuildPackage.BUILD_RESULT__PATH_ITERATOR:
+		case B3BuildPackage.BUILD_SET__PATH_ITERATOR:
 			return getPathIterator();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -123,13 +231,13 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch(featureID) {
-		case B3BuildPackage.BUILD_RESULT__PATH_VECTORS:
+		case B3BuildPackage.BUILD_SET__PATH_VECTORS:
 			return pathVectors != null && !pathVectors.isEmpty();
-		case B3BuildPackage.BUILD_RESULT__VALUE_MAP:
+		case B3BuildPackage.BUILD_SET__VALUE_MAP:
 			return VALUE_MAP_EDEFAULT == null
 					? valueMap != null
 					: !VALUE_MAP_EDEFAULT.equals(valueMap);
-		case B3BuildPackage.BUILD_RESULT__PATH_ITERATOR:
+		case B3BuildPackage.BUILD_SET__PATH_ITERATOR:
 			return PATH_ITERATOR_EDEFAULT == null
 					? getPathIterator() != null
 					: !PATH_ITERATOR_EDEFAULT.equals(getPathIterator());
@@ -147,11 +255,11 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch(featureID) {
-		case B3BuildPackage.BUILD_RESULT__PATH_VECTORS:
+		case B3BuildPackage.BUILD_SET__PATH_VECTORS:
 			getPathVectors().clear();
 			getPathVectors().addAll((Collection<? extends PathVector>) newValue);
 			return;
-		case B3BuildPackage.BUILD_RESULT__VALUE_MAP:
+		case B3BuildPackage.BUILD_SET__VALUE_MAP:
 			setValueMap((ValueMap) newValue);
 			return;
 		}
@@ -166,7 +274,7 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return B3BuildPackage.Literals.BUILD_RESULT;
+		return B3BuildPackage.Literals.BUILD_SET;
 	}
 
 	/**
@@ -178,14 +286,37 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 	@Override
 	public void eUnset(int featureID) {
 		switch(featureID) {
-		case B3BuildPackage.BUILD_RESULT__PATH_VECTORS:
+		case B3BuildPackage.BUILD_SET__PATH_VECTORS:
 			getPathVectors().clear();
 			return;
-		case B3BuildPackage.BUILD_RESULT__VALUE_MAP:
+		case B3BuildPackage.BUILD_SET__VALUE_MAP:
 			setValueMap(VALUE_MAP_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @throws B3EngineException
+	 * @generated NOT
+	 */
+	public Type getDeclaredValueType(String name) throws B3EngineException {
+		return getLValue(name).getDeclaredType();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public LValue getLValue(String name) throws B3EngineException {
+		if(!getValueMap().containsKey(name))
+			throw new B3NoSuchVariableException(name);
+		return new ValueMapLVal(name);
 	}
 
 	/**
@@ -207,9 +338,21 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 	public EList<PathVector> getPathVectors() {
 		if(pathVectors == null) {
 			pathVectors = new EObjectResolvingEList<PathVector>(PathVector.class, this,
-					B3BuildPackage.BUILD_RESULT__PATH_VECTORS);
+					B3BuildPackage.BUILD_SET__PATH_VECTORS);
 		}
 		return pathVectors;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Looks up the value in the value map obtained by calling {@link #getValueMap()} (which derived classes
+	 * may override).
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public Object getValue(String name) throws B3EngineException {
+		return getValueMap().get(name);
 	}
 
 	/**
@@ -226,21 +369,41 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public boolean isFinal(String name) {
+		return getValueMap().isFinal(name);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public boolean isImmutable(String name) {
+		return getValueMap().isImmutable(name);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * TODO: Merges by simply concatenating the vectors from the added build result, and adding values.
 	 * TODO: Optimize by removing duplicates etc.
-	 * TODO: The PathVectors instances should be immutable - they are references to the original declarations - it is
-	 * allowed to
+	 * TODO: The PathVectors instances should be immutable - they are references to the original declarations
 	 * <!-- end-user-doc -->
 	 * 
 	 * @throws B3EngineException
 	 * @generated NOT
 	 */
-	public void merge(BuildResult buildResult) throws B3EngineException {
+	public BuildSet merge(BuildSet buildResult) throws B3EngineException {
 		ValueMap myMap = getValueMap();
 		EList<PathVector> p = getPathVectors();
 		for(PathVector v : buildResult.getPathVectors())
 			p.add(v);
 		myMap.merge(buildResult.getValueMap());
+		return this;
 	}
 
 	/**
@@ -253,7 +416,7 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 		ValueMap oldValueMap = valueMap;
 		valueMap = newValueMap;
 		if(eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILD_RESULT__VALUE_MAP, oldValueMap,
+			eNotify(new ENotificationImpl(this, Notification.SET, B3BuildPackage.BUILD_SET__VALUE_MAP, oldValueMap,
 					valueMap));
 	}
 
@@ -278,5 +441,4 @@ public class BuildResultImpl extends EObjectImpl implements BuildResult {
 		result.append(")");
 		return result.toString();
 	}
-
 } // BuildResultImpl

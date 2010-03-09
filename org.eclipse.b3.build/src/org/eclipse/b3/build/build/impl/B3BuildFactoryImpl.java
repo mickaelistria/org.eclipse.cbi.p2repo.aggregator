@@ -149,8 +149,8 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 			return createEffectiveCapabilityFacade();
 		case B3BuildPackage.EFFECTIVE_BUILDER_REFERENCE_FACADE:
 			return createEffectiveBuilderReferenceFacade();
-		case B3BuildPackage.BUILD_RESULT:
-			return createBuildResult();
+		case B3BuildPackage.BUILD_SET:
+			return createBuildSet();
 		case B3BuildPackage.BUILD_RESULT_CONTEXT:
 			return createBuildResultContext();
 		case B3BuildPackage.OUTPUT_PREDICATE:
@@ -339,9 +339,9 @@ public class B3BuildFactoryImpl extends EFactoryImpl implements B3BuildFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BuildResult createBuildResult() {
-		BuildResultImpl buildResult = new BuildResultImpl();
-		return buildResult;
+	public BuildSet createBuildSet() {
+		BuildSetImpl buildSet = new BuildSetImpl();
+		return buildSet;
 	}
 
 	/**

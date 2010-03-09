@@ -18,6 +18,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper;
 import org.eclipse.b3.backend.evaluator.b3backend.BInnerContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer;
 import org.eclipse.b3.build.build.*;
 
 import org.eclipse.b3.build.core.IBuildUnitRepository;
@@ -324,8 +325,8 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseBuildResult(BuildResult object) {
-			return createBuildResultAdapter();
+		public Adapter caseBuildSet(BuildSet object) {
+			return createBuildSetAdapter();
 		}
 
 		@Override
@@ -401,6 +402,11 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseIFunction(IFunction object) {
 			return createIFunctionAdapter();
+		}
+
+		@Override
+		public Adapter caseITypedValueContainer(ITypedValueContainer object) {
+			return createITypedValueContainerAdapter();
 		}
 
 		@Override
@@ -640,16 +646,16 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.BuildResult <em>Build Result</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.build.build.BuildSet <em>Build Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipse.b3.build.build.BuildResult
+	 * @see org.eclipse.b3.build.build.BuildSet
 	 * @generated
 	 */
-	public Adapter createBuildResultAdapter() {
+	public Adapter createBuildSetAdapter() {
 		return null;
 	}
 
@@ -1350,6 +1356,20 @@ public class B3BuildAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createIFunctionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer <em>ITyped Value Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer
+	 * @generated
+	 */
+	public Adapter createITypedValueContainerAdapter() {
 		return null;
 	}
 

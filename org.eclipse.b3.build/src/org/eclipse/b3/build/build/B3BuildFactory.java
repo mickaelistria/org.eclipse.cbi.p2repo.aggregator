@@ -134,13 +134,13 @@ public interface B3BuildFactory extends EFactory {
 	EffectiveBuilderReferenceFacade createEffectiveBuilderReferenceFacade();
 
 	/**
-	 * Returns a new object of class '<em>Build Result</em>'.
+	 * Returns a new object of class '<em>Build Set</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Build Result</em>'.
+	 * @return a new object of class '<em>Build Set</em>'.
 	 * @generated
 	 */
-	BuildResult createBuildResult();
+	BuildSet createBuildSet();
 
 	/**
 	 * Returns a new object of class '<em>Build Result Context</em>'.

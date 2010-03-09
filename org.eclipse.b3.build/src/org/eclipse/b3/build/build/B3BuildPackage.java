@@ -3522,14 +3522,14 @@ public interface B3BuildPackage extends EPackage {
 	int EFFECTIVE_BUILDER_REFERENCE_FACADE_FEATURE_COUNT = EFFECTIVE_FACADE_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuildResultImpl <em>Build Result</em>}' class.
+	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuildSetImpl <em>Build Set</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.b3.build.build.impl.BuildResultImpl
-	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuildResult()
+	 * @see org.eclipse.b3.build.build.impl.BuildSetImpl
+	 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuildSet()
 	 * @generated
 	 */
-	int BUILD_RESULT = 48;
+	int BUILD_SET = 48;
 
 	/**
 	 * The feature id for the '<em><b>Path Vectors</b></em>' reference list.
@@ -3538,7 +3538,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_RESULT__PATH_VECTORS = 0;
+	int BUILD_SET__PATH_VECTORS = B3backendPackage.ITYPED_VALUE_CONTAINER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Value Map</b></em>' attribute.
@@ -3547,7 +3547,7 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_RESULT__VALUE_MAP = 1;
+	int BUILD_SET__VALUE_MAP = B3backendPackage.ITYPED_VALUE_CONTAINER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Path Iterator</b></em>' attribute.
@@ -3556,16 +3556,16 @@ public interface B3BuildPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_RESULT__PATH_ITERATOR = 2;
+	int BUILD_SET__PATH_ITERATOR = B3backendPackage.ITYPED_VALUE_CONTAINER_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of structural features of the '<em>Build Result</em>' class.
+	 * The number of structural features of the '<em>Build Set</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUILD_RESULT_FEATURE_COUNT = 3;
+	int BUILD_SET_FEATURE_COUNT = B3backendPackage.ITYPED_VALUE_CONTAINER_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.build.build.impl.BuildResultContextImpl <em>Build Result Context</em>}' class.
@@ -4606,47 +4606,47 @@ public interface B3BuildPackage extends EPackage {
 	EAttribute getEffectiveBuilderReferenceFacade_Aliases();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuildResult <em>Build Result</em>}'.
+	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuildSet <em>Build Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Build Result</em>'.
-	 * @see org.eclipse.b3.build.build.BuildResult
+	 * @return the meta object for class '<em>Build Set</em>'.
+	 * @see org.eclipse.b3.build.build.BuildSet
 	 * @generated
 	 */
-	EClass getBuildResult();
+	EClass getBuildSet();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.eclipse.b3.build.build.BuildResult#getPathVectors <em>Path Vectors</em>}'.
+	 * Returns the meta object for the reference list '{@link org.eclipse.b3.build.build.BuildSet#getPathVectors <em>Path Vectors</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference list '<em>Path Vectors</em>'.
-	 * @see org.eclipse.b3.build.build.BuildResult#getPathVectors()
-	 * @see #getBuildResult()
+	 * @see org.eclipse.b3.build.build.BuildSet#getPathVectors()
+	 * @see #getBuildSet()
 	 * @generated
 	 */
-	EReference getBuildResult_PathVectors();
+	EReference getBuildSet_PathVectors();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuildResult#getValueMap <em>Value Map</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuildSet#getValueMap <em>Value Map</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Value Map</em>'.
-	 * @see org.eclipse.b3.build.build.BuildResult#getValueMap()
-	 * @see #getBuildResult()
+	 * @see org.eclipse.b3.build.build.BuildSet#getValueMap()
+	 * @see #getBuildSet()
 	 * @generated
 	 */
-	EAttribute getBuildResult_ValueMap();
+	EAttribute getBuildSet_ValueMap();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuildResult#getPathIterator <em>Path Iterator</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipse.b3.build.build.BuildSet#getPathIterator <em>Path Iterator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Path Iterator</em>'.
-	 * @see org.eclipse.b3.build.build.BuildResult#getPathIterator()
-	 * @see #getBuildResult()
+	 * @see org.eclipse.b3.build.build.BuildSet#getPathIterator()
+	 * @see #getBuildSet()
 	 * @generated
 	 */
-	EAttribute getBuildResult_PathIterator();
+	EAttribute getBuildSet_PathIterator();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.build.build.BuildResultContext <em>Build Result Context</em>}'.
@@ -6576,14 +6576,14 @@ public interface B3BuildPackage extends EPackage {
 		EAttribute EFFECTIVE_BUILDER_REFERENCE_FACADE__ALIASES = eINSTANCE.getEffectiveBuilderReferenceFacade_Aliases();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuildResultImpl <em>Build Result</em>}' class.
+		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuildSetImpl <em>Build Set</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipse.b3.build.build.impl.BuildResultImpl
-		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuildResult()
+		 * @see org.eclipse.b3.build.build.impl.BuildSetImpl
+		 * @see org.eclipse.b3.build.build.impl.B3BuildPackageImpl#getBuildSet()
 		 * @generated
 		 */
-		EClass BUILD_RESULT = eINSTANCE.getBuildResult();
+		EClass BUILD_SET = eINSTANCE.getBuildSet();
 
 		/**
 		 * The meta object literal for the '<em><b>Path Vectors</b></em>' reference list feature.
@@ -6591,7 +6591,7 @@ public interface B3BuildPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BUILD_RESULT__PATH_VECTORS = eINSTANCE.getBuildResult_PathVectors();
+		EReference BUILD_SET__PATH_VECTORS = eINSTANCE.getBuildSet_PathVectors();
 
 		/**
 		 * The meta object literal for the '<em><b>Value Map</b></em>' attribute feature.
@@ -6599,7 +6599,7 @@ public interface B3BuildPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute BUILD_RESULT__VALUE_MAP = eINSTANCE.getBuildResult_ValueMap();
+		EAttribute BUILD_SET__VALUE_MAP = eINSTANCE.getBuildSet_ValueMap();
 
 		/**
 		 * The meta object literal for the '<em><b>Path Iterator</b></em>' attribute feature.
@@ -6607,7 +6607,7 @@ public interface B3BuildPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute BUILD_RESULT__PATH_ITERATOR = eINSTANCE.getBuildResult_PathIterator();
+		EAttribute BUILD_SET__PATH_ITERATOR = eINSTANCE.getBuildSet_PathIterator();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.build.build.impl.BuildResultContextImpl <em>Build Result Context</em>}' class.

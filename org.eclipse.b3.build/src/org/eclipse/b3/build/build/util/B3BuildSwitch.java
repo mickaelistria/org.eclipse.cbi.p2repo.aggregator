@@ -20,6 +20,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.BFunctionWrapper;
 import org.eclipse.b3.backend.evaluator.b3backend.BInnerContext;
 import org.eclipse.b3.backend.evaluator.b3backend.BJavaFunction;
 import org.eclipse.b3.backend.evaluator.b3backend.IFunction;
+import org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer;
 import org.eclipse.b3.build.build.*;
 
 import org.eclipse.b3.build.core.IBuildUnitRepository;
@@ -292,6 +293,8 @@ public class B3BuildSwitch<T> {
 			T result = caseBuildContext(buildContext);
 			if(result == null)
 				result = caseBExecutionContext(buildContext);
+			if(result == null)
+				result = caseITypedValueContainer(buildContext);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -585,9 +588,11 @@ public class B3BuildSwitch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case B3BuildPackage.BUILD_RESULT: {
-			BuildResult buildResult = (BuildResult) theEObject;
-			T result = caseBuildResult(buildResult);
+		case B3BuildPackage.BUILD_SET: {
+			BuildSet buildSet = (BuildSet) theEObject;
+			T result = caseBuildSet(buildSet);
+			if(result == null)
+				result = caseITypedValueContainer(buildSet);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -599,6 +604,8 @@ public class B3BuildSwitch<T> {
 				result = caseBInnerContext(buildResultContext);
 			if(result == null)
 				result = caseBExecutionContext(buildResultContext);
+			if(result == null)
+				result = caseITypedValueContainer(buildResultContext);
 			if(result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -903,17 +910,17 @@ public class B3BuildSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Build Result</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Build Set</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Build Result</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Build Set</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseBuildResult(BuildResult object) {
+	public T caseBuildSet(BuildSet object) {
 		return null;
 	}
 
@@ -1664,6 +1671,21 @@ public class B3BuildSwitch<T> {
 	 * @generated
 	 */
 	public T caseIFunction(IFunction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>ITyped Value Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>ITyped Value Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseITypedValueContainer(ITypedValueContainer object) {
 		return null;
 	}
 

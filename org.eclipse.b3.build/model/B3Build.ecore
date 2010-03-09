@@ -500,9 +500,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="aliases" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BuildResult">
-    <eOperations name="merge" eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//B3EngineException">
-      <eParameters name="buildResult" eType="#//BuildResult"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BuildSet" eSuperTypes="../../org.eclipse.b3.backend/model/B3Backend.ecore#//ITypedValueContainer">
+    <eOperations name="merge" eType="#//BuildSet" eExceptions="ecore:EDataType ../../org.eclipse.b3.backend/model/B3Backend.ecore#//B3EngineException">
+      <eParameters name="buildResult" eType="#//BuildSet"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="pathVectors" upperBound="-1"
         eType="#//PathVector"/>
