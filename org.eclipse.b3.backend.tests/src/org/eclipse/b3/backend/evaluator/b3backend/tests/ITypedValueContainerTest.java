@@ -30,6 +30,7 @@ import org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer;
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#isFinal(java.lang.String) <em>Is Final</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#isImmutable(java.lang.String) <em>Is Immutable</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#getDeclaredValueType(java.lang.String) <em>Get Declared Value Type</em>}</li>
+ *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#containsValue(java.lang.String) <em>Contains Value</em>}</li>
  *   <li>{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#containsValue(java.lang.String, boolean) <em>Contains Value</em>}</li>
  * </ul>
  * </p>
@@ -194,6 +195,19 @@ public abstract class ITypedValueContainerTest extends TestCase {
 	 * @generated
 	 */
 	public void testGetDeclaredValueType__String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#containsValue(java.lang.String) <em>Contains Value</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.b3.backend.evaluator.b3backend.ITypedValueContainer#containsValue(java.lang.String)
+	 * @generated
+	 */
+	public void testContainsValue__String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

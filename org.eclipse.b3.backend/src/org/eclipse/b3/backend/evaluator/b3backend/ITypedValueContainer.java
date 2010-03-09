@@ -125,6 +125,14 @@ public interface ITypedValueContainer extends EObject {
 	 * @model
 	 * @generated
 	 */
+	boolean containsValue(String name);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
 	boolean containsValue(String name, boolean allVisible);
 
 } // ITypedValueContainer
