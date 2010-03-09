@@ -219,7 +219,9 @@ public class VersionRangeEditorDialog extends Dialog {
 
 		new Label(topComposite, SWT.NONE).setText(getString("_UI_VersionRangeEditor_minimumVersionLabel"));
 		minVersionText = new Text(topComposite, SWT.BORDER);
-		minVersionText.setText(versionRange.getMinimum().getOriginal());
+		minVersionText.setText(versionRange.getMinimum().getOriginal() != null
+				? versionRange.getMinimum().getOriginal()
+				: versionRange.getMinimum().toString());
 		GridData gridData = new GridData(GridData.FILL_HORIZONTAL);
 		gridData.widthHint = VERSION_TEXT_WIDTH_HINT;
 		minVersionText.setLayoutData(gridData);
@@ -238,7 +240,9 @@ public class VersionRangeEditorDialog extends Dialog {
 		Version maxVersion = versionRange.getMaximum();
 		maxVersionText.setText((Version.MAX_VERSION.equals(maxVersion) || OSGi_versionMax.equals(maxVersion))
 				? ""
-				: maxVersion.getOriginal());
+				: maxVersion.getOriginal() != null
+						? maxVersion.getOriginal()
+						: maxVersion.toString());
 		maxVersionText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 		maxVersionInclusiveCombo = new Combo(topComposite, SWT.READ_ONLY);
 		maxVersionInclusiveCombo.setItems(inclusiveExclusive);
