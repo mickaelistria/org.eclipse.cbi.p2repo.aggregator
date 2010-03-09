@@ -186,7 +186,7 @@ public class VersionSuffixGenerator {
 
 			String qualifier = null;
 			try {
-				version.getQualifier();
+				qualifier = version.getQualifier();
 			}
 			catch(UnsupportedOperationException e) {
 				// ignore, i.e. let the qualifier be null
