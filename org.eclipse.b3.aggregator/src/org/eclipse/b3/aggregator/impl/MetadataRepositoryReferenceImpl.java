@@ -483,7 +483,8 @@ public class MetadataRepositoryReferenceImpl extends MinimalEObjectImpl.Containe
 
 		if(forceResolve) {
 			if(metadataRepository == null)
-				metadataRepository = P2Factory.eINSTANCE.createMetadataRepositoryProxy(getNature(), getLocation());
+				metadataRepository = P2Factory.eINSTANCE.createMetadataRepositoryProxy(getNature(),
+						getResolvedLocation());
 
 			return getMetadataRepositoryGen();
 		}

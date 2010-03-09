@@ -806,6 +806,10 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 			myMDR = null;
 
 		Aggregator aggregator = getAggregator();
+		if(aggregator == null)
+			// the resource was removed before it was loaded
+			return;
+
 		for(MetadataRepositoryReference mdr : aggregator.getAllMetadataRepositoryReferences(true)) {
 			String refLocation = mdr.getNature() + ":" + mdr.getResolvedLocation();
 			if(myLocation.equals(refLocation)) {
@@ -909,7 +913,17 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 	}
 
 	private Aggregator getAggregator() {
-		return (Aggregator) getResourceSet().getResources().get(0).getContents().get(0);
+		ResourceSet rs = getResourceSet();
+		if(rs != null) {
+			List<Resource> resources = rs.getResources();
+			if(resources != null && resources.size() > 0) {
+				Resource aggrResource = resources.get(0);
+				if(aggrResource != null)
+					return (Aggregator) aggrResource.getContents().get(0);
+			}
+		}
+
+		return null;
 	}
 
 	private List<Object> getFirstNode(Object[] startAfterPath, boolean forward) {
