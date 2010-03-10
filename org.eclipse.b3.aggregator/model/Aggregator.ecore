@@ -505,6 +505,8 @@
         serializable="false"/>
     <eClassifiers xsi:type="ecore:EDataType" name="IProgressMonitor" instanceClassName="org.eclipse.core.runtime.IProgressMonitor"
         serializable="false"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="IRunnableWithProgress" instanceClassName="org.eclipse.equinox.p2.repository.IRunnableWithProgress"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="IStatus" instanceClassName="org.eclipse.core.runtime.IStatus"/>
     <eClassifiers xsi:type="ecore:EDataType" name="Filter" instanceClassName="org.osgi.framework.Filter"/>
     <eClassifiers xsi:type="ecore:EDataType" name="IMatchExpression" instanceClassName="org.eclipse.equinox.p2.metadata.expression.IMatchExpression">
       <eTypeParameters name="T"/>
@@ -534,6 +536,10 @@
             <eTypeArguments eClassifier="#//p2/IInstallableUnit"/>
           </eGenericType>
         </eParameters>
+      </eOperations>
+      <eOperations name="executeBatch" eType="#//p2/IStatus">
+        <eParameters name="runnable" eType="#//p2/IRunnableWithProgress"/>
+        <eParameters name="monitor" eType="#//p2/IProgressMonitor"/>
       </eOperations>
       <eGenericSuperTypes eClassifier="#//p2/IRepository">
         <eTypeArguments eClassifier="#//p2/IInstallableUnit"/>

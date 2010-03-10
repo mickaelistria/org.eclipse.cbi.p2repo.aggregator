@@ -9,6 +9,7 @@ package org.eclipse.b3.aggregator.p2.impl;
 import java.util.Collection;
 import java.util.Map;
 
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.b3.aggregator.p2.ArtifactKey;
 import org.eclipse.b3.aggregator.p2.Copyright;
 import org.eclipse.b3.aggregator.p2.InstallableUnit;
@@ -45,6 +46,7 @@ import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
 import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 import org.eclipse.equinox.p2.query.IQueryResult;
+import org.eclipse.equinox.p2.repository.IRunnableWithProgress;
 import org.eclipse.osgi.framework.internal.core.FilterImpl;
 import org.osgi.framework.Filter;
 import org.osgi.framework.InvalidSyntaxException;
@@ -194,6 +196,26 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public String convertIRunnableWithProgressToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public String convertIStatusToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -255,6 +277,10 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 			return convertILicenseArrayToString(eDataType, instanceValue);
 		case P2Package.IQUERY_RESULT:
 			return convertIQueryResultToString(eDataType, instanceValue);
+		case P2Package.IRUNNABLE_WITH_PROGRESS:
+			return convertIRunnableWithProgressToString(eDataType, instanceValue);
+		case P2Package.ISTATUS:
+			return convertIStatusToString(eDataType, instanceValue);
 		case P2Package.FILTER:
 			return convertFilterToString(eDataType, instanceValue);
 		case P2Package.IMATCH_EXPRESSION:
@@ -420,6 +446,10 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 			return createILicenseArrayFromString(eDataType, initialValue);
 		case P2Package.IQUERY_RESULT:
 			return createIQueryResultFromString(eDataType, initialValue);
+		case P2Package.IRUNNABLE_WITH_PROGRESS:
+			return createIRunnableWithProgressFromString(eDataType, initialValue);
+		case P2Package.ISTATUS:
+			return createIStatusFromString(eDataType, initialValue);
 		case P2Package.FILTER:
 			return createFilterFromString(eDataType, initialValue);
 		case P2Package.IMATCH_EXPRESSION:
@@ -536,6 +566,26 @@ public class P2FactoryImpl extends EFactoryImpl implements P2Factory {
 	 */
 	public IQueryResult<?> createIQueryResultFromString(EDataType eDataType, String initialValue) {
 		return (IQueryResult<?>) super.createFromString(initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public IRunnableWithProgress createIRunnableWithProgressFromString(EDataType eDataType, String initialValue) {
+		return (IRunnableWithProgress) super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public IStatus createIStatusFromString(EDataType eDataType, String initialValue) {
+		return (IStatus) super.createFromString(eDataType, initialValue);
 	}
 
 	/**

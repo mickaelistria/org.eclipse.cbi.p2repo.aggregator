@@ -1145,6 +1145,28 @@ public interface P2Package extends EPackage {
 		EDataType IPROGRESS_MONITOR = eINSTANCE.getIProgressMonitor();
 
 		/**
+		 * The meta object literal for the '<em>IRunnable With Progress</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.equinox.p2.repository.IRunnableWithProgress
+		 * @see org.eclipse.b3.aggregator.p2.impl.P2PackageImpl#getIRunnableWithProgress()
+		 * @generated
+		 */
+		EDataType IRUNNABLE_WITH_PROGRESS = eINSTANCE.getIRunnableWithProgress();
+
+		/**
+		 * The meta object literal for the '<em>IStatus</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.core.runtime.IStatus
+		 * @see org.eclipse.b3.aggregator.p2.impl.P2PackageImpl#getIStatus()
+		 * @generated
+		 */
+		EDataType ISTATUS = eINSTANCE.getIStatus();
+
+		/**
 		 * The meta object literal for the '<em>Filter</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3443,7 +3465,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2.impl.P2PackageImpl#getIProvisioningAgent()
 	 * @generated
 	 */
-	int IPROVISIONING_AGENT = 52;
+	int IPROVISIONING_AGENT = 54;
 
 	/**
 	 * The meta object id for the '<em>Version</em>' data type.
@@ -3607,6 +3629,28 @@ public interface P2Package extends EPackage {
 	int IPROGRESS_MONITOR = 49;
 
 	/**
+	 * The meta object id for the '<em>IRunnable With Progress</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.equinox.p2.repository.IRunnableWithProgress
+	 * @see org.eclipse.b3.aggregator.p2.impl.P2PackageImpl#getIRunnableWithProgress()
+	 * @generated
+	 */
+	int IRUNNABLE_WITH_PROGRESS = 50;
+
+	/**
+	 * The meta object id for the '<em>IStatus</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.core.runtime.IStatus
+	 * @see org.eclipse.b3.aggregator.p2.impl.P2PackageImpl#getIStatus()
+	 * @generated
+	 */
+	int ISTATUS = 51;
+
+	/**
 	 * The meta object id for the '<em>Filter</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3615,7 +3659,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2.impl.P2PackageImpl#getFilter()
 	 * @generated
 	 */
-	int FILTER = 50;
+	int FILTER = 52;
 
 	/**
 	 * The meta object id for the '<em>IMatch Expression</em>' data type.
@@ -3626,7 +3670,7 @@ public interface P2Package extends EPackage {
 	 * @see org.eclipse.b3.aggregator.p2.impl.P2PackageImpl#getIMatchExpression()
 	 * @generated
 	 */
-	int IMATCH_EXPRESSION = 51;
+	int IMATCH_EXPRESSION = 53;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.b3.aggregator.p2.ArtifactKey <em>Artifact Key</em>}'.
@@ -4523,6 +4567,31 @@ public interface P2Package extends EPackage {
 	 * @generated
 	 */
 	EAttribute getIRequirement_Min();
+
+	/**
+	 * Returns the meta object for data type '{@link org.eclipse.equinox.p2.repository.IRunnableWithProgress
+	 * <em>IRunnable With Progress</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for data type '<em>IRunnable With Progress</em>'.
+	 * @see org.eclipse.equinox.p2.repository.IRunnableWithProgress
+	 * @model instanceClass="org.eclipse.equinox.p2.repository.IRunnableWithProgress"
+	 * @generated
+	 */
+	EDataType getIRunnableWithProgress();
+
+	/**
+	 * Returns the meta object for data type '{@link org.eclipse.core.runtime.IStatus <em>IStatus</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for data type '<em>IStatus</em>'.
+	 * @see org.eclipse.core.runtime.IStatus
+	 * @model instanceClass="org.eclipse.core.runtime.IStatus"
+	 * @generated
+	 */
+	EDataType getIStatus();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.equinox.p2.metadata.ITouchpointData

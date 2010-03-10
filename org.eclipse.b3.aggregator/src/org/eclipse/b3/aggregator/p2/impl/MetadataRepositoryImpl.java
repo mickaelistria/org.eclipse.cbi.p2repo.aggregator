@@ -24,6 +24,7 @@ import org.eclipse.b3.util.ExceptionUtils;
 import org.eclipse.core.internal.runtime.AdapterManager;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -44,6 +45,7 @@ import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.query.IQuery;
 import org.eclipse.equinox.p2.query.IQueryResult;
 import org.eclipse.equinox.p2.repository.IRepositoryReference;
+import org.eclipse.equinox.p2.repository.IRunnableWithProgress;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
 
@@ -530,6 +532,16 @@ public class MetadataRepositoryImpl extends MinimalEObjectImpl.Container impleme
 			return;
 		}
 		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public IStatus executeBatch(IRunnableWithProgress runnable, IProgressMonitor monitor) {
+		throw new UnsupportedOperationException();
 	}
 
 	/**

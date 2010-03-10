@@ -31,6 +31,7 @@ import org.eclipse.b3.aggregator.p2view.P2viewPackage;
 import org.eclipse.b3.aggregator.p2view.impl.P2viewPackageImpl;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -64,6 +65,7 @@ import org.eclipse.equinox.p2.query.IQueryResult;
 import org.eclipse.equinox.p2.query.IQueryable;
 import org.eclipse.equinox.p2.repository.IRepository;
 import org.eclipse.equinox.p2.repository.IRepositoryReference;
+import org.eclipse.equinox.p2.repository.IRunnableWithProgress;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
 import org.osgi.framework.Filter;
 
@@ -438,6 +440,22 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 * 
 	 * @generated
 	 */
+	private EDataType iRunnableWithProgressEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EDataType iStatusEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	private EDataType filterEDataType = null;
 
 	/**
@@ -707,6 +725,8 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		iQueryEDataType = createEDataType(IQUERY);
 		collectorEDataType = createEDataType(COLLECTOR);
 		iProgressMonitorEDataType = createEDataType(IPROGRESS_MONITOR);
+		iRunnableWithProgressEDataType = createEDataType(IRUNNABLE_WITH_PROGRESS);
+		iStatusEDataType = createEDataType(ISTATUS);
 		filterEDataType = createEDataType(FILTER);
 		iMatchExpressionEDataType = createEDataType(IMATCH_EXPRESSION);
 		iProvisioningAgentEDataType = createEDataType(IPROVISIONING_AGENT);
@@ -1399,6 +1419,26 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 */
 	public EAttribute getIRequirement_Min() {
 		return (EAttribute) iRequirementEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EDataType getIRunnableWithProgress() {
+		return iRunnableWithProgressEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EDataType getIStatus() {
+		return iStatusEDataType;
 	}
 
 	/**
@@ -2173,6 +2213,10 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "installableUnits", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = addEOperation(iMetadataRepositoryEClass, this.getIStatus(), "executeBatch", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getIRunnableWithProgress(), "runnable", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getIProgressMonitor(), "monitor", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(iRepositoryEClass, IRepository.class, "IRepository", IS_ABSTRACT, IS_INTERFACE,
 				!IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIRepository_Location(), theAggregatorPackage.getURI(), "location", null, 1, 1,
@@ -2267,6 +2311,9 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		initEDataType(collectorEDataType, Collector.class, "Collector", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(iProgressMonitorEDataType, IProgressMonitor.class, "IProgressMonitor", !IS_SERIALIZABLE,
 				!IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(iRunnableWithProgressEDataType, IRunnableWithProgress.class, "IRunnableWithProgress",
+				IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(iStatusEDataType, IStatus.class, "IStatus", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(filterEDataType, Filter.class, "Filter", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(iMatchExpressionEDataType, IMatchExpression.class, "IMatchExpression", IS_SERIALIZABLE,
 				!IS_GENERATED_INSTANCE_CLASS);
