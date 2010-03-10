@@ -27,11 +27,7 @@ import org.eclipse.b3.aggregator.util.ITransformer;
 import org.eclipse.b3.aggregator.util.ITransformerContextContributor;
 import org.eclipse.b3.aggregator.util.ResourceUtils;
 import org.eclipse.b3.util.StringUtils;
-import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IFolder;
-import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
@@ -302,41 +298,9 @@ public class TransformationWizard extends Wizard implements INewWizard {
 		newFileCreationPage.setDescription("Provide location for the transformed model");
 		newFileCreationPage.setFileName(srcResourceURI.lastSegment().replaceAll("\\.[^.]*$", "") + "."
 				+ FILE_EXTENSIONS.get(0));
+		newFileCreationPage.setContainerFullPath(Path.fromOSString(srcResourceURI.toPlatformString(true)).makeAbsolute().removeLastSegments(
+				1));
 		addPage(newFileCreationPage);
-
-		// Try and get the resource selection to determine a current directory for the file dialog.
-		//
-		if(selection != null && !selection.isEmpty()) {
-			// Get the resource...
-			//
-			Object selectedElement = selection.iterator().next();
-			if(selectedElement instanceof IResource) {
-				// Get the resource parent, if its a file.
-				//
-				IResource selectedResource = (IResource) selectedElement;
-				if(selectedResource.getType() == IResource.FILE) {
-					selectedResource = selectedResource.getParent();
-				}
-
-				// This gives us a directory...
-				//
-				if(selectedResource instanceof IFolder || selectedResource instanceof IProject) {
-					// Set this for the container.
-					//
-					newFileCreationPage.setContainerFullPath(selectedResource.getFullPath());
-
-					// Make up a unique new name here.
-					//
-					String defaultModelBaseFilename = AggregatorEditorPlugin.INSTANCE.getString("_UI_AggregatorEditorFilenameDefaultBase");
-					String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
-					String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
-					for(int i = 1; ((IContainer) selectedResource).findMember(modelFilename) != null; ++i) {
-						modelFilename = defaultModelBaseFilename + i + "." + defaultModelFilenameExtension;
-					}
-					newFileCreationPage.setFileName(modelFilename);
-				}
-			}
-		}
 	}
 
 	public IFile getModelFile() {
@@ -361,7 +325,7 @@ public class TransformationWizard extends Wizard implements INewWizard {
 	public boolean performFinish() {
 
 		// Do the work within an operation.
-		//		
+		//
 		IRunnableWithProgress operation = new IRunnableWithProgress() {
 
 			public void run(IProgressMonitor monitor) throws InvocationTargetException, InterruptedException {
