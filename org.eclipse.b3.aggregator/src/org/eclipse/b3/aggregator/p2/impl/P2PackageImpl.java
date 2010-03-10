@@ -602,6 +602,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		createEAttribute(iRequirementEClass, IREQUIREMENT__MIN);
 		createEAttribute(iRequirementEClass, IREQUIREMENT__MATCHES);
 		createEAttribute(iRequirementEClass, IREQUIREMENT__GREEDY);
+		createEAttribute(iRequirementEClass, IREQUIREMENT__DESCRIPTION);
 
 		iRequiredCapabilityEClass = createEClass(IREQUIRED_CAPABILITY);
 		createEAttribute(iRequiredCapabilityEClass, IREQUIRED_CAPABILITY__NAME);
@@ -625,6 +626,7 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 		iUpdateDescriptorEClass = createEClass(IUPDATE_DESCRIPTOR);
 		createEAttribute(iUpdateDescriptorEClass, IUPDATE_DESCRIPTOR__DESCRIPTION);
 		createEAttribute(iUpdateDescriptorEClass, IUPDATE_DESCRIPTOR__SEVERITY);
+		createEAttribute(iUpdateDescriptorEClass, IUPDATE_DESCRIPTOR__LOCATION);
 
 		artifactKeyEClass = createEClass(ARTIFACT_KEY);
 
@@ -1345,6 +1347,16 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 * 
 	 * @generated
 	 */
+	public EAttribute getIRequirement_Description() {
+		return (EAttribute) iRequirementEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EAttribute getIRequirement_Filter() {
 		return (EAttribute) iRequirementEClass.getEStructuralFeatures().get(0);
 	}
@@ -1477,6 +1489,16 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 	 */
 	public EAttribute getIUpdateDescriptor_Description() {
 		return (EAttribute) iUpdateDescriptorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getIUpdateDescriptor_Location() {
+		return (EAttribute) iUpdateDescriptorEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1957,6 +1979,9 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIRequirement_Greedy(), ecorePackage.getEBoolean(), "greedy", null, 0, 1, IRequirement.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIRequirement_Description(), ecorePackage.getEString(), "description", null, 0, 1,
+				IRequirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(iRequirementEClass, ecorePackage.getEBoolean(), "isMatch", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getIInstallableUnit(), "installableUnit", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -2017,6 +2042,9 @@ public class P2PackageImpl extends EPackageImpl implements P2Package {
 				IUpdateDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIUpdateDescriptor_Severity(), ecorePackage.getEInt(), "severity", null, 0, 1,
+				IUpdateDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIUpdateDescriptor_Location(), theAggregatorPackage.getURI(), "location", null, 0, 1,
 				IUpdateDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 

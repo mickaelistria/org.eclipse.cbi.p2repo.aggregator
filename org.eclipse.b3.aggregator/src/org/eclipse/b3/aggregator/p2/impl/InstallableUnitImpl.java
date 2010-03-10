@@ -45,7 +45,6 @@ import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.equinox.internal.p2.core.helpers.OrderedProperties;
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
-import org.eclipse.equinox.internal.p2.metadata.VersionedId;
 import org.eclipse.equinox.p2.metadata.IArtifactKey;
 import org.eclipse.equinox.p2.metadata.ICopyright;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
@@ -58,6 +57,7 @@ import org.eclipse.equinox.p2.metadata.ITouchpointInstruction;
 import org.eclipse.equinox.p2.metadata.ITouchpointType;
 import org.eclipse.equinox.p2.metadata.IUpdateDescriptor;
 import org.eclipse.equinox.p2.metadata.Version;
+import org.eclipse.equinox.p2.metadata.VersionedId;
 import org.osgi.framework.Filter;
 
 /**
@@ -196,6 +196,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 		mreq.setMin(req.getMin());
 		mreq.setMax(req.getMax());
 		mreq.setMatches(req.getMatches());
+		mreq.setDescription(req.getDescription());
 
 		return mreq;
 	}
@@ -309,6 +310,7 @@ public class InstallableUnitImpl extends MinimalEObjectImpl.Container implements
 		mud.setDescription(ud.getDescription());
 		mud.setIUsBeingUpdated(ud.getIUsBeingUpdated());
 		mud.setSeverity(ud.getSeverity());
+		mud.setLocation(ud.getLocation());
 		return mud;
 	}
 

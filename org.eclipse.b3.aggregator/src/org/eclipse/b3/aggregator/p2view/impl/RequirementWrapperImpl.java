@@ -35,6 +35,7 @@ import org.osgi.framework.Filter;
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequirementWrapperImpl#getMin <em>Min</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequirementWrapperImpl#getMatches <em>Matches</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequirementWrapperImpl#isGreedy <em>Greedy</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequirementWrapperImpl#getDescription <em>Description</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequirementWrapperImpl#getLabel <em>Label</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2view.impl.RequirementWrapperImpl#getGenuine <em>Genuine</em>}</li>
  * </ul>
@@ -153,6 +154,28 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	protected static final int GREEDY_EFLAG = 1 << 0;
 
 	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected String description = DESCRIPTION_EDEFAULT;
+
+	/**
 	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -258,6 +281,8 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 			return getMatches();
 		case P2viewPackage.REQUIREMENT_WRAPPER__GREEDY:
 			return isGreedy();
+		case P2viewPackage.REQUIREMENT_WRAPPER__DESCRIPTION:
+			return getDescription();
 		case P2viewPackage.REQUIREMENT_WRAPPER__LABEL:
 			return getLabel();
 		case P2viewPackage.REQUIREMENT_WRAPPER__GENUINE:
@@ -309,6 +334,9 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 		case P2viewPackage.REQUIREMENT_WRAPPER__GREEDY:
 			setGreedy((Boolean) newValue);
 			return;
+		case P2viewPackage.REQUIREMENT_WRAPPER__DESCRIPTION:
+			setDescription((String) newValue);
+			return;
 		case P2viewPackage.REQUIREMENT_WRAPPER__LABEL:
 			setLabel((String) newValue);
 			return;
@@ -339,11 +367,24 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 		case P2viewPackage.REQUIREMENT_WRAPPER__GREEDY:
 			setGreedy(GREEDY_EDEFAULT);
 			return;
+		case P2viewPackage.REQUIREMENT_WRAPPER__DESCRIPTION:
+			setDescription(DESCRIPTION_EDEFAULT);
+			return;
 		case P2viewPackage.REQUIREMENT_WRAPPER__LABEL:
 			setLabel(LABEL_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public String getDescription() {
+		return description;
 	}
 
 	/**
@@ -420,6 +461,20 @@ public class RequirementWrapperImpl extends MinimalEObjectImpl.Container impleme
 	 */
 	public boolean isMatch(IInstallableUnit installableUnit) {
 		return genuine.isMatch(installableUnit);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setDescription(String newDescription) {
+		String oldDescription = description;
+		description = newDescription;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2viewPackage.REQUIREMENT_WRAPPER__DESCRIPTION,
+					oldDescription, description));
 	}
 
 	/**

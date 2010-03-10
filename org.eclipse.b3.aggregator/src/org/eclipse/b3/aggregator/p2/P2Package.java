@@ -376,6 +376,15 @@ public interface P2Package extends EPackage {
 		EAttribute IREQUIREMENT__GREEDY = eINSTANCE.getIRequirement_Greedy();
 
 		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute IREQUIREMENT__DESCRIPTION = eINSTANCE.getIRequirement_Description();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.equinox.internal.p2.metadata.IRequiredCapability
 		 * <em>IRequired Capability</em>}' class.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -540,6 +549,15 @@ public interface P2Package extends EPackage {
 		 * @generated
 		 */
 		EAttribute IUPDATE_DESCRIPTOR__SEVERITY = eINSTANCE.getIUpdateDescriptor_Severity();
+
+		/**
+		 * The meta object literal for the '<em><b>Location</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute IUPDATE_DESCRIPTOR__LOCATION = eINSTANCE.getIUpdateDescriptor_Location();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.b3.aggregator.p2.impl.ArtifactKeyImpl
@@ -1796,6 +1814,16 @@ public interface P2Package extends EPackage {
 	int IREQUIREMENT__GREEDY = 4;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IREQUIREMENT__DESCRIPTION = 5;
+
+	/**
 	 * The number of structural features of the '<em>IRequirement</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1803,7 +1831,7 @@ public interface P2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IREQUIREMENT_FEATURE_COUNT = 5;
+	int IREQUIREMENT_FEATURE_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.equinox.internal.p2.metadata.IRequiredCapability
@@ -1863,6 +1891,16 @@ public interface P2Package extends EPackage {
 	 * @ordered
 	 */
 	int IREQUIRED_CAPABILITY__GREEDY = IREQUIREMENT__GREEDY;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IREQUIRED_CAPABILITY__DESCRIPTION = IREQUIREMENT__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2030,6 +2068,16 @@ public interface P2Package extends EPackage {
 	int IUPDATE_DESCRIPTOR__SEVERITY = 1;
 
 	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int IUPDATE_DESCRIPTOR__LOCATION = 2;
+
+	/**
 	 * The number of structural features of the '<em>IUpdate Descriptor</em>' class.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -2037,7 +2085,7 @@ public interface P2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IUPDATE_DESCRIPTOR_FEATURE_COUNT = 2;
+	int IUPDATE_DESCRIPTOR_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.b3.aggregator.p2.impl.ArtifactKeyImpl <em>Artifact Key</em>}'
@@ -3016,6 +3064,16 @@ public interface P2Package extends EPackage {
 	int REQUIREMENT__GREEDY = IREQUIREMENT__GREEDY;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIREMENT__DESCRIPTION = IREQUIREMENT__DESCRIPTION;
+
+	/**
 	 * The number of structural features of the '<em>Requirement</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3072,6 +3130,16 @@ public interface P2Package extends EPackage {
 	 * @ordered
 	 */
 	int REQUIRED_CAPABILITY__GREEDY = REQUIREMENT__GREEDY;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRED_CAPABILITY__DESCRIPTION = REQUIREMENT__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3202,6 +3270,16 @@ public interface P2Package extends EPackage {
 	 * @ordered
 	 */
 	int UPDATE_DESCRIPTOR__SEVERITY = IUPDATE_DESCRIPTOR__SEVERITY;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int UPDATE_DESCRIPTOR__LOCATION = IUPDATE_DESCRIPTOR__LOCATION;
 
 	/**
 	 * The number of structural features of the '<em>Update Descriptor</em>' class.
@@ -4369,6 +4447,19 @@ public interface P2Package extends EPackage {
 	EClass getIRequirement();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IRequirement#getDescription
+	 * <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see org.eclipse.equinox.p2.metadata.IRequirement#getDescription()
+	 * @see #getIRequirement()
+	 * @generated
+	 */
+	EAttribute getIRequirement_Description();
+
+	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IRequirement#getFilter
 	 * <em>Filter</em>}'.
 	 * <!-- begin-user-doc -->
@@ -4551,6 +4642,19 @@ public interface P2Package extends EPackage {
 	 * @generated
 	 */
 	EAttribute getIUpdateDescriptor_Description();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IUpdateDescriptor#getLocation
+	 * <em>Location</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '<em>Location</em>'.
+	 * @see org.eclipse.equinox.p2.metadata.IUpdateDescriptor#getLocation()
+	 * @see #getIUpdateDescriptor()
+	 * @generated
+	 */
+	EAttribute getIUpdateDescriptor_Location();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipse.equinox.p2.metadata.IUpdateDescriptor#getSeverity

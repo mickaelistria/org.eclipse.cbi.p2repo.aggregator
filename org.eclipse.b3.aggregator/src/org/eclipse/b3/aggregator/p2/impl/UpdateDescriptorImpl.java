@@ -6,6 +6,7 @@
  */
 package org.eclipse.b3.aggregator.p2.impl;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -90,6 +91,28 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	protected int severity = SEVERITY_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getLocation() <em>Location</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getLocation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final URI LOCATION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getLocation() <em>Location</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getLocation()
+	 * @generated
+	 * @ordered
+	 */
+	protected URI location = LOCATION_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -110,6 +133,8 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 			return getDescription();
 		case P2Package.UPDATE_DESCRIPTOR__SEVERITY:
 			return getSeverity();
+		case P2Package.UPDATE_DESCRIPTOR__LOCATION:
+			return getLocation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -128,6 +153,10 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 					: !DESCRIPTION_EDEFAULT.equals(description);
 		case P2Package.UPDATE_DESCRIPTOR__SEVERITY:
 			return severity != SEVERITY_EDEFAULT;
+		case P2Package.UPDATE_DESCRIPTOR__LOCATION:
+			return LOCATION_EDEFAULT == null
+					? location != null
+					: !LOCATION_EDEFAULT.equals(location);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -146,6 +175,9 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 		case P2Package.UPDATE_DESCRIPTOR__SEVERITY:
 			setSeverity((Integer) newValue);
 			return;
+		case P2Package.UPDATE_DESCRIPTOR__LOCATION:
+			setLocation((URI) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -163,6 +195,9 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 			return;
 		case P2Package.UPDATE_DESCRIPTOR__SEVERITY:
 			setSeverity(SEVERITY_EDEFAULT);
+			return;
+		case P2Package.UPDATE_DESCRIPTOR__LOCATION:
+			setLocation(LOCATION_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -188,6 +223,16 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 			matchExpressions = new ArrayList<IMatchExpression<IInstallableUnit>>();
 
 		return matchExpressions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public URI getLocation() {
+		return location;
 	}
 
 	/**
@@ -232,6 +277,20 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setLocation(URI newLocation) {
+		URI oldLocation = location;
+		location = newLocation;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.UPDATE_DESCRIPTOR__LOCATION, oldLocation,
+					location));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
@@ -259,6 +318,8 @@ public class UpdateDescriptorImpl extends MinimalEObjectImpl.Container implement
 		result.append(description);
 		result.append(", severity: ");
 		result.append(severity);
+		result.append(", location: ");
+		result.append(location);
 		result.append(')');
 		return result.toString();
 	}

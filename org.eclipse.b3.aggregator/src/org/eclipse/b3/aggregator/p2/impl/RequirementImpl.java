@@ -29,6 +29,7 @@ import org.osgi.framework.Filter;
  * <li>{@link org.eclipse.b3.aggregator.p2.impl.RequirementImpl#getMin <em>Min</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2.impl.RequirementImpl#getMatches <em>Matches</em>}</li>
  * <li>{@link org.eclipse.b3.aggregator.p2.impl.RequirementImpl#isGreedy <em>Greedy</em>}</li>
+ * <li>{@link org.eclipse.b3.aggregator.p2.impl.RequirementImpl#getDescription <em>Description</em>}</li>
  * </ul>
  * </p>
  * 
@@ -145,6 +146,28 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	protected static final int GREEDY_EFLAG = 1 << 0;
 
 	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected String description = DESCRIPTION_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -173,6 +196,8 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 			return getMatches();
 		case P2Package.REQUIREMENT__GREEDY:
 			return isGreedy();
+		case P2Package.REQUIREMENT__DESCRIPTION:
+			return getDescription();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -198,6 +223,10 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 			return matches != null;
 		case P2Package.REQUIREMENT__GREEDY:
 			return ((eFlags & GREEDY_EFLAG) != 0) != GREEDY_EDEFAULT;
+		case P2Package.REQUIREMENT__DESCRIPTION:
+			return DESCRIPTION_EDEFAULT == null
+					? description != null
+					: !DESCRIPTION_EDEFAULT.equals(description);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -227,6 +256,9 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 		case P2Package.REQUIREMENT__GREEDY:
 			setGreedy((Boolean) newValue);
 			return;
+		case P2Package.REQUIREMENT__DESCRIPTION:
+			setDescription((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -255,8 +287,21 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 		case P2Package.REQUIREMENT__GREEDY:
 			setGreedy(GREEDY_EDEFAULT);
 			return;
+		case P2Package.REQUIREMENT__DESCRIPTION:
+			setDescription(DESCRIPTION_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public String getDescription() {
+		return description;
 	}
 
 	/**
@@ -317,6 +362,20 @@ public class RequirementImpl extends MinimalEObjectImpl.Container implements Req
 	 */
 	public boolean isMatch(IInstallableUnit installableUnit) {
 		return getMatches().isMatch(installableUnit);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setDescription(String newDescription) {
+		String oldDescription = description;
+		description = newDescription;
+		if(eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, P2Package.REQUIREMENT__DESCRIPTION, oldDescription,
+					description));
 	}
 
 	/**

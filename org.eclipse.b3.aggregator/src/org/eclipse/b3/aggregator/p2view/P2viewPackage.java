@@ -2827,6 +2827,16 @@ public interface P2viewPackage extends EPackage {
 	int REQUIREMENT_WRAPPER__GREEDY = P2Package.IREQUIREMENT__GREEDY;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIREMENT_WRAPPER__DESCRIPTION = P2Package.IREQUIREMENT__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
