@@ -433,7 +433,8 @@ public class RepositoryVerifier extends BuilderPhase {
 				sites.add(URI.create(mdRef.getResolvedLocation()));
 		}
 		repoLocations = sites.toArray(new URI[sites.size()]);
-		ProvisioningContext context = new ProvisioningContext(repoLocations);
+		ProvisioningContext context = new ProvisioningContext(getBuilder().getProvisioningAgent());
+		context.setMetadataRepositories(repoLocations);
 		context.setArtifactRepositories(repoLocations);
 		return context;
 	}
@@ -481,11 +482,13 @@ public class RepositoryVerifier extends BuilderPhase {
 						Boolean.TRUE.toString());
 			request.addInstallableUnits(rootArr);
 
+			ProvisioningContext context = new ProvisioningContext(getBuilder().getProvisioningAgent());
+			context.setMetadataRepositories(new URI[] { repoLocation });
 			// we don't pass the main monitor since we expect a possible failure which is silently ignored
 			// to avoid this, we use a null monitor and when the plan is ready, we add the full amount of ticks
 			// to the main monitor
-			ProvisioningPlan plan = (ProvisioningPlan) planner.getProvisioningPlan(request, new ProvisioningContext(
-					new URI[] { repoLocation }), new NullProgressMonitor());
+			ProvisioningPlan plan = (ProvisioningPlan) planner.getProvisioningPlan(request, context,
+					new NullProgressMonitor());
 			monitor.worked(8);
 
 			HashSet<IInstallableUnit> units = new HashSet<IInstallableUnit>();

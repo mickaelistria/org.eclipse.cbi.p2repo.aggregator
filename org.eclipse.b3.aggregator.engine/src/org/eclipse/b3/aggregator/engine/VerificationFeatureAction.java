@@ -38,14 +38,13 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubMonitor;
-import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
 import org.eclipse.equinox.internal.p2.metadata.expression.ExpressionFactory;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.IRequirement;
 import org.eclipse.equinox.p2.metadata.MetadataFactory;
+import org.eclipse.equinox.p2.metadata.MetadataFactory.InstallableUnitDescription;
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
-import org.eclipse.equinox.p2.metadata.MetadataFactory.InstallableUnitDescription;
 import org.eclipse.equinox.p2.metadata.expression.ExpressionUtil;
 import org.eclipse.equinox.p2.metadata.expression.IExpression;
 import org.eclipse.equinox.p2.publisher.AbstractPublisherAction;
@@ -269,8 +268,8 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 				iuFilter = ExpressionFactory.INSTANCE.filterExpression(ExpressionFactory.INSTANCE.and(
 						(IExpression) origFilter, (IExpression) filter));
 		}
-		IRequiredCapability rc = MetadataFactory.createRequiredCapability(IInstallableUnit.NAMESPACE_IU_ID, id, range,
-				iuFilter, false, false);
+		IRequirement rc = MetadataFactory.createRequirement(IInstallableUnit.NAMESPACE_IU_ID, id, range, iuFilter,
+				false, false);
 		// TODO Use this to activate the "version enumeration" policy workaround
 		// IRequirement req = RequirementUtils.createMultiRangeRequirement(mr.getMetadataRepository(), rc);
 		IRequirement req = rc;
@@ -359,7 +358,7 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 
 		// TODO Use this to activate the "version enumeration" policy workaround
 		// IRequirement modifiedReq = RequirementUtils.versionUnion(orig, rq.requirement);
-		IRequirement modifiedReq = MetadataFactory.createRequiredCapability(IInstallableUnit.NAMESPACE_IU_ID, id,
+		IRequirement modifiedReq = MetadataFactory.createRequirement(IInstallableUnit.NAMESPACE_IU_ID, id,
 				VersionRange.emptyRange, orig.getFilter(), false, false);
 
 		for(RepositoryRequirement req : repoReqs)
