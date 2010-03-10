@@ -19,8 +19,8 @@ import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import org.eclipse.b3.aggregator.Aggregator;
 import org.eclipse.b3.aggregator.AggregatorFactory;
@@ -35,8 +35,8 @@ import org.eclipse.b3.aggregator.MappedUnit;
 import org.eclipse.b3.aggregator.MetadataRepositoryReference;
 import org.eclipse.b3.aggregator.StatusCode;
 import org.eclipse.b3.aggregator.engine.Builder;
-import org.eclipse.b3.aggregator.engine.Engine;
 import org.eclipse.b3.aggregator.engine.Builder.ActionType;
+import org.eclipse.b3.aggregator.engine.Engine;
 import org.eclipse.b3.aggregator.impl.AggregatorImpl;
 import org.eclipse.b3.aggregator.p2.InstallableUnit;
 import org.eclipse.b3.aggregator.p2.MetadataRepository;
@@ -49,11 +49,11 @@ import org.eclipse.b3.aggregator.util.AddIUsToCustomCategoryCommand;
 import org.eclipse.b3.aggregator.util.AddIUsToParentRepositoryCommand;
 import org.eclipse.b3.aggregator.util.AggregatorResourceImpl;
 import org.eclipse.b3.aggregator.util.ItemSorter;
+import org.eclipse.b3.aggregator.util.ItemSorter.ItemGroup;
 import org.eclipse.b3.aggregator.util.ItemUtils;
 import org.eclipse.b3.aggregator.util.ResourceUtils;
 import org.eclipse.b3.aggregator.util.SortCommand;
 import org.eclipse.b3.aggregator.util.TwoColumnMatrix;
-import org.eclipse.b3.aggregator.util.ItemSorter.ItemGroup;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -82,7 +82,6 @@ import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
 import org.eclipse.emf.edit.ui.action.LoadResourceAction;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 import org.eclipse.equinox.app.IApplication;
-import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.IRequirement;
 import org.eclipse.equinox.p2.metadata.MetadataFactory;
@@ -1246,7 +1245,7 @@ public class AggregatorActionBarContributor extends EditingDomainActionBarContri
 					AvailableVersion av = (AvailableVersion) object;
 					MappedUnit mappedUnit = (MappedUnit) ((EObject) av).eContainer();
 
-					IRequiredCapability requiredCapability = MetadataFactory.createRequiredCapability(
+					IRequirement requiredCapability = MetadataFactory.createRequirement(
 							IInstallableUnit.NAMESPACE_IU_ID, mappedUnit.getName(), new VersionRange(av.getVersion(),
 									true, av.getVersion(), true), null, false, true);
 					selectMatchingIUAction = new SelectMatchingIUAction(null, requiredCapability);
