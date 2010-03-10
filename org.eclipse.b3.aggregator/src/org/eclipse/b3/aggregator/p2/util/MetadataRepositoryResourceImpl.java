@@ -8,8 +8,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.regex.Pattern;
 
 import org.eclipse.b3.aggregator.Aggregator;
@@ -369,8 +371,10 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 
 			Categories categoryContainer = repoView.getInstallableUnitList().getCategoryContainer();
 			if(categoryContainer != null)
-				for(Category category : categoryContainer.getCategories())
-					exploreCategory(category, iuMap);
+				for(Category category : categoryContainer.getCategories()) {
+					Set<Category> visited = new HashSet<Category>();
+					exploreCategory(category, iuMap, visited);
+				}
 
 			List<Property> propList = new ArrayList<Property>();
 			for(Map.Entry<String, String> property : repository.getPropertyMap())
@@ -399,7 +403,10 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 			}
 		}
 
-		private void exploreCategory(Category category, Map<String, Map<Version, IUPresentation>> iuMap) {
+		private void exploreCategory(Category category, Map<String, Map<Version, IUPresentation>> iuMap,
+				Set<Category> visited) {
+			visited.add(category);
+
 			List<Category> categories = new ArrayList<Category>();
 			List<Feature> features = new ArrayList<Feature>();
 			List<Product> products = new ArrayList<Product>();
@@ -428,13 +435,14 @@ public class MetadataRepositoryResourceImpl extends ResourceImpl implements Stat
 					continue;
 
 				IUPresentation iuPresentation = iuCandidates.get(range.getMinimum());
-				if(iuPresentation == null)
+				if(iuPresentation == null || visited.contains(iuPresentation))
+					// nothing found or there's a recursion
 					continue;
 
 				allIUMatrix.add(++idx, iuPresentation, categoryTreePath);
 				if(iuPresentation instanceof Category) {
 					categories.add((Category) iuPresentation);
-					exploreCategory((Category) iuPresentation, iuMap);
+					exploreCategory((Category) iuPresentation, iuMap, visited);
 				}
 				else if(iuPresentation instanceof Feature)
 					features.add((Feature) iuPresentation);
