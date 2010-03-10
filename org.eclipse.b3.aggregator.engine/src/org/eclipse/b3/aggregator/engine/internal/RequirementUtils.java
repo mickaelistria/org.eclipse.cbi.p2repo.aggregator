@@ -15,6 +15,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.b3.aggregator.p2.MetadataRepository;
+import org.eclipse.b3.aggregator.util.LogUtils;
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.IRequirement;
@@ -22,6 +23,8 @@ import org.eclipse.equinox.p2.metadata.MetadataFactory;
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
 import org.osgi.framework.Filter;
+import org.osgi.framework.FrameworkUtil;
+import org.osgi.framework.InvalidSyntaxException;
 
 /**
  * @author filip.hrbek@cloudsmith.com
@@ -34,13 +37,19 @@ public class RequirementUtils {
 
 	public static IRequirement[] createAllAvailableVersionsRequirements(List<IInstallableUnit> ius, Filter filter) {
 		Map<String, Set<Version>> versionMap = new HashMap<String, Set<Version>>();
+		Map<String, Set<Filter>> filterMap = new HashMap<String, Set<Filter>>();
 		for(IInstallableUnit iu : ius) {
 			Set<Version> versionSet = versionMap.get(iu.getId());
 			if(versionSet == null) {
 				versionMap.put(iu.getId(), versionSet = new HashSet<Version>());
 			}
+			Set<Filter> filterSet = filterMap.get(iu.getId());
+			if(filterSet == null) {
+				filterMap.put(iu.getId(), filterSet = new HashSet<Filter>());
+			}
 
 			versionSet.add(iu.getVersion());
+			filterSet.add(iu.getFilter());
 		}
 
 		IRequirement[] requirements = new IRequirement[versionMap.size()];
@@ -50,10 +59,36 @@ public class RequirementUtils {
 			String name = iuEntry.getKey();
 			String namespace = IInstallableUnit.NAMESPACE_IU_ID;
 
+			Filter inheritedFilter = null;
+
+			for(Filter iuFilter : filterMap.get(name)) {
+				if(inheritedFilter == null)
+					inheritedFilter = iuFilter;
+				else if(!inheritedFilter.equals(iuFilter)) {
+					LogUtils.log(LogUtils.INFO, "More than one filter definition found on %s; using an empty filter",
+							name);
+					inheritedFilter = null;
+					break;
+				}
+			}
+
+			if(inheritedFilter != null) {
+				if(filter == null)
+					filter = inheritedFilter;
+				else {
+					try {
+						filter = FrameworkUtil.createFilter("(&" + filter.toString() + inheritedFilter.toString() + ")");
+					}
+					catch(InvalidSyntaxException e) {
+						LogUtils.log(LogUtils.WARNING, "Unable to create a filter: ", e.getMessage());
+					}
+				}
+			}
+
 			// TODO Use this to activate the "version enumeration" policy workaround
 			// requirements[i++] = new MultiRangeRequirement(name, namespace, iuEntry.getValue(), null, filter);
-			requirements[i++] = MetadataFactory.createRequiredCapability(namespace, name, ANY_VERSION, filter, false,
-					false);
+
+			requirements[i++] = MetadataFactory.createRequirement(namespace, name, ANY_VERSION, filter, false, false);
 		}
 
 		return requirements;
