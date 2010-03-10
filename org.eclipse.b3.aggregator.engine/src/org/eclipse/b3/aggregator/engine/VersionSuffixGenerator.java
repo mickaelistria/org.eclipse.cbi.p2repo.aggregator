@@ -13,7 +13,7 @@ import java.util.Map;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.equinox.internal.p2.metadata.BasicVersion;
-import org.eclipse.equinox.internal.p2.metadata.VersionedId;
+import org.eclipse.equinox.p2.metadata.VersionedId;
 
 /**
  * @author Thomas Hallgren

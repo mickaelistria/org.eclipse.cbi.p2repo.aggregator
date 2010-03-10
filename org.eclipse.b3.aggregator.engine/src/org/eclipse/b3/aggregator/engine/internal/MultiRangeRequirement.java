@@ -246,6 +246,10 @@ public class MultiRangeRequirement implements IRequirement {
 				parameters.toArray(new Object[parameters.size()]));
 	}
 
+	public String getDescription() {
+		return null;
+	}
+
 	public Filter getFilter() {
 		return filter;
 	}
