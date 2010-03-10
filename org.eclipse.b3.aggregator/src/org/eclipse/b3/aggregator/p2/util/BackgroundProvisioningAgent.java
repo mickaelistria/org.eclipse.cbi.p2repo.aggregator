@@ -8,15 +8,7 @@
 
 package org.eclipse.b3.aggregator.p2.util;
 
-import java.lang.reflect.Method;
-
-import org.eclipse.core.internal.preferences.EclipsePreferences;
-import org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager;
 import org.eclipse.equinox.p2.core.IProvisioningAgent;
-import org.eclipse.equinox.p2.metadata.IInstallableUnit;
-import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
-import org.osgi.service.prefs.BackingStoreException;
-import org.osgi.service.prefs.Preferences;
 
 /**
  * @author filip.hrbek@cloudsmith.com
@@ -68,50 +60,7 @@ public class BackgroundProvisioningAgent implements IProvisioningAgent {
 		if(aboutToStop && activeTasks == 0 && !stopped) {
 			stopped = true;
 
-			// This is a workaround - if the profile is not removed, it tries to reuse the stopped agent later
-			// (see https://bugs.eclipse.org/bugs/show_bug.cgi?id=304899)
-			// Let's obtain the preferences first (unfortunately, we need to use reflection)
-			Preferences prefs = getProfilePreferences();
-
 			agent.stop();
-
-			try {
-				// now, remove the obsolete preferences
-				if(prefs != null)
-					prefs.removeNode();
-			}
-			catch(BackingStoreException e) {
-				// let's print a stacktrace at least
-				e.printStackTrace();
-			}
 		}
-	}
-
-	@SuppressWarnings("unchecked")
-	private Preferences getProfilePreferences() {
-		AbstractRepositoryManager<IInstallableUnit> mdrMgr = (AbstractRepositoryManager<IInstallableUnit>) agent.getService(IMetadataRepositoryManager.SERVICE_NAME);
-		if(mdrMgr == null)
-			return null;
-
-		try {
-			Method getPreferences = AbstractRepositoryManager.class.getDeclaredMethod("getPreferences");
-			if(getPreferences == null)
-				return null;
-			getPreferences.setAccessible(true);
-			Preferences prefs = (Preferences) getPreferences.invoke(mdrMgr);
-			if(prefs instanceof EclipsePreferences) {
-				Method getLoadLevel = EclipsePreferences.class.getDeclaredMethod("getLoadLevel");
-				if(getLoadLevel == null)
-					return null;
-				getLoadLevel.setAccessible(true);
-				return (Preferences) getLoadLevel.invoke(prefs);
-			}
-		}
-		catch(Exception e) {
-			// let's print a stacktrace at least
-			e.printStackTrace();
-		}
-
-		return null;
 	}
 }
