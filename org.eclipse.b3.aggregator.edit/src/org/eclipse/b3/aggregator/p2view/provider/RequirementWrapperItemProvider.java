@@ -94,6 +94,7 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 			addMaxPropertyDescriptor(object);
 			addMinPropertyDescriptor(object);
 			addGreedyPropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
 			addLabelPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -141,11 +142,28 @@ public class RequirementWrapperItemProvider extends AggregatorItemProviderAdapte
 		case P2viewPackage.REQUIREMENT_WRAPPER__MIN:
 		case P2viewPackage.REQUIREMENT_WRAPPER__MATCHES:
 		case P2viewPackage.REQUIREMENT_WRAPPER__GREEDY:
+		case P2viewPackage.REQUIREMENT_WRAPPER__DESCRIPTION:
 		case P2viewPackage.REQUIREMENT_WRAPPER__LABEL:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}
 		super.notifyChanged(notification);
+	}
+
+	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_IRequirement_description_feature"), getString("_UI_PropertyDescriptor_description",
+						"_UI_IRequirement_description_feature", "_UI_IRequirement_type"),
+				P2Package.Literals.IREQUIREMENT__DESCRIPTION, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**

@@ -74,6 +74,7 @@ public class UpdateDescriptorItemProvider extends AggregatorItemProviderAdapter 
 
 			addDescriptionPropertyDescriptor(object);
 			addSeverityPropertyDescriptor(object);
+			addLocationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -117,6 +118,7 @@ public class UpdateDescriptorItemProvider extends AggregatorItemProviderAdapter 
 		switch(notification.getFeatureID(UpdateDescriptor.class)) {
 		case P2Package.UPDATE_DESCRIPTOR__DESCRIPTION:
 		case P2Package.UPDATE_DESCRIPTOR__SEVERITY:
+		case P2Package.UPDATE_DESCRIPTOR__LOCATION:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}
@@ -135,6 +137,22 @@ public class UpdateDescriptorItemProvider extends AggregatorItemProviderAdapter 
 				getString("_UI_IUpdateDescriptor_description_feature"), getString("_UI_PropertyDescriptor_description",
 						"_UI_IUpdateDescriptor_description_feature", "_UI_IUpdateDescriptor_type"),
 				P2Package.Literals.IUPDATE_DESCRIPTOR__DESCRIPTION, false, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Location feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addLocationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_IUpdateDescriptor_location_feature"), getString("_UI_PropertyDescriptor_description",
+						"_UI_IUpdateDescriptor_location_feature", "_UI_IUpdateDescriptor_type"),
+				P2Package.Literals.IUPDATE_DESCRIPTOR__LOCATION, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
