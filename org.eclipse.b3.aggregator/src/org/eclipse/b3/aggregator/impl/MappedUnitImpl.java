@@ -225,7 +225,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 	 */
 	public IRequirement getRequirement() {
 		// TODO Cache calculated value
-		return MetadataFactory.createRequiredCapability(IInstallableUnit.NAMESPACE_IU_ID, getName(), getVersionRange(),
+		return MetadataFactory.createRequirement(IInstallableUnit.NAMESPACE_IU_ID, getName(), getVersionRange(),
 				getFilter(), false, false);
 	}
 
