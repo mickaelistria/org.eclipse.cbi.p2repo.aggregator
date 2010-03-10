@@ -10,6 +10,7 @@ import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.b3.aggregator.AggregatorPackage;
+import org.eclipse.b3.aggregator.AvailableVersion;
 import org.eclipse.b3.aggregator.Configuration;
 import org.eclipse.b3.aggregator.EnabledStatusProvider;
 import org.eclipse.b3.aggregator.MappedUnit;
@@ -59,9 +60,9 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 	 */
 	protected static final int ENABLED_EFLAG = 1 << 0;
 
-	private static Filter createFilter(List<Configuration> configs) {
+	private static Filter createFilter(Collection<AvailableVersion> availableVersions, List<Configuration> configs) {
+		StringBuilder filterBld = new StringBuilder();
 		if(!(configs == null || configs.isEmpty())) {
-			StringBuilder filterBld = new StringBuilder();
 			if(configs.size() > 1)
 				filterBld.append("(|");
 
@@ -76,8 +77,31 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 			}
 			if(configs.size() > 1)
 				filterBld.append(')');
-			return ExpressionUtil.parseLDAP(filterBld.toString());
 		}
+
+		String inheritedFilter = null;
+		for(AvailableVersion version : availableVersions) {
+			if(inheritedFilter == null)
+				inheritedFilter = version.getFilter();
+			else if(!inheritedFilter.equals(version.getFilter())) {
+				inheritedFilter = null;
+				break;
+			}
+		}
+
+		if(inheritedFilter != null) {
+			if(filterBld.length() > 0) {
+				filterBld.insert(0, "(&");
+				filterBld.append(inheritedFilter);
+				filterBld.append(')');
+			}
+			else
+				filterBld.append(inheritedFilter);
+		}
+
+		if(filterBld.length() > 0)
+			return ExpressionUtil.parseLDAP(filterBld.toString());
+
 		return null;
 	}
 
@@ -214,7 +238,7 @@ public abstract class MappedUnitImpl extends InstallableUnitRequestImpl implemen
 	 * @generated NOT
 	 */
 	public Filter getFilter() {
-		return createFilter(getValidConfigurations());
+		return createFilter(getAvailableVersions(), getValidConfigurations());
 	}
 
 	/**
