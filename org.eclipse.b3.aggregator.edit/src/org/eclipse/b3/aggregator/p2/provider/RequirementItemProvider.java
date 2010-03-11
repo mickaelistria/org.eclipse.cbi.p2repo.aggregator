@@ -14,15 +14,11 @@ import java.util.List;
 
 import org.eclipse.b3.aggregator.p2.P2Package;
 import org.eclipse.b3.aggregator.p2.Requirement;
-
 import org.eclipse.b3.aggregator.provider.AggregatorEditPlugin;
 import org.eclipse.b3.aggregator.provider.AggregatorItemProviderAdapter;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemColorProvider;
@@ -34,8 +30,8 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import org.osgi.framework.Filter;
+import org.eclipse.equinox.p2.metadata.IInstallableUnit;
+import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.b3.aggregator.p2.Requirement} object.
@@ -112,7 +108,7 @@ public class RequirementItemProvider extends AggregatorItemProviderAdapter imple
 	 */
 	@Override
 	public String getText(Object object) {
-		Filter labelValue = ((Requirement) object).getFilter();
+		IMatchExpression<IInstallableUnit> labelValue = ((Requirement) object).getFilter();
 		String label = labelValue == null
 				? null
 				: labelValue.toString();
