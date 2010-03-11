@@ -30,7 +30,6 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 
 /**
@@ -108,7 +107,7 @@ public class RequirementItemProvider extends AggregatorItemProviderAdapter imple
 	 */
 	@Override
 	public String getText(Object object) {
-		IMatchExpression<IInstallableUnit> labelValue = ((Requirement) object).getFilter();
+		IMatchExpression labelValue = ((Requirement) object).getFilter();
 		String label = labelValue == null
 				? null
 				: labelValue.toString();
