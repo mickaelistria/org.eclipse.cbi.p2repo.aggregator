@@ -17,12 +17,12 @@ import java.util.Set;
 import org.eclipse.b3.aggregator.p2.MetadataRepository;
 import org.eclipse.b3.aggregator.util.LogUtils;
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
+import org.eclipse.equinox.internal.p2.metadata.expression.ExpressionFactory;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.IRequirement;
 import org.eclipse.equinox.p2.metadata.MetadataFactory;
 import org.eclipse.equinox.p2.metadata.Version;
 import org.eclipse.equinox.p2.metadata.VersionRange;
-import org.eclipse.equinox.p2.metadata.expression.ExpressionUtil;
 import org.eclipse.equinox.p2.metadata.expression.IMatchExpression;
 
 /**
@@ -76,8 +76,13 @@ public class RequirementUtils {
 				if(filter == null)
 					filter = inheritedFilter;
 				else {
-					filter = ExpressionUtil.getFactory().matchExpression(
-							ExpressionUtil.parse("(&" + filter.toString() + inheritedFilter.toString() + ")"));
+					Object[] inheritedFilterParams = inheritedFilter.getParameters();
+					Object[] filterParams = filter.getParameters();
+					Object[] compoundParams = new Object[inheritedFilterParams.length + filterParams.length];
+					System.arraycopy(inheritedFilterParams, 0, compoundParams, 0, inheritedFilterParams.length);
+					System.arraycopy(filterParams, 0, compoundParams, inheritedFilterParams.length, filterParams.length);
+					filter = ExpressionFactory.INSTANCE.matchExpression(ExpressionFactory.INSTANCE.and(inheritedFilter,
+							filter), compoundParams);
 				}
 			}
 

@@ -263,8 +263,15 @@ public class VerificationFeatureAction extends AbstractPublisherAction {
 		IMatchExpression<IInstallableUnit> iuFilter = filter;
 		IMatchExpression<IInstallableUnit> origFilter = iu.getFilter();
 		if(origFilter != null) {
-			if(filter != null)
-				iuFilter = ExpressionFactory.INSTANCE.matchExpression(ExpressionFactory.INSTANCE.and(origFilter, filter));
+			if(filter != null) {
+				Object[] origFilterParams = origFilter.getParameters();
+				Object[] filterParams = filter.getParameters();
+				Object[] compoundParams = new Object[origFilterParams.length + filterParams.length];
+				System.arraycopy(origFilterParams, 0, compoundParams, 0, origFilterParams.length);
+				System.arraycopy(filterParams, 0, compoundParams, origFilterParams.length, filterParams.length);
+				iuFilter = ExpressionFactory.INSTANCE.matchExpression(
+						ExpressionFactory.INSTANCE.and(origFilter, filter), compoundParams);
+			}
 		}
 		IRequirement rc = MetadataFactory.createRequirement(IInstallableUnit.NAMESPACE_IU_ID, id, range, iuFilter,
 				false, false);
